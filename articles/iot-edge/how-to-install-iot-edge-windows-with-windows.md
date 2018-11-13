@@ -2,19 +2,19 @@
 title: Azure IoT Edge op Windows installeren met Windows-containers | Microsoft Docs
 description: Azure IoT Edge installatie-instructies op Windows met Windows-containers
 author: kgremban
-manager: timlt
+manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: d85355b50bad9f05acc7da92d763d011e6f807b6
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e6edc9d6e98c03b1a5847dc08bbaa3ad029aa673
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741076"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565034"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT Edge-runtime installeren op Windows voor gebruik met Windows-containers
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543136"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568673"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een profiel van de technische definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Het technische profiel van een validatie is een gewone technisch profiel van een
 }
 ```
 
-Claims die zijn retuned vanuit een technisch profiel van de validatie worden opnieuw toegevoegd aan de eigenschappenverzameling claims. U kunt deze claims in de volgende technische validatie-profielen.
+Claims die zijn geretourneerd door een profiel van de technische worden terug naar de eigenschappenverzameling claims toegevoegd. U kunt deze claims in de volgende technische validatie-profielen.
 
 Technische profielen validatie worden uitgevoerd in de volgorde waarin ze worden weergegeven in de **ValidationTechnicalProfiles** element. U kunt configureren in een profiel van de technische of de uitvoering van de volgende validatie technische profielen moet nog steeds als de validatie van technisch profiel wordt een fout gegenereerd of voltooid is.  
 
@@ -53,8 +53,8 @@ De **ValidationTechnicalProfile** element bevat het volgende kenmerk:
 | Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een technisch profiel al gedefinieerd in het beleid of het bovenliggende beleid. |
-|ContinueOnError|Nee| Geeft aan of validatie van de validatie van de volgende technische profielen blijven moet als deze validaiton technisch profiel wordt een fout gegenereerd. Maximale waarden: `true` of `false` (standaard de verwerking van verdere validatie profielen wordt gestopt en is een fout geretourneerd). 
-|ContinueOnSuccess | Nee | Geeft aan of validatie van de validatie van de volgende profielen blijven moet als deze technische validatieprofiel is geslaagd. Maximale waarden: `true` of `false`. De standaardwaarde is `true`, wat inhoudt dat de verwerking van verdere validatie profielen blijft. |
+|ContinueOnError|Nee| Geeft aan of validatie van de validatie van de volgende technische profielen blijven moet als deze validaiton technisch profiel wordt een fout gegenereerd. Mogelijke waarden: `true` of `false` (standaard de verwerking van verdere validatie profielen wordt gestopt en is een fout geretourneerd). 
+|ContinueOnSuccess | Nee | Geeft aan of validatie van de validatie van de volgende profielen blijven moet als deze technische validatieprofiel is geslaagd. Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`, wat inhoudt dat de verwerking van verdere validatie profielen blijft. |
 
 De **ValidationTechnicalProfile** element bevat het volgende element:
 

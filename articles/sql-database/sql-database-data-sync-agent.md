@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/08/2018
-ms.openlocfilehash: 9e873de5899f0cf84fe76b70ffb70b38638055ef
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/12/2018
+ms.openlocfilehash: 08585b795b8c407bc66162a961fca92777f78076
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299891"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578617"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Data Sync-Agent voor Azure SQL Data Sync
 
@@ -31,8 +31,14 @@ Als u wilt de gegevens Sync-Agent downloaden, gaat u naar [SQL Azure Data Sync-A
 
 Als u wilt de gegevens Sync-Agent op de achtergrond installeren vanaf de opdrachtprompt, voert u een opdracht die vergelijkbaar is met het volgende voorbeeld. Controleer of de bestandsnaam van het gedownloade MSI-bestand, en geef uw eigen waarden voor de **TARGETDIR** en **SERVICEACCOUNT** argumenten.
 
+- Als u geen waarde opgeeft voor **TARGETDIR**, de standaardwaarde is `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`.
+
+- Als u opgeeft `LocalSystem` als de waarde van **SERVICEACCOUNT**, SQL Server-verificatie gebruikt bij het configureren van de agent verbinding maken met de on-premises SQL-Server.
+
+- Als u een domeingebruikersaccount of een lokaal gebruikersaccount als de waarde van opgeven **SERVICEACCOUNT**, hoeft u ook te geven van het wachtwoord met de **SERVICEPASSWORD** argument. Bijvoorbeeld `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## <a name="sync-data-with-sql-server-on-premises"></a>Gegevens synchroniseren met on-premises SQL Server
@@ -91,10 +97,10 @@ Als u de lokale agent uitvoeren vanaf een andere computer wilt dan de momenteel 
 
 - **Oorzaak**. Veel scenario's kan deze fout kunnen veroorzaken. Bekijk de logboeken om te bepalen van de oorzaak van deze fout.
 
-- **Resolutie**. Genereren om de oorzaak van de fout, en bekijk de logboeken van Windows Installer. U kunt aanmelden bij een opdrachtprompt inschakelen. Bijvoorbeeld, als het gedownloade bestand uit AgentServiceSetup.msi LocalAgentHost.msi, genereren en logboekbestanden bekijken met behulp van de volgende opdrachtregels uit:
+- **Resolutie**. Genereren om de oorzaak van de fout, en bekijk de logboeken van Windows Installer. U kunt aanmelden bij een opdrachtprompt inschakelen. Bijvoorbeeld, als het gedownloade installatiebestand `SQLDataSyncAgent-2.0-x86-ENU.msi`, genereren en logboekbestanden bekijken met behulp van de volgende opdrachtregels uit:
 
-    -   Voor installaties: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   Voor verwijdert: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   Voor installaties: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+    -   Voor verwijdert: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     U kunt ook inschakelen logboekregistratie in voor alle installaties die worden uitgevoerd door de Windows Installer. De Microsoft Knowledge Base-artikel [het inschakelen van logboekregistratie voor Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) biedt een oplossing met één muisklik logboekregistratie voor Windows Installer inschakelen. Het biedt ook de locatie van de logboeken.
 
@@ -275,6 +281,8 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 ```
 
 ### <a name="unregister-a-database"></a>Registratie van een database
+
+Wanneer u deze opdracht om de registratie van een database te gebruiken, deprovisions deze de database volledig. Als de database maakt deel uit van andere synchronisatiegroepen, breekt deze bewerking de synchronisatiegroepen.
 
 #### <a name="usage"></a>Gebruik
 

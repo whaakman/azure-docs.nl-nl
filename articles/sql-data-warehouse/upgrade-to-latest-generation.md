@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580545"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568009"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
 Azure SQL Data Warehouse een upgrade uitvoert naar de nieuwste generatie van Azure hardware- en storage-architectuur.
@@ -45,13 +45,17 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Start de upgrade
 
-1. Ga naar uw Compute geoptimaliseerd Gen1 laag datawarehouse in Azure portal en klikt u op **upgraden naar Gen2**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Ga naar uw Compute geoptimaliseerd Gen1 laag datawarehouse in Azure portal en klik op de **upgraden naar Gen2** kaart op het tabblad taken: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+    
+> [!NOTE]
+> Als u niet ziet de **upgraden naar Gen2** kaart op het tabblad taken, uw abonnementstype is beperkt in de huidige regio. [Verzend een ondersteuningsticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) aan uw abonnement in de whitelist opgenomen.
 
 2. Standaard **selecteert u de voorgestelde prestatieniveau** voor het datawarehouse op basis van het huidige prestatieniveau op de laag geoptimaliseerd Gen1 Compute met behulp van de onderstaande toewijzing:
     
    | Gen1 met geoptimaliseerde rekenlaag | Gen2 met geoptimaliseerde rekenlaag |
    | :----------------------: | :-------------------: |
-   |      DW100 – DW1000      |        DW1000c        |
+   |      DW100 – DW600       |        DW500c         |
+   |          DW1000          |        DW1000c        |
    |          DW1200          |        DW1500c        |
    |          DW1500          |        DW1500c        |
    |          DW2000          |        DW2000c        |

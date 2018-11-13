@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 4f542f313b1c55ea68532efcbd6da780caae399f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572028"
+---
 # <a name="securing-docker-containers-in-azure-container-service"></a>Docker-containers beveiligen in Azure Container Service
 
 Dit artikel bevat overwegingen en aanbevelingen voor het beveiligen van Docker-containers die zijn geïmplementeerd in Azure Container Service. Veel van deze overwegingen zijn algemeen van toepassing op Docker-containers die zijn geïmplementeerd in Azure of andere omgevingen. 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: eb0f5a4a4219c63334e0a5be3ea4378c3c317bec
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288098"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578634"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
@@ -90,6 +90,7 @@ Onder **voorwaarden en bepalingen**:
 
   > [!NOTE] 
   > Als u geen eigenaar van een abonnement bent, hebt u een eigenaar van de voorwaarden accepteren voor u door de vereiste stappen in [accepteren software vooraf](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
+
 
 Klik op **aankoop** wanneer u klaar bent. Na vijf of zes minuten is het knooppunt van de domeincontroller actief en werkend.
 
@@ -225,7 +226,9 @@ U doet de rest van de implementatiestappen, moet u verbinding maken met de clust
 ## <a name="create-the-cluster-node-access-role"></a>De functie cluster knooppunt toegang maken
 
 > [!NOTE] 
-> Als u geen eigenaar van een abonnement bent en de rol niet al is gemaakt, hebt u de eigenaar van een abonnement als volgt te werk- of gebruik de procedure in [Avere vFXT cluster runtime toegangsrol zonder een domeincontroller maken](avere-vfxt-pre-role.md).
+> * Als u geen eigenaar van een abonnement bent en de rol niet al is gemaakt, hebt u de eigenaar van een abonnement als volgt te werk- of gebruik de procedure in [Avere vFXT cluster runtime toegangsrol zonder een domeincontroller maken](avere-vfxt-pre-role.md).
+> 
+> * Interne gebruikers van Microsoft moeten de bestaande rol met de naam 'Cluster-Runtime Avere Operator' in plaats van er wordt geprobeerd gebruiken om er een maken. 
 
 [Op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) biedt de clusterknooppunten vFXT autorisatie noodzakelijke taken uit te voeren.  
 

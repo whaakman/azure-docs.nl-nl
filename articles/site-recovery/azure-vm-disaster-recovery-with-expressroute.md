@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: e7c63fba892f70ca0e18c1bffcda0782316b7ada
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211550"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567761"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
 
@@ -185,7 +185,7 @@ In ons voorbeeld gebruiken we de volgende topologie:
 - De doelregio voor herstel is Azure Zuidoost-Azië.
 - Een secundaire ExpressRoute-circuit-verbinding tot stand is gebracht via een partner edge in Singapore.
 
-Voor een eenvoudige topologie die gebruikmaakt van een enkel ExpressRoute-circuit met hetzelfde IP-adres na een failover, [raadpleegt u dit artikel](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+Voor een eenvoudige topologie die gebruikmaakt van een enkel ExpressRoute-circuit met hetzelfde IP-adres na een failover, [raadpleegt u dit artikel](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
 
 ### <a name="example-steps"></a>Voorbeelden van stappen
 Voor het automatiseren van herstel in deze hier volgt een voorbeeld van wat u moet doen:

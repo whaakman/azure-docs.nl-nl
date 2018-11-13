@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7600ff1a11435ee079fef80ecfa5ad88de1b4750
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261141"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569019"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop-logboeken analyseren
 
@@ -131,7 +131,7 @@ De foutberichten die is gespecificeerd in deze sectie vindt u aan zodat de gebru
 
 Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als deze wordt gebruikt voor het beheren van HDInsight-clusters. Andere foutberichten die mogelijk optreden, maar er zijn minder gedetailleerd vanwege de beperkingen met betrekking tot de corrigerende acties mogelijk in deze context. Andere foutberichten vindt u in de context waarin de risicobeperking duidelijk is. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Beschrijving**: Geef de details van de Azure SQL database voor ten minste één onderdeel om te kunnen gebruiken van aangepaste instellingen voor Hive en Oozie metastores.
 * **Risicobeperking**: de gebruiker moet een geldige SQL Azure-metastore opgeven en de aanvraag opnieuw proberen.  
 

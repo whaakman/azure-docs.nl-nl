@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 1a61d8f4008b0183ab5ddb51332d887217f52f48
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435495"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566632"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Ondersteuning voor QnA Maker taal en regio
 
@@ -34,6 +34,8 @@ QnA Maker biedt ondersteuning voor vraag/antwoord uitpakken in een willekeurige 
 
 ## <a name="query-matching-and-relevance"></a>Query's die overeenkomen met en relevantie
 QnA Maker is afhankelijk van [taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) in Azure search om resultaten te bieden. Speciale opnieuw ranking functies zijn beschikbaar voor nl-* talen waarmee betere relevantie.
+
+De Azure Search-mogelijkheden zijn op par voor ondersteunde talen, heeft QnA Maker een extra kerntechnologie die bevindt zich boven de Azure search-resultaten. In dit model kerntechnologie we enkele semantische speciale gebruiken en op basis van functies in word in nl-*, die nog niet beschikbaar voor andere talen. We doen niet deze beschikbaar maken, omdat ze deel van de interne werking van de kerntechnologie uitmaken. 
 
 QnA Maker de taal van de knowledge base met een automatisch gedetecteerd tijdens het maken en de analyzer dienovereenkomstig ingesteld. U kunt knowledge bases maken in de volgende talen. Lezen [dit](../How-To/language-knowledge-base.md) voor meer informatie over hoe QnA Maker omgaat met talen.
 

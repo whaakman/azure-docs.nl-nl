@@ -1,9 +1,22 @@
-Verzameling van aangepaste metingen. Deze verzameling om te rapporteren meting die is gekoppeld aan de telemetrie-item met de naam gebruiken. Er zijn typische gebruiksvoorbeelden:
-- de grootte van Afhankelijkheidstelemetrie nettolading
-- het aantal items van wachtrij verwerkt door telemetrie aanvragen
-- tijd die klant nodig was voor het voltooien van de stap in de wizard stap voltooiing gebeurtenis telemetrie.
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572027"
+---
+Verzameling van aangepaste metingen. Gebruik deze verzameling naar een rapport met de naam meting die is gekoppeld aan de telemetrie-item. Er zijn typische gebruiksvoorbeelden:
+- de grootte van de nettolading van Afhankelijkheidstelemetrie
+- het aantal wachtrij-items die zijn verwerkt door aanvragen telemetrie
+- tijd die klanten nodig was voor het voltooien van de stap in de wizard stap voltooiing telemetrie van gebeurtenissen.
 
-U kunt een query [aangepaste metingen](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) in analytische gegevens van toepassing:
+U kunt een query [aangepaste metingen](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) in Application Analytics:
 
 ```
 customEvents
@@ -12,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Aangepaste metingen zijn gekoppeld aan de telemetrie-item waartoe ze behoren. Ze zijn onderworpen aan sampling met de telemetrie-item dat u deze metingen bevat. Gebruiken voor het bijhouden van een meting met een waarde die onafhankelijk van andere typen telemetrie [metrische telemetrie](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Aangepaste metingen zijn gekoppeld aan de telemetrie-item waartoe ze behoren. Ze vallen onder steekproef nemen met de telemetrie-item met deze metingen. Gebruiken voor het volgen van een meting met een waarde die onafhankelijk van andere telemetrietypen [metrische telemetrie](../articles/application-insights/app-insights-api-custom-events-metrics.md).
 
-De maximale lengte: 150
+Maximale lengte: 150

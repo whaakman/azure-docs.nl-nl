@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572046"
+---
 **1. Hoe wordt klanten worden op de hoogte van de retiring SDK?**
 
 Microsoft biedt 12 maanden voorafgaande melding die aan het einde van ondersteuning van de retiring SDK om te faciliteren van een soepele overgang naar een ondersteunde SDK. Verder, klanten, worden geïnformeerd via verschillende communicatie kanalen: Azure-beheerportal, Developer Center, blogbericht, en rechtstreekse communicatie met toegewezen servicebeheerders.

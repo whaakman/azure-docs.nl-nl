@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f1242b299c6d2278bd75b576f225987854a2d8a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381347"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566530"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -166,9 +166,9 @@ De **InputClaims** element bevat het volgende element:
 
 | Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
-| InputClaim | 1: n | Een verwachte invoer claimtype. |
+| inputClaim | 1: n | Een verwachte invoer claimtype. |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>inputClaim 
 
 De **InputClaim** element bevat de volgende kenmerken:
 
@@ -272,7 +272,7 @@ De **UseTechnicalProfileForSessionManagement** element bevat het volgende kenmer
 | referenceId | Ja | Een id van een technisch profiel al gedefinieerd in het beleid of bovenliggende beleid-bestand. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
-De **ClaimsProviderSelections** in een gebruiker reis definieert u de lijst met opties voor de selectie van claims-provider en de volgorde daarvan. Met de **EnabledForUserJourneys** element dat u hebt gefilterd, welke claimprovider gelezen voor de gebruiker is. De **EnabledForUserJourneys** element bevat een van de volgende waarden:
+De **ClaimsProviderSelections** in een gebruiker reis definieert u de lijst met opties voor de selectie van claims-provider en de volgorde daarvan. Met de **EnabledForUserJourneys** element dat u hebt gefilterd, welke claimprovider beschikbaar voor de gebruiker is. De **EnabledForUserJourneys** element bevat een van de volgende waarden:
 
 - **Altijd**, uitvoeren van het technische profiel.
 - **Nooit**, het technische profiel overslaan. 

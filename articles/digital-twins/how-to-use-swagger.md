@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0fae059db53668da2d71906bbe94e9dabae931bc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960192"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578583"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Gebruik Azure digitale dubbele Swagger
 
 Elke ingerichte Azure digitale Twins-instantie bevat een eigen automatisch gegenereerde Swagger-referentiedocumentatie.
 
 [Swagger](https://swagger.io/), of [OpenAPI](https://www.openapis.org/), koppelt zijn complexe API-informatie in een resource voor de interactieve en taal-neutraal verwijzing netwerk. Swagger bevat essentiële referentiemateriaal over de JSON-nettoladingen, HTTP-methoden, en specifieke te gebruiken voor het uitvoeren van bewerkingen op een API-eindpunten.
+
+> [!IMPORTANT]
+> Ondersteuning voor Swagger-verificatie is tijdelijk uitgeschakeld tijdens de openbare Preview.
 
 ## <a name="swagger-summary"></a>Samenvatting van swagger
 
@@ -43,10 +46,10 @@ U kunt toegang tot uw eigen gegenereerde Swagger-Management-API-documentatie op:
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| Naam van aangepast kenmerk | Vervangen door |
+| Aangepaste naam | Vervangen door |
 | --- | --- |
-| *NaamExemplaar* | De naam van uw Azure digitale Twins-exemplaar |
-| *yourLocation* | Welke regio u uw exemplaar wordt gehost op server |
+| NaamExemplaar | De naam van uw Azure digitale Twins-exemplaar |
+| yourLocation | Welke regio u uw exemplaar wordt gehost op server |
 
 ## <a name="reference-material"></a>Naslagmateriaal
 
@@ -104,7 +107,10 @@ De voorbeelden zijn ook foutcodes zodat fouten opspoort of mislukt tests verbete
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0-autorisatie
 
-Als u wilt testen interactief aanvragen op basis van de API-resources die zijn beveiligd met OAuth 2.0, Zie de [officiële documentatie](https://swagger.io/docs/specification/authentication/oauth2/).
+Zie voor meer informatie over het testen van interactief aanvragen die zijn beveiligd met OAuth 2.0, de [officiële documentatie](https://swagger.io/docs/specification/authentication/oauth2/).
+
+> [!NOTE]
+> Ondersteuning voor OAuth 2.0-verificatie is tijdelijk uitgeschakeld tijdens de openbare Preview.
 
 ## <a name="next-steps"></a>Volgende stappen
 

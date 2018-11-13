@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209119"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568849"
 ---
 # <a name="manage-process-servers"></a>Processervers beheren
 
@@ -79,4 +79,16 @@ Als de processerver een proxy verbinding maken met Site Recovery in Azure, gebru
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+## <a name="manage-anti-virus-software-on-process-servers"></a>Antivirussoftware op de processervers beheren
+
+Als de antivirussoftware op een zelfstandige processerver of de hoofddoelserver actief is, moet u de volgende mappen uitsluiten van antivirusprogramma's operations:
+
+
+- C:\Program Files\Microsoft Azure Recovery Services-Agent
+- C:\ProgramData\ASR
+- C:\ProgramData\ASRLogs
+- C:\ProgramData\ASRSetupLogs
+- C:\ProgramData\LogUploadServiceLogs
+- C:\ProgramData\Microsoft Azure Site Recovery
+- De installatiemap proces, voorbeeld: C:\Program Files (x86) \Microsoft Azure Site Recovery
 

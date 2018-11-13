@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038600"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566615"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -127,14 +127,43 @@ HTTP-code|Betekenis|Mogelijke oorzaak
 
 ### <a name="json-response"></a>JSON-antwoord
 
-Resultaten worden geretourneerd in JSON-indeling. De `simple` indeling bevat alleen de volgende op het hoogste niveau velden.
+Resultaten worden geretourneerd in JSON-indeling. Afhankelijk van uw queryparameters een `simple` of `detailed` indeling wordt geretourneerd.
+
+#### <a name="the-simple-format"></a>De `simple` indeling 
+
+Deze indeling bevat de volgende velden op het hoogste niveau.
 
 |Veldnaam|Inhoud|
 |-|-|
-|`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Zie de volgende tabel.|
+|`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Raadpleeg deze [tabel](rest-apis.md#recognitionstatus).|
 |`DisplayText`|De herkende tekst na het hoofdlettergebruik, interpunctie, inverse tekst normalisering (conversie van de gesproken tekst voor kortere formulieren, zoals 200 voor '200' of 'Dr. Smith' voor 'doctor smith'), en grof taalgebruik maskeren. Alleen op succes is geïnstalleerd.|
 |`Offset`|De tijd (in eenheden van 100 nanoseconden) waarmee de herkende spraak in de audiostream begint.|
 |`Duration`|De duur (in eenheden van 100 nanoseconden) van de herkende spraak in de audio-stream.|
+
+#### <a name="the-detailed-format"></a>De `detailed` indeling 
+
+Deze indeling bevat de volgende velden op het hoogste niveau.
+
+|Veldnaam|Inhoud|
+|-|-|
+|`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Raadpleeg deze [tabel](rest-apis.md#recognition-status).|
+|`Offset`|De tijd (in eenheden van 100 nanoseconden) waarmee de herkende spraak in de audiostream begint.|
+|`Duration`|De duur (in eenheden van 100 nanoseconden) van de herkende spraak in de audio-stream.|
+|`NBest`|Een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke naar ontwerpkenmerken. Zie de [NBest beschrijving](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+De `NBest` veld is een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke te minste waarschijnlijk. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat. Elke vermelding bevat de volgende velden:
+
+|Veldnaam|Inhoud|
+|-|-|
+|`Confidence`|De betrouwbaarheidsscore van de vermelding van 0,0 (geen vertrouwen) 1.0 (volledig vertrouwen)
+|`Lexical`|De lexicale vorm van de herkende tekst: de werkelijke woorden herkend.
+|`ITN`|De inverse-normalized-tekst ("canonieke") vorm van de herkende tekst, met telefoon getallen, getallen, afkortingen ("doctor smith' op 'dr smith') en andere transformaties toegepast.
+|`MaskedITN`| Het formulier toevoegen met grof taalgebruik maskering toegepast, indien aangevraagd.
+|`Display`| Het formulier weergegeven van de herkende tekst, met interpunctie hoofdletters en kleine letters toegevoegd.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 De `RecognitionStatus` veld kan de volgende waarden bevatten.
 
@@ -148,17 +177,6 @@ De `RecognitionStatus` veld kan de volgende waarden bevatten.
 
 > [!NOTE]
 > Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd.
-
-
-De `detailed` indeling bevat dezelfde velden als de `simple` opmaken, samen met een `NBest` veld. De `NBest` veld is een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke te minste waarschijnlijk. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat. Elke vermelding bevat de volgende velden:
-
-|Veldnaam|Inhoud|
-|-|-|
-|`Confidence`|De betrouwbaarheidsscore van de vermelding van 0,0 (geen vertrouwen) 1.0 (volledig vertrouwen)
-|`Lexical`|De lexicale vorm van de herkende tekst: de werkelijke woorden herkend.
-|`ITN`|De inverse-normalized-tekst ("canonieke") vorm van de herkende tekst, met telefoon getallen, getallen, afkortingen ("doctor smith' op 'dr smith') en andere transformaties toegepast.
-|`MaskedITN`| Het formulier toevoegen met grof taalgebruik maskering toegepast, indien aangevraagd.
-|`Display`| Het formulier weergegeven van de herkende tekst, met interpunctie hoofdletters en kleine letters toegevoegd. Hetzelfde als `DisplayText` in het resultaat op het hoogste niveau.
 
 ### <a name="sample-responses"></a>Voorbeeld van reacties
 

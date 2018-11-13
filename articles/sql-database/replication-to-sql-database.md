@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: abf41f48ffa08867fd0f06ff88da00ca65286803
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515706"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567890"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicatie naar SQL Database single en gepoolde databases
 
@@ -65,7 +65,7 @@ SQL Server-replicatie kan worden geconfigureerd met één en gepoolde databases 
 
 1. De publicatie van een transactionele replicatie op een on-premises SQL Server-database maken.  
 2. Op de on-premises SQL Server gebruikt de **Wizard nieuwe abonnement** of Transact-SQL-instructies voor het maken van een abonnement op Azure SQL Database-push.  
-3. In Azure SQL Database is de initiële gegevensset een momentopname die is gemaakt door de Snapshot Agent en gedistribueerd en toegepast door de Agent voor softwaredistributie.   
+3. Met één en gepoolde databases in Azure SQL Database is de initiële gegevensset een momentopname die is gemaakt door de Snapshot Agent en gedistribueerd en toegepast door de Agent voor softwaredistributie. Met Azure SQL Database Managed Instance, kunt u ook een databaseback-up seeding van de database op de abonnee te gebruiken.
 
 ### <a name="data-migration-scenario"></a>Scenario voor migratie van gegevens  
 

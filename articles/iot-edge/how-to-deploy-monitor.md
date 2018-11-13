@@ -3,18 +3,18 @@ title: Implementeren, bewaken van modules voor Azure IoT Edge | Microsoft Docs
 description: De modules die worden uitgevoerd op de edge-apparaten beheren
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393454"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566241"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementeren en bewaken van IoT Edge-modules op schaal met Azure portal
 
@@ -106,7 +106,7 @@ Gebruik de eigenschap tags van uw apparaten gericht op de specifieke apparaten d
 Omdat meerdere implementaties zijn op hetzelfde apparaat gericht kunnen, moet u elke implementatie enkele prioriteit geven. Als er een conflict optreedt is, wordt de implementatie met de hoogste prioriteit (hogere waarden geven aan hogere prioriteit) wins. Als twee implementaties hetzelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
 
 1. Voer een positief geheel getal voor de implementatie **prioriteit**. In het geval dat twee of meer implementaties zijn gericht op hetzelfde apparaat, wordt de implementatie met de hoogste numerieke waarde voor prioriteit wordt toegepast.
-1. Voer een **voorwaarde als doel** om te bepalen welke apparaten doelgroepen voor deze implementatie. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.reported.devicemodel='4000x'`. 
+1. Voer een **voorwaarde als doel** om te bepalen welke apparaten doelgroepen voor deze implementatie. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.reported.devicemodel='4000x'`. 
 1. Selecteer **volgende** om door te gaan naar de laatste stap.
 
 ### <a name="step-5-review-template"></a>Stap 5: Sjabloon controleren
@@ -123,14 +123,14 @@ Bekijk de details van een implementatie en controleren van de apparaten waarop d
 
    ![IoT Edge-implementaties weergeven](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Controleer de implementatie-lijst. Voor elke implementatie, kunt u de volgende gegevens bekijken:
+1. Controleer de implementatie-lijst. Voor elke implementatie, kunt u de volgende gegevens bekijken:
    * **ID** -de naam van de implementatie.
    * **Doel van de voorwaarde** -het label dat wordt gebruikt voor het definiëren van de betreffende apparaten.
    * **Prioriteit** -het getal prioriteit is toegewezen aan de implementatie.
    * **Systeemmeetgegevens** - **Targeted** Hiermee geeft u het aantal dubbele apparaten in IoT-Hub die overeenkomen met de doelitems voorwaarde, en **toegepast** geeft het aantal apparaten waarvoor was de implementatie-inhoud toegepast op hun moduledubbels in IoT Hub. 
    * **Metrische gegevens apparaat** -het aantal Edge-apparaten in de implementatie is geslaagd of fouten in de IoT Edge-runtime client melden.
    * **Aanmaaktijd** -de timestamp van wanneer de implementatie is gemaakt. Dit tijdstempel wordt gebruikt om ties afbreken wanneer twee implementaties dezelfde prioriteit hebben. 
-2. Selecteer de implementatie die u wilt bewaken.  
+2. Selecteer de implementatie die u wilt bewaken.  
 3. Controleer de details van de implementatie. Tabbladen kunt u de details van de implementatie controleren.
 
 ## <a name="modify-a-deployment"></a>Een implementatie wijzigen
@@ -151,10 +151,10 @@ Als u wilt wijzigen in een implementatie, gebruikt u de volgende stappen uit:
    ![IoT Edge-implementaties weergeven](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Selecteer de implementatie die u wilt wijzigen. 
-1. Updates aanbrengen in de volgende velden: 
-   * Doelvoorwaarde 
-   * Labels 
-   * Prioriteit 
+1. Updates aanbrengen in de volgende velden: 
+   * Doelvoorwaarde 
+   * Labels 
+   * Prioriteit 
 1. Selecteer **Opslaan**.
 1. Volg de stappen in [Controleer de implementatie van een](#monitor-a-deployment) om te bekijken van de wijzigingen worden uitgerold. 
 
@@ -170,7 +170,7 @@ Wanneer u een implementatie verwijdert, worden alle apparaten op de volgende imp
 
 1. Gebruik het selectievakje in om de implementatie die u wilt verwijderen. 
 1. Selecteer **Verwijderen**.
-1. Een prompt vertelt u dat deze actie wordt deze implementatie verwijderen en naar de vorige status voor alle apparaten terugkeren.  Dit betekent dat een implementatie met een lagere prioriteit wordt toegepast.  Als er geen andere implementatie is gericht, wordt geen modules worden verwijderd. Als u verwijderen van alle modules van het apparaat wilt, maakt u een implementatie met nul modules en deze implementeren in de dezelfde apparaten. Selecteer **Ja** om door te gaan. 
+1. Een prompt vertelt u dat deze actie wordt deze implementatie verwijderen en naar de vorige status voor alle apparaten terugkeren.  Dit betekent dat een implementatie met een lagere prioriteit wordt toegepast.  Als er geen andere implementatie is gericht, wordt geen modules worden verwijderd. Als u verwijderen van alle modules van het apparaat wilt, maakt u een implementatie met nul modules en deze implementeren in de dezelfde apparaten. Selecteer **Ja** om door te gaan. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

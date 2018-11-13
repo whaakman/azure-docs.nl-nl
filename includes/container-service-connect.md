@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 7dee92ffd183b852d48bcb150ba3c1ba8d5d0380
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569050"
+---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Een externe verbinding maken met een Kubernetes-, DC/OS- of Docker Swarm-cluster
 Nadat u een Azure Container Service-cluster hebt gemaakt, moet u het cluster verbinden om workloads te kunnen implementeren en beheren. In dit artikel wordt beschreven hoe u vanaf een externe computer verbinding maakt met de hoofd-VM van het cluster. 
 

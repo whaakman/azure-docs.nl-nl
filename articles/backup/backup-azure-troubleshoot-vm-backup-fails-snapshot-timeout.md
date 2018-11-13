@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 75e37d228d523347ee54794ead5fbba6f278702a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260496"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569077"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: problemen met de agent of de extensie
 
@@ -60,6 +60,13 @@ U lost dit probleem, verwijder de vergrendeling van de resourcegroep en probeer 
 
 **Stap 1: [vergrendeling verwijderen uit de resourcegroep van de restore-punt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Stap 2: [herstelpuntverzameling opschonen](#clean_up_restore_point_collection)**<br>
+
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines.
+
+**Foutcode**: UserErrorKeyvaultPermissionsNotConfigured <br>
+**Foutbericht**: back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines. <br>
+
+Back-bewerking te voltooien voor versleutelde virtuele machines, moet machtigingen voor toegang tot de key vault hebben. Dit kan worden gedaan met behulp van de [Azure-portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) of via de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - momentopname is mislukt omdat er geen netwerkverbinding beschikbaar is op de virtuele machine
 

@@ -14,30 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: d4b7babe9d8243c5240ab6d7f990bbaa2a6969a2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4713033ec8729a68f4c5ee13ac6140e0c5f33779
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854436"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578091"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus messaging-voorbeelden
 
 De Service Bus messaging-voorbeelden demonstreren belangrijke functies in [Service Bus-berichtenservice](https://azure.microsoft.com/services/service-bus/). Op dit moment kunt u de voorbeelden op twee plaatsen:
 
-- [Service Bus-berichtenservice-voorbeelden op GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): een nieuwe reeks voorbeelden, die worden gehost op GitHub. Zie de [Leesmij-bestand](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) in de opslagplaats voor beschrijvingen van deze .NET-voorbeelden. De voorbeelden worden voortdurend bijgewerkt, dus probeer het back-ups maken vaak voor updates.
-- [Pagina met codevoorbeelden MSDN](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): oudere voorbeelden die bevinden zich in de MSDN-codegalerie. Hoewel deze voorbeelden is nog steeds werken, ze worden niet gehandhaafd en mogelijk verouderd met betrekking tot de huidige aanbevolen procedures voor het programmeren.
- 
+- [.NET en Java](https://github.com/Azure/azure-service-bus/tree/master/samples) . Zie de [.NET Leesmij](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) in de opslagplaats voor beschrijvingen van de .NET-voorbeelden en de [Java Leesmij](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) voor de beschrijvingen van de Java-voorbeelden.
+- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
 
 Bovendien de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) is een voorbeeldtoepassing die wordt gehost op GitHub waarmee u verbinding maakt met een Service Bus-Servicenaamruimte en messaging-entiteiten eenvoudig te beheren. Het hulpprogramma biedt geavanceerde functies zoals import/export-functionaliteit en de mogelijkheid om messaging-entiteiten en de relayservices te testen. U vindt de volledige Service Bus Explorer bron- en -documentatie op [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ## <a name="next-steps"></a>Volgende stappen
-
-Hier worden de voorbeeld-locaties:
-
-- [GitHub-voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples)
-- [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 
 Zie de volgende onderwerpen voor conceptuele overzichten van Service Bus.
 

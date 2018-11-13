@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: cb1c525527f7261c10b502a25b3cab3db89dd85f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515132"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567947"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -51,8 +51,6 @@ Alle ingesteld? Aan de slag in de controlelijst.
 De meeste enterprise beveiligingsinbreuken afkomstig zijn met een account met een van een aantal methoden, zoals wachtwoord spray, inbreuk opnieuw afspelen of phishing aangetast. Meer informatie over deze aanvallen in deze video (45 minuten):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-Als gebruikers in uw identiteitssysteem zwakke wachtwoorden en ze niet met multi-factor authentication te versterken, het een paar niet als of wanneer u verkeren – alleen "hoe vaak."
-
 ### <a name="make-sure-your-organization-use-strong-authentication"></a>Zorg ervoor dat uw organisatie gebruik sterke verificatie
 
 Gezien de frequentie van de wachtwoorden worden geraden, phished, met schadelijke software wordt gestolen of opnieuw worden gebruikt, is het essentieel is voor back-het wachtwoord met een vorm van sterke referentie: meer informatie over [Azure multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
@@ -69,7 +67,7 @@ Microsoft raadt aan om vast te stellen het volgende moderne wachtwoordbeleid op 
 2. Vervaldatum regels, die gebruikers eenvoudig gegiste wachtwoorden zoals vergroten uitschakelen **Summer2018!**
 3. Schakel teken samenstelling vereisten en te voorkomen dat gebruikers vaak aangevallen wachtwoorden kiezen als ze ervoor zorgen gebruikers een dat voor voorspelbare teken vervangingen in wachtwoorden.
 
-U kunt [PowerShell om te voorkomen dat wachtwoorden verlopen](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) voor gebruikers als u een identiteit in Azure AD rechtstreeks maken. Hybride organisaties moeten deze beleidsregels met behulp van [instellingen voor Groepsbeleid domein] implementeren (https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10) of [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+U kunt [PowerShell om te voorkomen dat wachtwoorden verlopen](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) voor gebruikers als u een identiteit in Azure AD rechtstreeks maken. Hybride organisaties moeten deze beleidsregels met behulp van implementeren [instellingen voor Groepsbeleid domein](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) of [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Beschermt tegen gestolen referenties en tolerantie tegen storingen toevoegen
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ceab1293b5bd1fbae9088783651d0effa8c5a78a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e6e534aaa833d7c66216896765d20cdcf50a461
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448999"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Zelfstudie: Azure Active Directory-integratie met Kantega SSO voor Bamboe
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Kantega SSO voor Bamboe in Azure AD,
 
 **Als u wilt toevoegen Kantega SSO voor Bamboe uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -263,7 +263,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Bamboe, moeten ze worden i
 
     ![Werknemer toevoegen](./media/kantegassoforbamboo-tutorial/user1.png) 
 
-1. Klik op **gebruikers**. Onder de **gebruiker toevoegen** sectie, follwing stappen uitvoeren:
+1. Klik op **gebruikers**. Onder de **gebruiker toevoegen** sectie volgende stappen uitvoeren:
 
     ![Werknemer toevoegen](./media/kantegassoforbamboo-tutorial/user2.png) 
 
