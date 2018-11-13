@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 639293a1811c35d87bd705800b8ecf62f667c0e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053360"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246715"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Aan de slag met het implementeren en bijwerken van toepassingen op uw lokale cluster
 De Azure Service Fabric SDK bevat een volledig lokale ontwikkelingsomgeving  waarmee u snel uw toepassingen kunt implementeren en beheren op een lokaal cluster. In dit artikel maakt u een lokaal cluster, implementeert u een bestaande toepassing en werkt u de toepassing bij naar een nieuwe versie vanuit Windows PowerShell.
@@ -71,7 +71,7 @@ In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount gen
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [Download de toepassing WordCount](http://aka.ms/servicefabric-wordcountapp) naar de locatie die u hebt gemaakt.  Opmerking: de browser Microsoft Edge slaat het bestand met de extensie *.zip* op.  Wijzig de bestandsextensie in *.sfpkg*.
+4. [Download de toepassing WordCount](https://aka.ms/servicefabric-wordcountapp) naar de locatie die u hebt gemaakt.  Opmerking: de browser Microsoft Edge slaat het bestand met de extensie *.zip* op.  Wijzig de bestandsextensie in *.sfpkg*.
 5. Verbinding maken met het lokale cluster:
    
     ```powershell
@@ -139,7 +139,7 @@ Service Fabric bevat upgrades zonder downtime door de status van de toepassing t
 
 De nieuwe versie van de toepassing telt nu alleen woorden die met een klinker beginnen. Tijdens het uitvoeren van de upgrade zijn er twee zichtbare wijzigingen in de werking van de toepassing. Als eerste moet de snelheid waarmee het aantal groeit vertragen, omdat er minder woorden worden geteld. Ten tweede, aangezien de eerste partitie twee klinkers (A en E) bevat en alle andere partities slechts één bevatten, wordt het aantal uiteindelijk hoger.
 
-1. [Download het WordCount versie 2-pakket](http://aka.ms/servicefabric-wordcountappv2) naar dezelfde locatie waar u het versie 1-pakket hebt gedownload.
+1. [Download het WordCount versie 2-pakket](https://aka.ms/servicefabric-wordcountappv2) naar dezelfde locatie waar u het versie 1-pakket hebt gedownload.
 2. Ga terug naar het PowerShell-venster en gebruikt de opdracht voor het upgraden van de SDK’s om de nieuwe versie te registreren bij het cluster. U kunt vervolgens de fabric:/WordCount-toepassing upgraden.
    
     ```powershell

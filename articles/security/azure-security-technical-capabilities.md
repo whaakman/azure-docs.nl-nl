@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405562"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249027"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -238,7 +238,7 @@ Azure Disk Encryption wordt momenteel niet ondersteund voor PaaS v1. Daarom moet
 
 De meeste services moeten proberen gebruikmaken van de versleuteling van een storage resourceprovider. Sommige services moeten doen expliciete versleuteling, bijvoorbeeld een sleutelmateriaal persistent (certificaten, root / master sleutels) moeten worden opgeslagen in Key Vault.
 
-Als u versleuteling op de service met de klant beheerde sleutels ondersteunt moeten er een manier voor de klant om op te halen van de sleutel aan ons. De ondersteunde en aanbevolen manier om dat te doen door te integreren met Azure Key Vault (AKV). In dit geval kunnen klanten toevoegen en beheren van hun sleutels in Azure Key Vault. Een klant kan informatie over het gebruik van Azure Sleutelkluis via [aan de slag met Key Vault](http://go.microsoft.com/fwlink/?linkid=521402).
+Als u versleuteling op de service met de klant beheerde sleutels ondersteunt moeten er een manier voor de klant om op te halen van de sleutel aan ons. De ondersteunde en aanbevolen manier om dat te doen door te integreren met Azure Key Vault (AKV). In dit geval kunnen klanten toevoegen en beheren van hun sleutels in Azure Key Vault. Een klant kan informatie over het gebruik van Azure Sleutelkluis via [aan de slag met Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
 
 Als u wilt integreren met Azure Key Vault, voegt u code voor het aanvragen van een sleutel uit AKV wanneer dat nodig is voor ontsleuteling.
 
@@ -283,7 +283,7 @@ Bij het plannen van Azure RMS acceptatie raden we het volgende:
 
 - Maak [aangepaste sjablonen](https://technet.microsoft.com/library/dn642472.aspx) die overeenkomen met uw zakelijke vereisten. Bijvoorbeeld: een sjabloon voor bovenste geheime gegevens die moet worden toegepast op alle bovenste geheim gerelateerde e-mailberichten.
 
-Organisaties die zwakke op [gegevensclassificatie](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging mogelijk gevoeliger voor lekken van gegevens. Zonder de juiste Bestandsbeveiliging, organisaties niet mogelijk om te verkrijgen van zakelijke inzichten worden verkregen, misbruik kunt controleren en te voorkomen dat kwaadwillende toegang tot bestanden.
+Organisaties die zwakke op [gegevensclassificatie](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging mogelijk gevoeliger voor lekken van gegevens. Zonder de juiste Bestandsbeveiliging, organisaties niet mogelijk om te verkrijgen van zakelijke inzichten worden verkregen, misbruik kunt controleren en te voorkomen dat kwaadwillende toegang tot bestanden.
 
 > [!Note]
 > U kunt meer informatie over Azure RMS lezen van het artikel [aan de slag met Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
@@ -408,7 +408,7 @@ Met Log Analytics, kunt u een instantie in elke cloud, met inbegrip van on-premi
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

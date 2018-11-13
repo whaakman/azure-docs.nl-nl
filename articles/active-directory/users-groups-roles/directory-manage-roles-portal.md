@@ -10,32 +10,42 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/06/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: cb2e5286eb8e910b555e221242a735f00dff4778
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1fde0fbd6673becb1307502060c4143fc98affcb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182821"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249724"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Weergeven en toewijzen van beheerdersrollen in Azure Active Directory
 
 U kunt nu zien en beheren van alle leden van de beheerdersrollen in de Azure Active Directory-portal. Als u vaak roltoewijzingen beheren, kunt u deze ervaring wordt waarschijnlijk liever. En als u zich ooit afgevraagd "Wat de heid moeten deze rollen echt doen?", ziet u een gedetailleerde lijst met machtigingen voor elk van de Azure AD-beheerdersrollen.
 
-Het is gemakkelijk om te zien van uw eigen machtigingen ook. Klik op **uw rol** krijg snel toegang tot de pagina van de gebruiker voor een lijst van uw actieve toegewezen rollen. Klik op het weglatingsteken aan de rechterkant van elke rij de gedetailleerde beschrijving van de rol te openen.
+## <a name="view-all-roles"></a>Alle rollen weergeven
+
+Selecteer in Azure Active Directory, **rollen en beheerders** om te zien van de lijst met alle beschikbare rollen. 
+
+Klik op het weglatingsteken aan de rechterkant van elke rij de gedetailleerde beschrijving van de rol te openen.
 
 ![lijst met rollen in Azure AD-portal](./media/directory-manage-roles-portal/role-list.png)
 
-Selecteer de rij voor een rol om de gebruikers die zijn toegewezen aan de rol weer te geven. U kunt selecteren **beheren in PIM** voor aanvullende beheermogelijkheden. Privileged Role Administrators "Permanent" kunt wijzigen (altijd actief in de rol) toewijzingen aan 'In aanmerking komende' (in de rol alleen als er verhoogde). Als u geen PIM hebt, kunt u nog steeds selecteren **beheren in PIM** om u te registreren voor een proefversie. Privileged Identity Management is vereist een [Azure AD Premium P2-licentieabonnement](../privileged-identity-management/subscription-requirements.md).
+## <a name="view-my-roles"></a>Mijn rollen weergeven
+
+Het is gemakkelijk om uw eigen machtigingen ook weer te geven. Selecteer **uw rol** op de **rollen en beheerders** pagina om te bekijken van de functies die momenteel aan u zijn toegewezen.
+
+## <a name="view-assignments-for-a-role"></a>Toewijzingen voor een rol weergeven
+
+Klik op een rol om de gebruikers die zijn toegewezen aan de rol weer te geven. U kunt selecteren **beheren in PIM** voor aanvullende beheermogelijkheden. Privileged Role Administrators "Permanent" kunt wijzigen (altijd actief in de rol) toewijzingen aan 'In aanmerking komende' (in de rol alleen als er verhoogde). Als u geen PIM hebt, kunt u nog steeds selecteren **beheren in PIM** om u te registreren voor een proefversie. Privileged Identity Management is vereist een [Azure AD Premium P2-licentieabonnement](../privileged-identity-management/subscription-requirements.md).
 
 ![lijst met leden van de rol van beheerder](./media/directory-manage-roles-portal/member-list.png)
 
 Als u een globale beheerder of een beheerder met bevoorrechte rol bent, kunt u eenvoudig toevoegen of verwijderen leden, de lijst filteren, of Selecteer een lid om te zien van hun actieve rollen toegewezen krijgen.
 
-## <a name="view-role-permissions"></a>Rolmachtigingen weergeven
+## <a name="view-a-users-role-permissions"></a>Machtigingen van de rol van een gebruiker weergeven
 
 Wanneer u de leden van een rol bekijkt, selecteert u **beschrijving** om te zien van de volledige lijst met machtigingen die zijn verleend door de roltoewijzing. De pagina bevat koppelingen naar relevante documentatie aan u te helpen bij het beheren van directory-rollen.
 

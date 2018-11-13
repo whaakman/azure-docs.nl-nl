@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248245"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quota en limieten voor schalen in DevTest Labs
 Als u in DevTest Labs werkt, zult u merken dat er bepaalde standaardlimieten voor sommige Azure-resources, die invloed kunnen zijn op de DevTest Labs-service zijn. Deze limieten worden aangeduid als **quota**.
@@ -35,7 +35,7 @@ Elk abonnement heeft bijvoorbeeld een standaardquotum van 20 kernen. Dus als u v
 ## <a name="view-your-usage-and-quotas"></a>Uw gebruik en quota's weergeven
 Deze stappen ziet u hoe u de huidige quota weergeven in uw abonnement voor specifieke Azure-resources, en om te zien welk percentage van de quota die u hebt gebruikt.
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecteer **meer Services**, en selecteer vervolgens **facturering** in de lijst.
 1. Selecteer een abonnement op de blade facturering.
 4. Selecteer **gebruik + quota**.
@@ -49,7 +49,7 @@ Deze stappen ziet u hoe u de huidige quota weergeven in uw abonnement voor speci
 ## <a name="requesting-more-resources-in-your-subscription"></a>Meer resources in uw abonnement aanvragen
 Als u de limiet voor een quotum hebt bereikt, de standaardlimiet van een resource in een abonnement kan worden verhoogd tot een maximum is bereikt, zoals beschreven in [Azure-abonnement en Servicelimieten](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-Deze stappen ziet u hoe u aanvraagt via de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Deze stappen ziet u hoe u aanvraagt via de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selecteer **meer Services**, selecteer **facturering**, en selecteer vervolgens **gebruik + quota**.
 1. Gebruik + quota blade, selecteer de **aanvraag verhogen** knop.
