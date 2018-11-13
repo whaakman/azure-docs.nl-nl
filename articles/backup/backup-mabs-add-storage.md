@@ -1,44 +1,45 @@
 ---
-title: Moderne back-upopslag gebruiken met Azure Backup-Server v2
-description: Meer informatie over de nieuwe functies in v2 voor Azure Backup-Server. In dit artikel wordt beschreven hoe een back-upserver van upgrade.
+title: Modern Backup Storage gebruiken met Azure Backup Server
+description: Meer informatie over de nieuwe functies in Azure Backup Server. In dit artikel wordt beschreven hoe u uw back-up-Server-installatie een upgrade uitvoert.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/06/2018
+ms.author: markgal; adigan; kasinh
+ms.openlocfilehash: daa7d6ee13cf55703b71bea321e65d2518a59979
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606751"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578515"
 ---
-# <a name="add-storage-to-azure-backup-server-v2"></a>Opslag toevoegen aan Azure Backup-Server v2
+# <a name="add-storage-to-azure-backup-server"></a>Opslag toevoegen aan Azure Backup Server
 
-Azure Backup Server v2 wordt geleverd met System Center 2016 Data Protection Manager moderne back-up opslag. Moderne back-up Storage biedt opslagbesparing van 50 procent van de back-ups die drie keer snellere en efficiëntere opslag. Biedt ook werkbelasting-bewuste opslag. 
+Azure Backup Server V2 en later wordt geleverd met System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage biedt besparing in opslag van 50 procent, back-ups die drie keer sneller en efficiënter opslag. Het biedt ook werkbelastingbewuste opslag.
 
 > [!NOTE]
-> Voor het gebruik van moderne back-up-opslag, moet u back-upserver van v2 uitvoeren op Windows Server 2016. Als u een back-upserver van v2 op een eerdere versie van Windows Server uitvoert, kan niet Azure Backup-Server profiteren van moderne back-up-opslag. In plaats daarvan beveiligt het werkbelastingen zoals met back-upserver van v1. Zie voor meer informatie, de versie van de back-upserver [beveiliging matrix](backup-mabs-protection-matrix.md).
+> Voor het gebruik van Modern Backup Storage, moet u back-up Server V2 of V3 uitvoeren op Windows Server 2016 of V3 op Windows Server 2019.
+> Als u back-up Server V2 op een eerdere versie van Windows Server uitvoert, kan niet Azure Backup Server profiteren van Modern Backup Storage. In plaats daarvan beveiligt het werkbelastingen als met back-up Server V1. Zie voor meer informatie, de versie van de back-upserver [beveiligingsmatrix](backup-mabs-protection-matrix.md).
 
-## <a name="volumes-in-backup-server-v2"></a>Volumes in de back-upserver v2
+## <a name="volumes-in-backup-server"></a>Volumes in back-upserver
 
-Back-Server v2 accepteert opslagvolumes. Wanneer u een volume toevoegt, indelingen back-upserver van het volume Resilient File System (ReFS), waarvoor moderne back-up-opslag is vereist. Een volume toevoegen en later uitbreiden als u wilt, het is raadzaam dat u deze werkstroom:
+Back-up-Server versie 2 of later accepteert opslagvolumes. Wanneer u een volume toevoegt, maakt back-up-Server op het volume Resilient File System (ReFS), waarvoor Modern Backup Storage is vereist. Een volume toevoegen, en vouwt u het later opnieuw als u wilt, het is raadzaam dat u deze werkstroom:
 
-1.  Back-upserver van v2 op een virtuele machine instellen.
+1.  Instellen van back-up-Server op een virtuele machine.
 2.  Maak een volume op een virtuele schijf in een opslaggroep:
-    1.  Een schijf toevoegen aan een opslaggroep en een virtuele schijf maken met eenvoudige indeling.
+    1.  Een schijf toevoegen aan een opslaggroep en maak een virtuele schijf met een eenvoudige indeling.
     2.  Eventuele extra schijven toevoegen en uitbreiden van de virtuele schijf.
-    3.  Volumes op de virtuele schijf maken.
-3.  De volumes toevoegen aan back-upserver.
-4.  Werkbelasting-bewuste opslag configureren.
+    3.  Maak volumes op de virtuele schijf.
+3.  De volumes aan back-up-Server toevoegen.
+4.  Werkbelastingbewuste opslag configureren.
 
-## <a name="create-a-volume-for-modern-backup-storage"></a>Een volume maken voor moderne back-up-opslag
+## <a name="create-a-volume-for-modern-backup-storage"></a>Maak een volume voor Modern Backup Storage
 
-Met behulp van back-upserver van v2 met volumes als schijfopslag kunt u controle over opslag. Een volume kan één schijf zijn. Als u opslag in de toekomst kunt uitbreiden wilt, echter een volume buiten een schijf die is gemaakt met behulp van opslagruimten maken. Dit kan helpen als u wilt uitbreiden van het volume voor back-up. Deze sectie vindt u aanbevolen procedures voor het maken van een volume met deze instellingen.
+Met behulp van back-up-Server versie 2 of hoger met volumes als schijfopslag kunt u de controle behoudt over de opslag. Een volume kan één schijf zijn. Echter, als u uitbreiden opslag in de toekomst wilt, een volume van een schijf die is gemaakt met behulp van opslagruimten maken. Dit kan helpen als u wilt uitbreiden van het volume voor back-upopslag. Deze sectie vindt u aanbevolen procedures voor het maken van een volume met deze instellingen.
 
-1. Selecteer in Serverbeheer **File and Storage Services** > **Volumes** > **opslaggroepen**. Onder **fysieke schijven**, selecteer **nieuwe opslaggroep**. 
+1. Selecteer in Serverbeheer **File and Storage Services** > **Volumes** > **opslaggroepen**. Onder **fysieke schijven**, selecteer **nieuwe opslaggroep**.
 
     ![Een nieuwe opslaggroep maken](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -46,9 +47,9 @@ Met behulp van back-upserver van v2 met volumes als schijfopslag kunt u controle
 
     ![Een virtuele schijf toevoegen](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
-3. De opslaggroep selecteren en selecteer vervolgens **fysieke schijf toevoegen**.
+3. Selecteer de opslaggroep en selecteer vervolgens **fysieke schijf toevoegen**.
 
-    ![Toevoegen van een fysieke schijf](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
+    ![Een fysieke schijf toevoegen](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
 4. Selecteer de fysieke schijf en selecteer vervolgens **virtuele schijf uitbreiden**.
 
@@ -58,23 +59,23 @@ Met behulp van back-upserver van v2 met volumes als schijfopslag kunt u controle
 
     ![Maak een nieuw volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. In de **server en schijf selecteren** dialoogvenster, selecteer de server en de nieuwe schijf. Selecteer **volgende**.
+6. In de **Selecteer de server en schijf** dialoogvenster, selecteer de server en de nieuwe schijf. Selecteer vervolgens **Volgende**.
 
-    ![De server en schijf selecteren](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
+    ![Selecteer de server en schijf](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
-## <a name="add-volumes-to-backup-server-disk-storage"></a>Volumes toevoegen aan back-upserver van schijfopslag
+## <a name="add-volumes-to-backup-server-disk-storage"></a>Volumes aan back-upserver van schijfopslag toevoegen
 
-Een volume toevoegen aan back-up-Server, in de **Management** deelvenster opnieuw scannen van de opslag en selecteer vervolgens **toevoegen**. Een lijst van alle volumes die kunnen worden toegevoegd voor de opslag van de back-up-Server wordt weergegeven. Nadat beschikbare volumes zijn toegevoegd aan de lijst met geselecteerde volumes, kunt u ze een beschrijvende naam voor het beheren van deze geven. Om deze volumes Refs zodat back-upserver van de voordelen van moderne back-up-opslag kunt gebruiken, selecteert u **OK**.
+Een volume toevoegen aan back-up-Server, in de **Management** deelvenster opnieuw scannen van de opslag, en selecteer vervolgens **toevoegen**. Er wordt een lijst weergegeven van alle volumes die beschikbaar zijn voor de opslag van back-up-Server worden toegevoegd. Nadat beschikbare volumes zijn toegevoegd aan de lijst met geselecteerde volumes, kunt u ze een beschrijvende naam voor het beheren van deze geven. Als u wilt deze volumes de ReFS-indeling, zodat back-upserver van de voordelen van Modern Backup Storage kunnen gebruiken, selecteert u **OK**.
 
-![Toevoegen van de beschikbare Volumes](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
+![Beschikbare Volumes toevoegen](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-## <a name="set-up-workload-aware-storage"></a>Werkbelasting-bewuste opslag instellen
+## <a name="set-up-workload-aware-storage"></a>Werkbelastingbewuste opslag instellen
 
-Met de werkbelasting-bewuste opslag, kunt u de volumes waarop bepaalde soorten belasting bij voorkeur opgeslagen. U kunt bijvoorbeeld instellen dat dure volumes die ondersteuning bieden voor een groot aantal i/o-bewerkingen per seconde (IOPS) voor het opslaan van alleen de werkbelastingen die regelmatig, hoog volume back-ups vereisen. Een voorbeeld is SQL Server met de transactielogboeken. Andere werkbelastingen zijn back-ups minder vaak, zoals virtuele machines, kunnen een back-up naar goedkope volumes.
+Met werkbelastingbewuste opslag kunt u de volumes die bij voorkeur bepaalde soorten werkbelastingen opslaat. U kunt bijvoorbeeld dure volumes die ondersteuning bieden voor een groot aantal i/o-bewerkingen per seconde (IOP's) voor het opslaan van alleen de workloads waarvoor frequente, hoge volumes back-ups instellen. Een voorbeeld is SQL Server met transactielogboeken. Andere werkbelastingen zijn back-ups van minder vaak, zoals virtuele machines, kunnen worden back-ups op goedkope volumes.
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-U kunt de werkbelasting-bewuste opslag instellen met behulp van de PowerShell-cmdlet Update-DPMDiskStorage, die de eigenschappen van een volume in de opslaggroep op een server met Data Protection Manager-updates.
+U kunt de werkbelastingbewuste opslag instellen met behulp van de PowerShell-cmdlet Update-DPMDiskStorage, waarbij de eigenschappen van een volume in de opslaggroep op een Data Protection Manager-server.
 
 Syntaxis:
 
@@ -83,18 +84,49 @@ Syntaxis:
 ```
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
-De volgende schermafbeelding ziet de cmdlet Update-DPMDiskStorage in het venster PowerShell.
+De volgende schermafbeelding ziet u de cmdlet Update-DPMDiskStorage in het PowerShell-venster.
 
-![De opdracht Update DPMDiskStorage in het venster PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
+![Met de opdracht Update-DPMDiskStorage in het PowerShell-venster](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
-Met behulp van PowerShell aangebrachte wijzigingen worden doorgevoerd in de back-up Server Administrator-Console.
+De wijzigingen die u aanbrengt met behulp van PowerShell zijn doorgevoerd in de back-up Server Administrator-Console.
 
 ![Schijven en volumes in de Administrator-Console](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
+
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Verouderde opslag migreren naar Modern Backup Storage
+Na de upgrade of installatie V2 voor back-up-Server en het besturingssysteem upgraden naar Windows Server 2016, werken uw beveiligingsgroepen voor het gebruik van Modern Backup Storage. Beveiligingsgroepen worden standaard niet gewijzigd. Ze blijven werken als ze in eerste instantie zijn ingesteld.
+
+Bijwerken van beveiligingsgroepen voor het gebruik van Modern Backup Storage is optioneel. Voor het bijwerken van de beveiligingsgroep, stop de beveiliging van alle gegevensbronnen met behulp van de optie voor het behouden van gegevens. De gegevensbronnen vervolgens toevoegen aan een nieuwe beveiligingsgroep.
+
+1. Selecteer in de Administrator-Console de **Protection** functie. In de **Beveiligingsgroepslid** lijst, met de rechtermuisknop op het lid en selecteer vervolgens **beveiliging van lid stoppen**.
+
+  ![Beveiliging van lid stoppen](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+
+2. In de **verwijderen uit groep** dialoogvenster vak, controleert u de gebruikte schijfruimte en de beschikbare vrije ruimte voor de opslaggroep. De standaardwaarde is te laat u de herstelpunten op de schijf en ze verlopen volgens het bijbehorende bewaarbeleid. Klik op **OK**.
+
+  Als u de gebruikte schijfruimte onmiddellijk geretourneerd aan de vrije opslaggroep wilt, selecteert u de **replica op schijf verwijderen** selectievakje in om de back-upgegevens (en herstelpunten) te verwijderen die zijn gekoppeld aan dit lid.
+
+  ![Dialoogvenster groep verwijderen](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+
+3. Maak een beveiligingsgroep die gebruikmaakt van Modern Backup Storage. De niet-beveiligde gegevensbronnen opnemen.
+
+## <a name="add-disks-to-increase-legacy-storage"></a>Schijven om te verhogen verouderde opslag toevoegen
+
+Als u gebruiken van verouderde opslag met Backup Server wilt, moet u mogelijk schijven om te verhogen verouderde opslag toevoegen.
+
+Schijfopslag toevoegen:
+
+1. Selecteer in de Administrator-Console **Management** > **schijfopslag** > **toevoegen**.
+
+    ![Dialoogvenster schijfopslag toevoegen](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+
+4. In de **schijfopslag toevoegen** dialoogvenster, selecteer **schijven toevoegen**.
+
+5. Selecteer de schijven die u wilt toevoegen, selecteert u in de lijst met beschikbare schijven, **toevoegen**, en selecteer vervolgens **OK**.
+
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u de back-up-Server hebt geïnstalleerd, informatie over het voorbereiden van uw server of met het beveiligen van een werkbelasting beginnen.
+Nadat u de back-up-Server hebt geïnstalleerd, informatie over het voorbereiden van uw server, of gaat een werkbelasting beveiligen.
 
-- [Back-upserver van werkbelastingen voorbereiden](backup-azure-microsoft-azure-backup.md)
-- [Back-up-Server gebruiken om back-up van een VMware-server](backup-azure-backup-server-vmware.md)
-- [Back-up-Server gebruiken om back-up van SQL Server](backup-azure-sql-mabs.md)
-
+- [Back-up-Server-workloads voorbereiden](backup-azure-microsoft-azure-backup.md)
+- [Backup Server gebruiken voor back-up van een VMware-server](backup-azure-backup-server-vmware.md)
+- [Backup Server gebruiken voor back-up van SQL Server](backup-azure-sql-mabs.md)

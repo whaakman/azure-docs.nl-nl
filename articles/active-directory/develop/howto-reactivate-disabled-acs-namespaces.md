@@ -15,27 +15,27 @@ ms.date: 11/07/2018
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 298afda7549690a9ea0314bff63a714be50a33b9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019168"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577943"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Hoe: uitgeschakeld Access Control Service naamruimten opnieuw activeren
 
 In November 2017, hebben we aangekondigd dat Microsoft Azure Access Control Service (ACS), een service van Azure Active Directory (Azure AD), wordt stopgezet op 7 November 2018.
 
-Aangezien vervolgens meerdere e-mailberichten naar de ACS-abonnementen e-mailadres beheerder over de ACS buiten gebruik stellen 12 maanden, 9 maanden, 6 maanden, drie maanden, 1 maand, 2 weken, 1 week, en 1 dag vóór de vervaldatum van 7 November 2018 is verzonden.
+Aangezien vervolgens e-mailberichten naar de ACS-abonnementen e-mailadres beheerder over de ACS buiten gebruik stellen 12 maanden, 9 maanden, 6 maanden, drie maanden, 1 maand, 2 weken, 1 week, en 1 dag vóór de vervaldatum van 7 November 2018 is verzonden.
 
-Op 3 oktober 2018, hebben we aangekondigd (via e-mail en [een blogbericht](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) een extensie-aanbieding voor klanten die hun worden gemigreerd om de 7 November 2018 kan niet worden voltooid. De aankondiging bevat ook instructies voor het aanvragen van de extensie.
+Op 3 oktober 2018, hebben we aangekondigd (via e-mail en [een blogbericht](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) een extensie-aanbieding voor klanten die hun worden gemigreerd om de 7 November 2018 kan niet worden voltooid. De aankondiging had ook instructies voor het aanvragen van de extensie.
 
 ## <a name="why-your-namespace-is-disabled"></a>Waarom uw naamruimte is uitgeschakeld
 
 Als u dit nog niet hebt aangemeld voor de extensie, gaan we het uitschakelen van ACS-naamruimten vanaf 7 November 2018. Als u de communicatie gemist en er nog opt-in voor de uitbreiding voor 4 februari 2019, volgt u de instructies in de volgende secties.
 
 > [!NOTE]
-> U moet een beheerder van het abonnement voor het uitvoeren van de PowerShell-opdrachten en verlengen.
+> U moet een servicebeheerder of medebeheerder van het abonnement voor het uitvoeren van de PowerShell-opdrachten en verlengen.
 
 ## <a name="find-and-enable-your-acs-namespaces"></a>Zoeken en inschakelen van de ACS-naamruimten
 
@@ -62,6 +62,9 @@ U kunt PowerShell ACS lijst met alle ACS-naamruimten en opnieuw activeren die zi
         ```
     
         waar `[Command-Name]` is de naam van de ACS-opdracht.
+1. Verbinding maken met ACS met behulp van de **Connect AcsAccount** cmdlet. 
+
+    U moet mogelijk uw uitvoeringsbeleid wijzigen door te voeren **Set-ExecutionPolicy** voordat u de opdracht kunt uitvoeren.
 1. Lijst van uw beschikbare Azure-abonnementen met behulp van de **Get-AcsSubscription** cmdlet.
 1. Lijst met uw ACS-naamruimten op met de **Get-AcsNamespace** cmdlet.
 1. Bevestig dat de naamruimten zijn uitgeschakeld door te bevestigen dat `State` is `Disabled`.

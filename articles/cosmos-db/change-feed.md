@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: ad2032345332519713b177596df0556e4c35c18c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741858"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567737"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de change feed support in Azure Cosmos DB
 
@@ -177,7 +177,7 @@ De change feed processor-bibliotheek vereenvoudigt lezen wijzigingen in partitie
 
 De linker-client eerst is gestart en het starten van de bewaking van alle partities, en vervolgens de tweede client die is gestart, en vervolgens de eerste van een aantal van de tweede client-leases laten gaan. Zoals u dit ziet is de leuke manier om het werk tussen verschillende apparaten en clients te distribueren.
 
-Merk op dat als u twee serverloze Azure funtions bewaking van dezelfde verzameling en het gebruik van de dezelfde lease en vervolgens de twee functies kunnen verschillende documenten hebt, afhankelijk van hoe de processor-bibliotheek wil overbrengen de partities ophalen.
+Houd er rekening mee dat als u hebt twee serverloze Azure functions bewaking van dezelfde verzameling en het gebruik van de dezelfde lease vervolgens de twee functies kunnen verschillende documenten ophalen, afhankelijk van hoe de processor-bibliotheek voor het verwerken van de partities besluit.
 
 <a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Informatie over de wijziging feed processor-bibliotheek

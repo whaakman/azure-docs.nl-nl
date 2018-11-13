@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50dcd2a6a2c8dc703b4c8c0ee8fb6270e0840581
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211635"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566462"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Herstel na noodgevallen van virtuele VMware-machines naar Azure met PowerShell instellen
 
@@ -23,7 +23,8 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 > [!div class="checklist"]
 > - Maak een Recovery Services-kluis en de kluiscontext instellen.
 > - Serverregistratie in de kluis valideert.
-> - Instellen van replicatie, met inbegrip van beleid voor replicatie. De vCenter-server toevoegen en detecteren van virtuele machines. >: Een vCenter-server toevoegen en detecteren 
+> - Instellen van replicatie, met inbegrip van beleid voor replicatie. De vCenter-server toevoegen en detecteren van virtuele machines. 
+> - Een vCenter-server toevoegen en detecteren 
 > - Storage-accounts voor het opslaan van replicatiegegevens maken en de virtuele machines repliceren.
 > - Een failover uitvoeren. Failover-instellingen configureren, uitvoeren van een e-mailinstellingen voor het repliceren van virtuele machines.
 
@@ -93,7 +94,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Gebruik de gedownloade kluisregistratiesleutel en volg de stappen in de artikelen die onder aan de volledige installatie en registratie van de configuratieserver.
-   - [Uw beveiligingsdoelstellingen kiezen](vmware-azure-set-up-source.md#choose-your-protection-goals)
+   - [Uw beveiligingsdoelstellingen kiezen](vmware-azure-set-up-source.md#choose-protection-goals)
    - [De bronomgeving instellen](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>De kluiscontext instellen

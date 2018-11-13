@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036543"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567142"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -419,7 +419,7 @@ De volgende tabel ziet u de Node.js-versie die wordt gebruikt door elke primaire
 | Versie van de functies | Versie van Node.js | 
 |---|---|
 | 1.x | 6.11.2 (vergrendeld door de runtime) |
-| 2.x  | _Actieve LTS_ en _huidige_ Node.js-versies (8.11.1 en 10.6.0 aanbevolen). De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Actieve LTS_ en even _huidige_ Node.js-versies (8.11.1 en 10.6.0 aanbevolen). De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 U kunt zien dat de huidige versie die door de runtime wordt gebruikt door de bovenstaande appinstelling te controleren of door te drukken `process.version` van elke functie.
 

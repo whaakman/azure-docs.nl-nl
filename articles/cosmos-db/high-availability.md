@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cef3eef86cbb4abde5005f7a5bc278f9cd831b64
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7ea379516c6e636abd1309416374be75bcdbb686
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515264"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578736"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
@@ -55,17 +55,7 @@ Regionale storingen niet ongebruikelijk en Azure Cosmos DB zorgt ervoor dat de d
 
 - Accounts voor één regio kunnen verloren gaan beschikbaarheid na een regionale onderbreking. Het is raadzaam ten minste twee regio's (bij voorkeur ten minste twee schrijfregio's) met de Cosmos-account instellen om te hoge beschikbaarheid te allen tijde.
 
-### <a name="durability-following-a-regional-disaster"></a>Na een regionaal noodgeval duurzaamheid
-
-Voordat een schrijfbewerking naar de client is bevestigd, hecht de gegevens blijvend van een quorum van replicaties in de regio waarin de schrijfbewerkingen zijn toegestaan. De volgende tabel toont de potentiële venster voor het verlies van gegevens voor elk consistentieniveau na een onherstelbare regionaal noodgeval voor Cosmos-accounts die verschillende regio's omvatten.
-
-| **Consistentieniveau** | **Mogelijke gegevens verloren gaan venster, gevolgd door een regionaal noodgeval** |
-| - | - |
-| Sterk | Nul |
-| Gebonden veroudering | Beperkt tot de "veroudering venster" u op de Cosmos-account configureren. |
-| Sessie | Maximaal 5 seconden |
-| Consistent prefix | Maximaal 5 seconden |
-| Mogelijk | Maximaal 5 seconden |
+- Zelfs in een zeer vaak voorkomen en zijn erg vervelend gebeurtenis wanneer de Azure-regio permanent niet meer worden hersteld is, is er geen verlies als uw Cosmos-account voor meerdere regio's is geconfigureerd met het standaardconsistentieniveau varianten strong. In het geval van een permanent niet meer worden hersteld schrijfregio, voor de Cosmos-accounts voor meerdere regio's die geconfigureerd met consistentie voor gebonden veroudering, is het venster van de mogelijke gegevens verliezen beperkt tot het venster veroudering. het venster van de mogelijke gegevensverlies is voor sessie, consistent voorvoegsel en uiteindelijke consistentieniveaus, beperkt tot een maximum van vijf seconden.
 
 ## <a name="building-highly-available-applications"></a>Het bouwen van maximaal beschikbare toepassingen
 

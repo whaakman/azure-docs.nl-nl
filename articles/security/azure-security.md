@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f11012c90ab2b82e945fdb67e224783c3f05c6dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237550"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567159"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -59,9 +59,9 @@ De functies in de lijst te volgen zijn mogelijkheden die u bekijken kunt om te b
 | [Een veilig Platform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacy- en besturingselementen](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Naleving](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparantie](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Beveiliging ontwikkelingscyclus](https://www.microsoft.com/en-us/sdl/), interne controles zijn uitgevoerd | [Uw gegevens continu beheren](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Vertrouwenscentrum](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Hoe Microsoft de klantgegevens in Azure-services beveiligt](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Verplichte beveiligingstraining, achtergrond controles](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Op de locatie van gegevens beheren](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Algemene besturingselementen Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Hoe de locatie van gegevens in Azure-services voor het beheren van Microsoft](http://azuredatacentermap.azurewebsites.net/)|
+| [Verplichte beveiligingstraining, achtergrondonderzoek](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Op de locatie van gegevens beheren](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Algemene besturingselementen Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Hoe de locatie van gegevens in Azure-services voor het beheren van Microsoft](http://azuredatacentermap.azurewebsites.net/)|
 | [Indringingstests](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [inbraakdetectie, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [controles & logboekregistratie](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Gegevenstoegang bieden op uw voorwaarden](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [De Cloud-Services vanwege de zorgvuldigheid controlelijst](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Wie er binnen Microsoft kan toegang tot uw gegevens op welke voorwaarden](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
-| [Status van de geavanceerde Datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fysieke beveiliging [netwerk beveiligen](https://docs.microsoft.com/azure/security/security-network-overview) | [Reageren op Justitie en politie](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Naleving op service, de locatie en de branche](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Hoe Microsoft de klantgegevens in Azure-services beveiligt](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
+| [Datacenter voor geavanceerde](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fysieke beveiliging [netwerk beveiligen](https://docs.microsoft.com/azure/security/security-network-overview) | [Reageren op Justitie en politie](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Naleving op service, de locatie en de branche](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Hoe Microsoft de klantgegevens in Azure-services beveiligt](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Security Incident response](https://aka.ms/SecurityResponsepaper), [gedeelde verantwoordelijkheid](https://aka.ms/sharedresponsibility) |[Strikte privacystandaard](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificering voor Azure-services, transparantie hub bekijken](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
 
@@ -345,7 +345,7 @@ Patch Updates vormen de basis voor het opsporen en oplossen van problemen en het
 ### <a name="azure-security-center"></a>Azure Security Center
 Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
-## <a name="identify-and-access-management"></a>Identificeren en toegangsbeheer
+## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
 Begint met de systemen, toepassingen en gegevens beveiligen met toegangsbeheer op basis van identiteit. De identiteits- en beheerfuncties die zijn ingebouwd in zakelijke Microsoft-producten en services help uw organisatie en persoonlijke gegevens beschermen tegen onbevoegde toegang bij het maken van deze beschikbaar wordt voor legitieme gebruikers overal en ze nodig.
 

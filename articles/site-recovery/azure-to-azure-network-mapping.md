@@ -7,110 +7,89 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209586"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564966"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>Virtuele netwerken in verschillende Azure-regio's toewijzen
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Instellen van netwerktoewijzing en IP-adressering voor vnet 's
 
-
-In dit artikel wordt beschreven hoe u twee instanties van Azure Virtual Network die zich in verschillende Azure-regio's met elkaar worden toegewezen. Netwerktoewijzing zorgt ervoor dat wanneer een gerepliceerde virtuele machine wordt gemaakt in de doel-Azure-regio, de virtuele machine wordt ook gemaakt op het virtuele netwerk dat toegewezen aan het virtuele netwerk van de virtuele bronmachine.  
+Dit artikel wordt beschreven hoe u kunt twee exemplaren van virtuele Azure-netwerken (VNets) zich in verschillende Azure-regio's toewijzen, en over het instellen van het IP-adressering tussen netwerken. Netwerktoewijzing zorgt ervoor dat een gerepliceerde virtuele machine is gemaakt in de doel-Azure-regio in het VNet dat toegewezen aan het VNet van de bron-VM wordt gemaakt.
 
 ## <a name="prerequisites"></a>Vereisten
-Zorg ervoor dat u hebt gemaakt voordat u netwerken toewijzen, een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md) in de regio van de gegevensbron en de doel-Azure-regio.
 
-## <a name="map-virtual-networks"></a>Virtuele netwerken toewijzen
+Voordat u netwerken toewijzen, moet u beschikken over [Azure VNets](../virtual-network/virtual-networks-overview.md) in de bron en doel-Azure-regio's. 
 
-Als u wilt toewijzen van een Azure-netwerk dat zich bevindt in een Azure-regio (Bronnetwerk) naar een virtueel netwerk dat in een andere regio (doelnetwerk) voor virtuele machines van Azure bevindt zich, gaat u naar **Site Recovery-infrastructuur**  >  **Toewijzing netwerk**. Maak een netwerktoewijzing.
+## <a name="set-up-network-mapping"></a>Netwerktoewijzing instellen
 
-![Venster toewijzingen van netwerk - maken van een netwerktoewijzing](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+Netwerken als volgt toewijzen:
 
+1. In **Site Recovery-infrastructuur**, klikt u op **+ netwerktoewijzing**.
 
-In het volgende voorbeeld wordt wordt de virtuele machine uitgevoerd in de regio Oost-Azië. De virtuele machine wordt gerepliceerd naar de regio Zuidoost-Azië.
+    ![ Maken van een netwerktoewijzing](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-Voor het maken van een netwerktoewijzing van de regio Oost-Azië naar de regio Zuidoost-Azië, selecteer de locatie van het bron-netwerk en de locatie van het doelnetwerk. Selecteer vervolgens **OK**.
+3. In **netwerktoewijzing toevoegen**, selecteert u de bron en doel locaties. In ons voorbeeld de bron virtuele machine wordt uitgevoerd in de regio Oost-Azië, en worden gerepliceerd naar de regio Zuidoost-Azië.
 
-![Toevoegen van venster van de toewijzing van netwerk - bron- en doellocaties voor het Bronnetwerk selecteren](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Bron- en doel selecteren ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. Maak nu een netwerktoewijzing in de tegengestelde directory. In ons voorbeeld, de bron worden nu Zuidoost-Azië en het doel is Oost-Azië.
 
-
-Herhaal de voorgaande procedure voor het maken van een netwerktoewijzing van de regio Zuidoost-Azië naar de regio Oost-Azië.
-
-![Toevoegen van deelvenster van de toewijzing van netwerk - bron- en doellocaties voor het doelnetwerk selecteren](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![Toevoegen van deelvenster van de toewijzing van netwerk - bron- en doellocaties voor het doelnetwerk selecteren](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Een netwerk worden toegewezen wanneer u replicatie inschakelt
+## <a name="map-networks-when-you-enable-replication"></a>Netwerken toewijzen wanneer u replicatie inschakelt
 
-Wanneer u een virtuele machine van de ene Azure-regio naar een andere regio voor de eerste keer repliceren als er geen netwerktoewijzing bestaat, kunt u het doelnetwerk instellen bij het instellen van replicatie. Op basis van deze instelling, maakt Azure Site Recovery-netwerkkoppelingen van de bronregio naar de doelregio en van de doelregio naar de bronregio.   
+Als u dit nog niet hebt voorbereid netwerktoewijzing voordat u herstel na noodgevallen voor Azure-VM's configureert, kunt u een doel netwerk wanneer u [instellen en inschakelen van replicatie](azure-to-azure-how-to-enable-replication.md). Wanneer u dit doen het volgende gebeurt:
 
-![Deelvenster instellingen configureren - de doellocatie kiezen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- Op basis van het doel dat u selecteert, maakt Site Recovery automatisch Netwerktoewijzingen van de bron naar doelregio, en het doel naar de bronregio.
+- Site Recovery maakt standaard een netwerk in de doelregio die identiek is aan het Bronnetwerk. Site Recovery voegt **-asr** als achtervoegsel aan de naam van het Bronnetwerk. U kunt het doelnetwerk kunt aanpassen.
+- Als de netwerktoewijzing al is gebeurd, kunt u het virtuele netwerk niet wijzigen wanneer u replicatie inschakelt. Als u wilt wijzigen van het virtuele doelnetwerk, moet u de bestaande netwerktoewijzing wijzigt.
+- Als u een netwerktoewijzing van de A-regio naar regio B wijzigt, zorgt u ervoor dat u ook de netwerktoewijzing van de B-regio naar regio A. wijzigen]
 
-Site Recovery maakt standaard een netwerk in de doelregio die identiek is aan het Bronnetwerk. Site Recovery maakt u een netwerk door toe te voegen **-asr** als achtervoegsel aan de naam van het Bronnetwerk. Als u een netwerk dat al is gemaakt, selecteert u **aanpassen**.
+## <a name="specify-a-subnet"></a>Geef een subnet
 
-![Deelvenster instellingen voor doel - Set doel Resourcegroepnaam en de naam van de doel-virtuele netwerk aanpassen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+Het subnet van het doel-VM is geselecteerd, is afhankelijk van de naam van het subnet van de bron-VM.
 
-Als de netwerktoewijzing al is gebeurd, kunt u het virtuele netwerk niet wijzigen wanneer u replicatie inschakelt. In dit geval, als u wilt wijzigen van het virtuele netwerk, de bestaande netwerktoewijzing wijzigt.  
+- Als een subnet met dezelfde naam als de bron-VM-subnet in het netwerk beschikbaar is, wordt dat subnet is ingesteld voor de doel-VM.
+- Als een subnet met dezelfde naam in het doelnetwerk bestaat, is het eerste subnet in alfabetische volgorde ingesteld als het doelsubnet.
+- U kunt de in de **berekening en netwerk** instellingen voor de virtuele machine.
 
-![Doel aanpassen instellingenvenster - naam van de resourcegroep doel instellen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![Netwerk toewijzing deelvenster wijzigen - wijzigen van een bestaande virtuele-netwerknaam van doel](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> Als u een netwerktoewijzing van de A-regio naar regio B wijzigt, zorgt u ervoor dat u ook de netwerktoewijzing van de B-regio naar regio A. wijzigen
->
->
+    ![Reken- en compute-eigenschappenvenster](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## <a name="subnet-selection"></a>Subnet is geselecteerd
-Het subnet van de virtuele doelmachine wordt geselecteerd op basis van de naam van het subnet van de virtuele bronmachine. Als een subnet met dezelfde naam als de virtuele bronmachine beschikbaar in het doelnetwerk is, wordt dat subnet is ingesteld voor de virtuele doelmachine. Als een subnet met dezelfde naam in het doelnetwerk bestaat, wordt het alfabetisch eerste subnet is ingesteld als het doelsubnet.
+## <a name="set-up-ip-addressing-for-target-vms"></a>IP-adressering instellen voor doel-VM 's
 
-Als u wilt wijzigen van het subnet, gaat u naar de **berekening en netwerk** instellingen voor de virtuele machine.
+Het IP-adres voor elke NIC op een virtuele doelmachine wordt als volgt geconfigureerd:
 
-![Reken- en compute-eigenschappenvenster](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
-
-## <a name="ip-address"></a>IP-adres
-
-Het IP-adres voor elke netwerkinterface van de virtuele doelmachine is ingesteld, zoals beschreven in de volgende secties.
-
-### <a name="dhcp"></a>DHCP
-Als de netwerkinterface van de virtuele bronmachine DHCP gebruikt, wordt de netwerkinterface van de virtuele doelmachine ook instellen op het gebruik van DHCP.
-
-### <a name="static-ip-address"></a>Statisch IP-adres
-Als de netwerkinterface van de virtuele machine gebruikmaakt van een statisch IP-adres, wordt de netwerkinterface van de virtuele doelmachine ook ingesteld op statisch IP-adres. De volgende secties wordt beschreven hoe een statisch IP-adres is ingesteld.
-
-### <a name="ip-assignment-behavior-during-failover"></a>IP-toewijzingsgedrag tijdens de Failover
-#### <a name="1-same-address-space"></a>1. Dezelfde-adresruimte
-
-Als het Bronsubnet en het doelsubnet hebt dezelfde-adresruimte, is het IP-adres van de netwerkinterface van de virtuele bronmachine ingesteld als het doel-IP-adres. Als hetzelfde IP-adres niet beschikbaar is, wordt het volgende beschikbare IP-adres ingesteld als het doel-IP-adres.
-
-#### <a name="2-different-address-spaces"></a>2. Verschillende adresruimten
-
-Als het Bronsubnet en het doelsubnet hebt verschillende adresruimten, wordt de eerstvolgende beschikbare IP-adres in het doelsubnet is ingesteld als het doel-IP-adres.
+- **DHCP**: als de NIC van de bron-VM gebruikmaakt van DHCP, de NIC van de doel-VM ook is ingesteld op het gebruik van DHCP.
+- **Statisch IP-adres**: als de NIC van de bron-VM gebruikmaakt van vaste IP-adressen, de doel-VM NIC ook een statisch IP-adres wordt gebruikt.
 
 
-### <a name="ip-assignment-behavior-during-test-failover"></a>IP-toewijzingsgedrag tijdens de Testfailover
-#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Als het doelnetwerk gekozen de productie-vNet
-- De herstel-IP (doel-IP) is een statisch IP-adres maar **is niet hetzelfde IP-adres** als gereserveerd voor Failover.
-- Het toegewezen IP-adres is het volgende beschikbare IP-adres van het einde van het adresbereik van het subnet.
-- Voor bijvoorbeeld, als de bron-VM statisch IP-adres is geconfigureerd om te worden: 10.0.0.19 en Test-Failover is uitgevoerd met het geconfigureerde productienetwerk: ***dr-PROD-nw***, met subnetbereik bevinden als 10.0.0.0/24. </br>
-De failover-VM met - het volgende beschikbare IP-adres wordt toegewezen aan het einde van het adresbereik van het subnet dat is: 10.0.0.254 </br>
+## <a name="ip-address-assignment-during-failover"></a>Toewijzing van IP-adres tijdens de failover
 
-**Opmerking:** de terminologie **productie vNet** wordt verwezen naar het 'doelnetwerk' toegewezen tijdens de configuratie van het herstel na noodgevallen.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Als het doelnetwerk gekozen niet de productie-vNet is, maar hetzelfde subnetbereik bevinden als het productienetwerk heeft
-
-- De herstel-IP (doel-IP) is een statisch IP-adres met de **hetzelfde IP-adres** (dat wil zeggen, statische IP-adres geconfigureerd) als gereserveerd voor Failover. De opgegeven hetzelfde IP-adres beschikbaar is.
-- Als het geconfigureerde statische IP-adres al aan een andere virtuele machine/apparaat toegewezen is, wordt het volgende beschikbare IP-adres van het einde van het adresbereik van het subnet zijn op het IP-adres voor de recovery.
-- Voor bijvoorbeeld, als de bron-VM statisch IP-adres is geconfigureerd om te worden: 10.0.0.19 en Test-Failover is uitgevoerd met een testnetwerk: ***dr-niet-productie-nw***, met hetzelfde subnetbereik bevinden als het productienetwerk - 10.0.0.0/24. </br>
-  De failover-VM wordt met de volgende statisch IP-adres toegewezen </br>
-    - statisch IP-adres geconfigureerd: 10.0.0.19 als IP beschikbaar is.
-    - Volgende beschikbare IP: 10.0.0.254 beschikbaar als het IP-adres 10.0.0.19 is al in gebruik.
+**Bron- en subnetten** | **Details**
+--- | ---
+Dezelfde-adresruimte | IP-adres van de VM NIC-bron is ingesteld als de doel-VM NIC IP-adres.<br/><br/> Als het adres beschikbaar is, wordt het volgende beschikbare IP-adres is ingesteld als het doel.
+Andere adresruimte<br/><br/> Het eerstvolgende beschikbare IP-adres in het doelsubnet is ingesteld als de doel-VM NIC-adres.
 
 
-Als u wilt wijzigen van de doel-IP-adres op elke netwerkinterface, gaat u naar de **berekening en netwerk** instellingen voor de virtuele machine.</br>
-Als een best practice is altijd het nodig om een testnetwerk om uit te voeren van de Testfailover te kiezen.
+
+## <a name="ip-address-assignment-during-test-failover"></a>Toewijzing van IP-adres tijdens de testfailover
+
+**Doelnetwerk** | **Details**
+--- | ---
+Doelnetwerk is failover VNet | -Doel IP-adres wordt statisch, maar niet hetzelfde IP-adres als gereserveerd voor failover.<br/><br/>  -Het toegewezen adres is het eerstvolgende beschikbare adres vanaf het einde van het subnetbereik.<br/><br/> Bijvoorbeeld: als de bron-IP-adres 10.0.0.19 is en failovernetwerk netwerkadresbereik 10.0.0.0/24 wordt gebruikt, wordt het volgende IP-adres toegewezen aan de doel-VM 10.0.0.254 beschikbaar is.
+Doelnetwerk is niet de failover VNet | -Doel IP-adres worden statische met hetzelfde IP-adres gereserveerd voor failover.<br/><br/>  -Als hetzelfde IP-adres al toegewezen is, is het volgende object beschikbaar op de eeach van het subnetbereik met het IP-adres.<br/><br/> Bijvoorbeeld: als het statische IP-adres van bron 10.0.0.19 is en failover zich op een netwerk dat niet het failovernetwerk, met het netwerkadresbereik 10.0.0.0/24, en vervolgens het statische IP-adres van doel 10.0.0.0.19 als deze beschikbaar zijn en anders het 10.0.0.254 beschikbaar zal zijn.
+
+- De failover VNet is het doelnetwerk die u selecteert bij het instellen van herstel na noodgevallen.
+- U wordt aangeraden dat u altijd een niet-productie-netwerk voor test-failover gebruiken.
+- U kunt de doel-IP-adres in de **berekening en netwerk** instellingen van de virtuele machine.
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* Beoordeling [richtlijnen voor het repliceren van virtuele machines van Azure networking](site-recovery-azure-to-azure-networking-guidance.md).
+- Beoordeling [netwerken richtlijnen](site-recovery-azure-to-azure-networking-guidance.md) voor noodherstel van de virtuele machine van Azure.
+- [Meer informatie](site-recovery-retain-ip-azure-vm-failover.md) over het IP-adressen behouden na een failover.
+
+Als het doelnetwerk gekozen, het vnet failover is"en 2e punt om in te spreken"Als het doelnetwerk gekozen wijkt af van het vnet failover maar heeft hetzelfde subnetbereik bevinden als failover vnet"

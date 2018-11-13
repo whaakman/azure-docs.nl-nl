@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515587"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568230"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -219,6 +219,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    - *Schaal eenheid knooppunt is offline*
    
   Voer de [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet om te controleren of de status van de instanties van de infrastructuur en schaal eenheid knooppunten. Als er geen problemen zijn gedetecteerd door [Test AzureStack](azure-stack-diagnostic-test.md), kunt u deze waarschuwingen negeren. Als er een probleem is gedetecteerd, kunt u proberen om de infrastructuur-rolinstantie of knooppunt met de beheerportal of PowerShell te starten.
+
+  Dit probleem is opgelost in de meest recente [1808 hotfix release](https://support.microsoft.com/help/4471992/), dus zorg ervoor dat deze hotfix wilt installeren als u het probleem ondervindt.
 
 <!-- 1264761 - IS ASDK --> 
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  

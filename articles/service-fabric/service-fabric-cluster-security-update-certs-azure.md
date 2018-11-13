@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ad32bd521975312b72aa55fc44e9b4d213519a07
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057254"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567873"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het verdient aanbeveling dat u raken met het Service Fabric maakt gebruik van x.509-certificaten en vertrouwd met zijn de [clusterbeveiligingsscenario's](service-fabric-cluster-security.md). U moet begrijpen wat een clustercertificaat is en wat wordt gebruikt voor, voordat u verder gaat.

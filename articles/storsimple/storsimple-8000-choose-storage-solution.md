@@ -5,14 +5,14 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: alkohli
-ms.openlocfilehash: bf5c6c805a99845cdd427817ac72b3f5d3245389
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c28eaf22d05bfda5085f9e269bda85ca0d46a7d3
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345739"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578110"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple met Azure File Sync en gegevens in Edge data transfer opties vergelijken 
  
@@ -37,5 +37,5 @@ Dit document bevat een overzicht van opties voor de overdracht van on-premises n
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview.md) en [Azure Data Box-Gateway](/azure/databox-online/data-box-gateway-overview.md)
-- Meer informatie over [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide.md)
+- Meer informatie over [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) en [Azure Data Box-Gateway](/azure/databox-online/data-box-gateway-overview)
+- Meer informatie over [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)

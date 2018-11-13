@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: da9319934068709d5635352fdbd52c3ca6ac49be
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244335"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568883"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Servers verwijderen en beveiliging uitschakelen
 
@@ -173,7 +173,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 
     > [!NOTE]
     > Als u ervoor kiest de **verwijderen** optie, en vervolgens de volgende scripts voor het opschonen van de replicatie-instellingen tun lokale VMM-Server.
-3. Voer dit script op de bronserver VMM, met behulp van PowerShell (de beheerder machtigingen beschikt vereist) van de VMM-console. Vervang de tijdelijke aanduiding **SQLVM1** met de naam van uw virtuele machine.
+3. Voer dit script op de bronserver VMM, met behulp van PowerShell (administrator-bevoegdheden nodig) van de VMM-console. Vervang de tijdelijke aanduiding **SQLVM1** met de naam van uw virtuele machine.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
@@ -194,7 +194,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 > [!NOTE]
 > Als u ervoor kiest de **verwijderen** optie, en vervolgens de volgende scripts voor het opschonen van de replicatie-instellingen tun lokale VMM-Server.
 
-3. Voer dit script op de bronserver VMM, met behulp van PowerShell (de beheerder machtigingen beschikt vereist) van de VMM-console. Vervang de tijdelijke aanduiding **SQLVM1** met de naam van uw virtuele machine.
+3. Voer dit script op de bronserver VMM, met behulp van PowerShell (administrator-bevoegdheden nodig) van de VMM-console. Vervang de tijdelijke aanduiding **SQLVM1** met de naam van uw virtuele machine.
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection

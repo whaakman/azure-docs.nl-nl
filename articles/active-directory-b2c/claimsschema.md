@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637728"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568639"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,7 +50,7 @@ De **ClaimType** element bevat de volgende elementen:
 
 | Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | De titel die wordt weergegeven voor gebruikers op verschillende schermen. De waarde kan zijn [gelokaliseerde](localization.md). |
+| Weergavenaam | 0:1 | De titel die wordt weergegeven voor gebruikers op verschillende schermen. De waarde kan zijn [gelokaliseerde](localization.md). |
 | Gegevenstype | 0:1 | Het type van de claim. De gegevenstypen van Booleaanse waarde, datum, datum/tijd, int, long, string, stringCollection, alternativeSecurityIdCollection kan worden gebruikt. |
 | DefaultPartnerClaimTypes | 0:1 | De standaardwaarde partner claim typen om te gebruiken voor een opgegeven protocol. De waarde kan worden overschreven de **PartnerClaimType** opgegeven in de **InputClaim** of **OutputClaim** elementen. Dit element gebruiken om op te geven van de standaardnaam voor een protocol.  |
 | Masker | 0:1 | Een optionele tekenreeks van het maskeren van tekens die kunnen worden toegepast bij het weergeven van de claim. Het aantal 324-232-4343 telefoon kan bijvoorbeeld als XXX-XXX-4343 worden gemaskeerd. |
@@ -109,7 +109,7 @@ De **masker** element bevat de volgende kenmerken:
 | Type | Ja | Het type van het masker claim. Mogelijke waarden: `Simple` of `Regex`. De `Simple` waarde geeft aan dat een eenvoudige tekstmasker wordt toegepast op de toonaangevende gedeelte van een tekenreeks-claim. De `Regex` waarde geeft aan dat een reguliere expressie wordt toegepast op de claim tekenreeks als geheel.  Als de `Regex` waarde is opgegeven, wordt een optioneel kenmerk moet ook worden gedefinieerd met de reguliere expressie te gebruiken. |
 | reguliere expressie | Nee | Als **Type** is ingesteld op `Regex`, geef de reguliere expressie te gebruiken.
 
-Het voorbeeld follwing configureert u een **PhoneNumber** claim met de `Simple` masker:
+Het volgende voorbeeld wordt een **PhoneNumber** claim met de `Simple` masker:
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -124,7 +124,7 @@ De Identity-Ervaringsframework wordt het telefoonnummer dat tijdens het verberge
 
 ![Met behulp van claimtype met masker](./media/claimsschema/mask.png)
 
-Het voorbeeld follwing configureert u een **AlternateEmail** claim met de `Regex` masker:
+Het volgende voorbeeld wordt een **AlternateEmail** claim met de `Regex` masker:
 
 ```XML
 <ClaimType Id="AlternateEmail">

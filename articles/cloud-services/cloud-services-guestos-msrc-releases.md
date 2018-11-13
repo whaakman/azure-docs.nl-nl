@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: raiye
-ms.openlocfilehash: cfd0d9d7484e82ee130f4de860190238718c149c
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301064"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578770"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
@@ -28,11 +28,10 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10-beveiliging | 5,24 | 9 oktober 2018 |
-| Rel 18-10 | [4464330] | Windows 10-beveiliging | 6.0 | 9 oktober 2018 |
 | Rel 18-10 | [4462915] | Windows-beveiliging | 2,79 | 9 oktober 2018 |
 | Rel 18-10 | [4462931] | Windows-beveiliging | 3,66 | 9 oktober 2018 |
 | Rel 18-10 | [4462941] | Windows-beveiliging | 4,59 | 9 oktober 2018 |
-| Rel 18-10 | [4462930] | Flash | 3,66, 4,59, 5,24, 6.0 | 9 oktober 2018 |
+| Rel 18-10 | [4462930] | Flash | 3,66, 4,59, 5,24 | 9 oktober 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2,79, 3,66, 4,59 | 9 oktober 2018 |
 | N/A | [4339284] | Tijdzone-update | 2,79, 3,66, 4,59 | 24 juli 2018 |
 | N/A | [4457144] | Updatepakket september niet voor beveiliging | 2,79 | 11 september 2018 |
@@ -46,7 +45,6 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4457036] | September niet voor beveiliging .NET 4.5.2 samenvouwen | 4,59 | 11 september 2018 |
 
 [4462917]: http://support.microsoft.com/kb/4462917
-[4464330]: http://support.microsoft.com/kb/4464330
 [4462915]: http://support.microsoft.com/kb/4462915
 [4462931]: http://support.microsoft.com/kb/4462931
 [4462941]: http://support.microsoft.com/kb/4462941

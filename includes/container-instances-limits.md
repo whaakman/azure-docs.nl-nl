@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-instances
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 44bdaec78e1fad574f29a5945b07041b588aaff8
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572029"
+---
 | Resource | Standaardlimiet |
 | --- | :--- |
 | Containergroepen per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |

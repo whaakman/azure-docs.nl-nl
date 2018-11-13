@@ -14,12 +14,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138789"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564915"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights cohorten
 
@@ -49,9 +49,9 @@ Uw team definieert een betrokken gebruiker als iedereen die gebruikmaakt van uw 
     Er zijn drie parameters voor deze cohort:
     * **Activiteiten**, waarin u kiezen welke gebeurtenissen en paginaweergaven tellen als "gebruik."
     * **Periode**, de definitie van een maand.
-    * **UsedAtleastCustom**, het aantal keren gebruikers moeten iets gebruiken binnen een periode moeten worden geteld als betrokken.
+    * **UsedAtLeastCustom**, het aantal keren gebruikers moeten iets gebruiken binnen een periode moeten worden geteld als betrokken.
 
-4. Wijziging **UsedAtleastCustom** naar **5 + dagen**, en laat **periode** op de standaardwaarde van 28 dagen.
+4. Wijziging **UsedAtLeastCustom** naar **5 + dagen**, en laat **periode** op de standaardwaarde van 28 dagen.
 
     ![Betrokken gebruikers](.\media\app-insights-usage-cohorts\003.png)
 

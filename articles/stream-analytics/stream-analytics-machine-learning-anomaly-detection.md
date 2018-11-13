@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300265"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567040"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
@@ -131,7 +131,7 @@ Laten we de berekening strangeness in detail bekijken (wordt ervan uitgegaan dat
    - Helling, als helling negatief is  
    - 0 is, anders  
 
-Zodra de strangeness-waarde voor de inkomende gebeurtenis wordt berekend, een martingale-waarde wordt berekend op basis van de waarde strangeness (Zie de [Machine Learning-blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) voor meer informatie over hoe de martingale-waarde is berekend). Deze waarde martingale is retuned als de anomaliedetectie-score. De waarde martingale verhoogd langzaam in reactie op vreemde waarden, zodat de detector robuuste sporadisch wijzigingen blijven en vermindert valse waarschuwingen. Het bevat ook een handige eigenschap: 
+Zodra de strangeness-waarde voor de inkomende gebeurtenis wordt berekend, een martingale-waarde wordt berekend op basis van de waarde strangeness (Zie de [Machine Learning-blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) voor meer informatie over hoe de martingale-waarde is berekend). Deze waarde martingale wordt geretourneerd als de anomaliedetectie-score. De waarde martingale verhoogd langzaam in reactie op vreemde waarden, zodat de detector robuuste sporadisch wijzigingen blijven en vermindert valse waarschuwingen. Het bevat ook een handige eigenschap: 
 
 Waarschijnlijkheid [er t dergelijke M<sub>t</sub> > λ] < 1/λ, waar M<sub>t</sub> is de waarde martingale instant t en λ is een werkelijke waarde. Bijvoorbeeld, als er een waarschuwing wanneer M<sub>t</sub>> 100 en de kans van fout-positieven is minder dan 1/100.  
 

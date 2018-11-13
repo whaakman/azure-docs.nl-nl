@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 11/07/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389442"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569002"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google als id-provider voor B2B-gastgebruikers toevoegen
 
@@ -43,15 +43,21 @@ Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen v
 
    ![Google API-referenties](media/google-federation/google-api.png)
  
-4. Kies de **Oauth instemmingsscherm** tabblad en voer een **productnaam weergegeven voor gebruikers**. (Laat de overige instellingen.) Selecteer **Opslaan**.
+4. Kies de **OAuth instemmingsscherm** tabblad en voer een **toepassingsnaam**. (Laat de overige instellingen.)
 
    ![Het instemmingsscherm Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
-5. Kies de **referenties** tabblad. In de **referenties maken** menu, kiest u **OAuth-Clientidentiteit**.
+5. Schuif naar de **gemachtigde domeinen** sectie en microsoftonline.com invoeren.
+
+   ![Sectie gemachtigde domeinen](media/google-federation/google-oauth-authorized-domains.png)
+
+6. Selecteer **Opslaan**.
+
+7. Kies de **referenties** tabblad. In de **referenties maken** menu, kiest u **OAuth-Clientidentiteit**.
 
    ![Google API-referenties](media/google-federation/google-api-credentials.png)
 
-6. Onder **toepassingstype**, kiest u **webtoepassing**, en klik vervolgens onder **geautoriseerde omleidings-URI's**, voer de volgende URI's:
+8. Onder **toepassingstype**, kiest u **webtoepassing**, en klik vervolgens onder **geautoriseerde omleidings-URI's**, voer de volgende URI's:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(waarbij `<directory id>` is uw directory-ID)
    
@@ -60,7 +66,7 @@ Maak eerst een nieuw project in de Google-ontwikkelaars-Console om op te halen v
 
    ![OAuth-client-ID maken](media/google-federation/google-create-oauth-client-id.png)
 
-7. Selecteer **Maken**. Kopieer het client-ID en clientgeheim, gebruikt u wanneer u de id-provider in de Azure AD-portal toevoegt.
+9. Selecteer **Maken**. Kopieer het client-ID en clientgeheim, gebruikt u wanneer u de id-provider in de Azure AD-portal toevoegt.
 
    ![OAuth-client-ID en clientgeheim](media/google-federation/google-auth-client-id-secret.png)
 

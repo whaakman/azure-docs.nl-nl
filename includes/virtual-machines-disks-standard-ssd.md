@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264282"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572030"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standard-SSD Managed Disks voor Azure Virtual machine-werkbelasting
 
@@ -46,9 +46,9 @@ De volgende tabel bevat de schijfgrootten, die momenteel worden aangeboden voor 
 |E70 *    |16.384 giB      |Maximaal 2000       |Maximaal 500 MiB per seconde        |
 |E80 *    |32.767 giB      |Maximaal 2000       |Maximaal 500 MiB per seconde        |
 
-Standard-SSD's zijn ontworpen om latentie in milliseconden voor de meeste i/o-bewerkingen, en om u te bieden de IOPS en doorvoer van maximaal de limieten die worden beschreven in de bovenstaande tabel. Werkelijke IOPS en doorvoer kunnen soms variëren, afhankelijk van de patronen in het netwerkverkeer. Standard-SSD's biedt consistente prestaties dan de HDD-schijven met een lagere latentie.
+Standard-SSD's zijn ontworpen om latentie in milliseconden voor de meeste i/o-bewerkingen, en om u te bieden de IOPS en doorvoer van maximaal de limieten die worden beschreven in de bovenstaande tabel 99% van de tijd. Werkelijke IOPS en doorvoer kunnen soms variëren, afhankelijk van de patronen in het netwerkverkeer. Standard-SSD's biedt consistente prestaties dan de HDD-schijven met een lagere latentie.
 
-Premium SSD's uitvoeren aan de andere kant beter dan standaard SSD met lage latentie, hoge IOPS/doorvoer en nog beter consistentie met de prestaties van de ingerichte schijf. Het is het aanbevolen schijftype voor kritieke productieworkloads. Als uw workload schijfondersteuning met hoge prestaties en lage latentie, moet u overwegen Premium-opslag.
+Premium SSD's uitvoeren aan de andere kant beter dan standaard SSD met lage latentie, hoge IOPS/doorvoer en nog beter consistentie met de prestaties van de ingerichte schijf. Premium SSD wordt het aanbevolen schijftype voor kritieke productieworkloads. Als uw workload schijfondersteuning met hoge prestaties en lage latentie, moet u overwegen Premium-opslag.
 
 Standard-SSD's, zoals de Premium-SSD's, ook i/o-grootte van 256 KiB gebruiken. Als de gegevens worden overgebracht minder dan 256 KiB is, wordt deze beschouwd als 1 i/o-eenheid. I/o-grotere worden geteld als meerdere i/o's van de grootte van 256 KiB. Bijvoorbeeld, wordt een 1100 KiB i/o geteld als vijf i/o-eenheden.
 

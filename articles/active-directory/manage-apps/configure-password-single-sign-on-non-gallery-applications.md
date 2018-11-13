@@ -2,24 +2,20 @@
 title: Het configureren van wachtwoord eenmalige aanmelding voor een applicationn buiten de galerie | Microsoft Docs
 description: Configureren van een aangepaste toepassing buiten de galerie voor beveiligd wachtwoord gebaseerde eenmalige aanmelding bij de optie niet wordt weergegeven in de Azure AD-Toepassingsgalerie
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356641"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578396"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor een toepassing buiten de galerie
 
@@ -115,7 +111,6 @@ Voor het configureren van eenmalige aanmelding voor een toepassing, de volgende 
 
 11. Bovendien kunt u ook referenties opgeven namens de gebruiker door de rijen van de gebruikers selecteren en te klikken op **updatereferenties** en de gebruikersnaam en het wachtwoord namens de gebruikers in te voeren. Anders wordt gebruikers gevraagd om in te voeren van de referenties zich bij het starten.
 
-12. **Optioneel:** voor bepaalde toepassingen sociale media, zoals Twitter en Facebook, er is ook de optie voor het inschakelen van automatische rollover van het wachtwoord voor de toepassing op een geselecteerde frequentie. Selecteer deze inschakelen **ik wil Azure AD voor het automatisch beheren van deze gebruiker of het wachtwoord van de groep** bij het invoeren van referenties namens een gebruiker of groep. Selecteer vervolgens de **Rollover-frequentie (in weken)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Een gebruiker toewijzen aan een toepassing rechtstreeks
 

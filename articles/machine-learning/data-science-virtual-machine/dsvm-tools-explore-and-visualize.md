@@ -1,7 +1,7 @@
 ---
-title: Gegevens te verkennen en visualisatie-hulpprogramma's - Azure | Microsoft Docs
-description: Gegevens te verkennen en visualisatie-hulpprogramma's voor de gegevens wetenschappelijke virtuele Machine.
-keywords: hulpmiddelen voor wetenschappelijke gegevens, gegevens wetenschappelijke virtuele machine, hulpprogramma's voor gegevenswetenschap, gegevenswetenschap linux
+title: Gegevens verkennen en visualiseren hulpprogramma's - Azure | Microsoft Docs
+description: Gegevens verkennen en visualiseren hulpprogramma's voor de Data Science Virtual Machine.
+keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407211"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567380"
 ---
-# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Gegevens te verkennen en visualisatie's op de gegevens wetenschappelijke virtuele Machine
+# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Gegevens verkennen en visualiseren hulpprogramma's op de Data Science Virtual Machine
 
-Een belangrijke stap in de gegevenswetenschap is het begrijpen van de gegevens. Visualisatie en gegevens verkenning hulpmiddelen kunt inzicht in gegevens te versnellen. Hier volgen enkele extra opgegeven op de DSVM die zodat deze sleutel stap. 
+Er is een belangrijke stap in de data science om te begrijpen van de gegevens. Visualisatie en hulpprogramma's kunnen inzicht in gegevens te versnellen. Hier volgen enkele hulpprogramma's op de DSVM die het eenvoudiger maken van deze belangrijke stap. 
 
-## <a name="apache-drill"></a>Apache Inzoomen
+## <a name="apache-drill"></a>Apache Drill
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Open-source SQL query-engine van Big data    |
-| Ondersteunde DSVM versies      | Windows, Linux  |
-| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      |  Geïnstalleerd in `/dsvm/tools/drill*` ingesloten alleen in modus   |
-| Doorgaans worden gebruikt      |  Gegevensverkenning in situ zonder ETL. Querytabellen verschillende bronnen en indelingen includign CSV, JSON, relationele, Hadoop     |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad  <br/> [Aan de slag met inzoomen in 10 minuten](https://drill.apache.org/docs/drill-in-10-minutes/)  |
-| Bijbehorende hulpprogramma's op de DSVM      |   Rammelaar, Weka, SQL Server Management Studio      |
+| Ondersteunde DSVM-versies      | Windows, Linux  |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      |  Geïnstalleerd `/dsvm/tools/drill*` in ingesloten alleen in de modus   |
+| Wordt doorgaans gebruikt      |  Gegevensverkenning in situ zonder ETL. Query uitvoeren op verschillende bronnen en indelingen includign CSV, JSON, relationele tabellen, Hadoop     |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad  <br/> [Aan de slag met inzoomen in 10 minuten](https://drill.apache.org/docs/drill-in-10-minutes/)  |
+| Meer hulpprogramma's op de DSVM      |   Rammelaar, Weka, SQL Server Management Studio      |
 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   |  Weka is een verzameling van machine learning-algoritmen voor datamining taken. De algoritmen kunnen rechtstreeks toegepast op een dataset of aangeroepen vanuit uw eigen Java-code. Weka bevat hulpprogramma's voor gegevens vooraf verwerken, classificatie, regressie, clustering, association rules- en visualisatie. |
-| Ondersteunde DSVM edities     | Windows, Linux     |
-| Doorgaans worden gebruikt      | Algemene ML hulpprogramma     |
-| Hoe gebruik / uitvoeren?      | Op Windows, zoeken naar Weka in het Menu Start. Op Linux, meld u aan met X2Go en vervolgens gaat u naar toepassingen-ontwikkeling > -> Weka. |
+| Wat is het?   |  Weka is een verzameling van machine learning-algoritmen voor datamining taken. De algoritmen kunnen die rechtstreeks op een gegevensset toegepast of aangeroepen vanuit uw eigen Java-code. Weka bevat hulpprogramma's voor het vooraf verwerken van gegevens, classificatie, regressie, clustering, koppelingsregels voor en visualisatie. |
+| Ondersteunde DSVM-edities     | Windows, Linux     |
+| Wordt doorgaans gebruikt      | Algemene ML-hulpprogramma     |
+| Hoe kan ik gebruik / uitvoeren?      | Op Windows, zoeken naar Weka in het Menu Start. Aanmelden op Linux met X2Go en navigeer naar toepassingen -> ontwikkeling Weka ->. |
 | Koppelingen naar voorbeelden      | [Voorbeelden van weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, ratel, Xgboost   |
+| Meer hulpprogramma's op de DSVM      |LightGBM, ratel, Xgboost   |
 
 ## <a name="rattle"></a>Rammelaar
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   |   Een grafische gebruikersinterface voor gegevensanalyse R gebruiken   |
-| Ondersteunde DSVM edities     | Windows, Linux     |
-| Doorgaans worden gebruikt      | Algemene UI gegevensanalyse hulpprogramma voor R    |
-| Hoe gebruik / uitvoeren?      | UI-hulpprogramma. In Windows, start een opdrachtprompt, voert u R binnen R uitvoeren `rattle()`. Op Linux, verbinding maken met X2Go, een terminal starten, uitvoeren van R binnen R uitvoeren `rattle()`. |
+| Wat is het?   |   Een grafische gebruikersinterface voor datamining met R   |
+| Ondersteunde DSVM-edities     | Windows, Linux     |
+| Wordt doorgaans gebruikt      | Algemene UI gegevensanalyse hulpprogramma voor R    |
+| Hoe kan ik gebruik / uitvoeren?      | UI-hulpprogramma. Op Windows, start u een opdrachtprompt, uitvoeren van R, klikt u vervolgens in R uitvoeren `rattle()`. Op Linux, verbinding maken met X2Go, een terminal starten, uitvoeren van R, klikt u vervolgens in R uitvoeren `rattle()`. |
 | Koppelingen naar voorbeelden      | [Rammelaar](https://togaware.com/onepager/) |
-| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, Weka, Xgboost   |
+| Meer hulpprogramma's op de DSVM      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>Power BI Desktop 
+## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Interactieve gegevensvisualisatie en BI-hulpprogramma    |
-| Ondersteunde DSVM versies      | Windows  |
-| Doorgaans worden gebruikt      |  Gegevensvisualisatie en het bouwen van Dashboards   |
-| Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Ondersteunde DSVM-versies      | Windows  |
+| Wordt doorgaans gebruikt      |  Gegevensvisualisatie en het bouwen van Dashboards   |
+| Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

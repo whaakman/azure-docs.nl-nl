@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161813"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567057"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,8 +49,7 @@ De **UserJourney** element bevat de volgende elementen:
 
 Een gebruikersbeleving wordt weergegeven als een reeks orchestration die moet worden gevolgd door voor een geslaagde transactie. Als er een stap mislukt, wordt de transactie mislukt. Deze stappen orchestration verwijzen naar de bouwstenen en de claimsproviders die zijn toegestaan in het beleid-bestand. Een orchestration-stap die moeten worden weergeven of een gebruikerservaring renderen heeft ook een verwijzing naar de bijbehorende inhoud definitie-id.
 
-Indelingsstappen mag conditionaly ecxetuted, op basis van voorwaarden die zijn gedefinieerd in de orchestration-stap-element. U kunt controleren voor examle om uit te voeren een indelingsstap alleen als een bepaalde claims aanwezig is, of als een claim gelijk is of niet aan de opgegeven waarde. 
-
+Orchestration stappen kunnen worden conditionaly uitgevoerd, op basis van voorwaarden die zijn gedefinieerd in de orchestration-stap-element. U kunt controleren voor examle om uit te voeren een indelingsstap alleen als een bepaalde claims aanwezig is, of als een claim gelijk is of niet aan de opgegeven waarde. 
 
 Om op te geven van de geordende lijst indelingsstappen, een **OrchestrationSteps** element wordt toegevoegd als onderdeel van het beleid. Dit element is vereist.
 
@@ -66,7 +65,7 @@ De **OrchestrationStep** element bevat de volgende kenmerken:
 | --------- | -------- | ----------- |
 | Bestellen | Ja | De volgorde van de orchestration-stappen. | 
 | Type | Ja | Het type van de orchestration-stap. Mogelijke waarden: <ul><li>**ClaimsProviderSelection** -geeft aan dat de indelingsstap verschillende claimproviders vormt voor de gebruiker er een selecteren.</li><li>**CombinedSignInAndSignUp** -geeft aan dat de indelingsstap een gecombineerde sociale provider pagina voor het registreren van aanmelding en lokale account biedt.</li><li>**ClaimsExchange** -geeft aan dat de indelingsstap claims met een claimprovider uitwisselt.</li><li>**SendClaims** -geeft aan dat de indelingsstap de claims voor de relying party met een token dat is uitgegeven door een verlener van claims verzendt.</li></ul> | 
-| ContentDefinitionReferenceId | Nee | De id van de [inhoud definitie](contentdefinitions.md) die zijn gekoppeld aan deze orchestration-stap. De inhoudsdefinitie verwijzing-ID wordt gewoonlijk gedefinieerd in de zelf-gecontroleerde technisch profiel. Er zijn maar soms bij Azure AD B2C moet iets zonder een technisch profiel wordt weergegeven. Er zijn twee voorbeelden, als het type van de orchestration-stap een van de follwing is: `ClaimsProviderSelection` of `CombinedSignInAndSignUp`. Er moet een Azure AD B2C om de selectie van de provider identiteit zonder een technisch profiel weer te geven. | 
+| ContentDefinitionReferenceId | Nee | De id van de [inhoud definitie](contentdefinitions.md) die zijn gekoppeld aan deze orchestration-stap. De inhoudsdefinitie verwijzing-ID wordt gewoonlijk gedefinieerd in de zelf-gecontroleerde technisch profiel. Er zijn maar soms bij Azure AD B2C moet iets zonder een technisch profiel wordt weergegeven. Er zijn twee voorbeelden, als het type van de orchestration-stap een van de volgende is: `ClaimsProviderSelection` of `CombinedSignInAndSignUp`. Er moet een Azure AD B2C om de selectie van de provider identiteit zonder een technisch profiel weer te geven. | 
 | CpimIssuerTechnicalProfileReferenceId | Nee | Het type van de orchestration-stap is `SendClaims`. Deze eigenschap bepaalt het technische profiel-id van de claimprovider die het token heeft uitgegeven voor de relying party.  Als niet is opgegeven, is geen relying party-token wordt gemaakt. |
 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651436"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578668"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Het gebruik van beheerde identiteiten met Azure Container Instances
 
@@ -38,7 +38,7 @@ Gebruik van een beheerde identiteit in een container die wordt uitgevoerd om te 
 
 ### <a name="enable-a-managed-identity"></a>Een beheerde identiteit inschakelen
 
- In Azure Container Instances, zijn beheerde identiteiten voor Azure-resources vanaf de REST API-versie 2018-01-10 en de bijbehorende SDK's en hulpprogramma's ondersteund. Wanneer u een containergroep maakt, een of meer beheerde identiteiten inschakelen door in te stellen een [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) eigenschap. U kunt ook inschakelen of beheerde identiteiten bijwerken nadat een containergroep wordt uitgevoerd. een actie zorgt ervoor dat de containergroep om opnieuw te starten. Om in te stellen de identiteiten op een nieuwe of bestaande containergroep, de Azure CLI, een Resource Manager-sjabloon of een YAML-bestand te gebruiken. 
+ In Azure Container Instances, zijn beheerde identiteiten voor Azure-resources vanaf de REST API-versie 2018-01-10 en de bijbehorende SDK's en hulpprogramma's ondersteund. Wanneer u een containergroep maakt, een of meer beheerde identiteiten inschakelen door in te stellen een [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) eigenschap. U kunt ook inschakelen of beheerde identiteiten bijwerken nadat een containergroep wordt uitgevoerd. een actie zorgt ervoor dat de containergroep om opnieuw te starten. Om in te stellen de identiteiten op een nieuwe of bestaande containergroep, de Azure CLI, een Resource Manager-sjabloon of een YAML-bestand te gebruiken. 
 
 Azure Container Instances biedt ondersteuning voor beide typen beheerde Azure-id's: gebruiker toegewezen en het systeem is toegewezen. U kunt een door het systeem toegewezen identiteit, een of meer door de gebruiker toegewezen identiteiten of beide typen identiteiten inschakelen op een containergroep, een. 
 

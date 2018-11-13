@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: cce6685e98b7a67ab8e9e9ea35ccb492ae56da10
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 58643593970fa00822e79ed54f91d56c45ebba65
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018206"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578566"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configureren van beheerde identiteiten voor een Azure-resources op een Azure-VM met behulp van REST-API aanroepen
 
@@ -36,14 +36,6 @@ In dit artikel leert met CURL om aanroepen naar het Azure Resource Manager REST-
 
 - Als u niet bekend met beheerde identiteiten voor Azure-resources bent, lees de [overzichtssectie](overview.md). **Lees de [verschil tussen een beheerde identiteit door het systeem is toegewezen en de gebruiker toegewezen](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
-- Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende Azure op basis van rollen access control-toewijzingen:
-
-    > [!NOTE]
-    > Er zijn geen extra Azure AD directory-roltoewijzingen is vereist.
-
-    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aan een virtuele machine maken en inschakelen en het systeem en/of de gebruiker toegewezen beheerde identiteit verwijderen uit een Azure-VM.
-    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van een gebruiker toegewezen identiteit.
-    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen beheerde identiteit van en naar een virtuele machine.
 - Als u Windows gebruikt, installeert u de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) of gebruik de [Azure Cloud Shell](../../cloud-shell/overview.md) in Azure portal.
 - [Installeer de Azure CLI lokale console](/cli/azure/install-azure-cli), als u de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) of een [Linux-distributie](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Als u van Azure CLI lokale console gebruikmaakt, aanmelden bij Azure met `az login` met een account dat is gekoppeld aan het Azure-abonnement u wilt beheren, systeem- of beheerde identiteiten gebruiker toegewezen.
@@ -56,7 +48,7 @@ In deze sectie leert u hoe u inschakelen en uitschakelen van het systeem toegewe
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Het systeem toegewezen beheerde identiteit inschakelen tijdens het maken van een Azure VM
 
-Voor het maken van een Azure-VM met beheerde identiteit systeem toegewezen ingeschakeld, moet u een virtuele machine maken en ophalen van een toegangstoken om te gebruiken we CURL om aan te roepen van het Resource Manager-eindpunt met de waarde van het type beheerde identiteit door het systeem is toegewezen.
+Voor het maken van een Azure-VM met de ingeschakeld door het systeem toegewezen beheerde identiteit, uw account moet de [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) roltoewijzing.  Er zijn geen extra Azure AD directory-roltoewijzingen zijn vereist.
 
 1. Maak met [az group create](/cli/azure/group/#az-group-create) een [resourcegroep](../../azure-resource-manager/resource-group-overview.md#terminology) voor insluiting en implementatie van uw VM en de bijbehorende bronnen. U kunt deze stap overslaan als u al een resourcegroep hebt die u in plaats daarvan wilt gebruiken:
 
@@ -84,7 +76,7 @@ Voor het maken van een Azure-VM met beheerde identiteit systeem toegewezen inges
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Het systeem toegewezen identiteit van een bestaande VM in Azure inschakelen
 
-Om in te schakelen door het systeem toegewezen identiteit op een bestaande virtuele machine, moet u een toegangstoken verkrijgen en vervolgens gebruiken we CURL om aan te roepen van het Resource Manager REST-eindpunt voor het bijwerken van de id-type.
+Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtuele machine die oorspronkelijk is ingericht zonder, uw account moet de [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) roltoewijzing.  Er zijn geen extra Azure AD directory-roltoewijzingen zijn vereist.
 
 1. Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
 
@@ -121,7 +113,7 @@ Om in te schakelen door het systeem toegewezen identiteit op een bestaande virtu
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Uitschakelen door het systeem toegewezen identiteit van een Azure VM beheerd
 
-Als u wilt een systeem toegewezen beheerde identiteit van een bestaande VM uitschakelen, moet u een toegangstoken verkrijgen en vervolgens gebruiken we CURL om aan te roepen van het Resource Manager REST-eindpunt voor het bijwerken van het identiteitstype in `None`.
+Als u wilt uitschakelen door het systeem toegewezen beheerde identiteit op een virtuele machine, uw account moet de [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) roltoewijzing.  Er zijn geen extra Azure AD directory-roltoewijzingen zijn vereist.
 
 1. Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
 
@@ -145,6 +137,8 @@ Als u wilt een systeem toegewezen beheerde identiteit van een bestaande VM uitsc
 In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op een Azure-VM met CURL aanroepen met de Azure Resource Manager REST-eindpunt door de gebruiker toegewezen.
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Een gebruiker toegewezen beheerde identiteit toewijzen tijdens het maken van een Azure-VM
+
+Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machine, uw account moet de [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) en [beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roltoewijzingen. Er zijn geen extra Azure AD directory-roltoewijzingen zijn vereist.
 
 1. Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
 
@@ -182,6 +176,8 @@ In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op
    ```
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Een gebruiker toegewezen beheerde identiteit toewijzen aan een bestaande VM in Azure
+
+Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machine, uw account moet de [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) en [beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roltoewijzingen. Er zijn geen extra Azure AD directory-roltoewijzingen zijn vereist.
 
 1. Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
 
@@ -238,6 +234,8 @@ In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Verwijderen van een gebruiker toegewezen beheerde identiteit van een Azure VM
+
+Als u wilt verwijderen van een gebruiker toegewezen identiteit aan een virtuele machine, uw account moet de [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) roltoewijzing.
 
 1. Een Bearer-toegangstoken, waarmee u uw virtuele machine maken met een door het systeem toegewezen beheerde identiteit gebruikt in de volgende stap in de autorisatie-header ophalen.
 

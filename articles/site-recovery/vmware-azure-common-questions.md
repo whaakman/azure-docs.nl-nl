@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2436a4e75045200a8d2f48586e31ebfa0c03705a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012102"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566258"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -110,6 +110,8 @@ De configuratieserver wordt uitgevoerd de on-premises Site Recovery-onderdelen, 
 - De processerver die als replicatiegateway fungeert. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt die deze naar Azure storage-., de processerver installeert ook Mobility-Service op VM's die u wilt repliceren en detecteert automatisch on-premises virtuele VMware-machines.
 - De hoofddoelserver die verantwoordelijk is voor replicatiegegevens tijdens de failback vanuit Azure.
 
+[Meer informatie](vmware-azure-architecture.md) over de onderdelen van de configuratieserver en processen.
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>Waar kan ik de configuratieserver instellen?
 In dat geval moet u een één maximaal beschikbare on-premises virtuele VMware-machine in voor de configuratieserver.
 
@@ -126,15 +128,35 @@ Nee. Om dit te doen, moet u voor het instellen van een configuratieserver in elk
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan ik een configuratieserver in Azure hosten?
 Tijdens het mogelijk is moet de virtuele Azure-machine waarop de configuratieserver wordt uitgevoerd om te communiceren met uw on-premises VMware-infrastructuur en virtuele machines. Dit kunt latenties toevoegen en voortdurende replicatie van invloed zijn op.
 
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Waar vind ik de meest recente versie van de configuratieserversjabloon?
-Download de nieuwste versie van de [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-
 ### <a name="how-do-i-update-the-configuration-server"></a>Hoe kan ik de configuratieserver bijwerken?
-U installeren updatepakketten. U vindt de meest recente update-informatie in de [wiki updates pagina](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+[Meer informatie over](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) bijwerken van de configuratieserver. U vindt de meest recente update-informatie in de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=site-recovery). U kunt ook rechtstreeks downloaden de nieuwste versie van de configuratieserver in [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Moet ik back-up van het geïmplementeerde configuratie-server?
 We raden u aan om regelmatig geplande back-ups van de configuratieserver. Voor succesvolle failback wordt de virtuele machine wordt een failback moet aanwezig zijn in de database van de configuratieserver en de configuratieserver moet worden uitgevoerd en een verbonden status heeft. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Als ik van de configuratieserver instelt ben, kan ik handmatig downloaden en installeren MySQL?
+Ja. Downloaden van MySQL en plaats deze in de **C:\Temp\ASRSetup** map. Installeer deze vervolgens handmatig. Wanneer u de virtuele machine van de configuratieserver instellen en accepteer de de voorwaarden, MySQL wordt vermeld als **al geïnstalleerd** in **Download en installeer**.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan ik te voorkomen dat het downloaden van MySQL, maar kunt Site Recovery installeren?
+Ja. Download het installatieprogramma van MySQL en plaats deze in de **C:\Temp\ASRSetup** map.  Wanneer u de configuratieserver VM instelt, accepteert de de voorwaarden en klik op **downloaden en installeren van**, de portal wordt het installatieprogramma dat u hebt toegevoegd voor het installeren van MySQL gebruikt.
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL ik de virtuele machine van de configuratieserver voor iets anders gebruiken?
+Nee, moet u de virtuele machine alleen gebruiken voor de configuratieserver. 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Kan ik de kluis geregistreerd op de configuratieserver wijzigen?
+Nee. Nadat een kluis is geregistreerd bij de configuratieserver, kan niet worden gewijzigd.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Ik kan de dezelfde configuratieserver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers gebruiken
+Ja, maar houd er rekening mee dat de fysieke computer kan worden alleen mogelijk is naar een VMware-VM.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
+[Lees dit artikel](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) voor meer informatie over het downloaden van de wachtwoordzin.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>Waar kan ik registratiesleutels kluis downloaden?
+
+In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. In **Servers**, selecteer **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
+
+
 
 ## <a name="mobility-service"></a>Mobility-service
 

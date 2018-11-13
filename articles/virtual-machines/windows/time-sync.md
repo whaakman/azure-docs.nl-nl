@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/017/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1c784721d103ca623f6e9bac5ec1281beeb70074
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ad5ceeef170e38bf6368c54894b20245d10b74ee
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468312"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578192"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Tijdsynchronisatie voor Windows-VM's in Azure
 
@@ -40,6 +40,8 @@ Nauwkeurigheid van de klok van een computer is af te meten hoe dicht de klok van
 Azure-hosts worden gesynchroniseerd met de interne Microsoft-tijdservers die hun tijd van Stratum 1 eigendom van Microsoft-apparaten, met GPS antennes in beslag nemen. Virtuele machines in Azure kunnen ofwel afhankelijk zijn van de host om door te geven van de nauwkeurige tijd (*tijd host*) u aan bij de virtuele machine of de virtuele machine rechtstreeks krijgt tijd vanuit een tijdserver of een combinatie van beide. 
 
 Interactie van de virtuele machine met de host kunnen ook invloed op de klok. Tijdens de [geheugen onderhoud met statusbehoud](maintenance-and-updates.md#memory-preserving-maintenance), virtuele machines zijn onderbroken voor maximaal 30 seconden. Bijvoorbeeld voordat onderhoud begint de klok van de virtuele machine bevat 10:00:00 uur en 28 seconden duurt. Nadat de virtuele machine wordt hervat, de klok op de virtuele machine nog steeds 10:00:00 uur, wat 28 seconden weergeven uit. Op juiste hiervoor de VMICTimeSync service bewaakt wat er gebeurt op de host en wordt u gevraagd om wijzigingen op de virtuele machines om te compenseren.
+
+De service VMICTimeSync in voorbeeld of sync modus uitgevoerd en alleen van invloed zijn op de klok doorsturen. In de voorbeeld-modus, waarvoor is vereist W32time worden uitgevoerd, de service VMICTimeSync pollt de host om de vijf seconden en biedt W32time time-voorbeelden. Ongeveer elke 30 seconden, de W32time-service heeft de meest recente tijd steekproef en gebruikt voor het invloed hebben op de klok van de Gast. Synchronisatiemodus wordt geactiveerd als een Gast is hervat of als de klok van een gast drifts meer dan 5 seconden achter de klok van de host. Het laatste geval mag niet voorkomen in gevallen waar de W32time-service juist wordt uitgevoerd.
 
 Zonder tijd synchronisatie werkt, zou de klok op de virtuele machine fouten oplopen. Wanneer er slechts één VM, het effect mogelijk niet significant, tenzij de werkbelasting is zeer nauwkeurige vereist. Maar in de meeste gevallen we hebben meerdere, met elkaar verbonden virtuele machines die gebruikmaken van de tijd voor het bijhouden van transacties en wat de behoeften van de tijd consistent is gedurende de volledige implementatie. Wanneer de tijd tussen virtuele machines anders is, ziet u kan de volgende gevolgen:
 
