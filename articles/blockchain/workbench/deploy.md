@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Blockchain Workbench implementeren
 description: Azure Blockchain Workbench implementeren
 services: azure-blockchain
@@ -143,14 +143,14 @@ Blockchain Workbench maakt gebruik van Azure AD als het belangrijkste identiteit
 5. Kopieer de waarde van de sleutel en bewaar deze voor later. U hebt deze nodig voor de implementatie.
 
     > [!IMPORTANT]
-    >  Als u de sleutel voor de implementatie niet opslaat, moet u een nieuwe sleutel te genereren. U kunt waarde van de sleutel niet later ophalen vanuit de portal.
+    >  Als u de sleutel voor de implementatie niet opslaat, moet u om een nieuwe sleutel te genereren. U kunt waarde van de sleutel niet later ophalen vanuit de portal.
 
 ### <a name="get-application-id"></a>Toepassings-ID ophalen
 
 De toepassing-ID en tenant-gegevens zijn vereist voor de implementatie. Verzamel en bewaar de gegevens voor gebruik tijdens de implementatie.
 
 1. Selecteer **instellingen** > **eigenschappen** voor de toepassing die u hebt geregistreerd.
-2. In het **eigenschappen** deelvenster, kopieer en bewaar de volgende waarden voor later gebruik tijdens de implementatie.
+2.  In het **eigenschappen** deelvenster, kopieer en bewaar de volgende waarden voor later gebruik tijdens de implementatie.
 
     ![Eigenschappen van de API-app](media/deploy/app-properties.png)
 
@@ -171,7 +171,7 @@ Selecteer in het navigatiedeelvenster aan de linkerkant de **Azure Active Direct
 Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench te implementeren. De volgende secties beschrijven hoe het framework moet worden geïmplementeerd.
 
 1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
-2.  Selecteer uw account in de rechterbovenhoek hoek en schakel over naar de gewenste Azure AD-tenant waar u Azure Blockchain Workbench wilt implementeren.
+2.  Selecteer uw account in de rechterbovenhoek hoek en schakel over naar de gewenste Azure AD-tenant waar u wilt implementeren, Azure Blockchain Workbench.
 3.  Selecteer in het linkerdeelvenster **een resource maken**. Zoek naar `Azure Blockchain Workbench` in de **Marketplace doorzoeken** zoekbalk. 
 
     ![Zoekbalk Marketplace](media/deploy/marketplace-search-bar.png)
@@ -213,11 +213,11 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
 
 8.  Klik op **OK** om de sectie van de configuratie van Azure AD-Parameters te voltooien.
 
-9.  In **netwerkinstellingen en de prestaties** kiest u om een nieuw blockchain-netwerk maken of een bestaand proof-of-authority blockchain-netwerk gebruiken.
+9.  In **netwerkinstellingen en de prestaties**, kiezen als u wilt een nieuw blockchain-netwerk maken of een bestaand proof-of-authority blockchain-netwerk gebruiken.
 
     Voor **nieuw**:
 
-    Met de *Maak een nieuwe* optie maakt u een set Ethereum Proof-of-Authority (PoA) knooppunten binnen één enkel abonnement. 
+    De *Maak een nieuwe* optie maakt u een set knooppunten binnen één enkel lid abonnement Ethereum Proof-of-Authority (PoA). 
 
     ![Netwerkinstellingen en -prestaties](media/deploy/blockchain-workbench-settings-network-new.png)
 
