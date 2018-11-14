@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731799"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615600"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Batch AI-Taakinvoer en uitvoer met Azure Storage Store
 
@@ -30,7 +30,7 @@ Azure Storage is Microsoft's oplossing voor opslag in de cloud. Batch AI biedt o
 
 Als u Azure Storage voor uw omgeving Batch AI kiest, wordt aangeraden dat u uw invoerbestanden (zoals gegevenssets) opslaan in een Blob-container met hogere doorvoer en u uw training-uitvoer opslaan in een bestandsshare, die ondersteuning biedt voor streaming (zodat lezen van logboeken met uitvoergegevens terwijl de taak wordt gelijktijdig uitgevoerd). 
 
-Voordat u Azure Storage gebruiken kunt, moet u [maken van een Azure Storage-account](../storage/common/storage-quickstart-create-account.md). Batch AI biedt ondersteuning voor de volumes koppelen van beide voor algemeen gebruik v1 (GPv1) en algemeen gebruik v2 (GPv2) Azure Storage-accounts. De Azure Storage-account kan meerdere Blob-containers houdt of instanties van de bestandsshare-bestand. Houd rekening met de vereisten van uw kosten en prestaties bij het kiezen van het type van de storage-account te maken. Zie voor meer informatie, [overzicht van Azure storage-account](../storage/common/storage-account-overview.md). 
+Voordat u Azure Storage gebruiken kunt, moet u [maken van een Azure Storage-account](../storage/common/storage-quickstart-create-account.md). Batch AI biedt ondersteuning voor de volumes koppelen van beide voor algemeen gebruik v1 (GPv1) en algemeen gebruik v2 (GPv2) Azure Storage-accounts. De Azure Storage-account kan meerdere Blob-containers houdt of instanties van de bestandsshare-bestand. Houd rekening met de vereisten van uw kosten en prestaties bij het kiezen van het type van de storage-account te maken. Zie [Overzicht van Azure-opslagaccount](../storage/common/storage-account-overview.md) voor meer informatie. 
 
 Een Blob-container maken en uploaden van uw gegevensset naar een Azure Blob-container, kies een van de volgende methoden:
 - [Azure-portal](../storage/blobs/storage-quickstart-blobs-portal.md) voor het uploaden van met een web gebaseerde gebruikersinterface geopend. Als u wilt een klein aantal bestanden uploaden, biedt Azure portal de eenvoudigste bewerking.
@@ -98,7 +98,7 @@ Als uw trainingsscript kennis van een pad vereist, moet u deze als een opdrachtr
 
 ### <a name="abbreviate-input-paths"></a>Invoerpaden afkorten
 
-Als u wilt ook invoerpaden opgeven als een omgevingsvariabele, gebruikt u de `inputDirectories` eigenschap van uw `job.json` bestand (of `models.JobCreateParamters.input_directories` als met de Batch AI SDK). Het schema van `inputDirectories` is:
+Als u wilt ook invoerpaden opgeven als een omgevingsvariabele, gebruikt u de `inputDirectories` eigenschap van uw `job.json` bestand (of `models.JobCreateParameters.input_directories` als met de Batch AI SDK). Het schema van `inputDirectories` is:
 
 ```json
 {
@@ -115,7 +115,7 @@ Zie voor meer informatie, [hier](https://github.com/Azure/BatchAI/blob/master/do
 
 ### <a name="abbreviate-output-paths"></a>Uitvoer paden afkorten
 
-Als u wilt ook uitvoer paden opgeven als een omgevingsvariabele, gebruikt u de `outputDirectories` eigenschap van uw `job.json` bestand (of `models.JobCreateParamters.output_directories` als met de Batch AI SDK). Met deze methode kan de paden voor de uitvoerbestanden vereenvoudigen. Het schema van `outputDirectories` is:
+Als u wilt ook uitvoer paden opgeven als een omgevingsvariabele, gebruikt u de `outputDirectories` eigenschap van uw `job.json` bestand (of `models.JobCreateParameters.output_directories` als met de Batch AI SDK). Met deze methode kan de paden voor de uitvoerbestanden vereenvoudigen. Het schema van `outputDirectories` is:
 
 ```json
 {
@@ -135,7 +135,7 @@ Zie voor meer informatie, [hier](https://github.com/Azure/BatchAI/blob/master/do
 
 ### <a name="use-azure-portal"></a>Azure Portal gebruiken
 
-De Azure portal is een handige manier om de uitvoer van taken met een GUI-Verkenner weer te geven. Echter, als u wilt weergeven van de uitvoer van Stdout en Stderr, of van een pad in `outputDirectories`, de bestanden worden geplaatst in een automatisch gegenereerde pad in uw Azure Storage-volume. Zie hieronder voor meer informatie.
+De Azure portal is een handige manier om de uitvoer van taken met een GUI-Verkenner weer te geven. Echter, als u wilt weergeven van de uitvoer van Stdout en Stderr, of van een pad in `outputDirectories`, de bestanden worden geplaatst in een automatisch gegenereerde pad in uw Azure Storage-volume. Kijk hieronder voor meer informatie.
 
 ### <a name="access-stdout-and-stderr-output"></a>Toegang tot Stdout en Stderr-uitvoer
 

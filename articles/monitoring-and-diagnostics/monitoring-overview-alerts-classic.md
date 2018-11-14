@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015771"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614137"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
@@ -55,7 +55,7 @@ Er zijn twee soorten klassieke waarschuwingen beschikbaar - metrische waarschuwi
 
 * **Waarschuwingen voor klassieke activiteitenlogboeken** -de waarschuwing voor een streaming-logboek die wordt geactiveerd wanneer een activiteitenlogboek-gebeurtenis is gegenereerd dat overeenkomt met de criteria die u hebt toegewezen filteren. Deze waarschuwingen hebben slechts één status 'Geactiveerd', omdat de waarschuwings-engine de filtercriteria wordt gewoon van toepassing op een nieuwe gebeurtenis. Deze waarschuwingen kunnen worden gebruikt om te worden geïnformeerd wanneer een nieuw Health Service-incident plaatsvindt of wanneer een gebruiker of toepassing een bewerking uitvoert in uw abonnement, bijvoorbeeld 'Virtuele machine verwijderen'.
 
-Voor diagnostische logboekgegevens die beschikbaar zijn via Azure Monitor, de gegevens in Log Analytics (voorheen OMS) route en de waarschuwing voor een Log Analytics-query gebruiken. Meld u nu maakt gebruik van Analytics de [methode nieuwe waarschuwingen](monitoring-overview-unified-alerts.md) 
+Voor diagnostische logboekgegevens die beschikbaar zijn via Azure Monitor, de gegevens in Log Analytics (voorheen OMS) route en de waarschuwing voor een Log Analytics-query gebruiken. Meld u nu maakt gebruik van Analytics de [methode nieuwe waarschuwingen](monitoring-overview-alerts.md) 
 
 Het volgende diagram geeft een overzicht van bronnen van de gegevens in Azure Monitor en, conceptueel gezien hoe u waarschuwt dat gegevens.
 

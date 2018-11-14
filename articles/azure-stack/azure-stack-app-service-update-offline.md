@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058368"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614800"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline-update van Azure App Service in Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.3 implementeert.
+> De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.4 implementeert.
 >
 >
 
@@ -44,7 +44,7 @@ Door de instructies in dit artikel te volgen, kunt u upgraden de [App Service-re
 
 Als u de App Service-resourceprovider in een Azure Stack-omgeving bijwerken, moet u deze taken uitvoeren:
 
-1. Download de [App Service-installatieprogramma](https://aka.ms/appsvcupdate3installer)
+1. Download de [App Service-installatieprogramma](https://aka.ms/appsvcupdate4installer)
 2. Maak een upgradepakket voor offline.
 3. Voer het App Service-installatieprogramma (appservice.exe) en de upgrade is voltooid.
 
@@ -53,7 +53,7 @@ Tijdens dit proces wordt de upgrade:
 * Detecteren van eerdere implementatie van App Service
 * Uploaden naar Storage
 * Upgrade van alle App Service-rollen (domeincontrollers, beheer, front-end, uitgever en werknemer rollen)
-* App Service scale set definities bijwerken
+* Definities App Service-schaalset bijwerken
 * Manifest van Resourceprovider App Service bijwerken
 
 ## <a name="create-an-offline-upgrade-package"></a>Maak een offlinepakket bijwerken
@@ -93,7 +93,7 @@ Als u App Service bijwerken in een omgeving zonder verbinding, moet u eerst een 
 
 5. Controleer en accepteer de licentievoorwaarden van derden en klik vervolgens op **volgende**.
 
-6. Zorg ervoor dat de Azure Stack Azure Resource Manager-eindpunt en de Active Directory-Tenant informatie juist is. Als u de standaardinstellingen tijdens de implementatie van Azure Stack Development Kit gebruikt, kunt u hier de standaardwaarden accepteren. Als u de opties aangepast tijdens de implementatie van Azure Stack, moet u de waarden in dit venster om weer te geven die bewerken. Bijvoorbeeld, als u het domeinachtervoegsel *mycloud.com*, uw Azure Stack Azure Resource Manager-eindpunt moet wijzigen in *management.region.mycloud.com*. Nadat u uw gegevens bevestigen, klikt u op **volgende**.
+6. Zorg ervoor dat de Azure Stack Azure Resource Manager-eindpunt en de Active Directory-Tenant informatie juist is. Als u de standaardinstellingen tijdens de implementatie van Azure Stack Development Kit gebruikt, kunt u hier de standaardwaarden accepteren. Als u de opties aangepast tijdens de implementatie van Azure Stack, moet u de waarden in dit venster bewerken. Bijvoorbeeld, als u het domeinachtervoegsel *mycloud.com*, uw Azure Stack Azure Resource Manager-eindpunt moet wijzigen in *management.region.mycloud.com*. Nadat u uw gegevens bevestigen, klikt u op **volgende**.
 
     ![Informatie over de Cloud van Azure Stack][3]
 

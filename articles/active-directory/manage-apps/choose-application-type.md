@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356669"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625078"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Kiezen welk toepassingstype moet worden gebruikt bij het toevoegen van een toepassing
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Het toepassingstype kiezen bij het toevoegen van een toepassing in Azure Active Directory
+Meer informatie over de vier typen toepassingen die u aan Azure Active Directory (Azure AD toevoegen kunt). Wanneer u een toepassing in Azure Active Directory toevoegt, wordt u gevraagd om een van de vier toepassingstype. 
 
-In dit artikel helpen u bij het begrijpen van de vier belangrijkste typen toepassingen die u met Azure AD integreren kunt:
-
-* Wat wordt ondersteund door elk van deze
-* Waarom zou u welke toepassing
-* Het configureren van deze toepassing core eigenschappen, zoals hoe gebruikers zich **ingericht**, of wat **eenmalige aanmelding** technologie te gebruiken.
-
-## <a name="supported-application-types-in-azure-ad"></a>Ondersteunde typen in Azure AD
+## <a name="what-are-the-types-of-applications"></a>Wat zijn de typen toepassingen?
 
 Azure AD biedt ondersteuning voor vier belangrijkste toepassingstypen die u kunt toevoegen met behulp van de **toevoegen** functie vinden onder **bedrijfstoepassingen**. Deze omvatten:
 
@@ -41,7 +36,7 @@ Azure AD biedt ondersteuning voor vier belangrijkste toepassingstypen die u kunt
 
 -   **Niet-Galerietoepassingen** : Breng uw eigen toepassingen. Een webkoppeling die u wilt dat elke toepassing die het veld gebruikersnaam en wachtwoord, wordt weergegeven ondersteuning biedt voor SAML- of OpenID Connect-protocol of SCIM die u wilt integreren voor eenmalige aanmelding met Azure AD ondersteunt.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Functies en mogelijkheden die worden ondersteund door de voorgaande toepassingstypen
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>Functies en mogelijkheden die worden ondersteund door de soorten toepassingen
 
 De volgende functies worden ondersteund door een van de voorgaande vier typen in Azure AD:
 

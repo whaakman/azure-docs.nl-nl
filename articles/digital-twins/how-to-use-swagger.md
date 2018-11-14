@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 0fae059db53668da2d71906bbe94e9dabae931bc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578583"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624247"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Gebruik Azure digitale dubbele Swagger
 
@@ -36,20 +36,7 @@ Swagger biedt een interactieve samenvatting van uw API, waaronder:
 
 Swagger is een handig hulpmiddel om u te helpen bij het ontwikkelen en testen oproepen naar de API Management.
 
-> [!TIP]
-> Een voorbeeld van Swagger eerst wordt geleverd ter illustratie van de API-functie instellen.
-> Deze wordt gehost op [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-U kunt toegang tot uw eigen gegenereerde Swagger-Management-API-documentatie op:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Aangepaste naam | Vervangen door |
-| --- | --- |
-| NaamExemplaar | De naam van uw Azure digitale Twins-exemplaar |
-| yourLocation | Welke regio u uw exemplaar wordt gehost op server |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Naslagmateriaal
 

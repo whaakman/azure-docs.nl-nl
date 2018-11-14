@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140973"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623146"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverless database computing met behulp van Azure Cosmos DB en Azure Functions
 
@@ -98,7 +98,7 @@ In implementaties van een retailanalyse, wanneer een gebruiker een item toegevoe
 
 **Implementatie:** meerdere Azure Cosmos DB-triggers te hebben geluisterd naar één container
 
-1. U kunt meerdere Azure Functions maken door toe te voegen met Azure Cosmos DB-triggers voor elk - die naar dezelfde luisteren wijzigingenfeed van winkelen winkelwagen gegevens. Houd er rekening mee dat wanneer meerdere functies luisteren naar dezelfde wijzigingenfeed, een nieuwe leaseverzameling is vereist voor elke functie. Zie voor meer informatie over verzamelingen lease [inzicht in de Change Feed Processor-bibliotheek](change-feed.md#understand-cf).
+1. U kunt meerdere Azure Functions maken door toe te voegen met Azure Cosmos DB-triggers voor elk - die naar dezelfde luisteren wijzigingenfeed van winkelen winkelwagen gegevens. Houd er rekening mee dat wanneer meerdere functies luisteren naar dezelfde wijzigingenfeed, een nieuwe leaseverzameling is vereist voor elke functie. Zie voor meer informatie over verzamelingen lease [inzicht in de Change Feed Processor-bibliotheek](change-feed-processor.md).
 2. Wanneer een nieuw item wordt toegevoegd aan een winkelwagen gebruikers, wordt elke functie onafhankelijk aangeroepen door de wijzigingenfeed vanuit de shopping winkelwagen-container.
     * Een functie kan de inhoud van het huidige mandje gebruiken om te wijzigen van de weergave van andere items die de gebruiker mogelijk geïnteresseerd in.
     * Een andere functie kan inventarisatie totalen worden bijgewerkt.

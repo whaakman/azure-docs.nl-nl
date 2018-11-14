@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55a3f3d7ac08554273464ed7c6f665e27661c6f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237822"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625518"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Het oplossen van problemen met de Log Analytics-agent voor Linux 
 
@@ -85,7 +85,7 @@ Als geen van deze stappen voor u werkt, zijn ook de volgende ondersteuningskanal
 | --- | --- |
 | 2 | Ongeldige optie opgegeven voor het script omsadmin. Voer `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` voor gebruik. |
 | 3 | Ongeldige configuratie opgegeven voor het script omsadmin. Voer `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` voor gebruik. |
-| 4 | Ongeldige proxy opgegeven voor het script omsadmin. Controleer of de proxy en Zie onze [documentatie voor het gebruik van een HTTP-proxy](log-analytics-concept-hybrid.md#network-firewall-requirements). |
+| 4 | Ongeldige proxy opgegeven voor het script omsadmin. Controleer of de proxy en Zie onze [documentatie voor het gebruik van een HTTP-proxy](log-analytics-agent-overview.md#network-firewall-requirements). |
 | 5 | 403 HTTP-fout ontvangen van Log Analytics-service. Zie de volledige uitvoer van het script omsadmin voor meer informatie. |
 | 6 | Niet-200 HTTP-fout bij het ontvangen van Log Analytics-service. Zie de volledige uitvoer van het script omsadmin voor meer informatie. |
 | 7 | Kan geen verbinding maken met Log Analytics-service. Zie de volledige uitvoer van het script omsadmin voor meer informatie. |

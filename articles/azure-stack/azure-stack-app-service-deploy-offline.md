@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718726"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614035"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een niet-verbonden Azure Stack-omgeving beveiligd door AD FS
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.3 implementeert.
+> De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.4 implementeert.
 >
 >
 
@@ -84,8 +84,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
     2. In de **Azure Stack-abonnementen** Schakel de **Providerabonnement standaard**.
     
     > [!NOTE]
-    > App Service kan alleen worden geïmplementeerd in de **Providerabonnement standaard** op dit moment.  App Service wordt in een toekomstige update implementeren in het nieuwe abonnement meten die is geïntroduceerd in Azure Stack 1804 en alle bestaande implementaties worden gemigreerd naar het nieuwe abonnement ook.
-    >
+    > App Service kan alleen worden geïmplementeerd in de **Providerabonnement standaard**.
     >
     
     3. In de **Azure Stack-locaties** vak, selecteert u de locatie die overeenkomt met de regio die u naar implementeert. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure Stack Development Kit.
@@ -170,7 +169,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
     ![App Service-installatieprogramma][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core is geen ondersteund platform-installatiekopie voor gebruik met Azure App Service in Azure Stack.  Gebruik geen evaluatie installatiekopieën voor productie-implementaties.  Azure App Service in Azure Stack is vereist dat Microsoft.Net 3.5.1 SP1 op de installatiekopie die wordt gebruikt voor de implementatie is geactiveerd.   Marketplace publiceren Windows Server 2016 installatiekopieën nog geen deze functie is ingeschakeld.**
+    > **Windows Server 2016 Core is geen ondersteund platform-installatiekopie voor gebruik met Azure App Service in Azure Stack.  Gebruik geen evaluatie installatiekopieën voor productie-implementaties.  Azure App Service in Azure Stack is vereist dat Microsoft.Net 3.5.1 SP1 op de installatiekopie die wordt gebruikt voor de implementatie is geactiveerd.   Marketplace publiceren Windows Server 2016 installatiekopieën nog geen deze functie is ingeschakeld, daarom moet u maken en gebruiken van een installatiekopie van Windows Server 2016 met dit is vooraf ingeschakeld.**
 
 14. In de **Platforminstallatiekopie selecteren** vak, kiest u de installatiekopie van uw implementatie van Windows Server 2016 virtuele machine van de gegevensbronnen die beschikbaar zijn in de resourceprovider voor compute voor de App Service-cloud. Klik op **Volgende**.
 
@@ -198,7 +197,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
 
 1. In de Azure Stack-beheerportal, gaat u naar **beheer - App Service**.
 
-2. Schakel in het overzicht van de onder de status om te zien die de **Status** bevat **alle rollen zijn gereed**.
+2. Schakel in het overzicht, onder status om te zien die de **Status** weergegeven **alle rollen zijn gereed**.
 
     ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
     

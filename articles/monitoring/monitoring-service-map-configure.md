@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 653ed7e4cdbd2df166e21acfd1e376638cad6290
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52476488307b9467665b1b8df35c92419825078f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257221"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622377"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -133,8 +133,8 @@ Serviceoverzicht worden de gegevens uit de agent voor Microsoft Dependency opgeh
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
-| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows-computers. <br><br>Naast de [Log Analytics-agent voor Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-computers. <br><br>Naast de [Log Analytics-agent voor Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows-computers. <br><br>Naast de [Log Analytics-agent voor Windows](../log-analytics/log-analytics-agent-overview.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-computers. <br><br>Naast de [Log Analytics-agent voor Linux](../log-analytics/log-analytics-agent-overview.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van agentcomputers, dus er zijn geen gegevens te verzamelen over Azure Storage. |
 
@@ -230,7 +230,7 @@ De agent voor afhankelijkheden kan handmatig worden geïnstalleerd op Windows-co
 
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Windows-computer:
 
-1.  De Log Analytics-agent voor de volgende op een van de methoden die worden beschreven in Windows installeren [verzamelen van gegevens in een hybride omgeving met Log Analytics-agent](../log-analytics/log-analytics-concept-hybrid.md).
+1.  De Log Analytics-agent voor de volgende op een van de methoden die worden beschreven in Windows installeren [Log Analytics-agent overzicht](../log-analytics/log-analytics-agent-overview.md).
 2.  De Windows-agent downloaden en uitvoeren met behulp van de volgende opdracht uit: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ De agent voor afhankelijkheden is geïnstalleerd op Linux-doelcomputers uit `Ins
 
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Linux-computer:
 
-1.  De volgende op een van de methoden die worden beschreven in Log Analytics-agent installeren [verzamelen van gegevens in een hybride omgeving met Log Analytics-agent](../log-analytics/log-analytics-concept-hybrid.md).
+1.  De volgende op een van de methoden die worden beschreven in Log Analytics-agent installeren [Log Analytics-agent overzicht](../log-analytics/log-analytics-agent-overview.md).
 2.  De agent voor Linux-afhankelijkheden als root installeren met de volgende opdracht:
     
     `sh InstallDependencyAgent-Linux64.bin`

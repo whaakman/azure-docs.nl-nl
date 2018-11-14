@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fa5b5e1998d54c7b22d01e7cc70e84059d482cfb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279704"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623543"
 ---
 # <a name="edit-a-knowledge-base"></a>Een knowledge base bewerken
 
@@ -29,30 +29,25 @@ QnA Maker kunt u de inhoud van uw knowledge base beheren door op te geven van ee
 
     ![Mijn Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Selecteer een bepaalde kennisdatabase wijzigingen aanbrengen.
+1. Selecteer een bepaalde kennisdatabase wijzigingen aanbrengen.
  
-3. Klik op **Instellingen**.
-
-   Hier kunt u verplicht veld zijn servicenaam bewerken.
+1. Selecteer **instellingen**. Hier kunt u verplicht veld zijn servicenaam bewerken.
   
-   U kunt nieuwe URL's om toe te voegen nieuwe veelgestelde vragen-inhoud naar Knowledgebase door te klikken op toevoegen **beheren Knowledge Base -> ' + -URL toevoegen '** koppeling.
-   
-   U kunt bestaande URL's verwijderen door te klikken op **verwijderpictogram**.
-   
-   Als u wilt de Knowledge Base voor het verkennen van de meest recente inhoud van bestaande URL's, Vink het selectievakje in de naam **'Vernieuwen'**, dit wordt de Knowledgebase bijgewerkt met de meest recente inhoud van de URL.
-   
-U kunt toevoegen ondersteund bestand document als onderdeel van de Knowledge Base, door te klikken op **beheren Knowledge Base -> ' + -bestand toevoegen '**
+    |Doel|Bewerking|
+    |--|--|
+    |URL toevoegen|U kunt nieuwe URL's om toe te voegen nieuwe veelgestelde vragen-inhoud met Knowledge base door te klikken op toevoegen **kennisdatabase beheren -> ' + -URL toevoegen '** koppeling.|
+    |URL verwijderen|U kunt bestaande URL's verwijderen door het verwijderingspictogram te selecteren, de Prullenbak.|
+    |URL inhoud vernieuwen|Als u wilt dat uw knowledge base voor het verkennen van de meest recente inhoud van bestaande URL's, selecteert u de **vernieuwen** selectievakje. Hiermee wordt de knowledge base bijgewerkt met de meest recente inhoud van de URL.|
+    |Bestand toevoegen|U kunt een document ondersteund bestand door te selecteren als onderdeel van een kennisdatabase toevoegen **kennisdatabase beheren**, vervolgens de optie **+ bestand toevoegen**|
+    |Importeren|U kunt ook een bestaande kennisdatabase importeren door te selecteren **Ímport Knowledge base** knop. |
+    |Update|Bijwerken van het knowledge base afhankelijk **management prijscategorie** gebruikt tijdens het maken van QnA Maker-service die is gekoppeld aan uw knowledge base. U kunt ook de beheerlaag van Azure-portal bijwerken indien nodig.
 
-U kunt ook een bestaande knowledgebase importeren door te klikken op **Knowledge Base Ímport** knop. 
-   
-Afhankelijk van bijgewerkt van Knowledge Base **management prijscategorie** wordt gebruikt tijdens het maken van QnA Maker-service die is gekoppeld aan uw knowledgbase. U kunt ook de beheerlaag van Azure-portal bijwerken indien nodig.
-
-4. Als u klaar bent met het aanbrengen van wijzigingen in de Knowledge base, klikt u op **opslaan en trainen** in de rechterbovenhoek van de pagina om de wijzigingen te behouden.    
+1. Wanneer u klaar bent wijzigingen aanbrengen in de knowledge base, selecteer **opslaan en trainen** in de rechterbovenhoek van de pagina om de wijzigingen te behouden.    
 
     ![Opslaan en trainen](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!NOTE]
-    Verlaat de pagina voordat u op bij het opslaan en train, blijven de wijzigingen niet behouden.
+    >[!CAUTION]
+    >Als u deze pagina voordat u selecteert verlaten **opslaan en trainen**, alle wijzigingen gaan verloren.
 
 ## <a name="add-a-qna-pair"></a>Een QnA-set toevoegen
 
@@ -62,7 +57,7 @@ Selecteer **QnA toevoegen paar** naar een nieuwe rij toevoegt aan de tabel knowl
 
 ## <a name="delete-a-qna-pair"></a>Een paar QnA verwijderen
 
-Als u wilt een QnA verwijderen, klikt u op de **verwijderen** pictogram aan de rechterkant van de QnA-rij.
+Als u wilt een QnA verwijderen, klikt u op de **verwijderen** pictogram aan de rechterkant van de QnA-rij. Dit is een permanente bewerking. Het kan niet ongedaan worden gemaakt. Houd rekening met het exporteren van uw KB van de **publiceren** pagina voordat u paren verwijdert. 
 
 ![QnA paar verwijderen](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -95,6 +90,10 @@ Metagegevens paren toevoegen door het filterpictogram selecteren
 Verwijderen van een knowledge base (KB) is een permanente bewerking. Het kan niet ongedaan worden gemaakt. Voordat u verwijdert een knowledge base, moet u de knowledge base van exporteren de **instellingen** pagina van de QnA Maker-portal. 
 
 Als u uw KB met deelt [samenwerkers](collaborate-knowledge-base.md) vervolgens verwijderd, maar iedereen toegang tot de KB verliest. 
+
+## <a name="delete-azure-resources"></a>Azure-resources verwijderen 
+
+Als u een van de Azure-resources die worden gebruikt voor de QnA Maker knowledge bases verwijdert, wordt niet langer knowledge bases werken. Voordat u alle resources te verwijderen, zorg ervoor dat u uw knowledge bases van exporteert de **instellingen** pagina. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

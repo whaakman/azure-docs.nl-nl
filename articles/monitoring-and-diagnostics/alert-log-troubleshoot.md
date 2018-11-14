@@ -8,55 +8,58 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283594"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616483"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
-
 ## <a name="overview"></a>Overzicht
-Dit artikel laat dat u problemen die regelmatig voorkomen bij het instellen van waarschuwingen in Azure monitor verwerken. En oplossing voor antwoorden op veelgestelde vragen met betrekking tot de functionaliteit of de configuratie van waarschuwingen bieden. De term **Logboekwaarschuwingen** om te beschrijven van waarschuwingen met waar signaal aangepaste query op basis van [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). Meer informatie over functies, -terminologie en typen van [Logboekwaarschuwingen - overzicht](monitor-alerts-unified-log.md).
+Dit artikel laat u over het oplossen van problemen die regelmatig voorkomen bij het instellen van waarschuwingen in Azure monitor. Het biedt ook oplossingen voor antwoorden op veelgestelde vragen met betrekking tot de functionaliteit of de configuratie van waarschuwingen. 
+
+De term **Logboekwaarschuwingen** om te beschrijven van waarschuwingen die worden gestart op basis van een aangepaste query in [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). Meer informatie over functies, -terminologie en -typen in [Logboekwaarschuwingen - overzicht](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> In dit artikel niet na te gaan wanneer de waarschuwingsregel wordt weergegeven als geactiveerd in Azure portal en een melding via de bijbehorende actie groep(en). Voor dergelijke gevallen raadpleegt u de details in het artikel op [actiegroepen](monitoring-action-groups.md).
+> In dit artikel geen rekening gehouden met de aanvragen als de Azure-portal wordt weergegeven en Waarschuwing regel geactiveerd en een melding die wordt uitgevoerd door een bijbehorende actie groep(en). Voor dergelijke gevallen raadpleegt u de details in het artikel op [actiegroepen](monitoring-action-groups.md).
 
 
 ## <a name="log-alert-didnt-fire"></a>Waarschuwing is niet gestart
 
-Gedetailleerde volgende worden enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](alert-log.md) niet ophalen geactiveerd wanneer deze wordt bekeken [Azure-waarschuwingen](monitoring-alerts-managing-alert-states.md), wanneer u verwacht dat het worden geactiveerd. 
+Hier zijn enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](alert-log.md) staat geen weergegeven [als *geactiveerd* wanneer verwacht](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Gegevens opnemen tijd voor logboeken
-Meld u waarschuwingen werkt periodiek uitvoeren klantgeleverde query op basis van [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). Beide worden aangestuurd door de kracht van Analytics, die grote hoeveelheden gegevens worden verwerkt en biedt functionaliteit op hetzelfde. Als de service Log Analytics omvat het verwerken van vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld - de service deze vatbaar voor vertraging is. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). Omdat de Log Analytics verwerkt vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld, is de service is vatbaar voor verschillende vertraging. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Te strijden tegen de vertraging voor het opnemen van gegevens die zich in Log Analytics of Application Insights-logboekbestanden voordoen kan; Waarschuwing voor moet wachten en probeert om opnieuw na enige tijd wanneer er gegevens nog niet is opgenomen voor de waarschuwingen periode gevonden. Waarschuwingen voor logboeken is er een exponentieel toenemende wacht tijd ingesteld, zodat deze Zorg ervoor dat we wachttijd die nodig zijn voor gegevens die door Log Analytics worden opgenomen. Dus als de logboeken die zijn opgevraagd met de waarschuwingsregel worden beïnvloed door opname vertragingen, wordt klikt u vervolgens waarschuwing geactiveerd nadat de gegevens beschikbaar in Log Analytics na opname en na de exponentiële tijdsverschil zijn vanwege log alert-service opnieuw wordt geprobeerd meerdere keren in de tussentijd .
+Als u wilt beperken gegevensopname vertraging, het systeem moet wachten en probeert de Waarschuwingsquery meerdere keren opnieuw als er dat nog niet de benodigde gegevens worden opgenomen. Het systeem heeft een exponentieel toenemende wachttijd instellen. Het logboek waarschuwing alleen triggers nadat de gegevens beschikbaar zijn, zodat ze vertraging kunnen worden veroorzaakt door trage logboekgegevens opnemen. 
 
 ### <a name="incorrect-time-period-configured"></a>Periode onjuist geconfigureerd
-Zoals beschreven in het artikel op [terminologie voor logboekwaarschuwingen](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), periode vermeld in de configuratie van Hiermee geeft u het tijdsbereik voor de query. De query retourneert alleen de records die zijn gemaakt binnen dit tijdsbereik. Periode Hiermee beperkt u de gegevens opgehaald voor de query voor om misbruik te voorkomen en willekeurige opdracht van de tijd heeft (zoals geleden) gebruikt in logboekquery. 
-*Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd op 13:15 uur, wordt alleen de records die zijn gemaakt tussen 12:15 uur en 13:15 uur geretourneerd logboekquery uit te voeren. Als de logboekquery gebruikt tijd opdracht zoals geleden (1d), de logboekquery wordt uitgevoerd alleen voor gegevens die tussen 12:15 uur en 1:15 PM - als gegevens bestaan alleen de afgelopen 60 minuten. En niet voor zeven dagen aan gegevens die zijn opgegeven in de query voor.*
+Zoals beschreven in het artikel op [terminologie voor logboekwaarschuwingen](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), de tijd die periode wordt vermeld in configuratie Hiermee geeft u het tijdsbereik voor de query. De query retourneert alleen de records die zijn gemaakt binnen dit tijdsbereik. Periode Hiermee beperkt u de gegevens opgehaald voor de query voor om misbruik te voorkomen en willekeurige opdracht van de tijd heeft (zoals geleden) gebruikt in logboekquery. 
+*Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd op 13:15 uur, worden alleen de records die zijn gemaakt tussen 12:15 uur en 13:15 uur gebruikt voor de logboekquery. Als de logboekquery gebruikmaakt van een opdracht tijd als *geleden (1d)*, de query nog steeds alleen gegevens tussen 12:15 uur en 13:15 uur worden gebruikt omdat de periode is ingesteld op dat het interval.*
 
-Op basis van de querylogica van uw, Controleer als geschikte periode in de configuratie is opgegeven. Eerder aangegeven, bijvoorbeeld als het logboek query gebruikt geleden (1d), zoals wordt weergegeven met groene markering - en vervolgens de periode moet worden ingesteld op 24 uur of 1440 minuten (zoals aangegeven in het rood), om te controleren of de opgegeven query wordt uitgevoerd correct als beoogd.
-    ![Periode](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
+Daarom controle die periode in de configuratie komt overeen met uw query. Eerder aangegeven, als de logboekquery gebruikt bijvoorbeeld *geleden (1d)* zoals wordt weergegeven met groene markering, klikt u vervolgens de periode moet worden ingesteld op 24 uur of 1440 minuten (zoals aangegeven in rood), om te controleren of de query wordt uitgevoerd zoals bedoeld.
+
+![Periode](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
 
 ### <a name="suppress-alerts-option-is-set"></a>Optie is ingesteld waarschuwingen onderdrukken
-Zoals beschreven in stap 8 van het artikel op [een waarschuwingsregel maken in Azure portal](alert-log.md#managing-log-alerts-from-the-azure-portal), waarschuwing biedt een optie Automatische onderdrukking van de waarschuwingsregel configureren en te voorkomen dat meldingen/trigger voor de aangegeven hoeveelheid tijd. Onderdrukken waarschuwingen optie leidt ertoe dat waarschuwing uit te voeren tijdens actiegroep niet activeren voor de tijd die is opgegeven **waarschuwingen onderdrukken** optie en kan daarom gebruiker vinden er een waarschuwing is niet geactiveerd terwijl in werkelijkheid is onderdrukt zoals geconfigureerd .
-    ![Waarschuwingen onderdrukken](./media/monitor-alerts-unified/LogAlertSuppress.png)
+Zoals beschreven in stap 8 van het artikel op [een waarschuwingsregel maken in Azure portal](alert-log.md#managing-log-alerts-from-the-azure-portal), waarschuwingen bieden een **waarschuwingen onderdrukken** optie voor het activeren en melding onderdrukken voor een geconfigureerde hoeveelheid de tijd. Als gevolg hiervan, mag u denkt dat een waarschuwing is niet gestart in werkelijkheid het heeft, maar is onderdrukt.  
+
+![Waarschuwingen onderdrukken](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>De waarschuwingsregel meting van metrische gegevens is onjuist
-Type van de meting van metrische gegevens van de waarschuwingsregel is subtype van waarschuwingen, die hebben speciale functies, maar die op zijn beurt de veiligheidsmaatregelen voor beperking van de waarschuwing query-syntaxis. Waarschuwing voor een meting van metrische gegevens regel wordt vereist dat de uitvoer van Waarschuwingsquery voor een metrische tijdreeks - een tabel met afzonderlijke gelijke grootte perioden, samen met de overeenkomende waarden van AggregatedValue berekend. Bovendien kunnen gebruikers kiezen dat in de tabel meer variabelen naast AggregatedValue als Computer, knooppunt, enz. met behulp van welke gegevens in de tabel kan worden gesorteerd.
+**Waarschuwingen voor meting van metrische gegevens** zijn van een subtype van waarschuwingen, waarvoor speciale mogelijkheden en een beperkte waarschuwing query-syntaxis. Een waarschuwingsregel meting van metrische gegevens is vereist voor de query uitvoeren om te worden van een metrische tijdreeks; dat wil zeggen, grote een tabel met afzonderlijke even voor perioden, samen met de bijbehorende geaggregeerde waarden. Bovendien kunnen gebruikers kiezen om meer variabelen in de tabel naast AggregatedValue. Deze variabelen kunnen worden gebruikt om de tabel te sorteren. 
 
-Stel bijvoorbeeld dat logboekwaarschuwingen meting van metrische gegevens is geconfigureerd als:
+Stel bijvoorbeeld dat een waarschuwingsregel meting van metrische gegevens is geconfigureerd als:
 - query is: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - periode van 6 uur
 - drempelwaarde van 50
 - waarschuwingslogica van drie achtereenvolgende schendingen
 - Cumulatieve bij gekozen als $table
 
-Nu samenvatten omdat in de opdracht, we hebben gebruikt... door en twee variabelen: timestamp & $table; Waarschuwing service, kiest u $table bij 'Cumulatieve na' - in feite de resultaattabel per veld sorteren: $table - zoals hieronder wordt weergegeven en de meerdere AggregatedValue voor elke tabel kijken Typ (zoals availabilityResults) om te zien als er achtereenvolgende schendingen van 3 of meer is.
+Omdat de opdracht bevat *... samenvatten op* en twee variabelen (timestamp & $table), het systeem kiest $table naar 'Cumulatieve na'. Sorteert de resultaattabel in het veld *$table* zoals hieronder wordt weergegeven en wordt gecontroleerd op de meerdere AggregatedValue voor elk tabeltype (zoals availabilityResults) als er achtereenvolgende schendingen van 3 of meer is.
 
-   ![Metrische meting queryuitvoering met meerdere waarden](./media/monitor-alerts-unified/LogMMQuery.png)
+![Metrische meting queryuitvoering met meerdere waarden](./media/monitor-alerts-unified/LogMMQuery.png)
 
 Als ' totale "$table is: de gegevens gesorteerd op kolom $table (zoals in rood); we groep en zoek naar "Cumulatieve bij" veld typen (dat wil zeggen) $table – bijvoorbeeld: waarden voor de availabilityResults worden beschouwd als een diagram/entiteit (zoals gemarkeerd in oranje). In deze entiteit/waarde plot: waarschuwing service controleert op drie achtereenvolgende schendingen optreden (zoals weergegeven in groen) voor die waarschuwing wordt ophalen geactiveerd voor de tabelwaarde 'availabilityResults'. Op dezelfde manier als voor een andere waarde voor $table als drie achtereenvolgende schendingen worden gezien - wordt nog een waarschuwing geactiveerd voor hetzelfde; met waarschuwing service automatisch de waarden in één diagram/entiteit (zoals in oranje) op tijd te sorteren.
 
@@ -85,4 +88,5 @@ Wat wordt weergegeven in **query moet worden uitgevoerd** sectie is welke logboe
 
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](monitor-alerts-unified-log.md)
 * Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
-* Meer informatie over [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Meer informatie over [Log Analytics](../log-analytics/log-analytics-overview.md). 
+

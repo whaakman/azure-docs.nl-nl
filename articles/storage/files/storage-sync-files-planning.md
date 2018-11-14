@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914325"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625297"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -27,7 +27,7 @@ Voordat u de details van de planning voor de implementatie van een Azure File Sy
 De Opslagsynchronisatieservice is de op het hoogste niveau Azure-resource voor Azure File Sync. De Opslagsynchronisatieservice-resource is een peer van de resource van het opslagaccount en kan op dezelfde manier worden geïmplementeerd op Azure-resourcegroepen. Een resource voor verschillende op het hoogste niveau van de resource van het opslagaccount is vereist omdat de Opslagsynchronisatieservice synchronisatierelaties met meerdere opslagaccounts via meerdere synchronisatiegroepen maken kunt. Een abonnement kan hebben meerdere Opslagsynchronisatieservice resources die zijn geïmplementeerd.
 
 ### <a name="sync-group"></a>Synchronisatiegroep
-Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameling bestanden. Eindpunten in een synchronisatiegroep worden synchroon met elkaar. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met Azure File Sync hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een Opslagsynchronisatieservice kunt zoveel synchronisatiegroepen als u wilt hosten.  
+Een synchronisatiegroep definieert de synchronisatietopologie voor een verzameling bestanden. Eindpunten binnen een synchronisatiegroep worden onderling synchroon gehouden. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met Azure File Sync hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een Opslagsynchronisatieservice kunt zoveel synchronisatiegroepen als u wilt hosten.  
 
 ### <a name="registered-server"></a>Geregistreerde server
 De geregistreerde server-object vertegenwoordigt een vertrouwensrelatie tussen uw server (of cluster) en de Opslagsynchronisatieservice. U kunt zo veel servers naar een exemplaar van de Opslagsynchronisatieservice als u wilt registreren. Echter, een server (of cluster) kan worden geregistreerd met slechts één Opslagsynchronisatieservice tegelijk.
@@ -191,19 +191,9 @@ Met behulp van sysprep op een server die de Azure File Sync-agent geïnstalleerd
 Als cloud tiering is ingeschakeld op een servereindpunt, bestanden die zich gelaagd worden overgeslagen en niet zijn geïndexeerd met Windows Search. Niet-gelaagde bestanden worden juist geïndexeerd.
 
 ### <a name="antivirus-solutions"></a>Anti-virussoftware
-Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke code, kan het intrekken van gelaagde bestanden leiden tot een antivirusproduct. Aangezien de gelaagde bestanden hebben het kenmerk 'offline' is ingesteld, wordt u aangeraden overleg met de softwareleverancier voor meer informatie over het configureren van de oplossing voor het lezen van offlinebestanden overslaan. 
+Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke code, kan het intrekken van gelaagde bestanden leiden tot een antivirusproduct. In versie 4.0 en hoger van de Azure File Sync-agent gelaagde bestanden hebben het beveiligde Windows kenmerk FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS is ingesteld. U wordt aangeraden overleg met de softwareleverancier voor meer informatie over hun oplossing om over te slaan van het lezen van bestanden met dit kenmerk is ingesteld (veel hiervoor automatisch) te configureren.
 
-De volgende oplossingen zijn bekende ter ondersteuning van offlinebestanden overslaan:
-
-- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender slaat automatisch over het lezen van bestanden die de offline kenmerk hebben. We hebben getest Defender en een klein probleem geïdentificeerd: wanneer u een server aan een bestaande synchronisatiegroep toevoegen, bestanden kleiner is dan 800 bytes (gedownload) op de nieuwe server worden ingetrokken. Deze bestanden blijven aanwezig op de nieuwe server en gelaagd omdat ze niet voldoen aan de vereiste cloudlagen (> 64kb).
-- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - SCEP werkt op dezelfde manier als Defender; Zie hierboven
-- [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
-- [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (Zie "scannen alleen wat u moet' op de pagina 90 van het PDF-bestand)
-- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
-- [Sophos Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
-- [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
+Microsofts interne antivirusoplossingen, Windows Defender en System Center Endpoint Protection (SCEP), overslaan beide automatisch het lezen van bestanden die in dit kenmerk is ingesteld. We hebben getest en een klein probleem geïdentificeerd: wanneer u een server aan een bestaande synchronisatiegroep toevoegen, bestanden kleiner is dan 800 bytes (gedownload) op de nieuwe server worden ingetrokken. Deze bestanden blijven aanwezig op de nieuwe server en gelaagd omdat ze niet voldoen aan de vereiste cloudlagen (> 64kb).
 
 ### <a name="backup-solutions"></a>Back-upoplossingen
 Back-upoplossingen kunnen leiden tot het intrekken van gelaagde bestanden, zoals antivirus-oplossingen. U wordt aangeraden met behulp van een cloudoplossing voor back-up naar back-up van de Azure-bestandsshare in plaats van een on-premises back-product.

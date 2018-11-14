@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4aa5e4ff46eeaa4e8d8c723f626dd1f1193fd12a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cc7bd6bab76ee6617a2594cb0b84ace3f6f3dafc
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281605"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622122"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Globale gegevensdistributie met Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Veel toepassingen profiteren van de prestatieverbeteringen die worden geleverd m
 
 **Maximaal beschikbare apps bouwen**: uitvoeren van een database in meerdere regio's verhoogt de beschikbaarheid van de database. Als één regio niet beschikbaar is, worden in andere regio's aanvragen voor toepassingen automatisch verwerken. Azure Cosmos DB biedt voor 99,999% lezen en schrijven van beschikbaarheid voor databases van meerdere regio's.
 
-**Bedrijfscontinuïteit tijdens een regionale onderbreking**: Azure Cosmos DB biedt ondersteuning voor [automatische failover](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account) tijdens een regionale onderbreking. Bovendien tijdens een regionale storing blijft Cosmos DB behouden de latentie, beschikbaarheid, consistentie en doorvoer Sla's. Om te zorgen dat uw gehele toepassing maximaal beschikbaar, biedt Azure Cosmos DB handmatige failover-API voor het simuleren van een regionale onderbreking. U kunt met behulp van deze API, normale zakelijke continuïteit oefeningen uitvoeren.
+**Bedrijfscontinuïteit tijdens een regionale onderbreking**: Azure Cosmos DB biedt ondersteuning voor [automatische failover](how-to-manage-database-account.md#automatic-failover) tijdens een regionale onderbreking. Bovendien tijdens een regionale storing blijft Cosmos DB behouden de latentie, beschikbaarheid, consistentie en doorvoer Sla's. Om te zorgen dat uw gehele toepassing maximaal beschikbaar, biedt Azure Cosmos DB handmatige failover-API voor het simuleren van een regionale onderbreking. U kunt met behulp van deze API, normale zakelijke continuïteit oefeningen uitvoeren.
 
 **Algemene lezen en schrijven van schaalbaarheid**: met meerdere masters capaciteit, kunt u elastisch schalen lezen en schrijven van doorvoer over de hele wereld. Meerdere masters mogelijkheid wordt gegarandeerd dat de doorvoer die uw toepassing wordt geconfigureerd op een Azure Cosmos DB-database of een container wordt geleverd in alle regio's en beveiligd door [met financiële Sla's ondersteund](https://aka.ms/acdbsla).
 

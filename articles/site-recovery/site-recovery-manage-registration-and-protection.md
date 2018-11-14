@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: da9319934068709d5635352fdbd52c3ca6ac49be
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d7dcf27e106f73c828c2c46d4d7180b1f906e4d8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568883"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614851"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Servers verwijderen en beveiliging uitschakelen
 
@@ -51,7 +51,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 5. Als uw Hyper-V-host zich in een **verbroken** status en vervolgens op het volgende script uitvoeren op elke Hyper-V-host die u hebt verwijderd. Het script ruimt instellingen op de server, en de registratie van het uit de kluis.
 
 
-
+```powershell
         pushd .
         try
         {
@@ -112,7 +112,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
                 "Registry keys removed."
             }
 
-            # First retrive all the certificates to be deleted
+            # First retrieve all the certificates to be deleted
             $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
             # Open a cert store object
             $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
@@ -131,7 +131,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
             Write-Host "FAILED" -ForegroundColor "Red"
         }
         popd
-
+```
 
 
 ## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Schakel de beveiliging voor een VM met VMware of fysieke server (VMware naar Azure)
@@ -158,10 +158,12 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
     > Als u ervoor kiest de **verwijderen** optie voert u de volgende set van scripts voor het opschonen van de replicatie-instellingen on-premises Hyper-V-Server.
 1. Op de bron-Hyper-V-hostserver, replicatie voor de virtuele machine verwijderen. SQLVM1 vervangen door de naam van uw virtuele machine en voer het script uit vanuit een administratief PowerShell
 
-
-    
-    $vmName = "SQLVM1" $vm = Get-WmiObject - Namespace "root\virtualization\v2"-Query ' selecteren * van Msvm_ComputerSystem waar ElementName '$vmName' = ' $replicationService = Get-WmiObject - Namespace "root\virtualization\v2"-"Selecteer * uit Msvm_ Query ReplicationService"$replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
+```powershell
+    $vmName = "SQLVM1"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Schakel de beveiliging voor een Hyper-V virtuele machine repliceren naar Azure met behulp van de System Center VMM naar Azure
 
@@ -179,11 +181,14 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. De bovenstaande stappen schakelt u de replicatie-instellingen op de VMM-server. Als u wilt stoppen van replicatie voor de virtuele machine die wordt uitgevoerd op de Hyper-V-host-server, moet u dit script uitvoeren. SQLVM1 vervangen door de naam van uw virtuele machine en host01.contoso.com met de naam van de Hyper-V-hostserver.
 
-    
-    $vmName = "SQLVM1" $hostName = "host01.contoso.com" $vm = Get-WmiObject - Namespace "root\virtualization\v2"-Query "selecteren * van Msvm_ComputerSystem waar ElementName = '$vmName'" - computername $hostName $replicationService = Get-WmiObject - Namespace "root\virtualization\v2"-'Selecteer * uit Msvm_ReplicationService' - computername $hostName $replicationService.RemoveReplicationRelationship($vm.__PATH) Query
-    
-       
- 
+```powershell
+    $vmName = "SQLVM1"
+    $hostName  = "host01.contoso.com"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
+
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>Schakel de beveiliging voor een Hyper-V virtuele machine repliceren naar een secundaire VMM-Server met behulp van de System Center VMM naar VMM-scenario
 
 1. In **beveiligde Items** > **gerepliceerde Items**, met de rechtermuisknop op de machine > **replicatie uitschakelen**.

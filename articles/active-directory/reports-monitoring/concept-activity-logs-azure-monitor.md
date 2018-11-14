@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-activiteitenlogboeken in Azure Monitor (preview) | Microsoft Docs
-description: Overzicht van Azure Active Directory-activiteitenlogboeken in Azure Monitor (preview)
+description: Inleiding tot Azure Active Directory-activiteit wordt geregistreerd in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395630"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625433"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-activiteitenlogboeken in Azure Monitor (preview)
 
-U kunt nu met Azure Monitor uw Azure AD-activiteitenlogboeken (Azure AD) doorsturen naar uw eigen opslagaccount of Event Hub. In de openbare preview van Azure Active Directory-logboeken in Azure Monitor kunt u:
+U kunt nu activiteitenlogboeken van Azure Active Directory (Azure AD) naar verschillende eindpunten voor de lange termijn bewaren en gegevens inzichten versturen. De openbare preview van Azure AD-Logboeken in Azure Monitor kunt u:
 
-* Uw auditlogboeken archiveren voor een Azure-opslagaccount, zodat u de gegevens lang kunt bewaren.
-* Uw auditlogboeken naar een Event Hub in Azure streamen om deze te analyseren met behulp van populaire SIEM-hulpprogramma's (Security Information and Event Management), zoals Splunk en QRadar.
-* Uw auditlogboeken integreren met uw eigen aangepaste logboekoplossingen door deze naar een Event Hub te streamen.
+* Activiteitenlogboeken archiveren Azure AD naar Azure storage-account, de gegevens behouden gedurende een lange periode.
+* Activiteitenlogboeken naar een Azure event hub voor analyses, met behulp van populaire Security Information and Event Management (SIEM) hulpprogramma's, zoals Splunk en QRadar Stream Azure AD.
+* Azure AD integreren met uw eigen aangepaste logboek-oplossingen door ze te streamen naar een event hub-activiteitenlogboeken.
 * Verzenden van Azure AD-activiteitenlogboeken naar Log Analytics om in te schakelen uitgebreide visualisaties, bewaking en waarschuwingen voor de verbonden gegevens.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Ondersteunde rapporten
 
-Met deze functie kunt u uw audit- en aanmeldingslogboeken doorsturen naar uw Azure-opslagaccount, Event Hub of aangepaste oplossing. 
+U kunt versturen Azure AD controleren logboeken en aanmelden logboeken naar uw Azure storage-account, de event hub, de Log Analytics of de aangepaste oplossing met behulp van deze functie. 
 
 * **Auditlogboeken**: het [activiteitenrapport voor auditlogboeken](concept-audit-logs.md) biedt u toegang tot de geschiedenis van elke taak die in uw tenant is uitgevoerd.
 * **Aanmeldingslogboeken**: met het [activiteitenrapport voor aanmeldingen](concept-sign-ins.md) kunt u bepalen wie de taken heeft uitgevoerd die in het auditlogboek zijn gerapporteerd.
@@ -101,25 +101,19 @@ Kosten met betrekking tot de Log Analytics-werkruimte beheren, Zie [kosten beher
 
 Deze sectie bevat antwoorden op veelgestelde vragen en bekende problemen met betrekking tot Azure AD-logboeken in Azure Monitor.
 
-**V: waar moet ik beginnen?** 
-
-**A**: in dit artikel wordt beschreven wat u nodig hebt om deze functie te implementeren. Nadat u aan de vereisten hebt voldaan, gaat u naar de zelfstudies die u helpen bij het configureren en doorsturen van uw logboeken naar een Event Hub.
-
----
-
 **V: welke logboeken zijn opgenomen?**
 
 **A:** zowel de aanmeldings- als de auditlogboeken zijn beschikbaar om via deze functie doorgestuurd te worden. Gebeurtenissen met betrekking tot B2C worden momenteel niet ondersteund. Raadpleeg het [auditlogboekschema](reference-azure-monitor-audit-log-schema.md) en het [aanmeldingslogboekschema](reference-azure-monitor-sign-ins-log-schema.md) om uit te vinden welke typen logboeken en welke op functie gebaseerde logboeken momenteel worden ondersteund. 
 
 ---
 
-**V: hoe snel na een actie worden de bijbehorende logboeken weergegeven in Event Hubs?**
+**V: hoe snel na een actie wordt de bijbehorende logboeken weergegeven in mijn event hub?**
 
 **A:**: de logboeken zouden binnen twee tot vijf minuten nadat de actie is uitgevoerd zichtbaar moeten zijn in uw Event Hub. Raadpleeg [Wat is Azure Event Hubs?](../../event-hubs/event-hubs-about.md) voor meer informatie over Event Hubs.
 
 ---
 
-**V: hoe snel na een actie worden de bijbehorende logboeken weergegeven in opslagaccounts?**
+**V: hoe snel na een actie wordt de bijbehorende logboeken weergegeven in mijn storage-account?**
 
 **A:** voor Azure-opslagaccounts ligt de latentie tussen de 5 en 15 minuten na het uitvoeren van een actie.
 

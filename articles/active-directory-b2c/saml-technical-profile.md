@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c99099c9b0fdf485bcf1db1d00b23e1e119ec557
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162439"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614154"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technische SAML-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de SAML 2.0-id-provider. Dit artikel beschrijft de details van een technisch profiel voor interactie met een claimprovider die ondersteuning biedt voor dit gestandaardiseerde protocol. Met SAML technische u met een SAML communiceren kan-profiel op basis van id-provider, zoals AD FS en Salesforce, zodat u kunt gebruikers kunnen aanmelden met hun bestaande sociale of ondernemings-id's.
+Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de SAML 2.0-id-provider. Dit artikel beschrijft de details van een technisch profiel voor interactie met een claimprovider die ondersteuning biedt voor dit gestandaardiseerde protocol. Met het technische SAML-profiel die u met op basis van SAML-identiteitsprovider, zoals AD FS en Salesforce federeren kunt, zodat uw gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
 
 ## <a name="metadata-exchange"></a>Uitwisseling van metagegevens
 

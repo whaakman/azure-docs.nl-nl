@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: de24e8b308c6adf3f69caae4ab671f57fc2f6b8c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565051"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624434"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>OpenVPN clients configureren voor Azure VPN-Gateway (Preview)
 
@@ -38,7 +38,7 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
   ```
 6. Open *profileinfo.txt* in Kladblok. Als u de vingerafdruk van het clientcertificaat (onderliggend), selecteert u de tekst (met inbegrip van en tussen) "---BEGIN CERTIFICATE---" en "---END CERTIFICATE---' voor de onderliggende van het certificaat en deze te kopiëren. U kunt het onderliggende certificaat identificeren door te kijken de = onderwerp / lijn.
-7. Schakel over naar de *vpnconfig.ovpn* -bestand dat u in stap 3 in Kladblok hebt geopend. Ga naar het gedeelte hieronder vervangen alles tussen 'cert' en ' / cert '.
+7. Schakel over naar de *vpnconfig.ovpn* -bestand dat u in stap 3 in Kladblok hebt geopend. De onderstaande sectie zoeken en vervangen alles tussen 'cert' en ' / cert '.
 
   ```
   # P2S client certificate
@@ -119,7 +119,7 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 11. Als u wilt verbinding maken met behulp van de opdrachtregel, typt u de volgende opdracht uit:
   
   ```
-  Sudo openvpn –config <name and path of your VPN profile file>
+  sudo openvpn –-config <name and path of your VPN profile file>
   ```
 12. Als u wilt verbinding maken met de gebruikersinterface, gaat u naar de systeeminstellingen.
 13. Klik op **+** om toe te voegen een nieuwe VPN-verbinding.

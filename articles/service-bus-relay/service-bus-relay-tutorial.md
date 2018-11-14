@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor Azure Service Bus WCF Relay | Microsoft Docs
+title: Een on-premises-WCF REST-service voor externe client zichtbaar te maken met behulp van Azure WCF Relay | Microsoft Docs
 description: Een client en service-toepassing ontwikkelen met WCF-Relay.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262009"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615465"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Zelfstudie over Azure WCF Relay
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Een on-premises-WCF REST-service voor externe client zichtbaar te maken met behulp van Azure WCF Relay
 
 In deze zelfstudie wordt beschreven hoe u een eenvoudige WCF Relay-clienttoepassing en -service met behulp van Azure Relay maakt. Voor een vergelijkbare zelfstudie die gebruikmaakt van [Service Bus-berichtenservice](../service-bus-messaging/service-bus-messaging-overview.md), Zie [aan de slag met Service Bus-wachtrijen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -31,19 +31,32 @@ Als u de onderwerpen in deze zelfstudie op de juiste volgorde doorloopt, hebt u 
 
 In de laatste drie stappen wordt beschreven hoe u een clienttoepassing maakt, hoe u de clienttoepassing configureert en hoe u een client maakt en gebruikt die toegang heeft tot de functionaliteit van de host.
 
+U kunt de volgende stappen uitvoeren in deze zelfstudie:
+
+> [!div class="checklist"]
+> * Een Relay-naamruimte maken.
+> * Een WCF-servicecontract maken
+> * De WCF-contract implementeren
+> * Hosten en uitvoeren van de WCF-service om te registreren bij de Relay-service
+> * Een WCF-client maken voor het servicecontract
+> * De WCF-client configureren
+> * De WCF-client implementeren
+> * De toepassingen uitvoeren. 
+
 ## <a name="prerequisites"></a>Vereisten
 
-Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* [Microsoft Visual Studio 2015 of hoger](https://visualstudio.com). In deze zelfstudie wordt Visual Studio 2017.
-* Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
+- Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+- [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+- Azure SDK voor .NET. Installeren via de [SDK-pagina met downloads](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-service-namespace"></a>Een servicenaamruimte maken
+## <a name="create-a-relay-namespace"></a>Een Relay-naamruimte maken
+De eerste stap is het maken van een naamruimte, en om op te halen een [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) sleutel. Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via de relay-service. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van Servicenaamruimte en SAS-sleutel biedt de referenties voor Azure voor het verifiëren van toegang tot een toepassing.
 
-De eerste stap is het maken van een naamruimte, en om op te halen een [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) sleutel. Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via de relay-service. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van Servicenaamruimte en SAS-sleutel biedt de referenties voor Azure voor het verifiëren van toegang tot een toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Een WCF-servicecontract definiëren
-
 Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologie voor methoden of functies) de service ondersteunt. Contracten worden gemaakt door een C++-, C#- of Visual Basic-interface te definiëren. Elke methode in de interface komt overeen met een specifieke servicebewerking. Op elke interface moet het kenmerk [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) worden toegepast en op elke bewerking moet het kenmerk [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) worden toegepast. Als een methode in een interface met het kenmerk [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) niet beschikt over het kenmerk [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), wordt die methode niet weergegeven. In het voorbeeld na de procedure wordt de code voor deze taken weergegeven. Zie [Services ontwerpen en implementeren](https://msdn.microsoft.com/library/ms729746.aspx) in de WCF-documentatie voor meer informatie over contracten en services.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Een relay-contract met een interface maken
@@ -51,13 +64,13 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
 1. Open Visual Studio als beheerder door met de rechtermuisknop achtereenvolgens op het programma in het menu **Start** en op **Als administrator uitvoeren** te klikken.
 2. Maak een nieuw consoletoepassingsproject aan. Klik op het menu **Bestand**, selecteer **Nieuw** en klik vervolgens op **Project**. Klik in het dialoogvenster **Nieuw project** op **Visual C#** (als **Visual C#** niet wordt weergegeven, kijkt u bij **Andere talen**). Klik op de **Console-App (.NET Framework)** sjabloon en geef deze de naam **EchoService**. Klik op **OK** om het project aan te maken.
 
-    ![][2]
+    ![Een console-app maken][2]
 
 3. Installeer het Service Bus-pakket NuGet. Met dit pakket worden automatisch verwijzingen naar de Service Bus-bibliotheken en naar het **System.ServiceModel** van WCF toegevoegd. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. Service Bus maakt gebruik van veel van de objecten en kenmerken van WCF om servicecontracten te definiëren.
 
     Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad Bladeren en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
-    ![][3]
+    ![Service Bus-pakket][3]
 4. Dubbelklik in Solution Explorer op het bestand Program.cs om het in de editor te openen, als het bestand nog niet was geopend.
 5. Voeg boven aan het bestand de volgende instructies toe:
 
@@ -231,7 +244,7 @@ In de volgende code staat de basisindeling van het aan de servicehost gekoppelde
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Hosten en uitvoeren van een eenvoudige webservice om te registreren bij de relay-service
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Hosten en uitvoeren van de WCF-service om te registreren bij de relay-service
 
 Deze stap wordt beschreven hoe u een Azure Relay-service uit te voeren.
 
@@ -501,7 +514,7 @@ In deze stap maakt u een App.config-bestand voor een eenvoudige clienttoepassing
     Deze stap definieert de naam van het eindpunt, het contract dat is gedefinieerd in de service en het feit dat de clienttoepassing maakt gebruik van TCP om te communiceren met Azure Relay. De naam van het eindpunt wordt in de volgende stap gebruikt om deze eindpuntconfiguratie te koppelen aan de service-URI.
 5. Klik op **bestand**, klikt u vervolgens op **Alles opslaan**.
 
-## <a name="example"></a>Voorbeeld
+### <a name="example"></a>Voorbeeld
 
 In de volgende code staat het App.config-bestand voor de Echo-client.
 
@@ -607,7 +620,7 @@ Een van de belangrijkste verschillen is echter dat de clienttoepassing een kanaa
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Voorbeeld
+### <a name="example"></a>Voorbeeld
 
 De voltooide code ziet er als volgt met het maken van een clienttoepassing, over het aanroepen van de bewerkingen van de service en hoe u de client sluit nadat de bewerkingsaanroep is voltooid.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. U kunt op deze manier doorgaan met het verzenden van berichten van de client naar de service. Wanneer u klaar bent, drukt u op Enter in de client- en serviceconsolevensters om beide toepassingen te sluiten.
 
 ## <a name="next-steps"></a>Volgende stappen
+Ga naar de volgende zelfstudie: 
 
-In deze zelfstudie hebt u geleerd hoe u een Azure Relay-clienttoepassing en -service met behulp van de WCF Relay-mogelijkheden van Service Bus maakt. Voor een vergelijkbare zelfstudie die gebruikmaakt van [Service Bus-berichten](../service-bus-messaging/service-bus-messaging-overview.md), Zie [aan de slag met Service Bus-wachtrijen](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Zie de volgende onderwerpen voor meer informatie over Azure Relay.
-
-* [Overzicht van Azure Relay](relay-what-is-it.md)
-* [De WCF relay-service gebruiken met .NET](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[Een on-premises WCF REST-service voor een client buiten uw netwerk zichtbaar maken](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

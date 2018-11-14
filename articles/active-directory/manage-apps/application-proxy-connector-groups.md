@@ -2,7 +2,6 @@
 title: Publiceren van toepassingen op afzonderlijke netwerken en locaties connectorgroepen gebruiken in Azure AD-toepassingsproxy | Microsoft Docs
 description: Bevat informatie over het maken en beheren van groepen van connectors in Azure AD-toepassingsproxy.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364970"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622630"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publiceren van toepassingen op afzonderlijke netwerken en locaties met behulp van connectorgroepen
 
@@ -86,14 +84,14 @@ Met Azure AD Application Proxy connectorgroepen, kunt u een algemene service voo
 De meeste klanten die Application Proxy hebben geïmplementeerd zijn met behulp van de eenmalige aanmelding (SSO) mogelijk door het uitvoeren van Kerberos-beperkte delegatie (KCD). Om dit te bereiken, moeten van de connector-machines worden toegevoegd aan een domein dat de gebruikers naar de toepassing kan delegeren. Forest-overschrijdende mogelijkheden biedt ondersteuning voor KCD. Maar voor bedrijven die beschikken over verschillende omgevingen voor meerdere forests zonder vertrouwensrelatie tussen één connector kan niet worden gebruikt voor alle forests. 
 
 In dit geval kunnen specifieke connectors worden geïmplementeerd per forest en ingesteld op het leveren van toepassingen die zijn gepubliceerd om te fungeren, alleen de gebruikers van dit specifieke forest. Elke connectorgroep vertegenwoordigt een ander forest. Terwijl de tenant en het merendeel van de ervaring is unified voor alle forests, kunnen gebruikers worden toegewezen aan hun forest-toepassingen met behulp van Azure AD-groepen.
- 
+ 
 ### <a name="disaster-recovery-sites"></a>Disaster Recovery sites
 
 Er zijn twee verschillende methoden die u met een herstelsite na een noodgeval (DR uitvoeren kunt), afhankelijk van hoe uw sites worden geïmplementeerd:
 
 * Als uw DR-site is ingebouwd in de modus actief-actief waar het precies hetzelfde als de primaire site en heeft de dezelfde netwerk- en AD-instellingen, kunt u de connectors maken op de DR-site in de dezelfde connectorgroep als de primaire site. Hierdoor kan Azure AD voor het detecteren van failovers voor u.
 * Als uw DR-site gescheiden van de primaire site is, u een andere connectorgroep in de DR-site maken kunt en een (1) back-uptoepassingen hebt of 2) handmatig de bestaande toepassing aan de DR-connectorgroep omleiden naar behoefte.
- 
+ 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Meerdere bedrijven dienen van één tenant
 
 Er zijn veel verschillende manieren voor het implementeren van een model waarin een één-provider wordt geïmplementeerd en onderhoudt de Azure AD-gerelateerde services voor meerdere bedrijven. Connectorgroepen zodat de beheerder de connectors en toepassingen in verschillende groepen te scheiden. Er is een manier die geschikt is voor kleine bedrijven, dat één Azure AD tenant terwijl de andere bedrijven hun eigen domeinnaam en netwerken hebben. Dit geldt ook voor scenario's voor M & A en situaties waarbij een enkel IT-afdeling fungeert voor meerdere bedrijven vanwege regelgeving of zakelijke redenen. 
@@ -101,7 +99,7 @@ Er zijn veel verschillende manieren voor het implementeren van een model waarin 
 ## <a name="sample-configurations"></a>Voorbeelden van configuraties
 
 Enkele voorbeelden die u kunt implementeren, zijn de volgende connectorgroepen.
- 
+ 
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Standaardconfiguratie – geen nut voor connectorgroepen
 
 Als u connectorgroepen niet gebruikt, wordt de configuratie eruit als volgt:
@@ -109,7 +107,7 @@ Als u connectorgroepen niet gebruikt, wordt de configuratie eruit als volgt:
 ![AzureAD geen Connectorgroepen](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
 Deze configuratie is voldoende voor kleine implementaties en tests. Het werkt ook goed als uw organisatie een platte netwerktopologie heeft.
- 
+ 
 ### <a name="default-configuration-and-an-isolated-network"></a>Standaardconfiguratie en een geïsoleerd netwerk
 
 Deze configuratie is een verbetering van de standaard één, waarin een specifieke app die wordt uitgevoerd in een geïsoleerd netwerk zoals IaaS virtuele netwerk is: 
@@ -127,6 +125,6 @@ In het volgende voorbeeld wordt heeft het bedrijf twee datacentra, A en B, met t
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie over Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* [Eenmalige aanmelding inschakelen](application-proxy-single-sign-on.md)
+* [Eenmalige aanmelding inschakelen](what-is-single-sign-on.md)
 
 

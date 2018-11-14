@@ -9,19 +9,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054941"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621442"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Toegang tot Azure Cosmos DB-gegevens beveiligen
 In dit artikel biedt een overzicht van het beveiligen van toegang tot gegevens die zijn opgeslagen in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Azure Cosmos DB gebruikt twee typen sleutels bij het verifiëren van gebruikers en toegang bieden tot de gegevens en resources. 
 
-|Sleuteltype|Resources|
+|Type sleutel|Resources|
 |---|---|
 |[Hoofdsleutels](#master-keys) |Gebruikt voor administratieve resources: database-accounts, databases, gebruikers en machtigingen|
 |[Resource-tokens](#resource-tokens)|Gebruikt voor toepassingsresources: containers, documenten, bijlagen, opgeslagen procedures, triggers en UDF's|
@@ -40,7 +40,7 @@ Elk account bestaat uit twee hoofdsleutels: een primaire en secundaire sleutel. 
 
 Naast de twee hoofdsleutels voor de Cosmos DB-account zijn er twee sleutels voor alleen-lezen. Deze sleutels alleen-lezen is alleen toegestaan voor leesbewerkingen voor het account. Alleen-lezensleutels geven geen toegang tot resources van de machtigingen lezen.
 
-Primair, secundair, alleen-lezen en sleutels voor lezen / schrijven master kan worden opgehaald en wordt opnieuw gegenereerd met behulp van de Azure portal. Zie voor instructies [weergeven, kopiëren en opnieuw genereren toegangssleutel](manage-account.md#keys).
+Primair, secundair, alleen-lezen en sleutels voor lezen / schrijven master kan worden opgehaald en wordt opnieuw gegenereerd met behulp van de Azure portal. Zie voor instructies [weergeven, kopiëren en opnieuw genereren toegangssleutel](manage-with-cli.md#regenerate-account-key).
 
 ![Toegangsbeheer (IAM) in Azure portal - beveiliging voor NoSQL-database aan te tonen](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -196,5 +196,4 @@ Azure Cosmos DB kunt u zoeken, selecteren, wijzigen en verwijderen van persoonli
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over de beveiliging van de Cosmos DB-database, [Cosmos DB: Database security](database-security.md).
-* Zie voor meer informatie over het beheren van hoofd- en alleen-lezensleutels, [over het beheren van een Azure Cosmos DB-account](manage-account.md#keys).
 * Zie voor meer het maken van Azure Cosmos DB-autorisatietokens [toegangsbeheer op Azure Cosmos DB-Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

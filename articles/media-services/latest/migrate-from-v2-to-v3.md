@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287537"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616007"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -59,6 +59,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 * De v3-SDK's zijn nu ontkoppeld van de Storage-SDK, waardoor u meer controle over de versie van de Storage-SDK u wilt gebruiken en voorkomt u problemen met versiebeheer. 
 * In de v3 API's zijn alle van de codering bitsnelheden in bits per seconde. Dit is anders dan de v2 voorinstellingen van Media Encoder Standard. Bijvoorbeeld, de bitrate in v2 zou worden opgegeven als 128 (kbps), maar in v3 het normaal zou zijn 128000 (bits per seconde). 
 * Entiteiten AssetFiles AccessPolicies en IngestManifests bestaan niet in v3.
+* De eigenschap IAsset.ParentAssets bestaat niet in v3.
 * Inhoudssleutels is niet langer een entiteit, het is nu een eigenschap van de StreamingLocator.
 * Ondersteuning voor Event Grid vervangt NotificationEndpoints.
 * De volgende entiteiten zijn gewijzigd

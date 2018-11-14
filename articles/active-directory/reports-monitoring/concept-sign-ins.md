@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058354"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623764"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
-Met Azure AD-rapporten (Azure Active Directory) in [Azure Portal](https://portal.azure.com) ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
-
-De rapportstructuur in Azure Active Directory bestaat uit de volgende onderdelen:
+De rapportstructuur in Azure Active Directory (Azure AD) bestaat uit de volgende onderdelen:
 
 - **Activiteit** 
-    - **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
-    - **Controlelogboeken**: informatie over systeemactiviteit van gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten.
+    - **Aanmeldingen** : informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers.
+    - **Auditlogboeken** - [auditlogboeken](concept-audit-logs.md) systeeminformatie over systeemactiviteit van gebruikers en beheer van groepen, beheerde toepassingen en directory-activiteiten bevatten.
 - **Beveiliging** 
-    - **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie Riskante aanmeldingen voor meer informatie.
-    - **Gebruikers van wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie Gebruikers van wie wordt aangegeven dat ze risico lopen voor meer informatie.
+    - **Riskante aanmeldingen** : een [riskante aanmelding](concept-risky-sign-ins.md) is een indicator van een aanmeldingspoging die mogelijk zijn uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount.
+    - **Gebruikers die zijn gemarkeerd voor risico's** : een [riskante gebruiker](concept-user-at-risk.md) is een indicator van een gebruikersaccount dat mogelijk is aangetast.
 
-In dit onderwerp vindt u meer informatie over de aanmeldactiviteiten.
+In dit onderwerp vindt u een overzicht van het rapport-aanmeldingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
-* Gebruikers in de beveiligingsbeheerder, Beveiligingslezer, de rol rapportlezer
+* Gebruikers in de rollen Beveiligingsbeheerder, Beveiligingslezer en rapportlezer
 * Globale beheerders
-* Alle gebruiker (niet-beheerders) hebben toegang tot hun eigen aanmeldingen 
+* Bovendien een gebruiker (niet-beheerders) toegang krijgen tot hun eigen aanmeldingen 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Welke Azure AD-licentie heb ik nodig voor toegang tot aanmeldingsactiviteiten?
 * Uw tenant moet beschikken over een Azure AD Premium-licentie om het rapport met alle aanmeldingsactiviteiten te kunnen raadplegen
 
+## <a name="sign-ins-report"></a>Rapport aanmeldingen
 
-## <a name="sign-in-activities"></a>Aanmeldactiviteiten
-
-In de informatie die wordt aangeboden in het rapport over aanmeldingsactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
+De gebruiker aanmeldingen rapport vindt u antwoorden op de volgende vragen:
 
 * Wat is het aanmeldingspatroon van een gebruiker?
 * Hoeveel gebruikers hebben zich gedurende een week aangemeld?
 * Wat is de status van deze aanmeldingen?
 
-Uw eerste ingangspunt voor alle aanmeldingsactiviteitgegevens aanmelden is **aanmeldingen** in het gedeelte activiteit van **Azure Active Directory**.
-
+U kunt toegang tot het rapport-aanmeldingen door te selecteren **aanmeldingen** in de **activiteit** sectie van de **Azure Active Directory** -blade in de [vanAzureportal](https://portal.azure.com).
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/61.png "Aanmeldingsactiviteit")
-
 
 Een aanmeldingslogboek heeft een standaardlijstweergave die het volgende laat zien:
 
@@ -82,7 +77,7 @@ Hiermee kunt u extra velden weergeven of velden verwijderen die al worden weerge
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/02.png "Aanmeldingsactiviteit")
 
-Wanneer u op een item in de lijstweergave klikt, worden in een horizontale weergave alle beschikbare gegevens voor het item vermeld.
+Selecteer een item in de lijstweergave voor meer gedetailleerde informatie.
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/03.png "Aanmeldingsactiviteit")
 
@@ -100,7 +95,7 @@ Als u de gerapporteerde gegevens wilt beperken tot een bepaald niveau, kunt u de
 - Gebruiker
 - Toepassing
 - Aanmeldingsstatus
-- Status van de risicodetectie
+- Voorwaardelijke toegang
 - Date
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/04.png "Aanmeldingsactiviteit")
@@ -115,11 +110,12 @@ Met het filter **Aanmeldingsstatus** kunt u selecteren:
 - Geslaagd
 - Fout
 
-Met het filter **Risico gedetecteerd** kunt u selecteren:
+De **voorwaardelijke toegang** filter kunt u de status van de CA-beleid voor de aanmelding selecteren:
 
 - Alle
-- Ja
-- Nee
+- Niet toegepast
+- Geslaagd
+- Fout
 
 Met het filter **Datum** kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.  
 Mogelijke waarden zijn:
@@ -149,11 +145,14 @@ Als u extra velden toevoegt aan uw aanmeldingsweergave, worden deze velden autom
 
 ## <a name="download-sign-in-activities"></a>Aanmeldactiviteiten downloaden
 
-U kunt de gegevens van de aanmeldingsactiviteiten downloaden als u buiten Azure Portal met de gegevens wilt werken. Als u op **Downloaden** klikt, wordt er een CSV-bestand gemaakt met de vijfduizend meest recente records.  Naast een downloadknop bevat Azure Portal ook een optie voor het genereren van een script voor het downloaden van uw gegevens.  
+U kunt [downloaden van de aanmeldingsgegevens](quickstart-download-sign-in-report.md) als u wilt werken met deze buiten de Azure-portal. Als u op **Downloaden** klikt, wordt er een CSV-bestand gemaakt met de vijfduizend meest recente records.  Naast de downloadknop, de Azure-portal biedt u ook een optie voor het [genereren van een script voor het downloaden van uw gegevens](tutorial-signin-logs-download-script.md).  
 
 ![Downloaden](./media/concept-sign-ins/71.png "Downloaden")
 
 Als u meer flexibiliteit nodig hebt, kunt u kiezen voor de scriptoplossing. Te klikken op **Script** maakt u een PowerShell-script dat bevat alle filters die u hebt ingesteld. Downloaden en uitvoeren met dit script in **beheerdersmodus** voor het genereren van het CSV-bestand. 
+
+> [!IMPORTANT]
+> Het aantal records die u kunt downloaden wordt beperkt door de [bewaarbeleid Azure Active Directory-rapporten](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Het script is uitgevoerd op een Windows 10-computer
 
@@ -164,28 +163,18 @@ Als u het script uitvoert wilt op een **Windows 10** machine, moet u eerst een p
 3. Voer **Set-ExecutionPolicy unrestricted** en kies **Ja op Alles**. 
 4. U kunt nu het gedownloade PowerShell-script uitvoeren in de beheerdersmodus voor het genereren van het CSV-bestand.
 
-Naast de technische implementatie, wordt het aantal records dat u kunt downloaden ook beperkt door het [retentiebeleid voor Azure Active Directory-rapporten](reference-reports-data-retention.md).  
+## <a name="sign-ins-data-shortcuts"></a>Aanmeldingen gegevens snelkoppelingen
 
+Naast Azure AD biedt Azure portal de extra toegangspunten voor aanmeldingsgegevens:
 
-## <a name="sign-in-activities-shortcuts"></a>Snelkoppelingen voor aanmeldingsactiviteiten
-
-Naast Azure Active Directory, de Azure-portal biedt u extra toegangspunten voor aanmelding bij activiteiten gegevens:
-
-- Overzicht van identiteitbeveiliging en -bescherming
+- Het overzicht van de beveiliging van identiteit
 - Gebruikers
 - Groepen
 - Bedrijfstoepassingen
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Gegevens van de gebruikers-aanmeldingen in Identiteitbeveiliging en-bescherming
 
-### <a name="users-sign-ins-activities"></a>Aanmeldingsactiviteiten van gebruikers
-
-In de informatie die wordt aangeboden in het rapport over aanmeldingsactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
-
-- Wat is het aanmeldingspatroon van een gebruiker?
-- Hoeveel keer hebben gebruikers zich aangemeld gedurende een week?
-- Wat is de status van deze aanmeldingen?
-
-Uw beginpunt voor deze gegevens is de aanmeldingsgrafiek van gebruikers op de overzichtspagina **Identiteitbeveiliging en -bescherming**. In de aanmeldingsgrafiek van gebruikers ziet u alle aanmeldingen van alle gebruikers gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
+De gebruiker aanmelden grafiek in de **Identiteitbeveiliging en-bescherming** overzichtspagina aanmeldingsgrafiek van aanmelding bevat modules voor alle gebruikers in een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/06.png "Aanmeldingsactiviteit")
 
@@ -211,7 +200,6 @@ Door op een item te klikken, krijgt u meer informatie over de aanmelding:
 - Date
 - MFA vereist
 - Aanmeldingsstatus
-
  
 Op de pagina **Gebruikers** krijgt u een volledig overzicht van alle aanmeldingen van gebruikers door in de sectie **Activiteit** op **Aanmelden** te klikken.
 
@@ -243,9 +231,9 @@ Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle aanmeldin
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/11.png "Aanmeldingsactiviteit")
 
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer wilt weten over foutcodes voor aanmeldingsactiviteiten, raadpleegt u [Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal](reference-sign-ins-error-codes.md).
+* [Foutcodes voor aanmeldingsactiviteiten rapport](reference-sign-ins-error-codes.md)
+* [Bewaarbeleid voor gegevens met Azure AD](reference-reports-data-retention.md)
+* [Azure AD-rapport latenties](reference-reports-latencies.md)
 

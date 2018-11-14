@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423354"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624094"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
@@ -67,6 +67,8 @@ Houd er rekening mee dat Azure- en Linux bewaking op gastniveau zijn vereist voo
 Wanneer u nieuwe virtuele machines, op het tabblad beheer maakt, selecteert u **op** voor **besturingssysteem Gast diagnostics**.
 
 ![Gastbesturingssysteem diagnostische gegevens inschakelen](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+Zie voor meer informatie over het inschakelen van uitgebreide metrische gegevens voor Azure virtual machines [begrip en met behulp van de Azure Linux agent](../virtual-machines/extensions/agent-linux.md) en [overzicht van Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md).
 
 ## <a name="resource-manager-credentials"></a>Resource Manager-referenties
 

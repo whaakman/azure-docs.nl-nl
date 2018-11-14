@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457203"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623768"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
-Continue integratie is het testen van elke wijziging gereed om terug te uw codebasis automatisch en zo vroeg mogelijk. Continue levering volgt de tests die plaatsvindt tijdens de continue integratie en verstuurd van wijzigingen naar een systeem fasering of productie.
+Continue integratie is het testen van elke wijziging gereed om terug te uw codebasis automatisch en zo vroeg mogelijk. Continue levering volgt de tests die plaatsvindt tijdens de continue integratie en verstuurd van wijzigingen naar een systeem fasering of productie.
 
 Betekent verplaatsen Data Factory-pijplijnen van de ene omgeving (ontwikkeling, testen, productie) naar een andere voor Azure Data Factory, continue integratie en levering. Als u wilt doen continue integratie en levering, kunt u Data Factory-UI-integratie met Azure Resource Manager-sjablonen. De gebruikersinterface van Data Factory een Resource Manager-sjabloon kunt genereren wanneer u selecteert de **ARM-sjabloon** opties. Wanneer u selecteert **exporteren ARM-sjabloon**, de portal voor het Resource Manager-sjabloon voor de data factory en een configuratiebestand met alle tekenreeksen in uw verbindingen en andere parameters wordt gegenereerd. Vervolgens moet u maken van een configuratiebestand voor elke omgeving (ontwikkeling, testen, productie). Het belangrijkste Resource Manager-sjabloonbestand blijft hetzelfde voor alle omgevingen.
 
@@ -75,11 +75,11 @@ Hier volgen de stappen voor het instellen van een Azure-pijplijnen release, zoda
 
 ### <a name="requirements"></a>Vereisten
 
--   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of Azure-opslagplaatsen de [ *Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of Azure-opslagplaatsen de [*Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   Een Data Factory met Azure-opslagplaatsen Git-integratie is geconfigureerd.
 
--   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen.
+-   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Instellen van een Azure-pijplijnen-versie
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Aangepaste parameters met de Resource Manager-sjabloon gebruiken
 
 U kunt aangepaste parameters voor de Resource Manager-sjabloon definiëren. U hoeft alleen te hebben van een bestand met de naam `arm-template-parameters-definition.json` in de hoofdmap van de opslagplaats. (Naam van het bestand moet overeenkomen met de naam exact hieronder.) Data Factory probeert te lezen van het bestand, vanuit welke vertakking u momenteel werkt, niet alleen de vertakking samenwerking. Als er geen bestand wordt gevonden, wordt de Data Factory wordt de standaardparameters en waarden.
+
+### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxis van een bestand met aangepaste parameters
+
+Hier vindt u enkele richtlijnen te gebruiken bij het ontwerpen van het bestand met aangepaste parameters. Zie de voorbeelden van deze syntaxis, Zie de volgende sectie, [aangepaste parameters-voorbeeldbestand](#sample).
+
+1. Wanneer u matrix in het definitiebestand opgeeft, kunt u aangeven dat de overeenkomende eigenschap in de sjabloon een matrix is. Data Factory is doorlopen van de objecten in de matrix met behulp van de definitie die is opgegeven in het eerste object van de matrix. Het tweede object, een tekenreeks, wordt de naam van de eigenschap, die wordt gebruikt als de naam voor de parameter voor elke iteratie.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. Als u de naam van een eigenschap instelt op `*`, geeft u aan dat u de sjabloon voor het gebruik van alle eigenschappen op dat niveau, met uitzondering van degene die expliciet is gedefinieerd.
+
+3. Als u de waarde van een eigenschap als een tekenreeks instelt, kunt u aangeven dat u wilt parameter van de eigenschap. Gebruik de indeling `<action>:<name>:<stype>`.
+    1.  `<action>` een van de volgende tekens kan zijn: 
+        1.  `=`  de huidige waarde behouden betekent als de standaardwaarde voor de parameter.
+        2.  `-` de standaardwaarde voor de parameter bijhouden betekent niet.
+        3.  `|` is een speciaal geval voor geheimen in Azure Key Vault voor een verbindingsreeks.
+    2.  `<name>` is de naam van de parameter. Als `<name`> is leeg, duurt het de naam van de parameter 
+    3.  `<stype>` is het type van de parameter. Als `<stype>` is leeg, het type is een tekenreeks.
+4.  Als u een `-` teken aan het begin van de parameternaam van een, de volledige Resource Manager parameternaam is ingekort tot `<objectName>_<propertyName>`.
+Bijvoorbeeld, `AzureStorage1_properties_typeProperties_connectionString` wordt ingekort tot `AzureStorage1_connectionString`.
+
+
+### <a name="sample"></a> Voorbeeldbestand van aangepaste parameters
 
 Het volgende voorbeeld ziet een voorbeeldbestand voor parameters. Dit voorbeeld gebruiken als uitgangspunt om uw eigen aangepaste parameters-bestand te maken. Als het bestand dat u zich niet in de juiste JSON-indeling, wordt in Data Factory voert een foutbericht weergegeven in de browserconsole en keert terug naar de standaard-parameters en waarden die worden weergegeven in de gebruikersinterface van Data Factory.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: b19a840e5d0d3434d3e3ff91e0d7af037d64fb5a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975357"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625943"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource health waarschuwingen configureren met Resource Manager-sjablonen
 
@@ -57,7 +57,7 @@ Volg de instructies op deze pagina, moet u van tevoren een aantal dingen instell
         Supply values for the following parameters:
         (Type !? for Help.)
         activityLogAlertName: <Alert Name>
-        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resouceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
 
 6. Als alles correct werkt, krijgt u een bevestiging in PowerShell
 

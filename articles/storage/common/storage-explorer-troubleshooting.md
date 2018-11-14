@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281767"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616194"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -81,7 +81,7 @@ De Mac OS Keychain krijgt soms in een status die ervoor zorgt problemen met de S
 * Start u Opslagverkenner opnieuw
 * Als het verificatievenster leeg is, wacht u minstens één minuut voordat de verificatie-dialoogvenster wordt gesloten.
 * Zorg ervoor dat uw proxy en de instellingen juist zijn geconfigureerd voor uw computer en de Storage Explorer-certificaat.
-* Als u zich op Windows en toegang tot Visual Studio 2017 op dezelfde computer en aanmelding, probeert u aanmelden bij Visual Studio 2017. Na een geslaagde aanmelding naar Visual Studio 2017 moet u het volgende kan Storage Explorer openen en uw account in het deelvenster account ziet. 
+* Als u zich op Windows en toegang tot Visual Studio 2017 op dezelfde computer en aanmelding, probeert u aanmelden bij Visual Studio 2017. Na een geslaagde aanmelding naar Visual Studio 2017 moet u het volgende kan Storage Explorer openen en uw account in het deelvenster account ziet.
 
 Als geen van deze methoden werken [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ Controleer eerst of de volgende informatie die u hebt ingevoerd juist zijn:
 
 * De proxy-URL en het poortnummer
 * Gebruikersnaam en het wachtwoord indien nodig door de proxy
+
+Houd er rekening mee dat Storage Explorer biedt geen ondersteuning voor PAC-bestand voor het configureren van proxy-instellingen.
 
 ### <a name="common-solutions"></a>Algemene oplossingen
 

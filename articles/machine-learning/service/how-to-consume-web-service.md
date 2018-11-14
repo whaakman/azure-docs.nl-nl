@@ -9,14 +9,14 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 2af954f14f7113a1f6214bf5e9235933312bbf02
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0ad39048a6b175a30ac7c5cdc346d0858c3719ef
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347680"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621867"
 ---
-# <a name="how-to-consume-an-azure-ml-model-deployed-as-a-web-service"></a>Het gebruik van een Azure ML-model dat is geïmplementeerd als een webservice
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
 Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document, informatie over het maken van clients voor de web service via C#, Go, Java en Python.
 

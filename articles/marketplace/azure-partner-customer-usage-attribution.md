@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 49d68a28180c384a181f29e41c12a5e32bd76aee
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280670"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625212"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -126,14 +126,14 @@ Een GUID is een unieke referentienummer met 32 hexadecimale cijfers. Voor het ma
 > [!Note]
 > Het is raadzaam dat u [van Azure Storage GUID-generator formulier](https://aka.ms/StoragePartners) uw GUID maken. Zie voor meer informatie onze [Veelgestelde vragen over](#faq).
 
-Maak een unieke GUID voor elke aanbieding en de distributie-kanaal. Als u twee oplossingen implementeren met behulp van een sjabloon en elk beschikbaar in de Azure Marketplace en op GitHub is, moet u vier GUID's maken:
+U wordt aangeraden u een unieke GUID voor elke aanbieding en de distributie-kanaal voor elk product. U kunt kiezen voor het gebruik van een enkele GUID voor meerdere distributiekanalen van het product als u niet wilt dat reporting om te worden verdeeld. 
 
-*   Bieden van een in Azure Marketplace 
-*   Bieden van een op GitHub
-*   Bieden van B in Azure Marketplace 
-*   Aanbieding B op GitHub
+Als u een product implementeren met behulp van een sjabloon en deze beschikbaar op de Azure Marketplace en GitHub is, kunt u maken en registreren van 2 afzonderlijke GUID's:
 
-Reporting wordt uitgevoerd door de partner-waarde (Microsoft Partner-ID) en de GUID. 
+*   Product A in Azure Marketplace 
+*   Product een op GitHub
+
+Reporting wordt uitgevoerd door de partner-waarde (Microsoft Partner-ID) en de GUID's. 
 
 Ook kunt u bijhouden van GUID's op een meer gedetailleerd niveau, zoals de SKU, waarbij SKU's varianten van een aanbieding zijn.
 

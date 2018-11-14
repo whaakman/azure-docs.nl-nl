@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6bde2fb0fc9534d170be1d755856f6f779e47d7c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013051"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625858"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -126,7 +126,7 @@ Nadat u Docker hebt geïnstalleerd, gebruikt u de volgende instellingen voor uw 
 
 **Voor alle hosts door Linux-container met uitzondering van CoreOS:**
 
-- Zie voor meer informatie en stappen voor het installeren van de Log Analytics-agent voor Linux, [uw Linux-Computers verbinden met Log Analytics](log-analytics-concept-hybrid.md).
+- Zie voor meer informatie en stappen voor het installeren van de Log Analytics-agent voor Linux, [Log Analytics-agent overzicht](log-analytics-agent-overview.md).
 
 **Voor alle Linux-containerhosts met inbegrip van CoreOS:**
 

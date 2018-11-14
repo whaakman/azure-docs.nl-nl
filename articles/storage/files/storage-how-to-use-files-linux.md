@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782044"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614940"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Files gebruiken met Linux
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Linux-distributies, met de [SMB-kernel-client](https://wiki.samba.org/index.php/LinuxCIFS). In dit artikel ziet u een Azure-bestandsshare koppelen op twee manieren: op aanvraag met de `mount` opdracht en op opstarten met het maken van een vermelding in `/etc/fstab`.
@@ -117,7 +117,7 @@ ms.locfileid: "43782044"
     fi
     ```
 
-4. **Machtigingen voor de referentie-bestand wijzigen zodat alleen hoofdmap kan lezen of het wachtwoordbestand te wijzigen.** Aangezien de opslagaccountsleutel in feite een absoluut beheerderswachtwoord voor het opslagaccount is, is instellen van de machtigingen voor het bestand zodanig dat alleen de hoofd-toegankelijk belangrijk, waarbij lagere bevoegdheid gebruikers kunnen niet ophalen van de opslagaccountsleutel.   
+4. **Machtigingen voor de referentie-bestand wijzigen zodat alleen hoofdmap kan lezen of het wachtwoordbestand te wijzigen.** Aangezien de opslagaccountsleutel in feite een absoluut beheerderswachtwoord voor het opslagaccount is, is instellen van de machtigingen voor het bestand zodanig dat alleen de hoofd-toegankelijk belangrijk, waarbij lagere bevoegdheid gebruikers kunnen de toegangssleutel van het opslagaccount niet ophalen.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

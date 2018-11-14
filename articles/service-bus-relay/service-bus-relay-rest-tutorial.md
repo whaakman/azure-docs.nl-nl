@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232440"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614469"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Zelfstudie voor Azure WCF Relay REST
-
 Deze zelfstudie wordt beschreven hoe u bouwt een eenvoudige Azure Relay-hosttoepassing waarmee wordt aangegeven dat een op REST gebaseerde interface. Met REST kan een webclient, zoals een webbrowser, toegang krijgen tot de Service Bus-API's via HTTP-aanvragen.
 
 De zelfstudie maakt gebruik van de Windows Communication Foundation (WCF) REST-programmeermodel om te maken van een REST-service op Azure Relay. Zie [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) (WCF REST-programmeermodel) en [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) (Services ontwerpen en implementeren) in de WCF-documentatie voor meer informatie.
 
-## <a name="step-1-create-a-namespace"></a>Stap 1: Een naamruimte maken
+U kunt de volgende stappen uitvoeren in deze zelfstudie:
+
+> [!div class="checklist"]
+> * Een Relay-naamruimte maken.
+> * Een op REST gebaseerd WCF-servicecontract definiëren
+> * De REST gebaseerd WCF-contract implementeren
+> * Hosten en uitvoeren van de REST gebaseerd WCF-service
+> * Uitvoeren en testen van de service
+
+## <a name="prerequisites"></a>Vereisten
+
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
+
+- Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+- [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+- Azure SDK voor .NET. Installeren via de [SDK-pagina met downloads](https://azure.microsoft.com/downloads/).
+
+## <a name="create-a-relay-namespace"></a>Een Relay-naamruimte maken
 
 Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Stap 2: Een REST gebaseerd WCF-servicecontract voor gebruik met Azure Relay definiëren
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Een REST gebaseerd WCF-servicecontract voor gebruik met Azure Relay definiëren
 
 Wanneer u een service WCF REST-stijl maakt, moet u het contract definiëren. Het contract geeft aan welke bewerkingen door de host worden ondersteund. Een servicebewerking kan worden beschouwd als een webservicemethode. Contracten worden gemaakt door een C++-, C#- of Visual Basic-interface te definiëren. Elke methode in de interface komt overeen met een specifieke servicebewerking. Op elke interface moet het kenmerk [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) worden toegepast en op elke bewerking moet het kenmerk [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) worden toegepast. Als een methode in een interface met het kenmerk [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) niet beschikt over het kenmerk [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), wordt die methode niet weergegeven. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Stap 3: een op REST gebaseerd WCF-servicecontract voor gebruik met Service Bus implementeren
+## <a name="implement-the-rest-based-wcf-service-contract"></a>De REST gebaseerd WCF-servicecontract implementeren
 Het maken van een REST-stijl WCF Relay-service, moet u eerst het contract, dat is gedefinieerd door middel van een interface maken. De volgende stap is het implementeren van de interface. Hiervoor moet u een klasse met de naam **ImageService** maken die de door de gebruiker gedefinieerde **IImageContract**-interface implementeert. Nadat het contract is geïmplementeerd, configureert u de interface met een App.config-bestand. Het configuratiebestand bevat de benodigde gegevens voor de toepassing, zoals de naam van de service, de naam van het contract en het type protocol dat wordt gebruikt om te communiceren met de relay-service. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
 
 Net als bij de vorige stappen, is er weinig verschil tussen het implementeren van een REST-stijlcontract en een contract WCF-Relay.
@@ -430,7 +446,7 @@ In het volgende voorbeeld wordt het aan de service gekoppelde bestand App.config
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>Stap 4: De REST gebaseerd WCF-service voor het gebruik van Azure Relay hosten
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>De REST gebaseerd WCF-service voor het gebruik van Azure Relay hosten
 Deze stap wordt beschreven hoe u een webservice die met een consoletoepassing met WCF Relay uitvoert. Een volledig overzicht van de code die in deze stap wordt geschreven, vindt u in het voorbeeld na de procedure.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Een basisadres voor de service maken
@@ -476,7 +492,7 @@ Deze stap wordt beschreven hoe u een webservice die met een consoletoepassing me
     host.Close();
     ```
 
-## <a name="example"></a>Voorbeeld
+### <a name="example"></a>Voorbeeld
 Het volgende voorbeeld bevat het servicecontract en de implementatie uit de vorige stappen in de zelfstudie. Hierin wordt de service gehost in een consoletoepassing. Compileer de volgende code in een uitvoerbaar bestand met de naam ImageListener.exe.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>De code compileren
+## <a name="run-and-test-the-service"></a>Uitvoeren en testen van de service
 Nadat u de oplossing hebt opgebouwd, gaat u als volgt te werk om de toepassing uit te voeren:
 
 1. Druk op **F5** of blader naar de locatie van het uitvoerbare bestand (ImageListener\bin\Debug\ImageListener.exe) om de service uit te voeren. Zorg ervoor dat de app actief blijft. Dit is vereist voor het uitvoeren van de volgende stap.

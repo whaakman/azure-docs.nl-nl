@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e22a2eb6eefb84c6745de9b19e7710913b4ee7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257660"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616279"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -711,4 +711,4 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-queries.md) om gedetailleerde updategegevens weer te geven.
 * [Maak uw eigen dashboards](../log-analytics/log-analytics-dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
-* [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  
+* [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-alerts.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515655"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614376"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -73,16 +73,16 @@ Standaard logboeken worden niet automatisch verwijderd (met uitzondering van **t
 > Als u [opnieuw genereren van toegangssleutels voor uw opslagaccount](../storage/common/storage-create-storage-account.md), moet u de configuratie van de respectieve logboekregistratie voor het gebruik van de bijgewerkte sleutels opnieuw instellen. Om dit te doen:
 >
 > 1. In de **configureren** tabblad, stelt u de functie voor de respectieve logboekregistratie op **uit**. Sla de instelling.
-> 2. Logboekregistratie inschakelen om het logboekopslagaccount-blob of de tabel opnieuw. Sla de instelling.
+> 2. Logboekregistratie naar de blob storage-account opnieuw inschakelen. Sla de instelling.
 >
 >
 
-Een combinatie van het bestandssysteem, tabelopslag en blob-opslag kan worden ingeschakeld op hetzelfde moment en afzonderlijk logboek-niveau configuraties hebben. U wilt bijvoorbeeld aanmelden fouten en waarschuwingen naar de blobopslag als een oplossing op lange termijn logboekregistratie, tijdens het inschakelen van logboekregistratie in systeem met een niveau van uitgebreide.
+Een combinatie van file system- of blob storage kan worden ingeschakeld op hetzelfde moment en configuraties van het afzonderlijke log niveau hebben. U wilt bijvoorbeeld aanmelden fouten en waarschuwingen naar de blobopslag als een oplossing op lange termijn logboekregistratie, tijdens het inschakelen van logboekregistratie in systeem met een niveau van uitgebreide.
 
-Hoewel alle drie opslaglocaties de dezelfde algemene informatie voor de vastgelegde gebeurtenissen bieden **tabelopslag** en **blob-opslag** aanvullende informatie zoals de exemplaar-ID, een thread-ID en een meer registreren gedetailleerde timestamp (maatstreepjes-indeling) dan logboekregistratie naar **bestandssysteem**.
+Hoewel beide opslaglocaties de dezelfde algemene informatie voor de vastgelegde gebeurtenissen bieden **blobopslag** registreert aanvullende informatie zoals de exemplaar-ID, thread-ID en een meer gedetailleerd tijdstempel (maatstreepjes-indeling) dan logboekregistratie naar **bestandssysteem**.
 
 > [!NOTE]
-> Gegevens die zijn opgeslagen **tabelopslag** of **blobopslag** kunnen alleen worden geopend met behulp van een storage-client of een toepassing die u rechtstreeks met deze systemen voor opslag werken kunt. Bijvoorbeeld, Visual Studio 2013 bevat een Opslagverkenner die kunnen worden gebruikt om te verkennen, tabel of blob storage en HDInsight toegang tot de gegevens die zijn opgeslagen in blob-opslag. U kunt ook schrijven met een toepassing die toegang heeft tot Azure Storage met behulp van een van de [Azure-SDK's](https://azure.microsoft.com/downloads/).
+> Gegevens die zijn opgeslagen **blobopslag** kunnen alleen worden geopend met behulp van een storage-client of een toepassing die u rechtstreeks met deze systemen voor opslag werken kunt. Bijvoorbeeld, Visual Studio 2013 bevat een Opslagverkenner die kan worden gebruikt voor het verkennen van blob-opslag en HDInsight toegang tot de gegevens die zijn opgeslagen in blob-opslag. U kunt ook schrijven met een toepassing die toegang heeft tot Azure Storage met behulp van een van de [Azure-SDK's](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Hoe: Logboeken downloaden
@@ -159,7 +159,7 @@ Om te filteren op specifieke logboek typen, zoals HTTP, gebruikt u de **--pad** 
 
 ## <a name="understandlogs"></a> Hoe: inzicht in Logboeken met diagnostische gegevens
 ### <a name="application-diagnostics-logs"></a>Application diagnostics-Logboeken
-Application diagnostics wordt informatie opgeslagen in een specifieke indeling voor .NET-toepassingen, afhankelijk van of het opslaan van logboeken naar het bestandssysteem, tabelopslag of blob-opslag. De basisset met gegevens die zijn opgeslagen is hetzelfde voor alle drie opslagtypen: de datum en tijd is die de gebeurtenis heeft plaatsgevonden, wordt de proces-ID die de gebeurtenis, het gebeurtenistype (informatie, waarschuwing, fout) en het bericht van de gebeurtenis heeft geproduceerd.
+Application diagnostics wordt informatie opgeslagen in een specifieke indeling voor .NET-toepassingen, afhankelijk van of het opslaan van logboeken naar de file system- of blob storage. De basisset met gegevens die zijn opgeslagen is hetzelfde voor alle drie opslagtypen: de datum en tijd is die de gebeurtenis heeft plaatsgevonden, wordt de proces-ID die de gebeurtenis, het gebeurtenistype (informatie, waarschuwing, fout) en het bericht van de gebeurtenis heeft geproduceerd.
 
 **Bestandssysteem**
 
@@ -173,27 +173,9 @@ Bijvoorbeeld, wordt een foutgebeurtenis weergegeven die vergelijkbaar is met het
 
 Logboekregistratie naar het bestandssysteem bevat de meest elementaire informatie van de drie beschikbare methoden, alleen de tijd, proces-ID, gebeurtenisniveau en bericht te leveren.
 
-**Table Storage**
-
-Wanneer u zich naar table storage, worden aanvullende eigenschappen worden gebruikt om te zoeken naar de gegevens die zijn opgeslagen in de tabel, evenals meer gedetailleerde informatie over de gebeurtenis mogelijk te maken. De volgende eigenschappen (kolommen) worden gebruikt voor elke entiteit (rij) die zijn opgeslagen in de tabel.
-
-| Naam van eigenschap | Waarde-indeling |
-| --- | --- |
-| PartitionKey |Datum/tijd van de gebeurtenis in de indeling yyyyMMddHH |
-| RowKey |Een GUID-waarde die deze entiteit wordt aangeduid |
-| Tijdstempel |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
-| EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (grotere precisie) |
-| ApplicationName |De naam van de web-app |
-| Niveau |Gebeurtenisniveau (bijvoorbeeld fout, waarschuwing, informatie) |
-| Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>Standaard ingesteld op 0 als er niets opgegeven |
-| Instantie-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
-| PID |Proces-id |
-| TID |De thread-ID van de thread die de gebeurtenis heeft geproduceerd |
-| Bericht |Details van gebeurtenisbericht |
-
 **Blob Storage**
 
-Tijdens de registratie van BLOB storage, kunnen gegevens worden opgeslagen in de indeling met door komma's gescheiden waarden (CSV). Vergelijkbaar met de table-opslag, aanvullende velden voor gedetailleerdere informatie over de gebeurtenis worden vastgelegd. De volgende eigenschappen worden gebruikt voor elke rij in de CSV:
+Tijdens de registratie van BLOB storage, kunnen gegevens worden opgeslagen in de indeling met door komma's gescheiden waarden (CSV). Aanvullende velden worden geregistreerd voor gedetailleerdere informatie over de gebeurtenis. De volgende eigenschappen worden gebruikt voor elke rij in de CSV:
 
 | Naam van eigenschap | Waarde-indeling |
 | --- | --- |

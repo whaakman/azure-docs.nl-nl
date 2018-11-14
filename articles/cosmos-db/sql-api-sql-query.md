@@ -1,5 +1,5 @@
 ---
-title: SQL-query's voor Azure Cosmos DB | Microsoft Docs
+title: SQL-query's in Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-query-taal in Azure Cosmos DB.
 keywords: SQL-syntaxis, sql-query, sql-query's, querytaal voor json, database-concepten en sql-query's, statistische functies
 services: cosmos-db
@@ -10,27 +10,27 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 11/02/2018
 ms.author: laviswa
-ms.openlocfilehash: 22b31e7df4e11f8f98877a8497b533203dcc26b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8799371c911f3e120cb8654bf26fa933b17e4b3c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233300"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623398"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Query uitvoeren op Azure Cosmos DB-gegevens met SQL-query 's
+# <a name="sql-queries-in-azure-cosmos-db"></a>SQL-query's in Azure Cosmos DB
 
-Microsoft Azure Cosmos DB biedt ondersteuning voor documentquery met behulp van SQL (Structured Query Language) als een JSON-querytaal op SQL-API-accounts. De volgende twee doelen worden tijdens het ontwerpen van de querytaal voor Azure Cosmos DB, beschouwd als:
+Azure Cosmos DB biedt ondersteuning voor query's uitvoeren met behulp van SQL (Structured Query Language) als een JSON-querytaal voor SQL-API Cosmos-databases. Tijdens het ontwerpen van de querytaal voor SQL-API Cosmos-databases, zijn de volgende twee doelen beschouwd:
 
-* In plaats van een nieuwe querytaal vruchtbare, we Azure Cosmos DB voor de ondersteuning van SQL, een van de bekend en meest populaire querytalen gemaakt. Azure Cosmos DB SQL biedt een formele programmeermodel voor uitgebreide query's via JSON-documenten.  
+* In plaats van een nieuwe querytaal vruchtbare, Cosmos DB biedt ondersteuning voor SQL, een van de bekend en meest populaire querytalen. Cosmos DB SQL biedt een formele programmeermodel voor uitgebreide query's via JSON-gegevens.  
 
-* Azure Cosmos DB maakt gebruik van JavaScript programmeermodel als basis voor de querytaal. De SQL-API is verankerd ligt in de JavaScript-typesysteem, evaluatie van de expressie en functieaanroepen. Deze beurt biedt een natuurlijke programmeermodel voor projecties van relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroepen van de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript, onder andere volledig. 
+* Cosmos DB maakt gebruik van JavaScript programmeermodel als basis voor de querytaal. De SQL-API is verankerd ligt in de JavaScript-typesysteem, evaluatie van de expressie en functieaanroepen. Dit is een natuurlijke programmeermodel voor projecties van relationele, hiërarchische navigatie voor JSON-documenten, self joins, ruimtelijke query's en aanroepen van de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript, onder andere volledig.
 
-Dit artikel begeleidt u enkele voorbeelden van SQL-query's met behulp van eenvoudige JSON-documenten. Zie voor meer informatie over de syntaxis van de Azure Cosmos DB SQL-taal, [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md) artikel. 
+In dit artikel leidt u door enkele voorbeelden van Cosmos DB SQL-query's met behulp van eenvoudige JSON-documenten. Zie voor meer informatie over de syntaxis van Cosmos DB SQL-taal, [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md).
 
 ## <a id="GettingStarted"></a>Aan de slag met SQL-opdrachten
-Maken we twee eenvoudige JSON-documenten en query's uitvoeren op basis van die gegevens. Houd rekening met twee JSON-documenten over families, deze JSON-documenten invoegen in een verzameling en vervolgens de gegevens op te vragen. Hier hebben we een eenvoudige JSON document voor de Andersen en Wakefield families, de bovenliggende, onderliggende items (en hun huisdieren)-adres en registratie-informatie. Het document heeft tekenreeksen, getallen, Booleaanse waarden, matrices en geneste eigenschappen. 
+Laten we twee eenvoudige JSON-documenten met een beschrijving van families maken en query's op die gegevens te schrijven. Na deze twee documenten in een container van Cosmos invoegen, kunnen we begint met de gegevens op te vragen. Hieronder definiëren we een eenvoudige JSON-documenten voor de Andersen en Wakefield families. Elk document bevat tekenreeksen, getallen, Booleaanse waarden, matrices en geneste eigenschappen.
 
 **Document1**  
 
@@ -44,8 +44,8 @@ Maken we twee eenvoudige JSON-documenten en query's uitvoeren op basis van die g
   ],
   "children": [
      {
-         "firstName": "Henriette Thaulow", 
-         "gender": "female", 
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
          "grade": 5,
          "pets": [{ "givenName": "Fluffy" }]
      }
@@ -89,9 +89,9 @@ Hier volgt een tweede document met een subtiele verschil: `givenName` en `family
 }
 ```
 
-Nu we gaan enkele query's op deze gegevens om te begrijpen van enkele van de belangrijkste aspecten van Azure Cosmos DB SQL-querytaal. 
+Nu we gaan enkele query's op deze gegevens voor meer informatie over een aantal belangrijke aspecten van de Cosmos DB SQL-querytaal.
 
-**Query1**: de volgende query retourneert bijvoorbeeld de documenten waarin het id-veld gelijk `AndersenFamily`. Omdat het een `SELECT *`, de uitvoer van de query is de volledige JSON-document, Zie voor meer informatie over de syntaxis, [SELECT-instructie](sql-api-sql-query-reference.md#select-query):
+**Query1**: de volgende query retourneert de documenten waarin het id-veld gelijk `AndersenFamily`. Omdat het een `SELECT *`, de uitvoer van de query is de volledige JSON-document. Zie voor meer informatie over de syntaxis van de query, [SELECT-instructie](sql-api-sql-query-reference.md#select-query):
 
 ```sql
     SELECT * 
@@ -121,7 +121,7 @@ Nu we gaan enkele query's op deze gegevens om te begrijpen van enkele van de bel
     }]
 ```
 
-**Query2** : nu Neem het geval waarin we wilt formatteren van de JSON-uitvoer in een andere vorm. Deze query projecteert een nieuwe JSON-object met twee geselecteerde velden, naam en plaats, wanneer het adres stad dezelfde naam als de status heeft. In dit geval "NY, NY" komt overeen met.   
+**Query2** : nu kunt u een aanvraag waarin we wilt formatteren van de JSON-uitvoer. Deze query retourneert een JSON-object met twee geselecteerde velden, naam en plaats, voor documenten in welke plaats en provincie identiek zijn. In dit geval is "NY (NY)" een overeenkomst.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
@@ -159,15 +159,15 @@ Nu we gaan enkele query's op deze gegevens om te begrijpen van enkele van de bel
     ]
 ```
 
-Hier volgen enkele aspecten van de querytaal van Cosmos DB met behulp van de voorbeelden die u tot nu toe hebben gezien:  
+Enkele belangrijke aspecten van de Cosmos DB SQL-querytaal met behulp van de voorbeelden hebt u gezien tot nu toe:  
 
-* Omdat SQL API op JSON-waarden werkt, behandelt structuur vormgegeven entiteiten in plaats van rijen en kolommen. Daarom de taal kunt u verwijzen naar de knooppunten van de structuur op elke willekeurige diepte zoals `Node1.Node2.Node3…..Nodem`, vergelijkbaar met de relationele SQL die verwijzen naar de twee onderdeelverwijzing van `<table>.<column>`.   
+* Aangezien de SQL-API op JSON-waarden werkt, behandelt structuur vormgegeven entiteiten in plaats van rijen en kolommen. Daarom de taal kunt u verwijzen naar de knooppunten van de structuur op elke willekeurige diepte zoals `Node1.Node2.Node3…..Nodem`, vergelijkbaar met de relationele SQL die verwijzen naar de twee onderdeelverwijzing van `<table>.<column>`.
 
-* De structured query language werkt met gegevens zonder schema. Daarom moet het typesysteem dynamisch worden gebonden. Dezelfde expressie kan verschillende typen op verschillende documenten opleveren. Het resultaat van een query is een geldige JSON-waarde, maar is niet noodzakelijkerwijs van een vast schema.  
+* De SQL-API werkt met gegevens zonder schema. Daarom moet het typesysteem dynamisch worden gebonden. Dezelfde expressie kunt verschillende typen geëvalueerd op verschillende documenten opleveren. Het resultaat van een query is een geldige JSON-waarde, maar is niet noodzakelijkerwijs worden van een bepaald schema.
 
-* Azure Cosmos DB ondersteunt alleen strikte JSON-documenten. Dit betekent dat het systeem en voor expressies zijn beperkt tot alleen bekommeren om JSON-typen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
+* Cosmos DB ondersteunt alleen strikte JSON-documenten. Dit betekent dat het systeem en voor expressies zijn beperkt tot alleen bekommeren om JSON-typen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
 
-* Een Cosmos DB-verzameling is een container schema's van JSON-documenten. De relaties in gegevensentiteiten binnen en tussen documenten in een verzameling worden impliciet door containment en niet door de primaire sleutel en refererende sleutels relaties vastgelegd. Dit is een belangrijk aspect om te zeggen, aanleiding van de intra-document wordt verderop in dit artikel besproken.
+* Een Cosmos-container is een container schema's van JSON-documenten. De relaties in gegevensentiteiten binnen en tussen documenten in een container worden impliciet door containment en niet door de primaire sleutel en refererende sleutels relaties vastgelegd. Dit is een belangrijk aspect om te zeggen, aanleiding van de intra-document wordt verderop in dit artikel besproken.
 
 ## <a id="SelectClause"></a>SELECT-component
 
@@ -264,17 +264,19 @@ Bekijk de rol van `$1` hier. De `SELECT` component moet een JSON-object maken en
 
 ## <a id="FromClause"></a>FROM-component
 
-De van < from_specification > component is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Zie voor meer informatie over de syntaxis, [van syntaxis](sql-api-sql-query-reference.md#bk_from_clause). Een query zoals `SELECT * FROM Families` geeft aan dat de volledige verzameling worden Families de bron via die u wilt inventariseren. Een speciale ROOT-id kan worden gebruikt voor de verzameling in plaats van de naam van de verzameling. De volgende lijst bevat de regels die per query gelden:
+De van < from_specification > component is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Zie voor meer informatie over de syntaxis, [van syntaxis](sql-api-sql-query-reference.md#bk_from_clause). Een query zoals `SELECT * FROM Families` geeft aan dat de volledige Families container de bron via die u is wilt inventariseren. Een speciale ROOT-id kan worden gebruikt om weer te geven van de container in plaats van de containernaam van de.
 
-* De verzameling kunt aliasnamen worden gebruikt, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is het equivalent van `Families`. `AS` is een optioneel trefwoord tot de alias van de id.  
+De volgende lijst bevat de regels die per query gelden:
 
-* Eenmaal alias, de oorspronkelijke bron kan niet worden gekoppeld. Bijvoorbeeld, `SELECT Families.id FROM Families f` syntaxis is ongeldig omdat de id 'Families' kan niet meer worden omgezet.  
+* De container kunt aliasnamen worden gebruikt, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is een alias voor `Families`. `AS` is een optioneel trefwoord tot de alias van de id.  
+
+* Eenmaal alias, de oorspronkelijke bron kan niet worden gekoppeld. Bijvoorbeeld, `SELECT Families.id FROM Families f` syntaxis is ongeldig omdat de id 'Families' na een alias kan niet worden omgezet.  
 
 * Alle eigenschappen die moeten worden verwezen naar de moeten volledig gekwalificeerde zijn. In de afwezigheid van strikt schema voldoet, wordt dit afgedwongen om te voorkomen dat een niet-eenduidige bindingen. Daarom `SELECT id FROM Families f` syntaxis is ongeldig omdat de eigenschap `id` niet is gebonden.
 
 ### <a name="get-subdocuments-using-from-clause"></a>Met behulp van FROM-component subdocumenten ophalen
 
-De bron kan ook worden teruggebracht tot een kleinere subset. Bijvoorbeeld voor het inventariseren van alleen een substructuur in elk document, kan de subroot vervolgens worden de bron, zoals wordt weergegeven in het volgende voorbeeld:
+De bron kan ook worden gekozen om te worden van een subset. Bijvoorbeeld, als u wilt inventariseren substructuren, kan de bron worden opgegeven zoals wordt weergegeven in het volgende voorbeeld:
 
 **Query**
 
@@ -316,7 +318,7 @@ De bron kan ook worden teruggebracht tot een kleinere subset. Bijvoorbeeld voor 
     ]
 ```
 
-Hoewel het bovenstaande voorbeeld gebruikt een matrix als de bron, een object kan ook worden gebruikt als de bron, dit is wat wordt weergegeven in het volgende voorbeeld: een geldig JSON-waarde (niet ongedefinieerd) die kan worden gevonden in de bron wordt beschouwd als voor opname in het resultaat van de query. Als sommige families geen een `address.state` -waarde in het queryresultaat worden uitgesloten.
+Hoewel het bovenstaande voorbeeld gebruikt een matrix als de bron, kan een object ook worden gebruikt als de bron, zoals wordt weergegeven in het volgende voorbeeld. Een geldige JSON-waarde (niet ongedefinieerd) die kan worden gevonden in de bron wordt beschouwd als voor opname in het resultaat van de query. Als sommige families geen een `address.state` waarde, worden uitgesloten van het queryresultaat.
 
 **Query**
 
@@ -335,7 +337,7 @@ Hoewel het bovenstaande voorbeeld gebruikt een matrix als de bron, een object ka
 ```
 
 ## <a id="WhereClause"></a>WHERE-component
-De component WHERE (**`WHERE <filter_condition>`**) is optioneel. Hiermee geeft u de voorwaarden die de JSON-documenten die zijn opgegeven door de bron moet voldoen om te worden opgenomen als onderdeel van het resultaat. Elk JSON-document moet de opgegeven voorwaarden op "true" worden overwogen voor het resultaat opleveren. De WHERE-component wordt gebruikt door de index-laag om te bepalen van de absolute kleinste subset van de brondocumenten die deel van het resultaat uitmaken kunnen. Zie voor meer informatie over de syntaxis, [waar syntaxis](sql-api-sql-query-reference.md#bk_where_clause).
+De component WHERE (**`WHERE <filter_condition>`**) is optioneel. Hiermee geeft u de voorwaarden die de JSON-documenten die zijn opgegeven door de bron moet voldoen om te worden opgenomen als onderdeel van het resultaat. Elk JSON-document moet de opgegeven voorwaarden op "true" worden overwogen voor het resultaat opleveren. De WHERE-component wordt gebruikt door de index-laag om te bepalen van de kleinste subset van de brondocumenten die deel van het resultaat uitmaken kunnen. Zie voor meer informatie over de syntaxis, [waar syntaxis](sql-api-sql-query-reference.md#bk_where_clause).
 
 De volgende query-documenten met een eigenschap name waarvan de waarde vraagt `AndersenFamily`. Elk document dat geen een eigenschap name of waar de waarde komt niet overeen met `AndersenFamily` is uitgesloten. 
 
@@ -366,10 +368,10 @@ De volgende binaire operators worden momenteel ondersteund en kunnen worden gebr
 |**Operatortype**  |**Waarden**  |
 |---------|---------|
 |Rekenkundige    |   +,-,*,/,%   |
-|Bitsgewijze  |   |, &, ^, <<>>,, >>> (shift-nul-opvulling rechts)      |
+|Bitsgewijze  |   , &, ^, &lt; &lt;, &gt; &gt;, &gt; &gt; &gt; (shift-nul-opvulling rechts)      |
 |Logische   |   EN, OF NIET      |
 |Vergelijking   |    =, !=, &lt;, &gt;, &lt;=, &gt;=, <>     |
-|Reeks  |  || (samenvoegen)       |
+|Reeks  |  \|\| (samenvoegen)       |
 
 Laten we eens enkele query's met behulp van binaire operators.
 
@@ -925,7 +927,7 @@ Het sleutelwoord TOP kan worden gebruikt om het aantal waarden uit een query te 
 TOP kan worden gebruikt met een constante waarde (zoals hierboven) of met de waarde van een variabele met geparameteriseerde query's. Zie geparameteriseerde query's hieronder voor meer informatie.
 
 ## <a id="Aggregates"></a>Statistische functies
-U kunt ook uitvoeren de aggregaties in de `SELECT` component. Statistische functies een berekening uitgevoerd op een set waarden en één waarde retourneren. De volgende query retourneert bijvoorbeeld het aantal familie documenten binnen de verzameling.
+U kunt ook uitvoeren de aggregaties in de `SELECT` component. Statistische functies een berekening uitgevoerd op een set waarden en één waarde retourneren. De volgende query retourneert bijvoorbeeld het aantal familie documenten in de container.
 
 **Query**
 
@@ -992,7 +994,7 @@ Statistische functies kunnen ook worden uitgevoerd via de resultaten van een ite
 >
 
 ## <a id="OrderByClause"></a>ORDER BY-component
-Net als in de ANSI-SQL, u een optionele Order By-component tijdens het uitvoeren van query's opnemen kunt. De component kan bevatten een optioneel argument ASC/DESC om op te geven van de volgorde waarin de resultaten moeten worden opgehaald.
+LikJust zoals in de ANSI-SQL, kunt u een optionele Order By-component opnemen tijdens het uitvoeren van query's. De component kan bevatten een optioneel argument ASC/DESC om op te geven van de volgorde waarin de resultaten moeten worden opgehaald.
 
 Bijvoorbeeld, als volgt een query waarmee families in volgorde van de residente plaatsnaam worden opgehaald.
 
@@ -1085,7 +1087,7 @@ Een nieuwe constructie is toegevoegd de **IN** sleutelwoord in de SQL-API om ond
     ]
 ```
 
-Nu gaan we bekijken een andere query die iteratie van onderliggende items in de verzameling uitvoert. Let op het verschil in de uitvoermatrix. In dit voorbeeld splitst `children` en worden de resultaten in een matrix samengevoegd.  
+Nu gaan we bekijken een ander query die iteratie van onderliggende items in de container uitvoert. Let op het verschil in de uitvoermatrix. In dit voorbeeld splitst `children` en worden de resultaten in een matrix samengevoegd.  
 
 **Query**
 
@@ -1159,7 +1161,7 @@ U kunt ook globalisatie uitvoeren via het resultaat van de matrix iteratie. Bijv
 ### <a id="Joins"></a>Joins
 In een relationele database, de noodzaak om toe te voegen in tabellen, het is belangrijk. Het is de logische overheidsinstelling voor het ontwerpen van genormaliseerde schema's. De SQL-API behandelt het model gedenormaliseerd gegevens zonder schema documenten niet overeenkomstig dit. Dit is het logische equivalent van een 'self-join'.
 
-De syntaxis die ondersteuning biedt voor de taal is < from_source1 > JOIN < from_source2 > JOIN... JOIN < from_sourceN >. Algemene, deze retourneert een set met **N**- tuples (tuple met **N** waarden). Elke tuple heeft waarden die worden geproduceerd door alle verzameling aliassen iteratie van hun respectieve sets. Dit is met andere woorden, een volledige vectorproduct van de sets die deel uitmaken van de join.
+De syntaxis die ondersteuning biedt voor de taal is < from_source1 > JOIN < from_source2 > JOIN... JOIN < from_sourceN >. Algemene, deze retourneert een set met **N**- tuples (tuple met **N** waarden). Elke tuple heeft waarden die worden geproduceerd door alle container aliassen iteratie van hun respectieve sets. Dit is met andere woorden, een volledige vectorproduct van de sets die deel uitmaken van de join.
 
 De volgende voorbeelden ziet de werking van de JOIN-component. In het volgende voorbeeld wordt het resultaat is leeg omdat het vectorproduct van elk document van de bron en een lege set is leeg.
 
@@ -1321,17 +1323,17 @@ In het volgende voorbeeld wordt er is een extra filter op `pet`. Alle tuples waa
 ```
 
 ## <a id="JavaScriptIntegration"></a>JavaScript-integratie
-Azure Cosmos DB biedt een programmeermodel voor het uitvoeren van op basis van JavaScript-toepassingslogica rechtstreeks op de verzamelingen in termen van opgeslagen procedures en triggers. Hierdoor kunnen voor beide:
+Cosmos DB biedt een programmeermodel voor het uitvoeren van op basis van JavaScript-toepassingslogica rechtstreeks op de containers in termen van opgeslagen procedures en triggers. Hierdoor kunnen voor beide:
 
-* Mogelijkheid om te krachtige transactionele CRUD-bewerkingen en query's op documenten in een verzameling door de diepe integratie van JavaScript-runtime rechtstreeks in de database-engine. 
-* Een natuurlijke modellering van Controlestroom, variabele scopes en -toewijzing en integratie van primitieven databasetransacties afhandeling van uitzonderingen. Raadpleeg de documentatie van de server-side programmeerbaarheid JavaScript voor meer informatie over Azure Cosmos DB-ondersteuning voor JavaScript-integratie.
+* Mogelijkheid om te krachtige transactionele CRUD-bewerkingen en query's op documenten in een container omdat de diepe integratie van JavaScript-runtime rechtstreeks in de database-engine. 
+* Een natuurlijke modellering van Controlestroom, variabele scopes en -toewijzing en integratie van primitieven databasetransacties afhandeling van uitzonderingen. Raadpleeg de documentatie van de server-side programmeerbaarheid JavaScript voor meer informatie over Cosmos DB-ondersteuning voor JavaScript-integratie.
 
 ### <a id="UserDefinedFunctions"></a>Gebruiker gedefinieerde functies (UDF's)
 De SQL-API biedt samen met de typen al gedefinieerd in dit artikel, ondersteuning voor gebruiker gedefinieerde functies (UDF's). In het bijzonder wordt scalaire UDF's waar de ontwikkelaars kunnen nul of meer argumenten worden doorgegeven en retourneert een resultaat van één argument weer ondersteund. Elk van deze argumenten is ingeschakeld voor uw geldige JSON-waarden.  
 
 De SQL-syntaxis is uitgebreid ter ondersteuning van aangepaste toepassingslogica met behulp van deze door de gebruiker gedefinieerde functies. UDF's kunnen worden geregistreerd met SQL-API en vervolgens naar worden verwezen als onderdeel van een SQL-query. De UDF's zijn in feite exquisitely ontworpen om te worden aangeroepen door query's. Als gevolg van deze keuze hebt UDF's geen toegang tot het contextobject dat de andere JavaScript typen (opgeslagen procedures en triggers) hebben. Omdat de query's worden uitgevoerd als alleen-lezen, kunnen ze worden uitgevoerd op de primaire of secundaire replica's. Daarom zijn UDF's ontworpen om uit te voeren op secundaire replica's in tegenstelling tot andere typen JavaScript.
 
-Hieronder volgt een voorbeeld van hoe een UDF kan worden geregistreerd bij de Cosmos DB-database, om precies onder een documentverzameling.
+Hieronder volgt een voorbeeld van hoe een UDF met de Cosmos-database, om precies onder de container van een document kan worden geregistreerd.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -1456,7 +1458,7 @@ Cosmos DB, tekent parallels met JavaScript-operators en de evaluatie-semantiek v
 
 In de SQL-API, zijn in tegenstelling tot in traditionele SQL, de typen van waarden vaak niet bekend totdat de waarden worden opgehaald uit de database. De meeste van de operators hebben om efficiënt query's uitvoeren, strikte eisen. 
 
-De SQL-API biedt geen impliciete conversies, in tegenstelling tot JavaScript uitvoeren. Bijvoorbeeld, een query zoals `SELECT * FROM Person p WHERE p.Age = 21` komt overeen met documenten met een eigenschap leeftijd is waarvan de waarde 21 is. Een ander document waarvan de eigenschap leeftijd komt overeen met de tekenreeks '21' of andere mogelijk oneindige variaties, zoals "021", "21,0", "0021", "00021", enzovoort wordt niet overeen. Dit is daarentegen aan de JavaScript waar de tekenreekswaarden impliciet omgezet naar getallen zijn (op basis van de operator, bijvoorbeeld: ==). Deze keuze is van cruciaal belang voor efficiënte index die overeenkomen met in de SQL-API. 
+De SQL-API biedt geen impliciete conversies, in tegenstelling tot JavaScript uitvoeren. Bijvoorbeeld, een query zoals `SELECT * FROM Person p WHERE p.Age = 21` komt overeen met documenten met een eigenschap leeftijd is waarvan de waarde 21 is. Een ander document waarvan de eigenschap leeftijd komt overeen met de tekenreeks '21' of andere mogelijk oneindige variaties, zoals "021", "21,0", "0021", "00021", enzovoort wordt niet overeen. Dit is in tegenstelling tot de JavaScript waar de tekenreekswaarden impliciet zijn geconverteerd naar getallen (op basis van de operator, bijvoorbeeld: ==). Deze keuze is van cruciaal belang voor efficiënte index die overeenkomen met in de SQL-API. 
 
 ## <a name="parameterized-sql-queries"></a>Geparameteriseerde SQL-query 's
 Cosmos DB biedt ondersteuning voor query's met parameters worden uitgedrukt met de vertrouwde \@ notatie. Geparameteriseerde SQL biedt robuuste verwerken en aanhalingstekens van gebruikersinvoer, zo wordt voorkomen dat onbedoelde blootstelling van gegevens via SQL-injectie. 
@@ -1806,7 +1808,7 @@ Ruimtelijke functies kunnen worden gebruikt om uit te voeren van de service-quer
     }]
 ```
 
-Zie voor meer informatie over ondersteuning voor georuimtelijke in Cosmos DB [werken met georuimtelijke gegevens in Azure Cosmos DB](geospatial.md). Afgerond ruimtelijke functies en de SQL-syntaxis voor Cosmos DB. Nu eens kijken hoe LINQ-query's werkt en hoe deze samenwerkt met de syntaxis van de we hebben gezien tot nu toe.
+Zie voor meer informatie over de georuimtelijke ondersteuning in Cosmos DB [werken met georuimtelijke gegevens in Cosmos DB](geospatial.md). Afgerond ruimtelijke functies en de SQL-syntaxis voor Cosmos DB. Nu eens kijken hoe LINQ-query's werkt en hoe deze samenwerkt met de syntaxis van de we hebben gezien tot nu toe.
 
 ## <a id="Linq"></a>LINQ naar SQL-API
 LINQ is een .NET-programmeermodel die berekening als query's voor streams van objecten. Cosmos DB biedt een client-side-bibliotheek voor de interactie met LINQ doordat een conversie tussen JSON- en .NET-objecten en een toewijzing van een subset van de LINQ-query's naar Cosmos DB-query's. 
@@ -2138,14 +2140,14 @@ In een geneste query, wordt de binnenste query toegepast op elk element van de b
 ## <a id="ExecutingSqlQueries"></a>SQL-query's uitvoeren
 Cosmos DB Ontsluit resources via een REST-API die kan worden aangeroepen in elke taal waarmee HTTP/HTTPS-aanvragen. Cosmos DB biedt bovendien programmeringsbibliotheken voor verschillende veelgebruikte talen zoals .NET, Node.js, JavaScript en Python. De REST-API en de verschillende bibliotheken ondersteuning voor het uitvoeren van query's via SQL. De .NET SDK biedt ondersteuning voor LINQ-query's uitvoeren naast SQL.
 
-De volgende voorbeelden ziet hoe u een query maken en verzenden op basis van een Cosmos DB-databaseaccount geldt.
+De volgende voorbeelden ziet hoe u een query maken en verzenden op basis van een Cosmos-account.
 
 ### <a id="RestAPI"></a>REST-API
-Cosmos DB biedt een open RESTful-programmeermodel via HTTP. Database-accounts kunnen worden ingericht met behulp van een Azure-abonnement. Het Cosmos DB-resourcemodel bestaat uit een set met resources onder een databaseaccount,, die elk opgevraagd met de URI van een logische en stabiel is. Een set met resources wordt aangeduid als een feed in dit document. Een databaseaccount bestaat uit een reeks databases, die elk meerdere verzamelingen, met elk van die beurt documenten, UDF's en andere resourcetypen bevatten.
+Cosmos DB biedt een open RESTful-programmeermodel via HTTP. Cosmos-accounts kunnen worden ingericht met behulp van een Azure-abonnement. Het Cosmos DB-resourcemodel bestaat uit een set resources onder een Cosmos-account, die elk opgevraagd met de URI van een logische en stabiel is. Een set met resources wordt aangeduid als een feed in dit document. Een Cosmos-account bestaat uit een reeks databases, elk met meerdere containers, van welke beurt documenten, UDF's en andere resourcetypen bevatten.
 
 Het model basic interactie met deze resources is via de HTTP-woorden GET, PUT, POST en verwijderen met hun standaard vertaling. De POST-bewerking wordt gebruikt voor het maken van een nieuwe resource, voor het uitvoeren van een opgeslagen procedure of voor het uitgeven van een Cosmos DB-query. Query's zijn altijd alleen-lezen bewerkingen met geen neveneffecten.
 
-De volgende voorbeelden ziet een bericht voor een SQL-API-query uitgevoerd voor een verzameling met de twee voorbeelddocumenten dat tot nu toe hebt gezien. De query is een eenvoudige filter op de naameigenschap JSON. Let op het gebruik van de `x-ms-documentdb-isquery` en Content-Type: `application/query+json` headers om aan te duiden dat de bewerking een query wordt.
+De volgende voorbeelden ziet een bericht voor een SQL-API-query uitgevoerd voor een container met de twee voorbeelddocumenten die dat tot nu toe hebt gezien. De query is een eenvoudige filter op de naameigenschap JSON. Let op het gebruik van de `x-ms-documentdb-isquery` en Content-Type: `application/query+json` headers om aan te duiden dat de bewerking een query wordt.
 
 **Aanvraag**
 
@@ -2271,11 +2273,11 @@ Het tweede voorbeeld ziet een complexere query die meerdere resultaten uit de jo
 
 Als de resultaten van een query niet binnen één pagina met resultaten past en vervolgens de REST-API een vervolgtoken via retourneert de `x-ms-continuation-token` response-header. Clients kunnen resultaten pagineren door op te nemen van de koptekst in de volgende resultaten. Het aantal resultaten per pagina kan ook worden beheerd via de `x-ms-max-item-count` getal-header. Als de opgegeven query een statistische functie, zoals bevat `COUNT`, de querypagina kan een gedeeltelijk geaggregeerde waarde geretourneerd via de pagina met resultaten. De clients moeten een aggregatie op het tweede niveau uitvoeren via deze resultaten het uiteindelijke resultaat, bijvoorbeeld, som via de aantallen die worden geretourneerd in de afzonderlijke pagina's om de totale telling te retourneren.
 
-Voor het beheren van het beleid van de consistentie van gegevens voor query's, gebruikt u de `x-ms-consistency-level` header, zoals alle REST API-aanvragen. Sessieconsistentie, deze is vereist voor de meest recente ook echo `x-ms-session-token` Cookie-header in de query-aanvragen. De aangevraagde verzameling indexeringsbeleid kan ook invloed hebben op de consistentie van de queryresultaten. Met de standaardbeleidsregels voor indexering beleidsinstellingen, voor verzamelingen van de index is altijd actueel met inhoud van het document en queryresultaten overeenkomen met de consistentie gekozen voor gegevens. Als het indexeringsbeleid is soepele naar Lazy, kunnen query's verlopen resultaten geretourneerd. Zie voor meer informatie, [Azure Cosmos DB-Consistentieniveaus][consistency-levels].
+Voor het beheren van het beleid van de consistentie van gegevens voor query's, gebruikt u de `x-ms-consistency-level` header, zoals alle REST API-aanvragen. Sessieconsistentie, deze is vereist voor de meest recente ook echo `x-ms-session-token` Cookie-header in de query-aanvragen. Indexeringsbeleid van de container van de aangevraagde kan ook van invloed zijn op de consistentie van de queryresultaten. Met de standaardbeleidsregels voor indexering beleidsinstellingen, voor containers de index is altijd up-to-date met de inhoud van het document en queryresultaten overeenkomen met de consistentie gekozen voor gegevens. Als het indexeringsbeleid is soepele naar Lazy, kunnen query's verlopen resultaten geretourneerd. Zie voor meer informatie, [Cosmos DB-Consistentieniveaus][consistency-levels].
 
-Als de opgegeven query kan niet worden ondersteund door het geconfigureerde indexeringsbeleid op de verzameling, retourneert de Azure Cosmos DB-server 400 'Ongeldige aanvraag". Dit wordt geretourneerd voor de bereik-query's op paden die zijn geconfigureerd voor lookups op hash (gelijkheid) en voor paden expliciet is uitgesloten van het indexeren. De `x-ms-documentdb-query-enable-scan` header kan worden opgegeven voor de query een scan uitvoeren als een index niet beschikbaar is.
+Als de opgegeven query kan niet worden ondersteund door het geconfigureerde indexeringsbeleid voor de container, retourneert de Cosmos DB-server 400 'Ongeldige aanvraag". Dit wordt geretourneerd voor de bereik-query's op paden die zijn geconfigureerd voor lookups op hash (gelijkheid) en voor paden expliciet is uitgesloten van het indexeren. De `x-ms-documentdb-query-enable-scan` header kan worden opgegeven voor de query een scan uitvoeren als een index niet beschikbaar is.
 
-U kunt gedetailleerde metrische gegevens krijgen bij uitvoeren van query's door in te stellen `x-ms-documentdb-populatequerymetrics` koptekst `True`. Zie voor meer informatie, [SQL query metrische gegevens voor Azure Cosmos DB](sql-api-sql-query-metrics.md).
+U kunt gedetailleerde metrische gegevens krijgen bij uitvoeren van query's door in te stellen `x-ms-documentdb-populatequerymetrics` koptekst `True`. Zie voor meer informatie, [SQL query metrische gegevens voor Cosmos DB](sql-api-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>SDK VOOR C# (.NET)
 De .NET SDK biedt ondersteuning voor zowel SQL als LINQ uitvoeren van query's. Het volgende voorbeeld ziet hoe u de eenvoudige filterquery die eerder in dit document is geïntroduceerd.
@@ -2364,12 +2366,12 @@ Het volgende voorbeeld toont joins, uitgedrukt via LINQ SelectMany.
 
 De .NET-client worden automatisch alle pagina's van de resultaten van de query in de foreach-blokken zoals hierboven doorlopen. De opties voor query's die zijn geïntroduceerd in de sectie REST-API zijn ook beschikbaar in de .NET-SDK met de `FeedOptions` en `FeedResponse` klassen in de methode CreateDocumentQuery. Het aantal pagina's kan worden beheerd met behulp van de `MaxItemCount` instelling. 
 
-U kunt ook expliciet paginering beheren met het maken van `IDocumentQueryable` met behulp van de `IQueryable` object, klikt u vervolgens met het lezen van de` ResponseContinuationToken` waarden en geven ze weer als `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` kan worden ingesteld op scans in te schakelen wanneer de query kan niet worden ondersteund door het geconfigureerde beleid voor indexering. Voor gepartitioneerde verzamelingen, kunt u `PartitionKey` aan de query uitvoeren op een enkele partitie (Hoewel Cosmos DB dit automatisch uit de querytekst extraheren kan), en `EnableCrossPartitionQuery` query's uitvoeren die mogelijk voor meerdere partities worden uitgevoerd. 
+U kunt ook expliciet paginering beheren met het maken van `IDocumentQueryable` met behulp van de `IQueryable` object, klikt u vervolgens met het lezen van de` ResponseContinuationToken` waarden en geven ze weer als `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` kan worden ingesteld op scans in te schakelen wanneer de query kan niet worden ondersteund door het geconfigureerde beleid voor indexering. Voor gepartitioneerde containers, kunt u `PartitionKey` aan de query uitvoeren op een enkele partitie (Hoewel Cosmos DB dit automatisch uit de querytekst extraheren kan), en `EnableCrossPartitionQuery` query's uitvoeren die mogelijk voor meerdere partities worden uitgevoerd. 
 
-Raadpleeg [Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-documentdb-net) voor meer voorbeelden met query's. 
+Raadpleeg [Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-documentdb-net) voor meer voorbeelden met query's. 
 
 ### <a id="JavaScriptServerSideApi"></a>Server-side '-JavaScript-API
-Cosmos DB biedt een programmeermodel voor het uitvoeren van op basis van JavaScript-toepassingslogica rechtstreeks op de verzamelingen met behulp van opgeslagen procedures en triggers. De JavaScript-logica die is geregistreerd op het niveau van een verzameling kan vervolgens databasebewerkingen op de bewerkingen op de documenten van de desbetreffende verzameling. Deze bewerkingen zijn verpakt in ambient ACID-transactions.
+Cosmos DB biedt een programmeermodel voor het uitvoeren van op basis van JavaScript-toepassingslogica rechtstreeks op de containers met behulp van opgeslagen procedures en triggers. De JavaScript-logica die is geregistreerd op het niveau van een container kan vervolgens databasebewerkingen uitvoeren op de bewerkingen op de documenten van de opgegeven container. Deze bewerkingen zijn verpakt in ambient ACID-transactions.
 
 Het volgende voorbeeld laat zien hoe de queryDocuments op de server in JavaScript API gebruiken om te maken van query's uit binnen opgeslagen procedures en triggers.
 

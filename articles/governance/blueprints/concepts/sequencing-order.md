@@ -4,16 +4,16 @@ description: Meer informatie over de levenscyclus die een blauwdruk doorloopt en
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094575"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620592"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Inzicht in de implementatievolgorde van de in Azure blauwdrukken
 
@@ -47,6 +47,9 @@ Binnen elk **resourcegroep** artefact, de volgende volgorde wordt gebruikt voor 
 Wanneer u grote blauwdrukken, is het mogelijk nodig zijn voor resources in een bepaalde volgorde worden gemaakt. De meest voorkomende gebruikspatroon van dit scenario is wanneer een blauwdruk verschillende Azure Resource Manager-sjablonen bevat. Dit patroon blauwdrukken verwerkt door de volgorde te worden gedefinieerd.
 
 De volgorde wordt bereikt door het definiëren van een `dependsOn` eigenschap in de JSON. Deze eigenschap wordt ondersteund door alleen de blauwdruk (voor resourcegroepen) en artefact-objecten. `dependsOn` is een string-matrix van artefactnamen die het artefact name worden gemaakt moet voordat deze gemaakt.
+
+> [!NOTE]
+> **Resourcegroep** artefacten ondersteunt de `dependsOn` eigenschap, maar mag niet het doel van een `dependsOn` door elk artefacttype.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Voorbeeld: blauwdruk met geordende resourcegroep
 

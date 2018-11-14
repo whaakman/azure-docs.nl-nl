@@ -8,16 +8,17 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 89b412a58291dd542b38cd0cbfa1288795024151
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279786"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613712"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
-Azure Monitor biedt nu ondersteuning voor een nieuwe metrische Waarschuwingstype uit, met aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](alert-metric-classic.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
+Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](monitoring-overview-alerts.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](monitoring-overview-alerts-classic.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
+
 
 U kunt de nieuwere metrische waarschuwingen ook gebruiken voor populaire Log Analytics-Logboeken als metrische gegevens hebt uitgepakt. Raadpleeg voor meer informatie, [metrische waarschuwingen voor logboeken](monitoring-metric-alerts-logs.md).
 
@@ -120,6 +121,6 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over de nieuwe [ervaring waarschuwingen](monitoring-overview-unified-alerts.md).
+* Meer informatie over de nieuwe [ervaring waarschuwingen](monitoring-overview-alerts.md).
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure](monitor-alerts-unified-log.md).
 * Meer informatie over [waarschuwingen in Azure](monitoring-overview-alerts.md).

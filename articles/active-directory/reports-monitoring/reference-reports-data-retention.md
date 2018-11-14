@@ -13,24 +13,21 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/10/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 68028fd1ba116251860e5c370e9e9ce61fd314bb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106887"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624587"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Bewaarbeleid Azure Active Directory-rapporten
 
+In dit artikel hebt u meer informatie over het bewaarbeleid voor gegevens voor de verschillende aanmeldactiviteitenrapporten in Azure Active Directory. 
 
-In dit artikel vindt u antwoorden op de meest voorkomende vragen in combinatie met het bewaren van gegevens voor de verschillende aanmeldactiviteitenrapporten in Azure Active Directory. 
-
-### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>V: op welke manier krijgt u het verzamelen van gegevens over de activiteit is gestart?
-
-**A:**
+### <a name="when-does-azure-ad-start-collecting-data"></a>Wanneer begint Azure AD het verzamelen van gegevens?
 
 | Azure AD-editie | Verzameling starten |
 | :--              | :--   |
@@ -38,25 +35,21 @@ In dit artikel vindt u antwoorden op de meest voorkomende vragen in combinatie m
 | Azure AD Free | De eerste keer dat u opent de [Azure Active Directory-blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) of gebruik de [reporting API's](https://aka.ms/aadreports)  |
 
 ---
-### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>V: wanneer wordt de activiteitsgegevens beschikbaar zijn in Azure portal?
 
-**A:**
+### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Wanneer is de activiteitsgegevens beschikbaar zijn in Azure portal?
 
 - **Onmiddellijk** : als u al met rapporten in Azure portal werkt.
 - **Binnen 2 uur** : als u dit nog niet hebt ingeschakeld op rapportage in Azure portal.
 
 ---
 
-### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>V: op welke manier krijgt u de verzameling van beveiliging signalen gestart?  
+### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Wanneer begint Azure AD signaal beveiligingsgegevens verzamelen?  
 
-**A:** voor beveiliging signalen, de verzamelingsproces wordt gestart wanneer u zich aanmelden voor gebruik van het Identity Protection Center. 
-
+Voor beveiliging signalen, de verzamelingsproces wordt gestart wanneer u zich aanmelden voor gebruik van de **Identity Protection Center**. 
 
 ---
 
-### <a name="q-for-how-long-is-the-collected-data-stored"></a>V: hoe lang de verzamelde gegevens opgeslagen?
-
-**A:**
+### <a name="how-long-does-azure-ad-store-the-data"></a>Hoe lang de gegevens opslaan in Azure AD?
 
 **Activiteitenrapporten**    
 

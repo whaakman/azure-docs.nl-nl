@@ -5,23 +5,327 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8f3584475415cf9ca19458f6da78d34df37f438
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235986"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614358"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging-integratie
 
 Naast het bieden van een REST-API, biedt Azure Blockchain Workbench ook integratie op basis van berichten. Workbench publiceert grootboek gerichte gebeurtenissen via Azure Event Grid, waarmee de downstream consument opname van gegevens of maatregelen nemen op basis van deze gebeurtenissen. Voor deze clients waarvoor betrouwbare uitwisseling van berichten, levert Azure Blockchain Workbench berichten naar een Azure Service Bus-eindpunt.
 
-Ontwikkelaars hebben ook interesse in de mogelijkheid om externe systemen communiceren initiëren transacties voor het maken van gebruikers, contracten maken en bijwerken van opdrachten op een grootboek uitgedrukt. Terwijl deze functionaliteit is momenteel niet beschikbaar in openbare preview-versie, een steekproef die het biedt deze mogelijkheid kan worden gevonden op [ http://aka.ms/blockchain-workbench-integration-sample ](https://aka.ms/blockchain-workbench-integration-sample).
+## <a name="input-apis"></a>Invoer-API 's
+
+Als u starten van transacties van externe systemen gebruikers maken wilt, contracten, en overeenkomsten bijwerken, kunt u berichten van de invoer-API's gebruiken transacties uitvoeren op een grootboek. Zie [messaging integratie voorbeelden](https://aka.ms/blockchain-workbench-integration-sample) voor een voorbeeld waarin wordt gedemonstreerd invoer API's.
+
+Hier volgen de momenteel beschikbare API's-invoer.
+
+### <a name="create-user"></a>Gebruiker maken
+
+Hiermee maakt u een nieuwe gebruiker.
+
+De aanvraag moet de volgende velden:
+
+| **Naam**             | **Beschrijving**                                      |
+|----------------------|------------------------------------------------------|
+| aanvraag-id            | Client wordt geleverd GUID                                |
+| Voornaam            | De voornaam van de gebruiker                              |
+| lastName             | De achternaam van de gebruiker                               |
+| EmailAddress         | E-mailadres van de gebruiker                           |
+| externalId           | Azure AD-object-ID van de gebruiker                      |
+| ConnectionId         | De unieke id voor de blockchain-verbinding |
+| messageSchemaVersion | Schemaversie Messaging                            |
+| messageName          | **CreateUserRequest**                               |
+
+Voorbeeld:
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bbbb-edba8e44562d",
+    "firstName": "Ali",
+    "lastName": "Alio",
+    "emailAddress": "aa@contoso.com",
+    "externalId": "6a9b7f65-ffff-442f-b3b8-58a35abd1bcd",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateUserRequest"
+}
+```
+
+Blockchain Workbench retourneert een antwoord met de volgende velden:
+
+| **Naam**              | **Beschrijving**                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| aanvraag-id             | Client wordt geleverd GUID |
+| userId                | ID van de gebruiker die is gemaakt |
+| UserChainIdentifier   | Adres van de gebruiker die is gemaakt op de blockchain-netwerk. In Ethereum, is het adres van de gebruiker **in de chain** adres. |
+| ConnectionId          | De unieke id voor de blockchain-verbinding|
+| messageSchemaVersion  | Schemaversie Messaging |
+| messageName           | **CreateUserUpdate** |
+| status                | De status van de aanvraag voor het maken van gebruiker.  Als lukt, waarde is **succes**. Bij fouten, ligt **fout**.     |
+| AdditionalInformation | Als u meer informatie vindt u op basis van de status |
+
+Voorbeeld van de geslaagde **gebruiker maken** reactie van Blockchain Workbench:
+
+``` json
+{ 
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Success", 
+    "additionalInformation": { } 
+} 
+```
+
+Als de aanvraag is mislukt, worden de details over de fout opnemen in als u meer informatie.
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": null, 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Failure", 
+    "additionalInformation": { 
+        "errorCode": 4000, 
+        "errorMessage": "User cannot be provisioned on connection." 
+    }
+}
+```
+
+### <a name="create-contract"></a>Contract maken
+
+Hiermee maakt u een nieuwe overeenkomst.
+
+De aanvraag moet de volgende velden:
+
+| **Naam**             | **Beschrijving**                                                                                                           |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| aanvraag-id            | Client wordt geleverd GUID |
+| UserChainIdentifier  | Adres van de gebruiker die is gemaakt op de blockchain-netwerk. In Ethereum, is dit adres van de gebruiker **van keten** adres. |
+| ApplicationName      | Naam van de toepassing |
+| WorkflowName         | Naam van de werkstroom |
+| parameters           | Invoer van de parameters voor het contract maken |
+| ConnectionId         | De unieke id voor de blockchain-verbinding |
+| messageSchemaVersion | Schemaversie Messaging |
+| messageName          | **CreateContractRequest** |
+
+Voorbeeld:
+
+``` json
+{ 
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "applicationName": "AssetTransfer", 
+    "workflowName": "AssetTransfer", 
+    "parameters": [ 
+        { 
+            "name": "description", 
+            "value": "a 1969 dodge charger" 
+        }, 
+        { 
+            "name": "price", 
+            "value": "12345" 
+        } 
+    ], 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateContractRequest" 
+}
+```
+
+Blockchain Workbench retourneert een antwoord met de volgende velden:
+
+| **Naam**                 | **Beschrijving**                                                                   |
+|--------------------------|-----------------------------------------------------------------------------------|
+| aanvraag-id                | Client wordt geleverd GUID                                                             |
+| ContractId               | De unieke id voor het contract binnen Azure Blockchain Workbench |
+| ContractLedgerIdentifier | Adres van het contract op het grootboek                                            |
+| ConnectionId             | De unieke id voor de blockchain-verbinding                               |
+| messageSchemaVersion     | Schemaversie Messaging                                                         |
+| messageName              | **CreateContractUpdate**                                                      |
+| status                   | De status van de aanvraag voor het contract maken.  Mogelijke waarden: **ingediend**, **vastgelegd**, **fout**.  |
+| AdditionalInformation    | Als u meer informatie vindt u op basis van de status                              |
+
+Voorbeeld van een ingediende **contract maken** reactie van Blockchain Workbench:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Submitted"
+    "additionalInformation": { }
+}
+```
+
+Voorbeeld van een vastgelegde **contract maken** reactie van Blockchain Workbench:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Committed",
+    "additionalInformation": { }
+}
+```
+
+Als de aanvraag is mislukt, worden de details over de fout opnemen in als u meer informatie.
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": null,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="create-contract-action"></a>Contract actie maken
+
+Maakt een nieuwe overeenkomst-actie.
+
+De aanvraag moet de volgende velden:
+
+| **Naam**                 | **Beschrijving**                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| aanvraag-id                | Client wordt geleverd GUID |
+| UserChainIdentifier      | Adres van de gebruiker die is gemaakt op de blockchain-netwerk. In Ethereum, is dit van de gebruiker **van keten** adres. |
+| ContractLedgerIdentifier | Adres van het contract op het grootboek |
+| WorkflowFunctionName     | Naam van de Werkstroomfunctie |
+| parameters               | Invoer van de parameters voor het contract maken |
+| ConnectionId             | De unieke id voor de blockchain-verbinding |
+| messageSchemaVersion     | Schemaversie Messaging |
+| messageName              | **CreateContractActionRequest** |
+
+Voorbeeld:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "workflowFunctionName": "modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a 1969 dodge charger"
+        },
+        {
+            "name": "price",
+            "value": "12345"
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionRequest"
+}
+```
+
+Blockchain Workbench retourneert een antwoord met de volgende velden:
+
+| **Naam**              | **Beschrijving**                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------|
+| aanvraag-id             | Client wordt geleverd GUID|
+| ContractId            | De unieke id voor het contract binnen Azure Blockchain Workbench |
+| ConnectionId          | De unieke id voor de blockchain-verbinding |
+| messageSchemaVersion  | Schemaversie Messaging |
+| messageName           | **CreateContractActionUpdate** |
+| status                | De status van de aanvraag van de actie contract. Mogelijke waarden: **ingediend**, **vastgelegd**, **fout**.                         |
+| AdditionalInformation | Als u meer informatie vindt u op basis van de status |
+
+Voorbeeld van een ingediende **contract actie maken** reactie van Blockchain Workbench:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Submitted",
+    "additionalInformation": { }
+}
+```
+
+Voorbeeld van een vastgelegde **contract actie maken** reactie van Blockchain Workbench:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Committed"
+    "additionalInformation": { }
+}
+```
+
+Als de aanvraag is mislukt, worden de details over de fout opnemen in als u meer informatie.
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract action cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="input-api-error-codes-and-messages"></a>Invoer API-foutcodes en berichten
+
+**Foutcode 4000: ongeldige aanvraag-fout**
+- Ongeldige connectionId
+- CreateUserRequest deserialisatie is mislukt
+- CreateContractRequest deserialisatie is mislukt
+- CreateContractActionRequest deserialisatie is mislukt
+- Toepassing {geïdentificeerd door de naam van toepassing} bestaat niet
+- Toepassing {geïdentificeerd door de naam van toepassing} heeft geen werkstroom
+- UserChainIdentifier bestaat niet
+- Contract {aangegeven met grootboek-id} bestaat niet
+- Contract {aangegeven met grootboek-id} heeft geen functie {functie Werkstroomnaam}
+- UserChainIdentifier bestaat niet
+
+**Foutcode 4090: Conflict fout**
+- Gebruiker bestaat al
+- Er bestaat al een contract
+- Er bestaat al een overeenkomst-actie
+
+**Foutcode 5000: interne serverfout**
+- Uitzondering berichten
 
 ## <a name="event-notifications"></a>Gebeurtenismeldingen
 
@@ -92,15 +396,15 @@ Geeft aan dat een aanvraag invoegen of bijwerken van een overeenkomst op een ged
 
 | Naam | Beschrijving |
 |-----|--------------|
-| ChainID | Een unieke id voor de keten die zijn gekoppeld aan de aanvraag.|
-| BlockId | De unieke id voor een blok in het grootboek.|
-| ContractId | Een unieke id voor het contract.|
-| ContractAddress |       Het adres van het contract op het grootboek.|
-| TransactionHash  |     De hash van de transactie op het grootboek.|
-| OriginatingAddress |   Het adres van de afzender van de transactie.|
-| actionName       |     De naam van de actie.|
-| IsUpdate        |      Wordt geïdentificeerd als dit een update is.|
-| Parameters       |     Een lijst met objecten die de naam, waarde en het gegevenstype van de parameters die zijn verzonden naar een actie identificeren.|
+| ChainID | De unieke id voor de keten die zijn gekoppeld aan de aanvraag |
+| BlockId | De unieke id voor een blok in het grootboek |
+| ContractId | Een unieke id voor het contract |
+| ContractAddress |       Het adres van het contract op het grootboek |
+| TransactionHash  |     De hash van de transactie op het grootboek |
+| OriginatingAddress |   Het adres van de afzender van de transactie |
+| actionName       |     De naam van de actie |
+| IsUpdate        |      Wordt geïdentificeerd als dit een update is |
+| Parameters       |     Een lijst met objecten die de naam, waarde en het gegevenstype van de parameters die zijn verzonden naar een actie identificeren |
 | TopLevelInputParams |  Dit zijn de parameters van het contract op het hoogste niveau in scenario's waarin een overeenkomst is verbonden met een of meer overeenkomsten. |
 
 ``` csharp
@@ -126,18 +430,17 @@ Geeft aan dat een aanvraag is gemaakt met het uitvoeren van een actie op een spe
 
 | Naam                     | Beschrijving                                                                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | De unieke id voor deze actie contract                                                                                                                                |
-| ChainIdentifier          | De unieke id voor de keten                                                                                                                                           |
-| ConnectionId             | De unieke id voor de verbinding                                                                                                                                      |
-| UserChainIdentifier      | Adres van de gebruiker die is gemaakt op de blockchain-netwerk. In Ethereum, zou dit 'in de keten"adres van de gebruiker.                                                     |
-| ContractLedgerIdentifier | Adres van het contract op het grootboek.                                                                                                                                        |
-| WorkflowFunctionName     | Naam van de Werkstroomfunctie.                                                                                                                                                |
-| WorkflowName             | Naam van de werkstroom.                                                                                                                                                         |
-| WorkflowBlobStorageURL   | De url van de overeenkomst in blob-opslag.                                                                                                                                      |
-| ContractActionParameters | Parameters voor de actie contract.                                                                                                                                           |
-| TransactionHash          | De hash van de transactie op het grootboek.                                                                                                                                    |
-| Inrichtingsstatus      | De huidige inrichting status van de actie.</br>0: gemaakt</br>1 – in proces</br>2 – voltooien</br> Volledige geeft aan dat een bevestiging van het grootboek dat deze is toegevoegd.                                               |
-|                          |                                                                                                                                                                               |
+| ContractActionId         | De unieke id voor deze actie contract |
+| ChainIdentifier          | De unieke id voor de keten |
+| ConnectionId             | De unieke id voor de verbinding |
+| UserChainIdentifier      | Adres van de gebruiker die is gemaakt op de blockchain-netwerk. In Ethereum, is dit adres van de gebruiker **van keten** adres. |
+| ContractLedgerIdentifier | Adres van het contract op het grootboek |
+| WorkflowFunctionName     | Naam van de Werkstroomfunctie |
+| WorkflowName             | Naam van de werkstroom |
+| WorkflowBlobStorageURL   | De url van de overeenkomst in blob-opslag |
+| ContractActionParameters | Parameters voor de overeenkomst-actie |
+| TransactionHash          | De hash van de transactie op het grootboek |
+| Inrichtingsstatus      | De huidige inrichting status van de actie.</br>0: gemaakt</br>1 – in proces</br>2 – voltooien</br> Volledige geeft aan dat een bevestiging van het grootboek dat deze is toegevoegd |
 
 ```csharp
 public class ContractActionRequest : MessageModelBase
@@ -165,9 +468,9 @@ Geeft aan dat een aanvraag om bij te werken het saldo van de gebruiker op een sp
 
 | Naam    | Beschrijving                              |
 |---------|------------------------------------------|
-| Adres | Het adres van de gebruiker die is gefinancierd. |
-| Saldo | Het saldo van het saldo van de gebruiker.         |
-| ChainID | De unieke id voor de keten.     |
+| Adres | Het adres van de gebruiker die is gefinancierd |
+| Saldo | Het saldo van het saldo van de gebruiker         |
+| ChainID | De unieke id voor de keten     |
 
 
 ``` csharp
@@ -185,10 +488,10 @@ Bericht geeft aan dat een aanvraag voor een blok toevoegen aan een gedistribueer
 
 | Naam           | Beschrijving                                                            |
 |----------------|------------------------------------------------------------------------|
-| ChainId        | De unieke id van de reeks waarnaar het blok is toegevoegd.             |
-| BlockId        | De unieke id voor het blok in Azure Blockchain Workbench. |
-| BlockHash      | De hash van het blok.                                                 |
-| BlockTimeStamp | De tijdstempel van het blok.                                            |
+| ChainId        | De unieke id van de keten waaraan het blok is toegevoegd             |
+| BlockId        | De unieke id voor het blok in Azure Blockchain Workbench |
+| BlockHash      | De hash van het blok                                                 |
+| BlockTimeStamp | De tijdstempel van het blok                                            |
 
 ``` csharp
 public class InsertBlockRequest : MessageModelBase
@@ -206,13 +509,13 @@ Bericht geeft details op een aanvraag voor het toevoegen van een transactie van 
 
 | Naam            | Beschrijving                                                            |
 |-----------------|------------------------------------------------------------------------|
-| ChainId         | De unieke id van de reeks waarnaar het blok is toegevoegd.             |
-| BlockId         | De unieke id voor het blok in Azure Blockchain Workbench. |
-| TransactionHash | De hash van de transactie.                                           |
-| Vanaf            | Het adres van de afzender van de transactie.                      |
-| Handeling              | Het adres van de beoogde ontvanger van de transactie.              |
-| Waarde           | De waarde die is opgenomen in de transactie.                                 |
-| IsAppBuilderTx  | Wordt geïdentificeerd als dit een Blockchain Workbench-transactie is.                         |
+| ChainId         | De unieke id van de keten waaraan het blok is toegevoegd             |
+| BlockId         | De unieke id voor het blok in Azure Blockchain Workbench |
+| TransactionHash | De hash van de transactie                                           |
+| Vanaf            | Het adres van de afzender van de transactie                      |
+| Handeling              | Het adres van de beoogde ontvanger van de transactie              |
+| Waarde           | De waarde die is opgenomen in de transactie                                 |
+| IsAppBuilderTx  | Wordt geïdentificeerd als dit een Blockchain Workbench-transactie is                         |
 
 ``` csharp
 public class InsertTransactionRequest : MessageModelBase
@@ -233,8 +536,8 @@ Biedt details over de toewijzing van een keten-id voor een contract. Bijvoorbeel
 
 | Naam            | Beschrijving                                                                       |
 |-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | Dit is de unieke id voor het contract binnen Azure Blockchain Workbench. |
-| ChainIdentifier | Dit is de id voor de overeenkomst in de keten.                             |
+| ContractId      | De unieke id voor het contract binnen Azure Blockchain Workbench |
+| ChainIdentifier | Id van de overeenkomst in de keten                             |
 
 ``` csharp
 public class AssignContractChainIdentifierRequest : MessageModelBase
@@ -252,8 +555,8 @@ Het basismodel voor alle berichten.
 
 | Naam          | Beschrijving                          |
 |---------------|--------------------------------------|
-| OperationName | De naam van de bewerking.           |
-| aanvraag-id     | Een unieke id voor de aanvraag. |
+| OperationName | De naam van de bewerking           |
+| aanvraag-id     | Unieke id voor de aanvraag |
 
 ``` csharp
 public class MessageModelBase
@@ -269,9 +572,9 @@ Bevat de naam, waarde en type van een parameter.
 
 | Naam  | Beschrijving                 |
 |-------|-----------------------------|
-| Naam  | De naam van de parameter.  |
-| Waarde | De waarde van de parameter. |
-| Type  | Het type van de parameter.  |
+| Naam  | De naam van de parameter  |
+| Waarde | De waarde van de parameter |
+| Type  | Het type van de parameter  |
 
 ``` csharp
 public class ContractInputParameter
@@ -288,10 +591,10 @@ Bevat de ID, naam, waarde en type van een eigenschap.
 
 | Naam  | Beschrijving                |
 |-------|----------------------------|
-| Id    | De ID van de eigenschap.    |
-| Naam  | De naam van de eigenschap.  |
-| Waarde | De waarde van de eigenschap. |
-| Type  | Het type van de eigenschap.  |
+| Id    | De ID van de eigenschap    |
+| Naam  | De naam van de eigenschap  |
+| Waarde | De waarde van de eigenschap |
+| Type  | Het type van de eigenschap  |
 
 ``` csharp
 public class ContractProperty

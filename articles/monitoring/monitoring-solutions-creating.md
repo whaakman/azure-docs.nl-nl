@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b7839fc498b54d2128528c8d655d78bb759a7cd5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282047"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612436"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Ontwerpen en bouwen van een oplossing in Azure (Preview)
 > [!NOTE]
@@ -54,7 +54,7 @@ Als u gegevens die niet toegankelijk zijn via een van de beschikbare gegevensbro
 U moet alle query's waarvan u denkt is handig om de gebruiker dat, zelfs als ze niet worden gebruikt door alle weergaven of waarschuwingen definiëren.  Deze worden weergegeven die voor hen beschikbaar als opgeslagen zoekopdrachten in de portal en u kunt ook opnemen in een [lijstquery's visualisatie onderdeel](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in uw aangepaste weergave.
 
 ### <a name="alerts"></a>Waarschuwingen
-[Waarschuwingen in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) geven aan welke problemen via [zoekopdrachten](#log-searches) ten opzichte van de gegevens in de opslagplaats.  Ze een melding van de gebruiker of automatisch een actie uitvoeren als reactie. U moet verschillende waarschuwing voorwaarden voor uw toepassing te identificeren en bijbehorende waarschuwingsregels opnemen in uw oplossingsbestand.
+[Waarschuwingen in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) geven aan welke problemen via [zoekopdrachten](#log-searches) ten opzichte van de gegevens in de opslagplaats.  Ze een melding van de gebruiker of automatisch een actie uitvoeren als reactie. U moet verschillende waarschuwing voorwaarden voor uw toepassing te identificeren en bijbehorende waarschuwingsregels opnemen in uw oplossingsbestand.
 
 Als het probleem kan mogelijk worden opgelost met een geautomatiseerd proces, zult u doorgaans een runbook maken in Azure Automation om uit te voeren van dit herstel.  De meeste Azure-services kunnen worden beheerd met [cmdlets](/powershell/azure/overview) die het runbook wilt gebruikmaken van dergelijke functies kunnen worden uitgevoerd.
 

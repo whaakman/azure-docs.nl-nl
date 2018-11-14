@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbe2619b99fdc5281375e2c6c1300432d9a4cbb9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963798"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616126"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-extensie configuration schema-versies en de geschiedenis
 Deze pagina indexen Azure Diagnostics-extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
@@ -67,7 +67,7 @@ Verschillende versies van Azure diagnostics gebruiken verschillende configuratie
 ### <a name="diagnostics-extension-111"></a>Extensie voor diagnostische gegevens 1.11
 Ondersteuning toegevoegd voor de Azure Monitor-sink. Dit is alleen van toepassing op prestatiemeteritems. Hiermee schakelt u prestatiemeteritems die worden verzameld op de virtuele machine, VMSS of service in de cloud naar Azure Monitor als aangepaste metrische gegevens verzenden. Biedt ondersteuning voor de Azure Monitor-sink:
 * Bij het ophalen van alle prestatiemeteritems verzonden naar Azure Monitor via de [Azure Monitor metrics API's.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Waarschuwingen voor alle prestatiemeteritems verzonden naar Azure Monitor via de nieuwe [ervaring voor waarschuwingen van geïntegreerde](monitoring-overview-unified-alerts.md) in Azure Monitor
+* Waarschuwingen voor alle prestatiemeteritems verzonden naar Azure Monitor via de nieuwe [ervaring voor waarschuwingen van geïntegreerde](monitoring-overview-alerts.md) in Azure Monitor
 * Wildcard-operator als de dimensie 'Instantie' op uw metrische gegevens in de prestatiemeteritems te behandelen. Bijvoorbeeld als u hebt verzameld de ' logische schijf (\*) / DiskWrites per seconde "teller die u kunt filteren en splitsen op de dimensie 'Instantie' diagram of de waarschuwing op de schijf schrijven per seconde voor elke logische schijf (C:, D:, enz.)
 
 Azure Monitor definiëren als een nieuwe sink in de configuratie van de extensie voor diagnostische gegevens

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/28/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d3809c2615c1d73d0c4c80bafba77614aac6b17e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395629"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624196"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analyseren van Azure AD-activiteitenlogboeken met Log Analytics (preview)
 
@@ -97,7 +97,7 @@ U kunt ook de vooraf gemaakte Log Analytics-weergaven voor Azure AD-activiteit d
 * **Aanmeldingen gebeurtenissen**: in deze weergave ziet u de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
 * **Gebruikers voeren toestemming geven**: deze weergave toont rapporten met betrekking tot toestemming van de gebruiker, zoals de toestemming verleent door de gebruiker, -aanmeldingen door gebruikers die toestemming verleend, evenals aanmeldingen per toepassing voor alle toepassingen op basis van toestemming. 
 
-Meer informatie over het [installeren en gebruiken van Log Analytics-weergaven voor Azure AD-activiteit logboeken](howto-install-use-log-analytics-views.md). 
+Ontdek hoe u [Log Analytics-weergaven voor Azure AD-activiteitenlogboeken installeert en gebruikt](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Volgende stappen

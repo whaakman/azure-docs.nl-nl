@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f85de79b683ba7b10f5466c4a8042fc0ffdea90
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381267"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612472"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel OAuth2 definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ De **InputClaims** en **InputClaimsTransformations** elementen zijn niet vereist
 
 ## <a name="output-claims"></a>Gebruikersclaims
 
-De **OutputClaims** element bevat een lijst met claims die wordt geretourneerd door de OAuth2-id-provider. Mogelijk moet u de naam van de claim die is gedefinieerd in uw beleid aan de naam die is gedefinieerd in de id-provider toewijzen. U kunt ook bevatten claims die niet zijn geretourneerd door de id-provider, zolang u instellen de `DefaultValue` kenmerk.
+De **OutputClaims** element bevat een lijst met claims die wordt geretourneerd door de OAuth2-id-provider. Mogelijk moet u de naam van de claim die is gedefinieerd in uw beleid aan de naam die is gedefinieerd in de id-provider toewijzen. U kunt ook bevatten claims die niet zijn geretourneerd door de id-provider, zolang u de `DefaultValue` kenmerk.
 
 De **OutputClaimsTransformations** element kan bevatten een verzameling van **OutputClaimsTransformation** elementen die worden gebruikt voor het wijzigen van de uitvoerclaims of nieuwe labels te genereren.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7d65752787e65eeabf203f9bdc3ea11a1569f8a1
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091688"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613372"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Veelgestelde vragen over Azure Monitor voor virtuele machines (Preview)
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Azure Monitor voor virtuele machines. Als u aanvullende vragen over de oplossing hebt, gaat u naar de [discussieforum](https://feedback.azure.com/forums/34192--general-feedback) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -93,6 +93,11 @@ Terwijl we verbeteringen in kaart aangebracht hebben voor het afhandelen van gro
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Waarom ziet de grafiek netwerk op het tabblad prestaties er anders dan de grafiek netwerk op de pagina overzicht van Azure-VM?
 
 De overzichtspagina voor een Azure-VM wordt weergegeven voor diagrammen op basis van de meting van de host van de activiteit in de Gast-VM.  Voor op de Azure VM-overzicht van de grafiek netwerk alleen wordt weergegeven netwerkverkeer dat wordt in rekening gebracht.  Dit omvat geen inter-vnet-verkeer.  De gegevens en grafieken weergegeven voor Azure Monitor voor virtuele machines is gebaseerd op gegevens van de Gast-VM en de netwerk-grafiek wordt weergegeven voor alle TCP/IP-verkeer dat binnenkomend en uitgaand naar die virtuele machine, met inbegrip van inter-vnet.
+
+## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Zijn de beperkingen ervan als ik op de Log Analytics gratis prijsstelling?
+Als u Azure Monitor hebt geconfigureerd met een Log Analytics-werkruimte met de *gratis* prijscategorie, Azure Monitor voor de functie voor toewijzing van virtuele machines ondersteunen alleen vijf verbonden machines verbonden met de werkruimte. Als u vijf virtuele machines die zijn verbonden met een gratis werkruimte hebt, u verbinding te verbreken van de virtuele machines en later verbindt vervolgens een nieuwe virtuele machine, de nieuwe virtuele machine wordt niet bewaakt en doorgevoerd op de pagina overzicht.  
+
+In dit geval wordt er een bericht met de **nu proberen** wanneer u de virtuele machine openen en selecteer de optie **inzichten (preview)** in het linkervenster, zelfs nadat deze is al is geïnstalleerd op de virtuele machine.  Echter, u niet gevraagd met opties als normaal gesproken optreden zou als deze virtuele machine niet toegevoegd aan Azure-Monitor voor virtuele machines zijn. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Beoordeling [ingebouwde Azure-Monitor voor virtuele machines](monitoring-vminsights-onboard.md) voor informatie over vereisten en methoden voor bewaking van uw virtuele machines wilt inschakelen.

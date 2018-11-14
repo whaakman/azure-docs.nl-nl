@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 88e55468c4018b73cb26087c4fbbdbee65cd5db3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515519"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624874"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -131,6 +131,10 @@ Importeren van een kennisdatabase wordt vervangen door de inhoud van de bestaand
 ## <a name="editorially-add-to-knowledge-base"></a>Redactioneel in knowledge base toevoegen
 
 Als u geen bestaande inhoud voor het vullen van de knowledge base, kunt u vragen en antwoorden supereenvoudig redactioneel toevoegen in de QnA Maker Knowledge base. Meer informatie over het bijwerken van uw knowledge base [hier](../How-To/edit-knowledge-base.md).
+
+## <a name="formatting-considerations"></a>Overwegingen voor opmaak
+
+Na het importeren van een bestand of een URL, wordt deze omgezet in Markdown en opgeslagen in deze indeling. Als tijdens de conversie niet correct koppelingen in uw bestanden en de URL's converteert is, moet u de vragen en antwoorden bewerken op de **bewerken** pagina. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

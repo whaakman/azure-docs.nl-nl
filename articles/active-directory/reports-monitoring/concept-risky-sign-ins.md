@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/14/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 38ae18dca08b50a90102149d7e44169c956a1c0e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869632"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623856"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 
-Met de beveiligingsrapporten in Azure Active Directory (Azure AD) krijgt u inzicht in de kans op verdachte gebruikersaccounts in uw omgeving. 
+Azure Active Directory (Azure AD) detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Voor elke activiteit wordt gedetecteerde er een record met de naam een **risicogebeurtenis** wordt gemaakt. Zie voor meer informatie, [Azure AD-risicogebeurtenissen](concept-risk-events.md). 
 
-Azure AD detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Voor elke gedetecteerde activiteit wordt een record met de naam *risicogebeurtenis* gemaakt. Zie [Risicogebeurtenissen in Azure Active Directory](concept-risk-events.md) voor meer informatie. 
+U hebt toegang tot de beveiligingsrapporten in de [Azure-portal](https://portal.azure.com) door het selecteren van de **Azure Active Directory** blade en vervolgens te navigeren naar de **Security** sectie. 
 
-De gedetecteerde risico's worden gebruikt om het volgende te berekenen:
+Er zijn twee verschillende beveiligingsrapporten die worden berekend op basis van de risicogebeurtenissen:
 
-- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie voor meer informatie, [het configureren van het beleid voor aanmeldingsrisico](../identity-protection/howto-sign-in-risk-policy.md). 
+- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is.
 
-- **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie voor meer informatie, [het configureren van het beleid voor gebruikersrisico's](../identity-protection/howto-user-risk-policy.md).  
-
-In [Azure Portal](https://portal.azure.com) kunt u de beveiligingsrapporten vinden op de blade **Azure Active Directory** in het gedeelte **Beveiliging**. 
+- **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/10.png)
+
+Zie voor informatie over het configureren van de beleidsregels die van deze risicogebeurtenissen activeren, [het configureren van het beleid voor gebruikersrisico's](../identity-protection/howto-user-risk-policy.md).  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>Wie toegang heeft tot het rapport riskante aanmeldingen?
 
@@ -49,18 +49,17 @@ Zie voor meer informatie over beheerdersrollen toewijzen aan een gebruiker in Az
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Welke Azure AD-licentie heb ik nodig voor toegang tot een beveiligingsrapport?  
 
-Alle edities van Azure Active Directory bieden rapporten over riskante aanmeldingen.  
-Het detailniveau van rapporten verschilt wel per editie: 
+Alle edities van Azure AD bieden rapporten over riskante aanmeldingen. Het detailniveau van rapporten verschilt wel per editie: 
 
-- Bij de edities **Azure Active Directory Free en Basic** krijgt u al een lijst met riskante aanmeldingen. 
+- In de **Azure Active Directory gratis en Basic edities**, krijgt u een lijst met riskante aanmeldingen. 
 
-- De editie **Azure Active Directory Premium 1** bevat een uitgebreider model waarmee u ook bepaalde onderliggende risicogebeurtenissen kunt onderzoeken die voor elk rapport zijn gedetecteerd. 
+- Bovendien de **Azure Active Directory Premium 1** edition kunt u enkele van de onderliggende risicogebeurtenissen die zijn gedetecteerd voor elk rapport bekijken. 
 
 - De editie **Azure Active Directory Premium 2** biedt u de meest gedetailleerde informatie over alle onderliggende risicogebeurtenissen. Deze editie stelt u ook in staat beveiligingsbeleidsregels te configureren die automatisch op de geconfigureerde risiconiveaus reageren.
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Gratis en Basic edities van Azure Active Directory
+## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Rapport riskante aanmeldingen voor Azure AD gratis en basic-editie
 
-De edities Gratis en Basic van Azure Active Directory bieden u een lijst met riskante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Dit rapport bevat:
+De Azure AD gratis en basic edities bieden u een lijst met riskante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Elke record bevat de volgende kenmerken:
 
 - **Gebruiker**: de naam van de gebruiker die is gebruikt tijdens het aanmelden
 - **IP**: het IP-adres van het apparaat dat is gebruikt om verbinding te maken met Azure Active Directory
@@ -68,10 +67,9 @@ De edities Gratis en Basic van Azure Active Directory bieden u een lijst met ris
 - **Tijd van aanmelden**: de tijd waarop de aanmelding heeft plaatsgevonden
 - **Status**: de status van de aanmelding
 
-
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/01.png)
 
-Op basis van uw onderzoek van de riskante aanmelding kunt u uw feedback naar Azure Active Directory sturen door een van de volgende acties te ondernemen:
+Op basis van uw onderzoek van de riskante aanmelding, kunt u feedback geven aan Azure AD door de volgende acties te ondernemen:
 
 - Oplossen
 - Markeren als fout-positief
@@ -80,28 +78,23 @@ Op basis van uw onderzoek van de riskante aanmelding kunt u uw feedback naar Azu
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/21.png)
 
-
-
-Dit rapport biedt de volgende mogelijkheden:
+Dit rapport bevat ook een optie voor het:
 
 - Resources zoeken
 - De rapportgegevens downloaden
 
-
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/93.png)
 
 
-## <a name="azure-active-directory-premium-editions"></a>Premium edities van Azure Active Directory
+## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Rapport riskante aanmeldingen voor Azure AD premium-edities
 
-Het rapport Riskante aanmeldingen in de Azure Active Directory-portal biedt u het volgende:
+Het rapport riskante aanmeldingen in de Azure AD premium-edities biedt u met:
 
 - Verzamelde informatie over de gedetecteerde [risicogebeurtenistypen](concept-risk-events.md)
 
 - Een optie voor het downloaden van het rapport
 
-
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/456.png)
-
 
 Wanneer u een risicogebeurtenis selecteert, krijgt u een gedetailleerde rapportweergave voor deze risicogebeurtenis waarmee u het volgende kunt:
 
@@ -112,7 +105,6 @@ Wanneer u een risicogebeurtenis selecteert, krijgt u een gedetailleerde rapportw
 - Een lijst met gebruikers bekijken waarvoor deze risicogebeurtenis is gedetecteerd
 
 - Risicogebeurtenissen handmatig sluiten. 
-
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/457.png)
 
@@ -126,21 +118,15 @@ Wanneer u een gebruiker selecteert, krijgt u een gedetailleerde rapportweergave 
 
 - De gemelde risico's voor de gebruiker onderzoeken. 
 
-
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/324.png)
 
-
 Selecteer in de lijst de risicogebeurtenis die u wilt onderzoeken.  
-Hiermee opent u de blade **Details** voor deze risicogebeurtenis. Op de **Details** blade, u hebt de optie voor het handmatig gesloten risicogebeurtenis of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
-
+Hiermee opent u de blade **Details** voor deze risicogebeurtenis. Op de blade **Details** kunt u een risicogebeurtenis handmatig sluiten of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/325.png)
 
-
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) voor meer informatie over Azure Active Directory Identity Protection.
-
+- [Het configureren van het beleid voor gebruikersrisico 's](../identity-protection/howto-user-risk-policy.md)
+- [Het configureren van het beleid voor het herstel van gebruikersrisico](../identity-protection/howto-user-risk-policy.md)
+- [Risicogebeurtenistypen](concept-risk-events.md)

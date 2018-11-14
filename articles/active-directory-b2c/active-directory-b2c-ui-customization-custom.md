@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945057"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625791"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -99,17 +99,13 @@ Voor het maken van een openbare container in Blob-opslag, het volgende doen:
 
 Blob-opslag configureren voor het delen van Cross-Origin-Resource door het volgende te doen:
 
->[!NOTE]
->Wilt u voor het uitproberen van de functie van de gebruikersinterface aanpassen met behulp van onze voorbeeld-HTML en CSS-inhoud? Zijn er beschikbaar gesteld [een eenvoudige hulpprogramma](active-directory-b2c-reference-ui-customization-helper-tool.md) die wordt geüpload en onze voorbeelden voor inhoud op uw Blob storage-account configureert. Als u het hulpprogramma gebruikt, gaat u verder met [wijzigen van het aangepaste beleid registreren of aanmelden](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. Op de **opslag** blade onder **instellingen**Open **CORS**.
-2. Klik op **Add**.
-3. Voor **oorsprongen toegestaan**, typt u een sterretje (\*).
-4. In de **toegestane termen** vervolgkeuzelijst, selecteer **ophalen** en **opties**.
-5. Voor **toegestaan headers**, typt u een sterretje (\*).
-6. Voor **blootgesteld headers**, typt u een sterretje (\*).
-7. Voor **maximale leeftijd (seconden)**, type **200**.
-8. Klik op **Add**.
+1. Selecteer in het menu **CORS**.
+2. Voor **oorsprongen toegestaan**, voer `your-tenant-name.b2clogin.com`. Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant. Bijvoorbeeld `fabrikam.b2clogin.com`.
+3. Voor **toegestaan methoden**, selecteert u beide `GET` en `OPTIONS`.
+4. Voor **toegestaan Headers**, geeft u een sterretje (*).
+5. Voor **blootgesteld Headers**, geeft u een sterretje (*).
+6. Voor **maximumleeftijd**, Voer 200.
+7. Klik op **Opslaan**.
 
 ## <a name="test-cors"></a>CORS testen
 

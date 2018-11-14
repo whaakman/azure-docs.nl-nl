@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056821"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614256"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Volume in de container op basis van status van de Store in een Azure Service Fabric NET toepassing door te koppelen van een Azure-bestanden
 
@@ -62,10 +62,10 @@ Maken van de toepassing en de bijbehorende resources met behulp van de volgende 
 
 De `storageAccountKey` parameter in de sjabloon is een beveiligde tekenreeks. Deze worden niet weergegeven in de status van de implementatie en `az mesh service show` opdrachten. Zorg ervoor dat deze correct is opgegeven in de volgende opdracht uit.
 
-De volgende opdracht wordt geïmplementeerd op een Linux-toepassing met de [mesh_rp.linux.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Voor het implementeren van een Windows-toepassing, gebruikt u de [mesh_rp.windows.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Let erop dat grotere containerinstallatiekopieën duurt langer om te implementeren.
+De volgende opdracht wordt geïmplementeerd op een Linux-toepassing met de [counter.azurefilesvolume.linux.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Voor het implementeren van een Windows-toepassing, gebruikt u de [counter.azurefilesvolume.windows.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Let erop dat grotere containerinstallatiekopieën duurt langer om te implementeren.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 In een paar minuten, de opdracht moet worden geretourneerd met `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
@@ -97,5 +97,5 @@ az group delete --resource-group myResourceGroup
 ## <a name="next-steps"></a>Volgende stappen
 
 - De voorbeeldtoepassing voor Azure Files-volume bekijken op [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
-- Zie voor meer informatie over Service Fabric-Resourcemodel [Resourcemodel voor Service Fabric-NET](service-fabric-mesh-service-fabric-resources.md).
-- Lees voor meer informatie over Service Fabric NET de [overzicht Service Fabric NET](service-fabric-mesh-overview.md).
+- Zie [Inleiding tot Service Fabric Resource-model](service-fabric-mesh-service-fabric-resources.md) voor meer informatie over het Service Fabric Resource-model.
+- Lees [Wat is Service Fabric Mesh?](service-fabric-mesh-overview.md) voor meer informatie over Service Fabric Mesh.

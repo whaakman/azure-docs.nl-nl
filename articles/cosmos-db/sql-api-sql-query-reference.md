@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979502"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623941"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Naslaginformatie over Azure Cosmos DB SQL-syntaxis
 
-Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat een verwijzing/syntaxis van de documentatie voor de SQL-query-taal, die compatibel met SQL API-accounts is. Zie voor een overzicht van de SQL-query's met voorbeeldgegevens [Azure Cosmos DB-gegevens op te vragen](sql-api-sql-query.md).  
+Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat documentatie voor de SQL-query language-syntaxis, die compatibel met SQL API-accounts is. Zie voor een overzicht van voorbeeld van de SQL-query's, [SQL-query's in Cosmos DB](sql-api-sql-query.md).  
   
-Ga naar de [testomgeving voor Query's](http://www.documentdb.com/sql/demo) waar u kunt Azure Cosmos DB uitproberen en SQL-query's uitvoeren in de gegevensset.  
+Ga naar de [testomgeving voor Query's](http://www.documentdb.com/sql/demo) kunt u Cosmos DB uitproberen en SQL-query's uitvoeren in de gegevensset.  
   
 ## <a name="select-query"></a>SELECT-query  
 Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet de bron in de component FROM is geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de selectielijst. De conventies voor het beschrijven van de SELECT-instructies zijn in de sectie syntaxis conventies tabelindeling. Zie voor voorbeelden van [SELECT-query-voorbeelden](sql-api-sql-query.md#SelectClause)
@@ -60,7 +60,7 @@ Houd er rekening mee dat dit wijkt af van de volgorde waarin ze worden weergegev
 
 ### <a name="whitespace-characters-and-comments"></a>Spaties bevatten en opmerkingen  
 
-Alle witruimtetekens die geen deel uitmaken van een tekenreeks tussen aanhalingstekens of tussen aanhalingstekens id maken geen deel uit van de taal-grammatica en worden genegeerd tijdens het parseren.  
+Alleen spaties bevatten die geen deel uitmaken van een tekenreeks tussen aanhalingstekens of tussen aanhalingstekens id maken geen deel uit van de taal-grammatica en worden genegeerd tijdens het parseren.  
 
 De querytaal biedt ondersteuning voor T-SQL-stijl opmerkingen, zoals  
 
@@ -69,7 +69,7 @@ De querytaal biedt ondersteuning voor T-SQL-stijl opmerkingen, zoals
 Terwijl uit witruimte bestaat en opmerkingen niet een betekenis in de grammatica hebt, moeten ze worden gebruikt voor het scheiden van tokens. Bijvoorbeeld: `-1e5` is één getal token, even`: – 1 e5` wordt-token van een minteken, gevolgd door nummer 1 en id e5.  
 
 ##  <a name="bk_select_query"></a> SELECT-component  
-De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde. Zie voor voorbeelden van [SELECT-query-voorbeelden](sql-api-sql-query.md#SelectClause)
+De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde. Zie voor voorbeelden van [SELECT-queryvoorbeelden](sql-api-sql-query.md#SelectClause).
 
 **Syntaxis**  
 
@@ -112,7 +112,7 @@ SELECT <select_specification>
   
 De `SELECT *` syntaxis is alleen geldig als FROM-component precies één alias is gedeclareerd. `SELECT *` biedt een identity-projectie handig is als er geen projectie is vereist. Selecteer * is alleen geldig als FROM-component is opgegeven en slechts één invoer bron geïntroduceerd.  
   
-Houd er rekening mee dat `SELECT <select_list>` en `SELECT *` 'syntactische suiker' zijn en kan ook worden uitgedrukt met behulp van eenvoudige SELECT-instructies zoals hieronder wordt weergegeven.  
+Beide `SELECT <select_list>` en `SELECT *` 'syntactische suiker' zijn en kan ook worden uitgedrukt met behulp van eenvoudige SELECT-instructies zoals hieronder wordt weergegeven.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -132,7 +132,7 @@ Houd er rekening mee dat `SELECT <select_list>` en `SELECT *` 'syntactische suik
 [SELECT-component](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM-component  
-Hiermee geeft u de bron- of gekoppelde gegevensbronnen. De component FROM is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Het doel van deze component is om op te geven van de gegevensbron waarop de query moet functioneren. De volledige verzameling is vaak de bron, maar één een subset van de verzameling in plaats daarvan kunt opgeven. Als deze component niet opgegeven is, wordt nog steeds andere componenten uitgevoerd alsof de FROM-component die één document. Zie voor voorbeelden van [uit component-voorbeelden](sql-api-sql-query.md#FromClause)
+Hiermee geeft u de bron- of gekoppelde gegevensbronnen. De component FROM is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Het doel van deze component is om op te geven van de gegevensbron waarop de query moet functioneren. De hele container is vaak de bron, maar één een subset van de container in plaats daarvan kunt opgeven. Als deze component niet opgegeven is, wordt nog steeds andere componenten uitgevoerd alsof de FROM-component die één document. Zie voor voorbeelden van [uit component-voorbeelden](sql-api-sql-query.md#FromClause)
   
 **Syntaxis**  
   
@@ -143,98 +143,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **Argumenten**  
   
 - `<from_source>`  
   
-  Hiermee geeft u een gegevensbron, met of zonder een alias. Als alias niet opgegeven is, wordt deze worden afgeleid van de `<collection_expression>` van de volgende regels:  
+  Hiermee geeft u een gegevensbron, met of zonder een alias. Als alias niet opgegeven is, wordt deze worden afgeleid van de `<container_expression>` van de volgende regels:  
   
-  -  De expressie is een verzamelingnaam, zal verzamelingnaam worden gebruikt als een alias.  
+  -  De expressie is een container_name, zal container_name worden gebruikt als een alias.  
   
-  -  Als de expressie `<collection_expression>`, en vervolgens %{Property_Name/ en vervolgens %{Property_Name/ wordt gebruikt als een alias. De expressie is een verzamelingnaam, zal verzamelingnaam worden gebruikt als een alias.  
+  -  Als de expressie `<container_expression>`, en vervolgens %{Property_Name/ en vervolgens %{Property_Name/ wordt gebruikt als een alias. De expressie is een container_name, zal container_name worden gebruikt als een alias.  
   
 - AS `input_alias`  
   
-  Hiermee wordt aangegeven dat de `input_alias` is een set waarden geretourneerd door de expressie van de onderliggende verzameling.  
+  Hiermee wordt aangegeven dat de `input_alias` is een set waarden die zijn geretourneerd door de onderliggende container-expressie.  
  
 - `input_alias` IN  
   
-  Hiermee wordt aangegeven dat de `input_alias` moet vertegenwoordigen de set met waarden die zijn verkregen met iteratie van alle matrixelementen van elk matrix geretourneerd door de expressie van de onderliggende verzameling. Een waarde die wordt geretourneerd door de onderliggende verzameling-expressie die is geen matrix wordt genegeerd.  
+  Hiermee wordt aangegeven dat de `input_alias` de set met waarden die zijn verkregen met iteratie van alle matrixelementen van elk matrix geretourneerd door de onderliggende container-expressie moet vertegenwoordigen. Een waarde die is geretourneerd door onderliggende container-expressie die is geen matrix wordt genegeerd.  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  Hiermee geeft u de verzameling-expressie moet worden gebruikt om de documenten te halen.  
+  Hiermee geeft u de container-expressie moet worden gebruikt om de documenten te halen.  
   
 - `ROOT`  
   
-  Hiermee geeft u op dat document moet worden opgehaald van de standaardwaarde, momenteel verbonden verzameling.  
+  Hiermee geeft u op dat document moet worden opgehaald van de standaardwaarde, momenteel verbonden container.  
   
-- `collection_name`  
+- `container_name`  
   
-  Hiermee geeft u op dat document moet worden opgehaald uit de opgegeven verzameling. De naam van de verzameling moet overeenkomen met de naam van de verzameling die momenteel is verbonden met.  
+  Hiermee geeft u op dat document moet worden opgehaald uit de opgegeven container. De naam van de container moet overeenkomen met de naam van de container momenteel verbonden.  
   
 - `input_alias`  
   
   Hiermee geeft u op dat document moet worden opgehaald uit de andere bron die wordt gedefinieerd door de opgegeven alias.  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-expressie voor verzameling opgegeven.  
+  Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-container expressie opgegeven.  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-expressie voor verzameling opgegeven.  
+  Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-container expressie opgegeven.  
   
 **Opmerkingen**  
   
-Alle aliassen opgegeven of afgeleid in de `<from_source>(`s) moet uniek zijn. De syntaxis van de `<collection_expression>.`%{Property_Name/ is hetzelfde als `<collection_expression>' ['"property_name"']'`. De syntaxis van de laatste kan echter worden gebruikt als de eigenschapsnaam van een een niet-id-tekens bevat.  
+Alle aliassen opgegeven of afgeleid in de `<from_source>(`s) moet uniek zijn. De syntaxis van de `<container_expression>.`%{Property_Name/ is hetzelfde als `<container_expression>' ['"property_name"']'`. De syntaxis van de laatste kan echter worden gebruikt als een eigenschapsnaam een niet-id-teken bevat.  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>afhandeling van ontbrekende eigenschappen, ontbrekende matrixelementen en niet-gedefinieerde waarden
   
-Als een expressie voor een verzameling eigenschappen of matrixelementen en waarde niet bestaat, wordt die waarde genegeerd en niet verder wordt verwerkt.  
+Als een expressie voor een container toegang heeft tot de eigenschappen of matrixelementen en waarde niet bestaat, wordt die waarde genegeerd en niet verder wordt verwerkt.  
   
-### <a name="collection-expression-context-scoping"></a>Verzameling expressie context scoping  
+### <a name="container-expression-context-scoping"></a>Container expressie context scoping  
   
-Een expressie voor een verzameling zijn binnen het bereik van verzameling of binnen het bereik van document:  
+Een expressie voor een container zijn binnen het bereik van container of binnen het bereik van document:  
   
--   Een expressie is verzameling binnen het bereik, als de onderliggende gegevensbron van de verzameling-expressie de hoofdmap is of `collection_name`. Deze expressie vertegenwoordigt een set documenten rechtstreeks uit de verzameling opgehaald en is niet afhankelijk van de verwerking van andere expressies verzameling.  
+-   Een expressie is container binnen het bereik, als de onderliggende bron van de container-expressie de hoofdmap is of `container_name`. Deze expressie vertegenwoordigt een set documenten die zijn opgehaald uit de container rechtstreeks en is niet afhankelijk van de verwerking van andere expressies container.  
   
--   Een expressie is document binnen het bereik, als de onderliggende bron van de verzameling-expressie is `input_alias` die eerder in de query is geïntroduceerd. Deze expressie vertegenwoordigt een set documenten die zijn verkregen door het evalueren van de expressie in het bereik van de verzameling van elk document die behoren tot de verzameling die zijn gekoppeld aan de alias-verzameling.  De resulterende set is een samenvoeging van die worden verkregen door het evalueren van de verzameling-expressie voor elk van de documenten in de onderliggende verzameling.  
+-   Een expressie is document binnen het bereik, als de onderliggende bron van de container-expressie is `input_alias` die eerder in de query is geïntroduceerd. Deze expressie vertegenwoordigt een set documenten die zijn verkregen door het evalueren van de container-expressie in het bereik van elk document die behoren tot de verzameling die zijn gekoppeld aan de alias-container.  De resulterende set is een samenvoeging van die worden verkregen door het evalueren van de container-expressie voor elk van de documenten in de onderliggende verzameling.  
   
 ### <a name="joins"></a>Samenvoegingen 
   
-Azure Cosmos DB biedt ondersteuning voor inner joins in de huidige versie. Lid worden van aanvullende mogelijkheden worden aangebracht. 
+In de huidige release ondersteunt Cosmos DB inner joins. Lid worden van aanvullende mogelijkheden worden aangebracht. 
 
 Inner joins leiden tot een volledige vectorproduct van de sets die deel uitmaken van de join. Het resultaat van een join N manier is een set met tuples van de N-element, waarbij elke waarde in de tuple is gekoppeld aan de alias instellen die deel uitmaken van de join en kan worden geopend door te verwijzen naar deze alias in andere componenten. Zie voor voorbeelden van [JOIN sleutelwoord voorbeelden](sql-api-sql-query.md#Joins)
   
 De evaluatie van de join, is afhankelijk van het bereik van de context van de deelnemende sets:  
   
--  Een join tussen verzameling-set A en binnen het bereik van verzameling set B, resulteert in een vectorproduct van alle elementen in sets A en B.
+-  Een join tussen container-set A en binnen het bereik van container set B, resulteert in een vectorproduct van alle elementen in sets A en B.
   
 -   Een koppeling tussen een set en binnen het bereik van document set B, resulteert in een samenvoeging van alle sets die zijn verkregen door het evalueren van binnen het bereik van document set B voor elk document van A. instellen  
   
- In de huidige release, wordt maximaal één expressie binnen het bereik van verzameling ondersteund door de queryprocessor.  
+ In de huidige release, wordt maximaal één binnen het bereik van container-expressie ondersteund door de queryprocessor.  
   
 ### <a name="examples-of-joins"></a>Voorbeelden van joins  
   
 Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Elke bron definiëren, kunnen `input_alias1, input_alias2, …, input_aliasN`. Deze component FROM retourneert een set met N-tuples (tuple met N-waarden). Elke tuple heeft waarden die worden geproduceerd door alle verzameling aliassen iteratie van hun respectieve sets.  
+ Elke bron definiëren, kunnen `input_alias1, input_alias2, …, input_aliasN`. Deze component FROM retourneert een set met N-tuples (tuple met N-waarden). Elke tuple heeft waarden die worden geproduceerd door alle container aliassen iteratie van hun respectieve sets.  
   
 **Voorbeeld 1** -2 bronnen  
   
-- Laat `<from_source1>` verzameling bereik en set {A, B, C} vertegenwoordigen.  
+- Laat `<from_source1>` container bereik en set {A, B, C} vertegenwoordigen.  
   
 - Laat `<from_source2>` worden document binnen het bereik van verwijst naar een input_alias1 en sets vertegenwoordigen:  
   
@@ -252,7 +252,7 @@ Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... 
   
 **Voorbeeld 2** -3-bronnen  
   
-- Laat `<from_source1>` verzameling bereik en set {A, B, C} vertegenwoordigen.  
+- Laat `<from_source1>` container bereik en set {A, B, C} vertegenwoordigen.  
   
 - Laat `<from_source2>` verwijst naar een document binnen het bereik worden `input_alias1` en sets vertegenwoordigen:  
   
@@ -279,9 +279,9 @@ Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... 
   
 **Voorbeeld 3** -3-bronnen  
   
-- Laat < from_source1 > worden binnen het bereik van verzameling en set {A, B, C} vertegenwoordigen.  
+- Laat < from_source1 > worden binnen het bereik van container en set {A, B, C} vertegenwoordigen.  
   
-- Laat `<from_source1>` verzameling bereik en set {A, B, C} vertegenwoordigen.  
+- Laat `<from_source1>` container bereik en set {A, B, C} vertegenwoordigen.  
   
 - < From_source2 > worden verwijzende input_alias1 document binnen het bereik en sets vertegenwoordigen, kunnen:  
   
@@ -371,12 +371,12 @@ ORDER BY <sort_specification>
   
  **Opmerkingen**  
   
- Terwijl de querygrammatica biedt ondersteuning voor meerdere order met eigenschappen, ondersteunt de runtime van Azure Cosmos DB-query alleen tegen één eigenschap, en alleen de namen van de eigenschappen, dat wil zeggen, niet op basis van eigenschappen van berekende sorteren. Sorteren is ook vereist dat het indexeringsbeleid een index van het bereik voor de eigenschap en het opgegeven type, met de maximale precisie bevat. Raadpleeg de indexering beleid-documentatie voor meer informatie.  
+ Terwijl de querygrammatica biedt ondersteuning voor meerdere order met eigenschappen, ondersteunt de Cosmos DB-query-runtime sorteren alleen tegen één eigenschap, en alleen de namen van eigenschappen (niet tegen berekende eigenschappen). Sorteren is ook vereist dat het indexeringsbeleid een index van het bereik voor de eigenschap en het opgegeven type, met de maximale precisie bevat. Raadpleeg de indexering beleid-documentatie voor meer informatie.  
   
 ##  <a name="bk_scalar_expressions"></a> Scalaire expressies  
  Een scalaire expressie die is een combinatie van tekens en operators die kunnen worden geëvalueerd om te verkrijgen van een enkele waarde. Eenvoudige expressies mag bestaan uit constanten, verwijzen naar eigenschappen, matrix-element verwijst naar, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies operators gebruiken. Zie voor voorbeelden van [scalaire expressies voorbeelden](sql-api-sql-query.md#scalar-expressions)
   
- Zie voor meer informatie over welke scalaire expressie die u mogelijk waarden, [constanten](#bk_constants) sectie.  
+ Zie voor meer informatie op basis van waarden dat scalaire expressie die u mogelijk [constanten](#bk_constants) sectie.  
   
  **Syntaxis**  
   
@@ -424,7 +424,7 @@ ORDER BY <sort_specification>
   
 -   `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Hiermee geeft u een waarde van de eigenschap met de naam `property_name` of matrixelement met index `array_index` van een object/matrix. Als de eigenschap/matrixindex niet bestaat of de eigenschap/matrixindex op een waarde die geen object/matrix is wordt verwezen, klikt u vervolgens resulteert de expressie in niet-gedefinieerde waarde.  
+     Hiermee geeft u een waarde van de eigenschap met de naam `property_name` of matrixelement met index `array_index` van een object/matrix. Als de eigenschap/matrixindex niet bestaat of index van de eigenschap/array wordt verwezen op een waarde die is geen object/matrix, wordt de expressie wordt geëvalueerd als niet-gedefinieerde waarde.  
   
 -   `unary_operator <scalar_expression>`  
   
@@ -440,7 +440,7 @@ ORDER BY <sort_specification>
   
 -   `udf_scalar_function`  
   
-     Naam van de gebruiker gedefinieerde scalaire functie.  
+     De naam van de gebruiker gedefinieerde scalaire functie.  
   
 -   `builtin_scalar_function`  
   
@@ -460,7 +460,7 @@ ORDER BY <sort_specification>
   
  **Opmerkingen**  
   
- Bij het aanroepen van een ingebouwde of de gebruiker gedefinieerde scalaire functie kan alle argumenten moeten worden gedefinieerd. Als een van de argumenten niet is gedefinieerd, wordt de functie niet wordt aangeroepen en wordt het resultaat is niet gedefinieerd.  
+ Bij het aanroepen van een ingebouwde of door de gebruiker gedefinieerde scalaire functie kan alle argumenten moeten worden gedefinieerd. Als een van de argumenten niet is gedefinieerd, wordt de functie niet wordt aangeroepen en wordt het resultaat is niet gedefinieerd.  
   
  Bij het maken van een object, wordt elke eigenschap die niet-gedefinieerde waarde is toegewezen overgeslagen en niet opgenomen in het gemaakte object.  
   
@@ -517,9 +517,9 @@ ORDER BY <sort_specification>
   
  **Opmerkingen**  
   
- De typen van waarden zijn in Azure Cosmos DB, vaak niet bekend totdat ze daadwerkelijk worden opgehaald uit de database. Ter ondersteuning van efficiënte uitvoering van query's, hebben de meeste van de operators strikte eisen. Operators op zichzelf kunnen ook niet uitvoeren voor impliciete conversies.  
+ In Cosmos DB, worden de typen van waarden zijn vaak niet bekend totdat ze zijn opgehaald uit de database. Ter ondersteuning van efficiënte uitvoering van query's, hebben de meeste van de operators strikte eisen. Operators op zichzelf kunnen ook niet uitvoeren voor impliciete conversies.  
   
- Dit betekent dat een query, zoals: Selecteer * uit ROOT r waar r.Age = 21, retourneert alleen documenten waarvoor de eigenschap leeftijd gelijk zijn aan het getal 21. Documenten met de eigenschap leeftijd is gelijk aan de tekenreeks '21' of de tekenreeks '0021' wordt niet overeenkomen, als de expressie "21" = 21 tot niet-gedefinieerde evalueert. Hiermee kunt u een beter gebruik van indexen, omdat het opzoeken van een bepaalde waarde (dat wil zeggen getal 21) is veel sneller dan zoeken naar een onbeperkt aantal mogelijke overeenkomsten (dat wil zeggen getal 21 of tekenreeksen "21", "021", "21.0"...). Dit wijkt af van de manier waarop JavaScript operators op basis van waarden van verschillende typen evalueert.  
+ Dit betekent dat een query, zoals: Selecteer * uit ROOT r waar r.Age = 21, retourneert alleen documenten waarvoor de eigenschap leeftijd gelijk zijn aan het getal 21. Documenten met de eigenschap leeftijd is gelijk aan de tekenreeks '21' of de tekenreeks '0021' wordt niet overeenkomen, als de expressie "21" = 21 tot niet-gedefinieerde evalueert. Hiermee kunt u een beter gebruik van indexen, omdat het opzoeken van een bepaalde waarde (zoals het aantal 21) is veel sneller dan zoeken naar een onbeperkt aantal potentiële komt overeen met (het nummer 21 of tekenreeksen "21", "021", "21,0"...). Dit wijkt af van de manier waarop JavaScript operators op basis van waarden van verschillende typen evalueert.  
   
  **Matrices en objecten gelijkheid en vergelijking**  
   
@@ -632,7 +632,7 @@ ORDER BY <sort_specification>
 |\uXXXX|Een Unicode-teken wordt gedefinieerd door 4 hexadecimale cijfers.|U + XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Richtlijnen voor prestaties van query  
- In de order voor een query voor een grote verzameling efficiënt worden uitgevoerd, moet deze filters die kunnen worden geleverd via een of meer indexen gebruiken.  
+ In de order voor een query efficiënt worden uitgevoerd voor een grote container, moet deze filters die kunnen worden weergegeven via een of meer indexen gebruiken.  
   
  De volgende filters wordt voor het opzoeken van de index beschouwd:  
   
@@ -640,15 +640,15 @@ ORDER BY <sort_specification>
   
 -   Bereik-operators gebruiken (<, \<=, >, > =) met-padexpressie aan een document en aantal constanten.  
   
--   Document-padexpressie aan staat voor een expressie waarmee een constante pad in de documenten uit de verzameling database waarnaar wordt verwezen uniek wordt geïdentificeerd.  
+-   Document-padexpressie aan staat voor een expressie die een constante pad in de documenten uit de databasecontainer waarnaar wordt verwezen, identificeert.  
   
  **Document-padexpressie aan**  
   
- Document padexpressies expressies zijn waarmee een pad van de eigenschap of matrix indexeerfunctie beoordelaars via een document die afkomstig zijn van de database verzameling documenten. Dit pad kan worden gebruikt voor het identificeren van de locatie van de waarden waarnaar wordt verwezen in een filter rechtstreeks in de documenten in de databaseverzameling.  
+ Document padexpressies expressies zijn waarmee een pad van de eigenschap of matrix indexeerfunctie beoordelaars via een document die afkomstig zijn van de database-container-documenten. Dit pad kan worden gebruikt voor het identificeren van de locatie van de waarden waarnaar wordt verwezen in een filter rechtstreeks in de documenten in de databasecontainer.  
   
  Voor een expressie die moet worden beschouwd als een document padexpressie, moet deze:  
   
-1.  De hoofdmap van de verzameling rechtstreeks verwijzen naar.  
+1.  De hoofdmap van de container rechtstreeks verwijzen naar.  
   
 2.  Verwijzing naar eigenschap of constante matrix indexeerfunctie van sommige padexpressie document  
   
@@ -674,15 +674,15 @@ ORDER BY <sort_specification>
     |[.. .n]|Geeft aan dat het voorgaande item herhaalde n het aantal keren dat kan worden. De exemplaren worden gescheiden door spaties.|  
   
 ##  <a name="bk_built_in_functions"></a> Ingebouwde functies  
- Azure Cosmos DB biedt veel ingebouwde SQL-functies. De categorieën ingebouwde functies worden hieronder vermeld.  
+ Cosmos DB biedt veel ingebouwde SQL-functies. De categorieën ingebouwde functies worden hieronder vermeld.  
   
 |Functie|Beschrijving|  
 |--------------|-----------------|  
 |[Wiskundige functies](#bk_mathematical_functions)|Wiskundige functies elke uitvoeren van een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en retourneert een numerieke waarde.|  
 |[Controle van functies van het type](#bk_type_checking_functions)|Het type controle-functies kunnen u om te controleren van het type van een expressie in SQL-query's.|  
 |[Tekenreeksfuncties](#bk_string_functions)|De tekenreeks-functies uitvoeren van een bewerking op een tekenreekswaarde voor invoer en retourneert een tekenreeks, een numerieke of Booleaanse waarde.|  
-|[Matrixfuncties](#bk_array_functions)|De matrixfuncties uitvoeren een bewerking in een matrix invoerwaarde en keer terug numerieke waarde voor Boole-waarde of een matrix.|  
-|[Ruimtelijke-functies](#bk_spatial_functions)|De ruimtelijke functies uitvoeren van een bewerking op een invoerwaarde voor de ruimtelijke index en een numerieke of Booleaanse waarde retourneren.|  
+|[Matrixfuncties](#bk_array_functions)|De matrixfuncties uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of Matrixwaarde.|  
+|[Ruimtelijke-functies](#bk_spatial_functions)|De ruimtelijke functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.|  
   
 ###  <a name="bk_mathematical_functions"></a> Wiskundige functies  
  De volgende functies uitvoeren van een berekening, meestal op basis van de invoerwaarden die zijn opgegeven als argumenten en retourneert een numerieke waarde.  
@@ -1051,7 +1051,7 @@ EXP (<numeric_expression>)
   
  De constante **e** (2.718281...) vormt de basis van natuurlijke logaritmen.  
   
- De exponent van een getal is de constante **e** verheven tot de macht van het getal. Bijvoorbeeld EXP(1.0) = e ^ 1.0 = 2.71828182845905 en EXP(10) = e ^ 10 = 22026.4657948067.  
+ De exponent van een getal is de constante **e** verheven tot de macht van het getal. Bijvoorbeeld, EXP(1.0) = e ^ 1.0 = 2.71828182845905 en EXP(10) = e ^ 10 = 22026.4657948067.  
   
  De exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (logboek (n)) = n. En de natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: LOG (EXP (n)) = n.  
   
@@ -1761,7 +1761,7 @@ SELECT
 ```  
   
 ####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
- Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een primitieve nemen is (tekenreeks, Boole-waarde, numerieke of null).  
+ Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een primitieve nemen is (string, Boolean, numerieke of null).  
   
  **Syntaxis**  
   
@@ -2697,7 +2697,7 @@ SELECT
 ```  
  
 ###  <a name="bk_spatial_functions"></a> Ruimtelijke-functies  
- De volgende scalaire functies uitvoeren van een bewerking op een invoerwaarde voor de ruimtelijke index en een numerieke of Booleaanse waarde retourneren.  
+ De volgende scalaire functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.  
   
 ||||  
 |-|-|-|  
@@ -2808,7 +2808,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Voorbeelden**  
   
- Het volgende voorbeeld ziet het zoeken naar alle gebieden die met de opgegeven veelhoek samen.  
+ Het volgende voorbeeld ziet hoe u kunt alle gebieden die elkaar met de opgegeven veelhoek overlappen vinden.  
   
 ```  
 SELECT a.id   
@@ -2904,7 +2904,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## <a name="next-steps"></a>Volgende stappen  
- [SQL-syntaxis en SQL-query voor Azure Cosmos DB](sql-api-sql-query.md)   
- [Documentatie voor Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [SQL-syntaxis en SQL-query voor Cosmos DB](sql-api-sql-query.md)
+
+- [Documentatie voor cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

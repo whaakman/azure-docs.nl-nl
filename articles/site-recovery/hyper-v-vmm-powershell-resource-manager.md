@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8e1494594546c432123b8b1b98d646e8637eea99
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214576"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622836"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Instellen van herstel na noodgevallen van Hyper-V-machines naar een secundaire site met behulp van PowerShell (Resource Manager)
 
@@ -21,7 +21,7 @@ Dit artikel wordt beschreven hoe u de stappen te automatiseren voor replicatie v
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Controleer de [scenario-architectuur en onderdelen](hyper-v-vmm-architecture.md).
+- De [architectuur en onderdelen voor dit scenario](hyper-v-vmm-architecture.md) doornemen.
 - Raadpleeg de [ondersteuningsvereisten](site-recovery-support-matrix-to-sec-site.md) voor alle onderdelen.
 - Zorg ervoor dat Virtual Machine Manager-servers en Hyper-V-hosts voldoen [ondersteuningsvereisten](site-recovery-support-matrix-to-sec-site.md).
 - Controleer of de virtuele machines die u wilt repliceren voldoen aan [gerepliceerde machine ondersteuning](site-recovery-support-matrix-to-sec-site.md).
@@ -29,10 +29,10 @@ Dit artikel wordt beschreven hoe u de stappen te automatiseren voor replicatie v
 
 ## <a name="prepare-for-network-mapping"></a>Voorbereiden op netwerktoewijzing
 
-[Netwerktoewijzing](hyper-v-vmm-network-mapping.md) toewijzingen tussen on-premises Virtual Machine Manager-VM-netwerken in de bron- en clouds. Toewijzing doet het volgende:
+[Netwerktoewijzing](hyper-v-vmm-network-mapping.md) toewijzingen tussen on-premises Virtual Machine Manager-VM-netwerken in de bron- en clouds. Bij toewijzing gebeurt het volgende:
 
-- Verbonden virtuele machines met juiste doel-VM-netwerken na een failover. 
-- Optimaal replica-VM's op Hyper-V-host doelservers geplaatst. 
+- Virtuele machines worden verbonden met de juiste VM-doelnetwerken na een failover. 
+- Gerepliceerde VM's worden optimaal op Hyper-V-doelhostservers geplaatst. 
 - Als u geen netwerktoewijzing configureert, replica-VM's niet verbonden met een VM-netwerk na een failover.
 
 Virtual Machine Manager als volgt voorbereiden:
@@ -40,9 +40,9 @@ Virtual Machine Manager als volgt voorbereiden:
 * Zorg ervoor dat u hebt [Virtual Machine Manager logische netwerken](https://docs.microsoft.com/system-center/vmm/network-logical) op de bron- en Virtual Machine Manager-servers:
 
     - Het logische netwerk op de bronserver moet worden gekoppeld aan de broncloud waarin de Hyper-V-hosts zich bevinden.
-    - Het logische netwerk op de doelserver moet worden gekoppeld aan de doel-cloud.
+    - Het logische netwerk op de doelserver moet worden gekoppeld aan de doelcloud.
 * Zorg ervoor dat u hebt [VM-netwerken](https://docs.microsoft.com/system-center/vmm/network-virtual) op de bron- en Virtual Machine Manager-servers. VM-netwerken moeten zijn gekoppeld aan het logische netwerk op elke locatie.
-* Verbinding maken met virtuele machines op de bron-Hyper-V-hosts met de bron-VM-netwerk. 
+* Verbind VM's op de Hyper-V-bronhosts met het VM-bronnetwerk. 
 
 ## <a name="prepare-for-powershell"></a>Voorbereiden voor PowerShell
 
@@ -73,7 +73,7 @@ Zorg ervoor dat u Azure PowerShell kunt aan de slag:
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Maak een nieuwe Recovery Services-kluis. Sla de object-kluis in een variabele moet later worden gebruikt. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
     Nadat u dit met behulp van de cmdlet Get-AzureRMRecoveryServicesVault hebt gemaakt, kunt u het object kluis ophalen.
 

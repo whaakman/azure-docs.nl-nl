@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418415"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613193"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -72,4 +72,4 @@ In dit artikel worden de details met betrekking tot de nieuwe Azure-bewaking en 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over de [nieuwe geïntegreerde Azure Monitor](../azure-monitor/overview.md).
-* Meer informatie over de nieuwe [Azure-waarschuwingen](monitoring-overview-unified-alerts.md).
+* Meer informatie over de nieuwe [Azure-waarschuwingen](monitoring-overview-alerts.md).

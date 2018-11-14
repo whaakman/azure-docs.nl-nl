@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd02dfe37a1566a3121b3571f72d964621330cd0
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647303"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615385"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>De hostcomputer ASDK voorbereiden
 Voordat u de ASDK op de computer installeren kunt, moet de omgeving ASDK worden voorbereid voor de installatie. Wanneer de computer development kit is voorbereid, zal het opstarten van de virtuele machine CloudBuilder.vhdx vaste schijf om te beginnen met ASDK implementatie.
@@ -53,7 +53,7 @@ Voordat u de ASDK op de host installeren kunt, kan de omgeving ASDK host compute
 
 6. Op de **optionele instellingen** pagina, geef de lokale beheerder accountgegevens voor de hostcomputer development kit en klik vervolgens op **volgende**. U kunt ook waarden opgeven voor de volgende optionele instellingen:
   - **ComputerName**: deze optie stelt u de naam van de host van development kit. De naam moet voldoen aan de vereisten van de FQDN-naam en 15 tekens of minder moet zijn. De standaardwaarde is de naam van een willekeurige computer die door Windows gegenereerd.
-  - **Statische IP-configuratie**: Hiermee stelt u uw implementatie een statisch IP-adres gebruiken. Wanneer het installatieprogramma opnieuw wordt opgestart in de cloudbuilder.vhx, worden de netwerkinterfaces anders geconfigureerd met DHCP.
+  - **Statische IP-configuratie**: Hiermee stelt u uw implementatie een statisch IP-adres gebruiken. Wanneer het installatieprogramma opnieuw wordt opgestart in de cloudbuilder.vhdx, worden de netwerkinterfaces anders geconfigureerd met DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)
 

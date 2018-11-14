@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: c1cc8769617e4c9cd823b1e44d60c49b73f4bdb9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289713"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615793"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Oplossen van problemen met de voortdurende replicatie van Azure naar Azure VM
 
@@ -56,12 +56,6 @@ Premium P10 of P15 schijf | 16 kB | 4 MB/s |  336 GB per schijf
 Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per schijf
-
-
-**brongegevensverloop** | **Maximumlimiet**
----|---
-Gemiddeld gegevensverloop per VM| 25 MB/s
-Piekgegevensverloop over alle schijven op een VM | 54 MB/s
 
 ### <a name="solution"></a>Oplossing
 We moeten begrijpen dat Azure Site Recovery gegevens wijzigen op basis van het type schijf frequentielimieten heeft. De gegevens worden gewijzigd als u wilt weten of dit probleem terugkerend is verbroken, is het belangrijk om te zoeken patroon van de snelheid van de betreffende virtuele machine.

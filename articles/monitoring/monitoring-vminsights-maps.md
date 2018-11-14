@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ac96de2669a75a5966650afc0b49cc2f926537fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095475"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614205"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Met behulp van Azure Monitor voor de toewijzing van virtuele machines (Preview) om te begrijpen van toepassingsonderdelen
 De gedetecteerde toepassingsonderdelen weergeven op Windows en Linux-machines uitvoeren in uw omgeving kan worden waargenomen op twee manieren met Azure Monitor voor virtuele machines van een virtuele machine rechtstreeks of via groepen virtuele machines van Azure Monitor Azure. 
@@ -52,7 +52,7 @@ De kaart als functie wilt inschakelen om relevante waarschuwingen weer te geven,
 - Een component aan groep opnemen door computer (bijvoorbeeld **door Computer interval van 1 minuut**).
 - Kies een waarschuwing moet op basis van de meting van metrische gegevens.
 
-Zie voor meer informatie over Azure-waarschuwingen en het maken van het waarschuwingsregels [Unified waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+Zie voor meer informatie over Azure-waarschuwingen en het maken van het waarschuwingsregels [Unified waarschuwingen in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 
 De **legenda** optie in de rechterbovenhoek beschrijft de rollen van de symbolen en op een kaart.  Voor nog eens kijken uw kaart inzoomen en verplaatsen van de it rond de zoomknoppen aan de onderkant rechts van de pagina stelt het zoomniveau en op de pagina aan de grootte van de huidige pagina past.  
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.component: files
-ms.openlocfilehash: a11e0a1c20617f3065d5b3f8cf59d67cf7aa0179
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242647"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623648"
 ---
 # <a name="cloud-tiering-overview"></a>Warmtemeting overzicht van cloud
 Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte bestanden in de cache lokaal op de server opgeslagen terwijl alle andere bestanden naar Azure Files op basis van beleidsinstellingen worden geschakeld. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File Sync (StorageSync.sys) het bestand lokaal door een wijzer, of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure Files. Een gelaagd bestand is zowel het kenmerk 'offline' als het FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS-kenmerk in NTFS zo instellen dat toepassingen van derden kunnen gelaagde bestanden veilig kan identificeren.
@@ -31,6 +31,8 @@ Azure File Sync biedt geen ondersteuning voor cloudlagen bestanden die kleiner z
 ### <a name="how-does-cloud-tiering-work"></a>Hoe cloud cloudlagen werken?
 Het filter van Azure File Sync-systeem een 'heatmap' van de naamruimte is gebaseerd op elk servereindpunt. Deze toegang krijgt tot (Lees- en schrijfbewerkingen) bewaakt na verloop van tijd en vervolgens, op basis van de frequentie en de recentheid van toegang, wijst een heatmap score aan elk bestand. Een veelgebruikte bestand die u onlangs hebt geopend wordt beschouwd als ' hot ', dat een bestand dat is nauwelijks aangeraakt en enige tijd niet is geopend, als ' Cool ' worden beschouwd. Wanneer het bestandsvolume op een server de drempelwaarde voor herstelpuntvolume vrije ruimte die u instelt overschrijdt, wordt het leukste bestanden naar Azure Files laag totdat het percentage vrije ruimte is voldaan.
 
+In versie 4.0 en hoger van de Azure File Sync-agent, kunt u ook een datum beleid opgeven op elke servereindpunt dat bestanden niet geopend of gewijzigd in een opgegeven aantal dagen wordt laag.
+
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Hoe werkt de beleidsinstelling voor lagen volume ruimte?
 Vrije ruimte op volume is de hoeveelheid vrije ruimte die u wilt reserveren op het volume waarop een servereindpunt bevindt. Bijvoorbeeld, als vrije ruimte op volume is ingesteld op 20% op een volume dat één servereindpunt heeft, u tot 80% van de ruimte op volume wordt wordt ingenomen door de meest recente gebruikte bestanden, met alle overige bestanden die niet in deze ruimte passen trapsgewijs geschakeld naar Azure. Vrije ruimte op volume is van toepassing op het volumeniveau van het in plaats van op het niveau van afzonderlijke mappen of synchronisatiegroepen. 
@@ -43,11 +45,21 @@ Wanneer een servereindpunt zojuist is ingericht en is verbonden met een Azure-be
 ### <a name="how-is-volume-free-space-interpreted-when-i-have-multiple-server-endpoints-on-a-volume"></a>Hoe wordt er vrije ruimte op volume geïnterpreteerd wanneer ik meerdere servereindpunten op een volume?
 Wanneer er meer dan één eindpunt op een volume, is de drempelwaarde van de vrije ruimte effectieve volume de grootste vrije ruimte op volume opgegeven op een servereindpunt op het desbetreffende volume. Bestanden worden in tiers worden verdeeld op basis van hun gebruikspatronen ongeacht welke servereindpunt waartoe ze behoren. Bijvoorbeeld, hebt u twee servereindpunten op een volume 1 en Endpoint2, waarbij 1 heeft de drempelwaarde voor een volume-vrije ruimte van 25% en Endpoint2 heeft de drempelwaarde voor een volume-vrije ruimte van 50%, de drempelwaarde voor herstelpuntvolume vrije ruimte voor zowel servereindpunten worden 50%. 
 
+<a id="date-tiering-policy"></a>
+### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Hoe de beleidsinstelling voor lagen datum werkt in combinatie met de vrije ruimte op volume beleid lagen? 
+Bij het inschakelen van cloud-opslaglagen op een servereindpunt, kunt u een beleid van de vrije ruimte volume instellen. Deze voorrang altijd op eventuele andere beleidsregels, met inbegrip van de datum-beleid. U kunt eventueel een beleid voor elk servereindpunt op dat volume, wat betekent dat alleen bestanden worden gebruikt (dat wil zeggen gelezen of geschreven naar) binnen het bereik van dit beleid wordt beschreven dagen worden bewaard lokale, met alle staler bestanden gelaagd datum inschakelen. Houd er rekening mee dat het beleid van de volume-vrije ruimte altijd voorrang, en wanneer er niet voldoende vrije schijfruimte op het volume voor het aantal dagen aan bestanden zoals is beschreven in het beleid datum behouden, Azure File Sync blijft de koudste bestanden tot het volume vrij opslaglagen ruimtepercentage wordt voldaan.
+
+Stel dat u hebt een datum op basis van beleidsinstelling voor lagen van 60 dagen en een beleid voor de vrije ruimte van volume van 20%. Als na het toepassen van beleid voor de datum, er minder dan 20% aan beschikbare ruimte op het volume is, wordt het beleid van de vrije ruimte volume worden gehouden, trappen en het beleid datum te negeren. Dit zal resulteren in meer bestanden worden lagen, zodat de hoeveelheid gegevens die zijn opgeslagen op de server kan worden verminderd van 60 dagen aan gegevens tot 45 dagen. Dit beleid wordt daarentegen gedwongen de opslaglagen voor bestanden die buiten het tijdsbereik vallen, zelfs als u niet de drempelwaarde voor vrije ruimte: bereikt hebt, zodat er wordt een bestand dat 61 dagen oud is gelaagd, zelfs als het volume leeg is.
+
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Hoe bepaal ik de juiste hoeveelheid vrije ruimte op volume?
 De hoeveelheid gegevens die u lokale bewaren moet wordt bepaald door een aantal factoren: uw bandbreedte, toegangspatroon voor uw gegevensset weer en uw budget. Als u een verbinding met een lage bandbreedte hebt, kunt u meer van uw gegevens lokaal om ervoor te zorgen dat er minimaal vertragingstijd voor uw gebruikers te houden. Anders, u kunt baseren op het verloop gedurende een bepaalde periode. Bijvoorbeeld, als u dat ongeveer 10% van de wijzigingen van de gegevensset 1 TB weet of worden elke maand actief geopend en vervolgens kunt u 100 GB lokaal te houden zodat u zijn niet vaak terughalen van bestanden. Als het volume 2TB is, wordt u wilt behouden van 5% (of 100 GB) lokaal, wat betekent dat de resterende 95% wordt het percentage van de vrije ruimte volume. Echter, raden wij u aan een buffer voor het account voor perioden van hogere verloop – met andere woorden, beginnen met een lager volume ruimtepercentage en deze desgewenst later aanpassen. 
 
 Meer gegevens lokaal bewaren betekent lagere kosten voor uitgaand als minder bestanden zal worden teruggehaald uit Azure, maar ook moet u een grotere hoeveelheid van het on-premises opslag, die wordt geleverd met een eigen kosten onderhouden. Zodra u een exemplaar van Azure File Sync is geïmplementeerd hebt, kunt u uw storage-account uitgaand verkeer om te meten ongeveer of uw instellingen van de vrije ruimte volume geschikt voor uw gebruik zijn bekijken. Ervan uitgaande dat het opslagaccount alleen uw Azure File Sync Cloud-eindpunt (dat wil zeggen, de synchronisatieshare) bevat, wordt hoge uitgaande betekent dat veel bestanden zijn worden teruggehaald uit de cloud, en u rekening moet houden met het verhogen van de lokale cache.
+
+<a id="how-long-until-my-files-tier"></a>
+### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Ik heb een nieuw servereindpunt toegevoegd. Hoe lang tot mijn bestanden op deze server-laag?
+In versie 4.0 hierboven van de Azure File Sync-agent zodra de bestanden zijn geüpload naar de Azure-bestandsshare, ze zullen worden gelaagde volgens uw beleid zo snel de volgende cloudlagen sessie wordt uitgevoerd, die eenmaal per uur wordt uitgevoerd. Voor oudere agents kan lagen tot 24 uur duren gebeurt.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Hoe weet ik of een bestand is gelaagd?

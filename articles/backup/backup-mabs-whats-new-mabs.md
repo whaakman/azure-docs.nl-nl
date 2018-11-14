@@ -6,18 +6,18 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 1026b103b8bb2b16114147b1c58deaf5b20cc437
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579705"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625875"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Wat is er nieuw in Microsoft Azure Backup Server
 
-Microsoft Azure Backup Server versie 3 (V3 MABS) is de meest recente upgrade en bevat belangrijke bugfixes, ondersteuning voor Windows Server 2019, ondersteuning voor SQL-2017 en andere functies en verbeteringen. Als u wilt weergeven in de lijst van fouten die zijn verholpen en de installatie-instructies voor MABS V3, Zie KB-artikel 4457852.
+Microsoft Azure Backup Server versie 3 (V3 MABS) is de meest recente upgrade en bevat belangrijke bugfixes, ondersteuning voor Windows Server 2019, ondersteuning voor SQL-2017 en andere functies en verbeteringen. Om weer te geven van de lijst met fouten die zijn verholpen en de installatie-instructies voor MABS V3, Zie KB-artikel [4457852](https://support.microsoft.com/en-us/help/4457852/microsoft-azure-backup-server-v3).
 
 De volgende functies zijn opgenomen in MABS V3:
 

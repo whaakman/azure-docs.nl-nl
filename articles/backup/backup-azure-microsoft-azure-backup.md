@@ -7,14 +7,14 @@ manager: shivamg
 keywords: Azure Backup-server; bescherming van workloads; back-up van workloads
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 602b7b2a81ec727c9acaf86165867daa20370947
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578719"
+ms.locfileid: "51616313"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installeren en upgraden van Azure Backup Server
 > [!div class="op_single_selector"]
@@ -169,18 +169,20 @@ Zodra de extractie proces is voltooid, schakel het selectievakje in om te starte
 
    **Handmatige configuratie**
 
-    > [!IMPORTANT]
+   Wanneer u uw eigen exemplaar van SQL gebruikt, zorg er dan voor dat u builtin\Administrators toevoegen aan de rol sysadmin in master DB.
 
-    > Wanneer u MABS, handmatig na de configuratie configureren, zorg ervoor dat *IsInitialized* eigenschap van SSRS is ingesteld op *waar*. Wanneer dit is ingesteld op True, wordt MABS ervan uitgegaan dat SQL Server Reporting Services al is geconfigureerd en de SQL Server Reporting Services-configuratie wordt overgeslagen.
+    **SQL Server Reporting Services-configuratie met SQL-2017**
 
-    > Gebruik de volgende waarden voor de SQL Server Reporting Services-configuratie:
+    Wanneer u van eigen exemplaar van SQL-2017 gebruikmaakt, moet u handmatig configureren van SSRS. Zorg ervoor dat na de configuratie van SSRS, *IsInitialized* eigenschap van SSRS is ingesteld op *waar*. Wanneer dit is ingesteld op True, wordt MABS ervan uitgegaan dat SQL Server Reporting Services al is geconfigureerd en de SQL Server Reporting Services-configuratie wordt overgeslagen.
 
-      >- Serviceaccount: 'Gebruik ingebouwde account' moet Netwerkservice
-    >- Webservice-URL: 'Virtuele map' moet ReportServer_MSDPMINSTANCE
-    > - Database: DatabaseName moet ReportServer$ MSDPMINSTANCE
-    > - Webportal-URL: 'Virtuele map' moet Reports_MSDPMINSTANCE
+    Gebruik de volgende waarden voor de SQL Server Reporting Services-configuratie:
 
-    > [Meer informatie](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) over de configuratie van SQL Server Reporting Services.
+        - Service Account: ‘Use built-in account’ should be Network Service
+        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
+        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
+        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+
+    [Meer informatie](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) over de configuratie van SQL Server Reporting Services.
 
 4. Geef een locatie voor de installatie van Microsoft Azure Backup server-bestanden en klikt u op **volgende**.
 
@@ -273,7 +275,7 @@ Op hetzelfde moment moet de Azure-abonnement in een foutloze toestand bevindt. O
 
 Zodra u weet de status van de Azure-connectiviteit en van het Azure-abonnement dat, kunt u de onderstaande tabel om de impact op de functionaliteit van back-up/herstel erachter te komen.
 
-| Status connectiviteit | Azure-abonnement | Back-up naar Azure | Back-up naar schijf | Herstellen van Azure | Terugzetten vanaf schijf |
+| Status connectiviteit | Azure-abonnement | Back-up naar Azure | Back-up naar schijf | Herstellen van Azure | Herstellen uit een schijf |
 | --- | --- | --- | --- | --- | --- |
 | Verbonden |Actief |Toegestaan |Toegestaan |Toegestaan |Toegestaan |
 | Verbonden |Vervallen |Gestopt |Gestopt |Toegestaan |Toegestaan |
@@ -323,6 +325,8 @@ Gebruik de volgende stappen uit om te werken MABS:
   > [!IMPORTANT]
 
   >  Als onderdeel van de upgrade van de SQL-2017, we back-up van de SQL-versleutelingssleutels en verwijderen van het reporting services. Na de upgrade van SQL server, rapportage service(14.0.6827.4788) is geïnstalleerd en versleutelingssleutels worden hersteld.
+
+ > Wanneer u handmatig configureert SQL 2017, verwijzen naar *SSRS-configuratie met SQL 2017* sectie onder installatie-instructies.
 
 3. Werk de beveiligingsagenten op de beveiligde servers.
 4. Back-ups moeten doorgaan zonder de noodzaak om opnieuw te starten van uw productieservers.

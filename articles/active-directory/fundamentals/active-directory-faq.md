@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233793"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621748"
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -171,7 +171,7 @@ Zie voor meer informatie:
 * Directe aanmelding bij federatieve apps
 * Dieptekoppelingen naar federatieve apps, op basis van wachtwoorden, of bestaande apps
 
-Zie [Deploying Azure AD integrated applications to users)](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) (Geïntegreerde Azure AD-toepassingen implementeren voor gebruikers) voor meer informatie.
+Zie voor meer informatie, [eindgebruiker ervaringen voor toepassingen](../manage-apps/end-user-experiences.md).
 
 - - -
 **V: Op welke manieren kunnen met behulp van Azure AD verificatie en eenmalige aanmelding worden ingesteld voor toepassingen?**
@@ -182,7 +182,7 @@ Zie voor meer informatie:
 
 * [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md) (Verificatiescenario's voor Azure AD)
 * [Verificatie- en autorisatieprotocollen](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work) (Hoe werkt eenmalige aanmelding met Azure Active Directory?)
+* [Eenmalige aanmelding voor toepassingen in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **V: Kan ik toepassingen toevoegen die ik on-premises uitvoer?**

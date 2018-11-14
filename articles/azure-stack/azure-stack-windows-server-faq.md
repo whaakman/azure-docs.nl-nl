@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 91404f01a1a675ac59898336ef8aa81e1d2638b6
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579231"
+ms.locfileid: "51613092"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows-Server in Azure Stack Marketplace Veelgestelde vragen
 
@@ -38,7 +38,7 @@ Vervolgens als een virtuele-Machineschaalsets naar een specifieke versie verwijs
 Microsoft biedt twee versies van Windows Server-installatiekopieën via de Azure Stack Marketplace:
 
 - **Betalen naarmate u**: deze installatiekopieën worden uitgevoerd met de volledige prijs Windows-meters. 
-   Wie: EA-klanten die gebruikmaken van de *verbruik factureringsmodel*; CSP's die niet willen gebruiken SPLA-licentieverlening.
+   Wie: Enterprise Agreement (EA)-klanten die gebruikmaken van de *verbruik factureringsmodel*; CSP's die niet willen gebruiken SPLA-licentieverlening.
 - **Bring Your Own License (BYOL)**: basic meters deze installatiekopieën worden uitgevoerd.
    Wie: EA-klanten met een Windows Server-licentie; CSP's die gebruikmaken van SPLA-licentieverlening.
 
@@ -52,7 +52,7 @@ De verkeerde versie eerst verwijderen via Marketplace-beheer. Wacht totdat deze 
 
 Zie [converteren Windows Server-VM's met benefit terug naar betalen per gebruik](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1).
 
-### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-ea-entitlement"></a>Wat gebeurt er als ik heb een installatiekopie van een oudere en de gebruiker om te controleren of het selectievakje "Ik heb een licentie" of we onze eigen installatiekopieën gebruiken en we hebben wel EA rechten vergeten?
+### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Wat gebeurt er als ik heb een installatiekopie van een oudere en Mijn gebruiker bent vergeten om te controleren of het selectievakje "Ik heb een licentie" of we onze eigen installatiekopieën gebruiken en we hebben wel rechten van een Enterprise Agreement?
 
 Zie [converteren van een bestaande virtuele machine met behulp van Azure Hybrid Benefit voor Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Houd er rekening mee dat Azure Hybrid Benefit niet voor Azure Stack geldt, maar het effect van deze instelling is van toepassing.
 
@@ -60,7 +60,7 @@ Zie [converteren van een bestaande virtuele machine met behulp van Azure Hybrid 
 
 Deze installatiekopieën geldt de **licenseType** parameter, zodat ze betalen als u gebruikt. U kunt deze parameter instellen (Zie de vorige veelgestelde vragen over antwoord). Dit geldt alleen voor de Windows Server-software, niet tot gelaagde producten, zoals SQL, waarbij u moet uw eigen licentie. Betalen als u licenties is niet van toepassing op gelaagde softwareproducten.
 
-### <a name="i-have-an-ea-and-i-create-my-own-images-how-do-i-make-sure-they-are-billed-correctly"></a>Ik heb een EA en maak ik mijn eigen afbeeldingen. hoe maak ik ervoor dat ze correct worden gefactureerd?
+### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Ik heb een Enterprise Agreement (EA) en Mijn EA Windows Server-licentie; gaat gebruiken hoe maak ik ervoor dat installatiekopieën correct worden gefactureerd?
 
 U kunt toevoegen **licenseType: Windows-_SERVER** in een Azure Resource Manager-sjabloon. Deze instelling moet worden toegevoegd aan elk blok van de bron virtuele machine.
 

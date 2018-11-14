@@ -1,6 +1,6 @@
 ---
-title: 'Interoperabiliteit van ExpressRoute, Site-naar-site VPN- en VNet-Peering - besturingselement vlak analyse: Azure back-end-connectiviteit biedt interoperabiliteit | Microsoft Docs'
-description: Deze pagina bevat het besturingselement vlak analyse van de test-instellingen gemaakt voor het analyseren van de interoperabiliteit van functies voor ExpressRoute, Site-naar-site VPN- en VNet-Peering.
+title: 'Interoperabiliteit in Azure back-end-connectiviteit-functies: besturingselement vlak analyse | Microsoft Docs'
+description: Dit artikel bevat de besturingselement vlak analyse van de test-instellingen die u gebruiken kunt voor het analyseren van interoperabiliteit tussen ExpressRoute, een site-naar-site VPN- en virtueel netwerk in Azure-peering.
 documentationcenter: na
 services: networking
 author: rambk
@@ -10,91 +10,95 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: ee887da18b5666e61bc25365791b2e7dffb925e0
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 37f5399426bebd375200bbc18dae7ed83f4fde3f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49947218"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614671"
 ---
-# <a name="interoperability-of-expressroute-site-to-site-vpn-and-vnet-peering---control-plane-analysis"></a>Interoperabiliteit van ExpressRoute, Site-naar-site VPN- en VNet-Peering - besturingselement vlak analyse
+# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabiliteit in Azure back-end-connectiviteit-functies: besturingselement vlak-analyse
 
-In dit artikel, we gaan via het besturingselement vlak analyse van de test-installatie. Als u bekijken van de Test-installatie wilt, raadpleegt u de [Test Setup][Setup]. De details van de configuratie van instellingen, Zie [Setup Testconfiguratie][Configuration].
+Dit artikel wordt beschreven voor het besturingselement vlak analyse van de [instellingen testen][Setup]. U kunt ook bekijken de [setup Testconfiguratie] [ Configuration] en de [gegevens vlak analysis] [ Data-Analysis] van de test-installatie.
 
-Besturingselement vlak analysis onderzoekt in feite routes die worden uitgewisseld tussen netwerken in een topologie. Besturingselement vlak analysis help hoe verschillende weergave de topologie van het netwerk.
+Besturingselement vlak analysis onderzoekt in feite routes die worden uitgewisseld tussen netwerken in een topologie. Besturingselement vlak analyse kan u helpen begrijpen hoe verschillende netwerken weergeven van de topologie.
 
-##<a name="hub-and-spoke-vnet-perspective"></a>Hub- en -Spokenetwerktopologie VNet perspectief
+## <a name="hub-and-spoke-vnet-perspective"></a>Hub en spoke-VNet-perspectief
 
-Het volgende diagram illustreert het netwerk van de Hub VNet en het perspectief van knooppunt VNet (gemarkeerd in het blauw). Het diagram toont ook de Autonomous System Number (ASN) van een ander netwerk en routes die worden uitgewisseld tussen verschillende netwerken. 
+De volgende afbeelding ziet u het netwerk vanuit het perspectief van een hub-netwerk (VNet) en een knooppunt VNet (gemarkeerd in het blauw). De afbeelding toont ook de autonoom systeemnummer (ASN) van de verschillende netwerken en routes die worden uitgewisseld tussen verschillende netwerken: 
 
 [![1]][1]
 
-U ziet dat het VNet ASN ExpressRoute-gateway van de ASN van Microsoft Enterprise-Randrouters (msee's verschilt). ExpressRoute-gateway maakt gebruik van een persoonlijke ASN (65515) en msee's gebruiken openbare ASN (12076) wereldwijd. Als u ExpressRoute-peering, omdat MSEE de peer configureert, kunt u 12076 gebruikt als de peer-ASN. Aan de Azure brengt MSEE eBGP-peering met ExpressRoute GW. De dubbele eBGP-peering die de MSEE wordt tot stand voor elk ExpressRoute-peering gebracht is transparant op het niveau van het vlak van het besturingselement. Daarom wanneer een routetabel ExpressRoute wordt weergegeven, ziet u het VNet ExpressRoute GW ASN worden gebruikt voor het VNet-voorvoegsels. Een voorbeeld van ExpressRoute route tabel schermopname is hieronder weergegeven: 
+De ASN van Azure ExpressRoute-gateway van het VNet wijkt af van de ASN van Microsoft Enterprise-Randrouters (msee's). Een ExpressRoute-gateway maakt gebruik van een persoonlijke ASN (een waarde van **65515**) en de msee's gebruiken openbare ASN (een waarde van **12076**) wereldwijd. Bij het configureren van ExpressRoute-peering, omdat de MSEE de peer is, gebruikt u **12076** als de peer-ASN. Aan de Azure brengt MSEE eBGP-peering met de ExpressRoute-gateway. De dubbele eBGP-peering die de MSEE wordt tot stand voor elk ExpressRoute-peering gebracht is transparant op het niveau van het besturingselement vlak. Daarom wanneer u een routetabel ExpressRoute bekijkt, ziet u het VNet ExpressRoute-gateway ASN voor van de VNet-voorvoegsels. 
+
+De volgende afbeelding ziet u de routetabel van een voorbeeld van ExpressRoute: 
 
 [![5]][5]
 
-In Azure is alleen het ASN aanzienlijke vanuit het oogpunt van de peering. De ASN van zowel ExpressRoute-gateway en VPN-GW is standaard 65515.
+In Azure is het ASN aanzienlijke alleen vanuit het oogpunt van de peering. De ASN van zowel de ExpressRoute-gateway en de VPN-gateway in de Azure VPN-Gateway is standaard **65515**.
 
-##<a name="on-premises-location-1-and-remote-vnet-perspective-via-expressroute-1"></a>On-Premises locatie-1 en externe VNet perspectief via ExpressRoute-1
+## <a name="on-premises-location-1-and-the-remote-vnet-perspective-via-expressroute-1"></a>On-premises locatie 1 en het externe VNet perspectief via ExpressRoute 1
 
-On-Premises locatie-1 en externe VNet zijn beide verbonden met de Hub VNet via ExpressRoute 1 en daarom delen ze hetzelfde perspectief van de topologie op, zoals wordt weergegeven in het onderstaande diagram.
+Zowel on-premises locatie 1 als het externe VNet zijn verbonden met de hub VNet via ExpressRoute 1. Ze delen hetzelfde perspectief van de topologie op, zoals wordt weergegeven in het volgende diagram:
 
 [![2]][2]
 
-##<a name="on-premises-location-1-and-branch-vnet-perspective-via-site-to-site-vpn"></a>On-Premises locatie-1 en vertakking VNet perspectief via Site-naar-Site-VPN
+## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>On-premises locatie 1 en de vertakking perspectief VNet via een site-naar-site-VPN
 
-On-Premises locatie-1 en vertakking VNet zijn beide verbonden met de Hub VNet-VPN-GW via Site-naar-Site VPN-verbindingen en hebben dus ze hetzelfde perspectief van de topologie op, zoals wordt weergegeven in het onderstaande diagram.
+Zowel on-premises locatie 1 en de vertakking VNet zijn verbonden met een hub-VNet-VPN-gateway via een site-naar-site VPN-verbinding. Ze delen hetzelfde perspectief van de topologie op, zoals wordt weergegeven in het volgende diagram:
 
 [![3]][3]
 
-##<a name="on-premises-location-2-perspective"></a>On-Premises locatie-2-perspectief
+## <a name="on-premises-location-2-perspective"></a>On-premises locatie 2 perspectief
 
-On-Premises locatie-2 is verbonden met de Hub VNet via persoonlijke peering van ExpressRoute-2. 
+On-premises locatie 2 is verbonden met een hub VNet via persoonlijke peering van ExpressRoute 2: 
 
 [![4]][4]
 
-## <a name="further-reading"></a>Lees hier meer over
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute- en site-naar-site VPN-connectiviteit in combinatie
 
-### <a name="using-expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>In combinatie met behulp van ExpressRoute en Site-naar-Site VPN-verbinding
+###  <a name="site-to-site-vpn-over-expressroute"></a>Site-naar-site-VPN via ExpressRoute
 
-####  <a name="site-to-site-vpn-over-expressroute"></a>Site-naar-Site-VPN via ExpressRoute
+U kunt een site-naar-site-VPN configureren met behulp van ExpressRoute Microsoft-peering voor het uitwisselen van gegevens tussen uw on-premises netwerk en uw Azure-VNets privé. Met deze configuratie kunt u gegevens uitwisselen met de vertrouwelijkheid, echtheid en integriteit. De gegevensuitwisseling is ook anti opnieuw afspelen. Zie voor meer informatie over het configureren van een site-naar-site IPsec VPN in tunnelmodus met behulp van ExpressRoute Microsoft-peering [Site-naar-site-VPN via het ExpressRoute-Microsoft-peering][S2S-Over-ExR]. 
 
-Site-naar-Site VPN kan worden geconfigureerd via ExpressRoute-Microsoft-peering voor het uitwisselen van gegevens tussen uw on-premises netwerk en uw Azure-VNets privé met vertrouwen te behandelen, anti opnieuw afspelen, echtheid en integriteit. Zie voor meer informatie over het configureren van Site-naar-Site IPSec VPN-in-tunnelmodus via ExpressRoute-Microsoft-peering [Site-naar-site-VPN via het ExpressRoute-Microsoft-peering][S2S-Over-ExR]. 
+De belangrijkste beperking van het configureren van een site-naar-site-VPN dat gebruikmaakt van Microsoft-peering is doorvoer. Doorvoer via de IPsec-tunnel wordt beperkt door de capaciteit van de VPN-gateway. De VPN-gateway-doorvoer is lager dan de doorvoer van ExpressRoute. In dit scenario, met behulp van de IPsec-tunnel voor goed beveiligd verkeer en het gebruik van persoonlijke peering voor al het andere verkeer kunt de ExpressRoute-bandbreedtegebruik optimaliseren.
 
-De belangrijkste beperking van het configureren van S2S VPN via Microsoft-peering is de doorvoer. Doorvoer via de IPSec-tunnel wordt beperkt door de VPN-GW-capaciteit. De VPN-GW-doorvoer is dat kleiner vergeleken met de doorvoer van ExpressRoute. In dergelijke scenario's wilt met behulp van de IPSec-tunnel voor hoge beveiligd verkeer en privépeering voor alle andere verkeer helpen de ExpressRoute-bandbreedtegebruik optimaliseren.
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>Site-naar-site-VPN als een beveiligd failoverpad voor ExpressRoute
 
-#### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>Site-naar-Site-VPN als een beveiligd failoverpad voor ExpressRoute
-ExpressRoute wordt aangeboden als paar redundante circuit om hoge beschikbaarheid te garanderen. U kunt geo-redundante ExpressRoute-connectiviteit configureren in verschillende Azure-regio's. Ook zoals in de instellingen van de test wordt uitgevoerd binnen een bepaald Azure-regio, kunt als u wilt dat een failoverpad voor ExpressRoute-connectiviteit u doen met behulp van Site-naar-Site VPN. Wanneer dezelfde voorvoegsels worden geadverteerd via ExpressRoute- en S2S VPN-, Azure geeft de voorkeur aan ExpressRoute via S2S VPN-verbinding. Om te voorkomen dat asymmetrische routering tussen ExpressRoute als S2S-VPN, on-premises netwerkconfiguratie moet ook hyperlink voorkeur ExpressRoute via een S2S-VPN-verbinding.
+ExpressRoute fungeert als een paar redundante circuit om hoge beschikbaarheid te garanderen. U kunt geo-redundante ExpressRoute-connectiviteit configureren in verschillende Azure-regio's. Ook, zoals u in onze test setup, binnen een Azure-regio, kunt u een site-naar-site VPN een failoverpad voor de ExpressRoute-verbinding maken. Wanneer dezelfde voorvoegsels worden geadverteerd via ExpressRoute en een site-naar-site-VPN, prioriteert Azure ExpressRoute. Om te voorkomen dat asymmetrische routering tussen ExpressRoute en de site-naar-site VPN-verbinding, on-premises netwerkconfiguratie moet ook hyperlink met behulp van ExpressRoute-connectiviteit voordat deze site-naar-site VPN-verbinding gebruikt.
 
-Zie voor meer informatie over het configureren van ExpressRoute en Site-naar-Site VPN-verbindingen [ExpressRoute en Site-naar-Site co-existentie][ExR-S2S-CoEx].
+Zie voor meer informatie over het naast elkaar bestaande verbindingen configureren voor ExpressRoute en een site-naar-site-VPN [ExpressRoute en site-naar-site co-existentie][ExR-S2S-CoEx].
 
-### <a name="extending-backend-connectivity-to-spoke-vnets-and-branch-locations"></a>Back-end-connectiviteit voor knooppunt VNets en filialen uitbreiden
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Back-end-connectiviteit voor knooppunt VNets en filialen uitbreiden
 
-#### <a name="spoke-vnet-connectivity-using-vnet-peering"></a>Knooppunt-VNet-connectiviteit met behulp van VNet-peering
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Knooppunt-VNet-connectiviteit met behulp van VNet-peering
 
-Hub en spoke-Vnet-architectuur wordt veel gebruikt. De hub is een virtueel netwerk (VNet) in Azure die als een centraal punt van connectiviteit tussen uw knooppunt VNets en naar uw on-premises netwerk fungeert. De spaken zijn VNets die zijn gekoppeld aan de hub en kunnen worden gebruikt om workloads te isoleren. Verkeer stroomt tussen het on-premises datacenter en de hub via een ExpressRoute of VPN-verbinding. Zie voor meer informatie over de architectuur [Hub en Spoke-architectuur][Hub-n-Spoke]
+Hub en spoke-VNet-architectuur wordt veel gebruikt. De hub is een VNet in Azure die als een centraal punt van connectiviteit tussen uw knooppunt VNets en naar uw on-premises netwerk fungeert. De spaken zijn VNets die zijn gekoppeld aan de hub, en die u kunt gebruiken om workloads te isoleren. Verkeer stroomt tussen het on-premises datacenter en de hub via een ExpressRoute of VPN-verbinding. Zie voor meer informatie over de architectuur, [een ster-netwerktopologie implementeren in Azure][Hub-n-Spoke].
 
-VNet-peering binnen een regio kunt knooppunt VNets hub VNet-gateways (VPN- en ExpressRoute-gateways) gebruiken om te communiceren met externe netwerken.
+In de VNet-peering binnen een regio, knooppunt VNets hub VNet-gateways (VPN- en ExpressRoute-gateways) gebruiken om te communiceren met externe netwerken.
 
-#### <a name="branch-vnet-connectivity-using-site-to-site-vpn"></a>VNet-connectiviteit met behulp van Site-naar-Site VPN vertakking
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>VNet-connectiviteit vertakking met behulp van site-naar-site-VPN
 
-Als u wilt dat de vertakking vnet's (in verschillende regio's) en on-premises netwerken met elkaar via een hub vnet communiceren, is de systeemeigen Azure-oplossing site-naar-site VPN-connectiviteit via VPN. Een alternatief is het gebruik van een NVA voor routering in de hub.
+U kunt de vertakking VNets die zich in verschillende regio's en on-premises netwerken met elkaar communiceren via een hub VNet. De systeemeigen Azure-oplossing voor dit cofiguration is site-naar-site VPN-verbinding via een VPN-verbinding. Een alternatief is het gebruik van een virtueel netwerkapparaat (NVA) voor de routering in de hub.
 
-Zie voor het configureren van VPN-gateways, [configureren van VPN-Gateway][VPN]. Zie voor het implementeren van maximaal beschikbare NVA [NVA maximaal beschikbaar implementeren][Deploy-NVA].
+Zie voor meer informatie, [wat is VPN-Gateway?] [ VPN] en [implementeren van een maximaal beschikbare NVA][Deploy-NVA].
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor analyse van gegevens vlak van de test-instellingen en voor Azure-netwerk functies controleweergaven [Gegevensvlak Analysis][Data-Analysis].
+Meer informatie over [gegevens vlak analysis] [ Data-Analysis] van de installatie van de test en de Azure monitoring-weergaven van de functie-netwerk.
 
-Zie voor meer informatie over het aantal ExpressRoute-circuits die u kunt verbinding maken met een ExpressRoute-Gateway of het aantal ExpressRoute-Gateways u verbinding met een ExpressRoute-circuit maken kunt, of voor meer informatie over andere schaallimieten van ExpressRoute, [Veelgestelde vragen over ExpressRoute][ExR-FAQ]
+Zie de [Veelgestelde vragen over ExpressRoute] [ ExR-FAQ] aan:
+-   Meer informatie over het aantal ExpressRoute-circuits die u verbinding met een ExpressRoute-gateway maken kunt.
+-   Meer informatie over het aantal ExpressRoute-gateways die u verbinding met een ExpressRoute-circuit maken kunt.
+-   Meer informatie over andere schaallimieten van ExpressRoute.
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubView.png "hub en Spoke VNet perspectief van de topologie"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "locatie-1 en het externe VNet perspectief via ExpressRoute 1 van de topologie"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "locatie-1 en het perspectief van de vertakking VNet via S2S VPN van de topologie"
+[1]: ./media/backend-interoperability/HubView.png "hub en spoke-VNet-perspectief van de topologie"
+[2]: ./media/backend-interoperability/Loc1ExRView.png "locatie 1 en het externe VNet perspectief van de topologie via ExpressRoute 1"
+[3]: ./media/backend-interoperability/Loc1VPNView.png "locatie 1 en de vertakking VNet perspectief van de topologie via een site-naar-site-VPN"
 [4]: ./media/backend-interoperability/Loc2View.png "locatie 2 perspectief van de topologie"
-[5]: ./media/backend-interoperability/ExR1-RouteTable.png "ExpressRoute 1 RouteTable"
+[5]: ./media/backend-interoperability/ExR1-RouteTable.png "routetabel ExpressRoute 1"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface
@@ -111,7 +115,5 @@ Zie voor meer informatie over het aantal ExpressRoute-circuits die u kunt verbin
 [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
 [VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
-
-
 
 

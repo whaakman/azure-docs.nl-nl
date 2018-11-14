@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963078"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624824"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Consistentieniveaus in Azure Cosmos DB
 
 Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikbaarheid, lage latentie of beide, moet het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: sterke consistentie en uiteindelijke consistentie. Terwijl de [verwerkingen](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) of het model sterke consistentie is de standaard gold van gegevens programmeerbaarheid, een steile prijs van hogere latentie (in onveranderlijke) toegevoegd en verminderde beschikbaarheid (bij storingen). Aan de andere kant uiteindelijke consistentie biedt een hogere beschikbaarheid en betere prestaties, maar is moeilijk te programmeren van toepassingen.
 
-Cosmos DB nadert de consistentie van gegevens als een spectrum van de opties in plaats van de twee extreme. Zijn de twee uiteinden van het spectrum sterke consistentie en uiteindelijke consistentie, maar er zijn veel keuzes in consistentie langs het spectrum krijgen. Deze opties voor consistentiecontrole kunnen ontwikkelaars nauwkeurige keuzes en gedetailleerde compromissen met betrekking tot hoge beschikbaarheid of prestaties. Cosmos DB ingeschakeld ontwikkelaars kiezen tussen de vijf duidelijk gedefinieerde consistentiemodellen uit het spectrum consistentie (sterk naar zwak) – **sterke**, **gebonden veroudering**, **sessie** , **consistent voorvoegsel**, en **uiteindelijke**. Elk van deze consistentiemodellen is goed gedefinieerde, intuïtieve en kan worden gebruikt voor specifieke praktijkscenario's. Elk van de vijf consistentiemodellen bieden [zorgen voor beschikbaarheid en prestaties van een balans](consistency-levels-tradeoffs.md) en worden ondersteund door uitgebreide Sla's.
+Cosmos DB nadert de consistentie van gegevens als een spectrum van de opties in plaats van de twee extreme. Zijn de twee uiteinden van het spectrum sterke consistentie en uiteindelijke consistentie, maar er zijn veel keuzes in consistentie langs het spectrum krijgen. Deze opties voor consistentiecontrole kunnen ontwikkelaars nauwkeurige keuzes en gedetailleerde compromissen met betrekking tot hoge beschikbaarheid of prestaties. Cosmos DB ingeschakeld ontwikkelaars kiezen tussen de vijf duidelijk gedefinieerde consistentiemodellen uit het spectrum consistentie (sterk naar zwak) – **sterke**, **gebonden veroudering**, **sessie** , **consistent voorvoegsel**, en **uiteindelijke**. Elk van deze consistentiemodellen is goed gedefinieerde, intuïtieve en kan worden gebruikt voor specifieke praktijkscenario's. Elk van de vijf consistentiemodellen bieden [zorgen voor beschikbaarheid en prestaties van een balans](consistency-levels-tradeoffs.md) en worden ondersteund door uitgebreide Sla's. De volgende afbeelding ziet u verschillende consistentieniveaus als een breed spectrum aan mogelijkheden:
 
 ![Consistentie als een breed spectrum aan mogelijkheden](./media/consistency-levels/five-consistency-levels.png)
 
-De consistentieniveaus zijn regioneutrale. Het consistentieniveau van uw Cosmos DB-account kan worden gegarandeerd voor alle leesbewerkingen, ongeacht de volgende eigenschappen:
-
-- De regio van waaruit de lees- en schrijfbewerkingen worden behandeld
-- Het aantal regio's die zijn gekoppeld aan uw Cosmos-account
-- Of uw account is geconfigureerd met één of meerdere regio's voor schrijven
+De consistentieniveaus zijn regioneutrale. Het consistentieniveau van uw Cosmos DB-account wordt gegarandeerd voor alle leesbewerkingen, ongeacht de regio van waaruit de lees- en schrijfbewerkingen plaatsvindt, het aantal regio's die zijn gekoppeld aan uw Cosmos-account of of uw account is geconfigureerd met één of meerdere regio's schrijven.
 
 ## <a name="scope-of-the-read-consistency"></a>Bereik van de consistentie van de lezen
 

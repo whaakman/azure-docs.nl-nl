@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: db68f979239a5783338d99360209ae231a75c936
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 70a3de35f6fd942bca5355db3a7c6b57aec6adbc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945032"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613933"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen 
 
@@ -27,6 +27,54 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 * Opgeloste fouten
 * Afgeschafte functies
 * Plannen voor wijzigingen
+
+## <a name="november-2018"></a>November 2018
+
+De CLI 2.0-module is nu beschikbaar voor [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+
+### <a name="new-commands"></a>Nieuwe CLI-opdrachten
+
+- [AZ ams-account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [AZ ams-account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [AZ ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [AZ ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [ams-inhoud-sleutel AZ-beleid](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [AZ ams-taak](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [AZ ams live-gebeurtenis](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [AZ ams live-uitvoer](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [AZ ams streaming-eindpunt](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [AZ ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [ams AZ account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -kunt u voor het beheren van gereserveerde Media-eenheden
+
+### <a name="new-features-and-breaking-changes"></a>Nieuwe functies en wijzigingen die fouten veroorzaken
+
+#### <a name="asset-commands"></a>Asset-opdrachten
+
+- ```--storage-account``` en ```--container``` argumenten die zijn toegevoegd.
+- Standaardwaarden voor vervaltijd (nu + 23 uur) en machtigingen (lezen) in ```az ams asset get-sas-url``` opdracht toegevoegd.
+
+#### <a name="job-commands"></a>Taak opdrachten
+
+- ```--correlation-data``` en ```--label``` argumenten die zijn toegevoegd
+- ```--output-asset-names``` gewijzigd in ```--output-assets```. Nu de cmdlet accepteert een door spaties gescheiden lijst van activa in ' assetName label =' indeling. Een asset zonder label kan worden verzonden als volgt: ' assetName ='.
+
+#### <a name="streaming-locator-commands"></a>Streaming-Locator opdrachten
+
+- ```az ams streaming locator``` basis opdracht vervangen door ```az ams streaming-locator```.
+- ```--streaming-locator-id``` en ```--alternative-media-id support``` argumenten die zijn toegevoegd.
+- ```--content-keys argument``` het argument is bijgewerkt.
+- ```--content-policy-name``` gewijzigd in ```--content-key-policy-name```.
+
+#### <a name="streaming-policy-commands"></a>Streaming beleid-opdrachten
+
+- ```az ams streaming policy``` basis opdracht vervangen door ```az ams streaming-policy```.
+- Ondersteuning voor versleuteling parameters in ```az ams streaming-policy create``` toegevoegd.
+
+#### <a name="transform-commands"></a>Opdrachten transformeren
+
+- ```--preset-names``` argument vervangen door ```--preset```. Nu u alleen 1 uitvoer/voorinstelling tegelijk instellen kunt (om toe te voegen informatie u moet uitvoeren ```az ams transform output add```). U kunt ook aangepaste StandardEncoderPreset instellen door het pad naar uw aangepaste JSON.
+- ```az ams transform output remove``` kan worden uitgevoerd door door te geven van de uitvoer-index te verwijderen.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` argumenten toegevoegd aan ```az ams transform create``` en ```az ams transform output add``` opdrachten.
 
 ## <a name="october-2018---ga"></a>Oktober 2018 - GA
 
@@ -120,5 +168,4 @@ De volgende functies zijn aanwezig in de .net SDK:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Overzicht](media-services-overview.md)
+[Overzicht](media-services-overview.md)

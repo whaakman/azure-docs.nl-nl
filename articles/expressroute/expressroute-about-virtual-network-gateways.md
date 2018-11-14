@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: bc48101decce9a92a01b8e6958bed08850a94b7e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8776a07f4fb1ffcc573bfedace38280576fa3184
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241392"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622959"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Virtuele netwerkgateways voor ExpressRoute
 Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. U kunt een virtuele netwerkgateway kan worden gebruikt voor verkeer van ExpressRoute of VPN-verkeer. In dit artikel richt zich op de virtuele netwerkgateways voor ExpressRoute.
@@ -43,19 +43,19 @@ De volgende tabel ziet u de gatewaytypen en de geschatte prestaties. Deze tabel 
 > 
 >
 
-### <a name="zrgw"></a>Zone-redundante gateway-SKU's (Preview)
+### <a name="zrgw"></a>Zone-redundante gateway-SKU 's
 
 U kunt ook ExpressRoute-gateways in Azure-Beschikbaarheidszones implementeren. Dit fysiek en logisch gescheiden in verschillende Beschikbaarheidszones, uw on-premises netwerkconnectiviteit naar Azure beveiligen tegen storingen van de zone-niveau.
 
 ![Zone-redundante ExpressRoute-gateway](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
-Zone-redundante gateways specifieke nieuwe gateway-SKU's voor ExpressRoute-gateway gebruiken. De nieuwe SKU's zijn momenteel beschikbaar in **Public Preview**.
+Zone-redundante gateways specifieke nieuwe gateway-SKU's voor ExpressRoute-gateway gebruiken.
 
 * ErGw1AZ
 * ErGw2AZ
 * ErGw3AZ
 
-De nieuwe gateway-SKU's ondersteunen ook andere implementatie-opties om het beste aan uw behoeften te voldoen. Bij het maken van een virtuele netwerkgateway met behulp van de nieuwe gateway-SKU's, hebt u ook de mogelijkheid om de gateway in een specifieke zone te implementeren. Dit is een zonegebonden gateway genoemd. Wanneer u een zonegebonden gateway implementeert, worden alle exemplaren van de gateway in dezelfde Beschikbaarheidszone geïmplementeerd. Als u wilt registreren in de Preview-versie, Zie [maken van een zone-redundante virtuele-netwerkgateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
+De nieuwe gateway-SKU's ondersteunen ook andere implementatie-opties om het beste aan uw behoeften te voldoen. Bij het maken van een virtuele netwerkgateway met behulp van de nieuwe gateway-SKU's, hebt u ook de mogelijkheid om de gateway in een specifieke zone te implementeren. Dit is een zonegebonden gateway genoemd. Wanneer u een zonegebonden gateway implementeert, worden alle exemplaren van de gateway in dezelfde Beschikbaarheidszone geïmplementeerd. 
 
 ## <a name="resources"></a>REST-API's en PowerShell-cmdlets
 Zie voor aanvullende technische bronnen en de syntaxis van de specifieke vereisten bij het gebruik van REST-API's en PowerShell-cmdlets voor configuraties van virtuele gateway, de volgende pagina's:
@@ -69,3 +69,5 @@ Zie voor aanvullende technische bronnen en de syntaxis van de specifieke vereist
 Zie [overzicht van ExpressRoute](expressroute-introduction.md) voor meer informatie over beschikbare verbindingsconfiguraties.
 
 Zie [een virtuele netwerkgateway maken voor ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) voor meer informatie over het maken van ExpressRoute-gateways.
+
+Zie [maken van een zone-redundante virtuele-netwerkgateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) voor meer informatie over het configureren van de zone-redundante gateways.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c79a44422944fd2049c47a6729a86d063dbcd15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232338"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625824"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -160,7 +160,7 @@ A. Nee, is het niet mogelijk om te lezen uit verschillende tabellen of container
 
 A. De service Log Analytics is gebaseerd op Azure. Log Analytics-IP-adressen zijn de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Als de service-implementaties worden gemaakt, wordt de werkelijke IP-adressen van de service Log Analytics wijzigen. De DNS-namen om toe te staan via de firewall zijn gedocumenteerd in [vereisten voor de](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Als de service-implementaties worden gemaakt, wordt de werkelijke IP-adressen van de service Log Analytics wijzigen. De DNS-namen om toe te staan via de firewall zijn gedocumenteerd in [vereisten voor de](log-analytics-agent-overview.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>V. Ik ExpressRoute gebruiken voor verbinding met Azure. Mijn verkeer Log Analytics maakt gebruik van mijn ExpressRoute-verbinding?
 

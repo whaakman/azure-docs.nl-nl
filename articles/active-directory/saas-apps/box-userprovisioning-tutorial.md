@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349021"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625348"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Zelfstudie: Vak voor het automatisch inrichten van gebruikers configureren
 
@@ -28,7 +28,7 @@ Het doel van deze zelfstudie is om weer te geven van de stappen dat u moet uitvo
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met Box, moet u de volgende items:
 
@@ -55,7 +55,7 @@ Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen 
 De **vak > gebruikers en groepen** tabblad in de Azure-portal kunt u opgeven welke gebruikers en groepen toegang moeten worden verleend in box. Toewijzing van een gebruiker of groep zorgt ervoor dat de volgende taken uitvoeren:
 
 * Azure AD kan de toegewezen gebruiker (hetzij door directe toewijzing of groepslidmaatschap) om te verifiëren naar Box. Als een gebruiker niet is toegewezen, Azure AD staat niet toe dat ze zich aanmelden met Box en retourneert een fout op de aanmeldingspagina van Azure AD.
-* Een app-tegel voor Box wordt toegevoegd aan van de gebruiker [startprogramma voor toepassingen van](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+* Een app-tegel voor Box wordt toegevoegd aan van de gebruiker [startprogramma voor toepassingen van](../manage-apps/end-user-experiences.md).
 * Als automatisch inrichten is ingeschakeld, worden klikt u vervolgens de toegewezen gebruikers en/of groepen toegevoegd aan de inrichting wachtrij automatisch worden ingericht.
   
   * Als alleen objecten zijn geconfigureerd om te worden ingericht, klikt u vervolgens alle rechtstreeks toegewezen gebruikers worden geplaatst in de wachtrij voor inrichting en alle gebruikers die lid van alle toegewezen groepen zijn in de inrichting wachtrij zijn geplaatst. 
@@ -129,7 +129,7 @@ Gesynchroniseerde gebruikers worden vermeld in uw tenant vak onder **beheerde ge
 ![Integratiestatus van](./media/box-userprovisioning-tutorial/IC769556.png "integratie-status")
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

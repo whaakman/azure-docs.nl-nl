@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957825"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614563"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
@@ -25,7 +25,7 @@ Azure Monitor ingebouwde rollen zijn ontworpen om te beperken van toegang tot re
 Mensen de rol Lezer bewaking toe kunt alle controlegegevens weergeven in een abonnement, maar kan niet alle resource wijzigen of bewerken instellingen met betrekking tot het bewaken van resources. Deze rol is geschikt voor gebruikers in een organisatie, zoals ondersteuning of operations engineers, die nodig kunnen hebben:
 
 * Monitoring dashboards weergeven in de portal en hun eigen persoonlijke monitoring dashboards maken.
-* Waarschuwingsregels is gedefinieerd in weergeven [Azure-waarschuwingen](monitoring-overview-unified-alerts.md)
+* Waarschuwingsregels is gedefinieerd in weergeven [Azure-waarschuwingen](monitoring-overview-alerts.md)
 * Query voor het gebruik van metrische gegevens over de [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdlets](insights-powershell-samples.md), of [platformoverschrijdende CLI](insights-cli-samples.md).
 * Query uitvoeren op het activiteitenlogboek via de portal, Azure Monitor REST API, PowerShell-cmdlets of platformoverschrijdende CLI.
 * Weergave de [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) voor een resource.
@@ -51,7 +51,7 @@ Mensen de rol Inzender bewaking toegewezen kan alle controlegegevens weergeven i
 * Monitoring dashboards als een gedeeld dashboard publiceren.
 * Stel [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) voor een resource.*
 * Stel de [logboekprofiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) voor een wijzigen.*
-* Activiteit van de regels voor waarschuwingen en-instellingen via [Azure-waarschuwingen](monitoring-overview-unified-alerts.md).
+* Activiteit van de regels voor waarschuwingen en-instellingen via [Azure-waarschuwingen](monitoring-overview-alerts.md).
 * Application Insights-webtests en -onderdelen maken.
 * Lijst met Log Analytics-werkruimte gedeelde sleutels.
 * In- of uitschakelen van Log Analytics intelligencepacks.

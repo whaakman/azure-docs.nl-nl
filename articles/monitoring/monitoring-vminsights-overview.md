@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: e39954f9155419e0dea019203efa22ba0d654f92
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8629c27d4a039a702da5f76170fc312dadccaf6a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093680"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612069"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Wat is Azure Monitor voor virtuele machines (Preview)?
 
-Azure Monitor voor virtuele machines bewaakt uw Azure virtual machines (VM) op schaal door het analyseren van de prestaties en status van uw Windows en Linux-VM's, met inbegrip van hun verschillende processen en de gekoppelde afhankelijkheden van andere bronnen en de externe processen. De oplossing biedt ondersteuning voor het bewaken van de prestaties en afhankelijkheden voor toepassingen voor virtuele machines die worden gehost on-premises of een andere cloudprovider.  Het bevat drie belangrijke functies voor het leveren van deze diepgaande informatie:
+Azure Monitor voor virtuele machines controleert uw Azure virtual machines (VM) en virtuele Azure-machine-schaalsets op schaal door het analyseren van de prestaties en status van uw Windows en Linux-VM's, met inbegrip van hun verschillende processen en de gekoppelde afhankelijkheden op andere resources en externe processen. De oplossing biedt ondersteuning voor het bewaken van de prestaties en afhankelijkheden voor toepassingen voor virtuele machines die worden gehost on-premises of een andere cloudprovider. Het bevat drie belangrijke functies voor het leveren van deze diepgaande informatie:
 
 * Logische onderdelen van virtuele Azure-machines met Windows en Linux-besturingssysteem worden gemeten op basis van een set criteria die zijn vooraf geconfigureerde status en waarschuwingen wanneer de geëvalueerde voorwaarde wordt voldaan.  
 * Core maatstaven voor prestaties van de processor, geheugen, schijf en de netwerkadapter van het gastbesturingssysteem van de virtuele machine worden verzameld en weergegeven in de vooraf gedefinieerde trending worden prestatiegrafieken weergegeven.
@@ -36,7 +36,7 @@ Deze functies zijn ingedeeld in drie perspectieven:
 * Kaart
 
 >[!NOTE]
->De Health-functie wordt momenteel alleen aangeboden voor Azure virtual machines.
+>Op dit moment wordt de Health-functie alleen aangeboden voor Azure virtual machines en virtuele-machineschaalset sets. Prestaties en de kaart ondersteuning voor zowel virtuele Azure-machines en virtuele machines die worden gehost in uw omgeving of andere cloudprovider.
 >
 
 Integratie met Log Analytics biedt krachtige aggregatie, te filteren en de mogelijkheid om uit te voeren trendanalyse van de gegevens na verloop van tijd. De uitgebreide bewaking van uw workloads worden niet alleen bereikt met Azure Monitor-, Service Map- of Log Analytics.  
@@ -52,9 +52,9 @@ DevOps kunt effectief bieden voorspelbare prestaties en beschikbaarheid van vita
 
 ## <a name="data-usage"></a>Gegevensgebruik 
 
-Ingebouwde Azure-Monitor voor virtuele machines, gegevens die zijn verzameld door uw virtuele machines worden zo snel als u die zijn opgenomen en opgeslagen in Azure Monitor.  Azure Monitor voor virtuele machines wordt in rekening gebracht voor de gegevens die zijn opgenomen en behouden, aantal criteria voor beveiligingsstatus metrische time series-regels voor bewaakte, waarschuwingen gemaakt, meldingen verzonden, prijzen gepubliceerd op de Azure Monitor [pagina met prijzen](https://azure.microsoft.com/pricing/details/monitor/)
+Ingebouwde Azure-Monitor voor virtuele machines, gegevens die zijn verzameld door uw virtuele machines worden zo snel als u die zijn opgenomen en opgeslagen in Azure Monitor. Azure Monitor voor virtuele machines wordt in rekening gebracht voor de gegevens die zijn opgenomen en behouden, aantal criteria voor beveiligingsstatus metrische time series-regels voor bewaakte, waarschuwingen gemaakt, meldingen verzonden, prijzen gepubliceerd op de Azure Monitor [pagina met prijzen](https://azure.microsoft.com/pricing/details/monitor/)
 
-Grootte van het logboekbestand varieert op basis van de lengte van de tekenreeks van prestatiemeteritems en kunt verhogen met het aantal logische schijven en netwerkadapters.  Als u al een werkruimte hebt en deze prestatiemeteritems zijn verzameld, zullen niet er dubbele kosten die worden toegepast.  Als u al van Service Map gebruikmaakt, is de enige wijziging u ziet de extra verbinding-gegevens die worden verzonden naar Azure Monitor.
+Grootte van het logboekbestand varieert op basis van de lengte van de tekenreeks van prestatiemeteritems en kunt verhogen met het aantal logische schijven en netwerkadapters. Als u al een werkruimte hebt en deze prestatiemeteritems zijn verzameld, zullen niet er dubbele kosten die worden toegepast. Als u al van Service Map gebruikmaakt, is de enige wijziging u ziet de extra verbinding-gegevens die worden verzonden naar Azure Monitor.
 
 ## <a name="next-steps"></a>Volgende stappen
 Beoordeling [ingebouwde Azure-Monitor voor virtuele machines](monitoring-vminsights-onboard.md) voor informatie over vereisten en methoden voor bewaking van uw virtuele machines wilt inschakelen.

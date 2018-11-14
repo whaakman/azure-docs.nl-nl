@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989665"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621085"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Systeemeigen client-apps om te communiceren met de proxy-toepassingen inschakelen
 
@@ -98,4 +98,4 @@ Zodra de ADAL wordt bewerkt met deze parameters, moeten uw gebruikers kunnen ver
 
 Zie voor meer informatie over de stroom van de systeemeigen toepassing [systeemeigen toepassing voor de web-API](../develop/native-app.md)
 
-Meer informatie over het instellen van [eenmalige aanmelding voor de toepassingsproxy](application-proxy-single-sign-on.md)
+Meer informatie over het instellen van [eenmalige aanmelding voor de toepassingsproxy](what-is-single-sign-on.md#single- sign-on-methods)

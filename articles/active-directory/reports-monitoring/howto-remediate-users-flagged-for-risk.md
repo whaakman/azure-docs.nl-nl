@@ -11,61 +11,58 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255776"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624145"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 
-Met de beveiligingsrapporten in Azure Active Directory (Azure AD) krijgt u inzicht in de kans op verdachte gebruikersaccounts in uw omgeving. Een gebruiker die is gemarkeerd voor risico's is een indicator van een gebruikersaccount dat mogelijk is aangetast.
+Met de beveiligingsrapporten in Azure Active Directory (Azure AD), kunt u de kans op verdachte gebruikersaccounts in uw omgeving te meten. Een gebruiker die is gemarkeerd voor risico's is een indicator van een gebruikersaccount dat mogelijk is aangetast.
 
 Microsoft spant zich in om uw omgevingen veilig te houden. Als onderdeel van deze inspanningen controleert Microsoft doorlopend activiteiten die ongebruikelijk zijn of consistent met bekende aanvalspatronen. 
 
-
-Als ongebruikelijke activiteiten wijzen op mogelijk niet-geautoriseerde toegang tot een aantal van uw gebruikersaccounts, ontvangt u meldingen waardoor u actie kunt ondernemen. Als u meldingen ontvangt, betekent dit nog niet dat van de eigen systemen van Microsoft misbruik is gemaakt.
- 
+Als ongebruikelijke activiteiten die op niet-geautoriseerde toegang tot een aantal van uw gebruikersaccounts duiden kunnen worden gedetecteerd, ontvangt u meldingen waardoor u actie te ondernemen. Dit betekent niet dat van het Microsoft-systemen zijn aangetast.
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Gebruikers bekijken voor wie wordt aangegeven dat ze risico lopen
 
-U kunt gebruikers voor wie wordt aangegeven dat ze risico lopen, bekijken via het [bijbehorende rapport](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in Azure Active Directory (AD). Als u geen abonnement hebt op Azure AD, kunt u zich gratis abonneren via het eenmalige proces op [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). In dit rapport kunt u verschillende acties uitvoeren, zoals:
+U kunt gebruikers die zijn gemarkeerd voor risico via bekijken de [gebruikers lopen risico rapport](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in Azure portal. Als u geen Azure AD hebt, kunt u zich van gratis bij [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
+
+Van de gebruikers die zijn gemarkeerd voor risico's rapport, kunt u de volgende acties voor elke gebruiker uitvoeren:
 
 - Een tijdelijk wachtwoord genereren
 - Vereisen dat gebruikers veilig hun wachtwoord opnieuw instellen de volgende keer dat ze zich aanmelden
 - Het gebruikersrisico afwijzen zonder een herstelactie uit te voeren.
 
-Zie het [Beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal](concept-user-at-risk.md) voor meer informatie.
+Zie voor meer informatie, [gebruikers die zijn gemarkeerd voor risico's beveiligingsrapport](concept-user-at-risk.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Azure AD-abonnement voor Office 365-klanten
 
-Zodra u geabonneerd bent, kunt u uw Office 365-referenties gebruiken om toegang te krijgen tot het Azure-beheercentrum. Nadat u de toegang tot Azure AD hebt geactiveerd, wordt u doorgestuurd naar de Azure AD-portal. Bij een basisabonnement worden minder details in rapporten verstrekt. Aanvullende gegevens en analyses zijn verkrijgbaar voor abonnees van Azure Premium.
+U kunt ook uw Office 365-referenties gebruiken voor toegang tot de **Azure-beheercentrum**. Nadat u de toegang tot Azure AD hebt geactiveerd, wordt u doorgestuurd naar de Azure AD-portal. Bij een basisabonnement worden minder details in rapporten verstrekt. Aanvullende gegevens en analyses zijn verkrijgbaar voor abonnees van Azure Premium.
 
+Toegang krijgen tot de **gebruikers die zijn gemarkeerd voor risico's** rapporten in de Office 365-beheercentrum:
 
-**Voor toegang tot het beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in het Office 365-beheercentrum:**
-
-1.  Klik in het navigatiemenu aan de linkerkant op **Beheercentra**. 
-2.  Klik op **Azure AD**.
+1.  Selecteer in het navigatiemenu aan de linkerkant, **beheercentrums**. 
+2.  Selecteer **Azure AD**.
 3.  Meld u aan bij **Azure Active Directory-beheercentrum**.
-4.  Als boven aan de pagina een banner wordt weergegeven met de tekst **Bekijk de nieuwe portal**, klikt u op de koppeling.
-4.  Klik in het navigatiemenu aan de linkerkant op **Azure Active Directory**. 
-5.  Klik in het navigatievenster, onder **Beveiliging**, op **Gebruikers voor wie wordt aangegeven dat ze risico lopen**.
-
-Bekijk de informatie die hier wordt weergegeven. Stel het wachtwoord voor het vermelde account opnieuw in. 
+4.  Als er een banner wordt weergegeven aan de bovenkant van de pagina met de melding dat **Bekijk de nieuwe portal**, selecteert u de koppeling.
+4.  Selecteer in het navigatiemenu aan de linkerkant, **Azure Active Directory**. 
+5.  Selecteer in het navigatiedeelvenster **gebruikers die zijn gemarkeerd voor risico's** uit de **Security** sectie.
 
 ## <a name="remediation-actions"></a>Herstelacties
 
 Onderneem de volgende acties om de betreffende accounts te herstellen en uw omgeving te beveiligen:
 
-1.  [Valideer](https://aka.ms/MFAValid) de juiste informatie voor meervoudige verificatie en selfservice voor wachtwoordherstel. 
-2.  [Activeer](https://aka.ms/MFAuth) meervoudige verificatie voor alle gebruikers. 
-3.  Met behulp van dit [herstelscript](https://aka.ms/remediate) kunt u voor elk betrokken account automatisch de volgende stappen uitvoeren: 
+1.  [Valideren van de juiste gegevens](http://aka.ms/MFAValid) voor multi-factor authentication en Self-service voor wachtwoord opnieuw instellen. 
+2.  [Multi-factor authentication inschakelen](http://aka.ms/MFAuth) voor alle gebruikers. 
+3.  Gebruik deze [herstelscript](http://aka.ms/remediate) voor elk betrokken account automatisch de volgende stappen uitvoeren: 
 
-    a. Stel het wachtwoord opnieuw in om het account te beveiligen en actieve sessies af te sluiten.
+    a. Wachtwoord opnieuw instellen om het account, beveiligen en actieve sessies beëindigen.
 
     b. Verwijder gemachtigden voor een postvak.
 
@@ -79,22 +76,20 @@ Onderneem de volgende acties om de betreffende accounts te herstellen en uw omge
 
     g. Schakel postvakcontrole in.
 
-    h. Genereer een auditlogboek ter beoordeling van de beheerder.
+    h. Genereer een een auditlogboek voor de beheerder om te controleren.
 
 4. Onderzoek uw Office 365-tenant en andere IT-infrastructuur, waaronder een controle van alle tenantinstellingen, gebruikersaccounts en de configuratie-instellingen per gebruiker op mogelijke wijzigingen. Controleer op de aanwezigheid van indicatoren voor persistentiemethoden, evenals indicatoren dat een indringer gebruik kan hebben gemaakt van een eerste aangrijpingspunt om VPN-referenties te verkrijgen, of toegang tot andere organisatieaccounts. 
 
-5.  Overweeg bij uw onderzoek ook of u overheidsinstanties, waaronder de politie, moet waarschuwen.
+5.  Overweeg of u overheidsinstanties, waaronder Justitie en politie moet waarschuwen als onderdeel van uw onderzoek.
 
 Daarnaast dient u:
 
-- Deze [richtlijnen](https://aka.ms/fixaccount) over ongebruikelijke activiteiten te lezen en implementeren. 
-- [De auditpijplijn](https://aka.ms/improvesecurity) in te schakelen voor de analyse van de activiteiten met betrekking tot uw tenancy. Als u klaar bent, wordt het auditarchief gevuld met alle activiteitenlogboeken. Op dat moment kunt u ook gebruikmaken van [Security and Compliance Center’s Search and Investigation](https://aka.ms/sccsearch) (Doorzoeken en onderzoeken in het Centrum voor beveiliging en naleving). 
-- Gebruik dit [script](https://aka.ms/mailboxaudit1) om postvakcontrole in te schakelen voor al uw accounts. 
-- Bekijk voor alle postvakken de machtigingen voor gemachtigden en de regels voor het doorsturen van e-mail. U kunt dit [PowerShell-script](https://aka.ms/delegateforwardrules) gebruiken om deze taak uit te voeren. 
-
-
+- Lees- en dit implementeren [richtlijnen over ongebruikelijke activiteiten](http://aka.ms/fixaccount). 
+- [Inschakelen van de pijplijn audit](http://aka.ms/improvesecurity) u helpen bij het analyseren van de activiteit in uw tenant. Als u klaar bent, wordt het auditarchief gevuld met activiteitenlogboeken. Op dit moment kunt u ook gebruikmaken van de [beveiligings- en Compliancecentrum van zoek- en onderzoeksfuncties resource](http://aka.ms/sccsearch). 
+- Gebruik deze [script voor het inschakelen van Postvakcontrole voor](http://aka.ms/mailboxaudit1) voor al uw accounts. 
+- Bekijk voor alle postvakken de machtigingen voor gemachtigden en de regels voor het doorsturen van e-mail. U kunt dit [PowerShell-script](http://aka.ms/delegateforwardrules) gebruiken om deze taak uit te voeren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) voor meer informatie over Azure Active Directory Identity Protection.
-
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+* [Gebruikers die zijn gemarkeerd voor risico 's](concept-user-at-risk.md)

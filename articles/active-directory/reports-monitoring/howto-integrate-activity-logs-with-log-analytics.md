@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc918d0ee3b3b435905546507287dc655f68e8c9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7509081bbf43aeaf39570f84afef81b6dd5a39fe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429776"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621663"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Azure AD-logboeken integreren met Log Analytics met Azure Monitor (preview)
 
@@ -57,7 +57,7 @@ U hebt het volgende nodig om deze functie te gebruiken:
 * Een gebruiker die een *globale beheerder* of *beveiligingsbeheerder* voor de Azure-tenant is.
 * Een Log Analytics-werkruimte in uw Azure-abonnement. Meer informatie over het [een Log Analytics-werkruimte maken](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-log-analytics"></a>Logboeken verzenden naar Log Analytics
+## <a name="send-logs-to-log-analytics"></a>Logboeken naar Log Analytics verzenden
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 

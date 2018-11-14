@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51525643"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597597"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -49,7 +49,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Privé-IP-adressen per virtueel netwerk |65536 |
 | Privé-IP-adressen per netwerkinterface |256 |
 | Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500.000 |
-| Netwerkinterfaces (NIC) |24000 |
+| Netwerkinterfaces (NIC) |65536 |
 | Netwerkbeveiligingsgroepen (NSG's) |5000 |
 | NSG-regels per NSG |1000 |
 | IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsgroep |4000 |
@@ -64,28 +64,27 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Tik op netwerkinterfaceconfiguraties per virtueel netwerk-TAP |100 |
 
 #### <a name="publicip-address"></a>Limieten voor openbare IP-adres
-
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Openbare IP-adressen - dynamisch |200 (standaard) |contact met ondersteuning |
+| Openbare IP-adressen - dynamisch |1000 (standaard) |contact met ondersteuning |
 | Openbare IP-adressen - statisch |200 (standaard) |contact met ondersteuning |
 | Openbare IP-adressen - statisch |200 (standaard) |contact met ondersteuning |
 
 #### <a name="load-balancer"></a>Load Balancer-limieten
 De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over het [uw huidige brongebruik op basis van uw abonnementen weergeven](../articles/networking/check-usage-against-limits.md)
 
-| Resource | Standaardlimiet | Maximumaantal |
+| Resource | Standaardlimiet |
 | --- | --- | --- |
-| Load balancers | 100 | 1000 |
-| Regels per resource, Basic | 250 | 250 |
-| Regels per resource, Standard | 1500 | 1500 |
-| Regels per IP-configuratie | 299 |299 |
-| Frontend-IP-configuraties, Basic | 10 | 200 |
-| Frontend-IP-configuraties, Standard | 10 | 600 |
-| Back-endpool, Basic | 100, één Beschikbaarheidsset | 100, één Beschikbaarheidsset |
-| Back-endpool, Standard | 1000, één VNet | 1000, één VNet |
-| Back-endresources per Load Balancer Standard * | 150 | 150 |
-| HA-poorten, Standard | 1 per interne frontend | 1 per interne frontend |
+| Load balancers | 1000 | 
+| Regels per resource, Basic | 250 |
+| Regels per resource, Standard | 1500 | 
+| Regels per IP-configuratie | 299 |
+| Frontend-IP-configuraties, Basic | 200 |
+| Frontend-IP-configuraties, Standard | 600 |
+| Back-endpool, Basic | 100, één Beschikbaarheidsset |
+| Back-endpool, Standard | 1000, één VNet |
+| Back-endresources per Load Balancer Standard * | 150 |
+| HA-poorten, Standard | 1 per interne frontend |
 
 ** Maximaal 150 resources, een combinatie van zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets.
 

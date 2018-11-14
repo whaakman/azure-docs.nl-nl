@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240865"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615871"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "50240865"
 Voordat u Azure App Service in Azure Stack implementeren, moet u de vereiste stappen in dit artikel te voltooien.
 
 > [!IMPORTANT]
-> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.3 implementeert.
+> De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.4 implementeert.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Het installatieprogramma en helper scripts downloaden
 
@@ -44,6 +44,10 @@ Voordat u Azure App Service in Azure Stack implementeren, moet u de vereiste sta
    - Remove-AppService.ps1
    - Map modules
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Verbind de aangepaste Scriptextensie vanuit de Marketplace
+
+Azure App Service in Azure Stack is Custom Script Extension v1.9.0 vereist.  De extensie moet [publiceren vanuit de Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) voordat u begint met de installatie of upgrade van Azure App Service in Azure Stack
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
 
@@ -61,7 +65,7 @@ Open een verhoogde PowerShell-sessie op een computer die de bevoegde eindpunt op
 
 Voer de *Get-AzureStackRootCert.ps1* script uit de map waar u de helperscripts hebt uitgepakt. Het script maakt u een basiscertificaat in dezelfde map als het script dat een App Service nodig zijn voor het maken van certificaten.
 
-Wanneer u de volgende PowerShell-opdracht uitvoeren hebt u voor het eindpunt van de bevoegdheden en de referenties voor de AzureStack\CloudAdmin.
+Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van de bevoegdheden en de referenties voor de AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -151,6 +155,9 @@ Het certificaat voor de id moet een onderwerpnaam die overeenkomt met de volgend
 
 ## <a name="virtual-network"></a>Virtueel netwerk
 
+> [!NOTE]
+> Het vooraf maken van een aangepaste virtueel netwerk is optioneel, zoals de Azure App Service in Azure Stack de vereiste virtueel netwerk kunt maken, maar vervolgens moet communiceren met de SQL- en File Server via het openbare IP-adressen.
+
 Azure App Service in Azure Stack kunt u de resourceprovider implementeren op een bestaand virtueel netwerk of kunt u een virtueel netwerk maken als onderdeel van de implementatie. Met behulp van een bestaand virtueel netwerk, kunt het gebruik van interne IP-adressen verbinding maken met de bestandsserver en de SQL server vereist voor Azure App Service in Azure Stack. Het virtuele netwerk moet worden geconfigureerd met de volgende adresbereik en subnetten voor de installatie van Azure App Service in Azure Stack:
 
 Virtueel netwerk - /16
@@ -167,12 +174,20 @@ Subnetten
 
 Azure App Service is vereist voor het gebruik van een bestandsserver. Voor productie-implementaties, moet de server worden geconfigureerd om maximaal beschikbare en kan afhandelen van fouten.
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>QuickStart-sjabloon voor de bestandsserver voor implementaties van Azure App Service op ASDK.
+
 Voor alleen voor implementaties van Azure Stack Development Kit, kunt u de [voorbeeld van Azure Resource Manager-implementatiesjabloon](https://aka.ms/appsvconmasdkfstemplate) om een geconfigureerde bestandsserver van één knooppunt te implementeren. De bestandsserver van één knooppunt bevindt zich in een werkgroep.
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>QuickStart-sjabloon voor maximaal beschikbare bestandsserver en SQL Server
+
+Een [reference architecture-snelstartsjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is nu beschikbaar, die de File Server, SQL Server wordt geïmplementeerd, ondersteuning van Active Directory-infrastructuur in een Virtueelnetwerk geconfigureerd ter ondersteuning van een maximaal beschikbare implementatie van Azure App Service op Azure Stack.  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>Stappen voor het implementeren van een aangepaste-bestandsserver
 
 >[!IMPORTANT]
 > Als u ervoor kiest om App Service in een bestaand Virtueelnetwerk te implementeren, moet de Server worden geïmplementeerd in een apart Subnet vanuit App Service.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Inrichten van groepen en accounts in Active Directory
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>Inrichten van groepen en accounts in Active Directory
 
 1. Maak de volgende globale beveiligingsgroepen van Active Directory:
 
@@ -195,7 +210,7 @@ Voor alleen voor implementaties van Azure Stack Development Kit, kunt u de [voor
    - Voeg **FileShareOwner** naar de **FileShareOwners** groep.
    - Voeg **FileShareUser** naar de **FileShareUsers** groep.
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Inrichten van groepen en accounts in een werkgroep
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Inrichten van groepen en accounts in een werkgroep
 
 >[!NOTE]
 > Wanneer u een bestandsserver, voer de volgende opdrachten uit configureert een **Beheerdersopdrachtprompt**. <br>***Gebruik geen PowerShell.***
@@ -225,7 +240,7 @@ Wanneer u de Azure Resource Manager-sjabloon gebruikt, worden de gebruikers al g
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>De inhoudsshare inrichten
+#### <a name="provision-the-content-share"></a>De inhoudsshare inrichten
 
 Inhoudsshare van de bevat tenant-website-inhoud. De procedure voor het inrichten van de inhoud delen op een server met één bestand is hetzelfde voor Active Directory-en werkgroepomgevingen. Maar het is verschillend voor een failovercluster in Active Directory.
 

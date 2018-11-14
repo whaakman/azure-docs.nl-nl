@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964149"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625620"
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -239,7 +239,7 @@ Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven 
 ![OMS-lint](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Gegevens van computers in uw omgeving verzamelen met Log Analytics](log-analytics-concept-hybrid.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.
+* Zie [Log Analytics-agent overzicht](log-analytics-agent-overview.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.
 * Zie [Gegevens verzamelen over Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) voor het configureren van het verzamelen van gegevens van Azure VM's.  
 * [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](../monitoring/monitoring-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 

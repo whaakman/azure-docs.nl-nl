@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055460"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622871"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referentie voor auditactiviteiten van Azure AD
 
-Met rapporten in Azure Active Directory ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
+Met Azure Active Directory (Azure AD)-rapporten krijgt u informatie die u nodig hebt om te bepalen hoe het gaat met uw omgeving.
 
 De rapportstructuur in Azure AD bestaat uit de volgende onderdelen:
 
-- **Activiteit** 
-    - **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
-    - **Auditlogboeken**: traceerbaarheid via logboeken voor alle door diverse functies binnen Azure AD uitgevoerde wijzigingen. Voorbeelden van auditlogboekgegevens zijn wijzigingen die worden aangebracht in resources binnen Azure AD, zoals gebruikers, apps, groepen, rollen, beleid, verificaties, enzovoort.
-- **Beveiliging** 
-    - **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie Riskante aanmeldingen voor meer informatie.
-    - **Gebruikers van wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie Gebruikers van wie wordt aangegeven dat ze risico lopen voor meer informatie.
+- **Activiteitenrapporten** 
+    - [Aanmeldingen](concept-sign-ins.md) : bevat informatie over het gebruik van beheerde toepassingen en de gebruiker aanmeldingsactiviteiten
+    - [Auditlogboeken](concept-audit-logs.md): traceerbaarheid via logboeken voor alle door diverse functies binnen Azure AD uitgevoerde wijzigingen. 
+    
+- **Beveiligingsrapporten** 
+    - [Riskante aanmeldingen](concept-risky-sign-ins.md) - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. 
+    - [Gebruikers voor wie wordt aangegeven dat ze risico lopen](concept-user-at-risk.md) - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
 
 In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunnen worden geregistreerd.
- 
-
 
 ## <a name="access-reviews"></a>Toegangsbeoordelingen
 
@@ -72,9 +71,6 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Gebruikersbeheer|V1-toepassingen ophalen|
 |Gebruikersbeheer|V2-toepassing ophalen|
 |Gebruikersbeheer|V2-toepassingen ophalen|
-
-
-
 
 ## <a name="account-provisioning"></a>Account inrichten
 
@@ -593,13 +589,8 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Beleidsbeheer|Door gebruiker geregistreerd voor selfservice voor het opnieuw instellen van een wachtwoord|
 
 
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor een overzicht van:
-
-- Rapportage: zie [Azure Active Directory-rapportage](overview-reports.md).
-
-- Controleactiviteitenrapporten: zie [Controleactiviteitenrapporten in de Azure Active Directory-portal](concept-audit-logs.md). 
-
+- [Overzicht van Azure AD-rapporten](overview-reports.md).
+- [Audittrailrapporten](concept-audit-logs.md). 
+- [Programmatische toegang tot Azure AD-rapporten](concept-reporting-api.md)

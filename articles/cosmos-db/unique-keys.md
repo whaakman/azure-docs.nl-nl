@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252561"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624417"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unieke sleutels in Azure Cosmos DB
 
@@ -48,17 +48,6 @@ Alleen bij het maken van een Cosmos-container, kunt u unieke sleutels definiëre
 * Sparse unieke sleutels worden niet ondersteund. Als er enkele waarden uniek pad ontbreken, worden ze behandeld als null-waarden, die Neem deel aan de beperking voor uniekheid. Daarom kan kan er alleen worden één item met null-waarde om te voldoen aan deze beperking.
 
 * De unieke sleutelnamen zijn hoofdlettergevoelig. Neem bijvoorbeeld een container met de unieke key-beperking ingesteld op /address/zipcode. Als uw gegevens een veld met de naam postcode heeft, voegt het Cosmos DB 'null' als de unieke sleutel, omdat "Postcode" niet hetzelfde als "Postcode is". Vanwege deze hoofdlettergevoeligheid kunnen niet alle records met ZipCode worden ingevoegd omdat de 'null' dubbele strijdig zijn met de unieke key-beperking.
-
-## <a name="supported-apis-and-sdks"></a>Ondersteunde API's en SDK 's
-
-De functie unieke sleutels wordt momenteel ondersteund door de volgende Cosmos DB-API's en client-SDK's: 
-
-|-Clientstuurprogramma 's|SQL-API|Cassandra-API|MongoDB-API|Gremlin-API|Tabel-API|
-|---|---|---|---|---|---|
-|.NET|Ja|Nee|Ja|Nee|Nee|
-|Java|Ja|Nee|Ja|Nee|Nee|
-|Python|Ja|Nee|Ja|Nee|Nee|
-|Knooppunt/JS|Ja|Nee|Ja|Nee|Nee|
 
 ## <a name="next-steps"></a>Volgende stappen
 

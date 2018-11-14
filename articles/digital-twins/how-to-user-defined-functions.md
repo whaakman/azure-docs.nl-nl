@@ -6,54 +6,45 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 8094965da5fb0a5fad0313fd96e2878f86d78aa7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 33190472215e7a02b94951a73054ebe3e1994e54
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215494"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623907"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Over het gebruik van de gebruiker gedefinieerde functies in Azure digitale dubbels
 
-[De gebruiker gedefinieerde functies](./concepts-user-defined-functions.md) dat de gebruiker kan het uitvoeren van aangepaste logica op binnenkomende berichten over Telemetrie en metagegevens van de ruimtelijke grafiek, zodat de gebruiker voor het verzenden van gebeurtenissen naar vooraf gedefinieerde eindpunten. In deze handleiding vindt u een voorbeeld van fungeert op temperatuur gebeurtenissen om te detecteren en waarschuwen bij elke lezen die groter is dan een bepaalde temperatuur.
+[De gebruiker gedefinieerde functies](./concepts-user-defined-functions.md) (UDF's), kan de gebruiker uitvoeren van aangepaste logica op binnenkomende berichten over Telemetrie en metagegevens van de ruimtelijke graph. De gebruiker kan vervolgens gebeurtenissen verzenden naar vooraf gedefinieerde eindpunten. In deze handleiding worden door een voorbeeld van het optreden van temperatuur gebeurtenissen om te detecteren en waarschuwingen op elke lezen die groter is dan een bepaalde temperatuur.
 
-In de onderstaande voorbeelden `https://yourManagementApiUrl` verwijst naar de URI van de digitale Twins-API's:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management
-```
-
-| Naam van aangepast kenmerk | Vervangen |
-| --- | --- |
-| *NaamExemplaar* | De naam van uw Azure digitale Twins-exemplaar |
-| *yourLocation* | Welke regio u uw exemplaar wordt gehost op server |
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="client-library-reference"></a>Naslaginformatie over-clientbibliotheek
 
-De functies die beschikbaar als Help-methoden in de runtime van de gebruiker gedefinieerde functies zijn worden opgesomd in het volgende [referentie Client](#Client-Reference).
+De functies die beschikbaar als Help-methoden in de runtime van de gebruiker gedefinieerde functies zijn worden vermeld in de [referentie client](#Client-Reference) sectie.
 
 ## <a name="create-a-matcher"></a>Een matcher maken
 
-Vergelijkingsprogramma voor zijn graph-objecten, die bepalen welke door de gebruiker gedefinieerde functies worden uitgevoerd voor een bepaalde telemetrieberichten.
+Vergelijkingsprogramma voor zijn graph-objecten die te bepalen wat de gebruiker gedefinieerde functies worden uitgevoerd voor een bepaalde telemetrieberichten.
 
-Geldige matcher voorwaarde vergelijkingen:
+- Geldige matcher voorwaarde vergelijkingen:
 
-- `Equals`
-- `NotEquals`
-- `Contains`
+  - `Equals`
+  - `NotEquals`
+  - `Contains`
 
-Geldige matcher voorwaarde doelen:
+- Geldige matcher voorwaarde doelen:
 
-- `Sensor`
-- `SensorDevice`
-- `SensorSpace`
+  - `Sensor`
+  - `SensorDevice`
+  - `SensorSpace`
 
-Het volgende voorbeeld matcher evalueren op ' True ' voor elke gebeurtenis sensor telemetrie met `"Temperature"` als de waarde van het gegevenstype. U kunt meerdere vergelijkingsprogramma voor maken van een door de gebruiker gedefinieerde functie.
+Het volgende voorbeeld matcher resulteert in waar op een sensor telemetrie-gebeurtenis met `"Temperature"` als de waarde van het gegevenstype. U kunt meerdere vergelijkingsprogramma voor maken van een door de gebruiker gedefinieerde functie:
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/matchers
+POST yourManagementApiUrl/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -64,35 +55,34 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
       "comparison": "Equals"
     }
   ],
-  "SpaceId": "yourSpaceIdentifier"
+  "SpaceId": "YOUR_SPACE_IDENTIFIER"
 }
 ```
 
-| Naam van aangepast kenmerk | Vervangen |
+| De waarde van de | Vervangen door |
 | --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
-| *yourSpaceIdentifier* | Welke regio u uw exemplaar wordt gehost op server |
+| YOUR_SPACE_IDENTIFIER | Welke regio u uw exemplaar wordt gehost op server |
 
 ## <a name="create-a-user-defined-function-udf"></a>Een door de gebruiker gedefinieerde functie (UDF's) maken
 
-Na de vergelijkingsprogramma voor zijn gemaakt, uploadt u het fragment functie met de volgende POST-aanroep:
+Nadat de vergelijkingsprogramma voor zijn gemaakt, uploadt u het fragment functie met de volgende **POST** aanroepen:
 
 > [!IMPORTANT]
-> - Stel het volgende in de Headers `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
-> - De hoofdtekst is meerdelige:
+> - Stel het volgende in de headers `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
+> - De hoofdtekst wordt gedeeltelijk:
 >   - Het eerste deel is over de metagegevens die nodig zijn voor de UDF.
->   - Het tweede gedeelte is het javascript-logica voor compute.
-> - Vervang `userDefinedBoundary` sectie `SpaceId` en `Machers` GUID's.
+>   - Het tweede gedeelte is het JavaScript-logica voor compute.
+> - In de **userDefinedBoundary** sectie, vervangt de **SpaceId** en **Machers** waarden.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
 
-| Naam van aangepast kenmerk | Vervangen |
+| Parameterwaarde | Vervangen door |
 | --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
+| *userDefinedBoundary* | De naam van een meerdelige inhoud grens |
 
-Hoofdtekst:
+### <a name="body"></a>Hoofdtekst
 
 ```plaintext
 --userDefinedBoundary
@@ -100,10 +90,10 @@ Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "yourSpaceIdentifier",
+  "SpaceId": "YOUR_SPACE_IDENTIFIER",
   "Name": "User Defined Function",
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["yourMatcherIdentifier"]
+  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
 --userDefinedBoundary
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
@@ -116,10 +106,10 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-| Naam van aangepast kenmerk | Vervangen |
+| De waarde van de | Vervangen door |
 | --- | --- |
-| *yourSpaceIdentifier* | De ruimte-id  |
-| *yourMatcherIdentifier* | De ID van de matcher die u wilt gebruiken |
+| YOUR_SPACE_IDENTIFIER | De ruimte-id  |
+| YOUR_MATCHER_IDENTIFIER | De ID van de matcher die u wilt gebruiken |
 
 ### <a name="example-functions"></a>Voorbeeld van de functies
 
@@ -139,7 +129,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-De *telemetrie* parameter wordt aangegeven dat de **SensorId** en **bericht** kenmerken (overeenkomt met een bericht wordt verzonden door een sensor). De *executionContext* parameter wordt aangegeven dat de volgende kenmerken:
+De **telemetrie** parameter wordt aangegeven dat de **SensorId** en **bericht** kenmerken, overeenkomt met een bericht wordt verzonden door een sensor. De **executionContext** parameter wordt aangegeven dat de volgende kenmerken:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -151,7 +141,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-In het volgende voorbeeld wordt er een bericht Meld u als sensor telemetrie lezen een vooraf gedefinieerde drempelwaarde overschrijdt. Als de diagnostische instellingen zijn ingeschakeld op het exemplaar digitale Twins, worden ook logboeken van de gebruiker gedefinieerde functies worden doorgestuurd:
+In het volgende voorbeeld melden we een bericht als de sensor telemetrie lezen een vooraf opgegeven drempel wordt overschreden. Als de diagnostische instellingen zijn ingeschakeld op het exemplaar van Azure digitale Twins, worden ook logboeken van de gebruiker gedefinieerde functies doorgestuurd:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -166,7 +156,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-De volgende code wordt een melding geactiveerd als het niveau van de temperatuur boven aan de vooraf gedefinieerde constante.
+De volgende code wordt een melding geactiveerd als het niveau van de temperatuur boven aan de vooraf gedefinieerde constante:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -190,57 +180,52 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Raadpleeg voor een meer complexe UDF-codevoorbeeld [controleren op beschikbare spaties met nieuwe lucht UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
+Voor een meer complexe UDF-codevoorbeeld [controleren op beschikbare plaatsen met een nieuwe lucht UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Een roltoewijzing maken
 
-Er moet een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voeren onder maken. Als we dit niet doet, wordt deze niet de juiste machtigingen om te communiceren met de API Management acties uitvoeren op de graph-objecten hebben. De acties die door de gebruiker gedefinieerde functie uitgevoerd, zijn niet uitgesloten van de op rollen gebaseerd toegangsbeheer in de digitale dubbels Management API's. Ze kunnen binnen het bereik worden beperkt door bepaalde functies of bepaalde access control-paden op te geven. Zie voor meer informatie, [rollen gebaseerd toegangsbeheer](./security-role-based-access-control.md) documentatie.
+Er moet een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voeren onder maken. Als we dit niet doet, is er geen de juiste machtigingen om te communiceren met de API Management acties uitvoeren op de graph-objecten. De acties die door de gebruiker gedefinieerde functie uitgevoerd kunnen niet worden uitgesloten van de op rollen gebaseerd toegangsbeheer in de Azure digitale dubbels Management API's. Ze kunnen binnen het bereik worden beperkt door bepaalde functies of bepaalde access control-paden op te geven. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer](./security-role-based-access-control.md) documentatie.
 
-1. Query voor rollen en haal de ID van de rol die u wilt toewijzen aan de UDF; door te geven **RoleId** hieronder.
+1. Query voor rollen en haal de ID van de rol die u wilt toewijzen aan de UDF. Door te geven **RoleId**:
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/system/roles
-```
+    ```plaintext
+    GET yourManagementApiUrl/system/roles
+    ```
 
-| Naam van aangepast kenmerk | Vervangen |
-| --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
+1. **Object-id** de UDF-id die eerder is gemaakt.
+1. Zoek de waarde van **pad** door het opvragen van uw opslagruimten met `fullpath`.
+1. Kopieer de geretourneerde `spacePaths` waarde. U gebruikt die in de volgende code:
 
-2. **Object-id** de UDF-id die eerder is gemaakt.
-3. Zoek de waarde van **pad** door het opvragen van uw opslagruimten met `fullpath`.
-4. Kopieer de geretourneerde `spacePaths` waarde. U wilt gebruiken die hieronder.
+    ```plaintext
+    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    ```
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
-```
+    | Parameterwaarde | Vervangen door |
+    | --- | --- |
+    | *yourSpaceName* | De naam van de ruimte die u wilt gebruiken |
 
-| Naam van aangepast kenmerk | Vervangen |
-| --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
-| *yourSpaceName* | De naam van de ruimte die u wilt gebruiken |
+1. Plak de geretourneerde `spacePaths` waarde in **pad** een roltoewijzing UDF maken:
 
-4. Plak nu de geretourneerde `spacePaths` waarde in **pad** te maken van een roltoewijzing UDF.
+    ```plaintext
+    POST yourManagementApiUrl/roleassignments
+    {
+      "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
+      "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",
+      "ObjectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
+      "Path": "YOUR_ACCESS_CONTROL_PATH"
+    }
+    ```
 
-```plaintext
-POST https://yourManagementApiUrl/api/v1.0/roleassignments
-{
-  "RoleId": "yourDesiredRoleIdentifier",
-  "ObjectId": "yourUserDefinedFunctionId",
-  "ObjectIdType": "UserDefinedFunctionId",
-  "Path": "yourAccessControlPath"
-}
-```
-
-| Naam van aangepast kenmerk | Vervangen |
-| --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
-| *yourDesiredRoleIdentifier* | De id voor de gewenste rol |
-| *yourUserDefinedFunctionId* | De ID voor de UDF die u wilt gebruiken |
-| *yourAccessControlPath* | De access control-pad |
+    | De waarde van de | Vervangen door |
+    | --- | --- |
+    | YOUR_DESIRED_ROLE_IDENTIFIER | De id voor de gewenste rol |
+    | YOUR_USER_DEFINED_FUNCTION_ID | De ID voor de UDF die u wilt gebruiken |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | De ID op te geven de UDF-type |
+    | YOUR_ACCESS_CONTROL_PATH | De access control-pad |
 
 ## <a name="send-telemetry-to-be-processed"></a>Verzenden van telemetrie moeten worden verwerkt
 
-Telemetrie die is gegenereerd door de sensor die worden beschreven in de grafiek moet Activeer de uitvoering van de gebruiker gedefinieerde functie dat is geüpload. Zodra de telemetrie wordt opgehaald door de gegevensverwerker, wordt een planning worden uitgevoerd voor het aanroepen van de gebruiker gedefinieerde functie gemaakt.
+Telemetrie die is gegenereerd door de sensor die worden beschreven in de grafiek wordt het uitvoeren van de gebruiker gedefinieerde functie dat is geüpload. De gegevensverwerker, neemt de telemetrie. Vervolgens wordt een plan uitvoeren voor het aanroepen van de gebruiker gedefinieerde functie gemaakt.
 
 1. Ophalen van de vergelijkingsprogramma voor voor de sensor die lezen afmelden is gegenereerd.
 1. Afhankelijk van wat vergelijkingsprogramma voor beoordeling van voltooid, de bijbehorende door de gebruiker gedefinieerde functies worden opgehaald.
@@ -250,240 +235,240 @@ Telemetrie die is gegenereerd door de sensor die worden beschreven in de grafiek
 
 ### <a name="getspacemetadataid--space"></a>getSpaceMetadata(id) ⇒ `space`
 
-Opgegeven een ruimte-id, haalt de ruimte van de grafiek.
+Deze functie haalt een ruimte-id wordt opgegeven, de ruimte in de grafiek.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
-| ------ | ------------------- | ------------ |
+| Parameter  | Type                | Beschrijving  |
+| ---------- | ------------------- | ------------ |
 | *id*  | `guid` | ruimte-id |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
-Opgegeven een sensor-id, haalt de sensor van de grafiek.
+Deze functie haalt krijgen een sensor-id, de sensor van de grafiek.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
-| ------ | ------------------- | ------------ |
+| Parameter  | Type                | Beschrijving  |
+| ---------- | ------------------- | ------------ |
 | *id*  | `guid` | sensor-id |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
-Gegeven een apparaat-id, haalt het apparaat van de grafiek.
+Een apparaat-id worden gegeven, haalt deze functie het apparaat in de grafiek.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *id* | `guid` | Apparaat-id |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>⇒ getSensorValue (sensorId, gegevenstype) `value`
 
-Basis van een sensor-id en het gegevenstype, de huidige waarde voor die sensor worden opgehaald.
+Deze functie een sensor-id en het gegevenstype opgegeven, worden de huidige waarde voor die sensor opgehaald.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | sensor-id |
 | *Gegevenstype*  | `string` | gegevens van het sensortype |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>⇒ getSpaceValue (spaceId, valueName) `value`
 
-Een id ruimte en de naam van de opgegeven, de huidige waarde voor die eigenschap ruimte worden opgehaald.
+Deze functie is een ruimte-id en de naam van de opgegeven, haalt de huidige waarde voor die eigenschap ruimte.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | ruimte-id |
 | *Waardenaam* | `string` | naam van de eigenschap ruimte |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>⇒ getSensorHistoryValues (sensorId, gegevenstype) `value[]`
 
-De historische waarden voor die sensor een sensor-id en het gegevenstype opgegeven, worden opgehaald.
+Deze functie opgegeven een sensor-id en het gegevenstype, worden de historische waarden voor die sensor opgehaald.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensor-id |
 | *Gegevenstype* | `string` | gegevens van het sensortype |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>⇒ getSpaceHistoryValues (spaceId, gegevenstype) `value[]`
 
-Een id ruimte en de naam van de opgegeven, haalt de historische waarden voor die eigenschap voor de ruimte.
+Deze functie is een ruimte-id en de naam van de opgegeven, haalt de historische waarden voor die eigenschap voor de ruimte.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | ruimte-id |
 | *Waardenaam* | `string` | naam van de eigenschap ruimte |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
-De onderliggende ruimten voor die bovenliggende ruimte krijgen een ruimte-id, worden opgehaald.
+Deze functie een ruimte-id wordt opgegeven, worden de onderliggende ruimten voor die bovenliggende ruimte opgehaald.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | ruimte-id |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
-De onderliggende sensoren voor die bovenliggende ruimte krijgen een ruimte-id, worden opgehaald.
+Een id ruimte worden gegeven, haalt deze functie de onderliggende sensoren voor die bovenliggende ruimte.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | ruimte-id |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
-De onderliggende apparaten voor die bovenliggende ruimte krijgen een ruimte-id, worden opgehaald.
+Deze functie een ruimte-id wordt opgegeven, worden de onderliggende apparaten voor die bovenliggende ruimte opgehaald.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | ruimte-id |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
-Uitgaande van een apparaat-id, de onderliggende sensoren voor dat apparaat bovenliggende worden opgehaald.
+Een apparaat-id worden gegeven, haalt deze functie de onderliggende sensoren voor dat apparaat bovenliggende.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *apparaat-id* | `guid` | Apparaat-id |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
-De bovenliggende ruimte krijgen een ruimte-id, worden opgehaald.
+Deze functie een ruimte-id wordt opgegeven, wordt de ruimte van de bovenliggende opgehaald.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | ruimte-id |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
-De bovenliggende ruimte krijgen een sensor-id, worden opgehaald.
+Deze functie een sensor-id wordt opgegeven, wordt de ruimte van de bovenliggende opgehaald.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | sensor-id |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
-Uitgaande van een apparaat-id, de bovenliggende ruimte worden opgehaald.
+Een apparaat-id worden gegeven, haalt deze functie de bovenliggende ruimte.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Apparaat-id |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
-Het bovenliggende apparaat krijgen een sensor-id, worden opgehaald.
+Deze functie een sensor-id wordt opgegeven, wordt het bovenliggende apparaat opgehaald.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | sensor-id |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>⇒ getSpaceExtendedProperty (spaceId, propertyName) `extendedProperty`
 
-De eigenschap en de bijbehorende waarde krijgen een ruimte-id, ophalen vanuit de ruimte.
+Deze functie haalt krijgen een ruimte-id, de eigenschap en de waarde van de ruimte.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | ruimte-id |
 | *propertyName* | `string` | naam van de eigenschap ruimte |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>⇒ getSensorExtendedProperty (sensorId, propertyName) `extendedProperty`
 
-De eigenschap en de bijbehorende waarde krijgen een sensor-id, ophalen van de sensor.
+Deze functie haalt krijgen een sensor-id, de eigenschap en de waarde van de sensor.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensor-id |
 | *propertyName* | `string` | naam van de eigenschap sensor |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>⇒ getDeviceExtendedProperty (apparaat-id, propertyName) `extendedProperty`
 
-Uitgaande van een apparaat-id, de eigenschap en de waarde van het apparaat opgehaald.
+Deze functie haalt krijgt een apparaat-id, de eigenschap en de waarde van het apparaat.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *apparaat-id* | `guid` | Apparaat-id |
 | *propertyName* | `string` | de eigenschap apparaatnaam |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue (sensorId, gegevenstype, waarde)
 
-Hiermee stelt een waarde voor de sensor-object met het opgegeven gegevenstype.
+Deze functie wordt een waarde ingesteld op de sensor-object met het opgegeven gegevenstype.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensor-id |
 | *Gegevenstype*  | `string` | gegevens van het sensortype |
-| *value*  | `string` | waarde |
+| *value*  | `string` | Waarde |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, gegevenstype, waarde)
 
-Hiermee stelt een waarde voor de ruimte-object met het opgegeven gegevenstype.
+Deze functie stelt een waarde in de ruimte-object met het opgegeven gegevenstype.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | ruimte-id |
-| *Gegevenstype* | `string` | gegevenstype |
-| *value* | `string` | waarde |
+| *Gegevenstype* | `string` | Gegevenstype |
+| *value* | `string` | Waarde |
 
 ### <a name="logmessage"></a>log(Message)
 
-Hiermee wordt het volgende bericht in de gebruiker gedefinieerde functie geregistreerd.
+Deze functie registreert het volgende bericht in de gebruiker gedefinieerde functie.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *Bericht* | `string` | bericht moeten worden vastgelegd |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, nettolading)
 
-Verzendt een aangepast Meldingsbericht worden verzonden.
+Deze functie verzendt een aangepast Meldingsbericht worden verzonden.
 
 **Type**: globale functie
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
-| *topologyObjectId*  | `guid` | Graph-object-id (ex.) ruimte / sensor /device-ID)|
-| *topologyObjectType*  | `string` | (ex.) ruimte / sensor / apparaat)|
-| *nettolading*  | `string` | de JSON-nettolading met de melding wordt verzonden |
+| *topologyObjectId*  | `guid` | Graph-object-id. Voorbeelden zijn schijfruimte, de sensor en apparaat-ID.|
+| *topologyObjectType*  | `string` | Voorbeelden zijn sensor- en apparaatgegevens.|
+| *nettolading*  | `string` | De JSON-nettolading met de melding wordt verzonden. |
 
 ## <a name="return-types"></a>Typen retourneren
 
-Hieronder vindt u modellen met een beschrijving van de geretourneerde objecten uit de bovenstaande verwijzing van de client.
+De volgende modellen beschrijven de geretourneerde objecten uit de voorgaande verwijzing van de client.
 
 ### <a name="space"></a>Ruimte
 
@@ -502,45 +487,45 @@ Hieronder vindt u modellen met een beschrijving van de geretourneerde objecten u
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Retourneert het bovenliggende ruimte van de huidige ruimte.
+Deze functie geeft als resultaat van de bovenliggende ruimte van de huidige ruimte.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Retourneert het onderliggende sensoren van de huidige ruimte.
+Deze functie retourneert de onderliggende sensoren van de huidige ruimte.
 
 #### <a name="childdevices--device"></a>ChildDevices() ⇒ `device[]`
 
-Retourneert het onderliggende apparaten van de huidige ruimte.
+Deze functie retourneert de onderliggende apparaten van de huidige ruimte.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Retourneert de uitgebreide eigenschap en de waarde voor de huidige ruimte.
+Deze functie retourneert de uitgebreide eigenschap en de waarde voor de huidige ruimte.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | naam van de uitgebreide eigenschap |
 
 #### <a name="valuevaluename--value"></a>Value(valueName) ⇒ `value`
 
-Retourneert de waarde van de huidige ruimte.
+Deze functie retourneert de waarde van de huidige ruimte.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *Waardenaam* | `string` | naam van de waarde |
 
 #### <a name="historyvaluename--value"></a>History(valueName) ⇒ `value[]`
 
-Retourneert de historische waarden van de huidige ruimte.
+Deze functie retourneert de historische waarden van de huidige ruimte.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *Waardenaam* | `string` | naam van de waarde |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Verzendt een melding met de nettolading van de opgegeven.
+Deze functie verzendt een melding met de nettolading van de opgegeven.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *nettolading* | `string` | JSON-nettolading in de melding moeten worden opgenomen |
 
@@ -566,25 +551,25 @@ Verzendt een melding met de nettolading van de opgegeven.
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Retourneert de bovenliggende ruimte van het huidige apparaat.
+Deze functie geeft als resultaat van de bovenliggende ruimte van het huidige apparaat.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Retourneert het onderliggende sensoren van het huidige apparaat.
+Deze functie retourneert de onderliggende sensoren van het huidige apparaat.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Retourneert de uitgebreide eigenschap en de waarde voor het huidige apparaat.
+Deze functie retourneert de uitgebreide eigenschap en de waarde voor het huidige apparaat.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | naam van de uitgebreide eigenschap |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Verzendt een melding met de nettolading van de opgegeven.
+Deze functie verzendt een melding met de nettolading van de opgegeven.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *nettolading* | `string` | JSON-nettolading in de melding moeten worden opgenomen |
 
@@ -614,33 +599,33 @@ Verzendt een melding met de nettolading van de opgegeven.
 
 #### <a name="space--space"></a>Space() ⇒ `space`
 
-Retourneert de bovenliggende ruimte van de huidige sensor.
+Deze functie geeft als resultaat van de bovenliggende ruimte van de huidige sensor.
 
 #### <a name="device--device"></a>Device() ⇒ `device`
 
-Retourneert het bovenliggende apparaat van de huidige sensor.
+Deze functie retourneert het bovenliggende apparaat van de huidige sensor.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Retourneert de uitgebreide eigenschap en de waarde voor de huidige sensor.
+Deze functie retourneert de uitgebreide eigenschap en de waarde voor de huidige sensor.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | naam van de uitgebreide eigenschap |
 
 #### <a name="value--value"></a>Value() ⇒ `value`
 
-Retourneert de waarde van de huidige sensor.
+Deze functie retourneert de waarde van de huidige sensor.
 
 #### <a name="history--value"></a>History() ⇒ `value[]`
 
-Retourneert de historische waarden van de huidige sensor.
+Deze functie retourneert de historische waarden van de huidige sensor.
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Verzendt een melding met de nettolading van de opgegeven.
+Deze functie verzendt een melding met de nettolading van de opgegeven.
 
-| Param  | Type                | Beschrijving  |
+| Parameter  | Type                | Beschrijving  |
 | ------ | ------------------- | ------------ |
 | *nettolading* | `string` | JSON-nettolading in de melding moeten worden opgenomen |
 
@@ -665,6 +650,6 @@ Verzendt een melding met de nettolading van de opgegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees voor meer informatie over het maken van digitale dubbels eindpunten voor het verzenden van gebeurtenissen die moeten worden, [digitale dubbels maken eindpunten](how-to-egress-endpoints.md).
+- Meer informatie over het [digitale dubbels Azure-eindpunten maken](how-to-egress-endpoints.md) voor het verzenden van gebeurtenissen die moeten worden.
 
-Lees voor meer informatie over digitale dubbels eindpunten [meer informatie over eindpunten](concepts-events-routing.md).
+- Lees voor meer informatie over Azure digitale dubbels eindpunten [meer informatie over eindpunten](concepts-events-routing.md).

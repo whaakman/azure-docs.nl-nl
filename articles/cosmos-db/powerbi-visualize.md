@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945175"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622088"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Azure Cosmos DB-gegevens visualiseren met behulp van de Power BI-connector
 
@@ -76,11 +76,11 @@ U de Vulkaan gegevens opgehaald uit de Azure Cosmos DB-account en visualiseren v
 
 5. Op de **Preview-Connector** pagina, klikt u op **doorgaan**. De **Azure Cosmos DB** venster wordt weergegeven.
 
-6. Geef de URL Azure Cosmos DB-account eindpunt u wilt ophalen van de gegevens uit zoals hieronder wordt weergegeven, en klik vervolgens op **OK**. Voor het gebruik van uw eigen account, kunt u de URL niet ophalen uit de URI in de **[sleutels](manage-account.md#keys)** blade van de Azure-portal. U kunt eventueel de databasenaam, de verzamelingsnaam van opgeven of de navigator gebruiken om te selecteren van de database en verzameling om te bepalen waar de gegevens vandaan komen.
+6. Geef de URL Azure Cosmos DB-account eindpunt u wilt ophalen van de gegevens uit zoals hieronder wordt weergegeven, en klik vervolgens op **OK**. Voor het gebruik van uw eigen account, kunt u de URL niet ophalen uit de URI in de **sleutels** blade van de Azure-portal. U kunt eventueel de databasenaam, de verzamelingsnaam van opgeven of de navigator gebruiken om te selecteren van de database en verzameling om te bepalen waar de gegevens vandaan komen.
    
-7. Als u verbinding met dit eindpunt voor de eerste keer, wordt u gevraagd de accountsleutel op te geven. Voor uw eigen account ophalen van de sleutel van de **primaire sleutel** vak de **[alleen-Lezensleutels](manage-account.md#keys)** blade van de Azure-portal. Voer de juiste sleutel en klik vervolgens op **Connect**.
+7. Als u verbinding met dit eindpunt voor de eerste keer, wordt u gevraagd de accountsleutel op te geven. Voor uw eigen account ophalen van de sleutel van de **primaire sleutel** vak de **alleen-Lezensleutels** blade van de Azure-portal. Voer de juiste sleutel en klik vervolgens op **Connect**.
    
-   U wordt aangeraden dat u de alleen-lezen-sleutel gebruikt als het maken van rapporten. Dit voorkomt dat beter beschermd van de hoofdsleutel aan potentiële beveiligingsrisico's. De sleutel alleen-lezen is beschikbaar via de [sleutels](manage-account.md#keys) blade van de Azure-portal. 
+   U wordt aangeraden dat u de alleen-lezen-sleutel gebruikt als het maken van rapporten. Dit voorkomt dat beter beschermd van de hoofdsleutel aan potentiële beveiligingsrisico's. De sleutel alleen-lezen is beschikbaar via de **sleutels** blade van de Azure-portal. 
     
 8. Wanneer het account is is verbonden, de **Navigator** deelvenster wordt weergegeven. De **Navigator** ziet u een lijst met databases onder het account.
 

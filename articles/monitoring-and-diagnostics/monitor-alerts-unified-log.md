@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 51bdc228e27d643cfda75d1e21bc8ea45fe09e3c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958148"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613287"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
-Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](monitoring-overview-unified-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
+Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](monitoring-overview-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
 
 Waarschuwing bestaat uit regels voor zoeken in logboeken die zijn gemaakt voor [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Zie voor meer informatie over het gebruik ervan, [waarschuwingen maken in Azure](alert-log.md)
 
@@ -120,6 +120,6 @@ Prijzen voor Logboekwaarschuwingen wordt vermeld op de [prijzen voor Azure Monit
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [maken in de waarschuwingen in Azure](alert-log.md).
 * Inzicht in [webhooks in waarschuwingen in Azure](monitor-alerts-unified-log-webhook.md).
-* Meer informatie over [Azure-waarschuwingen](monitoring-overview-unified-alerts.md).
+* Meer informatie over [Azure-waarschuwingen](monitoring-overview-alerts.md).
 * Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md).
 * Meer informatie over [Log Analytics](../log-analytics/log-analytics-queries.md).    

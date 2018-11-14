@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166879"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614052"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166879"
 Gebruik de richtlijnen in dit artikel om App Service in Azure Stack te implementeren.
 
 > [!IMPORTANT]  
-> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.3 implementeert.
+> De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.4 implementeert.
 
 U kunt uw gebruikers de mogelijkheid om te maken van web- en API-toepassingen geven. Als u wilt dat gebruikers deze toepassingen maken, moet u naar:
 
@@ -74,8 +74,8 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
    b. In **Azure Stack-abonnementen**, selecteer de **Providerabonnement standaard**.
 
-     >[!NOTE]
-     >Op dit moment App Service kan alleen worden geïmplementeerd voor de **Providerabonnement standaard**.
+     > [!IMPORTANT]  
+     > App Service **moet** worden geïmplementeerd op de **Providerabonnement standaard**.
 
    c. In de **Azure Stack-locaties**, selecteert u de locatie die overeenkomt met de regio die u naar implementeert. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure Stack Development Kit.
 
@@ -198,7 +198,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
 1. In de Azure Stack-beheerportal, gaat u naar **beheer - App Service**.
 
-2. Schakel in het overzicht van de onder de status om te zien die de **Status** bevat **alle rollen zijn gereed**.
+2. Schakel in het overzicht, onder status om te zien die de **Status** weergegeven **alle rollen zijn gereed**.
 
     ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
 

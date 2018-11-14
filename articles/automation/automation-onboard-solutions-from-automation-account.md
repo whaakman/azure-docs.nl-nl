@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d031965a812cd218fbb4e78dfbf90ee01c26f5bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085967"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625061"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen
 
@@ -81,7 +81,7 @@ Klik op **+ Azure-VM's toevoegen**, selecteer een of meer virtuele machines in d
 
 Computers niet in Azure moeten handmatig worden toegevoegd. Vanuit uw Automation-account selecteren **voorraad** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
 
-Klik op **toevoegen niet-Azure-machine**. Deze actie opent u een nieuw browservenster geopend met de [instructies over het installeren en configureren van de Microsoft Monitoring Agent op de machine](../log-analytics/log-analytics-concept-hybrid.md) zodat de computer kunt beginnen met rapporteren aan de oplossing. Als u onboarding van een machine die momenteel wordt beheerd door System Center Operations Manager, wordt een nieuwe agent is niet vereist, wordt de werkruimtegegevens is ingevoerd in de bestaande agent.
+Klik op **toevoegen niet-Azure-machine**. Deze actie opent u een nieuw browservenster geopend met de [instructies over het installeren en configureren van de Microsoft Monitoring Agent op de machine](../log-analytics/log-analytics-agent-overview.md) zodat de computer kunt beginnen met rapporteren aan de oplossing. Als u onboarding van een machine die momenteel wordt beheerd door System Center Operations Manager, wordt een nieuwe agent is niet vereist, wordt de werkruimtegegevens is ingevoerd in de bestaande agent.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Onboarding van machines in de werkruimte
 
