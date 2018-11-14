@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9b6fd9a1eb9e5b27f62507e58f9b1a85caa92dea
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283360"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625416"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines (Preview)
-In dit artikel wordt beschreven hoe het instellen van Azure Monitor voor virtuele machines om te controleren van de status van het besturingssysteem van uw Azure virtual machines en detecteren en afhankelijkheden voor toepassingen die kunnen worden gehost op deze worden toegewezen.  
+In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor virtuele machines voor het bewaken van de status van het besturingssysteem van uw virtuele Azure-machines en schaalsets voor virtuele machines en virtuele machines in uw omgeving, met inbegrip van detectie en het toewijzen van afhankelijkheden voor toepassingen dat kan worden gehost op deze.  
 
 Azure Monitor inschakelen voor virtuele machines wordt gerealiseerd met behulp van een van de volgende methoden en informatie over het gebruik van elke methode vindt u verderop in het artikel.  
 
@@ -50,16 +50,12 @@ Een Log Analytics-werkruimte in de volgende regio's wordt momenteel ondersteund:
 
 Als u een werkruimte hebt, kunt u het maken via [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), tot en met [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md), of met [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Als u voor een enkele Azure-VM vanuit de Azure-portal bewaken inschakelen wilt, hebt u de optie voor het maken van een werkruimte tijdens dit proces.  
 
-Om in te schakelen van de oplossing, moet u lid zijn van de inzendersrol van Log Analytics. Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md).
-
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-
 Inschakelen van de oplossing voor het op schaal scenario moet u eerst het volgende configureren in uw Log Analytics-werkruimte:
 
-* Installeer de **ServiceMap** en **InfrastructureInsights** oplossingen
-* Configureren van de werkruimte voor logboekanalyse voor het verzamelen van prestatiemeteritems
+* Installeer de **ServiceMap** en **InfrastructureInsights** oplossingen. Dit kan alleen worden uitgevoerd met behulp van een Azure Resource Manager-sjabloon die u in dit artikel.   
+* Configureer de werkruimte voor logboekanalyse voor het verzamelen van prestatiemeteritems.
 
-Zie configureren van uw werkruimte voor dit scenario [Setup Log Analytics-werkruimte](#setup-log-analytics-workspace).
+Het configureren van uw werkruimte voor het op schaal scenario, Zie [Setup Log Analytics-werkruimte voor het op schaal implementeren](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
@@ -148,20 +144,16 @@ De volgende tabel bevat de Windows- en Linux-besturingssystemen die worden onder
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
 
-### <a name="hybrid-environment-connected-sources"></a>Hybride omgeving verbonden bronnen
-De gegevens worden opgehaald van de agent voor Microsoft Dependency van Azure Monitor voor virtuele machines toewijzen. De agent voor afhankelijkheden, is afhankelijk van de Log Analytics-agent voor de verbinding met Log Analytics en daarom een systeem moet de Log Analytics-agent geïnstalleerd en geconfigureerd met de agent voor afhankelijkheden hebben. De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de kaart-functie in een hybride omgeving.
+### <a name="microsoft-dependency-agent"></a>Agent voor Microsoft Dependency
+De gegevens worden opgehaald van de agent voor Microsoft Dependency van Azure Monitor voor virtuele machines toewijzen. De agent voor afhankelijkheden, is afhankelijk van de Log Analytics-agent voor de verbinding met Log Analytics en daarom een systeem moet de Log Analytics-agent geïnstalleerd en geconfigureerd met de agent voor afhankelijkheden hebben. Wanneer u Azure Monitor voor virtuele machines voor een enkele Azure-VM of inschakelen bij het gebruik van de methoden voor het op schaal implementatie, de afhankelijkheid van Azure VM agent-extensie wordt gebruikt voor het installeren van de agent als onderdeel van die onboarding-ervaring. Met een hybride omgeving en de agent voor afhankelijkheden kan worden gedownload en geïnstalleerd handmatig of met behulp van een methode geautomatiseerde implementatie op die virtuele machines die buiten Azure worden gehost.  
+
+De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de kaart-functie in een hybride omgeving.
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
-| Windows-agents | Ja | Naast de [Log Analytics-agent voor Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Naast de [Log Analytics-agent voor Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Naast de [Log Analytics-agent voor Windows](../log-analytics/log-analytics-agent-overview.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Linux-agents | Ja | Naast de [Log Analytics-agent voor Linux](../log-analytics/log-analytics-agent-overview.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Nee | |  
-
-Op Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel de System Center Operations Manager en de Log Analytics om te verzamelen en verzenden door gegevens te controleren. System Center Operations Manager en de Log Analytics bieden verschillende kant-en-klare versies van de agent. Deze versies kunnen beide rapporteren aan System Center Operations Manager, aan Log Analytics of aan beide.  
-
-Op Linux, de Log Analytics-agent voor Linux verzamelt en verzendt gegevens naar Log Analytics te controleren.   
-
-Als uw Windows- of Linux-computers kunnen niet rechtstreeks verbinding met de service maken, moet u de Log Analytics-agent te koppelen aan Log Analytics met behulp van de OMS-Gateway configureren. Zie voor meer informatie over het implementeren en configureren van de OMS-Gateway [verbinding maken met computers zonder toegang tot het Internet met behulp van de OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 De agent voor afhankelijkheden kan worden gedownload vanaf de volgende locatie.
 
@@ -170,63 +162,23 @@ De agent voor afhankelijkheden kan worden gedownload vanaf de volgende locatie.
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostische en gebruiksgegevens
-Microsoft verzamelt automatisch gebruiks- en -gegevens door uw gebruik van de Azure Monitor-service. Microsoft gebruikt deze gegevens te bieden en de kwaliteit, beveiliging en integriteit van de service te verbeteren. Voor nauwkeurige en efficiënte mogelijkheden voor probleemoplossing, bevatten gegevens van de functie voor toewijzing informatie over de configuratie van uw software, zoals het besturingssysteem en versie, IP-adres, DNS-naam en de Werkstationnaam van het. Microsoft verzamelt geen namen, adressen of andere contactgegevens.
+## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
+De volgende toegang moet worden verleend aan uw gebruikers om te kunnen inschakelen en toegang tot functies in Azure Monitor voor virtuele machines.  
+  
+- Als u wilt de oplossing inschakelen, moet u worden toegevoegd als lid van de inzendersrol van Log Analytics.  
 
-Zie voor meer informatie over het verzamelen van gegevens en het gebruik, de [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+- Als u wilt weergeven van de prestaties, status, status en gegevens toewijzen, moet u toegevoegd als een lid van de rol van lezer bewaking voor de Azure-VM en de Log Analytics-werkruimte die is geconfigureerd met Azure Monitor voor virtuele machines.   
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
-## <a name="performance-counters-enabled"></a>Prestatiemeteritems ingeschakeld
-Azure Monitor voor virtuele machines configureert u een Log Analytics-werkruimte voor het verzamelen van prestatiemeteritems die worden gebruikt door de oplossing.  De volgende tabel bevat de objecten en geconfigureerd door de oplossing voor prestatiemeteritems die elke 60 seconden worden verzameld.
-
-### <a name="windows-performance-counters"></a>Windows-prestatiemeteritems
-
-|Objectnaam |Naam van het prestatiemeteritem |  
-|------------|-------------|  
-|Logische schijf |Percentage vrije ruimte |  
-|Logische schijf |Gem. Schijf sec/lezen |  
-|Logische schijf |Gem. Schijfoverdrachten per seconde |  
-|Logische schijf |Gem. Schijf sec/schrijven |  
-|Logische schijf |Schijf Bytes per seconde |  
-|Logische schijf |Bytes gelezen op schijf/sec |  
-|Logische schijf |Schijf lezen per seconde |  
-|Logische schijf |Schijfoverdrachten per seconde |  
-|Logische schijf |Bytes geschreven naar schijf/sec |  
-|Logische schijf |Schijf schrijven per seconde |  
-|Logische schijf |Beschikbare Megabytes |  
-|Geheugen |Beschikbare megabytes (MB) |  
-|-Netwerkadapter |Ontvangen bytes per seconde |  
-|-Netwerkadapter |Verzonden bytes per seconde |  
-|Processor |% Processortijd |  
-
-### <a name="linux-performance-counters"></a>Linux-prestatiemeteritems
-
-|Objectnaam |Naam van het prestatiemeteritem |  
-|------------|-------------|  
-|Logische schijf |Percentage gebruikte ruimte |  
-|Logische schijf |Bytes gelezen op schijf/sec |  
-|Logische schijf |Schijf lezen per seconde |  
-|Logische schijf |Schijfoverdrachten per seconde |  
-|Logische schijf |Bytes geschreven naar schijf/sec |  
-|Logische schijf |Schijf schrijven per seconde |  
-|Logische schijf |Beschikbare Megabytes |  
-|Logische schijf |Logische schijf Bytes per seconde |  
-|Geheugen |Beschikbaar geheugen in megabytes |  
-|Netwerk |Totaal aantal ontvangen Bytes |  
-|Netwerk |Totaal aantal verzonden Bytes |  
-|Processor |% Processortijd |  
-
-## <a name="sign-in-to-azure-portal"></a>Meld u aan bij Azure Portal
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Inschakelen van de Azure-portal
 Voor bewaking van uw Azure-VM in Azure portal, het volgende doen:
 
-1. Selecteer in de Azure portal, **virtuele Machines**. 
-2. Selecteer een VM in de lijst. 
-3. Op de pagina virtuele machine in de **bewaking** sectie, selecteer **inzichten (preview)**.
-4. Op de **inzichten (preview)** weergeeft, schakelt **Probeer nu**.
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+2. Selecteer in de Azure portal, **virtuele Machines**. 
+3. Selecteer een VM in de lijst. 
+4. Op de pagina virtuele machine in de **bewaking** sectie, selecteer **inzichten (preview)**.
+5. Op de **inzichten (preview)** weergeeft, schakelt **Probeer nu**.
 
     ![Azure Monitor voor virtuele machines voor een virtuele machine inschakelen](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
@@ -241,7 +193,13 @@ Wanneer u bewaking inschakelt, is het duurt ongeveer 10 minuten voordat u de gez
 
 
 ## <a name="on-boarding-at-scale"></a>Bepalen op schaal
-In deze sectie instructies voor het uitvoeren van de bij de implementatie van de schaal van Azure Monitor voor virtuele machines met behulp van een Azure-beleid of met Azure PowerShell.  De eerste stap vereist is voor het configureren van uw Log Analytics-werkruimte.  
+In deze sectie instructies voor het uitvoeren van de bij de implementatie van de schaal van Azure Monitor voor virtuele machines met behulp van een Azure-beleid of met Azure PowerShell.  
+
+Samengevat, zijn de stappen die u uitvoeren om te vooraf configureren van uw Log Analytics-werkruimte moet voordat u verder kunt gaan met de voorbereidingen uw virtuele machines.
+
+1. Maak een nieuwe werkruimte als deze niet al die bestaat kan worden gebruikt voor de ondersteuning van Azure Monitor voor virtuele machines. Beoordeling [werkruimten beheren](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) voordat u een nieuwe werkruimte voor meer informatie over de kosten, beheer en naleving overwegingen voordat u doorgaat.       
+2. Inschakelen van prestatiemeteritems in de werkruimte voor de verzameling op Linux- en Windows-machines.
+3. Installeren en inschakelen van de **ServiceMap** en **InfrastructureInsights** oplossing in uw werkruimte.  
 
 ### <a name="setup-log-analytics-workspace"></a>Log Analytics-werkruimte instellen
 Als u een Log Analytics-werkruimte hebt, raadpleegt u de beschikbare methoden voorgesteld onder de [vereisten](#log-analytics) sectie een te maken.  
@@ -337,7 +295,7 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
     ```
 
 ### <a name="enable-using-azure-policy"></a>Inschakelen met behulp van Azure Policy
-Azure Monitor inschakelen voor VM's op grote schaal die ervoor zorgt dat consistent naleving en automatische activering voor nieuwe virtuele machines die zijn ingericht, [Azure Policy](../governance/policy/overview.md) wordt aanbevolen. Deze beleidsregels:
+Azure Monitor inschakelen voor VM's op grote schaal die ervoor zorgt dat consistent naleving en automatische activering voor nieuwe virtuele machines die zijn ingericht, [Azure Policy](../azure-policy/azure-policy-introduction.md) wordt aanbevolen. Deze beleidsregels:
 
 * Log Analytics-agent en de agent voor afhankelijkheden implementeren 
 * Een rapport over nalevingsresultaten 
@@ -573,14 +531,16 @@ Failed: (0)
 ## <a name="enable-for-hybrid-environment"></a>Inschakelen voor een hybride omgeving
 Deze sectie wordt uitgelegd hoe virtuele machines activeren of fysieke computers die worden gehost in uw datacenter of andere cloudomgeving voor het bewaken van Azure monitor voor virtuele machines.  
 
-De gegevens zelf wordt niet verzonden door de Azure-Monitor voor agent voor afhankelijkheden van virtuele machines toewijzen, en hoeven er geen wijzigingen in de firewalls en poorten. De gegevens in kaart worden altijd verzonden door de Log Analytics-agent naar de service Azure Monitor, hetzij rechtstreeks of via de [OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md) als uw IT-beveiligingsbeleid niet toestaat computers op het netwerk verbinding maken met Internet.
+De gegevens zelf wordt niet verzonden door de Azure-Monitor voor agent voor afhankelijkheden van virtuele machines toewijzen, en hoeven er geen wijzigingen in de firewalls en poorten. De kaartgegevens worden altijd verzonden door de Log Analytics-agent naar de service Azure Monitor, hetzij rechtstreeks of via de [OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md) als uw IT-beveiligingsbeleid niet toestaat computers op het netwerk verbinding maken met Internet.
 
-Bekijk de vereisten en methoden voor het implementeren van de [Log Analytics Linux en Windows-agent](../log-analytics/log-analytics-concept-hybrid.md).
+Bekijk de vereisten en methoden voor het implementeren van de [Log Analytics Linux en Windows-agent](../log-analytics/log-analytics-agent-overview.md).  
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 Samengevatte stappen:
 
 1. Log Analytics-Agent voor Windows of Linux installeren
-2. Azure Monitor voor virtuele machines kaart afhankelijkheidsagent installeren
+2. Download en installeer Azure Monitor voor agent voor virtuele machines kaart afhankelijkheden voor [Windows](https://aka.ms/dependencyagentwindows) of [Linux](https://aka.ms/dependencyagentlinux).
 3. Inschakelen van verzamelen van prestatiemeteritems
 4. Onboarding van Azure Monitor voor virtuele machines
 
@@ -723,6 +683,52 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
     ```
 Wanneer u bewaking inschakelt, is het duurt ongeveer 10 minuten voordat u de status en metrische gegevens voor de hybride-computer kunt weergeven. 
 
+## <a name="performance-counters-enabled"></a>Prestatiemeteritems ingeschakeld
+Azure Monitor voor virtuele machines configureert u een Log Analytics-werkruimte voor het verzamelen van prestatiemeteritems die worden gebruikt door de oplossing.  De volgende tabel bevat de objecten en geconfigureerd door de oplossing voor prestatiemeteritems die elke 60 seconden worden verzameld.
+
+### <a name="windows-performance-counters"></a>Windows-prestatiemeteritems
+
+|Objectnaam |Naam van het prestatiemeteritem |  
+|------------|-------------|  
+|Logische schijf |Percentage vrije ruimte |  
+|Logische schijf |Gem. Schijf sec/lezen |  
+|Logische schijf |Gem. Schijfoverdrachten per seconde |  
+|Logische schijf |Gem. Schijf sec/schrijven |  
+|Logische schijf |Schijf Bytes per seconde |  
+|Logische schijf |Bytes gelezen op schijf/sec |  
+|Logische schijf |Schijf lezen per seconde |  
+|Logische schijf |Schijfoverdrachten per seconde |  
+|Logische schijf |Bytes geschreven naar schijf/sec |  
+|Logische schijf |Schijf schrijven per seconde |  
+|Logische schijf |Beschikbare Megabytes |  
+|Geheugen |Beschikbare megabytes (MB) |  
+|-Netwerkadapter |Ontvangen bytes per seconde |  
+|-Netwerkadapter |Verzonden bytes per seconde |  
+|Processor |% Processortijd |  
+
+### <a name="linux-performance-counters"></a>Linux-prestatiemeteritems
+
+|Objectnaam |Naam van het prestatiemeteritem |  
+|------------|-------------|  
+|Logische schijf |Percentage gebruikte ruimte |  
+|Logische schijf |Bytes gelezen op schijf/sec |  
+|Logische schijf |Schijf lezen per seconde |  
+|Logische schijf |Schijfoverdrachten per seconde |  
+|Logische schijf |Bytes geschreven naar schijf/sec |  
+|Logische schijf |Schijf schrijven per seconde |  
+|Logische schijf |Beschikbare Megabytes |  
+|Logische schijf |Logische schijf Bytes per seconde |  
+|Geheugen |Beschikbaar geheugen in megabytes |  
+|Netwerk |Totaal aantal ontvangen Bytes |  
+|Netwerk |Totaal aantal verzonden Bytes |  
+|Processor |% Processortijd |  
+
+## <a name="diagnostic-and-usage-data"></a>Diagnostische en gebruiksgegevens
+Microsoft verzamelt automatisch gebruiks- en -gegevens door uw gebruik van de Azure Monitor-service. Microsoft gebruikt deze gegevens te bieden en de kwaliteit, beveiliging en integriteit van de service te verbeteren. Voor nauwkeurige en efficiënte mogelijkheden voor probleemoplossing, bevatten gegevens van de functie voor toewijzing informatie over de configuratie van uw software, zoals het besturingssysteem en versie, IP-adres, DNS-naam en de Werkstationnaam van het. Microsoft verzamelt geen namen, adressen of andere contactgegevens.
+
+Zie voor meer informatie over het verzamelen van gegevens en het gebruik, de [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 ## <a name="next-steps"></a>Volgende stappen
 
 Met de bewaking ingeschakeld voor uw virtuele machine, is deze informatie beschikbaar voor analyse met Azure Monitor voor virtuele machines.  Zie voor meer informatie over het gebruik van de Health-functie, [weergave Azure Monitor voor de gezondheid van virtuele machines](monitoring-vminsights-health.md), of als u afhankelijkheden van gedetecteerde toepassingen, Zie [weergave Azure Monitor voor virtuele machines kaart](monitoring-vminsights-maps.md).  

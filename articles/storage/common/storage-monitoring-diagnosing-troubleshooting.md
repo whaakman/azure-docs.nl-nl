@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 1b949d2baedc7a7da3230212e267c3ac98b30bbd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239539"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625994"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -56,8 +56,8 @@ Zie voor een praktische handleiding voor het oplossen van problemen in Azure Sto
   * [Prestatiegegevens geven een toename in PercentThrottlingError aan]
   * [Prestatiegegevens geven een toename in PercentTimeoutError aan]
   * [Prestatiegegevens geven een toename in PercentNetworkError aan]
-  * [De client ontvangt berichten van HTTP 403 (verboden)]
-  * [De client is ontvangen HTTP 404 (niet gevonden)-berichten]
+  * [De client ontvangt HTTP 403-meldingen (verboden)]
+  * [De client ontvangt HTTP 404-meldingen (niet gevonden)]
   * [De client ontvangt berichten van de HTTP-409 (Conflict)]
   * [Metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met de status van ClientOtherErrors]
   * [Capaciteit metrische gegevens tonen een onverwachte toename in opslaggebruik capaciteit]
@@ -197,7 +197,7 @@ Gebruikers van uw toepassing kunnen melding van fouten die zijn gerapporteerd do
 De volgende resources zijn nuttig voor het begrijpen van opslag met betrekking tot de status en foutcodes:
 
 * [Algemene REST-API-foutcodes](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Foutcodes voor BLOB](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Foutcodes voor blob-services](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Foutcodes voor wachtrij](https://msdn.microsoft.com/library/azure/dd179446.aspx)
 * [Foutcodes voor tabel](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Foutcodes voor bestand](https://msdn.microsoft.com/library/azure/dn690119.aspx)
@@ -319,8 +319,8 @@ Uw probleem betrekking hebben op de beschikbaarheid van een van de storage-servi
 ---
  Is uw clienttoepassing een HTTP 4XX (zoals 404)-antwoord ontvangen van een storage-service?
 
-* [De client ontvangt berichten van HTTP 403 (verboden)]
-* [De client is ontvangen HTTP 404 (niet gevonden)-berichten]
+* [De client ontvangt HTTP 403-meldingen (verboden)]
+* [De client ontvangt HTTP 404-meldingen (niet gevonden)]
 * [De client ontvangt berichten van de HTTP-409 (Conflict)]
 
 ---
@@ -642,7 +642,7 @@ De **PercentSuccess** metriek bevat het percentage van bewerkingen die met succe
 Het is belangrijk te weten dat deze bewerkingen zijn voltooid en daarom niet van invloed op andere metrische gegevens zoals beschikbaarheid. Enkele voorbeelden van bewerkingen die is uitgevoerd, maar dat kan leiden tot mislukte HTTP-statuscodes zijn:
 
 * **ResourceNotFound** (niet gevonden 404), bijvoorbeeld van een GET-aanvraag naar een blob die niet bestaat.
-* **ResouceAlreadyExists** (Conflict 409), bijvoorbeeld van een **CreateIfNotExist** bewerking waar de resource al bestaat.
+* **ResourceAlreadyExists** (Conflict 409), bijvoorbeeld van een **CreateIfNotExist** bewerking waar de resource al bestaat.
 * **ConditionNotMet** (niet gewijzigd 304), bijvoorbeeld van een voorwaardelijke bewerking, zoals wanneer een client verzendt een **ETag** waarde en een HTTP- **If-None-Match** header om aan te vragen van een installatiekopie alleen als dat zo is bijgewerkt sinds de laatste bewerking.
 
 U vindt een lijst met algemene REST-API-foutcodes die door de storage-services op de pagina [algemene foutcodes voor REST API](https://msdn.microsoft.com/library/azure/dd179357.aspx).
@@ -843,8 +843,8 @@ U vindt meer informatie op [wat is Application Insights](../../application-insig
 [Prestatiegegevens geven een toename in PercentTimeoutError aan]: #metrics-show-an-increase-in-PercentTimeoutError
 [Prestatiegegevens geven een toename in PercentNetworkError aan]: #metrics-show-an-increase-in-PercentNetworkError
 
-[De client ontvangt berichten van HTTP 403 (verboden)]: #the-client-is-receiving-403-messages
-[De client is ontvangen HTTP 404 (niet gevonden)-berichten]: #the-client-is-receiving-404-messages
+[De client ontvangt HTTP 403-meldingen (verboden)]: #the-client-is-receiving-403-messages
+[De client ontvangt HTTP 404-meldingen (niet gevonden)]: #the-client-is-receiving-404-messages
 [De client of een ander proces verwijderd het object eerder]: #client-previously-deleted-the-object
 [Een probleem met de autorisatie Shared Access Signature (SAS)]: #SAS-authorization-issue
 [Client-side JavaScript-code is niet gemachtigd voor toegang tot het object]: #JavaScript-code-does-not-have-permission
