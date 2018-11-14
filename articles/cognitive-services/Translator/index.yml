@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d74ef4b68545c349c8df2cb7090ee8c26e2cd3e4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622854"
 documentType: LandingData
-title: Documentatie voor Translator Text-API
+title: Documentatie voor Translator Text
 metadata:
   title: Documentatie voor Translator Text - snelstarts, zelfstudies, API-referentie - Azure Cognitive Services | Microsoft Docs
-  description: Informatie over hoe u Translator Text-API gebruikt om tekst in meerdere talen te vertalen.
+  description: Informatie over hoe u Translator Text gebruikt om tekst in meerdere talen te vertalen.
   services: cognitive-services
   author: Jann-Skotdal
   manager: Chris.Wendt
@@ -11,17 +17,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/30/2017
+  ms.date: 11/06/18
   ms.author: v-jansko
-  ms.openlocfilehash: 85ef860a742c114d01696b9189f57ac9207c0bc5
-  ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39185870"
 abstract:
-  description: Microsoft Translator Text-API is een cloudgebaseerde service voor machinevertaling. Met deze API kunt u tekst in bijna realtime vertalen van een app of service via een eenvoudige REST API-aanroep. De API gebruikt de modernste technologie voor neurale machinevertaling en biedt statistische machinevertalingstechnologie. Voor de lijst met ondersteunde talen, voor zowel neurale als statistische machinevertaling, raadpleegt u <a href="languages.md">Ondersteunde talen</a>.
+  description: Translator Text is een cloudservice voor machinevertalingen die u kunt gebruiken om vrijwel in realtime tekst te vertalen via een eenvoudige REST API-aanroep. De API gebruikt de moderne technologie voor neurale machinevertaling en bevat ook statistische machinevertalingstechnologie. Custom Translator is een uitbreiding van de Translator Text-API, waarmee u neurale vertalingssystemen kunt bouwen. U kunt het aangepaste vertaalsysteem gebruiken om tekst te vertalen met de Translator Text-API of de <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft Speech Services</a>. Voor de lijst met ondersteunde talen, voor zowel neurale als statistische machinevertaling, raadpleegt u <a href="languages.md">Ondersteunde talen</a>.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/translator/translator-info-overview
+      html: <p>Meer informatie over de Translator Text-API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is de Translator Text API?
+    - href: /azure/cognitive-services/translator/custom-translator/overview
+      html: <p>Meer informatie over Custom Translator</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is Custom Translator (Preview)?
+    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+      html: <p>Lees hoe u snel aan de slag kunt gaan met Custom Translator</p>
+      image:
+        src: ../media/index/i_get-started.svg
+      title: Snelstart voor Custom Translator
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph

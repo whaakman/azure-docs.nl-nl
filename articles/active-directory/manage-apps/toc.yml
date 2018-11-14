@@ -67,21 +67,9 @@ items:
     - name: Beperkingen voor tenants
       href: tenant-restrictions.md
   - name: Eenmalige aanmelding
-    items:
-    - name: Overzicht
-      href: what-is-single-sign-on.md
-    - name: SSO-methoden
-      href: application-proxy-single-sign-on.md
-    - name: Een methode kiezen
-      href: single-sign-on-modes.md
-    - name: Home Realm Discovery
-      href: configure-authentication-for-federated-users-portal.md
-    - name: Kerberos-beperkte overdracht (KCD)
-      href: application-proxy-configure-single-sign-on-with-kcd.md
-    - name: Wachtwoordkluis
-      href: application-proxy-configure-single-sign-on-password-vaulting.md
-    - name: Headers
-      href: application-proxy-configure-single-sign-on-with-ping-access.md
+    href: what-is-single-sign-on.md
+  - name: Portals voor eindgebruikers
+    href: end-user-experiences.md
 - name: Handleidingen
   items:
   - name: Integratie van een cloud-app
@@ -200,6 +188,8 @@ items:
       href: disable-user-sign-in-portal.md
     - name: Selfservice-app-toewijzing configureren
       href: manage-self-service-access.md
+    - name: Home Realm Discovery
+      href: configure-authentication-for-federated-users-portal.md
   - name: Eenmalige aanmelding
     items:
     - name: Configureren niet-galerie-apps
@@ -220,6 +210,14 @@ items:
       href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Veelvoorkomende problemen bij wachtwoord configureren - niet-galerie-apps
       href: configure-password-single-sign-on-non-gallery-applications-problems.md
+    - name: Toepassingsproxy
+      items:
+      - name: Kerberos-beperkte overdracht (KCD)
+        href: application-proxy-configure-single-sign-on-with-kcd.md
+      - name: Wachtwoordkluis
+        href: application-proxy-configure-single-sign-on-password-vaulting.md
+      - name: Headers
+        href: application-proxy-configure-single-sign-on-with-ping-access.md
   - name: Toegangsvenster
     items:
     - name: Browserextensie beheren
@@ -286,9 +284,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 7114e27840d9a21701fe30537dbd6d533abaef7e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 80153dcbb00c1d0ac9b0c1c3f87004ffd6f59b1f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413975"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622782"
