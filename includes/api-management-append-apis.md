@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572003"
+---
 ## <a name="append-other-apis"></a>Andere API's toevoegen
 
 Een API kan bestaan uit de API's die worden weergegeven door andere services, met inbegrip van de OpenAPI-specificatie, een SOAP-API, de API Apps-functie van Azure App Service, Azure Function App, Azure Logic Apps en Azure Service Fabric.

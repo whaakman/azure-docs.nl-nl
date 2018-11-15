@@ -1,5 +1,5 @@
 ---
-title: Hive met Data Lake (Hadoop)-hulpprogramma's voor Visual Studio - Azure HDInsight
+title: Apache Hive met Data Lake (Apache Hadoop)-hulpprogramma's voor Visual Studio - Azure HDInsight
 description: Informatie over het gebruik van de Data Lake-tools voor Visual Studio Apache Hive-query's uitvoeren met Apache Hadoop op Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cc2012e40fad9e1343804149cdffaa3a1ab9db4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011082"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634104"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uitvoeren van Hive-query's met de Data Lake-tools voor Visual Studio
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Apache Hive-query's uitvoeren met behulp van de Data Lake-tools voor Visual Studio
 
-Informatie over het gebruik van de Data Lake-tools voor Visual Studio op Apache Hive-query. De Data Lake-tools kunnen u eenvoudig maken, indienen en bewaken van Hive-query's op Hadoop op Azure HDInsight.
+Informatie over het gebruik van de Data Lake-tools voor Visual Studio op Apache Hive-query. De Data Lake-tools kunnen u eenvoudig maken, indienen en bewaken van Hive-query's op Apache Hadoop op Azure HDInsight.
 
 ## <a id="prereq"></a>Vereisten
 
-* Een Azure HDInsight (Hadoop op HDInsight)-cluster
+* Een Azure HDInsight (Apache Hadoop op HDInsight)-cluster
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.

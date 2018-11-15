@@ -9,19 +9,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973555"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634461"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>HDInsight-clusters met Enterprise-beveiligingspakket beheren
 Meer informatie over de gebruikers en de rollen in HDInsight Enterprise Security Package (ESP) en het beheren van ESP-clusters.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Gebruik VSCode om een koppeling te maken met een cluster dat aan een domein is toegevoegd
 
-U kunt een normale cluster koppelen met behulp van Ambari beheerd gebruikersnaam, ook een security hadoop-cluster koppelen met behulp van domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
+U kunt koppelen van een normale cluster met behulp van Apache Ambari beheerd gebruikersnaam, een security Apache Hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
 1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: koppeling van een cluster**.
 
    ![de opdracht cluster koppelen](./media/apache-domain-joined-manage/link-cluster-command.png)

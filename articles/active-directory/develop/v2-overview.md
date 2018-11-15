@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956423"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286687"
 ---
 # <a name="about-v20"></a>Over v2.0
 
@@ -32,7 +32,7 @@ Het v2.0-eindpunt en -platform verkeren in de preview-fase en worden voortdurend
 
 De ontwikkelaarservaring van Azure Portal is aanzienlijk bijgewerkt en omvat nu al uw toepassingen die zijn gebouwd met ADAL of MSAL. Daarnaast is de bruikbaarheid verbeterd.
 
-In het verleden moesten toepassingsontwikkelaars die zowel persoonlijke Microsoft-accounts als werkaccounts wilden ondersteunen vanuit Azure Active Directory (Azure AD) hun toepassingen integreren in twee afzonderlijke systemen. Het v2.0-eindpunt en -platform biedt een API-versie voor verificatie die dit proces vereenvoudigt. Deze maakt aanmelding vanaf beide typen accounts mogelijk met behulp van een eenmalige integratie. Toepassingen die het v2.0-eindpunt gebruiken, kunnen met een van beide accounttypen ook gebruikmaken van de REST API's van de [Microsoft Graph API](https://graph.microsoft.io).
+In het verleden moesten toepassingsontwikkelaars die zowel persoonlijke Microsoft-accounts als werkaccounts wilden ondersteunen vanuit Azure Active Directory (Azure AD) hun toepassingen integreren in twee afzonderlijke systemen. Het v2.0-eindpunt en -platform biedt een API-versie voor verificatie die dit proces vereenvoudigt. Deze maakt aanmelding vanaf beide typen accounts mogelijk met behulp van een eenmalige integratie. Toepassingen die het v2.0-eindpunt gebruiken, kunnen met een van beide accounttypen ook gebruikmaken van de REST API's van de [Microsoft Graph API](https://developer.microsoft.com/graph).
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -56,10 +56,10 @@ Gedetailleerde informatie over v2.0 verkennen:
 
 * [Naslaginformatie over v2.0-protocollen](active-directory-v2-protocols.md)
 * [Naslaginformatie voor Access-tokens](access-tokens.md)
-* [Naslaginformatie over `id_tokens`](id-tokens.md)
+* [Naslaginformatie voor id-tokens](id-tokens.md)
 * [Naslaginformatie over v2.0-verificatiebibliotheken](reference-v2-libraries.md)
-* [Bereiken en toestemming in v2.0](v2-permissions-and-consent.md)
-* [De Microsoft Graph API](https://graph.microsoft.io)
+* [Machtigingen en toestemming in v2.0](v2-permissions-and-consent.md)
+* [Microsoft Graph API](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > Als u zich vanuit Azure Active Directory alleen hoeft aan te melden bij een werk- of schoolaccount, begin dan met de [Gids voor Azure AD-ontwikkelaars](v1-overview.md). Het v2.0-eindpunt is bedoeld voor gebruik door ontwikkelaars die expliciet persoonlijke Microsoft-accounts moeten kunnen aanmelden.

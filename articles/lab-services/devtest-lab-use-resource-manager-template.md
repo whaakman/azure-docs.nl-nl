@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99d835d1d0e18bf62d6e64b7e5af45b6c53d809e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239505"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686378"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Virtuele machines met een Azure Resource Manager-sjabloon maken 
 
@@ -42,7 +42,7 @@ Er zijn twee manieren om te maken van virtuele machines in DevTest Labs met behu
 
    Virtuele machines in dezelfde omgeving samen kunnen worden beheerd en de dezelfde levenscyclus delen. Gebruikers die zijn toegewezen aan een gebruikersrol DevTest Labs kunnen maken met behulp van deze sjablonen als de beheerder heeft geconfigureerd in het lab op die manier omgevingen.
 
-De rest van dit artikel wordt beschreven Resource Manager-sjablonen die gebruikmaken van Mirosoft.DevTestLab/labs/virtualmachines. Deze worden gebruikt door lab-beheerders om lab VM wordt gemaakt (bijvoorbeeld claimbare virtuele machines) of gouden installatiekopie genereren (bijvoorbeeld installatiekopie factory) te automatiseren.
+De rest van dit artikel wordt beschreven Resource Manager-sjablonen die gebruikmaken van Microsoft.DevTestLab/labs/virtualmachines. Deze worden gebruikt door lab-beheerders om lab VM wordt gemaakt (bijvoorbeeld claimbare virtuele machines) of gouden installatiekopie genereren (bijvoorbeeld installatiekopie factory) te automatiseren.
 
 [Aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) biedt veel richtlijnen en suggesties voor het maken van Azure Resource Manager-sjablonen die zijn betrouwbare en eenvoudig te gebruiken.
 

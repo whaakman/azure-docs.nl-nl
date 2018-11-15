@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f344424c372f65cd8bfe5779cc65f0e866e58a11
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252544"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633968"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Het gebruik van andere invoer
 
@@ -137,9 +137,11 @@ Laten we andere invoer naar het eerste dialoogvenster toevoegen:
     3. Klik op wijzigingen verzenden.
 4. Klik op 'denver' in het linkerdeelvenster:
     1. Voer in de alternatieve invoer toevoegen, 'voor denver'.
-    2. Voer 'Prognose voor austin'.
-        - De volledige woordgroep wordt gemarkeerd. Klik op de woordgroep en vervolgens de rode x. Vervolgens selecteert u austin, en klik op plaats.
-        - Klik op Submit wijzigingen
+    1. Voer 'Prognose voor austin'.
+        - Een foutbericht weergegeven: 'Variaties van de tekst moet dezelfde gedetecteerde entiteiten als de oorspronkelijke invoertekst bevatten.'
+        - Klik op het woord 'austin'.
+        - Een pop-upvenster wordt weergegeven waarmee u de entiteit voor 'austin' selecteren. Klik op **plaats**.
+        - Klik op wijzigingen verzenden.
     1. Klikt u op Gereed, waardoor het model trainen.
 
 ![](../media/tutorial8_altcities.png)

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: cd62083bc7bd0254084f0fc209540de929c25d06
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042250"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632540"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive gebruiken als een hulpprogramma voor uitpakken, transformeren en laden (ETL)
 
-U moet meestal opschonen en transformeren van binnenkomende gegevens voordat deze naar een bestemming die geschikt is voor de analyse wordt geladen. Extraheren, transformeren en laden (ETL)-bewerkingen worden gebruikt voor het voorbereiden van gegevens en deze te laden in een bestemming.  Hive in HDInsight kunt lezen in niet-gestructureerde gegevens, indien nodig de gegevens worden verwerkt en vervolgens de gegevens laden in een relationele datawarehouse voor besluit ondersteuning voor systemen. In deze benadering, worden gegevens opgehaald uit de bron en opgeslagen in schaalbare opslag, zoals Azure Storage-blobs of Azure Data Lake Store. De gegevens vervolgens worden getransformeerd met behulp van een reeks van Hive-query's en ten slotte wordt klaargezet binnen Hive in voorbereiding voor bulksgewijs laden in het beoogde gegevensarchief.
+U moet meestal opschonen en transformeren van binnenkomende gegevens voordat deze naar een bestemming die geschikt is voor de analyse wordt geladen. Extraheren, transformeren en laden (ETL)-bewerkingen worden gebruikt voor het voorbereiden van gegevens en deze te laden in een bestemming.  Apache Hive in HDInsight kunt lezen in niet-gestructureerde gegevens, indien nodig de gegevens worden verwerkt en vervolgens de gegevens laden in een relationele datawarehouse voor besluit ondersteuning voor systemen. In deze benadering, worden gegevens opgehaald uit de bron en opgeslagen in schaalbare opslag, zoals Azure Storage-blobs of Azure Data Lake Store. De gegevens vervolgens worden getransformeerd met behulp van een reeks van Hive-query's en ten slotte wordt klaargezet binnen Hive in voorbereiding voor bulksgewijs laden in het beoogde gegevensarchief.
 
 ## <a name="use-case-and-model-overview"></a>Overzicht van de aanvraag en modellen gebruiken
 

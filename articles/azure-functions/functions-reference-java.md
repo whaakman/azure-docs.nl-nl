@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025019"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686889"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -24,11 +24,13 @@ ms.locfileid: "50025019"
 
 ## <a name="programming-model"></a>Programmeermodel 
 
-Uw Azure-functie moet een stateless klassenmethode waarmee invoer worden verwerkt en geeft een resultaat. Hoewel u instantiemethoden schrijven kunt, moet de exemplaarvelden van een van de klasse niet de functie afhankelijk. Alle methoden van de functie moet een `public` toegang modifier.
+De concepten van [triggers en bindingen](functions-triggers-bindings.md) zijn essentieel voor Azure Functions. Triggers start de uitvoering van code. Bindingen kunnen u een manier om gegevens aan doorgeven en als resultaat de gegevens van een functie zonder te hoeven schrijven van aangepaste code voor gegevenstoegang.
+
+Een functie moet een stateless methode voor het verwerken van invoer en uitvoer produceren. De functie moet niet afhankelijk van de exemplaarvelden van een van de klasse. Alle methoden voor de functie moet `public` en de methode met aantekening @FunctionName moet uniek zijn als de naam van methode de vermelding voor een functie definieert.
 
 ## <a name="folder-structure"></a>mapstructuur
 
-De mapstructuur van een Java-project ziet er als volgt uit:
+Hier volgt de mapstructuur van een Azure-functie Java-project:
 
 ```
 FunctionsProject
@@ -60,14 +62,12 @@ U kunt meer dan één functie plaatsen in een project. Plaats uw functies in afz
 
  Azure functions worden aangeroepen door een trigger, zoals een HTTP-aanvraag, een timer of een update van gegevens. Uw functie heeft nodig om deze trigger en alle andere invoer voor het produceren van een of meer uitvoerwaarden te verwerken.
 
-Gebruik de Java-aantekeningen opgenomen in de [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) pakket invoer en uitvoer binden aan uw methoden. De aantekeningen met voorbeeldcode is beschikbaar in de [Java-referentiedocumenten](/java/api/com.microsoft.azure.functions.annotation) voor elke aantekening en in de binding verwijzing documentatie voor Azure Functions, zoals die voor [HTTP-triggers](/azure/azure-functions/functions-bindings-http-webhook).
-
-Triggerinvoer en uitvoer kunnen ook worden gedefinieerd de [function.json](/azure/azure-functions/functions-reference#function-code) voor uw functie in plaats van via aantekeningen. Met behulp van `function.json` in plaats van aantekeningen op deze manier wordt niet aanbevolen.
+Gebruik de Java-aantekeningen opgenomen in de [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) pakket invoer en uitvoer binden aan uw methoden. Zie voor meer informatie [Java-referentiedocumenten](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
 > Moet u een Azure Storage-account in uw [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) Azure Storage-Blob, wachtrij of tabel triggers lokaal uitvoeren.
 
-Voorbeeld met behulp van aantekeningen:
+Voorbeeld:
 
 ```java
 public class Function {
@@ -79,24 +79,12 @@ public class Function {
 }
 ```
 
-Dezelfde functie zonder aantekeningen geschreven:
-
-```java
-package com.example;
-
-public class MyClass {
-    public static String echo(String in) {
-        return in;
-    }
-}
-```
-
-met de bijbehorende `function.json`:
+Dit is de gegenereerde bijbehorende `function.json` door de [azure-functions-maven-invoegtoepassing](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin):
 
 ```json
 {
   "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
+  "entryPoint": "com.example.Function.echo",
   "bindings": [
     {
       "type": "httpTrigger",
@@ -117,113 +105,113 @@ met de bijbehorende `function.json`:
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK runtime-beschikbaarheid en ondersteuning 
 
-Download en gebruik de [Azul Zulu voor Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK van [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) voor lokale ontwikkeling van Java-functie-apps. JDK zijn beschikbaar voor Windows, Linux en Mac OS en [ondersteuning van Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is beschikbaar voor fouten die optreden tijdens de ontwikkeling met een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
+Download en gebruik de [Azul Zulu voor Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK van [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) voor lokale ontwikkeling van Java-functie-apps. JDK zijn beschikbaar voor Windows, Linux en macOS. [Ondersteuning van Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is beschikbaar met een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Bibliotheken van derden 
 
-Azure Functions ondersteunt het gebruik van bibliotheken van derden. Standaard alle afhankelijkheden die zijn opgegeven in uw project `pom.xml` bestand zal automatisch worden gebundeld tijdens de `mvn package` doel. Voor bibliotheken niet is opgegeven als afhankelijkheden in de `pom.xml` bestand, plaats deze in een `lib` map in de hoofdmap van de functie. Afhankelijkheden worden geplaatst de `lib` directory worden toegevoegd aan het laadprogramma van de klasse system tijdens runtime.
+Azure Functions ondersteunt het gebruik van bibliotheken van derden. Standaard alle afhankelijkheden die zijn opgegeven in uw project `pom.xml` bestand zal automatisch worden gebundeld tijdens de [ `mvn package` ](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) doel. Voor bibliotheken niet is opgegeven als afhankelijkheden in de `pom.xml` bestand, plaats deze in een `lib` map in de hoofdmap van de functie. Afhankelijkheden worden geplaatst de `lib` directory worden toegevoegd aan het laadprogramma van de klasse system tijdens runtime.
 
-De `com.microsoft.azure.functions:azure-functions-java-library` afhankelijkheid wordt standaard in het klassepad verstrekt en hoeft niet te worden opgenomen in de `lib` directory.
+De `com.microsoft.azure.functions:azure-functions-java-library` afhankelijkheid wordt standaard in het klassepad verstrekt en hoeft niet te worden opgenomen in de `lib` directory. Ook afhankelijkheden vermeld [hier](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) worden toegevoegd aan het klassepad door [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker).
 
 ## <a name="data-type-support"></a>Ondersteuning voor gegevenstype
 
-U kunt alle gegevenstypen die in Java gebruiken voor de invoer- en -gegevens, inclusief systeemeigen typen; aangepaste Java-typen en gespecialiseerde Azure typen die zijn gedefinieerd `azure-functions-java-library` pakket. De Azure Functions runtime probeert converteren de invoer die is ontvangen in het type dat is aangevraagd door uw code.
-
-### <a name="strings"></a>Tekenreeksen
-
-Waarden doorgegeven aan functie methoden zal worden geconverteerd naar tekenreeksen als het bijbehorende type invoerparameter voor de functie van het type is `String`. 
+U kunt gewoon oude Java-objecten (pojo's), typen die zijn gedefinieerd in `azure-functions-java-library` of primitieve gegevenstypen zoals tekenreeks, geheel getal en binden aan invoer/uitvoer-bindingen.
 
 ### <a name="plain-old-java-objects-pojos"></a>Plain oude Java-objecten (pojo's)
 
-Tekenreeksen die zijn geformatteerd met JSON wordt naar Java-typen worden geconverteerd als de invoer handtekening van de functie dat Java-type verwacht. Deze conversie een hoeveelheid kunt u doorgeeft in JSON en werken met Java-typen.
-
-POJO typen gebruikt als invoer voor de functies dezelfde moeten `public` modifier toegang als de functie-methoden worden gebruikt in. U hoeft te declareren POJO klasse velden `public`. Bijvoorbeeld, een JSON-tekenreeks `{ "x": 3 }` kan worden geconverteerd naar de volgende POJO-type:
-
-```Java
-public class MyData {
-    private int x;
-}
-```
+Voor het converteren van invoergegevens naar POJO, [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker) maakt gebruik van [gson](https://github.com/google/gson) bibliotheek. POJO typen gebruikt als invoer voor de functies moet `public`.
 
 ### <a name="binary-data"></a>Binaire gegevens
 
-Binaire gegevens worden weergegeven als een `byte[]` in uw Azure functions-code. Binaire invoer of uitvoer verbinden aan uw functions door in te stellen de `dataType` veld in de function.json naar `binary`:
-
-```json
- {
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "blob",
-      "name": "content",
-      "direction": "in",
-      "dataType": "binary",
-      "path": "container/myfile.bin",
-      "connection": "ExampleStorageAccount"
-    },
-  ]
-}
-```
-
-Vervolgens worden gebruikt in uw functiecode aan te geven:
+Binden binaire invoer of uitvoer naar `byte[]` door in te stellen de `dataType` veld in de function.json naar `binary`:
 
 ```java
-// Class definition and imports are omitted here
-public static String echoLength(byte[] content) {
-}
+   @FunctionName("BlobTrigger")
+    @StorageAccount("AzureWebJobsStorage")
+     public void blobTrigger(
+        @BlobTrigger(name = "content", path = "myblob/{fileName}", dataType = "binary") byte[] content,
+        @BindingName("fileName") String fileName,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Blob trigger function processed a blob.\n Name: " + fileName + "\n Size: " + content.length + " Bytes");
+    }
 ```
 
-Lege invoerwaarden mogelijk `null` als het argument functies, maar een aanbevolen manier om op te lossen met lege waarden is het gebruik van potentieel `Optional<T>`.
+Gebruik `Optional<T>` voor als null-waarden worden verwacht
 
+## <a name="bindings"></a>Bindingen
 
-## <a name="function-method-overloading"></a>Overbelasting van de functie-methode
+Invoer- en uitvoerbindingen bevatten een verklarende manier om verbinding maken met gegevens vanuit uw code. Een functie verschillende invoer beschikken en uitvoerbindingen.
 
-U mag functie methoden met dezelfde naam maar met verschillende typen overbelasten. Bijvoorbeeld, u kunt hebben beide `String echo(String s)` en `String echo(MyType s)` in een klasse. Azure Functions besluit welke methode u wilt aanroepen op basis van het invoertype (voor HTTP-invoer, MIME-type `text/plain` leidt tot `String` terwijl `application/json` vertegenwoordigt `MyType`).
-
-## <a name="inputs"></a>Invoer
-
-Invoer zijn onderverdeeld in twee categorieën in Azure Functions: de invoer voor de werkstroomtrigger is en de andere is de aanvullende invoer. Hoewel ze in verschillende zijn `function.json`, de syntaxis is vrijwel identiek in Java-code. We houden het volgende codefragment als voorbeeld:
+### <a name="example-input-binding"></a>Voorbeeld van de Invoerbinding
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("echo")
     public static String echo(
-        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
     ) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+        testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
+        return "Hello, " + inputReq + " and " + inputData.getKey() + ".";
     }
 
-    public static class MyObject {
+    public static class TestInputData {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
+    public static class Person {
+        public String PartitionKey;
+        public String RowKey;
+        public String Name;
+
+        public Person(String p, String r, String n) {
+            this.PartitionKey = p;
+            this.RowKey = r;
+            this.Name = n;
+        }
+    }
 }
 ```
 
-Wanneer deze functie wordt geactiveerd, de HTTP-aanvraag wordt doorgegeven aan de functie door `String in`. Een vermelding wordt opgehaald uit de Azure Table Storage op basis van de ID in de URL van de route en aangebracht beschikbaar als `obj` in de hoofdtekst van de functie.
+Deze functie is aangeroepen met een HTTP-aanvraag. 
+- De nettolading van de HTTP-aanvraag wordt doorgegeven als een `String` voor het argument `inputReq`
+- Een vermelding wordt opgehaald uit de Azure-tabelopslag en wordt doorgegeven als `TestInputData` aan het argument `inputData`.
 
-## <a name="outputs"></a>Uitvoer
+Voor het ontvangen van een batch van de invoer, kunt u binden aan `String[]`, `POJO[]`, `List<String>` of `List<POJO>`.
 
-Uitvoer kunnen worden uitgedrukt in de geretourneerde waarde of output-parameters. Als er slechts één uitvoer, u kunt het beste de geretourneerde waarde gebruiken. Voor meerdere uitvoer die u moet output-parameters gebruiken.
+```java
+@FunctionName("ProcessIotMessages")
+    public void processIotMessages(
+        @EventHubTrigger(name = "message", eventHubName = "%AzureWebJobsEventHubPath%", connection = "AzureWebJobsEventHubSender", cardinality = Cardinality.MANY) List<TestEventData> messages,
+        final ExecutionContext context)
+    {
+        context.getLogger().info("Java Event Hub trigger received messages. Batch size: " + messages.size());
+    }
+    
+    public class TestEventData {
+    public String id;
+}
 
-Geretourneerde waarde is de eenvoudigste vorm van uitvoer, u alleen de waarde van elk type geretourneerd en Azure Functions-runtime wordt geprobeerd het marshallen terug naar het werkelijke type (zoals een HTTP-antwoord).  U kunt aantekeningen uitvoer toepassen voor de functie-methode (de naameigenschap van de aantekening is $return) voor het definiëren van de uitvoer van de geretourneerde waarde.
+```
 
-Meerdere uitvoerwaarden produceren, gebruiken `OutputBinding<T>` dat is gedefinieerd in de `azure-functions-java-library` pakket. Als u wilt maken van een HTTP-antwoord en een bericht naar een wachtrij ook gepusht, kunt u er ongeveer als schrijven:
+Deze functie wordt geactiveerd wanneer er sprake is van nieuwe gegevens in de geconfigureerde event hub. Als de `cardinality` is ingesteld op `MANY`, functie ontvangt u een batch van berichten van event hub. EventData van event hub worden geconverteerd naar `TestEventData` voor de functie wordt uitgevoerd.
 
-De functie voor het kopiëren inhoud van een blob kan bijvoorbeeld worden gedefinieerd als de volgende code. `@StorageAccount` aantekening wordt hier gebruikt om te voorkomen dat het dupliceren van de eigenschap connection voor zowel `@BlobTrigger` en `@BlobOutput`.
+### <a name="example-output-binding"></a>Voorbeeld van de Uitvoerbinding
+
+U kunt een Uitvoerbinding voor het gebruik van de geretourneerde waarde binden `$return` 
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("copy")
     @StorageAccount("AzureWebJobsStorage")
     @BlobOutput(name = "$return", path = "samples-output-java/{name}")
@@ -233,25 +221,57 @@ public class MyClass {
 }
 ```
 
-Gebruik `OutputBinding<byte[]`> om het maken van een binair bestand uitvoer (voor parameters); voor retourwaarden, gebruikt u alleen `byte[]`.
+Als er meerdere uitvoerbindingen, gebruikt u de geretourneerde waarde voor slechts één provider.
 
-## <a name="specialized-types"></a>Speciale typen
+Gebruiken voor het verzenden van meerdere uitvoerwaarden `OutputBinding<T>` gedefinieerd in de `azure-functions-java-library` pakket. 
 
-Soms moet u een functie controle over de invoer en uitvoer hebt gedetailleerde. Speciale typen in de `azure-functions-java-core` pakket zijn al voor u aanvraaggegevens bewerken en aanpassen van de status van het resultaat van een HTTP-trigger:
+```java
+@FunctionName("QueueOutputPOJOList")
+    public HttpResponseMessage QueueOutputPOJOList(@HttpTrigger(name = "req", methods = { HttpMethod.GET,
+            HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "itemsOut", queueName = "test-output-java-pojo", connection = "AzureWebJobsStorage") OutputBinding<List<TestData>> itemsOut, 
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+       
+        String query = request.getQueryParameters().get("queueMessageId");
+        String queueMessageId = request.getBody().orElse(query);
+        itemsOut.setValue(new ArrayList<TestData>());
+        if (queueMessageId != null) {
+            TestData testData1 = new TestData();
+            testData1.id = "msg1"+queueMessageId;
+            TestData testData2 = new TestData();
+            testData2.id = "msg2"+queueMessageId;
+
+            itemsOut.getValue().add(testData1);
+            itemsOut.getValue().add(testData2);
+
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + queueMessageId).build();
+        } else {
+            return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Did not find expected items in CosmosDB input list").build();
+        }
+    }
+
+     public static class TestData {
+        public String id;
+    }
+```
+
+Boven de functie wordt aangeroepen op een HttpRequest en schrijft u meerdere waarden naar de Azure-wachtrij
+
+## <a name="httprequestmessage-and-httpresponsemessage"></a>Het HttpRequestMessage en HttpResponseMessage
+
+ Het HttpRequestMessage en HttpResponseMessage typen zijn gedefinieerd in `azure-functions-java-library` helper typen om te werken met HttpTrigger-functies
 
 | Gespecialiseerde Type      |       Doel        | Normaal gebruik                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP-trigger     | Methode, koptekst of query's ophalen |
-| `HttpResponseMessage<T>` | HTTP-Uitvoerbinding | Status van het resultaat dan 200   |
+| `HttpResponseMessage` | HTTP-Uitvoerbinding | Status van het resultaat dan 200   |
 
-> [!NOTE] 
-> U kunt ook `@BindingName` aantekening om HTTP-headers en query's te verkrijgen. Bijvoorbeeld, `@BindingName("name") String query` gegevensbrontabellen loopt, de HTTP-aanvraagheaders en query's en die waarde doorgegeven aan de methode. Bijvoorbeeld, `query` worden `"test"` als de aanvraag-URL is `http://example.org/api/echo?name=test`.
+## <a name="metadata"></a>Metagegevens
 
-### <a name="metadata"></a>Metagegevens
+Enkele triggers verzenden [activeren metagegevens](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) samen met invoergegevens. U kunt aantekening `@BindingName` binden aan het activeren van metagegevens
 
-Metagegevens is afkomstig uit verschillende bronnen, zoals HTTP-headers, HTTP-query's, en [activeren metagegevens](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Gebruik de `@BindingName` aantekening samen met de naam van de metagegevens van de waarde op te halen.
-
-Bijvoorbeeld, de `queryValue` in de volgende code codefragment worden `"test"` als de aangevraagde URL `http://{example.host}/api/metadata?name=test`.
 
 ```Java
 package com.example;
@@ -260,7 +280,7 @@ import java.util.Optional;
 import com.microsoft.azure.functions.annotation.*;
 
 
-public class MyClass {
+public class Function {
     @FunctionName("metadata")
     public static String metadata(
         @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
@@ -270,16 +290,34 @@ public class MyClass {
     }
 }
 ```
+In het bovenstaande voorbeeld de `queryValue` is gebonden aan de queryreeks-parameter `name` in de HTTP-aanvraag-URL `http://{example.host}/api/metadata?name=test`. Hieronder volgt een binding met een ander voorbeeld `Id` van metagegevens in de wachtrij trigger
+
+```java
+ @FunctionName("QueueTriggerMetadata")
+    public void QueueTriggerMetadata(
+        @QueueTrigger(name = "message", queueName = "test-input-java-metadata", connection = "AzureWebJobsStorage") String message,@BindingName("Id") String metadataId,
+        @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        TestData testData = new TestData();
+        testData.id = metadataId;
+        output.setValue(testData);
+    }
+```
+
+> [!NOTE]
+> Naam in de aantekening moet overeenkomen met de eigenschap metadata
 
 ## <a name="execution-context"></a>Context voor uitvoering
 
-Interactie met Azure Functions-uitvoeringsomgeving via de `ExecutionContext` object dat is gedefinieerd de `azure-functions-java-library` pakket. Gebruik de `ExecutionContext` object aanroep informatie en functions runtime-gegevens gebruiken in uw code.
+`ExecutionContext` gedefinieerd in de `azure-functions-java-library` bevat methoden om te communiceren met de functions-runtime.
 
-### <a name="custom-logging"></a>Aangepaste logboekregistratie
+### <a name="logger"></a>Logger
 
-Toegang tot de logger Functions-runtime is beschikbaar via de `ExecutionContext` object. In dit logboek is gekoppeld aan de Azure monitor en kunt u met de vlag-waarschuwingen en fouten aangetroffen tijdens het uitvoeren van de functie.
+Gebruik `getLogger` gedefinieerd in `ExecutionContext` om te schrijven logboeken van functiecode aan te geven.
 
-De volgende voorbeeldcode, wordt er een waarschuwingsbericht weergegeven registreert als de hoofdtekst van de aanvraag ontvangen leeg is.
+Voorbeeld:
 
 ```java
 
@@ -298,7 +336,9 @@ public class Function {
 
 ## <a name="view-logs-and-trace"></a>Logboeken weergeven en tracering
 
-U kunt de Azure CLI voor stream van standaard Java en logboekregistratie van fouten, evenals de logboekregistratie van andere toepassingen. Eerst uw functie toepassing configureren voor het schrijven van logboekregistratie van toepassingen met de Azure CLI:
+U kunt de Azure CLI voor stream Java stdout en stderr-logboekregistratie, evenals de logboekregistratie van andere toepassingen. 
+
+Uw functie toepassing configureren voor het schrijven van logboekregistratie van toepassingen met de Azure CLI:
 
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
@@ -321,26 +361,22 @@ U moet bestandssysteem logboekregistratie in de Azure Portal of Azure CLI voor h
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
 
-Geheime gegevens, zoals sleutels of tokens buiten uw broncode uit veiligheidsoverwegingen houden. Sleutels en tokens gebruiken in uw functiecode aan te geven door het lezen van omgevingsvariabelen.
+In de functies, [app-instellingen](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), zoals serviceverbinding tekenreeksen, worden weergegeven als omgevingsvariabelen tijdens de uitvoering. U hebt toegang tot deze instellingen gebruikt, `System.getenv("AzureWebJobsStorage")`
 
-Als u wilt instellen van omgevingsvariabelen bij het uitvoeren van Azure Functions lokaal, kunt u besluiten deze variabelen toevoegen aan het bestand local.settings.json. Indien deze nog niet aanwezig in de hoofdmap van uw functieproject, kunt u een kunt maken. Hier ziet u hoe het bestand eruit moet zien:
+Voorbeeld:
 
-```xml
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "",
-    "AzureWebJobsDashboard": ""
-  }
+Voeg [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) met de naam testAppSetting en de waarde testAppSettingValue
+
+```java
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        context.getLogger().info("testAppSetting "+ System.getenv("testAppSettingValue"));
+        return String.format(req);
+    }
 }
+
 ```
-
-Elke sleutel / waarde van de toewijzing van in de `values` kaart wordt beschikbaar gesteld tijdens runtime als een omgevingsvariabele die toegankelijk is door het aanroepen van `System.getenv("<keyname>")`, bijvoorbeeld `System.getenv("AzureWebJobsStorage")`. Toevoegen van extra sleutel / waarde-paren is geaccepteerd en aanbevolen praktijk.
-
-> [!NOTE]
-> Als deze benadering wordt overgenomen, worden zeker om toe te voegen van de local.settings.json bestand naar uw opslagplaats negeren-bestand, zodat deze niet is doorgevoerd.
-
-Met de code nu, afhankelijk van deze omgevingsvariabelen, kunt u zich naar de Azure-portal voor het instellen van dezelfde sleutel / waarde-paren in de instellingen van uw functie-app zodat uw code oftewel werkt wanneer getest lokaal en wanneer geïmplementeerd op Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51210258"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678179"
 ---
 Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste VM-installatiekopieën maken. Galerie met installatiekopieën voor gedeelde biedt drie belangrijkste waardevoorstellen:
 - Eenvoudig beheer
@@ -98,7 +98,7 @@ Er zijn geen extra kosten voor het gebruik van de galerie met installatiekopieë
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -name Microsoft.Compute
+az provider register --name Microsoft.Compute
 ```
 
 **PowerShell**: 

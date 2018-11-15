@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: beae54dc36225dd26b4eb1d1a8f89d1005a33e93
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa99fa3b6ae9e809718121787cc986d02bcf824b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626334"
+ms.locfileid: "51678178"
 ---
 > [!TIP]
 > Een voorbeeld van Swagger eerst wordt geleverd ter illustratie van de API-functie instellen.
@@ -22,10 +22,10 @@ ms.locfileid: "51626334"
 U kunt toegang tot uw eigen gegenereerde Swagger-Management-API-documentatie op:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Aangepaste naam | Vervangen door |
+| Naam | Vervangen door |
 | --- | --- |
-| NaamExemplaar | De naam van uw Azure digitale Twins-exemplaar |
-| yourLocation | Welke regio u uw exemplaar wordt gehost op server |
+| YOUR_INSTANCE_NAME | De naam van uw Azure digitale Twins-exemplaar |
+| YOUR_LOCATION | Welke regio u uw exemplaar wordt gehost op server |

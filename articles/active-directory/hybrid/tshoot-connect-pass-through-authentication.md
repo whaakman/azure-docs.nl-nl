@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d4f44deac1e8833af064e0abea4e65c5ca2b2f93
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314249"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686191"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Pass through-verificatie voor Azure Active Directory oplossen
 
@@ -125,7 +125,7 @@ Voor fouten met betrekking tot installatie, controleert u de Azure AD Connect-lo
 
 Voor fouten met betrekking tot de verificatie-Agent, opent u de toepassing Logboeken op de server en controleer onder **toepassing en Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
-Voor gedetailleerde analyse inschakelen ' sessielogboek '. De verificatie-Agent niet uitvoeren met dit logboek tijdens normale bewerkingen; ingeschakeld Gebruik alleen voor het oplossen van problemen. Inhoud van het logboek zijn alleen zichtbaar nadat het logboek opnieuw is uitgeschakeld.
+Voor gedetailleerde analyse, schakel het "" sessielogboek (met de rechtermuisknop in de Event Viewer-toepassing voor deze optie). De verificatie-Agent niet uitvoeren met dit logboek tijdens normale bewerkingen; ingeschakeld Gebruik alleen voor het oplossen van problemen. Inhoud van het logboek zijn alleen zichtbaar nadat het logboek opnieuw is uitgeschakeld.
 
 ### <a name="detailed-trace-logs"></a>Gedetailleerde traceerlogboeken
 

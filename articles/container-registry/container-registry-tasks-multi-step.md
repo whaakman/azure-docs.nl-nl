@@ -1,25 +1,25 @@
 ---
 title: Installatiekopie bouwen, testen en patchen met Azure Container Registry WebTest met meerdere stappen taken automatiseren
-description: Een WebTest met meerdere stappen inleiding taken, een functie van de ACR-taken in Azure Container Registry waarmee werkstromen op basis van een taak voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud.
+description: Een inleiding tot taken meerdere stappen, een functie van de ACR-taken in Azure Container Registry waarmee werkstromen op basis van een taak voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: danlep
-ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856714"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632689"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>WebTest met meerdere stappen bouwen, testen en patch-taken uitvoeren in de ACR-taken
 
 Taken met meerdere stappen Breid de mogelijkheden van de installatiekopie van één-build-en-push van ACR taken met meerdere stappen, meerdere-container op basis van werkstromen. Taken met meerdere stappen gebruiken om te bouwen en diverse installatiekopieën pushen in serie of parallel en deze installatiekopieën run as-opdrachten binnen een enkele taak uitvoeren. Elke stap definieert u een containerinstallatiekopie bouwen of push-bewerking en kunt ook de uitvoering van een container definiëren. Elke stap in een taak meerdere stappen maakt gebruik van een container als de uitvoeringsomgeving.
 
 > [!IMPORTANT]
-> Als u taken voor het eerder hebt gemaakt tijdens de Preview-versie met de `az acr build-task` opdracht, deze taken moeten opnieuw worden gemaakt met behulp van de [az acr taak] [ az-acr-task] opdracht.
+> Als u eerder taken hebt gemaakt tijdens de preview met de opdracht `az acr build-task`, moeten deze taken opnieuw worden gemaakt met de opdracht [az acr task][az-acr-task].
 
 U kunt bijvoorbeeld een taak uitvoeren met het automatiseren van de volgende stappen:
 
@@ -53,7 +53,7 @@ Een taak meerdere stappen in de ACR-taken is gedefinieerd als een reeks stappen 
 * [`push`](container-registry-tasks-reference-yaml.md#push): Push gebouwd installatiekopieën naar een containerregister. Persoonlijke registers zoals Azure Container Registry worden ondersteund, omdat de openbare Docker Hub.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Het uitvoeren van een container, zodat deze als een functie binnen de context van de actieve taak werken kan. U kunt parameters doorgeven aan van de container `[ENTRYPOINT]`, en geef eigenschappen op, zoals env, loskoppelen, en andere vertrouwde `docker run` parameters. De `cmd` staptype kan eenheid en functionele tests, met gelijktijdige container kan worden uitgevoerd.
 
-WebTest met meerdere stappen taken kunnen worden net zo eenvoudig als het bouwen en het pushen van één installatiekopie:
+De volgende codefragmenten laten zien hoe u kunt deze stap taaktypen combineren. WebTest met meerdere stappen taken kunnen worden net zo eenvoudig als het opbouwen van een één installatiekopie van een docker-bestand en het pushen naar uw register met een YAML-bestand die vergelijkbaar is met:
 
 ```yaml
 version: 1.0-preview-1
@@ -62,7 +62,7 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-Of complexer worden, zoals deze taak die stappen voor het bouwen omvat, testen, helm-pakket en helm implementeren:
+Of complexer worden, zoals deze fictieve definitie WebTest met meerdere stappen stappen voor het bouwen omvat, testen, helm-pakket en helm implementeren (containerregister en configuratie van de Helm-opslagplaats niet weergegeven):
 
 ```yaml
 version: 1.0-preview-1
@@ -84,6 +84,8 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
+
+Zie [taak voorbeelden] [ task-examples] voltooien voor de taak meerdere stappen YAML-bestanden en docker-bestanden voor verschillende scenario's.
 
 ## <a name="run-a-sample-task"></a>Een voorbeeld-taak uitvoeren
 
@@ -163,6 +165,7 @@ U kunt verwijzing van de taak meerdere stappen en voorbeelden hier vinden:
 
 * [Naslaginformatie over de taak](container-registry-tasks-reference-yaml.md) -taak stap typen, hun eigenschappen en het gebruik.
 * [Taak voorbeelden] [ task-examples] -voorbeeld `task.yaml` bestanden voor verschillende scenario's, eenvoudig tot complex.
+* [Cmd opslagplaats](https://github.com/AzureCR/cmd) -een verzameling van containers als opdrachten voor het ACR-taken.
 
 <!-- IMAGES -->
 

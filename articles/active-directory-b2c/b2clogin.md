@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00fde1145b038f3bf82e3dbc5e1dc967e1865ad6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234917"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635554"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Bij het instellen van een id-provider voor registratie en aanmelding in uw Azure
 Met b2clogin.com biedt extra voordelen, zoals:
 
 - Cookies worden niet langer worden gedeeld met andere Microsoft-services.
-- De URL's zijn niet langer een verwijzing naar Microsoft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
+- De URL's zijn niet langer een verwijzing naar Microsoft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
 
 Houd rekening met deze instellingen die nodig hebt mogelijk bij het gebruik van b2clogin.com wijzigen:
 

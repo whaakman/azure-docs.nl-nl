@@ -1,5 +1,5 @@
 ---
-title: Serialiseer gegevens in Hadoop - Library Microsoft Avro - Azure
+title: Gegevens in Azure voor Apache Hadoop - Library Microsoft Avro - serialiseren
 description: Informatie over het serialiseren en deserialiseren van gegevens in Hadoop op HDInsight met behulp van de Microsoft Avro Library om vast te leggen met geheugen, een database of bestand.
 keywords: avro, hadoop avro
 services: hdinsight
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5928c6490c9de6c48b75800158b8298007d7b8ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246902"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634002"
 ---
-# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Gegevens in Hadoop met het Microsoft Avro Library serialiseren
+# <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Gegevens in het Apache Hadoop met het Microsoft Avro Library serialiseren
 
 >[!NOTE]
 >De Avro-SDK wordt niet meer ondersteund door Microsoft. De bibliotheek is open source-community ondersteund. De bronnen voor de bibliotheek bevinden zich in [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
@@ -52,17 +52,8 @@ De onderstaande onderdelen vereist voordat u de bibliotheek installeert:
 * <a href="https://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 of hoger)
 
-Houd er rekening mee dat de afhankelijkheid Newtonsoft.Json.dll automatisch worden gedownload met de installatie van de Microsoft Avro Library. De procedure is opgegeven in de volgende sectie:
-
-De Microsoft Avro Library wordt gedistribueerd als een NuGet-pakket dat kan worden geïnstalleerd vanuit Visual Studio via de volgende procedure:
-
-1. Selecteer de **Project** tabblad -> **NuGet-pakketten beheren...**
-2. Zoeken naar "Microsoft.Hadoop.Avro" in de **Online zoeken** vak.
-3. Klik op de **installeren** naast **Avro-bibliotheek van Microsoft Azure HDInsight**.
-
-Houd er rekening mee dat de Newtonsoft.Json.dll (> = 6.0.4) afhankelijkheid is ook automatisch gedownload met de Microsoft Avro Library.
-
-De Microsoft Avro Library-broncode is beschikbaar op [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+> [!Note]
+> De Microsoft Avro Library is niet meer beschikbaar als een NuGet-pakket. Als u wilt gebruiken de Avro-bibliotheek kloon de [Microsoft.Hadoop.Avro Github-opslagplaats](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) en compileren van de code op uw computer.
 
 ## <a name="compile-schemas-using-avro-library"></a>Schema's met Avro-bibliotheek gecompileerd
 De Microsoft Avro Library bevat een hulpprogramma voor het genereren van code waarmee het maken van C#-typen automatisch op basis van de vooraf gedefinieerde JSON-schema. Het hulpprogramma voor het genereren van code niet wordt gedistribueerd als een binaire kan worden uitgevoerd, maar kan eenvoudig worden gemaakt via de volgende procedure:

@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115536"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632727"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Enterprise-beveiligingspakket gebruiken in HDInsight
 
@@ -24,11 +24,11 @@ Veel bedrijven hebben verplaatst naar een model waarin clusters worden beheerd d
 
 HDInsight is afhankelijk van een populaire id-provider: Active Directory, op een beheerde manier. Door de integratie van HDInsight met [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), kunt u toegang krijgen tot de clusters met behulp van de domeinreferenties van uw. 
 
-De virtuele machines (VM's) in HDInsight zijn van een domein is toegevoegd aan het opgegeven domein. Dus alle services die worden uitgevoerd op HDInsight (Ambari, Hive-server, Ranger, Spark thrift-server en andere) werken naadloos voor de geverifieerde gebruiker. Beheerders kunnen vervolgens met het maken van sterke autorisatiebeleid met behulp van Apache Ranger voor op rollen gebaseerd toegangsbeheer voor bronnen in het cluster.
+De virtuele machines (VM's) in HDInsight zijn van een domein is toegevoegd aan het opgegeven domein. Dus werken alle services die worden uitgevoerd op HDInsight (Apache Ambari, server Apache Hive, Apache Ranger, Apache Spark thrift-server en anderen) naadloos voor de geverifieerde gebruiker. Beheerders kunnen vervolgens met het maken van sterke autorisatiebeleid met behulp van Apache Ranger voor op rollen gebaseerd toegangsbeheer voor bronnen in het cluster.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>HDInsight integreren met Active Directory
 
-Open source Hadoop is afhankelijk van Kerberos voor verificatie en beveiliging. Daarom zijn HDInsight-clusterknooppunten met Enterprise Security Package (ESP) gekoppeld aan een domein dat wordt beheerd door Azure AD DS. Kerberos-beveiliging is geconfigureerd voor het Hadoop-componenten op het cluster. 
+Open-source Apache Hadoop is afhankelijk van Kerberos-verificatie en beveiliging. Daarom zijn HDInsight-clusterknooppunten met Enterprise Security Package (ESP) gekoppeld aan een domein dat wordt beheerd door Azure AD DS. Kerberos-beveiliging is geconfigureerd voor het Hadoop-componenten op het cluster. 
 
 De volgende bewerkingen worden automatisch gemaakt:
 - een service-principal voor elk onderdeel Hadoop 

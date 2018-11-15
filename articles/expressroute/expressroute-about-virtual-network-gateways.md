@@ -6,25 +6,24 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: cherylmc
-ms.openlocfilehash: 8776a07f4fb1ffcc573bfedace38280576fa3184
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.author: mialdrid
+ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622959"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684763"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Virtuele netwerkgateways voor ExpressRoute
-Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. U kunt een virtuele netwerkgateway kan worden gebruikt voor verkeer van ExpressRoute of VPN-verkeer. In dit artikel richt zich op de virtuele netwerkgateways voor ExpressRoute.
+Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. U kunt een virtuele netwerkgateway voor verkeer van ExpressRoute of VPN-verkeer. In dit artikel richt zich op de virtuele netwerkgateways voor ExpressRoute.
 
 ## <a name="gateway-types"></a>Gatewaytypen
 
-Wanneer u een gateway voor een virtueel netwerk maakt, geeft u verschillende instellingen op. Een van de vereiste instellingen '-GatewayType', geeft aan of de gateway wordt gebruikt voor ExpressRoute of VPN-verkeer. De twee gatewaytypen zijn: 
+Wanneer u een virtuele netwerkgateway maakt, moet u verschillende instellingen opgeven. Een van de vereiste instellingen '-GatewayType', geeft aan of de gateway wordt gebruikt voor ExpressRoute of VPN-verkeer. De twee gatewaytypen zijn:
 
 * **VPN** - versleuteld verkeer wordt verzonden via het openbare Internet, gebruikt u het Gatewaytype 'Vpn'. Dit is ook een VPN-gateway genoemd. Site-naar-site-, punt-naar-site- en VNet-naar-VNet-verbindingen gebruiken allemaal een VPN-gateway.
 
-* **ExpressRoute** : als u wilt verzenden van netwerkverkeer op een privéverbinding, gebruikt u het Gatewaytype 'ExpressRoute'. Dit wordt ook wel een ExpressRoute-gateway genoemd en is van het type gateway die u gebruikt bij het configureren van ExpressRoute.
-
+* **ExpressRoute** : als u wilt verzenden van netwerkverkeer op een privéverbinding, gebruikt u het Gatewaytype 'ExpressRoute'. Dit wordt ook wel een ExpressRoute-gateway genoemd en is van het type van de gateway die wordt gebruikt bij het configureren van ExpressRoute.
 
 Elk virtueel netwerk kan maar één virtuele netwerkgateway per type gateway hebben. U kunt voor een virtueel netwerk bijvoorbeeld één gateway gebruiken die -GatewayType Vpn gebruikt en één die -GatewayType ExpressRoute gebruikt.
 
@@ -39,8 +38,8 @@ De volgende tabel ziet u de gatewaytypen en de geschatte prestaties. Deze tabel 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> De prestaties van toepassingen, is afhankelijk van meerdere factoren, zoals de end-to-end-latentie en het aantal verkeer stroomt van die de toepassing wordt geopend. De getallen in de tabel staan de bovengrens die de toepassing in theorie in een ideale omgeving bereiken kan. 
-> 
+> De prestaties van toepassingen, is afhankelijk van meerdere factoren, zoals de end-to-end-latentie en het aantal verkeer stroomt van die de toepassing wordt geopend. De getallen in de tabel staan de bovengrens die de toepassing in theorie in een ideale omgeving bereiken kan.
+>
 >
 
 ### <a name="zrgw"></a>Zone-redundante gateway-SKU 's
@@ -55,7 +54,7 @@ Zone-redundante gateways specifieke nieuwe gateway-SKU's voor ExpressRoute-gatew
 * ErGw2AZ
 * ErGw3AZ
 
-De nieuwe gateway-SKU's ondersteunen ook andere implementatie-opties om het beste aan uw behoeften te voldoen. Bij het maken van een virtuele netwerkgateway met behulp van de nieuwe gateway-SKU's, hebt u ook de mogelijkheid om de gateway in een specifieke zone te implementeren. Dit is een zonegebonden gateway genoemd. Wanneer u een zonegebonden gateway implementeert, worden alle exemplaren van de gateway in dezelfde Beschikbaarheidszone geïmplementeerd. 
+De nieuwe gateway-SKU's ondersteunen ook andere implementatie-opties om het beste aan uw behoeften te voldoen. Bij het maken van een virtuele netwerkgateway met behulp van de nieuwe gateway-SKU's, hebt u ook de mogelijkheid om de gateway in een specifieke zone te implementeren. Dit is een zonegebonden gateway genoemd. Wanneer u een zonegebonden gateway implementeert, worden alle exemplaren van de gateway in dezelfde Beschikbaarheidszone geïmplementeerd.
 
 ## <a name="resources"></a>REST-API's en PowerShell-cmdlets
 Zie voor aanvullende technische bronnen en de syntaxis van de specifieke vereisten bij het gebruik van REST-API's en PowerShell-cmdlets voor configuraties van virtuele gateway, de volgende pagina's:

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 11/14/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 38e85ede1e984aa3d26fe509d68b4582d11b6c26
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237839"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636217"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Resource Manager-sjablonen maken in Azure Stack
 
@@ -34,7 +34,7 @@ De volgende Quick Start-sjablonen zijn beschikbaar op [GitHub](https://aka.ms/az
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implementatie van SharePoint-Server (implementatie met hoge beschikbaarheid)
 
-Gebruik de PowerShell DSC-extensie voor [maken van een SharePoint Server 2013-farm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) die omvat de volgende resources:
+Gebruik de PowerShell DSC-extensie voor [maken van een SharePoint Server 2013-farm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) die omvat de volgende resources:
 
 * Een virtueel netwerk
 * Drie opslagaccounts
@@ -45,7 +45,7 @@ Gebruik de PowerShell DSC-extensie voor [maken van een SharePoint Server 2013-fa
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Implementeren van AD (niet-high-beschikbaarheid-implementatie)
 
-Gebruik de PowerShell DSC-extensie voor [maken van een AD-domeincontrollerserver](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) die omvat de volgende resources:
+Gebruik de PowerShell DSC-extensie voor [maken van een AD-domeincontrollerserver](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha) die omvat de volgende resources:
 
 * Een virtueel netwerk
 * Een storage-account
@@ -54,7 +54,7 @@ Gebruik de PowerShell DSC-extensie voor [maken van een AD-domeincontrollerserver
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Implementeren van AD/SQL (niet-high-beschikbaarheid-implementatie)
 
-Gebruik de PowerShell DSC-extensie voor [maken van een zelfstandige server van SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) die omvat de volgende resources:
+Gebruik de PowerShell DSC-extensie voor [maken van een zelfstandige server van SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha) die omvat de volgende resources:
 
 * Een virtueel netwerk
 * Twee opslagaccounts
@@ -68,11 +68,11 @@ Gebruik de PowerShell DSC-extensie aan een bestaande virtuele machine lokale Con
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Een virtuele machine maken van een gebruikersinstallatiekopie
 
-[Een virtuele machine maken van een aangepaste gebruikersinstallatiekopie](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Deze sjabloon implementeert ook een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
+[Een virtuele machine maken van een aangepaste gebruikersinstallatiekopie](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image). Deze sjabloon implementeert ook een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
 
 ## <a name="basic-virtual-machine"></a>Eenvoudige virtuele machine
 
-[Een Windows-VM implementeren](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) die bestaat uit een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
+[Een Windows-VM implementeren](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) die bestaat uit een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuleren van een actieve sjabloonimplementatie
 

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/30/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 325071be56935ca02adccf69f99fa1718e3f7b91
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 64891991a96395b712cb99850874d974f8451ce6
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239420"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612828"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Zelfstudie: Voorwaarde gebruiken in Azure Resource Manager-sjablonen
 
@@ -41,7 +41,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 * [Visual Studio Code](https://code.visualstudio.com/) met de [extensie Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* Voor een verbeterde beveiliging gebruikt u een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine. Hier volgt een voorbeeld voor het genereren van een wachtwoord:
+* Gebruik een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine om de beveiliging te verhogen. Hier volgt een voorbeeld voor het genereren van een wachtwoord:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -59,7 +59,7 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Selecteer **Openen** om het bestand te openen.
-4. Er worden vijf resources gedefinieerd door de sjabloon:
+4. Er worden vijf resources gedefinieerd met de sjabloon:
 
     * `Microsoft.Storage/storageAccounts`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
     * `Microsoft.Network/publicIPAddresses`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
@@ -129,7 +129,7 @@ Hier volgt de procedure waarmee de wijzigingen kunnen worden aangebracht:
 
 Volg de instructies in [De sjabloon implementeren](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) om de sjabloon te implementeren.
 
-Wanneer u de sjabloon met behulp van Azure PowerShell implementeert, moet u één extra parameter opgeven. Voor een verbeterde beveiliging gebruikt u een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine. Zie [Vereisten](#prerequisites).
+Wanneer u de sjabloon met behulp van Azure PowerShell implementeert, moet u één extra parameter opgeven. Gebruik een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine om de beveiliging te verhogen. Zie [Vereisten](#prerequisites).
 
 ```azurepowershell
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 10f0062f27c03d8776415272766a1ec0729e1f80
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5f5e4ae85f18870ab6ed22ca010977efc28be058
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747283"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633883"
 ---
 <h1>Documentatie over Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.</p>
@@ -71,6 +71,25 @@ ms.locfileid: "50747283"
                             <div class="cardText">
                                 <h3>Taalondersteuning in Cognitive Services</h3>
                                 <p>Informatie over de menselijke talen die worden ondersteund door de Cognitive Services-API's.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services gebruiken in containers</h3>
+                                <p>Leer hoe u Azure Cognitive Services gebruikt in containers.</p>
                             </div>
                         </div>
                     </div>

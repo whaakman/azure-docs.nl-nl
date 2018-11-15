@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263749"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686259"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Fouten en uitzonderingen in Azure Logic Apps verwerken
 
@@ -73,7 +73,7 @@ U kunt ook handmatig opgeven het beleid voor opnieuw proberen in de `inputs` sec
 
 | Waarde | Type | Beschrijving |
 |-------|------|-------------|
-| <*opnieuw proberen beleidstype*> | Reeks | Het beleidstype dat u wilt gebruiken: 'standaard', 'none', 'fixed' of "exponentieel" | 
+| <*opnieuw proberen beleidstype*> | Reeks | Het beleidstype dat u wilt gebruiken: `default`, `none`, `fixed`, of `exponential` | 
 | <*interval voor opnieuw proberen*> | Reeks | Het interval voor opnieuw proberen waarbij de waarde moet gebruiken [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Het minimale interval is standaard `PT5S` en de maximale interval `PT1D`. Wanneer u het beleid voor exponentieel interval gebruikt, kunt u verschillende minimale en maximale waarden opgeven. | 
 | <*nieuwe pogingen*> | Geheel getal | Het aantal nieuwe pogingen tussen 1 en 90 moet | 
 ||||
@@ -221,9 +221,9 @@ Zie voor de limieten voor scopes [limieten en configuratie](../logic-apps/logic-
 
 ### <a name="get-context-and-results-for-failures"></a>Ophalen van context en de resultaten voor fouten
 
-Hoewel het afvangen van fouten van een scope nuttig is, kunt u ook context, zodat u inzicht in de precies welke acties mislukt plus eventuele fouten of statuscodes die zijn geretourneerd. De '@result() ' expressie biedt context over het resultaat van alle acties in een bereik.
+Hoewel het afvangen van fouten van een scope nuttig is, kunt u ook context, zodat u inzicht in de precies welke acties mislukt plus eventuele fouten of statuscodes die zijn geretourneerd. De `@result()` expressie biedt context over het resultaat van alle acties in een bereik.
 
-De '@result() ' expressie accepteert één parameter (naam van de scope) en retourneert een matrix met alle actie resultaten uit binnen dat bereik. Deze actie-objecten bevatten dezelfde kenmerken als de  **@actions()** object, zoals van de actie begintijd, eindtijd, status, invoer, correlatie-id's en uitvoer. Voor het verzenden van context voor alle acties die niet binnen een bereik, u gemakkelijk kunt combineren een  **@result()** werken met een **runAfter** eigenschap.
+De `@result()` expressie accepteert één parameter (naam van de scope) en retourneert een matrix met alle actie resultaten uit binnen dat bereik. Deze actie-objecten bevatten dezelfde kenmerken als de  **@actions()** object, zoals van de actie begintijd, eindtijd, status, invoer, correlatie-id's en uitvoer. Voor het verzenden van context voor alle acties die niet binnen een bereik, u gemakkelijk kunt combineren een  **@result()** werken met een **runAfter** eigenschap.
 
 Voor het uitvoeren van een actie voor elke actie in een bereik dat is een **mislukt** resultaat, en om te filteren op de matrix van de resultaten naar de mislukte acties, kan u worden gekoppeld  **@result()** met een **[Matrix filteren](../connectors/connectors-native-query.md)** actie en een [ **voor elk** ](../logic-apps/logic-apps-control-flow-loops.md) lus. U kunt de gefilterde resultaat matrix en een actie uitvoeren voor elke fout met behulp van de **voor elk** lus. 
 
@@ -270,22 +270,22 @@ Hier volgt een voorbeeld, gevolgd door een gedetailleerde uitleg, waarmee een HT
 
 Hier volgt een gedetailleerd overzicht waarin wordt beschreven wat er gebeurt in dit voorbeeld:
 
-1. Het resultaat ophalen van alle acties in 'My_Scope', de **matrix filteren** actie maakt gebruik van deze filterexpressie: "@result(My_Scope)"
+1. Het resultaat ophalen van alle acties in 'My_Scope', de **matrix filteren** actie maakt gebruik van deze filterexpressie: `@result('My_Scope')`
 
-2. De voorwaarde voor **matrix filteren** is een '@result() '-item op dat heeft een status die gelijk is aan **mislukt**. Deze voorwaarde filtert de matrix waarvoor alle actie resultaten uit "My_Scope" omlaag naar een matrix met alleen de resultaten van de actie is mislukt.
+2. De voorwaarde voor **matrix filteren** is een `@result()` item met de status die gelijk is aan **mislukt**. Deze voorwaarde filtert de matrix waarvoor alle actie resultaten uit "My_Scope" omlaag naar een matrix met alleen de resultaten van de actie is mislukt.
 
 3. Uitvoeren van een **voor elk** lus actie op de *gefilterde matrix* levert. Deze stap wordt een actie uitgevoerd voor elke mislukte actie resultaat dat eerder is gefilterd.
 
    Als één actie in het bereik is mislukt, de acties in de **voor elk** lus slechts eenmaal worden uitgevoerd. 
    Meerdere mislukte acties zorgen ervoor dat één actie per mislukt.
 
-4. Verzenden van een HTTP POST op de **voor elk** item antwoordtekst, dit is de '@item() ['uitvoer'] ['hoofdtekst'] ' expressie. 
+4. Verzenden van een HTTP POST op de **voor elk** item antwoordtekst, dit is de `@item()['outputs']['body']` expressie. 
 
-   De '@result() ' item vorm is hetzelfde als de "@actions() ' vorm en kan op dezelfde manier worden geparseerd.
+   De `@result()` item vorm is hetzelfde als de `@actions()` vorm en kan op dezelfde manier worden geparseerd.
 
-5. Bestaan uit twee aangepaste kopteksten met de actienaam van de is mislukt ("@item() ["naam"] ') en de tracerings-ID-client wordt uitgevoerd ("@item() [clientTrackingId] ').
+5. Twee aangepaste kopteksten met de actienaam van de mislukte bevatten (`@item()['name']`) en de tracerings-ID-client wordt uitgevoerd (`@item()['clientTrackingId']`).
 
-Ter referentie, Hier volgt een voorbeeld van een enkel "@result() '-item, weergegeven de **naam**, **hoofdtekst**, en **clientTrackingId** eigenschappen die worden geparseerd in de vorige voorbeeld. Buiten een **voor elk** actie '@result() ' retourneert een matrix van deze objecten.
+Ter referentie, Hier volgt een voorbeeld van een enkel `@result()` artikel, waarin de **naam**, **hoofdtekst**, en **clientTrackingId** eigenschappen die worden geparseerd in de vorige voorbeeld. Buiten een **voor elk** actie `@result()` retourneert een matrix van deze objecten.
 
 ```json
 {

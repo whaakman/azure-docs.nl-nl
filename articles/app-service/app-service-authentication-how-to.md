@@ -1,5 +1,5 @@
 ---
-title: Verificatie en autorisatie in Azure App Service aanpassen | Microsoft Docs
+title: Geavanceerd gebruik van verificatie en autorisatie in Azure App Service | Microsoft Docs
 description: Laat zien hoe u verificatie en autorisatie in App Service aanpassen en gebruikers- en andere tokens ophalen.
 services: app-service
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344167"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685324"
 ---
-# <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service aanpassen
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Geavanceerd gebruik van verificatie en autorisatie in Azure App Service
 
-Dit artikel leest u over het aanpassen van [verificatie en autorisatie in App Service](app-service-authentication-overview.md), en voor het beheren van de identiteit van uw toepassing. 
+Dit artikel leest u over het aanpassen van de ingebouwde [verificatie en autorisatie in App Service](app-service-authentication-overview.md), en voor het beheren van de identiteit van uw toepassing. 
 
 Als u wilt snel aan de slag, ziet u een van de volgende zelfstudies:
 
@@ -58,6 +58,48 @@ Als u wilt omleiden van de gebruiker na-aanmelden bij een aangepaste URL, gebrui
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="validate-tokens-from-providers"></a>Valideren van tokens van providers
+
+In een client omgeleid aanmelden, de toepassing handmatig meldt zich aan de gebruiker met de provider en vervolgens verzendt het verificatietoken naar App Service voor de validatie (Zie [verificatiestroom](app-service-authentication-overview.md#authentication-flow)). Deze validatie zelf verlenen niet daadwerkelijk u toegang tot de gewenste app-resources, maar een succesvolle validatie krijgt u een sessietoken dat u gebruiken kunt voor toegang tot app-resources. 
+
+Voor het valideren van de token van de provider moet App Service-app eerst worden geconfigureerd met de gewenste provider. Tijdens runtime, nadat u het verificatietoken uit uw provider ophalen, plaats het token voor `/.auth/login/<provider>` voor validatie. Bijvoorbeeld: 
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+De token indeling verschilt enigszins op basis van de provider. Zie de volgende tabel voor meer informatie:
+
+| Waarde van de provider | In de aanvraagtekst is vereist | Opmerkingen |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | De `expires_in` eigenschap is optioneel. <br/>Bij het aanvragen van de token van Live-services, aanvragen altijd de `wl.basic` bereik. |
+| `google` | `{"id_token":"<id_token>"}` | De `authorization_code` eigenschap is optioneel. Als u opgeeft, wordt eventueel ook kan worden gecombineerd met de `redirect_uri` eigenschap. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Gebruik een geldige [token voor gebruikerstoegang](https://developers.facebook.com/docs/facebook-login/access-tokens) uit Facebook. |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+Als het provider-token is gevalideerd, wordt de API retourneert met een `authenticationToken` in de hoofdtekst van het antwoord is uw sessietoken. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+Zodra u dit sessietoken hebt, kunt u beveiligde app-resources openen door het toevoegen van de `X-ZUMO-AUTH` header op uw HTTP-aanvragen. Bijvoorbeeld: 
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
 ```
 
 ## <a name="sign-out-of-a-session"></a>Een sessie afmelden
@@ -119,7 +161,7 @@ Uw toepassing vindt ook meer informatie over de geverifieerde gebruiker door het
 
 De provider-specifieke tokens zijn opgenomen in de aanvraagheader vanuit uw servercode zodat u ze gemakkelijk kunt openen. De volgende tabel bevat de naam van de mogelijke token header:
 
-| | |
+| Provider | Naam van de header |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook-Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |

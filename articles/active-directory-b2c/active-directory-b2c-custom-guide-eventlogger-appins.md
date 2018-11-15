@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ced100f0bdd20841648ca84dfcab1847bdcd3096
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362480"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684730"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Gebruikersgedrag in Azure Active Directory B2C met Application Insights bijhouden
 
@@ -31,7 +31,7 @@ Wanneer u Azure Active Directory (Azure AD) B2C, samen met Azure Application Ins
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-De Identity-Ervaringsframework in Azure AD B2C bevat de provider `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`. Het verzendt event gegevens rechtstreeks naar Application Insights met behulp van de instrumentatiesleutel die is opgegeven voor Azure AD B2C.
+De Identity-Ervaringsframework in Azure AD B2C bevat de provider `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Het verzendt event gegevens rechtstreeks naar Application Insights met behulp van de instrumentatiesleutel die is opgegeven voor Azure AD B2C.
 
 Een technisch profiel gebruikt deze provider voor het definiëren van een gebeurtenis van Azure AD B2C. Het profiel bevat de naam van de gebeurtenis, de claims die worden vastgelegd en de instrumentatiesleutel. Als u een bericht op een gebeurtenis, klikt u vervolgens het technische profiel wordt toegevoegd als een `orchestration step`, of als een `validation technical profile` in een aangepaste gebruikersbeleving.
 

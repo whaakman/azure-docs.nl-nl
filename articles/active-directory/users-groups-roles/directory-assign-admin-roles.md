@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: ebd922d27a9a3dc32a73066d38ecc176a466bae9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623924"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686123"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -213,8 +213,8 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Werk de eigenschap servicePrincipals.appRoleAssignments bij in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Werk de eigenschap servicePrincipals.owners bij in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Werk de eigenschap servicePrincipals.policies bij in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Beheer licenties voor gebruikers in Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Lees Azure AD-rapporten. |
+| microsoft.aad.reports/applicationAuditLogs/read | Lees applicationAuditLogs in Azure AD-rapporten. |
+| microsoft.aad.reports/applicationSignInReports/read | Lees applicationSignInReports in Azure AD-rapporten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
@@ -317,8 +317,8 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve
 | microsoft.aad.directory/servicePrincipals/delete | Verwijder servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Werk de eigenschap servicePrincipals.owners bij in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Werk de eigenschap servicePrincipals.policies bij in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Beheer licenties voor gebruikers in Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Lees Azure AD-rapporten. |
+| microsoft.aad.reports/applicationAuditLogs/read | Lees applicationAuditLogs in Azure AD-rapporten. |
+| microsoft.aad.reports/applicationSignInReports/read | Lees applicationSignInReports in Azure AD-rapporten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
@@ -337,7 +337,8 @@ Volledige toegang om apparaten te beheren in Azure AD.
 | Microsoft.AAD.Directory/Devices/DELETE | Verwijder apparaten in Azure Active Directory. |
 | Microsoft.AAD.Directory/Devices/disable | Schakel apparaten uit in Azure Active Directory. |
 | Microsoft.AAD.Directory/Devices/Enable | Inschakelen dat apparaten in Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Lees Azure AD-rapporten. |
+| microsoft.aad.reports/applicationAuditLogs/read | Lees applicationAuditLogs in Azure AD-rapporten. |
+| microsoft.aad.reports/applicationSignInReports/read | Lees applicationSignInReports in Azure AD-rapporten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
@@ -385,7 +386,8 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 | microsoft.aad.directorySync/allEntities/allTasks | Voer alle acties uit in Azure AD Connect. |
 | microsoft.aad.identityProtection/allEntities/allTasks | Maak en verwijder alle resources en lees de standaardeigenschappen in microsoft.aad.identityProtection en werk deze bij. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Lees alle resources in microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.reports/allEntities/allTasks | Lees en configureer Azure AD-rapporten. |
+| microsoft.aad.reports/applicationAuditLogs/read | Lees applicationAuditLogs in Azure AD-rapporten. |
+| microsoft.aad.reports/applicationSignInReports/read | Lees applicationSignInReports in Azure AD-rapporten. |
 | microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Beheer alle aspecten van Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
@@ -447,6 +449,28 @@ Kan de mogelijkheden van voorwaardelijke toegang beheren.
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Lees de eigenschap policies.conditionalAccess in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Werk de eigenschap policies.conditionalAccess bij in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Lees de eigenschap policies.conditionalAccess in Azure Active Directory. |
+
+### <a name="crm-service-administrator"></a>CRM-servicebeheerder
+Kan alle aspecten van het Dynamics 365-product beheren.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+
+  > [!NOTE]
+  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
+| microsoft.powerApps.dynamics365/allEntities/allTasks | Beheer alle aspecten van Dynamics 365. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
 ### <a name="customer-lockbox-access-approver"></a>Toegangsfiatteur voor Klanten-lockbox
 Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren.
@@ -604,28 +628,8 @@ Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toe
 | Microsoft.AAD.Directory/Users/Manager/Update | Werk de eigenschap users.manager bij in Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Werk de eigenschap users.userPrincipalName bij in Azure Active Directory. |
 
-### <a name="dynamics-365-administrator"></a>Dynamics 365-beheerder
-Kan alle aspecten van het Dynamics 365-product beheren. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als "Dynamics 365-servicebeheerder." Het is 'Dynamics 365-beheerder' in Azure portal.
-
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  > Deze rol heeft ook aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
-| microsoft.powerApps.dynamics365/allEntities/allTasks | Beheer alle aspecten van Dynamics 365. |
-| Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
-| Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
-
-### <a name="exchange-administrator"></a>Exchange-beheerder
-Kan alle aspecten van het product Exchange beheren. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als "Exchange Service-beheerder." Het is ' Exchange-beheerder ' in Azure portal.
+### <a name="exchange-service-administrator"></a>Exchange Service-beheerder
+Kan alle aspecten van het product Exchange beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -640,13 +644,14 @@ Kan alle aspecten van het product Exchange beheren. In Microsoft Graph API, Azur
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | De eigenschap groups.unified in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Groups/Unified/Basic/update | Werk de basiseigenschappen van Office 365-groepen. |
 | Microsoft.AAD.Directory/Groups/Unified/Create | Office 365-groepen maken. |
 | Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
-| Microsoft.AAD.Directory/Groups/Unified/Basic/update | Werk de basiseigenschappen van Office 365-groepen. |
 | Microsoft.AAD.Directory/Groups/Unified/Members/update | Lidmaatschap van Office 365-groepen bijwerken. |
 | Microsoft.AAD.Directory/Groups/Unified/Owners/update | Eigendom van Office 365-groepen bijwerken. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | Microsoft.Office365.Exchange/allEntities/allTasks | Beheer alle aspecten van Exchange Online. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
@@ -713,8 +718,8 @@ Kan alle aspecten van het product Azure Information Protection beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="intune-administrator"></a>Intune-beheerder
-Kan alle aspecten van het product Intune beheren. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als ' Intune-servicebeheerder. " Het is ' Intune-beheerder ' in Azure portal.
+### <a name="intune-service-administrator"></a>Intune-servicebeheerder
+Kan alle aspecten van het product Intune beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -769,8 +774,8 @@ Kan productlicenties voor gebruikers en groepen beheren.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-### <a name="skype-for-business-administrator"></a>Skype voor Bedrijven-beheerder
-Kan alle aspecten van het product Skype voor Bedrijven beheren. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als "Skype voor bedrijven-servicebeheerder." Het is 'Skype voor bedrijven-beheerder' in Azure portal.
+### <a name="lync-service-administrator"></a>Lync-servicebeheerder
+Kan alle aspecten van het product Skype voor Bedrijven beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -886,8 +891,8 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="power-bi-administrator"></a>Power BI-beheerder
-Kan alle aspecten van het Power BI-product beheren. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als ' Power BI-servicebeheerder. " Het is 'Power BI-beheerder' in Azure portal.
+### <a name="power-bi-service-administrator"></a>Servicebeheerder van Power BI
+Kan alle aspecten van het Power BI-product beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -941,7 +946,8 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| microsoft.aad.reports/allEntities/read | Lees Azure AD-rapporten. |
+| microsoft.aad.reports/applicationAuditLogs/read | Lees applicationAuditLogs in Azure AD-rapporten. |
+| microsoft.aad.reports/applicationSignInReports/read | Lees applicationSignInReports in Azure AD-rapporten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.usageReports/allEntities/Read | Lees Office 365-gebruiksrapporten. |
@@ -970,6 +976,8 @@ Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD
 | microsoft.aad.identityProtection/allEntities/read | Lees alle resources in microsoft.aad.identityProtection. |
 | microsoft.aad.identityProtection/allEntities/update | Werk alle resources bij in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Lees alle resources in microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.reports/applicationAuditLogs/read | Lees applicationAuditLogs in Azure AD-rapporten. |
+| microsoft.aad.reports/applicationSignInReports/read | Lees applicationSignInReports in Azure AD-rapporten. |
 | microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | Microsoft.Office365.protectionCenter/allEntities/Read | Lees alle aspecten van Office 365 Protection Center. |
@@ -993,6 +1001,8 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 | --- | --- |
 | microsoft.aad.identityProtection/allEntities/read | Lees alle resources in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Lees alle resources in microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.reports/applicationAuditLogs/read | Lees applicationAuditLogs in Azure AD-rapporten. |
+| microsoft.aad.reports/applicationSignInReports/read | Lees applicationSignInReports in Azure AD-rapporten. |
 | microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | Microsoft.Office365.protectionCenter/allEntities/Read | Lees alle aspecten van Office 365 Protection Center. |
@@ -1019,8 +1029,8 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="sharepoint-administrator"></a>SharePoint-beheerder
-Kan alle aspecten van de SharePoint-service beheren. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als "SharePoint-servicebeheerder." Het is ' SharePoint-beheerder ' in Azure portal.
+### <a name="sharepoint-service-administrator"></a>SharePoint Service-beheerder
+Kan alle aspecten van de SharePoint-service beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -1035,12 +1045,14 @@ Kan alle aspecten van de SharePoint-service beheren. In Microsoft Graph API, Azu
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
-| Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | De eigenschap groups.unified in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Groups/Unified/Basic/update | Werk de basiseigenschappen van Office 365-groepen. |
+| Microsoft.AAD.Directory/Groups/Unified/Create | Office 365-groepen maken. |
+| Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
 | Microsoft.AAD.Directory/Groups/Unified/Members/update | Lidmaatschap van Office 365-groepen bijwerken. |
 | Microsoft.AAD.Directory/Groups/Unified/Owners/update | Eigendom van Office 365-groepen bijwerken. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.SharePoint/allEntities/allTasks | Maak en verwijder alle resources en lees de standaardeigenschappen in microsoft.office365.sharepoint en werk deze bij. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
@@ -1108,8 +1120,8 @@ Kan communicatieproblemen in Teams oplossen met basishulpprogramma's.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-### <a name="teams-administrator"></a>Teams beheerder
-Kan de service Microsoft Teams beheren. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, deze rol aangeduid als ' Teams-servicebeheerder. " Het is 'Teams beheerder' in Azure portal.
+### <a name="teams-service-administrator"></a>Teams-servicebeheerder
+Kan de service Microsoft Teams beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -1124,11 +1136,13 @@ Kan de service Microsoft Teams beheren. In Microsoft Graph API, Azure AD Graph A
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Lees de eigenschap groups.hiddenMembers in Azure Active Directory. |
-| Microsoft.AAD.Directory/Policies/Basic/Read | Lees de eigen basiseigenschappen voor beleid in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | De eigenschap groups.unified in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Groups/Unified/Basic/update | Werk de basiseigenschappen van Office 365-groepen. |
+| Microsoft.AAD.Directory/Groups/Unified/Create | Office 365-groepen maken. |
+| Microsoft.AAD.Directory/Groups/Unified/DELETE | Office 365-groepen verwijderen. |
 | Microsoft.AAD.Directory/Groups/Unified/Members/update | Lidmaatschap van Office 365-groepen bijwerken. |
 | Microsoft.AAD.Directory/Groups/Unified/Owners/update | Eigendom van Office 365-groepen bijwerken. |
+| Microsoft.AAD.Directory/Policies/Basic/Read | Lees de eigen basiseigenschappen voor beleid in Azure Active Directory. |
 | microsoft.azure.accessService/allEntities/allTasks | Beheer alle aspecten van de service Azure Access. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |

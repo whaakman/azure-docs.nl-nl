@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/05/2018
 ms.author: yushwang
-ms.openlocfilehash: cbbba60f42c2e0ef7a6e53c34e883e2fdf6f8781
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e93f1174f0beaa7b1c8b3164081714281d5b1050
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229166"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687534"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
@@ -39,7 +39,7 @@ U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbindin
 
 We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies in de volgende lijst kunnen met VPN-gateways worden gebruikt. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor informatie over welk VPN-type u moet gebruiken (PolicyBased of RouteBased) voor de VPN-gatewayoplossing die u wilt configureren.
 
-Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
+Om te helpen uw VPN-apparaat configureren, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
 |**Leverancier**          |**Apparaatfamilie**     |**Minimale versie van het besturingssysteem** |**PolicyBased configuratie-instructies** |**RouteBased configuratie-instructies** |
 | ---                | ---                  | ---                   | ---            | ---           |

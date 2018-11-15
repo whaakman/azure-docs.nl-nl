@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: ea1e3ca76f779f442c9d22478ea93de3d5ab83f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088103"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614512"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -279,7 +279,7 @@ Als u gegevens uit een gegevensopslag in een particulier netwerk (on-premises) n
    ![Zelf-hostende IR-naam](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. Klik in de sectie **Optie 1: snelle installatie** op **Klik hier om de snelle installatie voor deze computer te starten**. 
 
-   ![Klik op de koppeling Snelle installatie](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![Klik op de koppeling Snelle installatie](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Klik in het venster **Snelle installatie van integratieruntime (zelf-hostend)** op **Sluiten**. 
 
    ![Installatie van integratieruntime - geslaagd](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)

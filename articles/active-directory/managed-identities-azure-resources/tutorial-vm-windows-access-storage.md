@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: 46be9469e67a4f456be100823d475b8720262b1b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d032d8cc33d33954406ad45e64fc199d569abf41
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163172"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620932"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage
 
@@ -37,15 +37,7 @@ Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Storage met een door he
 
 ## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Aanmelden bij de Azure-portal](https://portal.azure.com)
-
-- [Een virtuele Windows-machine maken](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Door het systeem toegewezen beheerde identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 
@@ -90,7 +82,7 @@ U kunt de door het systeem toegewezen beheerde identiteit van de virtuele machin
 
     ![Machtigingen toewijzen](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Een toegangstoken ophalen en daarmee Azure Storage aanroepen 
+## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Een toegangstoken ophalen en daarmee Azure Storage aanroepen 
 
 Azure Storage biedt systeemeigen ondersteuning voor Microsoft Azure AD-verificatie, zodat toegangstokens die zijn verkregen met behulp van een beheerde identiteit direct kunnen worden geaccepteerd. Dit maakt deel uit van de integratie van Azure Storage met Azure AD en wijkt af van het opgeven van referenties in de verbindingsreeks.
 

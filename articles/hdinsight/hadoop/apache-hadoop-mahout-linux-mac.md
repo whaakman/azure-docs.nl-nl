@@ -1,5 +1,5 @@
 ---
-title: Genereren van aanbevelingen met Mahout en HDInsight (SSH) - Azure
+title: Genereren van aanbevelingen met behulp van Apache Mahout en HDInsight (SSH) - Azure
 description: Informatie over het gebruik van de Apache Mahout-machine learning-bibliotheek Genereer filmaanbevelingen met HDInsight (Hadoop).
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 4e91074fe5c003522138c9e202dc21d2af69227c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1025b004eb49f82532d3815be3536dbc1f336273
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014751"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634614"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Hadoop op basis van Linux in HDInsight (SSH)
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Apache Hadoop op basis van Linux in HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 

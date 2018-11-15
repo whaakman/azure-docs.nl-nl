@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a6bdafffb11fce40ecdd876105e17edd2660c751
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466900"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686956"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van PowerShell
 
@@ -125,7 +125,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 1. Declareer uw variabelen. In dit voorbeeld worden de variabelen gedeclareerd met de waarden voor deze oefening. In de meeste gevallen moet u de waarden vervangen door uw eigen waarden. U kunt deze variabelen echter gebruiken als u de stappen alleen wilt doorlopen om vertrouwd te raken met dit type configuratie. Wijzig de variabelen als dat nodig is en kopieer en plak ze vervolgens in uw PowerShell-console.
 
   ```powershell
-  $Sub1 = "Replace_With_Your_Subcription_Name"
+  $Sub1 = "Replace_With_Your_Subscription_Name"
   $RG1 = "TestRG1"
   $Location1 = "East US"
   $VNetName1 = "TestVNet1"
@@ -323,7 +323,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit de
 1. Declareer uw variabelen. Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken.
 
   ```powershell
-  $Sub5 = "Replace_With_the_New_Subcription_Name"
+  $Sub5 = "Replace_With_the_New_Subscription_Name"
   $RG5 = "TestRG5"
   $Location5 = "Japan East"
   $VnetName5 = "TestVNet5"

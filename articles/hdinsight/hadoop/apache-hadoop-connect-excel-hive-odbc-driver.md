@@ -1,5 +1,5 @@
 ---
-title: Koppel Excel aan Hadoop met het Hive ODBC-stuurprogramma - Azure HDInsight
+title: Excel verbinden met Apache Hadoop met het Hive ODBC-stuurprogramma - Azure HDInsight
 description: Informatie over het instellen en het Microsoft Hive ODBC-stuurprogramma voor Excel gebruiken om gegevens te doorzoeken in HDInsight-clusters uit Microsoft Excel.
 keywords: hadoop excel-, hive-excel-, hive odbc
 services: hdinsight
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ecdde9b5ac4c6c303edf553af3eb33986d4fb199
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005084"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632506"
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel verbinden met Hadoop in Azure HDInsight met het Microsoft Hive ODBC-stuurprogramma
+# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel verbinden met Apache Hadoop in Azure HDInsight met het Microsoft Hive ODBC-stuurprogramma
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -39,7 +39,7 @@ Download en installeer Microsoft Hive ODBC-stuurprogramma van de [Downloadcentru
 
 Dit stuurprogramma kan worden geïnstalleerd op 32-bits of 64-bits versies van Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 en Windows Server 2012. Het stuurprogramma kunt verbinding maken met Azure HDInsight. U moet de versie die overeenkomt met de versie van de toepassing waar u het ODBC-stuurprogramma installeren. Voor deze zelfstudie wordt het stuurprogramma van Office Excel gebruikt.
 
-## <a name="create-hive-odbc-data-source"></a>Hive ODBC-gegevensbron maken
+## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC-gegevensbron maken
 De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.
 
 1. Druk op de Windows-sleutel voor het openen van het startscherm van Windows 8 of Windows 10, en typ vervolgens **gegevensbronnen**.

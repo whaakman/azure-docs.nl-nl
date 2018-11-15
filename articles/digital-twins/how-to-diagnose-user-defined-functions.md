@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946093"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636268"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in problemen met de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -42,12 +42,12 @@ Na het verzenden van telemetrie, opent u de Azure Log Analytics om op te vragen 
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Naam van aangepast kenmerk | Vervangen |
+| Waarde opvragen | Vervangen door |
 | --- | --- |
-| *yourCorrelationIdentifier* | De correlatie-ID die is opgegeven in de gebeurtenisgegevens |
+| YOUR_CORRELATION_IDENTIFIER | De correlatie-ID die is opgegeven in de gebeurtenisgegevens |
 
 Als u zich aanmeldt voor de gebruiker gedefinieerde functie, deze logboeken wordt weergegeven in uw Azure-logboekanalyse-exemplaar met de categorie `UserDefinedFunction`. Om op te halen ze, voer de volgende queryvoorwaarde in Azure Log Analytics:
 
@@ -62,6 +62,8 @@ Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query'
 
 Zowel opsporen en identificeren van algemene problemen zijn belangrijk bij het oplossen van uw oplossing. Enkele veelvoorkomende problemen opgetreden bij het ontwikkelen, door de gebruiker gedefinieerde functies worden samengevat hieronder.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>Zorg ervoor dat een roltoewijzing is gemaakt
 
 De gebruiker gedefinieerde functie heeft toegang tot het uitvoeren van acties zoals het verzenden van meldingen, bij het ophalen van metagegevens, niet zonder een roltoewijzing gemaakt binnen de beheer-API, en instelling berekende waarden in de topologie.
@@ -69,13 +71,12 @@ De gebruiker gedefinieerde functie heeft toegang tot het uitvoeren van acties zo
 Controleer of een roltoewijzing voor de gebruiker gedefinieerde functie door uw API Management:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Naam van aangepast kenmerk | Vervangen |
+| Parameter | Vervangen door |
 | --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
-| *yourUserDefinedFunctionId* | De ID van de gebruiker gedefinieerde functie om op te halen van roltoewijzingen voor|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | De ID van de gebruiker gedefinieerde functie om op te halen van roltoewijzingen voor|
 
 Als er geen roltoewijzing wordt opgehaald, volgt u in dit artikel op [over het maken van een roltoewijzing voor de gebruiker gedefinieerde functie](./how-to-user-defined-functions.md).
 
@@ -84,14 +85,13 @@ Als er geen roltoewijzing wordt opgehaald, volgt u in dit artikel op [over het m
 Met de volgende oproep verzenden op basis van uw digitale dubbels Azure-instanties Management-API, kunt u zich om te bepalen of een bepaalde matcher voor de opgegeven sensor geldt.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Naam van aangepast kenmerk | Vervangen |
+| Parameter | Vervangen door |
 | --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
-| *yourMatcherIdentifier* | De ID van de matcher die u wilt evalueren |
-| *yourSensorIdentifier* | De ID van de sensor die u wilt evalueren |
+| *YOUR_MATCHER_IDENTIFIER* | De ID van de matcher die u wilt evalueren |
+| *YOUR_SENSOR_IDENTIFIER* | De ID van de sensor die u wilt evalueren |
 
 Reactie:
 
@@ -109,13 +109,12 @@ Reactie:
 Met de volgende oproep verzenden op basis van uw digitale dubbels Azure-instanties Management-API, kunt u zich aan de id's van de gebruiker gedefinieerde functies die worden geactiveerd door de opgegeven sensor binnenkomende telemetriegegevens te bepalen:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Naam van aangepast kenmerk | Vervangen |
+| Parameter | Vervangen door |
 | --- | --- |
-| *yourManagementApiUrl* | De volledige URL-pad voor uw API Management  |
-| *yourSensorIdentifier* | De ID van de sensor die van telemetrie verzenden |
+| *YOUR_SENSOR_IDENTIFIER* | De ID van de sensor die van telemetrie verzenden |
 
 Reactie:
 

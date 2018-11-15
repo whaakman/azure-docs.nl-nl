@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408061"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685664"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -92,7 +92,7 @@ Als u verificatie en autorisatie met een van deze providers inschakelt, is het e
 De verificatie-stroom is hetzelfde voor alle providers, maar is afhankelijk van of u wilt aanmelden met de SDK van de provider:
 
 - Zonder de SDK-provider: de toepassing delegeert federatieve aanmelding naar App Service. Dit is meestal het geval is bij de browser-apps, die de aanmeldingspagina van de provider voor de gebruiker kan opleveren. De code de aanmeldprocedure beheert, zodat deze wordt ook wel genoemd _server gerichte stroom_ of _server flow_. Dit geldt voor web-apps. Dit geldt ook voor systeemeigen apps waarmee gebruikers bij het gebruik van de client-SDK van de Mobile Apps, omdat de SDK een weergave webpagina gebruikers zich aanmelden met App Service-verificatie wordt geopend. 
-- Met de SDK-provider: de toepassing zich van de gebruiker handmatig en klikt u vervolgens verzendt het verificatietoken naar App Service voor validatie. Dit is meestal het geval is bij de browser zonder apps, die de aanmeldingspagina van de provider voor de gebruiker kan niet aanwezig. De toepassingscode beheert het aanmeldingsproces, zodat deze wordt ook wel genoemd _client omgeleid stroom_ of _clientstroom_. Dit geldt voor de REST-API's, [Azure Functions](../azure-functions/functions-overview.md), en JavaScript-browser-clients, evenals web-apps die meer flexibiliteit in de aanmeldprocedure. Dit geldt ook voor systeemeigen mobiele apps waarmee gebruikers in met behulp van de SDK van de provider.
+- Met de SDK-provider: de toepassing zich gebruikers in de provider handmatig en klikt u vervolgens verzendt het verificatietoken naar App Service voor validatie. Dit is meestal het geval is bij de browser zonder apps, die de aanmeldingspagina van de provider voor de gebruiker kan niet aanwezig. De toepassingscode beheert het aanmeldingsproces, zodat deze wordt ook wel genoemd _client omgeleid stroom_ of _clientstroom_. Dit geldt voor de REST-API's, [Azure Functions](../azure-functions/functions-overview.md), en JavaScript-browser-clients, evenals web-apps die meer flexibiliteit in de aanmeldprocedure. Dit geldt ook voor systeemeigen mobiele apps waarmee gebruikers in met behulp van de SDK van de provider.
 
 > [!NOTE]
 > Een andere REST-API-aanroepen vanuit een vertrouwde browserapp in App Service aanroepen in App Service of [Azure Functions](../azure-functions/functions-overview.md) kan worden geverifieerd met behulp van de flow-server omgeleid. Zie voor meer informatie, [aanpassen verificatie en autorisatie in App Service](app-service-authentication-how-to.md).
@@ -103,7 +103,7 @@ De onderstaande tabel bevat de stappen van de verificatiestroom.
 | Stap | Zonder de SDK-provider | Met de SDK-provider |
 | - | - | - |
 | 1. Aanmelding van gebruiker in | -Client wordt omgeleid `/.auth/login/<provider>`. | Clientcode gebruiker zich aanmeldt rechtstreeks met de SDK van de provider en ontvangt een verificatietoken. Voor meer informatie, Zie de documentatie van de provider. |
-| 2. Post-authenticatie | Provider-client wordt omgeleid `/.auth/login/<provider>/callback`. | Clientcode token berichten van de leverancier van `/.auth/login/<provider>` voor validatie. |
+| 2. Post-authenticatie | Provider-client wordt omgeleid `/.auth/login/<provider>/callback`. | Clientcode [token berichten van de provider](app-service-authentication-how-to.md#validate-tokens-from-providers) naar `/.auth/login/<provider>` voor validatie. |
 | 3. Geverifieerde sessie tot stand brengen | App Service kunt u geverifieerde cookie aan antwoord toegevoegd. | App Service retourneert een eigen verificatietoken clientcode. |
 | 4. Geverifieerde inhoud leveren | Client omvat verificatiecookie in de volgende aanvragen (automatisch afgehandeld door de browser). | Clientcode is in het verificatietoken `X-ZUMO-AUTH` header (automatisch afgehandeld door Mobile Apps client-SDK's). |
 

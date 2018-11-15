@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92553fc8867a482c0af99c4ba3937dcc0d2f09e6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: eeb615a89469ef8c165ed7ad76acaa01493f78ec
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158099"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625535"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage via een toegangssleutel
 
@@ -35,15 +35,7 @@ Deze zelfstudie laat zien hoe u toegangssleutels voor opslagaccounts kunt ophale
 
 ## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Aanmelden bij de Azure-portal](https://portal.azure.com)
-
-- [Een virtuele Windows-machine maken](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Door het systeem toegewezen beheerde identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 
@@ -83,7 +75,7 @@ Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  
 
     ![Alt-tekst voor afbeelding](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de door het systeem toegewezen beheerde identiteit van de VM voor het aanroepen van Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de door het systeem toegewezen beheerde identiteit van de VM voor het aanroepen van Azure Resource Manager 
 
 Voor de rest van de zelfstudie werken we op de virtuele machine die we eerder hebben gemaakt. 
 

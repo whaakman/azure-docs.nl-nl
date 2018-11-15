@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304132"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614018"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Gegevens van een on-premises SQL-serverdatabase naar Azure Blob Storage kopiëren
 In deze zelfstudie gebruikt u de gebruikersinterface (UI) van Azure Data Factory om een pijplijn voor een data factory te maken waarmee gegevens worden gekopieerd van een on-premises SQL Server-database naar Azure Blob-opslag. U gaat een zelf-hostende Integration Runtime maken en gebruiken. Deze verplaatst gegevens van on-premises gegevensarchieven en gegevensarchieven in de cloud en omgekeerd.
@@ -44,7 +44,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ### <a name="azure-roles"></a>Azure-rollen
 Als u data factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, toegewezen zijn aan de rollen *Inzender* of *Eigenaar*, of moet dit een *beheerder* van het Azure-abonnement zijn. 
 
-Ga naar de Azure-portal als u de machtigingen wilt weergeven die u hebt in het abonnement. Selecteer uw gebruikersnaam in de rechterbovenhoek en selecteer vervolgens **Machtigingen**. Als u toegang tot meerdere abonnementen hebt, moet u het juiste abonnement selecteren. Zie [Toegang beheren met RBAC en de Azure-portal](../role-based-access-control/role-assignments-portal.md) voor voorbeeldinstructies voor het toevoegen van een gebruiker aan een rol.
+Ga naar Azure Portal als u de machtigingen wilt weergeven die u hebt in het abonnement. Selecteer uw gebruikersnaam in de rechterbovenhoek en selecteer vervolgens **Machtigingen**. Als u toegang tot meerdere abonnementen hebt, moet u het juiste abonnement selecteren. Zie [Toegang beheren met RBAC en de Azure-portal](../role-based-access-control/role-assignments-portal.md) voor voorbeeldinstructies voor het toevoegen van een gebruiker aan een rol.
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 en 2017
 In deze zelfstudie gebruikt u een on-premises SQL Server-database als een *brongegevensopslag*. De pijplijn in de data factory die u in deze zelfstudie gaat maken, kopieert gegevens van deze on-premises SQL Server-database (bron) naar Blob-opslag (sink). Maak een tabel met de naam **emp** in uw SQL Server-database en voeg een aantal voorbeeldgegevens toe aan de tabel. 
@@ -80,7 +80,7 @@ In deze zelfstudie gaat u een algemeen Azure Storage-account (en dan met name Bl
 #### <a name="get-the-storage-account-name-and-account-key"></a>De naam en sleutel van een opslagaccount ophalen
 In deze zelfstudie gaat u de naam en sleutel van uw opslagaccount gebruiken. Voer de volgende stappen uit om de naam en sleutel van uw opslagaccount op te halen: 
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met uw Azure-gebruikersnaam en -wachtwoord. 
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) met uw Azure-gebruikersnaam en -wachtwoord. 
 
 1. Selecteer in het linkerdeelvenster **Meer services**. Filter met behulp van het sleutelwoord **Opslag** en selecteer vervolgens **Opslagaccounts**.
 
@@ -111,7 +111,7 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
 
 1. Selecteer **adftutorial** in de lijst met containers.
 
-    ![Container selecteren](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Container selecteren](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Houd het venster **Container** voor **adftutorial** geopend. U gaat hiermee aan het einde van deze zelfstudie de uitvoer controleren. In Data Factory wordt automatisch in deze container de uitvoermap gemaakt, zodat u er zelf geen hoeft te maken.
 
@@ -197,7 +197,7 @@ De naam van de data factory moet *wereldwijd uniek* zijn. Als het volgende foutb
 
 1. Selecteer bij **Optie 1: snelle installatie** op **Klik hier om de snelle installatie voor deze computer te starten**. 
 
-    ![Koppeling Snelle installatie](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Koppeling Snelle installatie](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. Selecteer **Sluiten** in het venster **Snelle installatie van integratieruntime (zelf-hostend)**. 
 
@@ -237,7 +237,7 @@ De naam van de data factory moet *wereldwijd uniek* zijn. Als het volgende foutb
 
 1. Ga naar het tabblad met de **SQLServerToBlobPipeline** of selecteer **SQLServerToBlobPipeline** in de structuurweergave. 
 
-    ![Tabblad Pijplijn](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Tabblad Pijplijn](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Ga naar het tabblad **Sink** onder in het venster **Eigenschappen** en selecteer **+ Nieuw**. 
 

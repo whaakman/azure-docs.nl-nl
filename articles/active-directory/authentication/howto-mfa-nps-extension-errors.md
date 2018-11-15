@@ -5,21 +5,21 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036662"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634223"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
 
-Als er fouten met de NPS-extensie voor Azure multi-factor Authentication optreden, gebruikt u in dit artikel sneller een oplossing is bereikt. 
+Als er fouten met de NPS-extensie voor Azure multi-factor Authentication optreden, gebruikt u in dit artikel sneller een oplossing is bereikt. NPS-extensie Logboeken vindt u in Logboeken onder **aangepaste weergaven** > **serverfuncties** > **Network Policy and Access Services** op de de server waarop de NPS-extensie is geïnstalleerd.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Stappen voor probleemoplossing voor algemene fouten
 
@@ -36,9 +36,6 @@ Als er fouten met de NPS-extensie voor Azure multi-factor Authentication optrede
 | **REQUEST_MISSING_CODE** | Zorg ervoor dat de wachtwoord-versleutelingsprotocol tussen de NPS- en NAS-servers biedt ondersteuning voor de secundaire verificatiemethode die u gebruikt. **PAP** biedt ondersteuning voor alle verificatiemethoden van Azure MFA in de cloud: telefonische oproep, eenzijdige SMS-bericht, mobiele app-meldingen en verificatiecode via mobiele app. **CHAPv2** en **EAP** ondersteuning bellen en mobiele app-meldingen. |
 | **USERNAME_CANONICALIZATION_ERROR** | Controleer of de gebruiker aanwezig zijn in uw on-premises Active Directory-exemplaar, en dat de NPS-Service beschikt over machtigingen voor toegang tot de map. Als u vertrouwensrelaties tussen forests, [contact op met ondersteuning](#contact-microsoft-support) voor verdere assistentie. |
 
-
-   
-
 ### <a name="alternate-login-id-errors"></a>Alternatieve aanmeldings-ID-fouten
 
 | Foutcode | Foutbericht | Stappen voor probleemoplossing |
@@ -46,7 +43,6 @@ Als er fouten met de NPS-extensie voor Azure multi-factor Authentication optrede
 | **ALTERNATE_LOGIN_ID_ERROR** | Fout: userObjectSid-zoekactie is mislukt | Controleer of de gebruiker bestaat in uw on-premises Active Directory-exemplaar. Als u vertrouwensrelaties tussen forests, [contact op met ondersteuning](#contact-microsoft-support) voor verdere assistentie. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fout: Alternatieve LoginId-zoekactie is mislukt | Controleren of LDAP_ALTERNATE_LOGINID_ATTRIBUTE is ingesteld op een [geldig active directory-kenmerk](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Als LDAP_FORCE_GLOBAL_CATALOG is ingesteld op True of LDAP_LOOKUP_FORESTS is geconfigureerd met een niet-lege waarde, verifieert u dat u een globale catalogus hebt geconfigureerd en dat het kenmerk AlternateLoginId wordt toegevoegd aan het. <br><br> Als LDAP_LOOKUP_FORESTS is geconfigureerd met een niet-lege waarde, moet u controleren of de waarde juist is. Als er meer dan één naam van het forest, moeten de namen worden gescheiden door puntkomma's, geen spaties. <br><br> Als deze stappen het probleem niet oplost [contact op met ondersteuning](#contact-microsoft-support) voor meer informatie. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fout: Alternatieve LoginId waarde is leeg | Controleren of het kenmerk AlternateLoginId is geconfigureerd voor de gebruiker. |
-
 
 ## <a name="errors-your-users-may-encounter"></a>Fouten met uw gebruikers optreden kunnen
 
@@ -97,7 +93,7 @@ Als u een van deze fouten ondervindt, raden we u [contact op met ondersteuning](
 
 ### <a name="troubleshoot-user-accounts"></a>Accounts van gebruikers oplossen
 
-Als uw gebruikers zich [problemen hebt met verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-troubleshoot.md), help ze zelf diagnose problemen. 
+Als uw gebruikers zich [problemen hebt met verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-troubleshoot.md), help ze zelf diagnose problemen.
 
 ### <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft Ondersteuning
 
@@ -131,5 +127,3 @@ Voor het verzamelen van Logboeken voor foutopsporing voor ondersteuning van diag
 
 5. Open de Register-Editor en blader naar HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** naar **FALSE**
 6. De inhoud van de map C:\NPS ZIP en het ZIP-bestand koppelen aan de ondersteuningsaanvraag.
-
-

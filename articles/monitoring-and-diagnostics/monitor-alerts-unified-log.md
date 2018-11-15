@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51bdc228e27d643cfda75d1e21bc8ea45fe09e3c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dae003b011e8e33f0ae935d6dd8399a5687dff6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613287"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633764"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
 Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](monitoring-overview-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
@@ -106,7 +106,7 @@ Nu wordt ervan uitgegaan dat er een waarschuwingsregel met de naam *Contoso-Log-
 - Op 13:15 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure-waarschuwingen, mits log zoekresultaat 2 records. de drempelwaarde overschrijden en hierdoor wordt de waarschuwing door te activeren snel na de [actiegroep](monitoring-action-groups.md) die zijn gekoppeld.
 - Op de volgende iteratie om 1:20 uur als Contoso-Log-waarschuwing is uitgevoerd door Azure waarschuwing nu opgegeven log zoekresultaat opnieuw 0 records. onder de drempelwaarde is en kan daarom niet de waarschuwing wordt geactiveerd.
 
-Maar in de hierboven vermelde geval op 13:15 uur - Azure-waarschuwingen kunnen niet bepalen dat de onderliggende problemen zien bij 1:10 zich blijven voordoen en als er netto nieuwe fouten; Als door gebruiker opgegeven query kan worden rekening houdend met oudere records - kunnen Azure-waarschuwingen ervoor dat niet. Daarom Contoso-Log-waarschuwing voor fout aan de zijkant van waarschuwing, wordt geactiveerd op 13:15 uur opnieuw geconfigureerd via [actiegroep](monitoring-action-groups.md). Nu om 1:20 uur wanneer er zijn geen records worden gezien - Azure-waarschuwingen kunnen niet zeker weet dat is de oorzaak van de records opgelost; Contoso-Log-waarschuwing wordt daarom niet worden gewijzigd in opgelost in een waarschuwing voor Azure-dashboard en/of meldingen verzonden met vermelding van de resolutie van de waarschuwing.
+Maar in de hierboven vermelde geval op 13:15 uur - Azure-waarschuwingen kunnen niet bepalen dat de onderliggende problemen zien bij 1:10 zich blijven voordoen en als er netto nieuwe fouten; Als door gebruiker opgegeven query kan worden rekening houdend met oudere records - kunnen Azure-waarschuwingen moet zijn. Daarom aan de fout aan de kant van de waarschuwing, wanneer de Contoso-Log-waarschuwing wordt uitgevoerd op 13:15 uur, geconfigureerd [actiegroep](monitoring-action-groups.md) opnieuw wordt geactiveerd. Nu om 1:20 uur wanneer er zijn geen records worden gezien - Azure-waarschuwingen kunnen niet zeker weet dat is de oorzaak van de records opgelost; Contoso-Log-waarschuwing wordt daarom niet worden gewijzigd in opgelost in een waarschuwing voor Azure-dashboard en/of meldingen verzonden met vermelding van de resolutie van de waarschuwing.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prijzen en facturering van waarschuwingen

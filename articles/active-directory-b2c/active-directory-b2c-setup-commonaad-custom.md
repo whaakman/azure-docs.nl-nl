@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d341f7328eb4a977d266c25f6746d4173393b54e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887209"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636931"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van de aanmelding voor meerdere tenants Azure Active Directory met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dit artikel leest u hoe u aanmelding voor gebruikers met behulp van het eindpunt voor meerdere tenants voor Azure Active Directory (Azure AD) met behulp van inschakelen [aangepast beleid](active-directory-b2c-overview-custom.md) in Azure AD B2c. Hiermee kunnen gebruikers van meerdere Azure AD-tenants aan te melden bij Azure AD B2C zonder een technische-provider voor elke tenant configureren. Echter Gast leden in een van deze tenants **niet** kunnen aanmelden. Voor die, moet u [afzonderlijk configureren elke tenant](active-directory-b2c-setup-aad-custom.md).
+Dit artikel leest u hoe u aanmelding voor gebruikers met behulp van het eindpunt voor meerdere tenants voor Azure Active Directory (Azure AD) met behulp van inschakelen [aangepast beleid](active-directory-b2c-overview-custom.md) in Azure AD B2C. Hiermee kunnen gebruikers van meerdere Azure AD-tenants aan te melden bij Azure AD B2C zonder een technische-provider voor elke tenant configureren. Echter Gast leden in een van deze tenants **niet** kunnen aanmelden. Voor die, moet u [afzonderlijk configureren elke tenant](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 >`Contoso.com` wordt gebruikt voor de organisatie Azure AD-tenant en `fabrikamb2c.onmicrosoft.com` wordt gebruikt als de Azure AD B2C-tenant in de volgende instructies.
@@ -185,7 +185,7 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Een Azure AD B2C-toepassing maken
 
-Communicatie met Azure AD B2c vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
+Communicatie met Azure AD B2C vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237057"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684628"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Beveiligingsfilters voor Azure Search-resultaten met behulp van Active Directory-identiteiten bijsnijden
 
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Stap 4: De id's van groepen in de Cache
-(Optioneel) als u wilt de netwerklatentie beperken, kunt u de cache de gebruikersgroep koppelingen zodat wanneer u een zoekaanvraag verzendt, groepen worden geretourneerd uit de cache opslaan van een retour naar AAD. U kunt gebruiken (AAD Batch-API) [https://developer.microsoft.com/graph/docs/concepts/json_batching] voor het verzenden van een afzonderlijke Http-aanvraag met meerdere gebruikers en het bouwen van de cache.
+(Optioneel) als u wilt de netwerklatentie beperken, kunt u de cache de gebruikersgroep koppelingen zodat wanneer u een zoekaanvraag verzendt, groepen worden geretourneerd uit de cache opslaan van een retour naar AAD. U kunt [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) voor het verzenden van een afzonderlijke Http-aanvraag met meerdere gebruikers en het bouwen van de cache.
 
 Microsoft Graph is ontworpen voor het verwerken van een groot aantal aanvragen. Als een groot aantal aanvragen optreedt, wordt in Microsoft Graph de aanvraag met de statuscode HTTP 429 mislukt. Zie voor meer informatie, [Microsoft Graph beperking](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

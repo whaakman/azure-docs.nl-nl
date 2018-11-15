@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 97ac49ff5cc50621fd902f77c2543a428c7e8bae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384749"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631656"
 ---
 # <a name="configure-bfd-over-expressroute"></a>BFD via ExpressRoute configureren
 
@@ -67,7 +67,7 @@ Hieronder ziet u een voorbeeldconfiguratie PE (met behulp van Cisco IOS XE).
 
 ## <a name="bfd-timer-negotiation"></a>BFD Timer-onderhandeling
 
-Tussen BFD peers bepalen de tragere van de twee computers de verzending van fouten. Msee's BFD verzenden/ontvangen intervallen zijn ingesteld op 300 milliseconden. Door het configureren van hogere waarden, kunt u afdwingen dat deze intervallen moet meer zijn; maar, geen korter.
+Tussen BFD peers bepalen de tragere van de twee computers de verzending van fouten. Msee's BFD verzenden/ontvangen intervallen zijn ingesteld op 300 milliseconden. In bepaalde scenario's, kan het interval worden ingesteld op een hogere waarde van 750 milliseconden. Door het configureren van hogere waarden, kunt u afdwingen dat deze intervallen moet meer zijn; maar, geen korter.
 
 >[!NOTE]
 >Als u geografisch redundante ExpressRoute-circuits voor persoonlijke peering hebt geconfigureerd of Site-naar-Site IPSec VPN-connectiviteit heeft als de back-up voor ExpressRoute-privépeering; BFD inschakelen via de privé-peering wilt helpen sneller een ExpressRoute-verbindingsfout na failover. 
