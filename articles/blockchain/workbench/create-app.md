@@ -19,34 +19,34 @@ ms.locfileid: "48242659"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Een blockchain-toepassing maken in Azure Blockchain Workbench
 
-U kunt Azure Blockchain Workbench gebruiken om te maken van blockchain-toepassingen die meerdere partijen werkstromen die zijn gedefinieerd door de configuratie en slimme Contractcode vertegenwoordigen.
+U kunt Azure Blockchain Workbench gebruiken om blockchain-toepassingen te maken voor werkstromen van meerdere partijen die zijn gedefinieerd via configuratie en smart contracts.
 
 In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een blockchain-toepassingen configureren
-> * Maken van een codebestand slimme contract
-> * Een blockchain Blockchain Workbench-toepassing toevoegen
+> * Een blockchain-toepassing configureren
+> * Maken van een smart contract codebestand 
+> * Een blockchain-toepassing toevoegen aan Blockchain Workbench
 > * Leden toevoegen aan de blockchain-toepassing
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Blockchain Workbench-implementatie. Zie voor meer informatie, [Azure Blockchain Workbench-implementatie](deploy.md) voor meer informatie over de implementatie.
+* Een Blockchain Workbench-implementatie. Zie [Azure Blockchain Workbench-implementatie](deploy.md) voor meer informatie over de implementatie.
 * Azure Active Directory-gebruikers in de tenant die is gekoppeld met Blockchain Workbench. Zie voor meer informatie, [Azure AD-gebruikers toevoegen in Azure Blockchain Workbench](manage-users.md#add-azure-ad-users).
-* Een Blockchain Workbench administrator-account. Zie voor meer informatie toevoegen [Blockchain Workbench beheerders in Azure Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
+* Een Blockchain Workbench administrator-account. Zie voor meer informatie toevoegen van [Blockchain Workbench beheerders in Azure Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 
 ## <a name="hello-blockchain"></a>Hallo, Blockchain!
 
-We maken een eenvoudige toepassing waarin een aanvrager verzendt een aanvraag en een eindpunt verzenden van een antwoord op de aanvraag. Bijvoorbeeld, een aanvraag kan zijn, "Hallo, hoe gaat het?", en het antwoord kan worden, "Ik ben geweldige!". Zowel de aanvraag en het antwoord worden op de onderliggende blockchain geregistreerd. 
+We maken een eenvoudige toepassing waarin een aanvrager een aanvraag verzendt en een eindpunt een antwoord verzendt op deze aanvraag. Een aanvraag kan bijvoorbeeld zijn, "Hallo, hoe gaat het?", en het antwoord kan worden, "Het gaat geweldig!". Zowel de aanvraag als het antwoord worden op de onderliggende blockchain geregistreerd. 
 
-Volg de stappen voor het maken van bestanden voor de toepassing of u kunt [downloaden van het voorbeeld uit GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
+Volg de stappen voor het maken van bestanden voor de toepassing of u kunt deze [downloaden van het voorbeeld uit GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## <a name="configuration-file"></a>Configuratiebestand
 
-Metagegevens van de configuratie definieert de werkstromen op hoog niveau en het model van de interactie van de blockchain-toepassing. Metagegevens van de configuratie vertegenwoordigt de fasen van de werkstroom en het model van de interactie van de blockchain-toepassing.
+Metagegevens van de configuratie definieren de werkstromen op hoog niveau en het model van de interactie van de blockchain-toepassing. Metagegevens van de configuratie beschrijven de fasen van de werkstroom en het model van de interactie van de blockchain-toepassing.
 
-1. Maak een bestand met de naam in uw favoriete editor `HelloBlockchain.json`.
-2. Voeg de volgende JSON voor het definiëren van de configuratie van de blockchain-toepassing.
+1. Maak een bestand met de naam `HelloBlockchain.json` in uw favoriete editor.
+2. Plaats in dit bestand de volgende JSON voor het definiëren van de configuratie van de blockchain-toepassing.
 
     ``` json
     {
@@ -209,27 +209,27 @@ Het begin van het configuratiebestand bevat informatie over de toepassing met in
 
 ### <a name="application-roles"></a>Toepassingsrollen
 
-Het gedeelte van de rollen toepassing definieert de gebruikersrollen die kunnen optreden of nemen in de blockchain-toepassing. U definieert een reeks afzonderlijke functies op basis van functionaliteit. Er is een verschil tussen de functionaliteit van een aanvrager als een entiteit die wordt geproduceerd aanvragen en een eindpunt als een entiteit die wordt geproduceerd antwoorden in het scenario voor request response.
+Het gedeelte van de toepassingsrollen definieert de gebruikersrollen die kunnen deelnemen in de blockchain-toepassing. U definieert een reeks afzonderlijke functies op basis van functionaliteit. In het scenario voor request-response is er een verschil tussen de functionaliteit van een aanvrager als een entiteit die aanvragen genereert en een eindpunt als een entiteit die antwoorden produceert.
 
 ### <a name="workflows"></a>Werkstromen
 
-Werkstromen definiëren een of meer fasen en acties van het contract. In de request response-scenario is de eerste fase (status) van de werkstroom dat een aanvrager (rol) heeft een actie (overgang) om een aanvraag (functie) te verzenden. De volgende fase (status) is dat een eindpunt (rol) heeft een actie (overgang) om een antwoord (functie) te verzenden. Werkstroom van een toepassing kan betrekking hebben op eigenschappen, functies, en Staten vereist beschrijven de stroom van een contract. 
+Werkstromen definiëren een of meer fasen en acties van het contract. In het request-response scenario is de eerste fase (status) van de werkstroom dat een aanvrager (rol) een actie (overgang) onderneemt om een aanvraag (functie) te verzenden. De volgende fase (status) is dat een eindpunt (rol) een actie (overgang) onderneemt om een antwoord (functie) te verzenden. De werkstroom van een toepassing kan betrekking hebben op eigenschappen, functies, en statussen die vereist zijn voor het beschrijven van de werkstroom van een contract. 
 
 Zie voor meer informatie over de inhoud van configuratiebestanden, [naslaginformatie voor configuratie van Azure Blockchain werkstroom](configuration.md).
 
-## <a name="smart-contract-code-file"></a>Slimme contract codebestand
+## <a name="smart-contract-code-file"></a>Smart contract codebestand
 
-Slimme contracten vertegenwoordigen de zakelijke logica van de blockchain-toepassing. Op dit moment ondersteunt Blockchain Workbench Ethereum voor het grootboek met blockchain. Maakt gebruik van Ethereum [Solidity](https://solidity.readthedocs.io) de programmeertaal voor het schrijven van zelf uitvoerende zakelijke logica voor slimme contracten.
+Smart contracts vertegenwoordigen de zakelijke logica van de blockchain-toepassing. Op dit moment ondersteunt Blockchain Workbench Ethereum voor het blockchain-grootboek. Ethereum maakt gebruik van [Solidity](https://solidity.readthedocs.io) als programmeertaal voor het schrijven van zelf uitvoerende zakelijke logica voor smart contracts.
 
-Slimme contracten in Solidity zijn vergelijkbaar met de klassen in objectgeoriënteerde talen. Elke opdracht bevat functies voor het implementeren van fasen en acties van het contract slimme en status.
+Smart contracts in Solidity zijn vergelijkbaar met de klassen in objectgeoriënteerde talen. Elke opdracht bevat functies voor het implementeren van fasen en acties van het smart contract.
 
-Maak een bestand met de naam in uw favoriete editor `HelloBlockchain.sol`.
+Maak een bestand met de naam `HelloBlockchain.sol` in uw favoriete editor.
 
 ### <a name="version-pragma"></a>Versie pragma
 
-Als een best practice, geven de versie van Solidity die u ontwikkelt. De versie op te geven, kunt voorkomen van compatibiliteitsproblemen met toekomstige versies van Solidity. 
+Als een best practice geeft u de versie op van Solidity waarmee u ontwikkelt. Door de versie op te geven kunt u  compatibiliteitsproblemen met toekomstige versies van Solidity voorkomen. 
 
-De volgende versie pragma toevoegen aan de bovenkant van `HelloBlockchain.sol` slimme contract codebestand.
+Voeg de volgende versie pragma toe aan de bovenkant van het `HelloBlockchain.sol` smart contract codebestand.
 
 
   ``` solidity
@@ -238,9 +238,9 @@ De volgende versie pragma toevoegen aan de bovenkant van `HelloBlockchain.sol` s
 
 ### <a name="base-class"></a>Basisklasse
 
-**WorkbenchBase** basisklasse kunt Blockchain Workbench maken en bijwerken van het contract. De basisklasse is vereist voor Blockchain Workbench specifieke slimme Contractcode. Uw contract moet worden overgenomen van de **WorkbenchBase** basisklasse.
+De **WorkbenchBase** basisklasse zorgt ervoor dat Blockchain Workbench het contract kan maken en bijwerken. De basisklasse is vereist voor Blockchain Workbench specifieke smart contractcode. Uw contract moet afgeleid worden van de **WorkbenchBase** basisklasse.
 
-In `HelloBlockchain.sol` slimme codebestand contract, voegt u de **WorkbenchBase** klasse aan het begin van het bestand. 
+In het `HelloBlockchain.sol` smart contract codebestand voegt u de **WorkbenchBase** klasse toe aan het begin van het bestand. 
 
 ```
 contract WorkbenchBase {
@@ -266,32 +266,32 @@ contract WorkbenchBase {
 ```
 De basisklasse bevat twee belangrijke functies:
 
-|Basisklasse functie  | Doel  | Wanneer u aan te roepen  |
+|Basisklasse functie  | Doel  | Wanneer aan te roepen  |
 |---------|---------|---------|
-| ContractCreated() | Ontvangt een melding Blockchain Workbench een contract is gemaakt | Voordat u afsluit de contract-constructor |
-| ContractUpdated() | Ontvangt een melding Blockchain Workbench een contractstatus is bijgewerkt | Voordat u de functie van een contract afsluiten |
+| ContractCreated() | Stuur een melding aan Blockchain Workbench dat een contract is gemaakt | Voordat u de contract-constructor afsluit |
+| ContractUpdated() | Stuur een melding aan Blockchain Workbench dat een contractstatus is bijgewerkt | Voordat u de functie van een contract afsluit |
 
 ### <a name="configuration-and-smart-contract-code-relationship"></a>Configuratie en slimme contract code relatie
 
-Blockchain Workbench maakt gebruik van de configuratie van bestands- en slimme contract codebestand een blockchain-toepassing maken. Er is een relatie tussen is gedefinieerd in de configuratie en de code in het smart contract. Podrobnosti o kontraktu, functies, parameters en typen moeten overeenkomen met om de toepassing te maken. Blockchain Workbench controleert de bestanden voorafgaand aan het maken van de toepassing. 
+Blockchain Workbench maakt gebruik van het configuratiebestand en het smart contract codebestand om een blockchain-toepassing te maken. Er is een relatie tussen wat gedefinieerd is in de configuratie en de code in het smart contract. Details van het contract, functies, parameters en typen moeten overeenkomen om de toepassing te maken. Blockchain Workbench controleert de bestanden voorafgaand aan het maken van de toepassing. 
 
 ### <a name="contract"></a>contract
 
-Voor Blockchain Workbench, contracten wilt overnemen van de **WorkbenchBase** basisklasse. Bij het melden van de overeenkomst, moet u de naam van de en naam van de werkstroom door te geven als argumenten.
+Voor Blockchain Workbench moeten contracten afleiden van de **WorkbenchBase** basisklasse. Bij de declaratie van het contract moet u de naam van de toepassing en naam van de werkstroom doorgeven als argumenten.
 
-Toevoegen de **contract** header aan uw `HelloBlockchain.sol` slimme contract codebestand. 
+Voeg de **contract** header toe aan uw `HelloBlockchain.sol` smart contract codebestand. 
 
 ```
 contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
 ```
 
-Uw contract moet worden overgenomen van de **WorkbenchBase** basisklasse en de parameters doorgeven **ApplicationName** en de werkstroom **naam** zoals gedefinieerd in de configuratie het bestand. In dit geval zijn de toepassingsnaam en de naam van de werkstroom hetzelfde.
+Uw contract moet afleiden van de **WorkbenchBase** basisklasse en de parameters **ApplicationName** en werkstroom **naam** doorgeven zoals gedefinieerd in het configuratiebestand. In dit geval zijn de toepassingsnaam en de naam van de werkstroom hetzelfde.
 
 ### <a name="state-variables"></a>Variabelen voor de status
 
-Variabelen voor de opslaan waarden van de status voor elk exemplaar van het contract. De status van variabelen in uw contract moeten overeenkomen met de werkstroomeigenschappen die zijn gedefinieerd in het configuratiebestand.
+Status-variabelen bewaren de status van elke instantie van het contract. De status-variabelen in uw contract moeten overeenkomen met de werkstroomeigenschappen die zijn gedefinieerd in het configuratiebestand.
 
-De variabelen toevoegen aan uw contract in uw `HelloBlockchain.sol` slimme contract codebestand. 
+Voeg de variabelen toe aan uw contract in uw `HelloBlockchain.sol` smart contract codebestand. 
 
 ```
     //Set of States
@@ -308,13 +308,13 @@ De variabelen toevoegen aan uw contract in uw `HelloBlockchain.sol` slimme contr
 
 ### <a name="constructor"></a>Constructor
 
-De constructor definieert invoerparameters voor een nieuwe slimme contract exemplaar van een werkstroom. De constructor is gedeclareerd als een functie met dezelfde naam als het contract. Vereiste parameters voor de constructor worden gedefinieerd als parameters van constructor in het configuratiebestand. Het aantal, de volgorde en het type van de parameters moeten overeenkomen met in beide bestanden.
+De constructor definieert invoerparameters voor een nieuwe instantie van een smart contract van een werkstroom. De constructor is gedeclareerd als een functie met dezelfde naam als het contract. Vereiste parameters voor de constructor worden gedefinieerd als parameters van de constructor in het configuratiebestand. Het aantal, de volgorde en het type van de parameters moeten overeenkomen in beide bestanden.
 
-Schrijven in de constructorfunctie eventuele bedrijfslogica dat u wilt uitvoeren voordat ze het contract maken. Bijvoorbeeld, de variabelen bij het starten van de waarden worden geïnitialiseerd.
+In de constructorfunctie schrijft u eventuele bedrijfslogica die u wilt uitvoeren voordat het contract gemaakt wordt. Bijvoorbeeld de startwaarden van statusvariabelen.
 
-Voordat u de constructorfunctie afsluit, Roep de `ContractCreated()` functie. Deze functie ontvangt een melding Blockchain Workbench een contract is gemaakt.
+Voordat u de constructorfunctie afsluit roept u de `ContractCreated()` functie aan. Deze functie verstuurt een melding aan Blockchain Workbench dat een contract is gemaakt.
 
-De constructorfunctie toevoegen aan uw contract in uw `HelloBlockchain.sol` slimme contract codebestand. 
+Voeg de constructorfunctie toe aan uw contract in uw `HelloBlockchain.sol` smart contract codebestand. 
 
 ```
     // constructor function
@@ -331,13 +331,13 @@ De constructorfunctie toevoegen aan uw contract in uw `HelloBlockchain.sol` slim
 
 ### <a name="functions"></a>Functions
 
-Functies zijn de uitvoerbare eenheden van bedrijfslogica binnen een contract. Vereiste parameters voor de functie worden gedefinieerd als parameters van de functie in het configuratiebestand. Het aantal, de volgorde en het type van de parameters moeten overeenkomen met in beide bestanden. Functies zijn gekoppeld aan de overgangen in een werkstroom Blockchain Workbench in het configuratiebestand. Een overgang is een actie uitgevoerd om te verplaatsen naar de volgende fase van de werkstroom van een toepassing zoals wordt bepaald door het contract.
+Functies zijn de uitvoerbare eenheden van bedrijfslogica binnen een contract. Vereiste parameters voor de functie worden gedefinieerd als parameters van de functie in het configuratiebestand. Het aantal, de volgorde en het type van de parameters moeten overeenkomen in beide bestanden. Functies zijn gekoppeld aan de overgangen in een Blockchain Workbench-workflow zoals gedefinieerd in het configuratiebestand. Een overgang is een actie die wordt uitgevoerd om naar de volgende fase van de werkstroom te gaan van een toepassing zoals is bepaald door het contract.
 
-Eventuele bedrijfslogica kunt schrijven die u wilt uitvoeren in de functie. Bijvoorbeeld, het wijzigen van de waarde van een variabele van de status.
+U kunt elke bedrijfslogica laten uitvoeren in de functie. Bijvoorbeeld het wijzigen van de waarde van een statusvariabele.
 
-Voordat u de functie wordt afgesloten, Roep de `ContractUpdated()` functie. De functie melding Blockchain Workbench contractstatus is bijgewerkt. Als u de van statuswijzigingen in de functie ongedaan wilt maken, roept u revert(). Terugkeren verwijderingen wijzigingen sinds de laatste aanroep ContractUpdated() staat.
+Voordat u de functie afsluit, roep de `ContractUpdated()` functie aan. Deze functie verzendt naar Blockchain Workbench een melding dat de contractstatus is bijgewerkt. Als u de statuswijzigingen in de functie ongedaan wilt maken, roept u revert() aan. Hiermee worden wijzigingen sinds de laatste aanroep van ContractUpdated() staat teruggedraaid.
 
-1. Voeg de volgende functies toe aan uw contract in uw `HelloBlockchain.sol` slimme contract codebestand. 
+1. Voeg de volgende functies toe aan uw contract in uw `HelloBlockchain.sol` smart contract codebestand. 
 
     ```
         // call this function to send a request
@@ -368,42 +368,42 @@ Voordat u de functie wordt afgesloten, Roep de `ContractUpdated()` functie. De f
     }
     ```
 
-2. Sla uw `HelloBlockchain.sol` slimme contract codebestand.
+2. Sla uw `HelloBlockchain.sol` smart contract codebestand op.
 
 ## <a name="add-blockchain-application-to-blockchain-workbench"></a>Blockchain toepassing toevoegen aan Blockchain Workbench
 
-Als u wilt toevoegen een blockchain-toepassing Blockchain Workbench, uploadt u de configuratie en slimme contract bestanden voor het definiëren van de toepassing.
+Als u een blockchain-toepassing wilt toevoegen aan Blockchain Workbench, uploadt u de configuratie en smart contractbestanden voor het definiëren van de toepassing.
 
-1. Navigeer in een webbrowser naar het webadres Blockchain Workbench. Bijvoorbeeld, `https://{workbench URL}.azurewebsites.net/` de web-App is gemaakt bij het implementeren van Blockchain Workbench. Zie voor meer informatie over het vinden van uw Blockchain Workbench webadres [Blockchain Workbench Web-URL](deploy.md#blockchain-workbench-web-url)
+1. Navigeer in een webbrowser naar het webadres van Blockchain Workbench. Bijvoorbeeld, `https://{workbench URL}.azurewebsites.net/` de web-App is gemaakt bij het implementeren van Blockchain Workbench. Zie voor meer informatie over het vinden van uw Blockchain Workbench webadres [Blockchain Workbench Web-URL](deploy.md#blockchain-workbench-web-url)
 2. Meld u aan als een [Blockchain Workbench beheerder](manage-users.md#manage-blockchain-workbench-administrators).
-3. Selecteer **toepassingen** > **nieuwe**. De **nieuwe toepassing** deelvenster wordt weergegeven.
-4. Selecteer **uploaden van de configuratie van de overeenkomst** > **Bladeren** vinden de **HelloBlockchain.json** configuratiebestand dat u hebt gemaakt. Het configuratiebestand wordt automatisch gevalideerd. Selecteer de **weergeven** koppeling om weer te geven van validatiefouten. Validatiefouten oplossen voordat u de toepassing implementeren.
-5. Selecteer **uploaden van de Contractcode** > **Bladeren** vinden de **HelloBlockchain.sol** slimme contract codebestand. Het codebestand wordt automatisch gevalideerd. Selecteer de **weergeven** koppeling om weer te geven van validatiefouten. Validatiefouten oplossen voordat u de toepassing implementeren.
-6. Selecteer **implementeren** de blockchain-toepassing op basis van de configuratie en slimme contract bestanden maken.
+3. Selecteer **toepassingen** > **nieuwe**. Het **nieuwe toepassing** deelvenster wordt weergegeven.
+4. Selecteer **uploaden van de configuratie van het contract** > **Bladeren** om het **HelloBlockchain.json** configuratiebestand dat u hebt gemaakt te vinden. Het configuratiebestand wordt automatisch gevalideerd. Selecteer de **weergeven** koppeling om validatiefouten weer te geven. Los validatiefouten op voordat u de toepassing implementeert.
+5. Selecteer **uploaden van de Contractcode** > **Bladeren** om het **HelloBlockchain.sol** smart contract codebestand te vinden. Het codebestand wordt automatisch gevalideerd. Selecteer de **weergeven** koppeling om validatiefouten weer te geven. Los validatiefouten op voordat u de toepassing implementeert.
+6. Selecteer **implementeren** om de blockchain-toepassing op basis van de configuratie en smart contract bestanden te maken.
 
-Implementatie van de toepassing blockchain duurt een paar minuten. Wanneer de implementatie is voltooid, de nieuwe toepassing wordt weergegeven in **toepassingen**. 
+De implementatie van de blockchain-toepassing duurt een paar minuten. Wanneer de implementatie is voltooid, wordt de nieuwe toepassing weergegeven in **toepassingen**. 
 
 > [!NOTE]
 > U kunt ook blockchain-toepassingen maken met behulp van de [REST-API van Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench). 
 
 ## <a name="add-blockchain-application-members"></a>Leden van blockchain-toepassing toevoegen
 
-Leden van de toepassing toevoegen aan uw toepassing te starten en actie ondernemen op opdrachten. Als u wilt toevoegen van leden van de toepassing, moet u een [Blockchain Workbench beheerder](manage-users.md#manage-blockchain-workbench-administrators).
+Voeg leden van de toepassing toe aan uw toepassing om acties in het contract te starten en uit te voeren. Om leden van de toepassing toe te voegen moet u een [Blockchain Workbench beheerder](manage-users.md#manage-blockchain-workbench-administrators) zijn.
 
 1. Selecteer **toepassingen** > **Hallo, Blockchain!**.
-2. Het aantal leden dat is gekoppeld aan de toepassing wordt weergegeven in de rechterbovenhoek van de pagina. Voor een nieuwe toepassing wordt het aantal leden nul zijn.
+2. Het aantal leden dat is gekoppeld aan de toepassing wordt weergegeven in de rechterbovenhoek van de pagina. Voor een nieuwe toepassing zal het aantal leden nul zijn.
 3. Selecteer de **leden** koppeling in de rechterbovenhoek van de pagina. Een huidige lijst met leden voor de toepassing wordt weergegeven.
 4. Selecteer in de lijst met leden **leden toevoegen**.
-5. Selecteer of typ de naam van het lid die u wilt toevoegen. Alleen de Azure AD-gebruikers die zijn opgenomen in de tenant Blockchain Workbench worden weergegeven. Als de gebruiker niet wordt gevonden, moet u [Azure AD-gebruikers toevoegen](manage-users.md#add-azure-ad-users).
+5. Selecteer of typ de naam van het lid dat u wilt toevoegen. Alleen de Azure AD-gebruikers die zijn opgenomen in de tenant Blockchain Workbench worden weergegeven. Als de gebruiker niet wordt gevonden, moet u deze [Azure AD-gebruikers toevoegen](manage-users.md#add-azure-ad-users).
 6. Selecteer de **rol** voor het lid. Selecteer voor het eerste lid **aanvrager** als de rol.
-7. Selecteer **toevoegen** het lid met de bijbehorende functieservices toevoegen aan de toepassing.
-8. Een ander lid toevoegen aan de toepassing met de **Responder** rol.
+7. Selecteer **toevoegen** om het lid met de bijbehorende functieservices toe te voegen aan de toepassing.
+8. Voeg een ander lid toe aan de toepassing met de **Responder** rol.
 
 Zie voor meer informatie over het beheren van gebruikers in Blockchain Workbench [gebruikers beheren in Azure Blockchain Workbench](manage-users.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel met instructies, hebt u een eenvoudige toepassing voor de aanvraag en respons gemaakt. Voor informatie over het gebruik van de toepassing, blijven de volgende procedures voor artikel.
+In dit artikel met instructies hebt u een eenvoudige toepassing voor aanvraag en respons gemaakt. Voor informatie over het gebruik van de toepassing, ga door naar het volgende how-to artikel.
 
 > [!div class="nextstepaction"]
 > [Met behulp van een blockchain-toepassing](use.md)
