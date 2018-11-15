@@ -3,18 +3,18 @@ title: Custom Vision implementeren op een Azure IoT Edge-apparaat | Microsoft Do
 description: Informatie over hoe u een Computer Vision-model uitvoert als een container met behulp van Custom Vision en IoT Edge.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a3bd7cf5e7c29ee44d696c0a27566b1a73436794
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749778"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566479"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Zelfstudie: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
 

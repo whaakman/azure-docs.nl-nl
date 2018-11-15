@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6bde2fb0fc9534d170be1d755856f6f779e47d7c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625858"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685936"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 

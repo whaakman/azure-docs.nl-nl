@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740974"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685494"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
@@ -89,7 +89,7 @@ De Azure-resources - Azure Cosmos DB, Storage-account maken, Event Hub, Stream A
    ```powershell
    .\deploy.ps1
    ```
-5. Wanneer u hierom wordt gevraagd, voert u uw Azure **abonnement-ID**, **changefeedlab** voor de naam van de resourcegroep, en **run1** voor de implementatienaam van de. Zodra de resources die begint met het implementeren, wordt het duurt maximaal tien minuten worden voltooid.
+5. Wanneer u hierom wordt gevraagd, voert u uw Azure **abonnements-ID**, **changefeedlab** voor de naam van de resourcegroep, en **run1** voor de implementatienaam van de. Zodra de resources die begint met het implementeren, wordt het duurt maximaal tien minuten worden voltooid.
 
 ## <a name="create-a-database-and-the-collection"></a>Een database en de verzameling maken
 

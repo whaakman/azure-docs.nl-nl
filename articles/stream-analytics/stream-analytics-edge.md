@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985060"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687432"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT Edge (preview)
 
@@ -71,13 +71,17 @@ Een storage-container is vereist om te exporteren van de query ASA gecompileerd 
 
 1. Maken van de Azure-portal een nieuwe 'Stream Analytics-taak'. [Directe koppeling naar het maken van een nieuwe ASA-taak hier](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
-2. Selecteer in het scherm voor het maken van **Edge** als **hostomgeving** (Zie de volgende afbeelding) ![taak maken](media/stream-analytics-edge/ASAEdge_create.png)
+2. Selecteer in het scherm voor het maken van **Edge** als **hostomgeving** (Zie de volgende afbeelding)
+
+   ![Taak maken](media/stream-analytics-edge/ASAEdge_create.png)
 3. Taakdefinitie
     1. **Invoer Stream(s) definiëren**. Definieer een of meer invoerstromen voor uw taak.
     2. Definieer referentiegegevens (optioneel).
     3. **Uitvoer Stream(s) definiëren**. Definieer een of meerdere uitvoer stromen voor uw taak. 
     4. **Query definiëren**. Definieer de ASA-query in de cloud met behulp van de inline-editor. De compiler wordt automatisch gecontroleerd of de syntaxis voor ASA edge is ingeschakeld. U kunt ook uw query testen door het uploaden van voorbeeldgegevens. 
+
 4. Instellen van de storage-container-informatie in de **IoT Edge-instellingen** menu.
+
 5. Optionele instellingen
     1. **Gebeurtenisvolgorde**. U kunt de volgorde out-beleid configureren in de portal. Documentatie is beschikbaar [hier](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Landinstelling**. Stel de indeling van de deur.
@@ -181,20 +185,27 @@ Momenteel, de enige ondersteunde Stroominvoer en uitvoertypen van stream Edge Hu
 
 
 ##### <a name="reference-data"></a>Referentiegegevens
-Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die statisch of traag wijzigen in aard. Het wordt gebruikt om uit te voeren een zoekopdracht of correleren met de stroom van uw gegevens. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. Zie voor meer informatie de [ASA-documentatie over referentiegegevens](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die statisch of traag wijzigen in aard. Het wordt gebruikt om uit te voeren een zoekopdracht of correleren met de stroom van uw gegevens. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens JOIN](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in uw query. Zie voor meer informatie de [met referentiegegevens voor zoekacties in Stream Analytics](stream-analytics-use-reference-data.md).
 
-Voor het gebruik van referentiegegevens voor ASA op Iot Edge, de volgende stappen uit: 
-1. Maak een nieuwe invoer voor de taak
+Alleen lokale referentiegegevens wordt ondersteund. Wanneer een taak wordt geïmplementeerd op IoT Edge-apparaat, wordt de referentiegegevens van het bestandspad van de gebruiker gedefinieerde geladen.
+
+Een taak maakt met referentiegegevens voor edge-apparaten:
+
+1. Maak een nieuwe invoer voor de taak.
+
 2. Kies **verwijzen naar gegevens** als de **brontype**.
-3. Stel het bestandspad. Het bestandspad moet een **absolute** bestandspad op het apparaat ![verwijzen naar het maken van gegevens](media/stream-analytics-edge/ReferenceData.png)
-4. Schakel **gedeelde stations** in uw Docker-configuratie en zorg ervoor dat het station is ingeschakeld voordat u begint met uw implementatie.
 
-Zie voor meer informatie, [Docker-documentatie voor Windows hier](https://docs.docker.com/docker-for-windows/#shared-drives).
+3. Een bestand met referentiegegevens gereed op het apparaat hebben. Voor een Windows-container, plaats het bestand met referentiegegevens op de lokale schijf en delen van de lokale schijf met de Docker-container. Voor een Linux-container, maak een Docker-volume en vul in het gegevensbestand aan het volume.
 
-> [!Note]
-> Op dit moment wordt alleen lokale referentiegegevens ondersteund.
+4. Stel het bestandspad. Gebruik het absolute pad voor een windows-apparaat. Voor een Linux-apparaat, het pad in het volume te gebruiken.
 
+![Nieuwe gegevens van referentie-invoer voor Azure Stream Analytics-taak voor Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+De referentiegegevens op IoT Edge-update wordt geactiveerd door een implementatie. Wanneer wordt geactiveerd, kiest de ASA-module de bijgewerkte gegevens zonder de actieve taak is gestopt.
+
+Er zijn twee manieren om bij te werken van de referentiegegevens:
+* Gegevenspad van update-verwijzing in de ASA-taak in Azure portal.
+* Bijwerken van de IoT Edge-implementatie.
 
 
 ## <a name="license-and-third-party-notices"></a>Licentie en kennisgevingen van derden

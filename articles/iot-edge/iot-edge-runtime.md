@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9894df3bed50059dc28ed6308c96990178cf44ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624976"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685188"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen
 
@@ -73,7 +73,7 @@ Registreren voor het ontvangen van een bericht, een callback die de berichten di
    await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-Zie voor meer informatie over de klasse ModuleClient en de bijbehorende communicatiemethoden, de API-naslaginformatie voor de taal van uw voorkeur SDK: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C en Python](https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), of [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Zie voor meer informatie over de klasse ModuleClient en de bijbehorende communicatiemethoden, de API-naslaginformatie voor de taal van uw voorkeur SDK: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C en Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), of [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 De ontwikkelaar van de oplossing is verantwoordelijk voor het opgeven van de regels die bepalen hoe Edge hub wordt doorgegeven berichten tussen modules. Regels voor doorsturen zijn gedefinieerd in de cloud en naar Edge hub in de apparaatdubbel verlaagd. Dezelfde syntaxis voor routes voor IoT Hub wordt gebruikt voor het definiëren van routes tussen modules in Azure IoT Edge. 
 

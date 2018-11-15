@@ -5,25 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296156"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685800"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slimme accountvergrendeling
 
 Slimme accountvergrendeling maakt gebruik van intelligentie van de cloud te vergrendelen beveiligingsrisico die toegang proberen te raden wachtwoorden van uw gebruikers of brute-force-methoden gebruiken om op te halen. Die intelligence kunt aanmeldingen die afkomstig zijn van geldige gebruikers herkennen en ze anders dan de wijzigingsaanvragen van aanvallers en andere onbekende bronnen te behandelen. Hiermee vergrendelt u slimme vergrendeling van het uit de aanvallers, terwijl waarin die uw gebruikers toegang krijgen tot hun accounts en productief blijven.
 
-Standaard, slimme accountvergrendeling Hiermee vergrendelt u het account van aanmeldpogingen voor één minuut na tien pogingen mislukte. Het account wordt vergrendeld opnieuw na elke latere mislukte aanmeldingspoging, voor één minuut bij de eerste en meer voor in de daaropvolgende pogingen worden gedaan.
+Standaard, slimme accountvergrendeling Hiermee vergrendelt u het account van aanmeldpogingen voor één minuut na 10 mislukte pogingen. Het account wordt vergrendeld opnieuw na elke latere mislukte aanmeldingspoging, voor één minuut bij de eerste en meer voor in de daaropvolgende pogingen worden gedaan.
+
+* De laatste drie onjuist wachtwoord-hashes om te voorkomen dat de teller voor accountvergrendeling reincrementing, slimme accountvergrendeling worden bijgehouden. Als iemand op meerdere keren de dezelfde onjuist wachtwoord invoert, wordt dit gedrag niet leiden tot het account te vergrendelen.
+   * Deze functionaliteit is niet beschikbaar voor klanten met Pass through-verificatie is ingeschakeld.
 
 Slimme accountvergrendeling is altijd ingeschakeld voor alle klanten van Azure AD met deze standaardinstellingen die worden geboden door de juiste combinatie van beveiliging en gebruiksgemak. Aanpassing van de vergrendeling van het smart-instellingen met waarden die specifiek zijn voor uw organisatie, vereist Azure AD Basic of hoger licenties voor uw gebruikers.
+
+Met behulp van intelligente accountvergrendeling is geen garantie dat een legitieme gebruikers nooit vergrendeld. Wanneer de slimme accountvergrendeling Hiermee vergrendelt u een gebruikersaccount, dan proberen we ons best om de vergrendeling niet de originele gebruiker. De vergrendeling van het service probeert om ervoor te zorgen dat ongewenste actoren kan geen toegang tot een legitieme gebruikersaccount krijgen.  
+
+* Elke Azure Active Directory-Datacenter houdt accountvergrendeling onafhankelijk van elkaar. Een gebruiker heeft (threshold_limit * datacenter_count) aantal pogingen, als de gebruiker komt binnen via elk Datacenter.
+* Smart Lockout maakt gebruik van vertrouwde locatie vs onbekende locatie wilt onderscheiden van een actor beschadigd en de legitieme gebruiker. Niet bekend en vertrouwd locaties hebben beide vergrendeling van het afzonderlijke items.
 
 Slimme accountvergrendelingen kan worden geïntegreerd met hybride implementaties, met behulp van de synchronisatie van wachtwoordhashes Pass through-verificatie, om te voorkomen dat ze worden geblokkeerd door aanvallers on-premises Active Directory-accounts. Door in te stellen op de juiste wijze slimme vergrendeling van het beleid in Azure AD, kunnen aanvallen worden gefilterd voordat ze on-premises Active Directory bereiken.
 

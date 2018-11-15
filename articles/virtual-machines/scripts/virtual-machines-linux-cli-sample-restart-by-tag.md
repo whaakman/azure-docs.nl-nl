@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 4c409dfcfba14093d5e2cf28df4bb6c5d1bd9533
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725969"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622938"
 ---
 # <a name="restart-vms"></a>Virtuele machines opnieuw opstarten
 
@@ -37,7 +37,7 @@ Met de eerste opdracht worden alle virtuele machines in de resourcegroep opnieuw
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-Met de tweede opdracht worden de gelabelde virtuele machines opgevraagd met behulp van `az resouce list` en wordt er gefilterd op de resources die virtuele machines zijn en worden deze machines vervolgens opnieuw opgestart.
+Met de tweede opdracht worden de gelabelde virtuele machines opgevraagd met behulp van `az resource list` en wordt er gefilterd op de resources die virtuele machines zijn en worden deze machines vervolgens opnieuw opgestart.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)

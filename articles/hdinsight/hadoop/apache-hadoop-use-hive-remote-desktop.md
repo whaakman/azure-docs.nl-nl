@@ -1,5 +1,5 @@
 ---
-title: Hadoop Hive en extern bureaublad gebruiken in HDInsight - Azure
+title: Apache Hive en extern bureaublad gebruiken in HDInsight - Azure
 description: Meer informatie over het verbinden met Hadoop-cluster in HDInsight met behulp van extern bureaublad en klikt u vervolgens Hive-query's uitvoeren met behulp van de Hive-opdrachtregelinterface.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32fb2bc9514b911d0a1ce295eee651e4b6b6388a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015074"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634206"
 ---
-# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Hive gebruiken met Hadoop op HDInsight met extern bureaublad
+# <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Apache Hive gebruiken met Apache Hadoop op HDInsight met extern bureaublad
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 In dit artikel hebt u meer informatie over het verbinding maken met een HDInsight-cluster met behulp van extern bureaublad, en vervolgens Hive-query's uitvoeren met behulp van Hive-opdrachtregelinterface (CLI).
