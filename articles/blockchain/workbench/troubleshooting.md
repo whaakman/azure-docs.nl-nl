@@ -50,10 +50,10 @@ Het script accepteert de volgende parameters:
 |---------|---------|----|
 | abonnements-id | Abonnement-id om alle bronnen te maken of te zoeken. | Ja |
 | ResourceGroupName | De naam van de Azure-resourcegroep waar Blockchain Workbench is geïmplementeerd. | Ja |
-| Sleutelbestandpad | Pad voor het maken van .ZIP-bestand met output. Als deze niet is opgegeven wordt tandaard de huidige map gebruikt. | Nee |
+|OutputDirectory| Pad voor het maken van het ZIP-bestand met uitvoer. Als dit niet is opgegeven, wordt standaard de huidige map gebruikt. |Nee|
 | LookbackHours | Het aantal uren dat wordt gehanteerd bij het ophalen van telemetrie. Standaardwaarde is 24 uur. De maximumwaarde is 90 uur | Nee |
 | OmsSubscriptionId | Abonnements-ID waar Log Analytics is geïmplementeerd. Geef deze parameter alleen als Log Analytics voor het blockchain-netwerk buiten de resourcegroep van de Blockchain Workbench is geïmplementeerd.| Nee |
-| OmsResourceGroup |De resourcegroep waar Log Analytics is geïmplementeerd. GGeef deze parameter alleen als Log Analytics voor het blockchain-netwerk buiten de resourcegroep van de Blockchain Workbench is geïmplementeerd.| Nee |
+|OmsResourceGroup| De resourcegroep waarin Log Analytics is geïmplementeerd. Geef deze parameter alleen op als Log Analytics voor het blockchain-netwerk buiten de resourcegroep van de Blockchain Workbench is geïmplementeerd. |Nee|
 | OmsWorkspaceName | De naam van de Log Analytics-werkruimte. Geef deze parameter alleen als Log Analytics voor het blockchain-netwerk buiten de resourcegroep van de Blockchain Workbench is geïmplementeerd. | Nee |
 
 ## <a name="what-is-collected"></a>Wat wordt er verzameld?
