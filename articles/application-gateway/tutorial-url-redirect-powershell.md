@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 11cd052ca07e074ce8303891f7a372890fdf7291
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580596"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566904"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Een toepassingsgateway maken met een omleiding op basis van een URL-pad met Azure PowerShell
 
@@ -32,6 +32,8 @@ In deze zelfstudie leert u het volgende:
 Het volgende voorbeeld toont siteverkeer afkomstig van de poorten 8080 en 8081 en dat wordt doorgestuurd naar dezelfde back-endpools:
 
 ![Voorbeeld van URL-routering](./media/tutorial-url-redirect-powershell/scenario.png)
+
+U kunt deze zelfstudie desgewenst volgen met de [Azure CLI](tutorial-url-redirect-cli.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -516,14 +518,6 @@ U kunt [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Volgende stappen
-
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een toepassingsgateway maken
-> * Listeners en routeringsregels toevoegen
-> * Schaalsets voor virtuele machines voor back-endpools maken
 
 > [!div class="nextstepaction"]
 > [Meer informatie over wat u kunt doen met de toepassingsgateway](application-gateway-introduction.md)

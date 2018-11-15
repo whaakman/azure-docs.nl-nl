@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012459"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636234"
 ---
 # <a name="create-and-manage-role-assignments"></a>Roltoewijzingen maken en beheren
 
@@ -26,6 +26,8 @@ De toewijzing van elke rol bevat:
 * **Roldefinitie-ID**
 * **Pad van de ruimte**
 * **Tenant-ID**: In de meeste gevallen tenant Azure Active Directory-ID
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="role-definition-identifiers"></a>Rol van definitie-id 's
 
@@ -57,7 +59,7 @@ De ondersteunde `ObjectIdTypes`:
 ## <a name="create-a-role-assignment"></a>Een roltoewijzing maken
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Naam** | **Vereist** | **Type** | **Beschrijving** |
@@ -108,22 +110,22 @@ Alle gebruikers die deel van een domein uitmaken ontvangen leestoegang voor opsl
 Gebruiken om op te halen van een roltoewijzing ophalen
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Naam** | **In** | **Vereist** |    **Type** |  **Beschrijving** |
 | --- | --- | --- | --- | --- |
-| Pad | Pad | True | Reeks | Het volledige pad naar de ruimte |
+| YOUR_PATH | Pad | True | Reeks |    Het volledige pad naar de ruimte |
 
 Gebruik verwijderen om te verwijderen van een roltoewijzing.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Naam** | **In** | **Vereist** | **Type** | **Beschrijving** |
 | --- | --- | --- | --- | --- |
-| Id | Pad | True | Reeks |   Roltoewijzings-ID |
+| YOUR_ROLE_ID | Pad | True | Reeks | Roltoewijzings-ID |
 
 ## <a name="next-steps"></a>Volgende stappen
 

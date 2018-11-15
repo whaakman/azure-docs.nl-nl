@@ -1,6 +1,6 @@
 ---
-title: MapReduce met Hadoop op HDInsight
-description: Leer hoe u MapReduce-taken worden uitgevoerd op Hadoop in HDInsight-clusters.
+title: MapReduce met Apache Hadoop op HDInsight
+description: Leer hoe u MapReduce-taken worden uitgevoerd op Apache Hadoop in HDInsight-clusters.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015159"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632648"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>MapReduce gebruiken in Hadoop op HDInsight
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>MapReduce gebruiken in een Apache Hadoop op HDInsight
 
 Leer hoe u MapReduce-taken uitvoert op HDInsight-clusters. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop MapReduce kan worden gebruikt met HDInsight:
 
@@ -32,7 +32,7 @@ Leer hoe u MapReduce-taken uitvoert op HDInsight-clusters. Gebruik de volgende t
 
 ## <a id="whatis"></a>Wat is MapReduce
 
-Hadoop MapReduce is een softwareframework voor het schrijven van taken die grote hoeveelheden gegevens verwerken. Invoergegevens is opgedeeld in segmenten onafhankelijk. Elk segment worden parallel verwerkt op de knooppunten in uw cluster. Een MapReduce-taak bestaat uit twee functies:
+Apache Hadoop MapReduce is een softwareframework voor het schrijven van taken die grote hoeveelheden gegevens verwerken. Invoergegevens is opgedeeld in segmenten onafhankelijk. Elk segment worden parallel verwerkt op de knooppunten in uw cluster. Een MapReduce-taak bestaat uit twee functies:
 
 * **Toewijzer**: invoergegevens worden verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
 

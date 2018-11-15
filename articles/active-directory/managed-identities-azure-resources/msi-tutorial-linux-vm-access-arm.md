@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4abde91e04048d64a17f861825d1fb7779873155
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 638946f0ffa8b6540f55fb7a22ac17bd262269bf
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106096"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621680"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Zelfstudie: een door de gebruiker toegewezen beheerde identiteit gebruiken op een Linux-VM om toegang te krijgen tot Azure Resource Manager
 
@@ -40,13 +40,11 @@ In deze zelfstudie leert u het volgende:
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- [Aanmelden bij de Azure-portal](https://portal.azure.com)
 
-[Aanmelden bij de Azure-portal](https://portal.azure.com)
+- [Een virtuele Linux-machine maken](/azure/virtual-machines/linux/quick-create-portal)
 
-[Een virtuele Linux-machine maken](/azure/virtual-machines/linux/quick-create-portal)
-
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+- Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Een door de gebruiker toegewezen beheerde identiteit maken
 
@@ -128,20 +126,20 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
 1. Meld u aan bij de Azure [Portal](https://portal.azure.com).
 2. Navigeer in de portal naar **Virtuele machines**, ga naar de virtuele Windows-machine en klik op de pagina **Overzicht** op **Verbinden**. Kopieer de verbindingsreeks voor uw virtuele machine.
 3. Maak verbinding met de virtuele machine met de SSH-client van uw keuze. Als u Windows gebruikt, kunt u de SSH-client in het [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) gebruiken. Zie [De sleutels van uw SSH-client gebruiken onder Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) of [Een sleutelpaar met een openbare SSH-sleutel en een privé-sleutel maken en gebruiken voor virtuele Linux-machines in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) als u hulp nodig hebt bij het configureren van de sleutels van uw SSH-client.
-4. Dien in het terminalvenster met behulp van CURL een aanvraag in op het Azure IMDS-eindpunt (Instance Metadata Service) om een toegangstoken voor Azure Resource Manager op te halen.  
+4. Dien in het terminalvenster met behulp van CURL een aanvraag in op het Azure IMDS-eindpunt (Instance Metadata Service) om een toegangstoken voor Azure Resource Manager op te halen.  
 
-   De CURL-aanvraag voor het verkrijgen van een toegangstoken wordt in het volgende voorbeeld weergegeven. Vervang `<CLIENT ID>` door de eigenschap `clientId` die wordt geretourneerd door de opdracht `az identity create` in [Een door de gebruiker toegewezen beheerde identiteit maken](#create-a-user-assigned-managed-identity): 
+   De CURL-aanvraag voor het verkrijgen van een toegangstoken wordt in het volgende voorbeeld weergegeven. Vervang `<CLIENT ID>` door de eigenschap `clientId` die wordt geretourneerd door de opdracht `az identity create` in [Een door de gebruiker toegewezen beheerde identiteit maken](#create-a-user-assigned-managed-identity): 
     
    ```bash
-   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > De waarde van de parameter `resource` moet exact overeenkomen met wat er in Azure AD wordt verwacht. Wanneer u de resource-id van Resource Manager gebruikt, moet u de URI opgeven met een slash op het einde. 
+    > De waarde van de parameter `resource` moet exact overeenkomen met wat er in Azure AD wordt verwacht. Wanneer u de resource-id van Resource Manager gebruikt, moet u de URI opgeven met een slash op het einde. 
     
-    Het antwoord bevat het toegangstoken dat u nodig hebt voor toegang tot Azure Resource Manager. 
+    Het antwoord bevat het toegangstoken dat u nodig hebt voor toegang tot Azure Resource Manager. 
     
-    Voorbeeldantwoord:  
+    Voorbeeldantwoord:  
 
     ```bash
     {
@@ -152,19 +150,19 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
     "token_type":"Bearer"
-    } 
+    } 
     ```
 
 5. Gebruik het toegangstoken om toegang te krijgen tot Azure Resource Manager en lees de eigenschappen van de resourcegroep waarvoor u eerder uw door de gebruiker toegewezen beheerde identiteit toegang hebt verleend. Vervang de waarden van `<SUBSCRIPTION ID>`, en `<RESOURCE GROUP>` door de waarden die u eerder hebt opgegeven, en `<ACCESS TOKEN>` door het token dat in de vorige stap is geretourneerd.
 
     > [!NOTE]
-    > De URL is hoofdlettergevoelig, dus gebruik precies dezelfde naam die u eerder hebt gebruikt voor de naam van de resourcegroep, en de hoofdletter ‘G’ in `resourceGroups`.  
+    > De URL is hoofdlettergevoelig, dus gebruik precies dezelfde naam die u eerder hebt gebruikt voor de naam van de resourcegroep, en de hoofdletter ‘G’ in `resourceGroups`.  
 
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    Het antwoord bevat de gegevens van de specifieke resourcegroep, vergelijkbaar met het volgende voorbeeld: 
+    Het antwoord bevat de gegevens van de specifieke resourcegroep, vergelijkbaar met het volgende voorbeeld: 
 
     ```bash
     {
@@ -172,9 +170,9 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
     "name":"DevTest",
     "location":"westus",
     "properties":{"provisioningState":"Succeeded"}
-    } 
+    } 
     ```
-    
+    
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u geleerd om een door de gebruiker toegewezen beheerde identiteit te maken en deze te koppelen aan een Linux-VM om toegang te krijgen tot de Azure Resource Manager-API.  Zie voor meer informatie over Azure Resource Manager:

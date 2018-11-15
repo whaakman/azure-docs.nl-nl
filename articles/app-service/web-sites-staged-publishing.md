@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257830"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636064"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
 
-Wanneer u uw web-app, web-app op Linux-, mobiele back-end- en API-app implementeert [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), u kunt implementeren op een afzonderlijke implementatiesite in plaats van de standaard-productiesite bij uitvoering in de **Standard** of **Premium** laag voor App Service-plan. Implementatiesleuven zijn daadwerkelijk live apps met hun eigen hostnamen. App-inhoud en configuratie-elementen kunnen worden gewisseld tussen twee implementatiesites, inclusief de productiesite. Implementeren van uw toepassing naar een implementatiesite heeft de volgende voordelen:
+Wanneer u uw web-app, web-app op Linux-, mobiele back-end- en API-app implementeert [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), u kunt implementeren op een afzonderlijke implementatiesite in plaats van de standaard-productiesite bij uitvoering in de **Standard**, **Premium**, of **geïsoleerd** laag voor App Service-plan. Implementatiesleuven zijn daadwerkelijk live apps met hun eigen hostnamen. App-inhoud en configuratie-elementen kunnen worden gewisseld tussen twee implementatiesites, inclusief de productiesite. Implementeren van uw toepassing naar een implementatiesite heeft de volgende voordelen:
 
 * U kunt app-wijzigingen in een gefaseerde installatie implementatiesleuf valideren voordat deze wisselen met de productiesite.
 * Zorgt ervoor dat alle exemplaren van de site zijn opgewarmd voordat ze in productie wordt komen eerst een app implementeren op een site en deze in productie komt. Dit veel minder uitvaltijd wanneer u uw app implementeert. Het omleiden van verkeer is naadloos en er zijn geen aanvragen worden verwijderd als gevolg van bewerkingen voor wisselen. Deze volledige werkstroom kan worden geautomatiseerd door het configureren van [automatisch wisselen](#Auto-Swap) wanneer vooraf swap-validatie is niet nodig.
@@ -36,7 +36,7 @@ Elke laag van App Service-plan ondersteunt een verschillend aantal implementatie
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Een implementatiesite toevoegen
-De app moet worden uitgevoerd de **Standard** of **Premium** laag zodat u meerdere implementatiesites inschakelen.
+De app moet worden uitgevoerd de **Standard**, **Premium**, of **geïsoleerd* laag zodat u meerdere implementatiesites inschakelen.
 
 1. In de [Azure Portal](https://portal.azure.com/), opent u van uw app [resourceblade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Kies de **implementatiesites** optie en klik vervolgens op **sleuf toevoegen**.
@@ -44,7 +44,7 @@ De app moet worden uitgevoerd de **Standard** of **Premium** laag zodat u meerde
     ![Een nieuwe implementatiesite toevoegen][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Als de app nog niet in de **Standard** of **Premium** laag, ontvangt u een bericht weergegeven dat aangeeft van de ondersteunde lagen voor het inschakelen van gefaseerd publiceren. Op dit moment hebt u de optie te selecteren **Upgrade** en navigeer naar de **schaal** tab van uw app voordat u doorgaat.
+   > Als de app nog niet in de **Standard**, **Premium**, of **geïsoleerd* laag, ontvangt u een bericht weergegeven dat aangeeft van de ondersteunde lagen voor het inschakelen van gefaseerd publiceren. Op dit moment hebt u de optie te selecteren **Upgrade** en navigeer naar de **schaal** tab van uw app voordat u doorgaat.
    > 
    > 
 3. In de **een sleuf toevoegen** blade, Geef een naam op voor de site en selecteer of u wilt klonen appconfiguratie vanaf een andere bestaande implementatiesite. Klik op het vinkje om door te gaan.

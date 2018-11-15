@@ -1,5 +1,5 @@
 ---
-title: Apache Sqoop taken uitvoeren met Azure HDInsight (Hadoop)
+title: Apache Sqoop taken uitvoeren met Azure HDInsight (Apache Hadoop)
 description: Informatie over het gebruik van Azure PowerShell op een werkstation uitvoeren Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
 ms.reviewer: jasonh
 services: hdinsight
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c02fca7ba1ee5b7a93e54b4898290f0b84d88304
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622445"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684974"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Leer hoe u Sqoop in HDInsight gebruiken om te importeren en exporteren tussen HDInsight-cluster en Azure SQL-database of SQL Server-database.
+Leer hoe u Apache Sqoop gebruiken in HDInsight voor het importeren en exporteren tussen HDInsight-cluster en Azure SQL-database of SQL Server-database.
 
-Hoewel Hadoop een logische keuze is voor de verwerking van ongestructureerde en semigestructureerde gegevens, zoals Logboeken en -bestanden, er mogelijk ook nodig voor het verwerken van gestructureerde gegevens die zijn opgeslagen in relationele databases.
+Hoewel Apache Hadoop een logische keuze is voor de verwerking van ongestructureerde en semigestructureerde gegevens, zoals Logboeken en -bestanden, er mogelijk ook nodig voor het verwerken van gestructureerde gegevens die zijn opgeslagen in relationele databases.
 
-[Sqoop] [ sqoop-user-guide-1.4.4] is een hulpprogramma waarmee gegevens worden overgebracht tussen Hadoop-clusters en relationele databases. U kunt deze gebruiken om gegevens te importeren uit een relationeel databasebeheersysteem (RDBMS), zoals SQL Server, MySQL of Oracle in het Hadoop distributed file system (HDFS), de gegevens in Hadoop MapReduce of Hive transformeren, en vervolgens de gegevens weer geëxporteerd naar een RDBMS. In deze zelfstudie maakt u een SQL Server-database gebruikt voor de relationele database.
+[Apache Sqoop] [ sqoop-user-guide-1.4.4] is een hulpprogramma waarmee gegevens worden overgebracht tussen Hadoop-clusters en relationele databases. U kunt deze gebruiken om gegevens te importeren uit een relationeel databasebeheersysteem (RDBMS), zoals SQL Server, MySQL of Oracle in het Hadoop distributed file system (HDFS), de gegevens in Hadoop MapReduce of Hive transformeren, en vervolgens de gegevens weer geëxporteerd naar een RDBMS. In deze zelfstudie maakt u een SQL Server-database gebruikt voor de relationele database.
 
 Zie voor Sqoop-versies die worden ondersteund op HDInsight-clusters, [wat is er nieuw in de clusterversies geleverd door HDInsight?][hdinsight-versions]
 
@@ -90,7 +90,7 @@ Als u liever de Azure PowerShell gebruiken voor het maken van het cluster en de 
         
         |Naam|Waarde|
         |----|-----|
-        | Standaardnaam van opslagaccount | &lt;CluterName > opslaan |
+        | Standaardnaam van opslagaccount | &lt;Clusternaam > opslaan |
         | Azure SQL database-servernaam | &lt;Clusternaam > dbserver |
         | Naam van een Azure SQL-database | &lt;Clusternaam > db |
      
@@ -102,7 +102,7 @@ Als u ervoor kiest om bestaande Azure SQL-database of Microsoft SQL Server te ge
 * **Azure SQL-database**: U moet een firewallregel voor de Azure SQL database-server zodat toegang vanaf uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en het configureren van de firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Een Azure SQL database staat standaard verbindingen van Azure-services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u dit inschakelen via de Azure-portal. Zie voor instructies over het maken van een Azure SQL database en firewallregels configureren, [maken en SQL Database configureren][sqldatabase-create-configue].
+  > Een Azure SQL database staat standaard verbindingen van Azure-services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u dit inschakelen via de Azure-portal. Zie voor instructies over het maken van een Azure SQL database en firewallregels configureren, [maken en SQL Database configureren][sqldatabase-create-configure].
   > 
   > 
 * **SQL Server**: als uw HDInsight-cluster zich op hetzelfde virtuele netwerk in Azure als SQL Server, kunt u de stappen in dit artikel gebruiken om te importeren en exporteren van gegevens naar een SQL Server-database.
@@ -636,7 +636,7 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../../sql-database/sql-database-get-started.md
+[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c99099c9b0fdf485bcf1db1d00b23e1e119ec557
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 347a437a9f45f29348e97c616c985764135e5427
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614154"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687466"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technische SAML-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de SAML 2.0-id-provider. Dit artikel beschrijft de details van een technisch profiel voor interactie met een claimprovider die ondersteuning biedt voor dit gestandaardiseerde protocol. Met het technische SAML-profiel die u met op basis van SAML-identiteitsprovider, zoals AD FS en Salesforce federeren kunt, zodat uw gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
+Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de SAML 2.0-id-provider. Dit artikel beschrijft de details van een technisch profiel voor interactie met een claimprovider die ondersteuning biedt voor dit gestandaardiseerde protocol. Met SAML technische u met een SAML communiceren kan-profiel op basis van id-provider, zoals [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) en [Salesforce](active-directory-b2c-setup-sf-app-custom.md), zodat uw gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
 
 ## <a name="metadata-exchange"></a>Uitwisseling van metagegevens
 
-De metagegevens zijn gegevens die in het SAML-protocol wordt gebruikt om beschikbaar te stellen de configuratie van een SAML-partij, zoals een serviceprovider of de id-provider. Metagegevens van definieert de locatie van de services, zoals certificaten voor aanmelden en afmelden, en aanmeldingsmethode. De id-provider maakt gebruik van de metagegevens te weten hoe u om te communiceren met Azure AD B2C. De metagegevens is geconfigureerd in de XML-indeling en kan worden ondertekend met een digitale handtekening, zodat de andere partij kunt controleren of de integriteit van de metagegevens. Wanneer Azure AD B2C met SAML-identiteitsprovider federeert, fungeert deze als een serviceprovider een SAML-aanvraag initiëren en wachten op een SAML-antwoord. En in sommige gevallen excepts ongevraagde SAML-verificatie, die ook wel bekend als id-provider is gestart. 
+De metagegevens zijn gegevens die in het SAML-protocol wordt gebruikt om beschikbaar te stellen de configuratie van een SAML-partij, zoals een serviceprovider of de id-provider. Metagegevens van definieert de locatie van de services, zoals certificaten voor aanmelden en afmelden, en aanmeldingsmethode. De id-provider maakt gebruik van de metagegevens te weten hoe u om te communiceren met Azure AD B2C. De metagegevens is geconfigureerd in de XML-indeling en kan worden ondertekend met een digitale handtekening, zodat de andere partij kunt controleren of de integriteit van de metagegevens. Wanneer Azure AD B2C met SAML-identiteitsprovider federeert, fungeert deze als een serviceprovider een SAML-aanvraag initiëren en wachten op een SAML-antwoord. En in sommige gevallen, accepteert ongevraagde SAML-verificatie, die ook wel bekend als id-provider is gestart. 
 
 De metagegevens kan worden geconfigureerd in beide partijen als 'Statische metagegevens' of 'Dynamische metagegevens'. In de statische modus, Kopieer de gehele metagegevens van de ene partij en stel deze in de andere partij. In de dynamische modus stelt u de URL in de metagegevens van de terwijl de andere partij de configuratie van de dynamisch leest. De beginselen zijn hetzelfde, instellen van de metagegevens van het technische profiel van de Azure AD B2C in uw id-provider en de metagegevens van de id-provider instellen in Azure AD B2C.
 
@@ -34,14 +34,14 @@ Elke SAML-identiteitsprovider heeft verschillende stappen voor het beschikbaar s
 Het volgende voorbeeld ziet u een URL-adres in de SAML-metagegevens van het technische profiel van een Azure AD B2C:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Vervang de volgende waarden:
 
-- **uw tenant** met de naam van uw tenant, zoals uw tenant.onmicrosoft.com
+- **uw tenant-naam** met de naam van uw tenant, zoals fabrikam.b2clogin.com.
 - **uw beleid** met de naam van uw beleid. Gebruik het beleid dat is waar u het technische SAML-provider-profiel configureren, of een beleidsregel die eigenschappen overneemt van dat beleid.
-- **uw op technisch profiel** met de naam van de provider technisch profiel voor uw SAML-identiteit
+- **uw op technisch profiel** met de naam van de provider technisch profiel voor uw SAML-identiteit.
 
 ## <a name="digital-signing-certificates-exchange"></a>Digitale ondertekening certificaten exchange
 

@@ -1,6 +1,6 @@
 ---
 title: Wat is Apache Hive en HiveQL - Azure HDInsight
-description: Apache Hive is een systeem voor het datawarehouse van gegevens voor Hadoop. U kunt gegevens die zijn opgeslagen in Hive HiveQL, met een query die vergelijkbaar met de Transact-SQL. In dit document leert u hoe u Hive en HiveQL gebruiken met Azure HDInsight.
+description: Apache Hive is een datawarehouse-systeem voor Apache Hadoop. U kunt gegevens die zijn opgeslagen in Hive HiveQL, met een query die vergelijkbaar met de Transact-SQL. In dit document leert u hoe u Hive en HiveQL gebruiken met Azure HDInsight.
 keywords: hiveql, wat hive, hadoop hiveql, is het gebruik van hive, hive, wat is er hive meer
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241103"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633713"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL op Azure HDInsight?
 
-[Apache Hive](http://hive.apache.org/) is van een datawarehouse-systeem voor Hadoop. Hive kunt gegevenssamenvatting, query's en analyse van gegevens. Hive-query's worden geschreven in HiveQL, dit een querytaal die vergelijkbaar is met SQL is.
+[Apache Hive](http://hive.apache.org/) is van een datawarehouse-systeem voor Apache Hadoop. Hive kunt gegevenssamenvatting, query's en analyse van gegevens. Hive-query's worden geschreven in HiveQL, dit een querytaal die vergelijkbaar is met SQL is.
 
 Hive kunt u de projectstructuur van het op grotendeels niet-gestructureerde gegevens. Nadat u de structuur te definiëren, kunt u HiveQL gebruiken om op te vragen van de gegevens zonder kennis van Java- of MapReduce.
 

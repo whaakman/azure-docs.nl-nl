@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614376"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636955"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -159,7 +159,9 @@ Om te filteren op specifieke logboek typen, zoals HTTP, gebruikt u de **--pad** 
 
 ## <a name="understandlogs"></a> Hoe: inzicht in Logboeken met diagnostische gegevens
 ### <a name="application-diagnostics-logs"></a>Application diagnostics-Logboeken
-Application diagnostics wordt informatie opgeslagen in een specifieke indeling voor .NET-toepassingen, afhankelijk van of het opslaan van logboeken naar de file system- of blob storage. De basisset met gegevens die zijn opgeslagen is hetzelfde voor alle drie opslagtypen: de datum en tijd is die de gebeurtenis heeft plaatsgevonden, wordt de proces-ID die de gebeurtenis, het gebeurtenistype (informatie, waarschuwing, fout) en het bericht van de gebeurtenis heeft geproduceerd.
+Application diagnostics wordt informatie opgeslagen in een specifieke indeling voor .NET-toepassingen, afhankelijk van of het opslaan van logboeken naar de file system- of blob storage. 
+
+De basisset met gegevens die zijn opgeslagen is hetzelfde voor beide opslagtypen: de datum en tijd is die de gebeurtenis heeft plaatsgevonden, wordt de proces-ID die de gebeurtenis, het gebeurtenistype (informatie, waarschuwing, fout) en het bericht van de gebeurtenis heeft geproduceerd. Met behulp van het bestandssysteem voor logboekopslag is handig wanneer u directe toegang tot het oplossen van een probleem omdat de logboekbestanden worden bijgewerkt in de buurt onmiddellijk nodig hebt. BLOB-opslag wordt gebruikt voor archiveringsdoeleinden omdat de bestanden worden opgeslagen in de cache en dat vervolgens in de opslagcontainer volgens een schema wordt leeggemaakt.
 
 **Bestandssysteem**
 
@@ -195,7 +197,7 @@ De gegevens die zijn opgeslagen in een blob wordt het volgende voorbeeld als vol
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> De eerste regel van het logboek bevat de kolomkoppen zoals weergegeven in dit voorbeeld.
+> Voor ASP.NET Core, logboekregistratie wordt gerealiseerd met behulp van de [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider deze provider deposito's aanvullende in de blob-container logboekbestanden. Zie voor meer informatie, [ASP.NET Core logboekregistratie in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

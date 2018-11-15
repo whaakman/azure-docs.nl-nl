@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854946"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634376"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Taken van de ACR-verwijzing: YAML
 
@@ -30,7 +30,7 @@ ACR taken ondersteunt meerdere stappen taak declaratie in standaard YAML-syntaxi
 Het hoogste niveau `acr-task.yaml` primitieven zijn **taak eigenschappen**, **stap typen**, en **stap eigenschappen**:
 
 * [Eigenschappen van de taak](#task-properties) zijn van toepassing op alle stappen in de uitvoering van de taak. Er zijn drie algemene eigenschappen:
-  * version
+  * versie
   * stepTimeout
   * totalTimeout
 * [Taak stap typen](#task-step-types) vertegenwoordigen de typen van de acties die kunnen worden uitgevoerd in een taak. Er zijn drie typen voor stap:
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-De `build` staptype ondersteunt de volgende parameters:
+De `build` staptype biedt ondersteuning voor de parameters in de volgende tabel. De `build` staptype biedt ook ondersteuning voor alle opties voor opbouwen van de [docker build](https://docs.docker.com/engine/reference/commandline/build/) opdracht, zoals `--build-arg` om in te stellen variabelen voor de build-tijd.
 
 | Parameter | Beschrijving | Optioneel |
 | --------- | ----------- | :-------: |
@@ -122,7 +122,7 @@ De `build` staptype ondersteunt de volgende parameters:
 
 ### <a name="properties-build"></a>Eigenschappen: bouwen
 
-De `build` staptype ondersteunt de volgende eigenschappen vindt u details van deze eigenschappen in de [stap taakeigenschappen](#task-step-properties) sectie van dit artikel.
+De `build` staptype ondersteunt de volgende eigenschappen. U vindt de details van deze eigenschappen in de [stap taakeigenschappen](#task-step-properties) sectie van dit artikel.
 
 | | | |
 | -------- | ---- | -------- |

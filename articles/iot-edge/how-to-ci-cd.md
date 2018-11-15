@@ -8,16 +8,16 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a110c0a938e56c8ac276e0efed22ea3af23f111a
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 06dec64a55aaece4cd67ebf0485e34aa206a8936
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578532"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633730"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
-In dit artikel laat zien hoe u continue integratie en continue implementatiefuncties van Azure DevOps-Services en Microsoft Team Foundation Server (TFS) bouwen, testen en implementeren van toepassingen snel en efficiënt aan uw Azure IoT Edge kunt gebruiken. 
+U kunt eenvoudig inzetten van DevOps met uw Azure IoT Edge-toepassingen met [Azure IoT Edge voor Azure pijplijnen](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) of [Azure IoT Edge-invoegtoepassing voor Jenkins](https://plugins.jenkins.io/azure-iot-edge). In dit artikel laat zien hoe u kunt de continue integratie en continue implementatiefuncties van Azure-pijplijnen en Microsoft Team Foundation Server (TFS) om te bouwen, testen en implementeren van toepassingen snel en efficiënt aan uw Azure IoT Edge. 
 
 In dit artikel leert u hoe u:
 * Maken en controleren in een voorbeeld van een IoT Edge-oplossing.
@@ -42,28 +42,28 @@ In deze sectie maakt u een voorbeeld van een IoT Edge oplossing met eenheidstest
 
 3. Uw voorbeeld IoT Edge-oplossing is nu gereed. De standaard C#-module fungeert als een pipe bericht-module. In de `deployment.template.json`, ziet u deze oplossing bevat twee modules. Het bericht wordt gegenereerd op basis van de `tempSensor` -module, en wordt rechtstreeks kan worden doorgesluisd `FilterModule`, vervolgens naar uw IoT-hub zijn verzonden.
 
-4. Sla deze projecten en bekijk het in de opslagplaats van uw Azure DevOps of TFS.
+4. Sla deze projecten en bekijk het in de opslagplaats van uw Azure-opslagplaatsen of TFS.
     
 > [!NOTE]
 > Zie voor meer informatie over het gebruik van Azure-opslagplaatsen [deel van uw code met Visual Studio en Azure-opslagplaatsen](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
-## <a name="configure-azure-pipeline-for-continuous-integration"></a>Azure-pijplijn voor continue integratie configureren
-In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automatisch uitgevoerd wanneer u op wijzigingen in het voorbeeld IoT Edge-oplossing controleren en wordt het weergegeven build-Logboeken in Azure-pijplijn.
+## <a name="configure-azure-pipelines-for-continuous-integration"></a>Azure-pijplijnen voor continue integratie configureren
+In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automatisch uitgevoerd wanneer u op wijzigingen in het voorbeeld IoT Edge-oplossing controleren en deze build-Logboeken in Azure pijplijnen weergegeven.
 
-1. Meld u aan bij uw organisatie Azure DevOps (**https://**_uw account_**. visualstudio.com**) en open het project waarin u dit selectievakje is ingeschakeld in de voorbeeld-app.
+1. Meld u aan bij uw organisatie Azure DevOps ( **https://dev.azure.com/{your organisatie} /**) en open het project waarin u dit selectievakje is ingeschakeld in de voorbeeld-app.
 
     ![De code is ingecheckt](./media/how-to-ci-cd/init-project.png)
 
-1. Ga naar [Azure IoT Edge voor Azure pijplijn](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) op Azure DevOps-Marketplace. Klik op **gratis downloaden** en volg de wizard voor het installeren van deze extensie voor uw Azure DevOps-organisatie of downloaden naar uw TFS.
+1. Ga naar [Azure IoT Edge voor Azure pijplijnen](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) op Azure DevOps-Marketplace. Klik op **gratis downloaden** en volg de wizard voor het installeren van deze extensie voor uw Azure DevOps-organisatie of downloaden naar uw TFS.
 
     ![De extensie installeren](./media/how-to-ci-cd/install-extension.png)
 
-1. Open in uw Azure DevOps, de **Build & Release** hub en klik in de **bouwt** tabblad **+ nieuwe pijplijn**. Of, als u bouwen van pijplijnen al hebt, kiest u de **+ nieuw** knop.
+1. Open in uw Azure-pijplijnen, de **Build & Release** hub en klik in de **bouwt** tabblad **+ nieuwe pijplijn**. Of, als u bouwen van pijplijnen al hebt, kiest u de **+ nieuw** knop.
 
     ![Nieuwe pijplijn](./media/how-to-ci-cd/add-new-build.png)
 
-1. Als u hierom wordt gevraagd, selecteert u de **Azure DevOps Git** gegevensbrontype. Selecteer vervolgens het project, de opslagplaats en de vertakking waar uw code zich bevindt. Kies **blijven**.
+1. Als u hierom wordt gevraagd, selecteert u **Git** het brontype. Selecteer vervolgens het project, de opslagplaats en de vertakking waar uw code zich bevindt. Kies **blijven**.
 
     ![Git selecteren](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -98,8 +98,8 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
     Sla de nieuwe build-pijplijn. Klik op de knop **Opslaan**.
 
 
-## <a name="configure-azure-pipeline-for-continuous-deployment"></a>Azure-pijplijn voor continue implementatie configureren
-In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het automatisch uitgevoerd zodra uw build-pijplijn artefacten komt en wordt het weergegeven implementatielogboeken in Azure-pijplijn.
+## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Azure-pijplijnen voor continue implementatie configureren
+In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het automatisch uitgevoerd zodra uw build-pijplijn artefacten komt en implementatie-Logboeken in Azure-pijplijnen worden weergegeven.
 
 1. In de **Releases** tabblad **+ nieuwe pijplijn**. Of, als u release-pijplijnen al hebt, kiest u de **+ nieuw** knop.  
 
@@ -165,7 +165,7 @@ In deze sectie maakt u een release-pijplijn die is geconfigureerd voor het autom
     
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Controleer of IoT Edge CI/CD met de build en pipelines vrijgeven
 
-In deze sectie maakt activeren u een build zodat de werken CI/CD-pijplijn. Controleer vervolgens of het resultaat met Azure DevOps-portal. 
+In deze sectie maakt activeren u een build zodat de werken CI/CD-pijplijn. Controleer vervolgens of dat de implementatie is geslaagd.
 
 1. Voor het activeren van een build-taak, kunt u een wijziging naar de opslagplaats broncode pushen of deze handmatig te activeren. U kunt een taak build activeren in de build-pijplijn door te klikken op de **wachtrij** knop zoals in de volgende schermafbeelding.
 

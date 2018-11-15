@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412445"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632557"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Lezen-replica's in Azure Database for MySQL
 
@@ -60,12 +60,15 @@ Replica-servers worden gemaakt met behulp van de configuraties van dezelfde serv
 - Bewaarperiode voor back-up
 - Optie voor back-redundantie
 - MySQL-engine-versie
+- Firewall-regels
 
 Nadat een replica is gemaakt, kunt u de prijscategorie wijzigen (met uitzondering van en naar Basic), compute genereren, vCores, opslag en back-upretentie onafhankelijk van de hoofd-server.
 
 ### <a name="master-server-configuration"></a>Configuratie van de hoofd-server
 
-Als een master van de configuratie van de server (ex.) vCores of opslag) wordt bijgewerkt, configuratie van de replica's moet ook worden bijgewerkt naar waarden gelijk zijn aan of groter zijn. Zonder deze optie wordt de replica-server wellicht geen wijzigingen aangebracht in de master bijhouden en als gevolg hiervan kan vastlopen. 
+Als een master van de configuratie van de server (ex.) vCores of opslag) wordt bijgewerkt, configuratie van de replica's moet ook worden bijgewerkt naar waarden gelijk zijn aan of groter zijn. Zonder deze optie wordt de replica-server wellicht geen wijzigingen aangebracht in de master bijhouden en als gevolg hiervan kan vastlopen.
+
+Nieuwe firewallregels toegevoegd aan de hoofd-server nadat een replica-server is gemaakt, worden niet gerepliceerd naar de replica. De replica moet worden bijgewerkt met deze nieuwe firewallregel ook.
 
 ### <a name="deleting-the-master-server"></a>De hoofd-server verwijderen
 
@@ -87,7 +90,4 @@ Gebruikers op de hoofd-server worden gerepliceerd naar de lezen-replica's. U kun
 ## <a name="next-steps"></a>Volgende stappen
 
 - Leer hoe u [maken en beheren van meer replica's met behulp van de Azure portal](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Leer hoe u [maken en beheren van meer replica's met de Azure CLI](howto-read-replicas-cli.md)

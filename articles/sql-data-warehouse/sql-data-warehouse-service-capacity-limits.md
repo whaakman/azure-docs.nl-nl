@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 07/26/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302040"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686599"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Capaciteitslimieten voor SQL Data Warehouse
 Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is toegestaan.
@@ -35,7 +35,7 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 |:--- |:--- |:--- |
 | Database |Max. grootte | Gen1: 240 TB gecomprimeerd op schijf. Deze ruimte is onafhankelijk van tempdb- of logboekpad ruimte, en daarom deze ruimte wordt toegewezen aan de permanente tabellen.  Geclusterde columnstore-compressie wordt geschat op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen de geclusterde columnstore (de standaard-tabeltype worden). <br/><br/> Gen2: 240TB voor rowstore en onbeperkte opslag voor columnstore-tabellen |
 | Tabel |Max. grootte |60 TB gecomprimeerd op schijf |
-| Tabel |Tabellen per database |10.000 |
+| Tabel |Tabellen per database | 100.000 |
 | Tabel |Kolommen per tabel |1024 kolommen |
 | Tabel |Bytes per kolom |Afhankelijk van de kolom [gegevenstype](sql-data-warehouse-tables-data-types.md). De limiet is 8000 voor de gegevenstypen char, 4000 voor nvarchar of 2 GB voor de MAX-gegevenstypen. |
 | Tabel |Bytes per rij, gedefinieerde grootte |8060 bytes<br/><br/>Het aantal bytes per rij wordt berekend op dezelfde manier als voor SQL Server bij de pagina, compressie. Als SQL Server en SQL Data Warehouse biedt ondersteuning voor overloop van rij-opslag, waarmee **kolommen met variabele lengte** buiten een rij worden gepusht. Wanneer rijen met variabele lengte zijn buiten een rij worden doorgestuurd, worden alleen 24 uur per dag-byte-hoofdmap wordt opgeslagen in de belangrijkste record. Zie voor meer informatie, [overloop rij gegevens van meer dan 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
@@ -69,7 +69,7 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 | SELECT |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het JOIN-plan een tijdelijke tabel met meer kolommen dan de JOIN-resultaten vereist, is de 1024-limiet van toepassing op de tijdelijke tabel. |
 | SELECT |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen een maximum van 8060 bytes hebben. |
 | SELECT |Bytes per ORDER BY kolommen |8060 bytes<br/><br/>De kolommen in de component ORDER BY mag maximaal van 8060 bytes hebben. |
-| Id's per instructie |Aantal waarnaar wordt verwezen, id 's |65,535<br/><br/>SQL Data Warehouse, beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt] [interne fout: een expressie services limiet is bereikt]. |
+| Id's per instructie |Aantal waarnaar wordt verwezen, id 's |65,535<br/><br/>SQL Data Warehouse, beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632. Zie voor meer informatie, [interne fout: een expressie services limiet is bereikt](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Letterlijke tekenreeks | Nummer van de letterlijke tekenreeks in een instructie | 20,000 <br/><br/>SQL Data Warehouse, beperkt het aantal tekenreeksconstanten in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632.|
 
 ## <a name="metadata"></a>Metagegevens

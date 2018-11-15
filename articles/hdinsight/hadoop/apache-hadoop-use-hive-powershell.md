@@ -1,6 +1,6 @@
 ---
-title: Hadoop Hive gebruiken met PowerShell in HDInsight - Azure
-description: PowerShell gebruiken voor het uitvoeren van Hive-query's in Hadoop op HDInsight.
+title: Apache Hive gebruiken met PowerShell in HDInsight - Azure
+description: PowerShell gebruiken voor het uitvoeren van Hive-query's in Apache Hadoop op HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257864"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633108"
 ---
-# <a name="run-hive-queries-using-powershell"></a>Uitvoeren van Hive-query's met behulp van PowerShell
+# <a name="run-apache-hive-queries-using-powershell"></a>Apache Hive-query's uitvoeren met behulp van PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Dit document bevat een voorbeeld van het gebruik van Azure PowerShell in de modus Azure Resource Group Hive-query's uitvoeren in een Hadoop op HDInsight-cluster.
+Dit document bevat een voorbeeld van het gebruik van Azure PowerShell in de modus Azure Resource Group Hive-query's uitvoeren in een Apache Hadoop op HDInsight-cluster.
 
 > [!NOTE]
 > Dit document biedt geen een gedetailleerde beschrijving van wat de HiveQL-instructies die worden gebruikt in de voorbeelden doen. Zie voor informatie over de HiveQL die wordt gebruikt in dit voorbeeld, [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een op Linux gebaseerde Hadoop op HDInsight-clusterversie 3.4 of hoger.
+* Een Linux-gebaseerde Apache Hadoop op HDInsight-clusterversie 3.4 of hoger.
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.

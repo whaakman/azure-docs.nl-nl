@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: b788490d588c217d97786f9306baad3083a9c03f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a7c2d1e41fa4ac26854e2e6ab57184cd6ed0bd0c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629164"
+ms.locfileid: "51633679"
 ---
 # <a name="how-to-access-azure-cosmos-db-resources-from-virtual-networks"></a>Toegang tot Azure Cosmos DB-resources van virtuele netwerken
 
@@ -31,7 +31,7 @@ De volgende secties wordt beschreven hoe u VNET-service-eindpunt voor een Azure 
 
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Service-eindpunt voor een bestaande Azure-netwerk en subnet configureren
 
-1. Van **alle resources** blade zoeken naar het virtuele netwerk die u wilt beveiligen.
+1. Van **alle resources** blade zoeken naar de Azure-Cosmos account dat u wilt beveiligen.
 
 1. Selecteer **Firewalls en virtuele netwerken** van instellingenmenu en kies zodat toegang vanaf **geselecteerde netwerken**.
 
@@ -42,7 +42,7 @@ De volgende secties wordt beschreven hoe u VNET-service-eindpunt voor een Azure 
    ![Selecteer het virtuele netwerk en subnet](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
 
-1. Nadat de Azure Cosmos-account is ingeschakeld, kunnen er alleen verkeer van dit gekozen subnet worden. Het virtuele netwerk en subnet dat u hebt toegevoegd moeten worden weergegeven zoals in de volgende schermafbeelding:
+1. Nadat de Azure Cosmos-account voor toegang tot vanuit een virtueel netwerk is ingeschakeld, kunnen er alleen verkeer van dit gekozen subnet worden. Het virtuele netwerk en subnet dat u hebt toegevoegd moeten worden weergegeven zoals in de volgende schermafbeelding:
 
    ![virtueel netwerk en subnet is geconfigureerd](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -183,6 +183,10 @@ Gebruik de volgende stappen uit service-eindpunt voor een Azure Cosmos DB-accoun
 1. Bestaande Azure-Cosmos-account bijwerken met subnet ACL 's
 
    ```azurecli-interactive
+
+   name="<Azure Cosmos account name>"
+   resourceGroupName="<Resource group name>"
+
    az cosmosdb update \
       --name $name \
     --resource-group $resourceGroupName \

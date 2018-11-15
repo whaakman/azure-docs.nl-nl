@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 596bb31ea2734b389ac8b2d6741907da04730648
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3168593e30a7f5acf49960c8479da75529860a65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629160"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684542"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lezen Azure Cosmos DB-wijzigingenfeed
 
@@ -27,7 +27,7 @@ Azure Functions is de eenvoudigste en aanbevolen optie. Wanneer u een Azure Cosm
 
 ## <a name="using-the-change-feed-processor-library"></a>Met behulp van de change feed processor-bibliotheek
 
-De change feed processor-bibliotheek wordt ingeschakeld, complexiteit en toch hebt u een volledige controle over de wijzigingenfeed. De bibliotheek volgt het patroon waarnemer, waarbij de verwerking van de functie wordt aangeroepen door de bibliotheek. Als u een hoge doorvoer wijzigingenfeeds hebt, kunt u meerdere clients om te lezen van de wijzigingenfeed instantiëren. Omdat u change feed processor-bibliotheek, wordt deze automatisch de belasting tussen de verschillende clients delen zonder dat u hoeft voor het implementeren van deze logica. Alle complexiteit wordt verwerkt door de bibliotheek. Als u wilt dat uw eigen load balancer, dan kunt u implementeren `IParitionLoadBalancingStrategy` voor de partitie van een aangepaste strategie voor het verwerken van change feed. Zie voor meer informatie, [met behulp van de change feed processor-bibliotheek](change-feed-processor.md).
+De change feed processor-bibliotheek wordt ingeschakeld, complexiteit en toch hebt u een volledige controle over de wijzigingenfeed. De bibliotheek volgt het patroon waarnemer, waarbij de verwerking van de functie wordt aangeroepen door de bibliotheek. Als u een hoge doorvoer wijzigingenfeeds hebt, kunt u meerdere clients om te lezen van de wijzigingenfeed instantiëren. Omdat u change feed processor-bibliotheek, wordt deze automatisch de belasting tussen de verschillende clients delen zonder dat u hoeft voor het implementeren van deze logica. Alle complexiteit wordt verwerkt door de bibliotheek. Als u wilt dat uw eigen load balancer, dan kunt u implementeren `IPartitionLoadBalancingStrategy` voor de partitie van een aangepaste strategie voor het verwerken van change feed. Zie voor meer informatie, [met behulp van de change feed processor-bibliotheek](change-feed-processor.md).
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Met behulp van de Azure Cosmos DB SQL API-SDK
 

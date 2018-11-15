@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 5dedef82fcae2b50a58af924f5748c900adf96e0
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624604"
+ms.locfileid: "51633509"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Leer hoe u de meest geschikte eenmalige aanmelding methode kiezen bij het configureren van toepassingen in Azure Active Directory (Azure AD). 
@@ -44,7 +44,7 @@ De volgende tabel geeft een overzicht van de methoden voor eenmalige aanmelding,
 | :------ | :------- | :----- |
 | [SAML](#saml-sso) | Alleen cloud | Gebruikmaken van SAML indien mogelijk. SAML werkt wanneer apps worden geconfigureerd voor gebruik van een van de SAML-protocollen.|
 | [Op basis van wachtwoorden](#password-based-sso) | cloud en on-premises | Gebruik deze optie wanneer de toepassing wordt geverifieerd met gebruikersnaam en wachtwoord. Wachtwoord gebaseerde eenmalige aanmelding kunt u beveiligde toepassingen wachtwoorden worden opgeslagen en opnieuw afspelen met behulp van een uitbreiding van web browser of mobiele app. Deze methode maakt gebruik van het bestaande aanmeldingsproces geleverd door de toepassing, maar Hiermee kan een beheerder om de wachtwoorden te beheren. |
-| [Gekoppelde](#linked-sso) | cloud en on-premises | Gebruik gekoppelde eenmalige aanmelding wanneer de toepassing is geconfigureerd voor eenmalige aanmelding in een andere providerservice identificeren. Deze optie toevoegen niet eenmalige aanmelding aan de toepassing. De toepassing mogelijk echter al eenmalige aanmelding geïmplementeerd met behulp van een andere service, zoals Active Directory Federation Services.|
+| [Gekoppelde](#linked-sso) | cloud en on-premises | Gebruik gekoppelde eenmalige aanmelding wanneer de toepassing is geconfigureerd voor eenmalige aanmelding in een andere id-provider-service. Deze optie toevoegen niet eenmalige aanmelding aan de toepassing. De toepassing mogelijk echter al eenmalige aanmelding geïmplementeerd met behulp van een andere service, zoals Active Directory Federation Services.|
 | [Uitgeschakeld](#disabled-sso) | cloud en on-premises | Gebruik uitgeschakeld eenmalige aanmelding wanneer de app niet gereed om te worden geconfigureerd voor eenmalige aanmelding. Gebruikers moeten hun gebruikersnaam en wachtwoord invoeren telkens wanneer ze deze toepassing starten.|
 | [Geïntegreerde Windows-verificatie (IWA)](#integrated-windows-authentication-iwa-sso) | alleen on-premises | Gebruik deze methode voor eenmalige aanmelding voor toepassingen die gebruikmaken van [geïntegreerde Windows-verificatie (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), of de claimbewuste toepassingen. De Application Proxy connectors gebruiken Kerberos-beperkte delegatie (KCD) om te verifiëren voor toegang tot de toepassing. | 
 | [Op basis van koptekst](#header-based-sso) | alleen on-premises | Gebruik op basis van een koptekst van eenmalige aanmelding wanneer de toepassing headers voor verificatie gebruikt. Headers gebaseerde eenmalige aanmelding moet PingAccess voor Azure Active Directory. Application Proxy maakt gebruik van Azure AD de gebruiker te verifiëren en vervolgens doorgegeven verkeer via de connector-service.  | 

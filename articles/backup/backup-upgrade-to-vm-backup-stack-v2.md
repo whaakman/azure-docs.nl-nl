@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962530"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636506"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade uitvoeren naar Azure VM Backup-stack V2
 
@@ -86,15 +86,42 @@ De volgende cmdlets uitvoeren vanaf een hogergelegen PowerShell terminal:
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### <a name="cli"></a>CLI
+Voer de volgende opdrachten uit vanuit een shell:
+1.  Meld u aan bij uw Azure-account:
+
+    ```
+    az login
+    ```
+
+2.  Selecteer het abonnement dat u wilt registreren:
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.  Dit abonnement registreren:
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>Controleer of de upgrade is voltooid
+### <a name="powershell"></a>PowerShell
 Voer de volgende cmdlet vanaf een verhoogde PowerShell terminal:
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-De status 'Registered', wordt vervolgens uw abonnement bijgewerkt naar VM-back-upstack Resource Manager-implementatiemodel.
+### <a name="cli"></a>CLI
+Voer de volgende opdracht uit ashell:
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+De status 'Registered', wordt vervolgens uw abonnement bijgewerkt naar V2-back-upstack.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

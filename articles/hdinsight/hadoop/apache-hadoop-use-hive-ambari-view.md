@@ -1,5 +1,5 @@
 ---
-title: Ambari-weergaven gebruiken om te werken met Hive in HDInsight (Hadoop) - Azure
+title: Apache Ambari-weergaven gebruiken om te werken met Hive in HDInsight (Apache Hadoop) - Azure
 description: Leer hoe u de Hive-weergave in uw webbrowser gebruiken voor het indienen van Hive-query's. Het Hive-weergave maakt deel uit van de Ambari-Webgebruikersinterface voorzien van uw Linux gebaseerde HDInsight-cluster.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c481889eda53ff46a8899676da2529fe4165dfd5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233148"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632744"
 ---
-# <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Ambari Hive-weergave gebruiken met Hadoop in HDInsight
+# <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Apache Ambari Hive-weergave gebruiken met Apache Hadoop in HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Leer hoe u Hive-query's uitvoert met behulp van de Ambari Hive-weergave. De weergave Hive kunt u ontwerpen, optimaliseren en Hive-query's uitvoeren vanuit de webbrowser.
+Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De weergave Hive kunt u ontwerpen, optimaliseren en Hive-query's uitvoeren vanuit de webbrowser.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een op Linux gebaseerde Hadoop op HDInsight-clusterversie 3.4 of hoger.
+* Een Linux-gebaseerde Apache Hadoop op HDInsight-clusterversie 3.4 of hoger.
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.

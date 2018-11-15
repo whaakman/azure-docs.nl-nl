@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311015"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687398"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: technische details
 
@@ -79,8 +79,8 @@ De stroom aanmelden op een systeemeigen client is als volgt:
 
 1. De gebruiker probeert te krijgen tot een systeemeigen toepassing (bijvoorbeeld de Outlook-client) van een domein bedrijfsapparaat binnen uw bedrijfsnetwerk.
 2. Als de gebruiker is niet al aangemeld, wordt de gebruikersnaam van de gebruiker in de systeemeigen toepassing opgehaald uit van het apparaat Windows-sessie.
-3. De app wordt de gebruikersnaam verzonden naar Azure AD en worden opgehaald van uw tenant WS-Trust MEX-eindpunt.
-4. De app vervolgens een query voor de WS-Trust MEX-eindpunt om te zien of geïntegreerde verificatie-eindpunt is beschikbaar.
+3. De app wordt de gebruikersnaam verzonden naar Azure AD en worden opgehaald van uw tenant WS-Trust MEX-eindpunt. Dit eindpunt voor WS-Trust uitsluitend door de functie voor naadloze eenmalige aanmelding wordt gebruikt, en is niet een algemene implementatie van het WS-Trust-protocol in Azure AD.
+4. De app vervolgens een query voor de WS-Trust MEX-eindpunt om te zien of geïntegreerde verificatie-eindpunt is beschikbaar. De geïntegreerde verificatie-eindpunt wordt gebruikt uitsluitend door de functie voor naadloze eenmalige aanmelding.
 5. Als stap 4 is gelukt, wordt er een Kerberos-uitdaging weergegeven.
 6. Als de app in staat om op te halen van het Kerberos-ticket is, verzendt deze naar Azure AD geïntegreerde verificatie-eindpunt.
 7. Azure AD het Kerberos-ticket wordt ontsleuteld en wordt deze gevalideerd.

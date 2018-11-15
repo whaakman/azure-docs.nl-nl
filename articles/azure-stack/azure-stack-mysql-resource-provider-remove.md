@@ -11,30 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dcd1c40717cb35fe4daa9ab9e2c66f334ffff5fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361495"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686792"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Verwijderen van de MySQL-resourceprovider
 
 Voordat u de MySQL-resourceprovider verwijdert, moet u alle afhankelijkheden van de provider verwijderen. U moet ook een kopie van het implementatiepakket dat is gebruikt voor het installeren van de resourceprovider.
 
+  |Minimale versie van Azure Stack|MySQL RP-versie|
+  |-----|-----|
+  |Versie 1808 (1.1808.0.97)|[MySQL RP versie 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Versie 1804 (1.0.180513.1)|[MySQL RP versie 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
+
 ## <a name="dependency-cleanup"></a>Opschonen van de afhankelijkheid
 
 Er zijn verschillende Opschoningstaken moet doen voordat u het script DeployMySqlProvider.ps1 als u wilt verwijderen van de resourceprovider uitvoert.
 
-De tenants zijn verantwoordelijk voor de volgende Opschoningstaken:
+Azure Stack-tenantgebruikers zijn verantwoordelijk voor de volgende Opschoningstaken:
 
 * Verwijder alle hun databases uit de resourceprovider. (Als het verwijderen van de tenant-databases, niet de gegevens verwijderd.)
 * De registratie ongedaan maken van de naamruimte van de provider.
 
-De beheerder is verantwoordelijk voor de volgende Opschoningstaken:
+De Azure Stack-Operator is verantwoordelijk voor de volgende Opschoningstaken:
 
 * Hiermee verwijdert de host-servers uit de MySQL-Adapter.
 * Hiermee verwijdert u de schema's die verwijzen naar de MySQL-Adapter.

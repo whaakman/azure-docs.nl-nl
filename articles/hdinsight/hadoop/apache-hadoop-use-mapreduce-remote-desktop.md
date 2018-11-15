@@ -1,6 +1,6 @@
 ---
-title: MapReduce en extern bureaublad met Hadoop in HDInsight - Azure
-description: Informatie over het gebruik van extern bureaublad verbinding maken met Hadoop op HDInsight en MapReduce-taken worden uitgevoerd.
+title: MapReduce en extern bureaublad met Apache Hadoop in HDInsight - Azure
+description: Informatie over het gebruik van extern bureaublad verbinding maken met Apache Hadoop op HDInsight en MapReduce-taken worden uitgevoerd.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee87bd5743307ea5b9ee3ca1258e8cd985a095c5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012925"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634478"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>MapReduce gebruiken in Hadoop op HDInsight met extern bureaublad
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>MapReduce gebruiken in een Apache Hadoop op HDInsight met extern bureaublad
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-In dit artikel leert u hoe u verbinding maakt met een Hadoop op HDInsight-cluster met behulp van extern bureaublad en vervolgens MapReduce-taken uitvoeren met behulp van de Hadoop-opdracht.
+In dit artikel leert u hoe u verbinding maakt met een Apache Hadoop op HDInsight-cluster met behulp van extern bureaublad en vervolgens MapReduce-taken uitvoeren met behulp van de Hadoop-opdracht.
 
 > [!IMPORTANT]
 > Extern bureaublad is alleen beschikbaar op Windows gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
