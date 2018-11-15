@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 33190472215e7a02b94951a73054ebe3e1994e54
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6a757dca48dc3ff41adfe6f8802fad40e7a4ca81
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623907"
+ms.locfileid: "51636829"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Over het gebruik van de gebruiker gedefinieerde functies in Azure digitale dubbels
 
@@ -44,7 +44,7 @@ Vergelijkingsprogramma voor zijn graph-objecten die te bepalen wat de gebruiker 
 Het volgende voorbeeld matcher resulteert in waar op een sensor telemetrie-gebeurtenis met `"Temperature"` als de waarde van het gegevenstype. U kunt meerdere vergelijkingsprogramma voor maken van een door de gebruiker gedefinieerde functie:
 
 ```plaintext
-POST yourManagementApiUrl/matchers
+POST YOUR_MANAGEMENT_API_URL/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -59,7 +59,7 @@ POST yourManagementApiUrl/matchers
 }
 ```
 
-| De waarde van de | Vervangen door |
+| Waarde | Vervangen door |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Welke regio u uw exemplaar wordt gehost op server |
 
@@ -72,20 +72,20 @@ Nadat de vergelijkingsprogramma voor zijn gemaakt, uploadt u het fragment functi
 > - De hoofdtekst wordt gedeeltelijk:
 >   - Het eerste deel is over de metagegevens die nodig zijn voor de UDF.
 >   - Het tweede gedeelte is het JavaScript-logica voor compute.
-> - In de **userDefinedBoundary** sectie, vervangt de **SpaceId** en **Machers** waarden.
+> - In de **USER_DEFINED_BOUNDARY** sectie, vervangt de **SpaceId** en **Machers** waarden.
 
 ```plaintext
-POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 ```
 
 | Parameterwaarde | Vervangen door |
 | --- | --- |
-| *userDefinedBoundary* | De naam van een meerdelige inhoud grens |
+| *USER_DEFINED_BOUNDARY* | De naam van een meerdelige inhoud grens |
 
 ### <a name="body"></a>Hoofdtekst
 
 ```plaintext
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
@@ -95,7 +95,7 @@ Content-Disposition: form-data; name="metadata"
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
   "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
 Content-Type: text/javascript
 
@@ -103,10 +103,10 @@ function process(telemetry, executionContext) {
   // Code goes here.
 }
 
---userDefinedBoundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| De waarde van de | Vervangen door |
+| Waarde | Vervangen door |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | De ruimte-id  |
 | YOUR_MATCHER_IDENTIFIER | De ID van de matcher die u wilt gebruiken |
@@ -189,7 +189,7 @@ Er moet een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voer
 1. Query voor rollen en haal de ID van de rol die u wilt toewijzen aan de UDF. Door te geven **RoleId**:
 
     ```plaintext
-    GET yourManagementApiUrl/system/roles
+    GET YOUR_MANAGEMENT_API_URL/system/roles
     ```
 
 1. **Object-id** de UDF-id die eerder is gemaakt.
@@ -197,17 +197,17 @@ Er moet een roltoewijzing voor de gebruiker gedefinieerde functie om uit te voer
 1. Kopieer de geretourneerde `spacePaths` waarde. U gebruikt die in de volgende code:
 
     ```plaintext
-    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
     | Parameterwaarde | Vervangen door |
     | --- | --- |
-    | *yourSpaceName* | De naam van de ruimte die u wilt gebruiken |
+    | *YOUR_SPACE_NAME* | De naam van de ruimte die u wilt gebruiken |
 
 1. Plak de geretourneerde `spacePaths` waarde in **pad** een roltoewijzing UDF maken:
 
     ```plaintext
-    POST yourManagementApiUrl/roleassignments
+    POST YOUR_MANAGEMENT_API_URL/roleassignments
     {
       "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
       "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",

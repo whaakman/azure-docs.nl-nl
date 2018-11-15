@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: qianw211
-ms.openlocfilehash: 3679981a335c380b54d7349d16f94bb7e5e1fee3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ab00e51aa8677f71990cf3da8bf01c9ab62ce4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258864"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683133"
 ---
 # <a name="azure-appsource-and-marketplace-review-policies"></a>Azure AppSource en Marketplace controleren beleid
 
@@ -52,12 +52,3 @@ De classificatie en evaluatie beleidsregels voor Azure AppSource en Marketplace 
 * Zorg ervoor dat standpunten uitgedrukt in uw revisie met gelijke taakverdeling en neutrale.
 * Houd er rekening mee dat u in een openbaar forum plaatst en dienovereenkomstig kan reageren.
 
-## <a name="review-guidelines-for-publishers"></a>Lees de richtlijnen voor uitgevers
-
-* Boek niet alle inhoud die mogelijk in strijd is met de [AppSource en de Azure Marketplace controlebeleid](./rating-review-policies.md).
-* Omvatten niet alle marketinginhoud of advertenties in uw opmerking.
-* Promoot geen andere apps of services in uw opmerking.
-* Uw antwoord moet direct verband houden met de specifieke app en bekijken.
-* Gebruik geen voorgedefinieerde antwoorden en kan niet blik opmerkingen plaatsen over meerdere beoordelingen.
-* Beoordelingen op een manier, zoals compensatie of stimulansen biedt naar de revisors classificaties of beoordelingen wijzigen niet bewerken.
-* Altijd worden beleefd en houd rekening met dat tevreden klanten de beste middelen van uw app zijn.

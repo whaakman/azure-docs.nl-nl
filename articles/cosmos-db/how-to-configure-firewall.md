@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: e1253d4a43e45fc7df7efbb6d5f9dd4176957ca2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d9a00bccb83fc60c96594ffacc5abde98c0f8470
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629005"
+ms.locfileid: "51632574"
 ---
 # <a name="how-to-configure-ip-firewall-for-your-azure-cosmos-account"></a>Procedures voor IP-firewall voor uw Azure Cosmos-account configureren
 
@@ -109,6 +109,10 @@ Voor het configureren van beheer van toegang tot uw Azure Cosmos-account, het Re
 De volgende opdracht laat zien hoe een Azure Cosmos-account maken met IP-toegangsbeheer: 
 
 ```azurecli-interactive
+
+name="<Azure Cosmos account name>"
+resourceGroupName="<Resource group name>"
+
 az cosmosdb create \
   --name $name \
   --kind GlobalDocumentDB \

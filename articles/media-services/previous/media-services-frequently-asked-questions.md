@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353526"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685715"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -28,7 +28,7 @@ In dit artikel komen de antwoorden op veelgestelde vragen die worden gegenereerd
 
 V: hoe u streamen naar Apple iOS-apparaten
 
-A: Voeg toe ' (format = m3u8-aapl) ' pad naar het gedeelte '/ Manifest' van de URL om te zien van de server voor streaming oorsprong om terug te keren back HLS-inhoud voor gebruik op Apple iOS native-apparaten (voor meer informatie, Zie (leveren van inhoud) [ Media-services-levering-inhoud-overview.md]),
+A: toevoegen ' (format = m3u8-aapl) ' pad naar het gedeelte '/ Manifest' van de URL om te zien van de server voor streaming oorsprong om terug te keren back HLS-inhoud voor gebruik op Apple iOS native-apparaten (Zie voor meer informatie, [leveren van inhoud](media-services-deliver-content-overview.md)),
 
 V: hoe u schalen indexeren?
 

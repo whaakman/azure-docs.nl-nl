@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
-ms.openlocfilehash: ece1c123cad8403358dcc3b3626bf4b2cd756e25
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 943cd79237290cd91d56cc1c51f5d773cdb16634
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629006"
+ms.locfileid: "51636387"
 ---
 # <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Het gebruik van Azure Cosmos DB-wijzigingenfeed met Azure Functions
 
@@ -41,7 +41,7 @@ Azure Functions controleert de feed voor wijzigingen continu met een standaard m
 
 Als uw document meerdere wijzigingen in het hetzelfde interval die nodig de Trigger was worden gecontroleerd op nieuwe wijzigingen ontvangt, ontvangt u mogelijk de nieuwste versie van het document en niet de tussenliggende uit.
 
-Als u wilt aan te vragen voor feed voor minder dan vijf seconden wijzigen, bijvoorbeeld voor elke seconde u kunt de polling-tijd 'feedPollDelay' configureren, Zie [de volledige configuratie](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Dit is gedefinieerd in milliseconden met een standaardwaarde van 5000. Polling voor minder dan 1 seconde mogelijk is, maar niet aanbevolen wordt omdat begint u met behulp van meer CPU en geheugen.
+Als u wilt pollen feed voor minder dan vijf seconden wijzigen, bijvoorbeeld voor elke seconde, u kunt de polling-tijd "feedPollDelay" configureren, Zie [de volledige configuratie](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Dit is gedefinieerd in milliseconden met een standaardwaarde van 5000. Polling voor minder dan 1 seconde mogelijk is, maar niet aanbevolen wordt omdat begint u met behulp van meer CPU en geheugen.
 
 ### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>Kan meerdere Azure-functies van één container wijzigingenfeeds lezen?
 

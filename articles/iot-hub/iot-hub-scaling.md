@@ -1,19 +1,19 @@
 ---
 title: Schalen met Azure IoT Hub | Microsoft Docs
 description: Klik hier voor meer informatie over het schalen van uw IoT-hub ter ondersteuning van uw bericht verwachte doorvoer en de gewenste functies. Bevat een overzicht van de ondersteunde doorvoer voor elke laag en opties voor sharding.
-author: kgremban
+author: wesmc7777
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: kgremban
-ms.openlocfilehash: d98a890cfb6bd388477ff3f14b81c8df02ece879
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.author: wesmc
+ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287962"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633373"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -31,7 +31,7 @@ Elke laag van IoT Hub is beschikbaar in drie grootten, op basis van hoeveel gege
 
 De prijscategorie standard van IoT Hub kunt u alle functies en is vereist voor een IoT-oplossingen te maken van de mogelijkheden met bi-directionele communicatie mogelijk te gebruiken. De basic-laag kunt een subset van de functies en is bedoeld voor IoT-oplossingen die hoeft alleen Unidirectioneel communicatie tussen apparaten en de cloud. Beide lagen bieden de dezelfde functies als verificatie en beveiliging.
 
-Als u uw IoT-hub maakt, kunt u upgraden vanaf de basis-laag naar de prijscategorie standard zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-hub](iot-hub-upgrade.md). De maximale partitielimiet voor basic-laag IoT Hub is 8 en voor standard-laag is 32. De meeste IoT-hubs hoeft slechts 4 partities. De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt en is gekoppeld aan de apparaat-naar-cloud-berichten naar het aantal gelijktijdige lezers van deze berichten. Deze waarde blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert. Let ook op dat slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub/) binnen een laag per IoT Hub kan worden gekozen. U kunt bijvoorbeeld een IoT-Hub maken met meerdere eenheden van S1, maar niet met een combinatie van eenheden van verschillende versies, zoals S1 en B3, of S1 en S2.
+Slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub/) binnen een laag per IoT Hub kan worden gekozen. U kunt bijvoorbeeld een IoT-Hub maken met meerdere eenheden van S1, maar niet met een combinatie van eenheden van verschillende versies, zoals S1 en B3, of S1 en S2.
 
 | Mogelijkheid | Basislaag | Standaardlaag |
 | ---------- | ---------- | ------------- |
@@ -47,7 +47,22 @@ Als u uw IoT-hub maakt, kunt u upgraden vanaf de basis-laag naar de prijscategor
 
 IoT Hub biedt ook een gratis laag die is bedoeld voor test- en evaluatiedoeleinden. Het beschikt over alle mogelijkheden van de standard-laag, maar beperkt messaging-limiet. U upgraden niet van de laag gratis naar basis of standaard. 
 
-### <a name="iot-hub-rest-apis"></a>REST API's voor IoT Hub
+
+## <a name="partitions"></a>Partities
+
+Azure IoT-Hubs bevatten veel kernonderdelen van [Azure Event Hubs](../event-hubs/event-hubs-features.md), waaronder [partities](../event-hubs/event-hubs-features.md#partitions). Gebeurtenisstromen voor IoT-Hubs zijn doorgaans gevuld met binnenkomende telemetriegegevens die moet worden gerapporteerd door verschillende IoT-apparaten. Het partitioneren van de gebeurtenisstroom wordt gebruikt om contentions die zich voordoen bij het gelijktijdig lezen en schrijven naar gebeurtenisstromen verminderen. 
+
+De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt, en kan niet worden gewijzigd. De maximale partitielimiet voor IoT-Hubs basic-laag is 8 en voor de standard-laag het maximum is 32. De meeste IoT-hubs hoeft slechts 4 partities. Zie voor meer informatie over het bepalen van de partities, de Event Hubs-Veelgestelde vragen over [hoeveel partities heb ik nodig?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+
+
+## <a name="tier-upgrade"></a>Laag-upgrade
+
+Als u uw IoT-hub maakt, kunt u upgraden vanaf de basis-laag naar de prijscategorie standard zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-hub](iot-hub-upgrade.md).
+
+De partitieconfiguratie van de blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert.
+
+
+## <a name="iot-hub-rest-apis"></a>REST API's voor IoT Hub
 
 Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige API-aanroepen die niet met hubs basic-laag werken in ondersteunde mogelijkheden. De volgende tabel ziet u welke API's zijn beschikbaar: 
 

@@ -1,6 +1,6 @@
 ---
 title: Uitpakken, transformeren en laden (ETL) op schaal - Azure HDInsight
-description: Meer informatie over hoe ETL wordt gebruikt in HDInsight met Hadoop.
+description: Meer informatie over hoe ETL wordt gebruikt in HDInsight met Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048999"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633322"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraheren, transformeren en laden (ETL) op schaal
 
-Extraheren, transformeren en laden (ETL) is het proces waarmee gegevens wordt verkregen uit verschillende bronnen, die worden verzameld in een standaardlocatie opgeschoond en verwerkt en uiteindelijk worden geladen in een gegevensarchief van waaruit deze kan worden opgevraagd. Verouderde ETL-processen importeren van gegevens, deze op te schonen in plaats en vervolgens opslaan in een engine voor relationele gegevens. Met HDInsight, een groot aantal onderdelen van Hadoop-ecosysteem uitvoeren van ETL op schaal ondersteunen. 
+Extraheren, transformeren en laden (ETL) is het proces waarmee gegevens wordt verkregen uit verschillende bronnen, die worden verzameld in een standaardlocatie opgeschoond en verwerkt en uiteindelijk worden geladen in een gegevensarchief van waaruit deze kan worden opgevraagd. Verouderde ETL-processen importeren van gegevens, deze op te schonen in plaats en vervolgens opslaan in een engine voor relationele gegevens. Met HDInsight, een groot aantal onderdelen van Apache Hadoop-ecosysteem uitvoeren van ETL op schaal ondersteunen. 
 
 Het gebruik van HDInsight in het ETL-proces kan door deze pijplijn worden samengevat:
 

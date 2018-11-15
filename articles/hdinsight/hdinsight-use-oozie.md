@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5611830d4d9950a7781062997b13555d95d8e703
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625960"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684219"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -63,7 +63,7 @@ Voordat u deze zelfstudie begint, moet u het volgende item hebben:
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie-workflow en het bijbehorende HiveQL-script definiëren
 Oozie werkstromen definities worden geschreven in hPDL (een XML-proces Definition Language). De standaardnaam van de werkstroom-bestand is *workflow.xml*. Hier volgt de bestand van de werkstroom die u in deze zelfstudie gebruikt.
-
+```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -118,7 +118,7 @@ Oozie werkstromen definities worden geschreven in hPDL (een XML-proces Definitio
 
         <end name="end"/>
     </workflow-app>
-
+```
 Er zijn twee acties die zijn gedefinieerd in de werkstroom. De actie start voor *RunHiveScript*. Als de actie is uitgevoerd, is de volgende actie *RunSqoopExport*.
 
 De RunHiveScript heeft meerdere variabelen. U kunt de waarden doorgeven bij het verzenden van de taak Oozie vanaf uw werkstation met behulp van Azure PowerShell.
@@ -191,7 +191,7 @@ Het PowerShell-script in deze sectie voert de volgende stappen uit:
     Voor het onderzoeken van de resultaten van de taak OOzie, gebruikt u Visual Studio of andere hulpprogramma's verbinding maken met de Azure SQL Database.
 
 Dit is het script.  U kunt het script uitvoeren vanuit Windows PowerShell ISE. U hoeft alleen de eerste 7 variabelen te configureren.
-
+```powershell
     #region - provide the following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
@@ -200,7 +200,7 @@ Dit is het script.  U kunt het script uitvoeren vanuit Windows PowerShell ISE. U
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
@@ -529,8 +529,8 @@ Dit is het script.  U kunt het script uitvoeren vanuit Windows PowerShell ISE. U
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $httpCredential -OutVariable $OozieServerStatus
 
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-    $oozieServerSatus = $jsonResponse[0].("systemMode")
-    Write-Host "Oozie server status is $oozieServerSatus."
+    $oozieServerStatus = $jsonResponse[0].("systemMode")
+    Write-Host "Oozie server status is $oozieServerStatus."
 
     # create Oozie job
     Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -570,7 +570,7 @@ Dit is het script.  U kunt het script uitvoeren vanuit Windows PowerShell ISE. U
     Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
     #endregion
-
+```
 
 **De zelfstudie opnieuw uitvoeren**
 
@@ -580,7 +580,7 @@ Als u wilt de werkstroom opnieuw uitvoert, moet u de volgende items verwijderen:
 * De gegevens in de tabel log4jLogsCount
 
 Hier volgt een voorbeeld van PowerShell-script die u kunt gebruiken:
-
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
 
     $defaultStorageAccountName = "<AzureStorageAccountName>"
@@ -610,6 +610,7 @@ Hier volgt een voorbeeld van PowerShell-script die u kunt gebruiken:
     $cmd.executenonquery()
 
     $conn.close()
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u kunt een Oozie-taak uitvoeren met behulp van PowerShell. Zie de volgende artikelen voor meer informatie:
@@ -647,7 +648,6 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u k
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: e140ca46a18fcab2194adb213d723ab67d40b0a8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615157"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636302"
 ---
 # <a name="egress-and-endpoints"></a>Uitgaand verkeer en eindpunten
 
@@ -76,13 +76,13 @@ De indeling voor elk van de typen gebeurtenissen worden beschreven in de volgend
   "eventTime": "2018-04-17T17:41:54.9400177Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Naam van aangepast kenmerk | Vervangen door |
+| Waarde | Vervangen door |
 | --- | --- |
-| yourTopicName | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
 ### <a name="udfcustom"></a>UdfCustom
 
@@ -107,13 +107,13 @@ De indeling voor elk van de typen gebeurtenissen worden beschreven in de volgend
   "eventTime": "2018-10-02T06:50:15.198Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Naam van aangepast kenmerk | Vervangen door |
+| Waarde | Vervangen door |
 | --- | --- |
-| yourTopicName | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
 ### <a name="sensorchange"></a>SensorChange
 
@@ -142,13 +142,13 @@ De indeling voor elk van de typen gebeurtenissen worden beschreven in de volgend
   "eventTime": "2018-04-17T17:46:18.5452993Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Naam van aangepast kenmerk | Vervangen door |
+| Waarde | Vervangen door |
 | --- | --- |
-| yourTopicName | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
 ### <a name="spacechange"></a>SpaceChange
 
@@ -177,13 +177,13 @@ De indeling voor elk van de typen gebeurtenissen worden beschreven in de volgend
   "eventTime": "2018-10-02T06:50:20.128Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Naam van aangepast kenmerk | Vervangen door |
+| Waarde | Vervangen door |
 | --- | --- |
-| yourTopicName | De naam van uw aangepaste onderwerp |
+| YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
 ### <a name="devicemessage"></a>DeviceMessage
 
@@ -211,18 +211,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourTopicName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME"
   }
   ```
 
-    | Naam van aangepast kenmerk | Vervangen door |
+    | Waarde | Vervangen door |
     | --- | --- |
-    | yourNamespace | De naamruimte van uw eindpunt |
-    | yourPrimaryKey | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | yourSecondaryKey | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | yourTopicName | De naam van uw aangepaste onderwerp |
+    | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
+    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
 - Route naar Event Grid gebeurtenistypen **SensorChange**, **SpaceChange**, en **TopologyOperation**:
 
@@ -234,17 +234,17 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "yourPrimaryKey",
-    "secondaryConnectionString": "yourSecondaryKey",
-    "path": "yourTopicName.westus-1.eventgrid.azure.net"
+    "connectionString": "YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME.westus-1.eventgrid.azure.net"
   }
   ```
 
-    | Naam van aangepast kenmerk | Vervangen door |
+    | Waarde | Vervangen door |
     | --- | --- |
-    | yourPrimaryKey | De primaire verbindingsreeks die wordt gebruikt om te verifiëren|
-    | yourSecondaryKey | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | yourTopicName | De naam van uw aangepaste onderwerp |
+    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren|
+    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | YOUR_TOPIC_NAME | De naam van uw aangepaste onderwerp |
 
 - Route naar Event Hubs gebeurtenistypen **SensorChange**, **SpaceChange**, en **TopologyOperation**:
 
@@ -256,18 +256,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Naam van aangepast kenmerk | Vervangen door |
+    | Waarde | Vervangen door |
     | --- | --- |
-    | yourNamespace | De naamruimte van uw eindpunt |
-    | yourPrimaryKey | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | yourSecondaryKey | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | yourEventHubName | De naam van uw event hub |
+    | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
+    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | YOUR_EVENT_HUB_NAME | De naam van uw event hub |
 
 - Route naar Event Hubs-gebeurtenistype **DeviceMessage**. De opname van `EntityPath` in de **connectionString** is verplicht:
 
@@ -277,18 +277,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     "eventTypes": [
       "DeviceMessage"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey;EntityPath=yourEventHubName",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey;EntityPath=yourEventHubName",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Naam van aangepast kenmerk | Vervangen door |
+    | Waarde | Vervangen door |
     | --- | --- |
-    | yourNamespace | De naamruimte van uw eindpunt |
-    | yourPrimaryKey | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | yourSecondaryKey | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
-    | yourEventHubName | De naam van uw event hub |
+    | YOUR_NAMESPACE | De naamruimte van uw eindpunt |
+    | YOUR_PRIMARY_KEY | De primaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | YOUR_SECONDARY_KEY | De secundaire verbindingsreeks die wordt gebruikt om te verifiëren |
+    | YOUR_EVENT_HUB_NAME | De naam van uw event hub |
 
 > [!NOTE]  
 > Bij het maken van een nieuw eindpunt duurt het maximaal 5 tot 10 minuten te ontvangen van gebeurtenissen op het eindpunt.

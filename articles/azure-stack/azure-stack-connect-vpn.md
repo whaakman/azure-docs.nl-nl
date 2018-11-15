@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024457"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634648"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Verbinding maken met Azure Stack naar Azure met behulp van VPN
 
@@ -62,7 +62,7 @@ U maakt eerst de netwerkbronnen voor Azure. De volgende instructies laten zien h
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van uw Azure-account.
 2. Selecteer in de gebruikersportal **+ een resource maken**.
 3. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
-4. Selecteer **virtueel netwerk**.
+4. Selecteer **Virtueel netwerk**.
 5. Gebruik de informatie uit de tabel van de configuratie van netwerk voor informatie over de waarden voor Azure **naam**, **adresruimte**, **subnetnaam**, en **subnetadres bereik**.
 6. Voor **resourcegroep**, maak een nieuwe resourcegroep of, als u al een hebt, selecteert u **gebruik bestaande**.
 7. Selecteer de **locatie** van uw VNet.  Als u de voorbeelden van waarden, selecteert u **VS-Oost** of gebruik een andere locatie.
@@ -89,7 +89,7 @@ U maakt eerst de netwerkbronnen voor Azure. De volgende instructies laten zien h
 3. Selecteer in de lijst van netwerkbronnen **gateway van virtueel netwerk**.
 4. In **naam**, type **Azure-GW**.
 5. Als u een virtueel netwerk, selecteert u **virtueel netwerk**. Selecteer vervolgens **AzureVnet** in de lijst.
-6. Selecteer **openbaar IP-adres**. Wanneer de **openbare IP-adres kiezen** sectie wordt geopend, selecteer **nieuw**.
+6. Selecteer **Openbaar IP-adres**. Wanneer de **openbare IP-adres kiezen** sectie wordt geopend, selecteer **nieuw**.
 7. In **naam**, type **Azure-GW-PiP**, en selecteer vervolgens **OK**.
 8. Standaard voor **VPN-type**, **op Route gebaseerde** is geselecteerd. Houd de **op Route gebaseerde** VPN-type.
 9. Controleer of **Abonnement** en **Locatie** juist zijn. U kunt de resource toe aan het dashboard vastmaken. Selecteer **Maken**.
@@ -127,7 +127,7 @@ Nu een virtuele machine maken in Azure en deze op uw VM-subnet in uw virtuele ne
 
 1. Selecteer in de Azure portal, **+ een resource maken**.
 2. Ga naar **Marketplace**, en selecteer vervolgens **Compute**.
-3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Oval** installatiekopie.
+3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Eval** installatiekopie.
 4. Op de **basisbeginselen** sectie voor **naam**, type **AzureVM**.
 5. Typ een geldige gebruikersnaam en wachtwoord. Dit account kunt u zich aanmeldt bij de virtuele machine nadat deze is gemaakt.
 6. Geef een **abonnement**, **resourcegroep**, en **locatie**, en selecteer vervolgens **OK**.
@@ -157,7 +157,7 @@ Een servicebeheerder kan zich aanmelden als een gebruiker voor het testen van he
     ![Nieuw virtueel netwerk maken](media/azure-stack-connect-vpn/image3.png)
 
 3. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
-4. Selecteer **virtueel netwerk**.
+4. Selecteer **Virtueel netwerk**.
 5. Voor **naam**, **adresruimte**, **subnetnaam**, en **subnetadresbereik**, gebruikt u de waarden uit de tabel van de configuratie van netwerk.
 6. In **abonnement**, het abonnement dat u eerder hebt gemaakt, wordt weergegeven.
 7. Voor **resourcegroep**, kunt u een resourcegroep maken of als u nog niet hebt, selecteert u **gebruik bestaande**.
@@ -227,7 +227,7 @@ Om te controleren of de VPN-verbinding, twee virtuele machines maken: één in A
 
 1. Selecteer in de Azure portal, **+ een resource maken**.
 2. Ga naar **Marketplace**, en selecteer vervolgens **Compute**.
-3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Oval** installatiekopie.
+3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Eval** installatiekopie.
 4. Op de **basisbeginselen** in sectie **naam**, type **Azs-VM**.
 5. Typ een geldige gebruikersnaam en wachtwoord. Dit account kunt u zich aanmeldt bij de virtuele machine nadat deze is gemaakt.
 6. Geef een **abonnement**, **resourcegroep**, en **locatie**, en selecteer vervolgens **OK**.

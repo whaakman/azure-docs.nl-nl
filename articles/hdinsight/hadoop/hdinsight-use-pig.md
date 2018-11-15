@@ -1,6 +1,6 @@
 ---
-title: Pig met Hadoop in HDInsight gebruiken
-description: Leer hoe u Pig gebruiken met Hadoop op HDInsight.
+title: Apache Pig in HDInsight gebruiken
+description: Leer hoe u Pig gebruiken met Apache Hadoop op HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 921f4747dcaf9ad302c37930ca09903e345bfdb0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016417"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633628"
 ---
-# <a name="use-pig-with-hadoop-on-hdinsight"></a>Pig gebruiken met Hadoop op HDInsight
+# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Apache Pig gebruiken met Apache Hadoop op HDInsight
 
 Meer informatie over het gebruik van [Apache Pig](http://pig.apache.org/) met HDInsight.
 
-Pig is een platform voor het maken van programma's voor Hadoop met behulp van een procedurele taal wel *Pig Latin*. Pig is een alternatief voor Java voor het maken van *MapReduce* oplossingen, en deze is opgenomen in Azure HDInsight. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop u Pig kan worden gebruikt met HDInsight:
+Apache Pig is een platform voor het maken van programma's voor Apache Hadoop met behulp van een procedurele taal wel *Pig Latin*. Pig is een alternatief voor Java voor het maken van *MapReduce* oplossingen, en deze is opgenomen in Azure HDInsight. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop u Pig kan worden gebruikt met HDInsight:
 
 | **Gebruik deze** als u wilt dat... | ...an **interactieve** shell | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
 |:--- |:---:|:---:|:--- |:--- |

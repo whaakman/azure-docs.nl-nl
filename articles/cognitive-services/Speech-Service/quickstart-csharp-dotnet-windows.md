@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281291"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683490"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Snelstart: spraak herkennen en transcriberen met de Speech-SDK en .NET Framework (Windows)
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281291"
 
 Gebruik deze handleiding om een spraakconsoletoepassing voor -naar-tekst te maken met .NET Framework voor Windows en de Speech-SDK. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 
-Deze snelstartgids vereist een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en dat Microsoft Speech is ingeschakeld. Als u geen account hebt, kunt u de [gratis proefversie](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) gebruiken om een abonnementssleutel op te halen.
+Deze snelstartgids vereist een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en dat Microsoft Speech is ingeschakeld. Als u geen account hebt, kunt u de [gratis proefversie](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 

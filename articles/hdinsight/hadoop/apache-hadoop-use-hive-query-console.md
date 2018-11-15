@@ -1,6 +1,6 @@
 ---
-title: Hadoop Hive gebruiken in de Queryconsole in HDInsight - Azure
-description: Leer hoe u de Query op basis van de web Console gebruiken om het Hive-query's uitvoeren op een HDInsight Hadoop-cluster in uw browser.
+title: Apache Hive gebruiken in de Queryconsole in HDInsight - Azure
+description: Informatie over het gebruik van de Query op het web Console Apache Hive-query's uitvoeren op een HDInsight Hadoop-cluster in uw browser.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4083ceca8c9181c8acb1a90e782cb5bca981e684
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013961"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634584"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Uitvoeren van Hive-query's met behulp van de Query-Console
+# <a name="run-apache-hive-queries-using-the-query-console"></a>Apache Hive-query's uitvoeren met behulp van de Query-Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-In dit artikel leert u hoe u met de Queryconsole van HDInsight Hive-query's uitvoeren op een HDInsight Hadoop-cluster in uw browser.
+In dit artikel leert u hoe u de Queryconsole van HDInsight met Apache Hive-query's uitvoeren op een HDInsight Hadoop-cluster in uw browser.
 
 > [!IMPORTANT]
 > De Queryconsole van HDInsight is alleen beschikbaar op Windows gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6f02e20efbcb34d1f70f9f10acbe5bb3800cb4d2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069198"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683942"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resourcetypen en statuscontroles in Azure resource health
 Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource health door resourcetypen.
@@ -100,6 +100,11 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 |Uitgevoerde controles|
 |---|
 |<ul><li> Kunnen de runtime-bewerkingen, zoals registratie, installatie of verzenden worden uitgevoerd op de naamruimte?</li></ul>|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
+|Uitgevoerde controles|
+|---|
+|<ul><li>De capaciteit resource actief is?</li><li>Alle workloads actief zijn?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Uitgevoerde controles|

@@ -1,6 +1,6 @@
 ---
-title: Hadoop-Pig gebruiken met rest-opslag in HDInsight - Azure
-description: Informatie over het gebruik van REST Pig Latin uitvoeren op een Hadoop-cluster in Azure HDInsight.
+title: Apache Hadoop Pig gebruiken met rest-opslag in HDInsight - Azure
+description: Informatie over het gebruik van REST Pig Latin uitvoeren op een Apache Hadoop-cluster in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: bd729d0d2cd095339a82b8a7f38a17a20b709c15
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cb96933569c18b8c70d8991c9ba19f9f3e1243e6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013085"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633696"
 ---
-# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Pig-taken uitvoeren met Hadoop op HDInsight met behulp van REST
+# <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Pig-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Leer hoe u Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDInsight-cluster. CURL is gebruikt om te demonstreren hoe u kunt werken met HDInsight met behulp van de WebHCat REST-API.
+Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDInsight-cluster. CURL is gebruikt om te demonstreren hoe u kunt werken met HDInsight met behulp van de WebHCat REST-API.
 
 > [!NOTE]
-> Als u al bekend bent met behulp van Hadoop op basis van Linux-servers, maar u niet bekend bent met HDInsight, raadpleegt u [Linux gebaseerde HDInsight Tips](../hdinsight-hadoop-linux-information.md).
+> Als u al bekend bent met behulp van Apache Hadoop op basis van Linux-servers, maar u niet bekend bent met HDInsight, raadpleegt u [Linux gebaseerde HDInsight Tips](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Vereisten
 

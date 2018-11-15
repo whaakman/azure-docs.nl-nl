@@ -2,19 +2,19 @@
 title: Azure Machine Learning implementeren met Azure IoT Edge | Microsoft Docs
 description: In deze zelfstudie implementeert u Azure Machine Learning als een module op een Edge-apparaat
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 59ce51ba4b015c7236df9e20416832e877dd26c6
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 692dce4c3fcb31bcfbffbba06e5a69722b5fb5fa
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748371"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566107"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning implementeren als een IoT Edge-module (preview)
 

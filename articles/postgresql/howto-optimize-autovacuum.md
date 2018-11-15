@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 91f24bf90f3e1a8a0c383a5820c6816748090807
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629008"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685987"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Autovacuum op Azure Database for PostgreSQL-server te optimaliseren 
 In dit artikel wordt beschreven hoe u effectief optimaliseren autovacuum op Azure Database voor PostgreSQL.
@@ -50,7 +50,7 @@ autovacuum_vacuum_cost_limit|Hiermee geeft u de waarde van de kosten beperken di
 autovacuum_vacuum_cost_delay|Hiermee geeft u de waarde voor de kosten vertraging die wordt gebruikt in automatische ONDERDRUK bewerkingen. Als de -1 is opgegeven, wordt de waarde reguliere vacuum_cost_delay worden gebruikt. De standaardwaarde is 20 milliseconden. Deze parameter kan alleen worden ingesteld in het bestand postgresql.conf of op de server vanaf de opdrachtregel. De instelling kan worden overschreven voor afzonderlijke tabellen door het wijzigen van tabel storage parameters.|20 ms
 autovacuum_nap_time|Hiermee geeft u dat de minimale vertraging tussen autovacuum wordt uitgevoerd op een bepaalde database. In elke ronde de daemon onderzoekt de database en geeft ONDERDRUK en analyseren-opdrachten voor tabellen in de database. De vertraging wordt gemeten in seconden en de standaardwaarde is 1 minuut (1 min). Deze parameter kan alleen worden ingesteld in het bestand postgresql.conf of op de server vanaf de opdrachtregel.|15 s
 autovacuum_max_workers|Hiermee geeft u het maximum aantal autovacuum processen (met uitzondering van het startprogramma voor autovacuum) die op elk gewenst moment worden uitgevoerd. De standaardwaarde is 3. Deze parameter kan alleen worden ingesteld op de server start.|3
-De bovenstaande configuraties kunnen worden bijgewerkt met de Azure portal of Azure CLI.
+De bovenstaande instellingen kunnen worden overschreven voor afzonderlijke tabellen door het wijzigen van tabel storage parameters.  
 
 ## <a name="autovacuum-cost"></a>Autovacuum kosten
 Hieronder vindt u de "kosten" van het uitvoeren van een onderdruk bewerking:

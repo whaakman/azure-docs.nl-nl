@@ -1,6 +1,6 @@
 ---
 title: Python MapReduce-taken met HDInsight - Azure streaming ontwikkelen
-description: Informatie over het gebruik van Python in de streaming-MapReduce-taken. Hadoop biedt een streaming-API voor MapReduce voor het schrijven van in een andere taal dan Java.
+description: Informatie over het gebruik van Python in de streaming-MapReduce-taken. Apache Hadoop biedt een streaming-API voor MapReduce voor het schrijven van in een andere taal dan Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 author: hrasheed-msft
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ed61eb05d0aa4360e042097d6b8c632c17ea59c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008722"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634019"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python MapReduce-programma's voor HDInsight streaming ontwikkelen
 
-Informatie over het gebruik van Python in de streaming-MapReduce-bewerkingen. Hadoop biedt een streaming-API voor MapReduce waarmee u kaart schrijven en functies in een andere taal dan Java verlagen. De stappen in dit document voor het implementeren van de kaart en verminder onderdelen in Python.
+Informatie over het gebruik van Python in de streaming-MapReduce-bewerkingen. Apache Hadoop biedt een streaming-API voor MapReduce waarmee u kaart schrijven en functies in een andere taal dan Java verlagen. De stappen in dit document voor het implementeren van de kaart en verminder onderdelen in Python.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een op Linux gebaseerde Hadoop op HDInsight-cluster
+* Een Linux-gebaseerde Apache Hadoop op HDInsight-cluster
 
   > [!IMPORTANT]
   > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.

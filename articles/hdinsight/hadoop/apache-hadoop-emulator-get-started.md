@@ -1,6 +1,6 @@
 ---
-title: Informatie over met behulp van een Hadoop-sandbox - emulator - Azure HDInsight
-description: 'Als u wilt gaan met het leren over het gebruik van het Hadoop-ecosysteem, kunt u instellen een Hadoop-sandbox van Hortonworks op een Azure-machine. '
+title: Informatie over met behulp van een Apache Hadoop-sandbox - emulator - Azure HDInsight
+description: 'Als u wilt gaan met het leren over het gebruik van het Apache Hadoop-ecosysteem, kunt u instellen een Hadoop-sandbox van Hortonworks op een Azure-machine. '
 keywords: hadoop-emulator, hadoop-sandbox
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: add1833671b995e747af6a447c65114d1add76e9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013102"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631554"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Aan de slag met een Hadoop-sandbox, een emulator op een virtuele machine
+# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Aan de slag met een Apache Hadoop-sandbox, een emulator op een virtuele machine
 
-Informatie over het installeren van de Hadoop-sandbox van Hortonworks op een virtuele machine voor meer informatie over het Hadoop-ecosysteem. De sandbox biedt een lokale ontwikkelingsomgeving voor meer informatie over Hadoop, Hadoop Distributed File System (HDFS) en verzenden van taken. Als u bekend met Hadoop bent, kunt u starten met Hadoop op Azure door het maken van een HDInsight-cluster. Zie voor meer informatie over hoe u aan de slag [aan de slag met Hadoop op HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+Informatie over het installeren van de Apache Hadoop-sandbox van Hortonworks op een virtuele machine voor meer informatie over het Hadoop-ecosysteem. De sandbox biedt een lokale ontwikkelingsomgeving voor meer informatie over Hadoop, Hadoop Distributed File System (HDFS) en verzenden van taken. Als u bekend met Hadoop bent, kunt u starten met Hadoop op Azure door het maken van een HDInsight-cluster. Zie voor meer informatie over hoe u aan de slag [aan de slag met Hadoop op HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Vereisten
 * [Oracle VirtualBox](https://www.virtualbox.org/). Download en installeer deze vanaf [hier](https://www.virtualbox.org/wiki/Downloads).

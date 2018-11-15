@@ -1,6 +1,6 @@
 ---
-title: Hive met Hadoop gebruiken voor analyse van websitelogboeken - Azure HDInsight
-description: Meer informatie over het gebruik van Hive met HDInsight voor het analyseren van websitelogboeken. U moet een logboekbestand gebruiken als invoer in een HDInsight-tabel en gebruik HiveQL om de gegevens op te vragen.
+title: Hive gebruiken met Apache Hadoop voor analyse van websitelogboeken - Azure HDInsight
+description: Leer hoe u Apache Hive gebruiken met HDInsight voor het analyseren van websitelogboeken. U moet een logboekbestand gebruiken als invoer in een HDInsight-tabel en gebruik HiveQL om de gegevens op te vragen.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233589"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634342"
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Hive gebruiken met HDInsight op basis van Windows voor het analyseren van Logboeken van websites
+# <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Apache Hive gebruiken met HDInsight op basis van Windows voor het analyseren van Logboeken van websites
 Leer hoe u HiveQL gebruiken met HDInsight voor het analyseren van Logboeken van een website. Websitelogboekanalyse kan worden gebruikt om te Segmenteer uw doelgroep op basis van de vergelijkbare activiteiten, Categoriseer bezoekers van de site op basis van demografische gegevens, en om erachter te komen de inhoud ze weergeven, de websites die ze afkomstig zijn uit, enzovoort.
 
 > [!IMPORTANT]

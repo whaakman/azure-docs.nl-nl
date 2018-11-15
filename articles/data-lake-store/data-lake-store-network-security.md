@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218964"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287996"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integratie van virtuele netwerken voor Azure Data Lake Storage Gen1 - Preview
 
@@ -29,8 +29,6 @@ Deze functie helpt bij het beveiligen van uw Data Lake Storage-account tegen ext
 Bij integratie van virtuele netwerken in Data Lake Storage Gen1 wordt gebruikgemaakt van de service-eindpuntbeveiliging tussen de virtuele netwerken en Azure Active Directory om extra beveiligingsclaims te genereren in het toegangstoken. Deze claims worden vervolgens gebruikt om het virtuele netwerk te verifiëren bij het Data Lake Storage Gen1-account en toegang toe te staan.
 
 > [!NOTE]
-> Deze technologie is beschikbaar als preview. Het wordt niet aanbevolen deze te gebruiken in productieomgevingen.
->
 > Er zijn geen extra kosten gemoeid met het gebruik van deze mogelijkheden. Er worden tegen het standaardtarief van Data Lake Storage Gen1 kosten doorberekend aan uw account. Ga voor meer informatie naar het overzicht van [prijzen](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Voor alle andere Azure-services die u gebruikt, gaat u naar [Prijzen](https://azure.microsoft.com/pricing/#product-picker).
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Scenario's met integratie van virtuele netwerken voor Data Lake Storage Gen1

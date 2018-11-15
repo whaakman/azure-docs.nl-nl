@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977665"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686157"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
-Met budgetten in Cost Management kunt u de verantwoordelijkheid in de organisatie beter plannen en stimuleren. Met budgetten kunt u de Azure-services die u gebruikt of waarop u zich abonneert voor een specifieke periode bijhouden. Ze helpen u anderen te informeren over hun uitgaven aan proactief kosten kunt beheren en controleren hoe uitgaven verloopt na verloop van tijd. U ziet hoe de bestedingslimiet vordert na verloop van tijd. Wanneer de budgetdrempels die u hebt gemaakt, worden overschreden, worden alleen meldingen worden geactiveerd. Geen van uw resources worden beïnvloed en uw verbruik is niet gestopt. U kunt budgetten gebruiken om te vergelijken en als u kosten analyseren uitgave bij te houden.
+Met budgetten in Cost Management kunt u de verantwoordelijkheid in de organisatie beter plannen en stimuleren. Met budgetten kunt u de Azure-services die u gebruikt of waarop u zich abonneert voor een specifieke periode bijhouden. Ze helpen u anderen te informeren over hun uitgaven aan proactief kosten kunt beheren en controleren hoe uitgaven verloopt na verloop van tijd. Wanneer de budgetdrempels die u hebt gemaakt, worden overschreden, worden alleen meldingen worden geactiveerd. Geen van uw resources worden beïnvloed en uw verbruik is niet gestopt. U kunt budgetten gebruiken om te vergelijken en als u kosten analyseren uitgave bij te houden.
 
 Budgetten automatisch opnieuw instellen aan het einde van een punt (maandelijks, per kwartaal of per jaar) voor hetzelfde budgetbedrag wanneer u een vervaldatum in de toekomst selecteert. Omdat ze opnieuw met hetzelfde budgetbedrag instelt, moet u afzonderlijke budgetten wanneer gebudgetteerde maken bedragen verschillen voor toekomstige perioden.
 
-De voorbeelden in deze zelfstudie bekijkt u het maken en bewerken van een budget voor een Azure Enterprise Agreement (EA)-abonnement.
+De voorbeelden in deze zelfstudie begeleidt u bij het maken en bewerken van een budget voor een Azure Enterprise Agreement (EA)-abonnement.
 
 In deze zelfstudie leert u het volgende:
 
@@ -77,7 +77,7 @@ In het voorgaande voorbeeld, moet u een budget voor een abonnement gemaakt. U ku
 
 ## <a name="edit-a-budget"></a>Een budget bewerken
 
-Afhankelijk van het toegangsniveau dat u hebt, kunt u een budget om de eigenschappen te wijzigen. In het voorbeeld volgen zijn een aantal van de eigenschappen alleen-lezen omdat de gebruiker alleen de machtiging Inzender voor het abonnement heeft. Op dit moment de **vervaldatum** is uitgeschakeld en kan niet worden gewijzigd nadat deze is ingesteld.
+Afhankelijk van het toegangsniveau dat u hebt, kunt u een budget om de eigenschappen te wijzigen. In het volgende voorbeeld wordt zijn een aantal van de eigenschappen alleen-lezen omdat de gebruiker alleen de machtiging Inzender voor het abonnement heeft. Op dit moment de **vervaldatum** is uitgeschakeld en kan niet worden gewijzigd nadat deze is ingesteld.
 
 ![Budget: machtiging Inzender bewerken](./media/tutorial-acm-create-budgets/edit-budget.png)
 

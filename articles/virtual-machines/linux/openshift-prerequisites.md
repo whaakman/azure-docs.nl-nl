@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085856"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636608"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Algemene vereisten voor het implementeren van OpenShift in Azure
 
@@ -99,12 +99,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken 
-OpenShift communiceert met Azure met behulp van een gebruikersnaam en wachtwoord of een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals OpenShift gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen de service-principal in Azure kunt uitvoeren. Voor een betere beveiliging dan alleen door een gebruikersnaam en wachtwoord maakt in dit voorbeeld u een eenvoudige service principal.
+OpenShift communiceert met Azure met behulp van een gebruikersnaam en wachtwoord of een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals OpenShift gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen de service-principal in Azure kunt uitvoeren. Het is raadzaam om het bereik van de machtigingen van de service-principal aan specifieke resourcegroepen in plaats van het hele abonnement te.
 
 Een service-principal met maken [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) en de uitvoer van de referenties die OpenShift nodig heeft.
 
 Het volgende voorbeeld maakt u een service principal en Inzender-rechten toegewezen aan een resourcegroep met de naam openshiftrg.
-afzonderlijk en de uitvoer gebruiken om de--optie bereiken.
 
 Maak eerst de resourcegroep met de naam openshiftrg:
 

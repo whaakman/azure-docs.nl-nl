@@ -1,5 +1,5 @@
 ---
-title: 'Spoor fouten in Hadoop in HDInsight: logboekbestanden weergeven en interpreteer foutberichten - Azure '
+title: 'Fouten opsporen in Apache Hadoop in HDInsight: logboekbestanden weergeven en interpreteer foutberichten - Azure '
 description: Meer informatie over de foutberichten die u mogelijk ontvangt bij het beheren van HDInsight met behulp van PowerShell en de stappen die u kunt nemen om te herstellen.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7600ff1a11435ee079fef80ecfa5ad88de1b4750
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569019"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634631"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop-logboeken analyseren
 
-Elke Hadoop-cluster in Azure HDInsight is een Azure storage-account gebruikt als het standaardbestandssysteem. Het opslagaccount dat wordt aangeduid als het standaardaccount voor opslag. Cluster maakt gebruik van de Azure Table storage en de Blob-opslag op het standaardopslagaccount voor het opslaan van de logboeken.  Als u wilt het standaardopslagaccount voor uw cluster weten, Zie [beheren van Hadoop-clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). De logboeken behouden in de Storage-account, zelfs nadat het cluster wordt verwijderd.
+Elke Apache Hadoop-cluster in Azure HDInsight is een Azure storage-account gebruikt als het standaardbestandssysteem. Het opslagaccount dat wordt aangeduid als het standaardaccount voor opslag. Cluster maakt gebruik van de Azure Table storage en de Blob-opslag op het standaardopslagaccount voor het opslaan van de logboeken.  Als u wilt het standaardopslagaccount voor uw cluster weten, Zie [beheren van Hadoop-clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). De logboeken behouden in de Storage-account, zelfs nadat het cluster wordt verwijderd.
 
 ## <a name="logs-written-to-azure-tables"></a>Logboeken geschreven naar Azure Tables
 
@@ -315,4 +315,4 @@ Sommige van deze foutberichten kan ook worden weergegeven in de Azure-portal als
 
 * [Ambari-weergaven gebruiken om op te sporen Tez-taken in HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Heapdumps voor Hadoop op Linux gebaseerde HDInsight-services inschakelen](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight-clusters beheren met behulp van de Ambari-Webinterface](../hdinsight-hadoop-manage-ambari.md)
+* [HDInsight-clusters beheren met behulp van de Ambari-webinterface](../hdinsight-hadoop-manage-ambari.md)

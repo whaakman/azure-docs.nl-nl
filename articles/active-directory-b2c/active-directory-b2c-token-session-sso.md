@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012442"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636897"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token-, sessie en configuratie voor eenmalige aanmelding in Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Hiermee kunt u heel nauwkeurig bepalen, op een [per beleid basis](active-directo
 - De indelingen van belangrijke claims in de beveiligingstokens die door Azure AD B2C wordt verzonden.
 - Eenmalige aanmelding (SSO) het gedrag voor meerdere apps en beleidsregels in uw Azure AD B2C-tenant.
 
-Voor de ingebouwde beleidsregels, kunt u deze functie in uw Azure AD B2C-directory als volgt:
+U kunt deze functie op elk gewenst beleidstype, maar in dit voorbeeld laten zien hoe u de functie met een beleid voor registreren of aanmelden. Voor de ingebouwde beleidsregels, kunt u deze functie in uw Azure AD B2C-directory als volgt:
 
-1. Klik op **beleid voor registreren of aanmelden**. * Opmerking: U kunt deze functie op elk gewenst beleidstype niet alleen op ** registreren of aanmelden beleid ***.
+1. Klik op **beleid voor registreren of aanmelden**.
 2. Open een beleid door erop te klikken. Bijvoorbeeld, klikt u op **B2C_1_SiUpIn**.
 3. Klik op **bewerken** aan de bovenkant van het menu.
 4. Klik op **Token-, sessie- en configuratie voor eenmalige aanmelding**.

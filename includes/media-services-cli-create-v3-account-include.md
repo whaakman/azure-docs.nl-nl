@@ -5,17 +5,17 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 9ecb07a2cb278f6cde4ffdc3b252cb9e816d08da
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 513d9a3a044daacd84b810e4795522c2bd6763f8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733291"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616568"
 ---
-## <a name="create-a-media-services-account"></a>Een Media Services-account maken
+## <a name="create-a-media-services-account"></a>Een Media Services-account kunt maken
 
 U moet u eerst een Media Services-account maken. In deze sectie wordt beschreven wat u nodig hebt voor het maken van het account met behulp van de Azure CLI.
 
@@ -23,7 +23,7 @@ U moet u eerst een Media Services-account maken. In deze sectie wordt beschreven
 
 Gebruik de volgende opdracht om een resourcegroep te maken. Een Azure-resourcegroep is een logische container waarin resources, zoals Azure Media Services-accounts en bijbehorende Storage-accounts worden geïmplementeerd en beheerd.
 
-```azurecli-interactive
+```azurecli
 az group create --name amsResourceGroup --location westus2
 ```
 
@@ -37,17 +37,17 @@ Zie [Storage-accounts](../articles/media-services/latest/storage-account-concept
 
 Met de volgende opdracht maakt u een Storage-account die wordt gekoppeld aan de Media Services-account. In het onderstaande script kunt u `storageaccountforams` door uw waarde vervangen. De accountnaam moet uit minder dan 24 tekens bestaan.
 
-```azurecli-interactive
+```azurecli
 az storage account create --name storageaccountforams \  
 --kind StorageV2 \
 --sku Standard_RAGRS \
 --resource-group amsResourceGroup
 ```
 
-### <a name="create-a-media-services-account"></a>Een Media Services-account maken
+### <a name="create-a-media-services-account"></a>Een Media Services-account kunt maken
 
 Met de volgende Azure CLI-opdracht wordt een nieuwe Media Services-account gemaakt. U kunt de volgende waarden vervangen: `amsaccount`  `storageaccountforams` (moet overeenkomen met de waarde die u voor uw opslagaccount hebt opgegeven), en `amsResourceGroup` (moet overeenkomen met de waarde die u hebt opgegeven voor de resourcegroep).
 
-```azurecli-interactive
+```azurecli
 az ams account create --name amsaccount --resource-group amsResourceGroup --storage-account storageaccountforams
 ```

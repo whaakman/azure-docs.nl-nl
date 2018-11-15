@@ -1,6 +1,6 @@
 ---
-title: Apache DataFu gebruiken met Pig in HDInsight - Azure
-description: Apache DataFu Pig is een verzameling van bibliotheken voor gebruik met Pig met Hadoop. Leer hoe u DataFu kunt gebruiken met Pig op uw HDInsight-cluster.
+title: Apache DataFu gebruiken met Apache Pig in HDInsight - Azure
+description: Apache DataFu Pig is een verzameling van bibliotheken voor gebruik met Apache Pig op Apache Hadoop. Leer hoe u DataFu kunt gebruiken met Pig op uw HDInsight-cluster.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 43885f3e1fcba97b5af201edfc0cce78a5a5eae5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0c7e8b7ab10771c611f80d36fb1c9ed0cf3e6f1b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012425"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632353"
 ---
-# <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>Apache DataFu Pig gebruiken met pig in HDInsight
+# <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Apache DataFu Pig gebruiken met Apache Pig in HDInsight
 
 Leer hoe u Apache DataFu Pig gebruiken met HDInsight.
 
-DataFu Pig is een verzameling van Open Source-bibliotheken voor gebruik met Pig met Hadoop.
+Apache DataFu Pig is een verzameling van Open Source-bibliotheken voor gebruik met Apache Pig op Apache Hadoop.
 Zie voor meer informatie over DataFu Pig [ https://datafu.apache.org/ ](https://datafu.apache.org/).
 
 ## <a name="prerequisites"></a>Vereisten

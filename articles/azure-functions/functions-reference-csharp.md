@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6c9172140691f7107d3907ab86938d879989a6c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748235"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685409"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-script (.csx) referentie voor ontwikkelaars
 
@@ -376,34 +376,27 @@ Zie de sectie voor informatie over het uploaden van bestanden naar de map van uw
 De map waarin het scriptbestand functie wordt automatisch weergegeven voor wijzigingen in de assembly's. Als u wilt bekijken voor assembly wijzigingen in andere directory's, voeg deze toe aan de `watchDirectories` in lijst [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Met behulp van NuGet-pakketten
+Gebruik de NuGet-pakketten in een C# werken, upload een *extensions.csproj* -bestand naar de map van de functie in het bestandssysteem van de functie-app. Hier volgt een voorbeeld *extensions.csproj* -bestand dat wordt toegevoegd een verwijzing naar *Microsoft.ProjectOxford.Face* versie *1.1.0*:
 
-Als u NuGet-pakketten in een C#-functie, upload een *project.json* -bestand naar de map van de functie in het bestandssysteem van de functie-app. Hier volgt een voorbeeld *project.json* -bestand dat wordt toegevoegd een verwijzing naar Microsoft.ProjectOxford.Face versie 1.1.0:
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net46</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
+    </ItemGroup>
+</Project>
 ```
-
-In Azure Functions 1.x, alleen de .NET Framework 4.6 wordt ondersteund, dus zorg ervoor dat uw *project.json* bestand `net46` zoals hier wordt weergegeven.
-
-Wanneer u uploadt een *project.json* bestand, de runtime opgehaald van de pakketten en verwijzingen naar de pakket-assembly's worden automatisch toegevoegd. U hoeft niet te voegen `#r "AssemblyName"` richtlijnen. Gebruik van de typen die zijn gedefinieerd in de NuGet-pakketten; alleen de vereiste toevoegen `using` instructies toe aan uw *run.csx* bestand. 
-
-In de Functions-runtime NuGet terugzetten werkt door het vergelijken van `project.json` en `project.lock.json`. Als de stempels datum en tijd van de bestanden **niet** overeenkomst, een NuGet-herstelbewerking wordt uitgevoerd en downloaden van NuGet pakketten bijgewerkt. Echter, als de stempels datum en tijd van de bestanden **doen** overeenkomen, NuGet voert een terugzetbewerking. Daarom `project.lock.json` mogen niet worden geïmplementeerd, omdat het ervoor zorgt dat NuGet package restore overslaan. Toevoegen om te voorkomen dat het vergrendelingsbestand te implementeren, de `project.lock.json` naar de `.gitignore` bestand.
 
 Geef voor het gebruik van een aangepaste NuGet-feed, de feed in een *Nuget.Config* bestand in de hoofdmap van de functie-App. Zie voor meer informatie, [NuGet configureren gedrag](/nuget/consume-packages/configuring-nuget-behavior).
 
-### <a name="using-a-projectjson-file"></a>Met behulp van een bestand project.json
+### <a name="using-a-extensionscsproj-file"></a>Met behulp van een bestand extensions.csproj
 
 1. De functie openen in de Azure-portal. De uitvoer van de installatie van pakket wordt weergegeven in het tabblad Logboeken.
-2. Als u wilt uploaden een project.json-bestand, gebruik een van de methoden die worden beschreven in de [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate) in het naslagonderwerp voor ontwikkelaars van Azure Functions.
-3. Na de *project.json* bestand is geüpload, ziet u uitvoer zoals in het volgende voorbeeld in de functie de streaming-logboek:
+2. Het uploaden van een *extensions.csproj* bestand, gebruik een van de methoden die worden beschreven in de [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate) in het naslagonderwerp voor ontwikkelaars van Azure Functions.
+3. Na de *extensions.csproj* bestand is geüpload, ziet u uitvoer zoals in het volgende voorbeeld in de functie de streaming-logboek:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -413,7 +406,7 @@ Geef voor het gebruik van een aangepaste NuGet-feed, de feed in een *Nuget.Confi
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
 2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.

@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348902"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636540"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Zelfstudie: Slack configureren voor het automatisch inrichten van gebruikers
 
 
 Het doel van deze zelfstudie is om weer te geven u de stappen die u wilt uitvoeren in Slack en Azure AD voor het automatisch inrichten en ongedaan maken inrichting gebruikersaccounts uit Azure AD naar Slack. 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -57,7 +57,7 @@ Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen 
 
 Deze sectie helpt u bij uw Azure AD verbinden met de Slack-gebruikersaccount Inrichtings-API en configureren van de provisioning-service voor het maken, bijwerken en uitschakelen toegewezen gebruikersaccounts in Slack op basis van gebruiker en groepstoewijzing in Azure AD.
 
-**Tip:** u kunt ook ingeschakeld SAML gebaseerde eenmalige aanmelding voor Slack, op. instructies hiervoor vindt in (Azure portal) [https://portal.azure.com]. Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies een fraaie aanvulling in elkaar.
+**Tip:** u kunt ook ingeschakeld SAML gebaseerde eenmalige aanmelding voor Slack, op. instructies hiervoor vindt [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies een fraaie aanvulling in elkaar.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Het configureren van automatische inrichten van gebruikersaccounts aan Slack in Azure AD:
@@ -114,7 +114,7 @@ Dit resultaat in een groepsobjecten die zijn toegewezen aan Slack in de **gebrui
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

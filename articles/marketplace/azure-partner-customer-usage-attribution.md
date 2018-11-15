@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 49d68a28180c384a181f29e41c12a5e32bd76aee
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625212"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685698"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -59,12 +59,13 @@ Als u wilt toevoegen een globally unique identifier (GUID), moet u een één wij
 1. [Controleren of GUID in de sjabloonimplementatie](#verify-the-guid-deployment).
 
 ### <a name="sample-resource-manager-template-code"></a>Voorbeeld van Resource Manager sjablooncode
-Zorg ervoor dat u wijzigt de onderstaande voorbeeldcode met uw eigen invoer wanneer u deze aan de belangrijkste sjabloonbestand toevoegen.
+
+Om in te schakelen bijhouden resources voor uw sjabloon, moet u de volgende aanvullende bron onder de sectie met resources toevoegen. Zorg ervoor dat u wijzigt de onderstaande voorbeeldcode met uw eigen invoer wanneer u deze aan de belangrijkste sjabloonbestand toevoegen.
 De resource moet worden toegevoegd de **mainTemplate.json** of **azuredeploy.json** bestand alleen, en niet in een geneste of gekoppelde sjablonen.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",

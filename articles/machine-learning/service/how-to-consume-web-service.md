@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 0ad39048a6b175a30ac7c5cdc346d0858c3719ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621867"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685171"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
 Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document, informatie over het maken van clients voor de web service via C#, Go, Java en Python.
 
-Een webservice wordt gemaakt wanneer u een installatiekopie op een Azure Container Instance, Azure Kubernetes Service of Project Brainwave (veld programmable gate arrays implementeert). Installatiekopieën worden van geregistreerde modellen en scoring-bestanden gemaakt. De URI die wordt gebruikt voor toegang tot een webservice kan worden opgehaald met behulp van de [SDK van Azure Machine Learning](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
+Een webservice wordt gemaakt wanneer u een installatiekopie op een Azure Container Instance, Azure Kubernetes Service of Project Brainwave (veld programmable gate arrays implementeert). Installatiekopieën worden van geregistreerde modellen en scoring-bestanden gemaakt. De URI die wordt gebruikt voor toegang tot een webservice kan worden opgehaald met behulp van de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
 
 De algemene werkstroom wanneer het maken van een client die gebruikmaakt van een ML-webservice is:
 
@@ -33,7 +33,7 @@ De algemene werkstroom wanneer het maken van een client die gebruikmaakt van een
 > [!NOTE]
 > De SDK van Azure Machine Learning wordt gebruikt om de web service-informatie ophalen. Dit is een Python-SDK. Terwijl deze wordt gebruikt om informatie over de web-services te halen, kunt u elke taal kunt gebruiken om een client voor de service te maken.
 
-De verbindingsgegevens van de web service kan worden opgehaald met de SDK van Azure Machine Learning. De [azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klasse bevat de informatie die nodig zijn voor het maken van een client. De volgende `Webservice` eigenschappen die nuttig zijn bij het maken van een clienttoepassing:
+De verbindingsgegevens van de web service kan worden opgehaald met de SDK van Azure Machine Learning. De [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klasse bevat de informatie die nodig zijn voor het maken van een client. De volgende `Webservice` eigenschappen die nuttig zijn bij het maken van een clienttoepassing:
 
 * `auth_enabled` -Als verificatie is ingeschakeld, `True`; anders `False`.
 * `scoring_uri` -De REST-API-adres.
@@ -51,7 +51,7 @@ Er zijn een drie manieren om op te halen van deze informatie voor de geïmplemen
     print(service.scoring_uri)
     ```
 
-* U kunt `Webservice.list` geïmplementeerd om op te halen een lijst van webservices voor modellen in uw werkruimte. U kunt filters toevoegen om te beperken van de lijst met geretourneerde informatie. Zie voor meer informatie over wat kan worden gefilterd op, de [Webservice.list](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) referentiedocumentatie.
+* U kunt `Webservice.list` geïmplementeerd om op te halen een lijst van webservices voor modellen in uw werkruimte. U kunt filters toevoegen om te beperken van de lijst met geretourneerde informatie. Zie voor meer informatie over wat kan worden gefilterd op, de [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) referentiedocumentatie.
 
     ```python
     services = Webservice.list(ws)
@@ -82,7 +82,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Als u een sleutel opnieuw genereren wilt, gebruikt u [ `service.regen_key` ](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
+> Als u een sleutel opnieuw genereren wilt, gebruikt u [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
 
 ## <a name="request-data"></a>Gegevens van aanvragen
 

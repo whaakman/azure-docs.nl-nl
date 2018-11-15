@@ -1,6 +1,6 @@
 ---
-title: Query Hive via het JDBC-stuurprogramma - Azure HDInsight
-description: Het JDBC-stuurprogramma van een Java-toepassing gebruiken voor het indienen van Hive-query's met Hadoop in HDInsight. Verbinding maken via een programma en van de SQuirrel SQL-client.
+title: Apache Hive query via het JDBC-stuurprogramma - Azure HDInsight
+description: Het JDBC-stuurprogramma van een Java-toepassing gebruiken voor het indienen van Apache Hive-query's met Hadoop in HDInsight. Verbinding maken via een programma en van de SQuirrel SQL-client.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014411"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633441"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Hive via het JDBC-stuurprogramma in HDInsight
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive query via het JDBC-stuurprogramma in HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Informatie over het gebruiken van het JDBC-stuurprogramma van een Java-toepassing voor het indienen van Hive-query's met Hadoop in Azure HDInsight. De informatie in dit document laat zien hoe u verbinding maakt via een programma en van de SQuirrel SQL-client.
+Informatie over het gebruiken van het JDBC-stuurprogramma van een Java-toepassing voor het indienen van Apache Hive-query's op Apache Hadoop in Azure HDInsight. De informatie in dit document laat zien hoe u verbinding maakt via een programma en van de SQuirrel SQL-client.
 
 Zie voor meer informatie over het Hive JDBC-Interface, [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 

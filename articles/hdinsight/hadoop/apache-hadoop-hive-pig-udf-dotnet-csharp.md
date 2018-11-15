@@ -1,6 +1,6 @@
 ---
-title: Gebruik C# met Hive en Pig met Hadoop in HDInsight - Azure
-description: Informatie over het gebruik van C#-door gebruiker gedefinieerde functies (UDF's) met Hive en Pig streaming in Azure HDInsight.
+title: Gebruik C# met Apache Hive en Apache Pig op Apache Hadoop in HDInsight - Azure
+description: Meer informatie over het gebruik van C# gebruikersgedefinieerde functies (UDF's) met Apache Hive en Apache Pig, streaming in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8011a9b8009abd2688d76dc3f1cda84ca453fde1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014683"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633832"
 ---
-# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C#-door gebruiker gedefinieerde functies gebruiken met Hive en Pig streaming van Hadoop in HDInsight
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Gebruik C# door de gebruiker gedefinieerde functies met Apache Hive en Apache Pig streaming van Apache Hadoop in HDInsight
 
-Informatie over het gebruik van C#-door gebruiker gedefinieerde functies (UDF's) met Apache Hive en Pig in HDInsight.
+Meer informatie over het gebruik van C# gebruikersgedefinieerde functies (UDF's) met Apache Hive en Apache Pig in HDInsight.
 
 > [!IMPORTANT]
 > De stappen in dit document werken met zowel op basis van Linux en Windows-gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](../hdinsight-component-versioning.md).

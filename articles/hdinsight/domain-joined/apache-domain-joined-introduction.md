@@ -1,5 +1,5 @@
 ---
-title: Een inleiding tot Hadoop-beveiliging met Enterprise-beveiligingspakket
+title: Een inleiding tot Apache Hadoop-beveiliging met Enterprise-beveiligingspakket
 description: Informatie over hoe Enterprise-beveiligingspakket ondersteuning biedt voor de vier pijlers van beveiliging voor bedrijven.
 services: hdinsight
 ms.service: hdinsight
@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a1b4565d4875b60ce36d74f8c99e4c7d79999c36
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578260"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631996"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Een inleiding tot Hadoop-beveiliging met Enterprise-beveiligingspakket
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Een inleiding tot Apache Hadoop-beveiliging met Enterprise-beveiligingspakket
 
-In het verleden, Azure HDInsight slechts één gebruiker ondersteund: lokale beheerder. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Als de Hadoop-gebaseerde workloads opgedaan populairder in de enterprise-sector, de noodzaak voor ondersteuning van geavanceerde mogelijkheden, zoals Active Directory gebaseerde verificatie, meerdere gebruikers, en op rollen gebaseerd toegangsbeheer steeds belangrijker. 
+In het verleden, Azure HDInsight slechts één gebruiker ondersteund: lokale beheerder. Dit werkte heel goed voor kleinere toepassingsteams of afdelingen. Als Apache Hadoop gebaseerde workloads opgedaan populairder in de enterprise-sector, de noodzaak voor ondersteuning van geavanceerde mogelijkheden, zoals Active Directory gebaseerde verificatie, meerdere gebruikers, en op rollen gebaseerd toegangsbeheer steeds belangrijker. 
 
 U kunt een HDInsight-cluster maken met Enterprise Security Package (ESP) die lid van een Active Directory-domein is. U kunt vervolgens een lijst met werknemers van de onderneming die zich via Azure Active Directory verifiëren kunnen voor aanmelding bij het HDInsight-cluster configureren. Niemand van buiten de onderneming kunt aanmelden of toegang tot het HDInsight-cluster. 
 
-De enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) kunt configureren voor Hive-beveiliging met behulp van [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC configureren toegang wordt beperkt tot gegevens alleen wat u nodig hebt. De beheerder kan ten slotte de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren. De beheerder kan vervolgens een hoge mate van beheer van hun bedrijfsbronnen behalen.
+De enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) kunt configureren voor Apache Hive-beveiliging met behulp van [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC configureren toegang wordt beperkt tot gegevens alleen wat u nodig hebt. De beheerder kan ten slotte de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren. De beheerder kan vervolgens een hoge mate van beheer van hun bedrijfsbronnen behalen.
 
 > [!NOTE]
 > Oozie is nu ingeschakeld op ESP-clusters. Voor toegang tot de Oozie-webgebruikersinterface, gebruikers moeten inschakelen [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).

@@ -1,6 +1,6 @@
 ---
-title: Analyseren van sensorgegevens via Hive en Hadoop - Azure HDInsight
-description: Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Hive met HDInsight (Hadoop) en vervolgens de gegevens in Microsoft Excel met PowerView visualiseren.
+title: Analyseren van sensorgegevens met Apache Hive en Apache Hadoop - Azure HDInsight
+description: Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Apache Hive met HDInsight (Hadoop) en vervolgens de gegevens in Microsoft Excel met PowerView visualiseren.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfc4d930f185c36c3ba0c869494ba0e7dee64cac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249401"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634410"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analyseren van sensorgegevens met behulp van de Hive-Query-Console van Hadoop in HDInsight
+# <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analyseren van sensorgegevens met behulp van de Apache Hive-Query-Console op Apache Hadoop in HDInsight
 
-Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Hive met HDInsight (Hadoop) en vervolgens de gegevens in Microsoft Excel visualiseren met behulp van Power View.
+Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Hive met HDInsight (Apache Hadoop) en vervolgens de gegevens in Microsoft Excel visualiseren met behulp van Power View.
 
 > [!IMPORTANT]
 > De stappen in dit document werken alleen met HDInsight op basis van een Windows-clusters. HDInsight is alleen beschikbaar voor Windows voor versies lager dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.

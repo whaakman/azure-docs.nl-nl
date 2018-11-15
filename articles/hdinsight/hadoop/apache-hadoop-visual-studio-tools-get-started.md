@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met Azure HDInsight met behulp van Data Lake Tools voor Visual Studio
-description: Leer hoe u Data Lake Tools voor Visual Studio installeert en gebruikt om verbinding te maken met Hadoop-clusters in Azure HDInsight en vervolgens Hive-query's uit te voeren.
+description: Informatie over het installeren en gebruiken van Data Lake Tools voor Visual Studio om te verbinden met Apache Hadoop-clusters in Azure HDInsight en vervolgens Hive-query's worden uitgevoerd.
 keywords: hadoop-hulpprogramma's, hive-query, visual studio, visual studio hadoop
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 281c3744dc311fdced20f810e0a9f2b233076472
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 670de3f61047bcc8b168863f5981e41084225ec4
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247140"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634665"
 ---
-# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Data Lake Tools voor Visual Studio gebruiken om verbinding te maken met Azure HDInsight en Hive-query's uit te voeren
+# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools voor Visual Studio gebruiken om te verbinden met Azure HDInsight en Apache Hive-query's uitvoeren
 
-Leer hoe u Data Lake Tools voor Visual Studio (ook wel Azure Data Lake en Stream Analytics Tools for Visual Studio genoemd) gebruikt om verbinding te maken met Hadoop-clusters in [Azure HDInsight](../hdinsight-hadoop-introduction.md) en om Hive-query's uit te voeren. 
+Meer informatie over het gebruik van Data Lake Tools voor Visual Studio (ook wel Azure Data Lake en Stream Analytics-hulpprogramma's voor Visual Studio) om te verbinden met Apache Hadoop-clusters in [Azure HDInsight](../hdinsight-hadoop-introduction.md) en het verzenden van Hive-query's. 
 
 Zie [Inleiding tot HDInsight](../hdinsight-hadoop-introduction.md) en [Aan de slag met HDInsight](apache-hadoop-linux-tutorial-get-started.md) voor meer informatie over het gebruik van HDInsight. 
 

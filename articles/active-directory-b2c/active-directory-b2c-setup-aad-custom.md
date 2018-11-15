@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 820fd904ac4ab983f4bd9858f3cf1ecff147876e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a4519484c3319ca73bef2862db4d279ba117c4f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386617"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636727"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Azure Active Directory-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C 
 
@@ -31,20 +31,19 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Dir
 
 Om in te schakelen aanmelding voor gebruikers van een specifieke Azure AD-organisatie, moet u een toepassing registreren met de organisatie Azure AD-tenant.
 
->[!NOTE]
->`Contoso.com` wordt gebruikt voor de organisatie Azure AD-tenant en `fabrikamb2c.onmicrosoft.com` wordt gebruikt als de Azure AD B2C-tenant in de volgende instructies.
-
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zorg ervoor dat u de map met organisatie-Azure AD-tenant (contoso.com) door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties**.
 4. Selecteer **Nieuwe toepassing registreren**.
 5. Voer een naam in voor de toepassing. Bijvoorbeeld `Azure AD B2C App`.
 6. Voor de **toepassingstype**, selecteer `Web app / API`.
-7. Voor de **aanmeldings-URL**, voer de volgende URL in kleine letters, waarbij `your-tenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (fabrikamb2c.onmicrosoft.com):
+7. Voor de **aanmeldings-URL**, voer de volgende URL in kleine letters, waarbij `your-B2C-tenant-name` wordt vervangen door de naam van uw Azure AD B2C-tenant:
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    Bijvoorbeeld `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 8. Klik op **Create**. Kopieer de **toepassings-ID** moet later worden gebruikt.
 9. Selecteer de toepassing en selecteer vervolgens **instellingen**.
@@ -85,7 +84,7 @@ U kunt Azure AD als een claimprovider definiëren door toe te voegen van Azure A
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -119,7 +118,7 @@ U kunt Azure AD als een claimprovider definiëren door toe te voegen van Azure A
     </ClaimsProvider>
     ```
 
-4. Onder de **ClaimsProvider** -element, werk de waarde voor **domein** naar een unieke waarde die kan worden gebruikt om ze te onderscheiden van andere id-providers.
+4. Onder de **ClaimsProvider** -element, werk de waarde voor **domein** naar een unieke waarde die kan worden gebruikt om ze te onderscheiden van andere id-providers. Bijvoorbeeld `Contoso`. U geen plaatst een `.com` aan het einde van deze instelling van het domein.
 5. Onder de **ClaimsProvider** -element, werk de waarde voor **DisplayName** naar een beschrijvende naam voor de claimprovider. Deze waarde wordt momenteel niet gebruikt.
 
 ### <a name="update-the-technical-profile"></a>Het technische profiel bijwerken
@@ -130,7 +129,7 @@ Als u een token van het Azure AD-eindpunt, moet u voor het definiëren van de pr
 2. Werk de waarde voor **DisplayName**. Deze waarde wordt weergegeven op de knop aanmelden op het aanmeldingsscherm.
 3. Werk de waarde voor **beschrijving**.
 4. Azure AD maakt gebruik van de OpenID Connect-protocol, dus zorg ervoor dat de waarde voor **Protocol** is `OpenIdConnect`.
-5. Stel de waarde van de **metagegevens** naar `https://login.windows.net/your-tenant/.well-known/openid-configuration`, waarbij `your-tenant` is de naam van uw Azure AD-tenant (contoso.com).
+5. Stel de waarde van de **metagegevens** naar `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, waarbij `your-AD-tenant-name` is de naam van uw Azure AD-tenant. Bijvoorbeeld: `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Open uw browser en Ga naar de **metagegevens** URL die u zojuist hebt bijgewerkt, zoekt u naar voor de **verlener** object-, kopieer en plak de waarde in de waarde voor **ProviderName** in het XML-bestand.
 8. Stel **client_id** en **IdTokenAudience** op de toepassings-ID van de registratie van de toepassing.
 9. Onder **CryptograhicKeys**, werk de waarde voor **StorageReferenceId** naar de beleidssleutel die u hebt gedefinieerd. Bijvoorbeeld `ContosoAppSecret`.
@@ -158,7 +157,7 @@ Op dit moment wordt de id-provider is ingesteld, maar het is niet beschikbaar zi
 De **ClaimsProviderSelection** element is vergelijkbaar met een knop identity provider op een scherm aanmelden-up-to-date/aanmelden. Als u een **ClaimsProviderSelection** -element voor Azure AD, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt.
 
 1. Zoek de **OrchestrationStep** element met `Order="1"` in de gebruikersbeleving die u hebt gemaakt.
-2. Onder **ClaimsProviderSelects**, voegt u het volgende element toe. Stel de waarde van **TargetClaimsExchangeId** naar een geschikte waarde, bijvoorbeeld `ContosoExchange`:
+2. Onder **ClaimsProviderSelections**, voegt u het volgende element toe. Stel de waarde van **TargetClaimsExchangeId** naar een geschikte waarde, bijvoorbeeld `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />

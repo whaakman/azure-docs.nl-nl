@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9d41c0ceeed2a69884b8ef481c79feb495fc89c0
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394236"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621205"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Zelfstudie: Azure AD-logboeken archiveren in een Azure-opslagaccount (preview)
 
@@ -68,10 +68,9 @@ U hebt het volgende nodig om deze functie te gebruiken:
 
     ![Diagnostische instellingen](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. Na circa vijftien minuten controleert u of de logboeken naar uw opslagaccount worden gepusht. Ga naar de [Azure-portal](https://portal.azure.com), klik op **Opslagaccount**s, kies het opslagaccount dat u eerder hebt gebruikt en selecteer **Blobs**. 
+12. Na circa vijftien minuten controleert u of de logboeken naar uw opslagaccount worden gepusht. Ga naar de [Azure-portal](https://portal.azure.com), klik op **Opslagaccount**s, kies het opslagaccount dat u eerder hebt gebruikt en selecteer **Blobs**. Voor **Auditlogboeken** selecteert u **insights-log-audit**. Voor **Aanmeldingslogboeken** selecteert u **insights-log-signin**.
 
-13. Voor **Auditlogboeken** selecteert u **insights-log-audit**. Voor **Aanmeldingslogboeken** selecteert u **insights-log-signin**.
-    ![Opslagaccount](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
+    ![Storage-account](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 49aa1226de53a1d8f13e0f4f1e79f37f6bfa21ee
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300486"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636673"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Tijdseries analyseren in Azure Data Explorer
 
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Gebruik de [ `make-series` ](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) operator om te maken van een set met drie tijdreeksen, waarbij:
+- Gebruik de [ `make-series` ](/azure/kusto/query/make-seriesoperator) operator om te maken van een set met drie tijdreeksen, waarbij:
     - `num=count()`: time series van verkeer
     - `range(min_t, max_t, 1h)`: tijdreeks wordt gemaakt in bins van 1 uur in het tijdsbereik (oudste en nieuwste tijdstempels van tabelrecords)
-    - `default=0`: Geef opvulling methode voor het ontbrekende opslaglocaties om regelmatige tijds reeks te maken. U kunt ook gebruik [ `series_fill_const()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [ `series_fill_forward()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [ `series_fill_backward()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) en [ `series_fill_linear()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) wijzigingen
+    - `default=0`: Geef opvulling methode voor het ontbrekende opslaglocaties om regelmatige tijds reeks te maken. U kunt ook gebruik [ `series_fill_const()` ](/azure/kusto/query/series-fill-constfunction), [ `series_fill_forward()` ](/azure/kusto/query/series-fill-forwardfunction), [ `series_fill_backward()` ](/azure/kusto/query/series-fill-backwardfunction) en [ `series_fill_linear()` ](/azure/kusto/query/series-fill-linearfunction) wijzigingen
     - `byOsVer`: partitie door besturingssysteem
 - De gegevensstructuur van de werkelijke tijd-serie is een numerieke matrix van de geaggregeerde waarde per elke bin tijd. We gebruiken `render timechart` voor visualisatie.
 
@@ -71,14 +71,14 @@ We hebben drie partities in de bovenstaande tabel. Kunnen we een afzonderlijke t
 ## <a name="time-series-analysis-functions"></a>Time series analysis functies
 
 In deze sectie wordt we typische reeks functies voor het verwerken uitvoeren.
-Nadat een set van tijdreeks is gemaakt, ADX biedt ondersteuning voor een groeiende lijst met functies voor het verwerken en analyseren die kan worden gevonden in de [time series-documentatie](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa). We wordt enkele representatieve functies voor het verwerken en analyseren van de tijdreeks beschreven.
+Nadat een set van tijdreeks is gemaakt, ADX biedt ondersteuning voor een groeiende lijst met functies voor het verwerken en analyseren die kan worden gevonden in de [time series-documentatie](/azure/kusto/query/machine-learning-and-tsa). We wordt enkele representatieve functies voor het verwerken en analyseren van de tijdreeks beschreven.
 
 ### <a name="filtering"></a>Filteren
 
 Filteren van een gebruikelijk bij het signaal verwerkings- en handig voor tijdreeks standaardtaken voor de verwerking is (bijvoorbeeld een ruis signaal vloeiende, detectie te wijzigen).
 - Er zijn twee algemene filters gebruiken om functies:
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction): BESTANDSNAAMGEDEELTE filter toepassen. Gebruikt voor eenvoudige berekening van gemiddelde en differentiatie van de tijdreeks voor de detectie van de wijziging te verplaatsen.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction): IIR filter toepassen. Gebruikt voor exponentieel vloeiend maken en het cumulatieve totaal.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): BESTANDSNAAMGEDEELTE filter toepassen. Gebruikt voor eenvoudige berekening van gemiddelde en differentiatie van de tijdreeks voor de detectie van de wijziging te verplaatsen.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): IIR filter toepassen. Gebruikt voor exponentieel vloeiend maken en het cumulatieve totaal.
 - `Extend` het formaat van de tijdreeks ingesteld door het toevoegen van een nieuwe zwevend gemiddelde reeks van 5 opslaglocaties (met de naam *ma_num*) op de query:
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>Regressie-analyse
 
 ADX ondersteunt gesegmenteerd lineaire regressie-analyse voor een schatting van de trend van de tijdreeks.
-- Gebruik [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) aanpassen aan de aanbevolen regel om een tijdreeks voor de algemene trend om de detectie.
-- Gebruik [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) trend om wijzigingen te herkennen, ten opzichte van de basislijn die handig zijn in de bewaking van scenario's.
+- Gebruik [series_fit_line()](/azure/kusto/query/series-fit-linefunction) aanpassen aan de aanbevolen regel om een tijdreeks voor de algemene trend om de detectie.
+- Gebruik [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) trend om wijzigingen te herkennen, ten opzichte van de basislijn die handig zijn in de bewaking van scenario's.
 
 Voorbeeld van `series_fit_line()` en `series_fit_2lines()` functies in een time series-query:
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![Time series seizoensgebondenheid](media/time-series-analysis/time-series-seasonality.png)
 
-- Gebruik [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) automatisch detecteren van de punten in de tijdreeks. 
-- Gebruik [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) als we weten dat een metrische waarde specifieke afzonderlijke periode hebben moet en we controleren willen of ze bestaan.
+- Gebruik [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) automatisch detecteren van de punten in de tijdreeks. 
+- Gebruik [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) als we weten dat een metrische waarde specifieke afzonderlijke periode hebben moet en we controleren willen of ze bestaan.
+
 > [!NOTE]
 > Het is een anomalie als specifieke verschillende perioden nog niet bestaan
 
@@ -150,7 +151,7 @@ De functie detecteert dagelijkse en wekelijkse seizoensgebondenheid. De dagelijk
 
 ### <a name="element-wise-functions"></a>Element-Wise functies
 
-Rekenkundige en logische bewerkingen kunnen worden uitgevoerd op een tijdreeks. Met behulp van [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction) we kunnen berekenen van een tijdserie resterende, die is, het verschil tussen de oorspronkelijke onbewerkte metrische gegevens en een vloeiende en zoeken naar afwijkingen in de resterende signaal:
+Rekenkundige en logische bewerkingen kunnen worden uitgevoerd op een tijdreeks. Met behulp van [series_subtract()](/azure/kusto/query/series-subtractfunction) we kunnen berekenen van een tijdserie resterende, die is, het verschil tussen de oorspronkelijke onbewerkte metrische gegevens en een vloeiende en zoeken naar afwijkingen in de resterende signaal:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![Time series-bewerkingen](media/time-series-analysis/time-series-operations.png)
 
-Blauw: oorspronkelijke tijdreeks Red: vloeiend tijdreeks groen: resterende tijdreeks
+- Blauw: de oorspronkelijke tijdreeks
+- Rood: vloeiend tijdreeks
+- Groen: de resterende tijdreeks
 
 ## <a name="time-series-workflow-at-scale"></a>Time series-werkstroom op schaal
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-In minder dan twee minuten gedetecteerd ADX twee abnormaal tijdreeks (van 23115) in die het aantal gelezen plotseling verwijderd.
+In minder dan twee minuten ADX geanalyseerd van meer dan 20.000 tijdreeksen en twee abnormaal tijdreeks waarin het aantal gelezen plotseling verwijderd gedetecteerd.
 
 Deze geavanceerde mogelijkheden in combinatie met ADX snelle prestaties leveren een unieke en krachtige oplossing voor tijdseries analyseren.
