@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746299"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678177"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Ontwerp voor hoge prestaties
 
@@ -32,8 +32,8 @@ Dit artikel voor het antwoord volgen Veelgestelde vragen over het optimaliseren 
 We hebben deze richtlijnen die specifiek voor Premium-opslag omdat workloads die worden uitgevoerd op de Premium-opslag zeer gevoelige prestaties zijn. Indien van toepassing zijn zijn er voorbeelden beschikbaar. U kunt sommige van deze richtlijnen ook toepassen op toepassingen die worden uitgevoerd op virtuele IaaS-machines met Standard Storage-schijven.
 
 > [!NOTE]
-> Soms is lijkt te zijn van een prestatieprobleem eigenlijk een knelpunt netwerk. In deze situaties moet u optimaliseren uw [netwerkprestaties](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> U moet ook zorgen dat uw virtuele machine ondersteunt versnelde netwerken. Als dit het geval is, kunt u dit inschakelen na de implementatie op zowel [windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) en [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) VM's.
+> Soms is lijkt te zijn van een prestatieprobleem schijf eigenlijk een knelpunt netwerk. In deze situaties moet u optimaliseren uw [netwerkprestaties](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Als uw virtuele machine versnelde netwerken ondersteunt, moet u ervoor zorgen dat deze is ingeschakeld. Als deze niet is ingeschakeld, kunt u het inschakelen op reeds geïmplementeerde VM's op zowel [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) en [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 Voordat u begint, als u niet bekend bent met Premium Storage, lees eerst de [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md) en [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md)artikelen.
 
@@ -227,7 +227,7 @@ Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en
 
 | Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1024 giB (1 TiB)    | 2048 giB (2 TiB)    | 4.095 giB (4 TiB)    | 8192 giB (8 TiB)    | 16.384 giB (16 TiB)    | 32.767 giB (32 GiB)    |
+| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16.384 giB (16 TiB)    | 32.767 giB (32 GiB)    |
 | IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20,000              |
 | Doorvoer per schijf | 25 MiB per seconde  | 50 MiB per seconde  | 100 MiB per seconde |125 MiB per seconde | 150 MiB per seconde | 200 MiB per seconde | 250 MiB per seconde | 250 MiB per seconde | 480 MiB per seconde | 750 MiB per seconde | 750 MiB per seconde |
 

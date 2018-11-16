@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cdd9ad16096c85db21829840b2bfd7acaced5942
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260054"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683495"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Vooraf gemaakte entiteiten toevoegen
 Deze zelfstudie laat zien hoe u entiteiten 'vooraf gemaakte' toevoegen aan uw model Conversatiecursist.
@@ -44,27 +44,28 @@ Vooraf gemaakte entiteiten herkennen algemene typen entiteiten, zoals getallen, 
 
 1. Klik op entiteiten, en vervolgens nieuwe entiteit.
 2. Klik op de EntityType-omlaag en selecteer datetimev2.
-    - Opties voor programmeerbare en Negatable zijn uitgeschakeld, omdat ze niet van toepassing voor het bouwen van vooraf entiteiten.
+    - Opties voor programmeerbare en Negatable zijn uitgeschakeld, omdat ze niet van toepassing op vooraf gemaakte entiteiten.
 3. Klik op Maken.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### <a name="create-two-actions"></a>Twee acties maken
 
-1. Klik op acties en vervolgens nieuwe actie
-2. Typ in het antwoord is de datum is $luis-datetimev2'.
-3. Klik op Maken.
+1. Klik op acties en vervolgens nieuwe actie.
+1. Typ in het antwoord is de datum is $builtin-datetimev2'.
+1. Voer in de vereiste entiteiten, ' $builtin-datetimev2'.
+1. Klik op Maken.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 Maak vervolgens de tweede actie:
 
 1. Klik op acties en vervolgens een nieuwe actie voor het maken van een tweede actie.
-3. Typ 'Wat is de datum?' in het antwoord.
-4. Voer 'luis-datetimev2' in diskwalificeren van entiteiten.
-4. Klik op Maken
+1. Typ 'Wat is de datum?' in het antwoord.
+1. In diskwalificeren entiteiten, voert u ' $builtin-datetimev2'.
+1. Klik op Maken.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 U hebt nu twee acties.
 
@@ -75,11 +76,11 @@ U hebt nu twee acties.
 3. Klik op Score acties en selecteer 'Wat is de datum?'
 2. Voer 'nu'. 
     - U ziet dat vandaag is gemarkeerd en wordt weergegeven in de tweede regel omdat dit een vooraf gemaakte entiteit en niet-bewerkbare.
-5. Klik op Score acties
+5. Klik op Score acties.
     - U ziet dat nu de datum wordt weergegeven in de sectie entiteit geheugen. 
     - Als u met de muisaanwijzer over de datum, kunt u zien welke aanvullende gegevens geleverd door LUIS, die kan worden gebruikt en kan verder worden bewerkt in de code. 
-6. Selecteer ' de datum is $luis-datetimev2'.
-7. Klik op gereed onderwijs
+6. Selecteer ' de datum is $builtin-datetimev2'.
+7. Klik op het onderwijs gereed.
 
 ## <a name="next-steps"></a>Volgende stappen
 

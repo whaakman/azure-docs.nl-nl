@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: c15ce88bbd55becaf30098f2e3302d2e65bc11d2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9ce2f65af89e186a3cd32bd2900b5444fb556b08
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625722"
+ms.locfileid: "51636710"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Apparaatconnectiviteit en inkomende telemetriegegevens
 
@@ -37,21 +37,25 @@ In de volgende gedeelten leert u hoe u de IoT Hub-verbindingsreeks ophalen uit d
 
 ## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>De IoT Hub-verbindingsreeks ophalen uit de beheer-API
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 Voer een GET-aanroep van de apparaat-API met een `includes=ConnectionString` parameter om op te halen van de verbindingsreeks van de IoT Hub-apparaat. Filteren op het apparaat GUID of de hardware-ID om te bepalen van het opgegeven apparaat.
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
+
+| Parameter | Vervangen door |
+| --- | --- |
+| *YOUR_DEVICE_GUID* | De apparaat-ID |
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
-| Naam van aangepast kenmerk | Vervangen door |
+| Parameterwaarde | Vervangen door |
 | --- | --- |
-| **yourManagementApiUrl** | De volledige URL-pad voor uw API Management |
-| **yourDeviceGuid** | De apparaat-ID |
-| **yourDeviceHardwareId** | De hardware-ID van het apparaat |
+| *YOUR_DEVICE_HARDWARE_ID* | De hardware-ID van het apparaat |
 
 Kopieer in de nettolading van de reactie van het apparaat **connectionString** eigenschap. U dit gebruiken wanneer u de Azure IoT-device-SDK om gegevens te verzenden naar digitale dubbels aanroepen.
 
