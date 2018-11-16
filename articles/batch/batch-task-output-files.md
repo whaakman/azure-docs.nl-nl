@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126309"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706123"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Taakgegevens naar Azure Storage met de Batch-service-API behouden
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Vanaf versie 2017-05-01, ondersteunt de API voor Batch-service vastleggen van uitvoergegevens naar Azure Storage voor taken en taken van een job manager die worden uitgevoerd voor groepen met de configuratie van de virtuele machine. Wanneer u een taak toevoegt, kunt u een container in Azure Storage opgeven als bestemming voor uitvoer van de taak. De Batch-service schrijft vervolgens uitvoergegevens naar die container wanneer de taak voltooid is.
+De Batch-service-API biedt ondersteuning voor permanente uitvoergegevens naar Azure Storage voor taken en taken van een job manager die worden uitgevoerd voor groepen met de configuratie van de virtuele machine. Wanneer u een taak toevoegt, kunt u een container in Azure Storage opgeven als bestemming voor uitvoer van de taak. De Batch-service schrijft vervolgens uitvoergegevens naar die container wanneer de taak voltooid is.
 
-Een voordeel voor het gebruik van de Batch-service-API om vast te leggen van de uitvoer van de taak is dat u niet wilt wijzigen van de toepassing die de taak wordt uitgevoerd. In plaats daarvan met enkele eenvoudige wijzigingen in uw clienttoepassing, kunt u de uitvoer van de taak van binnen de code die wordt gemaakt van de taak behouden.   
+Een voordeel voor het gebruik van de Batch-service-API om vast te leggen van de uitvoer van de taak is dat u niet wilt wijzigen van de toepassing die de taak wordt uitgevoerd. U kunt in plaats daarvan de uitvoer van de taak van binnen de dezelfde code die wordt gemaakt van de taak behouden met enkele wijzigingen in uw clienttoepassing.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Wanneer gebruik ik de API voor Batch-service om vast te leggen van de uitvoer van de taak?
 
@@ -36,7 +36,10 @@ Azure Batch biedt meer dan één manier om vast te leggen van de uitvoer van de 
 - Wilt u de uitvoer naar een Azure Storage-container met een willekeurige naam behouden.
 - U wilt behouden van de uitvoer naar een Azure Storage-container met de naam volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
-Als uw scenario van die verschilt hierboven zijn vermeld, moet u mogelijk rekening houden met een andere benadering. Bijvoorbeeld, ondersteunt de API voor Batch-service momenteel geen streaming uitvoer naar Azure Storage terwijl de taak wordt uitgevoerd. Om te streamen uitvoer, overweeg het gebruik van de Batch File Conventions-bibliotheek, beschikbaar voor .NET. Voor andere talen moet u om uw eigen oplossing te implementeren. Zie voor meer informatie over andere opties voor permanente taakuitvoer [behouden taken kunt uitvoeren naar Azure Storage](batch-task-output.md). 
+> [!NOTE]
+> De API voor Batch-service biedt geen ondersteuning voor vastleggen van gegevens van de taken die worden uitgevoerd in pools die zijn gemaakt met de configuratie van de cloud-service. Zie voor meer informatie over permanente taak uitvoer van groepen met de cloud services-configuratie [taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET om vast te leggen persistent ](batch-task-output-file-conventions.md).
+
+Als uw scenario van die verschilt hierboven zijn vermeld, moet u mogelijk rekening houden met een andere benadering. Bijvoorbeeld, ondersteunt de API voor Batch-service momenteel geen streaming uitvoer naar Azure Storage terwijl de taak wordt uitgevoerd. Om te streamen uitvoer, overweeg het gebruik van de Batch File Conventions-bibliotheek, beschikbaar voor .NET. Voor andere talen moet u om uw eigen oplossing te implementeren. Zie voor meer informatie over andere opties voor permanente taakuitvoer [behouden taken kunt uitvoeren naar Azure Storage](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Maak een container in Azure Storage
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>Uitvoerbestanden voor uitvoer van de taak opgeven
 
-Als u de uitvoerbestanden van een taak, maakt u een verzameling van [uitvoerbestand](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objecten en wijs deze toe aan de [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) eigenschap bij het maken van de taak. 
+Als u de uitvoerbestanden van een taak, maakt u een verzameling van [uitvoerbestand](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objecten en wijs deze toe aan de [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) eigenschap bij het maken van de taak.
 
-Het volgende voorbeeld van de .NET-code maakt u een taak die willekeurige getallen naar een bestand met de naam schrijft `output.txt`. Het voorbeeld wordt een bestand voor uitvoer voor `output.txt` worden geschreven naar de container. Het voorbeeld maakt ook uitvoerbestanden voor alle logboekbestanden die overeenkomen met het bestandspatroon `std*.txt` (_bijvoorbeeld_, `stdout.txt` en `stderr.txt`). De URL van de container moet eerder de SAS die is gemaakt voor de container. De Batch-service gebruikt de SAS voor het verifiëren van toegang tot de container: 
+De volgende C# codevoorbeeld maakt u een taak die willekeurige getallen naar een bestand met de naam schrijft `output.txt`. Het voorbeeld wordt een bestand voor uitvoer voor `output.txt` worden geschreven naar de container. Het voorbeeld maakt ook uitvoerbestanden voor alle logboekbestanden die overeenkomen met het bestandspatroon `std*.txt` (_bijvoorbeeld_, `stdout.txt` en `stderr.txt`). De URL van de container moet eerder de SAS die is gemaakt voor de container. De Batch-service gebruikt de SAS voor het verifiëren van toegang tot de container:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Wanneer u een uitvoerbestand opgeeft, kunt u de [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) om op te geven van een bestandspatroon voor het afstemmen van de eigenschap. Het bestandspatroon mogelijk overeen met nul bestanden, een enkel bestand of een set bestanden die zijn gemaakt door de taak.
 
-De **FilePattern** eigenschap ondersteunt standaard bestandssysteem jokertekens zoals `*` (voor niet-recursieve komt overeen met) en `**` (voor recursieve komt overeen met). Het bovenstaande codevoorbeeld geeft bijvoorbeeld het bestandspatroon dat moet overeenkomen met `std*.txt` niet-recursief: 
+De **FilePattern** eigenschap ondersteunt standaard bestandssysteem jokertekens zoals `*` (voor niet-recursieve komt overeen met) en `**` (voor recursieve komt overeen met). Het bovenstaande codevoorbeeld geeft bijvoorbeeld het bestandspatroon dat moet overeenkomen met `std*.txt` niet-recursief:
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ Als u wilt uploaden een enkel bestand, geeft u een bestandspatroon met geen joke
 
 De [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) eigenschap toestaat uitvoerbestanden voorwaardelijke worden geüpload. Een veelvoorkomend scenario is een set bestanden als de taak is voltooid en een andere set bestanden uploaden als deze is mislukt. Bijvoorbeeld, kunt u met het uploaden van bestanden van het uitgebreide logboek wanneer de taak mislukt en wordt afgesloten met een andere afsluitcode. Op deze manier kunt u voor het uploaden van bestanden met resultaten alleen als de taak is voltooid, omdat deze bestanden mogelijk ontbreken of zijn onvolledig als de taak mislukt.
 
-In het voorbeeld hierboven stelt de **UploadCondition** eigenschap **TaskCompletion**. Deze instelling geeft aan dat het bestand moet worden geüpload nadat de taken is voltooid, ongeacht de waarde van de afsluitcode. 
+In het voorbeeld hierboven stelt de **UploadCondition** eigenschap **TaskCompletion**. Deze instelling geeft aan dat het bestand moet worden geüpload nadat de taken is voltooid, ongeacht de waarde van de afsluitcode.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 Zie voor meer informatie over virtuele mappen in Azure Storage, [de blobs in een container te vermelden](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
-
 ## <a name="diagnose-file-upload-errors"></a>Bestand uploadfouten vaststellen
 
-Als het uploaden van uitvoerbestanden naar Azure Storage mislukt, wordt de taak wordt verplaatst naar de **voltooid** status en de [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) eigenschap is ingesteld. Bekijk de **FailureInformation** eigenschap om te bepalen welke fout is opgetreden. Bijvoorbeeld, is hier een fout die wordt uitgevoerd op het uploaden van het bestand als de container kan niet worden gevonden: 
+Als het uploaden van uitvoerbestanden naar Azure Storage mislukt, wordt de taak wordt verplaatst naar de **voltooid** status en de [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) eigenschap is ingesteld. Bekijk de **FailureInformation** eigenschap om te bepalen welke fout is opgetreden. Bijvoorbeeld, is hier een fout die wordt uitgevoerd op het uploaden van het bestand als de container kan niet worden gevonden:
 
 ```
 Category: UserError

@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 38a7a4e80542551057b230e9d0217d1cecbc5c42
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945243"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710304"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code-hulpprogramma's voor AI: trainen en implementeren van ML-modellen van VS Code
 In dit artikel leert u hoe u de **VS Code-hulpprogramma's voor AI** extensie te trainen en implementeren van machine learning en deep learning-modellen met Azure Machine Learning-service in VS Code.
@@ -29,7 +29,7 @@ Als u deze modellen kunt implementeren voor uw behoeften testen en productie.
 
 + Hebben de [Azure Machine Learning-SDK voor Python geïnstalleerd](how-to-vscode-tools.md) met VS Code.
 
-+ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
++ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 ## <a name="create-and-manage-compute-targets"></a>Maken en beheren van compute-doelen
 

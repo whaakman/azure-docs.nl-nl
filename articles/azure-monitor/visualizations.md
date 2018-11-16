@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973572"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711919"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van gegevens die zijn opgeslagen in Azure Monitor. Dit omvat [metrische gegevens in de metrische gegevens van Azure store](../monitoring/monitoring-data-collection.md#metrics) en [gegevens vastleggen in Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
@@ -50,7 +50,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 - Beperkte contextuele inzoomen.
 
 ## <a name="azure-monitor-views"></a>Azure Monitor-weergaven
-[Weergaven in Azure Monitor](../log-analytics/log-analytics-view-designer.md) kunt u aangepaste visualisaties maken met de logboekgegevens die zijn opgeslagen in Log Analytics. Ze worden gebruikt door [bewakingsoplossingen](../monitoring/monitoring-solutions.md) om de gegevens die zij verzamelen te presenteren.
+[Weergaven in Azure Monitor](../log-analytics/log-analytics-view-designer.md) kunt u aangepaste visualisaties maken met de logboekgegevens die zijn opgeslagen in Log Analytics. Ze worden gebruikt door [bewakingsoplossingen](../azure-monitor/insights/solutions.md) om de gegevens die zij verzamelen te presenteren.
 
 ![Weergave](media/visualizations/view.png)
 

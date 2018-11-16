@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 11/15/2018
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: 984190176b75c932dcced2c846832428213df32c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973763"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716159"
 ---
 > [!NOTE]
-> Afwijkingsdetectie is nu in Private Preview. Zie [Anomaliedetectie Finder Private Preview-documentatie](https://aka.ms/AnomalyFinderPrivatePreview) voor meer informatie. Voor deelname aan de Anomaliedetectie Finder Private Preview-versie, [contact met ons opnemen](mailto:kenshoteam@microsoft.com).
+> Afwijkingsdetectie is in Private Preview. Voor deelname aan de Anomaliedetectie Finder Private Preview-versie, [contact met ons opnemen](mailto:kenshoteam@microsoft.com). Nadat u de toegang wordt verleend, gaat u naar toegangscontrole [Anomaliedetectie Finder Private Preview-documentatie](https://aka.ms/AnomalyFinderPrivatePreview) voor meer informatie.

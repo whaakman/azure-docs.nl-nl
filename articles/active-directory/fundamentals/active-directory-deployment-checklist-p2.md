@@ -10,35 +10,35 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315117"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705648"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 licentieverlening functie controlelijst
 
-Het kan afschrikken aan Azure Active Directory (Azure AD) implementeren voor uw organisatie en deze te beveiligen. In dit artikel geeft een aantal algemene taken dat klanten nuttig om te voltooien in de loop van 30 dagen na 90 dagen of buiten hun beveiligingspostuur verbeteren. Zelfs organisaties die Azure AD al hebben geïmplementeerd, kunnen deze controlelijst gebruiken om te controleren of dat ze zijn het meeste uit hun bestaande investering ophalen.
+Het kan overweldigend zijn aan Azure Active Directory (Azure AD) implementeren voor uw organisatie en deze te beveiligen. In dit artikel geeft enkele algemene taken die klanten nuttig vindt. Klanten voeren deze taken doorgaans in de loop van 30 dagen na 90 dagen of buiten hun beveiligingspostuur verbeteren. Zelfs organisaties die Azure AD al hebben geïmplementeerd, kunnen deze controlelijst om ervoor te zorgen dat ze bij het ophalen van het meeste uit hun bestaande investering gebruiken.
 
 Een goed geplande en uitgevoerde identiteitsinfrastructuur de weg wordt vrijgemaakt voor beter beveiligde toegang tot uw productiviteit workloads en gegevens alleen door een geverifieerde gebruikers en apparaten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze handleiding wordt ervan uitgegaan dat u hebt Azure AD Premium P2-licenties, Enterprise Mobility + Security E5, Microsoft 365 E5 of een equivalente licentie-bundel.
+Deze handleiding wordt ervan uitgegaan dat u hebt Azure AD Premium P2-licenties, Enterprise Mobility + Security E5, Microsoft 365 E5 of een vergelijkbare licentie-bundel.
 
 [Azure AD-licenties](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>Plannen en implementeren: 1-30 dagen
 
 - Opgeven van meer dan één globale beheerder (einde-glas account)
    - [Beheerdersaccounts voor EMS-toegang beheren in Azure AD](../users-groups-roles/directory-emergency-access.md)
 - Inschakelen van Azure AD Privileged Identity Management (PIM) om rapporten weer te geven
-   - [PIM gebruiken](../privileged-identity-management/pim-getting-started.md)
+   - [Beginnen met PIM](../privileged-identity-management/pim-getting-started.md)
 - Niet-globale beheerdersrollen gebruik waar mogelijk.
    - [Beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
 - Verificatie

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3092e8edf16e271826aef95575d92749b29f8b56
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009739"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711511"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Status van de Active Directory-replicatie met Log Analytics controleren
 
@@ -34,7 +34,7 @@ Het AD-replicatiestatus-oplossingenpakket controleert regelmatig uw Active Direc
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
 * U moet agenten installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of u moet agenten installeren op lidservers en configureren van de agents AD-replicatie om gegevens te verzenden naar Log Analytics. Zie voor meer informatie over hoe u Windows-computers verbinden met Log Analytics, [verbinding maken met Windows-computers naar Log Analytics](log-analytics-windows-agent.md). Als uw domeincontroller al deel van een bestaande System Center Operations Manager-omgeving die u wilt koppelen aan Log Analytics uitmaakt, Zie [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
-* De oplossing Active Directory Replication Status toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).  Er is geen verdere configuratie nodig.
+* De oplossing Active Directory Replication Status toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../azure-monitor/insights/solutions.md).  Er is geen verdere configuratie nodig.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Details van AD-replicatiestatus gegevens verzamelen
 De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere informatie over hoe gegevens worden verzameld voor AD-replicatiestatus.

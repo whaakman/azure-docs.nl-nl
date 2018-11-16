@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283441"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712242"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -82,7 +82,7 @@ De meeste instellingen voor de verbonden gegevensbron beheren de in de **geavanc
 | Linux-Servers   | **Geavanceerde instellingen** menu voor de werkruimte. |
 | Azure Storage     | **Geavanceerde instellingen** menu voor de werkruimte. |
 | System Center     | **Geavanceerde instellingen** menu voor de werkruimte. |
-| Office 365        | Zie de [documentatie voor Office 365-beheeroplossing](../monitoring/monitoring-solution-office-365.md) voor informatie over de configuratie. |
+| Office 365        | Zie de [documentatie voor Office 365-beheeroplossing](../azure-monitor/insights/solution-office-365.md) voor informatie over de configuratie. |
 | Windows-telemetrie | Instellingenmenu voor de oplossing. Zie [Windows Analytics in Azure portal](/windows/deployment/update/windows-analytics-azure-portal) voor informatie over de configuratie. |
 | ITSM-Connector    | Zie [verbinding maken met ITSM-producten en services met IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) voor instructies voor uw ITSM-service te verbinden met Log Analytics. |
 
@@ -107,7 +107,7 @@ Instellingen voor de meeste gegevens beheren de in de **geavanceerde instellinge
 Beheren van oplossingen in de **oplossingen** menu voor de werkruimte. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Hoe ik installeren en verwijderen van oplossingen voor het beheer?
-In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplossingen en verwijderd uit **instellingen**. In de Azure-portal [installeren beheeroplossingen](../monitoring/monitoring-solutions.md#install-a-management-solution) vanuit Azure Marketplace. [Verwijderen van oplossingen](../monitoring/monitoring-solutions.md#remove-a-management-solution) uit de lijst met geïnstalleerde oplossingen.
+In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplossingen en verwijderd uit **instellingen**. In de Azure-portal [installeren beheeroplossingen](../azure-monitor/insights/solutions.md#install-a-management-solution) vanuit Azure Marketplace. [Verwijderen van oplossingen](../azure-monitor/insights/solutions.md#remove-a-management-solution) uit de lijst met geïnstalleerde oplossingen.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Hoe ik waarschuwingen maken en beheren?
 Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../monitoring-and-diagnostics/alert-metric.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.
@@ -126,5 +126,5 @@ Voor een beperkte periode, u kunt nog steeds toegang tot de portal via deze URL 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zoeken en installeren van oplossingen voor](../monitoring/monitoring-solutions.md) met behulp van de Azure portal.
+- [Zoeken en installeren van oplossingen voor](../azure-monitor/insights/solutions.md) met behulp van de Azure portal.
 - Meer informatie over [zoeken in Logboeken in Azure portal](log-analytics-log-search-portals.md).

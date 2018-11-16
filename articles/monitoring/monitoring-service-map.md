@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ea804899b04dad88ceeac14793d226cca47fc5c1
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252918"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713245"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
@@ -27,7 +27,7 @@ Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-
 Dit artikel beschrijft de details van onboarding- en het gebruik van Service-toewijzing. Zie voor meer informatie over het configureren van Serviceoverzicht en onboarding agents [oplossing Serviceoverzicht configureren in Azure]( monitoring-service-map-configure.md).
 
 >[!NOTE]
->Als u Serviceoverzicht al hebt geïmplementeerd, kunt u nu ook bekijken uw kaarten in Azure Monitor voor virtuele machines, waaronder extra functies voor het bewaken van VM-status en prestaties. Zie voor meer informatie, [Azure Monitor voor virtuele machines overzicht](monitoring-vminsights-overview.md).
+>Als u Serviceoverzicht al hebt geïmplementeerd, kunt u nu ook bekijken uw kaarten in Azure Monitor voor virtuele machines, waaronder extra functies voor het bewaken van VM-status en prestaties. Zie voor meer informatie, [Azure Monitor voor virtuele machines overzicht](../azure-monitor/insights/vminsights-overview.md).
 
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure

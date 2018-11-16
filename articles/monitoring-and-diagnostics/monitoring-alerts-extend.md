@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0f0bee419fdb119fcd99f0e72cc61ddf20f6253a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612570"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712939"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 Tot voor kort opgenomen Azure Log Analytics een eigen waarschuwing functionaliteit, die proactief te over voorwaarden op basis van Log Analytics-gegevens waarschuwen kan. U hebt beheerd waarschuwingsregels in de Microsoft Operations Management Suite-portal. Waarschuwingen voor verschillende services in Microsoft Azure is nu geïntegreerd in de nieuwe ervaring voor waarschuwingen. Deze optie is beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure-portal en biedt ondersteuning voor waarschuwingen van activiteitenlogboeken, metrische gegevens en logboeken van Log Analytics en Azure Application Insights. 
@@ -55,7 +55,7 @@ Wanneer u probeert te bewerken van een bestaande waarschuwing of een nieuwe waar
 > Zorg ervoor dat de machtigingen worden toegewezen aan de personen die u wilt toevoegen of bewerken van waarschuwingen correct zijn toegewezen in Azure. Zie voor meer informatie over welke machtigingen u wilt verlenen, [machtigingen voor het gebruik van Azure Monitor en waarschuwingen](monitoring-roles-permissions-security.md).  
 > 
 
-U kunt doorgaan met het maken van waarschuwingen van de [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) en [Log Analytics-Resourcesjabloon](../monitoring/monitoring-solutions-resources-searches-alerts.md). Als u dit doet, moet u actiegroepen opnemen.
+U kunt doorgaan met het maken van waarschuwingen van de [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) en [Log Analytics-Resourcesjabloon](../azure-monitor/insights/solutions-resources-searches-alerts.md). Als u dit doet, moet u actiegroepen opnemen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

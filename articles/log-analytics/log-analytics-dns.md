@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: bd72b93d31a25a6aa848fc08a7db4d9d0fcece9f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ed91c60393badcde1d3f31c86b1e4381788db17b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010742"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712089"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -58,7 +58,7 @@ De oplossing verzamelt DNS-inventarisatie- en DNS-gebeurtenis met betrekking tot
 Gebruik de volgende informatie in de oplossing te configureren:
 
 - Hebt u een [Windows](log-analytics-agent-windows.md) of [Operations Manager](log-analytics-om-agents.md) -agent op elke DNS-server die u wilt bewaken.
-- U kunt de oplossing DNS Analytics toevoegen aan uw Log Analytics-werkruimte van de [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). U kunt ook de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
+- U kunt de oplossing DNS Analytics toevoegen aan uw Log Analytics-werkruimte van de [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). U kunt ook de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../azure-monitor/insights/solutions.md).
 
 De oplossing start het verzamelen van gegevens zonder de noodzaak van verdere configuratie. Echter, kunt u de volgende configuratie voor het aanpassen van het verzamelen van gegevens.
 

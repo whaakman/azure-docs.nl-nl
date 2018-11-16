@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bba008bc6d1214aa4b2ca7cc609586a3d18159fd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 534c47e1c3189258617505808f7a8c7b2e3a3c6e
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613610"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711035"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwingenbeheeroplossing in Azure Log Analytics
 
@@ -36,7 +36,7 @@ De oplossing werkt met alle records in de opslagplaats van Log Analytics met een
 - Voor System Center Operations Manager-waarschuwingen, [uw Operations Manager-beheergroep verbinden met uw Log Analytics-werkruimte](log-analytics-om-agents.md).  Alle waarschuwingen die zijn gemaakt in System Center Operations Manager worden geïmporteerd in Log Analytics.  
 
 ## <a name="configuration"></a>Configuratie
-De oplossing voor beheer van waarschuwingen toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](../monitoring/monitoring-solutions.md). Er is geen verdere configuratie nodig.
+De oplossing voor beheer van waarschuwingen toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](../azure-monitor/insights/solutions.md). Er is geen verdere configuratie nodig.
 
 ## <a name="management-packs"></a>Management packs
 Als uw System Center Operations Manager-beheergroep is verbonden met uw Log Analytics-werkruimte, klikt u vervolgens de volgende management packs geïnstalleerd in System Center Operations Manager wanneer u deze oplossing toevoegt.  Er is geen configuratie of onderhoud van de management packs vereist.

@@ -18,7 +18,7 @@ ms.locfileid: "48885184"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Overzicht van Azure Functions runtime-versies
 
-Er zijn twee primaire versies van de Azure Functions-runtime: 1.x en 2.x. De huidige versie, waarbij nieuwe features en verbeteringen worden aangebracht is 2.x. Beide versies worden ondersteund voor productiescenario's. Hieronder worden de verschillen tussen de twee beschreven, hoe u elke versie kunt toepassen, en de manier waarop u kunt upgraden van 1.x naar 2.x.
+ Er zijn twee primaire versies van de Azure Functions-runtime: 1.x en 2.x. De huidige versie, waarbij nieuwe functie werk en verbeteringen worden aangebracht is 2.x gebruikt, hoewel beide worden ondersteund voor productiescenario's.  De volgende details van de verschillen tussen de twee, hoe u elke versie maken en een upgrade van 1.x naar 2.x.
 
 > [!NOTE]
 > In dit artikel wordt verwezen naar de cloudservice Azure Functions. Zie voor informatie over het preview-product waarmee u Azure Functions on-premises uitvoert, het [overzicht van Azure Functions Runtime](functions-runtime-overview.md).
@@ -33,7 +33,7 @@ Ter vergelijking, runtime versie 1.x ondersteunt alleen het ontwikkelen en hoste
 
 De runtime versie 2.x maakt gebruik van een nieuwe taalmodel voor uitbreidbaarheid. In versie 2.x moeten alle functies in een functie-app dezelfde taal delen. De taal van de functies in een functie-app wordt gekozen bij het maken van de app.
 
-Experimentele talen van Azure Functions 1.x worden niet bijgewerkt voor het gebruik in het nieuwe model. Deze worden dus niet ondersteund in 2.x. De volgende tabel geeft aan welke programmeertalen momenteel worden ondersteund in elke runtimeversie.
+Azure Functions 1.x experimentele talen wordt niet worden bijgewerkt voor het gebruik van het nieuwe model, zodat ze worden niet ondersteund in 2.x. De volgende tabel geeft aan welke programmeertalen worden momenteel ondersteund in elke runtimeversie.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -105,7 +105,7 @@ Wanneer u fouten opspoort of uw project publiceert wordt de juiste versie van de
 
 [Azure Functions Core Tools](functions-run-local.md) wordt gebruikt voor het ontwikkelen vanaf de opdrachtregel en ook door de [Azure Functions-extensie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) voor Visual Studio Code. Installeer versie 2.x van de Core-hulpprogramma's om te ontwikkelen voor versie 2.x. Versie 1.x ontwikkeling vereist versie 1.x van de essentiële hulpprogramma. Zie voor meer informatie, [Azure Functions Core Tools installeren](functions-run-local.md#install-the-azure-functions-core-tools).
 
-Voor ontwikkeling in Visual Studio Code moet u mogelijk ook de gebruikersinstelling voor de `azureFunctions.projectRuntime` bijwerken zodat deze overeenkomt met de versie van de hulpprogramma's die zijn geïnstalleerd. Deze instelling werkt ook de sjablonen en talen bij die worden gebruikt tijdens het maken van de functie-app.
+Voor ontwikkeling in Visual Studio Code moet u mogelijk ook de gebruikersinstelling voor de `azureFunctions.projectRuntime` bijwerken zodat deze overeenkomt met de versie van de hulpprogramma's die zijn geïnstalleerd.  Deze instelling werkt ook de sjablonen en talen bij die worden gebruikt tijdens het maken van de functie-app.
 
 ### <a name="changing-version-of-apps-in-azure"></a>Wijzigen van de versie van apps in Azure
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0cdc0b69405d726a7a661fb3e204e4f3ff8e50a5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282818"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713194"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -140,7 +140,7 @@ Log Analytics kan gegevens verzamelen uit diverse bronnen, zowel binnen Azure en
 - [Activiteitenlogboeken](../log-analytics/log-analytics-activity.md) van Azure-resources met informatie over de configuratie en de status en [diagnostische logboeken](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) die inzicht geven in hun werking.
 - Agents op [Windows](../log-analytics/log-analytics-windows-agent.md) en [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Log Analytics volgens verzenden [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) die u configureert.
 - Toepassingsgegevens verzameld door [Application Insights](https://docs.microsoft.com/azure/application-insights/).
-- Gegevens die inzicht bieden in een bepaalde toepassing of service van [bewakingsoplossingen](../monitoring/monitoring-solutions.md) of functies zoals Container Insights, inzichten van de virtuele machine of Resource Group inzichten.
+- Gegevens die inzicht bieden in een bepaalde toepassing of service van [bewakingsoplossingen](../monitoring/../azure-monitor/insights/solutions.md) of functies zoals Container Insights, inzichten van de virtuele machine of Resource Group inzichten.
 - Beveiligingsgegevens die zijn verzameld door [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Metrische gegevens](#metrics) van Azure-resources. Hiermee kunt u metrische gegevens langer duurt dan 93 dagen opslaan en analyseren met andere logboekgegevens.
 - Telemetrie naar geschreven [Azure Storage](../log-analytics/log-analytics-azure-storage-iis-table.md).

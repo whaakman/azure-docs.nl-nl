@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 78d081fe3ba2bfa4b598dfb0cc62c03d66d3d356
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011048"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712310"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -103,7 +103,7 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
 
 ### <a name="configure-the-solution"></a>De oplossing configureren 
 
-1. De oplossing Netwerkprestatiemeter toevoegen aan uw werkruimte uit de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Ook kunt u de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md). 
+1. De oplossing Netwerkprestatiemeter toevoegen aan uw werkruimte uit de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Ook kunt u de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../azure-monitor/insights/solutions.md). 
 2. Open uw Log Analytics-werkruimte en selecteer de **overzicht** tegel. 
 3. Selecteer de **Network Performance Monitor** tegel met het bericht *oplossing is aanvullende configuratie vereist*.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 14a33a6480cdb2dbc19b912d51eebda386c55d75
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625620"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713160"
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -241,5 +241,5 @@ Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Log Analytics-agent overzicht](log-analytics-agent-overview.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.
 * Zie [Gegevens verzamelen over Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) voor het configureren van het verzamelen van gegevens van Azure VM's.  
-* [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](../monitoring/monitoring-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
+* [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](../azure-monitor/insights/solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 

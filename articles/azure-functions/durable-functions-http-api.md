@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/15/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6d4a6b7aa2ad236fba6a8ea0b01578b4843d11f3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354254"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712922"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -95,6 +95,7 @@ Alle HTTP APIs geïmplementeerd door de extensie voor toets maken de volgende pa
 | createdTimeFrom  | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst met geretourneerde-exemplaren die zijn gemaakt op of na de opgegeven ISO8601-timestamp.|
 | createdTimeTo    | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst met geretourneerde-exemplaren die zijn gemaakt op of voor de opgegeven ISO8601-timestamp.|
 | runtimeStatus    | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filters de lijst met geretourneerde exemplaren op basis van hun runtimestatus. Zie de lijst met waarden voor mogelijke runtime status, de [uitvoeren van query's exemplaren](durable-functions-instance-management.md) onderwerp. |
+| Boven    | Querytekenreeks    | Een optionele parameter. Als u opgeeft, de resultaten van de query te splitsen in pagina's en beperken van het maximum aantal resultaten per pagina. |
 
 `systemKey` een autorisatiesleutel wordt automatisch gegenereerd door de Azure Functions-host. Het speciaal verleent toegang tot de extensie duurzame taak API's en kunnen worden beheerd als dezelfde manier als [andere sleutels voor de verificatieregel](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). De eenvoudigste manier voor het detecteren van de `systemKey` waarde is met behulp van de `CreateCheckStatusResponse` API eerder is vermeld.
 
@@ -291,6 +292,26 @@ Hier volgt een voorbeeld van antwoordpayloads, met inbegrip van de orchestration
 > [!NOTE]
 > Met deze bewerking kan zeer kostbaar in termen van Azure-opslag i/o zijn als er een groot aantal rijen in de tabel exemplaren. Meer informatie over exemplaar tabel vindt u de [prestaties en schaalbaarheid in duurzame functies (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentatie.
 > 
+
+#### <a name="request-with-paging"></a>Met paginering aanvragen
+
+U kunt instellen dat de `top` parameter voor het splitsen van de resultaten van de query in pagina's.
+
+Voor functies 1.0 is indeling van de aanvraag als volgt uit:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-voorvoegsel: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+Als de volgende pagina bestaat, wordt een vervolgtoken geretourneerd in de antwoordkop.  De naam van de koptekst is `x-ms-continuation-token`.
+
+Als u in de volgende aanvraagheader voortzetting van token waarde hebt ingesteld, krijgt u de volgende pagina.  Deze sleutel in de aanvraagheader is `x-ms-continuation-token`.
 
 
 ### <a name="raise-event"></a>Gebeurtenis

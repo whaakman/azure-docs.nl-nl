@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258915"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712140"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -427,7 +427,7 @@ De volgende variabelen, taken en weergaven kunt u verschillende resultaten retou
 
 Elk beheerd exemplaar met maximaal 35 TB opslag is gereserveerd voor Azure Premium-schijfruimte en elk databasebestand wordt geplaatst op een afzonderlijke fysieke schijf. Schijfgrootten is 128 GB, 256 GB, 512 GB, 1 TB of 4 TB. Ongebruikte ruimte op schijf is niet in rekening gebracht, maar de totale som van Azure Premium Disk-groottes mag niet meer dan 35 TB. In sommige gevallen een beheerd exemplaar dat niet 8 TB in totaal hoeft kan groter zijn dan de 35 TB Azure de limiet voor opslaggrootte, vanwege een interne fragmentatie.
 
-Voor een beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wordt geplaatst op een schijf met 4 TB en 248 bestanden 1 GB modules grootte die op afzonderlijke 128 GB schijven worden geplaatst. In dit voorbeeld:
+Voor een beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wordt geplaatst op een schijf van 4 TB en 248 bestanden elke 1 GB groot die op afzonderlijke 128 GB schijven worden geplaatst. In dit voorbeeld:
 
 - de grootte van de totale schijfruimte is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - de totale gereserveerde ruimte voor databases op het exemplaar is 1 x-1,2 TB + 248 x 1 GB = 1,4 TB.

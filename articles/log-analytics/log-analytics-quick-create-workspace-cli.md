@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2d3d48db5a1eb329d854d1c062d23dfaf63ad9fa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cef080707d6745459f27450c2c66f4aa2ea50ec7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963129"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710678"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Een Log Analytics-werkruimte maken met Azure CLI 2.0
 
@@ -131,4 +131,4 @@ Nu dat u een werkruimte beschikbaar hebt, kunt u verzamelen van telemetrie bewak
 * Zie voor het inschakelen van verzamelen van gegevens uit Azure-resources met Azure Diagnostics of Azure storage [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](log-analytics-azure-storage.md).  
 * Voeg [System Center Operations Manager als een gegevensbron](log-analytics-om-agents.md) voor het verzamelen van gegevens van agents die rapporteren van uw Operations Manager-beheergroep en sla deze op in uw Log Analytics-werkruimte.  
 * Verbinding maken met [Configuration Manager](log-analytics-sccm.md) voor het importeren van computers die lid van verzamelingen in de hiërarchie zijn.  
-* Controleer de [beheeroplossingen](../monitoring/monitoring-solutions.md) beschikbaar en hoe u kunt toevoegen of verwijderen van een oplossing uit uw werkruimte.
+* Controleer de [beheeroplossingen](../azure-monitor/insights/solutions.md) beschikbaar en hoe u kunt toevoegen of verwijderen van een oplossing uit uw werkruimte.

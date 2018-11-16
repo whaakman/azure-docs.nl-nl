@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3c07f39a6c6c4ce244ba49a26617b3e645c57acb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345033"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710371"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Webservices implementeren in Azure Container Instances 
 
@@ -28,7 +28,7 @@ In dit artikel ziet u drie verschillende manieren om een model in ACI te impleme
 * Implementeren vanaf het geregistreerde model gebruiken `Webservice.deploy_from_model()`
 * Geregistreerde model uit met behulp van de installatiekopie implementeren `Webservice.deploy_from_image()`
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 
 ## <a name="prerequisites"></a>Vereisten

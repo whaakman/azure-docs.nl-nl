@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 33681c7c9e1a625757e3f9403820ed3f469bec64
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016315"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705783"
 ---
 # <a name="archive-the-azure-activity-log"></a>De Azure-activiteitenlogboek archiveren
 In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
@@ -27,7 +27,7 @@ In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platfo
 Voordat u begint, moet u [een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) waarop kunt u uw activiteitenlogboek archiveren. Het is raadzaam dat u gebruik niet een bestaand opslagaccount met andere, niet-bewaking gegevens opgeslagen in het zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook diagnostische logboeken en metrische gegevens naar een opslagaccount archiveren weet, het wellicht verstandig dat opslagaccount voor uw activiteitenlogboek ook gebruiken om te houden van alle gegevens op een centrale locatie. Het storage-account heeft geen zich in hetzelfde abonnement bevinden als het abonnement dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
 
 > [!NOTE]
->  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
+>  U gegevens naar een opslagaccount gemaakt achter een beveiligd virtueel netwerk kan momenteel niet archiveren.
 
 ## <a name="log-profile"></a>Logboekprofiel
 Als u wilt archiveren het activiteitenlogboek via een van de onderstaande methoden, stelt u de **Logboekprofiel** voor een abonnement. Het Logboekprofiel bepaalt het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen die zijn opgeslagen in een storage-account. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 2147483647. Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. [U kunt meer lezen over log profielen hier](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 

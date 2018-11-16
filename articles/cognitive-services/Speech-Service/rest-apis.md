@@ -1,317 +1,63 @@
 ---
-title: Speech Service REST API 's
-description: Naslaginformatie voor REST-API's voor de Speech-Service.
+title: Speech Service REST-API's - Spraakservice
+titleSuffix: Azure Cognitive Services
+description: Informatie over het gebruik van de spraak-naar-tekst en spraak REST-API's. In dit artikel leert u over de opties voor autorisatie, opties voor query's, het structureren van een aanvraag en antwoord heeft ontvangen.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: erhopf
-ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5522b076fdf3d4e339f5e170679f389259ff1359
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566615"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713126"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
-De REST-API's van de service Azure Cognitive Services Speech zijn vergelijkbaar met de API's uit de [Bing Speech-API](https://docs.microsoft.com/azure/cognitive-services/Speech). De eindpunten afwijken van de eindpunten die worden gebruikt door de Bing Speech-service. Regionale eindpunten beschikbaar zijn en moet u een abonnementssleutel die overeenkomt met het eindpunt dat u gebruikt.
-
-## <a name="speech-to-text"></a>Spraak naar tekst
-
-De eindpunten voor de spraak-naar-tekst REST-API worden in de volgende tabel weergegeven. Gebruik de naam die overeenkomt met de regio van uw abonnement.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
-
-> [!NOTE]
-> Als u het akoestisch model of de taalmodel of de uitspraak van aangepast, kunt u uw aangepast eindpunt gebruiken.
-
-Deze API ondersteunt alleen korte uitingen. Aanvragen kunnen maximaal 10 seconden audio bevatten en een maximum van 14 seconden algehele laatste. De REST-API retourneert alleen de laatste resultaten, geen tijdelijke of gedeeltelijke resultaten. De spraak-service heeft ook een [batch transcriptie](batch-transcription.md) API die langer audio kunt transcriberen.
-
-
-### <a name="query-parameters"></a>Queryparameters
-
-De volgende parameters kunnen worden opgenomen in de querytekenreeks van de REST-aanvraag.
-
-|Parameternaam|Vereist/optioneel|Betekenis|
-|-|-|-|
-|`language`|Vereist|De id van de taal die moet worden herkend. Zie [ondersteunde talen](language-support.md#speech-to-text).|
-|`format`|Optioneel<br>Standaard: `simple`|Resultaat opmaken, `simple` of `detailed`. Eenvoudige tot de resultaten behoren `RecognitionStatus`, `DisplayText`, `Offset`, en de duur. Gedetailleerde resultaten bevatten meerdere kandidaten met vertrouwen waarden en vier verschillende manieren.|
-|`profanity`|Optioneel<br>Standaard: `masked`|Klik hier voor meer informatie over het afhandelen van grof taalgebruik in herkenningsresultaten. Mogelijk `masked` (grof taalgebruik vervangen door sterretjes), `removed` (Hiermee verwijdert u alle grof taalgebruik,) of `raw` (inclusief grof taalgebruik).
-
-### <a name="request-headers"></a>Aanvraagheaders
-
-De volgende velden worden in de HTTP-aanvraagheader verzonden.
-
-|Header|Betekenis|
-|------|-------|
-|`Ocp-Apim-Subscription-Key`|Uw abonnementssleutel van spraak-service. Een van beide deze header of `Authorization` moet worden opgegeven.|
-|`Authorization`|Een verificatietoken voorafgegaan door het woord `Bearer`. Een van beide deze header of `Ocp-Apim-Subscription-Key` moet worden opgegeven. Zie [verificatie](#authentication).|
-|`Content-type`|Beschrijft de indeling en codec van de gegevens. Op dit moment deze waarde moet `audio/wav; codec=audio/pcm; samplerate=16000`.|
-|`Transfer-Encoding`|Optioneel. Indien opgegeven, moet `chunked` om toe te staan van audiogegevens in meerdere kleine segmenten in plaats van één bestand worden verzonden.|
-|`Expect`|Als u gesegmenteerde overdracht, stuurt u `Expect: 100-continue`. De spraakservice erkent de eerste aanvraag en wacht op de aanvullende gegevens.|
-|`Accept`|Optioneel. Indien opgegeven, moet de bevatten `application/json`, zoals de Speech-service de resultaten in JSON-indeling bevat. (Sommige Web aanvraag frameworks bieden een niet-compatibele standaardwaarde als u niets opgeeft, dus het is raadzaam om altijd opnemen `Accept`.)|
-
-### <a name="audio-format"></a>Audio-indeling
-
-Audio wordt verzonden in de hoofdtekst van de HTTP `POST` aanvraag. Het moet zich binnen een van de indelingen in deze tabel:
-
-| Indeling | Codec | Bitrate | Samplefrequentie |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bits | 16 kHz, mono |
-| OGG | OPUS | 16-bits | 16 kHz, mono |
-
->[!NOTE]
->De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de Speech-Service. De [spraak SDK](/index.yml) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
-
-### <a name="chunked-transfer"></a>Gesegmenteerde overdracht
-
-Gesegmenteerde overdrachtscodering overdracht (`Transfer-Encoding: chunked`) kunt u Verminder de latentie van de spraakherkenning omdat hierdoor de Speech-service om te beginnen met het audiobestand verwerken terwijl deze wordt verzonden. De REST-API biedt geen tijdelijke of gedeeltelijke resultaten. Deze optie is bedoeld uitsluitend het reactievermogen verbeteren.
-
-De volgende code ziet u hoe u verzendt audio in segmenten. Alleen de eerste chunk moet de audio bestands-header bevatten. `request` is een HTTPWebRequest-object dat is verbonden met het juiste REST-eindpunt. `audioFile` is het pad naar een audio-bestand op schijf.
-
-```csharp
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
-{
-
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
-    byte[] buffer = null;
-    int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
-    {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
-        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
-        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
-        {
-            requestStream.Write(buffer, 0, bytesRead);
-        }
-
-        // Flush
-        requestStream.Flush();
-    }
-}
-```
-
-### <a name="example-request"></a>Voorbeeldaanvraag
-
-Hier volgt een typische aanvraag.
-
-```HTTP
-POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
-Accept: application/json;text/xml
-Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.stt.speech.microsoft.com
-Transfer-Encoding: chunked
-Expect: 100-continue
-```
-
-### <a name="http-status"></a>HTTP-status
-
-De HTTP-status van het antwoord geeft aan dat het slagen of algemene fouten.
-
-HTTP-code|Betekenis|Mogelijke oorzaak
--|-|-|
-100|Doorgaan|De eerste aanvraag is geaccepteerd. Doorgaan met het verzenden van de rest van de gegevens. (Met gesegmenteerde overdracht gebruikt.)
-200|OK|De aanvraag is uitgevoerd. de antwoordtekst is een JSON-object.
-400|Ongeldig verzoek|De taalcode die niet opgegeven of is niet een ondersteunde taal; Ongeldig audio-bestand.
-401|Niet geautoriseerd|Abonnementssleutel of autorisatie-token is ongeldig in de regio is opgegeven of ongeldig eindpunt.
-403|Verboden|Ontbrekende abonnementssleutel of autorisatie token.
-
-### <a name="json-response"></a>JSON-antwoord
-
-Resultaten worden geretourneerd in JSON-indeling. Afhankelijk van uw queryparameters een `simple` of `detailed` indeling wordt geretourneerd.
-
-#### <a name="the-simple-format"></a>De `simple` indeling 
-
-Deze indeling bevat de volgende velden op het hoogste niveau.
-
-|Veldnaam|Inhoud|
-|-|-|
-|`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Raadpleeg deze [tabel](rest-apis.md#recognitionstatus).|
-|`DisplayText`|De herkende tekst na het hoofdlettergebruik, interpunctie, inverse tekst normalisering (conversie van de gesproken tekst voor kortere formulieren, zoals 200 voor '200' of 'Dr. Smith' voor 'doctor smith'), en grof taalgebruik maskeren. Alleen op succes is geïnstalleerd.|
-|`Offset`|De tijd (in eenheden van 100 nanoseconden) waarmee de herkende spraak in de audiostream begint.|
-|`Duration`|De duur (in eenheden van 100 nanoseconden) van de herkende spraak in de audio-stream.|
-
-#### <a name="the-detailed-format"></a>De `detailed` indeling 
-
-Deze indeling bevat de volgende velden op het hoogste niveau.
-
-|Veldnaam|Inhoud|
-|-|-|
-|`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Raadpleeg deze [tabel](rest-apis.md#recognition-status).|
-|`Offset`|De tijd (in eenheden van 100 nanoseconden) waarmee de herkende spraak in de audiostream begint.|
-|`Duration`|De duur (in eenheden van 100 nanoseconden) van de herkende spraak in de audio-stream.|
-|`NBest`|Een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke naar ontwerpkenmerken. Zie de [NBest beschrijving](rest-apis.md#nbest).|
-
-#### <a name="nbest"></a>NBest
-
-De `NBest` veld is een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke te minste waarschijnlijk. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat. Elke vermelding bevat de volgende velden:
-
-|Veldnaam|Inhoud|
-|-|-|
-|`Confidence`|De betrouwbaarheidsscore van de vermelding van 0,0 (geen vertrouwen) 1.0 (volledig vertrouwen)
-|`Lexical`|De lexicale vorm van de herkende tekst: de werkelijke woorden herkend.
-|`ITN`|De inverse-normalized-tekst ("canonieke") vorm van de herkende tekst, met telefoon getallen, getallen, afkortingen ("doctor smith' op 'dr smith') en andere transformaties toegepast.
-|`MaskedITN`| Het formulier toevoegen met grof taalgebruik maskering toegepast, indien aangevraagd.
-|`Display`| Het formulier weergegeven van de herkende tekst, met interpunctie hoofdletters en kleine letters toegevoegd.
-
-#### <a name="recognitionstatus"></a>RecognitionStatus
-
-De `RecognitionStatus` veld kan de volgende waarden bevatten.
-
-|Statuswaarde|Beschrijving
-|-|-|
-| `Success` | De opname is voltooid en het veld weergavetekst aanwezig is. |
-| `NoMatch` | Spraak is gedetecteerd in de audiostream, maar er zijn geen woorden uit de doeltaal zijn afgestemd. Betekent meestal dat de opname-taal is een andere taal dan het account dat de gebruiker spreekt. |
-| `InitialSilenceTimeout` | Het begin van de audiostream bevat alleen stilte en de time-out voor spraak-service. |
-| `BabbleTimeout` | Het begin van de audiostream bevat alleen ruis, en de time-out voor spraak-service. |
-| `Error` | De opname-service is een interne fout opgetreden en kan niet worden voortgezet. Probeer het opnieuw, indien mogelijk. |
-
-> [!NOTE]
-> Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd.
-
-### <a name="sample-responses"></a>Voorbeeld van reacties
-
-Hieronder volgt een typische antwoord voor `simple` herkenning.
-
-```json
-{
-  "RecognitionStatus": "Success",
-  "DisplayText": "Remind me to buy 5 pencils.",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289"
-}
-```
-
-Hieronder volgt een typische antwoord voor `detailed` herkenning.
-
-```json
-{
-  "RecognitionStatus": "Success",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289",
-  "NBest": [
-      {
-        "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five pencils",
-        "ITN" : "remind me to buy 5 pencils",
-        "MaskedITN" : "remind me to buy 5 pencils",
-        "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
-      }
-  ]
-}
-```
-
-## <a name="text-to-speech"></a>Tekst naar spraak
-
-Hieronder vindt u de REST-eindpunten voor de spraakservice Text to Speech-API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-De spraak-service ondersteunt 24-KHz audio-uitvoer naast de 16-Khz uitvoer door Bing Speech ondersteund. Vier 24-KHz uitvoerindelingen zijn beschikbaar voor gebruik in de `X-Microsoft-OutputFormat` HTTP-header, twee 24-KHz stemmen, zijn `Jessa24kRUS` en `Guy24kRUS`.
-
-Landinstelling | Taal   | Geslacht | De toewijzing van service
--------|------------|--------|------------
-nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)"
-nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
-
-Een volledige lijst met beschikbare stemmen is beschikbaar in [ondersteunde talen](language-support.md#text-to-speech).
-
-### <a name="request-headers"></a>Aanvraagheaders
-
-De volgende velden worden in de HTTP-aanvraagheader verzonden.
-
-|Header|Betekenis|
-|------|-------|
-|`Authorization`|Een verificatietoken voorafgegaan door het woord `Bearer`. Vereist. Zie [verificatie](#authentication).|
-|`Content-Type`|De invoer inhoudstype: `application/ssml+xml`.|
-|`X-Microsoft-OutputFormat`|De uitvoer audio-indeling. Zie de volgende tabel.|
-|`User-Agent`|De naam van de toepassing. Vereist. moet minder dan 255 tekens bevatten.|
-
-De beschikbare audio uitvoerindelingen (`X-Microsoft-OutputFormat`) een bitsnelheid en een codering.
-
-|||
-|-|-|
-`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
-`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
-`audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
-`audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
-`riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
-`audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
-
-> [!NOTE]
-> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen.
-
-### <a name="request-body"></a>Aanvraagbody
-
-De tekst die moet worden geconverteerd naar spraak wordt verzonden als de instantie van een HTTP `POST` aanvragen in een tekst zonder opmaak (ASCII- of UTF-8) of [spraak synthese Markup Language](speech-synthesis-markup.md) (SSML)-indeling (UTF-8). Tekst zonder opmaak aanvragen gebruiken de standaardstem en de taal van de service. SSML gebruik van een andere stem verzenden.
-
-### <a name="sample-request"></a>Voorbeeld van een aanvraag
-
-De volgende HTTP-aanvraag gebruikt een SSML-instantie voor het kiezen van de stem. De hoofdtekst van het mag niet langer zijn dan 1000 tekens zijn.
-
-```xml
-POST /cognitiveservices/v1 HTTP/1.1
-
-X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
-Content-Type: application/ssml+xml
-Host: westus.tts.speech.microsoft.com
-Content-Length: 225
-Authorization: Bearer [Base64 access_token]
-
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
-        Microsoft Speech Service Text-to-Speech API
-</voice></speak>
-```
-
-### <a name="http-response"></a>HTTP-antwoord
-
-De HTTP-status van het antwoord geeft aan dat het slagen of algemene fouten.
-
-HTTP-code|Betekenis|Mogelijke oorzaak
--|-|-|
-200|OK|De aanvraag is uitgevoerd. de antwoordtekst is een geluidsbestand.
-400 |Onjuiste aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
-401|Niet geautoriseerd |De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio.
-413|Aanvraagentiteit te groot|De invoer SSML is langer dan 1024 tekens.
-429|Te veel aanvragen|U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden.
-502|Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
-
-Als de HTTP-status `200 OK`, de hoofdtekst van het antwoord bevat een audio-bestand in de gewenste indeling. Dit bestand kan worden afgespeeld, overgedragen of opgeslagen in een buffer of het bestand later afspelen of ander gebruik.
+Als alternatief voor de [spraak SDK](speech-sdk.md), de Speech-Service kunt u Converteer spraak naar tekst en tekst naar spraak met een set REST-API's. Elk eindpunt dat toegankelijk is, is gekoppeld aan een regio. Uw toepassing is een abonnementssleutel vereist voor het eindpunt dat u van plan bent te gebruiken.
+
+Voordat u de REST-API's te begrijpen:
+* De spraak-naar-tekst-aanvragen met behulp van de REST-API kunnen slechts tien seconden opgenomen audio bevatten.
+* De spraak-naar-tekst REST-API retourneert alleen de laatste resultaten. Gedeeltelijke resultaten zijn niet opgegeven.
+* De Text to Speech REST-API vereist autorisatie-header. Dit betekent dat u voltooien van de uitwisseling van een token moet voor toegang tot de service. Zie [Verificatie](#authentication) voor meer informatie.
 
 ## <a name="authentication"></a>Verificatie
 
-Een aanvraag verzenden naar de spraakservice REST-API is een abonnementssleutel of een toegangstoken vereist. In het algemeen is het eenvoudigste de abonnementssleutel om rechtstreeks te verzenden. De spraakservice haalt het toegangstoken vervolgens voor u. Als u wilt responstijd te minimaliseren, kunt u in plaats daarvan een toegangstoken gebruiken.
+Elke aanvraag aan een van beide de spraak-naar-tekst of tekst naar spraak REST-API vereist autorisatie-header. Deze tabel ziet u welke headers voor elke service worden ondersteund:
 
-Aanwezig als u wilt een token verkrijgen, uw abonnementssleutel met een regionale spraakservice `issueToken` eindpunt, zoals wordt weergegeven in de volgende tabel. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
+| Ondersteunde autorisatie-header | Spraak-naar-tekst | Tekst-naar-spraak |
+|------------------------|----------------|----------------|
+| OCP-Apim-Subscription-Key | Ja | Nee |
+| Autorisatie: Bearer | Ja | Ja |
+
+Wanneer u de `Ocp-Apim-Subscription-Key` header, u hoeft zich alleen voor de abonnementssleutel van uw. Bijvoorbeeld:
+
+```
+'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
+```
+
+Wanneer u de `Authorization: Bearer` header, u bent vereist voor het maken van een aanvraag naar de `issueToken` eindpunt. In deze aanvraag, moet u uw abonnementssleutel voor een toegangstoken dat is geldig voor 10 minuten uitwisselen. In de volgende gedeelten leert u hoe u een token verkrijgen, gebruikt u een token en vernieuwen van een token.
+
+### <a name="how-to-get-an-access-token"></a>Over het verkrijgen van een toegangstoken
+
+Voor een toegangstoken, moet u een aanvraag naar de `issueToken` eindpunt met behulp van de `Ocp-Apim-Subscription-Key` en de abonnementssleutel van uw.
+
+Deze regio's en -eindpunten worden ondersteund:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Elke toegangstoken is geldig voor 10 minuten. Op elk gewenst moment kunt u een nieuw token verkrijgen. Als u dat wilt, kunt u een token vlak voor elke aanvraag Speech REST-API. Om te beperken van netwerkverkeer en de latentie, wordt u aangeraden het dezelfde token negen minuten.
+Gebruik deze voorbeelden om u te maken van uw aanvraag voor een toegangstoken.
 
-De volgende secties laten zien hoe u een token verkrijgen en het gebruik ervan in een aanvraag.
+#### <a name="http-sample"></a>HTTP-voorbeeld
 
-### <a name="get-a-token-http"></a>Een token verkrijgen: HTTP
+In dit voorbeeld is een eenvoudige HTTP-aanvraag voor een token verkrijgen. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel Speech-Service. Als uw abonnement komt niet in de regio VS-West, vervangt u de `Host` -header met de hostnaam van uw regio.
 
-Het volgende voorbeeld wordt een voorbeeld van een HTTP-aanvraag voor het verkrijgen van een token. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement komt niet in de regio VS-West, vervangt u de `Host` -header met de hostnaam van uw regio.
-
-```
+```http
 POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.api.cognitive.microsoft.com
@@ -319,11 +65,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-De hoofdtekst van het antwoord op deze aanvraag is het toegangstoken in de indeling van de Java Web Token (JWT).
+De hoofdtekst van het antwoord bevat het toegangstoken in de indeling van de Java Web Token (JWT).
 
-### <a name="get-a-token-powershell"></a>Een token verkrijgen: PowerShell
+#### <a name="powershell-sample"></a>Voorbeeld van PowerShell
 
-De volgende Windows PowerShell-script laat zien hoe een toegangstoken verkrijgen. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement komt niet in de regio VS-West, kunt u de hostnaam van de opgegeven URI gewijzigd.
+In dit voorbeeld is een eenvoudige PowerShell-script voor een toegangstoken. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel Speech-Service. Zorg ervoor dat u het juiste eindpunt voor de regio die overeenkomt met uw abonnement. In dit voorbeeld is momenteel ingesteld op VS-West.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -340,24 +86,21 @@ $OAuthToken
 
 ```
 
-### <a name="get-a-token-curl"></a>Een token verkrijgen: cURL
+#### <a name="curl-sample"></a>cURL voorbeeld
 
-cURL is een opdrachtregelprogramma beschikbaar in Linux (en in de Windows-subsysteem voor Linux). De volgende cURL-opdracht laat zien hoe een toegangstoken verkrijgen. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel voor spraak-service. Als uw abonnement komt niet in de regio VS-West, kunt u de hostnaam van de opgegeven URI gewijzigd.
+cURL is een opdrachtregelprogramma beschikbaar in Linux (en in de Windows-subsysteem voor Linux). Deze cURL-opdracht laat zien hoe een toegangstoken. Vervang `YOUR_SUBSCRIPTION_KEY` met uw abonnementssleutel Speech-Service. Zorg ervoor dat u het juiste eindpunt voor de regio die overeenkomt met uw abonnement. In dit voorbeeld is momenteel ingesteld op VS-West.
 
-> [!NOTE]
-> De opdracht wordt weergegeven op meerdere regels voor de leesbaarheid, maar deze invoeren op één regel op een shell-prompt.
-
-```
+```cli
 curl -v -X POST
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
- -H "Content-type: application/x-www-form-urlencoded"
- -H "Content-Length: 0"
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+ -H "Content-type: application/x-www-form-urlencoded" \
+ -H "Content-Length: 0" \
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### <a name="get-a-token-c"></a>Een token verkrijgen: C#
+#### <a name="c-sample"></a>C#-voorbeeld
 
-De volgende C#-klasse ziet u hoe u een toegangstoken verkrijgen. Uw abonnementssleutel voor spraak-service doorgeven als u een exemplaar maken van de klasse. Als uw abonnement komt niet in de regio VS-West, wijzigt u de hostnaam van `FetchTokenUri` op de juiste wijze.
+Dit C# klasse ziet u hoe u een toegangstoken. Uw abonnementssleutel Speech Service doorgeven als u een exemplaar maken van de klasse. Als uw abonnement komt niet in de regio VS-West, wijzigt u de waarde van `FetchTokenUri` zodat deze overeenkomen met de regio voor uw abonnement.
 
 ```cs
 /*
@@ -396,11 +139,13 @@ public class Authentication
 }
 ```
 
-### <a name="use-a-token"></a>Een token gebruiken
+### <a name="how-to-use-an-access-token"></a>Het gebruik van een toegangstoken
 
-Voor het gebruik van een token in een REST-API-aanvraag, bieden deze in de `Authorization` header, volgen op het woord `Bearer`. Hier volgt een voorbeeld van tekst naar spraak REST-aanvraag die een token bevat. Vervangen door uw werkelijke token voor `YOUR_ACCESS_TOKEN`. Gebruik de juiste hostnaam in de `Host` header.
+Het toegangstoken moet worden verzonden naar de service als de `Authorization: Bearer <TOKEN>` header. Elke toegangstoken is geldig voor 10 minuten. Krijgt u een nieuw token op elk gewenst moment, om te beperken van netwerkverkeer en de latentie, raden we echter aan met dezelfde token negen minuten.
 
-```xml
+Hier volgt een voorbeeld-HTTP-aanvraag naar de Text to Speech REST-API:
+
+```http
 POST /cognitiveservices/v1 HTTP/1.1
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Host: westus.tts.speech.microsoft.com
@@ -414,11 +159,9 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renew-authorization"></a>Autorisatie vernieuwen
+### <a name="how-to-renew-an-access-token-using-c"></a>Het vernieuwen van een access token gebruikenC#
 
-Het verificatietoken verloopt na tien minuten. Autorisatie vernieuwen door het verkrijgen van een nieuw token voordat deze verloopt. U kunt bijvoorbeeld een nieuw token verkrijgen na 9 minuten.
-
-De volgende C#-code is een vervanging drop-in voor de klasse die eerder is weergegeven. De `Authentication` klasse automatisch verkrijgt een nieuw toegangstoken om 9 minuten door een timer te gebruiken. Deze aanpak zorgt ervoor dat een geldig token altijd beschikbaar is terwijl uw programma wordt uitgevoerd.
+Dit C# code is een vervanging drop-in voor de klasse die eerder is weergegeven. De `Authentication` klasse ontvangt automatisch een nieuw toegangstoken om 9 minuten met behulp van een timer. Deze aanpak zorgt ervoor dat een geldig token altijd beschikbaar is terwijl uw programma wordt uitgevoerd.
 
 > [!NOTE]
 > In plaats van een timer te gebruiken, kunt u een timestamp van wanneer de laatste token is verkregen opslaan. U kunt vervolgens een nieuwe aanvragen alleen als het bijna verloopt. Deze aanpak voorkomt u onnodig aanvragen van de nieuwe tokens en mogelijk beter geschikt voor programma's die incidentele spraak-aanvragen.
@@ -426,9 +169,6 @@ De volgende C#-code is een vervanging drop-in voor de klasse die eerder is weerg
 Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regio van uw abonnement. Uw abonnementssleutel doorgeven als u een exemplaar maken van de klasse.
 
 ```cs
-/*
-    * This class demonstrates how to maintain a valid access token.
-    */
 public class Authentication
 {
     public static readonly string FetchTokenUri =
@@ -500,6 +240,268 @@ public class Authentication
     }
 }
 ```
+
+## <a name="speech-to-text-api"></a>Speech to text-API
+
+De spraak-naar-tekst REST-API biedt alleen ondersteuning voor korte uitingen. Aanvragen kunnen maximaal 10 seconden van audio met een totale duur van 14 seconden bevatten. De REST-API retourneert alleen de eindresultaten, niet geheel of gedeeltelijk tussentijdse resultaten.
+
+Als verzendt langer audio is vereist voor uw toepassing, kunt u overwegen de [spraak SDK](speech-sdk.md) of [batch transcriptie](batch-transcription.md).
+
+### <a name="regions-and-endpoints"></a>Regio's en -eindpunten
+
+Deze regio's worden ondersteund voor transcriptie van spraak-naar-tekst met behulp van de REST-API. Zorg ervoor dat u het eindpunt dat overeenkomt met de regio van uw abonnement selecteert.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### <a name="query-parameters"></a>Queryparameters
+
+Deze parameters kunnen worden opgenomen in de query-tekenreeks van de REST-aanvraag.
+
+| Parameter | Beschrijving | Vereiste / optioneel |
+|-----------|-------------|---------------------|
+| `language` | Hiermee geeft u de gesproken taal die wordt herkend. Zie [ondersteunde talen](language-support.md#speech-to-text). | Vereist |
+| `format` | Hiermee geeft u de resultaatindeling. Geaccepteerde waarden zijn `simple` en `detailed`. Eenvoudige tot de resultaten behoren `RecognitionStatus`, `DisplayText`, `Offset`, en `Duration`. Gedetailleerde antwoorden bevatten meerdere resultaten met vertrouwen waarden en vier verschillende manieren. De standaardinstelling is `simple`. | Optioneel |
+| `profanity` | Geeft aan hoe grof taalgebruik in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `masked`, die grof taalgebruik vervangen door sterretjes, `removed`, die alle grof taalgebruik verwijderen uit het resultaat, of `raw`, waaronder de grof taalgebruik in het resultaat. De standaardinstelling is `masked`. | Optioneel |
+
+### <a name="request-headers"></a>Aanvraagheaders
+
+Deze tabel bevat de vereiste en optionele headers voor spraak-naar-tekst-aanvragen.
+
+|Header| Beschrijving | Vereiste / optioneel |
+|------|-------------|---------------------|
+| `Ocp-Apim-Subscription-Key` | Uw abonnementssleutel Speech-Service. | Een van beide deze header of `Authorization` is vereist. |
+| `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Een van beide deze header of `Ocp-Apim-Subscription-Key` is vereist. |
+| `Content-type` | Beschrijft de indeling en codec van de opgegeven gegevens. Geaccepteerde waarden zijn `audio/wav; codec=audio/pcm; samplerate=16000` en `audio/ogg; codec=audio/pcm; samplerate=16000`. | Vereist |
+| `Transfer-Encoding` | Hiermee geeft u op of gesegmenteerde audiogegevens wordt verzonden, in plaats van één bestand. Gebruik alleen deze header als audiogegevens logische groepen te verdelen. | Optioneel |
+| `Expect` | Als u gesegmenteerde overdracht, stuurt u `Expect: 100-continue`. De Spraakservice erkent de eerste aanvraag en wacht op de aanvullende gegevens.| Vereist als het gesegmenteerde audiogegevens verzenden. |
+| `Accept` | Indien opgegeven, moet deze `application/json`. De spraak-Service bevat de resultaten in JSON. Sommige Web aanvraag frameworks bieden een niet-compatibele standaardwaarde als u niets opgeeft, dus het is raadzaam om altijd opnemen `Accept`. | Optioneel maar aanbevolen. |
+
+### <a name="audio-formats"></a>Audio-indelingen
+
+Audio wordt verzonden in de hoofdtekst van de HTTP `POST` aanvraag. Het moet zich binnen een van de indelingen in deze tabel:
+
+| Indeling | Codec | Bitrate | Samplefrequentie |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bits | 16 kHz, mono |
+| OGG | OPUS | 16-bits | 16 kHz, mono |
+
+>[!NOTE]
+>De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de Speech-Service. De [spraak SDK](/index.yml) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
+
+### <a name="sample-request"></a>Voorbeeld van een aanvraag
+
+Dit is een typische HTTP-aanvraag. Het onderstaande voorbeeld bevat de hostnaam en de vereiste headers. Het is belangrijk te weten dat de service ook audiogegevens, die niet is opgenomen in dit voorbeeld wordt verwacht. Zoals vermeld eerder, wordt logische groepen te verdelen aanbevolen, maar niet vereist.
+
+```HTTP
+POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+Accept: application/json;text/xml
+Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.stt.speech.microsoft.com
+Transfer-Encoding: chunked
+Expect: 100-continue
+```
+
+### <a name="http-status-codes"></a>HTTP-statuscodes
+
+De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende fouten.
+
+| HTTP-statuscode | Beschrijving | Mogelijke oorzaak |
+|------------------|-------------|-----------------|
+| 100 | Doorgaan | De eerste aanvraag is geaccepteerd. Doorgaan met het verzenden van de rest van de gegevens. (Met gesegmenteerde overdracht gebruikt.) |
+| 200 | OK | De aanvraag is uitgevoerd. de antwoordtekst is een JSON-object. |
+| 400 | Ongeldig verzoek | De taalcode die niet opgegeven of is niet een ondersteunde taal; Ongeldig audio-bestand. |
+| 401 | Niet geautoriseerd | Abonnementssleutel of autorisatie-token is ongeldig in de regio is opgegeven of ongeldig eindpunt. |
+| 403 | Verboden | Ontbrekende abonnementssleutel of autorisatie token. |
+
+### <a name="chunked-transfer"></a>Gesegmenteerde overdracht
+
+Gesegmenteerde overdrachtscodering overdracht (`Transfer-Encoding: chunked`) kunt u Verminder de latentie van de spraakherkenning omdat hierdoor de Speech-Service om te beginnen met het audiobestand verwerken terwijl deze wordt verzonden. De REST-API biedt geen tijdelijke of gedeeltelijke resultaten. Deze optie is bedoeld uitsluitend het reactievermogen verbeteren.
+
+Dit codevoorbeeld laat zien hoe voor het verzenden van audio in segmenten. Alleen de eerste chunk moet de audio bestands-header bevatten. `request` is een HTTPWebRequest-object dat is verbonden met het juiste REST-eindpunt. `audioFile` is het pad naar een audio-bestand op schijf.
+
+```csharp
+using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+{
+
+    /*
+    * Open a request stream and write 1024 byte chunks in the stream one at a time.
+    */
+    byte[] buffer = null;
+    int bytesRead = 0;
+    using (Stream requestStream = request.GetRequestStream())
+    {
+        /*
+        * Read 1024 raw bytes from the input audio file.
+        */
+        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
+        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
+        {
+            requestStream.Write(buffer, 0, bytesRead);
+        }
+
+        // Flush
+        requestStream.Flush();
+    }
+}
+```
+
+### <a name="response-parameters"></a>Antwoord-parameters
+
+Resultaten worden gegeven als JSON. De `simple` indeling omvat deze velden op het hoogste niveau.
+
+| Parameter | Beschrijving  |
+|-----------|--------------|
+|`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Zie de volgende tabel.|
+|`DisplayText`|De herkende tekst na het hoofdlettergebruik, interpunctie, inverse tekst normalisering (conversie van de gesproken tekst voor kortere formulieren, zoals 200 voor '200' of 'Dr. Smith' voor 'doctor smith'), en grof taalgebruik maskeren. Alleen op succes is geïnstalleerd.|
+|`Offset`|De tijd (in eenheden van 100 nanoseconden) waarmee de herkende spraak in de audiostream begint.|
+|`Duration`|De duur (in eenheden van 100 nanoseconden) van de herkende spraak in de audio-stream.|
+
+De `RecognitionStatus` veld bevat deze waarden mogelijk:
+
+| Status | Beschrijving |
+|--------|-------------|
+| `Success` | De opname is voltooid en de `DisplayText` veld niet aanwezig is. |
+| `NoMatch` | Spraak is gedetecteerd in de audiostream, maar er zijn geen woorden uit de doeltaal zijn afgestemd. Betekent meestal dat de opname-taal is een andere taal dan het account dat de gebruiker spreekt. |
+| `InitialSilenceTimeout` | Het begin van de audiostream bevat alleen stilte en de time-out voor spraak-service. |
+| `BabbleTimeout` | Het begin van de audiostream bevat alleen ruis, en de time-out voor spraak-service. |
+| `Error` | De opname-service is een interne fout opgetreden en kan niet worden voortgezet. Probeer het opnieuw, indien mogelijk. |
+
+> [!NOTE]
+> Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd.
+
+De `detailed` indeling bevat dezelfde gegevens als de `simple` opmaken, samen met `NBest`, een lijst met alternatieve interpretaties van hetzelfde resultaat van de herkenning van spraak. Deze resultaten worden geclassificeerd van meest waarschijnlijke te minste waarschijnlijk de eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat.  Wanneer u de `detailed` indeling `DisplayText` wordt geleverd als `Display` voor elk resultaat in de `NBest` lijst.
+
+Elk object in de `NBest` lijst bevat:
+
+| Parameter | Beschrijving |
+|-----------|-------------|
+| `Confidence` | De betrouwbaarheidsscore van de vermelding van 0,0 (geen vertrouwen) 1.0 (volledig vertrouwen) |
+| `Lexical` | De lexicale vorm van de herkende tekst: de werkelijke woorden herkend. |
+| `ITN` | De inverse-normalized-tekst ("canonieke") vorm van de herkende tekst, met telefoon getallen, getallen, afkortingen ("doctor smith' op 'dr smith') en andere transformaties toegepast. |
+| `MaskedITN` | Het formulier toevoegen met grof taalgebruik maskering toegepast, indien aangevraagd. |
+| `Display` | Het formulier weergegeven van de herkende tekst, met interpunctie hoofdletters en kleine letters toegevoegd. Deze parameter is hetzelfde als `DisplayText` opgegeven als indeling is ingesteld op `simple`. |
+
+### <a name="sample-responses"></a>Voorbeeld van reacties
+
+Dit is een typische antwoord voor `simple` herkenning.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "DisplayText": "Remind me to buy 5 pencils.",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289"
+}
+```
+
+Dit is een typische antwoord voor `detailed` herkenning.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
+      },
+      {
+        "Confidence" : "0.54",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
+## <a name="text-to-speech-api"></a>Text to Speech-API
+
+Deze regio's worden ondersteund voor tekst naar spraak met behulp van de REST-API. Zorg ervoor dat u het eindpunt dat overeenkomt met de regio van uw abonnement selecteert.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+De spraak-Service ondersteunt 24-KHz-audio-uitvoer, samen met de uitvoer van de 16-Khz die werden ondersteund door Bing Speech. Vier 24-KHz uitvoerindeling op te geven en twee 24-KHz stemmen worden ondersteund.
+
+### <a name="voices"></a>Stemmen
+
+| Landinstelling | Taal   | Geslacht | Toewijzing |
+|--------|------------|--------|---------|
+| nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" |
+| nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)" |
+
+Zie voor een volledige lijst met beschikbare stemmen [ondersteunde talen](language-support.md#text-to-speech).
+
+### <a name="request-headers"></a>Aanvraagheaders
+
+Deze tabel bevat de vereiste en optionele headers voor spraak-naar-tekst-aanvragen.
+
+| Header | Beschrijving | Vereiste / optioneel |
+|--------|-------------|---------------------|
+| `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie voor meer informatie, [verificatie](#authentication). | Vereist |
+| `Content-Type` | Hiermee geeft u het type inhoud voor de opgegeven tekst. Waarde geaccepteerd: `application/ssml+xml`. | Vereist |
+| `X-Microsoft-OutputFormat` | Hiermee geeft u de indeling van de audio-uitvoer. Zie voor een volledige lijst met geaccepteerde waarden [audio-uitvoer](#audio-outputs). | Vereist |
+| `User-Agent` | De naam van de toepassing. Het moet minder dan 255 tekens. | Vereist |
+
+### <a name="audio-outputs"></a>Audio-uitvoer
+
+Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke aanvraag als de `X-Microsoft-OutputFormat` header. Elk omvat een bitrate en type codering.
+
+|||
+|-|-|
+| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
+| `riff-8khz-8bit-mono-mulaw` | `riff-16khz-16bit-mono-pcm` |
+| `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3` |
+| `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm` |
+| `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3` |
+| `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3` |
+
+> [!NOTE]
+> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen.
+
+### <a name="request-body"></a>Aanvraagbody
+
+Tekst wordt verzonden als de instantie van een HTTP `POST` aanvraag. Kan het zijn tekst zonder opmaak (ASCII- of UTF-8) of [spraak synthese Markup Language](speech-synthesis-markup.md) (SSML)-indeling (UTF-8). Tekst zonder opmaak aanvragen gebruiken de Spraakservice standaard spraak en taal. Met SSML kunt u de spraak- en taal.
+
+### <a name="sample-request"></a>Voorbeeld van een aanvraag
+
+Deze HTTP-aanvraag maakt gebruik van SSML om op te geven van de spraak- en taal. De hoofdtekst van het niet langer zijn dan 1000 tekens.
+
+```http
+POST /cognitiveservices/v1 HTTP/1.1
+
+X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+Content-Type: application/ssml+xml
+Host: westus.tts.speech.microsoft.com
+Content-Length: 225
+Authorization: Bearer [Base64 access_token]
+
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
+    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+        Microsoft Speech Service Text-to-Speech API
+</voice></speak>
+```
+
+### <a name="http-status-codes"></a>HTTP-statuscodes
+
+De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende fouten.
+
+| HTTP-statuscode | Beschrijving | Mogelijke oorzaak |
+|------------------|-------------|-----------------|
+| 200 | OK | De aanvraag is uitgevoerd. de antwoordtekst is een geluidsbestand. |
+| 400 | Onjuiste aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is. |
+| 401 | Niet geautoriseerd | De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio. |
+| 413 | Aanvraagentiteit te groot | De invoer SSML is langer dan 1024 tekens. |
+| 429 | Te veel aanvragen | U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden. |
+| 502 | Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten. |
+
+Als de HTTP-status `200 OK`, de hoofdtekst van het antwoord bevat een audio-bestand in de gewenste indeling. Dit bestand kan worden afgespeeld, zoals deze is overgedragen, in een buffer opgeslagen of opgeslagen in een bestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 

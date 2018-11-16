@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 210e8a80d19f84058a059a3cfe34a14e037507db
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006512"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712361"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -212,7 +212,7 @@ Elke aanbeveling bevat richtlijnen over waarom het belangrijk is. Gebruik deze r
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Gebruik statuscontrole focus gebied aanbevelingen
 
-Voordat u een oplossing status controleren in Log Analytics gebruiken kunt, moet u de oplossing geïnstalleerd hebben. Meer informatie over het installeren van oplossingen, Zie [installeren van een oplossing voor](../monitoring/monitoring-solutions.md). Nadat deze is geïnstalleerd, kunt u het overzicht van de aanbevelingen weergeven met behulp van de System Center Operations Manager Health Check-tegel op de **overzicht** pagina voor uw werkruimte in de Azure-portal.
+Voordat u een oplossing status controleren in Log Analytics gebruiken kunt, moet u de oplossing geïnstalleerd hebben. Meer informatie over het installeren van oplossingen, Zie [installeren van een oplossing voor](../azure-monitor/insights/solutions.md). Nadat deze is geïnstalleerd, kunt u het overzicht van de aanbevelingen weergeven met behulp van de System Center Operations Manager Health Check-tegel op de **overzicht** pagina voor uw werkruimte in de Azure-portal.
 
 De beoordelingen samengevatte naleving voor uw infrastructuur en aanbevelingen voor inzoomen in weergeven.
 

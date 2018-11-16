@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604362"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705919"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snelstartgids: Toegang blokkeren als er een risico voor de sessie wordt gedetecteerd met voorwaardelijke toegang van Azure Active Directory  
 
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten 
 
-Als u wilt het scenario in deze zelfstudie hebt voltooid, hebt u het volgende nodig:
+Voor het voltooien van het scenario in deze zelfstudie hebt u het volgende nodig:
 
 - **Toegang tot een Azure AD Premium P2-editie** -voorwaardelijke toegang is de mogelijkheid van een Azure AD Premium P1, u moet een P2-editie omdat het scenario in deze snelstartgids Identity Protection is vereist. 
 
@@ -81,7 +81,7 @@ Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid mak
 
 **Uw beleid voor voorwaardelijke toegang configureren:**
 
-1. Aanmelden bij uw [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of een beheerder van voorwaardelijke toegang.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als hoofdbeheerder, beveiligingsbeheerder of beheerder voor voorwaardelijke toegang.
 
 2. Klik in de Azure-portal op de navigatiebalk links op **Azure Active Directory**. 
 
@@ -168,7 +168,7 @@ Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid mak
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Een gesimuleerde aanmelding evalueren
 
-Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waarschijnlijk weet of deze werkt zoals verwacht. Als een eerste stap gebruikt u de voorwaardelijke toegang **wat gebeurt er als beleid hulpprogramma** voor het simuleren van een aanmelding van uw testgebruiker. De simulatie maakt een schatting van het effect dat aanmelding heeft op uw beleid en genereert een simulatierapport.  
+Nu u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u weten of het werkt zoals u wilt. Als een eerste stap gebruikt u de voorwaardelijke toegang **wat gebeurt er als beleid hulpprogramma** voor het simuleren van een aanmelding van uw testgebruiker. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport.  
 
 Bij het uitvoeren van de **wat gebeurt er als beleid hulpprogramma** voor dit scenario, de **toegang blokkeren voor middelgrote risiconiveau** moet worden weergegeven onder **beleidsregels die worden toegepast**. 
 
@@ -193,7 +193,7 @@ Bij het uitvoeren van de **wat gebeurt er als beleid hulpprogramma** voor dit sc
 3. Klik op **wat gebeurt er als**.
 
 
-## <a name="test-your-conditional-access-policy"></a>Testen van uw beleid voor voorwaardelijke toegang
+## <a name="test-your-conditional-access-policy"></a>Uw voorwaardelijke toegangsbeleid testen
 
 In de vorige sectie hebt u geleerd hoe u een gesimuleerde aanmelding evalueren. Naast een simulatie, moet u ook testen van uw beleid voor voorwaardelijke toegang om ervoor te zorgen dat deze naar verwachting werkt. 
 
@@ -212,7 +212,7 @@ Wanneer u niet meer nodig hebt, verwijdert u de testgebruiker, de Tor-Browser en
 
     ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
-- Zie voor instructies voor het verwijderen van de Tor Browser, [verwijderen](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Zie voor instructies voor het verwijderen van de Tor Browser, [verwijderen](https://tb-manual.torproject.org/uninstalling/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

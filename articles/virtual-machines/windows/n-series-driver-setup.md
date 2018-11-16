@@ -2,8 +2,7 @@
 title: Azure N-serie GPU-stuurprogramma-instellingen voor Windows | Microsoft Docs
 description: Over het instellen van NVIDIA GPU-stuurprogramma's voor N-serie VM's met Windows Server of Windows in Azure
 services: virtual-machines-windows
-documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 551d9da51abaeddfd22c72748a552ba0ae155de6
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033243"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707007"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>NVIDIA GPU-stuurprogramma's installeren op N-serie VM's waarop Windows wordt uitgevoerd 
 
@@ -51,13 +50,13 @@ Uitvoeren om te vragen de GPU-Apparaatstatus, de [nvidia-smi](https://developer.
 
 1. Open een opdrachtprompt en wijzig in het **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
 
-2. Voer `nvidia-smi` uit. Als het stuurprogramma is geïnstalleerd ziet u uitvoer die vergelijkbaar is met het volgende. Houd er rekening mee dat **GPU-Util** bevat **0%** , tenzij u een werkbelasting GPU momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat de stuurprogrammaversie en -details van GPU afwijken van de namen weergegeven.
+2. Voer `nvidia-smi` uit. Als het stuurprogramma is geïnstalleerd, ziet u uitvoer die vergelijkbaar is met het volgende. De **GPU-Util** bevat **0%** , tenzij u een werkbelasting GPU momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat de stuurprogrammaversie en -details van GPU afwijken van de namen weergegeven.
 
 ![NVIDIA-Apparaatstatus](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
 
-RDMA-netwerkverbinding kan worden ingeschakeld op RDMA-compatibele virtuele machines voor N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset bevinden of in één plaatsingsgroep in een VM-schaalset. De extensie HpcVmDrivers moet worden toegevoegd aan Windows network apparaatstuurprogramma's die mogelijk van RDMA verbinding installeren. Gebruik van de VM-extensie toevoegen aan een virtuele machine van RDMA-functionaliteit uit de N-serie, [Azure PowerShell](/powershell/azure/overview) -cmdlets voor Azure Resource Manager.
+RDMA-netwerkverbinding kan worden ingeschakeld op RDMA-compatibele N-serie VM's, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset bevinden of in één plaatsingsgroep in een virtuele-machineschaalset. De extensie HpcVmDrivers moet worden toegevoegd aan Windows network apparaatstuurprogramma's die mogelijk van RDMA verbinding installeren. Gebruik van de VM-extensie toevoegen aan een virtuele machine van RDMA-functionaliteit uit de N-serie, [Azure PowerShell](/powershell/azure/overview) -cmdlets voor Azure Resource Manager.
 
 Voor het installeren van de meest recente versie 1.1 HpcVMDrivers-extensie op een bestaande RDMA-compatibele virtuele machine met de naam myVM in de regio VS-West:
   ```PowerShell

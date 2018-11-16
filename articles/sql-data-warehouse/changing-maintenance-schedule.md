@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425952"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713262"
 ---
 # <a name="change-a-maintenance-schedule"></a>Een onderhoudsplanning wijzigen 
 
 ## <a name="portal"></a>Portal
 Een onderhoudsplanning kan worden bijgewerkt of op elk gewenst moment worden gewijzigd. Als het geselecteerde exemplaar een onderhoudscyclus van een actieve doorlopen is, kunt u de instellingen worden opgeslagen. Ze gaat worden actief tijdens de volgende geïdentificeerde onderhoudsperiode. [Meer informatie](https://docs.microsoft.com/azure/service-health/resource-health-overview) over het controleren van uw datawarehouse tijdens een actieve onderhoud. 
 
-Terwijl Azure onderhoudsschema's beschikbaar als preview zijn, kunt u twee onderhoudsvensters selecteren tijdens een periode van zeven dagen. Elk onderhoudsvenster mag drie tot acht uur. Onderhoud kan plaatsvinden op elk gewenst moment binnen het onderhoudsvenster, maar vindt niet plaats buiten tijdvensters zonder voorafgaande kennisgeving. U moet ook een korte verlies van verbinding optreden als de service implementeert u nieuwe code naar uw datawarehouse. 
+Voor het gebruik van onderhoudsschema's, moet u twee onderhoudsvensters selecteren tijdens een periode van zeven dagen. Elk onderhoudsvenster mag drie tot acht uur. Onderhoud kan plaatsvinden op elk gewenst moment binnen het onderhoudsvenster, maar vindt niet plaats buiten tijdvensters zonder voorafgaande kennisgeving. U moet ook een korte verlies van verbinding optreden als de service implementeert u nieuwe code naar uw datawarehouse. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificeren van de primaire en secundaire windows
 

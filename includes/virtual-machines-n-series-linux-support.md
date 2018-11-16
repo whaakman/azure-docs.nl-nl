@@ -2,24 +2,24 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/08/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c829b8d6fedaabfb9b43c6352c8188128cf36701
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: eef61421de2a87750caac228d12888421f7442a8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333749"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716163"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Ondersteunde distributies en stuurprogramma 's
 
 ### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA-stuurprogramma 's
 
-NVIDIA CUDA-stuurprogramma's voor NC, NCv2, NCv3 en ND-serie VM's (optioneel voor NV-serie) worden alleen ondersteund op de Linux-distributies die worden vermeld in de volgende tabel. Informatie over CUDA-stuurprogramma is actueel op het moment van publicatie. Voor de meest recente CUDA-stuurprogramma's, gaat u naar de [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Zorg ervoor dat u installeren of naar de nieuwste CUDA-stuurprogramma's voor uw distributie upgraden. 
+NVIDIA CUDA-stuurprogramma's voor NC, NCv2, NCv3, ND en NDv2-serie VM's (optioneel voor NV-serie) worden alleen ondersteund op de Linux-distributies die worden vermeld in de volgende tabel. Informatie over CUDA-stuurprogramma is actueel op het moment van publicatie. Voor de meest recente CUDA-stuurprogramma's, gaat u naar de [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Zorg ervoor dat u installeren of naar de nieuwste CUDA-stuurprogramma's voor uw distributie upgraden. 
 
 > [!TIP]
 > Als alternatief voor handmatige installatie van CUDA-stuurprogramma op een Linux-VM, kunt u een Azure implementeren [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) installatiekopie. De DSVM-edities voor Ubuntu 16.04 LTS of CentOS 7.4 voorafgaand aan installatie NVIDIA CUDA-stuurprogramma's, de CUDA Deep Neural Network-bibliotheek en andere hulpprogramma's.

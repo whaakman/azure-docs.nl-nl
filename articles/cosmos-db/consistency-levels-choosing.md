@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9234a57bdec3dfd7a1ccdba00b90a5c853dc1c5a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f51673e628798f2c92e4ef7cf9327f4d5c6e5370
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960956"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704679"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Kies de juiste consistentieniveau voor uw toepassing
 
@@ -52,7 +52,7 @@ Krijgt u mogelijk sterkere garanties voor consistentie in de praktijk. Garanties
 
 * Het venster veroudering is voor de resterende drie consistentieniveaus, grotendeels afhankelijk van uw workload. Bijvoorbeeld, als er geen schrijfbewerkingen op de database, een leesbewerking met **uiteindelijke**, **sessie**, of **consistent voorvoegsel** consistentieniveaus waarschijnlijk opbrengst hetzelfde resultaat als een leesbewerking met hoog consistentieniveau.
 
-Als uw Cosmos DB-account is geconfigureerd met een consistentieniveau dan de sterke consistentie, vindt u de kans dat uw clients kunnen er sterke en consistente leesbewerkingen voor uw workloads door te kijken op de Probabilistic Bounded Staleness (PBS) metrische gegevens. Met deze metriek wordt weergegeven in de Azure-portal, voor meer informatie, Zie [over het gebruik van de metriek PBS](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric) artikel.
+Als uw Cosmos DB-account is geconfigureerd met een consistentieniveau dan de sterke consistentie, vindt u de kans dat uw clients kunnen er sterke en consistente leesbewerkingen voor uw workloads door te kijken op de Probabilistic Bounded Staleness (PBS) metrische gegevens. Met deze metriek wordt weergegeven in de Azure-portal, voor meer informatie, Zie [bewaken van de metriek probabilistically gebonden veroudering](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 Probabilistic gebonden veroudering wordt aangegeven hoe de uiteindelijke is uw uiteindelijke consistentie. Met deze metriek biedt een beter inzicht in hoe vaak u krijgt een sterkere consistentie dan het consistentieniveau die u momenteel hebt geconfigureerd op uw Cosmos DB-account. U kunt met andere woorden, Zie de kans (gemeten in milliseconden) aan sterk consistente leesbewerkingen voor een combinatie van schrijven en leesregio's.
 
@@ -63,4 +63,4 @@ Meer informatie over de consistentieniveaus in de volgende artikelen:
 * [Toewijzing van op consistentie voor Cosmos DB-API 's](consistency-levels-across-apis.md)
 * [Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus](consistency-levels-tradeoffs.md)
 * [Over het beheren van de sessietoken voor uw toepassing](how-to-manage-consistency.md#utilize-session-tokens)
-* [De metriek Probabilistically gebonden veroudering (PBS) controleren](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Monitor voor de metriek probabilistically gebonden veroudering](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142387"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706854"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Maken en beheren van een sjabloon leslokaal in Azure Lab Services
 Een sjabloon in een lab is een basiskopie van de virtuele machine waarvan de virtuele machines van alle gebruikers worden gemaakt. Stel de sjabloon voor de virtuele machine zo in dat deze is geconfigureerd met precies wat u de labgebruikers wilt bieden. U kunt een naam en een beschrijving opgeven voor de sjabloon die de gebruikers van het lab kunnen zien. Vervolgens publiceert u de sjabloon voor exemplaren van de VM-sjabloon beschikbaar maken voor uw labgebruikers. Wanneer u een sjabloon publiceert, maakt Azure Lab Services virtuele machines in het lab met behulp van de sjabloon. Het aantal virtuele machines dat in dit proces wordt gemaakt, is hetzelfde als het maximum aantal gebruikers dat in het lab is toegestaan. Dit kunt u instellen in het gebruiksbeleid van het lab. Alle virtuele machines hebben dezelfde configuratie als de sjabloon.
@@ -88,16 +88,14 @@ U kunt eerst instellen en publiceren van een sjabloon tijdens het maken van een 
 ## <a name="set-up-a-template-after-creating-a-lab"></a>Een sjabloon na het maken van een lab instellen 
 U kunt ook een sjabloon instellen nadat u het lab hebt gemaakt.   
 
-### <a name="set-template-title-and-description"></a>Set-Sjabloontitel en beschrijving
-1. Selecteer in de sectie **Sjabloon** de optie **Bewerken** (potloodpictogram) voor de sjabloon. 
-2. Voer in het venster **Gebruikersweergave** een **titel** in voor de sjabloon.
-3. Voer een **Beschrijving** in voor de sjabloon.
-4. Selecteer **Opslaan**.
+## <a name="set-or-update-template-title-and-description"></a>Instellen of bijwerken van de Sjabloontitel en beschrijving
+Gebruik de volgende stappen om in te stellen van de titel en beschrijving voor de eerste keer, en ze later bijwerken. 
 
-    ![Beschrijving van leslokaallab](../media/how-to-manage-classroom-labs/lab-description.png)
+1. In de **sjabloon** sectie, Beweeg de muis over **naam** van de sjabloon of **beschrijving** van de sjabloon, en selecteer deze. 
+2. Voer de **nieuwe naam** of **nieuwe beschrijving** voor de sjabloon, en druk op **ENTER**.
 
-### <a name="set-up-the-template-vm"></a>De sjabloon-VM instellen
- Maak verbinding met de sjabloon-VM en installeer de vereiste software erop voordat u deze beschikbaar maakt voor uw studenten. 
+## <a name="set-up-or-update-a-template-vm"></a>Instellen of een sjabloon voor virtuele machine bijwerken
+ Maak verbinding met de sjabloon-VM en installeer de vereiste software erop voordat u deze beschikbaar maakt voor uw studenten. Gebruik de volgende stappen uit om in te stellen van een VM-sjabloon voor de eerste keer of bijwerken van de virtuele machine. 
 
 1. Wacht totdat de sjabloon-VM gereed is. Zodra de VM gereed is, wordt de knop **Starten** beschikbaar. Selecteer **Starten** om de VM te starten.
 
@@ -112,7 +110,7 @@ U kunt ook een sjabloon instellen nadat u het lab hebt gemaakt.
     ![De sjabloon-VM stoppen](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>De sjabloon publiceren 
+## <a name="publish-the-template-vm"></a>De sjabloon-VM publiceren
 Als u niet de sjabloon publiceert tijdens het maken van de testomgeving, kunt u deze later publiceren. Voordat u publiceert, kunt u verbinding maakt met de VM-sjabloon en bijwerken met de software. Wanneer u een sjabloon publiceert, maakt Azure Lab Services virtuele machines in het lab met behulp van de sjabloon. Het aantal virtuele machines dat in dit proces wordt gemaakt, is hetzelfde als het maximum aantal gebruikers dat in het lab is toegestaan. Dit kunt u instellen in het gebruiksbeleid van het lab. Alle virtuele machines hebben dezelfde configuratie als de sjabloon. 
 
 1. Selecteer **Publiceren** in de sectie **Sjabloon**. 
@@ -125,7 +123,7 @@ Als u niet de sjabloon publiceert tijdens het maken van de testomgeving, kunt u 
 4. Ga naar de pagina **Virtuele machines** en controleer of u virtuele machines ziet met de status **Niet-toegewezen**. Deze virtuele machines zijn nog niet toegewezen aan studenten. 
 
     ![Virtuele machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Wacht totdat de virtuele machines zijn gemaakt. Deze horen de status **Gestopt** te hebben. Op deze pagina kunt u een student-VM starten, verbinding maken met de virtuele machine, de virtuele machine stoppen en de virtuele machine verwijderen. U kunt de virtuele machines zelf starten vanaf deze pagina of ze laten starten door de studenten. 
+5. Wacht totdat de virtuele machines zijn gemaakt. Deze horen de status **Gestopt** te hebben. Op deze pagina kunt u een student-VM starten, verbinding maken met de virtuele machine, de virtuele machine stoppen en de virtuele machine verwijderen. U kunt ze op deze pagina worden gestart of dat uw studenten start de virtuele machines. 
 
     ![Virtuele machines met de status Gestopt](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -147,7 +145,9 @@ Nadat u een sjabloon hebt gepubliceerd, kunt u wel verbinding maken met de VM-sj
     ![Opnieuw publiceren geslaagd](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Aan de slag met het installeren van een lab met Azure Lab Services:
+Zie de volgende artikelen:
 
-- [Een leslokaallab instellen](how-to-manage-classroom-labs.md)
-- [Een lab instellen](../tutorial-create-custom-lab.md)
+- [Als beheerder, maken en beheren van lab-accounts](how-to-manage-lab-accounts.md)
+- [Als de eigenaar van een lab maken en beheren van labs](how-to-manage-classroom-labs.md)
+- [Als de eigenaar van een lab configureren en beheren van het gebruik van een lab](how-to-configure-student-usage.md)
+- [Als een lab-gebruiker toegang krijgen tot leslokaallabs](how-to-use-classroom-lab.md)

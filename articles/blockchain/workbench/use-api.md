@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/14/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 2e9124213181fe32f3492e353b05ace89a9d6992
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242611"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712344"
 ---
-# <a name="using-the-azure-blockchain-workbench-rest-api"></a>REST-API van Azure Blockchain Workbench gebruiken 
+# <a name="using-the-azure-blockchain-workbench-rest-api"></a>REST-API van Azure Blockchain Workbench gebruiken
 
-De REST-API van Azure Blockchain Workbench biedt ontwikkelaars en IT-medewerkers een manier voor het bouwen van uitgebreide integraties voor blockchain-toepassingen. In dit document worden verschillende belangrijke methoden van de REST-API van Workbench beschreven. We gaan een scenario uitvoeren waarin een ontwikkelaar een aangepaste blockchain-client wil maken waarmee aangemelde gebruikers de blockchain-toepassingen kunnen zien en gebruiken die aan hen zijn toegewezen. De client stelt gebruikers in de gelegenheid exemplaren van contracten te bekijken en actie te ondernemen op slimme contracten. De client gebruikt de REST-API van Workbench in de context van de aangemelde gebruiker om het volgende te doen:
+De REST-API van Azure Blockchain Workbench biedt ontwikkelaars en IT-medewerkers een manier voor het bouwen van uitgebreide integraties voor blockchain-toepassingen. In dit document worden verschillende belangrijke methoden van de REST-API van Workbench beschreven. Stel bijvoorbeeld dat een ontwikkelaar wil maken van een aangepaste blockchain-client. Deze blockchain-client kan aangemelde gebruikers kunnen zien en gebruiken met hun toegewezen blockchaintoepassingen. De client stelt gebruikers in de gelegenheid exemplaren van contracten te bekijken en actie te ondernemen op slimme contracten. De client gebruikt de Workbench REST-API in de context van de gebruiker is aangemeld op de volgende acties uitvoeren:
 
 * Lijst met toepassingen weergeven
 * Lijst met werkstromen voor een toepassing weergeven
@@ -27,23 +27,23 @@ De REST-API van Azure Blockchain Workbench biedt ontwikkelaars en IT-medewerkers
 * Lijst met beschikbare acties voor een contract weergeven
 * Een actie voor een contract uitvoeren
 
-De voorbeeld blockchain-toepassingen die in de scenario's kunnen worden [gedownload uit GitHub](https://github.com/Azure-Samples/blockchain). 
+De voorbeeld blockchain-toepassingen die in de scenario's kunnen worden [gedownload uit GitHub](https://github.com/Azure-Samples/blockchain).
 
 ## <a name="list-applications"></a>Lijst met toepassingen weergeven
 
 Wanneer een gebruiker is aangemeld bij de blockchain-client, is de eerste taak om op te halen van alle Blockchain Workbench-toepassingen voor de gebruiker. In dit scenario heeft de gebruiker toegang tot twee toepassingen:
 
-1.  [Asset-overdracht](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
-2.  [Gekoeld transport](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
+1. [Asset-overdracht](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2. [Gekoeld transport](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 Gebruik de [GET-API voor toepassingen](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
 
 ``` http
-GET /api/v1/applications 
+GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-Het antwoord geeft een lijst van alle blockchain-toepassingen waartoe een gebruiker toegang in Blockchain Workbench heeft. Beheerders van Blockchain Workbench zien alle blockchain-toepassingen, terwijl andere Workbench-gebruikers alleen de blockchains te zien krijgen waaraan ze via ten minste één toepassing of een exemplaar van één gekoppeld slim contract zijn gekoppeld.
+Het antwoord geeft een lijst van alle blockchain-toepassingen waartoe een gebruiker toegang in Blockchain Workbench heeft. Blockchain Workbench-beheerders krijgen alle blockchain-toepassingen. Niet-Workbench beheerders ophalen alle blockchains waarvoor ze ten minste één rol van de bijbehorende toepassing of een rol gekoppeld slimme contract exemplaren hebben.
 
 ``` http
 HTTP/1.1 200 OK
@@ -77,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Lijst met werkstromen voor een toepassing weergeven
 
-Wanneer een gebruiker de toepassing die van toepassing zijn blockchain in dit geval selecteert **Asset Transfer**, de blockchain-client haalt alle werkstromen van de specifieke blockchain-toepassing. Gebruikers kunnen vervolgens de toepasselijke werkstroom selecteren voordat alle exemplaren van de slimme contracten voor de werkstroom worden weergegeven. Elke blockchain-toepassing heeft een of meer werkstromen en elke werkstroom heeft nul of meer exemplaren van slimme contracten. Wanneer u een blockchain-clienttoepassing gaat bouwen, is het raadzaam om de interface waarin gebruikers de juiste werkstroom kunnen selecteren weg te laten als er maar één werkstroom is voor de toepassing. In dit geval **Asset Transfer** heeft slechts één werkstroom, ook wel genoemd **Asset Transfer**.
+Wanneer een gebruiker de van toepassing blockchain-toepassingen selecteert (zoals **Asset Transfer**), de blockchain-client haalt alle werkstromen van de specifieke blockchain-toepassing. Gebruikers kunnen vervolgens de toepasselijke werkstroom selecteren voordat alle exemplaren van de slimme contracten voor de werkstroom worden weergegeven. Elke blockchain-toepassing heeft een of meer werkstromen en elke werkstroom heeft nul of meer exemplaren van slimme contracten. Voor een clienttoepassing blockchain met slechts één werkstroom, is het beste ervaring met de gebruikersstroom waarmee gebruikers selecteert u de juiste werkstroom wordt overgeslagen. In dit geval **Asset Transfer** heeft slechts één werkstroom, ook wel genoemd **Asset Transfer**.
 
 Gebruik de [GET-API voor werkstromen van toepassingen](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
 
@@ -86,7 +86,7 @@ GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-Het antwoord bestaat uit een lijst met alle werkstromen van de opgegeven blockchain-toepassing waartoe een gebruiker toegang heeft in Blockchain Workbench. Beheerders van Blockchain Workbench zien alle blockchain-werkstromen, terwijl andere Workbench-gebruikers alleen de werkstromen te zien krijgen waaraan ze via ten minste één toepassing of een exemplaar van één gekoppeld slim contract zijn gekoppeld.
+Het antwoord bestaat uit een lijst met alle werkstromen van de opgegeven blockchain-toepassing waartoe een gebruiker toegang heeft in Blockchain Workbench. Blockchain Workbench beheerders ophalen elke werkstroom blockchain. Niet-Workbench-beheerders krijgen alle werkstromen die ze hebben van ten minste één rol van de bijbehorende toepassing of is gekoppeld aan een rol met slimme contract exemplaren.
 
 ``` http
 HTTP/1.1 200 OK
@@ -109,16 +109,16 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Lijst met exemplaren van slimme contracten voor een werkstroom weergeven
 
-Wanneer een gebruiker de van toepassing werkstroom, dit geval selecteert **Asset Transfer**, de blockchain-client worden alle exemplaren van slimme contract voor de opgegeven werkstroom opgehaald. U kunt deze gegevens gebruiken om alle exemplaren van slimme contracten voor de werkstroom weer te geven, zodat gebruikers een contract in detail kunnen bekijken. Stel dat een gebruiker in dit voorbeeld interactie wil hebben met een van de exemplaren van een slim contract om er vervolgens een bepaalde actie op uit te voeren.
+Wanneer een gebruiker de van toepassing werkstroom, dit geval selecteert **Asset Transfer**, de blockchain-client worden alle exemplaren van slimme contract voor de opgegeven werkstroom opgehaald. U kunt deze informatie gebruiken om weer te geven van alle exemplaren van slimme contract voor de werkstroom. Of u kunt toestaan dat gebruikers om u te verdiepen in een van de exemplaren weergegeven slimme contract. Stel dat een gebruiker in dit voorbeeld interactie wil hebben met een van de exemplaren van een slim contract om er vervolgens een bepaalde actie op uit te voeren.
 
-Gebruik de [GET-API voor contracten](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget):
+Gebruik de [GET-API voor contracten](/rest/api/azure-blockchain-workbench/contractsv2/contractsget):
 
 ``` http
 GET api/v1/contracts?workflowId={workflowId}
 Authorization: Bearer {access token}
 ```
 
-Het antwoord bestaat uit een lijst met alle exemplaren van slimme contracten van de opgegeven werkstroom. Beheerders van Workbench zien alle exemplaren van slimme contracten, terwijl andere Workbench-gebruikers alleen de exemplaren te zien krijgen waaraan ze via ten minste één toepassing of een exemplaar van één gekoppeld slim contract zijn gekoppeld.
+Het antwoord bestaat uit een lijst met alle exemplaren van slimme contracten van de opgegeven werkstroom. Workbench-beheerders krijgen alle exemplaren van slimme contract. Niet-Workbench beheerders ophalen elke slimme contract-exemplaar waarvoor ze ten minste één rol van de bijbehorende toepassing of is gekoppeld aan een rol met slimme contract exemplaren.
 
 ``` http
 HTTP/1.1 200 OK
@@ -208,12 +208,12 @@ Content-type: application/json
 
 ## <a name="list-available-actions-for-a-contract"></a>Lijst met beschikbare acties voor een contract weergeven
 
-Op het moment dat een gebruiker een van de contracten in meer detail gaat bekijken, kan de blockchain-client alle beschikbare acties weergeven aan de gebruiker op basis van de status van het contract. In dit voorbeeld kijkt de gebruiker naar alle beschikbare acties voor een nieuw slim contract die hij of zij heeft gemaakt:
+Wanneer een gebruiker om u te verdiepen in een contract besluit, kan de blockchain-client de beschikbare acties krijgt de status van het contract wordt weergegeven. In dit voorbeeld kijkt de gebruiker naar alle beschikbare acties voor een nieuw slim contract die hij of zij heeft gemaakt:
 
 * Modify: hiermee kan de gebruiker de beschrijving en prijs van een asset aanpassen.
-* Terminate: hiermee kan de gebruiker het contract van de asset beëindigen.
+* Beëindigen: Kan de gebruiker aan het einde van het contract van de asset.
 
-Gebruik de [GET-API voor contractacties](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionget):
+Gebruik de [GET-API voor contractacties](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
 ``` http
 GET /api/v1/contracts/{contractId}/actions
@@ -275,12 +275,12 @@ Content-type: application/json
 
 ## <a name="execute-an-action-for-a-contract"></a>Een actie voor een contract uitvoeren
 
-Een gebruiker kan vervolgens besluiten om actie te ondernemen voor het opgegeven exemplaar van een slim contract. In dit geval nemen we het scenario dat een gebruiker de beschrijving en de prijs van een asset wilt wijzigen in:
+Een gebruiker kan vervolgens besluiten om actie te ondernemen voor het opgegeven exemplaar van een slim contract. In dit geval, houd rekening met het scenario waarin een gebruiker wilt wijzigen van de beschrijving en prijs van een asset naar de volgende actie:
 
 * Beschrijving: 'My updated car'
 * Prijs: 54321
 
-Gebruik de [POST-API voor contractacties](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionpost):
+Gebruik de [POST-API voor contractacties](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):
 
 ``` http
 POST /api/v1/contracts/{contractId}/actions

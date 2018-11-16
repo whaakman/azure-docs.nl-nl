@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 74b9673d7ef9dedbcc34682d4707103e696bece3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279095"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711698"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor  
 
@@ -132,7 +132,7 @@ Daarom de onderstaande sectie vindt u informatie over het gebruik van Resource-s
 ### <a name="azure-resource-template-for-log-analytics"></a>Azure-Resourcesjabloon voor Log Analytics
 Waarschuwingen voor logboeken voor Log Analytics worden gemaakt door waarschuwingsregels die een opgeslagen zoekopdracht op een vast interval uitvoert. Als de resultaten van de query overeenkomen met criteria opgegeven, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd. 
 
-Resource-sjabloon voor Log analytics opgeslagen zoekopdracht en Log analytics-waarschuwingen zijn beschikbaar in Log Analytics-sectie van documentatie. Zie voor meer informatie, [toe te voegen met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../monitoring/monitoring-solutions-resources-searches-alerts.md); die bevat illustratieve voorbeelden, evenals de schemadetails van het.
+Resource-sjabloon voor Log analytics opgeslagen zoekopdracht en Log analytics-waarschuwingen zijn beschikbaar in Log Analytics-sectie van documentatie. Zie voor meer informatie, [toe te voegen met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../azure-monitor/insights/solutions-resources-searches-alerts.md); die bevat illustratieve voorbeelden, evenals de schemadetails van het.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Azure-Resourcesjabloon voor Application Insights
 Waarschuwing voor Application Insights-resources heeft een type `Microsoft.Insights/scheduledQueryRules/`. Zie voor meer informatie over dit brontype [Azure Monitor - gepland Query regels API-verwijzing](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).

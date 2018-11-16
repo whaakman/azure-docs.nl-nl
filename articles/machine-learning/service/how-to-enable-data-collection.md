@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: bb3dca56583296bab42fe9804a32e0690ace5897
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: f4340d1ef30bb4317e658c9a9a936f009054e784
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578226"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710627"
 ---
 # <a name="collect-data-for-models-in-production"></a>Verzamelen van gegevens voor modellen in productie
 
@@ -50,7 +50,7 @@ Het pad naar de uitvoergegevens in de blob met de volgende deze syntaxis:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
+- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://aka.ms/AMLfree) voordat u begint.
 
 - Een Azure Machine Learning-service-werkruimte en een lokale map met uw scripts en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
 

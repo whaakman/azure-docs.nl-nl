@@ -12,6 +12,8 @@
 | Toepassingsarchitectuur |32-bits |32-bits |32-bits/64-bits |32-bits/64-bits |32-bits/64-bits |32-bits/64-bits |
 | Web-Sockets per exemplaar<sup>7</sup> |5 |35 |350 |Onbeperkt |Onbeperkt |Onbeperkt |
 | Gelijktijdige [verbindingen het foutopsporingsprogramma](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) per toepassing |1 |1 |1 |5 |5 |5 |
+| App Service-certificaten per abonnement<sup>10</sup>| Niet ondersteund | Niet ondersteund |10 |10 |10 |10 |
+| Aangepaste domeinen per app</a> |0 (alleen azurewebsites.net-subdomein)|500 |500 |500 |500 |500 |
 | Aangepast domein [SSL-ondersteuning](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Wordt niet ondersteund. Certificaat met jokertekens voor *. azurewebsites.net standaard beschikbaar zijn.|Wordt niet ondersteund. Certificaat met jokertekens voor *. azurewebsites.net standaard beschikbaar zijn.|Onbeperkt aantal SNI SSL-verbindingen |Onbeperkt aantal SNI SSL en 1 IP SSL-verbindingen opgenomen |Onbeperkt aantal SNI SSL en 1 IP SSL-verbindingen opgenomen | Onbeperkt aantal SNI SSL en 1 IP SSL-verbindingen opgenomen|
 | Geïntegreerde belastingverdeler | |X |X |X |X |X<sup>9</sup> |
 | [Altijd ingeschakeld](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
@@ -21,15 +23,15 @@
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) ondersteunen | |X |X |X |X |X |
 | [Eindpuntbewaking](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Faseringssleuven](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |20 |
-| Aangepaste domeinen per app</a> |0 (alleen azurewebsites.net-subdomein)|500 |500 |500 |500 |500 |
-| SLA | |  |99,9% |99.95%|99.95%|99.95%|
+| SLA | |  |99,9% |99.95%|99.95%|99.95%|  
 
-<sup>1</sup>apps en opslagquota zijn per App Service-plan, tenzij anders vermeld.  
-<sup>2</sup>het werkelijke aantal apps die u op deze machines hosten kunt is afhankelijk van de activiteit van de apps, de grootte van de machine-instanties en het bijbehorende gebruik van bronnen.  
-<sup>3</sup>toegewezen instanties van verschillende grootten kunnen zijn. Zie [prijzen voor App Service](https://azure.microsoft.com/pricing/details/app-service/) voor meer informatie.  
-<sup>4</sup>meer toegestaan op aanvraag.
-<sup>5</sup>de limiet voor opslag is de totale grootte van de inhoud in alle apps in hetzelfde App Service-plan. Meer opties voor opslag zijn beschikbaar in [App Service-omgeving](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
-<sup>6</sup>deze resources worden beperkt door fysieke resources op de specifieke instanties (de grootte van het exemplaar en het aantal exemplaren).  
-<sup>7</sup>als u een app in de Basic-laag naar twee exemplaren schalen, hebt u 350 gelijktijdige verbindingen voor elk van de twee exemplaren.  
-<sup>8</sup>voert aangepaste uitvoerbare bestanden en/of scripts op aanvraag of volgens een schema of continu uitvoeren als een achtergrondtaak van uw App Service-exemplaar. Altijd beschikbaar is vereist voor de continue uitvoering van WebJobs. Azure Scheduler Gratis of Standaard is vereist voor geplande WebJobs. Er is geen vooraf gedefinieerde limiet voor het nummer van webtaken die kunnen worden uitgevoerd in een App Service-exemplaar, maar er zijn praktische grenzen die afhankelijk zijn van wat de code van de toepassing probeert uit te voeren.   
-<sup>9</sup>app Service Isolated-SKU's hebben de mogelijkheid om te worden met gelijke taakverdeling (ILB) met Azure Load Balancer, dit is zonder openbare verbinding intern laden vanaf het internet. Hierdoor moeten bepaalde functies van een ILB die is geïsoleerd van een App Service worden gebruikt op machines die rechtstreeks toegang hebben tot het eindpunt van het ILB-netwerk.
+<sup>1</sup> apps en opslagquota zijn per App Service-plan, tenzij anders vermeld.  
+<sup>2</sup> het werkelijke aantal apps die u op deze machines hosten kunt is afhankelijk van de activiteit van de apps, de grootte van de machine-instanties en het bijbehorende gebruik van bronnen.  
+<sup>3</sup> toegewezen instanties van verschillende grootten kunnen zijn. Zie [prijzen voor App Service](https://azure.microsoft.com/pricing/details/app-service/) voor meer informatie.  
+<sup>4</sup> meer toegestaan op aanvraag.  
+<sup>5</sup> de limiet voor opslag is de totale grootte van de inhoud in alle apps in hetzelfde App Service-plan.  
+<sup>6</sup> deze resources worden beperkt door fysieke resources op de specifieke instanties (de grootte van het exemplaar en het aantal exemplaren).  
+<sup>7</sup> als u een app in de Basic-laag naar twee exemplaren schalen, hebt u 350 gelijktijdige verbindingen voor elk van de twee exemplaren.  
+<sup>8</sup> voert aangepaste uitvoerbare bestanden en/of scripts op aanvraag of volgens een schema of continu uitvoeren als een achtergrondtaak van uw App Service-exemplaar. Altijd beschikbaar is vereist voor de continue uitvoering van WebJobs. Azure Scheduler Gratis of Standaard is vereist voor geplande WebJobs. Er is geen vooraf gedefinieerde limiet voor het nummer van webtaken die kunnen worden uitgevoerd in een App Service-exemplaar, maar er zijn praktische grenzen die afhankelijk zijn van wat de code van de toepassing probeert uit te voeren.  
+<sup>9</sup> app Service Isolated-SKU's hebben de mogelijkheid om te worden met gelijke taakverdeling (ILB) met Azure Load Balancer, dit is zonder openbare verbinding intern laden vanaf het internet. Hierdoor moeten bepaalde functies van een ILB die is geïsoleerd van een App Service worden gebruikt op machines die rechtstreeks toegang hebben tot het eindpunt van het ILB-netwerk.  
+<sup>10</sup> App Service Certificate heeft de limiet per abonnement kan worden verhoogd via een ondersteuningsaanvraag met een maximale limiet van 200.  

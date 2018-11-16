@@ -15,6 +15,8 @@ items:
     href: troubleshoot-rdp-connection.md
   - name: Gedetailleerde RDP-probleemoplossing
     href: detailed-troubleshoot-rdp.md
+  - name: Een RDP-fout oplossen die wordt veroorzaakt doordat DHCP is uitgeschakeld
+    href: troubleshoot-rdp-dhcp-disabled.md
   - name: Specifieke fouten oplossen
     href: troubleshoot-specific-rdp-errors.md
   - name: Fouten in verband met een ontbrekende licentieserver oplossen
@@ -35,6 +37,8 @@ items:
     href: troubleshoot-rdp-static-ip.md
   - name: Een RDP-fout in de VM oplossen die verband houdt met een uitgeschakelde NIC
     href: troubleshoot-rdp-nic-disabled.md
+  - name: RDP-fouten oplossen die verband houden met de veilige modus
+    href: troubleshoot-rdp-safe-mode.md
 - name: SSH
   items:
   - name: Problemen met SSH oplossen
@@ -145,9 +149,9 @@ items:
   href: understand-vm-reboot.md
 - name: Hulpprogramma's voor probleemoplossing op afstand
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 6cf242b4d2c0255c8b5ff340c9edb99b93ec2b24
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4b4202e0eb155e80b86332287ba4ed3a37a24741
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632168"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705613"

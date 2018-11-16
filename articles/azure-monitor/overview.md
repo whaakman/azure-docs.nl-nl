@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 3de1939ec4004c2709fb0e366fb492462cf2d216
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068692"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710753"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -67,7 +67,7 @@ Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp
 
 
 ## <a name="insights"></a>Inzichten
-Door gegevens te controleren is alleen nuttig als uw inzicht in de werking van uw IT-omgeving kunt verhogen. Azure Monitor biedt verschillende functies en hulpprogramma's waarmee u inzicht in uw toepassingen en andere bronnen die ze afhankelijk zijn. [Bewakingsoplossingen](../monitoring/monitoring-solutions.md) en functies zoals [Application Insights](../application-insights/app-insights-overview.md) en Container-inzichten diep inzicht geven in verschillende aspecten van uw toepassing en de specifieke Azure-services. 
+Door gegevens te controleren is alleen nuttig als uw inzicht in de werking van uw IT-omgeving kunt verhogen. Azure Monitor biedt verschillende functies en hulpprogramma's waarmee u inzicht in uw toepassingen en andere bronnen die ze afhankelijk zijn. [Bewakingsoplossingen](../azure-monitor/insights/solutions.md) en functies zoals [Application Insights](../application-insights/app-insights-overview.md) en Container-inzichten diep inzicht geven in verschillende aspecten van uw toepassing en de specifieke Azure-services. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](../application-insights/app-insights-overview.md) Hiermee wordt de beschikbaarheid, prestaties en gebruik van uw webtoepassingen gecontroleerd of ze in de cloud of on-premises worden gehost. Hierbij wordt gebruikgemaakt van het platform van de krachtige analyse in Log Analytics krijgt u diep inzicht in bewerkingen van uw toepassing en een diagnose van fouten zonder te wachten op een gebruiker ze heeft gerapporteerd. Application Insights bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars en kan worden geïntegreerd met Visual Studio ter ondersteuning van uw DevOps-processen.
@@ -86,9 +86,9 @@ Azure Monitor VM insights bewaakt uw Azure virtual machines (VM) op schaal door 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Bewakingsoplossingen
-[Bewakingsoplossingen](../monitoring/monitoring-solutions.md) zijn verpakt sets met logica die inzicht voor een bepaalde toepassing of service geven in Azure Monitor. Deze gegevens verzamelen in Log Analytics, samen met andere gegevens, met behulp van [query's](../log-analytics/log-analytics-queries.md) voor analyse en [weergaven](../log-analytics/log-analytics-view-designer.md) voor visualisatie. Bewakingsoplossingen zijn [verkrijgbaar bij Microsoft](../monitoring/monitoring-solutions-inventory.md) en partners om te voorzien in bewaking voor verschillende Azure-services en andere toepassingen.
+[Bewakingsoplossingen](../azure-monitor/insights/solutions.md) zijn verpakt sets met logica die inzicht voor een bepaalde toepassing of service geven in Azure Monitor. Deze gegevens verzamelen in Log Analytics, samen met andere gegevens, met behulp van [query's](../log-analytics/log-analytics-queries.md) voor analyse en [weergaven](../log-analytics/log-analytics-view-designer.md) voor visualisatie. Bewakingsoplossingen zijn [verkrijgbaar bij Microsoft](../azure-monitor/insights/solutions-inventory.md) en partners om te voorzien in bewaking voor verschillende Azure-services en andere toepassingen.
 
-![Bewakingsoplossingen](../monitoring/media/monitoring-solutions/overview.png)
+![Bewakingsoplossingen](media/overview/solutions-overview.png)
 
 ## <a name="responding-to-critical-situations"></a>Reageren op kritieke situaties
 Naast de mogelijkheid die u interactief controleren om gegevens te analyseren, moet een effectieve oplossing voor prestatiecontrole kunnen proactief reageren op kritieke situaties geïdentificeerd in de gegevens die worden verzameld. Dit kan het verzenden van een tekst- of e-mail naar een beheerder die verantwoordelijk is voor het onderzoeken van een probleem. Of u een geautomatiseerd proces dat u probeert te corrigeren van een fout kan starten.

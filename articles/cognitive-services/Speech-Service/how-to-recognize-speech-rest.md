@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 1bcc290d987e8294f9a73cf8490f6cdd0251b440
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb8e929520becd2bf097fefc9c6fe8959b1bf85
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467273"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709811"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>Spraak herkend met behulp van de REST-API
 
@@ -29,7 +29,7 @@ De REST-API is de eenvoudigste manier voor het herkennen van spraak als u een ta
 > Uitingen zijn beperkt tot 15 seconden of minder bij het gebruik van de REST-API.
 > Bekijk de [spraak SDK](how-to-recognize-speech-csharp.md) voor herkenning van langer uitingen.
 
-Voor meer informatie over de **spraak naar tekst** REST-API, raadpleegt u de [REST-API's](rest-apis.md#speech-to-text) artikel. Als u wilt de API in actie zien, downloaden de [REST-API-voorbeelden](https://github.com/Azure-Samples/SpeechToText-REST) vanuit GitHub.
+Voor meer informatie over de **spraak naar tekst** REST-API, raadpleegt u de [REST-API's](rest-apis.md#speech-to-text-api) artikel. Als u wilt de API in actie zien, downloaden de [REST-API-voorbeelden](https://github.com/Azure-Samples/SpeechToText-REST) vanuit GitHub.
 
 ## <a name="next-steps"></a>Volgende stappen
 

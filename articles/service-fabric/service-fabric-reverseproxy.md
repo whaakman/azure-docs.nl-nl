@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344622"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711460"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omgekeerde proxy in Azure Service Fabric
 Omgekeerde proxy die is ingebouwd in Azure Service Fabric kunt u microservices die worden uitgevoerd in een Service Fabric-cluster detecteren en te communiceren met andere services die http-eindpunten hebben.
@@ -161,7 +161,7 @@ Service Fabric-services die worden uitgevoerd binnen containers met Docker Compo
 ## <a name="next-steps"></a>Volgende stappen
 * [Instellen en configureren van omgekeerde proxy op een cluster](service-fabric-reverseproxy-setup.md).
 * [Doorsturen naar beveiligde HTTP-service met de omgekeerde proxy instellen](service-fabric-reverseproxy-configure-secure-communication.md)
-* [Diagose reverse proxy-gebeurtenissen](service-fabric-reverse-proxy-diagnostics.md)
+* [Omgekeerde proxy gebeurtenissen onderzoeken](service-fabric-reverse-proxy-diagnostics.md)
 * Bekijk een voorbeeld van HTTP-communicatie tussen services in een [voorbeeldproject op GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Externe procedureaanroepen met externe communicatie Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Web-API die gebruikmaakt van OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)

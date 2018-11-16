@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fab4bcb62d15be11ab0a588b7a58447f05b4466a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 84c54ece905d0a3d68779e498a5bb66f555c08d5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014666"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712871"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics
 
@@ -67,7 +67,7 @@ In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet-gegeven
 
 Voer de volgende stappen uit voor het configureren van de oplossing Activity Log Analytics voor uw werkruimten.
 
-1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../monitoring/monitoring-solutions.md).
+1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../azure-monitor/insights/solutions.md).
 2. Configureer de activiteitenlogboeken naar uw Log Analytics-werkruimte.
     1. In de Azure-portal, selecteert u uw werkruimte en klik vervolgens op **Azure-activiteitenlogboek**.
     2. Klik op de naam van het abonnement voor elk abonnement.  

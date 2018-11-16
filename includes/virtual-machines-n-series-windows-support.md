@@ -2,24 +2,24 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines-windows
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11/08/2018
-ms.author: danlep
+ms.date: 11/14/2018
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6b6c7ce5589920f3101a13ab0ed6b7877f9cbca8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e1885e1b420f5dfda146dd72b831ccfe4989e446
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333748"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707365"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Ondersteunde besturingssystemen en stuurprogramma’s
 
 ### <a name="nvidia-tesla-cuda-drivers"></a>Stuurprogramma's van NVIDIA Tesla (CUDA)
 
-Stuurprogramma's van NVIDIA Tesla (CUDA) voor NC, NCv2, NCv3 en ND-serie VM's (optioneel voor NV-serie) worden alleen ondersteund op de besturingssystemen die worden vermeld in de volgende tabel. Downloadkoppelingen stuurprogramma zijn actueel op het moment van publicatie. Ga naar de [NVIDIA](http://www.nvidia.com/)-website voor de nieuwste stuurprogramma's.
+Stuurprogramma's van NVIDIA Tesla (CUDA) voor NC, NCv2, NCv3, ND en NDv2-serie VM's (optioneel voor NV-serie) worden alleen ondersteund op de besturingssystemen die worden vermeld in de volgende tabel. Downloadkoppelingen stuurprogramma zijn actueel op het moment van publicatie. Ga naar de [NVIDIA](http://www.nvidia.com/)-website voor de nieuwste stuurprogramma's.
 
 > [!TIP]
 > Als alternatief voor handmatige installatie van CUDA-stuurprogramma op een Windows Server-VM, kunt u een Azure implementeren [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) installatiekopie. De DSVM-edities van Windows Server 2016 wordt voorafgaand aan installatie NVIDIA CUDA-stuurprogramma's, de CUDA Deep Neural Network-bibliotheek en andere hulpprogramma's.

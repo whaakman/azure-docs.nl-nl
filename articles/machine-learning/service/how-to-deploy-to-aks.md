@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 1d029a2ab214ba85932dad022e4c3cb862b8688a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346317"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712990"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Over het implementeren van modellen van Azure Machine Learning-service in Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ Implementeren naar AKS biedt automatisch schalen, logboekregistratie, gegevensve
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
+- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://aka.ms/AMLfree) voordat u begint.
 
 - Een Azure Machine Learning-service-werkruimte en een lokale map met uw scripts en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
 

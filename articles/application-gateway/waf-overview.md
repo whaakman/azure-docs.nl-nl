@@ -4,26 +4,30 @@ description: In dit artikel bevat een overzicht van de web application firewall 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: da2603efd6b55ed3b3371156a98568226b18a65a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219525"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706888"
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
-Web Application Firewall (WAF) is een functie van Application Gateway die gecentraliseerde beveiliging van uw webtoepassingen tegen algemene aanvallen en beveiligingsproblemen biedt. 
+Web Application Firewall (WAF) is een functie van Application Gateway die gecentraliseerde beveiliging van uw webtoepassingen tegen algemene aanvallen en beveiligingsproblemen biedt.
 
-Webtoepassingen zijn in toenemende mate het doel van aanvallen die gebruikmaken van veelvoorkomende bekende beveiligingsproblemen. Veelvoorkomende aanvallen zijn hierbij onder andere aanvallen met SQL-injecties en aanvallen via scripting op meerdere sites. Het kan een hele uitdaging zijn om dergelijke aanvallen in toepassingscode te voorkomen en dit kan tevens veel onderhoud, patching en controle vereisen op meerdere lagen van de toepassingstopologie. Een gecentraliseerde firewall voor webtoepassingen maakt het beveiligingsbeheer veel eenvoudiger en biedt toepassingsbeheerders meer veiligheid tegen bedreigingen of aanvallen. Een WAF-oplossing kan ook sneller reageren op een beveiligingsrisico door een patch voor een bekend beveiligingsprobleem toe te passen op een centrale locatie in plaats van elke afzonderlijke webtoepassing te beveiligen. Bestaande toepassingsgateways kunnen eenvoudig worden geconverteerd naar een toepassingsgateway met Web Application Firewall.
+Webtoepassingen zijn in toenemende mate het doel van aanvallen die gebruikmaken van veelvoorkomende bekende beveiligingsproblemen. Algemene tussen deze aanvallen zijn SQL-injectieaanvallen en cross-site scripting aanvallen als u wilt een paar te noemen. 
+
+Het kan een hele uitdaging zijn om dergelijke aanvallen in toepassingscode te voorkomen en dit kan tevens veel onderhoud, patching en controle vereisen op meerdere lagen van de toepassingstopologie. Een gecentraliseerde firewall voor webtoepassingen maakt het beveiligingsbeheer veel eenvoudiger en biedt toepassingsbeheerders meer veiligheid tegen bedreigingen of aanvallen. Een WAF-oplossing kan ook reageren op een snellere beveiligingsrisico patches voor een bekend beveiligingsprobleem op een centrale locatie, in plaats van elke afzonderlijke webtoepassing te beveiligen. Bestaande toepassingsgateways kunnen eenvoudig worden geconverteerd naar een toepassingsgateway met Web Application Firewall.
 
 WAF is gebaseerd op regels uit de [OWASP core rule set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 of 2.2.9. Automatisch wordt bijgewerkt om op te nemen van bescherming tegen nieuwe beveiligingsproblemen, zonder aanvullende configuratie nodig.
 
 ![imageURLroute](./media/waf-overview/WAF1.png)
 
-Application Gateway werkt als application delivery controller (ADC) en biedt SSL-beëindiging, sessieaffiniteit op basis van cookies, round robin-taakverdeling, routering op basis van inhoud, mogelijkheid voor het hosten van meerdere websites en beveiligingsvoorzieningen. Beveiligingsvoorzieningen die door Application Gateway worden geboden, zijn onder andere SSL-beleidsbeheer en ondersteuning voor end-to-end SSL. De beveiliging van toepassingen wordt nu verder versterkt doordat WAF (Web Application Firewall) rechtstreeks is geïntegreerd in de aangeboden ADC's. Hiermee kunt u eenvoudig een centrale locatie configureren zodat u uw webtoepassingen kunt beheren en beveiligen tegen veelvoorkomende internetkwetsbaarheden.
+Application Gateway werkt als application delivery controller (ADC) en biedt SSL-beëindiging, sessieaffiniteit op basis van cookies, round robin-taakverdeling, routering op basis van inhoud, mogelijkheid voor het hosten van meerdere websites en beveiligingsvoorzieningen.
+
+Beveiligingsvoorzieningen die zijn aangeboden door Application Gateway zijn onder andere SSL-beleidsbeheer en ondersteuning voor end-to-end SSL. De beveiliging van toepassingen wordt nu verder versterkt doordat WAF (Web Application Firewall) rechtstreeks is geïntegreerd in de aangeboden ADC's. Hiermee kunt u eenvoudig een centrale locatie configureren zodat u uw webtoepassingen kunt beheren en beveiligen tegen veelvoorkomende internetkwetsbaarheden.
 
 ## <a name="benefits"></a>Voordelen
 
@@ -53,11 +57,11 @@ Dit zijn de belangrijkste voordelen van Application Gateway en Web Application F
 - Beveiliging tegen schendingen van de HTTP-protocol
 - Beveiliging tegen afwijkingen van de HTTP-protocol zoals ontbrekende gebruikersagent host en accept-headers
 - Beveiliging tegen bots, crawlers en scanners
-- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen, Apache, IIS, enz.)
+- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (bijvoorbeeld Apache, IIS, enzovoort)
 
 ### <a name="public-preview-features"></a>Openbare preview-functies
 
-De huidige WAF-openbare preview-SKU incudes de volgende functies:
+De huidige WAF openbare preview SKU omvat de volgende functies:
 
 - **Grootte aanvraaglimieten** -Web Application Firewall kunnen gebruikers grootte aanvraaglimieten in kleine en bovengrens instellen.
 - **Uitsluitingslijsten** -WAF uitsluitingslijsten toestaan dat gebruikers bepaalde kenmerken van een evaluatie WAF weglaten. Een veelvoorkomend voorbeeld is de dat Active Directory-tokens die worden gebruikt voor verificatie of wachtwoordvelden ingevoegd.
@@ -80,9 +84,9 @@ Web Application Firewall is standaard geconfigureerd met CRS 3.0, maar u kunt oo
 - Beveiliging tegen schendingen van de HTTP-protocol
 - Beveiliging tegen afwijkingen van de HTTP-protocol zoals ontbrekende gebruikersagent host en accept-headers
 - Beveiliging tegen bots, crawlers en scanners
-- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen Apache, IIS, enz.)
+- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (bijvoorbeeld Apache, IIS, enzovoort)
 
-Zie voor een gedetailleerde lijst met regels en waartegen ze beveiliging bieden [Core rule set](#core-rule-sets).
+Zie voor een gedetailleerde lijst van regels en waartegen ze beveiliging bieden, [Core rule set](#core-rule-sets).
 
 
 #### <a name="owasp30"></a>OWASP_3.0
@@ -91,7 +95,7 @@ De Core Rule Set 3.0 bestaat uit de 13 regelgroepen uit de onderstaande tabel. E
 
 |Regelgroep|Beschrijving|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Bevat regels om te beveiligen tegen lockdown-methoden (PUT, PATCH< ..)|
+|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Bevat regels om te Lockdown-methoden (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Bevat regels om te beveiligen tegen poort- en omgevingsscanners.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Bevat regels om te beveiligen tegen protocol- en coderingsproblemen.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Bevat regels om te beveiligen tegen header-injectie, 'request smuggling' en 'response splitting'.|
@@ -124,18 +128,18 @@ De Core Rule Set 2.2.9 bestaat uit de 10 regelgroepen uit de onderstaande tabel.
 
 In Application Gateway WAF kunnen de volgende twee modi worden geconfigureerd:
 
-* **Detectiemodus** – wanneer geconfigureerd om te worden uitgevoerd in de modus voor detectie, Application Gateway WAF controleert en meldt zich bij alle waarschuwingen van threat naar een logboekbestand. Diagnostische logboekregistratie voor Application Gateway kunt u inschakelen via de sectie **Diagnostische gegevens**. U moet er ook voor zorgen dat het WAF-logboek is geselecteerd en ingeschakeld. In de detectiemodus worden binnenkomende verzoeken niet geblokkeerd door Web Application Firewall.
+* **Detectiemodus** : bij deze configuratie om uit te voeren in de modus voor detectie, Application Gateway WAF gecontroleerd en alle bedreigingswaarschuwingen naar een logboekbestand. Diagnostische logboekregistratie voor Application Gateway kunt u inschakelen via de sectie **Diagnostische gegevens**. U moet er ook voor zorgen dat het WAF-logboek is geselecteerd en ingeschakeld. In de detectiemodus worden binnenkomende verzoeken niet geblokkeerd door Web Application Firewall.
 * **Preventiemodus**: bij deze configuratie worden indringers en aanvallen die worden gedetecteerd door de van toepassing zijnde regels actief door Application Gateway geblokkeerd. De aanvaller krijgt een 403-foutmelding voor onbevoegde toegang en de verbinding wordt verbroken. De preventiemodus blijft dergelijke aanvallen registreren in de WAF-logboeken.
 
 ### <a name="application-gateway-waf-reports"></a>Bewaking met WAF
 
-Het bewaken van de status van uw toepassingsgateway is belangrijk. De status van Web Application Firewall zelf, en van de toepassingen die ermee worden beveiligd, kan worden gecontroleerd via logboekregistratie en integratie met Azure Monitor, Azure Security Center (binnenkort) en Log Analytics.
+Het bewaken van de status van uw toepassingsgateway is belangrijk. De status van Web Application Firewall zelf, en van de toepassingen die ermee worden beveiligd, kan worden gecontroleerd via logboekregistratie en integratie met Azure Monitor, Azure Security Center en Log Analytics.
 
 ![diagnostische gegevens](./media/waf-overview/diagnostics.png)
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-Elke toepassingsgateway is geïntegreerd met [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Dit maak het mogelijk om diagnostische gegevens bij te houden, met inbegrip van meldingen en logboeken van WAF.  Deze functionaliteit wordt aangeboden binnen de resource Application Gateway, op het tabblad **Diagnostische gegevens** van de portal, of rechtstreeks via de service Azure Monitor. Voor meer informatie over het inschakelen van diagnostische logboeken voor application gateway Zie [diagnostische gegevens van Application Gateway](application-gateway-diagnostics.md)
+Elke toepassingsgateway is geïntegreerd met [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Dit maak het mogelijk om diagnostische gegevens bij te houden, met inbegrip van meldingen en logboeken van WAF.  Deze functionaliteit wordt aangeboden binnen de resource Application Gateway, op het tabblad **Diagnostische gegevens** van de portal, of rechtstreeks via de service Azure Monitor. Zie voor meer informatie over het inschakelen van diagnostische logboeken voor application gateway, [diagnostische gegevens van Application Gateway](application-gateway-diagnostics.md)
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
@@ -179,7 +183,9 @@ Application Gateway WAF biedt gedetailleerde rapporten voor elke bedreiging die 
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Prijzen voor de Application Gateway WAF-voorraadeenheid
 
-Web Application Firewall is beschikbaar onder een nieuwe WAF-SKU. Deze SKU is alleen beschikbaar in het inrichtingsmodel van Azure Resource Manager en niet in het klassieke implementatiemodel. Bovendien is de WAF-SKU alleen leverbaar in de middelgrote en grote varianten van de toepassingsgateway. Alle limieten voor de toepassingsgateway zijn ook van toepassing op de WAF-SKU. De prijzen variëren naargelang de kosten per gateway-uur en de kosten voor gegevensverwerking. De prijzen voor gateway-uren voor de WAF-SKU verschillen van de kosten voor Basic-SKU's. Zie [Prijzen van Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) voor meer informatie. De kosten voor gegevensverwerking zijn wel hetzelfde. Er worden geen kosten per regel of regelgroep in rekening gebracht. U kunt meerdere webtoepassingen achter dezelfde firewall voor webtoepassingen beveiligen en er zijn geen extra kosten verbonden aan de ondersteuning van meerdere toepassingen. 
+Web Application Firewall is beschikbaar onder een nieuwe WAF-SKU. Deze SKU is alleen beschikbaar in het inrichtingsmodel van Azure Resource Manager en niet in het klassieke implementatiemodel. Bovendien leverbaar de WAF-SKU alleen in middelgrote en grote application gateway-exemplaargrootten. Alle limieten voor de toepassingsgateway zijn ook van toepassing op de WAF-SKU.
+
+De prijzen variëren naargelang de kosten per gateway-uur en de kosten voor gegevensverwerking. De prijzen voor gateway-uren voor de WAF-SKU verschillen van de kosten voor Basic-SKU's. Zie [Prijzen van Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) voor meer informatie. De kosten voor gegevensverwerking zijn wel hetzelfde. Er is geen kosten per regel of de regel in rekening gebracht. U kunt meerdere webtoepassingen achter dezelfde firewall voor de webtoepassingen beveiligen en u betaalt geen voor de ondersteuning van meerdere toepassingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

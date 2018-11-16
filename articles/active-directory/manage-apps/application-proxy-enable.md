@@ -8,34 +8,51 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 11/14/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9a869055613da6465a9beda9b8edc1bf812b6dfe
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034963"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712106"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Aan de slag met Application Proxy en de connector te installeren
-Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
+In dit artikel leidt u door de stappen om in te schakelen Application Proxy in Azure Active Directory (Azure AD).
 
 Als u zijn nog niet op de hoogte van de voordelen van beveiliging en productiviteit Application Proxy voor uw organisatie biedt, meer informatie over [het bieden van veilige externe toegang tot on-premises toepassingen](application-proxy.md).
 
-## <a name="application-proxy-prerequisites"></a>Vereisten voor toepassingsproxy
-Voordat u de services voor toepassingsproxy kunt inschakelen en gebruiken, moet u over het volgende beschikken:
+## <a name="prerequisites"></a>Vereisten
+Als u wilt inschakelen in Application Proxy, hebt u het volgende nodig:
 
-* Een [basis- of premiumabonnement op Microsoft Azure AD](../fundamentals/active-directory-whatis.md) en een Azure AD-directory waarvan u een globale beheerder bent.
-* Een server met Windows Server 2012 R2 of 2016, waarop u de Connector voor toepassingsproxy kunt installeren. De server moet verbinding kunnen maken met de services voor toepassingsproxy in de cloud en de on-premises toepassingen die u publiceert.
-  * Voor eenmalige aanmelding bij uw gepubliceerde toepassingen met behulp van Kerberos-beperkte overdracht, moet deze machine worden-domein in hetzelfde AD-domein als de toepassingen die u publiceert. Zie voor meer informatie, [KCD voor eenmalige aanmelding met Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
-* TLS 1.2 op het onderliggende besturingssysteem uitgevoerd. Als u wilt wijzigen in TLS 1.2, volg de stappen in [inschakelen TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Hoewel de inhoud voor Azure AD Connect, wordt deze procedure is hetzelfde voor alle .NET-clients.
+* Een [Microsoft Azure AD basic of premium-abonnement](https://azure.microsoft.com/pricing/details/active-directory). 
+* Een toepassing administrator-account.
 
-Als uw organisatie proxyservers gebruikt om verbinding met internet te maken, lezen [werken met bestaande on-premises proxy-servers](application-proxy-configure-connectors-with-proxy-servers.md) voor meer informatie over het configureren voordat u aan de slag met Application Proxy.
+### <a name="windows-server"></a>Windows server
+U moet een server met Windows Server 2012 R2 of hoger waarop kunt u de Application Proxy-connector installeren. De server moet verbinding maken met de services voor toepassingsproxy in Azure en de on-premises toepassingen die u publiceert.
+
+De windows-server moet TLS 1.2 is ingeschakeld voordat u de Application Proxy-connector installeert. Bestaande connectors met een versie lager dan 1.5.612.0 blijven werken in eerdere versies van TLS tot nader order van kracht. TLS 1.2 inschakelen:
+
+1. De volgende registersleutels instellen:
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. De server opnieuw opstarten
+
+Voor single sign-on bij toepassingen die gebruikmaken van Kerberos waar delegatie (KCD), moeten de Windows-server en de toepassingen die u publiceert zich in hetzelfde Active Directory-domein. Zie voor meer informatie, [KCD voor eenmalige aanmelding met Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+  
+### <a name="proxy-servers"></a>Proxyservers
+
+Als uw organisatie proxyservers gebruikt om verbinding met internet te maken, moet u ze configureren voor de toepassingsproxy.  Zie voor meer informatie, [werken met bestaande on-premises proxy-servers](application-proxy-configure-connectors-with-proxy-servers.md). 
+
+
 
 ## <a name="open-your-ports"></a>De poorten openen
 

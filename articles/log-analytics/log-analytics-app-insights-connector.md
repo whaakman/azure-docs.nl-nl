@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 554159f0eb22f2aaa1e45e69de7741f8764be0b3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014819"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711851"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -57,7 +57,7 @@ Gegevens niet in tegenstelling tot de meeste andere Log Analytics-oplossingen, d
 
 ## <a name="configuration"></a>Configuratie
 
-1. Inschakelen van de oplossing Azure Web Apps-analyse van de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
+1. Inschakelen van de oplossing Azure Web Apps-analyse van de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../azure-monitor/insights/solutions.md).
 2. Blader naar de [Azure-portal](https://portal.azure.com). Selecteer **alle services** Application Insights openen. Zoek vervolgens naar Application Insights. 
 3. Onder **abonnementen**, selecteert u een abonnement met Application Insights-resources en klik vervolgens onder **naam**, selecteer een of meer toepassingen.
 4. Klik op **Opslaan**.
@@ -191,7 +191,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 | isSynthetic | Geeft aan of de aanvraag is gemaakt door een gebruiker of door de geautomatiseerde methode. True = gebruiker gegenereerde of = false geautomatiseerde methode |
 | SamplingRate | Percentage van de telemetrie die is gegenereerd door de SDK die wordt verzonden naar de portal. Het bereik 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Bijvoorbeeld, 4 =&gt; 25% |
-| IsAuthenticated | waar of ONWAAR |
+| IsAuthenticated | Waar of onwaar |
 | Bewerkings-id | Items die dezelfde bewerking ID als betrokken Items worden weergegeven in de portal. Meestal de aanvraag-ID |
 | ParentOperationID | ID van de bovenliggende bewerking |
 | OperationName |   |

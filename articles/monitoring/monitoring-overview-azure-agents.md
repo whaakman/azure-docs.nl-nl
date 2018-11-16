@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: d07a89163d10026851dc26812ac248d92d6d5e8a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: eb8356b659647ec73be121f8a05ab5e1e8d5837f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684168"
+ms.locfileid: "51710138"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
 Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillende typen gegevens van virtuele machines met Microsoft Windows en Linux die worden gehost in Azure en uw datacenter of andere cloudproviders. De drie typen van de agents is beschikbaar voor het bewaken van een virtuele machine zijn:
@@ -60,7 +60,7 @@ Voor geavanceerde controle waar u wilt meer dan metrische gegevens worden verzam
 De Log Analytics-agent moet worden gebruikt wanneer u wilt:
 
 * Verzamelen van gegevens uit een groot aantal bronnen, zowel binnen Azure, andere cloudproviders en on-premises bronnen. 
-* Met behulp van een van de Azure Monitor bewakingsoplossingen zoals [Azure Monitor voor virtuele machines](../monitoring/monitoring-vminsights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), [Azure Monitor voor containers](../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), enzovoort.  
+* Met behulp van een van de Azure Monitor bewakingsoplossingen zoals [Azure Monitor voor virtuele machines](../monitoring/../azure-monitor/insights/vminsights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), [Azure Monitor voor containers](../monitoring/../azure-monitor/insights/container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), enzovoort.  
 * Gebruik een van de Azure management-services zoals [Azure Security Center](../security-center/security-center-intro.md), [Azure Automation](../automation/automation-intro.md), enzovoort.
 
 Voorheen verschillende Azure-services zijn gebundeld in de *Operations Management Suite*, en als gevolg hiervan de Log Analytics-agent wordt gedeeld door services zoals Azure Security Center en Azure Automation.  Dit omvat de volledige set met functies die ze bieden, leveren van uitgebreide beheer van uw Azure-VM's gedurende hun levensduur.  Enkele voorbeelden hiervan zijn:
@@ -71,7 +71,7 @@ Voorheen verschillende Azure-services zijn gebundeld in de *Operations Managemen
 * Azure-services zoals [Application Insights](https://docs.microsoft.com/azure/application-insights/) en [Azure Security Center](https://docs.microsoft.com/azure/security-center/), welke systeemeigen slaan hun gegevens rechtstreeks in Log Analytics.  
 
 ## <a name="dependency-agent"></a>Agent voor afhankelijkheden
-De agent voor afhankelijkheden is ontwikkeld als onderdeel van de oplossing Serviceoverzicht die oorspronkelijk is ontwikkeld, extern van Microsoft. [Serviceoverzicht](../monitoring/monitoring-service-map.md) en [Azure Monitor voor virtuele machines](monitoring-vminsights-overview.md) vereist een Agent voor afhankelijkheden in Windows en Linux virtuele machines en deze kan worden geïntegreerd met de Log Analytics-agent voor gedetecteerde verzamelt gegevens over processen die worden uitgevoerd op de virtuele machine en extern Procesafhankelijkheden. Het deze gegevens worden opgeslagen in Log Analytics en visualiseert de gedetecteerde onderling verbonden onderdelen.
+De agent voor afhankelijkheden is ontwikkeld als onderdeel van de oplossing Serviceoverzicht die oorspronkelijk is ontwikkeld, extern van Microsoft. [Serviceoverzicht](../monitoring/monitoring-service-map.md) en [Azure Monitor voor virtuele machines](../azure-monitor/insights/vminsights-overview.md) vereist een Agent voor afhankelijkheden in Windows en Linux virtuele machines en deze kan worden geïntegreerd met de Log Analytics-agent voor gedetecteerde verzamelt gegevens over processen die worden uitgevoerd op de virtuele machine en extern Procesafhankelijkheden. Het deze gegevens worden opgeslagen in Log Analytics en visualiseert de gedetecteerde onderling verbonden onderdelen.
 
 Mogelijk moet u een combinatie van deze agenten voor het bewaken van uw virtuele machine. De agents kunnen worden geïnstalleerd naast elkaar als Azure-extensies, maar op Linux, de Log Analytics-agent *moet* worden geïnstalleerd eerste anders de installatie mislukken. 
 

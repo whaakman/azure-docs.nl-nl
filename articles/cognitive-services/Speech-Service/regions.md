@@ -10,37 +10,31 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 088e581da7511797a0f39959d867c6298262462a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242327"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712888"
 ---
-# <a name="regions-of-the-speech-service"></a>Regio's van de Spraakservice
+# <a name="speech-service-supported-regions"></a>Speech Service ondersteunde regio 's
 
-De spraak-Service is beschikbaar in verschillende regio's.
-Wanneer u een abonnement maakt, kunt u een beschikbare regio op basis van uw behoeften.
+De spraak-service kunt uw toepassing audio naar tekst wilt converteren, voert u spraakomzetting en converteren tekst naar spraak. De service is beschikbaar in meerdere regio's met unieke eindpunten voor de spraak-SDK en REST-API's.
 
-Wanneer u uw abonnement, moet u rekening voor de regio die u hebt geselecteerd.
-
-## <a name="rest-api"></a>REST-API
-
-De REST-API gebruiken om te selecteren van de juiste regiospecifiek-eindpunten.
-Zie [REST-API's](rest-apis.md) voor meer informatie.
+Zorg ervoor dat u het eindpunt dat overeenkomt met de regio voor uw abonnement.
 
 ## <a name="speech-sdk"></a>Speech-SDK
 
 In de [Speech Service SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bijvoorbeeld, als een parameter voor `SpeechConfig.FromSubscription` in de spraak-SDK voor C#).
 
-### <a name="regions-for-speech-recognition-and-translation"></a>Regio's voor spraakherkenning en vertaling
+### <a name="speech-recognition-and-translation"></a>Spraakherkenning en vertaling
 
-De volgende tabel bevat de beschikbare regio's voor **spraakherkenning** en **vertaling**.
+De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning** en **vertaling**:
 
   Regio | Parameter voor spraak-SDK | Spraak aanpassing Portal
  ------|-------|--------
  US - west | `westus` | https://westus.cris.ai
- VS - west 2 | `westus2` | https://westus2.cris.ai 
+ VS - west 2 | `westus2` | https://westus2.cris.ai
  US - oost | `eastus` | https://eastus.cris.ai
  US - oost 2 | `eastus2` | https://eastus2.cris.ai
  Azië - oost | `eastasia` | https://eastasia.cris.ai
@@ -49,8 +43,26 @@ De volgende tabel bevat de beschikbare regio's voor **spraakherkenning** en **ve
  Europa -west | `westeurope` | https://westeurope.cris.ai
 
 
-### <a name="regions-for-intent-recognition"></a>Regio's voor intentieherkenning
+### <a name="intent-recognition"></a>Intentieherkenning
+
+**Intentieherkenning** voor de shares spraak SDK-regio's met LUIS ondersteunen. Zie voor een volledige lijst van beschikbare regio's, [publiceren regio's en -eindpunten - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
 
 Beschikbare regio's voor **intentieherkenning** via de SDK spraak worden weergegeven op de [Language Understanding service regio pagina](/azure/cognitive-services/luis/luis-reference-regions).
-Voor elke publishing regio die worden vermeld, wordt de bijbehorende parameter voor spraak SDK regio als het eerste deel van de domeinnaam van het eindpunt bepaald.
-Gebruik bijvoorbeeld `westus` om op te geven van de publicatie regio VS-West.
+
+Voor elke publishing regio die wordt weergegeven, gebruikt u de opgegeven **API regionaam**. Gebruik bijvoorbeeld `westus` voor VS-West.
+
+## <a name="rest-apis"></a>REST-API’s
+
+De spraak-service wordt ook aangegeven REST-eindpunten voor spraak-naar-tekst en spraak-aanvragen.
+
+### <a name="speech-to-text"></a>Spraak-naar-tekst
+
+Zie voor spraak-naar-tekst naslagdocumentatie [REST-API's](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### <a name="text-to-speech"></a>Tekst-naar-spraak
+
+Zie voor de Text to Speech naslagdocumentatie [REST-API's](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

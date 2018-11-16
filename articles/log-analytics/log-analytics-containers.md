@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6f4f2f6a7999b2d26e198a11bb7cee27991a775b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685936"
+ms.locfileid: "51711953"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -36,7 +36,7 @@ De oplossing laat zien welke containers worden uitgevoerd, welke containerinstal
 - Service Fabric
 - Red Hat OpenShift
 
-Als u geïnteresseerd bent in het controleren van de prestaties van uw workloads die zijn geïmplementeerd in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS), raadpleegt u [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-insights-overview.md). De Container Monitoring-oplossing bevat geen ondersteuning voor het controleren van dit platform.  
+Als u geïnteresseerd bent in het controleren van de prestaties van uw workloads die zijn geïmplementeerd in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS), raadpleegt u [Monitor Azure Kubernetes Service](../azure-monitor/insights/container-insights-overview.md). De Container Monitoring-oplossing bevat geen ondersteuning voor het controleren van dit platform.  
 
 Het volgende diagram toont de relaties tussen verschillende hosts van de container en agents met Log Analytics.
 
@@ -97,7 +97,7 @@ De volgende tabel geeft een overzicht van de Docker-indeling en de bewaking van 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-1. Container Monitoring solution toevoegen aan uw Log Analytics-werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
+1. Container Monitoring solution toevoegen aan uw Log Analytics-werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../azure-monitor/insights/solutions.md).
 
 2. Installeer en Docker gebruiken met een Log Analytics-agent. Op basis van uw besturingssysteem en de Docker-orchestrator, kunt u de volgende methoden gebruiken om de agent te configureren.
   - Voor zelfstandige hosts:

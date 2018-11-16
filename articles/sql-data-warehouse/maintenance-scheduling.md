@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427859"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711902"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Onderhoudsschema's gebruiken voor het beheren van service-updates en onderhoud
 
@@ -27,7 +27,7 @@ Alle nieuw gemaakte Azure SQL Data Warehouse exemplaren beschikken over een syst
 
 Elk onderhoudsvenster mag drie tot acht uur. Onderhoud kan worden uitgevoerd op elk gewenst moment in het venster. U moet een korte verlies van connectiviteit verwacht als de service implementeert u nieuwe code naar uw datawarehouse. 
 
-De functie voor de Preview-versie identificeren u primaire en secundaire windows in afzonderlijke dagreeksen. Alle onderhoudsbewerkingen moeten zijn voltooid binnen de geplande onderhoudsmomenten. Er is geen onderhoud vindt plaats buiten het opgegeven onderhoudsvenster zonder voorafgaande kennisgeving. Als uw datawarehouse wordt onderbroken tijdens een geplande onderhoud, wordt deze bijgewerkt tijdens de bewerking hervat.  
+Deze functie wilt gebruiken moet u een primaire en secundaire venster in afzonderlijke dagreeksen identificeren. Alle onderhoudsbewerkingen moeten zijn voltooid binnen de geplande onderhoudsmomenten. Er is geen onderhoud vindt plaats buiten het opgegeven onderhoudsvenster zonder voorafgaande kennisgeving. Als uw datawarehouse wordt onderbroken tijdens een geplande onderhoud, wordt deze bijgewerkt tijdens de bewerking hervat.  
 
 
 ## <a name="alerts-and-monitoring"></a>Waarschuwingen en bewaking

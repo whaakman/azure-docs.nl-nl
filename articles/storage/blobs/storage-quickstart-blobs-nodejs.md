@@ -1,31 +1,33 @@
 ---
-title: 'Snelstart: Blobs uploaden, downloaden en vermelden met Node.js - Azure Storage'
-description: Maak een opslagaccount en een container in object(Blob)-opslag. Vervolgens gebruikt u de opslagclientbibliotheek voor Node.js om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
+title: Over het maken van een blob in Azure Storage met behulp van de v2-SDK voor Node.js
+description: Maak een opslagaccount en een container in object(Blob)-opslag. Vervolgens gebruiken de Azure Storage-clientbibliotheek voor Node.js v2 voor een blob uploaden naar Azure Storage, een blob downloaden en de blobs in een container te vermelden.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 09/20/2018
+ms.topic: conceptual
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: d47878502816a0a61829859cc166c125448a2850
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140584"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710882"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Node.js
+# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Het uploaden, downloaden en met behulp van Node.js-SDK v2 blobs te vermelden
 
-In deze zelfstudie leert u hoe u Node.js kunt gebruiken om blobs te uploaden, te downloaden en weer te geven en containers te beheren met Azure Blob Storage.
+In deze handleiding leert u hoe u Node.js gebruiken om te uploaden, downloaden en blobs weergeven en beheren van containers met Azure Blob storage.
 
-U hebt een [Azure-abonnement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nodig om deze quickstart te voltooien.
+## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+Maak een Azure storage-account in de [Azure-portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Zie voor meer informatie over het maken van het account [Een opslagaccount maken](../common/storage-quickstart-create-account.md).
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) in deze quickstart is een eenvoudige Node.js-consoletoepassing. Kloon om te beginnen de opslagplaats naar uw computer met de volgende opdracht:
+De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) is een eenvoudige Node.js-consoletoepassing. Kloon om te beginnen de opslagplaats naar uw computer met de volgende opdracht:
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -72,7 +74,7 @@ Container "demo" is deleted
 Done
 ```
 
-Houd er rekening mee dat als u voor deze snelstart een nieuwe opslagaccount gebruikt, u mogelijk de containernamen niet ziet weergegeven onder het label ‘*Containers*’.
+Als u een nieuw opslagaccount voor dit voorbeeld gebruikt, wordt u niet de namen van alle containers die worden vermeld onder het label ziet mogelijk "*Containers*'.
 
 ## <a name="understanding-the-code"></a>De code begrijpen
 De eerste expressie wordt gebruikt om waarden in de omgevingsvariabelen te laden.
@@ -353,7 +355,7 @@ Zie de volgende aanvullende bronnen voor Node.js-ontwikkeling met Blob-opslag:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Deze quickstart laat zien hoe u een bestand uploadt tussen een lokale schijf en Azure Blob-opslag met behulp van Node.js. Voor meer informatie over het werken met Blobopslag, gaat u naar de GitHub-opslagplaats.
+In dit artikel ziet u hoe u een bestand uploadt tussen een lokale schijf en Azure Blob-opslag met behulp van Node.js. Voor meer informatie over het werken met Blobopslag, gaat u naar de GitHub-opslagplaats.
 
 > [!div class="nextstepaction"]
 > [Azure Storage SDK voor JavaScript-opslag](https://github.com/Azure/azure-storage-node)

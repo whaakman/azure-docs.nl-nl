@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4220af0a93bd48074c29c7b8e25a822d28a8161b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244471"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712378"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -158,7 +158,7 @@ Voor Operations Manager maakt de Operations Manager-beheergroep verbinding met e
 
 Alle communicatie tussen verbonden systemen en de Log Analytics-service is versleuteld. Het TLS (HTTPS)-protocol wordt gebruikt voor versleuteling.  Het Microsoft SDL-proces wordt gevolgd om ervoor te zorgen dat log Analytics is bijgewerkt met de meest recente ontwikkelingen in de cryptografische protocollen.
 
-Elk type van de agent verzamelt gegevens voor Log Analytics. Het type van de gegevens die worden verzameld, is afhankelijk van de soorten oplossingen die worden gebruikt. U ziet een overzicht van het verzamelen van gegevens op [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md). Meer gedetailleerde informatie van de verzameling is daarnaast beschikbaar voor de meeste oplossingen. Een oplossing is een bundel van vooraf gedefinieerde weergaven, log zoekquery's, regels voor het verzamelen van gegevens en Verwerkingslogica voor. Alleen beheerders kunnen Log Analytics gebruiken voor het importeren van een oplossing. Nadat de oplossing is geïmporteerd, wordt deze verplaatst naar de Operations Manager-beheerservers (indien gebruikt), en vervolgens naar alle agents die u hebt gekozen. Daarna wordt verzamelen de agents de gegevens.
+Elk type van de agent verzamelt gegevens voor Log Analytics. Het type van de gegevens die worden verzameld, is afhankelijk van de soorten oplossingen die worden gebruikt. U ziet een overzicht van het verzamelen van gegevens op [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../azure-monitor/insights/solutions.md). Meer gedetailleerde informatie van de verzameling is daarnaast beschikbaar voor de meeste oplossingen. Een oplossing is een bundel van vooraf gedefinieerde weergaven, log zoekquery's, regels voor het verzamelen van gegevens en Verwerkingslogica voor. Alleen beheerders kunnen Log Analytics gebruiken voor het importeren van een oplossing. Nadat de oplossing is geïmporteerd, wordt deze verplaatst naar de Operations Manager-beheerservers (indien gebruikt), en vervolgens naar alle agents die u hebt gekozen. Daarna wordt verzamelen de agents de gegevens.
 
 ## <a name="2-send-data-from-agents"></a>2. Verzenden van gegevens van agents
 U alle typen van de agent zich bij een registratie-sleutel en een beveiligde verbinding tot stand is gebracht tussen de agent en de Log Analytics-service met behulp van verificatie op basis van certificaten en SSL met poort 443. Log Analytics maakt gebruik van een geheime store te genereren en beheren van sleutels. Persoonlijke sleutels om de 90 dagen worden gedraaid en worden opgeslagen in Azure en worden beheerd door de Azure-bewerkingen die strikt van wetten en voorschriften procedures volgen.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8958d2cde9f40aa1a7370894614a54bbd604bce7
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515349"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706327"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Over het optimaliseren van uw investeringen in de cloud met Azure Cost Management
 
@@ -26,12 +26,12 @@ Kostenbeheer van Azure biedt u de hulpmiddelen om te plannen, analyseren en redu
 Kostenbeheer is een probleem met organisatie- en moet een actieve praktijk die begint voordat u alleen geld aan cloud-bronnen geven. Als u wilt met succes implementeren kostenbeheer en kosten optimaliseren, moet uw organisatie:
 
 - Worden voorbereid met de juiste hulpprogramma's voor geslaagd
-- Verantwoordelijk voor kosten
+- Verantwoordelijk voor de kosten worden
 - Onderneem gepaste actie om te optimaliseren voor de uitgavelimiet
 
 Drie belangrijkste groepen in de onderstaande moeten zijn uitgelijnd voordat in uw organisatie om te controleren of zijn de kosten te beheren.
 
-- **Financiën** -mensen die verantwoordelijk zijn voor het goedkeuren van aanvragen in de hele organisatie op basis van de cloud uitgaven prognoses budge. Ze de bijbehorende factuur te betalen en kosten toewijzen aan verschillende teams station aansprakelijkheid.
+- **Financiën** -mensen die verantwoordelijk zijn voor het goedkeuren van aanvragen van budget in de hele organisatie op basis van de cloud prognoses uitgaven. Ze de bijbehorende factuur te betalen en kosten toewijzen aan verschillende teams station aansprakelijkheid.
 - **Managers** - zakelijke besluitvormers in een organisatie die nodig hebt om te begrijpen van de cloud voor de uitgavelimiet voor het vinden van de beste resultaten uitgaven.
 - **App-teams** - Engineers beheren op dagelijks, ontwikkeling van services om te voldoen aan de behoeften van de organisatie. Deze teams moeten de flexibiliteit in hun gedefinieerde budgetten bezorgen in de meeste waarde.
 
@@ -46,7 +46,7 @@ Uitgebreide, vooraf plannen, kunt u op maat maken gebruik van de cloud voor uw s
 - Wat is het zakelijke probleem ben ik oplossen?
 - Welke gebruikspatronen ik verwachten van mijn resources?
 
-Uw antwoorden krijgt u de aanbieding die geschikt is voor u selecteert. Ze bepalen en de infrastructuur moet worden gebruikt en hoe deze wordt gebruikt voor het maximaliseren van uw Azure-efficiëntie.
+Uw antwoorden krijgt u de aanbiedingen die geschikt voor u zijn selecteert. Ze bepalen en de infrastructuur moet worden gebruikt en hoe deze wordt gebruikt voor het maximaliseren van uw Azure-efficiëntie.
 
 #### <a name="visibility"></a>Zichtbaarheid
 
@@ -62,7 +62,7 @@ Fungeren als u wilt verkleinen uw uitgaven. Haal alles uit op basis van de resul
 
 #### <a name="iteration"></a>Herhaling
 
-Iedereen in uw organisatie moet deelnemen aan het levenscyclusbeheer van kosten. Ze moeten blijven die betrokken zijn bij regelmatig kosten optimaliseren. Worden strenge over deze iteratief proces en geef deze als een sleutel tenant van verantwoordelijk cloud governance in uw organisatie.
+Iedereen in uw organisatie moet deelnemen aan het levenscyclusbeheer van kosten. Ze moeten blijven betrokken regelmatig kosten optimaliseren. Worden strenge over deze iteratief proces en geef deze als een belangrijk basisprincipe verantwoordelijk cloud governance in uw organisatie.
 
 ![Basisprincipes](./media/cost-mgt-best-practices/principles.png)
 
@@ -105,7 +105,7 @@ Voor meer informatie over de verschillende opties, gaat u naar [Azure kopen](htt
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Maak een schatting van de kosten van uw oplossing
 
-Voordat u een infrastructuur implementeert, evalueren hoeveel uw oplossing gaat kosten. De evaluatie helpt u bij het maken van een budget voor uw organisatie voor de werkbelasting, vooraf. Vervolgens kunt u budget na verloop van tijd de geldigheid van uw eerste schatting van de benchmark-test uitvoeren. En u kunt vergelijken met de werkelijke kosten van uw geïmplementeerde oplossing.
+Voordat u een infrastructuur implementeert, evalueren hoeveel uw oplossing gaat kosten. De evaluatie helpt u bij het maken van een budget voor uw organisatie voor de werkbelasting, vooraf. Vervolgens kunt u een budget na verloop van tijd de geldigheid van uw eerste schatting van de benchmark-test uitvoeren. En u kunt vergelijken met de werkelijke kosten van uw geïmplementeerde oplossing.
 
 ### <a name="azure-pricing-calculator"></a>Azure-prijscalculator
 
@@ -125,7 +125,7 @@ Blijf op de hoogte hoe de kosten van uw organisatie loop der tijd veranderen. Ge
 
 ### <a name="organize-and-tag-your-resources"></a>Organiseren en taggen van uw resources
 
-Organiseer uw resources met de kosten in rekening. Als u abonnementen en resourcegroepen hebt gemaakt, kunt u denken over de teams die verantwoordelijk voor de bijbehorende kosten zijn. Zorg ervoor dat uw organisatie uw rapportage blijft in gedachten. Abonnementen en resourcegroepen bieden goede buckets voor het organiseren en het kenmerk uitgaven in uw organisatie. -Tags bieden een goede manier om kenmerk kosten. U kunt tags gebruiken als een filter. En u ze kunt gebruiken om te groeperen op wanneer u gegevens analyseren en onderzoeken van kosten. Enterprise Agreement-klanten kunnen ook maken, afdelingen en plaats abonnementen onder deze. Kosten op basis van organisatie in Azure wordt voorkomen dat de relevante personen in uw organisatie verantwoordelijk voor het verminderen van hun team uitgaven.
+Organiseer uw resources met de kosten in rekening. Als u abonnementen en resourcegroepen hebt gemaakt, kunt u denken over de teams die verantwoordelijk voor de bijbehorende kosten zijn. Zorg ervoor dat uw organisatie uw rapportage blijft in gedachten. Abonnementen en resourcegroepen bieden goede buckets voor het organiseren en het kenmerk uitgaven in uw organisatie. -Tags bieden een goede manier om kenmerk kosten. U kunt tags gebruiken als een filter. En u ze kunt gebruiken om te groeperen op wanneer u gegevens analyseren en onderzoeken van kosten. Enterprise Agreement-klanten kunnen ook afdelingen maken en abonnementen onder deze plaatsen. Kosten op basis van organisatie in Azure wordt voorkomen dat de relevante personen in uw organisatie verantwoordelijk voor het verminderen van hun team uitgaven.
 
 ### <a name="use-cost-analysis"></a>Kostenanalyse gebruiken
 
@@ -157,7 +157,7 @@ Gebruik de volgende manieren om te optimaliseren uitgaven.
 
 ### <a name="cut-out-waste"></a>Knip verspilling
 
-Nadat u uw infrastructuur in Azure hebt geïmplementeerd, is het belangrijk om te controleren of dat deze wordt gebruikt. De eenvoudigste manier om te beginnen met het opslaan van onmiddellijk is uw resources controleren en verwijderen die niet worden gebruikt. Van daaruit, moet u bepalen dat uw resources zo efficiënt mogelijk worden gebruikt.
+Nadat u uw infrastructuur in Azure hebt geïmplementeerd, is het belangrijk om te controleren of dat deze wordt gebruikt. De eenvoudigste manier om te beginnen met het opslaan van onmiddellijk is uw resources controleren en verwijderen die niet worden gebruikt. Van daaruit, moet u bepalen als uw resources zo efficiënt mogelijk worden gebruikt.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 
@@ -177,7 +177,7 @@ Azure heeft veel kortingen die uw organisatie benutten te om geld te besparen.
 
 #### <a name="azure-reservations"></a>Azure-reserveringen
 
-Azure reserveringen kunnen u Vooruitbetalen voor één jaar of drie jaar van de virtuele machine of SQL-Database de rekencapaciteit. Vooraf betaalt, krijgt u krijg een korting op de resources die u gebruikt. Azure reserveringen kunnen aanzienlijk verkorten uw virtuele machine of kosten voor rekenuren van SQL database — tot 72% bij betalen per gebruik-met een eenjarige of driejarige toezegging vooraf. reserveringen bieden een korting van facturering en hebben geen invloed op de runtimestatus van uw virtuele machines of SQL-databases.
+Azure reserveringen kunnen u Vooruitbetalen voor één jaar of drie jaar van de virtuele machine of SQL-Database compute-capaciteit. Vooraf betaalt, krijgt u krijg een korting op de resources die u gebruikt. Azure-reserveringen kunnen aanzienlijk verkorten uw virtuele machine of kosten voor rekenuren van SQL database — tot 72% bij betalen per gebruik met een eenjarige of driejarige toezegging vooraf. reserveringen bieden een korting van facturering en hebben geen invloed op de runtimestatus van uw virtuele machines of SQL-databases.
 
 Zie voor meer informatie, [wat zijn Azure-reserveringen?](../billing/billing-save-compute-costs-reservations.md).
 

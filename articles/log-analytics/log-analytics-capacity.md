@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5ec4ba5f51837e879ba5106c40d466dafb571825
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961939"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711800"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Capaciteit van de Hyper-V-virtuele machine met de oplossing capaciteit en prestaties (Preview) plannen
 
@@ -64,7 +64,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 Voer de volgende stap om de oplossing capaciteit en prestaties toevoegen aan uw werkruimte.
 
-- De oplossing capaciteit en prestaties toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../monitoring/monitoring-solutions.md).
+- De oplossing capaciteit en prestaties toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Management packs
 

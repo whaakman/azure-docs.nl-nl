@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: f85ab05e785ea559962490b43e75b196d1602159
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016213"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711052"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Verbinding maken en te verifiëren voor API 's
 
@@ -35,39 +35,18 @@ De Windows Azure-Verificatiebibliotheek biedt verschillende manieren voor het ve
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Digitale dubbels aanroepen vanuit een middelste laag web-API
 
-Wanneer ontwikkelaars ontwerpen van oplossingen voor digitale Twins, maken ze doorgaans een middelste laag-toepassing of de API. De app of API vervolgens roept de digitale dubbels API downstream. Gebruikers eerst worden geverifieerd met de middelste laag-toepassing en klikt u vervolgens een tokenstroom op-andere gebruikers-of wordt gebruikt om aan te roepen downstream. Zie voor instructies over het organiseren van de stroom op-andere gebruikers-of [deze pagina](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). U kunt voorbeelden van code ook bekijken op [deze pagina](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+Wanneer ontwikkelaars ontwerpen van oplossingen voor digitale Twins, maken ze doorgaans een middelste laag-toepassing of de API. De app of API vervolgens roept de digitale dubbels API downstream. Ter ondersteuning van de oplossingsarchitectuur van deze standaard web, zorg ervoor dat gebruikers eerste:
 
+1. Verifiëren met de middelste laag-toepassing
 
-## <a name="test-with-the-postman-client"></a>Testen met de Postman-client
+1. Een token van OAuth 2.0 namens is verkregen tijdens de verificatie
 
-Als u wilt aan de slag met de digitale Twins-API's, kunt u een client, zoals Postman gebruiken als een API-omgeving. Postman kunt u snel maken van complexe HTTP-aanvragen. In de volgende stappen laten zien hoe u een Azure AD-verificatietoken die nodig is om aan te roepen digitale dubbels binnen de Postman-gebruikersinterface.
+1. Het verkregen token wordt vervolgens gebruikt om te verifiëren met of aanroepen van API's die de stroom op-andere gebruikers-Of verdere downstream gebruikt
 
-
-1. Ga naar https://www.getpostman.com/ om de app te downloaden.
-1. Volg de stappen in [in deze snelstartgids](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) te maken van een Azure AD-toepassing. Of u een bestaande registratie opnieuw kunt gebruiken. 
-1. Onder **vereiste machtigingen**, voer 'Azure digitale dubbels' en selecteer **gedelegeerde machtigingen**. Selecteer vervolgens **machtigingen verlenen**.
-1. Open het toepassingsmanifest, en stel **oauth2AllowImplicitFlow** op ' True '.
-1. Configureren van een antwoord-URL met [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
-1. Selecteer de **autorisatie** tabblad **OAuth 2.0**, en selecteer vervolgens **nieuwe Access Token ophalen**.
-
-    |**Veld**  |**Waarde** |
-    |---------|---------|
-    | Toekenningstype | Impliciet |
-    | URL voor terugbellen | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Auth.-URL | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/Authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
-    | Client-id | Gebruik de toepassings-ID voor de Azure AD-app die is gemaakt of ander doel wordt gebruikt in stap 2. |
-    | Bereik | Leeg laten. |
-    | Status | Leeg laten. |
-    | Clientverificatie | Verzenden als een header basisverificatie. |
-
-1. Selecteer **Token aanvragen**.
-
-    >[!NOTE]
-    >Als u ontvangt het foutbericht 'OAuth 2 kan niet worden voltooid', probeert u het volgende:
-    > * Postman, sluit en opent u het opnieuw en probeer het opnieuw.
-   
-1. Schuif omlaag en selecteer **gebruik Token**.
+Zie voor instructies over het organiseren van de stroom op-andere gebruikers-of [OAuth 2.0 namens-stroom](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Ook vindt u voorbeelden van code in [een downstream web-API aanroept](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Als u wilt configureren en testen van digitale dubbels van Azure met behulp van de stroom voor OAuth 2.0-impliciete goedkeuring voor, Lees [Postman configureren](./how-to-configure-postman.md).
 
 Lees meer over de beveiliging van Azure digitale dubbels [maken en beheren van roltoewijzingen](./security-create-manage-role-assignments.md).

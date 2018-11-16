@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011320"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704644"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Backup-herstelpunten
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren.
@@ -36,12 +36,12 @@ De volgende tabel bevat de acties voor back-up en de bijbehorende minimale RBAC-
 
 | Bewerking voor het beheer | Minimale RBAC-rol vereist | Bereik vereist |
 | --- | --- | --- |
-| Recovery Services-kluis maken | Inzender | Resourcegroep met de kluis |
+| Een Recovery Services-kluis maken | Inzender | Resourcegroep met de kluis |
 | Back-up van virtuele Azure-machines inschakelen | Back-upoperator | Resourcegroep met de kluis |
 | | Inzender voor virtuele machines | VM-resource |
 | On-demand back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
 | VM herstellen | Back-upoperator | Recovery Services-kluis |
-| | Inzender voor virtuele machines | Resourcegroep waarin u de virtuele machine wordt geïmplementeerd |
+| | Inzender | Resourcegroep waarin u de virtuele machine wordt geïmplementeerd |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
 | Niet-beheerde schijven VM back-up herstellen | Back-upoperator | Recovery vault-resource |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |

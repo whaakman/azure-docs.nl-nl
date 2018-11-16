@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091620"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709998"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Voorbereidingen voor het implementeren van modellen op IoT Edge
 
@@ -27,7 +27,7 @@ Voordat een model implementeert naar een edge-apparaat, gebruikt u de stappen in
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
+* Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://aka.ms/AMLfree) voordat u begint.
 
 * Een werkruimte van Azure Machine Learning-service. Als u wilt maken van een gebruikt u de stappen in de [aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
 

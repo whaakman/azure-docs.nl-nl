@@ -2,25 +2,21 @@
 title: Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory | Microsoft Docs
 description: Het selecteren van een zakelijke app toewijzen van een gebruiker of groep toe in Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037971"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711307"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory
 Als u wilt een gebruiker of groep aan een enterprise-app toewijst, moet u de juiste machtigingen voor het beheren van de enterprise-app hebt en u moet globale beheerder voor de map.
@@ -32,7 +28,7 @@ Als u wilt een gebruiker of groep aan een enterprise-app toewijst, moet u de jui
 > Voor Microsoft Applications (zoals Office 365-apps), PowerShell gebruikers toewijzen aan een enterprise-app te gebruiken.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Hoe wijs ik gebruikerstoegang toe aan een enterprise-app in Azure portal?
+## <a name="assign-a-user-to-an-app---portal"></a>Een gebruiker toewijzen aan een app - portal
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
 2. Selecteer **alle services**, voert u Azure Active Directory in het tekstvak in en selecteer vervolgens **Enter**.
 3. Selecteer **bedrijfstoepassingen**.
@@ -51,7 +47,25 @@ Als u wilt een gebruiker of groep aan een enterprise-app toewijst, moet u de jui
 10. Op de **toevoegen toewijzing** Selecteer **rol**. Klik vervolgens op de **rol selecteren** blade, selecteer een rol die u wilt toepassen op de geselecteerde gebruikers of groepen, en selecteer vervolgens de **OK** knop aan de onderkant van de blade.
 11. Op de **toevoegen toewijzing** blade, selecteer de **toewijzen** knop aan de onderkant van de blade. De toegewezen gebruikers of groepen hebt de machtigingen die zijn gedefinieerd door de geselecteerde rol voor deze app enterprise.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Hoe ik een gebruiker toewijzen aan een enterprise-app met behulp van PowerShell?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Hierdoor kunnen alle gebruikers toegang tot een app - portal
+Om alle gebruikers toegang tot een toepassing:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
+2. Selecteer **alle services**, voert u Azure Active Directory in het tekstvak in en selecteer vervolgens **Enter**.
+3. Selecteer **bedrijfstoepassingen**.
+4. Op de **bedrijfstoepassingen** Selecteer **alle toepassingen**. Hier ziet u de apps die u kunt beheren.
+5. Op de **bedrijfstoepassingen - alle toepassingen** blade, selecteert u een app.
+6. Op de ***appname*** Selecteer **eigenschappen**.
+7. Op de  ***appname* -eigenschappen** blade, stel de **Gebruikerstoewijzing vereist?** instelt op **Nee**. 
+
+De **Gebruikerstoewijzing vereist?** optie:
+
+- Heeft geen invloed op al dan niet een toepassing wordt weergegeven in het toegangsvenster voor de toepassing. Als u wilt weergeven van de toepassing in het toegangsvenster, moet u een gebruiker of groep toewijzen aan de toepassing.
+- Alleen met de cloudtoepassingen die zijn geconfigureerd voor eenmalige aanmelding SAML-functies, en on-premises toepassingen die zijn geconfigureerd met Application Proxy. Zie [eenmalige aanmelding voor toepassingen](what-is-single-sign-on.md).
+- Vereist dat gebruikers toestemming voor een toepassing geven. Een beheerder kan toestemming voor alle gebruikers verlenen.  Zie [configureren die de manier waarop eindgebruikers toestemming voor een toepassing geven](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>Een gebruiker toewijzen aan een app - PowerShell
 
 1. Open een opdrachtprompt met verhoogde bevoegdheid Windows PowerShell.
 

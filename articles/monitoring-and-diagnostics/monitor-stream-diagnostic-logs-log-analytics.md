@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe1557a6f9e5fd4e463af254fa1dd52726e73024
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960715"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713041"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diagnostische logboeken naar Log Analytics in Azure Stream
 
@@ -96,7 +96,7 @@ De `--resource-group` argument is alleen vereist als `--workspace` is niet een o
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Hoe ik de gegevens in Log Analytics op te vragen?
 
-U kunt de logboeken met diagnostische gegevens als onderdeel van de oplossing Log Management onder de tabel AzureDiagnostics opvragen in de blade zoeken in Logboeken in de portal of Advanced Analytics-ervaring als onderdeel van Log Analytics. Er zijn ook [verschillende oplossingen voor Azure-resources](../monitoring/monitoring-solutions.md) u kunt installeren als u onmiddellijk inzicht in de logboekgegevens die u wilt verzenden naar Log Analytics.
+U kunt de logboeken met diagnostische gegevens als onderdeel van de oplossing Log Management onder de tabel AzureDiagnostics opvragen in de blade zoeken in Logboeken in de portal of Advanced Analytics-ervaring als onderdeel van Log Analytics. Er zijn ook [verschillende oplossingen voor Azure-resources](../azure-monitor/insights/solutions.md) u kunt installeren als u onmiddellijk inzicht in de logboekgegevens die u wilt verzenden naar Log Analytics.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7f69659767d9e98c9cf6ddf283c66dde65c74a36
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345773"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706617"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob-opslag met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Deze Blob storage-connector ondersteunt name:
 
 - Kopiëren van blobs en naar Azure-opslagaccounts voor algemeen gebruik en warme/koude blob-opslag. 
 - Blobs kopiëren met behulp van de sleutel, service-handtekening voor gedeelde toegang, service-principal of beheerde identiteiten van Azure-resources-verificaties.
-- Kopiëren blobs uit blokken, toevoegen of pagina-blobs en kopiëren van gegevens naar alleen blok-blobs. Azure Premium Storage wordt niet ondersteund als een sink omdat deze wordt ondersteund door de pagina-blobs.
+- Kopiëren blobs uit blokken, toevoegen of pagina-blobs en kopiëren van gegevens naar alleen blok-blobs.
 - Blobs kopiëren of parseren of genereren van blobs met [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]

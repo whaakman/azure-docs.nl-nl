@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d6cbd2992968a57cfba99117e9f1fc1ab9b5b5b3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182838"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711834"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IoT DevKit AZ3166 verbinden met Azure IoT Hub
 
@@ -195,7 +195,7 @@ Nu zijn u klaar met het voorbereiden en configureren uw ontwikkelomgeving. Het '
 1. Klik in het nieuwe venster geopende project op `F1` openen het opdrachtenpalet, type en selecteer **IoT Workbench: Cloud**en selecteer vervolgens **Azure inrichten**. Volg de stapsgewijze handleiding voor het voltooien van de inrichting van uw Azure-IoT-Hub en het maken van het apparaat.
     ![Cloud inrichten](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. Klik op `F1` openen het opdrachtenpalet, type en selecteer **IoT Workbench: apparaat**en selecteer vervolgens **configuratie-instellingen voor apparaten > Selecteer IoT Hub apparaat Connection String**.
+1. Klikt u op `F1` openen het opdrachtenpalet, type en selecteer **IoT Workbench: apparaat**en selecteer vervolgens **Config apparaatinstellingen > Config Apparaatverbindingsreeks > Selecteer IoT Hub apparaat-verbindingsreeks**.
 
 1. Op DevKit, houdt u **een knop**, push en laat de **opnieuw** knop en loslaten **een knop**. Uw DevKit krijgt de configuratiemodus en slaat de verbindingsreeks.
     ![Verbindingsreeks](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)

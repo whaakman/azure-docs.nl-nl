@@ -35,7 +35,7 @@
 # Procedures
 ## Internetconnectiviteit
 ### [Netwerktaakverdeling op openbare servers](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Toepassingstaakverdeling op openbare servers](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Toepassingstaakverdeling op openbare servers](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Webtoepassingen beschermen](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Verkeer distribueren naar meerdere locaties](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Interne connectiviteit

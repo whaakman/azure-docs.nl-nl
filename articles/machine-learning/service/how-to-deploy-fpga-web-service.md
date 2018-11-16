@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/29/2018
-ms.openlocfilehash: 35b24dc2f21e2504432521c53e2d0f41caa0eeb7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344056"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711715"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning
 
@@ -22,7 +22,7 @@ U kunt een model implementeren als een webservice op [programmable gate arrays (
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
+- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://aka.ms/AMLfree) voordat u begint.
 
 - Een werkruimte van Azure Machine Learning-service en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
  

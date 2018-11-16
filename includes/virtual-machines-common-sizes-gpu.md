@@ -2,22 +2,22 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 10/23/2018
-ms.author: danlep;azcspmt;jonbeck
+ms.date: 11/14/2018
+ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4fde34338d5606a1f431ff4b7f7074d9cd472e90
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b6df4ada1aa13e20c7ad52d2b58cdf9c783f9e24
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035300"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716162"
 ---
 GPU-geoptimaliseerde VM-grootten zijn gespecialiseerde virtuele machines die beschikbaar zijn met één of meerdere NVIDIA GPU's. Deze grootten zijn ontworpen voor intensieve compute- en grafisch intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type van GPU's, vcpu's, gegevensschijven en NIC's. De doorvoer en netwerkbandbreedte Storage zijn ook opgenomen voor elke grootte in deze groepering. 
 
-* **NC, NCv2, NCv3 en ND** grootten zijn geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen en algoritmen. Enkele voorbeelden zijn CUDA - en opencl-toepassingen en simulaties, AI en Deep Learning. De NCv3-serie is gericht op high-performance computing-workloads met NVIDIA Tesla V100 GPU.  De ND-serie is gericht op trainings- en deductiescenario's voor deep learning. Deze serie maakt gebruikt van NVIDIA Tesla P40 GPU.
+* **NC, NCv2, NCv3, ND en NDv2** grootten zijn geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen en algoritmen. Enkele voorbeelden zijn CUDA - en opencl-toepassingen en simulaties, AI en Deep Learning. De NCv3-serie is gericht op high-performance computing-workloads met NVIDIA Tesla V100 GPU.  De ND-serie is gericht op trainings- en deductiescenario's voor deep learning. Deze serie maakt gebruikt van NVIDIA Tesla P40 GPU.
 * **NV en NVv2** grootten zijn geoptimaliseerd en ontworpen voor externe visualisatie, streaming, games, codering, en VDI-scenario's met behulp van frameworks als OpenGL en DirectX.  Deze VM's worden ondersteund door NVIDIA Tesla M60 GPU.
 
 
@@ -87,13 +87,33 @@ NCv3-serie VM's worden aangestuurd door [NVIDIA Tesla V100](http://www.nvidia.co
 
 *RDMA-compatibel
 
+## <a name="ndv2-series-preview"></a>NDv2-serie (Preview)
+
+
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+InfiniBand: Niet ondersteund
+
+
+NDv2-serie virtuele machine is een nieuwe toevoeging aan de GPU die is ontworpen voor de behoeften van de HPC-, AI- en machine learning-werkbelastingen. Deze serie wordt aangedreven door 8 onderling gekoppelde NVIDIA Tesla V100 NVLINK-GPU's en 40 Intel Skylake-kernen en een systeemgeheugen van 672 GiB. NDv2-exemplaren bieden uitstekende FP32- en FP64-prestaties voor HPC- en AI-workloads met behulp van Cuda, TensorFlow, Pytorch, Caffe en andere frameworks.
+
+[Meld u aan en krijg toegang tot deze machines tijdens de preview](https://aka.ms/ndv2signup).
+<br>
+
+
+| Grootte              | vCPU's | GPU              | Geheugen  | NIC's (max.) | Met maximaal Schijfgrootte           | Met maximaal gegevensschijven (1023 GB elk) | Maximale netwerkbandbreedte | 
+|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
+| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 giB | 8          | Tijdelijke 1344 / 2948XIO | 32    | 24.000 Mbps             | 
+
 ## <a name="nd-series"></a>ND-serie
 
 Premium Storage: ondersteund
 
 Caching van Premium Storage: ondersteund
 
-De ND-serie virtuele machines zijn een nieuwe toevoeging aan de GPU die is ontworpen voor Deep Learning- en AI-workloads. Ze bieden uitstekende prestaties voor training en Deductie. ND-exemplaren worden aangestuurd door [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU's. Deze instanties bieden uitstekende prestaties voor enkele precisie zwevende drijvende-kommaberekeningen, voor AI-workloads met Microsoft Cognitive Toolkit, TensorFlow, Caffe en andere frameworks. De ND-serie biedt daarnaast een veel groter GPU-geheugen (24 GB), waardoor het mogelijk is om veel grotere modellen met een neuraal netwerk in te zetten. Net als de NC-serie, de ND-serie biedt een configuratie met een secundair netwerk met lage latentie en hoge doorvoersnelheid via RDMA en InfiniBand-connectiviteit, zodat u grootschalige trainingstaken waarvoor veel GPU's kunt uitvoeren.
+De ND-serie virtuele machines zijn een nieuwe toevoeging aan de GPU-serie die is ontworpen voor AI- en Deep Learning werkbelastingen. Ze bieden uitstekende prestaties voor training en Deductie. ND-exemplaren worden aangestuurd door [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU's. Deze instanties bieden uitstekende prestaties voor enkele precisie zwevende drijvende-kommaberekeningen, voor AI-workloads met Microsoft Cognitive Toolkit, TensorFlow, Caffe en andere frameworks. De ND-serie biedt daarnaast een veel groter GPU-geheugen (24 GB), waardoor het mogelijk is om veel grotere modellen met een neuraal netwerk in te zetten. Net als de NC-serie, de ND-serie biedt een configuratie met een secundair netwerk met lage latentie en hoge doorvoersnelheid via RDMA en InfiniBand-connectiviteit, zodat u grootschalige trainingstaken waarvoor veel GPU's kunt uitvoeren.
 
 > [!IMPORTANT]
 > Voor deze serie grootte van is de vCPU (kern) quotum per regio in uw abonnement in eerste instantie ingesteld op 0. [Een vCPU-quotum verhoging](../articles/azure-supportability/resource-manager-core-quotas-request.md) voor deze serie in een [beschikbare regio](https://azure.microsoft.com/regions/services/).

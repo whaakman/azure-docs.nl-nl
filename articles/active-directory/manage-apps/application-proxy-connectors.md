@@ -2,25 +2,21 @@
 title: Meer informatie over Azure AD Application Proxy connectors | Microsoft Docs
 description: Bevat informatie over de basisbeginselen van Azure AD Application Proxy connectors.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 66fb98c166c8a0f4cec9f3b7e7be73fce6466b50
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036034"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713109"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -32,7 +28,23 @@ Connectors zijn lichtgewicht agents die zich on-premises en de uitgaande verbind
 
 ## <a name="requirements-and-deployment"></a>Vereisten en implementatie
 
-Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeren op een Windows Server 2012 R2 of 2016-machine. De connector moet kunnen communiceren met de service voor toepassingsproxy, evenals de on-premises toepassingen die u publiceert. Application Proxy vereist ook TLS 1.2 op het onderliggende besturingssysteem uitgevoerd. Als u wilt wijzigen in TLS 1.2, volg de stappen in [inschakelen TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Hoewel de inhoud voor Azure AD Connect, wordt deze procedure is hetzelfde voor alle .NET-clients.
+Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeren op een Windows Server 2012 R2 of 2016-machine. De connector moet kunnen communiceren met de service voor toepassingsproxy, evenals de on-premises toepassingen die u publiceert. 
+
+### <a name="windows-server"></a>Windows server
+U moet een server met Windows Server 2012 R2 of hoger waarop kunt u de Application Proxy-connector installeren. De server moet verbinding maken met de services voor toepassingsproxy in Azure en de on-premises toepassingen die u publiceert.
+
+De windows-server moet TLS 1.2 is ingeschakeld voordat u de Application Proxy-connector installeert. Bestaande connectors met een versie lager dan 1.5.612.0 blijven werken in eerdere versies van TLS tot nader order van kracht. TLS 1.2 inschakelen:
+
+1. De volgende registersleutels instellen:
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. De server opnieuw opstarten
+
 
 Zie voor meer informatie over de netwerkvereisten voor de connectorserver, [aan de slag met Application Proxy en installeren van een connector](application-proxy-enable.md).
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a881ea18558e49656dc165d1545250bffeac4303
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006495"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713075"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -163,19 +163,19 @@ Gebruik de volgende stappen om het volume van de logboeken die worden verzameld 
 | Gebeurtenislogboeken                 | Wijzig [Configuratie van gebeurtenislogboek](log-analytics-data-sources-windows-events.md) in: <br> - Aantal verzamelde gebeurtenislogboeken beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*niveau niet verzamelen |
 | Syslog                     | Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md) in: <br> - Aantal verzamelde installaties beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*- en *foutopsporings*niveau niet verzamelen |
 | AzureDiagnostics           | Wijzig de resourcelogboekverzameling om: <br> - Het aantal resources dat logboeken naar Log Analytics verzendt te verkleinen <br> - Alleen vereiste logboeken te verzamelen |
-| Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../monitoring/monitoring-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
+| Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Controleren of er meer knooppunten zijn dan verwacht
 Als u van gebruikmaakt de *per knooppunt (Log Analytics)* prijscategorie, worden de kosten berekend op basis van het aantal knooppunten en oplossingen die u gebruikt. In de sectie *Aanbiedingen* van het dashboard met gebruiksgegevens kunt u zien hoeveel knooppunten van elke aanbieding er worden gebruikt.<br><br> ![gebruiksdashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Klik op **Alles weergeven...**  om de volledige lijst met computers die gegevens verzenden voor het geselecteerde pakket weer te geven.
 
-Gebruik [oplossingstargeting](../monitoring/monitoring-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
+Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-queries.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
 * Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../monitoring-and-diagnostics/alert-metric.md) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan.
-* Gebruik [oplossingstargeting](../monitoring/monitoring-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
+* Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 * Lees [Filterbeleid van Azure Security Center](../security-center/security-center-enable-data-collection.md) om een effectief beleid voor het verzamelen van beveiligingsgebeurtenissen te configureren.
 * Wijzig de [prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md).
 * Bekijk de [configuratie van gebeurtenislogboek](log-analytics-data-sources-windows-events.md) om de instellingen voor het verzamelen van gebeurtenissen te wijzigen.

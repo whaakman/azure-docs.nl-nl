@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 82f55c87c54fa5197a2bd5c24ea3863da1700c7b
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579704"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705375"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in oktober 2018.
@@ -32,7 +32,7 @@ Geavanceerde afstemmen voor Azure SQL Data Warehouse (SQL DW) net is eenvoudiger
 2.  Tabeldistributie – bepalen wanneer u voor het repliceren van tabellen waarmee verplaatsing van gegevens en de prestaties van de werkbelastingen verhoogd. 
 3.  TempDB-begrijpen wanneer schalen en configureren van de resource-klassen te tempdb-conflicten te verminderen.
 
-Er is een diepere integratie van datawarehouse-metrieken met [Azure Monitor](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) met inbegrip van een verbeterde aanpasbare controle grafiek voor bijna realtime metrische gegevens in de overzichtsblade. Niet meer moet u de blade datawarehouse-overzicht voor toegang tot Azure Monitor metrics wanneer het bewaken van gebruik, of valideren en toepassen van aanbevelingen voor datawarehouse laten. Er zijn bovendien nieuwe metrische gegevens beschikbaar zijn, zoals tempdb en adaptieve cache gebruik als aanvulling op uw aanbevelingen voor prestaties.
+Er is een diepere integratie van datawarehouse-metrieken met [Azure Monitor](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) met inbegrip van een verbeterde aanpasbare controle grafiek voor bijna realtime metrische gegevens in de overzichtsblade. Wanneer u het verbruik wilt controleren of aanbevelingen voor het datawarehouse wilt valideren en toepassen, hoeft u de overzichtsblade van het datawarehouse niet langer te verlaten voor toegang tot metrische gegevens van Azure Monitor. Er zijn bovendien nieuwe metrische gegevens beschikbaar zijn, zoals tempdb en adaptieve cache gebruik als aanvulling op uw aanbevelingen voor prestaties.
 
 ## <a name="advanced-tuning-with-integrated-advisors"></a>Geavanceerde afstemmen met geïntegreerde adviseurs
 Geavanceerde afstemmen voor Azure SQL Data Warehouse (SQL DW) net is eenvoudiger met aanbevelingen voor het datawarehouse van aanvullende gegevens en metrische gegevens en een nieuw ontwerp van de blade overzicht van portal een geïntegreerde ervaring met Azure Advisor en Azure Monitor biedt.
@@ -41,7 +41,7 @@ Geavanceerde afstemmen voor Azure SQL Data Warehouse (SQL DW) net is eenvoudiger
 Azure SQL Data Warehouse versnelde Database Recovery (ADR) is nu in openbare Preview. ADR is een nieuwe versie van SQL Server Engine waarmee de beschikbaarheid van de database, met name in de aanwezigheid van langlopende transacties, aanzienlijk verbeterd door het huidige herstelproces vanaf het begin volledig opnieuw te ontwerpen van. De belangrijkste voordelen van ADR zijn snel en consistent databaseherstel en onmiddellijk transactie wordt teruggedraaid.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Diagnostische logboeken van Azure Monitor
-SQL Data Warehouse (SQL DW) kunnen nu uitgebreid inzicht in analytische werkbelastingen door te integreren met Azure Monitor diagnostische logboeken rechtstreeks. Deze nieuwe functionaliteit kan ontwikkelaars werkbelasting gedrag gedurende een langere periode te analyseren en geïnformeerde beslissingen op query-optimalisatie of capaciteit management. We hebben nu een proces externe logboekregistratie via geïntroduceerd [diagnostische logboeken van Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) waarmee u meer inzicht in uw datawarehouse-workload. Met één klik een knop te klikken, kunt u zich nu configureren diagnostische logboeken voor historische queryprestaties met behulp van mogelijkheden voor probleemoplossing [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Diagnostische logboeken in Azure Monitor ondersteuning van aanpasbare bewaarperioden door op te slaan van de logboeken naar een opslagaccount voor controledoeleinden, de mogelijkheid voor het Logboeken streamen naar eventhubs in de buurt van real-time telemetrie, inzichten, en de mogelijkheid om met behulp van Log Analytics-logboekbestanden analyseren met [query's bijgehouden](). Logboeken met diagnostische gegevens bestaan uit de weergaven van de telemetrie van uw datawarehouse gelijk is aan de meest gebruikte prestaties DMV's voor probleemoplossing voor SQL Data Warehouse. Voor deze eerste release is voorzien van weergaven voor de volgende dynamische beheerweergaven van systeem:
+SQL Data Warehouse (SQL DW) kunnen nu uitgebreid inzicht in analytische werkbelastingen door te integreren met Azure Monitor diagnostische logboeken rechtstreeks. Deze nieuwe functionaliteit kan ontwikkelaars werkbelasting gedrag gedurende een langere periode te analyseren en geïnformeerde beslissingen op query-optimalisatie of capaciteit management. We hebben nu een proces externe logboekregistratie via geïntroduceerd [diagnostische logboeken van Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) waarmee u meer inzicht in uw datawarehouse-workload. Met één klik een knop te klikken, kunt u zich nu configureren diagnostische logboeken voor historische queryprestaties met behulp van mogelijkheden voor probleemoplossing [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Diagnostische logboeken in Azure Monitor ondersteuning van aanpasbare bewaarperioden door op te slaan van de logboeken naar een opslagaccount voor controledoeleinden, de mogelijkheid voor het Logboeken streamen naar eventhubs in de buurt van real-time telemetrie, inzichten, en de mogelijkheid om met behulp van Log Analytics-logboekbestanden analyseren met [query's bijgehouden](). Een diagnostisch logboek bestaat uit telemetrische weergaven van uw datawarehouse, vergelijkbaar met de meestgebruikte DMV’s voor het oplossen van prestatieproblemen voor SQL Data Warehouse. Voor deze eerste release is voorzien van weergaven voor de volgende dynamische beheerweergaven van systeem:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)
@@ -49,11 +49,8 @@ SQL Data Warehouse (SQL DW) kunnen nu uitgebreid inzicht in analytische werkbela
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## <a name="instant-data-movement"></a>Directe gegevensverplaatsing 
-Naast Shuffle, worden direct verplaatsing van gegevens nu uitgebreid om te zenden en Maak partities voor verplaatsen.
-
-## <a name="scale-up-column-store-columnstore-metadata-memory-management-sql-server"></a>Schaal omhoog kolom Store: Columnstore metagegevens geheugenbeheer (SQL Server)
-Geoptimaliseerd geheugenbeheer voor metagegevens voor kolom opslaan 
+## <a name="columnstore-memory-management"></a>Beheer van de Columnstore-geheugen
+Als het aantal gecomprimeerde kolom store Rijgroepen toeneemt, neemt het geheugen die nodig is voor het beheren van de metagegevens van het segment interne kolom voor deze Rijgroepen.  Als gevolg hiervan, de prestaties van query's en query's uitgevoerd op een aantal Columnstore dynamische beheerweergaven (DMV's) kunnen verslechteren.  Verbeteringen aangebracht in deze release de grootte van de interne metagegevens voor deze gevallen leidt tot verbeterde ervaring en prestaties voor dergelijke query's optimaliseren. 
 
 ## <a name="azure-data-lake-storage-gen2-integration-ga"></a>Integratie van Azure Data Lake Storage Gen2 (GA)
 Azure SQL Data Warehouse (SQL DW) heeft nu de systeemeigen integratie met Azure Data Lake Storage Gen2. Klanten kunnen nu laden van gegevens met behulp van externe tabellen uit ABFS in SQL DW. Deze functionaliteit kan klanten om te integreren in hun datalakes in Data Lake Storage Gen2. 

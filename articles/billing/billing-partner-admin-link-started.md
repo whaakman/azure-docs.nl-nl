@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 13748bf23ee70bfa77e15e7112b450637a231742
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686991"
+ms.locfileid: "51710712"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>De partner-ID koppelen aan uw Azure-accounts
 
@@ -124,7 +124,7 @@ Deelnemen aan de discussie de [Microsoft-Partner-Community](https://aka.ms/PALdi
 
 **Wie kan de partner-ID koppelen?**
 
-Gebruikers van de partnerorganisatie die wordt beheerd door de klant-resource kan de partner-ID koppelen aan het account.
+Gebruikers van de partnerorganisatie die van de klant Azure-resources beheert, kunt de partner-ID koppelen aan het account.
 
 **Nadat een partner-ID is gekoppeld kan het worden gewijzigd?**
 

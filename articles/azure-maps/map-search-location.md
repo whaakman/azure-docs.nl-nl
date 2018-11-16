@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 78ffa42bcf57b7163afc13b2550abdbae240ef00
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cf27864d691fe2fe13c9483348fb2abed121874d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729227"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713500"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoekresultaten weergeven op de kaart
 
@@ -31,7 +31,7 @@ Het eerste vereiste blok van code vormt een kaartobject en de clientservice word
 
 Het tweede blok van code gebruikt de [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar nuttige plaats. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken. Het antwoord van de service fuzzy zoeken wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) methode. De pincodes worden vervolgens toegevoegd aan de kaart om de punten van belang zijn op de kaart weer te geven.
 
-Het laatste blok van code Hiermee past u de grenzen van de camera voor de kaart met behulp van de kaart [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) eigenschap.
+Het laatste blok van code Hiermee past u de grenzen van de camera voor de kaart met behulp van de kaart [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) eigenschap.
 
 ## <a name="make-a-search-request-via-xmlhttprequest"></a>Een aanvraag zoeken via XMLHttpRequest
 
@@ -44,7 +44,7 @@ Het tweede codeblok wordt search resultaten laag toegevoegd aan de kaart. De laa
 
 Het derde blok van code verzendt een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar het punt van belang zijn. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken.
 
-Het laatste blok van code parseert het antwoord en past u de Hiermee past u de grenzen van de camera voor de kaart met behulp van de kaart [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) om de pins resultaat weer te geven.
+Het laatste blok van code parseert het antwoord en past u de Hiermee past u de grenzen van de camera voor de kaart met behulp van de kaart [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) om de pins resultaat weer te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -62,6 +62,6 @@ Zie de volgende artikelen voor volledige codevoorbeelden:
 
 > [!div class="nextstepaction"]
 > [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
-
+<!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
 > [Routebeschrijving van A naar B](./map-route.md)

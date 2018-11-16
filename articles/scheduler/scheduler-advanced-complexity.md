@@ -9,18 +9,18 @@ ms.reviewer: klam
 ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/14/2018
+ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980937"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712055"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Bouw geavanceerde schema's en herhalingen voor taken in Azure Scheduler
 
 > [!IMPORTANT]
-> [Met Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, is buiten gebruik gesteld. Voor het plannen van taken, [Azure Logic Apps in plaats daarvan probeert](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, dat buiten gebruik wordt gesteld. [Probeer in plaats daarvan Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) als u taken wilt plannen. 
 
 Binnen een [Azure Scheduler](../scheduler/scheduler-intro.md) taak, de planning is het kern-waarmee wordt bepaald hoe en wanneer de taak wordt uitgevoerd door de Scheduler-service. U kunt meerdere eenmalige en terugkerende schema's voor een taak instellen met Scheduler. Eenmalige planning slechts één keer worden uitgevoerd op een bepaald tijdstip en zijn in feite terugkerende schema's die slechts één keer uitgevoerd. Terugkerende schema's worden uitgevoerd op een opgegeven frequentie. Met deze flexibiliteit, kunt u Taakplanner gebruiken voor verschillende bedrijfsscenario's, bijvoorbeeld:
 
@@ -32,7 +32,7 @@ Binnen een [Azure Scheduler](../scheduler/scheduler-intro.md) taak, de planning 
 
 * **Afbeeldingen verwerken**: maken van een weekdag-taak die wordt uitgevoerd tijdens de daluren en maakt gebruik van cloudcomputing voor het comprimeren van afbeeldingen geüpload gedurende de dag.
 
-Dit artikel wordt beschreven voorbeeld van de taken die u maken kunt met behulp van Scheduler en en de [Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule), en bevat de definitie van de JavaScript Object Notation (JSON) voor elke planning. 
+Dit artikel wordt beschreven voorbeeld van de taken die u maken kunt met behulp van Scheduler en de [Azure Scheduler REST API](/rest/api/scheduler), en bevat de definitie van de JavaScript Object Notation (JSON) voor elke planning. 
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
 
@@ -43,7 +43,7 @@ Deze voorbeelden van het bereik van scenario's die ondersteuning biedt voor Azur
 * Direct uitvoeren en herhaald.
 * Uitvoeren en herhalen elke *n* minuten, uren, dagen, weken of maanden, vanaf een bepaald tijdstip.
 * Voer en herhaald wekelijks of maandelijks, maar alleen op bepaalde dagen van de week of op bepaalde dagen van de maand.
-* Voer en herhaald meerdere keren voor een bepaalde periode. Bijvoorbeeld, elke maand op de laatste vrijdag en maandag, of elke dag om 5:15 uur en 17:15 uur.
+* Voer en meer dan één keer herhaald voor een bepaalde periode. Bijvoorbeeld, elke maand op de laatste vrijdag en maandag, of elke dag om 5:15 uur en 17:15 uur.
 
 Dit artikel beschrijft later deze scenario's in meer detail.
 
@@ -51,7 +51,7 @@ Dit artikel beschrijft later deze scenario's in meer detail.
 
 ## <a name="create-schedule-with-rest-api"></a>Schema maken met REST-API
 
-Het maken van een eenvoudige planning met de [Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule), als volgt te werk:
+Het maken van een eenvoudige planning met de [Azure Scheduler REST API](/rest/api/scheduler), als volgt te werk:
 
 1. Uw Azure-abonnement met een resourceprovider registreren met behulp van de [bewerking - Resource Manager REST-API registreren](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). De naam van de provider voor de Azure Scheduler-service is **Microsoft.Scheduler**. 
 
@@ -68,9 +68,9 @@ Deze tabel bevat een overzicht op hoog niveau voor de belangrijkste JSON-element
 | **startTime** | Nee | Een datum/tijd-tekenreeks-waarde in [ISO 8601-notatie](http://en.wikipedia.org/wiki/ISO_8601) die aangeeft wanneer de taak eerst wordt gestart in een eenvoudige planning. <p>In complexe planningen begint de taak niet eerder dan **startTime**. | 
 | **recurrence** | Nee | Het terugkeerpatroon van de regels voor wanneer de taak wordt uitgevoerd. De **terugkeerpatroon** object ondersteunt deze elementen: **frequentie**, **interval**, **planning**, **aantal**, en **endTime**. <p>Als u de **terugkeerpatroon** -element, moet u ook gebruiken de **frequentie** -element, terwijl andere **terugkeerpatroon** elementen zijn optioneel. |
 | **frequency** | Ja, wanneer u **terugkeerpatroon** | De tijdseenheid tussen exemplaren en ondersteuning biedt voor deze waarden: 'Minuut', 'Uur', 'Dag', 'Week', 'Month' en 'Year' | 
-| **interval** | Nee | Een positief geheel getal dat het aantal tijdseenheden tussen exemplaren bepaalt op basis van **frequentie**. <p>Bijvoorbeeld, als **interval** is 10 en **frequentie** ' week ', de taak elke 10 weken uitgevoerd. <p>Hier vindt u het maximum aantal intervallen voor elke frequentie: <p>-18 maanden <br>-78 weken <br>-548 dagen <br>-Voor uren en minuten, het bereik is 1 < = <*interval*>< = 1000. | 
+| **interval** | Nee | Een positief geheel getal dat het aantal tijdseenheden tussen exemplaren bepaalt op basis van **frequentie**. <p>Bijvoorbeeld, als **interval** is 10 en **frequentie** ' week ', de taak elke 10 weken uitgevoerd. <p>Hier is het hoogste aantal intervallen voor elke frequentie: <p>-18 maanden <br>-78 weken <br>-548 dagen <br>-Voor uren en minuten, het bereik is 1 < = <*interval*>< = 1000. | 
 | **schedule** | Nee | Wijzigingen definieert voor het terugkeerpatroon op basis van de opgegeven minuut-merken uur-markeringen, dagen van de week en dagen van de maand | 
-| **Aantal** | Nee | Een positief geheel getal waarmee het aantal keren dat de taak wordt uitgevoerd voordat u klaar bent. <p>Bijvoorbeeld, wanneer een dagelijkse taak heeft **aantal** ingesteld op 7 en de begindatum is maandag, de taak is uitgevoerd op zondag. Als de begindatum al is gepasseerd, wordt de eerste keer uitvoert berekend vanaf het moment dat het maken. <p>Zonder **endTime** of **aantal**, de taak oneindig wordt uitgevoerd. U kunt de beide gebruiken **aantal** en **endTime** in dezelfde taak, maar de regel die klaar is met het eerst wordt herkend. | 
+| **count** | Nee | Een positief geheel getal waarmee het aantal keren dat de taak wordt uitgevoerd voordat u klaar bent. <p>Bijvoorbeeld, wanneer een dagelijkse taak heeft **aantal** ingesteld op 7 en de begindatum is maandag, de taak is uitgevoerd op zondag. Als de begindatum al is gepasseerd, wordt de eerste keer uitvoert berekend vanaf het moment dat het maken. <p>Zonder **endTime** of **aantal**, de taak oneindig wordt uitgevoerd. U kunt de beide gebruiken **aantal** en **endTime** in dezelfde taak, maar de regel die klaar is met het eerst wordt herkend. | 
 | **endTime** | Nee | De waarde voor een datum of datum/tijd-tekenreeks in [ISO 8601-notatie](http://en.wikipedia.org/wiki/ISO_8601) die aangeeft wanneer de taak stopt uitgevoerd. U kunt een waarde instellen voor **endTime** die zich in het verleden. <p>Zonder **endTime** of **aantal**, de taak oneindig wordt uitgevoerd. U kunt de beide gebruiken **aantal** en **endTime** in dezelfde taak, maar de regel die klaar is met het eerst wordt herkend. |
 |||| 
 
@@ -108,9 +108,9 @@ Deze tabel wordt beschreven hoe **startTime** bepaalt de manier waarop een taak 
 
 | startTime | Er is geen terugkeerpatroon | Er is geen schema terugkeerpatroon | Recurrence met schedule |
 |-----------|---------------|-------------------------|--------------------------|
-| **Er is geen begintijd** | Eenmaal direct uitvoeren. | Eenmaal direct uitvoeren. Voer de volgende uitvoeringen berekend op basis van de laatste uitvoertijd. | Eenmaal direct uitvoeren. Volgende uitvoeringen worden op basis van een terugkerend schema uitgevoerd. | 
-| **Begintijd in het verleden** | Eenmaal direct uitvoeren. | Berekenen van de eerste toekomstige tijd na de begintijd uitgevoerd en op dat moment worden uitgevoerd. <p>Voer de volgende uitvoeringen berekend op basis van de laatste uitvoertijd. <p>Zie het voorbeeld na deze tabel. | Taak starten *nooit* de opgegeven begintijd uitgevoerd. De eerste uitvoering is gebaseerd op de planning die wordt berekend op basis van de starttijd. <p>Volgende uitvoeringen worden op basis van een terugkerend schema uitgevoerd. | 
-| **Begintijd in de toekomst of de huidige tijd** | Voer één keer op de opgegeven begintijd uitgevoerd. | Voer één keer op de opgegeven begintijd uitgevoerd. <p>Voer de volgende uitvoeringen berekend op basis van de laatste uitvoertijd. | Taak starten *nooit* de opgegeven begintijd uitgevoerd. De eerste uitvoering is gebaseerd op de planning die wordt berekend op basis van de starttijd. <p>Volgende uitvoeringen worden op basis van een terugkerend schema uitgevoerd. |
+| **Er is geen begintijd** | Eenmaal direct uitvoeren. | Eenmaal direct uitvoeren. Later uitvoeringen worden berekend op basis van de laatste uitvoertijd uitgevoerd. | Eenmaal direct uitvoeren. Later uitvoeringen worden op basis van een terugkerend schema uitgevoerd. | 
+| **Begintijd in het verleden** | Eenmaal direct uitvoeren. | Berekenen van de eerste toekomstige tijd na de begintijd uitgevoerd en op dat moment worden uitgevoerd. <p>Later uitvoeringen worden berekend op basis van de laatste uitvoertijd uitgevoerd. <p>Zie het voorbeeld na deze tabel. | Taak starten *nooit* de opgegeven begintijd uitgevoerd. De eerste uitvoering is gebaseerd op de planning die wordt berekend op basis van de starttijd. <p>Later uitvoeringen worden op basis van een terugkerend schema uitgevoerd. | 
+| **Begintijd in de toekomst of de huidige tijd** | Voer één keer op de opgegeven begintijd uitgevoerd. | Voer één keer op de opgegeven begintijd uitgevoerd. <p>Later uitvoeringen worden berekend op basis van de laatste uitvoertijd uitgevoerd. | Taak starten *nooit* de opgegeven begintijd uitgevoerd. De eerste uitvoering is gebaseerd op de planning die wordt berekend op basis van de starttijd. <p>Later uitvoeringen worden op basis van een terugkerend schema uitgevoerd. |
 ||||| 
 
 Stel dat u in dit voorbeeld met deze voorwaarden: een begintijd in het verleden ligt een recurrence, maar geen Schedule is opgegeven.
@@ -125,18 +125,18 @@ Stel dat u in dit voorbeeld met deze voorwaarden: een begintijd in het verleden 
 }
 ```
 
-* De huidige datum en tijd ' 2015-04-08 13:00 ".
+* De huidige datum en tijd loopt 08 April 2015 13:00 uur.
 
-* De begindatum en-tijd ' 2015-04-07 14:00 ", die zich voor de huidige datum en tijd.
+* De begindatum en -tijd is 07 April 2015 om 14:00 uur, die voor de huidige datum en tijd.
 
 * Het terugkeerpatroon is elke twee dagen.
 
-1. In deze omstandigheden vindt plaats de eerste uitvoering op 2015-04-09 om 14:00 uur. 
+1. In deze omstandigheden vindt plaats de eerste uitvoering op 14:00 uur op 09 April 2015. 
 
    Scheduler wordt berekend voor de uitvoering van-exemplaren op basis van de begintijd, verwijdert alle exemplaren in het verleden en gebruikt de eerstvolgende uitvoering in de toekomst. 
-   In dit geval **startTime** is in 2015-04-07 om 14:00 uur, waardoor de volgende uitvoering twee dagen vanaf dat moment 2015-04-09 om 14:00 uur is.
+   In dit geval **startTime** is 07 April 2015 om 14:00 uur, waardoor de volgende uitvoering twee dagen vanaf dat moment is er 09 April 2015 om 14:00 uur.
 
-   De eerste uitvoering is hetzelfde of **startTime** is 2015-04-05 14:00 of 2015-04-01 14:00. Na de eerste uitvoering worden volgende uitvoeringen berekend op basis van de planning. 
+   De eerste uitvoering is hetzelfde of **startTime** is 2015-04-05 14:00 of 2015-04-01 14:00. Na de eerste uitvoering worden later uitvoeringen berekend op basis van de planning. 
    
 1. De uitvoeringen Volg vervolgens in de aangegeven volgorde: 
    
@@ -151,11 +151,11 @@ Stel dat u in dit voorbeeld met deze voorwaarden: een begintijd in het verleden 
 
 ## <a name="details-schedule"></a>Details: planning
 
-U kunt gebruiken **planning** naar *limiet* het nummer van taakuitvoeringen. Bijvoorbeeld, als een taak met een **frequentie** van 'maand' heeft een planning die wordt uitgevoerd op dag 31, wordt de taak alleen uitgevoerd in maanden die een dertig op de eerste dag hebben.
+U kunt gebruiken **planning** naar *limiet* het nummer van taakuitvoeringen. Bijvoorbeeld, als een taak met een **frequentie** van 'maand' heeft een planning die wordt uitgevoerd op dag 31, wordt de taak alleen uitgevoerd in maanden die een 31e dag hebben.
 
 U kunt ook **planning** naar *Vouw* het aantal taakuitvoeringen. Bijvoorbeeld, als een taak met een **frequentie** van 'maand' is een schema dat wordt uitgevoerd op de maanddagen 1 en 2, de taak wordt uitgevoerd op de eerste en tweede dag van de maand in plaats van slechts één keer per maand.
 
-Als u meerdere schedule-elementen opgeeft, wordt de volgorde van de evaluatie is van de grootste naar kleinste: weeknummer, maand, weekdag, uur en minuut.
+Als u meer dan één schema-element worden opgegeven, de volgorde van de evaluatie is van de grootste naar kleinste: weeknummer, maand, weekdag, uur en minuut.
 
 In de volgende tabel worden de schedule-elementen in detail beschreven:
 
@@ -180,8 +180,8 @@ Deze schema's wordt ervan uitgegaan dat **interval** is ingesteld op 1\. De voor
 | `{"minutes":[15], "hours":[5,17]}` |Wordt elke dag om 05:15 en 17:15 uur uitgevoerd. |
 | `{"minutes":[15,45], "hours":[5,17]}` |Wordt elke dag om 05:15, 5:45, 17:15 en 17:45 uur uitgevoerd. |
 | `{"minutes":[0,15,30,45]}` |Wordt elke 15 minuten uitgevoerd. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Wordt elk uur uitgevoerd.<br /><br />Deze taak wordt elk uur uitgevoerd. De minuut wordt bepaald door de waarde voor **startTime**, als deze is opgegeven. Als er geen **startTime** waarde is opgegeven, de minuut wordt bepaald door de aanmaaktijd. Bijvoorbeeld, als de starttijd of Aanmaaktijd (afhankelijk van wat van toepassing) 12:25 uur is, de taak wordt uitgevoerd om 00:25, 01:25, 02:25,..., 23:25.<br /><br />Het schema is gelijkwaardig met een taak met een **frequentie** 'uur', een **interval** van 1 en geen **planning** waarde. Het verschil is dat u dit schema met andere gebruiken kunt **frequentie** en **interval** waarden om te maken van andere taken. Bijvoorbeeld, als **frequentie** 'maand', de planning wordt uitgevoerd is slechts eenmaal per maand in plaats van elke dag (als **frequentie** ' dag '). |
-| `{minutes:[0]}` |Wordt elk uur op het hele uur uitgevoerd.<br /><br />Deze taak ook elk uur uitgevoerd, maar op het hele uur (12 AM, 1 uur, 2 uur, enzovoort). Dit is gelijk aan een taak met een **frequentie** 'uur', een **startTime** nul minuten, en geen waarde **planning**, als de frequentie 'dag'. Echter, als de **frequentie** is 'week' of 'maand', het schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Wordt elk uur uitgevoerd.<br /><br />Deze taak wordt elk uur uitgevoerd. De minuut wordt bepaald door de waarde voor **startTime**, als deze is opgegeven. Als er geen **startTime** waarde is opgegeven, de minuut wordt bepaald door de aanmaaktijd. Bijvoorbeeld, als de starttijd of Aanmaaktijd (afhankelijk van wat van toepassing) 12:25 uur is, de taak wordt uitgevoerd om 00:25, 01:25, 02:25,..., 23:25.<br /><br />Het schema is hetzelfde als een taak met een **frequentie** 'uur', een **interval** van 1 en geen **planning** waarde. Het verschil is dat u dit schema met andere gebruiken kunt **frequentie** en **interval** waarden om te maken van andere taken. Bijvoorbeeld, als **frequentie** 'maand', de planning wordt uitgevoerd is slechts eenmaal per maand in plaats van elke dag (als **frequentie** ' dag '). |
+| `{minutes:[0]}` |Wordt elk uur op het hele uur uitgevoerd.<br /><br />Deze taak ook elk uur uitgevoerd, maar op het hele uur (12 AM, 1 uur, 2 uur, enzovoort). Dit schema is hetzelfde als een taak met een **frequentie** 'uur', een **startTime** nul minuten, en geen waarde **planning**, als de frequentie 'dag'. Echter, als de **frequentie** is 'week' of 'maand', het schema respectievelijk slechts één dag per week of één dag per maand uitgevoerd. |
 | `{"minutes":[15]}` |Om de 15 minuten na het uur elk uur uitgevoerd.<br /><br />Elk uur uitgevoerd, beginnen om 00:15 uur, 1:15 uur, 2:15 uur, enzovoort. Deze eindigt om 23:15 uur. |
 | `{"hours":[17], "weekDays":["saturday"]}` |Elke week om 17: 00 uur op zaterdag uitgevoerd. |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Elke week om 17: 00 uur op maandag, woensdag en vrijdag uitgevoerd. |
@@ -192,11 +192,11 @@ Deze schema's wordt ervan uitgegaan dat **interval** is ingesteld op 1\. De voor
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Elke 15 minuten uitgevoerd op weekdagen tussen 9: 00 en 16:45 uur. |
 | `{"weekDays":["sunday"]}` |Wordt op zondag om begintijd uitgevoerd. |
 | `{"weekDays":["tuesday", "thursday"]}` |Uitgevoerd op dinsdag en donderdag om begintijd. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Uitgevoerd om 06.00 op de dag 28 van elke maand (ervan uitgaande dat het een **frequentie** van 'maand'). |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Op dag 28 van elke maand om 6 uur worden uitgevoerd (ervan uitgaande dat het een **frequentie** van 'maand'). |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Uitgevoerd om 06.00 op de laatste dag van de maand.<br /><br />Als u een taak uitvoeren op de laatste dag van een maand wilt, gebruik dan -1 in plaats van dag 28, 29, 30 of 31. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Voer op de eerste en laatste dag van elke maand om 6 uur. |
 | `{monthDays":[1,-1]}` |Voer op de eerste en laatste dag van elke maand op de begintijd. |
-| `{monthDays":[1,14]}` |Voer op de eerste en veertiende dag van elke maand op de begintijd. |
+| `{monthDays":[1,14]}` |Voer op de eerste en 14 dag van elke maand op de begintijd. |
 | `{monthDays":[2]}` |Voer op de tweede dag van de maand op begintijd. |
 | `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Voer op de eerste vrijdag van elke maand om 05: 00. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Voer op de eerste vrijdag van elke maand op de begintijd. |

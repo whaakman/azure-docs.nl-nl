@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 87ca7c10095f12c82137b6287fbb895c97676062
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49459041"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706718"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database Managed Instance met Azure Data Factory
 
@@ -115,7 +115,7 @@ Om gegevens te kopiëren van/naar Azure SQL Database Managed Instance, stel de e
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **SqlServerTable** | Ja |
-| tableName |De naam van de tabel of weergave in de database-instantie waarnaar de gekoppelde service verwijst. | Ja |
+| tableName |De naam van de tabel of weergave in de database-instantie waarnaar de gekoppelde service verwijst. | Nee voor bron, Ja voor sink |
 
 **Voorbeeld**
 
@@ -155,7 +155,6 @@ Om gegevens te kopiëren van Azure SQL Database Managed Instance, stelt u het br
 
 - Als de **sqlReaderQuery** is opgegeven voor de SqlSource de Kopieeractiviteit deze query wordt uitgevoerd op basis van de bron beheerd exemplaar van de gegevens op te halen. U kunt ook een opgeslagen procedure opgeven door op te geven de **sqlReaderStoredProcedureName** en **storedProcedureParameters** (als de opgeslagen procedure parameters zijn vereist).
 - Als u niet de eigenschap 'sqlReaderQuery' of 'sqlReaderStoredProcedureName' opgeeft, de kolommen die zijn gedefinieerd in de sectie "structuur" van de gegevensset JSON worden gebruikt om een query samen te stellen (`select column1, column2 from mytable`) op het beheerde exemplaar uit te voeren. Als de definitie van de gegevensset geen 'de structuur', worden alle kolommen uit de tabel geselecteerd.
-- Bij het gebruik **sqlReaderStoredProcedureName**, moet u nog steeds om op te geven van een dummy **tableName** eigenschap in de gegevensset JSON.
 
 **Voorbeeld: Met behulp van een SQL-query**
 
@@ -491,7 +490,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database Managed Instance, wor
 | Datetimeoffset |DateTimeOffset |
 | decimaal |decimaal |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
-| drijvende komma |Double-waarde |
+| Float |Double-waarde |
 | image |Byte[] |
 | int |Int32 |
 | geld |decimaal |

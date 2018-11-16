@@ -25,7 +25,7 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een blockchain-toepassing configureren
-> * Maken van een smart contract codebestand 
+> * Maken van een smart contract codebestand
 > * Een blockchain-toepassing toevoegen aan Blockchain Workbench
 > * Leden toevoegen aan de blockchain-toepassing
 

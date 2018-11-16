@@ -9,17 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/13/2018
-ms.openlocfilehash: c41ac2246386b8838d1310a9cd5c03dd0cf5d8e4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1c6a83626f86724bcaa61de03a49b5327af19d88
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244505"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706531"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>U-SQL-scripts ontwikkelen met Data Lake-tools voor Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Informatie over het gebruik van de Visual Studio voor het maken van Azure Data Lake Analytics-accounts, het definiëren van taken in [U-SQL](data-lake-analytics-u-sql-get-started.md) en het verzenden van taken naar de Data Lake Analytics-service. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
+Azure Data Lake en Stream Analytics-hulpprogramma's omvatten functionaliteit waarmee met betrekking tot twee Azure-services, Azure Data Lake Analytics en Azure Stream Analytics. Zie voor meer informatie over de Azure Stream Analytics-scenario's [Azure Stream Analytics-hulpprogramma's voor Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
+
+In dit artikel wordt beschreven hoe u Visual Studio gebruiken voor het maken van Azure Data Lake Analytics-accounts, het definiëren van taken in [U-SQL](data-lake-analytics-u-sql-get-started.md), en het verzenden van taken naar de Data Lake Analytics-service. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 >[!IMPORTANT]
 > Microsoft raadt u een upgrade uit te voeren naar Azure Data Lake-tools voor Visual Studio versie 2.3.3000.4 of hoger. De vorige versies zijn niet meer beschikbaar om te downloaden en zijn nu afgeschaft. 

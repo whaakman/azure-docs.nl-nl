@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140820"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707126"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Lab-accounts in Azure Lab Services beheren 
 Een lab-account is in Azure Lab-Services, een container voor beheerde labs zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
@@ -114,7 +114,9 @@ Volg de instructies in de vorige sectie voor een overzicht van de labs in het la
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Aan de slag met het installeren van een lab met Azure Lab Services:
+Zie de volgende artikelen:
 
-- [Een leslokaallab instellen](tutorial-setup-classroom-lab.md)
-- [Een lab instellen](../tutorial-create-custom-lab.md)
+- [Als de eigenaar van een lab maken en beheren van labs](how-to-manage-classroom-labs.md)
+- [Als de eigenaar van een lab instellen en sjablonen publiceren](how-to-create-manage-template.md)
+- [Als de eigenaar van een lab configureren en beheren van het gebruik van een lab](how-to-configure-student-usage.md)
+- [Als een lab-gebruiker toegang krijgen tot leslokaallabs](how-to-use-classroom-lab.md)

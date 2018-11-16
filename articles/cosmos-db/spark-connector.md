@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269408"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707177"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Versnel de analyse van big data met behulp van de Apache Spark op Azure Cosmos DB-connector
  
-De Apache Spark op Azure Cosmos DB-connector kunt Azure Cosmos DB moet een invoer of uitvoer voor Apache Spark-taken. Verbinding maken [Spark](http://spark.apache.org/) naar [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) helpt data science-problemen ontdekt op te lossen. U kunt Azure Cosmos DB gebruiken om snel te behouden en gegevens op te vragen. De connector maakt efficiënt gebruik van de systeemeigen Azure Cosmos DB beheerde indexen. De indexen inschakelen bij te werken kolommen bij het uitvoeren van analyses en push-down-predicaat filteren op basis van snel veranderende, wereldwijd gedistribueerde gegevens. Dit soort gegevens kan variëren van Internet of Things (IoT) voor scenario's voor data science en analyse.
+De connector ‘Apache Spark to Azure Cosmos DB’ zorgt ervoor dat Azure Cosmos DB een input of output kan zijn voor Spark-taken. Verbinding maken [Spark](http://spark.apache.org/) naar [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) helpt data science-problemen ontdekt op te lossen. U kunt Azure Cosmos DB gebruiken om snel te behouden en gegevens op te vragen. De connector maakt efficiënt gebruik van de systeemeigen indexen die met Azure Cosmos DB worden beheerd. De indexen maken het mogelijk om bijwerkbare kolommen te gebruiken wanneer u analytics en push-down-predicaatfiltering toepast op snel veranderende, wereldwijd verspreide gegevens. Dit soort gegevens kan variëren van Internet of Things (IoT) voor scenario's voor data science en analyse.
 
 ## <a name="connector-components"></a>Connector-onderdelen
 
@@ -83,7 +83,7 @@ Voer de volgende stappen uit voor Spark verbinding met Azure Cosmos DB met behul
 
 6. In de **notitieblok maken** in het dialoogvenster, voer een beschrijvende naam in en kies **Python** als de taal. In de vervolgkeuzelijst selecteert u het cluster die u eerder hebt gemaakt en selecteer **maken**.  
 
-7. Voer enkele Spark-query's met behulp van de vluchten sample van gegevens die worden gehost in Azure Cosmos DB-account 'doctorwho'. (Dit account is openbaar toegankelijk is.) De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats als host fungeert voor de HTML-versie van de notebook. Downloaden van bestanden van de opslagplaats en gaat u naar `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. U kunt de notebook in uw Azure Databricks-account importeren en deze uitvoert. De volgende sectie wordt de functionaliteit van de codeblokken in detail uitgelegd.
+7. Voer enkele Spark-query's met behulp van de vluchten sample van gegevens die worden gehost in Azure Cosmos DB-account 'doctorwho'. Dit account is openbaar toegankelijk is. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats hosts de [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb) notebook. U kunt de notebook in uw Azure Databricks-account importeren en deze uitvoert. De volgende sectie wordt de functionaliteit van de codeblokken in detail uitgelegd.
 
 Het volgende codefragment laat zien hoe de pyDocumentDB SDK importeren en een query uitvoeren in de Spark-context. Zoals vermeld in het codefragment bevat de pyDocumentDB SDK de verbindingsparameters vereist voor het verbinding maken met de Azure Cosmos DB-account. De invoer van de vereiste bibliotheken, en configureert deze de hoofdsleutel en de host, het maken van de Azure Cosmos DB-client (pydocumentdb.document_client).
 
@@ -209,7 +209,7 @@ In dit artikel ziet u het gebruik van de Spark-connector Java SDK in de volgende
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>Twitter-gegevens lezen uit Azure Cosmos DB
  
-In deze sectie maakt uitvoeren u Spark query's om te lezen van een batch van Twitter-gegevens uit Azure Cosmos DB. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats als host fungeert voor de HTML-versie van de notebook. Downloaden van bestanden van de opslagplaats en gaat u naar `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
+In deze sectie maakt uitvoeren u Spark query's om te lezen van een batch van Twitter-gegevens uit Azure Cosmos DB. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats hosts de [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb) notebook. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
 
 1. Ga naar uw Azure Databricks-account en selecteer **werkruimte** > **maken** > **Notebook**. 
 
@@ -268,7 +268,7 @@ Afhankelijk van het scenario, moet u verschillende configuratiewaarden gebruiken
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Lezen van Twitter-gegevens die met Azure Cosmos DB is streaming
 
-In deze sectie maakt uitvoeren u Spark query's om te lezen van een wijzigingenfeed van streaminggegevens van Twitter. Tijdens het uitvoeren van de query's in deze sectie, zorg ervoor dat uw Twitter-feed van de app wordt uitgevoerd en gegevens met Azure Cosmos DB pompen. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats als host fungeert voor de HTML-versie van de notebook. Downloaden van bestanden van de opslagplaats en gaat u naar `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
+In deze sectie maakt uitvoeren u Spark query's om te lezen van een wijzigingenfeed van streaminggegevens van Twitter. Tijdens het uitvoeren van de query's in deze sectie, zorg ervoor dat uw Twitter-feed van de app wordt uitgevoerd en gegevens met Azure Cosmos DB pompen. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats hosts de [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala) notebook. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
 
 1. Ga naar uw Azure Databricks-account en selecteer **werkruimte** > **maken** > **Notebook**.  
 
@@ -335,7 +335,7 @@ Java SDK biedt ondersteuning voor de volgende verbindingsinstellingen:
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>Twitter-gegevens schrijven naar Azure Cosmos DB 
 
-In deze sectie maakt uitvoeren u Spark query's voor het schrijven van een batch van Twitter-gegevens om een nieuwe verzameling in dezelfde database. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats als host fungeert voor de HTML-versie van de notebook. Downloaden van bestanden van de opslagplaats en gaat u naar `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
+In deze sectie maakt uitvoeren u Spark query's voor het schrijven van een batch van Twitter-gegevens om een nieuwe verzameling in dezelfde database. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats hosts de [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb) notebook. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
 
 1. Ga naar uw Azure Databricks-account en selecteer **werkruimte** > **maken** > **Notebook**.  
 
@@ -428,7 +428,7 @@ Java SDK biedt ondersteuning voor de volgende waarden voor de toewijzing van de 
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Twitter-gegevens die aan het streamen is schrijven naar Azure Cosmos DB 
 
-In deze sectie maakt uitvoeren u Spark query's voor het schrijven van een wijzigingenfeed van streaminggegevens van Twitter om een nieuwe verzameling in dezelfde database. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats als host fungeert voor de HTML-versie van de notebook. Downloaden van bestanden van de opslagplaats en gaat u naar `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
+In deze sectie maakt uitvoeren u Spark query's voor het schrijven van een wijzigingenfeed van streaminggegevens van Twitter om een nieuwe verzameling in dezelfde database. De [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-opslagplaats hosts de [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala) notebook. U kunt de notebook in uw Azure Databricks-account importeren en bijwerken van de URI-account, de hoofdsleutel, database en namen van verzamelingen. U kunt uitvoeren van het notitieblok, of maak als volgt:
 
 1. Ga naar uw Azure Databricks-account en selecteer **werkruimte** > **maken** > **Notebook**.  
 

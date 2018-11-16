@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d7359c4c151d93dcd40bd475e865c76399ff5355
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006529"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711769"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Verzamelen van Azure-service-logboeken en metrische gegevens voor gebruik in Log Analytics
 
@@ -158,5 +158,5 @@ De galerie met Azure-sjabloon is [voorbeelden van het gebruik van Azure Automati
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Blob storage gebruiken voor IIS en table storage voor gebeurtenissen](log-analytics-azure-storage-iis-table.md) lezen van de logboeken voor Azure-services die diagnosefuncties schrijven voor de table-opslag of IIS-logboeken geschreven naar de blob storage.
-* [Oplossingen inschakelen](../monitoring/monitoring-solutions.md) om inzicht in de gegevens te bieden.
+* [Oplossingen inschakelen](../azure-monitor/insights/solutions.md) om inzicht in de gegevens te bieden.
 * [Gebruik van zoekquery's](log-analytics-queries.md) om de gegevens te analyseren.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e3944defa24437fdddf8b61189034d330f89dd4c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ae34cc869dfb286a5a60f59fdab8733f611a6ec7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011949"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712157"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0 (preview) in Log Analytics
 
@@ -31,7 +31,7 @@ Gegevens van wire data is een geconsolideerde netwerk en prestaties van gegevens
 Naast de Log Analytics-agent gebruikt de gegevens van Wire Data-oplossing Microsoft afhankelijkheid Agents die u op computers in uw IT-infrastructuur installeert. Agents voor afhankelijkheden controleren netwerkgegevens die worden verzonden naar en van uw computers voor netwerkniveaus 2-3 in het [OSI-model](https://en.wikipedia.org/wiki/OSI_model), met inbegrip van de verschillende gebruikte protocollen en poorten. Gegevens worden vervolgens met behulp van agents verzonden naar Log Analytics.  
 
 >[!NOTE]
->Als u Serviceoverzicht al hebt geïmplementeerd of Serviceoverzicht overweegt of [Azure Monitor voor virtuele machines](../monitoring/monitoring-vminsights-overview.md), er is een nieuwe metrische gegevens verbindingsset te verzamelen en opslaan in Log Analytics die vergelijkbare informatie aan gegevens van Wire Data biedt.
+>Als u Serviceoverzicht al hebt geïmplementeerd of Serviceoverzicht overweegt of [Azure Monitor voor virtuele machines](../azure-monitor/insights/vminsights-overview.md), er is een nieuwe metrische gegevens verbindingsset te verzamelen en opslaan in Log Analytics die vergelijkbare informatie aan gegevens van Wire Data biedt.
 
 Standaard registreert Log Analytics gegevens voor CPU, geheugen, schijf en netwerkprestaties op basis van tellers die zijn ingebouwd in Windows en Linux, samen met andere prestatiemeteritems die u kunt opgeven. Het verzamelen van netwerk- en andere gegevens wordt voor elke agent in realtime uitgevoerd, met inbegrip van subnetten en protocollen op toepassingsniveau die door de computer worden gebruikt.  Wire Data kijkt naar netwerkgegevens op toepassingsniveau, niet naar die op de TCP-transportlaag.  De oplossing kijkt niet naar afzonderlijke ACK's en SYN's.  Zodra de handshake is voltooid, wordt dit als een live-verbinding beschouwd en wordt deze gemarkeerd als verbonden. Die verbinding blijft actief zolang beide zijden het erover eens zijn dat de socket geopend is en gegevens heen en weer kunnen worden gestuurd.  Wanneer een van beide zijden de verbinding sluit, wordt deze gemarkeerd als Verbroken.  Daarom wordt alleen de bandbreedte van voltooide pakketten meegeteld en wordt niet gemeld of pakketten opnieuw of niet zijn verzonden.
 
@@ -197,7 +197,7 @@ In de volgende secties worden de ondersteunde besturingssystemen voor de agent v
 
 Voer de volgende stappen uit om Wire Data te configureren voor uw werkruimten.
 
-1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../monitoring/monitoring-solutions.md).
+1. Schakel de Activity Log Analytics-oplossing in vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) of met behulp van de procedure beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../azure-monitor/insights/solutions.md).
 2. Installeer de agent voor afhankelijkheden op elke computer waarop u gegevens wilt ophalen. De agent voor afhankelijkheden kan verbindingen met computers in de directe nabijheid controleren, zodat er wellicht geen agent op elke computer nodig is.
 
 > [!NOTE]
@@ -373,7 +373,7 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
 - De oplossing Wire Data verkrijgt gegevens van computers met Windows Server 2012 R2, Windows 8.1 en latere besturingssystemen.
 - Microsoft .NET Framework 4.0 of hoger is vereist op computers waarvan u draadgegevens wilt ophalen.
-- Voeg de oplossing Wire Data toe aan uw Log Analytics-werkruimte met behulp van de procedure die wordt beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../monitoring/monitoring-solutions.md). Er is geen verdere configuratie nodig.
+- Voeg de oplossing Wire Data toe aan uw Log Analytics-werkruimte met behulp van de procedure die wordt beschreven in [Log Analytics-oplossingen toevoegen vanuit de Oplossingengalerie](../azure-monitor/insights/solutions.md). Er is geen verdere configuratie nodig.
 - Als u draadgegevens voor een specifieke oplossing wilt weergeven, moet de oplossing al zijn toegevoegd aan uw werkruimte.
 
 Nadat agents zijn geïnstalleerd en u de oplossing installeert, wordt de tegel Wire Data 2.0 weergegeven in de werkruimte.

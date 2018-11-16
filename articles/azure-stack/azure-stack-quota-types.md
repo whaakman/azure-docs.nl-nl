@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299416"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711528"
 ---
 # <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure Stack
 
@@ -31,10 +31,12 @@ ms.locfileid: "51299416"
 ## <a name="compute-quota-types"></a>COMPUTE quotatypen 
 | **Type** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
-| Maximumaantal virtuele machines | 50 | Het maximum aantal virtuele machines die een abonnement op deze locatie maken kunt. |
-| Maximumaantal cores van virtuele machine | 100 | Het maximum aantal kernen dat een abonnement op deze locatie maken kunt (bijvoorbeeld een A3-VM heeft vier kerngeheugens). |
-| Max. aantal beschikbaarheidssets | 10 | Het maximale aantal beschikbaarheidssets die kunnen worden gemaakt op deze locatie. |
+| Maximum aantal virtuele machines | 50 | Het maximum aantal virtuele machines die een abonnement op deze locatie maken kunt. |
+| Maximum aantal cores van virtuele machine | 100 | Het maximum aantal kernen dat een abonnement op deze locatie maken kunt (bijvoorbeeld een A3-VM heeft vier kerngeheugens). |
+| Maximum aantal beschikbaarheidssets | 10 | Het maximale aantal beschikbaarheidssets die kunnen worden gemaakt op deze locatie. |
 | Hiermee stelt u het maximumaantal virtuele-machineschaalset | 100 | Het maximumaantal schaalsets voor virtuele machines dat kan worden gemaakt op deze locatie. |
+| Maximale capaciteit (in GB) van de standard-beheerde schijven | 2048 | De maximale capaciteit van standard beheerde schijven die kunnen worden gemaakt op deze locatie. |
+| Maximale capaciteit (in GB) van de premium-beheerde schijf | 2048 | De maximale capaciteit van premium beheerde schijven die kunnen worden gemaakt op deze locatie. |
 
 ## <a name="storage-quota-types"></a>Opslagtypen quotum 
 | **Item** | **Standaardwaarde** | **Beschrijving** |
@@ -50,11 +52,11 @@ ms.locfileid: "51299416"
 | **Item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
 | Maximum aantal openbare IP-adressen |50 |Het maximum aantal openbare IP-adressen die een abonnement op deze locatie maken kunt. |
-| Maximum aantal virtuele netwerken |50 |Het maximum aantal virtuele netwerken die een abonnement op deze locatie maken kunt. |
-| Maximum aantal virtuele netwerkgateways |1 |Het maximum aantal virtuele netwerkgateways (VPN-Gateways) die een abonnement op deze locatie maken kunt. |
-| Max-netwerkverbindingen |2 |Het maximale aantal netwerkverbindingen (point-to-point of site-naar-site) die een abonnement via alle gateways voor virtueel netwerk op deze locatie maken kunt. |
-| Maximum aantal load balancers |50 |Het maximale aantal load balancers die een abonnement op deze locatie maken kunt. |
-| Max. aantal NIC's |100 |Het maximale aantal netwerkinterfaces die een abonnement op deze locatie maken kunt. |
+| Maximale virtuele netwerken |50 |Het maximum aantal virtuele netwerken die een abonnement op deze locatie maken kunt. |
+| Maximale virtuele netwerkgateways |1 |Het maximum aantal virtuele netwerkgateways (VPN-Gateways) die een abonnement op deze locatie maken kunt. |
+| Maximale netwerkverbindingen |2 |Het maximale aantal netwerkverbindingen (point-to-point of site-naar-site) die een abonnement via alle gateways voor virtueel netwerk op deze locatie maken kunt. |
+| Maximale load balancers |50 |Het maximale aantal load balancers die een abonnement op deze locatie maken kunt. |
+| Maximum aantal NIC 's |100 |Het maximale aantal netwerkinterfaces die een abonnement op deze locatie maken kunt. |
 | Maximum aantal netwerkbeveiligingsgroepen |50 |Het maximum aantal netwerkbeveiligingsgroepen die een abonnement op deze locatie maken kunt. |
 
 ## <a name="view-an-existing-quota"></a>Een bestaande quotum weergeven

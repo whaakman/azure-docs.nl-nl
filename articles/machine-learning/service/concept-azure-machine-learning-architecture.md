@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210683"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706803"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van de service Azure Machine Learning: architectuur en concepten
 
@@ -156,9 +156,9 @@ Een experiment is een groepering van veel worden uitgevoerd op een bepaald scrip
 
 Zie voor een voorbeeld van het gebruik van een experiment, het [Snelstartgids: aan de slag met Azure Machine Learning-service](quickstart-get-started.md) document.
 
-## <a name="pipelines"></a>Pijplijnen
+## <a name="pipeline"></a>Pijplijn
 
-Pijplijnen worden gebruikt voor het maken en beheren van werkstromen die samen te voegen machine learning-fasen. Een pijplijn kan bijvoorbeeld gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken fasen. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
+Machine learning-pijplijnen worden gebruikt voor het maken en beheren van werkstromen die samen te voegen machine learning-fasen. Een pijplijn kan bijvoorbeeld gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken fasen. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
 
 Zie het artikel voor meer informatie over machine learning-pijplijnen met deze service [pijplijnen en Azure Machine Learning](concept-ml-pipelines.md).
 

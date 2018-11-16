@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6f5296844541db774610f5a46161f2e06673d99e
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613865"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711562"
 ---
 # <a name="data-sources-in-log-analytics"></a>Gegevensbronnen in Log Analytics
 Log Analytics verzamelt gegevens van uw verbonden bronnen en slaat ze op in uw Log Analytics-werkruimte.  De gegevens die worden verzameld van elke wordt gedefinieerd door de gegevensbronnen die u configureert.  Gegevens in Log Analytics wordt opgeslagen als een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
 
 ![Analytics-gegevens verzamelen](./media/log-analytics-data-sources/overview.png)
 
-Gegevensbronnen zijn anders dan [beheeroplossingen](../monitoring/monitoring-solutions.md), die ook gegevens verzamelen uit de verbonden bronnen en -records maken in Log Analytics.  Naast het verzamelen van gegevens, omvatten oplossingen zoekopdrachten in Logboeken en weergaven om u te helpen u bij het analyseren van de werking van een bepaalde toepassing of service.
+Gegevensbronnen zijn anders dan [beheeroplossingen](../azure-monitor/insights/solutions.md), die ook gegevens verzamelen uit de verbonden bronnen en -records maken in Log Analytics.  Naast het verzamelen van gegevens, omvatten oplossingen zoekopdrachten in Logboeken en weergaven om u te helpen u bij het analyseren van de werking van een bepaalde toepassing of service.
 
 
 ## <a name="summary-of-data-sources"></a>Overzicht van gegevensbronnen
-De volgende tabel bevat de gegevensbronnen die momenteel beschikbaar in Log Analytics zijn.  Elk heeft een koppeling naar een apart artikel geven details voor de gegevensbron.   Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Log Analytics.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. Zie voor een uitleg van de kolommen [details van de verzameling gegevens voor de beheeroplossingen in Azure](../monitoring/monitoring-solutions-inventory.md).
+De volgende tabel bevat de gegevensbronnen die momenteel beschikbaar in Log Analytics zijn.  Elk heeft een koppeling naar een apart artikel geven details voor de gegevensbron.   Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Log Analytics.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. Zie voor een uitleg van de kolommen [details van de verzameling gegevens voor de beheeroplossingen in Azure](../azure-monitor/insights/solutions-inventory.md).
 
 
 | Gegevensbron | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
@@ -59,7 +59,7 @@ Configureren van gegevensbronnen van de **gegevens** in het menu in Log Analytic
 ## <a name="data-collection"></a>Gegevensverzameling
 Data source-configuraties geleverd aan agents die rechtstreeks zijn verbonden met Log Analytics binnen een paar minuten.  De opgegeven gegevens zijn verzameld van de agent en rechtstreeks aan Log Analytics wordt geleverd met tussenpozen die specifiek zijn voor elke gegevensbron.  Zie de documentatie voor elke gegevensbron voor deze specifieke informatie.
 
-Voor System Center Operations Manager-agents in een verbonden beheergroep, worden de gegevensbronconfiguraties vertaald in management packs en geleverd aan de beheergroep om de 5 minuten standaard.  De agent downloadt van het managementpack, zoals elk ander en de opgegeven gegevens verzamelt. De gegevens worden dat beide verzonden naar een beheerserver die de gegevens naar de met Log Analytics doorstuurt, afhankelijk van de gegevensbron, of de agent verzendt de gegevens naar Log Analytics zonder tussenkomst van de beheerserver. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../monitoring/monitoring-solutions-inventory.md) voor meer informatie.  U kunt lezen over de details van het verbinden van Operations Manager en Log Analytics en het wijzigen van de frequentie die configuratie wordt geleverd bij [integratie configureren met System Center Operations Manager](log-analytics-om-agents.md).
+Voor System Center Operations Manager-agents in een verbonden beheergroep, worden de gegevensbronconfiguraties vertaald in management packs en geleverd aan de beheergroep om de 5 minuten standaard.  De agent downloadt van het managementpack, zoals elk ander en de opgegeven gegevens verzamelt. De gegevens worden dat beide verzonden naar een beheerserver die de gegevens naar de met Log Analytics doorstuurt, afhankelijk van de gegevensbron, of de agent verzendt de gegevens naar Log Analytics zonder tussenkomst van de beheerserver. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../azure-monitor/insights/solutions-inventory.md) voor meer informatie.  U kunt lezen over de details van het verbinden van Operations Manager en Log Analytics en het wijzigen van de frequentie die configuratie wordt geleverd bij [integratie configureren met System Center Operations Manager](log-analytics-om-agents.md).
 
 Als de agent kan geen verbinding met Log Analytics of Operations Manager, blijft het verzamelen van gegevens die deze leveren wanneer er een verbinding tot stand brengt.  Gegevens kunnen worden verbroken als de hoeveelheid gegevens bereikt de maximale cachegrootte voor de client, of als de agent niet kan geen verbinding binnen 24 uur.
 
@@ -67,6 +67,6 @@ Als de agent kan geen verbinding met Log Analytics of Operations Manager, blijft
 Alle gegevens die zijn verzameld door Log Analytics is in de werkruimte opgeslagen als records.  Records die zijn verzameld door andere gegevensbronnen hebben hun eigen set eigenschappen en worden aangeduid met hun **Type** eigenschap.  Zie de documentatie voor elke gegevensbron en de oplossing voor meer informatie over elk recordtype.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [oplossingen](../monitoring/monitoring-solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in de werkruimte.
+* Meer informatie over [oplossingen](../azure-monitor/insights/solutions.md) die functionaliteit toevoegen aan Log Analytics en ook gegevens verzamelen in de werkruimte.
 * Meer informatie over [zoekopdrachten](log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 * Configureer [waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md) om proactief te waarschuwen u van kritieke gegevens die worden verzameld van gegevensbronnen en oplossingen.

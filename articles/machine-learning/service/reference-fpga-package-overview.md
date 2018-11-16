@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887578"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712123"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning-hardwareversnelling-pakket
 
@@ -32,7 +32,7 @@ Het pakket hardwareversnelling van Azure Machine Learning is een Python-pip inst
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 1. Een Azure Machine Learning Modelbeheer-account. Zie voor meer informatie over het maken van het account de [installatie van Azure Machine Learning-Quickstart en Workbench](../desktop-workbench/quickstart-installation.md) document. 
 

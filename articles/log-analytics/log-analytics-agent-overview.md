@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3160e8252ca8a5bed63d0fe9a9cdf84b1b5c6158
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 153d70f8fadfc0dbc3c9fba74c92862bab1ee7cb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628992"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711817"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Azure Log Analytics-agent
 
@@ -126,4 +126,4 @@ Verbinden van computers in uw Azure-abonnement of een hybride omgeving rechtstre
 
 * Meer informatie over [query's bijgehouden](log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
 
-* Meer informatie over [bewakingsoplossingen](../monitoring/monitoring-solutions.md) die functionaliteit toevoegen aan Azure Monitor en ook gegevens verzamelen in Log Analytics-werkruimte.
+* Meer informatie over [bewakingsoplossingen](../azure-monitor/insights/solutions.md) die functionaliteit toevoegen aan Azure Monitor en ook gegevens verzamelen in Log Analytics-werkruimte.
