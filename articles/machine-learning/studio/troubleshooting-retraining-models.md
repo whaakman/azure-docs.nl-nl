@@ -1,10 +1,11 @@
 ---
-title: Problemen met een klassieke Azure Machine Learning-webservice retraining | Microsoft Docs
-description: Identificeren en te corrigeren van algemene problemen tegengekomen wanneer u het model zijn retraining voor een Azure Machine Learning-webservice.
+title: Oplossen van een klassieke Azure Machine Learning-webservice opnieuw trainen | Microsoft Docs
+description: Identificeren en te corrigeren van veelvoorkomende problemen tegengekomen wanneer u het model zijn bijscholing voor een Azure Machine Learning-webservice.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -15,92 +16,92 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 989bf010320501050a37fbf2f0799f50a5a3e2ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2afbeef4a9c79a5d5c57718ff0bfbebc9b063f7a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835770"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820474"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Het oplossen van de retraining van een klassieke Azure Machine Learning-webservice
-## <a name="retraining-overview"></a>Overzicht retraining
-Dit is een statische model wanneer u een Voorspellend experiment als scoreprofiel webservice implementeert. Zodra er nieuwe gegevens beschikbaar of wanneer de gebruiker van de API zijn eigen gegevens heeft, moet het model worden retrained. 
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Het oplossen van het opnieuw trainen van een klassieke Azure Machine Learning-webservice
+## <a name="retraining-overview"></a>Overzicht opnieuw trainen
+Wanneer u een Voorspellend experiment als een scoringwebservice implementeren is een statisch model. Zodra er nieuwe gegevens beschikbaar is of wanneer de gebruiker van de API hun eigen gegevens is, moet het model opnieuw worden getraind. 
 
-Zie voor een volledig overzicht van de retraining proces voor een webservice klassieke [Retrain Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
+Zie voor een volledig overzicht van hoe u een klassieke webservice retraining [opnieuw trainen Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
 
-## <a name="retraining-process"></a>Proces retraining
-Als u opnieuw trainen van de webservice wilt, moet u enkele aanvullende onderdelen toevoegen:
+## <a name="retraining-process"></a>Opnieuw trainen van proces
+Als u de webservice opnieuw trainen wilt, moet u enkele extra onderdelen toevoegen:
 
-* Een webservice op basis van het Experiment Training geïmplementeerd. Het experiment moet hebben een **Web Service uitvoer** module die is gekoppeld aan de uitvoer van de **Train Model** module.  
+* Een van de Trainingsexperiment geïmplementeerde webservice. Het experiment moet hebben een **Web Service uitvoer** module die is gekoppeld aan de uitvoer van de **Train Model** module.  
   
-    ![De uitvoer van de web service koppelen aan het train-model.][image1]
-* Een nieuw toegevoegd aan uw scoreprofiel webservice-eindpunt.  U kunt het eindpunt programmatisch met behulp van de voorbeeldcode waarnaar wordt verwezen in de Retrain Machine Learning-modellen programmatisch toevoegen onderwerp of via de portal voor Azure Machine Learning-webservices.
+    ![De uitvoer van web service koppelen aan het train-model.][image1]
+* Een nieuw eindpunt toevoegen aan uw scoring webservice.  U kunt het eindpunt via een programma met de voorbeeldcode waarnaar wordt verwezen in de opnieuw trainen van Machine Learning-modellen programmatisch toevoegen onderwerp of via de portal voor Azure Machine Learning-webservices.
 
-Vervolgens kunt u in de voorbeeldcode van de Training Web Service API help-pagina C# opnieuw trainen model. Nadat u de resultaten hebt geëvalueerd en u tevreden mee bent, kunt u het getrainde model score berekenen voor webservice met behulp van het nieuwe eindpunt dat u hebt toegevoegd bijwerken.
+Vervolgens kunt u het voorbeeld C# code van de Training-webservice-API help-pagina model te trainen. Nadat u de resultaten hebt geëvalueerd en tevreden mee bent, kunt u het getrainde model scoren webservice met behulp van het nieuwe eindpunt dat u hebt toegevoegd bijwerken.
 
-Met alle benodigde onderdelen aanwezig zijn de belangrijkste stappen die u nemen moet om het model opnieuw trainen als volgt:
+Alle benodigde onderdelen aanwezig is zijn de belangrijkste stappen die u ondernemen moet om het opnieuw trainen het model als volgt:
 
-1. Roep de webservice voor Training: de aanroep naar de Batch uitvoering Service (BES), niet de Request Response Service (RR's) is. Kunt u het voorbeeld C#-code op de API help-pagina voor het gesprek. 
-2. De waarden voor de *BaseLocation*, *RelativeLocation*, en *SasBlobToken*: deze waarden worden geretourneerd in de uitvoer van de aanroep van de webservice Training. 
-   ![de uitvoer van de retraining voorbeeld en de BaseLocation RelativeLocation en SasBlobToken waarden weergegeven.][image6]
-3. Het toegevoegde eindpunt van de score webservice bijwerken met het nieuwe getrainde model: het nieuwe eindpunt u toegevoegd aan het score model met het nieuwe getrainde model van de webservice Training met behulp van de voorbeeldcode in de Retrain Machine Learning-modellen programmatisch worden bijgewerkt.
+1. Roep de webservice voor Training: de aanroep naar de Batch Execution Service (BES), niet de Request Response Service (RRS) is. U kunt het voorbeeld C# code op de API help-pagina voor de aanroep. 
+2. De waarden voor de *BaseLocation*, *RelativeLocation*, en *SasBlobToken*: deze waarden worden geretourneerd in de uitvoer van de aanroep van de webservice-Training. 
+   ![de uitvoer van de retraining-voorbeeld en de BaseLocation RelativeLocation en SasBlobToken waarden worden weergegeven.][image6]
+3. De toegevoegde eindpunt uit de scoringwebservice bijwerken met het nieuwe getrainde model: het nieuwe eindpunt dat u hebt toegevoegd aan de scoremodel met het zojuist getrainde model uit met behulp van de voorbeeldcode die is opgegeven in de modellen voor Machine Learning opnieuw trainen via een programma, werken de Training-webservice.
 
 ## <a name="common-obstacles"></a>Algemene obstakels
-### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Controleer of u de juiste PATCH-URL hebt
-De PATCH URL u moet worden gekoppeld aan het nieuwe scoreprofiel eindpunt dat u hebt toegevoegd aan de score-webservice. Er zijn een aantal manieren verkrijgen van de PATCH-URL:
+### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Controleer of u hebt de juiste PATCH-URL
+De PATCH URL u moet het account dat is gekoppeld aan het nieuwe scoring eindpunt dat u hebt toegevoegd aan de scoring-webservice. Er zijn een aantal manieren om op te halen van de PATCH-URL:
 
 **Optie 1: via programmacode**
 
-De juiste PATCH-URL ophalen:
+Aan de juiste PATCH-URL:
 
 1. Voer de [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) voorbeeldcode.
-2. Zoek in de uitvoer van AddEndpoint, de *HelpLocation* waarde en kopieer de URL.
+2. Uit de uitvoer van AddEndpoint, vinden de *HelpLocation* waarde en kopieer de URL.
    
-   ![HelpLocation in de uitvoer van de voorbeeld-addEndpoint.][image2]
-3. Plak de URL in een browser om te navigeren naar een pagina waarmee help-koppelingen voor de webservice.
-4. Klik op de **Update Resource** koppeling te openen van de patch help-pagina.
+   ![HelpLocation in de uitvoer van het voorbeeld addEndpoint.][image2]
+3. Plak de URL in een browser om te navigeren naar een pagina met help-koppelingen voor de webservice.
+4. Klik op de **resources bijwerken** koppeling om de patch help-pagina te openen.
 
-**Optie 2: De portal voor Azure Machine Learning-webservices gebruiken**
+**Optie 2: Gebruik de portal voor Azure Machine Learning-webservices**
 
 1. Aanmelden bij de [Azure Machine Learning-webservices](https://services.azureml.net/) portal.
 2. Klik op **webservices** of **klassieke webservices** aan de bovenkant.
-4. Klik op de score webservice u met werkt (als u de standaardnaam van de webservice niet wijzigt, deze wordt beëindigd in "[score Exp.]").
+4. Klik op de scoringwebservice u met werkt (als u de standaardnaam van de webservice niet wijzigt, deze wordt beëindigd in "[score Exp.]").
 5. Klik op **+ nieuw**.
 6. Nadat het eindpunt is toegevoegd, klik op de naam van het eindpunt.
-7. Onder de **Patch** -URL, klikt u op **API Help** openen van de toepassing van patches help-pagina.
+7. Onder de **Patch** URL, klikt u op **API Help** de patch Helppagina te openen.
 
 > [!NOTE]
-> Als u het eindpunt hebt toegevoegd aan de Training Web Service in plaats van de voorspellende webservice, ontvangt u de volgende fout wanneer u klikt op de **Update Resource** koppeling: "er, maar deze functie wordt niet ondersteund of beschikbaar is in deze context. Deze webservice heeft geen bronnen worden bijgewerkt. Wij bieden onze excuses aan voor het ongemak en werkt op het verbeteren van deze werkstroom."
+> Als u het eindpunt aan de webservice voor de Training in plaats van de voorspellende webservice hebt toegevoegd, ontvangt u de volgende fout wanneer u klikt op de **resources bijwerken** koppeling: "er, maar deze functie wordt niet ondersteund of beschikbaar zijn in deze context. Deze webservice heeft geen resources bij te werken. We excuses voor het ongemak en worden gewerkt aan het verbeteren van deze werkstroom."
 > 
 > 
 
-De PATCH help-pagina bevat de PATCH-URL moet u en wordt een voorbeeldcode die u kunt deze aanroepen.
+De PATCH help-pagina bevat de vullen van de URL die u moet gebruiken en voorbeeldcode die u gebruiken kunt om aan te roepen van het biedt.
 
 ![URL van de patch.][image5]
 
-### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Controleer dat u het juiste scoreprofiel eindpunt wilt bijwerken
-* De webservice training niet doen patch: de patch-bewerking moet worden uitgevoerd op de score-webservice.
-* Het standaardeindpunt van de webservice niet doen patch: de patch-bewerking moet worden uitgevoerd op het nieuwe scoreprofiel web service-eindpunt dat u hebt toegevoegd.
+### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Controleer dat u het juiste eindpunt scoring bijwerkt
+* Geen patch uitvoeren voor de webservice voor training: de patch-bewerking moet worden uitgevoerd op de scoring-webservice.
+* Geen patch uitvoeren voor het eindpunt van de webservice: de patch-bewerking moet worden uitgevoerd op het nieuwe scoring web service-eindpunt dat u hebt toegevoegd.
 
-U kunt controleren welke webservice door het eindpunt is op via het Web Services-portal. 
+U kunt controleren of het eindpunt is op door naar de Web Services-portal te gaan welke-webservice. 
 
 > [!NOTE]
-> Zorg ervoor dat u het eindpunt wilt toevoegen aan de voorspellende Web Service, niet de trainings-webservice. Als u correct zowel een trainings- en een Voorspellend webservice hebt geïmplementeerd, ziet u twee afzonderlijke webservices die worden vermeld. De voorspellende webservice moet eindigen met '[voorspellende exp.]'.
+> Zorg ervoor dat u het eindpunt wilt toevoegen aan de voorspellende webservice, niet de Training-webservice. Als u goed zowel een Training en een voorspellende webservice hebt geïmplementeerd, ziet u twee afzonderlijke services die worden vermeld. De voorspellende webservice moet eindigen met '[voorspellende exp.]'.
 > 
 > 
 
 1. Aanmelden bij de [Azure Machine Learning-webservices](https://services.azureml.net/) portal.
 2. Klik op **webservices** of **klassieke webservices**.
-3. Selecteer uw Predictive webservice.
-4. Controleren of uw nieuwe eindpunt is toegevoegd aan de webservice.
+3. Selecteer uw voorspellende webservice.
+4. Controleren of het nieuwe eindpunt is toegevoegd aan de webservice.
 
-### <a name="check-that-your-workspace-is-in-the-same-region-as-the-web-service"></a>Controleer of uw werkruimte zich in dezelfde regio bevinden als de webservice
+### <a name="check-that-your-workspace-is-in-the-same-region-as-the-web-service"></a>Controleer of uw werkruimte zich in dezelfde regio als de webservice
 1. Aanmelden bij [Machine Learning Studio](https://studio.azureml.net/).
-2. Klik op de vervolgkeuzelijst van uw werkruimten aan de bovenkant.
+2. Klik op de vervolgkeuzelijst met uw werkruimten aan de bovenkant.
 
    ![Machine learning regio gebruikersinterface.][image4]
 
-3. Controleer of de regio die uw werkruimte in.
+3. Controleer of de regio waarin uw werkruimte zich bevindt.
 
 <!-- Image Links -->
 

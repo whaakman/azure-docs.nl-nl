@@ -1,10 +1,11 @@
 ---
 title: Optimaliseer uw algoritmen in Azure Machine Learning | Microsoft Docs
-description: Legt uit hoe het optimale parameters ingesteld voor een Azure Machine Learning-algoritme kiezen.
+description: Wordt uitgelegd hoe de optimale parameter is ingesteld voor een Azure Machine Learning-algoritme kiezen.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
@@ -15,65 +16,65 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 64d725712dc8cf87deb150944a390c9cef87b56f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0be0aec3f14dfc4d32327c64a54faaa4e039a93c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833893"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822446"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Parameters voor het optimaliseren van uw algoritmen in Azure Machine Learning kiezen
-Dit onderwerp wordt beschreven hoe u de juiste hyperparameter ingesteld voor een Azure Machine Learning-algoritme kiest. De meeste machine learning-algoritmen hebben om in te stellen-parameters. Wanneer u het model trainen, moet u waarden opgeven voor deze parameters. De effectiviteit van het getrainde model is afhankelijk van de Modelparameters die u kiest. Het proces van de optimale set parameters voor zoeken wordt ook wel *model selectie*.
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning
+In dit onderwerp wordt beschreven hoe u de juiste hyperparameter instellen voor een Azure Machine Learning-algoritme kiezen. De meeste machine learning-algoritmen hebben parameters om in te stellen. Wanneer u een model te trainen, moet u waarden opgeven voor deze parameters. De effectiviteit van het getrainde model, is afhankelijk van de Modelparameters die u kiest. Het proces uit het vinden van de optimale set met parameters wordt ook wel *model selectie*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-Er zijn verschillende manieren om te modelleren selectie. Kruisvalidatie is een van de meest gebruikte methoden voor het modelselectie in machine learning, en is het standaardmechanisme voor het selecteren van model in Azure Machine Learning. Omdat Azure Machine Learning R- en Python ondersteunt, kunt u altijd hun eigen model selectie mechanismen implementeren met behulp van R of Python.
+Er zijn verschillende manieren om Modelleer selectie. Kruisvalidatie is een van de meest gebruikte methoden voor de modelselectie van het in machine learning, en is het standaardmechanisme voor het selecteren van model in Azure Machine Learning. Omdat Azure Machine Learning zowel R als Python ondersteunt, kunt u altijd eigen methoden van de selectie model implementeren met behulp van R of Python.
 
 Er zijn vier stappen van de beste parameterset zoeken:
 
-1. **Definieer de parameter-ruimte**: voor het algoritme voor de exacte parameterwaarden wilt u eerst bepalen.
-2. **Definieer de instellingen van de kruisvalidatie**: bepalen hoe u kruisvalidatie vouwen dat voor de gegevensset kiezen.
-3. **De metrische gegevens definiëren**: Bepaal welke metriek moet worden gebruikt voor het vaststellen van de beste reeks parameters, zoals nauwkeurigheid, root mean squared fout, precisie, intrekken of f-score.
-4. **Trainen, te evalueren en te vergelijken**: voor elke unieke combinatie van de parameterwaarden kruisvalidatie is uitgevoerd door en op basis van de fout metrische gegevens die u definieert. Na evaluatie en vergelijking, kunt u de best presterende model.
+1. **Definieer de parameter-ruimte**: voor het algoritme, besluit u eerst de exacte parameterwaarden die u wilt gebruiken.
+2. **Definieer de instellingen van de kruisvalidatie**: bepalen hoe u kruisvalidatie vouwen opgeven voor de gegevensset kiezen.
+3. **De metrische gegevens definiëren**: Bepaal welke metrische gegevens te gebruiken voor het bepalen van de beste set parameters, zoals nauwkeurigheid, root mean squared fout, precisie, intrekken of f-score.
+4. **Trainen, evalueren en vergelijken**: voor elke unieke combinatie van de parameterwaarden kruisvalidatie is uitgevoerd door en op basis van de fout meetwaarde definiëren. Na de evaluatie en vergelijking, kunt u het best presterende model kiezen.
 
-De volgende afbeelding ziet u hoe u kunt dit in Azure Machine Learning doen bevat.
+De volgende afbeelding ziet hoe u dit in Azure Machine Learning doen kunt wordt weergegeven.
 
-![De beste parameterset vinden](./media/algorithm-parameters-optimize/fig1.png)
+![De beste parameterset zoeken](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>De parameter-ruimte definiëren
-U kunt de parameter is ingesteld op de stap van de initialisatie model definiëren. Het deelvenster parameter van alle machine learning-algoritmen heeft twee trainer modi: *één Parameter* en *Parameter bereik*. Kies bereik van de Parameter-modus. In het bereik van de Parameter-modus, kunt u meerdere waarden opgeven voor elke parameter. U kunt door komma's gescheiden waarden opgeven in het tekstvak.
+U kunt de parameter is ingesteld op de stap van de initialisatie van model definiëren. Het deelvenster parameter van alle machine learning-algoritmen beschikt over twee modi voor trainer: *één Parameter* en *Parameter bereik*. Kies de Parameter-bereik-modus. U kunt meerdere waarden voor elke parameter invoeren in de modus van de Parameter-bereik. U kunt met door komma's gescheiden waarden invoeren in het tekstvak in.
 
-![Twee klasse gestimuleerd beslissingsstructuur één parameter](./media/algorithm-parameters-optimize/fig2.png)
+![Twee-class boosted-beslisboom, één parameter](./media/algorithm-parameters-optimize/fig2.png)
 
- Ook kunt u de maximale en minimale punten van het raster en het totale aantal punten moet worden gegenereerd met **gebruik bereik Builder**. Standaard worden de parameterwaarden die zijn gegenereerd op een lineaire schaal. Maar als **logaritmische schaal** is ingeschakeld, wordt de waarden worden gegenereerd in de logaritmische schaal (dat wil zeggen, de verhouding van de aangrenzende punten constant is in plaats van hun verschil). Voor integer-parameters, kunt u een bereik definiëren met een koppelteken. Bijvoorbeeld "1-10" betekent dat alle gehele getallen tussen 1 en 10 (zowel liggen) de parameterset vormen. Een gemengde modus wordt ook ondersteund. Bijvoorbeeld: de parameter ingesteld ' 1-10, 20, 50 ' bevatten gehele getallen van 1 tot 10, 20, en 50.
+ U kunt ook kunt u de maximale en minimale punten van het raster en het totale aantal punten moet worden gegenereerd met **gebruik bereik Builder**. Standaard worden de parameterwaarden die zijn gegenereerd op een lineaire schaal. Maar als **logaritmische schaal** is ingeschakeld, wordt de waarden worden gegenereerd in de logaritmische schaal (dat wil zeggen, de verhouding van de aangrenzende punten constant is in plaats van hun verschil). Voor de parameters van geheel getal zijn, kunt u een bereik definiëren met behulp van een afbreekstreepje. Bijvoorbeeld, "1-10" betekent dat alle gehele getallen tussen 1 en 10 (zowel inclusieve) de parameterset vormen. Een gemengde modus wordt ook ondersteund. Bijvoorbeeld, de parameter ingesteld ' 1-10, 20, 50 "zijn gehele getallen van 1-10, 20, en 50.
 
-![Twee klasse gestimuleerd beslissingsstructuur parameter bereik](./media/algorithm-parameters-optimize/fig3.png)
+![Twee-class boosted-beslisboom, parameter-bereik](./media/algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>Kruisvalidatie vouwen definiëren
-De [partitie en steekproef] [ partition-and-sample] module willekeurig vouwen toewijzen aan de gegevens kan worden gebruikt. In de volgende voorbeeldconfiguratie voor de module we vijf vouwen definiëren en een aantal vouwen willekeurig toewijzen aan de voorbeeld-exemplaren.
+De [partitie en steekproef] [ partition-and-sample] module willekeurig vouwen toewijzen aan de gegevens kan worden gebruikt. In de volgende voorbeeldconfiguratie voor de module, we definiëren vijf vouwen en willekeurig een aantal vouwen toewijzen aan de voorbeeld-exemplaren.
 
 ![Partitie en steekproef](./media/algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>De metrische gegevens definiëren
-De [Tune Model Hyperparameters] [ tune-model-hyperparameters] module biedt ondersteuning voor het kiezen van langs de beste set parameters voor een bepaald algoritme en de gegevensset. Naast de andere informatie met betrekking tot het model te trainen de **eigenschappen** deelvenster van deze module de metrische gegevens voor het bepalen van de beste parameterset bevat. Twee verschillende vervolgkeuzelijst vakken voor de classificatie en regressie algoritmen, heeft respectievelijk. Als de onderzochte-algoritme een classificatie-algoritme is, de metriek regressie wordt genegeerd en vice versa. In dit specifieke voorbeeld de meetwaarde is **nauwkeurigheid**.   
+De [Tune Model Hyperparameters] [ tune-model-hyperparameters] module biedt ondersteuning voor het kiezen van empirisch de beste set parameters voor een bepaald algoritme en de gegevensset. Naast andere informatie met betrekking tot het model te trainen de **eigenschappen** deelvenster van deze module bevat de metrische gegevens voor het bepalen van de beste functieset voor de parameter. Twee verschillende vervolgkeuzelijst vakken voor de classificatie- en regressiemodellen algoritmen, heeft respectievelijk. Als de onderzochte-algoritme een classificatiealgoritme is, de metriek regressie wordt genegeerd en vice versa. In dit specifieke voorbeeld de metriek is **nauwkeurigheid**.   
 
-![Vegen parameters](./media/algorithm-parameters-optimize/fig5.png)
+![Parameters zwaaihoek](./media/algorithm-parameters-optimize/fig5.png)
 
-## <a name="train-evaluate-and-compare"></a>Trainen, te evalueren en te vergelijken
-Dezelfde [Tune Model Hyperparameters] [ tune-model-hyperparameters] module treinen alle modellen die overeenkomen met de parameter instellen, evalueert verschillende metrische gegevens en maakt vervolgens het best getrainde model op basis van de metrische gegevens u Kies. Deze module heeft twee verplichte invoeren:
+## <a name="train-evaluate-and-compare"></a>Trainen, evalueren en vergelijken
+Dezelfde [Tune Model Hyperparameters] [ tune-model-hyperparameters] module treinen alle modellen die overeenkomen met de parameter instelt, evalueert verschillende metrische gegevens en maakt vervolgens het best getrainde model op basis van de metrische gegevens u Kies. Deze module heeft twee verplichte invoeren:
 
 * De ongetrainde cursist
 * De gegevensset
 
-De module heeft ook een optionele gegevensset invoer. De dataset verbinden met de vouwindex-gegevens naar de invoer verplichte gegevensset. Als de dataset vouwen informatie niet is toegewezen, klikt u vervolgens een 10-fold kruisvalidatie automatisch standaard uitgevoerd. Als de vouwen-toewijzing is niet uitgevoerd en een validatie-gegevensset op de poort optioneel gegevensset wordt aangeboden, een train-test-modus is gekozen en de eerste gegevensset wordt gebruikt voor het trainen van het model voor elke combinatie van parameters.
+De module heeft ook een optionele gegevensset de invoer. Verbinding maken met de gegevensset met informatie op de invoer van de verplichte gegevensset vouwen. Als de gegevensset geen gegevens delen niet is toegewezen, klikt u vervolgens een 10-fold kruisvalidatie automatisch standaard uitgevoerd. Als de toewijzing vouwen is niet uitgevoerd en een validatie-gegevensset u aan de poort optioneel gegevensset vindt, een train testmodus is gekozen en de eerste gegevensset wordt gebruikt om te trainen het model voor elke combinatie van parameters.
 
-![Gestimuleerd decision tree classificatie](./media/algorithm-parameters-optimize/fig6a.png)
+![Boosted decision tree classificatie](./media/algorithm-parameters-optimize/fig6a.png)
 
-Het model wordt vervolgens geëvalueerd op de gegevensset validatie. De uitvoerpoort links van de module bevat verschillende metrische gegevens als functies van parameterwaarden. De juiste uitvoerpoort biedt het getrainde model dat overeenkomt met de best presterende model volgens de gekozen metriek (**nauwkeurigheid** in dit geval).  
+Het model wordt vervolgens geëvalueerd voor de validatie-gegevensset. De uitvoerpoort links van de module ziet u verschillende metrische gegevens als functies van parameterwaarden. De juiste uitvoerpoort biedt het getrainde model dat overeenkomt met de best presterende model op basis van de gekozen metrische gegevens (**nauwkeurigheid** in dit geval).  
 
 ![Validatie van gegevensset](./media/algorithm-parameters-optimize/fig6b.png)
 
-Hier ziet u de exacte parameters die door de juiste uitvoerpoort visualiseren gekozen. Dit model kan worden gebruikt in een testset score berekenen of in een geoperationaliseerd webservice nadat ze zijn opgeslagen als een getraind model.
+Hier ziet u de exacte parameters door het visualiseren van de juiste uitvoerpoort gekozen. Dit model kan worden gebruikt in een testset scoren of in een geoperationaliseerde webservice nadat ze zijn opgeslagen als een getraind model.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/

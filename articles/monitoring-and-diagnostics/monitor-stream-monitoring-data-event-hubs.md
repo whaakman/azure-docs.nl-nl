@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961820"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823755"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -71,7 +71,7 @@ Voor het verzenden van gegevens uit de Azure-activiteitenlogboek in een Event Hu
 
 Azure-resources verzenden twee soorten gegevens te controleren:
 1. [Diagnostische logboeken van resource](./monitoring-overview-of-diagnostic-logs.md)
-2. [Metrische gegevens](../monitoring/monitoring-data-collection.md)
+2. [Metrische gegevens](../azure-monitor/platform/data-collection.md)
 
 Beide typen gegevens worden verzonden naar een event hub met behulp van de diagnostische instelling van een resource. [Deze handleiding volgt](./monitoring-stream-diagnostic-logs-to-event-hubs.md) voor het instellen van de diagnostische instelling van een resource op een bepaalde resource. Een resource diagnostische instelling voor elke bron van waaruit u wenst te verzamelen van logboeken instellen.
 

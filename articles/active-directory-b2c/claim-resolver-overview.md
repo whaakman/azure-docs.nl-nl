@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312829"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852377"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Over claim resolvers in Azure Active Directory B2C aangepast beleid
 
@@ -33,10 +33,10 @@ In het volgende voorbeeld wordt een claimtype met de naam `correlationId` is ged
 </ClaimType>
 ```
 
-In het technische profiel en de conflictoplosser claim worden toegewezen aan het claimtype. Azure AD B2C vult de waarde van de claim-resolver `{context:corelationId}` in de claim `correlationId` en stuurt de claim aan het technische profiel.
+In het technische profiel en de conflictoplosser claim worden toegewezen aan het claimtype. Azure AD B2C vult de waarde van de claim-resolver `{Context:CorrelationId}` in de claim `correlationId` en stuurt de claim aan het technische profiel.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Conflictoplosser claimtypen

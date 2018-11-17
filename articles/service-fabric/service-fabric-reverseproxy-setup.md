@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506267"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852976"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instellen en configureren van omgekeerde proxy's in Azure Service Fabric
 Omgekeerde proxy is een optionele Azure Service Fabric-service waarmee microservices in een Service Fabric-cluster uitgevoerd detecteren en te communiceren met andere services die http-eindpunten hebben. Zie voor meer informatie, [omgekeerde proxy in Azure Service Fabric](service-fabric-reverseproxy.md). Dit artikel ziet u hoe u kunt instellen en configureren van omgekeerde proxy in het cluster. 
@@ -231,7 +231,7 @@ De volgende stappen ziet u de instellingen te gebruiken voor het inschakelen van
 
    Zie voor meer informatie over het configureren en beheren van certificaten voor een zelfstandige cluster, evenals meer details over het configureren van certificaten die worden gebruikt voor het beveiligen van omgekeerde proxy [X509 beveiliging op basis van certificaat](./service-fabric-windows-cluster-x509-security.md).
 
-Nadat u uw ClusterConfig.json-bestand voor het inschakelen van omgekeerde proxy hebt gewijzigd, volgt u de instructies in [Upgrade van de clusterconfiguratie](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) push de wijzigingen in uw cluster.
+Nadat u uw ClusterConfig.json-bestand voor het inschakelen van omgekeerde proxy hebt gewijzigd, volgt u de instructies in [Upgrade van de clusterconfiguratie](service-fabric-cluster-config-upgrade-windows-server.md) push de wijzigingen in uw cluster.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Omgekeerde proxy voor een openbare poort via Azure Load Balancer beschikbaar
@@ -332,7 +332,7 @@ Bijvoorbeeld, stelt u de waarde van **DefaultHttpRequestTimeout** in te stellen 
    }
    ``` 
 
-Zie voor meer informatie over het bijwerken van de fabric-instellingen voor Azure-clusters [aanpassen met behulp van Resource Manager-sjablonen clusterinstellingen](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Zie voor zelfstandige clusters, [clusterinstellingen voor zelfstandige clusters aanpassen](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Zie voor meer informatie over het bijwerken van de fabric-instellingen voor Azure-clusters [aanpassen met behulp van Resource Manager-sjablonen clusterinstellingen](service-fabric-cluster-config-upgrade-azure.md). Zie voor zelfstandige clusters, [clusterinstellingen voor zelfstandige clusters aanpassen](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Verschillende infrastructuurinstellingen worden gebruikt voor het tot stand te brengen veilige communicatie tussen de reverse proxy- en -services. Zie voor gedetailleerde informatie over deze instellingen, [verbinding maken met een beveiligd service met de omgekeerde proxy](service-fabric-reverseproxy-configure-secure-communication.md).
 

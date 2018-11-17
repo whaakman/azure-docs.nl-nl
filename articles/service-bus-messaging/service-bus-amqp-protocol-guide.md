@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013323"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821545"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -243,7 +243,7 @@ Er zijn enkele andere service bus-bericht-eigenschappen, maken geen deel uit van
 | Aantekening kaart sleutel | Gebruik | API-naam |
 | --- | --- | --- |
 | x-opt-gepland-in de wachtrij plaatsen-tijd | Verklaart op dat moment het bericht op de entiteit moet worden weergegeven |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partitie-key | Toepassingsspecifieke sleutel die welke partitie bepaalt het bericht moet worden neergezet in. | [partitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-partitie-key | Toepassingsspecifieke sleutel die welke partitie bepaalt het bericht moet worden neergezet in. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
 | x-opt-via-partitiesleutel | Toepassing gedefinieerde partitiesleutel waarde als een transactie moet worden gebruikt voor het verzenden van berichten uit via een wachtrij voor overdracht. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
 | x-opt-in de wachtrij-tijd | Service gedefinieerde UTC-tijd dat de werkelijke tijd van het bericht enqueuing vertegenwoordigt. Op de invoer wordt genegeerd. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
 | x-opt--volgnummer | Service gedefinieerde unieke nummer toegewezen aan een bericht. | [sequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
@@ -258,7 +258,7 @@ De bewerkingen worden gegroepeerd met een id `txn-id`.
 
 Voor interactie met transactionele, de client fungeert als een `transaction controller` , welke besturingselementen van de bewerkingen die moeten worden gegroepeerd. Service Bus-Service fungeert als een `transactional resource` en werk uitvoert, zoals aangevraagd door de `transaction controller`.
 
-De client en de service communiceren via een `control link` , die tot stand is gebracht door de client. De `declare` en `discharge` berichten worden verzonden door de netwerkcontroller via de koppeling besturingselement toegewezen en het uitvoeren van transacties respectievelijk (ze geen vertegenwoordigen de begrenzing van transactioneel werk). De werkelijke verzenden/ontvangen wordt niet uitgevoerd op deze koppeling. Elke transactionele de aangevraagde bewerking is expliciet aangeduid met de gewenste `txn-id` en daarom kunnen zich voordoen op een koppeling op de verbinding. Als de controle-koppeling is gesloten terwijl er niet-ontslagen transacties die deze gemaakt, klikt u vervolgens al deze transacties onmiddellijk teruggedraaid en pogingen tot op deze verder transactioneel werk verrichten zal leiden tot een fout. Berichten op het besturingselement koppeling mag geen pre verrekend.
+De client en de service communiceren via een `control link` , die tot stand is gebracht door de client. De `declare` en `discharge` berichten worden verzonden door de netwerkcontroller via de koppeling besturingselement toegewezen en het uitvoeren van transacties respectievelijk (ze geen vertegenwoordigen de begrenzing van transactioneel werk). De werkelijke dat verzenden/ontvangen wordt op deze koppeling niet uitgevoerd. Elke transactionele de aangevraagde bewerking is expliciet aangeduid met de gewenste `txn-id` en daarom kunnen zich voordoen op een koppeling op de verbinding. Als de controle-koppeling is gesloten terwijl er niet-ontslagen transacties die deze gemaakt, klikt u vervolgens al deze transacties onmiddellijk teruggedraaid en pogingen tot op deze verder transactioneel werk verrichten zal leiden tot een fout. Berichten op het besturingselement koppeling mag geen pre verrekend.
 
 Elke verbinding heeft een eigen besturingselement koppeling om te beginnen en eindigen transacties kunnen initiëren. De service definieert een speciale bestemming die als fungeert een `coordinator`. De client/controller stelt een besturingselement koppeling naar dit doel. Besturingselement koppeling is buiten de grens van een entiteit, dat wil zeggen, dezelfde besturingselement koppeling kan worden gebruikt om te initiëren en uitvoering van transacties voor meerdere entiteiten.
 

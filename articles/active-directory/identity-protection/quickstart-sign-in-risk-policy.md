@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632384"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822124"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Snelstartgids: Toegang blokkeren als er een sessie risico's met Azure Active Directory Identity Protection wordt gedetecteerd  
 
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten 
 
-Als u wilt het scenario in deze zelfstudie hebt voltooid, hebt u het volgende nodig:
+Voor het voltooien van het scenario in deze zelfstudie hebt u het volgende nodig:
 
 - **Toegang tot een Azure AD Premium P2-editie** -Azure AD Identity Protection is een functie van Azure AD Premium P2. 
 
@@ -109,7 +109,7 @@ Deze sectie wordt beschreven hoe u de vereiste aanmeldingsrisico-beleid voor voo
 14. Klik op de beleidspagina **opslaan**.  
 
 
-## <a name="test-your-conditional-access-policy"></a>Testen van uw beleid voor voorwaardelijke toegang
+## <a name="test-your-conditional-access-policy"></a>Uw voorwaardelijke toegangsbeleid testen
 
 Als u wilt testen van uw beleid, willen aanmelden bij uw [Azure-portal](https://portal.azure.com) als **Alan Charon** met behulp van de Tor-Browser. Uw aanmeldingspoging moet worden geblokkeerd door uw beleid voor voorwaardelijke toegang.
 
@@ -122,6 +122,6 @@ Wanneer u niet meer nodig hebt, verwijdert u de testgebruiker, de Tor-Browser en
 
 - Als u niet hoe u een Azure AD-gebruiker verwijdert weet, Zie [toevoegen of verwijderen van gebruikers](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
-- Zie voor instructies voor het verwijderen van de Tor Browser, [verwijderen](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Zie voor instructies voor het verwijderen van de Tor Browser, [verwijderen](https://tb-manual.torproject.org/uninstalling/).
 
 

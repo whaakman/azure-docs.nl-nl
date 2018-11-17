@@ -1,11 +1,12 @@
 ---
 title: Een antwoord met een eenvoudige regressiemodel - Azure Machine Learning voorspellen | Microsoft Docs
-description: Het maken van een eenvoudige regressiemodel om te voorspellen een prijs in Gegevenswetenschap voor beginnende gebruikers video 4. Bevat een lineaire regressie met doelgegevens.
-keywords: maken van een model, eenvoudige model, prijs voorspelling, eenvoudige regressiemodel
+description: Het maken van een eenvoudige regressiemodel om te voorspellen van een prijs in Gegevenswetenschap voor Beginners video 4. Bevat een lineaire regressie met doelgegevens.
+keywords: een model, eenvoudig model, voorspellen, eenvoudige regressiemodel maken
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
@@ -16,122 +17,122 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: ad1b8369358f7811a02d344fdc0306662413a404
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d1e7667d30eecab2e1a3328fdc68ef528823e695
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833822"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824197"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Met een eenvoudig model een antwoord voorspellen
-## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Gegevenswetenschap voor beginnende gebruikers reeks
-Informatie over het maken van een eenvoudige regressiemodel om te voorspellen van de prijs van een ruitvormige in Gegevenswetenschap voor beginnende gebruikers video 4. We gaat een regressiemodel met doelgegevens tekenen.
+## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Gegevenswetenschap voor Beginners-serie
+Informatie over het maken van een eenvoudige regressiemodel om te voorspellen de prijs van een ruit in Gegevenswetenschap voor Beginners video 4. We een regressiemodel met doelgegevens getekend.
 
-Als u optimaal gebruik van de reeks, bekijk ze allemaal. [Ga naar de lijst met video 's](#other-videos-in-this-series)
+Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst met video 's](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >
 >
 
-## <a name="other-videos-in-this-series"></a>Andere video's in deze reeks
-*Gegevenswetenschap voor beginnende gebruikers* is een korte inleiding voor gegevenswetenschap in vijf korte video's.
+## <a name="other-videos-in-this-series"></a>Andere video's in deze serie
+*Gegevenswetenschap voor Beginners* is een korte inleiding over data Science in vijf korte video's.
 
-* Video 1: [gegevens wetenschappelijke antwoorden op vragen het 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: [uw gegevens gereed Is voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Video 3: [Stel een vraag kunt u met gegevens beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: Een antwoord met een eenvoudige model voorspellen
-* Video 5: [kopiëren van anderen werk hiervoor gegevenswetenschap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 1: [gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: [een vraag stellen u met gegevens kunt beantwoorden](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: Een antwoord met een eenvoudig model voorspellen
+* Video 5: [werk van anderen als u wilt doen, wetenschappelijke gegevens kopiëren](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>De tekst: Een antwoord met een eenvoudige model voorspellen
-Welkom bij de vierde video in de 'Data wetenschappelijke voor beginnende gebruikers' reeks. In dit voorbeeld we een eenvoudige model bouwen en maken van een voorspelling.
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcript: Een antwoord met een eenvoudig model voorspellen
+Welkom bij de vierde video in de 'Data Science voor Beginners"reeks. In dit voorbeeld we een eenvoudig model bouwen en maken van een voorspelling.
 
-Een *model* wordt een vereenvoudigde artikel over onze gegevens. Ik ziet u heb.
+Een *model* is een vereenvoudigde verhaal over onze gegevens. Ik leert u wat ik wil maar zeggen.
 
 ## <a name="collect-relevant-accurate-connected-enough-data"></a>Collect relevante, nauwkeurige, verbonden, voldoende gegevens
-Stel dat ik shop voor een ruitvormige wilt. Ik heb een ring die deel uitmaakten van mijn oma met een instelling voor een ruitvormige 1.35 karaat en ik wil een idee krijgen van wat er gaat kosten. Ik een Kladblok en pen nemen in het archief juwelen en ik Noteer de prijs van alle in het geval en hoeveel ze in carats Weeg de uur per maand werken. Beginnen met het eerste ruitvormige - de 1.01 carats en $7,366.
+Stel dat ik kopen voor een ruit wilt. Ik heb een ring die deel uitmaakten van mijn oma met een instelling voor een ruit 1.35 karaat en ik wil een beter beeld van wat er gaat kosten. Kan ik een Kladblok en pen nemen in het archief sieraden en ik schrijf op de prijs van alle de uur per maand in het geval is en wat ze wegen carats werken. Beginnen met de eerste ruit - de 1.01 carats en $7,366.
 
-Ik Ga nu via en doe dit voor alle andere ruiten in het archief.
+Nu ik doorlopen en doe dit voor alle andere ruiten in de store.
 
-![Kolommen met gegevens ruitvormige](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
+![Kolommen met gegevens van de reeks met een ruit](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
 
-U ziet dat onze lijst twee kolommen. Elke kolom heeft een ander kenmerk - gewicht in carats en prijs- en elke rij is één gegevenspunt dat een enkele ruitvormige vertegenwoordigt.
+U ziet dat de lijst met twee kolommen. Elke kolom heeft een ander kenmerk - gewicht in carats en de prijs- en elke rij is één gegevenspunt dat een enkele ruit vertegenwoordigt.
 
-Er is een klein daadwerkelijk gemaakt van gegevensset hier - een tabel. U ziet dat het voldoet aan de criteria voor kwaliteit:
+We hebben daadwerkelijk gemaakt met een kleine gegevensset hier: een tabel. U ziet dat het voldoet aan onze criteria voor kwaliteit:
 
-* De gegevens zijn **relevante** -gewicht definitief is gerelateerd aan prijs
-* Deze heeft **nauwkeurige** -we de prijzen die we Noteer goed gecontroleerd
-* Deze heeft **verbonden** -er zijn geen spaties in een van deze kolommen
-* En zullen we zien, heeft **voldoende** gegevens onze vragen te beantwoorden
+* De gegevens zijn **relevante** -gewicht zeker is gerelateerd aan prijs
+* Er **nauwkeurige** -we de prijzen die we Noteer goed gecontroleerd
+* Er **verbonden** -er zijn geen spaties in een van deze kolommen
+* En als we zien, heeft **voldoende** gegevens ons vragen te beantwoorden
 
-## <a name="ask-a-sharp-question"></a>Stel een vraag kruis
-Nu we onze vraag kruis zodanig hebt inhouden: 'hoeveel kost het aanschaffen van een ruitvormige 1.35 karaat?'
+## <a name="ask-a-sharp-question"></a>Een sharp vraag stellen
+Nu we onze vraag op een sharp manier gaat opleveren: "hoeveel kost het kopen van een ruit 1.35 karaat?"
 
-Onze lijst geen een ruitvormige 1.35 karaat in, zodat we de rest van onze gegevens gebruiken voor een antwoord op de vraag hebt.
+De lijst met beschikt niet over een ruit 1.35 Dakje in, zodat we het gebruik van de rest van onze gegevens op een antwoord op de vraag hebt.
 
-## <a name="plot-the-existing-data"></a>Tekenen van de bestaande gegevens
-Het eerste wat dat we doen is een horizontale lijn van het aantal aangeroepen as, om het gewicht van grafiek wordt getekend. Het bereik van de gewichten is 0 tot en met 2, zodat we je een lijn die betrekking heeft op die variëren en ticks voor elk half karaat plaatsen tekenen.
+## <a name="plot-the-existing-data"></a>De bestaande gegevens tekenen
+Het eerste wat dat we gaan doen is een horizontale lijn voor getal, met de naam een as, als u wilt het gewicht van grafiek te tekenen. Het bereik van de gewichten is 0 tot en met 2, zodat tekenen we een regel die betrekking heeft op die variëren en maten voor elk half karaat plaatsen.
 
-Vervolgens moet er een verticale as voor het vastleggen van de prijs en de verbinding met het gewicht van de horizontale as tekenen. Dit is in eenheden van bedragen. Nu hebben we een reeks coördinaat assen.
+Volgende tekenen we een verticale as voor het vastleggen van de prijs en deze verbinden met de dikte van horizontale as. Dit is in eenheden van bedragen. Nu hebben we een reeks coördinaat assen.
 
 ![Gewicht en prijs assen](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-We gaan nu deze gegevens nemen en schakel dit in een *spreidingsgrafiek tekent*. Dit is een uitstekende manier om te visualiseren numerieke gegevenssets.
+We gaan nu deze gegevens en er een *spreidingsdiagram*. Dit is een uitstekende manier om numerieke gegevenssets visualiseren.
 
-Wij krijgen voor het eerste gegevenspunt van een verticale lijn op 1.01 carats. Vervolgens wordt een horizontale lijn op $7,366 krijgen. Wanneer ze voldoen aan, we een punt wordt getekend. Hiermee wordt de eerste ruitvormige.
+Voor het eerste gegevenspunt krijgen we een verticale lijn op 1.01 carats. Klik, krijgen we een horizontale lijn op $7,366. Wanneer ze voldoen aan, tekenen we een punt. Hiermee wordt onze eerste ruit.
 
-Nu we elke ruitvormige op deze lijst doorlopen en doe hetzelfde. Wanneer we via, is dit krijgen we: een aantal punten, één voor elke ruitvormige.
+Nu we elke ruit doorlopen in deze lijst staat en hetzelfde doen. Wanneer we via, dit is wat we krijgen: een aantal punten, één voor elke ruit.
 
-![Spreiding van de grafiek](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
+![Spreidingsplot](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
-## <a name="draw-the-model-through-the-data-points"></a>Het model door de gegevenspunten worden getekend
-Als u de punten en squint bekijkt, lijkt de verzameling nu op een fat fuzzy lijn. We kunnen onze markering nemen en een lineaire ermee wordt getekend.
+## <a name="draw-the-model-through-the-data-points"></a>Het model door de gegevenspunten tekenen
+Nu als u de punten en squint bekijkt, de verzameling ziet eruit als een regel fat, zoeken bij benadering. We kunnen onze markering nemen en een rechte lijn ermee tekenen.
 
-Door het tekenen van een regel gemaakt een *model*. Beschouwen als duurt de praktijk en het aanbrengen van een eenvoudig cartoon versie ervan. Nu de cartoon is onjuist: de regel niet kan worden verstuurd alle gegevenspunten. Maar is een nuttig vereenvoudiging.
+We hebben gemaakt door een lijn wordt getekend, een *model*. Beschouw dit als de echte wereld nemen en een eenvoudig cartoon van een versie van het maken. Nu de cartoon is onjuist: de regel alle gegevenspunten niet geaccepteerd. Maar het is een nuttig vereenvoudigen.
 
 ![Lineaire regressie regel](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-Het feit dat alle punten gaan niet precies door de regel is in orde. Gegevenswetenschappers uitgelegd dit door te zeggen dat er de model - die de regel - en vervolgens elk punt een aantal is *ruis* of *variantie* gekoppeld. Er is de onderliggende perfect relatie en is de ingaan, echte wereld waardoor ruis en onzekerheid worden toegevoegd.
+Het feit dat alle punten gaan niet precies door de regel is OK. Gegevenswetenschappers dit uitleggen met te zeggen dat er de model - dat is de regel - en vervolgens elk punt enkele heeft *ruis* of *afwijking* die ermee verbonden zijn. Er is de relatie van de onderliggende perfect en is ingaan, de echte wereld die ruis en onzekerheid toegevoegd.
 
-Omdat we proberen om de vraag te beantwoorden *hoeveel?* dit heet een *regressie*. En omdat we maken gebruik van een lineaire is een *lineaire regressie*.
+Omdat we willen de vraag worden beantwoord *hoeveel?* dit heet een *regressie*. En omdat we maken gebruik van een rechte lijn, is het een *lineaire regressie*.
 
-## <a name="use-the-model-to-find-the-answer"></a>Gebruik het model in het antwoord gevonden
-Nu we een model hebben en we onze vraag vragen: hoeveel kost een ruitvormige 1.35 karaat?
+## <a name="use-the-model-to-find-the-answer"></a>Het antwoord vinden met behulp van het gegevensmodel
+Nu we een model hebben en we onze vraag willen: hoeveel kost een ruit 1.35 karaat?
 
-Voor onze vraag 1.35 carats krijgen we en tekenen van een verticale lijn. Wanneer deze de modelregel bestrijkt krijgen we een horizontale lijn op de as dollar. Het treffers recht op 10.000. Giek! Het antwoord is: een ruitvormige 1.35 karaat kost ongeveer 10.000 $.
+Om te beantwoorden onze vraag, wij 1.35 carats krijgen en een verticale lijn. Wanneer deze de modelregel kruist krijgen we van een horizontale lijn op de as dollar. Dit recht op 10.000 bij aankomt. Tijdperk! Het antwoord is: een ruit 1.35 karaat kost ongeveer $10.000.
 
 ![Het antwoord vinden op het model](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
-## <a name="create-a-confidence-interval"></a>Een betrouwbaarheidsinterval maken
-Het is natuurlijk zich afvragen hoe precies deze voorspelling is. Het is handig om te weten of de ruitvormige 1.35 karaat heel dicht bij $10.000 wordt, of veel hoger of lager. Om te bepalen welke, we een envelop rond de regressie regel bevat het merendeel van de puntjes tekenen. Deze envelop heet onze *betrouwbaarheidsinterval*: we vrij zeker van bent dat prijzen binnen deze envelop vallen, omdat in de afgelopen meest hiervan hebben. We tekenen twee meer horizontale lijnen van waar de regel 1.35 karaat de bovenkant en de onderkant van de envelop overschrijden.
+## <a name="create-a-confidence-interval"></a>Maken van een betrouwbaarheidsinterval
+Het is natuurlijk zich afvragen hoe nauwkeurig is van deze voorspelling. Het is handig om te weten of de ruit 1.35 karaat zeer dicht bij $10.000 wordt, of veel hoger of lager. Als u wilt dit scenario, we tekenen een envelop rond de regressie-regel die de meeste van de punten bevat. Deze envelop heet onze *betrouwbaarheidsinterval*: We zijn heel ervan overtuigd dat prijzen binnen deze envelop vallen, omdat in de afgelopen meest hiervan hebben. We kunnen twee meer horizontale lijnen tekenen van waar de regel 1.35 karaat boven en onder aan de envelop snijdt.
 
 ![Betrouwbaarheidsinterval](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Nu je iets over onze betrouwbaarheidsinterval: je zorgeloos dat de prijs van een ruitvormige 1.35 karaat ongeveer $10.000 is - maar mogelijk zo laag fl 8.000 en mogelijk fl 12.000 zo hoog.
+Nu we iets over ons betrouwbaarheidsinterval kunnen zeggen: We vertrouwen dat de prijs van een ruit 1.35 karaat ongeveer $10.000 is -, maar kan het zijn slechts $8.000 en is het mogelijk wel $12.000 kunnen zeggen.
 
-## <a name="were-done-with-no-math-or-computers"></a>We klaar bent, zonder math of computers
-We hebben gedaan welke gegevenswetenschappers betaald krijgen te doen en we deze door te tekenen voldoet:
+## <a name="were-done-with-no-math-or-computers"></a>We klaar, zonder math of computers
+We hebben gedaan, wat gegevenswetenschappers te verkopen te doen, en door te tekenen we gebruikten:
 
-* We vraag een dat we met gegevens beantwoorden kan
-* Moesten een *model* met *lineaire regressie*
-* Er een *voorspelling*, voltooid met een *betrouwbaarheidsinterval*
+* Er heeft een vraag die we met gegevens beantwoorden kan
+* We hebben gebouwd een *model* met behulp van *lineaire regressie*
+* Hebben we een *voorspelling*, inclusief een *betrouwbaarheidsinterval*
 
-En we math of computers niet gebruiken om dat te doen.
+En we niet math of computers gebruiken om dit te doen.
 
-Nu als we gehad meer informatie, zoals...
+Als we meer informatie, zoals hadden gehad nu...
 
-* de ruitvormige knippen
-* kleurvariaties (hoe sluiten de ruitvormige is voor een wit)
-* het aantal insluitingen in de ruitvormige
+* het knippen van de reeks met een ruit
+* kleurvariaties (hoe dicht de ruit is om te worden wit)
+* het aantal insluitingen in de reeks met een ruit
 
-...en we zouden hebben meer kolommen. Math wordt in dat geval handig zijn. Als er meer dan twee kolommen, is het moeilijk te tekenen punten op papier. De berekening kunt u die regel of dit vlak tot uw gegevens zeer mooi passen.
+...en we zouden hebben meer kolommen. In dat geval wordt de math nuttig. Als u meer dan twee kolommen hebt, is het moeilijk te tekenen van punten op papier. De berekening kunt u heel goed passen van die regel of dit vlak tot uw gegevens.
 
-Ook als in plaats van slechts een handvol ruiten, zijn twee duizend of twee miljoen en vervolgens kunt u die werken veel sneller uitvoeren met een computer.
+Ook als in plaats van slechts een paar uur per maand werken, moesten we twee duizend of twee miljoen en vervolgens kunt u veel sneller dat werk doen met een computer.
 
-Vandaag de dag besproken hierover lineaire regressie en er een voorspelling met behulp van gegevens hebt aangebracht.
+Nu we hebben het gehad over hoe u lineaire regressie doet en we een voorspelling met behulp van gegevens gemaakt.
 
-Zorg ervoor dat de andere video's in 'Data wetenschappelijke voor beginnende gebruikers' van Microsoft Azure Machine Learning uitchecken.
+Zorg ervoor dat de andere video's in 'Data Science voor Beginners"van Microsoft Azure Machine Learning uitchecken.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Probeer een eerste gegevens wetenschappelijke experiment met Machine Learning Studio](create-experiment.md)
-* [Maak kennis met Machine Learning in Microsoft Azure](what-is-machine-learning.md)
+* [Probeer een eerste gegevenswetenschapexperiment met Machine Learning Studio](create-experiment.md)
+* [Maak kennis met Machine Learning op Microsoft Azure](what-is-machine-learning.md)

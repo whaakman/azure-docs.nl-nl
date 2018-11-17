@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f45cf56e0ebaa4a85bd4ece8fd4c727435db0652
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 9b34476d7ac78c03e9b2fc5340de51d9140cf73a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715372"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821613"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hoe u op de prestaties van de grafiek met Azure Monitor voor virtuele machines (Preview)
 Azure Monitor voor virtuele machines bevat een set van prestatiegrafieken weergegeven die zijn gericht verschillende prestatie-indicatoren (KPI's) om te bepalen hoe goed een virtuele machine wordt uitgevoerd. De grafieken weergegeven Resourcegebruik gedurende een bepaalde periode, zodat u kunt identificeren van knelpunten, afwijkingen, of schakel over naar een perspectief aanbieding elke machine om gebruik van resources op basis van de geselecteerde meetwaarde weer te geven. Er zijn talrijke elementen bij het omgaan met prestaties, wordt Azure Monitor voor virtuele machines is gericht op het besturingssysteem als gemanifesteerd via de processor, geheugen, netwerkadapters en schijven. Prestaties is een aanvulling op de functie voor health monitoring en helpt u problemen die wijzen op een onderdeel systeemfouten, ondersteuning voor afstemmen en optimalisatie voor het bereiken van efficiëntie blootstellen of ondersteuning voor capaciteitsplanning.  
@@ -108,7 +108,7 @@ Metrische gegevens voor prestaties ingeschakeld als onderdeel van Azure Monitor 
 
 We kunnen echter alleen verzamelen en opslaan van een subset van de prestatiegegevens die u nodig in de Log Analytics-werkruimte hebt. Als uw strategie voor controle is vereist voor analyse of waarschuwingen die andere metrische gegevens voor prestaties bevat om te evalueren effectief capaciteit of de status van de virtuele machine, of moet u de flexibiliteit om op te geven uw eigen criteria of logische waarschuwingen, kunt u Configureer [verzamelen van deze prestatiemeteritems](../../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) in Log Analytics en definieer [waarschuwingen voor activiteitenlogboeken](../../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json). Log Analytics kunt u het uitvoeren van complexe analyse met andere gegevenstypen en geef langere bewaartermijn ter ondersteuning van trendanalyse, metrische gegevens aan de andere kant zijn lichtgewicht en kan in de buurt van realtime scenario's ondersteunen. Ze worden verzameld door de [Azure diagnoseagent](../../virtual-machines/windows/monitor.md) en opgeslagen in de Azure Monitor metrics store, zodat u kunt waarschuwingen maken met een lagere latentie en tegen lagere kosten.
 
-Bekijk het overzicht van [verzamelen van metrische gegevens en logboeken met Azure Monitor](../../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json) om verder te zien de fundamentele verschillen en andere overwegingen voor verzameling van deze aanvullende metrische gegevens en de regels voor waarschuwingen configureren.  
+Bekijk het overzicht van [verzamelen van metrische gegevens en logboeken met Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/azure-monitor/toc.json) om verder te zien de fundamentele verschillen en andere overwegingen voor verzameling van deze aanvullende metrische gegevens en de regels voor waarschuwingen configureren.  
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het gebruik van de health-functie, [weergave Azure Monitor voor de gezondheid van virtuele machines](vminsights-health.md), of als u afhankelijkheden van gedetecteerde toepassingen, Zie [weergave Azure Monitor voor virtuele machines kaart](vminsights-maps.md). 

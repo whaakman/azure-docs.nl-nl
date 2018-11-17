@@ -10,16 +10,16 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219648"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852704"
 ---
 # <a name="image-moderation"></a>Beheer van afbeeldingen
 
-Gebruik de Content Moderator geautomatiseerd beheer van afbeeldingen en [hulpprogramma voor menselijke beoordeling](Review-Tool-User-Guide/human-in-the-loop.md) tot gemiddelde van installatiekopieën voor erotische en ongepaste inhoud. Scan afbeeldingen voor tekstinhoud en Detecteer gezichten die tekst extraheren. U kunt installatiekopieën met aangepaste lijsten overeenkomen en verdere actie te ondernemen.
+Gebruik de Content Moderator geautomatiseerd beheer van afbeeldingen en [human-in-the-loop beoordelingsprogramma](Review-Tool-User-Guide/human-in-the-loop.md) tot gemiddelde van installatiekopieën voor erotische en ongepaste inhoud. Scan afbeeldingen voor tekstinhoud en Detecteer gezichten die tekst extraheren. U kunt installatiekopieën met aangepaste lijsten overeenkomen en verdere actie te ondernemen.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Evalueren voor erotische en ongepaste inhoud
 
@@ -36,8 +36,8 @@ De **evalueren** bewerking wordt een betrouwbaarheidsscore tussen 0 en 1 geretou
 
 > [!NOTE]
 
-> - `isImageAdultClassified` Hiermee geeft u de mogelijke aanwezigheid van installatiekopieën die kunnen worden beschouwd als seksueel expliciet of volwassenen in bepaalde situaties.
-> - `isImageRacyClassified` Hiermee geeft u de mogelijke aanwezigheid van installatiekopieën die kunnen worden beschouwd als seksueel suggestieve of volwassen in bepaalde situaties.
+> - `isImageAdultClassified` geeft de mogelijke aanwezigheid weer van afbeeldingen die in bepaalde situaties als seksueel expliciet of erotisch kunnen worden beschouwd.
+> - `isImageRacyClassified` geeft de mogelijke aanwezigheid weer van afbeeldingen die in bepaalde situaties als suggestief of voor volwassenen kunnen worden beschouwd.
 > - De scores zijn tussen 0 en 1. Hoe hoger de score, hoe hoger het model is voorspellen van de categorie mogelijk van toepassing zijn. Deze Preview-versie, is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. Het is raadzaam om eerst te testen met uw eigen inhoud om te bepalen hoe elke categorie overeenstemt met uw vereisten.
 > - De Booleaanse waarden zijn true of false afhankelijk van de interne score drempelwaarden. Klanten moeten beoordelen of u wilt deze waarde wordt gebruikt of moet u besluiten welke aangepaste drempelwaarden op basis van hun inhoud beleid.
 >
@@ -107,7 +107,7 @@ In veel online community's, nadat gebruikers afbeeldingen of andere typen inhoud
 In plaats van toezicht houden op dezelfde installatiekopie meerdere keren, kunt u de aanstootgevende afbeeldingen toevoegen aan uw aangepaste lijst met geblokkeerde inhoud. Op die manier uw systeem inhoudstoezicht vergelijkt binnenkomende afbeeldingen op basis van uw aangepaste lijsten en stopt verdere verwerking.
 
 > [!NOTE]
-> Er is een maximumlimiet van **5 image lijsten** met elke lijst **niet meer dan 10.000 afbeeldingen**.
+> Er is een maximumlimiet van **5 afbeeldingslijsten** waarbij elke lijst **niet meer dan 10.000 afbeeldingen mag bevatten**.
 >
 
 De Content Moderator biedt een complete [afbeeldingen lijst Management API](try-image-list-api.md) met bewerkingen voor het beheren van lijsten met aangepaste installatiekopieën. Beginnen met de [afbeelding geeft een lijst van API-Console](try-image-list-api.md) en gebruiken van de REST-API-codevoorbeelden. Lees ook de [installatiekopie lijst .NET snelstartgids](image-lists-quickstart-dotnet.md) als u bekend met Visual Studio en C# bent.
@@ -144,7 +144,7 @@ Voorbeeld extraheren:
 
 Voor meer genuanceerde gevallen gebruikt u de Content Moderator [controlehulpprogramma](Review-Tool-User-Guide/human-in-the-loop.md) en de API aan de oppervlakte van de resultaten van toezicht en de inhoud van de beoordeling van uw menselijke moderators. Ze controleren van de labels machine is toegewezen en hun uiteindelijke beslissingen bevestigen.
 
-![Beoordeling van de installatiekopie van menselijke moderators](images/moderation-reviews-quickstart-dotnet.PNG)
+![Beoordeling van afbeelding voor menselijke beoordelaars](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -4,7 +4,8 @@ description: Detecteren en experimenten in Azure AI Gallery delen.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 22432a98a7ac5ecba46201d0166940e069f6031b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 4f1a06d8daa2a811871c8469dddb75ce36ceb04e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346436"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821325"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Detecteren van experimenten in Azure AI Gallery
 
@@ -90,7 +91,7 @@ Wanneer u zich bij de galerie aanmelden, worden u lid zijn van de galerie-commun
    * Uitleg bij en gegevensbronnen
    * Gegevensverwerking
    * Functie-engineering
-   * Beschrijving van het objectmodel
+   * Modelbeschrijving
    * Resultaten en evaluatie van de modelprestaties van
 
    U kunt markdown gebruiken om de opmaak van uw beschrijving. Als u wilt zien hoe uw gegevens op de pagina van de beschrijving experiment eruit ziet wanneer het experiment wordt gepubliceerd, selecteert u **Preview**.

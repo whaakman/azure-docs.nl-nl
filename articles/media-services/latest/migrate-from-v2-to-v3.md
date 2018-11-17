@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/07/2018
+ms.date: 11/15/2018
 ms.author: juliako
-ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 41ad4b26247fa8037de01ff956921146a2238abc
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616007"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823367"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -65,9 +65,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 * De volgende entiteiten zijn gewijzigd
     * JobOutput taak vervangt, en maakt nu deel uit van een taak.
     * StreamingLocator vervangt Locator.
-    * LiveEvent vervangt kanaal.
-        
-        LiveEvents facturering is gebaseerd op Livekanaal meters. Zie voor meer informatie, [Live streaming overzicht](live-streaming-overview.md#billing) en [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveEvent vervangt kanaal.<br/>LiveEvents facturering is gebaseerd op Livekanaal meters. Zie voor meer informatie, [Live streaming overzicht](live-streaming-overview.md#billing) en [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
     * LiveOutput vervangt programma.
 * LiveOutputs hoeft niet expliciet worden gestart, ze bij het maken van starten en stoppen wanneer verwijderd. Programma's anders gewerkt in de v2-API's, ze moest worden gestart na het maken.
 
@@ -75,10 +73,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 
 De API v3 heeft de volgende functiehiaten met betrekking tot de v2-API. Sluit de hiaten wordt gewerkt.
 
-* De [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) en verouderde [media analytics-processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2-Preview, Face Redactor, enzovoort) zijn niet toegankelijk is via v3.
-
-    Klanten die willen migreren van de Media Indexer 1 of 2-preview kunnen onmiddellijk de AudioAnalyzer vooraf ingesteld in de API v3 gebruiken.  Deze nieuwe definitie bevat meer functionaliteit dan de oudere Media Indexer 1 of 2. 
-
+* De [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) en verouderde [media analytics-processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2-Preview, Face Redactor, enzovoort) zijn niet toegankelijk is via v3.<br/>Klanten die willen migreren van de Media Indexer 1 of 2-preview kunnen onmiddellijk de AudioAnalyzer vooraf ingesteld in de API v3 gebruiken.  Deze nieuwe definitie bevat meer functionaliteit dan de oudere Media Indexer 1 of 2. 
 * Veel van de geavanceerde functies van de Media Encoder Standard in v2 API's zijn momenteel niet beschikbaar zijn in v3, zoals:
     * Knippen (voor on-demand en live-scenario's)
     * Samenvoegen van Assets
@@ -103,13 +98,12 @@ De volgende tabel bevat de codeverschillen tussen v2 en v3 voor algemene scenari
 ## <a name="known-issues"></a>Bekende problemen
 
 * U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-sdk), CLI of een van de ondersteunde SDK's.
-* Vandaag de dag kan gereserveerde Media-eenheden alleen worden beheerd met behulp van de API van Media Services v2. Zie voor meer informatie, [mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md).
+* Hebt u nodig voor het inrichten van gereserveerde Media-eenheden (groepsbeleidsinstelling) in uw account om de gelijktijdigheid van taken en de prestaties van uw taken, met name die met betrekking tot de Video of Audio-analyse. Zie [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md) voor meer informatie. U kunt de meest recent gebruikte met behulp van beheren [CLI 2.0 voor Media Services v3](media-reserved-units-cli-how-to.md), met de [Azure-portal](../previous/media-services-portal-scale-media-processing.md), of met behulp van de[ v2 API's](../previous/media-services-dotnet-encoding-units.md). U moet voor het inrichten van de meest recent gebruikte, of u van Media Services v2 of v3 gebruikmaakt API's.
 * Media Services-entiteiten die zijn gemaakt met de API kan niet worden beheerd door de v2-API v3.  
 * Het wordt niet aanbevolen om entiteiten die zijn gemaakt met v2-API's via de v3 API's te beheren. Hieronder vindt u voorbeelden van de verschillen die de entiteiten in twee versies niet compatibel maken:   
     * Jobs en taken die zijn gemaakt in v2, niet worden weergegeven in v3 als ze niet gekoppeld aan een transformatie zijn. De aanbeveling is om over te schakelen naar v3 transformaties en taken. Er is een relatief korte periode van die moeten worden bewaakt de v2 actieve taken tijdens de overschakeling.
-    * Kanalen en programma's die zijn gemaakt met versie 2 (die zijn toegewezen aan LiveEvents en LiveOutputs in v3) kunnen niet worden voortgezet met v3 die worden beheerd. De aanbeveling is om over te schakelen naar v3 LiveEvents en LiveOutputs op een handige kanaal stoppen.
-    
-        U kunt geen momenteel kan migreren kanalen continu worden uitgevoerd.  
+    * Kanalen en programma's die zijn gemaakt met versie 2 (die zijn toegewezen aan LiveEvents en LiveOutputs in v3) kunnen niet worden voortgezet met v3 die worden beheerd. De aanbeveling is om over te schakelen naar v3 LiveEvents en LiveOutputs op een handige kanaal stoppen.<br/>U kunt geen momenteel kan migreren kanalen continu worden uitgevoerd.  
+
 > [!NOTE]
 > Maak een bladwijzer voor dit artikel en blijven controleren op updates.
 

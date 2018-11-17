@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d2964c5b0cd0a19273b4ee1e18c8be727850454
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 04e4085715993560fee5b73cf4ae546cb58e2e5e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715393"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853214"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Ontwikkelen van veilige toepassingen op Azure
 ## <a name="abstract"></a>Samenvatting
@@ -27,4 +27,4 @@ In dit artikel is een algemene handleiding voor de beveiligingsvragen en -bestur
 
 Dit document is bedoeld als een resource voor softwareontwerpers van, ontwikkelaars en testers op alle niveaus die bouwen en implementeren van veilige Azure-oplossingen.
 
-[De whitepaper downloaden](https://acomportal.azure.net/files/resourcefiles/develop-secure-applications-on-azure/Develop%20secure%20applications%20on%20Azure.pdf)
+[De whitepaper downloaden](https://azure.microsoft.com/mediahandler/files/resourcefiles/develop-secure-applications-on-azure/Develop%20secure%20applications%20on%20Azure.pdf)

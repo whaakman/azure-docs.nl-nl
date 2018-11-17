@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 13748bf23ee70bfa77e15e7112b450637a231742
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 342e182466d2fe704c5ee188e35dece0abaeea02
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710712"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823092"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>De partner-ID koppelen aan uw Azure-accounts
 
@@ -43,7 +43,7 @@ Wanneer u toegang tot resources van de klant hebt, gebruikt u Azure portal, Powe
 
 2. Meld u aan bij Azure Portal.
 
-3. De Microsoft-partner-id invoeren. De partner-ID is de [Microsoft-Partner Network(MPN)](https://partner.microsoft.com/) -ID van uw organisatie.
+3. De Microsoft-partner-id invoeren. De partner-ID is de [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) -ID van uw organisatie.
 
   ![Schermafbeelding van partner-ID koppelen](./media/billing-link-partner-id/link-partner-ID.PNG)
 

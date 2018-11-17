@@ -1,10 +1,11 @@
 ---
 title: Logboekregistratie voor Machine Learning-webservices | Microsoft Docs
-description: Informatie over het inschakelen van logboekregistratie voor Machine Learning-webservices. Logboekregistratie biedt aanvullende informatie voor het oplossen van de API's.
+description: Leer hoe u logboekregistratie inschakelen voor Machine Learning-webservices. Logboekregistratie bevat aanvullende informatie over het oplossen van de API's.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
@@ -15,66 +16,66 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 4e1545c8fd05795c683b24c029376a3d1e6d85b8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: acca5e25079ae092df73c5b890186d593a858a5d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835828"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818910"
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Logboekregistratie inschakelen voor Machine Learning-webservices
-Dit document bevat informatie over de mogelijkheid tot het vastleggen van Machine Learning-webservices. Logboekregistratie biedt aanvullende informatie, dan slechts een foutnummer en een bericht die kan helpen bij het oplossen van de aanroepen van de Machine Learning API's.  
+Dit document bevat informatie over de mogelijkheid tot het vastleggen van Machine Learning-webservices. Logboekregistratie bevat aanvullende informatie, dan alleen een foutnummer en een bericht, waarmee u uw aanroepen naar de API's voor Machine Learning op te lossen.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Het inschakelen van logboekregistratie voor een webservice
 
 Inschakelen van logboekregistratie van het [Azure Machine Learning-webservices](https://services.azureml.net) portal. 
 
-1. Aanmelden bij de portal voor Azure Machine Learning-webservices op [ https://services.azureml.net ](https://services.azureml.net). Voor een webservice klassiek, u kunt ook opvragen bij de portal door te klikken op **nieuwe Services webervaring** op de pagina Machine Learning-webservices in Machine Learning Studio.
+1. Meld u aan bij de portal van Azure Machine Learning-webservices op [ https://services.azureml.net ](https://services.azureml.net). Een klassieke webservice, u kunt ook aanschaffen bij de portal door te klikken op **nieuwe Web Serviceservaring** op de pagina Machine Learning-webservices in Machine Learning Studio.
 
-   ![Nieuwe koppeling van de ervaring van de Web-Services](./media/web-services-logging/new-web-services-experience-link.png)
+   ![Nieuwe Web Services-ervaring-koppeling](./media/web-services-logging/new-web-services-experience-link.png)
 
-2. In het bovenste menu, klikt u op **webservices** voor een nieuwe webservice of klik op **klassieke webservices** voor een klassiek webservice.
+2. Klik op de bovenste menubalk **webservices** voor een nieuwe webservice, of klik op **klassieke webservices** voor een klassieke webservice.
 
-   ![Selecteer Nieuw of klassiek webservices](./media/web-services-logging/select-web-service.png)
+   ![Selecteer Nieuw of klassieke webservices](./media/web-services-logging/select-web-service.png)
 
-3. Een nieuwe webservice, klikt u op de naam van de webservice. Voor een klassieke-webservice, klikt u op de naam van de webservice en klik vervolgens op de volgende pagina op het juiste eindpunt.
+3. Klik op de naam van de webservice voor een nieuwe webservice. Voor een klassieke webservice, klikt u op de naam van de webservice en klik vervolgens op de volgende pagina op het juiste eindpunt.
 
-4. In het bovenste menu, klikt u op **configureren**.
+4. Klik op de bovenste menubalk **configureren**.
 
 5. Stel de **logboekregistratie inschakelen** optie naar *fout* (alleen om fouten te registreren) of *alle* (voor volledige logboekregistratie).
 
-   ![Niveau van logboekregistratie selecteren](./media/web-services-logging/enable-logging.png)
+   ![Selecteer het logboekregistratieniveau van](./media/web-services-logging/enable-logging.png)
 
 6. Klik op **Opslaan**.
 
-7. Voor klassieke webservices, maken de **ml diagnostics** container.
+7. Voor klassieke webservices, maakt u de **ml-diagnostics** container.
 
-   Alle web service-logboeken worden opgeslagen in een blob-container met de naam **ml diagnostics** in het opslagaccount dat is gekoppeld met de webservice. Deze container gemaakt voor nieuwe web-services de eerste keer dat u toegang de webservice tot. Voor klassieke webservices moet u de container maken als deze niet al bestaat. 
+   Alle logboeken van de web service worden bewaard in een blobcontainer met de naam **ml-diagnostics** in het opslagaccount dat is gekoppeld aan de webservice. Deze container wordt de eerste keer dat u toegang de webservice tot gemaakt voor nieuwe webservices. Voor klassieke webservices moet u de container maken als deze nog niet bestaat. 
 
-   1. In de [Azure-portal](https://portal.azure.com), gaat u naar het opslagaccount dat is gekoppeld met de webservice.
+   1. In de [Azure-portal](https://portal.azure.com), gaat u naar het opslagaccount dat is gekoppeld aan de webservice.
 
-   2. Onder **Blob-Service**, klikt u op **Containers**.
+   2. Klik onder **Blob Service** op **Containers**.
 
-   3. Als de container **ml diagnostics** niet bestaat, klikt u op **+ Container**, geven de container de naam 'ml-diagnostische gegevens' en selecteer de **toegangstype** als 'Blob'. Klik op **OK**.
+   3. Als de container **ml-diagnostics** niet bestaat, klikt u op **+ Container**, geef de container de naam 'ml-diagnostics' en selecteer de **toegangstype** als 'Blob'. Klik op **OK**.
 
-      ![Niveau van logboekregistratie selecteren](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Selecteer het logboekregistratieniveau van](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> Voor een webservice klassieke heeft het Dashboard van de Web-Services in Machine Learning Studio ook een switch logboekregistratie in te schakelen. Omdat logboekregistratie wordt nu beheerd via het Web Services-portal, moet u echter inschakelen van logboekregistratie in via de portal, zoals beschreven in dit artikel. Als u al ingeschakeld logboekregistratie in Studio, in de Web Services-Portal-logboekregistratie uitschakelen en opnieuw inschakelen.
+> De Web Services-Dashboard in Machine Learning Studio heeft ook een switch logboekregistratie inschakelen voor een klassieke webservice. Aangezien logboekregistratie wordt nu beheerd via het Web Services-portal, moet u Schakel logboekregistratie in via de portal zoals wordt beschreven in dit artikel. Als u al ingeschakeld logboekregistratie in Studio, in de webportal Services logboekregistratie uitschakelen en weer inschakelen.
 
 
-## <a name="the-effects-of-enabling-logging"></a>De gevolgen van het inschakelen van logboekregistratie
-Als logboekregistratie is ingeschakeld, de diagnostische gegevens en fouten van de webservice-eindpunt worden vastgelegd in de **ml diagnostics** blob-container in Azure Storage-Account gekoppeld aan de gebruiker werkruimte. Deze container bevat de diagnostische gegevens voor alle de webservice-eindpunten voor de werkruimten die zijn gekoppeld aan dit opslagaccount.
+## <a name="the-effects-of-enabling-logging"></a>De gevolgen van logboekregistratie inschakelen
+Als logboekregistratie is ingeschakeld, de diagnostische gegevens en fouten van de webservice-eindpunt worden vastgelegd in de **ml-diagnostics** blob-container in Azure Storage-Account is gekoppeld met de werkruimte van de gebruiker. Deze container bevat de diagnostische gegevens voor alle de web service-eindpunten voor alle werkruimten die zijn gekoppeld aan dit storage-account.
 
-De logboeken kunnen worden weergegeven met een van de verschillende beschikbare hulpprogramma's om te verkennen van een Azure Storage-Account. De eenvoudigste manier is mogelijk gaat u naar het opslagaccount in de Azure portal, klikt u op **Containers**, en klik vervolgens op de container **ml diagnostics**.  
+De logboeken kunnen worden weergegeven met behulp van een van de verschillende hulpprogramma's die beschikbaar zijn voor het verkennen van een Azure Storage-Account. De eenvoudigste manier kan worden te navigeren naar het opslagaccount in Azure portal, klikt u op **Containers**, en klik vervolgens op de container **ml-diagnostics**.  
 
-## <a name="log-blob-detail-information"></a>Blob-logboekgegevens
+## <a name="log-blob-detail-information"></a>Logboekgegevens voor blob
 Elke blob in de container bevat de diagnostische gegevens voor exact één van de volgende acties:
 
-* Uitvoering van een van de Batch-Execution-methode  
-* Uitvoering van een van de methode aanvragen en antwoorden  
-* Initialisatie van een container van aanvragen en antwoorden
+* Een uitvoering van de Batch Execution-methode  
+* Een uitvoering van de Request Response-methode  
+* De initialisatie van een Request Response-container
 
 De naam van elke blob heeft een voorvoegsel van de volgende notatie: 
 
@@ -82,7 +83,7 @@ De naam van elke blob heeft een voorvoegsel van de volgende notatie:
 `{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
 
-Waar _type logboek registreren_ is een van de volgende waarden:  
+Waar _Logboektype_ is een van de volgende waarden:  
 
 * batch  
 * score/aanvragen  

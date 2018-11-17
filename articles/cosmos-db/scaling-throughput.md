@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 597d94ce7be077dda6571048b560c9414ceb35ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 4da893f71f3bb91ba021dcf259d20ddd72bfbf90
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705239"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821987"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Schaal doorvoer in Azure Cosmos DB
 
@@ -23,7 +23,7 @@ In Azure Cosmos DB, ingerichte doorvoer wordt weergegeven als aanvraag eenheden 
 
 U kunt ru's op een Cosmos-container of een Cosmos-database inrichten. Voor een container ingerichte ru's zijn uitsluitend beschikbaar voor bewerkingen die worden uitgevoerd op die container. Voor een database ingerichte ru's worden gedeeld tussen alle containers in die database (met uitzondering van alle containers met uitsluitend toegewezen ru's).
 
-Voor doorvoer elastisch schalen, kunt u vergroten of verkleinen van de ingerichte RU/s op elk gewenst moment. Zie voor meer informatie, [hoe kan ik inrichten doorvoer](set-throughput.md) en flexibel schalen Cosmos-containers en databases. U kunt voor het wereldwijd schalen van doorvoer, toevoegen of verwijderen van regio's op uw Cosmos-account op elk gewenst moment. Zie voor meer informatie, [toevoegen of verwijderen-regio's van uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Meerdere regio's koppelen aan een Cosmos-account is het belangrijk is in veel scenario's voor een lage latentie en [hoge beschikbaarheid](high-availability.md) over de hele wereld.
+Voor doorvoer elastisch schalen, kunt u vergroten of verkleinen van de ingerichte RU/s op elk gewenst moment. Zie voor meer informatie, [hoe kan ik inrichten doorvoer](set-throughput.md) en flexibel schalen Cosmos-containers en databases. U kunt voor het wereldwijd schalen van doorvoer, toevoegen of verwijderen van regio's op uw Cosmos-account op elk gewenst moment. Zie voor meer informatie, [regio's toevoegen/verwijderen uit uw databaseaccount](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Meerdere regio's koppelen aan een Cosmos-account is het belangrijk is in veel scenario's voor een lage latentie en [hoge beschikbaarheid](high-availability.md) over de hele wereld.
 
 ## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>hoe de ingerichte doorvoer is verdeeld over regio's
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235272"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824299"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Problemen met Windows Azure virtuele machine-activering
 
@@ -29,7 +29,7 @@ Als u problemen ondervindt bij het activeren van Windows Azure virtuele machine 
 Azure maakt gebruik van verschillende eindpunten voor KMS-activering, afhankelijk van de cloud-regio waar de virtuele machine zich bevindt. Wanneer u deze handleiding voor probleemoplossing, gebruikt u de juiste KMS-eindpunt dat van toepassing voor uw regio is.
 
 * Openbare cloud van Azure-regio's: kms.core.windows.net:1688
-* Azure China nationale cloud-regio's: kms.core.chinacloudapi.cn:1688
+* Azure China 21Vianet nationale cloud-regio's: kms.core.chinacloudapi.cn:1688
 * Azure Duitsland nationale cloud-regio's: kms.core.cloudapi.de:1688
 * Azure VS (overheid) nationale cloud-regio's: kms.core.usgovcloudapi.net:1688
 
@@ -84,8 +84,7 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
 3. Zorg ervoor dat de virtuele machine is geconfigureerd voor het gebruik van de juiste Azure KMS-server. U doet dit door de volgende opdracht uitvoeren:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     De opdracht moet worden geretourneerd: naam van de Key Management Service-machine ingesteld op kms.core.windows.net:1688 is.
 

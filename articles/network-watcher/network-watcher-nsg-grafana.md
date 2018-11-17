@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060186"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819031"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Beheren en analyseren van stroomlogboeken van Netwerkbeveiligingsgroep met behulp van Network Watcher en Grafana
 
 [Network Security Group (NSG) stroomlogboeken](network-watcher-nsg-flow-logging-overview.md) Geef informatie op die kan worden gebruikt om te begrijpen van inkomende en uitgaande IP-verkeer op netwerkinterfaces. Deze logboeken van de stroom binnenkomende en uitgaande stromen weergeven op een per per NSG-regel, de NIC de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
+
+> [!Warning]  
+> De volgende stappen werken met flow logboeken versie 1. Zie voor meer informatie, [Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md). De volgende instructies werkt niet met versie 2 van de logboekbestanden, zonder aanpassingen.
 
 U kunt veel nsg's in uw netwerk hebt met flow logboekregistratie is ingeschakeld. Deze hoeveelheid gegevens voor logboekregistratie is het lastig zijn om te parseren en Verkrijg inzicht in uw Logboeken. In dit artikel biedt een oplossing voor deze NSG-stroomlogboeken met behulp van Grafana, een open-source hulpprogramma, ElasticSearch, een gedistribueerde zoeken en analyse-engine en Logstash, dit een open-source-serverzijde gegevensverwerking pijplijn is afhankelijkheidsgrafieken centraal te beheren.  
 

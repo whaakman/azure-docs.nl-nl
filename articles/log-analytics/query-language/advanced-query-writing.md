@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958546"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854183"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Geavanceerde query's in Log Analytics schrijven
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Functions
-U kunt een query met een functiealias opslaan, zodat deze kan worden verwezen door andere query's. De volgende standaardoperators voor query retourneert bijvoorbeeld alle ontbrekende beveiligingsupdates gerapporteerd in de laatste dag:
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-U kunt deze query opslaan als een functie en wijs hieraan een alias zoals _security_updates_last_day_. Vervolgens kunt u deze in een andere query uit om te zoeken naar benodigde beveiligingsupdates met betrekking tot SQL:
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-Als u wilt een query opslaan als een functie, selecteer de **opslaan** knop in de portal en de wijziging **opslaan als** naar _functie_. De functiealias mag letters, cijfers of onderstrepingstekens bevatten, maar moet beginnen met een letter of onderstrepingsteken.
-
-> [!NOTE]
-> Opslaan van een functie is mogelijk in Log Analytics-query's, maar momenteel niet voor Application Insights-query's.
-
 
 ## <a name="print"></a>Afdrukken
 `print` retourneert een tabel met één kolom en een enkele rij weergegeven, het resultaat van een berekening. Dit wordt vaak gebruikt in gevallen waarin u een eenvoudige calcuation. Als u bijvoorbeeld wilt zoeken naar het huidige tijdstip in PST en een kolom met EST toevoegen:

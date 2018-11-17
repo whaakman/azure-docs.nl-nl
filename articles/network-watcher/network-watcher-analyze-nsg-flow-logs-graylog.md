@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414774"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823041"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Beheren en analyseren van flow logboeken van netwerkbeveiligingsgroepen in Azure met behulp van Network Watcher en Graylog
 
 [Stroomlogboeken van het netwerk](network-watcher-nsg-flow-logging-overview.md) bevatten informatie die u gebruiken kunt om te begrijpen van inkomende en uitgaande IP-verkeer voor Azure-netwerkinterfaces. Logboeken van de stroom binnenkomende en uitgaande stromen weergeven op een per regel gefactureerd voor network security group, de netwerkinterface de stroom is van toepassing op, 5-tuple-informatie (bron-/ doel-IP-adres, poort van de bron-/ doel, Protocol) over de stroom, en als het verkeer is toegestaan of geweigerd .
 
 U kunt veel netwerkbeveiligingsgroepen in uw netwerk hebt met flow logboekregistratie is ingeschakeld. Aantal netwerkbeveiligingsgroepen met flow logboekregistratie is ingeschakeld, kunnen u verkeerd ingevoerde adressen te parseren en Verkrijg inzicht in uw Logboeken. In dit artikel biedt een oplossing voor het centraal beheren van deze stroomlogboeken van netwerkbeveiligingsgroepen met behulp van Graylog, een open-source-logboekbeheer en analyseprogramma en Logstash, een open-source-serverzijde gegevensverwerking-pijplijn.
+
+> [!Warning]
+> De volgende stappen werken met flow logboeken versie 1. Zie voor meer informatie, [Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md). De volgende instructies werkt niet met versie 2 van de logboekbestanden, zonder aanpassingen.
 
 ## <a name="scenario"></a>Scenario
 

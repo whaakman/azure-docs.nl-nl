@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994935"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853010"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Bouw en implementeer modellen voor tekstclassificatie met Azure Machine Learning
 
@@ -436,7 +436,7 @@ Gewoonlijk stelt u de parameters voordat u een model passen.
 
 De volgende codevoorbeelden laten zien hoe u het model met behulp van de standaardparameters voor pijplijn en het model te trainen. 
 
-Als u wilt zien welke parameters voor 'text_word_ngrams' zijn, gebruikt u [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel). Deze functie retourneert de parameters zoals kleine letter, input_col, output_col enzovoort. 
+Als u wilt zien welke parameters voor 'text_word_ngrams' zijn, gebruikt u [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name). Deze functie retourneert de parameters zoals kleine letter, input_col, output_col enzovoort. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ Het getrainde tekstclassificeerder van toepassing op de set met testgegevens voo
 </div>
 
 ## <a name="evaluate-model-performance"></a>Modelprestatie evalueren
-De [evaluatie module](https://docs.microsoft.com/python/api/tatk.evaluation) evalueert de nauwkeurigheid van de classificatie getrainde tekst op de testgegevensset. De functie evalueren genereert een verwarringsmatrix en een score macro F1 biedt.
+De [evaluatie module](/python/api/msft-tatk/tatk.evaluation) evalueert de nauwkeurigheid van de classificatie getrainde tekst op de testgegevensset. De functie evalueren genereert een verwarringsmatrix en een score macro F1 biedt.
 
 ```python
  text_classifier.evaluate(df_test)          

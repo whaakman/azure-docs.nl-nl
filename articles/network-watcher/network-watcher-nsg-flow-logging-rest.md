@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 003335aad0452e7a2dbfff49ed29a6b99b5d54d2
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 30f20e2671b4428f08c38eeb93ec90f0b745eea6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089626"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819114"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Stroomlogboeken van Netwerkbeveiligingsgroep configureren met behulp van REST-API
 
@@ -30,6 +30,9 @@ ms.locfileid: "39089626"
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Stroomlogboeken van Netwerkbeveiligingsgroep zijn een functie van Network Watcher waarmee u informatie wilt weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze logboeken van de stroom zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, de NIC die de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
+
+> [!NOTE] 
+> Stroom logboeken versie 2 zijn alleen beschikbaar in de centrale regio VS-West. Configuratie is beschikbaar via de Azure Portal en de REST-API. Inschakelen van versie 2 resulteert-Logboeken in een niet-ondersteunde regio in versie 1-logboeken output naar uw opslagaccount.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -46,7 +49,7 @@ Het scenario beschreven in dit artikel leest u hoe het inschakelen, uitschakelen
 
 U wordt in dit scenario:
 
-* Logboeken van de stroom inschakelen
+* Logboeken van de stroom (versie 2) inschakelen
 * Logboeken van de stroom uitschakelen
 * Status van het flow-Logboeken
 
@@ -69,7 +72,7 @@ armclient post "https://management.azure.com//subscriptions/${subscriptionId}/pr
 
 ## <a name="enable-network-security-group-flow-logs"></a>Stroomlogboeken van Netwerkbeveiligingsgroep inschakelen
 
-De opdracht uit om Logboeken van de stroom wordt weergegeven in het volgende voorbeeld:
+De opdracht uit om flow logboeken versie 2 wordt weergegeven in het volgende voorbeeld. Vervang het versieveld met '1' voor versie 1:
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -86,7 +89,11 @@ $requestBody = @"
     'retentionPolicy' : {
             days: 5,
             enabled: true
-        }
+        },
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
     }
 }
 "@
@@ -105,6 +112,10 @@ Het antwoord geretourneerd uit het vorige voorbeeld is als volgt:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -129,7 +140,11 @@ $requestBody = @"
     'retentionPolicy' : {
             days: 5,
             enabled: true
-        }
+        },
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
     }
 }
 "@
@@ -148,6 +163,10 @@ Het antwoord geretourneerd uit het vorige voorbeeld is als volgt:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -182,6 +201,10 @@ Hier volgt een voorbeeld van het antwoord geretourneerd:
    "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }

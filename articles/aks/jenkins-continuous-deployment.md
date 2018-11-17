@@ -1,46 +1,51 @@
 ---
-title: Doorlopende Jenkins-implementatie met Azure Kubernetes Service (AKS)
-description: Meer informatie over het automatiseren van een doorlopende implementatie met Jenkins te implementeren en upgraden van een container geplaatste app in Azure Kubernetes Service (AKS)
+title: Zelfstudie - Azure Kubernetes Service (AKS) met Jenkins implementeren vanuit GitHub
+description: Jenkins instellen voor continue integratie (CI) van GitHub en continue implementatie (CD) naar Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
 ms.service: container-service
+author: iainfoulds
+ms.author: iainfou
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: iainfou
-ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087692"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853612"
 ---
-# <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Maken van een pijplijn voor continue implementatie met Jenkins en Azure Kubernetes Service (AKS)
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Zelfstudie: Implementeren vanuit GitHub op Azure Kubernetes Service (AKS) met Jenkins continue integratie en implementatie
 
-Als u wilt snel updates implementeert voor toepassingen in Azure Kubernetes Service (AKS), gebruikt u vaak een continue integratie en continue levering (CI/CD)-platform. In een CI/CD-platform, kan een code-doorvoer resulteren in een nieuwe build van container die vervolgens gebruikt wordt om een exemplaar van de bijgewerkte toepassing te implementeren. In dit artikel gebruikt u Jenkins-CI/CD-platform om te bouwen en duw containerinstallatiekopieën naar Azure Container Registry (ACR) en voer vervolgens deze toepassingen in AKS. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelfstudie implementeert u een voorbeeld-app vanuit GitHub naar een [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster door het instellen van continue integratie (CI) en continue implementatie (CD) in Jenkins. Op die manier tijdens het bijwerken van uw app door doorvoeracties te pushen naar GitHub, Jenkins automatisch een nieuwe build van container wordt uitgevoerd, pushes containerinstallatiekopieën naar Azure Container Registry (ACR) en voert u uw app in AKS. 
+
+In deze zelfstudie, moet u deze taken uitvoeren:
 
 > [!div class="checklist"]
-> * Een voorbeeld van Azure vote-toepassing naar een AKS-cluster implementeren
-> * Een eenvoudige Jenkins-exemplaar maken
-> * Configureer de referenties voor Jenkins om te communiceren met ACR
-> * Maak een Jenkins build-taak en de GitHub-webhook voor geautomatiseerde builds
-> * Testen van de CI/CD-pijplijn voor het bijwerken van een toepassing in AKS op basis van GitHub code doorvoeringen
+> * Een voorbeeld Azure vote-app implementeren in een AKS-cluster.
+> * Maak een eenvoudige Jenkins-project.
+> * Referenties voor Jenkins om te communiceren met ACR instellen.
+> * Maak een Jenkins build-taak en de GitHub-webhook voor geautomatiseerde builds.
+> * Test de CI/CD-pijplijn voor het bijwerken van een toepassing in AKS op basis van de GitHub-doorvoeracties code.
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="prerequisites"></a>Vereisten
 
-U hebt de volgende items nodig om de stappen in dit artikel te voltooien.
+Voor deze zelfstudie, moet u deze items:
 
 - Basiskennis van Kubernetes, Git, CI/CD en container-installatiekopieën
 
-- Een [AKS-cluster] [ aks-quickstart] en `kubectl` geconfigureerd met de [AKS-cluster referenties][aks-credentials].
-- Een [Azure Container Registry (ACR) register][acr-quickstart], de naam van de ACR-aanmeldingsserver en het AKS-cluster dat is geconfigureerd voor het [verifiëren bij het ACR-register] [ acr-authentication].
+- Een [AKS-cluster] [ aks-quickstart] en `kubectl` geconfigureerd met de [AKS-cluster referenties][aks-credentials]
+
+- Een [Azure Container Registry (ACR) register][acr-quickstart], de naam van de ACR-aanmeldingsserver en het AKS-cluster dat is geconfigureerd voor het [verifiëren bij het ACR-register][acr-authentication]
 
 - Azure CLI versie 2.0.46 of hoger is geïnstalleerd en geconfigureerd. Voer `az --version` de versie te vinden. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
-- [Docker is geïnstalleerd] [ docker-install] op uw ontwikkelsysteem.
-- Een GitHub-account, [persoonlijk GitHub-toegangstoken][git-access-token], en Git-client is geïnstalleerd op uw ontwikkelsysteem.
+
+- [Docker is geïnstalleerd] [ docker-install] op uw ontwikkelingssysteem
+
+- Een GitHub-account, [persoonlijk GitHub-toegangstoken][git-access-token], en Git-client is geïnstalleerd op uw ontwikkelingssysteem
 
 - Als u uw eigen Jenkins-exemplaar in plaats van dit voorbeeld in een script vastgelegd manier voor het implementeren van Jenkins, uw Jenkins-exemplaar behoeften [Docker geïnstalleerd en geconfigureerd] [ docker-install] en [kubectl][kubectl-install].
 
-## <a name="prepare-the-application"></a>De toepassing voorbereiden
+## <a name="prepare-your-app"></a>Uw app voorbereiden
 
 In dit artikel gebruikt u een voorbeeld van Azure vote-toepassing die een webinterface die wordt gehost op een of meer schillen en een tweede schil hosting van Redis voor opslag van tijdelijke gegevens bevat. Voordat u Jenkins en AKS voor geautomatiseerde implementaties integreert, eerst handmatig voorbereiden en implementeren van de Azure vote-toepassing naar uw AKS-cluster. Deze handmatige implementatie versie 1 van de toepassing is en kunt u de toepassing in actie zien.
 

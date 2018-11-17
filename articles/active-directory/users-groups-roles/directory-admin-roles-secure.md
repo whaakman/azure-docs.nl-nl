@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240100"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821056"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
@@ -82,9 +82,9 @@ Fase 1 van het schema is gericht op kritieke taken die zijn snel en eenvoudig te
 
 #### <a name="turn-on-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management inschakelen
 
-Als u Azure AD Privileged Identity Management (PIM) nog niet hebt ingeschakeld, doen in uw productietenant. Nadat u Privileged Identity Management inschakelen, ontvangt u de melding e-mailberichten voor bevoegde toegang rol wijzigingen. Deze meldingen een vroegtijdige waarschuwing wanneer extra gebruikers aan rollen in uw directory veel bevoegdheden worden toegevoegd.
+Als u Azure AD Privileged Identity Management (PIM) nog niet hebt ingeschakeld, doen in uw productietenant. Nadat u Privileged Identity Management inschakelen, ontvangt u de melding e-mailberichten voor bevoegde toegang rol wijzigingen. Deze meldingen bieden vroegtijdig waarschuwen wanneer andere gebruikers worden toegevoegd aan maximaal bevoorrechte rollen in uw directory.
 
-Azure AD Privileged Identity Management is opgenomen in Azure AD Premium P2- of EMS E5. Deze oplossingen kunnen u de toegang tot toepassingen en bronnen beveiligen via de on-premises omgeving en naar de cloud. Als u nog niet is Azure AD Premium P2- of EMS E5 hebt en wilt evalueren meer van de mogelijkheden die in dit schema wordt verwezen, zich registreren voor de [Enterprise Mobility + Security gratis proefversie van 90 dagen](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Gebruik deze proefversies licentie om Azure AD Privileged Identity Management en Azure AD Identity Protection, voor het bewaken van activiteiten met behulp van Azure AD, geavanceerde rapportage van beveiliging, controle en waarschuwingen.
+Azure AD Privileged Identity Management is opgenomen in Azure AD Premium P2- of EMS E5. Deze oplossingen kunnen u de toegang tot toepassingen en bronnen beveiligen via de on-premises omgeving en naar de cloud. Als u niet al Azure AD Premium P2- of EMS E5 hebt en wilt evalueren meer van de functies die in dit schema wordt verwezen, zich aanmelden voor de [Enterprise Mobility + Security gratis proefversie van 90 dagen](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Gebruik deze proefversies licentie om Azure AD Privileged Identity Management en Azure AD Identity Protection, voor het bewaken van activiteiten met behulp van Azure AD, geavanceerde rapportage van beveiliging, controle en waarschuwingen.
 
 Nadat u hebt ingeschakeld op de Azure AD Privileged Identity Management:
 
@@ -102,7 +102,7 @@ De eerste persoon die het gebruik van Azure AD Privileged Identity Management in
 
 Na het inschakelen van Azure AD Privileged Identity Management, bekijk de gebruikers die zich in de directory-rollen globale beheerder, beheerder met bevoorrechte rol, beheerder van Exchange Online en SharePoint Online-beheerder. Als u geen Azure AD PIM in uw tenant, kunt u de [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Starten met de rol globale beheerder, omdat deze rol generiek is: een gebruiker aan wie deze beheerdersrol is toegewezen, heeft dezelfde machtigingen van alle cloudservices waarop uw organisatie is geabonneerd, ongeacht of ze hebben deze rol is toegewezen in de Office 365-beheerportal , de Azure portal of met behulp van de Azure AD-module voor Microsoft PowerShell. 
 
-Verwijderen van accounts die niet langer nodig zijn in deze rollen en de resterende accounts die zijn toegewezen aan beheerdersrollen categoriseren:
+Verwijder alle accounts die niet meer nodig zijn in deze rollen. Categoriseren vervolgens de resterende accounts die zijn toegewezen aan beheerdersrollen:
 
 * Afzonderlijk toegewezen aan gebruikers met beheerdersrechten en kan ook worden gebruikt voor niet-administratieve doeleinden (bijvoorbeeld persoonlijke e-mailadres)
 * Afzonderlijk toegewezen aan gebruikers met beheerdersrechten en aangewezen voor administratieve doeleinden alleen
@@ -113,7 +113,7 @@ Verwijderen van accounts die niet langer nodig zijn in deze rollen en de restere
 
 #### <a name="define-at-least-two-emergency-access-accounts"></a>Ten minste twee accounts voor toegang in noodgevallen definiëren 
 
-Zorg ervoor dat er in een situatie waarbij ze kunnen worden per ongeluk vergrendeld buiten het beheer van uw Azure AD-tenant vanwege onvermogen Meld u aan of het activeren van een bestaande afzonderlijke gebruiker-account als beheerder. Bijvoorbeeld, als de organisatie is gefedereerd met een on-premises id-provider, die de id-provider mogelijk niet beschikbaar, zodat gebruikers zich niet in de on-premises. U kunt de gevolgen van het per ongeluk gebrek aan administratieve toegang beperken door twee of meer accounts voor toegang in noodgevallen zijn opgeslagen in uw tenant.
+Zorg ervoor dat u in een situatie waarbij ze kunnen worden per ongeluk vergrendeld buiten het beheer van uw Azure AD-tenant vanwege onvermogen Meld u aan of het activeren van een bestaande afzonderlijke gebruiker-account als een beheerder niet ophalen. Bijvoorbeeld, als de organisatie is gefedereerd met een on-premises id-provider, die de id-provider mogelijk niet beschikbaar, zodat gebruikers zich niet in de on-premises. U kunt de gevolgen van het per ongeluk gebrek aan administratieve toegang beperken door twee of meer accounts voor toegang in noodgevallen zijn opgeslagen in uw tenant.
 
 Accounts voor toegang in noodgevallen kunnen organisaties bevoorrechte toegang beperken in een bestaande Azure Active Directory-omgeving. Deze accounts over uitgebreide beheerdersmogelijkheden en niet zijn toegewezen aan specifieke personen. Accounts voor toegang in noodgevallen zijn beperkt tot noodgevallen voor "verbreken om" scenario's waarbij normale beheerdersaccounts kunnen niet worden gebruikt. Organisaties moeten ervoor zorgen voor het doel van het beheren van en het gebruik van de noodgevallen account beperken tot alleen die tijd die nodig is. 
 
@@ -127,11 +127,11 @@ Azure multi-factor Authentication (MFA) vereist bij het aanmelden voor alle afzo
 
 ![Fase 2](./media/directory-admin-roles-secure/stage-two.png)
 
-Fase 2 van het schema is gericht op de meest gebruikte aanvalstechnieken waarbij referenties worden gestolen en misbruikt beperkende en is ontworpen om te worden geïmplementeerd in ongeveer 2 tot 4 weken. Deze fase van het beveiligingsschema voor bevoegde toegang beveiligd bevat de volgende acties.
+Fase 2 van de roadmap richt zich op het vaak de meest beperkende aanvalstechnieken waarbij referenties worden gestolen en misbruikt gebruikt en kan worden geïmplementeerd in ongeveer 2 tot 4 weken. Deze fase van het beveiligingsschema voor bevoegde toegang beveiligd bevat de volgende acties.
 
 ### <a name="general-preparation"></a>Algemene voorbereiden
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>Uitvoeren van een inventaris van services, eigenaars en beheerders
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Uitvoeren van een inventaris van services, eigenaars en beheerders
 
 Met de toename in bring-your-own-device (BYOD) en werk van startpagina beleid en de groei van draadloze connectiviteit in bedrijven is het essentieel dat u die verbinding met uw netwerk controleren. Een effectieve beveiligingscontrole blijkt vaak apparaten, toepassingen en programma's die worden uitgevoerd op uw netwerk die niet worden ondersteund door IT, en daarom mogelijk niet beveiligd. Zie voor meer informatie, [Azure beveiligingsbeheer en overzicht van prestatiebewaking](../../security/security-management-and-monitoring-overview.md). Zorg ervoor dat u alle van de volgende taken in uw inventarisproces opneemt. 
 
@@ -337,7 +337,7 @@ Naast het beheren van uw accounts bevoegde toegang, raden we dat u de volgende r
 * Alleen wanneer dat nodig is van bevoegde toegang verlenen en verwijdert u deze later (just-in-time).
 * Behouden en controleert u controle-activiteiten met betrekking tot beschermde accounts.
 
-Zie voor meer informatie over het bouwen van een compleet beveiligingsschema [Microsoft IT-architectuur cloudbronnen](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Neem contact op met uw Microsoft-vertegenwoordiger of Zie voor meer informatie over het gebruik van Microsoft-services om te helpen met een van deze onderwerpen [kritieke cyber beveiliging ter bescherming van uw onderneming bouwen](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Zie voor meer informatie over het bouwen van een compleet beveiligingsschema [Microsoft IT-architectuur cloudbronnen](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Neem contact op met uw Microsoft-vertegenwoordiger of Zie voor meer informatie over het gebruik van Microsoft-services om te helpen met een van deze onderwerpen [kritieke cyber beveiliging ter bescherming van uw onderneming bouwen](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Deze laatste lopende fase van het beveiligingsschema voor bevoegde toegang beveiligd omvat de volgende onderdelen.
 

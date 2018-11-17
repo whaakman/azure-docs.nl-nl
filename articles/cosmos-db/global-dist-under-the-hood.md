@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 418a98e0b5eeed6bc5b94ca78b8636116620b614
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: d104b5de22281817626f8de0f41029e76e06e3a2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705409"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824809"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure DB Cosmos globale distributie - achter de schermen
 
@@ -81,5 +81,5 @@ De semantiek van de vijf consistentiemodellen in Cosmos DB worden beschreven [hi
 Naast informatie over het configureren van wereldwijde distributie met behulp van de volgende artikelen:
 
 * [Clients configureren voor multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Toevoegen of verwijderen van regio's van uw Azure Cosmos DB-account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Regio's van uw databaseaccount toevoegen/verwijderen](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Een aangepaste conflict resolutie beleid voor de SQL API-accounts maken](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

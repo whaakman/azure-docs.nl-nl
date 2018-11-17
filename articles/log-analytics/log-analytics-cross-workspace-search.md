@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 11/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e06b9ff2134c0bd1fb1ee8515827e9e8c06a3108
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9c7a1ec33f82239a5b95e9bf116fe35694d9df36
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008467"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852857"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Uitvoeren van meerdere bronnen zoekopdrachten in Logboeken in Log Analytics  
 
@@ -101,6 +101,36 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 | where UpdateState == "Needed"
 | summarize dcount(Computer) by Classification
 ```
+
+## <a name="using-cross-resource-query-for-multiple-resources"></a>Met behulp van meerdere bronnen query voor meerdere bronnen
+Als u meerdere bronnen query's voor het correleren van gegevens uit meerdere Log Analytics en Application Insights-resources, wordt de query kan worden complex en moeilijk te onderhouden. U moet gebruikmaken van [functies in Log Analytics](query-language/functions.md) het scheiden van de querylogica van het bereik van de query-resources, waardoor de querystructuur eenvoudiger. Het volgende voorbeeld ziet u hoe u kunt meerdere Application Insights-resources controleren en visualiseren van het aantal mislukte aanvragen met de toepassingsnaam. 
+
+Een query als volgt die verwijst naar het bereik van Application Insights-resources maken. De `withsource= SourceApp` opdracht voegt een kolom die de toepassingsnaam Hiermee wordt aangegeven dat het logboek verzonden. [De query opslaan als functie](query-language/functions.md#create-a-function) met de alias _applicationsScoping_.
+
+```Kusto
+// crossResource function that scopes my Application Insights resources
+union withsource= SourceApp
+app('Contoso-app1').requests, 
+app('Contoso-app2').requests,
+app('Contoso-app3').requests,
+app('Contoso-app4').requests,
+app('Contoso-app5').requests
+```
+
+
+
+U kunt nu [Gebruik deze functie](query-language/functions.md#use-a-function) in een query meerdere bronnen, zoals hieronder. De functiealias _applicationsScoping_ retourneert de samenvoeging van de tabel ' requests ' van de gedefinieerde toepassingen. De query en filters voor mislukte aanvragen en de trends visualiseert door toepassing. De _parseren_ operator is optioneel in dit voorbeeld. Pakt deze de naam van de toepassing van _SourceApp_ eigenschap.
+
+```Kusto
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| sort by count_ desc 
+| render timechart
+```
+![tijdgrafiek](media/log-analytics-cross-workspace-search/chart.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

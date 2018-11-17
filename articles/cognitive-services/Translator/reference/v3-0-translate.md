@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bebe9b6565d618cb773de0379122a17bf7f70403
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a096bd2f23910eb2eb3bc4aa36e34400ccfbb701
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914291"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853401"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: vertalen
 
@@ -84,6 +84,11 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>toScript</td>
     <td>*Optionele parameter*.<br/>Hiermee geeft u het script van de vertaalde tekst.</td>
   </tr>
+  <tr>
+    <td>AllowFallback</td>
+    <td>*Optionele parameter*.<br/>Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: `true` (standaard) of `false`.<br/><br/>`AllowFallback=false` Hiermee geeft u de vertaling moet alleen gebruiken voor systemen die zijn getraind voor de `category` opgegeven door de aanvraag. Als een vertaling voor de taal die X Y vereist via een taal pivot E, klikt u vervolgens alle systemen in de keten-koppeling (X -> E- en E -> Y) moet worden aangepast en hebben dezelfde categorie. Als er geen systeem met een specifieke categorie wordt gevonden, wordt de aanvraag een 400-statuscode geretourneerd. `AllowFallback=true` Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat.
+</td>
+  </tr>
 </table> 
 
 Aanvraagheaders zijn onder andere:
@@ -106,6 +111,11 @@ Aanvraagheaders zijn onder andere:
   <tr>
     <td>X-ClientTraceId</td>
     <td>*Optioneel*.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. U kunt deze header weglaten als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam `ClientTraceId`.</td>
+  </tr>
+  <tr>
+    <td>X-MT-systeem</td>
+    <td>*Optioneel*.<br/>Hiermee geeft u het type dat is gebruikt voor de vertaling voor elke 'to'-taal voor vertaling aangevraagd. De waarde is een door komma's gescheiden lijst met tekenreeksen. Elke tekenreeks geeft aan dat een type:<br/><ul><li>Aangepast - aanvraag bevat een aangepast systeem en ten minste één aangepaste system is gebruikt tijdens de conversie.</li><li>Team - alle andere aanvragen</li></ul>
+</td>
   </tr>
 </table> 
 
@@ -186,6 +196,10 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   <tr>
     <td>403</td>
     <td>De aanvraag is niet gemachtigd. Controleer het foutbericht voor meer informatie. Dit betekent meestal dat alle gratis vertalingen voorzien van een proefabonnement zijn verbruikt.</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>De aanvraag kan niet worden uitgevoerd omdat een bron ontbreekt. Controleer het foutbericht voor meer informatie. Wanneer u een aangepaste `category`, dit betekent meestal dat de aangepaste vertaalsysteem nog niet beschikbaar is voor het verzenden van aanvragen. De aanvraag moet opnieuw worden uitgevoerd na een wachttijd (bijvoorbeeld 10 minuten).</td>
   </tr>
   <tr>
     <td>429</td>

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231377"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819998"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uw app implementeren in Azure App Service met behulp van FTP/S
 
@@ -66,7 +66,7 @@ Voor een betere beveiliging, moet u FTP alleen toestaan via SSL. U kunt ook FTP-
 
 In de resourcepagina van uw app in [Azure-portal](https://portal.azure.com), selecteer **App-instellingen** in het linkernavigatievenster.
 
-Als u niet-versleutelde FTP uitschakelen, inschakelen **alleen FTPS**. Als u FTP- en FTPS volledig uitschakelen, inschakelen **uitschakelen**. Klik op **Opslaan** als u klaar bent. Als u **alleen FTPS** u TLS 1.1 of hoger moet afdwingen door te navigeren naar de **SSL-instellingen** blade van uw web-app. TLS 1.0 wordt niet ondersteund met **alleen FTPS**.
+Als u niet-versleutelde FTP uitschakelen, inschakelen **alleen FTPS**. Als u FTP- en FTPS volledig uitschakelen, inschakelen **uitschakelen**. Wanneer u klaar bent, klikt u op **Opslaan**. Als u **alleen FTPS** u TLS 1.2 of hoger moet afdwingen door te navigeren naar de **SSL-instellingen** blade van uw web-app. TLS 1.0 en 1.1 worden niet ondersteund met **alleen FTPS**.
 
 ![Uitschakelen van FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

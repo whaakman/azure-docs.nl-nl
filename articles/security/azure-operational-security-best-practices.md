@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: d005dd01de0dff0136c0a4e9775001dbe018228f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035280"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853606"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure best practices voor operationele beveiliging
 Azure operationele beveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere assets in Azure. Operationele beveiliging in Azure is gebouwd op een framework waarin de kennis opgedaan uit mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), wordt de [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programma en een diep besef van het landschap van cyberveiligheidsbedreigingen.
@@ -55,38 +55,38 @@ Klanten een end-to-end-netwerk in Azure bouwen door een combinatie van netwerkre
 
 De volgende zijn aanbevolen procedures voor het hulpprogramma's voor network bewakings- en beschikbaar.
 
-**Beste**: externe netwerkbewaking met packetopname automatiseren.   
+**Beste**: externe netwerkbewaking met packetopname automatiseren.  
 **Details**: bewaken en diagnosticeren van netwerkproblemen zonder aan te melden bij uw virtuele machines met behulp van Network Watcher. Trigger [pakketopname](../network-watcher/network-watcher-alert-triggered-packet-capture.md) door waarschuwingen instellen en toegang krijgen tot informatie over realtime prestaties op packetniveau. Wanneer er een probleem wordt vastgesteld, kunt u dat uitgebreid onderzoeken voor een gedetailleerde diagnose.
 
-**Beste**: krijg inzicht in uw netwerkverkeer met behulp van Logboeken van de stroom.   
+**Beste**: krijg inzicht in uw netwerkverkeer met behulp van Logboeken van de stroom.  
 **Details**: een beter inzicht in uw netwerk verkeerspatronen bouwen met behulp van [stroomlogboeken van het netwerk](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informatie in stroomlogboeken kunt u gegevens verzamelen voor naleving, controleren en bewaken van het beveiligingsprofiel van uw netwerk.
 
-**Beste**: Verbindingsproblemen vaststellen VPN.   
+**Beste**: Verbindingsproblemen vaststellen VPN.  
 **Details**: Network Watcher in gebruik voor [vaststellen van de meest voorkomende problemen met VPN-Gateway en verbinding](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). U kunt niet alleen vaststellen van het probleem, maar ook gedetailleerde logboeken gebruiken voor het verder kunnen onderzoeken.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Implementatie beveiligen met behulp van bewezen DevOps-hulpprogramma 's
 Gebruik de volgende aanbevolen procedures voor DevOps om ervoor te zorgen dat uw onderneming en teams productief en efficiënt zijn.
 
-**Beste**: de build en implementatie van services automatiseren.   
-**Details**: [Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_Code) is een set van technieken en procedures waarmee IT-professionals het ongemak van het dagelijkse build en beheer van modulaire infrastructuur verwijderen. Hiermee kunnen IT-professionals om te bouwen en onderhouden van hun moderne serveromgeving op een manier die lijkt op hoe software-ontwikkelaars ontwikkelen en onderhouden van de toepassingscode.
+**Beste**: de build en implementatie van services automatiseren.  
+**Details**: [Infrastructure as code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) is een set van technieken en procedures waarmee IT-professionals het ongemak van het dagelijkse build en beheer van modulaire infrastructuur verwijderen. Hiermee kunnen IT-professionals om te bouwen en onderhouden van hun moderne serveromgeving op een manier die lijkt op hoe software-ontwikkelaars ontwikkelen en onderhouden van de toepassingscode.
 
 U kunt [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) uw toepassingen inrichten met behulp van een declaratieve sjabloon. U kunt in één enkele sjabloon meerdere services plus de bijbehorende afhankelijkheden implementeren. U dezelfde sjabloon gebruiken om uw toepassing in elke fase van de levensduur van toepassingen herhaaldelijk te implementeren.
 
-**Beste**: automatisch bouwen en implementeren in Azure WebApps of cloudservices.   
-**Details**: U kunt uw teamprojecten Visual Studio Team Services (VSTS) om te configureren [automatisch bouwen en implementeren van](https://www.visualstudio.com/docs/build/overview) op Azure-web-apps of cloudservices. VSTS implementeert automatisch de binaire bestanden hierna een build naar Azure na elke check code in. Het bouwproces pakket komt overeen met de opdracht pakket in Visual Studio en de publicatie stappen zijn gelijk aan de opdracht Publish in Visual Studio.
+**Beste**: automatisch bouwen en implementeren in Azure WebApps of cloudservices.  
+**Details**: U kunt Azure die leiden tot [automatisch bouwen en implementeren](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) op Azure-web-apps of cloudservices. Azure pijplijnen implementeert automatisch de binaire bestanden hierna een build naar Azure na elke check code in. Het bouwproces pakket komt overeen met de opdracht pakket in Visual Studio en de publicatie stappen zijn gelijk aan de opdracht Publish in Visual Studio.
 
-**Beste**: automatiseren release management.   
-**Details**: Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) is een oplossing voor de implementatie van meerdere fasen automatiseren en beheren van de release-proces. Beheerde continue implementatie pijplijnen om snel, eenvoudig en vaak vrij te maken. Met Release Management, kunt u uw release-proces automatiseren en u kunt beschikken over vooraf gedefinieerde goedkeuringswerkstromen. Implementeer on-premises en naar de cloud uitbreiden en aanpassen zoals vereist.
+**Beste**: continue implementatie gebruiken.  
+**Details**: [Azure pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) is een oplossing voor de implementatie van meerdere fasen automatiseren en beheren van de release-proces. Beheerde continue implementatie pijplijnen om snel, eenvoudig en vaak vrij te maken. Met Azure-pijplijnen, kunt u uw release-proces automatiseren en u kunt beschikken over vooraf gedefinieerde goedkeuringswerkstromen. Implementeer on-premises en naar de cloud uitbreiden en aanpassen zoals vereist.
 
-**Beste**: prestaties van uw app controleren voordat u het starten of updates naar productie implementeren.   
-**Details**: uitvoeren van cloud-gebaseerde [belastingstests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) met behulp van VSTS aan:
+**Beste**: prestaties van uw app controleren voordat u het starten of updates naar productie implementeren.  
+**Details**: uitvoeren van cloud-gebaseerde [belastingstests](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) met behulp van Azure-Test om te plannen:
 
 - Prestatieproblemen in uw app vinden.
 - Implementatie-kwaliteit verbeteren.
 - Zorg ervoor dat uw app altijd beschikbaar is.
 - Zorg ervoor dat uw app kan worden gebruikt voor het afhandelen van verkeer voor uw volgende starten of marketing-campagne.
 
-**Beste**: bewaak de prestaties van toepassingen.   
+**Beste**: bewaak de prestaties van toepassingen.  
 **Details**: [Azure Application Insights](../application-insights/app-insights-overview.md) is een service extensible application performance management (APM) voor webontwikkelaars op meerdere platforms. Application Insights gebruiken om uw livewebtoepassing controleren. Er wordt automatisch gedetecteerd prestatieafwijkingen. Het bevat analytics-hulpprogramma's kunt u problemen identificeren en te begrijpen wat gebruikers daadwerkelijk doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Te beperken en te beveiligen tegen DDoS
@@ -96,19 +96,19 @@ Het ontwerpen en bouwen voor DDoS-bescherming vereist plannen en ontwerpen voor 
 
 Hieronder vindt u aanbevolen procedures voor het bouwen van robuuste DDoS services op Azure.
 
-**Beste**: Zorg ervoor dat beveiliging een prioriteit gedurende de hele levenscyclus van een toepassing, van ontwerp en implementatie tot implementatie en bewerkingen. Toepassingen kunnen fouten optreden die een relatief laag volume aan aanvragen voor het gebruik van een groot aantal bronnen, wat resulteert in een serviceonderbreking toestaan hebben.    
+**Beste**: Zorg ervoor dat beveiliging een prioriteit gedurende de hele levenscyclus van een toepassing, van ontwerp en implementatie tot implementatie en bewerkingen. Toepassingen kunnen fouten optreden die een relatief laag volume aan aanvragen voor het gebruik van een groot aantal bronnen, wat resulteert in een serviceonderbreking toestaan hebben.  
 **Details**: ter bescherming van een service die wordt uitgevoerd op Microsoft Azure, moet u een goed begrip van de toepassingsarchitectuur van uw hebt en zich richten op de [vijf pijlers van softwarekwaliteit](https://docs.microsoft.com/azure/architecture/guide/pillars). Typische verkeer volumes, moet u weten het model connectiviteit tussen de toepassing en andere toepassingen en de service-eindpunten die zichtbaar zijn voor het openbare internet.
 
 Ervoor te zorgen dat een toepassing is flexibel genoeg om af te handelen van een denial of service die gericht op de toepassing zelf het belangrijkste is. Beveiliging en privacy zijn ingebouwd in het Azure-platform, vanaf de [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). De SDL-adressen van beveiliging in elke ontwikkelingsfase en zorgt ervoor dat Azure voortdurend bijgewerkt wordt zodat deze nog beter beveiligen.
 
-**Beste**: uw toepassingen te ontwerpen [horizontaal schalen](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) om te voldoen aan de vraag van een versterkt belasting, specifiek in het geval van een DDoS-aanval. Als uw toepassing afhankelijk van één exemplaar van een service is, maakt het een single point of failure. Meerdere exemplaren wordt ingericht, kunt u uw systeem beter bestand is tegen en beter schaalbaar.   
+**Beste**: uw toepassingen te ontwerpen [horizontaal schalen](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) om te voldoen aan de vraag van een versterkt belasting, specifiek in het geval van een DDoS-aanval. Als uw toepassing afhankelijk van één exemplaar van een service is, maakt het een single point of failure. Meerdere exemplaren wordt ingericht, kunt u uw systeem beter bestand is tegen en beter schaalbaar.  
 **Details**: voor [Azure App Service](../app-service/app-service-value-prop-what-is.md), selecteer een [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) die meerdere exemplaren biedt.
 
 Voor Azure Cloud Services, configureert u elk van de rollen gebruiken [meerdere exemplaren](../cloud-services/cloud-services-choose-me.md).
 
 Voor [Azure Virtual Machines](../virtual-machines/windows/overview.md), zorg ervoor dat uw VM-architectuur meer dan één virtuele machine bevat en dat elke virtuele machine wordt opgenomen in een [beschikbaarheidsset](../virtual-machines/virtual-machines-windows-manage-availability.md). Het is raadzaam om voor automatisch te schalen met behulp van de virtuele-machineschaalset ingesteld.
 
-**Beste**: stapelen beveiligingen in een toepassing vermindert de kans dat een geslaagde aanval. Beveiligde ontwerpen voor uw toepassingen implementeren met behulp van de ingebouwde mogelijkheden van het Azure-platform.   
+**Beste**: stapelen beveiligingen in een toepassing vermindert de kans dat een geslaagde aanval. Beveiligde ontwerpen voor uw toepassingen implementeren met behulp van de ingebouwde mogelijkheden van het Azure-platform.  
 **Details**: het risico van aanvallen neemt toe met de grootte (gebied) van de toepassing. U kunt de surface area beperken door met behulp van opname in de whitelist moeten sluiten de beschikbaar gemaakte IP-adresruimte en poorten die nodig zijn niet op de load balancers te hebben geluisterd ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) en [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
 
 [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) zijn van een andere manier om de kwetsbaarheid voor aanvallen verminderen. U kunt [servicetags](../virtual-network/security-overview.md#service-tags) en [toepassingsbeveiligingsgroepen](../virtual-network/security-overview.md#application-security-groups) complexiteit voor het maken van beveiligingsregels en netwerkbeveiliging configureren als een natuurlijk verlengstuk van de structuur van een toepassing te minimaliseren.

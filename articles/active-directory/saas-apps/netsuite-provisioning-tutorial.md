@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Netsuite configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Netsuite.
+title: 'Zelfstudie: Netsuite OneWorld configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346743"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823845"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Zelfstudie: Netsuite configureren voor het automatisch inrichten van gebruikers
 
-Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in Netsuite en Azure AD wilt voor het automatisch inrichten en inrichting van gebruikersaccounts vanuit Azure AD naar Netsuite ongedaan maken.
+Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in Netsuite OneWorld en Azure AD wilt voor het automatisch inrichten en inrichting van gebruikersaccounts vanuit Azure AD naar Netsuite ongedaan maken.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant.
-*   Een Netsuite eenmalige aanmelding ingeschakeld abonnement.
-*   Een gebruikersaccount in Netsuite met Team beheerdersmachtigingen.
+*   Een abonnement Netsuite OneWorld. Houd er rekening mee dat automatisch inrichten van gebruikers die momenteel wordt alleen ondersteund met NetSuite OneWorld.
+*   Een gebruikersaccount in Netsuite met beheerdersmachtigingen.
 
-## <a name="assigning-users-to-netsuite"></a>Gebruikers toewijzen aan Netsuite
+## <a name="assigning-users-to-netsuite-oneworld"></a>Gebruikers toewijzen aan Netsuite OneWorld
 
 Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het inrichten van automatische gebruikersaccounts, worden alleen de gebruikers en groepen die '' aan een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
 
@@ -41,7 +41,7 @@ Voordat u configureren en inschakelen van de inrichtingsservice, moet u om te be
 
 [Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>Belangrijke tips voor het toewijzen van gebruikers aan Netsuite
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Belangrijke tips voor het toewijzen van gebruikers aan Netsuite OneWorld
 
 *   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Netsuite voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
@@ -92,7 +92,7 @@ De initiële synchronisatie van alle gebruikers en/of groepen die zijn toegeweze
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

@@ -1,10 +1,11 @@
 ---
-title: Een Azure Machine Learning-webservice gebruiken | Microsoft Docs
-description: Zodra een machine learning-service is geïmplementeerd, kan de RESTFul-Web-service die beschikbaar wordt gesteld worden gebruikt als realtime aanvragen en antwoorden service of als een batch-service kan worden uitgevoerd.
+title: Het gebruik van een Azure Machine Learning-webservice | Microsoft Docs
+description: Wanneer een machine learning-service is geïmplementeerd, kan de RESTFul-Web-service die beschikbaar wordt gesteld als realtime request response-service of als een batchuitvoeringsservice worden gebruikt.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
@@ -15,34 +16,34 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: b89fb0fbb499fa06c9e56f02937b1c586efde9b6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cb17a145d4657150a70af149d68355c79747c8aa
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833356"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823687"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice gebruiken
+# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Het gebruik van een Azure Machine Learning-webservice
 
-Wanneer u een Azure Machine Learning Voorspellend model als een webservice implementeert, kunt u een REST-API als u wilt gegevens verzenden en voorspellingen. U kunt de gegevens verzenden in realtime of in de batchmodus.
+Wanneer u een Voorspellend model van Azure Machine Learning als een webservice implementeert, kunt u een REST-API gegevens verzenden en ophalen van voorspellingen. U kunt de gegevens verzenden in realtime of in de batchmodus.
 
-U vindt meer informatie over het maken en implementeren van een Machine Learning-webservice met Machine Learning Studio hier:
+U kunt meer informatie over het maken en implementeren van een Machine Learning-webservice met behulp van de Machine Learning Studio hier vinden:
 
-* Zie voor een zelfstudie over het maken van een experiment in Machine Learning Studio [uw eerste experiment maken](create-experiment.md).
+* Zie voor een zelfstudie over het maken van een experiment in Machine Learning Studio, [uw eerste experiment opzetten](create-experiment.md).
 * Zie voor meer informatie over het implementeren van een webservice [een Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
 * Voor meer informatie over Machine Learning in het algemeen, gaat u naar de [Machine Learning-documentatiecentrum](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="overview"></a>Overzicht
-Met de webservice Azure Machine Learning communiceert een externe toepassing met een Machine Learning werkstroom score-model in realtime. Aanroep van een Machine Learning-webservice retourneert voorspelling resultaten naar een externe toepassing. Als u een Machine Learning-webservice aanroepen, moet u een API-sleutel die wordt gemaakt bij het implementeren van een voorspelling doorgeven. De Machine Learning-webservice is gebaseerd op REST, een populaire architectuur keuze voor web programming projecten.
+Met de webservice Azure Machine Learning communiceert een externe toepassing met een Machine Learning scoremodel werkstromen in realtime. Aanroep van een Machine Learning-webservice retourneert voorspellingsresultaten naar een externe toepassing. Als u een Machine Learning-webservice aanroepen, moet u een API-sleutel die wordt gemaakt wanneer u een voorspelling implementeert doorgeven. De Machine Learning-webservice is gebaseerd op REST, een populaire architectuur voor webprogrammering.
 
 Azure Machine Learning heeft twee soorten services:
 
-* Aanvraag en antwoord-Service (RSS) – een lage latentie en zeer schaalbare service die voorziet in een interface voor de staatloze modellen gemaakt en geïmplementeerd vanuit de Machine Learning Studio.
-* Batch uitvoering-Service (BES) – een asynchrone service die scores per batch voor records met gegevens.
+* Request Response-Service (RRS): een lage latentie en zeer schaalbare service die voorziet in een interface te creëren voor staatloze modellen die zijn gemaakt en geïmplementeerd vanuit Machine Learning Studio.
+* Batchuitvoeringsservice (BES): een asynchrone service die scores een batch voor gegevensrecords.
 
-Zie voor meer informatie over Machine Learning-webservices [een Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
+Zie voor meer informatie over Machine Learning-webservices, [een Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
 
 ## <a name="get-an-azure-machine-learning-authorization-key"></a>Een Azure Machine Learning-autorisatie-sleutel ophalen
 Wanneer u uw experiment implementeert, wordt API-sleutels worden gegenereerd voor de webservice. U kunt de sleutels ophalen vanaf verschillende locaties.
@@ -50,68 +51,68 @@ Wanneer u uw experiment implementeert, wordt API-sleutels worden gegenereerd voo
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Vanuit de portal voor Microsoft Azure Machine Learning-webservices
 Aanmelden bij de [Microsoft Azure Machine Learning-webservices](https://services.azureml.net) portal.
 
-Voor het ophalen van de API-sleutel voor een nieuwe Machine-Learning-webservice:
+Ophalen van de API-sleutel voor een nieuwe Machine-Learning-webservice:
 
-1. Klik in de portal voor Azure Machine Learning-webservices op **webservices** het bovenste menu.
-2. Klik op de webservice waarvan u wilt ophalen van de sleutel.
+1. Klik in het portal voor Azure Machine Learning-webservices op **webservices** het bovenste menu.
+2. Klik op de webservice waarvoor u wilt ophalen van de sleutel.
 3. Klik op het bovenste menu **verbruiken**.
-4. Kopieer en sla de **primaire sleutel**.
+4. Kopieer en bewaar de **primaire sleutel**.
 
-Voor het ophalen van de API-sleutel voor een klassieke Machine-Learning-webservice:
+Ophalen van de API-sleutel voor een klassieke Machine-Learning-webservice:
 
-1. Klik in de portal voor Azure Machine Learning-webservices op **klassieke webservices** het bovenste menu.
+1. Klik in het portal voor Azure Machine Learning-webservices op **klassieke webservices** het bovenste menu.
 2. Klik op de Web-service waarmee u werkt.
 3. Klik op het eindpunt waarvoor u wilt ophalen van de sleutel.
 4. Klik op het bovenste menu **verbruiken**.
-5. Kopieer en sla de **primaire sleutel**.
+5. Kopieer en bewaar de **primaire sleutel**.
 
-### <a name="classic-web-service"></a>Klassieke-webservice
- U kunt ook een sleutel voor een klassieke webservice ophalen van Machine Learning Studio.
+### <a name="classic-web-service"></a>Klassieke webservice
+ U kunt ook een sleutel voor een klassieke webservice ophalen vanuit Machine Learning Studio.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
-1. Klik in Machine Learning Studio **WEBSERVICES** aan de linkerkant.
+1. In Machine Learning Studio, klikt u op **WEBSERVICES** aan de linkerkant.
 2. Klik op een webservice. De **API-sleutel** is op de **DASHBOARD** tabblad.
 
 ## <a id="connect"></a>Verbinding maken met een Machine Learning-webservice
-U kunt verbinding maken met een Machine Learning-webservice met behulp van elke programmeertaal die ondersteuning biedt voor HTTP-aanvraag en -antwoord. U kunt de voorbeelden in C#, Python en R weergeven van een help-pagina Machine Learning-webservice.
+U kunt verbinding maken met een Machine Learning-webservice met behulp van elke programmeertaal die ondersteuning biedt voor HTTP-aanvraag en antwoord. Vindt u voorbeelden in C#, Python / R van een help-pagina Machine Learning-webservice.
 
-**Machine Learning API help** Machine Learning API help wordt gemaakt wanneer u een webservice implementeert. Zie [overzicht van Azure Machine Learning - webservice implementeren](walkthrough-5-publish-web-service.md).
+**Machine Learning API help** help voor Machine Learning API wordt gemaakt wanneer u een webservice implementeert. Zie [overzicht van Azure Machine Learning - webservice implementeren](walkthrough-5-publish-web-service.md).
 De help van Machine Learning API bevat details over een voorspelling webservice.
 
 1. Klik op de Web-service waarmee u werkt.
-2. Klik op het eindpunt waarvoor u wilt weergeven van de API Help-pagina.
+2. Klik op het eindpunt waarvan u wilt om de API Help-pagina weer te geven.
 3. Klik op het bovenste menu **verbruiken**.
-4. Klik op **API help-pagina** onder de reactie op aanvragen of een Batchuitvoering eindpunten.
+4. Klik op **API help-pagina** onder de Request Response- of Batch Execution-eindpunten.
 
-**Help voor een nieuwe Web-service naar de weergave Machine Learning API**
+**Machine Learning API weergeven help voor een nieuwe webservice**
 
 In de [Azure Machine Learning Web Services-Portal](https://services.azureml.net/):
 
 1. Klik op **WEBSERVICES** in het bovenste menu.
-2. Klik op de webservice waarvan u wilt ophalen van de sleutel.
+2. Klik op de webservice waarvoor u wilt ophalen van de sleutel.
 
-Klik op **gebruik webservice** ophalen van de URI's voor de aanvraag Reposonse en Batch uitvoering Services en voorbeeld-code in C#, R en Python.
+Klik op **gebruik Web Service** om op te halen van de URI's voor de aanvraag-Reposonse en Batch tot uitvoering van Services en voorbeeld van code in C#, R en Python.
 
-Klik op **Swagger API** Swagger ophalen op basis van de documentatie voor de API's vanuit de opgegeven URI's aangeroepen.
+Klik op **Swagger API** Swagger ophalen op basis van documentatie voor de API's met de naam van de opgegeven URI's.
 
-### <a name="c-sample"></a>C#-voorbeeld
-Gebruiken voor verbinding met een Machine Learning-webservice, een **HttpClient** ScoreData wordt doorgegeven. ScoreData bevat een FeatureVector, een n-dimensionale vector van numerieke functies die de ScoreData vertegenwoordigt. U kunt verifiëren met de Machine Learning-service met een API-sleutel.
+### <a name="c-sample"></a>Voorbeeld van C#
+Gebruiken voor verbinding met een Machine Learning-webservice, een **HttpClient** ScoreData wordt doorgegeven. ScoreData bevat een FeatureVector, een n-dimensionale vector van numerieke functies die de ScoreData vertegenwoordigt. U kunt verifiëren met de service Machine Learning met een API-sleutel.
 
-Verbinding maken met een Machine Learning-webservice, de **Microsoft.AspNet.WebApi.Client** NuGet-pakket moet worden geïnstalleerd.
+Verbinding maken met een Machine Learning-webservice, het **Microsoft.AspNet.WebApi.Client** NuGet-pakket moet worden geïnstalleerd.
 
 **Microsoft.AspNet.WebApi.Client NuGet in Visual Studio installeren**
 
-1. De gegevensset downloaden van UCI publiceren: volwassenen 2 klasse gegevensset Web Service.
+1. Publiceren van de gegevensset downloaden uit UCI: volwassenen 2 klasse gegevensset-webservice.
 2. Klik op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager-console**.
-3. Kies **Install-pakket Microsoft.AspNet.WebApi.Client**.
+3. Kies **Install-Package Microsoft.AspNet.WebApi.Client**.
 
-**De voorbeeldcode uitvoeren**
+**Het codevoorbeeld uitvoeren**
 
-1. Publiceren ' voorbeeld 1: gegevensset downloaden van UCI: volwassene 2 klasse gegevensset ' experiment, deel van de Machine Learning-voorbeeld-verzameling.
-2. Wijs apiKey met de sleutel van een webservice. Zie **ophalen van een Azure Machine Learning-autorisatiesleutel** hierboven.
-3. Wijs serviceUri met de aanvraag-URI.
+1. Publiceren ' voorbeeld 1: downloaden van de gegevensset van UCI: volwassene 2 klasse gegevensset "experiment, deel van de Machine Learning-voorbeeld-verzameling.
+2. ApiKey toewijzen met de sleutel van een webservice. Zie **ophalen van een Azure Machine Learning-autorisatiesleutel** hierboven.
+3. Toewijzen serviceUri aan de aanvraag-URI.
 
-**Hier volgt een volledige aanvraag zoeken.**
+**Hier volgt een volledige aanvraag bekijken.**
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -198,16 +199,16 @@ namespace CallRequestResponseService
 }
 ```
 
-### <a name="python-sample"></a>Python-voorbeeld
-Gebruiken voor verbinding met een Machine Learning-webservice, de **urllib2** -bibliotheek voor Python 2.X en **urllib.request** -bibliotheek voor Python 3.X. U geeft ScoreData waarin een FeatureVector, een n-dimensionale vector van numerieke functies die de ScoreData vertegenwoordigt. U kunt verifiëren met de Machine Learning-service met een API-sleutel.
+### <a name="python-sample"></a>Voorbeeld van Python
+Voor verbinding met een Machine Learning-webservice, gebruikt u de **urllib2** -bibliotheek voor Python 2.X en **urllib.request** -bibliotheek voor Python 3.X. U geeft ScoreData, waarin een FeatureVector, een n-dimensionale vector van numerieke functies die de ScoreData vertegenwoordigt. U kunt verifiëren met de service Machine Learning met een API-sleutel.
 
-**De voorbeeldcode uitvoeren**
+**Het codevoorbeeld uitvoeren**
 
-1. Implementeren ' voorbeeld 1: gegevensset downloaden van UCI: volwassene 2 klasse gegevensset ' experiment, deel van de Machine Learning-voorbeeld-verzameling.
-2. Wijs apiKey met de sleutel van een webservice. Zie de **ophalen van een Azure Machine Learning-autorisatiesleutel** sectie in het begin van dit artikel.
-3. Wijs serviceUri met de aanvraag-URI.
+1. Implementeren "voorbeeld 1: downloaden van de gegevensset van UCI: volwassene 2 klasse gegevensset" experiment, deel van de Machine Learning-voorbeeld-verzameling.
+2. ApiKey toewijzen met de sleutel van een webservice. Zie de **ophalen van een Azure Machine Learning-autorisatiesleutel** sectie in de buurt van het begin van dit artikel.
+3. Toewijzen serviceUri aan de aanvraag-URI.
 
-**Hier volgt een volledige aanvraag zoeken.**
+**Hier volgt een volledige aanvraag bekijken.**
 ```python
 import urllib2 # urllib.request for Python 3.X
 import json
@@ -251,11 +252,11 @@ except urllib2.HTTPError, error:
     print(json.loads(error.read())) 
 ```
 
-### <a name="r-sample"></a>R-voorbeeld
+### <a name="r-sample"></a>Voorbeeld van R
 
-Gebruiken voor verbinding met een Machine Learning-webservice, de **RCurl** en **rjson** bibliotheken maken van de aanvraag en verwerken van het geretourneerde JSON-antwoord. U geeft ScoreData waarin een FeatureVector, een n-dimensionale vector van numerieke functies die de ScoreData vertegenwoordigt. U kunt verifiëren met de Machine Learning-service met een API-sleutel.
+Voor verbinding met een Machine Learning-webservice, gebruikt u de **RCurl** en **rjson** bibliotheken die u moet maken van de aanvraag en verwerken van het geretourneerde JSON-antwoord. U geeft ScoreData, waarin een FeatureVector, een n-dimensionale vector van numerieke functies die de ScoreData vertegenwoordigt. U kunt verifiëren met de service Machine Learning met een API-sleutel.
 
-**Hier volgt een volledige aanvraag zoeken.**
+**Hier volgt een volledige aanvraag bekijken.**
 ```r
 library("RCurl")
 library("rjson")
@@ -309,9 +310,9 @@ print(fromJSON(result))
 
 ### <a name="javascript-sample"></a>JavaScript-voorbeeld
 
-Gebruiken voor verbinding met een Machine Learning-webservice, de **aanvraag** npm-pakket in uw project. U zult ook gebruiken de `JSON` object notatie voor uw invoer en parseren van het resultaat. Installeren met behulp van `npm install request --save`, of Voeg `"request": "*"` naar uw package.json onder `dependencies` en voer `npm install`.
+Voor verbinding met een Machine Learning-webservice, gebruikt u de **aanvraag** npm-pakket in uw project. U gebruikt ook de `JSON` object om uw invoer en het resultaat kan parseren. Installeren met behulp van `npm install request --save`, of toe te voegen `"request": "*"` aan uw package.json onder `dependencies` en uit te voeren `npm install`.
 
-**Hier volgt een volledige aanvraag zoeken.**
+**Hier volgt een volledige aanvraag bekijken.**
 ```js
 let req = require("request");
 

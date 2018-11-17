@@ -10,16 +10,16 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260003"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852687"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Snelstartgids: Raken met Content Moderator
 
-In deze snelstartgids gebruikt u de online Content Moderator-controlehulpprogramma de basisfunctionaliteit van Content Moderator testen zonder code te schrijven. Als u deze service sneller integreren in uw app wilt, raadpleegt u de andere snelstarts in de [Vervolgstappen](#next-steps) sectie.
+In deze snelstartgids gebruikt u het online Content Moderator-controlehulpprogramma de basisfunctionaliteit van Content Moderator testen zonder code te schrijven. Als u deze service sneller integreren in uw app wilt, raadpleegt u de andere snelstarts in de [Vervolgstappen](#next-steps) sectie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -54,11 +54,11 @@ Controleer de toegepaste toezicht-codes. U kunt zien welke labels zijn toegepast
 
 In een project kunt u of uw beoordelingsteam wijzigen van deze tags of meer tags indien nodig toevoegen. U zult deze wijzigingen met verzenden de **volgende** knop. Als uw business-toepassing-de Moderator-API's aanroepen, wordt de gecodeerde inhoud in de wachtrij plaatsen hier, klaar om te worden gecontroleerd door de teams voor menselijke beoordeling. U kunt snel grote hoeveelheden inhoud met behulp van deze benadering bekijken.
 
-Op dit moment hebt u de Content Moderator-controlehulpprogramma gebruikt om te zien wat de Content Moderator-service kunt doen. Volgende, u kunt ofwel meer informatie over het beoordelingsprogramma en het integreren met een softwareproject met behulp van de API bekijken, of kunt u doorgaan met de [Vervolgstappen](#next-steps) sectie voor informatie over het gebruik van de beheer-API's zelf in uw app.
+Op dit moment hebt u het Content Moderator-controlehulpprogramma gebruikt om te zien wat de Content Moderator-service kunt doen. Volgende, u kunt ofwel meer informatie over het beoordelingsprogramma en het integreren met een softwareproject met behulp van de API bekijken, of kunt u doorgaan met de [Vervolgstappen](#next-steps) sectie voor informatie over het gebruik van de beheer-API's zelf in uw app.
 
 ## <a name="learn-more-about-the-review-tool"></a>Meer informatie over het beoordelingsprogramma
 
-Voor meer informatie over het gebruik van het hulpprogramma Content Moderator bekijken, bekijk de [Human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) begeleiden en de bekijken hulpprogramma-API's voor informatie over het afstemmen van de ervaring voor menselijke beoordeling Zie:
+Voor meer informatie over het gebruik van het hulpprogramma Content Moderator bekijken, bekijk de [beoordelingsprogramma](Review-Tool-User-Guide/human-in-the-loop.md) begeleiden en zien het beoordelingsprogramma API's voor informatie over het afstemmen van de ervaring voor menselijke beoordeling:
 - De [taak API](try-review-api-job.md) scant uw inhoud met behulp van de afbeeldingstoezicht-API's en beoordelingen worden gegenereerd in het beoordelingsprogramma. 
 - De [revisie API](try-review-api-review.md) rechtstreeks maakt op afbeeldingen, tekst of een video beoordelingen voor menselijke moderators zonder eerst de inhoud wordt gescand. 
 - De [werkstroom API](try-review-api-workflow.md) wordt gemaakt, bijgewerkt en krijgt u informatie over de aangepaste werkstromen die uw team maakt.

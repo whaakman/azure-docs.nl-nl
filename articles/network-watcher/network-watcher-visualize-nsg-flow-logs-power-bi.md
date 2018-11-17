@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032675"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822871"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Stroomlogboeken van Netwerkbeveiligingsgroep visualizing met Power BI
 
 Stroomlogboeken van Netwerkbeveiligingsgroep kunnen u informatie weergeven over inkomende en uitgaande IP-verkeer op Netwerkbeveiligingsgroepen. Deze stroom logboeken weergeven binnenkomende en uitgaande stromen op basis van per regel, de NIC van de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
 
 Het kan lastig zijn om inzicht te krijgen in gegevens voor logboekregistratie van stroom door handmatig te zoeken naar de logboekbestanden. In dit artikel krijgt u een oplossing voor uw meest recente stroomlogboeken visualiseren en meer informatie over verkeer in uw netwerk.
+
+> [!Warning]  
+> De volgende stappen werken met flow logboeken versie 1. Zie voor meer informatie, [Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md). De volgende instructies werkt niet met versie 2 van de logboekbestanden, zonder aanpassingen.
 
 ## <a name="scenario"></a>Scenario
 

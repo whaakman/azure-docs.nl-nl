@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ac317eaa4c7e69e4a01fe932569b999e502bc3cf
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568849"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822429"
 ---
 # <a name="manage-process-servers"></a>Processervers beheren
 
@@ -31,7 +31,41 @@ Een processerver die wordt uitgevoerd on-premises of in Azure (voor failback tes
 > [!NOTE]
   Wanneer u de installatiekopie van de Azure-galerie gebruiken om u te maken van een processerver in Azure voor de doeleinden van failback, wordt dit meestal de meest recente beschikbare versie uitgevoerd. De Site Recovery teams release oplossingen en verbeteringen op gezette tijden, en we raden dat u processervers up-to-date houden.
 
+## <a name="balance-the-load-on-process-server"></a>Verdeel de belasting op de processerver
 
+Om taken te verdelen tussen twee processervers mogelijk
+
+1. Navigeer naar **Recovery Services-kluis** > **beheren** > **infrastructuur voor Site Recovery** > **voor VMware en fysieke machines** > **configuratieservers**.
+2. Klik op de configuratieserver waaraan de processervers zijn geregistreerd bij.
+3. Lijst met processervers die zijn geregistreerd bij de van configuratieservers zijn beschikbaar op de pagina.
+4. Klik op de processerver op die u wilt wijzigen van de werkbelasting.
+
+    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. U kunt beide gebruiken **taakverdeling** of **Switch** opties, zoals wordt uitgelegd, volgens de vereisten.
+
+### <a name="load-balance"></a>Verdeel de belasting
+
+Via deze optie is, u kunt een of meer virtuele machines selecteren en kunt overbrengen naar een andere processerver.
+
+1. Klik op **verdelen**, selecteer de doelprocesserver in de vervolgkeuzelijst omlaag. Klik op **OK**
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Klik op **machines selecteren**, kiest u de virtuele machines die u wilt verplaatsen van de huidige processerver naar de doelprocesserver. Details van de gemiddelde gegevenswijziging worden weergegeven op basis van elke virtuele machine.
+3. Klik op **OK**. De voortgang van de taak onder **Recovery Services-kluis** > **bewaking** > **Site Recovery-taken**.
+4. Het duurt 15 minuten om de wijzigingen in overeenstemming met na voltooiing van deze bewerking of [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server) voor onmiddellijk van kracht wordt.
+
+### <a name="switch"></a>Switch
+
+Hele werkbelasting die wordt beschermd onder een processerver wordt tot en met deze optie wordt verplaatst naar een andere processerver.
+
+1. Klik op **Switch**, de doelprocesserver selecteren, klikt u op **OK**.
+
+    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. De voortgang van de taak onder **Recovery Services-kluis** > **bewaking** > **Site Recovery-taken**.
+3. Het duurt 15 minuten om de wijzigingen in overeenstemming met na voltooiing van deze bewerking of [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server) voor onmiddellijk van kracht wordt.
 
 ## <a name="reregister-a-process-server"></a>Een processerver registreren
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19de4164f8d5049d72c3dd5c0a04b7ba4cee7065
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976355"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821137"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Azure Redis-cache bewaken
 Maakt gebruik van Azure Redis Cache [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) verschillende opties voor het bewaken van uw cache-exemplaren. U kunt metrische gegevens weergeven, grafieken met metrische gegevens aan het Startboard vastmaken, aanpassen van het bereik van datum en tijd van de bewaking van grafieken, toevoegen en metrische gegevens verwijderen uit de grafieken en waarschuwingen instellen wanneer aan bepaalde voorwaarden wordt voldaan. Deze hulpprogramma's kunnen u de status van uw Azure Redis Cache-exemplaren bewaken en uw toepassingen opslaan in cache te beheren.
@@ -61,7 +61,7 @@ Zie voor meer informatie over het werken met metrische gegevens met behulp van A
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Metrische cache-gegevens exporteren
-Metrische cache-gegevens in Azure Monitor zijn standaard [30 dagen bewaard](../monitoring/monitoring-data-collection.md#metrics) en vervolgens verwijderd. Als u wilt uw cache metrische gegevens langer dan 30 dagen behouden, kunt u [aanwijzen van een storage-account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) en geef een **bewaarperiode (dagen)** beleid voor uw cache metrische gegevens. 
+Metrische cache-gegevens in Azure Monitor zijn standaard [30 dagen bewaard](../azure-monitor/platform/data-collection.md#metrics) en vervolgens verwijderd. Als u wilt uw cache metrische gegevens langer dan 30 dagen behouden, kunt u [aanwijzen van een storage-account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) en geef een **bewaarperiode (dagen)** beleid voor uw cache metrische gegevens. 
 
 Het configureren van een opslagaccount voor uw cache metrische gegevens:
 

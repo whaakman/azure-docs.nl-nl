@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6debfaed28be2b5dee5e24a443b791f75f7bea8f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634189"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822905"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Azure Network Watcher NSG stroomlogboeken visualiseren met open-sourcehulpprogramma 's
 
 Stroomlogboeken van Netwerkbeveiligingsgroep Geef informatie op die kan worden gebruikt te begrijpen van inkomende en uitgaande IP-verkeer op Netwerkbeveiligingsgroepen. Deze logboeken van de stroom weergeven binnenkomende en uitgaande stromen op basis van een per regel, de NIC die de stroom is van toepassing op, 5 tuple-informatie over de stroom (bron-/ doel-IP, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
 
 Deze logboeken van de stroom kunnen lastig zijn om handmatig te parseren en hieruit inzichten te verkrijgen. Er zijn echter enkele open-source-hulpprogramma's die kunnen helpen bij het visualiseren van deze gegevens. In dit artikel biedt een oplossing voor het visualiseren van deze logboeken met behulp van de Elastic Stack, waarmee u kunt om snel te indexeren en visualiseren van uw stroom een Kibana-dashboard zich aanmeldt.
+
+> [!Warning]  
+> De volgende stappen werken met flow logboeken versie 1. Zie voor meer informatie, [Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md). De volgende instructies werkt niet met versie 2 van de logboekbestanden, zonder aanpassingen.
 
 ## <a name="scenario"></a>Scenario
 

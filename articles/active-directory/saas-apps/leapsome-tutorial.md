@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441932"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Zelfstudie: Azure Active Directory-integratie met Leapsome
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Leapsome in Azure AD, moet u Leapsom
 
 **Als u wilt toevoegen Leapsome uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -134,7 +134,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | afbeelding | URL van afbeelding van de werknemer | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > De waarde van afbeelding kenmerk is niet echt. Deze waarde bijwerken met de werkelijke afbeeldings-URL. Om op te halen deze waarde contact op met [Leapsome Client ondersteuningsteam](mailto:support@leapsome.com).
+    > De waarde van afbeelding kenmerk is niet echt. Deze waarde bijwerken met de werkelijke afbeeldings-URL. Om op te halen deze waarde contact op met [Leapsome Client ondersteuningsteam](mailto:support@leapsome.com).
     
     a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -176,7 +176,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Kopieer de **aanmeldings-URL (uw gebruikers hier punt voor het starten van aanmelding)** waarde en plak deze in de **aanmeldings-URL** -tekstvak in **Leapsome domein en URL's** sectie in Azure portal.
 
-    c. Kopieer de **antwoord-URL (reactie ontvangen van uw id-provider)** waarde en plak deze in de **antwoord-URL** -tekstvak in **Leapsome domein en URL's** sectie in Azure portal.
+    c. Kopieer de **antwoord-URL (antwoord ontvangt van uw id-provider)** waarde en plak deze in de **antwoord-URL** -tekstvak in **Leapsome domein en URL's** sectie in Azure portal.
 
     d. In de **SSO-aanmeldings-URL (geleverd door de id-provider)** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
 
@@ -218,7 +218,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-leapsome-test-user"></a>Maak een testgebruiker Leapsome
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Leapsome. Werken met [Leapsome Client ondersteuningsteam](mailto:support@leapsome.com) om toe te voegen de gebruikers of het domein dat moet worden opgenomen in de whitelist in het Leapsome-platform. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het Leapsome-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Leapsome. Werken met [Leapsome Client ondersteuningsteam](mailto:support@leapsome.com) om toe te voegen de gebruikers of het domein dat moet worden opgenomen in de whitelist in het Leapsome-platform. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het Leapsome-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

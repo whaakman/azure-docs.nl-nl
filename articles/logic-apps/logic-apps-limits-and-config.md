@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346692"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853826"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -323,9 +323,10 @@ Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter
 
 ### <a name="managed-connectors"></a>Beheerde connectors
 
-Ter ondersteuning van de aanroepen die [door Microsoft beheerde connectors](../connectors/apis-list.md) maken, de firewallconfiguraties van uw instellen, zodat ze deze uitgaande IP-adressen bevatten op basis van de regio's waar uw logische apps bestaan.
+Ter ondersteuning van de aanroepen die [door Microsoft beheerde connectors](../connectors/apis-list.md) maken, de firewallconfiguraties van uw instellen, zodat ze bevatten alle uitgaande IP-adressen opgegeven voor de regio's waar uw logische apps bestaan. Voor [Azure Government](/azure-government/documentation-government-welcome) en [Azure China 21Vianet](/azure/china/china-welcome), gereserveerde IP-adressen voor connectors niet op dit moment beschikbaar zijn.
 
 > [!IMPORTANT]
+> 
 > Als u bestaande configuraties hebt, werkt u deze **zo snel mogelijk vóór 1 September 2018** zodat ze zijn en overeenkomen met de IP-adressen in deze lijst voor de regio's waar uw logische apps bestaan. 
 > 
 > Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar Azure storage-accounts via firewalls. Voor toegang tot deze opslagaccounts, hier een van beide opties gebruiken: 

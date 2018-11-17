@@ -12,40 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8883111387bea4a78e81123f95201ed4826dcb1c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054726"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820338"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-stuurprogramma-extensie voor Linux
 
 ## <a name="overview"></a>Overzicht
 
-Deze extensie installeert NVIDIA GPU-stuurprogramma's op Linux-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie accepteren en als u akkoord gaat met de voorwaarden van de gebruiksrechtovereenkomst van NVIDIA. Tijdens de installatie, kan uw virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
+Deze extensie installeert NVIDIA GPU-stuurprogramma's op Linux-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie u accepteren en als u akkoord gaat met de voorwaarden van de [NVIDIA gebruiksrechtovereenkomst](https://go.microsoft.com/fwlink/?linkid=874330). Tijdens de installatie, kan de virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
 
 Een uitbreiding is ook beschikbaar voor installatie van NVIDIA GPU-stuurprogramma's op [Windows uit de N-serie VM's](hpccompute-gpu-windows.md).
-
-Voorwaarden van de gebruiksrechtovereenkomst NVIDIA bevinden zich hier: https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-Deze uitbreiding ondersteunt de volgende OSs:
+Deze uitbreiding ondersteunt de volgende OS-distributies, afhankelijk van ondersteuning voor stuurprogramma's voor een specifieke versie van het besturingssysteem.
 
 | Distributie | Versie |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4 |
-| Linux: CentOS | 7.3, 7.4 |
+| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
+| Linux: CentOS | 7.3, 7.4, 7.5 |
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
-De Microsoft Azure-extensie voor NVIDIA GPU-stuurprogramma's is vereist dat de virtuele doelmachine is verbonden met internet en toegang hebben.
+De Microsoft Azure-extensie voor NVIDIA GPU-stuurprogramma's is vereist dat de doel-VM is verbonden met internet en toegang hebben.
 
 ## <a name="extension-schema"></a>Extensieschema
 
@@ -63,7 +61,7 @@ De volgende JSON ziet u het schema voor de extensie.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -71,14 +69,24 @@ De volgende JSON ziet u het schema voor de extensie.
 }
 ```
 
-### <a name="property-values"></a>Waarden van eigenschappen
+### <a name="properties"></a>Eigenschappen
 
 | Naam | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | Uitgever | Microsoft.HpcCompute | tekenreeks |
 | type | NvidiaGpuDriverLinux | tekenreeks |
-| typeHandlerVersion | 1.1 | int |
+| typeHandlerVersion | 1.2 | int |
+
+### <a name="settings"></a>Instellingen
+
+Alle instellingen zijn optioneel. Het standaardgedrag is het niet bijwerken de kernel als dit niet vereist voor het installeren van stuurprogramma's, installeert u de nieuwste ondersteunde stuurprogramma en de CUDA-toolkit (indien van toepassing).
+
+| Naam | Beschrijving | Standaardwaarde | Geldige waarden | Gegevenstype |
+| ---- | ---- | ---- | ---- | ---- |
+| updateOS | Bijwerken van de kernel, zelfs als niet vereist voor de installatie van stuurprogramma | false | waar of ONWAAR | booleaans |
+| driverVersion | NV: RASTER stuurprogrammaversie<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | meest recente | GRID: "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | tekenreeks |
+| installCUDA | CUDA-toolkit installeren. Alleen relevant voor NC/ND-serie VM's. | true | waar of ONWAAR | booleaans |
 
 
 ## <a name="deployment"></a>Implementatie
@@ -104,7 +112,7 @@ Het volgende voorbeeld wordt ervan uitgegaan dat de extensie is genest in de bro
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -122,12 +130,14 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.1 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Azure-CLI
+
+Het volgende voorbeeld komt overeen met de bovenstaande voorbeelden van Azure Resource Manager en PowerShell en aangepaste instellingen ook toegevoegd als voorbeeld voor de installatie van niet-standaard-stuurprogramma. Met name de OS-kernel-updates en een specifieke CUDA toolkit versie stuurprogramma wordt geïnstalleerd.
 
 ```azurecli
 az vm extension set `
@@ -135,8 +145,10 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.1 `
+  --version 1.2 `
   --settings '{ `
+    "updateOS": true, `
+    "driverVersion": "9.1.85", `
   }'
 ```
 
@@ -165,13 +177,12 @@ Extensie uitvoering uitvoer wordt vastgelegd in het volgende bestand:
 | Afsluitcode | Betekenis | Mogelijke actie |
 | :---: | --- | --- |
 | 0 | Bewerking is geslaagd |
-| 1 | Onjuist gebruik van de uitbreiding. | Neem contact op met ondersteuning voor uitvoer uitvoeringslogboek. |
-| 10 | Linux Integration Services voor Hyper-V en Azure niet beschikbaar of geïnstalleerd. | Controleer de uitvoer van lspci. |
-| 11 | NVIDIA GPU kan niet worden gevonden op deze VM-grootte. | Gebruik een [ondersteunde VM-grootte en OS](../linux/n-series-driver-setup.md). |
+| 1 | Onjuist gebruik van de uitbreiding | Uitvoeringslogboek uitvoer controleren |
+| 10 | Linux Integration Services voor Hyper-V en Azure niet beschikbaar of is geïnstalleerd | Uitvoer van de controle van lspci |
+| 11 | NVIDIA GPU niet gevonden op deze VM-grootte | Gebruik een [ondersteunde VM-grootte en besturingssysteem](../linux/n-series-driver-setup.md) |
 | 12 | Installatiekopie-aanbieding niet ondersteund |
 | 13 | VM-grootte niet ondersteund | Een VM uit de N-serie gebruiken om te implementeren |
-| 14 | De bewerking is mislukt | |
-| 21 | Is niet bijgewerkt op Ubuntu | Uitvoer van de controle van 'sudo apt-get-update' |
+| 14 | De bewerking is mislukt | Uitvoeringslogboek uitvoer controleren |
 
 
 ### <a name="support"></a>Ondersteuning

@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 85ac478bf753d5bb0aed96eca538e48525354eff
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060848"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823789"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
 
 ## <a name="overview"></a>Overzicht
 
-Deze extensie wordt NVIDIA GPU-stuurprogramma's geïnstalleerd op Windows-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie accepteren en als u akkoord gaat met de voorwaarden van de gebruiksrechtovereenkomst van NVIDIA. Tijdens de installatie, kan uw virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
+Deze extensie wordt NVIDIA GPU-stuurprogramma's geïnstalleerd op Windows-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie u accepteren en als u akkoord gaat met de voorwaarden van de [NVIDIA gebruiksrechtovereenkomst](https://go.microsoft.com/fwlink/?linkid=874330). Tijdens de installatie, kan de virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
 
 Een uitbreiding is ook beschikbaar voor installatie van NVIDIA GPU-stuurprogramma's op [Linux N-serie VM's](hpccompute-gpu-linux.md).
-
-Voorwaarden van de gebruiksrechtovereenkomst NVIDIA bevinden zich hier: https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,7 +43,7 @@ Deze uitbreiding ondersteunt de volgende OSs:
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
-De Microsoft Azure-extensie voor NVIDIA GPU-stuurprogramma's is vereist dat de virtuele doelmachine is verbonden met internet en toegang hebben.
+De Microsoft Azure-extensie voor NVIDIA GPU-stuurprogramma's is vereist dat de doel-VM is verbonden met internet en toegang hebben.
 
 ## <a name="extension-schema"></a>Extensieschema
 
@@ -71,15 +69,23 @@ De volgende JSON ziet u het schema voor de extensie.
 }
 ```
 
-### <a name="property-values"></a>Waarden van eigenschappen
+### <a name="properties"></a>Eigenschappen
 
 | Naam | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | Uitgever | Microsoft.HpcCompute | tekenreeks |
 | type | NvidiaGpuDriverWindows | tekenreeks |
 | typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Instellingen
+
+Alle instellingen zijn optioneel. De standaardinstelling is de nieuwste ondersteunde stuurprogramma installeren zoals van toepassing.
+
+| Naam | Beschrijving | Standaardwaarde | Geldige waarden | Gegevenstype |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: RASTER stuurprogrammaversie<br> NC/ND: CUDA-stuurprogrammaversie | meest recente | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | tekenreeks |
+| installGridND | RASTER stuurprogramma installeren op de ND-serie VM 's | false | waar of ONWAAR | booleaans |
 
 ## <a name="deployment"></a>Implementatie
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure-CLI
 
+Het volgende voorbeeld komt overeen met het bovenstaande ARM en PowerShell-voorbeeld en voegt u ook aangepaste instellingen toe als een voorbeeld van de installatie van niet-standaard-stuurprogramma. Specifiek, wordt een specifiek GRID-stuurprogramma geïnstalleerd, zelfs als een virtuele machine uit de ND-serie wordt ingericht.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

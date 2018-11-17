@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 68f987daff5bc0ef81c248f6f5e75aaf1318b025
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6a302c611b7c71dd8bc8c472330b79ea21504770
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395488"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824622"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard of betaalpas nodig voor Azure
 
-In het Accountcentrum, kunt u een nieuwe creditcard toevoegen, een bestaande creditcard bijwerken of verwijderen van een creditcard die u niet gebruikt. U moet [accountbeheerder](billing-subscription-transfer.md#whoisaa) u deze wijzigingen aanbrengt.
+In het Accountcentrum, kunt u een nieuwe creditcard toevoegen, een bestaande creditcard bijwerken of verwijderen van een creditcard die u niet gebruikt. U moet een [accountbeheerder](billing-subscription-transfer.md#whoisaa) u deze wijzigingen aanbrengt.
 
 **Wilt u overschakelen naar betalen per factuur?** Zie [voor Azure-abonnementen betalen per factuur](billing-how-to-pay-by-invoice.md).
  
@@ -40,7 +40,7 @@ In het Accountcentrum, kunt u een nieuwe creditcard toevoegen, een bestaande cre
 1. Selecteer '+' om toe te voegen een kaart.
 
     ![Schermafbeelding van de optie Bewerken naast de betalingswijze.](./media/billing-how-to-change-credit-card/editcard_new.png)
-1. Creditcard of betaalpas kaartgegevens.
+1. Voer de details van de creditcard of betaalpas in.
 1. Selecteer **Opslaan**. 
 
 Als u een foutmelding krijgt nadat u de creditcard hebt toegevoegd, Zie [creditcard is geregistreerd bij Azure aanmelden geweigerd](billing-credit-card-fails-during-azure-sign-up.md).
@@ -82,7 +82,7 @@ Als u verwijderen van uw creditcard wilt voordat de bewaarperiode van 90 dagen a
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Waarom ik steeds 'uw aanmeldingssessie is verlopen. Klik hier om te weer aanmelden'?
 
-Als u dit foutbericht ontvangen blijven, zelfs als er al u bent afgemeld en weer in, probeer het opnieuw met een persoonlijke browsersessie.
+Als u dit foutbericht ontvangen blijven, zelfs als u al hebt afgemeld en weer in, probeer het opnieuw met een persoonlijke browsersessie.
 
 ### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Hoe gebruik ik een andere kaart voor elk abonnement dat ik heb?
 

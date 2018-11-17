@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978175"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820355"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
 
@@ -205,6 +205,9 @@ Deze fout geeft aan dat vanwege een zware belasting in de regio waarin u probeer
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Kan geen verbinding maken met onderliggende Docker API of bevoegde containers uitvoeren
 
 Azure Container Instances maakt niet beschikbaar voor directe toegang tot de onderliggende infrastructuur die als host fungeert voor groepen met containers. Dit omvat toegang tot de Docker-API die wordt uitgevoerd op de host van de container en bevoorrechte containers uitvoeren. Als u nodig hebt voor interactie met Docker, controleert u de [REST-referentiedocumentatie](https://aka.ms/aci/rest) om te zien wat de ACI API ondersteunt. Als er iets ontbreekt, een aanvraag indienen op de [ACI feedbackforums](https://aka.ms/aci/feedback).
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP-adressen mogelijk niet toegankelijk omdat het niet-overeenkomende poorten
+Azure Container Instances biedt momenteel geen ondersteuning poort toewijzen, zoals met de configuratie van de reguliere docker, maar deze hotfix op de planning is. Als u het IP-adressen zijn niet toegankelijk als u denkt dat deze moet worden gevonden, controleert u of u hebt geconfigureerd om de containerinstallatiekopie om te luisteren naar de dezelfde poorten die u beschikbaar in uw containergroep met maakt de `ports` eigenschap.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over het [containerlogbestanden & gebeurtenissen ophalen](container-instances-get-logs.md) om u te helpen bij foutopsporing van uw containers.

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 2fff332665652516e4ac25c4eb1a4612c15e2412
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711919"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824673"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
-In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van gegevens die zijn opgeslagen in Azure Monitor. Dit omvat [metrische gegevens in de metrische gegevens van Azure store](../monitoring/monitoring-data-collection.md#metrics) en [gegevens vastleggen in Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van gegevens die zijn opgeslagen in Azure Monitor. Dit omvat [metrische gegevens in de metrische gegevens van Azure store](../azure-monitor/platform/data-collection.md#metrics) en [gegevens vastleggen in Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw gegevens om te zoomen op problemen en patronen te identificeren. Afhankelijk van het hulpprogramma die u gebruikt, kan u ook de optie voor visualisaties delen met andere gebruikers binnen en buiten uw organisatie hebt.
 
@@ -138,7 +138,7 @@ U kunt gegevens in de metrische gegevens van Azure en de Log Analytics openen vi
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over de [gegevens verzameld door Azure Monitor](../monitoring/monitoring-data-collection.md).
+- Meer informatie over de [gegevens verzameld door Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Meer informatie over [Azure-dashboards](../azure-portal/azure-portal-dashboards.md).
 - Meer informatie over [weergaven in Azure Monitor](../log-analytics/log-analytics-view-designer.md).
 - Meer informatie over [werkmappen in Application Insights](../application-insights/app-insights-usage-workbooks.md).

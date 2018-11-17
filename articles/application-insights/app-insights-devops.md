@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958590"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822667"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -82,7 +82,7 @@ De belangrijkste categorieën van de gegevens zijn:
 ## <a name="case-study-real-madrid-fc"></a>Casestudy: Real Madrid F.C.
 De webservice van [Real Madrid Football Club](http://www.realmadrid.com/) bedient ongeveer 450 miljoen fans over de hele wereld. Fans toegang zowel via webbrowsers en mobiele apps van de Club. Fans kunnen niet alleen het adresboek van tickets, maar ook toegang tot gegevens en videoclips op toekomstige games, spelers en resultaten. Ze kunnen zoeken met filters zoals aantallen doelstellingen beoordeeld. Er zijn ook koppelingen naar sociale media. De gebruikerservaring is uiterst persoonlijke en is bedoeld als een communicatie in twee richtingen contact opnemen met fans.
 
-De oplossing [is een systeem van services en toepassingen op Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Schaalbaarheid is een basisvereiste: verkeer variabele en tijdens de en rond komt overeen met zeer hoge volumes kunt bereiken.
+De oplossing [is een systeem van services en toepassingen op Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Schaalbaarheid is een basisvereiste: verkeer variabele en tijdens de en rond komt overeen met zeer hoge volumes kunt bereiken.
 
 Voor Real Madrid, is het essentieel is voor het bewaken van prestaties van het systeem. Azure Application Insights biedt een uitgebreide weergave in het systeem ervoor te zorgen dat een betrouwbare en hoog niveau van de service. 
 

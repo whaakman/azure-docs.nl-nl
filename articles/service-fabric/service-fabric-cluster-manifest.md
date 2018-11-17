@@ -12,20 +12,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 37859a117c88238089a681e3814c2a52f62bfce4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c71473e975333d33406d78130ad28f417b9b967e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412580"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853333"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Configuratie-instellingen voor een zelfstandige Windows-cluster
-In dit artikel wordt beschreven hoe u een zelfstandig Azure Service Fabric-cluster configureren met behulp van het bestand ClusterConfig.json. U gebruikt dit bestand om op te geven informatie over de knooppunten van het cluster, beveiligingsconfiguraties, evenals de netwerktopologie in termen van fout- en upgradedomeinen.
+Dit artikel wordt beschreven configuratie-instellingen van een zelfstandig Azure Service Fabric-cluster die kan worden ingesteld in de *ClusterConfig.json* bestand. U gebruikt dit bestand om op te geven informatie over de knooppunten van het cluster, beveiligingsconfiguraties, evenals de netwerktopologie in termen van fout- en upgradedomeinen.  Na het wijzigen of configuratie-instellingen toe te voegen, kunt u een [maken van een zelfstandige cluster](service-fabric-cluster-creation-for-windows-server.md) of [upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
 Wanneer u [het zelfstandige Service Fabric-pakket downloaden](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json voorbeelden zijn ook opgenomen. De voorbeelden die 'DevCluster' in hun namen hebben maken een cluster met alle drie knooppunten op dezelfde computer, met behulp van de logische knooppunten. Deze knooppunten moet ten minste één worden gemarkeerd als een primaire knooppunt. Dit type cluster is handig voor ontwikkeling- of testomgevingen. Het wordt niet ondersteund als een productiecluster. De voorbeelden die 'MultiMachine' in hun namen hebben helpen productie geavanceerde-clusters maken met elk knooppunt van een afzonderlijke virtuele machine. Het aantal primaire knooppunten voor deze clusters is gebaseerd op van het cluster [betrouwbaarheidsniveau](#reliability). In versie 5.7, API-versie 05-2017, we hebben het betrouwbaarheidsniveau eigenschap verwijderd. Onze code berekend in plaats daarvan het betrouwbaarheidsniveau van de meest optimale voor uw cluster. Probeer niet om in te stellen van een waarde voor deze eigenschap in versies 5.7 of hoger.
-
 
 * ClusterConfig.Unsecure.DevCluster.json en ClusterConfig.Unsecure.MultiMachine.json laten u zien over het maken van een niet-beveiligde test of een productiecluster, respectievelijk.
 
@@ -48,26 +47,27 @@ U kunt een willekeurige beschrijvende naam geven aan uw Service Fabric-cluster a
 
 ## <a name="nodes-on-the-cluster"></a>Knooppunten op het cluster
 U kunt de knooppunten op uw Service Fabric-cluster configureren met behulp van de sectie knooppunten als het volgende codefragment bevat:
-
-    "nodes": [{
-        "nodeName": "vm0",
-        "iPAddress": "localhost",
-        "nodeTypeRef": "NodeType0",
-        "faultDomain": "fd:/dc1/r0",
-        "upgradeDomain": "UD0"
-    }, {
-        "nodeName": "vm1",
-        "iPAddress": "localhost",
-        "nodeTypeRef": "NodeType1",
-        "faultDomain": "fd:/dc1/r1",
-        "upgradeDomain": "UD1"
-    }, {
-        "nodeName": "vm2",
-        "iPAddress": "localhost",
-        "nodeTypeRef": "NodeType2",
-        "faultDomain": "fd:/dc1/r2",
-        "upgradeDomain": "UD2"
-    }],
+```json
+"nodes": [{
+    "nodeName": "vm0",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc1/r0",
+    "upgradeDomain": "UD0"
+}, {
+    "nodeName": "vm1",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType1",
+    "faultDomain": "fd:/dc1/r1",
+    "upgradeDomain": "UD1"
+}, {
+    "nodeName": "vm2",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType2",
+    "faultDomain": "fd:/dc1/r2",
+    "upgradeDomain": "UD2"
+}],
+```
 
 Een Service Fabric-cluster moet ten minste drie knooppunten bevatten. U kunt meer knooppunten toevoegen aan deze sectie op basis van uw installatie. De volgende tabel beschrijft de configuratie-instellingen voor elk knooppunt:
 
@@ -88,57 +88,65 @@ Het concept van kunt reliabilityLevel definieert het aantal replica's of exempla
 ### <a name="diagnostics"></a>Diagnostiek
 In de sectie diagnosticsStore kunt u parameters voor het inschakelen van diagnostische gegevens en het oplossen van fouten in de knooppunt- of -cluster, zoals wordt weergegeven in het volgende codefragment: 
 
-    "diagnosticsStore": {
-        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
-        "dataDeletionAgeInDays": "7",
-        "storeType": "FileShare",
-        "IsEncrypted": "false",
-        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-    }
+```json
+"diagnosticsStore": {
+    "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+    "dataDeletionAgeInDays": "7",
+    "storeType": "FileShare",
+    "IsEncrypted": "false",
+    "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+}
+```
 
 De metagegevens een beschrijving van de diagnostische gegevens van uw cluster is en kan worden ingesteld op basis van uw installatie. Deze variabelen te helpen bij het verzamelen van ETW-traceerlogboeken en crashdumps en prestatiemeteritems. Zie voor meer informatie over ETW-traceerlogboeken [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) en [ETW-tracering](https://msdn.microsoft.com/library/ms751538.aspx). Alle logboeken, met inbegrip van [crashdumps](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) en [prestatiemeteritems](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), kunnen worden omgeleid naar de connectionString-map op uw computer. U kunt ook AzureStorage gebruiken voor het opslaan van diagnostische gegevens. Zie het volgende voorbeeld-fragment:
 
-    "diagnosticsStore": {
-        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
-        "dataDeletionAgeInDays": "7",
-        "storeType": "AzureStorage",
-        "IsEncrypted": "false",
-        "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
-    }
+```json
+"diagnosticsStore": {
+    "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+    "dataDeletionAgeInDays": "7",
+    "storeType": "AzureStorage",
+    "IsEncrypted": "false",
+    "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
+}
+```
 
 ### <a name="security"></a>Beveiliging
 De Beveiligingssectie is vereist voor een veilige zelfstandige Service Fabric-cluster. Het volgende fragment toont een deel van deze sectie:
 
-    "security": {
-        "metadata": "This cluster is secured using X509 certificates.",
-        "ClusterCredentialType": "X509",
-        "ServerCredentialType": "X509",
-        . . .
-    }
+```json
+"security": {
+    "metadata": "This cluster is secured using X509 certificates.",
+    "ClusterCredentialType": "X509",
+    "ServerCredentialType": "X509",
+    . . .
+}
+```
 
 De metagegevens is een beschrijving van het beveiligde cluster en kan worden ingesteld op basis van uw installatie. De ClusterCredentialType en ServerCredentialType bepaalt het type dat door het cluster en de knooppunten implementeren. Ze kunnen worden ingesteld op *X509* voor beveiliging op basis van certificaten of *Windows* voor beveiliging op basis van Azure Active Directory. De rest van de Beveiligingssectie is gebaseerd op het type beveiliging. Zie voor meer informatie over het invullen van de rest van de Beveiligingssectie [beveiliging op basis van certificaten in een zelfstandige cluster](service-fabric-windows-cluster-x509-security.md) of [Windows-beveiliging in een zelfstandige cluster](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Knooppunttypen
 De sectie nodeTypes beschrijving van het type van de knooppunten die het cluster is. Ten minste één knooppunttype moet worden opgegeven voor een cluster, zoals wordt weergegeven in het volgende codefragment: 
 
-    "nodeTypes": [{
-        "name": "NodeType0",
-        "clientConnectionEndpointPort": "19000",
-        "clusterConnectionEndpointPort": "19001",
-        "leaseDriverEndpointPort": "19002"
-        "serviceConnectionEndpointPort": "19003",
-        "httpGatewayEndpointPort": "19080",
-        "reverseProxyEndpointPort": "19081",
-        "applicationPorts": {
-            "startPort": "20575",
-            "endPort": "20605"
-        },
-        "ephemeralPorts": {
-            "startPort": "20606",
-            "endPort": "20861"
-        },
-        "isPrimary": true
-    }]
+```json
+"nodeTypes": [{
+    "name": "NodeType0",
+    "clientConnectionEndpointPort": "19000",
+    "clusterConnectionEndpointPort": "19001",
+    "leaseDriverEndpointPort": "19002"
+    "serviceConnectionEndpointPort": "19003",
+    "httpGatewayEndpointPort": "19080",
+    "reverseProxyEndpointPort": "19081",
+    "applicationPorts": {
+        "startPort": "20575",
+        "endPort": "20605"
+    },
+    "ephemeralPorts": {
+        "startPort": "20606",
+        "endPort": "20861"
+    },
+    "isPrimary": true
+}]
+```
 
 De naam is de beschrijvende naam voor dit knooppunttype. Wijs voor het maken van een knooppunt van dit knooppunttype, de beschrijvende naam in de variabele nodeTypeRef voor dat knooppunt, als [genoemde](#nodes-on-the-cluster). Definieer de verbindingseindpunten die worden gebruikt voor elk knooppunttype. U kunt een ander poortnummer voor deze verbindingseindpunten, zolang ze geen conflict met alle andere eindpunten in dit cluster veroorzaken. In een cluster met meerdere knooppunten, moet u er een of meer primaire knooppunten zijn (dat wil zeggen, isPrimary is ingesteld op *waar*), afhankelijk van de [kunt reliabilityLevel van](#reliability). Zie voor meer informatie over de primaire en nonprimary knooppunttypen [Service Fabric-cluster overwegingen voor capaciteitsplanning](service-fabric-cluster-capacity.md) voor informatie over nodeTypes en kunt reliabilityLevel van. 
 
@@ -155,44 +163,53 @@ De naam is de beschrijvende naam voor dit knooppunttype. Wijs voor het maken van
 ### <a name="log-settings"></a>Logboekinstellingen
 In de sectie instelling fabricSettings stelt u de hoofdmappen voor de Service Fabric-gegevens en Logboeken. U kunt deze mappen alleen tijdens het maken van het oorspronkelijke cluster. Zie het volgende voorbeeld fragment van deze sectie:
 
-    "fabricSettings": [{
-        "name": "Setup",
-        "parameters": [{
-            "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
-        }, {
-            "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
-    }]
+```json
+"fabricSettings": [{
+    "name": "Setup",
+    "parameters": [{
+        "name": "FabricDataRoot",
+        "value": "C:\\ProgramData\\SF"
+    }, {
+        "name": "FabricLogRoot",
+        "value": "C:\\ProgramData\\SF\\Log"
+}]
+```
 
 U wordt aangeraden dat u een niet-OS-station als de FabricDataRoot en FabricLogRoot gebruiken. Het biedt meer betrouwbaarheid in situaties voorkomen wanneer het besturingssysteem niet meer reageert. Als u alleen de gegevenshoofdmap wilt aanpassen, wordt één niveau onder de gegevenshoofdmap in de hoofdmap van het logboek geplaatst.
 
 ### <a name="stateful-reliable-services-settings"></a>Instellingen voor stateful Reliable Services
 In de sectie KtlLogger kunt u de globale configuratie-instellingen voor Reliable Services instellen. Zie voor meer informatie over deze instellingen [Stateful Reliable Services configureren](service-fabric-reliable-services-configuration.md). Het volgende voorbeeld laat zien hoe om te wijzigen van de gedeelde transactielogboek die back-ups maken geen betrouwbare verzamelingen voor stateful services wordt gemaakt:
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### <a name="add-on-features"></a>Functies van invoegtoepassingen
 Voor het configureren van extra functies van de apiVersion configureren als 04-2017 of hoger en de addonFeatures configureren, zoals hier wordt weergegeven:
 
-    "apiVersion": "04-2017",
-    "properties": {
-      "addOnFeatures": [
-          "DnsService",
-          "RepairManager"
-      ]
-    }
+```json
+"apiVersion": "04-2017",
+"properties": {
+    "addOnFeatures": [
+        "DnsService",
+        "RepairManager"
+    ]
+}
+```
 
 ### <a name="container-support"></a>Ondersteuning voor containers
 Als u wilt inschakelen voor zowel Windows Server-containers en Hyper-V-containers voor zelfstandige clusters ondersteuning voor containers, moet de functie voor de DNS-service-invoegtoepassing zijn ingeschakeld.
 
-
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u een volledige ClusterConfig.json-bestand dat is geconfigureerd volgens de instellingen van uw zelfstandige cluster hebt, kunt u uw cluster implementeren. Volg de stappen in [een zelfstandige Service Fabric-cluster maken](service-fabric-cluster-creation-for-windows-server.md). Vervolgens gaat u verder met [uw cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en volg de stappen.
+Nadat u een complete hebt *ClusterConfig.json* dat is geconfigureerd op basis van uw zelfstandige cluster setup, kunt u uw cluster implementeren. Volg de stappen in [een zelfstandige Service Fabric-cluster maken](service-fabric-cluster-creation-for-windows-server.md). 
+
+Als u een zelfstandige cluster geïmplementeerd, kunt u ook [upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md). 
+
+Meer informatie over het [uw cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 

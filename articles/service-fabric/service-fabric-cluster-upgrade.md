@@ -1,6 +1,6 @@
 ---
 title: Een Azure Service Fabric-cluster upgraden | Microsoft Docs
-description: Upgrade van de Service Fabric-code en/of de configuratie die wordt uitgevoerd van een Service Fabric-cluster, inclusief het instellen van de cluster-updatemodus, een upgrade van certificaten, toe te voegen toepassingspoorten, uitvoeren van patches voor het besturingssysteem, enzovoort. Wat kunt u verwachten wanneer de upgrades worden uitgevoerd?
+description: Meer informatie over het upgraden van de versie of de configuratie van een Azure Svice Fabric-cluster.  Dit artikel wordt beschreven instelling cluster updatemodus, een upgrade van certificaten, toe te voegen toepassingspoorten, patches voor het besturingssysteem en wat u kunt verwachten wanneer de upgrades worden uitgevoerd
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,114 +12,28 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/10/2017
+ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2fd62f8709bddfd981f4b1358c97d0acbaf7f12d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269096"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853282"
 ---
-# <a name="upgrade-an-azure-service-fabric-cluster"></a>Een Azure Service Fabric-cluster upgraden
-> [!div class="op_single_selector"]
-> * [Azure-Cluster](service-fabric-cluster-upgrade.md)
-> * [Zelfstandige Cluster](service-fabric-cluster-upgrade-windows-server.md)
-> 
-> 
+# <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Upgraden en het bijwerken van een Azure Service Fabric-cluster
 
 Voor elk modern systeem is ontwerpen voor kunnen erg belangrijk voor het succes van uw product op lange termijn te bereiken. Een Azure Service Fabric-cluster is een resource die u bezit, maar gedeeltelijk wordt beheerd door Microsoft. Dit artikel wordt beschreven wat automatisch wordt beheerd en wat u kunt zelf configureren.
 
-## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>De fabric-versie die wordt uitgevoerd op uw Cluster beheren
-U kunt instellen dat uw cluster voor het ontvangen van automatische infrastructuurupgrades als ze door Microsoft worden uitgegeven of kunt u een ondersteunde fabric-versie die u wilt dat uw cluster op.
+## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>De fabric-versie die wordt uitgevoerd op uw cluster beheren
 
-U doen dit door het instellen van de clusterconfiguratie 'upgradeMode' in de portal of met behulp van Resource Manager op het moment van maken of hoger op een live cluster 
-
-> [!NOTE]
-> Zorg ervoor dat u uw cluster met een ondersteunde fabric-versie altijd behouden. Als en wanneer we kondigen wij de release van een nieuwe versie van service fabric, betekent dit dat de vorige versie zich na een minimum van 60 dagen vanaf die datum is gemarkeerd voor einde van ondersteuning. De nieuwe releases worden aangekondigd [op de blog van het service fabric-team](https://blogs.msdn.microsoft.com/azureservicefabric/). De nieuwe versie is beschikbaar voor vervolgens kiest. 
-> 
-> 
+Zorg ervoor dat u uw cluster met een ondersteunde fabric-versie altijd behouden. Als en wanneer we kondigen wij de release van een nieuwe versie van service fabric, betekent dit dat de vorige versie zich na een minimum van 60 dagen vanaf die datum is gemarkeerd voor einde van ondersteuning. De nieuwe releases worden aangekondigd op de blog van het service fabric-team. De nieuwe versie is beschikbaar voor vervolgens kiest.
 
 14 dagen voordat het verstrijken van de release van die het cluster wordt uitgevoerd, wordt een statusgebeurtenis gegenereerd waarmee uw cluster in een waarschuwingsstatus wordt geplaatst zijn. Het cluster blijft een waarschuwingsstatus totdat u een upgrade naar een ondersteunde fabric-versie uitvoert.
 
-### <a name="setting-the-upgrade-mode-via-portal"></a>Instellen van de upgrademodus via de portal
-U kunt het cluster instellen op automatisch of handmatig wanneer u het cluster maakt.
+U kunt instellen dat uw cluster voor het ontvangen van automatische infrastructuurupgrades als ze door Microsoft worden uitgegeven of kunt u een ondersteunde fabric-versie die u wilt dat uw cluster op.  Voor meer informatie lezen [upgrade van de Service Fabric-versie van uw cluster](service-fabric-cluster-upgrade-version-azure.md).
 
-![Create_Manualmode][Create_Manualmode]
-
-U kunt het cluster instellen op automatisch of handmatig wanneer u op een live cluster met behulp van de ervaring beheren. 
-
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Een upgrade uitvoeren naar een nieuwe versie op een cluster dat is ingesteld op handmatige modus via de portal.
-Als u wilt upgraden naar een nieuwe versie, is hoeft u alleen maar selecteert u de versie in de vervolgkeuzelijst en opslaan. De Fabric-upgrade wordt automatisch gestart. De cluster-statusbeleid (een combinatie van het knooppuntstatus en de status van alle toepassingen die worden uitgevoerd in het cluster) om te worden gehouden tijdens de upgrade.
-
-Als de cluster-statusbeleid wordt niet voldaan, is de upgrade teruggedraaid. Schuif omlaag in dit document voor meer informatie over het instellen van deze aangepaste statusbeleid. 
-
-Als u de betreffende leidde tot het terugdraaien van de problemen hebt opgelost, moet u de upgrade opnieuw starten door dezelfde stappen als voordat te volgen.
-
-![Manage_Automaticmode][Manage_Automaticmode]
-
-### <a name="setting-the-upgrade-mode-via-a-resource-manager-template"></a>De upgrademodus via Resource Manager-sjabloon instellen
-De configuratie 'upgradeMode' toevoegen aan de resourcedefinitie Microsoft.ServiceFabric/clusters en de 'clusterCodeVersion' ingesteld op een van de ondersteunde fabric-versies zoals hieronder wordt weergegeven en vervolgens de sjabloon te implementeren. De geldige waarden voor 'upgradeMode' zijn 'Handmatig' of 'Automatisch'
-
-![ARMUpgradeMode][ARMUpgradeMode]
-
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Een upgrade uitvoeren naar een nieuwe versie op een cluster dat is ingesteld op handmatige modus via Resource Manager-sjabloon.
-Als het cluster in de modus voor handmatige is, om te upgraden naar een nieuwe versie, de 'clusterCodeVersion' wijzigen naar een ondersteunde versie en deze implementeren. De implementatie van de sjabloon, gang van de Fabric-upgrade wordt gestart automatisch. De cluster-statusbeleid (een combinatie van het knooppuntstatus en de status van alle toepassingen die worden uitgevoerd in het cluster) om te worden gehouden tijdens de upgrade.
-
-Als de cluster-statusbeleid wordt niet voldaan, is de upgrade teruggedraaid. Schuif omlaag in dit document voor meer informatie over het instellen van deze aangepaste statusbeleid. 
-
-Als u de betreffende leidde tot het terugdraaien van de problemen hebt opgelost, moet u de upgrade opnieuw starten door dezelfde stappen als voordat te volgen.
-
-### <a name="get-list-of-all-available-version-for-all-environments-for-a-given-subscription"></a>Lijst alle beschikbare versie voor alle omgevingen voor een bepaald abonnement ophalen
-Voer de volgende opdracht en deze krijgt u uitvoer die vergelijkbaar is met dit.
-
-'supportExpiryUtc' geeft aan dat uw wanneer een bepaalde release is verlopen of is verlopen. De nieuwste versie beschikt niet over een geldige datum - heeft een waarde van "9999-12-31T23:59:59.9999999 ', wat betekent dat de vervaldatum is nog niet ingesteld.
-
-```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
-
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
-{
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
-
-
-```
-
-## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>Fabric upgrade gedrag als de modus bijwerken van het cluster automatisch is
+## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Fabric gedrag tijdens upgrades met automatische upgrade
 Microsoft onderhoudt de fabric-code en configuratie die wordt uitgevoerd in een Azure-cluster. Wij uitvoeren automatische bewaakte upgrades van de software op basis van behoefte. Deze upgrades mogelijk code, configuratie, of beide. Om ervoor te zorgen dat uw toepassing geen gevolgen of minimale gevolgen vanwege deze upgrades heeft, uitvoeren we de upgrades in de volgende fasen:
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: Een upgrade wordt uitgevoerd met behulp van alle beleidsregels voor cluster health
@@ -149,7 +63,7 @@ We proberen uit te voeren dezelfde upgrade uit een aantal keer in het geval even
 Als de cluster-statusbeleid wordt voldaan, wordt de upgrade de Canonisering en als voltooid gemarkeerd. Dit kan gebeuren tijdens de upgrade of een van de upgrade herhalingen in deze fase. Er is geen bevestiging e-mailadres van een geslaagde uitvoering.
 
 ### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fase 3: Een upgrade wordt uitgevoerd met behulp van agressief statusbeleid
-Deze statusbeleid in deze fase zijn afgestemd op de voltooiing van de upgrade in plaats van de status van de toepassingen. Heel weinig upgrades van cluster terechtkomen in deze fase. Als uw cluster opgehaald voor deze fase, is er een grote kans dat uw toepassing slecht en/of beschikbaarheid verliest.
+Deze statusbeleid in deze fase zijn afgestemd op de voltooiing van de upgrade in plaats van de status van de toepassingen. Enkele upgrades van cluster terechtkomen in deze fase. Als uw cluster opgehaald voor deze fase, is er een grote kans dat uw toepassing slecht en/of beschikbaarheid verliest.
 
 Net als bij de andere twee fasen, upgrades voor fase 3 gaan één upgradedomein tegelijk.
 
@@ -159,56 +73,35 @@ Een e-mailbericht met deze informatie wordt verzonden naar de eigenaar van het a
 
 Als de cluster-statusbeleid wordt voldaan, wordt de upgrade de Canonisering en als voltooid gemarkeerd. Dit kan gebeuren tijdens de upgrade of een van de upgrade herhalingen in deze fase. Er is geen bevestiging e-mailadres van een geslaagde uitvoering.
 
-## <a name="cluster-configurations-that-you-control"></a>Configuraties van clusters die u beheert
-Naast de mogelijkheid om in te stellen het cluster upgrademodus, Hier volgen de configuraties die u op een live cluster wijzigen kunt.
+## <a name="manage-certificates"></a>Certificaten beheren
+Maakt gebruik van service Fabric [x.509-certificaten](service-fabric-cluster-security.md) dat u wanneer u een cluster opgeeft voor het beveiligen van communicatie tussen clusterknooppunten en verifiëren van clients maakt. U kunt toevoegen, bijwerken of verwijderen van certificaten voor het cluster en de client in de [Azure-portal](https://portal.azure.com) of met behulp van PowerShell/Azure CLI.  Voor meer informatie lezen [toevoegen of verwijderen van certificaten](service-fabric-cluster-security-update-certs-azure.md)
 
-### <a name="certificates"></a>Certificaten
-U kunt nieuwe toevoegen of verwijderen van certificaten voor het cluster en de client via de portal gemakkelijk. Raadpleeg [dit document voor gedetailleerde instructies](service-fabric-cluster-security-update-certs-azure.md)
+## <a name="open-application-ports"></a>Poorten openen
+U kunt poorten wijzigen door het veranderen van de Load Balancer-resource-eigenschappen die gekoppeld aan het knooppunttype zijn. U kunt de Azure portal gebruiken of kunt u PowerShell/Azure CLI. Lees voor meer informatie, [Open toepassingspoorten voor een cluster](create-load-balancer-rule.md).
 
-![Schermafbeelding waarin de vingerafdrukken van het certificaat wordt in de Azure-portal.][CertificateUpgrade]
+## <a name="define-node-properties"></a>Eigenschappen van het knooppunt definiëren
+Soms wilt u mogelijk om ervoor te zorgen dat bepaalde workloads worden uitgevoerd alleen op bepaalde typen knooppunten in het cluster. Bijvoorbeeld enkele workload mogelijk GPU's of SSD's en andere niet. Voor elk van de knooppunttypen in een cluster, kunt u eigenschappen van aangepaste knooppunt toevoegen aan de clusterknooppunten. Plaatsingsbeperkingen zijn de instructies die zijn gekoppeld aan afzonderlijke services ervan die voor een of meer eigenschappen van het knooppunt selecteren. Plaatsingsbeperkingen definiëren waar services moeten worden uitgevoerd.
 
-### <a name="application-ports"></a>Toepassingspoorten
-U kunt poorten wijzigen door het veranderen van de Load Balancer-resource-eigenschappen die gekoppeld aan het knooppunttype zijn. U kunt de portal gebruiken, of kunt u Resource Manager PowerShell direct.
+Lees voor meer informatie over het gebruik van plaatsingsbeperkingen, eigenschappen van het knooppunt en hoe u ze definiëren [knooppunteigenschappen en plaatsingsbeperkingen](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-Als u wilt een nieuwe poort op alle virtuele machines in een knooppunttype openen, het volgende doen:
-
-1. Voeg een nieuwe test toe aan de juiste load balancer.
-   
-    Als u uw cluster geïmplementeerd met behulp van de portal, de load balancers zijn met de naam "LB-naam van de Resource-group-NodeTypename", één voor elk knooppunttype. Aangezien de load balancer-namen uniek zijn binnen een resourcegroep, is het raadzaam als u deze onder een bepaalde resourcegroep zoeken.
-   
-    ![Schermafbeelding van een test toevoegen aan een load balancer in de portal.][AddingProbes]
-2. Voeg een nieuwe regel toe aan de load balancer.
-   
-    Een nieuwe regel toevoegen aan dezelfde load balancer met behulp van de test die u in de vorige stap hebt gemaakt.
-   
-    ![Een nieuwe regel toevoegen aan een load balancer in de portal.][AddingLBRules]
-
-### <a name="placement-properties"></a>Plaatsingseigenschappen
-U kunt aangepaste plaatsingseigenschappen die u wilt gebruiken in uw toepassingen toevoegen voor elk van de knooppunttypen. NodeType is een standaardeigenschap die u gebruiken kunt zonder expliciet toe te voegen.
-
-> [!NOTE]
-> Raadpleeg voor meer informatie over het gebruik van plaatsingsbeperkingen eigenschappen van het knooppunt en het definiëren van deze naar de sectie 'Beperkingen en knooppunt plaatsingseigenschappen' in het Service Fabric Cluster Resource Manager-Document op [met een beschrijving van uw Cluster](service-fabric-cluster-resource-manager-cluster-description.md).
-> 
-> 
-
-### <a name="capacity-metrics"></a>Capaciteit metrische gegevens
+## <a name="add-capacity-metrics"></a>Metrische gegevens over capaciteit toevoegen
 U kunt aangepaste metrische gegevens over capaciteit die u wilt gebruiken in uw toepassingen om te rapporteren over de belasting toevoegen voor elk van de knooppunttypen. Raadpleeg voor meer informatie over het gebruik van metrische gegevens over capaciteit om te rapporteren over de belasting op de Service Fabric Cluster Resource Manager-documenten op [met een beschrijving van uw Cluster](service-fabric-cluster-resource-manager-cluster-description.md) en [metrische gegevens en belasting](service-fabric-cluster-resource-manager-metrics.md).
 
-### <a name="fabric-upgrade-settings---health-polices"></a>Instellingen voor fabric-upgrade - status beleidsregels
-U kunt de gezondheid van aangepaste beleidsregels voor fabric-upgrade. Als u uw cluster hebt ingesteld op automatische infrastructuurupgrades, krijgen deze beleidsregels toegepast op de fase-1 van de automatische infrastructuurupgrades.
+## <a name="set-health-policies-for-automatic-upgrades"></a>Beleid instellen voor automatische upgrades
+U kunt aangepaste statusbeleid voor fabric-upgrade. Als u uw cluster hebt ingesteld op automatische infrastructuurupgrades, krijgen deze beleidsregels toegepast op de fase-1 van de automatische infrastructuurupgrades.
 Als u hebt uw cluster voor handmatige fabric upgrades ingesteld, krijgen deze beleidsregels telkens wanneer u een nieuwe versie activeren van het systeem een vliegende start de fabric-upgrade in uw cluster toegepast. Als u het beleid niet overschrijven, worden de standaardwaarden gebruikt.
 
 U kunt de aangepaste statusbeleid opgeven of de huidige instellingen op de blade 'fabric-upgrade' controleren door het selecteren van de geavanceerde instellingen van de upgrade. Bekijk de volgende afbeelding voor het. 
 
 ![Aangepaste statusbeleid beheren][HealthPolices]
 
-### <a name="customize-fabric-settings-for-your-cluster"></a>Fabric-instellingen voor uw cluster aanpassen
-Raadpleeg [service fabric-cluster infrastructuurinstellingen](service-fabric-cluster-fabric-settings.md) op wat er en hoe u deze kunt aanpassen.
+## <a name="customize-fabric-settings-for-your-cluster"></a>Fabric-instellingen voor uw cluster aanpassen
+Veel verschillende configuratie-instellingen kunnen worden aangepast op een cluster, zoals het betrouwbaarheidsniveau dat van de cluster- en knooppunt-eigenschappen. Lees voor meer informatie, [infrastructuurinstellingen voor Service Fabric-cluster](service-fabric-cluster-fabric-settings.md).
 
-### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Patches voor het besturingssysteem op de virtuele machines die gezamenlijk het cluster
-Raadpleeg [Patch Orchestration toepassing](service-fabric-patch-orchestration-application.md) die kunnen worden geïmplementeerd in uw cluster om patches te installeren via Windows Update op een gecoördineerde manier, te houden van de beschikbare services voortdurend. 
+## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch uitvoeren voor het besturingssysteem in de clusterknooppunten
+De patch orchestration-toepassing (POA) is een Service Fabric-toepassing waarmee het besturingssysteem op een Service Fabric-cluster zonder uitvaltijd patches worden geautomatiseerd. De [Patch Orchestration-toepassing voor Windows](service-fabric-patch-orchestration-application.md) of [Patch Orchestration-toepassing voor Linux](service-fabric-patch-orchestration-application-linux.md) kan worden geïmplementeerd in uw cluster om patches te installeren op een gecoördineerde manier terwijl de services beschikbare voortdurend. 
 
-### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Upgrades voor het besturingssysteem op de virtuele machines die gezamenlijk het cluster
+## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Upgrades voor het besturingssysteem op de virtuele machines die gezamenlijk het cluster
 Als u de installatiekopie van het besturingssysteem op de virtuele machines van het cluster bijwerkt moet, u moet dit doen één virtuele machine op een tijdstip. U bent verantwoordelijk voor deze upgrade--er is momenteel geen automatisering voor dit.
 
 ## <a name="next-steps"></a>Volgende stappen

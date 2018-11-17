@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b1276ab227f4bf65483fb2cdec57c759573bc7c5
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242684"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853588"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Gebruiksrechtovereenkomst en privacyverklaring voor geregistreerde Azure Active Directory-apps
 
@@ -64,10 +64,10 @@ Als de gebruiksrechtovereenkomst en privacyverklaring klaar bent, kunt u koppeli
 
 Volg deze stappen als u uw app geregistreerd in Azure portal.
 
-1. Meld u aan bij de  [Azure-portal](https://portal.azure.com/).
-2. Navigeer naar de **App-registraties** sectie en selecteer uw app.
-3. Open de **eigenschappen** sectie van de app.
-4. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Navigeer naar de **App-registraties** sectie en selecteer uw app.
+3. Open de **eigenschappen** sectie van de app.
+4. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
 5. Sla uw wijzigingen op.
 
     ![App sectie met eigenschappen met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -76,9 +76,9 @@ Volg deze stappen als u uw app geregistreerd in Azure portal.
 
 Volg deze stappen als u uw app in de Portal voor Toepassingsregistratie of Dev Center hebt geregistreerd.
 
-1. Aanmelden bij de [Portal voor Appregistratie](https://apps.dev.microsoft.com/).
-2. Selecteer uw app en schuif naar de **profiel** sectie.
-3. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
+1. Aanmelden bij de [Portal voor Appregistratie](https://apps.dev.microsoft.com/).
+2. Selecteer uw app en schuif naar de **profiel** sectie.
+3. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
 4. Sla uw wijzigingen op.
 
     ![App profielsectie met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)

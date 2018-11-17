@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rithorn
-ms.openlocfilehash: a3de0df8fde3b271b7ba9bb9aab01dbcd5c3bf08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 627ef0123f05e768dd8a83c197b25da7f161a37c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991211"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852993"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -207,7 +207,7 @@ Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer v
 
 ### <a name="move-subscriptions-in-powershell"></a>Verplaatsen van abonnementen in PowerShell
 
-Voor het verplaatsen van een abonnement in PowerShell, gebruikt u de opdracht Add-AzureRmManagementGroupSubscription.  
+Voor het verplaatsen van een abonnement in PowerShell, gebruikt u de opdracht New-AzureRmManagementGroupSubscription.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -277,7 +277,7 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 Zie voor meer informatie over de beheergroepen:
 
 - [Resources organiseren met beheergroepen voor Azure](overview.md)
-- [Beheergroepen voor het ordenen van Azure-resources maken](create.md)
+- [Beheergroepen maken om Azure-resources te ordenen](create.md)
 - [De Azure Powershell-module installeren](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Controleer de REST API-specificatie](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [De REST API-specificaties bekijken](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [De Azure CLI-extensie installeren](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

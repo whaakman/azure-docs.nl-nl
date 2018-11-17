@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 41b5383dd319f2cb6fad4316e963f86dd7a4bc61
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 128eff5f628a0a4bf9f67e988ab7d3e2f22ed767
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036605"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823738"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Over het gebruik van Twilio voor spraak en SMS-mogelijkheden in Ruby
 Deze handleiding laat zien hoe u algemene programming taken met de Twilio API-service op Azure uitvoeren. De behandelde scenario's omvatten een telefonische oproep maken en verzenden van een bericht Short Message Service (SMS). Zie voor meer informatie over Twilio en het gebruik van spraak en SMS-berichten in uw toepassingen, de [Vervolgstappen](#NextSteps) sectie.
@@ -146,7 +146,7 @@ Als u open-up `http://yourdomain.cloudapp.net/make_call` in een browser, die de 
 
 De derde parameter (`url`) is de URL die door Twilio worden aangevraagd voor instructies over wat u moet doen nadat de oproep is verbonden. In dit geval we instellen een URL (`http://yourdomain.cloudapp.net`) die een eenvoudige TwiML document geretourneerd en gebruikt de `<Say>` term voor het doen van bepaalde tekst naar spraak en bijvoorbeeld 'Hello Monkey' naar de persoon die de oproep ontvangt.
 
-## <a id="howto_recieve_sms"></a>Hoe: een SMS-bericht ontvangen
+## <a id="howto_receive_sms"></a>Hoe: een SMS-bericht ontvangen
 In het vorige voorbeeld gestart we een **uitgaande** telefonische oproep. Deze tijd, we gebruiken het telefoonnummer dat Twilio kun tijdens Meld u aan om te verwerken een **binnenkomende** SMS-bericht.
 
 Eerste, meld u aan uw [Twilio-dashboard][twilio_account]. Klik op 'Getallen' in het bovenste navigatievenster en klik vervolgens op het Twilio-nummer dat u zijn opgegeven. Hier ziet u twee URL's die u kunt configureren. Aanvraag-URL de URL van een stem-aanvraag en een SMS-bericht. Dit zijn de URL's die worden aangeroepen Twilio telkens wanneer een telefonische oproep wordt gedaan of een SMS-bericht is verzonden naar uw nummer. De URL's worden ook wel bekend als 'webhooks'.
@@ -164,7 +164,7 @@ Nadat de wijziging, zorg ervoor dat u uw web-app opnieuw te starten. Nu, neemt u
 ## <a id="additional_services"></a>Hoe: extra Twilio-Services gebruiken
 Naast de voorbeelden die hier worden weergegeven, biedt Twilio web-API's die u kunt gebruikmaken van aanvullende Twilio-functionaliteit van uw Azure-toepassing. Zie voor meer informatie, de [Twilio-API-documentatie][twilio_api_documentation].
 
-### <a id="NextSteps"></a>De volgende stappen
+### <a id="NextSteps"></a>Volgende stappen
 Nu dat u de basisprincipes van de Twilio-service hebt geleerd, volgt u deze koppelingen voor meer informatie:
 
 * [Twilio-beveiligingsrichtlijnen][twilio_security_guidelines]

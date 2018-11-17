@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0c8fe0759e115288e9f8cc2ea313f6dc3dc89b6b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686123"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853996"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -179,11 +179,6 @@ De volgende tabellen beschrijven de specifieke machtigingen in Azure Active Dire
 ### <a name="application-administrator"></a>Toepassingsbeheerder
 Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | Microsoft.AAD.Directory/Applications/Audience/update | Werk de eigenschap applications.audience bij in Azure Active Directory. |
@@ -223,11 +218,6 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 ### <a name="application-developer"></a>Toepassingsontwikkelaar
 Kan toepassingsregistraties onafhankelijk van de 'gebruikers kunnen toepassingen registreren' maken instelling.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Maak toepassingen in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
@@ -237,11 +227,6 @@ Kan toepassingsregistraties onafhankelijk van de 'gebruikers kunnen toepassingen
 
 ### <a name="billing-administrator"></a>Factureringsbeheerder
 Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgegevens bijwerken.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -263,11 +248,6 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
 Openen en beheren van bureaubladbeheerhulpprogramma's en services, met inbegrip van Intune.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -283,11 +263,6 @@ Openen en beheren van bureaubladbeheerhulpprogramma's en services, met inbegrip 
 
 ### <a name="cloud-application-administrator"></a>Beheerder van de cloudtoepassing
 Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve App Proxy.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
@@ -327,11 +302,6 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve
 ### <a name="cloud-device-administrator"></a>Cloud-Apparaatbeheerder
 Volledige toegang om apparaten te beheren in Azure AD.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | Microsoft.AAD.Directory/Devices/DELETE | Verwijder apparaten in Azure Active Directory. |
@@ -344,11 +314,6 @@ Volledige toegang om apparaten te beheren in Azure AD.
 
 ### <a name="company-administrator"></a>Bedrijfsbeheerder
 Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identiteiten gebruiken.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -411,11 +376,6 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 365.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -435,11 +395,6 @@ Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 3
 ### <a name="conditional-access-administrator"></a>Voorwaardelijke toegang beheerder
 Kan de mogelijkheden van voorwaardelijke toegang beheren.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Lees de eigenschap policies.conditionalAccess in Azure Active Directory. |
@@ -452,11 +407,6 @@ Kan de mogelijkheden van voorwaardelijke toegang beheren.
 
 ### <a name="crm-service-administrator"></a>CRM-servicebeheerder
 Kan alle aspecten van het Dynamics 365-product beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -476,11 +426,6 @@ Kan alle aspecten van het Dynamics 365-product beheren.
 Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -493,11 +438,6 @@ Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klan
 ### <a name="device-administrators"></a>Apparaatadministrators
 Leden van deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD join-apparaten.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Lees de basiseigenschappen voor groupSettings in Azure Active Directory. |
@@ -505,11 +445,6 @@ Leden van deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD 
 
 ### <a name="directory-readers"></a>Adreslijstlezers
 Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot toepassingen, niet is bedoeld voor gebruikers.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol.
-  >
-  >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
@@ -570,11 +505,6 @@ Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot
 ### <a name="directory-synchronization-accounts"></a>Synchronisatie van Active Directory-Accounts
 Alleen gebruikt door Azure AD Connect-service.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Werk de eigenschap organization.dirSync bij in Azure Active Directory. |
@@ -604,11 +534,6 @@ Alleen gebruikt door Azure AD Connect-service.
 ### <a name="directory-writers"></a>Adreslijstschrijvers
 Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toegang tot toepassingen, niet is bedoeld voor gebruikers.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | Microsoft.AAD.Directory/Groups/Create | Maak groepen in Azure Active Directory. |
@@ -630,11 +555,6 @@ Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toe
 
 ### <a name="exchange-service-administrator"></a>Exchange Service-beheerder
 Kan alle aspecten van het product Exchange beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -659,11 +579,6 @@ Kan alle aspecten van het product Exchange beheren.
 ### <a name="guest-inviter"></a>Gastuitnodiging
 Kan onafhankelijk van de instelling 'leden kunnen gasten uitnodigen' gastgebruikers uitnodigen.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Lees de eigenschap users.appRoleAssignments in Azure Active Directory. |
@@ -682,11 +597,6 @@ Kan onafhankelijk van de instelling 'leden kunnen gasten uitnodigen' gastgebruik
 ### <a name="helpdesk-administrator"></a>Helpdeskbeheerder
 Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
@@ -699,11 +609,6 @@ Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 
 ### <a name="information-protection-administrator"></a>Information Protection-beheerder
 Kan alle aspecten van het product Azure Information Protection beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -720,11 +625,6 @@ Kan alle aspecten van het product Azure Information Protection beheren.
 
 ### <a name="intune-service-administrator"></a>Intune-servicebeheerder
 Kan alle aspecten van het product Intune beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -761,11 +661,6 @@ Kan alle aspecten van het product Intune beheren.
 ### <a name="license-administrator"></a>Licentiebeheerder
 Kan productlicenties voor gebruikers en groepen beheren.
 
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Beheer licenties voor gebruikers in Azure Active Directory. |
@@ -776,11 +671,6 @@ Kan productlicenties voor gebruikers en groepen beheren.
 
 ### <a name="lync-service-administrator"></a>Lync-servicebeheerder
 Kan alle aspecten van het product Skype voor Bedrijven beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -800,11 +690,6 @@ Kan alle aspecten van het product Skype voor Bedrijven beheren.
 Kan berichten en updates voor hun organisatie alleen in het Office 365-berichtencentrum lezen. 
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -816,11 +701,6 @@ Kan berichten en updates voor hun organisatie alleen in het Office 365-berichten
 
 ### <a name="partner-tier1-support"></a>Laag1-ondersteuning voor partner
 Gebruik geen - niet bedoeld voor algemeen gebruik.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -853,11 +733,6 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 
 ### <a name="partner-tier2-support"></a>Laag2-ondersteuning voor partner
 Gebruik geen - niet bedoeld voor algemeen gebruik.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -895,11 +770,6 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 Kan alle aspecten van het Power BI-product beheren.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -917,11 +787,6 @@ Kan alle aspecten van het Power BI-product beheren.
 Kan roltoewijzingen in Azure AD en alle aspecten van Privileged Identity Management beheren.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -933,11 +798,6 @@ Kan roltoewijzingen in Azure AD en alle aspecten van Privileged Identity Managem
 
 ### <a name="reports-reader"></a>Rapportenlezer
 Kan rapporten met betrekking tot aanmeldingen en controles lezen.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -954,11 +814,6 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
 
 ### <a name="security-administrator"></a>Beveiligingsbeheerder
 Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD en Office 365.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -988,11 +843,6 @@ Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD
 Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -1012,11 +862,6 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -1031,11 +876,6 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 
 ### <a name="sharepoint-service-administrator"></a>SharePoint Service-beheerder
 Kan alle aspecten van de SharePoint-service beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -1061,11 +901,6 @@ Kan alle aspecten van de SharePoint-service beheren.
 Kan de aanroep- en vergaderfuncties van de service Microsoft Teams beheren.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -1084,11 +919,6 @@ Kan de aanroep- en vergaderfuncties van de service Microsoft Teams beheren.
 Kan communicatieproblemen in Teams oplossen met geavanceerde hulpprogramma's.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -1104,11 +934,6 @@ Kan communicatieproblemen in Teams oplossen met geavanceerde hulpprogramma's.
 Kan communicatieproblemen in Teams oplossen met basishulpprogramma's.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
@@ -1122,11 +947,6 @@ Kan communicatieproblemen in Teams oplossen met basishulpprogramma's.
 
 ### <a name="teams-service-administrator"></a>Teams-servicebeheerder
 Kan de service Microsoft Teams beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -1152,11 +972,6 @@ Kan de service Microsoft Teams beheren.
 
 ### <a name="user-account-administrator"></a>Beheerder van gebruikersaccounts
 Kan alle aspecten van gebruikers en groepen beheren, inclusief het opnieuw instellen van wachtwoorden voor bepaalde beheerders.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |

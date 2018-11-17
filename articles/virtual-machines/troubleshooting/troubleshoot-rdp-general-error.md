@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960154"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821511"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Een algemene fout RDP in Azure VM oplossen
 
@@ -65,7 +65,7 @@ Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](.
 
 ### <a name="serial-console"></a>Seriële Console
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Stap 1: Extern bureaublad inschakelen
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Stap 1: Open CMD-exemplaar in de seriële console
 
 1. Toegang tot de [seriële Console](serial-console-windows.md) hiervoor **ondersteuning en probleemoplossing** > **seriële console (Preview)**. Als de functie is ingeschakeld op de virtuele machine, kunt u de virtuele machine is verbinden.
 

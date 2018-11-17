@@ -4,7 +4,8 @@ description: Snelstartgids voor het ontwerpen van aangepaste R-modules in Azure 
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
@@ -15,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b920f0ae3acd253c0f1f698ae4415e5b759ef762
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261106"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819335"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Aangepaste R-modules maken in Azure Machine Learning
 In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Deze ziet u hoe u een van de bestanden die een module definiëren en registreren van de module voor implementatie in een Machine Learning-werkruimte. De elementen en kenmerken die worden gebruikt in de definitie van de aangepaste module worden vervolgens in meer detail beschreven. Het gebruik van aanvullende functionaliteit, bestanden en meerdere uitvoer wordt ook beschreven. 
@@ -132,7 +133,7 @@ Resultaten van een module kunnen deterministische of nondeterministic.* * standa
 Er zijn functies die niet-deterministisch, zoals RAND of een functie die de huidige datum of tijd retourneert. Als de module een niet-deterministische functie gebruikt, kunt u opgeven of de module niet-deterministisch is door de optionele instelling **isDeterministic** kenmerk **FALSE**. Hierdoor weet u zeker dat de module wordt opnieuw uitgevoerd wanneer het experiment wordt uitgevoerd, zelfs als de invoer-module en de parameters zijn niet gewijzigd. 
 
 ### <a name="language-definition"></a>Definitie van de taal
-De **taal** -element in het definitie XML-bestand wordt gebruikt om op te geven van de aangepaste module-taal. R is momenteel de enige ondersteunde taal. De waarde van de **bronbestand** kenmerk moet de naam van het R-bestand met de functie om aan te roepen wanneer de module wordt uitgevoerd. Dit bestand moet deel uitmaken van het zip-pakket. De waarde van de **entryPoint** kenmerk is de naam van de functie die wordt aangeroepen en moet overeenkomen met een geldige functie gedefinieerd met behulp van het bronbestand.
+De **taal** -element in het definitie XML-bestand wordt gebruikt om op te geven van de aangepaste module-taal. Momenteel is R de enige ondersteunde taal. De waarde van de **bronbestand** kenmerk moet de naam van het R-bestand met de functie om aan te roepen wanneer de module wordt uitgevoerd. Dit bestand moet deel uitmaken van het zip-pakket. De waarde van de **entryPoint** kenmerk is de naam van de functie die wordt aangeroepen en moet overeenkomen met een geldige functie gedefinieerd met behulp van het bronbestand.
 
     <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
 

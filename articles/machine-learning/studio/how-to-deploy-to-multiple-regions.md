@@ -1,6 +1,6 @@
 ---
-title: Een webservice implementeren op meerdere gebieden | Microsoft Docs
-description: Stappen voor het implementeren van (kopiëren) een nieuwe Web-Service naar andere regio's.
+title: Een webservice implementeren in meerdere regio's | Microsoft Docs
+description: Stappen voor het implementeren (kopie) een nieuwe webservice in andere regio's.
 services: machine-learning
 documentationcenter: ''
 author: aashishb
@@ -14,40 +14,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
-ms.openlocfilehash: 78b37f0e7ac554c1823a0607e43718e5a0ac0067
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.custom: (previous ms.author aashishb)
+ms.author: amlstudiodocs
+ms.openlocfilehash: b3b5f8e5c4a1a4baee7b06c9ac2e766fa59996b5
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835131"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820372"
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Een webservice implementeren in meerdere regio’s
 De nieuwe Azure-Web-Services kunt u eenvoudig een webservice implementeren in meerdere regio's zonder meerdere abonnementen of werkruimten. 
 
-Prijzen is regio specifiek, dat daarom moet u een abonnement voor elke regio waarin u de webservice implementeren.
+Prijzen zijn regiospecifiek, dat daarom moet u een abonnement voor elke regio waarin u de webservice implementeren.
 
-## <a name="to-create-a-plan-in-another-region"></a>Een planning maken in een andere regio
+## <a name="to-create-a-plan-in-another-region"></a>Een plan maken in een andere regio
 1. Meld u aan bij [Microsoft Azure Machine Learning-webservices](https://services.azureml.net/).
-2. Klik op de **plannen** menuoptie.
-3. Klik op de plannen via de weergavepagina **nieuw**.
-4. Van de **abonnement** vervolgkeuzelijst, selecteer het abonnement waarin het nieuwe plan wilt maken.
-5. Van de **regio** vervolgkeuzelijst, selecteer een regio voor het nieuwe plan. De opties plannen voor de geselecteerde regio wordt weergegeven in de **opties plannen** sectie van de pagina.
-6. Van de **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor het plan. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
-7. In **naam** typt u de naam van het plan.
-8. Onder **Plan opties**, klikt u op het niveau van facturering voor het nieuwe plan.
+2. Klik op de **plannen** menu-optie.
+3. Klik op de abonnementen via de weergavepagina **nieuw**.
+4. Uit de **abonnement** vervolgkeuzelijst, selecteer het abonnement waarin het nieuwe abonnement worden geplaatst.
+5. Uit de **regio** vervolgkeuzelijst, selecteer een regio voor het nieuwe abonnement. De opties plannen voor de geselecteerde regio wordt weergegeven in de **opties plannen** sectie van de pagina.
+6. Uit de **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor het abonnement. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+7. In **Plannaam** typt u de naam van het plan.
+8. Onder **abonnementsopties**, klikt u op het niveau van de facturering voor het nieuwe abonnement.
 9. Klik op **Create**.
 
-## <a name="deploying-the-web-service-to-another-region"></a>De webservice implementeren op een andere regio
-1. Klik op de **webservices** menuoptie.
-2. Selecteer de webservice die u op een nieuw gebied implementeert.
+## <a name="deploying-the-web-service-to-another-region"></a>De webservice implementeert naar een andere regio
+1. Klik op de **webservices** menu-optie.
+2. Selecteer de Web-Service die u naar een nieuwe regio implementeert.
 3. Klik op **kopie**.
-4. In **Webservicenaam**, typt u een nieuwe naam voor de webservice.
-5. In **Web servicebeschrijving**, typt u een beschrijving voor de webservice.
-6. Van de **abonnement** vervolgkeuzelijst, selecteer het abonnement waarin de nieuwe webservice wilt maken.
-7. Van de **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor de webservice. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
-8. Van de **regio** vervolgkeuzelijst, selecteer de regio waarin u de webservice implementeren.
-9. Van de **opslagaccount** dropdown, selecteert u een opslag-account waarin u voor het opslaan van de webservice.
-10. Van de **prijs Plan** dropdown, selecteert u een plan in de regio die u hebt geselecteerd in stap 8.
+4. In **naam van de webservice**, typt u een nieuwe naam voor de webservice.
+5. In **Web servicebeschrijving**, typ een beschrijving voor de webservice.
+6. Uit de **abonnement** vervolgkeuzelijst, selecteer het abonnement waarin de nieuwe webservice zich bevindt.
+7. Uit de **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor de webservice. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+8. Uit de **regio** vervolgkeuzelijst, selecteer de regio waarin u kunt de webservice implementeren.
+9. Uit de **opslagaccount** vervolgkeuzelijst, selecteer een storage-account waarin u voor het opslaan van de webservice.
+10. Uit de **Prijsplan** vervolgkeuzelijst, selecteer een abonnement in de regio die u hebt geselecteerd in stap 8.
 11. Klik op **kopie**.
 

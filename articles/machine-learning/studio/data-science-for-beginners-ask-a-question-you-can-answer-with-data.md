@@ -1,11 +1,12 @@
 ---
-title: Vraag een vraaggegevens kunnen beantwoorden - problemen wetenschap - Azure Machine Learning | Microsoft Docs
-description: Ontdek hoe u een vraag van de wetenschap kruis gegevens in Gegevenswetenschap voor beginnende gebruikers video 3 formuleren. Bevat een vergelijking van classificatie en regressie vragen.
-keywords: vragen over de wetenschap van gegevens van problemen wetenschappelijke gegevens formuleren vragen, regressie vragen, classificatievragen, kruis vraag
+title: Vraag een vraaggegevens kunt beantwoorden - problemen met data science - Azure Machine Learning | Microsoft Docs
+description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor Beginners video 3 formuleren. Bevat een vergelijking van classificatie- en regressiemodellen vragen.
+keywords: problemen met Data science, data science vragen, formuleren vragen, regressie vragen, vragen over classificatie, sharp vraag
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
@@ -16,87 +17,87 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2078f7e84522a40cf6fcf6dff860d24307084467
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 34d47c284b06a59f738d7a56071b9227d204cc2f
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833798"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821044"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Stel een vraag die u met gegevens kunt beantwoorden
-## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Gegevenswetenschap voor beginnende gebruikers reeks
-Informatie over het probleem wetenschappelijke gegevens in een vraag in Gegevenswetenschap voor beginnende gebruikers video 3 formuleren. In deze video bevat een vergelijking van vragen voor classificatie en regressie algoritmen.
+## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Gegevenswetenschap voor Beginners-serie
+Leer hoe u een data science-probleem in een vraag in Gegevenswetenschap voor Beginners video 3 formuleren. Deze video bevat een vergelijking van vragen over classificatie- en regressiemodellen algoritmen.
 
-Als u optimaal gebruik van de reeks, bekijk ze allemaal. [Ga naar de lijst met video 's](#other-videos-in-this-series)
+Als u optimaal te profiteren van de serie, bekijk ze allemaal. [Ga naar de lijst met video 's](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 >
 >
 
-## <a name="other-videos-in-this-series"></a>Andere video's in deze reeks
-*Gegevenswetenschap voor beginnende gebruikers* is een korte inleiding voor gegevenswetenschap in vijf korte video's.
+## <a name="other-videos-in-this-series"></a>Andere video's in deze serie
+*Gegevenswetenschap voor Beginners* is een korte inleiding over data Science in vijf korte video's.
 
-* Video 1: [gegevens wetenschappelijke antwoorden op vragen het 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-* Video 2: [uw gegevens gereed Is voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Video 3: Stel een vraag die u met gegevens beantwoorden kunt
-* Video 4: [voorspellen een antwoord met een eenvoudige model](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Video 5: [kopiëren van anderen werk hiervoor gegevenswetenschap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 1: [gegevenswetenschap antwoord geeft op de 5 vragen](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [zijn uw gegevens gereed voor gegevenswetenschap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: Stel een vraag die u met gegevens kunt beantwoorden
+* Video 4: [een antwoord met een eenvoudig model voorspellen](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: [werk van anderen als u wilt doen, wetenschappelijke gegevens kopiëren](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>De tekst: Stel een vraag die u met gegevens beantwoorden kunt
-Welkom bij de derde video in de reeks 'Wetenschappelijke gegevens voor beginnende gebruikers'.  
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcript: Stel een vraag die u met gegevens kunt beantwoorden
+Welkom bij de derde video in de reeks "Gegevenswetenschap voor Beginners."  
 
-In dit voorbeeld krijgt u een aantal tips voor het opstellen van een vraag die u met gegevens kan beantwoorden.
+In dit voorbeeld krijgt u tips voor het formuleren van een vraag die u met gegevens kunt beantwoorden.
 
-Mogelijk krijgt u meer buiten deze video als u eerst video de twee eerder in deze reeks: 'de gegevenswetenschap 5 vragen kan beantwoorden' en 'Is uw gegevens is gereed voor gegevenswetenschap?'
+U kunt meer buiten deze video krijgen als u eerst de twee eerdere video's in deze serie bekijken: 'de wetenschap 5 vragen kunt beantwoorden' en 'Is uw gegevens is gereed voor gegevenswetenschap?'
 
-## <a name="ask-a-sharp-question"></a>Stel een vraag kruis
-Besproken over hoe gegevenswetenschap het proces is van het gebruik van namen (ook wel categorieën of labels) en cijfers voor het voorspellen van een antwoord op een vraag. Maar niet elke vraag; Er moet een *kruis vraag.*
+## <a name="ask-a-sharp-question"></a>Een sharp vraag stellen
+We hebben het gehad over hoe gegevenswetenschap het proces is van het gebruik van namen (ook wel categorieën of labels) en cijfers voor een antwoord op een vraag te voorspellen. Maar mag niet alleen alle vragen; Er moet een *sharp vraag.*
 
-Een vaag vraag hoeft niet te worden beantwoord met een naam of een cijfer. Er moet een kruis vraag.
+Een vaag vraag hoeft te worden beantwoord met een naam of een cijfer. Er moet een sharp vraag.
 
-Stel dat u een magische licht met een genie die wordt naar waarheid elke vraag die u vragen beantwoorden gevonden. Maar het is een mischievous genie, en hij proberen aan te brengen van zijn antwoord als vaag en verwarrend zijn als hij opslag met krijgen kan. Wilt u hem omlaag vastmaken aan een vraag dus luchtdichte hij niet kan helpen maar laat u weten wat u wilt weten.
+Stel dat u een magische lamp met een genie die waarheidsgetrouw antwoord geven op een vraag die u vragen hebt gevonden. Maar het is een mischievous genie en hij proberen aan te brengen van diens antwoord als vaag zijn en verwarrend zijn als hij met tussenuit kan. U wilt vastmaken hem af met een vraag dus waterdichte dat hij niet kan helpen maar laat u weten wat u wilt weten.
 
-Als u een vraag vaag, zoals 'Wat er gebeurt met mijn stock gebeurt?', de genie mogelijk beantwoorden, 'de prijs gewijzigd'. Die een ware antwoord is, maar het is niet erg nuttig.
+Als u een vraag wilt stellen vaag zijn, zoals 'Wat er gebeurt met mijn voorraad?', de genie mogelijk antwoord, 'is de prijs verandert'. Dat is een ware antwoord, maar het is niet erg nuttig.
 
-Maar als u zou een vraag kruis, zoals 'Wat mijn stock prijzen worden volgende week?', de genie kan niet helpen maar bieden u een specifieke beantwoorden en een verkoopprijs voorspellen.
+Maar als u een vraag sharp, zoals "Wat is van mijn aandeel verkoopprijs volgende week? ', de genie kan niet help, maar geeft u een specifieke zijn beantwoord en een verkoopprijs te voorspellen.
 
-## <a name="examples-of-your-answer-target-data"></a>Voorbeelden van uw antwoord: gegevens zijn gericht
-Nadat u uw vraag formuleren, controleert u of u voorbeelden van het antwoord in uw gegevens hebt.
+## <a name="examples-of-your-answer-target-data"></a>Voorbeelden van het antwoord: gericht op gegevens
+Controleer nadat u bij het formuleren van de vraag of u voorbeelden van het antwoord in uw gegevens hebt.
 
-Als de vraag "Wat kan mijn stock verkoopprijs zijn volgende week?" vervolgens hebben we om ervoor te zorgen dat onze gegevens omvatten de geschiedenis aandelenkoersen.
+Als de vraag "Wat van mijn aandeel verkoopprijs worden volgende week?" vervolgens hebben we om ervoor te zorgen dat onze gegevens omvat de geschiedenis aandelenkoersen.
 
-Als de vraag 'welke auto in mijn wagenpark gaat eerst mislukken?' vervolgens hebben we om ervoor te zorgen dat onze gegevens omvatten informatie over eerdere fouten.
+Als de vraag "welke auto in mijn vloot gaat eerst mislukken?" vervolgens hebben we om ervoor te zorgen dat onze gegevens omvatten informatie over eerdere fouten.
 
-![Doelgegevens - voorbeelden van het antwoord. Een wetenschappelijke gegevens vraag formuleren.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
+![Doelgegevens - voorbeelden van het antwoord. Een data science-vraag formuleren.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
-Deze voorbeelden van antwoorden worden een doel genoemd. Een doel is wat we willen voorspellen over toekomstige gegevenspunten of het om een categorie of een cijfer.
+Deze voorbeelden van antwoorden worden een doel genoemd. Een doel is wat we willen voorspellen over toekomstige gegevenspunten, ongeacht of het een categorie of een getal.
 
-Als u geen doelgegevens, moet u enkele ophalen. Het niet mogelijk om uw vraag zonder deze te beantwoorden.
+Als u geen doelgegevens, moet u enkele. U niet mogelijk om uw vraag zonder deze te beantwoorden.
 
 ## <a name="reformulate-your-question"></a>Uw vraag reformulate
-U kunt ook uw vraag om een nuttiger antwoord uitgelegd.
+U kunt ook uw vraag als u een nuttiger antwoord uitgelegd.
 
 De vraag 'Is deze gegevens punt A of B?' de categorie (of de naam of label) van iets voorspelt. Om te reageren, gebruiken we een *classificatiealgoritme*.
 
-De vraag 'Hoeveel?' of 'Hoeveel?' voorspelt een bedrag. Het antwoord te gebruiken we een *regression-algoritme*.
+De vraag "Hoeveel?" of "Hoeveel?" voorspelt een bedrag. Antwoord gebruiken we een *regression-algoritme*.
 
-Als u wilt zien hoe we deze kunt transformeren, bekijken we de vraag 'welke verhaal nieuws is de meest interessante naar deze lezer?' Wordt de gebruiker gevraagd een voorspelling van één keuze uit tal van mogelijkheden - met andere woorden 'Is deze A of B of C of D?' - en een classificatie-algoritme zou gebruiken.
+Als u wilt zien hoe we deze kunnen transformeren, bekijk de vraag 'welke boodschap nieuws is het meest interessante aan dit lezer?' Dit wordt gevraagd voor een voorspelling van een enkele keuze uit tal van mogelijkheden - met andere woorden 'Is deze A of B of C of D?' - en een classificatiealgoritme zou gebruiken.
 
-Maar deze vraag is mogelijk beter te beantwoorden als uitgelegd als 'hoe interessante is elk artikel op deze lijst voor deze lezer?' Nu kunt u geven elk artikel een numerieke score en wordt het eenvoudig kunt herkennen van het artikel hoogste score berekenen. Dit is een van de vraag classificatie in een vraag regressie formuleren of hoeveel?
+Maar deze vraag is mogelijk beter te beantwoorden als u deze als de tekst 'hoe interessante is elk artikel op deze lijst voor deze lezer?' Nu krijgt elk artikel een numerieke score en is het eenvoudig om te identificeren van het hoogst scorende artikel. Dit is een formuleren van de classificatie-vraag in een regressie vraag of hoeveel?
 
-![Uw vraag reformulate. Classificatie vraag versus regressie vraag.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
+![Reformulate uw vraag. Classificatie vraag versus regressie vraag.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
-Hoe u een vraag is een aanwijzing naar welk algoritme vragen kunnen geven u een antwoord.
+Hoe u een vraag is een aanwijzing naar welke algoritme vragen kunnen worden beantwoord.
 
-U vindt dat bepaalde families van algoritmen - zoals de waarden in ons voorbeeld van het artikel nieuws - nauw verwant zijn. U kunt uw vraag voor het gebruik van het algoritme waarmee u het meest geschikt antwoord reformulate.
+U zult zien dat bepaalde families van algoritmen -, zoals die in ons voorbeeld van het verhaal nieuws - nauw verwant zijn. U kunt uw vraag voor het gebruik van het algoritme waarmee u het belangrijkst antwoord reformulate.
 
-Maar zeer belangrijk, vraag die kruis - de vraag die u met gegevens kan beantwoorden. En controleer of dat u de juiste gegevens antwoord zijn.
+Maar, belangrijkste, vraag die sharp - de vraag die u met gegevens kunt beantwoorden. En zorg ervoor dat u hebt de juiste gegevens antwoord.
 
-Besproken over sommige basisprincipes voor u een vraag stelt dat u met gegevens kan beantwoorden.
+We hebben het gehad over een aantal basisbeginselen voor het stellen van een vraag die u met gegevens kunt beantwoorden.
 
-Zorg ervoor dat de andere video's in 'Data wetenschappelijke voor beginnende gebruikers' van Microsoft Azure Machine Learning uitchecken.
+Zorg ervoor dat de andere video's in 'Data Science voor Beginners"van Microsoft Azure Machine Learning uitchecken.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Probeer een eerste gegevens wetenschappelijke experiment met Machine Learning Studio](create-experiment.md)
-* [Maak kennis met Machine Learning in Microsoft Azure](what-is-machine-learning.md)
+* [Probeer een eerste gegevenswetenschapexperiment met Machine Learning Studio](create-experiment.md)
+* [Maak kennis met Machine Learning op Microsoft Azure](what-is-machine-learning.md)

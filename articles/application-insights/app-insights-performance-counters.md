@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 92cbd3570d48bf12d603f68593465aafed62985c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960103"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852313"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systeemprestatiemeteritems in Application Insights
 Windows biedt een groot aantal verschillende [prestatiemeteritems](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , zoals CPU-bezetting, geheugen, schijf en netwerkgebruik. U kunt ook uw eigen links definiëren. [Application Insights](app-insights-overview.md) weergeven van deze prestatiemeteritems als uw toepassing onder IIS wordt uitgevoerd op een on-premises-host of virtuele machine waarop u beheerderstoegang hebben. De grafieken geven van de beschikbare resources voor uw live-toepassing en helpen bij het identificeren van niet-gebalanceerde load tussen exemplaren van de server.
@@ -96,7 +96,7 @@ Of u kunt hetzelfde doen met aangepaste metrische gegevens die u hebt gemaakt:
 ## <a name="performance-counters-in-analytics"></a>Prestatiemeteritems in Analytics
 U kunt zoeken en weergeven van prestaties teller rapporten in [Analytics](app-insights-analytics.md).
 
-De **performanceCounters** schema wordt aangegeven dat de `category`, `counter` naam, en `instance` naam van elk prestatiemeteritem.  In de telemetrie voor elke toepassing ziet u alles alleen de items voor de toepassing. Bijvoorbeeld, als u wilt zien zijn welke items beschikbaar: 
+De **performanceCounters** schema wordt aangegeven dat de `category`, `counter` naam, en `instance` naam van elk prestatiemeteritem.  In de telemetrie voor elke toepassing ziet u alleen de items voor de toepassing. Bijvoorbeeld, als u wilt zien zijn welke items beschikbaar: 
 
 ![Prestatiemeteritems in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

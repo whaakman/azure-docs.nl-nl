@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: e88d38e6d95459cc1c41adecee6b7ece659eac99
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1a031ede814a963f25f1a3a3fc9725d9e5670a8e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957237"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824639"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Prestaties van Azure-web-apps controleren
 In de [Azure Portal](https://portal.azure.com) kunt u instellen dat de prestaties van uw [Azure-web-apps](../app-service/app-service-web-overview.md) worden gecontroleerd. Met [Azure Application Insights](app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
@@ -101,7 +101,7 @@ Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in
 * [Voer de profiler uit in uw live app](app-insights-profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample): Azure Functions bewaken met Application Insights
 * [Schakel diagnostische Azure-gegevens in](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) om te verzenden naar Application Insights.
-* [Controleer metrische gegevens voor servicestatus](../monitoring/monitoring-data-collection.md) om ervoor te zorgen dat de service beschikbaar is en reageert.
+* [Controleer metrische gegevens voor servicestatus](../azure-monitor/platform/data-collection.md) om ervoor te zorgen dat de service beschikbaar is en reageert.
 * [Ontvang waarschuwingsmeldingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md) wanneer er operationele gebeurtenissen plaatsvinden of metrische gegevens een drempelwaarde overschrijden.
 * Gebruik [Application Insights voor JavaScript-apps en -webpagina's](app-insights-javascript.md) om clienttelemetrie op te halen uit de browsers die een webpagina bezoeken.
 * [Stel webtests voor beschikbaarheid in](app-insights-monitor-web-app-availability.md) om te worden gewaarschuwd als uw site niet actief is.

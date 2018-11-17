@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423586"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Zelfstudie: Azure Active Directory-integratie met Sedgwick CMS
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Sedgwick CMS in Azure AD, moet u Sed
 
 **Als u wilt toevoegen Sedgwick CMS uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -134,7 +134,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Configureren van eenmalige aanmelding opslaan](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. Het configureren van eenmalige aanmelding op **Sedgwick CMS** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Sedgwick CMS-ondersteuningsteam](https://www.sedgwick.com/contact/Pages/contactform.aspx). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Sedgwick CMS** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Sedgwick CMS-ondersteuningsteam](https://www.sedgwick.com/help). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>Maak een testgebruiker Sedgwick CMS
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Sedgwick CMS. Werken met [Sedgwick CMS-ondersteuningsteam](https://www.sedgwick.com/contact/Pages/contactform.aspx) om toe te voegen de gebruikers in het Sedgwick CMS-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.  
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Sedgwick CMS. Werken met [Sedgwick CMS-ondersteuningsteam](https://www.sedgwick.com/help) om toe te voegen de gebruikers in het Sedgwick CMS-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

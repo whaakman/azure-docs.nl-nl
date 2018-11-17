@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: cb230dad22e6b0d67a4d6a589e9fba00560a9264
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: ebbedb38256c997f39e30e27aa29139dc2496fd1
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715347"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819250"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Details van de verzameling gegevens voor de beheeroplossingen in Azure
 In dit artikel bevat een lijst met [beheeroplossingen](solutions.md) beschikbaar van Microsoft met koppelingen naar de gedetailleerde documentatie.  Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Log Analytics.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. 
@@ -66,7 +66,7 @@ Uitleg van de kolommen zijn als volgt:
 | [Office 365 Analytics (Preview)](solution-office-365.md) |Windows | | | | | |op de melding |
 | **Oplossing voor het beheer** | **Platform** | **Microsoft monitoring agent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager vereist?** | **Operations Manager-agent gegevens verzonden via de beheergroep** | **Verzamelingsfrequentie** |
 | [Service Fabric-analyse](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuten |
-| [Serviceoverzicht](../../monitoring/monitoring-service-map.md) | Windows en Linux | &#8226; | &#8226; |  |  |  | 15 seconden |
+| [Serviceoverzicht](../../azure-monitor/insights/service-map.md) | Windows en Linux | &#8226; | &#8226; |  |  |  | 15 seconden |
 | [SQL-evaluatie](../../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagen |
 | [SurfaceHub](../../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |bij ontvangst |
 | [System Center Operations Manager-evaluatie (Preview)](../../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | zeven dagen |

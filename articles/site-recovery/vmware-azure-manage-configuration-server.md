@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
 ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 8096f1b5b29c0445d8bae85fb56e2735469184d4
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568451"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823942"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>De configuratieserver voor VMware-VM-noodherstel beheren
 
@@ -222,9 +222,16 @@ Configuratie van implementaties van de server voordat mei 2016, is verlopen van 
 2. De vervaldatum wordt weergegeven onder **configuratieserver health**.
 3. Selecteer **certificaten vernieuwen**.
 
-## <a name="update-windows-licence"></a>Windows-certificaat bijwerken
+## <a name="refresh-configuration-server"></a>Configuratieserver vernieuwen
 
-Het certificaat dat is opgegeven met het OVF-sjabloon is een geldig gedurende 180 dagen evaluatie-certificaat. Voor ononderbroken gebruik, moet u Windows activeren met een geleverde certificaat.
+1. In de Azure-portal, gaat u naar **Recovery Services-kluis** > **beheren** > **Site Recovery-infrastructuur**  >   **Voor VMware en fysieke machines** > **configuratieservers**
+2. Klik op de configuratieserver die u wilt vernieuwen.
+3. Klik op de blade met details van de gekozen configuratieserver **meer** > **Server vernieuwen**.
+4. De voortgang van de taak onder **Recovery Services-kluis** > **bewaking** > **Site Recovery-taken**.
+
+## <a name="update-windows-license"></a>Bijwerken van Windows-licentie
+
+De licentie die is opgegeven met het OVF-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Voor ononderbroken gebruik, moet u Windows activeren met een geleverde licentie.
 
 ## <a name="failback-requirements"></a>Vereisten voor failback
 

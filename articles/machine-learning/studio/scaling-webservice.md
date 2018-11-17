@@ -1,13 +1,14 @@
 ---
-title: Het verhogen van gelijktijdigheid van een Azure Machine Learning-webservice | Microsoft Docs
-description: Informatie over het verbeteren van gelijktijdigheid van een Azure Machine Learning-webservice door het toevoegen van extra eindpunten.
+title: Gelijktijdigheid van een Azure Machine Learning-webservice verhogen | Microsoft Docs
+description: Leer hoe u gelijktijdigheid van een Azure Machine Learning-webservice verbeteren door het toevoegen van extra eindpunten.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-keywords: Azure machine learning-webservices, uitoefening, schaal, eindpunt, gelijktijdigheid van taken
+keywords: Azure machine learning-webservices, uitoefening, schaal, eindpunt, gelijktijdigheid
 ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
 ms.service: machine-learning
 ms.component: studio
@@ -16,12 +17,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 2f950d93c0d923e20451eb1622dd4b1393f343a7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f0b639d27dd5114c47bd5a1cfa0f6a72a6d78d83
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835896"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824180"
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Een Azure Machine Learning-webservice schalen door extra eindpunten toe te voegen
 > [!NOTE]
@@ -29,17 +30,17 @@ ms.locfileid: "34835896"
 > 
 > 
 
-Standaard elke gepubliceerde Web-service is geconfigureerd voor ondersteuning van 20 gelijktijdige aanvragen en mag maximaal 200 gelijktijdige aanvragen. Azure Machine Learning optimaliseert automatisch de instelling voor de beste prestaties voor uw webservice en de portal waarde wordt genegeerd. 
+Standaard is elke gepubliceerde webservice is geconfigureerd voor ondersteuning van 20 gelijktijdige aanvragen, en mag wel 200 gelijktijdige aanvragen. Azure Machine Learning optimaliseert automatisch de instelling voor de beste prestaties voor uw webservice en de portal waarde wordt genegeerd. 
 
-Als u wilt de API met een hogere belasting dan een waarde van het maximumaantal gelijktijdige aanroepen van 200 aanroepen ondersteunt, moet u meerdere eindpunten maken op dezelfde webservice. U kunt uw load willekeurig distribueren voor alle hiervan.
+Als u wilt de API met een hogere belasting dan een waarde voor maximum aantal gelijktijdige aanroepen van 200 aanroepen ondersteunt, moet u meerdere eindpunten maken van de dezelfde Web-service. U kunt uw load willekeurig distribueren op alle.
 
-De schaal van een webservice is een algemene taak. Enkele redenen om te schalen zijn voor ondersteuning van meer dan 200 gelijktijdige aanvragen, beschikbaarheid dankzij meerdere eindpunten te verhogen of afzonderlijke eindpunten voor de webservice leveren. U kunt de schaal verhogen door toe te voegen extra eindpunten voor dezelfde webservice via de [Azure Machine Learning-webservice](https://services.azureml.net/) portal.
+De schaal van een webservice is een veelvoorkomende taak. Er zijn enkele redenen om te schalen naar meer dan 200 gelijktijdige aanvragen ondersteunen, hogere mate van beschikbaarheid via meerdere eindpunten of het bieden van afzonderlijke eindpunten voor de webservice. U kunt de schaal vergroten door het toevoegen van extra eindpunten voor de dezelfde webservice via de [Azure Machine Learning-webservice](https://services.azureml.net/) portal.
 
 Zie voor meer informatie over het toevoegen van nieuwe eindpunten [eindpunten maken](create-endpoint.md).
 
-Houd er rekening mee dat met een aantal hoge gelijktijdigheid schadelijk als u de API met een navenant hoge frequentie niet bellen. U ziet sporadisch time-outs en/of pieken in de latentie als u een relatief lage belasting voor een API die is geconfigureerd voor hoge belasting.
+Houd er rekening mee dat met behulp van een aantal hoge gelijktijdigheid schadelijk als u niet van de API met een overeenkomstige hoge frequentie aanroepen bent. U ziet er kunnen sporadisch time-outs en/of pieken in de latentie als u een relatief lage belasting voor een API die is geconfigureerd voor hoge belasting.
 
-De synchrone API's worden meestal gebruikt in situaties waarin een lage latentie gewenst is. Hier latentie betekent de tijd die nodig is voor de API om een aanvraag te voltooien en account komt niet voor alle vertragingen in het netwerk. Stel dat u hebt een API met een latentie van 50-ms. Volledig gebruiken voor de beschikbare capaciteit met vertraging niveau Hoog en het maximumaantal gelijktijdige aanroepen = 20, moet u deze API 20 * 1000 aan te roepen / 50 = 400 keren per seconde. Een maximumaantal gelijktijdige aanroepen van 200 kunt dit verder uitbreiden, u de API 4000 keren per seconde, ervan uitgaande dat een 50 ms latentie aanroepen.
+De synchrone API's worden meestal gebruikt in situaties waar een lage latentie is vereist. Hier latentie betekent de tijd die nodig is voor de API om een aanvraag te voltooien en niet wordt gehouden met eventuele vertragingen in het netwerk. Stel dat u hebt een API met een latentie 50 ms. Volledig gebruiken voor de beschikbare capaciteit met toevoerregelniveau hoog en het maximum aantal gelijktijdige aanroepen = 20, moet u deze API 20 * 1000 aanroepen / 50 = 400 keer per seconde. Een maximum aantal gelijktijdige aanroepen van 200 kunt dit verder uitgebreid, u voor het aanroepen van de API 4000 mislukte opvragingen per seconde, ervan uitgaande dat het een 50 ms latentie.
 
 <!--Image references-->
 [1]: ./media/scaling-webservice/machlearn-1.png

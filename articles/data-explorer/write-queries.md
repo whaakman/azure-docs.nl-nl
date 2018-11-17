@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 952d8801c189322161bbf8b795676af48b92c29f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394326"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854251"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Schrijven van query's voor Azure Data Explorer
 
@@ -28,7 +28,7 @@ U kunt de query's in dit artikel op twee manieren uitvoeren:
 
 - Op uw eigen cluster bevat die de StormEvents-voorbeeldgegevens. Zie voor meer informatie, [Quickstart: maken van een cluster van Azure Data Explorer en -database](create-cluster-database-portal.md) en [voorbeeldgegevens worden opgenomen in Azure Data Explorer](ingest-sample-data.md).
 
-De set voorbeeldgegevens StormEvents bevat weergerelateerde gegevens van de [National Centers voor omgevingsinformatie](https://www.ncdc.noaa.gov/stormevents/).
+[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Overzicht van de querytaal
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>Boven
 
-[**Top**](https://docs.microsoft.com/azure/kusto/query/topoperator): retourneert de eerste *N* records worden gesorteerd op de opgegeven kolommen.
+[**Top**](https://docs.microsoft.com/azure/kusto/query/topoperator): retourneert de eerste *N* records worden gesorteerd op de opgegeven kolommen.
 
 De volgende query retourneert hetzelfde resultaat als hierboven met een minder operator.
 
@@ -473,7 +473,7 @@ MyTrace
 | project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previousLockTime
 ```
 
-## <a name="time-series-analysis"></a>Tijdseries analyseren
+## <a name="time-series-analysis"></a>Tijdreeksanalyse
 
 ### <a name="make-series"></a>merk-serie
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): berekent de **dcount** van HyperLogLog resultaten (die worden gegenereerd door [ **hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) of [ **hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): berekent de **dcount** van HyperLogLog resultaten (die worden gegenereerd door [**hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction)   of [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
 De volgende query gebruikt het algoritme HLL voor het genereren van het aantal.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): retourneert een van de schatting voor de opgegeven [ **dichtstbijzijnde positie percentiel** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) van de bevolking gedefinieerd door een expressie. De nauwkeurigheid is afhankelijk van de dichtheid van populatie in de regio van het percentiel. Kan alleen worden gebruikt in de context van aggregatie in [ **samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): retourneert een van de schatting voor de opgegeven [**dichtstbijzijnde positie percentiel**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) van de bevolking gedefinieerd door een expressie. De nauwkeurigheid is afhankelijk van de dichtheid van populatie in de regio van het percentiel. Kan alleen worden gebruikt in de context van aggregatie in [**samenvatten**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 De volgende query berekent percentielen voor de duur van storm.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**JOIN**](https://docs.microsoft.com/azure/kusto/query/joinoperator): de rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel samenvoegen. Kusto ondersteunt een breed scala aan join-typen: **fullouter**, **binnenste**, **innerunique**, **leftanti**, **leftantisemi** , **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter** , **rightsemi**.
+[**JOIN**](https://docs.microsoft.com/azure/kusto/query/joinoperator): de rijen van twee tabellen om te vormen een nieuwe tabel door de overeenkomende waarden van de opgegeven kolommen uit elke tabel samenvoegen. Kusto ondersteunt een breed scala aan join-typen: **fullouter**, **binnenste**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
 
 Het volgende voorbeeld worden twee tabellen gekoppeld met een inner join.
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>new_activity_metrics-invoegtoepassing
 
-[**de invoegtoepassing new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): berekent de metrische gegevens van nuttige activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) voor het cohort van nieuwe gebruikers. Het concept van deze invoegtoepassing is vergelijkbaar met [ **activity_metrics invoegtoepassing**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), maar is gericht op nieuwe gebruikers.
+[**de invoegtoepassing new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): berekent de metrische gegevens van nuttige activiteiten (uniek aantal waarden, uniek aantal van de nieuwe waarden, Retentiepercentage en verloop) voor het cohort van nieuwe gebruikers. Het concept van deze invoegtoepassing is vergelijkbaar met [**activity_metrics invoegtoepassing**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), maar is gericht op nieuwe gebruikers.
 
 De volgende query wordt een tarief retentie en het verloop met een week-over-week-venster voor het gebruikerscohort voor nieuwe (gebruikers dat is ontvangen op de eerste week) berekend.
 
@@ -902,7 +902,7 @@ StormEvents
 
 [**de invoegtoepassing funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): berekent de trechter van voltooide reeks stappen binnen verschillende perioden.
 
-De volgende query controleert de trechter voltooiing van de reeks: `Hail -> Tornado -> Thunderstorm -> Wind` in 'algemene' duur van één uur, vier uur en één dag (`[1h, 4h, 1d]`).
+De volgende query controleert de trechter voltooiing van de reeks: `Hail -> Tornado -> Thunderstorm -> Wind` in 'algemene' duur van één uur, vier uur en één dag (`[1h, 4h, 1d]`).
 
 **\[**[**Klik op query uit te voeren**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>Functions
 
-In deze sectie bevat informatie over [ **functies**](https://docs.microsoft.com/azure/kusto/query/functions): herbruikbare query's die zijn opgeslagen op de server. Functies kunnen worden aangeroepen door query's en andere functies (recursive-functies worden niet ondersteund).
+In deze sectie bevat informatie over [ **functies**](https://docs.microsoft.com/azure/kusto/query/functions): herbruikbare query's die zijn opgeslagen op de server. Functies kunnen worden aangeroepen door query's en andere functies (recursive-functies worden niet ondersteund).
 
 > [!NOTE]
 > U kunt geen functies maken op het helpcluster, dit alleen-lezen is. Uw eigen testcluster gebruiken voor dit onderdeel.

@@ -1,6 +1,6 @@
 ---
-title: Bekijk de tekst in Azure inhoud beheerder | Microsoft Docs
-description: Informatie over het controleren van de tekst in de inhoud van de beheerder om te zien van de score en labels gedetecteerd. Gebruik de informatie die u wilt weten of inhoud geschikt zijn moet.
+title: Bekijk de tekst in het Azure Content Moderator | Microsoft Docs
+description: Meer informatie over het bekijken van tekst in de Content Moderator om te zien van de score en tags gedetecteerd. Gebruik de informatie die u wilt weten of inhoud geschikt zijn moet.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,27 +9,27 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cb8774395b7374677e8de3b80630a2d4abf490f9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344452"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852092"
 ---
 # <a name="review-text"></a>Tekst beoordelen
 
-U kunt Azure inhoud beheerder bekijken tekst met behulp van scores en labels gedetecteerd. Gebruik de informatie om te bepalen of inhoud geschikt is. 
+U kunt Azure Content Moderator gebruiken om te controleren van tekst met behulp van scores en tags gedetecteerd. Gebruik de informatie om te bepalen of inhoud geschikt is. 
 
 ## <a name="select-or-enter-the-text-to-review"></a>Selecteer of Voer de tekst in om te controleren
 
-Selecteer in de inhoud beheerder de **probeer** tabblad. Selecteer de **tekst** optie om naar het startscherm van tekst toezicht te gaan. Tekst invoeren of verzenden van de standaard voorbeeldtekst voor geautomatiseerde tekst toezicht. U kunt maximaal 1024 tekens.
+Selecteer in de Content Moderator, de **probeer** tabblad. Selecteer vervolgens de **tekst** optie om naar het startscherm voor beheer van tekst te gaan. Voer een tekst of dien de standaardvoorbeeldtekst voor beheer van geautomatiseerde tekst. U kunt een maximum van 1024 tekens bestaan.
 
-## <a name="get-ready-to-review-results"></a>Voorbereidingen voor het bekijken van resultaten
+## <a name="get-ready-to-review-results"></a>Aan de slag met de resultaten bekijken
 
-Het hulpprogramma voor beoordeling roept eerst de tekst toezicht-API. Er wordt vervolgens tekst beoordelingen gegenereerd met behulp van de gedetecteerde labels. Het hulpprogramma voor beoordeling komt overeen met de resultaten van score voor de aandacht van uw team.
+Het beoordelingsprogramma roept eerst de tekst toezicht-API. Er wordt vervolgens beoordelingen van teksten gegenereerd met behulp van de gedetecteerde tags. Het beoordelingsprogramma komt overeen met de scoreresultaten voor de aandacht van uw team.
 
-## <a name="review-text-results"></a>Tekst-resultaten bekijken
+## <a name="review-text-results"></a>Bekijk de resultaten van tekst
 
-Gedetailleerde resultaten worden weergegeven in de vensters. De resultaten zijn gedetecteerde tags en termen die zijn geretourneerd door de tekst toezicht-API. Als u wilt in-of uitschakelen van de tag selectiestatus, selecteert u de tag. U kunt ook werken met een aangepaste labels die u hebt gemaakt.
+Gedetailleerde resultaten worden weergegeven in de windows. De resultaten zijn gedetecteerde tags en voorwaarden die zijn geretourneerd door de tekst toezicht-API. Als u wilt in-/ uitschakelen van een label selecteren de status, selecteert u de tag. Ook kunt u werken met een aangepaste labels die u hebt gemaakt.
 
-![Tekst-resultaten bekijken](images/3-review-text-2.png)
+![Schermafbeelding van de beoordeling hulpprogramma weergegeven tekst in een Chrome-browservenster gemarkeerd](../images/reviewresults_text.png)

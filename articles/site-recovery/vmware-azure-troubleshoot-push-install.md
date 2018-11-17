@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a9738f95ce8a0de750ffa348e167bce3b0e659f6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012323"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821392"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
@@ -21,6 +21,7 @@ De installatie van mobiliteitsservice is een belangrijke stap tijdens replicatie
 * Referentie/bevoegdheden fouten
 * Fouten in de basisnetwerkverbinding
 * Niet-ondersteunde besturingssystemen
+* VSS-installatiefouten
 
 Wanneer u replicatie inschakelt, installeren probeert om Azure Site Recovery mobility service-agent op uw virtuele machine. Als onderdeel hiervan probeert configuratieserver te verbinden met de virtuele machine en kopieer de Agent. Volg de stapsgewijze richtlijnen voor probleemoplossing hieronder zodat geslaagde installatie.
 
@@ -40,13 +41,10 @@ Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u
 ## <a name="connectivity-check-errorid-95117--97118"></a>**Controle van gatewayconnectiviteit (Aanroepstatus: 95117 & 97118)**
 
 * Zorg ervoor dat u bent uw bron-VM vanaf de configuratieserver te pingen. Als u uitbreidbare processerver hebt gekozen tijdens replicatie inschakelen, controleert u of dat u bent uw bron-VM vanaf de processerver te pingen.
-  * Vanaf de opdrachtregel van de bronserver machine, kunt u Telnet gebruiken om te pingen van de configuratieserver / uitbreidbare processerver met https-poort (standaard 9443), zoals hieronder wordt weergegeven om te zien of er problemen met de netwerkverbinding of de firewall port blokkerende problemen zijn.
+  * Vanaf de opdrachtregel van de bronserver machine, kunt u Telnet gebruiken om te pingen van de configuratieserver / uitbreidbare processerver met https-poort (135), zoals hieronder wordt weergegeven om te zien of er problemen met de netwerkverbinding of de firewall port blokkerende problemen zijn.
 
-     `telnet <CS/ scale-out PS IP address> <port>`
-
-  * Als u kan geen verbinding maken, kunt u de binnenkomende poort 9443 op de configuratieserver / uitbreidbare processerver.
+     `telnet <CS/ scale-out PS IP address> <135>`
   * Controleer de status van service **InMage Scout VX Agent-Sentinel/Outpost**. Start de service, als deze niet wordt uitgevoerd.
-
 * Bovendien kunt u voor **virtuele Linux-machine**,
   * Controleer of de meest recente openssh, openssh-server en openssl-pakketten zijn geïnstalleerd.
   * Controleer en zorg ervoor dat de Secure Shell (SSH) is ingeschakeld en wordt uitgevoerd op poort 22.
@@ -95,6 +93,43 @@ Andere artikelen over probleemoplossing van WMI kunnen worden gevonden op de vol
 Een andere meest voorkomende reden voor mislukken kan worden veroorzaakt door niet-ondersteund besturingssysteem. Zorg ervoor dat u gebruikmaakt van de ondersteunde versie van het besturingssysteem/Kernel voor geslaagde installatie van de Mobility-service.
 
 Raadpleeg voor meer informatie over welke besturingssystemen worden ondersteund door Azure Site Recovery, onze [matrix ondersteuningsdocument](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## <a name="vss-installation-failures"></a>Installatie van de VSS-fouten
+
+Installatie van de VSS is een onderdeel van de installatie van de Mobility-agent. Deze service wordt gebruikt bij het genereren consistente herstelpunten voor toepassing. Fouten tijdens de installatie van de VSS kunnen optreden vanwege meerdere redenen. Raadpleeg voor het identificeren van de exacte fouten **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**. Enkele veelvoorkomende fouten en de oplossingen zijn gemarkeerd in de volgende sectie.
+
+### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS-fout-2147023170 [0x800706BE] - afsluitcode 511
+
+Dit probleem is voornamelijk gezien als een antivirusprogramma wordt geblokkeerd door de bewerkingen van Azure Site Recovery-services. Dit, oplossen
+
+1. Alle mappen die worden vermeld uitsluiten [hier](vmware-azure-set-up-source.md#exclude-antivirus-on-the-configuration-server).
+2. Volg de richtlijnen gepubliceerd door uw provider antivirusprogramma's blokkering opheffen van de registratie van DLL-bestand in Windows.
+
+### <a name="vss-error-7-0x7---exit-code-511"></a>VSS-fout 7 [0x7] - afsluitcode 511
+
+Dit is een runtime-fout en wordt veroorzaakt door onvoldoende geheugen voor het installeren van VSS. Zorg ervoor dat de schijfruimte voor de voltooiing van deze bewerking te verhogen.
+
+### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>VSS-fout-2147023824 [0x80070430] - afsluitcode 517
+
+Deze fout treedt op wanneer de service Azure Site Recovery VSS Provider [gemarkeerd voor verwijdering](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Probeer VSS om handmatig te installeren op de broncomputer door het uitvoeren van de volgende opdrachtregel
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>VSS-fout-2147023841 [0x8007041F] - afsluitcode 512
+
+Deze fout treedt op wanneer de database van de service Azure Site Recovery VSS Provider [vergrendeld](https://msdn.microsoft.com/en-us/library/ms833798.aspx). Probeer VSS om handmatig te installeren op de broncomputer door het uitvoeren van de volgende opdrachtregel
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-exit-code-806"></a>Afsluitcode van de VSS-806
+
+Deze fout treedt op wanneer het gebruikersaccount dat wordt gebruikt voor de installatie is niet gemachtigd de CSScript-opdracht uit te voeren. Benodigde machtigingen om het gebruikersaccount uit te voeren van het script en voer de bewerking opnieuw uit te geven.
+
+### <a name="other-vss-errors"></a>Andere VSS-fouten
+
+Probeer VSS-provider-service handmatig op de bronmachine installeren door het uitvoeren van de volgende opdrachtregel
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ## <a name="next-steps"></a>Volgende stappen
 

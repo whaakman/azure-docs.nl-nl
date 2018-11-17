@@ -5,23 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632689"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854319"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>WebTest met meerdere stappen bouwen, testen en patch-taken uitvoeren in de ACR-taken
 
-Taken met meerdere stappen Breid de mogelijkheden van de installatiekopie van één-build-en-push van ACR taken met meerdere stappen, meerdere-container op basis van werkstromen. Taken met meerdere stappen gebruiken om te bouwen en diverse installatiekopieën pushen in serie of parallel en deze installatiekopieën run as-opdrachten binnen een enkele taak uitvoeren. Elke stap definieert u een containerinstallatiekopie bouwen of push-bewerking en kunt ook de uitvoering van een container definiëren. Elke stap in een taak meerdere stappen maakt gebruik van een container als de uitvoeringsomgeving.
+Taken met meerdere stappen Breid de mogelijkheden van de installatiekopie van één-build-en-push van ACR taken met meerdere stappen, meerdere-container op basis van werkstromen. WebTest met meerdere stappen taken te maken en pushen van verschillende afbeeldingen, in de reeks of gelijktijdig gebruiken. Voer vervolgens deze installatiekopieën als opdrachten binnen een enkele taak uitvoeren. Elke stap definieert u een containerinstallatiekopie bouwen of push-bewerking en kunt ook de uitvoering van een container definiëren. Elke stap in een taak meerdere stappen maakt gebruik van een container als de uitvoeringsomgeving.
 
 > [!IMPORTANT]
 > Als u eerder taken hebt gemaakt tijdens de preview met de opdracht `az acr build-task`, moeten deze taken opnieuw worden gemaakt met de opdracht [az acr task][az-acr-task].
 
-U kunt bijvoorbeeld een taak uitvoeren met het automatiseren van de volgende stappen:
+U kunt bijvoorbeeld een taak uitvoeren met stappen die de volgende logica automatiseren:
 
 1. De afbeelding van een web-toepassing bouwen
 1. De web-App-container uitvoeren
@@ -37,11 +37,11 @@ Alle stappen worden uitgevoerd in Azure, het offloaden van het werk van Azure co
 
 ## <a name="common-task-scenarios"></a>Algemene scenario's voor taak
 
-WebTest met meerdere stappen taken inschakelen scenario's als volgt uit:
+Taken met meerdere stappen inschakelen scenario's zoals de volgende logica:
 
 * Maken, code, en een of meer installatiekopieën van containers, push in serie of gelijktijdig.
 * Uitvoeren en vast te leggen eenheid test- en code dekking resultaten.
-* Uitvoeren en functionele tests vast te leggen. ACR taken ondersteunt het uitvoeren van meerdere containers, een reeks aanvragen tussen beide uitvoeren.
+* Uitvoeren en functionele tests vast te leggen. ACR taken ondersteunt de uitvoering van meer dan één container, een reeks aanvragen tussen beide uitvoeren.
 * Uitvoeren op basis van een taak wordt uitgevoerd, met inbegrip van de stappen voor/na van een build van container-installatiekopie.
 * Een of meer containers implementeren met uw favoriete implementatie-engine op uw doelomgeving.
 
@@ -176,5 +176,5 @@ U kunt verwijzing van de taak meerdere stappen en voorbeelden hier vinden:
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

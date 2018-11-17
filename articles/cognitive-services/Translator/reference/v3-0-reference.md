@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430028"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853350"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -135,6 +135,7 @@ De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statusc
 | 403000| De bewerking is niet toegestaan.|
 | 403001| De bewerking is niet toegestaan omdat het abonnement het gratis quotum is overschreden.|
 | 405000| De aanvraagmethode wordt niet ondersteund voor de aangevraagde resource.|
+| 408001| De aangepaste vertaalsysteem aangevraagd is nog niet beschikbaar. Probeer het opnieuw over een paar minuten.|
 | 415000| De header Content-Type is ongeldig of ontbreekt.|
 | 429000, 429001, 429002| De server heeft de aanvraag geweigerd omdat de client te veel aanvragen verzendt. Verminder de frequentie van aanvragen om te voorkomen dat beperking.|
 | 500000| Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, die rapporteren aan de datum/tijd van de fout, aanvraag-id van response-header X-RequestId en client-id van de aanvraagheader X-ClientTraceId.|

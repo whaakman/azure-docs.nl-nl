@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 3ab0edf4483763c1048b7026175ddce821624ac0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989874"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821103"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps-dekking voor geocodering
 
@@ -52,7 +52,7 @@ Wanneer u een locatie met Azure Maps zoekt, wordt de search-service neemt van uw
 | Guadeloupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Haïti                                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Martinique                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -120,7 +120,7 @@ Wanneer u een locatie met Azure Maps zoekt, wordt de search-service neemt van uw
 | Palau |                 |                |              |      ✓     |          ✓         |
 | Papoea-Nieuw-Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Paracel-eilanden                                     |                 |                |              |      ✓     |                    |
-| Filippijnen                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Filipijnen                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
 | Senkaku-eilanden                                     |        ✓        |                |              |      ✓     |          ✓         |
@@ -152,7 +152,7 @@ Wanneer u een locatie met Azure Maps zoekt, wordt de search-service neemt van uw
 | België                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnië en Herzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgarije                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belerus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belarus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kroatië                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cyprus                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tsjechië                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -283,7 +283,7 @@ Wanneer u een locatie met Azure Maps zoekt, wordt de search-service neemt van uw
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunesië                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Oeganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Verenigde Arabische Emiraten                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Westelijke Jordaanoever                                           |                 |                |              |      ✓     |          ✓         |
 | Jemen                                               |                 |                |              |      ✓     |          ✓         |

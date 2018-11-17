@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2caf3d6373e764f5d5538a14a1750f1bfee2871d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614137"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822276"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
@@ -89,7 +89,7 @@ Webhooks maakt het mogelijk om automatisering en herstel, bijvoorbeeld:
 ## <a name="next-steps"></a>Volgende stappen
 Informatie ophalen over de regels voor waarschuwingen en ze te configureren met behulp van:
 
-* Meer informatie over [metrische gegevens](../monitoring/monitoring-data-collection.md)
+* Meer informatie over [metrische gegevens](../azure-monitor/platform/data-collection.md)
 * Configureer [klassieke metrische waarschuwingen via Azure portal](alert-metric-classic.md)
 * Configureer [klassieke metrische waarschuwingen PowerShell](alert-metric-classic.md)
 * Configureer [klassieke metrische waarschuwingen opdrachtregelinterface (CLI)](alert-metric-classic.md)

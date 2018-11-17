@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364292"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820219"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Op rollen gebaseerd toegangsbeheer in de oplossingsverbetering voor externe controle configureren
 
@@ -23,29 +23,33 @@ In dit artikel bevat informatie over het configureren van op rollen gebaseerd to
 
 Wanneer u eerst de oplossing voor externe controle implementeert, zijn er twee rollen: **Admin** en **alleen-lezen**.
 
-Een gebruiker in de **Admin** rol heeft volledige toegang tot de oplossing. Een gebruiker in de **alleen-lezen** rol niet een van de volgende taken:
+Een gebruiker in de **Admin** rol heeft volledige toegang tot de oplossing, met inbegrip van de volgende machtigingen hieronder. Een gebruiker in de **alleen-lezen** rol hebben alleen toegang tot de oplossing bekijken.
 
-- Waarschuwingen bijwerken
-- Waarschuwingen verwijderen
-- Apparaten maken
-- Apparaten bijwerken
-- Apparaten verwijderen
-- Apparaatgroepen maken
-- Apparaatgroepen bijwerken
-- Apparaatgroepen verwijderen
-- Regels maken
-- Update-regels
-- Regels verwijderen
-- Taken maken
-- Updatebeheer voor SIM-kaart
+| Machtiging            | Gemeente | Alleen-lezen |
+|----------------       |-------|-----------|
+| Weergave-oplossing         | Ja   | Ja       |
+| Waarschuwingen bijwerken         | Ja   | Nee        |
+| Waarschuwingen verwijderen         | Ja   | Nee        |
+| Apparaten maken        | Ja   | Nee        |
+| Apparaten bijwerken        | Ja   | Nee        |
+| Apparaten verwijderen        | Ja   | Nee        |
+| Apparaatgroepen maken  | Ja   | Nee        |
+| Apparaatgroepen bijwerken  | Ja   | Nee        |
+| Apparaatgroepen verwijderen  | Ja   | Nee        |
+| Regels maken          | Ja   | Nee        |
+| Update-regels          | Ja   | Nee        |
+| Regels verwijderen          | Ja   | Nee        |
+| Taken maken           | Ja   | Nee        |
+| Updatebeheer voor SIM-kaart | Ja   | Nee        |
 
-De persoon die de oplossing voor externe controle implementeert, wordt automatisch toegewezen aan de **Admin** rol en de eigenaar van een Azure Active Directory-toepassing is. Als de toepassingseigenaar van een kunt u rollen toewijzen aan andere gebruikers in de Azure-portal.
+Standaard wordt de gebruiker die de oplossing geïmplementeerd automatisch toegewezen de **Admin** rol en de eigenaar van een Azure Active Directory-toepassing is. Als de toepassingseigenaar van een, kunt u rollen toewijzen aan andere gebruikers via de Azure-portal. Als u een andere gebruiker wilt het toewijzen van rollen in de oplossing, moeten ze ook worden ingesteld als de toepassingseigenaar van een in Azure portal.
 
-Als u een andere gebruiker wilt het toewijzen van rollen in de oplossing, moeten ze ook worden ingesteld als de toepassingseigenaar van een in Azure portal.
+> [!NOTE]
+> De gebruiker die de oplossing wordt geïmplementeerd, is de **alleen persoon** die het kunnen bekijken onmiddellijk na de zijn gemaakt. Anderen toegang te verlenen om de toepassing als een alleen-lezen, Admin, of een aangepaste rol, Zie de volgende instructies hieronder op toevoegen of verwijderen van gebruikers weer te geven.
 
 ## <a name="add-or-remove-users"></a>Gebruikers toevoegen of verwijderen
 
-De Azure portal gebruiken voor het toevoegen of verwijderen van een gebruiker uit de oplossing voor externe controle. De volgende stappen uitvoeren om de [Azure Active Directory-bedrijfstoepassing](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) die voor u is gemaakt tijdens de implementatie van de oplossing voor externe controle.
+Als de eigenaar van een Azure Active Directory-toepassing kunt u de Azure-portal toevoegen of verwijderen van een gebruiker aan een rol van de oplossing voor externe controle. De volgende stappen uitvoeren om de [Azure Active Directory-bedrijfstoepassing](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) die is gemaakt tijdens de implementatie van de oplossing voor externe controle.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
