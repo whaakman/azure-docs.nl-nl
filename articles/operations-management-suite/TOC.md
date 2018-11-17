@@ -42,9 +42,9 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric-analyse](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Servicetoewijzing
-##### [Gebruiken](../monitoring/monitoring-service-map.md)
-##### [Configureren](../monitoring/monitoring-service-map-configure.md)
-##### [Integratie met Operations Manager](../monitoring/monitoring-service-map-scom.md)
+##### [Gebruiken](../azure-monitor/insights/service-map.md)
+##### [Configureren](../azure-monitor/insights/service-map-configure.md)
+##### [Integratie met Operations Manager](../azure-monitor/insights/service-map-scom.md)
 #### [SQL-evaluatie](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -65,7 +65,7 @@
 ### [Aanbevolen procedures](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Beheerscenario's
-### [Analytische gegevens verzamelen van runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Analytische gegevens verzamelen van runbook](../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
