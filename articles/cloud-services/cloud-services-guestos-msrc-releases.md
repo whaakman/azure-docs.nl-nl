@@ -11,17 +11,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: raiye
-ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578770"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854268"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+## <a name="november-2018-guest-os"></a>November 2018-Gastbesturingssysteem
+
+>[!NOTE]
+>Het Gastbesturingssysteem November wordt momenteel geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem November. Deze lijst is onderhevig aan wijzigingen.
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2,80, 3.67, 4,60 | 13 november 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4,60, 5,25 | 13 november 2018 |
+| Rel 18-11 | [4467106] | Windows-beveiliging | 2,80 | 13 november 2018 |
+| Rel 18-11 | [4467678] | Windows-beveiliging | 3.67 | 13 november 2018 |
+| Rel 18-11 | [4467703] | Windows-beveiliging | 4,60 | 13 november 2018 |
+| Rel 18-11 | [4467691] | Windows 10-beveiliging | 5,25 | 13 november 2018 |
+| N/A | [3173426] | Servicing Stack Update | 3.67 | 12 juli 2016 |
+| N/A | [4465659] | Servicing Stack Update | 5,25 | 13 november 2018 |
+| N/A | [4462923] | Rollup van oktober niet voor beveiliging | 2,80 | 9 oktober 2018 |
+| N/A | [4462929] | Rollup van oktober niet voor beveiliging | 3.67 | 9 oktober 2018 |
+| N/A | [4462926] | Rollup van oktober niet voor beveiliging | 4,60 | 9 oktober 2018 |
+| N/A | [3109976] | App compat shims | 4,60 | 12 april 2016 |
+| N/A | [4457037] | App compat shims | 4,60| 12 juni 2018 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
 
 ## <a name="october-2018-guest-os"></a>Oktober 2018-Gastbesturingssysteem
 

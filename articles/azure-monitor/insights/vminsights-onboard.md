@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: 7b6752196d3512ab3ede4f5e339d681948e732e8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715374"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853739"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines (Preview)
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor virtuele machines voor het bewaken van de status van het besturingssysteem van uw virtuele Azure-machines en schaalsets voor virtuele machines en virtuele machines in uw omgeving, met inbegrip van detectie en het toewijzen van afhankelijkheden voor toepassingen dat kan worden gehost op deze.  
