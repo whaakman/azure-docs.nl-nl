@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283832"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165336"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichten
 
@@ -155,27 +155,27 @@ Dit is de volledige lijst met providers bewerkingen:
 
 | Naam van bewerking | Bijgehouden API | De nettolading van de specifieke eigenschappen|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> berichten - lijst met berichten worden verzonden. |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Bericht - bericht dat wordt verwerkt<br/>DateTimeOffset ScheduleEnqueueTimeUtc - verschuiving van de geplande berichten<br/>lange SequenceNumber - volgnummer van gepland bericht (nettolading 'Stop') |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | lange SequenceNumber - volgnummer van het bericht te worden geannuleerd | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount - het maximum aantal berichten dat kan worden ontvangen.<br/>IList<Message> berichten - lijst van de ontvangen berichten (nettolading 'Stop') |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber - het beginpunt van waaruit berichten batchgewijs bladeren.<br/>int RequestedMessageCount - het aantal berichten om op te halen.<br/>IList<Message> berichten - lijst van de ontvangen berichten (nettolading 'Stop') |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers - de lijst met de volgnummers te ontvangen.<br/>IList<Message> berichten - lijst van de ontvangen berichten (nettolading 'Stop') |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens - de lijst met het lock-tokens van de bijbehorende berichten om te voltooien.|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | de tekenreeks LockToken - het lock-token van het bijbehorende bericht te breken. |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | de tekenreeks LockToken - het lock-token van het bijbehorende bericht om uit te stellen. | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | de tekenreeks LockToken - het lock-token van het bijbehorende bericht onbestelbare berichten. | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | de tekenreeks LockToken - het lock-token van het bijbehorende bericht vergrendeling op vernieuwen.<br/>DateTime LockedUntilUtc - nieuwe vergrendeling vervaldatum van token datum en tijd in UTC-notatie. (Nettolading 'Stop')|
-| Microsoft.Azure.ServiceBus.Process | Lambda-functie voor bericht Handler is opgegeven in [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | Bericht - bericht dat wordt verwerkt. |
-| Microsoft.Azure.ServiceBus.ProcessSession | Lambda-functie voor bericht-sessie-Handler is opgegeven in [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | Bericht - bericht dat wordt verwerkt.<br/>IMessageSession-sessie - sessie wordt verwerkt |
-| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | Regel voor RuleDescription - beschrijving van de regel waarmee de regel toe te voegen. |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | de tekenreeks die RuleName - naam van de regel te verwijderen. |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> regels - alle regels die zijn gekoppeld aan het abonnement. (Alleen voor 'Stop' payload) |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | sessie-id - sessie-id aanwezig zijn in de berichten de tekenreeks. |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | sessie-id - sessie-id aanwezig zijn in de berichten de tekenreeks.<br/>byte [] staat - sessiestatus (nettolading 'Stop') |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | sessie-id - sessie-id aanwezig zijn in de berichten de tekenreeks.<br/>byte [] staat - sessiestatus |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | sessie-id - sessie-id aanwezig zijn in de berichten de tekenreeks. |
-| Microsoft.Azure.ServiceBus.Exception | een API hebt geïnstrumenteerd| Uitzondering opgetreden uitzondering - uitzondering exemplaar |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Lijst met berichten worden verzonden |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -Bericht dat wordt verwerkt<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Offset gepland bericht<br/>`long SequenceNumber` -Het volgnummer van gepland bericht (nettolading 'Stop') |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` -Het volgnummer van het bericht te worden geannuleerd | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` -Het maximum aantal berichten dat kan worden ontvangen.<br/>`IList<Message> Messages` -Lijst van de ontvangen berichten (nettolading 'Stop') |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` -Het beginpunt van waaruit berichten batchgewijs bladeren.<br/>`int RequestedMessageCount` -Het aantal berichten om op te halen.<br/>`IList<Message> Messages` -Lijst van de ontvangen berichten (nettolading 'Stop') |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` -De lijst met de volgnummers te ontvangen.<br/>`IList<Message> Messages` -Lijst van de ontvangen berichten (nettolading 'Stop') |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` -De lijst met het lock-tokens van de bijbehorende berichten om te voltooien.|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` -Het lock-token van het bijbehorende bericht te breken. |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` -Het lock-token van het bijbehorende bericht om uit te stellen. | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` -Het lock-token van het bijbehorende bericht onbestelbare berichten. | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` -Het lock-token van het bijbehorende bericht vergrendeling op vernieuwen.<br/>`DateTime LockedUntilUtc` -Lock nieuwe vervaldatum van token datum en tijd in UTC-notatie. (Nettolading 'Stop')|
+| Microsoft.Azure.ServiceBus.Process | Lambda-functie voor bericht Handler is opgegeven in [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message` -Bericht dat wordt verwerkt. |
+| Microsoft.Azure.ServiceBus.ProcessSession | Lambda-functie voor bericht-sessie-Handler is opgegeven in [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message` -Bericht dat wordt verwerkt.<br/>`IMessageSession Session` -Sessie wordt verwerkt |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` -De regelbeschrijving waarmee de regel toe te voegen. |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` : De naam van de regel te verwijderen. |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` -Alle regels die zijn gekoppeld aan het abonnement. (Alleen voor 'Stop' payload) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` -De sessie-id aanwezig zijn in de berichten. |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` -De sessie-id aanwezig zijn in de berichten.<br/>`byte [] State` -Sessiestatus (nettolading 'Stop') |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` -De sessie-id aanwezig zijn in de berichten.<br/>`byte [] State` -Sessiestatus |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` -De sessie-id aanwezig zijn in de berichten. |
+| Microsoft.Azure.ServiceBus.Exception | een API hebt geïnstrumenteerd| `Exception Exception` -Exemplaar uitzondering |
 
 U kunt in elke gebeurtenis openen `Activity.Current` dat de huidige bewerkingscontext bevat.
 

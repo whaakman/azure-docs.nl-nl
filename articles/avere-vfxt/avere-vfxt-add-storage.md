@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633975"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163168"
 ---
 # <a name="configure-storage"></a>Opslag configureren
 
@@ -48,15 +48,20 @@ De volgende stappen uit toevoegen een NAS core filer:
 
 1. Klik in het Configuratiescherm Avere op de **instellingen** tabblad bovenaan.
 
-2. Klik op **Core Filer** > **Core-filter beheren** aan de linkerkant.
+1. Klik op **Core Filer** > **Core-filter beheren** aan de linkerkant.
 
-3. Klik op **Create**.
+1. Klik op **Create**.
 
-   ![Schermafbeelding van de pagina met de naam van de filer core en de volledig gekwalificeerde domeinnaam toevoegen, nieuwe filer core](media/avere-vfxt-add-core-filer.png)
+   ![Schermafbeelding van de pagina met een cursor boven de knop maken toevoegen, nieuwe filer core](media/avere-vfxt-add-core-filer-start.png)
+
+1. Vul de vereiste gegevens in de wizard: 
 
    * Naam van uw filer core.
    * Geef een volledig gekwalificeerde domeinnaam (FQDN) indien beschikbaar. Anders, Geef een IP-adres of de hostnaam die wordt omgezet naar uw filer core.
    * Kies uw filer-klasse in de lijst. Als u niet zeker, kies **andere**.
+
+     ![Schermafbeelding van de pagina met de naam van de filer core en de volledig gekwalificeerde domeinnaam toevoegen, nieuwe filer core](media/avere-vfxt-add-core-filer.png)
+  
    * Klik op **volgende** en kiest u een cache-beleid. 
    * Klik op **Filer toevoegen**.
    * Raadpleeg voor meer informatie gedetailleerde, [filer toe te voegen een nieuwe NAS core](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) cluster in de Avere instellingen handleiding.
@@ -110,7 +115,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
 
 1. Open het Configuratiescherm Avere voor uw cluster. Klik op **instellingen**en open vervolgens **Cluster** > **Cloudreferenties** in het navigatiedeelvenster links. Klik op de pagina Cloudreferenties **referentie toevoegen**.
 
-   ![De referentie toevoegen te klikken op de pagina van de configuratie van Cloud-referenties](media/avere-vfxt-new-credential-button.png)
+   ![Klik op de knop referentie toevoegen op de pagina van de configuratie van Cloud-referenties](media/avere-vfxt-new-credential-button.png)
 
 1. Vul in de volgende informatie om te maken van een referentie voor de cloud core filer: 
 

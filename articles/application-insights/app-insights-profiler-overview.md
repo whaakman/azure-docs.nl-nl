@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bba15ee901e7ccecc513f526339bde2fcc6277fa
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142458"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976516"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiel productie-apps in Azure met Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Profiler inschakelen voor uw toepassing
@@ -38,7 +38,7 @@ Profiler dat on-premises wordt niet officieel ondersteund, maar we hebben enkele
 
 ## <a name="view-profiler-data"></a>Profiler-gegevens weergeven
 
-Opdat de profiler voor het uploaden van traceringen, aanvragen uw toepassing actief afhandeling van. Als u een experiment uitvoert, kunt u aanvragen genereren voor uw web-app via [Application Insights-prestatietests](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Als u Profiler zojuist hebt ingeschakeld, kunt u een korte belastingtest uitvoeren. Terwijl de belastingstest wordt uitgevoerd, drukt u op de **profiel nu** knop in de [ **Profiler instellingenpagina**](). Zodra profiler wordt uitgevoerd, wordt het willekeurig profiel over één keer per uur en voor een periode van twee minuten. Als uw toepassing een constante stroom van aanvragen afhandelt is, uploadt Profiler traceringen elk uur.
+Opdat de profiler voor het uploaden van traceringen, aanvragen uw toepassing actief afhandeling van. Als u een experiment uitvoert, kunt u aanvragen genereren voor uw web-app via [Application Insights-prestatietests](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Als u Profiler zojuist hebt ingeschakeld, kunt u een korte belastingtest uitvoeren. Terwijl de belastingstest wordt uitgevoerd, drukt u op de **profiel nu** knop in de [ **Profiler instellingenpagina**](app-insights-profiler-settings.md#profiler-settings-page). Zodra profiler wordt uitgevoerd, wordt het willekeurig profiel over één keer per uur en voor een periode van twee minuten. Als uw toepassing een constante stroom van aanvragen afhandelt is, uploadt Profiler traceringen elk uur.
 
 Nadat uw toepassing een deel van netwerkverkeer ontvangt en de profiler tijd voor het uploaden van de trances heeft gehad, hebt u traceringen om weer te geven. Dit proces kan 5 tot 10 minuten duren. Als u wilt weergeven traceringen, gaat u naar de **prestaties** venster **acties ondernemen** profiler-traceringen weergeven en selecteer vervolgens de **Profiler-traceringen** knop.
 

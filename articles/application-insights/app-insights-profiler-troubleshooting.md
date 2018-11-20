@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978839"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164300"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -46,9 +46,6 @@ De profiler schrijft traceringsberichten en aangepaste gebeurtenissen naar uw ap
 
 1. Als er aanvragen worden tijdens de periode rond de profiler is uitgevoerd, zorg ervoor dat aanvragen worden verwerkt door het gedeelte van uw toepassing met de profiler is ingeschakeld. Soms toepassingen bestaan uit meerdere onderdelen, maar Profiler is alleen beschikbaar voor sommige, niet alle onderdelen. De pagina configureren van Application Insights Profiler ziet u de onderdelen die traceringen hebt geüpload.
 
-### <a name="net-core-21-bug"></a>.NET core 2.1 bug
-Er is een fout in de profiler-agent die voorkomt dat het uploaden van traceringen die zijn overgenomen uit toepassingen die worden uitgevoerd op ASP.NET Core 2.1. We wordt werken aan een oplossing en deze gereed binnenkort. De oplossing voor deze fout wordt geïmplementeerd door het einde van oktober.
-
 ### <a name="other-things-to-check"></a>Andere dingen om te controleren:
 * Uw app wordt uitgevoerd op .NET Framework 4.6.
 * Als uw web-app een ASP.NET Core-toepassing is, service moet actief zijn ten minste ASP.NET Core 2.0.
@@ -69,10 +66,11 @@ Verzend een ondersteuningsticket in de portal. Moet u de correlatie-ID van het f
 ## <a name="troubleshooting-profiler-on-app-services"></a>Het oplossen van problemen Profiler in App Services
 ### <a name="for-the-profiler-to-work-properly"></a>Voor de profiler goed te laten werken:
 * Uw web-app service-plan moet Basic-laag of hoger.
-* Uw web-app moet de extensie Application Insights voor App-Services (2.6.5) geïnstalleerd hebben.
+* Uw web-app moet Application Insights is ingeschakeld.
 * Uw web-app moet de **APPINSIGHTS_INSTRUMENTATIONKEY** app-instelling is geconfigureerd met de dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
 * Uw web-app moet de **APPINSIGHTS_PROFILERFEATURE_VERSION** app-instelling gedefinieerd en ingesteld op 1.0.0.
-* De **ApplicationInsightsProfiler2** webtaak moet worden uitgevoerd. U kunt de webtaak controleren door te gaan naar [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), en openen van de **WebJobs-Dashboard** onder het menu Extra. Zoals u in de schermafbeeldingen hieronder ziet door te klikken op de koppeling ApplicationInsightsProfiler2, ziet u details van de webtaak, met inbegrip van het logboek.
+* Uw web-app moet de **DiagnosticServices_EXTENSION_VERSION** app-instelling gedefinieerd en stel de waarde voor ~ 3.
+* De **ApplicationInsightsProfiler3** webtaak moet worden uitgevoerd. U kunt de webtaak controleren door te gaan naar [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), en openen van de **WebJobs-Dashboard** onder het menu Extra. Zoals u in de schermafbeeldingen hieronder ziet door te klikken op de koppeling ApplicationInsightsProfiler2, ziet u details van de webtaak, met inbegrip van het logboek.
 
     Dit is de koppeling die u moet klikken op om de details van de webtaak te zien: 
 
@@ -91,11 +89,7 @@ Als u Profiler configureert, zijn er updates naar de web-app-instellingen. U kun
 1. Stel **AlwaysOn** naar **op**.
 1. Voeg de **APPINSIGHTS_INSTRUMENTATIONKEY** app instellen en stel de waarde in op de dezelfde instrumentatiesleutel die wordt gebruikt door de SDK.
 1. Voeg de **APPINSIGHTS_PROFILERFEATURE_VERSION** app-instelling en stel de waarde in op 1.0.0.
-1. Open **geavanceerde hulpmiddelen**.
-1. Selecteer **gaat** openen van de Kudu-website.
-1. Selecteer op de website Kudu **Site-extensies**.
-1. Installeer **Application Insights** uit de galerie met Azure Web Apps.
-1. Start opnieuw op de web-app.
+1. Voeg de **DiagnosticServices_EXTENSION_VERSION** app-instelling en stel de waarde in op ~ 3.
 
 ### <a name="too-many-active-profiling-sessions"></a>Te veel actieve profilering sessies
 

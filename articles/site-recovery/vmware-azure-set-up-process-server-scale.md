@@ -1,18 +1,18 @@
 ---
 title: Instellen van een processerver in Azure mislukken tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers met Azure Site Recovery | Microsoft-Docs
 description: Dit artikel wordt beschreven hoe u voor het instellen van een processerver in Azure, failback van Azure naar on-premises tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212230"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974798"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Schaal voor failback met extra processervers
 
@@ -41,6 +41,7 @@ Waarbij elke beveiligde bron-VM is geconfigureerd met 3 schijven van 100 GB elk.
 De vereisten voor de aanvullende processerver worden samengevat in de volgende tabel.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>Installatiebestand downloaden

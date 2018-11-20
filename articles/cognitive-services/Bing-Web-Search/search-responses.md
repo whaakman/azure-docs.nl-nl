@@ -3,19 +3,19 @@ title: Reacties op webzoekopdrachten - Bing webzoekopdrachten-API
 titleSuffix: Azure Cognitive Services
 description: Meer informatie over de typen antwoord en antwoorden van door de Bing webzoekopdrachten-API.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
-ms.author: erhopf
-ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123773"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164765"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen  
 
@@ -128,7 +128,7 @@ Hieronder ziet u een voorbeeld van het gebruik van gerelateerde query's in op Bi
 
 ## <a name="videos-answer"></a>Antwoord van de video 's
 
-De [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) antwoord bevat een lijst met video's die Bing beschouwd zijn relevant zijn voor de query. Elke [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) in de lijst bevat de URL van de video, de duur van de dimensies en de coderingsindeling. De video-object bevat ook de URL van een miniatuur van de video en dimensies van de miniatuur.
+De [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) antwoord bevat een lijst met video's die Bing beschouwd zijn relevant zijn voor de query. Elke [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) in de lijst bevat de URL van de video, de duur van de dimensies en de coderingsindeling. Het Video-object bevat ook de URL van een miniatuur van de video en de afmetingen van de miniatuur.
 
 ```json
 {
@@ -166,13 +166,13 @@ Afhankelijk van het apparaat van de gebruiker, zou u doorgaans een subset van de
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
 -->
 
-Als de gebruiker de muisaanwijzer op de miniatuur kunt u `motionThumbnailUrl` een miniatuur versie van de video afspelen. Zorg ervoor dat de miniatuur beweging van het kenmerk wanneer u deze weergeven.
+Als de gebruiker de muisaanwijzer op de miniatuur kunt u `motionThumbnailUrl` een miniatuur versie van de video afspelen. Vergeet niet om het kenmerk motionThumbnailUrl in te stellen wanneer u de miniatuur weergeeft.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-Als de gebruiker op de miniatuur klikt, wordt het volgende zijn de video bekijken van de opties:
+Als de gebruiker op de miniatuur klikt, zijn dit de opties voor het bekijken van de video:
 
 - Gebruik `hostPageUrl` om weer te geven van de video op de host-website (bijvoorbeeld YouTube)
 - Gebruik `webSearchUrl` om weer te geven van de video in de Bing video-browser
@@ -182,7 +182,7 @@ Zie voor meer informatie over de video antwoord en video's [Video zoeken-API](..
 
 ## <a name="news-answer"></a>Nieuwsantwoord
 
-De [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) antwoord bevat een lijst met nieuwsartikelen die Bing beschouwd zijn relevant zijn voor de query. Elke [nieuwsartikel](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) bevat in de lijst met de naam, beschrijving en URL van het artikel naar het artikel op de website van de host. Als u het artikel bevat een afbeelding, bevat het object een miniatuur van de installatiekopie.
+De [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) antwoord bevat een lijst met nieuwsartikelen die Bing beschouwd zijn relevant zijn voor de query. Elk [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) in de lijst bevat de naam en beschrijving van het artikel, plus de URL naar het artikel op de website van de host. Als in het artikel een afbeelding staat, bevat het object een miniatuur van de afbeelding.
 
 ```json
 {
@@ -205,7 +205,7 @@ De [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-
 }, ...
 ```
 
-Afhankelijk van het apparaat van de gebruiker, zou u een subset van de nieuwsartikelen met een optie voor de gebruiker om de resterende artikelen weer te geven weergeven. Gebruik `name` en `url` te maken van een hyperlink waarop de gebruiker naar het nieuwsartikel op de site van de host leidt. Als het artikel een afbeelding bevat, moet u de installatiekopie geklikt met `url`. Zorg ervoor dat u `provider` kenmerk van het artikel.
+Afhankelijk van het apparaat van de gebruiker, zou u een subset van de nieuwsartikelen met een optie voor de gebruiker om de resterende artikelen weer te geven weergeven. Gebruik `name` en `url` om een hyperlink te maken waarmee de gebruiker naar het nieuwsartikel op de site van de host gaat. Als het artikel een afbeelding bevat, moet u de installatiekopie geklikt met `url`. Vergeet niet om met `provider` bronvermelding toe te passen voor het artikel.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.

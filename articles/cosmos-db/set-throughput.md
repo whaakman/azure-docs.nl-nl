@@ -6,36 +6,36 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 984d4675aa96a890e7fa14f45eb6412bbd2ddc6f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278885"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161681"
 ---
-# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Doorvoer inrichten voor Cosmos DB-containers en -databases
+# <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Doorvoer inrichten op Azure Cosmos-containers en databases
 
-Een Cosmos-database is een eenheid van het beheer voor een set met containers. Een database bestaat uit een verzameling van schema-agnostische containers. Een Cosmos-container is de eenheid van de schaalbaarheid voor doorvoer en opslag. Een container is horizontaal gepartitioneerd in een set van machines binnen een Azure-regio en is verdeeld over alle Azure-regio's die zijn gekoppeld aan uw Cosmos-account.
+Een Azure Cosmos-database is een eenheid van het beheer voor een set met containers. Een database bestaat uit een verzameling van schema-agnostische containers. Een Azure Cosmos-container is de schaalbaarheid voor doorvoer en opslag. Een container is horizontaal gepartitioneerd in een set van machines binnen een Azure-regio en is verdeeld over alle Azure-regio's die zijn gekoppeld aan uw Azure Cosmos-account.
 
-Azure Cosmos DB kunt u de doorvoer te configureren op twee granulaties - **Cosmos containers** en **Cosmos databases**.
+Azure Cosmos DB kunt u de doorvoer te configureren op twee granulaties - **containers van Azure Cosmos** en **databases van Azure Cosmos**.
 
-# <a name="setting-throughput-on-a-cosmos-container"></a>Doorvoer van de instelling voor een Cosmos-container  
+# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Doorvoer van de instelling voor een Azure Cosmos-container  
 
-De doorvoer die is ingericht voor een container van Cosmos is exclusief zijn gereserveerd voor de container. De container, ontvangt de ingerichte doorvoer voortdurend. De ingerichte doorvoer voor een container wordt met financiële ondersteund door Sla's. Zie voor meer informatie over het configureren van doorvoer voor een container [over het inrichten van doorvoer voor een container van Cosmos](how-to-provision-container-throughput.md).
+De doorvoer die is ingericht op een Azure Cosmos-container is exclusief zijn gereserveerd voor de container. De container, ontvangt de ingerichte doorvoer voortdurend. De ingerichte doorvoer voor een container wordt met financiële ondersteund door Sla's. Zie voor meer informatie over het configureren van doorvoer voor een container [over het inrichten van doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md).
 
 Instellen van de ingerichte doorvoer voor een container is de meest gebruikte optie. Terwijl u kunt de doorvoer voor een container elastisch schalen door in te richten van elke hoeveelheid doorvoer (ru's), kunt u de doorvoer voor de logische partitie (s) niet selectief opgeven. Wanneer de werkbelasting wordt uitgevoerd op een logische partitie meer dan de doorvoer die is toegewezen aan de specifieke logische partitie verbruikt, krijgt uw bewerkingen tarief beperkt. Wanneer er gelden enkele beperkingen optreedt, kunt u verhoogt de doorvoer voor de volledige container of Voer de bewerking opnieuw uit. Zie voor meer informatie over het partitioneren van [logische partities](partition-data.md).
 
 Het verdient aanbeveling om doorvoer te configureren op de granulatie van de container als u wilt dat gegarandeerde prestaties voor de container.
 
-Voor een container van Cosmos ingerichte doorvoer is gelijkmatig verdeeld over alle logische partities van de container. Omdat een of meer logische partities van een container worden gehost door een resourcepartitie, wordt de fysieke partities uitsluitend deel uitmaken van de container en ondersteuning voor de doorvoer die is ingericht voor de container. De volgende afbeelding ziet u hoe een resourcepartitie als host fungeert voor een of meer logische partities van een container:
+Voor een Azure Cosmos-container ingerichte doorvoer is gelijkmatig verdeeld over alle logische partities van de container. Omdat een of meer logische partities van een container worden gehost door een resourcepartitie, wordt de fysieke partities uitsluitend deel uitmaken van de container en ondersteuning voor de doorvoer die is ingericht voor de container. De volgende afbeelding ziet u hoe een resourcepartitie als host fungeert voor een of meer logische partities van een container:
 
 ![Resourcepartitie](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-cosmos-database"></a>Doorvoer instellen op een Cosmos-database
+# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Doorvoer instellen op een Azure Cosmos-database
 
-Wanneer u de doorvoer van een Cosmos-database inrichten, wordt de doorvoer gedeeld tussen alle containers in de database, tenzij u een ingerichte doorvoer op specifieke containers hebt opgegeven. Het delen van de database-doorvoer tussen de containers is vergelijkbaar met die als host fungeert voor een database in een computercluster. Omdat alle containers in een database de resources die beschikbaar is op een computer deelt, op een natuurlijke manier er voorspelbare prestaties op een specifieke container. Zie voor meer informatie over het configureren van de doorvoer van een database [ingerichte doorvoer van een Cosmos-database configureren](how-to-provision-database-throughput.md).
+Wanneer u de doorvoer voor een Azure Cosmos-database inrichten, wordt de doorvoer gedeeld tussen alle containers in de database, tenzij u een ingerichte doorvoer op specifieke containers hebt opgegeven. Het delen van de database-doorvoer tussen de containers is vergelijkbaar met die als host fungeert voor een database in een computercluster. Omdat alle containers in een database de resources die beschikbaar is op een computer deelt, op een natuurlijke manier er voorspelbare prestaties op een specifieke container. Zie voor meer informatie over het configureren van de doorvoer van een database [ingerichte doorvoer op een Azure Cosmos-database configureren](how-to-provision-database-throughput.md).
 
-Doorvoer van de instelling voor een Cosmos-database zorgt ervoor dat u de ingerichte doorvoer voortdurend ontvangt. Nadat alle containers in de database-share de ingerichte doorvoer biedt Cosmos DB geen dat een voorspelbare doorvoer garanties voor een bepaalde container in de database. Het gedeelte van de doorvoer die een specifieke container kan ontvangen, is afhankelijk van:
+Doorvoer van de instelling voor een Azure Cosmos-database zorgt ervoor dat u de ingerichte doorvoer voortdurend ontvangt. Nadat alle containers in de database-share de ingerichte doorvoer biedt Azure Cosmos DB geen dat een voorspelbare doorvoer garanties voor een bepaalde container in de database. Het gedeelte van de doorvoer die een specifieke container kan ontvangen, is afhankelijk van:
 
 * Het aantal containers
 * De keuze van de partitiesleutels weergeven voor de verschillende containers en
@@ -43,9 +43,9 @@ Doorvoer van de instelling voor een Cosmos-database zorgt ervoor dat u de ingeri
 
 Het verdient aanbeveling om de doorvoer van een database te configureren wanneer u wilt delen van de doorvoer in meerdere containers, maar niet wilt reserveren van de doorvoer voor een bepaalde container. Hier volgen enkele voorbeelden waar het gewenste doorvoer voor het inrichten op het databaseniveau van de is:
 
-* Een database de ingerichte doorvoer voor een set van containers te delen is handig voor een toepassing met meerdere tenants. Elke gebruiker kan worden vertegenwoordigd door een unieke Cosmos-container.
+* Een database de ingerichte doorvoer voor een set van containers te delen is handig voor een toepassing met meerdere tenants. Elke gebruiker kan worden vertegenwoordigd door een afzonderlijke Azure-Cosmos-container.
 
-* Een database de ingerichte doorvoer voor een set van containers te delen is handig wanneer u van een NoSQL-database (zoals MongoDB, Cassandra migreert) die worden gehost vanuit een cluster met virtuele machines of vanuit on-premises fysieke servers met Cosmos DB. U kunt zien van de ingerichte doorvoer in uw Cosmos-database geconfigureerd als een logische equivalent (maar meer rendabele en flexibele) met die van de computercapaciteit van uw MongoDB- of Cassandra-cluster.  
+* Een database de ingerichte doorvoer voor een set van containers te delen is handig wanneer u van een NoSQL-database (zoals MongoDB, Cassandra migreert) die worden gehost vanuit een cluster met virtuele machines of vanuit on-premises fysieke servers naar Azure Cosmos DB. U kunt zien van de ingerichte doorvoer in uw Azure Cosmos-database geconfigureerd als een logische equivalent (maar meer rendabele en flexibele) met die van de computercapaciteit van uw MongoDB- of Cassandra-cluster.  
 
 Op een willekeurig moment tijd wordt opgelost, wordt de doorvoer die is toegewezen aan een container in een database verdeeld over alle logische partities van die container. Wanneer u containers delen ingerichte doorvoer voor een database hebt, kunt u de doorvoer niet selectief toepassen op een specifieke container of een logische partitie. Als de werkbelasting van een logische partitie meer dan de doorvoer die is toegewezen aan een specifieke logische partitie verbruikt, worden uw bewerkingen tarief beperkt. Wanneer er gelden enkele beperkingen optreedt, kunt u verhoogt de doorvoer voor de volledige container of Voer de bewerking opnieuw uit. Zie voor meer informatie over het partitioneren van [logische partities](partition-data.md).
 
@@ -53,11 +53,11 @@ Meerdere logische partities delen van de doorvoer die is ingericht met een datab
 
 ![Resourcepartitie](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>Doorvoer instellen op een Cosmos-database en een container
+## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Doorvoer instellen op een Azure Cosmos-database en een container
 
-U kunt de twee modellen combineren, is inrichting doorvoer op zowel de database en de container toegestaan. Het volgende voorbeeld laat zien hoe om te worden ingericht met doorvoer in een Cosmos-database en een container:
+U kunt de twee modellen combineren, is inrichting doorvoer op zowel de database en de container toegestaan. Het volgende voorbeeld laat zien hoe om te worden ingericht met doorvoer op een Azure Cosmos-database en een container:
 
-* U kunt een Cosmos-database met de naam 'Z' met een ingerichte doorvoer van 'K' ru's maken. 
+* U kunt een Azure Cosmos-database met de naam 'Z' met ingerichte doorvoer van 'K' ru's maken. 
 * Maak vervolgens vijf containers met de naam A, B, C, D en E in de database.
 * U kunt expliciet 'P' ru's van de ingerichte doorvoer voor de container "B" configureren.
 * De 'K' RUs-doorvoer wordt gedeeld door de vier containers: A, C, D en E. De exacte hoeveelheid doorvoer beschikbaar voor A, C, D of E variëren en zijn er geen Sla's voor elke afzonderlijke containerdoorvoer.
@@ -80,6 +80,6 @@ U kunt de twee modellen combineren, is inrichting doorvoer op zowel de database 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [logische partities](partition-data.md)
-* Informatie over [over het inrichten van doorvoer voor een Cosmos-container](how-to-provision-container-throughput.md)
-* Informatie over [hoe u de doorvoer voor een Cosmos-database inrichten](how-to-provision-database-throughput.md)
+* Informatie over [over het inrichten van doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md)
+* Informatie over [hoe u de doorvoer voor een Azure Cosmos-database inrichten](how-to-provision-database-throughput.md)
 

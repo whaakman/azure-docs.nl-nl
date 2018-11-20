@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 496afab869d8cf1b7b00791913c3082e31b45327
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633917"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977111"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: problemen met de agent of de extensie
 
@@ -77,9 +77,9 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **2 oorzaak: [de Backup-extensie om te werken of te laden is mislukt](#the-backup-extension-fails-to-update-or-load)**  
 **3 oorzaak: [de virtuele machine heeft geen internettoegang](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - bewerking van VMSnapshot-extensie is mislukt
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - bewerking van VMSnapshot-extensie is mislukt
 
-**Foutcode**: ExtentionOperationFailed <br>
+**Foutcode**: ExtentionOperationFailedForManagedDisks <br>
 **Foutbericht**: bewerking van VMSnapshot-extensie is mislukt<br>
 
 Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Backup-service, start back-up van de taak door te communiceren met de back-up VM-extensie om een point-in-time-momentopname. Een van de volgende voorwaarden mogelijk te voorkomen dat de momentopname die wordt geactiveerd. Als de momentopname niet is geactiveerd, kan een back-fout optreden. De volgende stappen voor probleemoplossing in de volgorde weergegeven en voer de bewerking vervolgens opnieuw uit:  
@@ -205,7 +205,7 @@ De volgende voorwaarden kunnen leiden tot de taak momentopname is mislukt:
 | Oorzaak | Oplossing |
 | --- | --- |
 | De status van de virtuele machine niet correct gerapporteerd omdat de virtuele machine wordt afgesloten in Remote Desktop Protocol (RDP). | Als u de virtuele machine in RDP afsluit, controleert u de portal om te bepalen of de status van de virtuele machine juist is. Als dit niet juist is, sluit u de virtuele machine in de portal met behulp van de **afsluiten** optie op het dashboard voor VM's. |
-| De virtuele machine kan de host of fabric-adres ophalen van DHCP. | DHCP moet zijn ingeschakeld in de Gast voor de IaaS-VM back-up om te werken. Als de virtuele machine de host of fabric-adres niet uit de DHCP-reacties 245 ophalen kan, kan het downloaden of geen extensies worden uitgevoerd. Als u een statisch privé IP-adres nodig hebt, kunt u deze via het platform configureren. De DHCP-optie binnen de virtuele machine moet naar links worden ingeschakeld. Zie voor meer informatie, [instellen van een statische interne privé IP-adres](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| De virtuele machine kan de host of fabric-adres ophalen van DHCP. | DHCP moet zijn ingeschakeld in de Gast voor de IaaS-VM back-up om te werken. Als de virtuele machine de host of fabric-adres niet uit de DHCP-reacties 245 ophalen kan, kan het downloaden of geen extensies worden uitgevoerd. Als u een statisch privé IP-adres nodig hebt, moet u het configureren via de **Azure Portal** of **PowerShell** en zorg ervoor dat de DHCP-optie binnen de virtuele machine is ingeschakeld. Zie voor meer informatie over het instellen van een statisch IP-adres via de PowerShell [klassieke VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) en [Resource Manager-VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>De back-upextensie om te werken of te laden is mislukt
 Als extensies kunnen niet worden geladen, wordt back-up mislukt, omdat een momentopname kan niet worden gemaakt.

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: dd1fff79d6f611ae29307d666860d3740f4372f1
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817095"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162123"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB-server-side-programmering: opgeslagen procedures, databasetriggers en UDF's
 
@@ -733,7 +733,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-En het volgende voorbeeld laat zien hoe een door de gebruiker gedefinieerde functie (UDF's) maken en deze gebruiken in een [SQL-query](sql-api-sql-query.md).
+En het volgende voorbeeld laat zien hoe een door de gebruiker gedefinieerde functie (UDF's) maken en deze gebruiken in een [SQL-query](how-to-sql-query.md).
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()
@@ -752,7 +752,7 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 }
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Alle Azure Cosmos DB-bewerkingen kunnen worden uitgevoerd op een RESTful manier. Opgeslagen procedures, triggers en gebruikersgedefinieerde functies kunnen worden geregistreerd bij een verzameling met behulp van HTTP POST. Het volgende voorbeeld ziet u informatie over het registreren van een opgeslagen procedure:
 
     POST https://<url>/sprocs/ HTTP/1.1

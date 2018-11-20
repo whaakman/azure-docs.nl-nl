@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567947"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165642"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -77,6 +77,9 @@ Als uw organisatie gebruikmaakt van een hybride identiteitsoplossing met Pass th
 * Na een storing van de on-premises (bijvoorbeeld in een ransomware-aanval) zal het mogelijk om over te schakelen via voor het gebruik van [cloud-verificatie met behulp van synchronisatie van wachtwoordhashes](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Deze back-verificatiemethode kunt u blijven toegang houden tot apps die zijn geconfigureerd voor verificatie met Azure Active Directory, met inbegrip van Office 365. IT-personeel moet in dit geval niet om gebruik te maken persoonlijke e-mailaccounts voor het delen van gegevens tot de on-premises onderbreking is opgelost.
 
 Meer informatie over hoe u [wachtwoordhashsynchronisatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) werkt.
+
+> [!NOTE]
+> Als u synchronisatie van wachtwoordhashes inschakelen en met behulp van Azure AD Domain services,-hashes van Kerberos (AES-256) en (optioneel)-hashes van NTLM-(RC4, geen salt) wordt ook worden versleuteld en gesynchroniseerd met Azure AD. 
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementeren van AD FS slimme van het extranet
 

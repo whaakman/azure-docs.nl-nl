@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214678"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976182"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights met behulp van AI voor bewaking en probleemoplossing van databaseprestaties
 
@@ -41,7 +41,7 @@ Intelligent Insights is een unieke mogelijkheid van ingebouwde intelligentie van
 
 Intelligent Insights analyseert de prestaties van de database door het vergelijken van de werkbelasting van het afgelopen uur van de database met de werkbelasting van de afgelopen zeven dagen basislijn. Database-workload van query's blijkt dat de belangrijkste op de databaseprestaties, zoals de grootste en meest herhaalde query's bestaat. Omdat elke database uniek op basis van de structuur, gegevens, gebruik en toepassingen is, is de basislijn van elke werkbelasting die wordt gegenereerd specifieke en uniek is voor een afzonderlijk exemplaar. Intelligent Insights, onafhankelijk van de basislijn werkbelasting ook absolute operationele drempelwaarden bewaakt en detecteert problemen met overmatige wachttijden, kritieke uitzonderingen en problemen met query-parameteriseringen invloed kunnen hebben op prestaties.
 
-Nadat een prestatieprobleem degradatie is gedetecteerd door meerdere waargenomen metrische gegevens met behulp van kunstmatige intelligentie, wordt analyse uitgevoerd. Een logboek met diagnostische gegevens wordt gegenereerd met een intelligente inzicht in wat met uw database gebeurt er. Intelligent Insights kunt u eenvoudig is het prestatieprobleem database bijhouden van de eerste weergave totdat het probleem zou moeten. Elke gedetecteerde probleem wordt bijgehouden gedurende de levensduur van de eerste probleem detectie en verificatie van de prestaties verbeteren voor de voltooiing. Updates zijn beschikbaar in de logboekbestanden met diagnostische gegevens om de 15 minuten.
+Nadat een prestatieprobleem degradatie is gedetecteerd door meerdere waargenomen metrische gegevens met behulp van kunstmatige intelligentie, wordt analyse uitgevoerd. Een logboek met diagnostische gegevens wordt gegenereerd met een intelligente inzicht in wat met uw database gebeurt er. Intelligent Insights kunt u eenvoudig is het prestatieprobleem database bijhouden van de eerste weergave totdat het probleem zou moeten. Elke gedetecteerde probleem wordt bijgehouden gedurende de levensduur van de eerste probleem detectie en verificatie van de prestaties verbeteren voor de voltooiing.
 
 ![Database prestaties analysis-werkstroom](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 

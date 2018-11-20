@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: sngun
-ms.openlocfilehash: d7188270ff5b1edd3b5e396be0cd5fd22e6123c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d85cada87a6934921bf2775f12c016a88d9fbe9e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855503"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164011"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Werken met datums in Azure Cosmos DB
 Azure Cosmos DB biedt schemaflexibiliteit en geavanceerde indexeermogelijkheden via een systeemeigen [JSON](http://www.json.org) gegevensmodel. Alle Azure Cosmos DB-resources, zoals databases, containers, documenten en opgeslagen procedures worden gemodelleerd en opgeslagen als JSON-documenten. Als een vereiste voor draagbare wordt JSON (en Azure Cosmos DB) ondersteunt een kleine set basistypen: tekenreeks, getal, Booleaanse waarde, matrix, Object en Null. Echter, JSON is flexibel en kunnen ontwikkelaars en frameworks voor complexere typen met behulp van deze primitieven en samenstellen van deze objecten of-matrices. 
@@ -68,7 +68,7 @@ Bereik-query's zijn algemene met datum-/ tijdwaarden. Als u wilt zoeken naar all
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
-U kunt meer informatie over het configureren van de indexing beleid op [Azure Cosmos DB indexeren beleid](indexing-policies.md).
+U kunt meer informatie over het configureren van de indexing beleid op [Azure Cosmos DB indexeren beleid](index-policy.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Een query uitvoeren op datum/tijd in LINQ
 De SQL-SDK voor .NET ondersteunt automatisch het opvragen van gegevens die zijn opgeslagen in Azure Cosmos DB via LINQ. Bijvoorbeeld, toont het volgende fragment een LINQ-query die filters orders die zijn verzonden in de afgelopen drie dagen.
@@ -79,11 +79,11 @@ De SQL-SDK voor .NET ondersteunt automatisch het opvragen van gegevens die zijn 
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-U kunt meer informatie over Azure Cosmos DB SQL-querytaal en de LINQ-provider op [uitvoeren van query's Cosmos DB](sql-api-sql-query.md).
+U kunt meer informatie over Azure Cosmos DB SQL-querytaal en de LINQ-provider op [uitvoeren van query's Cosmos DB](how-to-sql-query.md).
 
 In dit artikel hebben bekeken hoe het opslaan, index- en het opvragen van datum/tijd in Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Downloaden en uitvoeren van de [codevoorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Meer informatie over [SQL-query's](sql-api-sql-query.md)
-* Meer informatie over [Azure Cosmos DB indexeren van beleid](indexing-policies.md)
+* Meer informatie over [SQL-query's](how-to-sql-query.md)
+* Meer informatie over [Azure Cosmos DB indexeren van beleid](index-policy.md)

@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1039cde45824491bcc82f324c05e4819e66355e0
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628542"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975989"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Verplaatsen van gegevens van ODBC-gegevensopslag met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -355,33 +355,6 @@ Zie voor meer informatie over het toewijzen van kolommen in de brongegevensset n
 
 ## <a name="repeatable-read-from-relational-sources"></a>Herhaalbare lezen van relationele bronnen
 Bij het kopiëren van gegevens van relationele gegevens worden opgeslagen, houd er rekening mee om te voorkomen dat ongewenste resultaten herhaalbaarheid. In Azure Data Factory, kunt u een segment handmatig opnieuw. U kunt ook beleid voor opnieuw proberen voor een gegevensset configureren zodat een segment wordt opnieuw uitgevoerd wanneer een fout optreedt. Wanneer een segment wordt opnieuw uitgevoerd in beide gevallen, moet u om ervoor te zorgen dat de dezelfde gegevens worden gelezen ongeacht hoe vaak een segment wordt uitgevoerd. Zie [Repeatable leesrechten voor relationele bronnen](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## <a name="ge-historian-store"></a>GE Historian store
-U maakt een ODBC-gekoppelde service om te koppelen een [GE Proficy Historian (nu GE Historian)](http://www.geautomation.com/products/proficy-historian) gegevens opslaan naar een Azure data factory, zoals wordt weergegeven in het volgende voorbeeld:
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-Data Management Gateway installeren op een on-premises computer en de gateway registreren bij de portal. De gateway is geïnstalleerd op uw on-premises computer maakt gebruik van het ODBC-stuurprogramma voor GE Historian verbinding maken met het gegevensarchief GE Historian. Installeer het stuurprogramma daarom als deze nog niet is geïnstalleerd op de gatewaycomputer. Zie [verbinding](#enabling-connectivity) sectie voor meer informatie.
-
-Voordat u het archief GE Historian in een Data Factory-oplossing gebruikt, moet u controleren of de gateway verbinding kan maken met het gegevensarchief volgens de instructies in de volgende sectie.
-
-Lees het artikel vanaf het begin voor een gedetailleerd overzicht van het gebruik van ODBC-gegevens worden opgeslagen als de bron-gegevensopslag in een kopieerbewerking.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>Verbindingsproblemen oplossen
 Voor het oplossen van problemen met verbindingen, gebruikt u de **Diagnostics** tabblad van **Data Management Gateway Configuratiebeheer**.

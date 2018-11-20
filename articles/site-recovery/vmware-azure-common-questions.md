@@ -4,15 +4,15 @@ description: In dit artikel bevat een overzicht van veelgestelde vragen bij het 
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636812"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162480"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -47,14 +47,20 @@ Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodi
 ## <a name="on-premises"></a>On-premises
 
 ### <a name="what-do-i-need-on-premises"></a>Wat kan ik on-premises nodig?
-In on-premises moet u Site Recovery-onderdelen geïnstalleerd op een enkele VMware-VM. U moet ook een VMware-infrastructuur, met ten minste één ESXi-host, en het is raadzaam een vCenter-server. Bovendien moet u een of meer virtuele VMware-machines te repliceren. [Meer informatie](vmware-azure-architecture.md) over VMware naar Azure-architectuur.
 
-De on-premises configuratieserver kan worden geïmplementeerd in een van de volgende twee manieren
+In on-premises hebt u het volgende nodig:
+- Site Recovery-onderdelen geïnstalleerd op een enkele VMware-VM.
+- Een VMware-infrastructuur, met ten minste één ESXi-host, en we raden u aan een vCenter-server.
+- Een of meer virtuele VMware-machines te repliceren.
 
-1. Implementeren met behulp van een VM-sjabloon met de configuratieserver vooraf zijn geïnstalleerd. [Lees hier meer](vmware-azure-tutorial.md#download-the-vm-template).
-2. Implementeren met behulp van de installatie op een computer met Windows Server 2016 van uw keuze. [Lees hier meer](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Meer informatie](vmware-azure-architecture.md) over VMware naar Azure-architectuur.
 
-Kies voor het detecteren van de aan de slag procedure voor het implementeren van de configuratieserver op uw eigen Windows Server-machines in het doel van de beveiliging van inschakelen van de beveiliging, **naar Azure > niet gevirtualiseerd/Overig**.
+De on-premises configuratieserver kan als volgt worden geïmplementeerd:
+
+- We adviseren dat u de configuratieserver implementeren als een VMware-VM gebruiken een OVA-sjabloon met de configuratieserver vooraf zijn geïnstalleerd.
+- Als u niet een sjabloon om een bepaalde reden gebruiken, kunt u de configuratieserver handmatig instellen. [Meer informatie](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Waar repliceer on-premises machines naar?
 Gegevens worden gerepliceerd naar Azure storage. Wanneer u een failover uitvoert, maakt Site Recovery automatisch virtuele Azure-machines uit de storage-account.

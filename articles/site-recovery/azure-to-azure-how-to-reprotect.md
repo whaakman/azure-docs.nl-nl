@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f890fc6e854f1d56d396c56ddfd8cc5a0481282f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012510"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976941"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure-VM's opnieuw beveiligen een failover naar de primaire regio
 
@@ -83,4 +83,4 @@ Wanneer u een taak opnieuw beveiligen activeert en de doel-VM en de schijven nog
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat de virtuele machine is beveiligd, kunt u een failover starten. De failover de virtuele machine in de secundaire regio wordt afgesloten en wordt gemaakt en virtuele machine wordt opgestart in de primaire regio, met enkele kleine downtime. Wij raden aan u een tijd dienovereenkomstig kiest en dat u een testfailover uitvoeren, maar het initiëren van een volledige failover naar de primaire site. [Meer informatie](site-recovery-failover.md) over failover.
+Nadat de virtuele machine is beveiligd, kunt u een failover starten. De failover de virtuele machine in de secundaire regio wordt afgesloten en wordt gemaakt en virtuele machine wordt opgestart in de primaire regio, met enkele kleine downtime. U wordt aangeraden u een tijd dienovereenkomstig kiest en dat u een testfailover uitvoeren voordat u begint een volledige failover naar de primaire site. [Meer informatie](site-recovery-failover.md) over failover.

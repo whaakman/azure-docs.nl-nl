@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dbd3d4e34df3bf918c831a3d9c74de8a9015b50e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623941"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163602"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Naslaginformatie over Azure Cosmos DB SQL-syntaxis
 
-Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat documentatie voor de SQL-query language-syntaxis, die compatibel met SQL API-accounts is. Zie voor een overzicht van voorbeeld van de SQL-query's, [SQL-query's in Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat documentatie voor de SQL-query language-syntaxis, die compatibel met SQL API-accounts is. Zie voor een overzicht van voorbeeld van de SQL-query's, [SQL-query's in Cosmos DB](how-to-sql-query.md).  
   
 Ga naar de [testomgeving voor Query's](http://www.documentdb.com/sql/demo) kunt u Cosmos DB uitproberen en SQL-query's uitvoeren in de gegevensset.  
   
 ## <a name="select-query"></a>SELECT-query  
-Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet de bron in de component FROM is geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de selectielijst. De conventies voor het beschrijven van de SELECT-instructies zijn in de sectie syntaxis conventies tabelindeling. Zie voor voorbeelden van [SELECT-query-voorbeelden](sql-api-sql-query.md#SelectClause)
+Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet de bron in de component FROM is geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de selectielijst. De conventies voor het beschrijven van de SELECT-instructies zijn in de sectie syntaxis conventies tabelindeling. Zie voor voorbeelden van [SELECT-query-voorbeelden](how-to-sql-query.md#SelectClause)
   
 **Syntaxis**  
   
@@ -69,7 +69,7 @@ De querytaal biedt ondersteuning voor T-SQL-stijl opmerkingen, zoals
 Terwijl uit witruimte bestaat en opmerkingen niet een betekenis in de grammatica hebt, moeten ze worden gebruikt voor het scheiden van tokens. Bijvoorbeeld: `-1e5` is één getal token, even`: – 1 e5` wordt-token van een minteken, gevolgd door nummer 1 en id e5.  
 
 ##  <a name="bk_select_query"></a> SELECT-component  
-De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde. Zie voor voorbeelden van [SELECT-queryvoorbeelden](sql-api-sql-query.md#SelectClause).
+De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde. Zie voor voorbeelden van [SELECT-queryvoorbeelden](how-to-sql-query.md#SelectClause).
 
 **Syntaxis**  
 
@@ -132,7 +132,7 @@ Beide `SELECT <select_list>` en `SELECT *` 'syntactische suiker' zijn en kan ook
 [SELECT-component](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM-component  
-Hiermee geeft u de bron- of gekoppelde gegevensbronnen. De component FROM is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Het doel van deze component is om op te geven van de gegevensbron waarop de query moet functioneren. De hele container is vaak de bron, maar één een subset van de container in plaats daarvan kunt opgeven. Als deze component niet opgegeven is, wordt nog steeds andere componenten uitgevoerd alsof de FROM-component die één document. Zie voor voorbeelden van [uit component-voorbeelden](sql-api-sql-query.md#FromClause)
+Hiermee geeft u de bron- of gekoppelde gegevensbronnen. De component FROM is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Het doel van deze component is om op te geven van de gegevensbron waarop de query moet functioneren. De hele container is vaak de bron, maar één een subset van de container in plaats daarvan kunt opgeven. Als deze component niet opgegeven is, wordt nog steeds andere componenten uitgevoerd alsof de FROM-component die één document. Zie voor voorbeelden van [uit component-voorbeelden](how-to-sql-query.md#FromClause)
   
 **Syntaxis**  
   
@@ -216,7 +216,7 @@ Een expressie voor een container zijn binnen het bereik van container of binnen 
   
 In de huidige release ondersteunt Cosmos DB inner joins. Lid worden van aanvullende mogelijkheden worden aangebracht. 
 
-Inner joins leiden tot een volledige vectorproduct van de sets die deel uitmaken van de join. Het resultaat van een join N manier is een set met tuples van de N-element, waarbij elke waarde in de tuple is gekoppeld aan de alias instellen die deel uitmaken van de join en kan worden geopend door te verwijzen naar deze alias in andere componenten. Zie voor voorbeelden van [JOIN sleutelwoord voorbeelden](sql-api-sql-query.md#Joins)
+Inner joins leiden tot een volledige vectorproduct van de sets die deel uitmaken van de join. Het resultaat van een join N manier is een set met tuples van de N-element, waarbij elke waarde in de tuple is gekoppeld aan de alias instellen die deel uitmaken van de join en kan worden geopend door te verwijzen naar deze alias in andere componenten. Zie voor voorbeelden van [JOIN sleutelwoord voorbeelden](how-to-sql-query.md#Joins)
   
 De evaluatie van de join, is afhankelijk van het bereik van de context van de deelnemende sets:  
   
@@ -311,7 +311,7 @@ Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... 
  [SELECT-component](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE-component  
- Hiermee geeft u de zoekvoorwaarde voor de documenten die zijn geretourneerd door de query. Zie voor voorbeelden van [WHERE-component voorbeelden](sql-api-sql-query.md#WhereClause)
+ Hiermee geeft u de zoekvoorwaarde voor de documenten die zijn geretourneerd door de query. Zie voor voorbeelden van [WHERE-component voorbeelden](how-to-sql-query.md#WhereClause)
   
  **Syntaxis**  
   
@@ -336,7 +336,7 @@ WHERE <filter_condition>
  Opdat het document dat moet worden geretourneerd van een expressie die is opgegeven als filter moet voorwaarde resulteren in waar. Alleen Booleaanse waarde ' True ', voldoen aan de voorwaarde, een andere waarde: niet-gedefinieerde, null, ingesteld op false, getal, matrix of Object zal voldoen niet aan de voorwaarde.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY-component  
- Hiermee geeft u de sorteervolgorde voor de resultaten geretourneerd door de query. Zie voor voorbeelden van [ORDER BY-component-voorbeelden](sql-api-sql-query.md#OrderByClause)
+ Hiermee geeft u de sorteervolgorde voor de resultaten geretourneerd door de query. Zie voor voorbeelden van [ORDER BY-component-voorbeelden](how-to-sql-query.md#OrderByClause)
   
  **Syntaxis**  
   
@@ -374,7 +374,7 @@ ORDER BY <sort_specification>
  Terwijl de querygrammatica biedt ondersteuning voor meerdere order met eigenschappen, ondersteunt de Cosmos DB-query-runtime sorteren alleen tegen één eigenschap, en alleen de namen van eigenschappen (niet tegen berekende eigenschappen). Sorteren is ook vereist dat het indexeringsbeleid een index van het bereik voor de eigenschap en het opgegeven type, met de maximale precisie bevat. Raadpleeg de indexering beleid-documentatie voor meer informatie.  
   
 ##  <a name="bk_scalar_expressions"></a> Scalaire expressies  
- Een scalaire expressie die is een combinatie van tekens en operators die kunnen worden geëvalueerd om te verkrijgen van een enkele waarde. Eenvoudige expressies mag bestaan uit constanten, verwijzen naar eigenschappen, matrix-element verwijst naar, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies operators gebruiken. Zie voor voorbeelden van [scalaire expressies voorbeelden](sql-api-sql-query.md#scalar-expressions)
+ Een scalaire expressie die is een combinatie van tekens en operators die kunnen worden geëvalueerd om te verkrijgen van een enkele waarde. Eenvoudige expressies mag bestaan uit constanten, verwijzen naar eigenschappen, matrix-element verwijst naar, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies operators gebruiken. Zie voor voorbeelden van [scalaire expressies voorbeelden](how-to-sql-query.md#scalar-expressions)
   
  Zie voor meer informatie op basis van waarden dat scalaire expressie die u mogelijk [constanten](#bk_constants) sectie.  
   
@@ -2905,6 +2905,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Volgende stappen  
 
-- [SQL-syntaxis en SQL-query voor Cosmos DB](sql-api-sql-query.md)
+- [SQL-syntaxis en SQL-query voor Cosmos DB](how-to-sql-query.md)
 
 - [Documentatie voor cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

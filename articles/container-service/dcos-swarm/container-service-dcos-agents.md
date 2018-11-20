@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17029f51be9fed8fc36c5f919ece84acbf0461d9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060107"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976725"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Agentpools van DC/OS voor Azure Container Service
 DC/OS-clusters in Azure Container Service bevatten agentknooppunten in twee groepen, een openbare groep en een persoonlijke groep. Een toepassing kan worden geïmplementeerd met een groep, die betrekking hebben op toegankelijkheid tussen machines in uw containerservice. De machines kunnen worden blootgesteld aan internet (openbaar) of interne (particuliere) bewaard. Dit artikel geeft een kort overzicht van waarom er openbare en privé-groepen zijn.
@@ -37,7 +37,7 @@ De agentpools van DC/OS In Azure Container Service zijn als volgt gemaakt:
 De persoonlijke groep en de openbare groep zijn schaalsets voor virtuele machine van Azure. U kunt het formaat van deze groepen na de implementatie.
 
 ## <a name="use-agent-pools"></a>Agentpools gebruiken
-Standaard **Marathon** implementeert een nieuwe toepassing aan de *persoonlijke* agentknooppunten. U moet expliciet de toepassing implementeren in de *openbare* knooppunten tijdens het maken van de toepassing. Selecteer de **optioneel** tabblad en voer **slave_public** voor de **geaccepteerde resourcerollen** waarde. Dit proces wordt gedocumenteerd [hier](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) en in de [DC/OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentatie.
+Standaard **Marathon** implementeert een nieuwe toepassing aan de *persoonlijke* agentknooppunten. U moet expliciet de toepassing implementeren in de *openbare* knooppunten tijdens het maken van de toepassing. Selecteer de **optioneel** tabblad en voer **slave_public** voor de **geaccepteerde resourcerollen** waarde. Dit proces wordt gedocumenteerd [hier](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) en in de [DC/OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/) documentatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [beheer van uw DC/OS-containers](container-service-mesos-marathon-ui.md).

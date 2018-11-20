@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29737bbe244f9a6fb6799c4ce770a3d2615342aa
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 2eefa639ca5f13d23c3b2048436d739a01bd0dfa
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820610"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975615"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Kaart-besturingselementen toevoegen aan Azure Maps
 
@@ -26,7 +26,7 @@ Dit artikel leest u hoe kaart-besturingselementen toevoegen aan een kaart. Ook l
 
 Het eerste codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
-Zoombesturingselement voegt de mogelijkheid om in te zoomen en afmelden bij de kaart. Het tweede codeblok maakt een uitzoomen-object met behulp van de atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. De zoomknop valt binnen de kaart **gebeurtenislistener** om te controleren of het nadat de kaart wordt geladen volledig is geladen.
+Zoombesturingselement voegt de mogelijkheid om in te zoomen en afmelden bij de kaart. Het tweede codeblok maakt een uitzoomen-object met behulp van de atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. De zoomknop valt binnen de kaart **gebeurtenislistener** om te controleren of het nadat de kaart wordt geladen volledig is geladen.
 
 ## <a name="add-pitch-control"></a>Tekenbreedte besturingselement toevoegen
 
@@ -35,7 +35,7 @@ Zoombesturingselement voegt de mogelijkheid om in te zoomen en afmelden bij de k
 
 Het eerste codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
-Tekenbreedte besturingselement voegt de mogelijkheid om te wijzigen van de breedte van de kaart. Het tweede blok van code maakt een presentatie-Control-object met behulp van de atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. Het besturingselement inspiratie valt binnen de kaart **gebeurtenislistener** om te controleren of het nadat de kaart wordt geladen volledig is geladen.
+Tekenbreedte besturingselement voegt de mogelijkheid om te wijzigen van de breedte van de kaart. Het tweede blok van code maakt een presentatie-Control-object met behulp van de atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. Het besturingselement inspiratie valt binnen de kaart **gebeurtenislistener** om te controleren of het nadat de kaart wordt geladen volledig is geladen.
 
 ## <a name="add-compass-control"></a>Kompas besturingselement toevoegen
 
@@ -44,7 +44,7 @@ Tekenbreedte besturingselement voegt de mogelijkheid om te wijzigen van de breed
 
 Het eerste codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
-Het tweede blok van code maakt een kompas-Control-object met behulp van de atlas [kompas besturingselement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). Ook voegt het kompas besturingselement toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. Het besturingselement kompas valt binnen de kaart **gebeurtenislistener** om te controleren of het nadat de kaart wordt geladen volledig is geladen.
+Het tweede blok van code maakt een kompas-Control-object met behulp van de atlas [kompas besturingselement](/javascript/api/azure-maps-control/atlas.controls.compasscontrol). Ook voegt het kompas besturingselement toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. Het besturingselement kompas valt binnen de kaart **gebeurtenislistener** om te controleren of het nadat de kaart wordt geladen volledig is geladen.
 
 ## <a name="a-map-with-all-controls"></a>Een kaart met alle besturingselementen
 
@@ -53,13 +53,13 @@ Het tweede blok van code maakt een kompas-Control-object met behulp van de atlas
 
 Het eerste codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
-Het tweede codeblok maakt een kompas-Control-object met behulp van de atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
+Het tweede codeblok maakt een kompas-Control-object met behulp van de atlas [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
 
-Het derde blok van code maakt een uitzoomen-object met behulp van de atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
+Het derde blok van code maakt een uitzoomen-object met behulp van de atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
 
-De vierde codeblok wordt gemaakt van een presentatie-Control-object met behulp van de atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
+De vierde codeblok wordt gemaakt van een presentatie-Control-object met behulp van de atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
 
-Het laatste blok van code wordt een Stijlkiezer-object gemaakt met behulp van de atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. Alle controleobjecten worden toegevoegd binnen de kaart **gebeurtenislistener** om ervoor te zorgen dat deze worden geladen nadat de kaart volledig is geladen.
+Het laatste blok van code wordt een Stijlkiezer-object gemaakt met behulp van de atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) en voegt deze toe aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. Alle controleobjecten worden toegevoegd binnen de kaart **gebeurtenislistener** om ervoor te zorgen dat deze worden geladen nadat de kaart volledig is geladen.
 
 De volgorde van de objecten van het besturingselement in het script bepaalt de volgorde waarin ze worden weergegeven op de kaart. U wijzigt de volgorde van de besturingselementen op de kaart, kunt u de volgorde in het script wijzigen.
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 67cddf5eb3f675337afbb7e620bd135383f20960
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685443"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976074"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -43,8 +43,15 @@ ms.locfileid: "51685443"
 
 ### <a name="v2-builds"></a>v2-builds
 
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Er is ondersteuning toegevoegd voor het gebruik van aangepaste store om vast te leggen voortzetting van tokens per partitie.
+  * Een aangepaste lease-store kan bijvoorbeeld Azure Cosmos DB-leaseverzameling gepartitioneerd op een aangepaste manier.
+  * Nieuwe uitbreidbaarheid punt ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) en openbare interface ILeaseStoreManager aangepaste lease archieven gebruiken.
+  * De interface ILeaseManager geherstructureerd in meerdere functie-interfaces.
+* Secundaire belangrijke wijziging: verwijderde uitbreidbaarheid ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager) punt, in plaats daarvan ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) gebruiken.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Er is een probleem die zich tijdens de verwerking van splitsen voordoen kan als de leaseverzameling is gepartitioneerd opgelost. Het probleem kan leiden tot leases voor verdwenen partities niet worden verwijderd van de leaseverzameling. Het probleem is opgelost met deze release.
+* Deze release wordt een probleem dat optreedt tijdens het verwerken van een splitsing in bewaakte verzameling en het gebruik van een gepartitioneerde leaseverzameling opgelost. Bij het verwerken van een lease voor de partitie gesplitst, kan de lease die overeenkomt met de betreffende partitie niet worden verwijderd. Het probleem is opgelost in deze release.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * De berekening van het vaste Estimator voor meerdere model-accounts en nieuwe sessie Token indeling.

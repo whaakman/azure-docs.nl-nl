@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bd91eba80aba340619f5aa76d5bc19894a3510f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961905"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163075"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Georuimtelijke en GeoJSON locatiegegevens gebruiken met Azure Cosmos DB SQL API-account
 
@@ -151,7 +151,7 @@ Als u niet beschikt over de breedtegraad en lengtegraad informatie, maar de fysi
 Nu dat we kijken hoe u georuimtelijke gegevens invoegen, we gaan kijken hoe u query's van deze gegevens met behulp van Azure Cosmos DB met behulp van SQL en LINQ hebt genomen.
 
 ### <a name="spatial-sql-built-in-functions"></a>Ruimtelijke SQL ingebouwde functies
-Azure Cosmos DB ondersteunt de volgende Open georuimtelijke Consortium (OGC) ingebouwde functies voor georuimtelijke query's. Zie voor meer informatie over de volledige reeks ingebouwde functies in de SQL-taal, [Query Azure Cosmos DB](sql-api-sql-query.md).
+Azure Cosmos DB ondersteunt de volgende Open georuimtelijke Consortium (OGC) ingebouwde functies voor georuimtelijke query's. Zie voor meer informatie over de volledige reeks ingebouwde functies in de SQL-taal, [Query Azure Cosmos DB](how-to-sql-query.md).
 
 <table>
 <tr>
@@ -392,6 +392,6 @@ U hebt geleerd hoe u aan de slag met georuimtelijke ondersteuning in Azure Cosmo
 
 * Gaan coderen met de [georuimtelijke .NET-codevoorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Aan de slag met georuimtelijke query's uitvoeren op de [Azure Cosmos DB testomgeving voor Query's](http://www.documentdb.com/sql/demo#geospatial)
-* Meer informatie over [Azure Cosmos DB-Query](sql-api-sql-query.md)
+* Meer informatie over [Azure Cosmos DB-Query](how-to-sql-query.md)
 * Meer informatie over [Azure Cosmos DB indexeren van beleid](indexing-policies.md)
 

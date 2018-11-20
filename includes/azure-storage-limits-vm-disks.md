@@ -12,7 +12,6 @@ Een virtuele Azure-machine biedt ondersteuning voor het koppelen van meerdere ge
 > | Premium Managed Disks | 10.000 | 50,000 |
 > | Standard_LRS momentopnamen | 10.000 | 50,000 |
 > | Standard_ZRS momentopnamen | 10.000 | 50,000 |
-> | Premium_LRS momentopnamen | 10.000 | 50,000 |
 > | Beheerde installatiekopie | 10.000 | 50,000 |
 
 * **Voor standaardopslagaccounts:** een standaardopslagaccount heeft een maximale totale aanvraagsnelheid van 20.000 IOP's. Het totale aantal IOP's van alle schijven van een virtuele machine in een standaardopslagaccount mag niet groter zijn dan deze limiet.

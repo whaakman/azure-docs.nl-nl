@@ -1,6 +1,6 @@
 ---
-title: Azure-voorbeeldtoepassing voor gebruik met DMZ's | Microsoft Docs
-description: Deze eenvoudige webtoepassing na het maken van een DMZ voor het testen van verkeer stroom scenario's implementeren
+title: Voorbeeld van Azure-toepassing voor gebruik met DMZ's | Microsoft Docs
+description: Deze eenvoudige web-App na het maken van een DMZ voor het testen van scenario's voor verkeer stroom implementeren
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a0f1313f8b22aba0a153563bd804435c3ef53f2
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23883794"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159862"
 ---
-# <a name="sample-application-for-use-with-dmzs"></a>Voorbeeld van een toepassing voor gebruik met DMZ 's
-[Ga terug naar de grens van Best Practices beveiligingspagina][HOME]
+# <a name="sample-application-for-use-with-dmzs"></a>Voorbeeldtoepassing voor gebruik met DMZ 's
+[Ga terug naar de grens Best Practices pagina][HOME]
 
-Deze PowerShell-scripts kunnen lokaal worden uitgevoerd op de servers IIS01 en AppVM01 installeren en een eenvoudige webtoepassing die wordt weergegeven een HTML-pagina van de front-IIS01-server met inhoud van de back-endserver van AppVM01 instellen.
+Deze PowerShell-scripts kunnen lokaal worden uitgevoerd op de IIS01 en AppVM01 servers te installeren en instellen van een eenvoudige webtoepassing die wordt weergegeven een html-pagina van de front-end-IIS01-server met inhoud van de back-end AppVM01-server.
 
 Deze toepassing biedt een eenvoudige testomgeving voor veel van de voorbeelden DMZ en hoe wijzigingen op de eindpunten, nsg's, UDR en Firewall regels verkeersstromen kunnen beïnvloeden.
 
 ## <a name="firewall-rule-to-allow-icmp"></a>Firewallregel voor het toestaan van ICMP
-Deze eenvoudige PowerShell-instructie kan worden uitgevoerd op een Windows-VM naar ICMP (Ping)-verkeer. Deze update firewall kunt u gemakkelijker testen en het oplossen van problemen doordat de ping-protocol door te geven via de windows firewall (voor de meeste Linux-distributies die ICMP standaard ingeschakeld is).
+Deze eenvoudige PowerShell-instructie kan worden uitgevoerd op elke Windows-VM ICMP (Ping)-verkeer toe te staan. Deze update firewall kunt eenvoudiger kunt testen en problemen oplossen door toe te staan de ping-protocol om door te geven via de windows-firewall (voor de meeste Linux-distributies die ICMP standaard ingeschakeld is).
 
 ```PowerShell
 # Turn On ICMPv4
@@ -39,16 +39,16 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 
 Als u de volgende scripts gebruikt, is deze toevoeging firewall-regel voor de eerste instructie.
 
-## <a name="iis01---web-application-installation-script"></a>IIS01 - script voor installatie van Web application
-Dit script wordt:
+## <a name="iis01---web-application-installation-script"></a>IIS01 - script voor installatie van Web-toepassing
+Met dit script wordt:
 
-1. Open IMCPv4 (Ping) op de lokale server windows firewall voor het testen van eenvoudiger
-2. Installatie van IIS en de .net Framework v4.5
+1. Open IMCPv4 (Ping) op de lokale server windows firewall voor het testen gemakkelijker te maken
+2. Installatie van IIS en .net Framework v4.5
 3. Een ASP.NET-webpagina en een Web.config-bestand maken
-4. Wijzig de standaardgroep van toepassingen om toegang tot het bestand te vereenvoudigen
+4. Wijzigen van de groep van toepassingen standaard toegang tot het bestand om eenvoudiger te maken
 5. De anonieme gebruiker ingesteld op uw beheerdersaccount en het wachtwoord
 
-Deze PowerShell-script moet lokaal worden uitgevoerd terwijl er RDP in IIS01 was.
+Dit PowerShell-script moet lokaal worden uitgevoerd terwijl er op RDP in IIS01 was.
 
 ```PowerShell
 # IIS Server Post Build Config Script
@@ -132,8 +132,8 @@ Deze PowerShell-script moet lokaal worden uitgevoerd terwijl er RDP in IIS01 was
     $MainPage | Out-File -FilePath "C:\inetpub\wwwroot\Home.aspx" -Encoding ascii
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
-# Set App Pool to Clasic Pipeline to remote file access will work easier
-    Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
+# Set App Pool to Classic Pipeline to remote file access will work easier
+    Write-Host "Updating IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 
@@ -146,21 +146,21 @@ Deze PowerShell-script moet lokaal worden uitgevoerd terwijl er RDP in IIS01 was
     Write-Host
 ```
 
-## <a name="appvm01---file-server-installation-script"></a>AppVM01 - script voor installatie van bestand server
-Dit script stelt u de back-end voor deze eenvoudige toepassing. Dit script wordt:
+## <a name="appvm01---file-server-installation-script"></a>AppVM01 - script voor installatie van bestand-server
+Met dit script stelt u de back-end voor deze eenvoudige toepassing. Met dit script wordt:
 
-1. Open IMCPv4 (Ping) op de firewall voor het testen van eenvoudiger
+1. Open IMCPv4 (Ping) op de firewall voor het testen gemakkelijker te maken
 2. Maak een map voor de website
-3. Maak een tekstbestand worden op afstand toegang op basis van de webpagina
-4. Machtigingen instellen voor de mappen en bestanden voor anonieme toegang toestaan
+3. Maak een tekstbestand worden op afstand toegang op basis van de webpagina wordt weergegeven
+4. Machtigingen instellen voor de map en bestand anonieme toegang toestaan
 5. Verbeterde beveiliging van Internet Explorer om toe te staan eenvoudiger kunt bladeren vanaf deze server uitschakelen 
 
 > [!IMPORTANT]
-> **Kunt u beter**: nooit verbeterde beveiliging van Internet Explorer uitschakelen op een productieserver, plus het is doorgaans een goed idee surfen op Internet vanaf een productieserver. Openen van bestandsshares voor anonieme toegang is ook een goed idee, maar gereed hier voor eenvoud.
+> **Best Practice**: nooit verbeterde beveiliging van Internet Explorer uitschakelen op een productieserver, plus het is doorgaans een goed idee surfen op Internet vanaf een productieserver. Openen van bestandsshares voor anonieme toegang is ook een goed idee, maar gedaan hier voor het gemak.
 > 
 > 
 
-Deze PowerShell-script moet lokaal worden uitgevoerd terwijl er RDP in AppVM01 was. PowerShell is vereist om te worden uitgevoerd als beheerder om te controleren of de uitvoering te doen slagen.
+Dit PowerShell-script moet lokaal worden uitgevoerd terwijl er op RDP in AppVM01 was. PowerShell is vereist om te worden uitgevoerd als beheerder om te controleren of de uitvoering is geslaagd.
 
 ```PowerShell
 # AppVM01 Server Post Build Config Script
@@ -194,12 +194,12 @@ Deze PowerShell-script moet lokaal worden uitgevoerd terwijl er RDP in AppVM01 w
 ```
 
 ## <a name="dns01---dns-server-installation-script"></a>DNS01 - script voor installatie van DNS-server
-Er is geen script dat is opgenomen in deze voorbeeldtoepassing voor het instellen van de DNS-server. Als het testen van de firewall-regels, NSG of UDR moet bevatten van DNS-verkeer, wordt de server DNS01 moet handmatig worden ingesteld. De configuratie van de xml-bestand en Resource Manager-sjabloon voor beide voorbeelden bevat DNS01 als de primaire DNS-server en de openbare DNS-server die door niveau 3 als de back-DNS-server worden gehost. De niveau 3-DNS-server zou worden de DNS-server gebruikt voor niet-lokale verkeer en met DNS01 niet ingesteld, geen lokale netwerk DNS zou optreden.
+Er is geen script opgenomen in deze voorbeeldtoepassing voor het instellen van de DNS-server. Als het testen van de firewall-regels, NSG of UDR nodig heeft om DNS-verkeer, wordt de server DNS01 moet handmatig worden ingesteld. Het xml-bestand voor configuratie van het netwerk en Resource Manager-sjabloon voor beide voorbeelden bevat DNS01 als de primaire DNS-server en de openbare DNS-server die wordt gehost door niveau 3 als de back-DNS-server. De niveau 3 DNS-server zou worden de feitelijke DNS-server gebruikt voor niet-lokale verkeer en met DNS01 niet instelt, worden er geen lokale netwerk DNS zou optreden.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Het script IIS01 uitvoeren op een IIS-server
-* File Server-script uitvoeren op AppVM01
-* Blader naar het openbare IP-adres op IIS01 build valideren
+* Het script IIS01 uitvoert op een IIS-server
+* Bestandsserver-script uitvoeren op AppVM01
+* Blader naar het openbare IP-adres op IIS01 voor het valideren van uw build
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578634"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164317"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * Subnetnaam
 * Azure AD-runtime rolnaam - als u het voorbeeld in gevolgd [maken van de functie cluster knooppunt toegang](#create-the-cluster-node-access-role), gebruikt u ``avere-cluster``. 
 * Naam van opslagaccount (als het maken van een nieuwe blobcontainer)
-* De naam van de cluster - u geen twee clusters met vFXT met dezelfde naam in dezelfde resourcegroep bevinden. 
+* De naam van de cluster - u geen twee clusters met vFXT met dezelfde naam in dezelfde resourcegroep bevinden. Geef elk cluster een unieke naam voor de aanbevolen procedure.
 * Beheerderswachtwoord - kiest u een beveiligd-wachtwoordverificatie voor bewaking en beheer van het cluster. Dit wachtwoord is toegewezen aan de gebruiker ``admin``. 
 * Knooppunt exemplaartype - Zie [vFXT knooppuntgrootten](avere-vfxt-deploy-plan.md#vfxt-node-sizes) voor meer informatie
 * Cachegrootte van knooppunt - Zie [vFXT knooppuntgrootten](avere-vfxt-deploy-plan.md#vfxt-node-sizes) voor meer informatie

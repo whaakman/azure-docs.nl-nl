@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 45ddb31a20b830de29cf77231bb3acd6f8917601
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230900"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976214"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd oplossen
 Er zijn verschillende redenen dat er Secure Shell (SSH)-fouten, SSH-verbindingsfouten optreden of SSH wordt geweigerd wanneer u probeert verbinding maken met een Linux virtuele machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt Azure portal, Azure CLI of VM-extensie voor toegang voor Linux gebruiken om problemen op te lossen problemen met de verbinding.
@@ -242,7 +242,7 @@ Probeer de volgende stappen om op te lossen van de meest voorkomende fouten van 
 * Implementeer de virtuele machine naar een nieuw Azure-knooppunt opnieuw. Zie voor meer informatie over hoe u een virtuele machine opnieuw implementeren [opnieuw implementeren van virtuele machine naar de nieuwe Azure-knooppunt](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Nadat deze is voltooid, kortstondige schijfgegevens gaan verloren en dynamische IP-adressen die gekoppeld aan de virtuele machine zijn wordt bijgewerkt.
-* Volg de instructies in [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](../linux/classic/reset-access-classic.md?) aan:
+* Volg de instructies in [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](../linux/classic/reset-access-classic.md) aan:
   
   * Het wachtwoord of SSH-sleutel opnieuw instellen.
   * Maak een *sudo* gebruikersaccount.

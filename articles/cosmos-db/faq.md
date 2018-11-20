@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: sngun
-ms.openlocfilehash: 4dfe6bb2c648b0983482633500790db6d510d2eb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 50d606486a6d80f00424685494eae28a95fe361a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853979"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164707"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 
@@ -180,7 +180,7 @@ De SQL-query-taal ondersteund door SQL API-accounts is een uitgebreide subset va
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>De SQL-API biedt ondersteuning voor SQL-aggregatiefuncties?
 
-De SQL-API biedt ondersteuning voor aggregatie van de lage latentie op elke schaal via statistische functies `COUNT`, `MIN`, `MAX`, `AVG`, en `SUM` via de SQL-grammatica. Zie voor meer informatie, [statistische functies](sql-api-sql-query.md#Aggregates).
+De SQL-API biedt ondersteuning voor aggregatie van de lage latentie op elke schaal via statistische functies `COUNT`, `MIN`, `MAX`, `AVG`, en `SUM` via de SQL-grammatica. Zie voor meer informatie, [statistische functies](how-to-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hoe biedt de SQL-API gelijktijdigheid?
 
@@ -466,7 +466,7 @@ Van de .NET SDK kan deze worden verstuurd in het bestand app.config:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos DB als platform lijkt te veel mogelijkheden, zoals sorteren, statistische functies, hiërarchie en andere functionaliteit hebben. Wordt u deze mogelijkheden toevoegen aan de tabel-API?
 
-De Table-API biedt dezelfde queryfunctionaliteit als Azure Table storage. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query, hiërarchie en een groot aantal ingebouwde functies. We bieden aanvullende functionaliteit in de tabel-API in een toekomstige service-update. Zie voor meer informatie, [SQL-query's](sql-api-sql-query.md).
+De Table-API biedt dezelfde queryfunctionaliteit als Azure Table storage. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query, hiërarchie en een groot aantal ingebouwde functies. Zie voor meer informatie, [SQL-query's](how-to-sql-query.md).
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Wanneer moet ik TableThroughput wijzigen voor de Table-API?
 

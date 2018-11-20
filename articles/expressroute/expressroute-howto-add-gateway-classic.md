@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: d0425b68f1b241bde4b2100d13d60165e5a1f1fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 366aed206e8b1fb72547a64a957d83eec78c1358
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255165"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161974"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Een virtuele netwerkgateway configureren voor ExpressRoute met behulp van PowerShell (klassiek)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ In dit artikel begeleidt u door de stappen voor het toevoegen en verwijderen van
 
 **Over Azure-implementatiemodellen**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Voordat u begint
 Controleer of dat u de Azure PowerShell-cmdlets die nodig zijn voor deze configuratie hebt geïnstalleerd (1.0.2 of hoger). Als u de cmdlets niet hebt geïnstalleerd, moet u dit doen voordat u begint met de configuratiestappen. Zie voor meer informatie over het installeren van Azure PowerShell [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).

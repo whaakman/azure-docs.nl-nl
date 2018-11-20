@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1ae06fe9cc459d86bdd46d9b033a726339493dc5
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277287"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164764"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark-cluster gebruiken om te lezen en schrijven van gegevens naar Azure SQL-database
 
@@ -36,15 +36,10 @@ Leer hoe u een Apache Spark-cluster in Azure HDInsight verbinden met een Azure S
 
 Beginnen met het maken van een Jupyter-notebook die zijn gekoppeld aan het Spark-cluster. Dit notitieblok kunt u de codefragmenten die wordt gebruikt in dit artikel worden uitgevoerd. 
 
-1. Uit de [Azure-portal](https://portal.azure.com/), opent u het cluster. 
+1. Uit de [Azure-portal](https://portal.azure.com/), opent u het cluster.
+1. Selecteer **Jupyter-notebook** onder **Clusterdashboards** aan de rechterkant.  Als er geen **Clusterdashboards**, klikt u op **overzicht** in het menu links op de blade. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
 
-1. Uit de **snelkoppelingen** sectie, klikt u op **Clusterdashboards** openen de **Clusterdashboards** weergeven.  Als er geen **snelkoppelingen**, klikt u op **overzicht** in het menu links op de blade.
-
-    ![Cluster-dashboard op Spark](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "clusterdashboard op Spark") 
-
-1. Klik op **Jupyter-Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
-
-    ![Jupyter-notebook in Spark](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Jupyter-notebook in Spark")
+    ![Jupyter-notebook in Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter-notebook in Spark")
    
    > [!NOTE]
    > U kunt de Jupyter-notebook in Spark-cluster ook openen door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.

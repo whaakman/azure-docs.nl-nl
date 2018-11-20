@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4e99656319f543fb40d8509cb4ae9e1c25cfc75b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef95351c961b4fe2937e59179780326dea2309b1
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622479"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975700"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinden met de service Log Analytics in Azure
 
@@ -46,8 +46,27 @@ Voordat u de MMA (Microsoft Monitoring Agent) voor Windows installeert, hebt u e
 4. Selecteer **Verbonden bronnen** en selecteer vervolgens **Windows-servers**.   
 5. Kopiëren en plakken in uw favoriete editor de **werkruimte-ID** en **primaire sleutel**.    
    
+## <a name="configure-agent-to-use-tls-12"></a>Voor het gebruik van TLS 1.2-Agent configureren
+Het configureren van gebruik van de [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protocol voor communicatie tussen de Windows-agent en de Log Analytics-service, u kunt de volgende stappen om in te schakelen voordat de agent is geïnstalleerd op de virtuele machine of later.   
+
+1. Ga naar de volgende registersubsleutel: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
+2. Maak een subsleutel onder **protocollen** voor TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. Maak een **Client** subsleutels onder de subsleutel TLS 1.2-protocol versie u eerder hebt gemaakt. Bijvoorbeeld, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Maken van de volgende DWORD-waarden onder **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
+
+    * **Ingeschakeld** [waarde = 1]
+    * **DisabledByDefault** [waarde = 0]  
+
+Configureren van .NET Framework 4.6 of later cryptografie, als door het standaard ter ondersteuning van veilige is uitgeschakeld. De [sterke cryptografie](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) maakt gebruik van veiligere netwerkprotocollen, zoals TLS 1.2 en protocollen blokkeert die niet beveiligd zijn. 
+
+1. Ga naar de volgende registersubsleutel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319**.  
+2. Maken van de DWORD-waarde **schusestrongcrypto toe** onder deze subsleutel met de waarde **1**.  
+3. Ga naar de volgende registersubsleutel: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319**.  
+4. Maken van de DWORD-waarde **schusestrongcrypto toe** onder deze subsleutel met de waarde **1**. 
+5. Het systeem om de instellingen van kracht opnieuw opstarten. 
+
 ## <a name="install-the-agent-using-setup-wizard"></a>De agent installeren met de wizard setup
-De volgende stappen uit installeren en configureren van de agent voor Log Analytics in Azure en Azure Government-cloud met behulp van de wizard setup voor de Microsoft Monitoring Agent op uw computer.  
+De volgende stappen uit installeren en configureren van de agent voor Log Analytics in Azure en Azure Government-cloud met behulp van de wizard setup voor de Microsoft Monitoring Agent op uw computer. Als u wilt meer informatie over het configureren van de agent ook een rapport met een beheergroep van System Center Operations Manager, Zie [Operations Manager-agent met de Wizard Setup van Agent implementeren](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. In uw Log Analytics-werkruimte van de **Windows Servers** pagina die u eerder hebt, selecteert u de juiste navigeren **Windows-Agent downloaden** versie te downloaden, afhankelijk van de processorarchitectuur van het Windows-besturingssysteem.   
 2. Voer Setup uit om de agent op de computer te installeren.
@@ -76,7 +95,7 @@ De volgende tabel ziet u de specifieke Log Analytics-parameters die door setup w
 |---------------------------------------|--------------|
 | NOAPM=1                               | Een optionele parameter. Installeert de agent zonder .NET Application Performance Monitoring.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = de agent om te rapporteren aan een werkruimte configureren                |
-|OPINSIGHTS_WORKSPACE_ID                | Werkruimte-Id (guid) voor de werkruimte toe te voegen                    |
+|OPINSIGHTS_WORKSPACE_ID                | Werkruimte-ID (guid) voor de werkruimte toe te voegen                    |
 |OPINSIGHTS_WORKSPACE_KEY               | De sleutel van de werkruimte is in eerste instantie wordt geverifieerd met de werkruimte |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Geef de cloudomgeving waar de werkruimte zich bevindt <br> 0 = commerciële azure-cloud (standaard) <br> 1 = azure Government |
 |OPINSIGHTS_PROXY_URL               | URI voor de proxy gebruiken |
@@ -87,13 +106,13 @@ De volgende tabel ziet u de specifieke Log Analytics-parameters die door setup w
 2. Als u op de achtergrond de agent installeren en configureren zodat deze rapporteert aan een werkruimte in de commerciële Azure-cloud, vanuit de map wilt u de setup-bestanden naar het type uitgepakt: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    of voor het configureren van de agent om te rapporteren aan Azure US Government-cloud, typ: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Installeer de agent met behulp van DSC in Azure Automation

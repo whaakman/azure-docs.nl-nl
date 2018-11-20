@@ -2,16 +2,17 @@
 title: Een processerver voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van Azure Site Recovery beheren | Microsoft Docs
 description: Dit artikel wordt beschreven voor het beheren van een processerver instellen voor herstel na noodgevallen van virtuele VMware-machines en fysieke server naar Azure met Azure Site Recovery.
 author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: ac317eaa4c7e69e4a01fe932569b999e502bc3cf
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822429"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974185"
 ---
 # <a name="manage-process-servers"></a>Processervers beheren
 

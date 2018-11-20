@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: dea343dee65ab66d52b431614fd334fd6e380f50
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628985"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165285"
 ---
-# <a name="working-with-azure-cosmos-db-accounts"></a>Werken met Azure Cosmos DB-accounts
+# <a name="working-with-azure-cosmos-account"></a>Werken met een Azure Cosmos-account
 
-Azure Cosmos DB is een volledig beheerde platform-as-a-service (PaaS). Om te beginnen met Azure Cosmos DB, moet u eerst een Azure Cosmos DB-account maken in uw Azure-abonnement. Uw Azure Cosmos-account bevat een unieke DNS-naam en u kunt een account kunt beheren met behulp van Azure portal, Azure CLI of met behulp van verschillende taalspecifieke SDK's. Zie voor meer informatie, [over het beheren van uw Azure Cosmos-account](how-to-manage-database-account.md).
+Azure Cosmos DB is een volledig beheerde platform-as-a-service (PaaS). Om te beginnen met Azure Cosmos DB, moet u eerst een Azure Cosmos-account maken in uw Azure-abonnement. Uw Azure Cosmos-account bevat een unieke DNS-naam en u kunt een account kunt beheren met behulp van Azure portal, Azure CLI of met behulp van verschillende taalspecifieke SDK's. Zie voor meer informatie, [over het beheren van uw Azure Cosmos-account](how-to-manage-database-account.md).
 
-Het Azure Cosmos DB-account is de fundamentele eenheid van wereldwijde distributie en hoge beschikbaarheid. U kunt voor het wereldwijd distribueren van uw gegevens en doorvoer meerdere Azure-regio's, toevoegen en verwijderen van Azure-regio's voor uw Azure Cosmos-account op elk gewenst moment. U kunt uw Azure Cosmos-account om één of meerdere regio's voor schrijven configureren. Zie voor meer informatie, [toevoegen en verwijderen van Azure-regio's aan uw Azure Cosmos-account](how-to-manage-database-account.md). U kunt configureren dat de [standaardconsistentie](consistency-levels.md) op Azure Cosmos-account. Azure Cosmos DB biedt uitgebreide Sla's dat doorvoer en latentie in het 99e percentiel, consistentie en beschikbaarheid. Zie voor meer informatie, [Sla's voor Azure Cosmos DB](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/).
+Het Azure Cosmos-account is de fundamentele eenheid van wereldwijde distributie en hoge beschikbaarheid. U kunt voor het wereldwijd distribueren van uw gegevens en doorvoer meerdere Azure-regio's, toevoegen en verwijderen van Azure-regio's voor uw Azure Cosmos-account op elk gewenst moment. U kunt uw Azure Cosmos-account om één of meerdere regio's voor schrijven configureren. Zie voor meer informatie, [toevoegen en verwijderen van Azure-regio's aan uw Azure Cosmos-account](how-to-manage-database-account.md). U kunt configureren dat de [standaardconsistentie](consistency-levels.md) op Azure Cosmos-account. Azure Cosmos DB biedt uitgebreide Sla's dat doorvoer en latentie in het 99e percentiel, consistentie en beschikbaarheid. Zie voor meer informatie, [Sla's voor Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
 Als u wilt beheren veilig toegang tot de gegevens in uw Azure Cosmos-account, kunt u de master-sleutels die zijn gekoppeld aan uw account. Naar meer beveiligde toegang tot uw gegevens, kunt u een VNET-service-eindpunt en een IP-firewall kunt configureren voor uw Azure Cosmos-account. 
 
@@ -41,4 +41,4 @@ U kunt nu doorgaan naar meer informatie over het beheren van uw Azure Cosmos-acc
 * [VNET-service-eindpunt voor uw Azure Cosmos-account](firewall-support.md)
 * [IP-firewall voor uw Azure Cosmos-account](vnet-service-endpoint.md)
 * [Instructies voor het toevoegen en verwijderen van Azure-regio's aan uw Azure Cosmos-account](how-to-manage-database-account.md)
-* [Azure Cosmos DB-Sla 's](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB-Sla 's](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

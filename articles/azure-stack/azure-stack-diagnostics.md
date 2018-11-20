@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623975"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976125"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -70,13 +70,17 @@ if($s)
     Remove-PSSession $s
 }
 ```
-- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het opslaan van Logboeken in een gebruiker die is opgegeven locatie.
-- De **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Als deze parameters niet zijn opgegeven, worden logboeken verzameld voor de afgelopen vier uur standaard.
+
 
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog uitvoeren op een Azure Stack Development Kit (ASDK)-systeem
-1. Meld u als **AzureStack\CloudAdmin** op de host.
-2. Open een PowerShell-venster als beheerder.
+Volg deze stappen om uit te voeren van Get-AzureStackLog op een hostcomputer ASDK.
+
+- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het opslaan van Logboeken in een gebruiker die is opgegeven locatie.
+- De **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Als deze parameters niet zijn opgegeven, worden logboeken verzameld voor de afgelopen vier uur standaard.
+
+1. Meld u als **AzureStack\CloudAdmin** op de hostcomputer ASDK.
+2. Open een nieuwe PowerShell-venster als beheerder.
 3. Voer de **Get-AzureStackLog** PowerShell-cmdlet.
 
 **Voorbeelden:**

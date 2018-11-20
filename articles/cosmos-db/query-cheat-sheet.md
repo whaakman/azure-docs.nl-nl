@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230866"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160967"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB-query-referentiemateriaal
 
@@ -36,7 +36,7 @@ Download de [referentiemateriaal voor Azure Cosmos DB A3-formaat query](https://
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer hulp bij het schrijven van query's:
-* Zie voor SQL-API-query's, [query uitvoert met behulp van de SQL-API](tutorial-query-sql-api.md), [SQL-query's voor Azure Cosmos DB](sql-api-sql-query.md), en [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md)
+* Zie voor SQL-API-query's, [query uitvoert met behulp van de SQL-API](tutorial-query-sql-api.md), [SQL-query's voor Azure Cosmos DB](how-to-sql-query.md), en [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md)
 * Zie voor MongoDB-query's, [query uitvoert met behulp van de MongoDB-API](tutorial-query-mongodb.md) en [ondersteuning voor MongoDB-API voor MongoDB-functies en -syntaxis](mongodb-feature-support.md)
 * Zie voor Gremlin-API-query's, [query uitvoert met behulp van de Gremlin-API](tutorial-query-graph.md) en [Azure Cosmos DB Gremlin graph-ondersteuning](gremlin-support.md)
 * Zie voor Table-API-query's, [query uitvoert met behulp van de Table-API](tutorial-query-table.md)

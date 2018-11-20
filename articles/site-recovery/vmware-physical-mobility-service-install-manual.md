@@ -1,19 +1,21 @@
 ---
 title: De Mobility-Service voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers handmatig installeren met Azure Site Recovery | Microsoft Docs
 description: Informatie over het installeren van de Mobility-Service-agent voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure met behulp van de Azure Site Recovery-service.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/04/2018
-ms.author: raynew
-ms.openlocfilehash: dfed0209131379843b97ff8050c2f2ba7294537d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.author: ramamill
+ms.openlocfilehash: b3b6d7a64873d77336b2fcf14e22f4d6ae33e3a2
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019201"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976788"
 ---
+MS.Author: ramamill
+
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>De Mobility-service handmatig installeren op virtuele VMware-machines en fysieke servers
 
 Wanneer u herstel na noodgevallen voor VMware-VM's en fysieke servers met behulp van instellen [Azure Site Recovery](site-recovery-overview.md), u installeert de [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) op elke on-premises virtuele VMware-machine en de fysieke server.  De Mobility-service worden vastgelegd schrijven van gegevens op de machine, en ze doorstuurt naar de processerver van Site Recovery.

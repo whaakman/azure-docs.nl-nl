@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809911"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974464"
 ---
 <a name="retrieve-operations"></a>Bewerkingen ophalen
 ===================
@@ -48,7 +48,7 @@ Hiermee haalt u alle bewerkingen op de aanbieding of het opvragen van een bepaal
 |  |  |  |
 
 
-<a name="header"></a>Koptekst
+<a name="header"></a>Header
 ------
 
 |  **Naam**          |  **Waarde**           |
@@ -189,7 +189,7 @@ Hiermee haalt u alle bewerkingen op de aanbieding of het opvragen van een bepaal
 |  submissionType              | Geeft het type van de bewerking voor de aanbieding wordt gerapporteerd, bijvoorbeeld `Publish/GGoLive`      |
 |  createdDateTime             | UTC datum/tijd waarop de bewerking is gemaakt                                                       |
 |  lastActionDateTime          | UTC datum/tijd wanneer de laatste update van de bewerking is uitgevoerd                                       |
-|  status                      | Status van de bewerking, ofwel ' niet is gestart | wordt uitgevoerd | mislukt | voltooid`. Only one operation can have status `met ' tegelijk. |
+|  status                      | Status van de bewerking, ofwel `not started` \| `running` \| `failed` \| `completed`. Kan slechts één bewerking status hebben `running` tegelijk. |
 |  error                       | Foutbericht voor mislukte bewerkingen                                                               |
 |  |  |
 

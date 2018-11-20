@@ -9,13 +9,13 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: f6f669bd9ab45ba3800722eb3bcdba88f2e72f5e
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 11/20/2018
+ms.openlocfilehash: 72a6e7fdc8bd5887782ab23d29812bed792fd53f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710236"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164588"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Gegevens voorbereiden voor modellen met Azure Machine Learning
  
@@ -25,15 +25,18 @@ U kunt uw gegevens in met behulp van Python voorbereiden de [SDK van Azure Machi
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning gegevensvoorbereiding SDK
 
-De SDK van Azure Machine Learning Data Prep is een Python-bibliotheek die veel algemene gegevens voorverwerking hulpprogramma's bevat. Ook voegt u toe geavanceerde functionaliteit, zoals geautomatiseerde feature-engineering en transformaties die is afgeleid van voorbeelden. De SDK is in Kernfunctionaliteit naar populaire bibliotheken zoals Pandas en PySpark vergelijkbaar, maar biedt meer flexibiliteit. Pandas is doorgaans meest geschikt voor kleinere gegevenssets (< 2-5 GB) voordat capaciteit geheugenbeperkingen invloed hebben op prestaties. Daarentegen PySpark is in het algemeen voor big data-toepassingen, maar voert een overhead die met kleine gegevenssets veel trager verloopt werken.
+De [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) is een Python-bibliotheek met:
++ Veel algemene gegevens voorverwerking 's
++ Geautomatiseerde feature-engineering en transformaties die zijn afgeleid van voorbeelden
 
-De SDK biedt:
+De SDK is vergelijkbaar in de core-functionaliteit met populaire bibliotheken zoals **Pandas** en **PySpark**, biedt nog meer flexibiliteit. Pandas is doorgaans meest geschikt voor kleinere gegevenssets (< 2-5 GB) voordat capaciteit geheugenbeperkingen invloed hebben op prestaties. Daarentegen PySpark is in het algemeen voor big data-toepassingen, maar voert een overhead die met kleine gegevenssets veel trager verloopt werken.
 
+De Azure Machine Learning Data Prep SDK biedt:
 - Uitvoerbaarheid en het gemak bij het werken met kleine gegevenssets
-- Schaalbaarheid voor moderne toepassingen, big data
-- De mogelijkheid om te gebruiken en dezelfde code voor beide gebruiksvoorbeelden schalen
 
-De volgende voorbeelden Markeer enkele van de unieke functies van de SDK.
+- Schaalbaarheid voor moderne toepassingen, big data
+
+- De mogelijkheid om te gebruiken en dezelfde code voor beide gebruiksvoorbeelden schalen
 
 ### <a name="install-the-sdk"></a>De SDK installeren
 
@@ -49,7 +52,16 @@ Gebruik de volgende code voor het importeren van het pakket.
 import azureml.dataprep as dprep
 ```
 
-### <a name="automatic-file-type-detection"></a>Automatische detectie
+### <a name="examples-and-reference"></a>Naslaginformatie over en voorbeelden
+
+Zie voor meer informatie over de functies van deze SDK en -modules, de [Data Prep SDK-referentiedocumenten](https://aka.ms/data-prep-sdk).
+
+De volgende voorbeelden markeert u enkele van de unieke functies van de SDK, met inbegrip van:
++ Automatische detectie
++ Geautomatiseerde feature-engineering
++ Samenvattende statistieken
+
+#### <a name="automatic-file-type-detection"></a>Automatische detectie
 
 Gebruik de `smart_read_file()` functie voor het laden van uw gegevens zonder te geven van het bestandstype. Deze functie automatisch herkend en parseert het bestandstype.
 
@@ -57,7 +69,7 @@ Gebruik de `smart_read_file()` functie voor het laden van uw gegevens zonder te 
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
-### <a name="automated-feature-engineering"></a>Geautomatiseerde feature-engineering
+#### <a name="automated-feature-engineering"></a>Geautomatiseerde feature-engineering
 
 De SDK gebruiken voor splitsen en afleiden van kolommen op zowel voorbeeld en Deductie feature-engineering automatiseren. Stel dat u hebt een veld in de gegevensstroom-object met de naam `datetime` met een waarde van `2018-09-15 14:30:00`.
 
@@ -77,7 +89,7 @@ new_dataflow = dataflow.derive_column_by_example(
     )
 ```
 
-### <a name="summary-statistics"></a>Samenvattende statistieken
+#### <a name="summary-statistics"></a>Samenvattende statistieken
 
 U kunt snel samenvattende statistieken voor een gegevensstroom met één regel code genereren. Deze methode biedt een handige manier om te begrijpen van uw gegevens en hoe deze wordt gedistribueerd.
 

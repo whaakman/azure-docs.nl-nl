@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: db0de3ec354fd599d2c10b26eea2991469410c12
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958624"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163364"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Gastbesturingssysteem metrische gegevens verzenden naar de Azure Monitor-gegevensopslag voor een virtuele Windows-machine (klassiek)
 
@@ -36,7 +36,7 @@ Het proces dat wordt beschreven in dit artikel werkt alleen op klassieke virtuel
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Een klassieke virtuele machine en een opslagaccount maken
 
 1. Een klassieke virtuele machine maken met behulp van de Azure-portal.
-   ![Klassiek-virtuele machine maken](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+   ![Klassieke virtuele machine maken](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
 1. Wanneer u deze virtuele machine maakt, kiest u de optie voor het maken van een nieuwe klassieke storage-account. We gebruiken dit opslagaccount wordt gebruikt in latere stappen.
 

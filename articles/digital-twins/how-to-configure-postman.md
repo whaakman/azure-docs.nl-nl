@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 5c06e38bf5a51744a4878a7acb6c365d7e812a61
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711137"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163993"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -53,13 +53,12 @@ Vervolgens instellen en configureren van Postman om op te halen van een Azure AD
 1. Zorg ervoor dat uw **autorisatie-URL** juist is. Het duurt de indeling:
 
     ```plaintext
-    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
+    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
     | Naam  | Vervangen door | Voorbeeld |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | De naam van uw tenant of organisatie | `microsoft` |
-    | YOUR_RESOURCE_ID | De resource-ID | `10b07f429-9f4b-4714-9392-cc5e8e80c8b0` |
 
 1. Selecteer de **autorisatie** tabblad **OAuth 2.0**, en selecteer vervolgens **nieuwe Access Token ophalen**.
 

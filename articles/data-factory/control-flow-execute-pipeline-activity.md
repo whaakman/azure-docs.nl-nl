@@ -1,6 +1,6 @@
 ---
-title: Activiteit van de pijplijn niet uitvoeren in Azure Data Factory | Microsoft Docs
-description: Meer informatie over hoe u de pijplijn uitvoeren activiteit kunt gebruiken om aan te roepen een Data Factory-pijplijn van een andere Data Factory-pijplijn.
+title: Execute Pipeline-activiteit in Azure Data Factory | Microsoft Docs
+description: Lees hoe u de Execute Pipeline-activiteit kunt gebruiken om aan te roepen een Data Factory-pijplijn vanaf een andere Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aace01fedd0c2ab538d4e11b418907f962128d0e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051760"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163115"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Activiteit van de pijplijn niet uitvoeren in Azure Data Factory
-De pijplijn niet uitvoeren-activiteit kunt een Data Factory-pijplijn om aan te roepen, een andere pijplijn.
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Execute Pipeline-activiteit in Azure Data Factory
+De Execute Pipeline-activiteit kunt een Data Factory-pijplijn om aan te roepen een andere pijplijn.
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -62,19 +62,19 @@ De pijplijn niet uitvoeren-activiteit kunt een Data Factory-pijplijn om aan te r
 ## <a name="type-properties"></a>Type-eigenschappen
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | De naam van de activiteit van de pijplijn uitvoeren. | Reeks | Ja
+naam | De naam van de execute pipeline-activiteit. | Reeks | Ja
 type | Moet worden ingesteld op: **ExecutePipeline**. | Reeks | Ja
-pijplijn | Pipeline-verwijzing naar de afhankelijke pijplijn die deze pipeline wordt aangeroepen. Een pijplijn reference-object heeft twee eigenschappen: **naamverwijzing** en **type**. De eigenschap naamverwijzing geeft de naam van de referentie-pijplijn. De eigenschap type moet worden ingesteld op PipelineReference. | PipelineReference | Ja
-parameters | Parameters moeten worden doorgegeven aan de pijplijn aangeroepen | Een JSON-object dat is toegewezen parameternamen aan argumentwaarden | Nee
-waitOnCompletion | Bepaalt of de uitvoering van de activiteit wordt gewacht op de uitvoering van de afhankelijke pipeline te voltooien. | De standaardinstelling is onwaar. | Boole-waarde | Nee
+pijplijn | Pijplijn verwijzing naar de afhankelijke pijplijn die deze pijplijn aanroept. Een pijplijn reference-object heeft twee eigenschappen: **verwijzing** en **type**. De eigenschap verwijzing geeft de naam van de referentie-pijplijn. De eigenschap type moet worden ingesteld op PipelineReference. | PipelineReference | Ja
+parameters | Parameters worden doorgegeven aan de pijplijn aangeroepen | Een JSON-object dat de namen van parameters wordt toegewezen aan de waarden van het argument | Nee
+waitOnCompletion | Bepaalt of de uitvoeringsomgeving van de activiteit moet wachten voor de uitvoering van de afhankelijke pipeline om te voltooien. | De standaardinstelling is onwaar. | Booleaans | Nee
 
 ## <a name="sample"></a>Voorbeeld
-Dit scenario heeft twee pijplijnen:
+In dit scenario heeft twee pijplijnen:
 
-- **Master pijplijn** -deze pipeline heeft één pijplijn niet uitvoeren-activiteit die de aangeroepen pijplijn aanroept. De pijplijn master heeft twee parameters: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
-- **Aangeroepen pijplijn** -deze pijplijn heeft een kopieeractiviteit waarmee gegevens worden gekopieerd van de bron van een Azure-Blob naar Azure Blob-sink. De aangeroepen pijplijn heeft twee parameters: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Master pijplijn** -deze pijplijn heeft één Execute Pipeline-activiteit die de aangeroepen pijplijn aanroept. De master pijplijn heeft twee parameters: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
+- **Aangeroepen pijplijn** -deze pijplijn heeft één kopieeractiviteit waarmee gegevens worden gekopieerd van de bron van een Azure-Blob naar Azure Blob-sink. De aangeroepen pijplijn heeft twee parameters: `sourceBlobContainer`, `sinkBlobContainer`.
 
-### <a name="master-pipeline-definition"></a>De definitie van de master-pipeline
+### <a name="master-pipeline-definition"></a>Master pijplijndefinitie
 
 ```json
 {
@@ -93,7 +93,7 @@ Dit scenario heeft twee pijplijnen:
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -116,7 +116,7 @@ Dit scenario heeft twee pijplijnen:
 
 ```
 
-### <a name="invoked-pipeline-definition"></a>Aangeroepen pipeline-definitie
+### <a name="invoked-pipeline-definition"></a>Aangeroepen pijplijndefinitie
 
 ```json
 {
@@ -178,7 +178,7 @@ Dit scenario heeft twee pijplijnen:
 }
 ```
 
-**Bron-gegevensset**
+**Brongegevensset**
 ```json
 {
     "name": "SourceBlobDataset",
@@ -219,7 +219,7 @@ Dit scenario heeft twee pijplijnen:
 }
 ```
 
-### <a name="running-the-pipeline"></a>De pijplijn wordt uitgevoerd
+### <a name="running-the-pipeline"></a>De pijplijn
 
 Als u wilt de master pijplijn in dit voorbeeld uitvoert, worden de volgende waarden voor de parameters masterSourceBlobContainer en masterSinkBlobContainer doorgegeven: 
 
@@ -230,7 +230,7 @@ Als u wilt de master pijplijn in dit voorbeeld uitvoert, worden de volgende waar
 }
 ```
 
-De master pijplijn stuurt deze waarden voor de pijplijn aangeroepen, zoals wordt weergegeven in het volgende voorbeeld: 
+De master pijplijn verzendt deze waarden aan de pijplijn aangeroepen, zoals wordt weergegeven in het volgende voorbeeld: 
 
 ```json
 {
@@ -245,7 +245,7 @@ De master pijplijn stuurt deze waarden voor de pijplijn aangeroepen, zoals wordt
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }

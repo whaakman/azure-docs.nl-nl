@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9aae08aa5906f341a890ac15e30d2863109d83a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140005"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164945"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
@@ -31,18 +31,18 @@ Als u wilt Profiler inschakelen voor een web-app, volg de onderstaande instructi
 * [Virtuele machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-Application Insights Profiler wordt geïnstalleerd met de extensie Application Insights-site. U moet de site-extensie installeren en configureren voor het ophalen van profielen voor uw Azure-Web-Apps. Nadat u een Web-App hebt geïmplementeerd, zelfs als u hebt de App Insights-SDK opgenomen in de broncode, volgt u de stappen hieronder om de profiler inschakelen.
+Application Insights Profiler is vooraf geïnstalleerd als onderdeel van de runtime van de App-Services, maar u moet het u aan bij de get-profielen inschakelen voor uw Azure-Web-Apps. Nadat u een Web-App hebt geïmplementeerd, zelfs als u hebt de App Insights-SDK opgenomen in de broncode, volgt u de stappen hieronder om de profiler inschakelen.
 
 1. Ga naar de **App Services** deelvenster in de Azure-portal.
 1. Navigeer naar **instellingen > controle** deelvenster.
 
    ![App Insights inschakelen in App Services-portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. Ofwel de instructies in het deelvenster te maken van een nieuwe resource of Selecteer een bestaande App Insights-resource voor het bewaken van uw web-app. Accepteer alle standaardopties. **Gegevens op codeniveau** is standaard ingeschakeld en kunt u Profiler.
+1. Ofwel de instructies in het deelvenster te maken van een nieuwe resource of Selecteer een bestaande App Insights-resource voor het bewaken van uw web-app. Controleer ook of de Profiler is **op**.
 
    ![App Insights-site-extensie toevoegen][Enablement UI]
 
-1. Profiler is nu geïnstalleerd met de App Insights-site-extensie en is ingeschakeld met behulp van een App-instelling van de App-Services.
+1. Profiler is nu ingeschakeld met behulp van een App-instelling van de App-Services.
 
     ![App-instelling voor Profiler][profiler-app-setting]
 

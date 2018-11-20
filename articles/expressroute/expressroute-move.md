@@ -1,25 +1,18 @@
 ---
 title: ExpressRoute-circuits verplaatsen van klassiek naar Resource Manager | Microsoft Docs
 description: Deze pagina bevat een overzicht van wat u moet weten over het overbruggen van het klassieke en het Resource Manager-implementatiemodel.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710062"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977026"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel
 Dit artikel bevat een overzicht van wat het betekent om een Azure ExpressRoute-circuit te verplaatsen van het klassieke naar het Azure Resource Manager-implementatiemodel.
@@ -64,7 +57,7 @@ De volgende klassieke bewerkingen worden ondersteund in een ExpressRoute-circuit
 * Koppelingen tussen virtuele netwerken en klassieke virtuele netwerken maken, bijwerken, verkrijgen en verwijderen
 * Autorisaties voor koppelingen met virtuele netwerken voor abonnementoverschrijdende connectiviteit maken, bijwerken, verkrijgen en verwijderen
 
-U kunt de volgende klassieke bewerkingen niet uitvoeren als **allowClassicOperations** is ingesteld op TRUE:
+Echter, wanneer **allowClassicOperations** is ingesteld op TRUE, kan u niet de volgende klassieke bewerkingen uitvoeren:
 
 * BGP-peerings (Border Gateway Protocol) maken, bijwerken, verkrijgen of verwijderen voor persoonlijke of openbare Azure-peerings en Microsoft-peerings
 * ExpressRoute-circuits verwijderen

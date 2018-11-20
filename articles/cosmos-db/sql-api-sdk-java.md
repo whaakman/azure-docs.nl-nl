@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 06/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f5ac49f20404f8734e833da754aacb615663afbf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344934"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161800"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 * Enkele fouten in de sessie-container die ertoe leiden een 'Eigenaar resource is niet gevonden'-uitzondering voor aanvragen onmiddellijk na het verzamelen van dat kan opgelost.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Er is ondersteuning toegevoegd voor aggregatie-query's (aantal, MIN, MAX, som en gemiddelde). Zie [ondersteuning voor aggregatie](sql-api-sql-query.md#Aggregates).
+* Er is ondersteuning toegevoegd voor aggregatie-query's (aantal, MIN, MAX, som en gemiddelde). Zie [ondersteuning voor aggregatie](how-to-sql-query.md#Aggregates).
 * Ondersteuning toegevoegd voor feed wijzigen.
 * Ondersteuning toegevoegd voor verzameling quotumgegevens via RequestOptions.setPopulateQuotaInfo.
 * Er is ondersteuning toegevoegd voor de opgeslagen procedure script logboekregistratie via RequestOptions.setScriptLoggingEnabled.

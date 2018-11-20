@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387500"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976822"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -205,7 +205,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Als het abonnement waarin de bestandsshare is geïmplementeerd, gekoppeld aan dezelfde Azure AD-tenant als de Azure AD Domain Services-deploymnet waarop de virtuele machine is het domein is, wordt u hebben vervolgens toegang tot Azure Files met dezelfde Azure AD-referenties. De beperking niet van het abonnement wordt opgelegd, maar op de bijbehorende Azure AD-tenant.    
     
 * <a id="ad-support-subscription"></a>
-**Kan ik inschakelen Azure AD-verificatie via SMB voor Azure Files met een Azure AD-tenant die verschilt van de primaire tenant die aan de bestandsshare is dat is gekoppeld aan?**
+**Kan ik inschakelen Azure AD-verificatie via SMB voor Azure Files met een Azure AD-tenant die verschilt van de primaire tenant die aan de bestandsshare gekoppeld is?**
 
     Nee, Azure Files ondersteunt alleen Azure AD-integratie met een Azure AD-tenant die zich in hetzelfde abonnement als de bestandsshare bevinden. Slechts één abonnement kan worden gekoppeld aan een Azure AD-tenant.
 

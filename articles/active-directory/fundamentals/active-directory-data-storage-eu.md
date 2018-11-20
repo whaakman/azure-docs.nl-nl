@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733394"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976890"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Waar slaat Microsoft Azure Active Directory (Azure AD) identiteitsgegevens op voor Europese klanten?
 Azure Active Directory helpt u gebruikersidentiteiten te beheren en op informatie gebaseerd toegangsbeleid te maken om de resources van uw organisatie te beveiligen. Identiteitsgegevens worden opgeslagen op een locatie die uw bedrijf heeft opgegeven toen u zich hebt aangemeld bij de service. Bijvoorbeeld bij het abonneren op Office 365 of Azure. Voor specifieke informatie over waar uw identiteitsgegevens worden opgeslagen, kunt u het gedeelte [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center gebruiken.
@@ -25,7 +25,7 @@ De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens blijv
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Gegevens die zijn opgeslagen buiten de Europese datacenters voor Europese klanten
 
-De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens, voor organisaties met adressen in Europa, blijven in Europese datacenters. Azure Active Directory-gegevens die niet worden opgeslagen in Europese datacenters zijn onder meer:
+De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens, voor organisaties met adressen in Europa, blijven in Europese datacenters. Azure AD-gegevens die worden opgeslagen in Europese datacenters, en tevens worden gerepliceerd naar de datacenters in de Verenigde Staten, omvat:
 
 - **Identiteitsgerelateerde kenmerken**
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113974"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976724"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Het starten en stoppen van de Azure-SSIS integratieruntime volgens een schema
 In dit artikel wordt beschreven hoe u starten en stoppen van een Azure SSIS integratieruntime (IR) met behulp van Azure Automation en Azure Data Factory plannen. Met een Azure SSIS (SQL Server Integration Services) integratieruntime is (IR) een kosten die gepaard gaan met het. Daarom wilt u doorgaans om uit te voeren van de IR alleen als u wilt uitvoeren van SSIS-pakketten in Azure en de IR stopt wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)).
@@ -38,7 +38,7 @@ Hier volgen de hoofdstappen in dit artikel beschreven:
 Als u een Azure SSIS integratieruntime al nog niet hebt ingericht, inrichten met de instructies in de [zelfstudie](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-test-an-azure-automation-runbook"></a>Maken en testen van een Azure Automation-runbook
-In deze sectie maakt uitvoeren u de volgende stappen: 
+In deze sectie voert u de volgende stappen uit: 
 
 1. Maak een Azure Automation-account.
 2. Maak een PowerShell-runbook in de Azure Automation-account. Het PowerShell-script dat is gekoppeld aan het runbook wordt gestart of gestopt van een Azure SSIS-IR op basis van de opdracht die u voor de parameter bewerking opgeeft. 
@@ -347,7 +347,7 @@ Nadat u maken en testen van de pijplijn, kunt u een schematrigger maken en koppe
     6. Uw SSIS-pakket met de rechtermuisknop en selecteer **rapporten** -> **standaardrapporten** -> **alle uitvoeringen**. 
     7. Controleer of de SSIS-pakket wordt uitgevoerd. 
 
-        ![Controleer of de uitvoering van SSIS-pakket](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![Controleer of de uitvoering van SSIS-pakket](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>De pijplijn plannen 
 Nu dat de pijplijn zoals verwacht werkt, kunt u een trigger deze pijplijn wordt uitgevoerd op een opgegeven uitgebracht. Zie voor meer informatie over het koppelen van een planningstrigger met een pijplijn [de pijplijn activeren volgens een schema](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).

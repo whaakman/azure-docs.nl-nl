@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21004c29f1baf0346cd83d8483ff1862a98fc845
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308149"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160477"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Geforceerde tunneling met het implementatiemodel van Azure Resource Manager configureren
 
 Geforceerde tunneling kunt u omleiding of 'force' alle internetverkeer terug naar uw on-premises locatie via een Site-naar-Site VPN-tunnel voor inspectie en controle. Dit is een essentiële vereiste voor de meeste bedrijven beleid. Zonder geforceerde tunneling, Internet bestemde verkeer van uw virtuele machines in Azure altijd traverses van Azure network-infrastructuur rechtstreeks uit met het Internet, zonder de optie waarmee u kunt controleren of het verkeer controleren. Niet-geautoriseerde toegang tot Internet kan mogelijk leiden tot vrijgeven van informatie of andere typen schendingen van de beveiliging.
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 In dit artikel begeleidt u bij het configureren geforceerde tunneling voor virtuele netwerken die zijn gemaakt met het Resource Manager-implementatiemodel. Geforceerde tunneling kan worden geconfigureerd met behulp van PowerShell, niet via de portal. Als u configureren met geforceerde tunnels zijn voor het klassieke implementatiemodel wilt, selecteert u klassieke artikel in de volgende vervolgkeuzelijst:
 

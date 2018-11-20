@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: cc6af421551ba8ca973c15455daebf58c317d6f5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567907"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976482"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -84,7 +84,11 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 
 ### <a name="changes"></a>Wijzigingen
 
-Geen.
+<!-- 2635202 - IS, ASDK -->
+- Back-upservice infrastructuur verplaatst van de [openbare infrastructuurnetwerk](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) naar de [openbare VIP-netwerk](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Klanten moet om te controleren of de service heeft toegang tot de back-upopslag-locatie van het openbare VIP-netwerk.  
+
+> [!IMPORTANT]  
+> Hebt u een firewall die verbindingen van het openbare VIP-netwerk met de server niet is toegestaan, wordt deze wijziging infrastructuur back-ups mislukken met 'Fout 53 het netwerkpad is niet gevonden'. Dit is een belangrijke wijziging waarvoor geen redelijke oplossing. Op basis van feedback van klanten, wordt Microsoft deze wijziging in een hotfix hersteld. Raadpleeg de [update stappen sectie boeken](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) voor meer informatie over beschikbare hotfixes voor 1809. Zodra de hotfix beschikbaar is, zorg ervoor dat er na het bijwerken van 1809 alleen als uw beleid voor netwerken niet toestaan het openbare VIP-netwerk dat voor toegang tot bronnen van de infrastructuur van toepassing. in 1811, wordt deze wijziging wordt toegepast op alle systemen. Als u de hotfix in 1809 toegepast, is er geen verdere actie vereist.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
 

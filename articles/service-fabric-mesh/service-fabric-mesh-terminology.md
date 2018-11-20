@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f72490169149d247a43e2760815d757c3606f1b3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979128"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163721"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric-NET-terminologie
 
@@ -32,7 +32,7 @@ Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars
 
 **Toepassing**: NET van een Service Fabric-toepassing is de eenheid van de implementatie, versiebeheer en levensduur van een Mesh-toepassing. De levenscyclus van elk toepassingsexemplaar kan onafhankelijk van elkaar worden beheerd.  Toepassingen bestaan uit een of meer code-servicepakketten en -instellingen. Een toepassing is gedefinieerd met behulp van het schema van de Azure Resource-Model (RM).  Services worden omschreven als de eigenschappen van de bron van de toepassing in een RM-sjabloon.  Netwerken en de volumes die worden gebruikt door de toepassing wordt verwezen door de toepassing.  Bij het maken van een toepassing, zijn de toepassing, de service (s), het netwerk en de volumes gemodelleerd met behulp van het Resourcemodel dat Service Fabric.
 
-**Service**: een service in een toepassing een microservice vertegenwoordigt en vervult een functie volledig en zelfstandig. Elke service bestaat uit een of meer codepakketten die alles wat nodig is om uit te voeren van de containerinstallatiekopie die is gekoppeld aan het codepakket wordt beschreven.  Het aantal services in een toepassing kunt omhoog en omlaag worden geschaald.
+**Service**: een service in een toepassing een microservice vertegenwoordigt en vervult een functie volledig en zelfstandig. Elke service bestaat uit een of meer codepakketten die alles wat nodig is om uit te voeren van de containerinstallatiekopie die is gekoppeld aan het codepakket wordt beschreven.  De service-replica's in een toepassing kunnen worden geschaald in en uit.
 
 **Codepakket**: codepakketten beschrijven alles wat nodig is om uit te voeren van de installatiekopie van de container zijn gekoppeld aan de codepakket, met inbegrip van het volgende:
 
@@ -86,4 +86,4 @@ De volgende tabel beschrijft de modellen van de andere toepassing en de tooling 
 
 Lees [Wat is Service Fabric Mesh?](service-fabric-mesh-overview.md) voor meer informatie over Service Fabric Mesh.
 
-Vind antwoorden op [Veelgestelde vragen over](service-fabric-mesh-faq.md).
+Zoek antwoorden op [veelgestelde vragen](service-fabric-mesh-faq.md).

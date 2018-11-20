@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166891"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977094"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Gebruik het diagnoselogboek voor Intelligent Insights Azure SQL Database-prestaties
 
@@ -39,9 +39,7 @@ De koptekst van het logboek is normaal en bestaat uit het tijdstempel (TimeGener
 
 ## <a name="issue-id-and-database-affected"></a>Probleem-ID en -database worden beïnvloed
 
-De probleem-id-eigenschap (issueId_d) biedt een manier om een unieke prestatieproblemen bijhouden totdat ze zijn opgelost. Intelligent Insights observeert de levenscyclus van elk probleem als 'Active', 'Controleren' of 'Voltooid'. Tot en met elk van deze fasen status vastleggen Intelligent Insights meerdere gebeurtenisrecords in het logboek. Voor elk van deze items blijft de probleem-id uniek. Intelligent Insights houdt het probleem gedurende de levensduur en genereert een beter inzicht in de logboekbestanden met diagnostische gegevens om de 15 minuten.
-
-Nadat een prestatieprobleem is gedetecteerd en zo lang duurt, het probleem is gerapporteerd als 'Active' onder de statuseigenschap (status_s). Nadat een gedetecteerd probleem is verholpen, heeft gecontroleerd en gerapporteerd als 'Controleren' onder de statuseigenschap (status_s). Als het probleem niet meer aanwezig is, rapporteert de statuseigenschap (status_s) dit probleem als 'Voltooid'.
+De probleem-id-eigenschap (issueId_d) biedt een manier om een unieke bijhouden van problemen met prestaties tot opgelost. Meerdere gebeurtenis legt vast in het logboek voor rapportage over de status van hetzelfde probleem hebben dezelfde probleem-ID.
 
 Samen met de probleem-ID rapporteert de logboekbestanden met diagnostische gegevens het begin (intervalStartTime_t) en de tijdstempels einde (intervalEndTme_t) van de gebeurtenis die betrekking hebben op een probleem dat in de logboekbestanden met diagnostische gegevens wordt gerapporteerd.
 
@@ -100,7 +98,7 @@ Afhankelijk van het prestatieprobleem gedetecteerd, de details in de diagnostisc
 
 De impact (invloed) eigenschap beschrijft hoeveel een gedetecteerd probleem hebben bijgedragen aan het probleem dat een database heeft. Heeft gevolgen voor het bereik van 1 tot 3, met 3 als de hoogste bijdrage, Gemiddeld, 2 en 1 als de bijdrage van de laagste. De waarde van de impact kan worden gebruikt als invoer voor aangepaste waarschuwingen automatisering, afhankelijk van uw specifieke behoeften. De eigenschap query's betrokken (QueryHashes) bieden een overzicht van de query-hashes die door een bepaalde detectie.
 
-### <a name="impacted-queries"></a>Betrokken query 's
+### <a name="impacted-queries"></a>Betrokken query's
 
 De volgende sectie van het logboek Intelligent Insights bevat informatie over bepaalde query's die worden beïnvloed door de gedetecteerde prestatieproblemen. Deze informatie wordt vermeld als een matrix met objecten die zijn ingesloten in de eigenschap impact_s. De eigenschap gevolgen bestaat uit entiteiten en metrische gegevens. Entiteiten verwijst naar een bepaalde query (Type: Query). De unieke queryhash wordt vermeld onder de eigenschap value (waarde). Bovendien wordt elk van de query's vermeld gevolgd door een metrische waarde en een waarde die wijzen op een prestatieprobleem aangetroffen.
 

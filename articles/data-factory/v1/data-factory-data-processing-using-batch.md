@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238519"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976856"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Met de Batch-service definieert u Azure-rekenresources om uw toepassingen parall
 * [Basisprincipes van Batch](../../batch/batch-technical-overview.md)
 * [Overzicht van de functies van Batch](../../batch/batch-api-basics.md)
 
-(Optioneel) voor meer informatie over Batch, Zie [leertraject voor Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+(Optioneel) voor meer informatie over Batch, Zie [de Batch-documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Waarom Azure Data Factory?
 Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd. Data Factory kunt u beheerde gegevenspijplijnen maken die gegevens verplaatsen van on-premises en gegevensarchieven naar een centrale gegevensopslagplaats in de cloud. Een voorbeeld is de Azure Blob-opslag. U kunt Data Factory gebruiken om te verwerken/transformeren gegevens met behulp van services zoals Azure HDInsight en Azure Machine Learning. U kunt ook gegevenspijplijnen om uit te voeren op een geplande wijze (bijvoorbeeld elk uur, dagelijks en wekelijks) plannen. U kunt controleren en beheren van de pijplijnen in een oogwenk om problemen te identificeren en actie ondernemen.
@@ -51,7 +51,7 @@ Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de ver
 * [Inleiding tot Data Factory](data-factory-introduction.md)
 * [Uw eerste pijplijn bouwen](data-factory-build-your-first-pipeline.md)   
 
-(Optioneel) voor meer informatie over Data Factory, Zie [leertraject voor Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+(Optioneel) voor meer informatie over Data Factory, Zie [de documentatie voor Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory en Batch samen
 Data Factory bevat ingebouwde activiteiten. Bijvoorbeeld, de Copy-activiteit wordt gebruikt om te kopiëren en verplaatsen van gegevens van een brongegevensarchief naar een doelgegevensarchief. De Hive-activiteit wordt gebruikt om gegevens te verwerken met behulp van Hadoop-clusters (HDInsight) op Azure. Zie voor een lijst van ondersteunde transformatieactiviteiten, [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md).

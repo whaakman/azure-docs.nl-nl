@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 6401fbdef07102c6ddba98fe5246ceadfaaca758
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706276"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976316"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -226,6 +226,7 @@ Deze instelling geldt voor de volgende client-apps:
 - Microsoft To-Do
 - Microsoft Stream
 - Microsoft Edge
+- Microsoft Delve
 
 
 

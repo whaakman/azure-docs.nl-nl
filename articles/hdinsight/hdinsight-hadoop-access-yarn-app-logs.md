@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 81a156f3c3d211caffbc33a1f0b45a6c6cd56cb4
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035642"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975139"
 ---
 # <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Toegang Apache YARN-toepassingslogboeken in HDInsight op basis van Windows
 Dit document wordt uitgelegd hoe u toegang tot de logboeken voor Apache YARN-toepassingen die klaar bent met het op een Windows-gebaseerde Hadoop-cluster in Azure HDInsight
@@ -28,7 +28,7 @@ Dit document wordt uitgelegd hoe u toegang tot de logboeken voor Apache YARN-toe
 * Een Windows-gebaseerde HDInsight-cluster.  Zie [Windows maken op basis van Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-De <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> biedt algemene informatie over voltooide toepassingen ook als frameworkspecifieke toepassingsinformatie via twee verschillende interfaces. Specifiek:
+De <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> biedt algemene informatie over voltooide toepassingen ook als frameworkspecifieke toepassingsinformatie via twee verschillende interfaces. Specifiek:
 
 * Opslaan en ophalen van informatie over algemene toepassingen op HDInsight-clusters is ingeschakeld met versie 3.1.1.374 of hoger zijn.
 * Een onderdeel van de application framework-specifieke gegevens van de tijdlijn-Server is momenteel niet beschikbaar op HDInsight-clusters.

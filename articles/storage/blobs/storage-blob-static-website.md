@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955623"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161290"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
@@ -109,7 +109,7 @@ Methoden voor het implementeren van inhoud naar een storage-container omvatten h
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Visual Studio Team System](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure pijplijnen](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
 - [Visual Studio Code-extensie](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 In alle gevallen, zorg ervoor dat u bestanden kopiëren naar de *$web* container.
@@ -158,7 +158,7 @@ Ja, is het nieuwe eindpunt op het web gehoorzaamt aan de VNET- en firewall-regel
 Ja, is het eindpunt op het web hoofdlettergevoelig net als de blob-eindpunt. 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [De Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md)
+* [Azure-CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md)
 * [Een aangepaste domeinnaam voor uw blob- en web-eindpunten configureren](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure Web Apps](/azure/app-service/app-service-web-overview)

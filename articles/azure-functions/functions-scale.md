@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f597425fc3813f243950b16f5debbd63ce3a805
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113934"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975887"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
-Azure Functions wordt uitgevoerd in twee verschillende modi: verbruiksabonnement en Azure App Service-plan. Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd. Uw app is uitgeschaald wanneer dat nodig is om belasting te verwerken en omlaag worden geschaald wanneer de code wordt niet uitgevoerd. U hoeft te betalen voor niet-actieve virtuele machines of vooraf capaciteit reserveren. In dit artikel is gericht op het plan verbruik een [serverloze](https://azure.microsoft.com/solutions/serverless/) app-model. Zie voor meer informatie over de werking van de toegewezen App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Azure Functions wordt uitgevoerd in twee verschillende modi: verbruiksabonnement en Azure App Service-plan. Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd. Uw app is uitgeschaald wanneer dat nodig is om belasting te verwerken en omlaag worden geschaald wanneer de code wordt niet uitgevoerd. U hoeft te betalen voor niet-actieve virtuele machines of vooraf capaciteit reserveren.
 
 > [!NOTE]  
 > [Linux-hosting](functions-create-first-azure-function-azure-cli-linux.md) is momenteel alleen beschikbaar op een App Service-plan.

@@ -3,19 +3,19 @@ title: Taalondersteuning - Bing webzoekopdrachten-API
 titleSuffix: Azure Cognitive Services
 description: Een lijst van natuurlijke talen, landen en regio's die worden ondersteund door de Bing nieuws zoeken-API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: erhopf
-ms.openlocfilehash: c15e1ddd35e625a713ff569f26e9312d9dcd0bc8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: 6d7b227ac182ca2cd30d6a6eaa428ea86757214c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435499"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164394"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Ondersteuning voor taal en regio voor de Bing webzoekopdrachten-API
 
@@ -30,9 +30,9 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Land/regio|Code|
 |-------|----|
 |Argentinië|AR|
-|Australië|AUSTRALIË|
+|Australië|AU|
 |Oostenrijk|AT|
-|België|WORDEN|
+|België|BE|
 |Brazilië|BR|
 |Canada|CA|
 |Chili|CL|
@@ -46,22 +46,22 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Italië|IT|
 |Japan|JP|
 |Korea|KR|
-|Maleisië|MIJN|
+|Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
 |Nieuw-Zeeland|NZ|
-|Noorwegen|NEE|
-|China|ALGEMENE NAAM|
+|Noorwegen|NO|
+|China|CN|
 |Polen|PL|
 |Portugal|PT|
-|Filippijnen|PH|
+|Filipijnen|PH|
 |Rusland|RU|
 |Saoedi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
-|Zweden|TWEEDE EDITIE|
+|Zweden|SE|
 |Zwitserland|CH|
-|Taiwan|TWEE|
+|Taiwan|TW|
 |Turkije|TR|
 |Verenigd Koninkrijk|GB|
 |Verenigde Staten|VS|
@@ -97,7 +97,7 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filippijnen|Nederlands|NL-PH|
+|Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
 |Zuid-Afrika|Nederlands|NL-ZA|

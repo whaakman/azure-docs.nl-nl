@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d166d490c00a9805ec9cecae6509acc531d8d711
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5be556ca13b9e4f681239998205aac073cc0fb99
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959865"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974752"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven hoe u als ontwikkelaar apparaat een Windows IoT Cor
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
+1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 2. Een apparaat met het besturingssysteem Windows 10 IoT Core. Voor dit scenario gebruiken we een Raspberry Pi.
 
 
@@ -57,7 +57,7 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT C
 
 ### <a name="what-youll-need"></a>Wat u nodig hebt
 
-Als u een fysiek apparaat met Windows 10 IoT Core instelt, moet u eerst een apparaat met Windows 10 IoT Core hebben. Meer informatie over het instellen van een apparaat met Windows 10 IoT Core [hier](https://developer.microsoft.com/en-us/windows/iot/getstarted/prototype/setupdevice).
+Als u een fysiek apparaat met Windows 10 IoT Core instelt, moet u eerst een apparaat met Windows 10 IoT Core hebben. Meer informatie over het instellen van een apparaat met Windows 10 IoT Core [hier](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 U moet ook een clienttoepassing die met Azure IoT Central communiceren kan. U kunt uw eigen aangepaste toepassing met behulp van de Azure SDK bouwen en implementeren op uw apparaat met behulp van Visual Studio, maar u kunt downloaden een [vooraf gemaakte voorbeeld](https://developer.microsoft.com/en-us/windows/iot/samples) gewoon implementeren en uitvoeren op het apparaat. 
 

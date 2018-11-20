@@ -1,7 +1,7 @@
 ---
-title: SQL-query metrische gegevens voor Azure Cosmos DB SQL-API | Microsoft Docs
-description: Meer informatie over het instrumenteren en de prestaties van de SQL-query's van Azure DB die Cosmos-aanvragen voor foutopsporing.
-keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
+title: SQL-query metrische gegevens voor Azure Cosmos DB SQL API | Microsoft Docs
+description: Meer informatie over het instrumenteren en fouten opsporen in de prestaties van de SQL-query's van Azure Cosmos DB-aanvragen.
+keywords: SQL-syntaxis, sql-query, sql-query's, querytaal voor json, database-concepten en sql-query's, statistische functies
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -11,49 +11,49 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9358e0a712f820671edec518b1cc93ecee5302ad
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798692"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162515"
 ---
-# <a name="tuning-query-performance-with-azure-cosmos-db"></a>Prestaties van query's met Azure Cosmos DB afstemmen
+# <a name="tuning-query-performance-with-azure-cosmos-db"></a>Afstemming van prestaties van query's met Azure Cosmos DB
 
-Azure Cosmos DB biedt een [SQL-API voor het opvragen van gegevens](sql-api-sql-query.md), zonder schema of secundaire indexen. In dit artikel biedt de volgende informatie voor ontwikkelaars:
+Azure Cosmos DB biedt een [SQL-API voor het opvragen van gegevens](how-to-sql-query.md), zonder schema of secundaire indexen. In dit artikel bevat de volgende informatie voor ontwikkelaars:
 
-* Details op hoog niveau over de werking van Azure Cosmos DB SQL-query-uitvoering
+* Details over de werking van Azure Cosmos DB SQL-query uitvoeren op hoog niveau
 * Meer informatie over de aanvraag- en reactieheaders query en opties voor client-SDK
 * Tips en aanbevolen procedures voor prestaties van query 's
-* Voorbeelden van hoe u kunt gebruikmaken van SQL-Uitvoeringsstatistieken voor foutopsporing van de prestaties van query 's
+* Voorbeelden van hoe u kunt gebruikmaken van SQL tot uitvoering van statistieken om op te sporen van de prestaties van query 's
 
-## <a name="about-sql-query-execution"></a>Over het uitvoeren van de SQL-query
+## <a name="about-sql-query-execution"></a>Over het uitvoeren van de SQL-query 's
 
-In Azure Cosmos DB, slaat u de gegevens in de containers die kunnen worden uitgebreid naar een [grootte of aanvraag opslagdoorvoer](partition-data.md). Azure Cosmos DB schaalt naadloos gegevens meerdere fysieke partities achter de Gegevensgroei verwerken of worden verhoogd met ingerichte doorvoer. U kunt de SQL-query's naar een container met de REST-API of een van de ondersteunde opdracht [SQL-SDK's](sql-api-sdk-dotnet.md).
+In Azure Cosmos DB, slaat u gegevens in containers, die kunnen worden uitgebreid om een [formaat of de aanvraag opslagdoorvoer](partition-data.md). Azure Cosmos DB schaalt naadloos gegevens over fysieke partities op de achtergrond te verwerken van de groei van gegevens verhoogd met ingerichte doorvoer. U kunt de SQL-query's naar een container met de REST-API of een van de ondersteunde opdracht [SQL-SDK's](sql-api-sdk-dotnet.md).
 
-Een kort overzicht van het partitioneren: definieert u een partitiesleutel zoals 'plaats', waarmee wordt bepaald hoe gegevens zijn verdeeld over fysieke partities. Gegevens die behoren tot een enkele partitie-sleutel (bijvoorbeeld 'city' == "Seattle") zijn opgeslagen in een fysieke partitie, maar één fysieke partitie heeft doorgaans meerdere partitiesleutels. Wanneer een partitie zijn opslaggrootte bereikt, de service naadloos de partitie worden gesplitst in twee nieuwe partities en de partitiesleutel gelijkmatig wordt verdeeld over deze partities. Aangezien partities tijdelijke zijn, gebruiken de API's een abstractie van een 'partitiesleutelbereik', waarmee de bereiken van de belangrijkste hashes partitie. 
+Een kort overzicht van partitionering: definieert u een partitiesleutel, zoals 'plaats', waarmee wordt bepaald hoe de gegevens is gesplitst over meerdere fysieke partities. Gegevens die behoren tot een enkele partitiesleutel (bijvoorbeeld 'plaats' == "Seattle") worden opgeslagen in een fysieke partitie, maar één fysieke partitie heeft doorgaans meerdere partitiesleutels. Wanneer u een partitie zijn opslaggrootte bereikt, de service naadloos de partitie worden gesplitst in twee nieuwe partities, en wordt de partitiesleutel gelijkmatig verdeeld over deze partities. Aangezien partities tijdelijk zijn, gebruiken de API's voor een abstractie van een 'partitiesleutelbereik', waarmee de bereiken van de belangrijkste hashes partitie. 
 
-Wanneer u een query voor Azure Cosmos DB uitgeeft, voert de SDK deze logische stappen:
+Wanneer u een query met Azure Cosmos DB, voert de SDK deze logische stappen uit:
 
-* Parseren van de SQL-query om te bepalen van het queryplan kan worden uitgevoerd. 
-* Als de query een filter voor de partitiesleutel bevat, zoals `SELECT * FROM c WHERE c.city = "Seattle"`, wordt deze doorgestuurd naar één partitie. Als de query heeft geen een filter voor de partitiesleutel en vervolgens deze wordt uitgevoerd in alle partities en de resultaten worden samengevoegd clientzijde.
-* De query is uitgevoerd binnen elke partitie in de reeks of parallel, op basis van de clientconfiguratie. Binnen elke partitie kan in de query maken een of meer retouren afhankelijk van de complexiteit query paginagrootte geconfigureerd en ingerichte doorvoer van de verzameling. Elke uitvoering retourneert het aantal [aanvraageenheden](request-units.md) verbruikt door uitvoering van de query, en desgewenst Uitvoeringsstatistieken query. 
-* De SDK voert een samenvatting van de queryresultaten meerdere partities. Bijvoorbeeld als de query een ORDER BY meerdere partities moet, zijn vervolgens resultaten uit afzonderlijke partities voor het retourneren van resultaten in een globaal gesorteerde volgorde gesorteerd samenvoegen. Als de query een aggregatie zoals is `COUNT`, het aantal uit afzonderlijke partities voor het produceren van het totale aantal worden opgeteld.
+* Parseren van de SQL-query om te bepalen het queryplan kan worden uitgevoerd. 
+* Als de query een filter op basis van de partitiesleutel bevat, zoals `SELECT * FROM c WHERE c.city = "Seattle"`, wordt deze doorgestuurd naar één partitie. Als de query heeft geen een filter voor de partitiesleutel, wordt deze uitgevoerd in alle partities en resultaten worden samengevoegd clientzijde.
+* De query wordt uitgevoerd binnen elke partitie in de reeks of parallel, op basis van de clientconfiguratie. Binnen elke partitie de query mogelijk een of meer retouren, afhankelijk van de complexiteit van de query, het formaat van pagina geconfigureerd en ingerichte doorvoer van de verzameling. Elke uitvoering retourneert het aantal [aanvraageenheden](request-units.md) verbruikt door het uitvoeren van query's en, optioneel, Uitvoeringsstatistieken query. 
+* De SDK voert een samenvatting van de queryresultaten over meerdere partities. Bijvoorbeeld, als de query een ORDER BY over meerdere partities moet, zijn vervolgens resultaten van afzonderlijke partities voor het retourneren van resultaten in een wereldwijd gesorteerde volgorde gesorteerd samenvoegen. Als de query een aggregatie zoals is `COUNT`, waarin de aantallen van afzonderlijke partities te produceren van het totale aantal worden opgeteld.
 
-De SDK's bieden verschillende opties voor het uitvoeren van de query. Bijvoorbeeld in .NET deze opties zijn beschikbaar in de `FeedOptions` klasse. De volgende tabel beschrijft deze opties en hoe ze invloed hebben op uitvoeringstijd van de query. 
+De SDK's bieden verschillende opties voor het uitvoeren van query's. Bijvoorbeeld, in .NET deze opties zijn beschikbaar in de `FeedOptions` klasse. De volgende tabel beschrijft deze opties en hoe ze invloed op een moment dat de uitvoering van query. 
 
 | Optie | Beschrijving |
 | ------ | ----------- |
-| `EnableCrossPartitionQuery` | Moet worden ingesteld op true voor een query die moet worden uitgevoerd op meer dan één partitie. Dit is een expliciete vlag zodat u deze kunt u weloverwogen prestatie-en nadelen tijdens de ontwikkeling. |
-| `EnableScanInQuery` | Moet worden ingesteld op true als u ervoor hebt gekozen buiten het indexeren, maar de query toch uitvoeren via een scan. Alleen is van toepassing als indexering voor de aangevraagde filterpad uitgeschakeld. | 
-| `MaxItemCount` | Het maximum aantal items per round trip terugkeren naar de server. Door de instelling op-1 kunt u de server die het aantal items beheren. Of u kunt deze waarde voor het ophalen van een klein aantal items per round trip verlagen. 
-| `MaxBufferedItemCount` | Dit is een optie voor de clientzijde, en gebruikt voor het beperken van het geheugenverbruik bij het uitvoeren van cross-partitie ORDER BY. Een hogere waarde vermindert de latentie van cross-partitie sorteren. |
-| `MaxDegreeOfParallelism` | Opgehaald of ingesteld van het aantal gelijktijdige bewerkingen clientzijde tijdens parallelle queryuitvoering in de database-service van Azure DB die Cosmos uitgevoerd. Een positief eigenschapswaarde beperkt het aantal gelijktijdige bewerkingen op de waarde ingesteld. Als deze is ingesteld op minder dan 0, besluit het systeem automatisch het aantal gelijktijdige bewerkingen om uit te voeren. |
-| `PopulateQueryMetrics` | Hiermee gedetailleerde logboekregistratie van statistieken voor de tijd die is doorgebracht in verschillende fasen van de uitvoering van de query zoals compileertijd en index Lustijd document laden tijd. U kunt uitvoer van de query statistieken delen met Azure-ondersteuning voor het vaststellen van prestatieproblemen met de query. |
-| `RequestContinuation` | U kunt de queryuitvoering hervatten door door te geven in het ondoorzichtige vervolgtoken geretourneerd door een query. Het vervolgtoken ingekapseld alle staat is vereist voor uitvoering van de query. |
-| `ResponseContinuationTokenLimitInKb` | U kunt de maximale grootte van het vervolgtoken geretourneerd door de server kunt beperken. Mogelijk moet u dit instellen als uw toepassingshost limieten op antwoord header-grootte. In te stellen, kan de totale duur en RUs gebruikt voor de query verhogen.  |
+| `EnableCrossPartitionQuery` | Moet worden ingesteld op true voor een query die is vereist om te worden uitgevoerd op meer dan één partitie. Dit is een expliciete vlag waarmee u kunt ontwikkelt zich bewust prestaties tijdens het ontwikkelen. |
+| `EnableScanInQuery` | Moet worden ingesteld op true als u ervoor hebt gekozen buiten het indexeren, maar de query toch uitvoeren via een scan. Alleen is van toepassing als indexering voor het filterpad van het opgegeven uitgeschakeld. | 
+| `MaxItemCount` | Het maximum aantal items om terug te keren per retour naar de server. Door in te stellen op-1 kunt u de server die het aantal items beheren. Of u kunt deze waarde om op te halen van slechts een beperkt aantal items per retour verlagen. 
+| `MaxBufferedItemCount` | Dit is een optie voor de clientzijde, en gebruikt voor het beperken van het geheugenverbruik bij het uitvoeren van meerdere partities ORDER BY. Een hogere waarde vermindert de latentie voor het sorteren van meerdere partities. |
+| `MaxDegreeOfParallelism` | Opgehaald of ingesteld van het aantal gelijktijdige bewerkingen clientzijde tijdens parallelle queryuitvoering in de Azure Cosmos DB-database-service worden uitgevoerd. Een positieve waarde beperkt het aantal gelijktijdige bewerkingen aan de ingestelde waarde. Als deze is ingesteld op minder dan 0, besluit het systeem automatisch het aantal gelijktijdige bewerkingen om uit te voeren. |
+| `PopulateQueryMetrics` | Hiermee gedetailleerde logboekregistratie van statistieken van de tijd die is doorgebracht in verschillende fasen van het uitvoeren van query's, zoals compilatietijd, index-Lustijd en document wordt de tijd. U kunt uitvoer van de querystatistieken delen met ondersteuning van Azure om prestatieproblemen van query. |
+| `RequestContinuation` | U kunt uitvoeren van query's hervatten door te geven in de ondoorzichtige vervolgtoken dat wordt geretourneerd door elke query. Het vervolgtoken ingekapseld alle staat is vereist voor het uitvoeren van query's. |
+| `ResponseContinuationTokenLimitInKb` | U kunt de maximale grootte van het vervolgtoken dat wordt geretourneerd door de server beperken. Mogelijk moet u dit instellen als uw toepassingshost limieten voor grootte van de antwoord-header heeft. Deze instelling kan vergroten de totale duur en de gebruikte Aanvraageenheden voor de query.  |
 
-Bijvoorbeeld, u gaat nu een voorbeeldquery op partitiesleutel is aangevraagd op een verzameling met `/city` als de partitie sleutel en ingericht met 100.000 RU/s doorvoer. U deze query met aanvragen `CreateDocumentQuery<T>` in .NET als volgt:
+Bijvoorbeeld eens een voorbeeld van een query op de partitiesleutel is aangevraagd op een verzameling met `/city` als de partitie en de ingerichte met 100.000 RU/s aan doorvoer. U aanvragen met deze query met `CreateDocumentQuery<T>` in .NET als volgt:
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -70,7 +70,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 ```
 
-De SDK-codefragment hierboven, overeenkomt met de volgende REST-API-aanvraag:
+De SDK-fragment hierboven, komt overeen met de volgende REST-API-aanvraag:
 
 ```
 POST https://arramacquerymetrics-westus.documents.azure.com/dbs/db/colls/sample/docs HTTP/1.1
@@ -97,9 +97,9 @@ Expect: 100-continue
 {"query":"SELECT * FROM c WHERE c.city = 'Seattle'"}
 ```
 
-Elke pagina van de uitvoering van query komt overeen met een REST-API `POST` met de `Accept: application/query+json` header en de SQL-query in de hoofdtekst. Elke query kunnen een of meer retouren naar de server met de `x-ms-continuation` token gekopieerd tussen de client en server uitvoering te hervatten. De configuratieopties in FeedOptions worden doorgegeven aan de server in de vorm van de aanvraagheaders. Bijvoorbeeld: `MaxItemCount` komt overeen met `x-ms-max-item-count`. 
+Elke pagina van de uitvoering van query komt overeen met een REST-API `POST` met de `Accept: application/query+json` koptekst en de SQL-query in de hoofdtekst. Elke query maakt een of meer retouren naar de server met de `x-ms-continuation` token gekopieerd tussen de client en server uitvoering te hervatten. De configuratieopties in FeedOptions worden doorgegeven aan de server in de vorm van aanvraagheaders. Bijvoorbeeld, `MaxItemCount` komt overeen met `x-ms-max-item-count`. 
 
-De aanvraag de volgende (afgekapt voor leesbaarheid) antwoord geretourneerd:
+De aanvraag wordt het volgende (afgekapt voor de leesbaarheid) antwoord geretourneerd:
 
 ```
 HTTP/1.1 200 Ok
@@ -126,54 +126,54 @@ x-ms-gatewayversion: version=1.14.33.2
 Date: Tue, 27 Jun 2017 21:59:49 GMT
 ```
 
-De belangrijkste antwoordheaders geretourneerd van de query omvatten het volgende:
+De antwoord-headers die door de query zijn geretourneerd, zijn onder andere:
 
 | Optie | Beschrijving |
 | ------ | ----------- |
 | `x-ms-item-count` | Het aantal items in het antwoord geretourneerd. Dit is afhankelijk van de opgegeven `x-ms-max-item-count`, het aantal items dat binnen de maximale reactiegrootte nettolading, de ingerichte doorvoer en de uitvoeringstijd van de query past. |  
-| `x-ms-continuation:` | Het vervolgtoken uitvoering van de query te hervatten als extra resultaten beschikbaar zijn. | 
-| `x-ms-documentdb-query-metrics` | De statistieken van de query voor de uitvoering. Dit is een tekenreeks met scheidingstekens met statistieken van de tijd besteed aan de verschillende fasen van de uitvoering van de query. Geretourneerde als `x-ms-documentdb-populatequerymetrics` is ingesteld op `True`. | 
-| `x-ms-request-charge` | Het aantal [aanvraageenheden](request-units.md) verbruikt door de query. | 
+| `x-ms-continuation:` | Het vervolgtoken uitvoering van de query te hervatten als er extra resultaten beschikbaar zijn. | 
+| `x-ms-documentdb-query-metrics` | De querystatistieken voor de uitvoering. Dit is een tekenreeks met scheidingstekens met statistieken van de tijd besteed aan de verschillende fasen van het uitvoeren van query's. Geretourneerde als `x-ms-documentdb-populatequerymetrics` is ingesteld op `True`. | 
+| `x-ms-request-charge` | Het aantal [aanvraageenheden](request-units.md) die worden gebruikt door de query. | 
 
-Zie voor meer informatie over de REST-API-headers voor aanvraag en de opties [opvragen van resources met behulp van de REST-API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+Zie voor meer informatie over de REST-API-aanvraagheaders en opties [resources met behulp van de REST-API uitvoeren van query's](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Aanbevolen procedures voor prestaties van query 's
-Hieronder vindt u de meest voorkomende factoren die van invloed op prestaties van Azure DB die Cosmos-query's. We verdiepen in elk van deze onderwerpen in dit artikel.
+Hier volgen de meest voorkomende factoren die invloed hebben op prestaties van Azure Cosmos DB-query's. We verdiepen in elk van de volgende onderwerpen in dit artikel.
 
-| Factor | Tip | 
+| Multi-factor Authentication | Tip | 
 | ------ | -----| 
-| Ingerichte doorvoer | Meet RU per query en zorg ervoor dat u de vereiste ingerichte doorvoer voor uw query's. | 
-| Partitionering en partitiesleutels | Voorkeur voor query's met de waarde voor de partitiesleutel in de filtercomponent voor lage latentie. |
-| SDK en query-opties | Volg de aanbevolen procedures van de SDK zoals directe verbinding en clientzijde uitvoering queryopties afstemmen. |
-| Netwerklatentie | Account voor netwerk overhead in meting en multihoming API's gebruiken om te lezen uit de dichtstbijzijnde regio. |
-| Indexeringsbeleid | Zorg ervoor dat u de vereiste paden/indexeringsbeleid voor de query. |
-| Query-uitvoering metrische gegevens | Analyseer de query-uitvoering metrische gegevens om te identificeren mogelijke regeneraties van query's en vormen.  |
+| Ingerichte doorvoer | RU's per query meten en zorg ervoor dat u de vereiste ingerichte doorvoer voor uw query's hebt. | 
+| Partitioneren en partitiesleutels | Voorkeur voor query's met de waarde voor de partitiesleutel in de filtercomponent voor lage latentie. |
+| SDK en query-opties | Volg de aanbevolen procedures van de SDK, zoals directe connectiviteit en afstemmen van de opties voor client-side '-query kan worden uitgevoerd. |
+| Netwerklatentie | Account voor netwerk overhead in metingen en multihoming-API's gebruiken om te lezen van de dichtstbijzijnde regio. |
+| Indexeringsbeleid | Zorg ervoor dat u de vereiste paden/indexeringsbeleid voor de query hebt. |
+| Query uitvoering van metrische gegevens | Analyseer de query-uitvoering van metrische gegevens voor het identificeren van mogelijke regeneraties van query's en vormen.  |
 
 ### <a name="provisioned-throughput"></a>Ingerichte doorvoer
-In de Cosmos-DB maakt u containers voor gegevens, elk met gereserveerde doorvoer, uitgedrukt in de aanvraag-eenheden (RU) per de seconde. Het lezen van een document van 1 KB is 1 RU en elke bewerking (met inbegrip van query's) op een vast aantal RUs op basis van de complexiteit is genormaliseerd. Bijvoorbeeld, als er 1000 RU/s ingericht voor de container en u hebt een query zoals `SELECT * FROM c WHERE c.city = 'Seattle'` die 5 RUs verbruikt en vervolgens kunt u uitvoeren (1000 RU/s) / (5 RU/query) = 200 query/s dergelijke query's per seconde. 
+In Cosmos DB maakt u containers van gegevens, elk met gereserveerde doorvoer, uitgedrukt in aanvraag aanvraageenheden (RU) per-seconde. Lezen van een document van 1 KB is 1 RU en elke bewerking (met inbegrip van query's) op een vast aantal ru's op basis van de complexiteit is genormaliseerd. Bijvoorbeeld, als er 1000 RU/s ingericht voor uw container en u hebt een query zoals `SELECT * FROM c WHERE c.city = 'Seattle'` die 5 ru's worden verbruikt, u kunt vervolgens (1000 RU/s) / (5 RU/query) = 200 query/s dergelijke query's per seconde. 
 
-Als u meer dan 200 query's per seconde indient, start de service binnenkomende aanvragen frequentiebeperkende hierboven 200/s. In dit geval de SDK's automatisch verwerkt door het uitvoeren van een backoff/nieuwe poging, dus u wellicht opgevallen dat een hogere latentie voor deze query's. De ingerichte doorvoer voor de vereiste waarde verhogen verbetert uw Querylatentie en de doorvoer. 
+Als u meer dan 200 's/sec indient, start de service binnenkomende aanvragen frequentiebeperkende hierboven 200/s. In dit geval de SDK's automatisch verwerken door uit te voeren een uitstel/opnieuw proberen en daarom ziet u een hogere latentie voor deze query's. Vergroten van de ingerichte doorvoer voor de vereiste waarde verbetert uw Querylatentie en doorvoer. 
 
 Zie voor meer informatie over aanvraageenheden, [Aanvraageenheden](request-units.md).
 
-### <a name="partitioning-and-partition-keys"></a>Partitionering en partitiesleutels
-Met Azure Cosmos DB doorgaans uitvoeren query's in de volgende volgorde van de snelste/meest efficiënte naar tragere/minder efficiënt. 
+### <a name="partitioning-and-partition-keys"></a>Partitioneren en partitiesleutels
+Met Azure Cosmos DB voeren normaal gesproken query's in de volgende volgorde van de snelste/meest efficiënt naar tragere/minder efficiënt. 
 
-* Op een enkele partitie en item sleutel ophalen
-* Query's uitvoeren met een filter-component op een enkele partitiesleutel
-* Query uitvoeren zonder dat een gelijkheid of bereik filter-component op een eigenschap
-* Een query uitvoeren zonder filters
+* OPHALEN op een enkele partitiesleutel en Itemsleutel
+* Query's uitvoeren met een filterclausule op één partitiesleutel
+* Query uitvoeren zonder dat een filtercomponent gelijkheid of het bereik op een eigenschap
+* Query's uitvoeren zonder filters
 
-Query's die u moeten alle partities Raadpleeg moeten hogere latentie, en hogere RUs kunnen gebruiken. Aangezien elke partitie automatisch indexeren tegen alle eigenschappen heeft, kan de query worden geleverd efficiënt vanaf de index in dit geval. U kunt query's die partities sneller omvatten met behulp van de opties voor parallelle uitvoering.
+Query's die u moeten raadplegen over alle partities moeten hogere latentie en hogere ru's kunnen gebruiken. Omdat elke partitie heeft de automatische indexering voor alle eigenschappen, kan de query efficiënt worden uitgevoerd in de index in dit geval. U kunt query's die sneller partities omvatten met behulp van de opties voor parallelle uitvoering.
 
-Zie voor meer informatie over partitioneren en partitiesleutels, [partitioneren in Azure Cosmos DB](partition-data.md).
+Zie voor meer informatie over partitionering en partitiesleutels [partitionering in Azure Cosmos DB](partition-data.md).
 
 ### <a name="sdk-and-query-options"></a>SDK en query-opties
-Zie [Tips voor betere prestaties](performance-tips.md) en [prestatietests](performance-testing.md) voor het ophalen van de beste prestaties voor de clientzijde van Azure Cosmos DB. Dit omvat met de nieuwste SDK's, platform-specifieke netwerkconfiguraties als standaardaantal verbindingen, frequentie van garbagecollection, configureren en lightweight connectiviteitsopties zoals Direct/TCP. 
+Zie [tips voor betere prestaties](performance-tips.md) en [prestatietests](performance-testing.md) voor informatie over het ophalen van de beste prestaties voor de clientzijde van Azure Cosmos DB. Dit omvat met de nieuwste SDK's, het configureren van platform-specifieke configuraties, zoals het standaardaantal verbindingen, frequentie van de garbagecollection, en met behulp van eenvoudige connectiviteitsopties, zoals Direct/TCP. 
 
 
 #### <a name="max-item-count"></a>Maximum aantal items
-Voor query's, de waarde van `MaxItemCount` kan een aanzienlijke invloed hebben op het moment dat de end-to-end-query. Elke retouren naar de server resulteert niet vaker dan het aantal items in `MaxItemCount` (standaard van 100 objecten). Als u dit op een hogere waarde (-1 is maximum- en aanbevolen) worden uw totale duur van de query verbeteren door het aantal retouren tussen server en client, met name voor query's met grote resultatensets te beperken.
+Voor query's, de waarde van `MaxItemCount` kan een aanzienlijke invloed hebben op het uitvoeren van query's end-to-end. Elke retour naar de server retourneert niet vaker dan het aantal items in `MaxItemCount` (standaard 100 items). Deze instelling op een hogere waarde (-1 is maximum- en aanbevolen) uw totale queryduur van de wordt verbeterd door het beperken van het aantal retouren tussen server en client, met name voor query's met grote resultatensets.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -185,8 +185,8 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
     }).AsDocumentQuery();
 ```
 
-#### <a name="max-degree-of-parallelism"></a>Maximale mate van parallelle uitvoering
-Stemmen voor query's, de `MaxDegreeOfParallelism` voor het identificeren van de aanbevolen configuraties voor uw toepassing, met name als u cross-partitie query's (zonder een filter op de partitie-sleutelwaarde) uitvoeren. `MaxDegreeOfParallelism`  Hiermee bepaalt u het maximum aantal parallelle taken, dat wil zeggen, het maximum van partities parallel wordt bezocht. 
+#### <a name="max-degree-of-parallelism"></a>Maximale graad van parallelle uitvoering
+Optimaliseren voor query's, de `MaxDegreeOfParallelism` voor het identificeren van de aanbevolen configuraties voor uw toepassing, met name als u een partitieoverkoepelende query's (zonder een filter op de waarde van de partitiesleutel) uitvoeren. `MaxDegreeOfParallelism`  Hiermee bepaalt u het maximum aantal parallelle taken, dat wil zeggen, het maximum van partities parallel wordt bezocht. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -200,28 +200,28 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 Stel dat
-* D = standaard maximale aantal parallelle taken (= totaal aantal processor in de client-computer)
+* D = standaard Maximum aantal parallelle taken (= totaal aantal processor in de client-computer)
 * P = gebruiker opgegeven maximale aantal parallelle taken
-* N het aantal partities die behoeften voor het beantwoorden van een query wordt bezocht =
+* N = aantal partities dat moet worden bezocht voor het beantwoorden van een query
 
-Hieronder vindt u de implicaties van hoe de parallelle query's voor verschillende waarden van P. zou werken
+Hieronder vindt u de gevolgen van hoe de parallelle query's voor verschillende waarden van P. zou werken
 * (P == 0) = > seriële modus
 * (P == 1) = > maximaal één taak
 * (P > 1) = > parallelle taken Min (P, N) 
 * (P < 1) = > parallelle taken Min (N, D)
 
-Voor SDK-releaseopmerkingen en Zie voor meer informatie over geïmplementeerde klassen en methoden [SQL-SDK's](sql-api-sdk-dotnet.md)
+SDK-releaseopmerkingen en Zie details over geïmplementeerde klassen en methoden [SQL-SDK's](sql-api-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Netwerklatentie
-Zie [Azure Cosmos DB globale distributie](tutorial-global-distribution-sql-api.md) voor het instellen van de algemene distributie en verbinding maken met de dichtstbijzijnde regio. Netwerklatentie heeft een aanzienlijke invloed op prestaties van query's als u wilt meerdere retouren maken of een grote resultatenset van de query worden opgehaald. 
+Zie [Azure DB Cosmos globale distributie](tutorial-global-distribution-sql-api.md) voor informatie over het instellen van wereldwijde distributie en maak verbinding met de dichtstbijzijnde regio. Wanneer u meerdere retouren maken of ophalen van de query een grote resultatenset nodig hebt, netwerklatentie een aanzienlijke invloed heeft op de prestaties van query's. 
 
-De sectie over metrische gegevens query-uitvoering wordt uitgelegd hoe u de tijd van de server uitvoeren van query's niet ophalen ( `totalExecutionTimeInMs`), zodat u tijd besteed aan het uitvoeren van de query en -tijd besteed aan het netwerk onderweg kunt onderscheiden.
+De sectie over query uitvoering van metrische gegevens wordt uitgelegd hoe u de servertijden van de uitvoering van query's worden opgehaald ( `totalExecutionTimeInMs`), zodat u tijd besteed aan het uitvoeren van query's en -tijd besteed aan het netwerk onderweg kunt onderscheiden.
 
 ### <a name="indexing-policy"></a>Indexeringsbeleid
-Zie [indexeringsbeleid configureren](indexing-policies.md) voor indexeren paden, soorten, en modi en invloed op uitvoering van de query. Het indexeringsbeleid gebruikt standaard hash-indexering voor tekenreeksen, die geldt voor gelijkheid query's, maar niet voor query's bereik/order by-query's. Als u een bereik query's nodig voor tekenreeksen, wordt u aangeraden het indextype bereik voor alle tekenreeksen geven. 
+Zie [indexeringsbeleid configureren](indexing-policies.md) voor indexering paden, soorten en modi en hoe ze invloed op de uitvoering van de query. Het indexeringsbeleid gebruikt standaard hash-indexering voor tekenreeksen, die geldt voor gelijkheid query's, maar niet voor de bereik-query's / OrderBy-query's. Als u een bereik-query's nodig voor tekenreeksen, wordt u aangeraden het indextype bereik voor alle tekenreeksen op te geven. 
 
-## <a name="query-execution-metrics"></a>Query-uitvoering metrische gegevens
-U kunt gedetailleerde metrische gegevens op de uitvoering van de query verkrijgen door door te geven in de optionele `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in de .NET SDK). De waarde die in `x-ms-documentdb-query-metrics` heeft de volgende sleutel-waardeparen bedoeld voor geavanceerde probleemoplossing van de uitvoering van de query. 
+## <a name="query-execution-metrics"></a>Query uitvoering van metrische gegevens
+U kunt gedetailleerde metrische gegevens over het uitvoeren van query's verkrijgen door de optionele `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in de .NET SDK). De waarde die wordt geretourneerd `x-ms-documentdb-query-metrics` heeft de volgende sleutel-waardeparen bedoeld voor geavanceerde probleemoplossing van het uitvoeren van query's. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -241,41 +241,41 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 | Gegevens | Eenheid | Beschrijving | 
 | ------ | -----| ----------- |
-| `totalExecutionTimeInMs` | milliseconden | Uitvoeringstijd van de query | 
+| `totalExecutionTimeInMs` | milliseconden | Tijd waarop de query-uitvoering | 
 | `queryCompileTimeInMs` | milliseconden | Query-compilatie  | 
 | `queryLogicalPlanBuildTimeInMs` | milliseconden | Tijd voor het bouwen van logische queryplan | 
 | `queryPhysicalPlanBuildTimeInMs` | milliseconden | Tijd voor het bouwen van fysieke queryplan | 
-| `queryOptimizationTimeInMs` | milliseconden | Tijd besteed aan de query te optimaliseren | 
+| `queryOptimizationTimeInMs` | milliseconden | Tijd besteed aan het in de optimalisatie van query | 
 | `VMExecutionTimeInMs` | milliseconden | Tijd besteed aan de query-runtime | 
 | `indexLookupTimeInMs` | milliseconden | Tijd besteed aan fysieke index laag | 
 | `documentLoadTimeInMs` | milliseconden | Tijd besteed aan het laden van documenten  | 
 | `systemFunctionExecuteTimeInMs` | milliseconden | Totale tijd besteed aan het uitvoerende system (ingebouwde) functies in milliseconden  | 
-| `userFunctionExecuteTimeInMs` | milliseconden | Totale tijd besteed worden uitgevoerd door de gebruiker gedefinieerde functies in milliseconden | 
-| `retrievedDocumentCount` | aantal | Totaal aantal opgehaalde documenten  | 
+| `userFunctionExecuteTimeInMs` | milliseconden | Totale tijd besteed aan het uitvoeren door de gebruiker gedefinieerde functies in milliseconden | 
+| `retrievedDocumentCount` | count | Totaal aantal opgehaalde documenten  | 
 | `retrievedDocumentSize` | bytes | Totale grootte van de opgehaalde documenten in bytes  | 
-| `outputDocumentCount` | aantal | Het aantal uitvoerdocumenten | 
-| `writeOutputTimeInMs` | milliseconden | Uitvoeringstijd van de query in milliseconden | 
-| `indexUtilizationRatio` | verhouding (< = 1) | Verhouding tussen aantal documenten dat overeenkomt met het filter aan het aantal documenten die worden geladen  | 
+| `outputDocumentCount` | count | Aantal uitvoerdocumenten dat | 
+| `writeOutputTimeInMs` | milliseconden | Tijd in milliseconden voor uitvoering van query | 
+| `indexUtilizationRatio` | verhouding (< = 1) | Verhouding van het aantal documenten dat overeenkomt met het filter aan het aantal documenten worden geladen  | 
 
-De client-SDK's kunnen meerdere querybewerkingen voor het uitvoeren van de query binnen elke partitie intern stellen. Maakt de client meer dan één aanroep per partitie als de totale resultaten overschrijdt `x-ms-max-item-count`, als de query de ingerichte doorvoer voor de partitie overschrijdt als de nettolading van de query de maximale grootte per pagina bereikt of als de query het systeem die zijn toegewezen bereikt time-outlimiet. Elke gedeeltelijke queryuitvoering retourneert een `x-ms-documentdb-query-metrics` voor die pagina. 
+De client-SDK's kunnen meerdere querybewerkingen voor het bieden van de query binnen elke partitie intern aanbrengen. Maakt de client meer dan één aanroep per partitie als het totale aantal resultaten overschrijdt `x-ms-max-item-count`, als de query de ingerichte doorvoer voor de partitie overschrijdt of als de nettolading van de query de maximale grootte per pagina bereikt, of als de query heeft bereikt van het systeem toegewezen time-outlimiet. Elke uitvoering van de gedeeltelijke query retourneert een `x-ms-documentdb-query-metrics` voor die pagina. 
 
-Hier volgen enkele voorbeeldquery's en het interpreteren van de metrische gegevens die door uitvoering van de query zijn geretourneerd: 
+Hier volgen enkele voorbeeldquery's en over het interpreteren van de metrische gegevens die door uitvoering van de query zijn geretourneerd: 
 
-| Query’s uitvoeren | Voorbeeld metrische gegevens | Beschrijving | 
+| Query’s uitvoeren | Voorbeeld van metrische gegevens | Beschrijving | 
 | ------ | -----| ----------- |
-| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Het aantal documenten opgehaald is 100 + 1 overeenkomen met de TOP-component. Querytijd voornamelijk die is doorgebracht in `WriteOutputTime` en `DocumentLoadTime` omdat het een scan. | 
-| `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount is nu hogere (500 + 1 overeenkomen met de TOP-component). | 
-| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Ongeveer 0,9 ms is besteed aan IndexLookupTime voor een sleutel-lookup, omdat deze het opzoeken van een index op `/N/?`. | 
-| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Iets meer tijd (1,7 ms) die is doorgebracht in IndexLookupTime via een scan bereik omdat dit het opzoeken van een index op `/N/?`. | 
+| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Het aantal documenten die zijn opgehaald, is meer dan 100 1 zodat deze overeenkomen met de TOP-component. Querytijd is voornamelijk besteed in `WriteOutputTime` en `DocumentLoadTime` omdat het een scan. | 
+| `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount is nu hoger (500 + 1 zodat deze overeenkomen met de TOP-component). | 
+| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Over 0,9 ms is besteed in IndexLookupTime voor een opzoeken van een sleutel, omdat het opzoeken van een index op `/N/?`. | 
+| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Iets meer tijd (versie 1.7 ms) die is doorgebracht in IndexLookupTime via een scan bereik omdat het opzoeken van een index op `/N/?`. | 
 | `SELECT TOP 500 c.N FROM c` | `"IndexLookupTime": "00:00:00.0017700"` | Dezelfde tijd besteed aan `DocumentLoadTime` als de voorgaande query's, maar lagere `WriteOutputTime` omdat we bij het projecteren van slechts één eigenschap. | 
-| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Punt 213 ms is die is doorgebracht in `UserDefinedFunctionExecutionTime` de UDF worden uitgevoerd op elke waarde van `c.N`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Er is ongeveer 0,6 ms gespendeerd aan het `IndexLookupTime` op `/Name/?`. Van de query uitvoeringstijd (ms ~ 7) in de meeste `SystemFunctionExecutionTime`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Query als een scan wordt uitgevoerd, omdat deze gebruikmaakt van `LOWER`, en 500 buiten 2491 opgehaalde documenten worden geretourneerd. |
+| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Over 213 ms is besteed in `UserDefinedFunctionExecutionTime` de UDF uitvoeren op elke waarde van `c.N`. |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Ongeveer 0,6 ms is besteed in `IndexLookupTime` op `/Name/?`. De query-uitvoeringstijd (ms ~ 7) in de meeste `SystemFunctionExecutionTime`. |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Query wordt uitgevoerd als een scan omdat hierbij `LOWER`, en 500 buiten 2491 opgehaalde documenten worden geretourneerd. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de ondersteunde SQL-query's en trefwoorden, [SQL-query](sql-api-sql-query.md). 
+* Zie voor meer informatie over de ondersteunde SQL-query-operators en trefwoorden, [SQL-query](how-to-sql-query.md). 
 * Zie voor meer informatie over aanvraageenheden, [aanvraageenheden](request-units.md).
-* Zie voor meer informatie over indexeringsbeleid, [indexeren van beleid](indexing-policies.md) 
+* Zie voor meer informatie over het indexeringsbeleid, [indexeringsbeleid](indexing-policies.md) 
 
 

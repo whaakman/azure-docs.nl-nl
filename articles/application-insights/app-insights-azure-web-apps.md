@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a031ede814a963f25f1a3a3fc9725d9e5670a8e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 17a0b36fffb14f423aba3dd02b5b42d44933309c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824639"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165387"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Prestaties van Azure-web-apps controleren
 In de [Azure Portal](https://portal.azure.com) kunt u instellen dat de prestaties van uw [Azure-web-apps](../app-service/app-service-web-overview.md) worden gecontroleerd. Met [Azure Application Insights](app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
@@ -43,9 +43,9 @@ Als u al een web-app uitvoert in Azure, is er al sprake van enige controle: freq
 
     ![Uw web-app instrumenteren](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. Zodra de resource is gemaakt Selecteer **controleren en Application Insights-extensie voor de web-app-update** om te bevestigen dat de extensie up-to-date is.
+2. Na het op te geven welke resource moet worden gebruikt, kunt u kiezen hoe application insights voor het verzamelen van gegevens per platform voor uw toepassing.
 
-     ![Controleren en bijwerken van de extensie voor site](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![Kies opties per platform](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. **Instrumenteer uw web-app** nadat Application Insights is geïnstalleerd.
 
@@ -64,7 +64,7 @@ Desgewenst kunt u de app later bouwen met Application Insights.
 
 *Hoe kan ik Application Insights verwijderen of overschakelen naar verzending naar een andere resource?*
 
-* Open in Azure de blade voor web-app-beheer en open **Extensies** onder Ontwikkelprogramma's. Verwijder de extensie Application Insights. Kies vervolgens Application Insights onder Controleren en maak of selecteer de gewenste resource.
+* Open de besturingselementblade van de web-app in Azure, en open onder instellingen **Application Insights**. U kunt Application Insights uitschakelen door te klikken op **uitschakelen** aan de bovenkant of Selecteer een nieuwe resource in de **wijzigen van uw resource** sectie.
 
 ## <a name="build-the-app-with-application-insights"></a>De app bouwen met Application Insights
 Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in uw app te installeren. U kunt met name traceerlogboeken verzamelen, [aangepaste telemetrie schrijven](app-insights-api-custom-events-metrics.md) en gedetailleerdere uitzonderingsrapporten ophalen.

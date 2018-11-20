@@ -6,20 +6,20 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 334b4c912c40949cbecab2173425927d46350d07
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 21b5dae6fda857a3a69aa06e461fdf3b716b5eb8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633980"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163314"
 ---
-# <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT voor veelgestelde vragen over Azure
+# <a name="avere-vfxt-for-azure-faq"></a>Veelgestelde vragen over Avere vFXT for Azure
 
 In dit artikel vindt u antwoorden op vragen die u bepalen kunnen of de Avere vFXT oplossing geschikt is voor uw behoeften. Het biedt algemene informatie over de mogelijkheden van Avere vFXT en wordt uitgelegd hoe het werkt met andere Azure-onderdelen en producten van externe leveranciers. 
 
 ## <a name="general"></a>Algemeen 
 
-### <a name="what-is-avere-vfxt-for-azure"></a>Wat is Avere vFXT voor Azure?
+### <a name="what-is-avere-vfxt-for-azure"></a>Wat is Avere vFXT for Azure?
 
 Avere vFXT voor Azure is een krachtige bestandssysteem dat actieve gegevens in het Azure Compute voor efficiënte verwerking van essentiële workloads in de cache opslaat.
 
@@ -277,4 +277,4 @@ Als u wilt aan de slag met Avere vFXT voor Azure, leest u deze koppelingen voor 
 * [Voorbereidingen voor het maken van de vFXT Avere](avere-vfxt-prereqs.md)
 * [De vFXT-cluster implementeren](avere-vfxt-deploy.md)
 
-Voor meer informatie over de mogelijkheden van Avere vFXT en use-cases, gaat u naar [Avere vFXT voor Azure (preview)](https://azure.microsoft.com/services/storage/avere-vfxt/).
+Voor meer informatie over de mogelijkheden van Avere vFXT en use-cases, gaat u naar [Avere vFXT voor Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

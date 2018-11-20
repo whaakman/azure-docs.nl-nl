@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/19/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fbb57753117f3c60010fe910616b8d0af5178360
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 31d794aa1dccddc8018e9413c9743a0abe13f4ac
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434820"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160192"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -61,9 +61,9 @@ Als u van deze modules Azure PowerShell-cmdlets in uw runbooks gebruiken, wilt u
 
 Zoals gezegd, de **Update Azure-Modules** knop is niet beschikbaar in soevereine clouds, dit is alleen beschikbaar in de globale Azure-cloud. Dit is vanwege het feit dat de nieuwste versie van de Azure PowerShell-modules uit de galerie met PowerShell niet met het Resource Manager-services in deze clouds die momenteel zijn geïmplementeerd werkt mogelijk.
 
-Bijwerken van de modules kan nog steeds worden gedaan door het importeren van de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook ingecheckt in uw Automation-Account en uitvoeren.
+Bijwerken van de modules kan nog steeds worden gedaan door het importeren van de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook ingecheckt in uw Automation-Account en uitvoeren. Met dit runbook kunt u Azure-modules bijwerken, maar ze nog steeds mogelijk niet compatibel is met wat wordt momenteel geïmplementeerd in de Azure-omgeving u gebruikt. U moet om te controleren of de juiste versies die nodig zijn voor elke module om ervoor te zorgen dat Azure Automation nog steeds uw resources kunt beheren. Azure Automation niet beheren of bijhouden van de versies van de services die zijn geïmplementeerd.
 
-Gebruik de `AzureRmEnvironment` parameter om door te geven van de juiste omgeving aan het runbook.  Acceptabele waarden zijn **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, en **AzureUSGovernmentCloud**. Als u een waarde voor deze parameter niet doorgegeven, het runbook de openbare cloud van Azure wordt standaard **AzureCloud**.
+Gebruik de `AzureRmEnvironment` parameter om door te geven van de juiste omgeving aan het runbook.  Acceptabele waarden zijn **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, en **AzureUSGovernmentCloud**. Deze waarden kunnen worden verkregen via `Get-AzureRmEnvironment | select Name`. Als u een waarde voor deze parameter niet doorgegeven, het runbook de openbare cloud van Azure wordt standaard **AzureCloud**
 
 Als u een specifieke versie van de Azure PowerShell-module gebruiken in plaats van de meest recente beschikbare op de PowerShell Gallery wilt, deze versies doorgeven aan de optionele `ModuleVersionOverrides` parameter van de **Update AzureModule** runbook. Zie voor voorbeelden van de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell-modules die niet worden vermeld in de `ModuleVersionOverrides` parameter worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery. Als er niets wordt doorgegeven aan de `ModuleVersionOverrides` parameter, alle modules worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery, dit is het gedrag van de **Update Azure-Modules** knop.
 

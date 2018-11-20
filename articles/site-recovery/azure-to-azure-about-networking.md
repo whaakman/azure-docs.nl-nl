@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915922"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976245"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
 
@@ -60,10 +60,9 @@ Als u gebruikmaakt van een IP-gebaseerde firewallproxy of NSG-regels voor het be
 - Alle IP-adresbereiken die met de storage-accounts in de regio van de gegevensbron overeenkomen
     - Maak een [opslag servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor de regio van de gegevensbron.
     - Deze adressen toestaan dat gegevens kunnen worden geschreven naar de cache-opslagaccount van de virtuele machine.
-- Alle IP-adresbereiken die overeenkomen met de Office 365 [IP V4-eindpunten voor authenticatie en identiteit](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - Als nieuwe adressen worden toegevoegd aan de Office 365-bereiken in de toekomst, moet u nieuwe NSG-regels maken.
+- Maak een [Azure Active Directory (AAD)-servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor het toestaan van toegang tot alle IP-adressen die overeenkomen met AAD
+    - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
 - Site Recovery-service-eindpunt IP-adressen - beschikbaar zijn in een [XML-bestand](https://aka.ms/site-recovery-public-ips) en afhankelijk van de doellocatie.
--  U kunt [downloaden en gebruiken van dit script](https://aka.ms/nsg-rule-script), automatisch de vereiste regels maken op de NSG.
 - U wordt aangeraden dat u de vereiste NSG-regels met een NSG-test maken en controleer of er zijn geen problemen voordat u de regels voor een productie-NSG maken.
 
 
@@ -71,18 +70,18 @@ Site Recovery-IP-adresbereiken zijn als volgt:
 
    **Doel** | **Site Recovery IP** |  **Site Recovery IP bewaken**
    --- | --- | ---
-   Oost-Azië | 52.175.17.132 | 13.94.47.61
-   Zuidoost-Azië | 52.187.58.193 | 13.76.179.223
-   Centraal-India | 52.172.187.37 | 104.211.98.185
-   Zuid-India | 52.172.46.220 | 104.211.224.190
-   Noord-centraal VS | 23.96.195.247 | 168.62.249.226
-   Noord-Europa | 40.69.212.238 | 52.169.18.8
-   West-Europa | 52.166.13.64 | 40.68.93.145
-   VS - oost | 13.82.88.226 | 104.45.147.24
-   VS - west | 40.83.179.48 | 104.40.26.199
-   Zuid-centraal VS | 13.84.148.14 | 104.210.146.250
-   VS - midden | 40.69.144.231 | 52.165.34.144
-   VS - oost 2 | 52.184.158.163 | 40.79.44.59
+   Azië - oost | 52.175.17.132 | 13.94.47.61
+   Azië - zuidoost | 52.187.58.193 | 13.76.179.223
+   India - centraal | 52.172.187.37 | 104.211.98.185
+   India - zuid | 52.172.46.220 | 104.211.224.190
+   US - noord-centraal | 23.96.195.247 | 168.62.249.226
+   Europa - noord | 40.69.212.238 | 52.169.18.8
+   Europa -west | 52.166.13.64 | 40.68.93.145
+   US - oost | 13.82.88.226 | 104.45.147.24
+   US - west | 40.83.179.48 | 104.40.26.199
+   US - zuid-centraal | 13.84.148.14 | 104.210.146.250
+   US - centraal | 40.69.144.231 | 52.165.34.144
+   US - oost 2 | 52.184.158.163 | 40.79.44.59
    Japan - oost | 52.185.150.140 | 138.91.1.105
    Japan - west | 52.175.146.69 | 138.91.17.38
    Brazilië - zuid | 191.234.185.172 | 23.97.97.36
@@ -90,8 +89,8 @@ Site Recovery-IP-adresbereiken zijn als volgt:
    Australië - zuidoost | 13.70.159.158 | 191.239.160.45
    Canada - midden | 52.228.36.192 | 40.85.226.62
    Canada - oost | 52.229.125.98 | 40.86.225.142
-   West-centraal VS | 52.161.20.168 | 13.78.149.209
-   VS - west 2 | 52.183.45.166 | 13.66.228.204
+   US - west-centraal | 52.161.20.168 | 13.78.149.209
+   US - west 2 | 52.183.45.166 | 13.66.228.204
    Verenigd Koninkrijk West | 51.141.3.203 | 51.141.14.113
    Verenigd Koninkrijk Zuid | 51.140.43.158 | 51.140.189.52
    VK, zuid 2 | 13.87.37.4| 13.87.34.139
@@ -120,7 +119,7 @@ In dit voorbeeld laat zien hoe het configureren van NSG-regels voor een virtuele
 
    **Locatie** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
     --- | --- | ---
-   VS - midden | 40.69.144.231 | 52.165.34.144
+   US - centraal | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>NSG-regels - VS centraal
 
@@ -134,7 +133,7 @@ Deze regels zijn vereist voor replicatie kan worden ingeschakeld in de doelregio
 
    **Locatie** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
     --- | --- | ---
-   VS - midden | 13.82.88.226 | 104.45.147.24
+   US - centraal | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuratie van het virtuele netwerkapparaat
 

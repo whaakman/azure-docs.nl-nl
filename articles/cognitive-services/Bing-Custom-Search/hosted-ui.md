@@ -3,19 +3,19 @@ title: Site zoeken, gebruikt u de gehoste gebruikersinterface Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Beschrijft hoe u configureert de Bing Custom Search gebruikersinterface die worden gehost.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 566990ea7c6ac8498b47528c906710ed4c9078e4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813971"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163024"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configureren van uw gehoste gebruikersinterface-ervaring
 
@@ -29,9 +29,9 @@ Volg deze stappen voor het configureren van een gehoste UI voor uw web-app:
   
 2. Klik op de instantie van een aangepaste zoekopdrachten. Zie voor het maken van een exemplaar [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).  
 
-3. Klik op de **gebruikersinterface die wordt gehost** tabblad.  
+3. Klik op het tabblad **Hosted UI**.  
   
-4. Selecteer een indeling.
+4. Selecteer een lay-out.
   
   - Zoekbalk en de resultaten (standaard) &mdash; deze lay-out is uw pagina traditionele zoeken met het zoekvak en een lijst met zoekresultaten.
   - Alleen resultaten &mdash; deze lay-out alleen zoekresultaten worden weergegeven. Deze lay-out weergegeven niet een zoekvak. U moet de query opgeven door de query-parameter toe te voegen (& q =\<querytekenreeks >) aan de aanvraag-URL in het JavaScript-fragment of HTML-eindpunt-koppeling.
@@ -43,7 +43,7 @@ Volg deze stappen voor het configureren van een gehoste UI voor uw web-app:
   - Donker
   - Skyline blauw
 
-  Klik op elk van de thema's om te zien welk thema u het beste werkt met uw web-app. Als u nodig hebt voor het afstemmen van de kleurthema beter integreren met uw web-app, klikt u op **aanpassen thema**. Niet alle kleur configuraties van toepassing op alle lay-out-thema's. Als u wilt een kleur wijzigen, voert u de kleur van de hexadecimale RGB-waarde (bijvoorbeeld #366eb8) in het bijbehorende tekstvak. Of klik op de kleurknop en klik vervolgens op de tint die bij u past. 
+  Klik op elk van de thema's om te zien welk thema u het beste werkt met uw web-app. Als u het kleurenthema wilt afstemmen voor een betere integratie met uw web-app, klikt u op **Customize theme**. Niet alle kleurconfiguraties zijn van toepassing op alle lay-outthema's. Als u een kleur wilt wijzigen, voert u de hexadecimale RGB-waarde van de kleur (bijvoorbeeld #366eb8) in het bijbehorende tekstvak in. Of klik op de kleurknop en klik vervolgens op de tint die bij u past. 
   
   Na het wijzigen van een kleur, bekijk hoe de wijziging is van invloed op de preview-voorbeeld aan de rechterkant. U kunt altijd klikken op **standaardinstellingen herstellen** terug te gaan naar de standaardkleuren voor het geselecteerde thema.
 
@@ -143,5 +143,5 @@ Voor meer informatie, met inbegrip van uw aangepaste configuratie-ID, gaat u naa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Decoration markeringen gebruiken om te markeren van tekst](./hit-highlighting.md)
-- [Pagina webpagina 's](./page-webpages.md)
+- [Decoratiemarkeringen gebruiken om tekst te markeren](./hit-highlighting.md)
+- [Bladeren door webpagina's](./page-webpages.md)

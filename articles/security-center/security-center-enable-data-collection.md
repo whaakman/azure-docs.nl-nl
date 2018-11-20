@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624774"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976655"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -48,7 +48,7 @@ Als automatisch inrichten ingeschakeld is, ondersteund levert Security Center de
 
 Automatische inrichting van de MMA inschakelen:
 1. Selecteer in het hoofdmenu van Security Center de optie **beveiligingsbeleid**.
-2. Selecteer het abonnement.
+2. Klik op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
 
   ![Abonnement selecteren][7]
 
@@ -135,7 +135,7 @@ Selecteer een bestaande Log Analytics-werkruimte:
 
     a.  Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
      
-    b.  Selecteer de gewenste werkruimte waarin u van plan bent om de agent verbinding te maken.
+    b.  Selecteer de gewenste werkruimte waarin u van plan bent om te koppelen van de agent door te klikken op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
         ![Selecteer werkruimte][8] c. De prijscategorie instellen.
         ![Prijscategorie selecteren][9] 
    
