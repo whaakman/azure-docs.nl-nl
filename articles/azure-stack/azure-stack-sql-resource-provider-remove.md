@@ -11,25 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684023"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851567"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Verwijderen van de SQL-resourceprovider
 
 Voordat u de SQL-resourceprovider verwijdert, moet u alle afhankelijkheden van de provider verwijderen. U moet ook een kopie van het implementatiepakket dat is gebruikt voor het installeren van de resourceprovider.
 
-  |Minimale versie van Azure Stack|SQL RP-versie|
-  |-----|-----|
-  |Versie 1808 (1.1808.0.97)|[SQL RP versie 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |Versie 1804 (1.0.180513.1)|[SQL RP versie 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
-  |     |     |
+> [!NOTE]
+> U vindt de downloadkoppelingen voor de resource provider-installatieprogramma's in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="dependency-cleanup"></a>Opschonen van de afhankelijkheid
 
