@@ -48,7 +48,7 @@
 #### [SQL-evaluatie](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
-#### [VMWare-analyse](../log-analytics/log-analytics-vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [VMware-analyse](../log-analytics/log-analytics-vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Bedradingsgegevens](../log-analytics/log-analytics-wire-data.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### Automation en beheer
 #### [Tracering wijzigen](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

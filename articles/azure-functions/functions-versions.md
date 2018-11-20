@@ -18,7 +18,7 @@ ms.locfileid: "48885184"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Overzicht van Azure Functions runtime-versies
 
- Er zijn twee primaire versies van de Azure Functions-runtime: 1.x en 2.x. De huidige versie, waarbij nieuwe functie werk en verbeteringen worden aangebracht is 2.x gebruikt, hoewel beide worden ondersteund voor productiescenario's.  De volgende details van de verschillen tussen de twee, hoe u elke versie maken en een upgrade van 1.x naar 2.x.
+ Er zijn twee primaire versies van de Azure Functions-runtime: 1.x en 2.x. De huidige versie, waarbij nieuwe features en verbeteringen worden aangebracht is 2.x. Beide versies worden ondersteund voor productiescenario's.  Hieronder worden de verschillen tussen de twee beschreven, hoe u elke versie kunt toepassen, en de manier waarop u kunt upgraden van 1.x naar 2.x.
 
 > [!NOTE]
 > In dit artikel wordt verwezen naar de cloudservice Azure Functions. Zie voor informatie over het preview-product waarmee u Azure Functions on-premises uitvoert, het [overzicht van Azure Functions Runtime](functions-runtime-overview.md).
@@ -33,7 +33,7 @@ Ter vergelijking, runtime versie 1.x ondersteunt alleen het ontwikkelen en hoste
 
 De runtime versie 2.x maakt gebruik van een nieuwe taalmodel voor uitbreidbaarheid. In versie 2.x moeten alle functies in een functie-app dezelfde taal delen. De taal van de functies in een functie-app wordt gekozen bij het maken van de app.
 
-Azure Functions 1.x experimentele talen wordt niet worden bijgewerkt voor het gebruik van het nieuwe model, zodat ze worden niet ondersteund in 2.x. De volgende tabel geeft aan welke programmeertalen worden momenteel ondersteund in elke runtimeversie.
+Experimentele talen van Azure Functions 1.x worden niet bijgewerkt voor het gebruik in het nieuwe model. Deze worden dus niet ondersteund in 2.x. De volgende tabel geeft aan welke programmeertalen momenteel worden ondersteund in elke runtimeversie.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
