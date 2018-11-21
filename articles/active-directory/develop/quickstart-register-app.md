@@ -16,18 +16,18 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1809e7f72afd99de38387317daf2ecb92dbe3cf0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912983"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298718"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Snelstart: Een toepassing registreren bij het Microsoft Identity Platform (preview)
 
 Enterprise-ontwikkelaars en SaaS-providers (software-as-a-service) kunnen commerciële cloudservices of bedrijfstoepassingen ontwikkelen die kunnen worden geïntegreerd met Microsoft Identity Platform om beveiligde aanmelding en autorisatie te bieden voor hun services.
 
-In deze snelstart wordt getoond hoe u via de **App-registraties-ervaring (preview)** een toepassing toevoegt en registreert in de Azure-portal, zodat de app kan worden geïntegreerd met het Microsoft Identity Platform.
+In deze snelstart wordt getoond hoe u via de **App-registraties-ervaring (preview)** een toepassing toevoegt en registreert in de Azure-portal, zodat de app kan worden geïntegreerd met het Microsoft Identity Platform. Lees [deze blogpost](https://developer.microsoft.com/graph/blogs/new-app-registration/) voor meer informatie over de nieuwe functies en verbeteringen in de nieuwe versie voor app-registraties. 
 
 ## <a name="prerequisite"></a>Vereiste
 

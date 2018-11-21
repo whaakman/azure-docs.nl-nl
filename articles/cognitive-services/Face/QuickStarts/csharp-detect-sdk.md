@@ -1,192 +1,91 @@
 ---
-title: 'Snelstart: Gezichten in een afbeelding detecteren met behulp van de .NET SDK met C#'
+title: 'Snelstart: Gezichten in een afbeelding detecteren met de Azure Face .NET SDK'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face Windows C# clientbibliotheek in Cognitive Services.
+description: In deze snelstart gebruikt u de Azure Face SDK met C# om gezichten in een afbeelding te detecteren.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954960"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578148"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Snelstart: Gezichten in een afbeelding detecteren met behulp van de .NET SDK met C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Snelstart: Gezichten in een afbeelding detecteren met behulp van de Face .NET SDK
 
-In deze snelstart detecteert u menselijke gezichten in een afbeelding met behulp van de Face Windows clientbibliotheek.
+In deze snelstart gebruikt u de SDK van de Face-service met C# om menselijke gezichten in een afbeelding te detecteren. Voor een werkvoorbeeld van de code in deze snelstart gaat u naar het Face-project in de opslagplaats [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) in GitHub.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-* Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Het NuGet-pakket van de [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)-clientbibliotheek. U hoeft het pakket niet te downloaden. Hieronder vindt u de installatie-instructies.
+- Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
+- Een versie van [Visual Studio 2015 of 2017](https://www.visualstudio.com/downloads/).
 
-## <a name="detectwithurlasync-method"></a>Methode DetectWithUrlAsync
+## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
-> [!TIP]
-> Haal de nieuwste code als Visual Studio-oplossing op uit [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
+1. Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project en noem het **FaceDetection**. 
+1. Als uw oplossing nog meer projecten bevat, selecteert u deze als het enkele opstartproject.
+1. Download de vereiste NuGet-pakketten. Klik met de rechtermuisknop op het project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Klik op het tabblad **Bladeren** en selecteer **voorlopige release opnemen**. Zoek en installeer vervolgens het volgende pakket:
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-De methoden `DetectWithUrlAsync` en `DetectWithStreamAsync` verpakken de [Face - Detect API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor respectievelijk externe en lokale afbeeldingen. Gebruik deze methoden om gezichten te herkennen in een afbeelding en gezichtskenmerken te retourneren, waaronder:
+## <a name="add-face-detection-code"></a>Gezichtsdetectiecode toevoegen
 
-* Face ID: de unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
-* Gezichtsrechthoek: de coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
-* Oriëntatiepunten: een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
-* Gezichtskenmerken zoals leeftijd, geslacht, glimlachintensiteit, hoofdhouding en gezichtshaar.
+Open het bestand *Program.cs* van het nieuwe project. Hier voegt u de code toe voor het laden van afbeeldingen en detecteren van gezichten.
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
+### <a name="include-namespaces"></a>Naamruimten opnemen
 
-1. Maak in Visual Studio een nieuwe Visual C#-console-app.
-1. Installeer het Face clientbibliotheer NuGet-pakket.
-    1. Klik in het menu op **Extra**, selecteer **NuGet Package Manager** en vervolgens **NuGet-pakketten voor oplossing beheren**.
-    1. Klik op het tabblad **Bladeren** en selecteer vervolgens **Prerelease toevoegen**.
-    1. In het **Zoek** -vak type "Microsoft.Azure.CognitiveServices.Vision.Face".
-    1. Selecteer **Microsoft.Azure.CognitiveServices.Vision.Face** wanneer dit wordt weergegeven, klik op het selectievakje naast uw projectnaam en klik op **Installeren**.
-1. Vervang *Program.cs* door de code hieronder.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig zo nodig `faceEndpoint` in de Azure-regio die is gekoppeld aan uw abonnementssleutels.
-1. Vervang `LocalImage>` desgewenst door het pad en de bestandsnaam van een lokale afbeelding (wordt genegeerd indien niet ingesteld).
-1. Stel `remoteImageUrl` desgewenst in op een andere afbeelding.
-1. Voer het programma uit.
+Voeg aan het begin van het bestand *Program.cs* de volgende `using`-instructies toe.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+### <a name="add-essential-fields"></a>Essentiële velden toevoegen
 
-namespace DetectFace
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
+Voeg de volgende velden toe aan de klasse **Program**: Met deze gegevens wordt aangegeven hoe de Face-service moet worden verbonden en waar de invoergegevens kunnen worden opgehaald. U moet het veld `subscriptionKey` bijwerken met de waarde van de abonnementssleutel en mogelijk moet u de tekenreeks `faceEndpoint` wijzigen, zodat deze de juiste regio-id bevat. U moet ook de waarden `localImagePath` en/of `remoteImageUrl` instellen op paden die verwijzen naar de werkelijke afbeeldingsbestanden.
 
-        // You must use the same region as you used to get your subscription
-        // keys. For example, if you got your subscription keys from westus,
-        // replace "westcentralus" with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus
-        // region. If you use a free trial subscription key, you shouldn't
-        // need to change the region.
-        // Specify the Azure region
-        private const string faceEndpoint =
-            "https://westcentralus.api.cognitive.microsoft.com";
+Het veld `faceAttributes` is gewoon een matrix met bepaalde kenmerktypen. Dit veld geeft aan welke informatie over de gedetecteerde gezichten moet worden opgehaald.
 
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
-        private const string remoteImageUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
+### <a name="create-and-use-the-face-client"></a>De Face-client maken en gebruiken
 
-        private static readonly FaceAttributeType[] faceAttributes =
-            { FaceAttributeType.Age, FaceAttributeType.Gender };
+Voeg vervolgens de volgende code toe aan de methode **Main** in de klasse **Program**. Hierdoor wordt een Face-API-client ingesteld.
 
-        static void Main(string[] args)
-        {
-            FaceClient faceClient = new FaceClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-            faceClient.Endpoint = faceEndpoint;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
 
-            Console.WriteLine("Faces being detected ...");
-            var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
-            var t2 = DetectLocalAsync(faceClient, localImagePath);
+Voeg in de methode **Main** ook de volgende code toe om de zojuist gemaakte Face-client te gebruiken om gezichten in een externe en lokale afbeelding te detecteren. Hierna worden de detectiemethoden gedefinieerd. 
 
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
 
-        // Detect faces in a remote image
-        private static async Task DetectRemoteAsync(
-            FaceClient faceClient, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine("\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
+### <a name="detect-faces"></a>Gezichten detecteren
 
-            try
-            {
-                IList<DetectedFace> faceList =
-                    await faceClient.Face.DetectWithUrlAsync(
-                        imageUrl, true, false, faceAttributes);
+Voeg de volgende methode toe aan de klasse **Program**. Met deze methode wordt de Face-serviceclient gebruikt om gezichten te detecteren in een externe afbeelding, waarnaar wordt verwezen via een URL. U ziet dat de methode gebruikmaakt van het veld `faceAttributes`&mdash;. De objecten **DetectedFace** die zijn toegevoegd aan `faceList`, krijgen de opgegeven kenmerken (in dit geval leeftijd en geslacht).
 
-                DisplayAttributes(GetFaceAttributes(faceList, imageUrl), imageUrl);
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imageUrl + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
-        // Detect faces in a local image
-        private static async Task DetectLocalAsync(FaceClient faceClient, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
+Voeg op dezelfde manier de methode **DetectLocalAsync** toe. Met deze methode wordt de Face-serviceclient gebruikt om gezichten te detecteren in een lokale afbeelding, waarnaar wordt verwezen via een bestandspad.
 
-            try
-            {
-                using (Stream imageStream = File.OpenRead(imagePath))
-                {
-                    IList<DetectedFace> faceList =
-                            await faceClient.Face.DetectWithStreamAsync(
-                                imageStream, true, false, faceAttributes);
-                    DisplayAttributes(
-                        GetFaceAttributes(faceList, imagePath), imagePath);
-                }
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imagePath + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
 
-        private static string GetFaceAttributes(
-            IList<DetectedFace> faceList, string imagePath)
-        {
-            string attributes = string.Empty;
+### <a name="retrieve-and-display-face-attributes"></a>Gezichtskenmerken ophalen en weergeven
 
-            foreach (DetectedFace face in faceList)
-            {
-                double? age = face.FaceAttributes.Age;
-                string gender = face.FaceAttributes.Gender.ToString();
-                attributes += gender + " " + age + "   ";
-            }
+Definieer vervolgens de methode **GetFaceAttributes**. Hiermee wordt een tekenreeks geretourneerd met de relevante kenmerkgegevens.
 
-            return attributes;
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-        // Display the face attributes
-        private static void DisplayAttributes(string attributes, string imageUri)
-        {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(attributes + "\n");
-        }
-    }
-}
-```
+Definieer tot slot de methode **DisplayAttributes** om de gegevens van de gezichtskenmerken naar de console-uitvoer te schrijven.
 
-### <a name="detectwithurlasync-response"></a>Antwoord DetectWithUrlAsync
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
 
-Een geslaagd antwoord retourneert het geslacht en de leeftijd van elk gezicht in de afbeelding.
+## <a name="run-the-app"></a>De app uitvoeren
 
-Zie [API Snelstart : Gezichten herkennen in een afbeelding met gebruik van C#](CSharp.md) voor een voorbeeld van onbewerkte JSON-uitvoer.
+Een geslaagd antwoord retourneert het geslacht en de leeftijd van elk gezicht in de afbeelding. Bijvoorbeeld:
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg
@@ -195,7 +94,7 @@ Male 37   Female 56
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Hier leert u hoe u een WPF-Windows-toepassing kunt maken die gebruikmaakt van de Face-API om gezichten in een afbeelding te herkennen. De toepassing tekent een kader rond elk gezicht en geeft een beschrijving van het gezicht weer op de statusbalk.
+In deze snelstart hebt u een eenvoudige .NET-consoletoepassing gemaakt, die gebruik kan maken van de service Face-API om gezichten te detecteren in zowel lokale als externe afbeeldingen. Volg hierna een meer gedetailleerde zelfstudie om te zien hoe u informatie over gezichten op een intuïtieve manier kunt presenteren aan de gebruiker.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: een WPF-app maken om gezichten in een afbeelding te herkennen en te omlijsten](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Zelfstudie: Een WPF-app maken om gezichten in een afbeelding te detecteren en te analyseren](../Tutorials/FaceAPIinCSharpTutorial.md)

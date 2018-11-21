@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Een Standaard Load Balancer maken en beheren - Azure-portal | Microsoft Docs'
-description: In deze zelfstudie vindt u informatie over het maken en beheren van een Standard Load Balancer via de Azure-portal.
+title: "Zelfstudie: taakverdeling voor internetverkeer naar VM's instellen - Azure-portal | Microsoft Docs"
+description: In deze zelfstudie vindt u informatie over het maken en beheren van een Standard Load Balancer via Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380043"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687302"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Zelfstudie: Een Standard Load Balancer maken en beheren via de Azure-portal
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Zelfstudie: Taakverdeling voor internetverkeer naar virtuele machines instellen met behulp van de Azure-portal
 
-Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines. In deze zelfstudie leert u meer over de verschillende onderdelen van Azure Standard Load Balancer die het verkeer verdelen en zorgen voor hoge beschikbaarheid. In deze zelfstudie leert u procedures om het volgende te doen:
+Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines. In deze zelfstudie leert u meer over de verschillende onderdelen van Azure Standard Load Balancer die internetverkeer verdelen naar VM's en zorgen voor hoge beschikbaarheid. In deze zelfstudie leert u procedures om het volgende te doen:
 
 
 > [!div class="checklist"]
@@ -38,9 +38,9 @@ Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid doo
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Meld u aan bij de Azure-portal op [http://portal.azure.com](http://portal.azure.com).
+Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Een Load Balancer van het type Standard maken
 
@@ -67,7 +67,7 @@ In deze sectie maakt u een openbare load balancer die helpt bij het laden van vi
 In deze sectie maakt u een virtueel netwerk en twee virtuele machines voor de back-endpool van de load balancer en installeert u IIS op de virtuele machines om de load balancer te testen.
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
-1. Klik linksboven in de Azure-portal op **Een resource maken** > **Netwerken** > **Virtueel netwerk** en voer deze waarden in voor het virtuele netwerk:
+1. Klik linksboven in de Azure Portal op **Een resource maken** > **Netwerken** > **Virtueel netwerk** en voer deze waarden in voor het virtuele netwerk:
     |Instelling|Waarde|
     |---|---|
     |Naam|Voer *myVNet* in.|
@@ -79,7 +79,7 @@ In deze sectie maakt u een virtueel netwerk en twee virtuele machines voor de ba
 
 ### <a name="create-virtual-machines"></a>Virtuele machines maken
 
-1. Klik linksboven in de Azure-portal op **Een resource maken** > **Compute** > **Windows Server 2016 Datacenter** en voer deze waarden in voor de virtuele machine:
+1. Klik linksboven in de Azure Portal op **Een resource maken** > **Compute** > **Windows Server 2016 Datacenter** en voer deze waarden in voor de virtuele machine:
     1. Voer *myVM1* als naam van de virtuele machine.        
     2. Onder **Resourcegroep** selecteert u **Bestaande gebruiken** en vervolgens *myResourceGroupSLB*.
 2. Klik op **OK**.

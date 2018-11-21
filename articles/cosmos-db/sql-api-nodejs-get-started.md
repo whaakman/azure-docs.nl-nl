@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 7eeb4fdba8272d9bc2b67d8a33dd7b1d210f5e47
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278596"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636475"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Zelfstudie: Een Node.js-console-app bouwen met JavaScript SDK voor het beheren van gegevens in Azure Cosmos DB SQL API
 
@@ -218,7 +218,7 @@ Nu u de code hebt om de Azure Cosmos DB-client te initialiseren, kunt u zich ver
    const containerId = config.container.id;
    ```
 
-   Er kan een [database](sql-api-resources.md#databases) worden gemaakt met behulp van de functie [createIfNotExists](/javascript/api/%40azure/cosmos/databases) of [create](/javascript/api/%40azure/cosmos/databases) van de klasse **Databases**. Een database is de logische container voor items die zijn gepartitioneerd in containers. 
+   Er kan een database worden gemaakt met behulp van de functie [createIfNotExists](/javascript/api/%40azure/cosmos/databases) of [create](/javascript/api/%40azure/cosmos/databases) van de klasse **Databases**. Een database is de logische container voor items die zijn gepartitioneerd in containers. 
 
 2. Kopieer en plak de methoden **createDatabase** en **readDatabase** in het app.js-bestand onder de definitie van ```databaseId``` en ```containerId```. Als de database nog niet bestaat wordt met de functie **createDatabase** een nieuwe database gemaakt met id ```FamilyDatabase```, opgegeven vanuit het ```config```-object. De functie **readDatabase** leest de definitie van de database om ervoor te zorgen dat de database bestaat.
 

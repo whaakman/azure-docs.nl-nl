@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f9b60b9365f8856db8ffd8e14d95d46af3808ffb
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: f2890fa4d8260485fa76478571aa66abe1efd35e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116484"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515400"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Een inleiding tot Azure Functions  
 Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Met Functions kan het ontwikkeltraject nog efficiënter worden, en kunt u de door u gewenste programmeertaal gebruiken, zoals C#, F#, Node.js, Java of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure zorgt het eventuele schalen. Met Azure Functions kunt u [serverloze](https://azure.microsoft.com/solutions/serverless/) toepassingen ontwikkelen in Microsoft Azure.
@@ -47,7 +47,7 @@ Functions biedt sjablonen waarmee u meteen aan de slag kunt met essentiële scen
 * **BlobTrigger**: verwerk Azure Storage-blobs wanneer ze worden toegevoegd aan containers. Deze functie kunt u bijvoorbeeld gebruiken voor het wijzigen van de grootte van afbeeldingen. Zie [Blob Storage-bindingen](functions-bindings-storage-blob.md) voor meer informatie.
 * **QueueTrigger**: reageer op berichten die binnenkomen in een Azure Storage-wachtrij. Zie voor meer informatie [Gegevensbindingen in Azure Queue-opslag](functions-bindings-storage-queue.md).
 * **EventGridTrigger**: reageren op gebeurtenissen die worden geleverd aan een abonnement in Azure Event Grid. Biedt ondersteuning voor een model op basis van abonnement voor het ontvangen van gebeurtenissen, waaronder opties om te filteren. Een goede oplossing voor het bouwen van op gebeurtenissen gebaseerde architecturen. Zie [Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) voor een voorbeeld.
-* **EventHubTrigger**: reageer op gebeurtenissen die worden geleverd aan een Azure Event Hub. Dit is met name handig voor toepassingsinstrumentatie, verwerking van gebruikerservaringen of werkstromen en scenario's met betrekking tot het Internet of Things (IoT). Zie [Event Hubs-bindingen](functions-bindings-event-hubs.md) voor meer informatie.
+* **EventHubTrigger**: reageer op gebeurtenissen die worden geleverd aan een Azure Event Hub. Dit is met name handig voor toepassingsinstrumentatie, verwerking van gebruikerservaringen of werkstromen, en scenario's met betrekking tot IoT (Internet of Things). Zie [Event Hubs-bindingen](functions-bindings-event-hubs.md) voor meer informatie.
 * **ServiceBusQueueTrigger**: koppel uw code aan andere Azure-services of on-premises services door te luisteren naar berichtenwachtrijen. Zie [Service Bus-bindingen](functions-bindings-service-bus.md) voor meer informatie.
 * **ServiceBusTopicTrigger**: koppel uw code aan andere Azure-services of on-premises services met een abonnement op onderwerpen. Zie [Service Bus-bindingen](functions-bindings-service-bus.md) voor meer informatie.
 

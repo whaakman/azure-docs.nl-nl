@@ -1,7 +1,6 @@
 ---
-title: 'Voorbeeld: Sleuteltermen extraheren in de Text Analytics'
-titleSuffix: Azure Cognitive Services
-description: Leer hoe u sleuteltermen extraheert met de Text Analytics REST-API.
+title: Sleuteltermextractie in de Text Analytics REST API (Microsoft Cognitive Services in Azure) | Microsoft Docs
+description: Ontdek in deze zelfstudie hoe u sleuteltermen extraheert met behulp van de Text Analytics REST API in Microsoft Cognitive Services in Azure.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605484"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632387"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Voorbeeld: Sleuteltermen extraheren in de Text Analytics
 
@@ -24,6 +23,9 @@ De [Sleuteltermextractie API](https://westus.dev.cognitive.microsoft.com/docs/se
 Deze functie is handig als u snel de belangrijkste punten moet identificeren van een verzameling documenten. Bijvoorbeeld, bij de invoertekst "het eten was heerlijk en de bediening fantastisch", retourneert de service de belangrijkste gespreksonderwerpen: 'eten' en "bediening fantastisch".
 
 Op dit moment ondersteunt Sleuteltermextractie Engels, Duits, Spaans en Japans. Andere talen bevinden zich in preview-fase. Zie voor meer informatie [Ondersteunde talen](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Text Analytics biedt ook een Docker-containerinstallatiekopie op basis van Linux voor sleuteltermextractie. U kunt de [Text Analytics-container dus dicht bij uw gegevens installeren en uitvoeren](text-analytics-how-to-install-containers.md).
 
 ## <a name="preparation"></a>Voorbereiding
 
@@ -71,7 +73,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 
 + Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Key Phrases-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Stel het HTTP-eindpunt in voor sleuteltermextractie. Deze moet de `/keyphrases`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases` bevatten
++ Stel het HTTP-eindpunt in voor sleuteltermextractie, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/keyPhrases`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases` bevatten
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 snelstartgids van ASP.NET Core web-apps | Microsoft Docs
-description: Meer informatie over het implementeren van Microsoft-aanmelding op een ASP.NET Core Web-App met behulp van OpenID Connect
+title: Snelstart Azure AD v2.0 ASP.NET Core-web-app | Microsoft Docs
+description: Informatie over het implementeren van Microsoft-aanmelding in een ASP.NET Core-web-app met behulp van OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -10,139 +10,151 @@ ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ab3d0b74e8305d67af862020197c69b15221086
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: MT
+ms.openlocfilehash: 4849ffcc6fd71a0b88b270f2e6cbdb23b18ecc76
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830222"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51611638"
 ---
-# <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Aanmelden bij Microsoft toevoegen aan een ASP.NET Core web-app
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Quickstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-In deze snelstartgids bevat een codevoorbeeld van die u laat zien hoe een ASP.NET Core Web-App kan zich in personal (hotmail.com, live.com of anderen) en werk en schoolaccounts zijn uit een Azure Active Directory-exemplaar.
+In deze snelstart leert u hoe een ASP.NET Core-web-app persoonlijke accounts (hotmail.com, outlook.com, anderen) en werk- en schoolaccounts kan aanmelden vanuit een willekeurig exemplaar van Azure Active Directory (Azure AD).
 
-![Hoe de voorbeeld-app werkt die is gegenereerd door deze snelstart](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
+![Werking van de voorbeeld-app die is gegenereerd met deze quickstart](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
 
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Uw toepassing registreren en de app uit de snelstart downloaden
+> ## <a name="register-and-download-your-quickstart-app"></a>De quickstart-app registreren en downloaden
+> U hebt twee opties voor het starten van de snelstarttoepassing:
+> * [Express] [Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens de voorbeeldcode](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Handmatig] [Optie 2: registreer de toepassing en configureer handmatig de toepassing en het codevoorbeeld](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Uw toepassing en codevoorbeeld registreren en configureren
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
+>
+> 1. Ga naar de [Azure-portal - App-registraties (preview)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Voer een naam in voor de toepassing en selecteer **Registreren**.
+> 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Optie 2: registreer de toepassing en configureer handmatig de toepassing en het codevoorbeeld
+>
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
-> 
-> 1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Voer een naam in voor uw toepassing, zorg ervoor dat de optie voor **Stapsgewijze instelling** is uitgeschakeld en klik op **Maken**.
-> 1. Klik op `Add Platform` en selecteer vervolgens `Web`.
-> 1. Zorg ervoor dat **Impliciete stroom toestaan** is *ingeschakeld*.
-> 1. Voer in **Omleidings-URL's** `http://localhost:3110/` in.
-> 1. Schuif omlaag naar de onderkant van de pagina en klik op **Opslaan**.
+> Volg deze stappen om de toepassing te registreren en de registratiegegevens van de app handmatig toe te voegen aan uw oplossing:
+>
+> 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
+> 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
+> 1. Selecteer in het linkernavigatiedeelvenster de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview)** > **Nieuwe registratie**.
+> 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
+>    - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `AspNetCore-Quickstart`.
+>    - Bij **Antwoord-URL** voegt u `https://localhost:44321/` toe en selecteert u **Registreren**.
+> 1. Selecteer het menu **Verificatie** en voeg dan de volgende gegevens toe:
+>    - Bij **Antwoord-URL** voegt u `https://localhost:44321/signin-oidc` toe en selecteert u **Registreren**.
+>    - Bij **Geavanceerde instellingen** stelt u de **afmeldings-URL** in op `https://localhost:44321/signout-oidc`.
+>    - Bij **Impliciete toekenning** controleert u de **id-tokens**.
+>    - Selecteer **Opslaan**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Stap 1: Uw toepassing configureren in Azure Portal
-> Voor een juiste werking van het codevoorbeeld uit deze snelstart, moet u een antwoord-URL als `http://localhost:3110/` toevoegen.
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Stap 1: uw toepassing configureren in de Azure-portal
+> Als u het codevoorbeeld uit deze snelstart wilt gebruiken, moet u antwoord-URL's toevoegen als `https://localhost:44321/` en `https://localhost:44321/signin-oidc`, voegt u de afmeldings-URL toe als `https://localhost:44321/signout-oidc` en vraagt u de id-tokens aan die moeten worden uitgegeven door het autorisatie-eindpunt.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Deze wijziging voor mij maken]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-aspnet-core-webapp/green-check.png) Uw toepassing is al geconfigureerd met dit kenmerk
+> > ![Al geconfigureerd](media/quickstart-v2-aspnet-webapp/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken.
 
-#### <a name="step-2-download-your-aspnet-core-project"></a>Stap 2: Uw ASP.NET Core-project downloaden
+#### <a name="step-2-download-your-aspnet-core-project"></a>Stap 2: uw ASP.NET Core-project downloaden
 
-- [De ASP.NET Core-project downloaden](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/master.zip)
+- [De Visual Studio 2017-oplossing downloaden](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
-#### <a name="step-3-configure-your-project"></a>Stap 3: Uw project configureren
+#### <a name="step-3-configure-your-visual-studio-project"></a>Stap 3: Uw Visual Studio-project configureren
 
-1. Pak het zip-bestand naar een lokale map dichter naar de hoofdmap - bijvoorbeeld **C:\Azure-Samples**
-1. Als u Visual Studio 2017 gebruikt, opent u het project in Visual Studio (optioneel)
-1. Bewerken **appsettings.json** en vervang de waarde voor `ClientId` met toepassings-Id van de toepassing die u zojuist hebt geregistreerd:
+1. Pak het zip-bestand uit in een lokale map in de hoofdmap (bijvoorbeeld **C:\Azure-Samples**)
+1. Als u Visual Studio 2017 gebruikt, opent u de oplossing in Visual Studio (optioneel).
+1. Bewerk het bestand **appsettings.json**. Zoek `ClientId` en vervang `Enter_the_Application_Id_here` door de **toepassings-id** (client-id) van de toepassing die u zojuist hebt geregistreerd. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
-    "TenantId": "common"
+    "TenantId": "Enter_the_Tenant_Info_Here"
     ```
-1. Als uw toepassing is een *toepassing met één tenant* (die zijn gericht op accounts in de huidige map alleen) in uw **appsettings.json** bestand, zoek de waarde voor `TenantId` en vervang `common`met uw **Tenant-Id** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com). U vindt de naam van de tenant op de **overzichtspagina**.
+
+> [!div renderon="docs"]
+> Waar:
+> - `Enter_the_Application_Id_here`: is de **toepassings-id** (client-id) voor de toepassing die is geregistreerd in de Azure-portal. U vindt de **toepassings-id (client-id)** op de pagina **Overzicht** van de app.
+> - `Enter_the_Tenant_Info_Here` - is een van de volgende opties:
+>   - Als uw toepassing **Alleen accounts in deze organisatiemap** ondersteunt, vervangt u deze waarde door de **tenant-id** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com)
+>   - Als uw toepassing **Accounts in elke organisatiemap** ondersteunt, vervang deze waarde dan door `organizations`
+>   - Als uw toepassing **Alle Microsoft-accountgebruikers** ondersteunt, vervang deze waarde dan door `common`
+>
+> > [!TIP]
+> > Om de waarden van **Toepassings-id (client-id)**, **Map-id (tenant-id)** en **Ondersteunde accounttypen** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal.
 
 ## <a name="more-information"></a>Meer informatie
 
-Deze sectie bevat een overzicht van de code die vereist is voor het aanmelden van gebruikers. Dit is handig om te begrijpen hoe de code werkt, belangrijkste argumenten, en ook als u wilt aanmelden toevoegen aan een bestaande ASP.NET Core-toepassing.
+Deze sectie bevat een overzicht van de code die vereist is voor het aanmelden van gebruikers. Dit kan handig zijn om te begrijpen hoe de code werkt, wat de belangrijkste argumenten zijn en ook als u aanmelding wilt toevoegen aan een bestaande ASP.NET Core-toepassing.
 
 ### <a name="startup-class"></a>Opstartklasse
 
-*Microsoft.AspNetCore.Authentication* middleware maakt gebruik van een Opstartklasse die wordt uitgevoerd wanneer het hostproces initialiseert:
+De *Microsoft.AspNetCore.Authentication*-middleware maakt gebruik van een opstartklasse die wordt uitgevoerd wanneer in het hostingproces het volgende wordt geïnitialiseerd:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddAuthentication(sharedOptions =>
-    {
-        sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        sharedOptions.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-    })
-    .AddAzureAd(options => Configuration.Bind("AzureAd", options))
-    .AddCookie();
+  services.Configure<CookiePolicyOptions>(options =>
+  {
+    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+  });
 
-    services.AddMvc();
+  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
+          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+
+  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
+  {
+    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+
+    options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
+  });
+
+  services.AddMvc(options =>
+  {
+     var policy = new AuthorizationPolicyBuilder()
+                     .RequireAuthenticatedUser()
+                     .Build();
+     options.Filters.Add(new AuthorizeFilter(policy));
+  })
+  .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
 ```
 
-De methode `AddAuthentication` configureert u de service voor het toevoegen van verificatie op basis van een Cookie - op browser scenario's gebruikt, evenals de uitdaging ingesteld op OpenIdConnect. 
+Met de methode `AddAuthentication` wordt de service geconfigureerd voor het toevoegen van verificatie op basis van cookies. Deze verificatie wordt gebruikt in browserscenario's én om vragen te sturen naar OpenID Connect. 
 
-De regel die `.AddAzureAd` wordt de Azure Active Directory-verificatie toegevoegd aan uw toepassing.
+Met de regel die `.AddAzureAd` bevat, wordt de Azure AD-verificatie toegevoegd aan uw toepassing. Deze wordt dan geconfigureerd voor aanmelding met het Azure AD v2.0-eindpunt.
 
-Behalve dat het bestand **AzureAdAuthenticationBuilderExtensions.cs** extensie methode toegevoegd aan AzureAd-verificatiepijplijn. Deze extensie-methode configureert de kenmerken die nodig zijn voor Azure AD-verificatie. De `Configure` methode in `IConfigureNamedOptions` interface bevat het volgende:
-
-```csharp
-public void Configure(string name, OpenIdConnectOptions options)
-{
-    options.ClientId = _azureOptions.ClientId;
-    options.Authority = $"{_azureOptions.Instance}common/v2.0";   // V2 specific
-    options.UseTokenLifetime = true;
-    options.RequireHttpsMetadata = false;
-    options.TokenValidationParameters.ValidateIssuer = false;     // accept several tenants (here simplified)
-}
-```
 > |Waar  |  |
 > |---------|---------|
-> |ClientId     |Toepassings-Id van de toepassing geregistreerd in Azure portal|
-> |Instantie | De STS-eindpunt voor de gebruiker om te verifiëren. Meestal https://login.microsoftonline.com/{tenant}/v2.0 voor openbare cloud, waarbij {tenant} de naam is van uw tenant, uw tenant-id of *common* voor een verwijzing naar het algemene eindpunt (gebruikt voor toepassingen met meerdere tenants)|
-> |UseTokenLifetime |Geeft aan dat de verificatiecookie moet overeenkomen met die van het verificatietoken|
-> |RequireHttpsMetadata     |HTTPS voor de metadata-adres of -instantie nodig. Het verdient aanbeveling deze waarde om te wijzigen `True`|
-> |TokenValidationParameters     | Een lijst met parameters voor de validatie van tokens. In dit geval `ValidateIssuer` is ingesteld op `false` om aan te geven dat aanmeldingen vanaf een persoonlijke, of werk- of schoolaccount accounts kunnen worden geaccepteerd|
-
-### <a name="initiate-an-authentication-challenge"></a>Verificatievraag initiëren
-
-U kunt afdwingen dat de gebruiker zich aanmelden door aan te vragen een verificatiecontrole in uw controller, net zoals **AccountController.cs**:
-
-```csharp
-public IActionResult SignIn()
-{
-    var redirectUrl = Url.Action(nameof(HomeController.Index), "Home");
-    return Challenge(
-        new AuthenticationProperties { RedirectUri = redirectUrl },
-        OpenIdConnectDefaults.AuthenticationScheme);
-}
-```
-
-> [!TIP]
-> Aanvragen van een verificatiecontrole met behulp van de bovenstaande methode is optioneel en commonsly gebruikt wanneer u een weergave beschikbaar voor geverifieerde en niet-geverifieerde gebruikers wilt. U kunt domeincontrollers beveiligen met behulp van de methode die wordt beschreven in de volgende sectie.
+> | ClientId  | Toepassings-id (client-id) van de toepassing die is geregistreerd in de Azure-portal. |
+> | Instantie | Het STS-eindpunt voor gebruikersverificatie. Meestal is dit https://login.microsoftonline.com/{tenant}/v2.0 voor openbare cloud, waarbij {tenant} de naam is van uw tenant, uw tenant-id of *common* voor een verwijzing naar het algemene eindpunt (gebruikt voor toepassingen met meerdere tenants) |
+> | TokenValidationParameters | Een lijst met parameters voor de validatie van tokens. In dit geval is `ValidateIssuer` ingesteld op `false` om aan te geven dat aanmeldingen vanaf persoonlijke, werk- of schoolaccounts kunnen worden geaccepteerd. |
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Een controller of de methode van een controller beveiligen
 
-U kunt beveiligen met een domeincontroller of de controller methodss met behulp van de `[Authorize]` kenmerk. Dit kenmerk wordt beperkt tot de controller of methoden door toe te staan alleen geverifieerde gebruikers - dit betekent dat verificatiecontrole voor toegang tot de controller als de gebruiker is niet geverifieerd kan worden gestart.
+U kunt een controller of controllermethoden beveiligen met behulp van het kenmerk `[Authorize]`. Met dit kenmerk wordt toegang tot de controller of methoden beperkt door alleen geverifieerde gebruikers toe te staan. Dit betekent dat de verificatiecontrole kan worden gestart om de controller te benaderen als de gebruiker niet is geverifieerd.
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg de GitHub-opslagplaats voor deze snelstartgids ASP.NET Core voor meer informatie - en instructies over hoe u verificatie toevoegen aan een nieuwe ASP.NET Core-webtoepassing:
+Raadpleeg de GitHub-opslagplaats van deze ASP.NET Core-quickstart voor meer informatie, inclusief instructies over het toevoegen van verificatie aan een gloednieuwe ASP.NET Core-webtoepassing:
 
 > [!div class="nextstepaction"]
-> [Codevoorbeeld voor ASP.NET Core Web-App](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+> [Codevoorbeeld ASP.NET Core-web-app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

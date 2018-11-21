@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: sample
-ms.date: 09/15/2018
+ms.date: 11/12/2018
 ms.author: juliako
-ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 513c64ba7c9dad29fbef4a4010f5320dadda3c82
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377827"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625179"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
@@ -23,6 +23,7 @@ In dit artikel leest u hoe u een video uploadt met Azure Video Indexer. De Video
 
 * uw video uploaden via een URL (aanbevolen),
 * het videobestand verzenden als een bytematrix in de aanvraagbody.
+* Gebruik bestaande Azure Media Services-assets door de [asset-id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) op te geven (alleen ondersteund in betaalde accounts).
 
 In het artikel ziet u hoe u de API [Video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) gebruikt voor het uploaden en indexeren van uw video's op basis van een URL. De voorbeeldcode in het artikel bevat de opmerkingen in de code die laten zien hoe u de bytematrix uploadt.  
 
@@ -50,6 +51,35 @@ Deze sectie beschrijft een aantal van de optionele parameters en wanneer u deze 
 
 Met deze parameter kunt u een ID die is gekoppeld aan de video opgeven. De ID kan worden toegepast op externe VCM-systeemintegratie (Video Content Management). De video's die zich in de Video Indexer-portal bevinden, kunnen worden doorzocht met behulp van de opgegeven externe ID.
 
+### <a name="callbackurl"></a>callbackUrl
+
+Een URL die wordt gebruikt om de klant (met een POST-aanvraag) op de hoogte te stellen van de volgende gebeurtenissen:
+
+- Statuswijziging indexering: 
+    - Eigenschappen:    
+    
+        |Naam|Beschrijving|
+        |---|---|
+        |id|De video-id|
+        |state|De videostatus|  
+    - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+- Personen geïdentificeerd in de video:
+    - Eigenschappen
+    
+        |Naam|Beschrijving|
+        |---|---|
+        |id| De video-id|
+        |faceId|De gezichts-id die wordt weergegeven in de video-index|
+        |knownPersonId|De persoons-id die uniek is in een gezichtsmodel|
+        |personName|De naam van de persoon|
+        
+     - Voorbeeld: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+
+#### <a name="notes"></a>Opmerkingen
+
+- Video Indexer retourneert alle bestaande parameters die zijn opgegeven in de oorspronkelijke URL.
+- De opgegeven URL moet worden gecodeerd.
+
 ### <a name="indexingpreset"></a>indexingPreset
 
 Gebruik deze parameter als onbewerkte of externe opnamen achtergrondgeluiden bevatten. Deze parameter wordt gebruikt voor het configureren van het indexeringsproces. U kunt de volgende waarden opgeven:
@@ -60,11 +90,11 @@ Gebruik deze parameter als onbewerkte of externe opnamen achtergrondgeluiden bev
 
 De prijs is afhankelijk van de geselecteerde optie voor indexering.  
 
-### <a name="callbackurl"></a>callbackUrl
+### <a name="priority"></a>priority
 
-Een POST-URL die een melding geeft wanneer het indexeren is voltooid. Video Indexer voegt hieraan twee queryparameters toe: id en status. Als de callback-URL bijvoorbeeld 'https://test.com/notifyme?projectName=MyProject' is, wordt de melding verzonden met extra parameters naar 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+Video's worden geïndexeerd door Video Indexer op basis van de prioriteit. Gebruik de parameter **priority** voor het specificeren van de indexeringsprioriteit. De volgende waarden zijn geldig: **Laag**, **Normaal** (standaard) en **Hoog**.
 
-U kunt ook meer parameters toevoegen aan de URL voordat u de aanroep naar Video Indexer POST. Deze parameters worden opgenomen in de callback. Later in uw code kunt u de querytekenreeks ophalen en parseren en alle opgegeven parameters in de querytekenreeks terughalen (gegevens die u oorspronkelijk had toegevoegd aan de URL plus de gegevens die u hebt opgegeven in de Video Indexer). De URL moet worden gecodeerd.
+De parameter **priority** wordt alleen ondersteund voor betaalde accounts.
 
 ### <a name="streamingpreset"></a>streamingPreset
 

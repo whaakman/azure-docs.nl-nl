@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306681"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636446"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Een API-app importeren als API
 
@@ -34,7 +34,7 @@ In dit artikel leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 + Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md)
-+ Zorg ervoor dat er een API-app in uw abonnement aanwezig is. Zie de [Azure App Service-documentatie][https://docs.microsoft.com/azure/app-service/] voor meer informatie
++ Zorg ervoor dat er een API-app in uw abonnement aanwezig is. Zie [App Service-documentatie](https://docs.microsoft.com/azure/app-service/) voor meer informatie
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -43,7 +43,7 @@ In dit artikel leert u het volgende:
 1. Selecteer **API's** bij **API MANAGEMENT**.
 2. Selecteer **API-app** uit de lijst **Nieuwe API toevoegen**.
 
-    !(API app)[./media/import-api-app-as-api/api-app.png]
+    ![API-app](./media/import-api-app-as-api/api-app.png)
 3. Druk op **Bladeren** voor een overzicht van de API-apps in uw abonnement.
 4. Selecteer de app. APIM zoekt de swagger die is gekoppeld aan de geselecteerde app, haalt deze op en importeert hem. 
 

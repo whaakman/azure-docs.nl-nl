@@ -1,82 +1,103 @@
 ---
-title: Wat is Azure Active Directory (Azure AD)? | Microsoft Docs
-description: Leer hoe de Azure Active Directory te gebruiken om uw bestaande on-premises identiteiten uit te breiden in de cloud of om geïntegreerde Azure AD-toepassingen te ontwikkelen.
+title: Overzicht van Azure Active Directory | Microsoft Docs
+description: Meer informatie over Azure Active Directory, inclusief de vereiste terminologie, publiek, basisbeginselen over licenties en bijbehorende functies.
 services: active-directory
 author: eross-msft
 manager: mtillman
-ms.author: lizross
-ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
-ms.component: fundamentals
-ms.workload: identity
 ms.topic: overview
-ms.date: 09/13/2018
-ms.custom: it-pro
-ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/13/2018
+ms.author: lizross
+ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957544"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686582"
 ---
-# <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig)
-Azure Active Directory (Azure AD) is de multitenant map in de cloud en identiteitsbeheerservice van Microsoft. Azure AD combineert belangrijke adreslijstservices, toegangsbeheer voor toepassingen en identiteitsbeveiliging in één oplossing en biedt een op standaarden gebaseerd platform waarmee ze toegangsbeheer kunnen bieden aan hun apps, op basis van gecentraliseerd beleid en regels voor ontwikkelaars.
+# <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig) 
+Azure Active Directory (Azure AD) is de identiteits- en toegangsbeheerservice van Microsoft op basis van de cloud. Met Azure AD kunnen uw medewerkers zich aanmelden en toegang krijgen tot resources:
 
-![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
+- Externe resources, zoals Microsoft Office 365, de Azure-portal en duizenden andere SaaS-toepassingen.
 
-## <a name="benefits-of-azure-ad"></a>Voordelen van Azure AD
-Azure AD helpt u bij:
+- Interne resources, zoals apps op het bedrijfsnetwerk en intranet, samen met cloud-apps die door uw eigen organisatie zijn ontwikkeld.
 
--   Voor elke gebruiker één identiteit in de hele onderneming te maken en te beheren, waardoor gebruikers, groepen en apparaten gesynchroniseerd blijven met [Azure AD Connect](../connect/active-directory-aadconnect.md).
+U kunt gebruikmaken van de diverse posters van [Microsoft Cloud for Enterprise Architects Series](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) voor een beter begrip van de kernidentiteitsservices in Azure, Azure AD en Office 365.
 
--   Toegang bieden tot uw toepassingen via eenmalige aanmelding, inclusief duizenden vooraf geïntegreerde SaaS-apps, en veilige externe toegang bieden tot on-premises SaaS-toepassingen, met behulp van de [Azure AD-toepassingsproxy](../manage-apps/application-proxy.md).
+## <a name="who-uses-azure-ad"></a>Wie gebruikt Azure AD?
+Azure AD is bedoeld voor:
 
--   Toegangsbeveiliging tot toepassingen toestaan door [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) op basis van regels af te dwingen voor zowel on-premises toepassingen als cloud-apps.
+- **IT-beheerders** Als IT-beheerder kunt u Azure AD gebruiken om de toegang tot uw apps en app-resources te beheren op basis van uw bedrijfsvereisten. U kunt bijvoorbeeld Azure AD gebruiken als u meervoudige verificatie wilt gebruiken bij het openen van belangrijke resources in de organisatie. Ook kunt u Azure AD gebruiken voor het automatisch laten inrichten van gebruikers tussen uw bestaande Windows Server AD en uw cloud-apps, waaronder Office 365. Ten slotte beschikt u met Azure AD over krachtige hulpprogramma's waarmee u automatisch gebruikersidentiteiten en -referenties kunt beveiligen en aan de vereisten voor toegangsbeheer te voldoen. U kunt aan de slag als u zich aanmeldt voor een [gratis proefversie van Azure Active Directory Premium van dertig dagen](https://azure.microsoft.com/trial/get-started-active-directory/).
 
--   De gebruikersproductiviteit verbeteren met [selfservice voor wachtwoordherstel](../user-help/user-help-reset-password.md) en toegangsaanvragen voor groepen en toepassingen met behulp van de [MyApps-portal](../user-help/active-directory-saas-access-panel-introduction.md).
+- **App-ontwikkelaars.** Als app-ontwikkelaar hebt u met Azure AD een op standaarden gebaseerde benadering voor het toevoegen van eenmalige aanmelding (SSO) aan uw app, zodat deze kan werken met de al bestaande referenties van gebruikers. Azure AD voorziet u ook van API's waarmee u persoonlijke app-functies kunt bouwen die gebruikmaken van al in de organisatie aanwezige gegevens. U kunt aan de slag als u zich aanmeldt voor een [gratis proefversie van Azure Active Directory Premium van dertig dagen](https://azure.microsoft.com/trial/get-started-active-directory/). Voor meer informatie kunt u ook [Azure Active Directory voor ontwikkelaars](../develop/index.yml) raadplegen.
 
--   Uw voordeel doen met de [hoge beschikbaarheid en betrouwbaarheid](https://docs.microsoft.com/azure/architecture/checklist/availability) van een wereldwijde zakelijke oplossing voor cloud-identiteit en toegangsbeheer.
+- **Abonnees van Microsoft 365, Office 365, Azure of Dynamics CRM Online.** Als abonnee gebruikt u al Azure AD. Elke tenant van Microsoft 365, Office 365, Azure en Dynamics CRM Online is automatisch een tenant van Azure AD. U kunt meteen beginnen met het beheren van de toegang tot uw geïntegreerde cloud-apps.
 
-## <a name="who-uses-azure-ad"></a>Wie gebruikt Azure AD
-Azure AD is bedoeld voor IT-beheerders, app-ontwikkelaars, en voor gebruikers van Office 365, Azure of Dynamics CRM Online.
+## <a name="what-are-the-azure-ad-licenses"></a>Wat zijn de licenties voor Azure AD?
+Voor zakelijke Microsoft Online-services, zoals Office 365 of Microsoft Azure, hebt u Azure AD nodig om u aan te melden en voor de identiteitsbescherming. Daarom, als u zich abonneert op een van de zakelijke services van Microsoft Online, krijgt u automatisch Azure AD met toegang tot alle gratis functies.
 
-- **IT-beheerders** Azure AD biedt een veiligere oplossing voor uw organisatie dankzij het gebruik van sterker identiteitsbeheer en SSO-toegang (eenmalige aanmelding) tot duizenden [cloudgebaseerde SaaS-apps](../saas-apps/tutorial-list.md) en on-premises apps. Via deze apps verkrijgt u ook beveiliging van cloudgebaseerde apps, naadloze toegang, verbeterde samenwerking en automatisering van de identiteitslevenscyclus voor uw werknemers, die zowel de beveiliging als de naleving bevorderen.
+Om uw Azure AD-implementatie te verbeteren, kunt u ook betaalde mogelijkheden toevoegen door een upgrade naar de Azure Active Directory Basic-, Premium P1- of Premium P2-licenties. De betaalde licenties van Azure AD zijn gebouwd op uw bestaande gratis directory. Ze bieden selfservice, uitgebreide bewaking, beveiligingsrapportage en beveiligde toegang voor uw mobiele werknemers.
 
-    En daarnaast kunt u Azure AD met [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md) integreren met een bestaande Windows Server Active Directory, zodat uw organisatie uw bestaande on-premises identiteitsinvesteringen kan gebruiken om de toegang tot SaaS-apps te beheren.
+>[!Note]
+>Voor de prijsopties van deze licenties raadpleegt u [Prijzen voor Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).<br><br>Azure Active Directory Premium P1, P2 Premium en Azure Active Directory Basic worden momenteel niet ondersteund in China. Voor meer informatie over de prijzen voor Azure AD, kunt u contact opnemen met het [Azure Active Directory-forum](https://azure.microsoft.com/support/community/?product=active-directory).
 
-- **Voor app-ontwikkelaars.** Azure AD helpt u te focussen op het bouwen van apps door u integratie te verstrekken met een oplossing voor identiteitsbeheer die door miljoenen organisaties over de hele wereld wordt gebruikt.
+- **Azure Active Directory Free.** Biedt gebruikers- en groepsbeheer, on-premises adreslijstsynchronisatie, eenvoudige rapporten en eenmalige aanmelding voor Azure, Office 365 en talloze populaire SaaS-apps.
 
-- **Voor klanten van Office 365, Azure of Dynamics CRM Online.** U gebruikt al Azure AD. Elke Office 365-, Azure- en Dynamics CRM Online-tenant is eigenlijk een Azure AD-tenant. U kunt dus meteen beginnen met het beheren van uw werknemerstoegang tot uw geïntegreerde cloud-apps.
+- **Azure Active Directory Basic.** Naast de functies van de Free-licentie biedt Basic toegang tot apps in de cloud, op groepen gebaseerd toegangsbeheer, selfservice voor wachtwoordherstel voor cloud-apps en Azure Active Directory-toepassingsproxy, waarmee u on-premises web-apps kunt publiceren via Azure AD.
 
-## <a name="how-reliable-is-azure-ad"></a>Hoe betrouwbaar is Azure AD?
-Het multitenant, geografisch gedistribueerde ontwerp met hoge beschikbaarheid van Azure AD-ontwerp betekent dat u erop kunt vertrouwen voor uw meest kritieke zakelijke behoeften. Azure AD wordt uitgevoerd vanuit de datacenters 28 over de hele wereld met automatische failover. Dit betekent dat zelfs als een datacenter uitvalt, kopieën van uw mapgegevens live zijn in ten minste twee regionaal verspreide datacenters en beschikbaar voor directe toegang.
+- **Azure Active Directory Premium P1.** Naast de Free- en Basic-licenties kunt u met P1 uw hybride gebruikers toegang verlenen tot zowel on-premises als cloudresources. P1 biedt tevens ondersteuning voor geavanceerd beheer, zoals dynamische groepen, selfservice voor groepsbeheer, Microsoft Identity Manager (een on-premises pakket voor identiteits- en toegangsbeheer) en cloudfuncties voor terugschrijven, die selfservice voor wachtwoordherstel voor on-premises gebruikers mogelijk maken.
 
-Voor meer informatie over serviceovereenkomsten raadpleegt u [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+- **Azure Active Directory Premium P2.** Naast de functies van de licenties voor Free, Basic en P1, biedt P2 bovendien [Azure Active Directory Identity Protection](../identity-protection/enable.md) voor risicovrije, voorwaardelijke toegang tot uw apps en kritieke bedrijfsgegevens, en [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) voor het detecteren, beperken en bewaken van beheerders en hun toegang tot resources, en om Just-In-Time-toegang te bieden wanneer het nodig is.
 
-## <a name="choose-an-edition"></a>Een editie kiezen
-Alle Microsoft Online-bedrijfsservices zijn voor aanmelding en andere identiteitsbehoeften afhankelijk van Azure AD. Als u zich abonneert op een van de zakelijke services van Microsoft Online (bijvoorbeeld Office 365 of Microsoft Azure), krijgt u automatisch Azure AD met toegang tot alle gratis functies. Met behulp van de versie van Azure Active Directory Free kunt u gebruikers en groepen beheren, synchroniseren met on-premises directory's en eenmalige aanmelding gebruiken voor Azure, Office 365 en duizenden populaire SaaS-apps, zoals Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox en nog veel meer. 
+- **Functielicenties met Betalen per gebruik.** U kunt ook aanvullende functielicenties krijgen, zoals Azure Active Directory Business-to-Customer (B2C). Met B2C kunt u identiteits- en toegangsbeheeroplossingen bieden voor klantgerichte apps. Voor meer informatie raadpleegt u de [documentatie over Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Om uw Azure AD-implementatie te verbeteren, kunt u ook betaalde mogelijkheden toevoegen door een upgrade naar de Azure Active Directory Basic-, Premium P1- of Premium P2-edities. De betaalde edities van Azure AD zijn gebouwd op uw bestaande gratis directory. Ze bieden mogelijkheden van topkwaliteit op het gebied van onder andere selfservice, uitgebreide bewaking, beveiligingsrapportage, MFA (Multi-Factor Authentication) en beveiligde toegang voor uw mobiele werknemers.
+Voor meer informatie over het koppelen van een Azure-abonnement aan Azure AD, raadpleegt u [Procedure: een Azure-abonnement koppelen of toevoegen aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). Voor meer informatie over het toewijzen van licenties aan uw gebruikers, raadpleegt u [Procedure: licenties voor Azure Active Directory toewijzen of verwijderen](license-users-groups.md).
 
-> [!NOTE]
-> Voor de prijsopties van deze edities raadpleegt u [Prijzen voor Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, P2 Premium en Azure Active Directory Basic worden momenteel niet ondersteund in China. Voor meer informatie over de prijzen voor Azure AD, kunt u contact opnemen met het Azure Active Directory-forum.
+## <a name="terminology"></a>Terminologie
+Lees de volgende terminologie voor een beter begrip van Azure AD en de bijbehorende documentatie.
 
-- **Azure Active Directory Basic.** Bedoeld voor de cloud gerichte toegang voor toepassingen evenals oplossingen voor selfservice identiteitsbeheer. Met de Basic-editie beschikt u over functies die de productiviteit verhogen en de kosten verlagen, zoals op groepen gebaseerd toegangsbeheer, via selfservice wachtwoorden voor cloud-apps opnieuw instellen en Azure Active Directory-toepassingsproxy (voor het publiceren van on-premises webapps met behulp van Azure AD), en dat alles wordt gegarandeerd door een ondernemings-SLA voor een bedrijfstijd van 99,9%.
+|Term of concept|Beschrijving|
+|---------------|-----------|
+|Azure-abonnement| Dit wordt gebruikt voor de betaling van Azure-cloudservices. U kunt zo veel abonnementen hebben als u wilt. Ze zijn gekoppeld aan uw creditcard.|
+|Azure-tenant| De tenant is een speciaal en vertrouwd exemplaar van Azure AD dat automatisch wordt gemaakt wanneer uw organisatie zich registreert voor een abonnement op een cloudservice van Microsoft, bijvoorbeeld Microsoft Azure, Microsoft Intune of Office 365. Een Azure-tenant vertegenwoordigt één organisatie.|
+|Eén tenant| Azure-tenants die toegang hebben tot andere services in een toegewezen omgeving, worden als één tenant beschouwd.|
+|Multitenant| Azure-tenants die toegang hebben tot andere services in een gedeelde omgeving in meerdere organisaties, worden als meerdere tenants beschouwd.|
+|Azure AD-directory|Elke Azure-tenant beschikt over een toegewezen en vertrouwde Azure AD-directory. Deze Azure AD-directory omvat de gebruikers, groepen en apps van de gebruiker en wordt gebruikt om identiteits- en toegangsbeheerfuncties voor resources van tenants uit te voeren.|
+|Azure AD-account | Een identiteit die wordt gemaakt via Azure AD of een andere cloudservice van Microsoft, bijvoorbeeld Office 365. Identiteiten worden opgeslagen in Azure AD en zijn toegankelijk voor de cloudservice-abonnementen van de organisatie. Dit account wordt ook wel een werk- of schoolaccount genoemd.|
+|Aangepast domein|Elke nieuwe Azure AD-directory heeft in eerste instantie een domeinnaam van de vorm domeinnaam.onmicrosoft.com. Naast deze initiële naam kunt u ook de domeinnamen van uw organisatie aan de lijst toevoegen. Deze omvatten de namen die u voor uw bedrijf gebruikt en waarmee uw gebruikers toegang tot de resources van de organisatie krijgen. Als u aangepaste domeinnamen toevoegt, kunt u gebruikersnamen maken waarmee uw gebruikers vertrouwd zijn, zoals alain@contoso.com.|
+|Accountbeheerder|Deze rol van klassieke abonnementsbeheerder is conceptueel gezien de eigenaar facturering van een abonnement. Deze rol heeft toegang tot het [Azure-accountcentrum](https://account.azure.com/Subscriptions). Hier kunt u alle abonnementen van een account beheren. Zie [Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Servicebeheerder|Met deze klassieke abonnementsbeheerdersrol kunt u alle Azure-resources beheren, inclusief de toegang. Deze rol heeft dezelfde toegang als een gebruiker met de rol van eigenaar op abonnementsniveau. Zie [Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Eigenaar|Met deze rol kunt u alle Azure-resources beheren, inclusief de toegang. Deze rol bouwt voort op een nieuwer autorisatiesysteem, het zogenaamde toegangsbeheer op basis van rollen (RBAC), waarmee uiterst gedetailleerd toegangsbeheer tot Azure-resources kan worden verkregen. Zie [Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Globale Azure AD-beheerder|Deze beheerdersrol wordt automatisch toegewezen aan personen die de Azure AD-tenant hebben gemaakt. Globale beheerders kunnen alle beheerfuncties voor Azure AD uitvoeren, en tevens voor andere services die met Azure AD federeren, zoals Exchange Online, SharePoint Online en Skype voor Bedrijven Online. Er kunnen meerdere globale beheerders zijn, maar alleen globale beheerders kunnen beheerdersrollen aan gebruikers toewijzen (inclusief het toewijzen van andere globale beheerders).<br><br>**Opmerking**<br>Deze beheerdersrol wordt in de Azure-portal globale beheerder genoemd, maar in Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell krijgt deze de naam **bedrijfsbeheerder**.<br><br>Zie [Machtigingen van de rol beheerder in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) voor meer informatie over de verschillende beheerdersrollen.|
+|Microsoft-account (ook MSA genoemd)|Persoonlijke accounts die toegang verlenen tot uw consumentgerichte producten en cloudservices van Microsoft, bijvoorbeeld Outlook, OneDrive, Xbox LIVE en Office 365. Uw Microsoft-account wordt gemaakt en opgeslagen in het accountsysteem voor consumentidentiteiten van Microsoft, dat wordt beheerd door Microsoft.|
 
-- **Azure Active Directory Premium P1.** Bedoeld voor organisaties met verdergaande behoeften op het gebied van identiteits- en toegangsbeheer. Azure Active Directory Premium-editie biedt extra mogelijkheden voor identiteitsbeheer op ondernemingsniveau, en stelt hybride gebruikers in staat naadloos toegang te krijgen tot on-premises functies en cloudfuncties. Deze editie omvat alles wat u nodig hebt voor informatiemedewerkers en identiteitsbeheerders in hybride omgevingen voor het verschaffen van toegang tot de diverse toepassingen, voor selfservice identiteits- en toegangsbeheer (IAM), identiteitsbescherming en beveiliging in de cloud. Deze biedt ondersteuning voor geavanceerde beheer en de delegatie van resources, zoals dynamische groepen en selfservicegroepsbeheer. Het bevat Microsoft Identity Manager (een pakket voor on-premises identiteits- en toegangsbeheer) en biedt mogelijkheden voor terugschrijven naar de cloud, die oplossingen als selfservice voor wachtwoordherstel voor uw on-premises gebruikers mogelijk maken.
+## <a name="what-features-work-in-azure-ad"></a>Welke functies werken in Azure AD?
+Nadat u uw Azure AD-licentie hebt gekozen, krijgt u toegang tot (een deel van) de volgende functies voor uw organisatie.
 
-- **Azure Active Directory Premium P2.** Ontworpen met geavanceerde beveiliging voor uw gebruikers en beheerders en bevat alle functionaliteit van Azure AD Premium P1, aangevuld met Azure AD Identity Protection en Privileged Identity Management. Met behulp van miljarden signalen biedt Azure Active Directory Identity Protection op risico's gebaseerde voorwaardelijke toegang tot uw apps en essentiële bedrijfsgegevens. Met Azure Active Directory Privileged Identity Management helpen we u ook met het beheren en beveiligen van bevoegde accounts, zodat u beheerders en hun toegang kunt detecteren, beperken en bewaken en just-in-time-toegang kunt bieden wanneer dat nodig is.  
+|Categorie|Beschrijving|
+|-------|-----------|
+|Toepassingsbeheer|Beheer uw apps in de cloud of on-premises met de toepassingsproxy, eenmalige aanmelding, de portal My Apps (ook wel Toegangsvenster genoemd) en SaaS-apps (Software als een dienst). Zie [Beveiligde externe toegang bieden voor on-premises toepassingen](../manage-apps/application-proxy.md) en [Documentatie over toepassingsbeheer](../manage-apps/index.yml) voor meer informatie.|
+|Verificatie|In Azure Active Directory kunt u selfservice voor wachtwoordherstel, Multi-Factor Authentication, een aangepaste lijst met verboden wachtwoorden en slimme vergrendeling beheren. Zie [Documentatie voor Azure AD-verificatie](../authentication/index.yml) voor meer informatie.|
+|Business-to-business (B2B)|U beheert gastgebruikers en externe partners, terwijl u de controle houdt over uw eigen zakelijke gegevens. Zie [Documentatie over Azure Active Directory B2B](../b2b/index.yml) voor meer informatie.|
+|Business-to-customer (B2C)|U kunt aanpassen en controleren hoe uw gebruikers zich registreren, zich aanmelden en hun profielen beheren als ze uw apps gebruiken. Voor meer informatie raadpleegt u de [documentatie over Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
+|Voorwaardelijke toegang|Beheer de toegang tot uw cloud-apps. Zie [Documentatie over voorwaardelijke toegang voor Azure AD](../conditional-access/index.yml) voor meer informatie.|
+|Azure Active Directory voor ontwikkelaars|Bouw apps waarmee alle Microsoft-identiteiten worden aangemeld en haal tokens op voor het aanroepen van Microsoft Graph, andere Microsoft-API's of aangepaste API's. Zie [Microsoft Identity Platform (Azure Active Directory voor ontwikkelaars)](../develop/index.yml) voor meer informatie.|
+|Apparaatbeheer|Beheer hoe uw cloud- of on-premises apparaten toegang hebben tot uw zakelijke gegevens. Zie [Documentatie over Azure AD-apparaatbeheer](../devices/index.yml) voor meer informatie.|
+|Domeinservices|Voeg virtuele Azure-machines toe aan een domein zonder gebruik te maken van domeincontrollers. Zie [Documentatie voor Azure AD Domain Services](../../active-directory-domain-services/index.yml) voor meer informatie.|
+|Zakelijke gebruikers|Beheer het toewijzen van licenties, de toegang tot apps en het instellen van gedelegeerden met behulp van groepen en beheerdersrollen. Zie [Documentatie voor Azure Active Directory-gebruikersbeheer](../users-groups-roles/index.yml) voor meer informatie.|
+|Hybride identiteit|Gebruik Azure Active Directory Connect en Connect Health om één gebruikersidentiteit te bieden voor verificatie en autorisatie van alle resources, ongeacht de locatie (cloud of on-premises). Zie [Documentatie voor hybride identiteit](../hybrid/index.yml) voor meer informatie.|
+|Identiteitsbeheer|Beheer de identiteit van uw organisatie via besturingselementen voor werknemers, zakelijke partners, leveranciers, service en app-toegang. U kunt ook toegangsbeoordelingen uitvoeren. Zie [Documentatie over Azure AD Identity Governance](../governance/identity-governance-overview.md) en [Azure AD-toegangsbeoordelingen](../governance/access-reviews-overview.md) voor meer informatie.|
+|Identiteitsbeveiliging|Detecteer potentiële beveiligingsproblemen die de identiteiten van uw organisatie treffen; configureer beleid om te reageren op verdachte activiteiten en neem vervolgens gepaste actie om de problemen op te lossen. Zie [Azure AD-identiteitsbeveiliging](../identity-protection/index.yml) voor meer informatie.|
+|Beheerde identiteiten voor Azure-resources|Voorzie uw Azure-services van een automatisch beheerde identiteit in Azure AD die elke door Azure Ad ondersteunde verificatieservice kan verifiëren, inclusief Key Vault. Zie [Wat zijn beheerde identiteiten voor Azure-resources?](../managed-identities-azure-resources/overview.md) voor meer informatie.|
+|Privileged Identity Management (PIM)|Beheer, controleer en bewaak de toegang binnen uw organisatie. Deze functie omvat toegang tot resources in Azure AD, Azure-resources en andere Microsoft-onlineservices zoals Office 365 en Intune. Zie [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml) voor meer informatie.|
+|Rapporten en controle|Krijg inzicht in de beveiliging en gebruikspatronen in uw omgeving. Zie [Azure Active Directory-rapporten en -bewaking](../reports-monitoring/index.yml) voor meer informatie.|
 
-> [!NOTE]
-> Een aantal mogelijkheden van Azure Active Directory zijn ook beschikbaar via 'betalen naar gebruik'-edities:<ul><li>**Azure Active Directory B2C.** Identiteits- en toegangsbeheer voor uw consumentgerichte apps. Voor meer informatie raadpleegt u [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).</li><li>**Azure Multi-Factor Authentication.** Gebruikt per gebruiker of per authenticatie provider. Voor meer informatie raadpleegt u [Wat is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md).
-
-## <a name="as-an-admin-how-do-i-get-started"></a>Hoe ga ik als administrator aan de slag?
-Meld u aan voor een gratis proefversie van 30 dagen en implementeer uw eerste cloudoplossing, zie [Azure Active Directory Premium-proefversie](https://azure.microsoft.com/trial/get-started-active-directory/).
-
-## <a name="as-a-developer-how-do-i-get-started"></a>Hoe ga ik als ontwikkelaar aan de slag?
-Meld u aan voor een gratis proefversie van 30 dagen en begin met de integratie van uw apps met Azure AD, zie [Azure Active Directory Premium-proefversie](https://azure.microsoft.com/trial/get-started-active-directory/). Voor meer informatie kunt u ook de [Handleiding voor ontwikkelaars](../develop/v1-overview.md) voor Azure Active Directory raadplegen.
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Meer informatie over de grondbeginselen van identiteits- en toegangsbeheer met Azure](identity-fundamentals.md).
+- [Registreren voor Azure Active Directory Premium](active-directory-get-started-premium.md)
 
-- [Azure AD integreren met Windows Server Active Directory](../hybrid/how-to-connect-install-express.md).
+- [Een Azure-abonnement aan uw Azure Active Directory koppelen](active-directory-how-subscriptions-associated-directory.md)
+
+- [Toegang tot Azure Active Directory en nieuwe tenant maken](active-directory-access-create-new-tenant.md)
+
+- [Controlelijst voor implementatie van functies in Azure Active Directory Premium P2](active-directory-deployment-checklist-p2.md)

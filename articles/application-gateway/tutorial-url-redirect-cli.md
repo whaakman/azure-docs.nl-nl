@@ -1,6 +1,6 @@
 ---
-title: Een toepassingsgateway maken met een omleiding op basis van een URL-pad - Azure CLI
-description: Informatie over het maken van een toepassingsgateway met op een URL-pad gebaseerd, omgeleid verkeer met behulp van Azure CLI.
+title: 'Zelfstudie: Een toepassingsgateway maken met een omleiding op basis van een URL-pad - Azure CLI'
+description: In deze zelfstudie leert u hoe u een toepassingsgateway kunt maken met verkeer dat is omgeleid op basis van een URL-pad, met behulp van Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947547"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568145"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken met een omleiding op basis van een URL-pad met behulp van Azure CLI
 
@@ -313,14 +313,6 @@ U kunt de resourcegroep, de toepassingsgateway en alle gerelateerde resources ve
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>Volgende stappen
-
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een toepassingsgateway maken
-> * Listeners en routeringsregels toevoegen
-> * Schaalsets voor virtuele machines voor back-endpools maken
 
 > [!div class="nextstepaction"]
 > [Meer informatie over wat u kunt doen met de toepassingsgateway](application-gateway-introduction.md)

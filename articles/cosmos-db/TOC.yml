@@ -154,12 +154,12 @@ items:
       href: access-secrets-from-keyvault.md
   - name: Gereedheid voor bedrijven
     items:
+    - name: Online back-ups maken en herstellen
+      href: online-backup-and-restore.md
     - name: Naleving
       href: compliance.md
   - name: Vooruitbetalen voor reservecapaciteit
     href: cosmos-db-reserved-capacity.md
-  - name: Back-ups en herstellen
-    href: online-backup-and-restore.md
 - name: API's met meerdere modellen
   items:
   - name: SQL-API-documenten
@@ -453,6 +453,10 @@ items:
       href: how-to-configure-firewall.md
     - name: Toegang van virtuele netwerken configureren
       href: how-to-configure-vnet-service-endpoint.md
+  - name: Gereedheid voor bedrijven
+    items:
+    - name: Gegevens herstellen vanaf back-up
+      href: how-to-backup-and-restore.md
   - name: Beheren
     items:
     - name: Beheren met PowerShell
@@ -573,9 +577,9 @@ items:
       href: use-cases.md
     - name: Socialemedia-apps
       href: social-media-apps.md
-ms.openlocfilehash: 39b551b12f80a54a8c374e0ac0980c8c746ef3b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: be2c50fb19746f15d879ada3ccbdc4366a4c4763
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162503"
+ms.locfileid: "52262530"

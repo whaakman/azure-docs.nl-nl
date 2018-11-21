@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f537a381bbd595e519aaeb4cadb5b9be4657b6b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210462"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566564"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Servers waarop Windows Server 2008 wordt uitgevoerd, naar Azure migreren
 
@@ -71,7 +71,7 @@ In het vervolg van deze zelfstudie kunt u zien hoe u on-premises virtuele VMware
 
 - Mogelijk kan RDP niet onmiddellijk worden uitgevoerd op Windows Server 2008 SP2-servers met het 32-bits besturingssysteem als er een failover of test-failover naar Azure op is uitgevoerd. Start de virtuele machine waarvoor failover is uitgevoerd, opnieuw op vanuit de Azure-portal en maak opnieuw verbinding. Als u nog steeds geen verbinding kunt maken, controleert u of de server is geconfigureerd zodat verbindingen via extern bureaublad zijn toegestaan. Controleer ook of er geen firewallregels of netwerkbeveiligingsgroepen de oorzaak zijn van het blokkeren van de verbinding. 
   > [!TIP]
-  > Voordat u de servers gaat migreren, wordt het uitvoeren van een testfailover sterk aangeraden. Zorg dat u ten minste één testfailover per te migreren server hebt uitgevoerd. Als onderdeel van de testfailover, maakt u verbinding met de machine waarvoor de testfailover is uitgevoerd en controleert u of alles naar behoren werkt.
+  > Voordat u de servers gaat migreren, wordt het uitvoeren van een testfailover sterk aangeraden. Zorg dat u minstens één testfailover hebt uitgevoerd op elke server die u wilt migreren. Als onderdeel van de testfailover, maakt u verbinding met de machine waarvoor de testfailover is uitgevoerd en controleert u of alles naar behoren werkt.
   >
   >Het testfailoverbewerking veroorzaakt geen storingen en u kunt er migraties mee testen door virtuele machines te maken in een geïsoleerd netwerk van uw keuze. Tijdens de testfailoverbewerking kan het repliceren van gegevens gewoon doorgaan, dit in tegenstelling tot bij een failoverbewerking. Voordat u gaat migreren, kunt u net zo veel testfailovers uitvoeren als u wilt. 
   >
@@ -154,7 +154,10 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. Selecteer het meest recente herstelpunt.
 3. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery tracht de virtuele bronmachine af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 4. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
-5. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Hiermee wordt het migratieproces voltooid, de replicatie voor de VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
+5. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Er gebeurt nu het volgende:
+
+    - Het migratieproces wordt voltooid, de replicatie voor de AWS-VM wordt gestopt en Site Recovery-facturering voor de virtuele machine wordt gestopt.
+    - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd.
 
    ![Migratie voltooien](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

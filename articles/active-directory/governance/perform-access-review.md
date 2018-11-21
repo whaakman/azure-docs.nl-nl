@@ -1,6 +1,6 @@
 ---
-title: Toegang controleren met behulp van Azure AD toegangsbeoordelingen | Microsoft Docs
-description: Meer informatie over het bekijken van toegang met behulp van Azure Active Directory-toegangsbeoordelingen.
+title: Een toegangscontrole starten met Azure AD-Toegangsbeoordelingen | Microsoft Docs
+description: Leer hoe u een toegangscontrole starten met behulp van Azure Active Directory-Toegangsbeoordelingen.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -14,14 +14,14 @@ ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 09247a430d2ece44c307297838b7f4dc2819d56d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 455a4922dfd0832c49729bed007dd696562be07a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607869"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263416"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Toegang met Azure AD controleren toegangsbeoordelingen
+# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Een toegangscontrole starten met Azure AD-Toegangsbeoordelingen
 
 Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot toepassingen en leden van groepen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang beoordeelt. U kunt mogelijk geen e-mail ontvangen van Microsoft waarmee u wordt gevraagd te toegang beoordelen voor leden van een groep of gebruikers met toegang tot een toepassing. 
 

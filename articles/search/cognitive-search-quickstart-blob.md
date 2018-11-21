@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729989"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288030"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
@@ -26,10 +26,16 @@ In deze snelstart probeert u de verrijkingspijplijn uit in [Azure Portal](https:
 * Voer de wizard uit (een entiteitsvaardigheid detecteert mensen, locatie en organisaties)
 * Gebruik [Search Explorer](search-explorer.md) om query's op de verrijkte gegevens uit te voeren.
 
+## <a name="supported-regions"></a> Ondersteunde regio's
+
 U kunt cognitief zoeken uitproberen in een Azure Search-service in de volgende gebieden:
 
+* US - west-centraal
 * US - zuid-centraal
+* US - oost
 * Europa -west
+* Europa - noord
+* Azië - zuidoost
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -57,7 +63,7 @@ Registreer u eerst voor de Azure Search-service.
 
 1. Maak een resourcegroep voor alle resources die u in deze snelstart gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de snelstart hebt voltooid.
 
-1. Kies bij locatie voor **US - zuid-centraal** of **Europa - west**. Op dit moment is de preview alleen in deze regio's beschikbaar.
+1. Kies voor Locatie een van de [ondersteunde regio's](#supported-regions) voor Cognitive Search.
 
 1. Voor de prijscategorie kunt u een **Gratis** service maken om de zelfstudies en snelstarts te voltooien. Voor nadere analyse met behulp van uw eigen gegevens, maakt u een [betaalde service](https://azure.microsoft.com/pricing/details/search/) zoals **Basic** of **Standard**. 
 

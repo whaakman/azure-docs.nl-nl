@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252136"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567091"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -241,7 +241,10 @@ Voer een werkelijke failover voor de EC2-instanties uit om deze naar Azure-VM’
 1. Selecteer in **Beveiligde items** > **Gerepliceerde items** de AWS-instanties. Selecteer vervolgens **Failover**.
 2. Selecteer in **Failover** een **Herstelpunt** om een failover voor uit te voeren. Selecteer het meest recente herstelpunt en start de failover. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 1. Controleer of de VM wordt weergegeven in **Gerepliceerde items**.
-2. Klik met de rechtermuisknop op elke VM, en selecteer vervolgens **Migratie voltooien**. Hiermee wordt het migratieproces voltooid, de replicatie voor de AWS-VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
+2. Klik met de rechtermuisknop op elke VM, en selecteer vervolgens **Migratie voltooien**. Er gebeurt nu het volgende:
+
+    - Hiermee wordt het migratieproces voltooid, de replicatie voor de AWS-VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
+    - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd. 
 
     ![Migratie voltooien](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

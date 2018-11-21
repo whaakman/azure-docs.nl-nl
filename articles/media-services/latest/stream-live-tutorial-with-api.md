@@ -1,5 +1,5 @@
 ---
-title: .NET Core gebruiken voor live streamen met Azure Media Services v3 | Microsoft Docs
+title: Live streamen met Azure Media Services v3 | Microsoft Docs
 description: In deze zelfstudie doorloopt u de stappen voor live streamen met Media Services v3 met behulp van .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392332"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613389"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>.NET Core gebruiken voor live streamen met Azure Media Services v3
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Zelfstudie: live streamen met Azure Media Services v3 met behulp van API's
 
-In Media Services zijn [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) verantwoordelijk voor het verwerken inhoud voor live-streaming. Een LiveEvent biedt een invoereindpunt (de URL voor opnemen) dat u vervolgens doorgeeft aan een live-encoder. De LiveEvent ontvangt live-invoerstromen van de live-encoder en maakt deze beschikbaar voor streaming via een of meer [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents bieden ook een preview-eindpunt (voorbeeld-URL) dat u kunt gebruiken om een voorbeeld van de stream te bekijken en deze te valideren voordat deze verder wordt verwerkt en geleverd. In deze zelfstudie ziet u hoe u .NET Core gebruikt om een **pass-through**-type van een live-gebeurtenis te maken. 
+In Media Services zijn [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) verantwoordelijk voor het verwerken inhoud voor live streamen. Een LiveEvent biedt een invoereindpunt (de URL voor opnemen) dat u vervolgens doorgeeft aan een live-encoder. De LiveEvent ontvangt live-invoerstromen van de live-encoder en maakt deze beschikbaar voor streaming via een of meer [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents bieden ook een preview-eindpunt (voorbeeld-URL) dat u kunt gebruiken om een voorbeeld van de stream te bekijken en deze te valideren voordat deze verder wordt verwerkt en geleverd. In deze zelfstudie ziet u hoe u .NET Core gebruikt om een **pass-through**-type van een live-gebeurtenis te maken. 
 
 > [!NOTE]
 > Zorg dat u [Live streamen met Media Services v3](live-streaming-overview.md) hebt gelezen voordat u verder gaat. 
@@ -31,7 +31,6 @@ In Media Services zijn [LiveEvents](https://docs.microsoft.com/rest/api/media/li
 In deze zelfstudie leert u het volgende:    
 
 > [!div class="checklist"]
-> * Een Media Services-account kunt maken
 > * Toegang kunt krijgen tot de Media Services API
 > * De voorbeeld-app kunt configureren
 > * De code bestuderen die live streamen uitvoert
@@ -44,9 +43,17 @@ In deze zelfstudie leert u het volgende:
 
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
-* Visual Studio Code of Visual Studio installeren
-* Een camera of een apparaat (zoals een laptop) die wordt gebruikt om een gebeurtenis uit te zenden.
-* Een on-premises live-encoder die signalen van de camera converteert naar stromen die naar een Media Service-service voor live streamen worden verzonden. De stroom moet de **RTMP**- of **Smooth Streaming**-indeling hebben.
+- Installeer Visual Studio Code of Visual Studio.
+- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+
+    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
+
+- [Een Azure Media Services-account maken](create-account-cli-how-to.md).
+
+    Vergeet niet welke waarden u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account
+
+- Een camera of een apparaat (zoals een laptop) die wordt gebruikt om een gebeurtenis uit te zenden.
+- Een on-premises live-encoder die signalen van de camera converteert naar stromen die naar een Media Service-service voor live streamen worden verzonden. De stroom moet de **RTMP**- of **Smooth Streaming**-indeling hebben.
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -61,10 +68,6 @@ Het voorbeeld voor live streamen staat in de map [Live](https://github.com/Azure
 > [!IMPORTANT]
 > In dit voorbeeld wordt een uniek achtervoegsel voor elke resource gebruikt. Als u de foutopsporing annuleert of de app beëindigt zonder deze helemaal door te lopen, blijven er meerdere LiveEvents in uw account staan. <br/>
 > Zorg dat u de actieve LiveEvents stopt. Anders worden deze **in rekening gebracht**!
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ De live gebeurtenis wordt automatisch geconverteerd naar inhoud op aanvraag wann
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van de Media Services en opslagaccounts die u hebt gemaakt voor deze zelfstudie, verwijdert u de resourcegroep die u eerder hebt gemaakt. U kunt het hulpprogramma **CloudShell** gebruiken.
+Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van de Media Services en opslagaccounts die u hebt gemaakt voor deze zelfstudie, verwijdert u de resourcegroep die u eerder hebt gemaakt.
 
-Voer in **CloudShell** de volgende opdracht uit:
+Voer de volgende CLI-opdracht uit:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

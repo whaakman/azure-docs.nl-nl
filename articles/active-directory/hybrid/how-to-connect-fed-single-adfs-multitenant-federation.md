@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241732"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621256"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Meerdere exemplaren van Azure AD federeren met één exemplaar van AD FS
 
@@ -47,7 +47,7 @@ AD FS in contoso.com kan alleen gebruikers in fabrikam.com verifiëren als er ee
  
 De standaardverlener die is ingesteld voor één met AD FS gefedereerd domein is http://ADFSServiceFQDN/adfs/services/trust, bijvoorbeeld http://fs.contoso.com/adfs/services/trust. Voor Azure Active Directory is een unieke verlener vereist voor elk federatief domein. Aangezien dezelfde AD FS twee domeinen gaat federeren, moet de waarde voor de verlener zodanig worden gewijzigd dat deze uniek is voor elk domein dat AD FS federeert met Azure Active Directory. 
  
-Open Azure AD PowerShell op de AD FS-server en voer de volgende stappen uit:
+Op de AD FS-server opent u Azure AD PowerShell (controleer of de MSOnline-module is geïnstalleerd) en voert u de volgende stappen uit:
  
 Maak verbinding met de Azure Active Directory met het domein contoso.comConnect-MsolServiceWerk de federatie-instellingen bij voor contoso.comUpdate-MsolFederatedDomain-DomainName contoso.com-SupportMultipleDomain
  

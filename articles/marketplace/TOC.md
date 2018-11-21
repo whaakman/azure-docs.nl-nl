@@ -5,7 +5,6 @@
 ### [Uitgever worden op de marketplace](./become-publisher.md)  
 #### [Een Microsoft-account maken](./guidelines.md)
 #### [Registreren in Dev Center](./register-dev-center.md) 
-#### [Factureringsopties voor Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Gebruikskenmerken van klanten van Azure-partners](./azure-partner-customer-usage-attribution.md)
 #### [Leadmanagement voor de cloud-marketplace](./lead-management-for-cloud-marketplace.md)
 
@@ -13,7 +12,7 @@
 
 ### [De publicatieoptie voor uw oplossing kiezen](./determine-your-listing-type.md)  
 
-### Publicatiehandleiding op type aanbieding 
+### [Publicatiehandleiding op type aanbieding](./publisher-guide-by-offer-type.md)
 #### [Virtuele machines](./marketplace-virtual-machines.md)
 #### [Azure-toepassingen: oplossingssjablonen](./marketplace-solution-templates.md)
 #### [Azure-toepassingen: beheerde toepassingen](./marketplace-managed-apps.md)
@@ -27,6 +26,8 @@
 ### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Voorkeursoplossingen](./preferred-solutions.md) 
 #### [Validatie van Marketplace-inhoud](./marketplace-criteria-content-validation.md)
+#### [Persoonlijke aanbiedingen](./private-offers.md)
+#### [Commerciële transactiemogelijkheden en overwegingen voor Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 ### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
 
@@ -34,6 +35,16 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Cloud Partner-portal](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## [Rondleiding door de portal](./cloud-partner-portal/portal-tour/cpp-portal-tour.md)
+### [Navigatie in de portal](./cloud-partner-portal/portal-tour/cpp-portal-navigation.md)
+### [Menu voor Nieuwe aanbieding](./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md)
+### [Pagina voor Alle aanbiedingen](./cloud-partner-portal/portal-tour/cpp-all-offers-page.md)
+### [Pagina voor Goedkeuringen](./cloud-partner-portal/portal-tour/cpp-approvals-page.md)
+### [Pagina voor Alle uitgevers](./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md)
+### [Pagina voor Gebruikers](./cloud-partner-portal/portal-tour/cpp-users-page.md)
+### [Pagina voor Controlegeschiedenis](./cloud-partner-portal/portal-tour/cpp-history-page.md)
+### [Pagina met inzichten](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
 ## Portalbeheer
 ### [Accountregistratie ontwikkelaarscentrum](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)

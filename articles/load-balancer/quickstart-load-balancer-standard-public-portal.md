@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702403"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615205"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snelstart: Een standaard load balancer maken om taken van VM's te verdelen via Azure Portal
 
@@ -145,6 +145,7 @@ U gebruikt een statustest om de load balancer de status van uw app te laten bewa
     - *myHealthProbe* als naam van de statustest.
     - **HTTP** als protocoltype.
     - *80* als poortnummer.
+    - *Healthprobe.aspx* - voor het URI-pad. U kunt deze waarde vervangen door een willekeurige andere URI of de standaardwaarde van het pad (**\\**) behouden om de standaard-URI op te halen.
     - *15* als **interval** in seconden tussen tests.
     - *2* als aantal **drempelwaarden voor onjuiste status** of opeenvolgende mislukte tests dat moet optreden voordat wordt besloten dat een VM een onjuiste status heeft.
 4. Klik op **OK**.

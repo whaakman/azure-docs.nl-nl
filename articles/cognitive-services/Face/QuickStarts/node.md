@@ -1,47 +1,35 @@
 ---
-title: 'Snelstart: Gezichten in een afbeelding detecteren met de REST API en Node.js'
+title: 'Snelstart: Gezichten in een afbeelding detecteren met de Azure REST API en Node.js'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met Node.js in Cognitive Services.
+description: In deze snelstart gebruikt u de Azure Face REST API met Node.js om gezichten in een afbeelding te detecteren.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b5258f1c465732df257a7db85e828effff200ee0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954091"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577973"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-nodejs"></a>Snelstart: Gezichten in een afbeelding detecteren met de REST API en Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snelstart: Gezichten in een afbeelding detecteren met de Face REST API en Node.js
 
-In deze snelstartgids detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
+In deze snelstart gebruikt u de Azure Face REST API met Node.js om menselijke gezichten in een afbeelding te detecteren.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
 
-## <a name="face---detect-request"></a>Face - Detect-aanvraag
+## <a name="create-the-nodejs-script"></a>De Node.js-script maken
 
-Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
-
-* Face ID: de unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
-* Gezichtsrechthoek: de coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
-* Oriëntatiepunten: een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
-* Gezichtskenmerken zoals leeftijd, geslacht, glimlachintensiteit, hoofdhouding en gezichtshaar.
-
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code in een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig de `uriBase`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
-1. Stel `imageUri` eventueel in op de afbeelding die u wilt analyseren.
-1. Sla het bestand op met de extensie `.js`.
-1. Open de Node.js-opdrachtprompt en voer het bestand uit, bijvoorbeeld: `node myfile.js`.
+Met de volgende code wordt de Face-API aangeroepen en kenmerkgegevens voor gezichten opgehaald uit een afbeelding. Kopieer eerst de code naar een teksteditor; u moet enkele wijzigingen aanbrengen voordat u de code kunt uitvoeren.
 
 ```nodejs
 'use strict';
@@ -88,9 +76,29 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Face - Detect-antwoord
+### <a name="subscription-key"></a>Abonnementssleutel
+Vervang `<Subscription Key>` door een geldige Face-abonnementssleutel.
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+### <a name="face-endpoint-url"></a>Eindpunt-URL voor Face
+
+De URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` geeft het Azure Face-eindpunt aan waarvoor een query moet worden uitgevoerd. U moet het eerste gedeelte van deze URL wijzigen zodat deze overeenkomt met de regio die bij uw abonnementssleutel hoort (tenzij dit al klopt).
+
+### <a name="url-query-string"></a>Queryreeks voor URL
+
+Het veld `returnFaceAttributes` geeft aan welke gezichtskenmerken moeten worden opgehaald. U kunt deze queryreeks wijzigen afhankelijk van het beoogde gebruik.
+
+### <a name="image-source-url"></a>Bron-URL van afbeelding
+Het veld `imageUrl` geeft aan welke afbeelding moet worden gebruikt als invoer. U kunt de URL wijzigen zodat deze verwijst naar de afbeelding die u wilt analyseren.
+
+## <a name="save-and-run-the-script"></a>Het script opslaan en uitvoeren
+
+Nadat u de wijzigingen hebt aangebracht, slaat u het bestand op als een JavaScript-script (.js). Open vervolgens een opdrachtprompt en voer deze uit met de opdracht `node`.
+
+```
+node myfile.js
+```
+
+De gegevens over het gezicht worden nu in het consolevenster weergegeven als JSON-gegevens. Bijvoorbeeld:
 
 ```json
 [
@@ -273,7 +281,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verken de Face-API's die worden gebruikt om menselijke gezichten in een afbeelding te detecteren, om de gezichten af ​​te bakenen met rechthoeken en kenmerken als leeftijd en geslacht te retourneren.
+In deze snelstart hebt u een cURL-opdracht geschreven waarmee de Azure Face-API wordt aangeroepen om gezichten in een afbeelding te detecteren en de gezichtskenmerken te retourneren. Lees het naslagmateriaal bij de Face-API voor meer informatie.
 
 > [!div class="nextstepaction"]
-> [Face-API's](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

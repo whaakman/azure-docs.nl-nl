@@ -1,6 +1,6 @@
 ---
-title: 'Snelstart: Een openbare Basic Load Balancer maken met behulp van de Azure-portal | Microsoft Docs'
-description: In deze snelstart vindt u informatie over het maken van een openbare Basic Load Balancer via de Azure-portal.
+title: 'Snelstart: Een openbare Basic Load Balancer maken met behulp van de Azure Portal | Microsoft Docs'
+description: In deze snelstart vindt u informatie over het maken van een openbare Basic Load Balancer via Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,22 +17,22 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378428"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616024"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snelstart: Een openbare Basic Load Balancer maken met behulp van de Azure-portal
+# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snelstart: Een openbare Basic Load Balancer maken met behulp van de Azure Portal
 
-Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines (VM's). U kunt in de Azure-portal een load balancer maken om taken van virtuele machines te verdelen. In deze snelstart wordt beschreven hoe u netwerkresources, back-endservers en een load balancer kunt maken in het prijssegment Basic.
+Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines (VM's). U kunt in Azure Portal een load balancer maken om taken van virtuele machines te verdelen. In deze snelstart wordt beschreven hoe u netwerkresources, back-endservers en een load balancer kunt maken in het prijssegment Basic.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Voor alle taken in deze snelstartgids moet u zich aanmelden bij de [Azure-portal](http://portal.azure.com).
+Voor alle taken in deze snelstartgids moet u zich aanmelden bij de [Azure Portal](http://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Een Basic Load Balancer maken
 
@@ -159,6 +159,7 @@ U gebruikt een statustest om de Basic Load Balancer de status van uw app te late
    - **myHealthProbe** als naam van de statustest
    - **HTTP** als protocoltype
    - **80** als poortnummer
+   - **Healthprobe.aspx** voor het URI-pad. U kunt deze waarde vervangen door een willekeurige andere URI of de standaardwaarde van het pad (**\\**) behouden om de standaard-URI op te halen.
    - **15** als **interval**, het aantal seconden tussen tests
    - **2** als **drempelwaarden voor onjuiste status**, het aantal opeenvolgende mislukte tests dat moet optreden voordat wordt besloten dat een VM een onjuiste status heeft
 

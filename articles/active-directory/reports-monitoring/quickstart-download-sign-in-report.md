@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 334649dbe315cb54ba95a29f4c69441fcd2c3417
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362966"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621425"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Snelstart: Een aanmeldrapport downloaden met behulp van de Azure Portal
 
@@ -32,7 +32,7 @@ In deze snelstartgids leert u hoe u de aanmeldgegevens download voor uw tenant v
 U hebt de volgende zaken nodig:
 
 * Een Azure Active Directory-tenant met een Premium-licentie om het rapport van aanmeldactiviteiten weer te geven. 
-* Een gebruiker, die in de rol is van Beveiligingsadministrator, Rapportlezer of Globale administrator voor de tenant. Bovendien kan elke gebruiker in de tenant toegang krijgen tot hun eigen aanmeldingen.
+* Een gebruiker die de rol **Beveiligingsbeheerder**, **Beveiligingslezer**, **Rapportlezer** of **Globale beheerder** voor de tenant heeft. Bovendien kan elke gebruiker in de tenant toegang krijgen tot hun eigen aanmeldingen.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Snelstart: Een aanmeldrapport downloaden
 

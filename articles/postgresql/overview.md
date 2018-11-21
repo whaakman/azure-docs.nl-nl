@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092154"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685851"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Wat is Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL is een relationele databaseservice in de Microsoft Cloud die is gebouwd voor ontwikkelaars op basis van de community-versie van de open-source [PostgreSQL](https://www.postgresql.org/)-database-engine. Azure Database for PostgreSQL heeft het volgende te bieden:
+Azure Database for PostgreSQL is een relationele databaseservice in de Microsoft Cloud die is gebouwd voor ontwikkelaars op basis van de community-versie van de opensource-[PostgreSQL](https://www.postgresql.org/)-database-engine, versies 9.5, 9.6 en 10. Azure Database for PostgreSQL heeft het volgende te bieden:
 
 - Ingebouwde hoge beschikbaarheid zonder extra kosten
 - Voorspelbare prestaties, tegen all-inclusive prijzen op basis van betalen per gebruik
@@ -40,7 +40,7 @@ Zie de volgende artikelen voor een reeks Azure CLI-voorbeelden:
 - [Azure CLI-voorbeelden voor Azure Database for PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Binnen een paar seconden prestaties en schaal aanpassen
-Er zijn drie prijscategorieën voor de Azure Database for PostgreSQL-service: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. Elke categorie biedt verschillende resources ter ondersteuning van de workloads van uw databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie [Prijscategorieën](concepts-pricing-tiers.md) voor meer details.
+Er zijn drie prijscategorieën voor de Azure Database for PostgreSQL-service: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. Elke categorie biedt verschillende resources ter ondersteuning van de workloads van uw databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie  [Prijscategorieën](concepts-pricing-tiers.md) voor meer informatie.
 
 ## <a name="monitoring-and-alerting"></a>Bewaking en waarschuwingen
 Hoe bepaalt u wanneer u omhoog of omlaag moet schalen? U gebruikt de ingebouwde Azure-functies voor bewaking en waarschuwingen. Met behulp van deze tools kunt u snel beoordelen wat de impact is van het aanpassen van de schaal op basis van uw huidige of verwachte prestatie- of opslagbehoeften. Zie [Waarschuwingen](howto-alert-on-metric.md) voor meer details.

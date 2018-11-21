@@ -1,60 +1,65 @@
 ---
-title: 'Snelstart: Gezichten in een afbeelding detecteren met de REST API en cURL'
+title: 'Snelstart: Gezichten in een afbeelding detecteren met de Azure REST API en cURL'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met cURL.
+description: In deze snelstart gebruikt u de Azure Face REST API met cURL om gezichten in een afbeelding te detecteren.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953345"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578029"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Snelstart: Gezichten in een afbeelding detecteren met de REST API en cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Snelstart: Gezichten in een afbeelding detecteren met de Face REST API en cURL
 
-In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API.
+In deze snelstart gebruikt u de Azure Face REST API met cURL om menselijke gezichten in een afbeelding te detecteren.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
 
-## <a name="detect-faces-in-an-image"></a>Gezichten in een afbeelding detecteren
-
-Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
-
-* Face ID: de unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
-* Gezichtsrechthoek: de coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
-* Oriëntatiepunten: een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
-* Gezichtskenmerken zoals leeftijd, geslacht, glimlachintensiteit, hoofdhouding en gezichtshaar.
-
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Open een opdrachtprompt.
-2. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-3. Wijzig zo nodig de URL (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) in de locatie waar u de abonnementssleutels hebt verkregen.
-4. Wijzig eventueel de te analyseren afbeelding (`"{\"url\":...`).
-5. Plak de code in het venster.
-6. Voer de opdracht uit.
-
-### <a name="face---detect-request"></a>Face - Detect-aanvraag
-
-> [!NOTE]
-> U moet in uw REST-aanroep dezelfde locatie gebruiken waar u uw abonnementssleutels hebt verkregen. Als u bijvoorbeeld uw abonnementssleutels van 'westus' hebt verkregen, vervangt u 'westcentralus' in de onderstaande URL door 'westus'.
+## <a name="write-the-command"></a>De opdracht schrijven
+ 
+U gebruikt een opdracht zoals de volgende om de Face-API aan te roepen en kenmerkgegevens voor gezichten op te halen uit een afbeelding. Kopieer eerst de code in een teksteditor&mdash;u moet wijzigingen aanbrengen in bepaalde gedeelten van de opdracht voordat u deze kunt uitvoeren.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>Face - Detect-antwoord
+### <a name="subscription-key"></a>Abonnementssleutel
+Vervang `<Subscription Key>` door een geldige Face-abonnementssleutel.
 
-Een geslaagd antwoord wordt geretourneerd in JSON-indeling.
+### <a name="face-endpoint-url"></a>Eindpunt-URL voor Face
+
+De URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` geeft het Azure Face-eindpunt aan waarvoor een query moet worden uitgevoerd. U moet het eerste gedeelte van deze URL wijzigen zodat deze overeenkomt met de regio die bij uw abonnementssleutel hoort (tenzij dit al klopt).
+
+### <a name="url-query-string"></a>Queryreeks voor URL
+
+De queryreeks van de Face-eindpunt-URL geeft op welke gezichtskenmerken moeten worden opgehaald. U kunt deze queryreeks wijzigen afhankelijk van het beoogde gebruik.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>Bron-URL van afbeelding
+De bron-URL geeft aan welke afbeelding moet worden gebruikt als invoer. U kunt de URL wijzigen zodat deze verwijst naar de afbeelding die u wilt analyseren.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>De opdracht uitvoeren
+
+Nadat u de wijzigingen hebt aangebracht, opent u een opdrachtprompt en voert u de nieuwe opdracht in. De gegevens over het gezicht worden nu in het consolevenster weergegeven als JSON-gegevens. Bijvoorbeeld:
 
 ```json
 [
@@ -150,7 +155,7 @@ Een geslaagd antwoord wordt geretourneerd in JSON-indeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verken de Face-API's die worden gebruikt om menselijke gezichten in een afbeelding te detecteren, om de gezichten af ​​te bakenen met rechthoeken en kenmerken als leeftijd en geslacht te retourneren.
+In deze snelstart hebt u een cURL-opdracht geschreven waarmee de Azure Face-API wordt aangeroepen om gezichten in een afbeelding te detecteren en de gezichtskenmerken te retourneren. Lees het naslagmateriaal bij de Face-API voor meer informatie.
 
 > [!div class="nextstepaction"]
-> [Face-API's](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

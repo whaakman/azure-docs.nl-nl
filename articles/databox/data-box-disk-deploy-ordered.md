@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037946"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567448"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Zelfstudie: een Azure Data Box Disk (preview) bestellen
 
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 > [!IMPORTANT]
 > - Data Box Disk is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
-> - Tijdens de preview-fase wordt Data Box Disk verzonden naar klanten in de Verenigde Staten, West- en Noord-Europa, en Australië. Ga naar [Beschikbaarheid in de regio](data-box-disk-overview.md#region-availability) voor meer informatie.
+> - Tijdens de preview-fase wordt Data Box Disk verzonden naar klanten in de Verenigde Staten, West- en Noord-Europa, Canada en Australië. Ga naar [Beschikbaarheid in de regio](data-box-disk-overview.md#region-availability) voor meer informatie.
 
 ## <a name="sign-up"></a>Aanmelden
 

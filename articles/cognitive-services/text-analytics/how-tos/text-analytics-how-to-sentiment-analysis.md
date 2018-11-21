@@ -1,7 +1,6 @@
 ---
-title: 'Voorbeeld: Gevoel analyseren met de REST-API van Text Analytics'
-titleSuffix: Azure Cognitive Services
-description: Leer hoe u gevoel detecteert met behulp van de REST-API van Text Analytics.
+title: Sentimentanalyse in de Text Analytics REST API (Microsoft Cognitive Services in Azure) | Microsoft Docs
+description: Leer hoe u sentiment kunt detecteren met behulp van de Text Analytics REST API in Microsoft Cognitive Services in Azure in deze zelfstudie.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605892"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632863"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Voorbeeld: Gevoel detecteren in Text Analytics
 
@@ -24,6 +23,9 @@ De [Sentimentanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/servic
 Deze mogelijkheid is handig voor het detecteren van een positief en negatief gevoel in sociale media, klantbeoordelingen en discussieforums. Inhoud is die u hebt opgegeven; modellen en trainingsgegevens worden geleverd door de service.
 
 Op dit moment ondersteunt Sentimentanalyse Engels, Duits, Spaans en Frans. Andere talen bevinden zich in preview-fase. Zie voor meer informatie [Ondersteunde talen](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Text Analytics biedt ook een Docker-containerinstallatiekopie op basis van Linux voor sentimentanalyse. U kunt de [Text Analytics-container dus dicht bij uw gegevens installeren en uitvoeren](text-analytics-how-to-install-containers.md).
 
 ## <a name="concepts"></a>Concepten
 
@@ -77,7 +79,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 
 + Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Sentimentanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Stel het HTTP-eindpunt in voor sleuteltermextractie. Deze moet de `/sentiment`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment` bevatten
++ Stel het HTTP-eindpunt in voor sentimentanalyse, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/sentiment`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment` bevatten
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 

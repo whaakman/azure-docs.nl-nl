@@ -1,5 +1,5 @@
 ---
-title: Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package - Azure
+title: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package - Azure
 description: Leer hoe u Apache Ranger-beleidsregels voor Kafka configureert in Azure HDInsight met Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
@@ -8,16 +8,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037138"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633035"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package (preview)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Zelfstudie: Apache Kafka-beleidsregels configureren in HDInsight met Enterprise Security Package (preview)
 
-Leer hoe u Apache Ranger-beleidsregels configureert voor Kafka-clusters met Enterprise Security Package (ESP). ESP-clusters worden verbonden met een domein zodat gebruikers zich kunnen verifiëren met domeinreferenties. In deze zelfstudie maakt u twee Ranger-beleidsregels om de toegang tot de onderwerpen `sales*` en `marketingspend` te beperken.
+Leer hoe u Apache Ranger-beleidsregels configureert voor Apache Kafka-clusters met Enterprise Security Package (ESP). ESP-clusters worden verbonden met een domein zodat gebruikers zich kunnen verifiëren met domeinreferenties. In deze zelfstudie maakt u twee Ranger-beleidsregels om de toegang tot de onderwerpen `sales*` en `marketingspend` te beperken.
 
 In deze zelfstudie leert u het volgende:
 

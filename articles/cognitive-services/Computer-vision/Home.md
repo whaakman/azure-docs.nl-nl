@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250611"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634325"
 ---
 # <a name="what-is-computer-vision"></a>Wat is Computer Vision?
 
@@ -53,6 +53,10 @@ U kunt ook [gedrukte en handgeschreven tekst](concept-recognizing-text.md) in ee
 ## <a name="moderating-content-in-images"></a>Inhoud in afbeeldingen beheren
 
 U kunt Computer Vision gebruiken om [inhoud voor volwassenen of ongepaste inhoud](concept-detecting-adult-content.md) in een afbeelding te detecteren, waarbij u beoordeelt hoe waarschijnlijk het is dat de afbeelding inhoud voor volwassenen of ongepaste inhoud bevat en een betrouwbaarheidsscore voor beide genereert. Het filter voor de detectie van inhoud voor volwassenen en ongepaste inhoud kan worden ingesteld met een glijdende schaal om uw voorkeuren aan te geven.
+
+## <a name="using-containers"></a>Containers gebruiken
+
+[Gebruik Computer Vision-containers](computer-vision-how-to-install-containers.md) voor het lokaal herkennen van gedrukte en handgeschreven tekst door het installeren van een gestandaardiseerde Docker-container die zich dichter bij uw gegevens bevindt.
 
 ## <a name="image-requirements"></a>Vereisten voor installatiekopieën
 

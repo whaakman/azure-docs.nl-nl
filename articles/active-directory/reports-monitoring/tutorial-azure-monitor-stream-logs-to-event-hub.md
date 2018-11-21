@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c8157820f7137eb06a0fe10c42645ec91f33edbc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364049"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623760"
 ---
-# <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>Zelfstudie: Azure AD-logboeken streamen naar een Azure Event Hub (preview)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Zelfstudie: Azure Active Directory-logboeken streamen naar een Azure Event Hub (preview)
 
-In deze zelfstudie leert u diagnostische instellingen van Azure Monitor instellen voor het streamen van Azure Active Directory (Azure AD)-logboeken naar een Azure Event Hub. Gebruik dit mechanisme om uw logboeken te integreren met externe SIEM-hulpprogramma's (Security Information and Event Management), zoals Splunk en QRadar.
+In deze zelfstudie leert u hoe u de diagnostische instellingen van Azure Monitor instelt voor het streamen van Azure AD-logboeken (Azure Active Directory) naar een Azure Event Hub. Gebruik dit mechanisme om uw logboeken te integreren met externe SIEM-hulpprogramma's (Security Information and Event Management), zoals Splunk en QRadar.
 
 ## <a name="prerequisites"></a>Vereisten 
 
@@ -36,7 +36,7 @@ U hebt het volgende nodig om deze functie te gebruiken:
 * Een gebruiker die een *globale beheerder* of *beveiligingsbeheerder* voor de Azure-tenant is.
 * Een naamruimte van Event Hubs en een Event Hub in uw Azure-abonnement. Informatie over het [maken van een Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## <a name="archive-logs-to-an-event-hub"></a>Logboeken in een Event Hub archiveren
+## <a name="stream-logs-to-an-event-hub"></a>Logboeken streamen naar een Event Hub
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 

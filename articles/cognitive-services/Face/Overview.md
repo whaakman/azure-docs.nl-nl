@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914189"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633458"
 ---
 # <a name="what-is-the-azure-face-api"></a>Wat is de Azure Face-API?
 
@@ -63,6 +63,10 @@ De volgende afbeelding laat een voorbeeld zien van een database met de naam 'myf
 Nadat een database is gemaakt en getraind, kunt u een identificatie uitvoeren op basis van de groep en een nieuw gedetecteerd gezicht. Als het gezicht wordt geïdentificeerd als een persoon in de groep, wordt het persoonsobject geretourneerd.
 
 Zie de [Identificatie-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) voor meer informatie over de identificatie van personen.
+
+## <a name="use-containers"></a>Containers gebruiken
+
+[Gebruik de Face-container](face-how-to-install-containers.md) om gezichten te detecteren, herkennen en identificeren. Hiertoe installeert u een gestandaardiseerde Docker-container die zich dichter bij uw gegevens bevindt.
 
 ## <a name="sample-apps"></a>Voorbeeld-apps
 

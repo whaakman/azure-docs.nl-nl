@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278579"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685346"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -97,46 +97,36 @@ Maak nog een subnet met **Jump-SN** als naam en **10.0.3.0/24** als adresbereik.
 
 Maak nu de virtuele jump- en workloadmachines en plaats ze in de toepasselijke subnetten.
 
-1. Klik op de startpagina van de Azure-portal op **Alle services**.
-2. Klik onder **Compute** op **Virtuele machines**.
-3. Klik op **Toevoegen** > **Windows Server** > **Windows Server 2016 Datacenter** > **Maken**.
+1. Klik in Azure Portal op **Een resource maken**.
+2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst Aanbevolen.
+3. Voer deze waarden in voor de virtuele machine:
 
-**Basisinstellingen**
+    - *Test-FW-RG* voor de resourcegroep.
+    - *Srv-Jump* als naam van de virtuele machine.
+    - *azureuser* als gebruikersnaam van de beheerder.
+    - *Azure123456!* als het wachtwoord.
 
-1. Bij **Naam** typt u **Srv-Jump**.
-5. Typ een gebruikersnaam en wachtwoord.
-6. Bij **Abonnement** selecteert u uw abonnement.
-7. Voor **Resourcegroep** klikt u op **Bestaande gebruiken** > **Test-FW-RG**.
-8. Bij **Locatie** selecteert u dezelfde locatie die u eerder hebt gebruikt.
-9. Klik op **OK**.
+4. Klik voor **Openbare binnenkomende poorten** onder **Regels voor binnenkomende poort** op **Geselecteerde poorten toestaan**.
+5. Selecteer **RDP (3389)** voor **Binnenkomende poorten selecteren**.
 
-**Grootte**
-
-1. Kies een geschikte grootte voor een virtuele testmachine waarop Windows Server wordt uitgevoerd, bijvoorbeeld **B2ms** (8 GB RAM, 16 GB opslag).
-2. Klik op **Selecteren**.
-
-**Instellingen**
-
-1. Onder **Netwerk** selecteert u bij **Virtueel netwerk** de optie **Test-FW-VN**.
-2. Bij **Subnet** selecteert u **Jump-SN**.
-3. Bij **Openbare poorten voor inkomend verkeer selecteren** selecteert u **RDP (3389)**. 
-
-    Het is raadzaam de toegang tot uw openbare IP-adres te beperken, maar u moet poort 3389 openen zodat u een extern bureaublad met de jumpserver kunt verbinden. 
-2. Behoud de andere standaardinstellingen en klik op **OK**.
-
-**Samenvatting**
-
-Controleer de samenvatting en klik vervolgens op **Maken**. Het duurt enkele minuten voordat dit is voltooid.
+6. Accepteer de overige standaardwaarden en klik op **Next: Disks**.
+7. Accepteer de overige standaardwaarden en klik op **Next: Networking**.
+8. Zorg ervoor dat **Test-FW-VN** is geselecteerd voor het virtuele netwerk en dat het subnet **Jump-SN** is.
+9. Klik voor **Openbaar IP** op **Nieuwe maken**.
+10. Typ **Srv-Jump-PIP** voor de naam van het openbare IP-adres en klik op **OK**.
+11. Accepteer de overige standaardwaarden en klik op **Next: Management**.
+12. Klik op **Uit** om diagnostische gegevens over opstarten uit te schakelen. Accepteer de overige standaardwaarden en klik op **Review + create**.
+13. Controleer de instellingen op de overzichtspagina en klik op **Maken**.
 
 Herhaal dit proces om nog een virtuele machine te maken, genaamd **Srv-Work**.
 
-Gebruik de informatie in de volgende tabel om de **Instellingen** voor de virtuele machine Srv-Work te configureren. De rest van de configuratie is hetzelfde als voor de virtuele machine Srv-Jump.
+Gebruik de informatie in de volgende tabel om de virtuele machine Srv-Work te configureren. De rest van de configuratie is hetzelfde als voor de virtuele machine Srv-Jump.
 
 |Instelling  |Waarde  |
 |---------|---------|
 |Subnet|Workload-SN|
-|Openbaar IP-adres|Geen|
-|Openbare poorten voor inkomend verkeer selecteren|Geen openbare poorten voor inkomend verkeer|
+|Openbare IP|Geen|
+|Openbare poorten voor inkomend verkeer|Geen|
 
 ## <a name="deploy-the-firewall"></a>De firewall implementeren
 
@@ -196,15 +186,16 @@ Dit is de toepassingsregel waarmee uitgaande toegang wordt toegestaan tot github
 
 1. Open de resourcegroep **Test-FW-RG** en klik op de firewall **Test-FW01**.
 2. Klik op de pagina **Test-FW01** onder **Instellingen** op **Regels**.
-3. Klik op **Toepassingsregelverzameling toevoegen**.
-4. Bij **Naam** typt u **App-Coll01**.
-5. Bij **Prioriteit** typt u **200**.
-6. Bij **Actie** selecteert u **Toestaan**.
-7. Onder **Regels** typt u bij **Naam** de naam **AllowGH**.
-8. Bij **Bronadressen** typt u **10.0.2.0/24**.
-9. Bij **Protocol:poort** typt u **http, https**.
-10. Bij **Doel-FQDN’s** typt u **github.com**.
-11. Klik op **Add**.
+3. Klik op het tabblad **Verzameling met toepassingsregels**.
+4. Klik op **Toepassingsregelverzameling toevoegen**.
+5. Bij **Naam** typt u **App-Coll01**.
+6. Bij **Prioriteit** typt u **200**.
+7. Bij **Actie** selecteert u **Toestaan**.
+8. Onder **Regels**, **Doel-FQDN's**, typt u bij **Naam** **AllowGH**.
+9. Bij **Bronadressen** typt u **10.0.2.0/24**.
+10. Bij **Protocol:poort** typt u **http, https**.
+11. Bij **Doel-FQDN’s** typt u **github.com**.
+12. Klik op **Add**.
 
 Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’s die standaard zijn toegestaan. Deze FQDN’s zijn specifiek voor het platform en kunnen niet voor andere doeleinden worden gebruikt. Zie [FQDN's voor infrastructuur](infrastructure-fqdns.md) voor meer informatie.
 
@@ -212,6 +203,7 @@ Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’
 
 Dit is de netwerkregel waarmee uitgaande toegang tot twee IP-adressen op poort 53 (DNS) wordt toegestaan.
 
+1. Klik op het tabblad **Verzameling met netwerkregels**.
 1. Klik op **Netwerkregelverzameling toevoegen**.
 2. Bij **Naam** typt u **Net-Coll01**.
 3. Bij **Prioriteit** typt u **200**.

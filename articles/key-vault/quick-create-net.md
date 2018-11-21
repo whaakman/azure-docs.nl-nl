@@ -1,6 +1,6 @@
 ---
 title: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app | Microsoft Docs'
-description: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app'
+description: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230928"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686667"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
@@ -175,7 +175,6 @@ Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgeh
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Startpagina van Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Documentatie voor Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
+* [Meer informatie over Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 * [Azure-SDK voor .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Azure REST API-naslaginformatie](https://docs.microsoft.com/rest/api/keyvault/)

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van Azure Portal '
+title: 'Snelstart: aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van de Azure-portal '
 description: Lees hier alles over het maken van HDInsight-clusters met behulp van Azure Portal en het opvragen van gegevens met Hive.
 keywords: aan de slag met hadoop, hadoop linux, hadoop quickstart, aan de slag met hive, hive quickstart
 services: hdinsight
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 07f9f774e3d133a2a39aad16b06ed77938ad74c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9b6ae9030069f48e1805a657f938595b081271ba
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281639"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632948"
 ---
-# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstartgids: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van Azure Portal
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstart: aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van de Azure-portal
 
-In dit artikel leert u hoe u [Hadoop](http://hadoop.apache.org/)-clusters maakt in HDInsight met behulp van Azure Portal en vervolgens Hive-taken uitvoert in HDInsight. De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In dit artikel gaat u al deze drie taken uitvoeren.
+In dit artikel leert u hoe u [Apache Hadoop](http://hadoop.apache.org/)-clusters maakt in HDInsight met behulp van de Azure-portal en vervolgens Apache Hive-taken uitvoert in HDInsight. De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In dit artikel gaat u al deze drie taken uitvoeren.
 
 In deze snelstartgids gebruikt u Azure Portal voor het maken van een Hadoop-cluster in HDInsight. U kunt ook een cluster maken met behulp van een [Azure Resource Manager-sjabloon](apache-hadoop-linux-tutorial-get-started.md).
 

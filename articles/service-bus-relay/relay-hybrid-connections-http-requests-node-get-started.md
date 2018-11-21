@@ -12,62 +12,51 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: 2bc923650425c76562161dd6f44f3a5722b5cefe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a25ca0c10b66f6881f2423306564d7d37124c33a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630442"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616177"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Aan de slag met HTTP-aanvragen voor hybride verbindingen van Relay in Node
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Deze zelfstudie biedt een inleiding tot HTTP-aanvragen voor [hybride verbindingen van Azure Relay](relay-what-is-it.md#hybrid-connections) en laat zien hoe u met behulp van Node.js een clienttoepassing kunt maken waarmee berichten worden verzonden naar een corresponderende listener-toepassing.
+In deze snelstart maakt u Node.js-toepassingen voor afzenders en ontvangers waarmee berichten worden verzonden en ontvangen met behulp van het HTTP-protocol. De toepassingen maken gebruik van de functie Hybride verbindingen van Azure Relay. Zie [Azure Relay](relay-what-is-it.md) voor meer informatie over Azure Relay in het algemeen. 
 
-## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
-
-Omdat voor Hybride verbindingen zowel een client- als een serveronderdeel is vereist, maakt u in deze zelfstudie twee consoletoepassingen. Dit zijn de stappen:
+In deze snelstart voert u de volgende stappen uit:
 
 1. Een Relay-naamruimte maken met behulp van Azure Portal.
-2. Een hybride verbinding maken met behulp van Azure Portal.
-3. Een serverconsoletoepassing schrijven om berichten te ontvangen.
-4. Een clientconsoletoepassing schrijven om berichten te verzenden.
+2. Een hybride verbinding in die naamruimte maken met behulp van Azure Portal.
+3. Een serverconsoletoepassing (listener) schrijven om berichten te ontvangen.
+4. Een clientconsoletoepassing (afzender) schrijven om berichten te verzenden.
+5. Toepassingen uitvoeren.
 
 ## <a name="prerequisites"></a>Vereisten
+- [Node.js](https://nodejs.org/en/).
+- Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-1. [Node.js](https://nodejs.org/en/).
-2. Een Azure-abonnement.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met Azure Portal
-
-Als u al een Relay-naamruimte hebt gemaakt, gaat u naar de sectie [Een hybride verbinding maken met behulp van Azure Portal](#2-create-a-hybrid-connection-using-the-azure-portal).
-
+## <a name="create-a-namespace-using-the-azure-portal"></a>Een naamruimte maken met de Azure-portal
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Een hybride verbinding maken met behulp van Azure Portal
-
-Als u al een hybride verbinding hebt gemaakt, gaat u naar de sectie [Een servertoepassing maken](#3-create-a-server-application-listener).
-
+## <a name="create-a-hybrid-connection-using-the-azure-portal"></a>Een hybride verbinding maken met behulp van Azure Portal
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="3-create-a-server-application-listener"></a>3. Een servertoepassing (listener) maken
-
+## <a name="create-a-server-application-listener"></a>Een servertoepassing (listener) maken
 Maak een Node.js-consoletoepassing om berichten van de Relay te beluisteren en te ontvangen.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-http-requests-node-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4. Een clienttoepassing maken (afzender)
+## <a name="create-a-client-application-sender"></a>Een clienttoepassing maken (afzender)
 
 Om berichten te versturen naar de Relay, kunt u een HTTP-client gebruiken of een consoletoepassing schrijven in Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-http-requests-node-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. De toepassingen uitvoeren
+## <a name="run-the-applications"></a>De toepassingen uitvoeren
 
 1. Voer de servertoepassing uit: via een Node.js-opdrachtprompt van het type `node listener.js`.
 2. Voer de clienttoepassing uit: via een Node.js-opdrachtprompt van het type `node sender.js`, en voer tekst in.
@@ -76,9 +65,6 @@ Om berichten te versturen naar de Relay, kunt u een HTTP-client gebruiken of een
 Gefeliciteerd, u hebt een end-to-endtoepassing met hybride verbindingen gemaakt met behulp van Node.js!
 
 ## <a name="next-steps"></a>Volgende stappen
+In deze snelstart hebt u Node.js-toepassingen gemaakt voor clients en servers waarmee berichten worden verzonden en ontvangen met behulp van HTTP. De functie Hybride verbindingen van Azure Relay ondersteunt tevens WebSockets voor het verzenden en ontvangen van berichten. Zie de [snelstart over WebSockets](relay-hybrid-connections-node-get-started.md) voor informatie over het gebruik van WebSockets met hybride verbindingen van Azure Relay.
 
-* [Veelgestelde vragen over Relay](relay-faq.md)
-* [Een naamruimte maken](relay-create-namespace-portal.md)
-* [Aan de slag met .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Aan de slag met knooppunten](relay-hybrid-connections-node-get-started.md)
-
+In deze snelstart hebt u Node.js gebruikt om client- en servertoepassingen te maken. Zie de [snelstart over WebSockets in .NET](relay-hybrid-connections-dotnet-get-started.md) of de [snelstart over HTTP in .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md) voor informatie over het schrijven van client- en servertoepassingen in .Net Framework.

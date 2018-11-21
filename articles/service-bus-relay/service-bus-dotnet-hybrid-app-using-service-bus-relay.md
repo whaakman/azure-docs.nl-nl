@@ -1,6 +1,6 @@
 ---
 title: Hybride on-premises/cloudtoepassing (.NET) met Azure WCF Relay | Microsoft Docs
-description: Informatie over het maken van een hybride .NET-on-premises-+/cloudtoepassing met Azure WCF Relay.
+description: Ontdek hoe u een on-premises WCF-service zichtbaar maakt voor een webtoepassing in de cloud met behulp van Azure Relay
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -12,38 +12,51 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 668ccc581e457e2ed3ad72c08bf5e65dd86c4b52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228603"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614834"
 ---
-# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
-
-In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. Bij deze zelfstudie wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure. In minder dan 30 minuten beschikt u over een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
-
-U leert:
+# <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Een on-premises WCF-service zichtbaar maken voor een webtoepassing in de cloud met behulp van Azure Relay 
+In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. U maakt een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
 
 * Een bestaande webservice voor verbruik door een weboplossing maken of aanpassen.
 * De Azure WCF Relay-service gebruiken voor het delen van gegevens tussen een Azure-toepassing en een webservice die ergens anders wordt gehost.
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+In deze zelfstudie voert u de volgende stappen uit:
+
+> [!div class="checklist"]
+> * Het scenario lezen.
+> * Een naamruimte maken.
+> * Een on-premises server maken
+> * Een ASP.NET-toepassing maken
+> * Voer de app lokaal uit.
+> * De web-app implementeren in Azure
+> * De app in Azure uitvoeren
+
+## <a name="prerequisites"></a>Vereisten
+
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
+
+- Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
+- [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+- Azure-SDK voor .NET. Installeer de SDK via de [SDK-downloadpagina](https://azure.microsoft.com/downloads/).
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Hoe Azure hulp biedt bij hybride oplossingen
-
 Bedrijfsoplossingen bestaan meestal uit een combinatie van aangepaste code die is geschreven voor nieuwe en unieke zakelijke vereisten en bestaande functionaliteit van oplossingen en systemen die al aanwezig zijn.
 
 Oplossingsarchitecten gaan nu vaak over op de cloud om gemakkelijk aan schaalvereisten te voldoen en operationele kosten te verlagen. Ze ondervinden dan dat bestaande serviceassets die ze willen gebruiken als bouwstenen voor hun oplossingen, zich binnen de firewall van het bedrijf bevinden en niet gemakkelijk bereikbaar zijn voor de cloudoplossing. Veel interne services worden niet zo gemaakt of gehost dat ze gemakkelijk beschikbaar kunnen worden gemaakt aan de rand van het bedrijfsnetwerk.
 
 [Azure Relay](https://azure.microsoft.com/services/service-bus/) is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden, zonder dat er hiervoor tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke relayservices worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan de relayservice in de cloud. Ook beveiligt Azure Relay deze services tegen onbevoegde toegang door [SAS (Shared Access Signature)](../service-bus-messaging/service-bus-sas.md)-verificatie te gebruiken.
 
-## <a name="solution-scenario"></a>Oplossingsscenario
+## <a name="review-the-scenario"></a>Het scenario lezen
 In deze zelfstudie maakt u een ASP.NET-website waarmee u een lijst met producten op de pagina met de productinventaris kunt bekijken.
 
-![][0]
+![Scenario][0]
 
 In de zelfstudie wordt ervan uitgegaan dat u productgegevens in een bestaand on-premises systeem hebt en wordt Azure Relay gebruikt om dat systeem te bereiken. Dit wordt gesimuleerd door een webservice die in een eenvoudige consoletoepassing wordt uitgevoerd en wordt ondersteund door een set producten in het geheugen. U kunt deze consoletoepassing op uw eigen computer uitvoeren en de webrol in Azure implementeren. Als u dit doet, ziet u hoe de webrol die in het Azure-datacenter wordt uitgevoerd inderdaad uw computer aanroept, ondanks dat de computer bijna zeker achter ten minste één firewall en een NAT-laag (Network Address Translation) blijft.
 
@@ -58,29 +71,26 @@ Voordat u Azure-toepassingen kunt ontwikkelen, dient u de hulpprogramma's te dow
 5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
+De eerste stap is het maken van een naamruimte en ophalen van een SAS-sleutel ([Shared Access Signature](../service-bus-messaging/service-bus-sas.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via de relayservice. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
 
-Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="create-an-on-premises-server"></a>Een on-premises server maken
-
-U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is redelijk eenvoudig; u kunt dit zien als het representeren van een werkelijk on-premises productcatalogussysteem met een volledige serviceoppervlak dat we proberen te integreren.
-
-Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) om de Service Bus-bibliotheken en configuratie-instellingen op te nemen.
+U bouwt eerst een gesimuleerd on-premises systeem voor de productcatalogus op.  Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) om de Service Bus-bibliotheken en configuratie-instellingen op te nemen.
 
 ### <a name="create-the-project"></a>Het project maken
-
 1. Start Microsoft Visual Studio met administratorbevoegdheden. Om dit te doen, klikt u met de rechtermuisknop op het pictogram van het Visual Studio-programma en vervolgens op **Als administrator uitvoeren**.
 2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
 3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **Consoletoepassing (.NET Framework)**. Typ in het vak **Naam** de naam **ProductsServer**:
 
-   ![][11]
+   ![Het dialoogvenster Nieuw project][11]
 4. Klik op **OK** om het project **ProductsServer** te maken.
-5. Als u NuGet Package Manager voor Visual Studio al hebt geïnstalleerd, slaat u de volgende stap over. Anders gaat u naar [NuGet][NuGet] en klikt u op [NuGet installeren](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Volg de aanwijzingen om NuGet Package Manager te installeren en vervolgens Visual Studio opnieuw te starten.
+5. Als u NuGet Package Manager voor Visual Studio al hebt geïnstalleerd, slaat u de volgende stap over. Anders gaat u naar [NuGet][NuGet] en klikt u op [NuGet installeren](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Volg de aanwijzingen om NuGet Package Manager te installeren en vervolgens Visual Studio opnieuw te starten.
 6. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsServer** en klik vervolgens op **NuGet-pakketten beheren**.
 7. Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Selecteer het pakket **WindowsAzure.ServiceBus**.
 8. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
-   ![][13]
+   ![NuGet-pakket selecteren][13]
 
    Er wordt nu naar de vereiste clientassembly's verwezen.
 8. Voeg een nieuwe klasse voor uw productcontract toe. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsServer** en klik achtereenvolgens op **Toevoegen** en **Klasse**.
@@ -175,7 +185,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
         }
     }
     ```
-12. Dubbelklik in Solution Explorer op het bestand **App.config** om dit te openen in de Visual Studio-editor. Voeg onderaan het `<system.ServiceModel>`-element (maar nog wel binnen `<system.ServiceModel>`) de volgende XML-code toe. Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw naamruimte en *yourKey* door de SAS-sleutel die u eerder hebt opgehaald via de portal:
+12. Dubbelklik in Solution Explorer op het bestand **App.config** om dit te openen in de Visual Studio-editor. Voeg onderaan het element `<system.ServiceModel>` (maar nog binnen `<system.ServiceModel>`) de volgende XML-code toe: Vervang *yourServiceNamespace* door de naam van uw naamruimte en *yourKey* door de SAS-sleutel die u eerder hebt opgehaald via de portal:
 
     ```xml
     <system.serviceModel>
@@ -221,25 +231,25 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
 3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **ASP.NET-webtoepassing (.NET Framework)**. Noem het project **ProductsPortal**. Klik vervolgens op **OK**.
 
-   ![][15]
+   ![Het dialoogvenster Nieuw project][15]
 
 4. Klik in de lijst **ASP.NET-sjablonen** in het dialoogvenster **New ASP.NET-webtoepassing** op **MVC**.
 
-   ![][16]
+   ![ASP.NET-webtoepassing selecteren][16]
 
 6. Klik op de knop **Verificatie wijzigen**. Zorg dat in het dialoogvenster **Verificatie wijzigen** de optie **Geen verificatie** is geselecteerd en klik vervolgens op **OK**. In deze zelfstudie implementeert u een app waarvoor geen gebruikersaanmelding nodig is.
 
-    ![][18]
+    ![Verificatie opgeven][18]
 
 7. Klik terug in het dialoogvenster **Nieuwe ASP.NET-webtoepassing** op **OK** om de MVC-app te maken.
 8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
 10. Klik in Solution Explorer met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **Product.cs**. Klik vervolgens op **Toevoegen**.
 
-    ![][17]
+    ![Productmodel maken][17]
 
 ### <a name="modify-the-web-application"></a>De webtoepassing wijzigen
 
-1. In het bestand Product.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code.
+1. In het bestand Product.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code:
 
    ```csharp
     // Declare properties for the products inventory.
@@ -254,7 +264,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
     }
     ```
 2. Vouw in Solution Explorer de map **Controllers** uit en dubbelklik vervolgens op het bestand **HomeController.cs** om het te openen in Visual Studio.
-3. In **HomeController.cs** vervangt u de bestaande naamruimtedefinitie door de volgende code.
+3. In **HomeController.cs** vervangt u de bestaande naamruimtedefinitie door de volgende code:
 
     ```csharp
     namespace ProductsWeb.Controllers
@@ -279,9 +289,9 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 5. Wijzig alle instanties van **Mijn ASP.NET-toepassing** in **Producten van Northwind Traders**.
 6. Verwijder de koppelingen **Start**, **Info** en **Contact**. Verwijder de gemarkeerde code in het volgende voorbeeld.
 
-    ![][41]
+    ![De gegenereerde lijst met items verwijderen][41]
 
-7. Vouw in Solution Explorer de map Views\Home uit en dubbelklik vervolgens op **Index.cshtml** om dit in de Visual Studio-editor te openen. Vervang de volledige inhoud van het bestand door de volgende code.
+7. Vouw in Solution Explorer de map Views\Home uit en dubbelklik vervolgens op **Index.cshtml** om dit in de Visual Studio-editor te openen. Vervang de volledige inhoud van het bestand door de volgende code:
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -326,7 +336,7 @@ Voer de toepassing uit om te controleren of deze werkt.
 2. Druk in Visual Studio op **F5**.
 3. Uw toepassing moet dan in een browser worden weergegeven.
 
-   ![][21]
+   ![Webtoepassing][21]
 
 ## <a name="put-the-pieces-together"></a>De softwareonderdelen samenstellen
 
@@ -338,9 +348,9 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 4. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik achtereenvolgens op **Toevoegen** en **Bestaand item**.
 5. Ga naar het bestand **ProductsContract.cs** vanuit het **ProductsServer**-consoleproject. Klik om ProductsContract.cs te markeren. Klik op de pijl-omlaag naast **Toevoegen** en klik vervolgens op **Toevoegen als koppeling**.
 
-   ![][24]
+   ![Toevoegen als een koppeling][24]
 
-6. Open nu het bestand **HomeController.cs** in de Visual Studio-editor en vervang de naamruimtedefinitie door de volgende code. Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw servicenaamruimte en *yourKey* door de SAS-sleutel. Hierdoor kan de client de on-premises service aanroepen waarbij het resultaat van de aanroep wordt geretourneerd.
+6. Open nu het bestand **HomeController.cs** in de Visual Studio-editor en vervang de naamruimtedefinitie door de volgende code: Vervang *yourServiceNamespace* door de naam van uw servicenaamruimte en *yourKey* door uw SAS-sleutel. Hierdoor kan de client de on-premises service aanroepen waarbij het resultaat van de aanroep wordt geretourneerd.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -386,13 +396,13 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 9. **ProductsServer** moet worden uitgevoerd om de gegevens in **ProductsPortal** weer te geven. Klik in Solution Explorer met de rechtermuisknop op de oplossing **ProductsPortal** en klik op **Eigenschappen**. Het dialoogvenster **Eigenschappenvensters** wordt weergegeven.
 10. Klik aan de linkerkant op **Opstartproject**. Klik aan de rechterkant op **Meerdere opstartprojecten**. Zorg ervoor dat **ProductsServer** en **ProductsPortal** in de juiste volgorde worden weergegeven waarbij voor beide **Starten** als actie is ingesteld.
 
-      ![][25]
+      ![Meerdere opstartprojecten][25]
 
 11. Klik ook in het dialoogvenster **Eigenschappen** op **Projectafhankelijkheden** aan de linkerkant.
 12. Klik in de lijst **Projecten** op **ProductsServer**. Zorg ervoor dat **ProductsPortal** niet is geselecteerd.
 13. Klik in de lijst **Projecten** op **ProductsPortal**. Zorg ervoor dat **ProductsServer** is geselecteerd.
 
-    ![][26]
+    ![Projectafhankelijkheden][26]
 
 14. Klik op **OK** in het dialoogvenster **Eigenschappenvensters**.
 
@@ -400,7 +410,7 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 
 Test de toepassing lokaal door in Visual Studio op **F5** te drukken. De on-premises server (**ProductsServer**) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster. De productinventaris bevat nu de gegevens die zijn opgehaald uit het on-premises systeem van de productservice.
 
-![][10]
+![Webtoepassing][10]
 
 Klik op **Vernieuwen** op de pagina **ProductsPortal**. Elke keer dat u de pagina vernieuwt, wordt met de server-app een bericht weergegeven wanneer `GetProducts()` vanuit **ProductsServer** wordt aangeroepen.
 
@@ -419,7 +429,7 @@ De volgende stap is het opnieuw publiceren van de frontend van de Azure-web-app 
 
 2. Kopieer de URL van de geïmplementeerde web-app. Deze hebt u in de volgende stap nodig. Deze URL is ook beschikbaar in het venster Azure App Service-activiteit in Visual Studio:
 
-  ![][9]
+  ![URL van de geïmplementeerde app][9]
 
 3. Sluit het browservenster om het uitvoeren van de toepassing te stoppen.
 
@@ -431,33 +441,32 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
 2. Klik in de kolom links op **Web**.
 3. Klik in de sectie **Actie starten** op de knop **Start-URL** en voer in het tekstvak de URL voor uw eerder geïmplementeerde web-app (bijvoorbeeld `http://productsportal1234567890.azurewebsites.net/`) in.
 
-    ![][27]
+    ![Start-URL][27]
 
 4. Klik in het menu **Bestand** in Visual Studio op **Alles opslaan**.
 5. Klik in het menu Bouwen in Visual Studio op **Oplossing opnieuw opbouwen**.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-1. Druk op F5 om de toepassing op te bouwen en uit te voeren. De on-premises server (de **ProductsServer**-consoletoepassing) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster (zie de volgende schermopname). U ziet weer dat de productinventaris gegevens bevat die zijn opgehaald uit het on-premises systeem van de productservice en dat die gegevens in de web-app worden weergegeven. Controleer de URL om ervoor te zorgen dat **ProductsPortal** als een Azure-web-app wordt uitgevoerd in de cloud.
+1. Druk op F5 om de toepassing op te bouwen en uit te voeren. Eerst wordt de on-premises server (de consoletoepassing **ProductsServer**) gestart en vervolgens wordt de toepassing **ProductsPortal** gestart in een browservenster, zoals wordt weergegeven in de volgende schermafbeelding: De productinventaris bevat opnieuw de gegevens die zijn opgehaald uit het on-premises systeem van de productservice, en die gegevens worden weergegeven in de web-app. Controleer de URL om ervoor te zorgen dat **ProductsPortal** als een Azure-web-app wordt uitgevoerd in de cloud.
 
-   ![][1]
+   ![De web-app in Azure uitvoeren][1]
 
    > [!IMPORTANT]
    > De **ProductsServer**-consoletoepassing moet worden uitgevoerd en moet de gegevens aan de **ProductsPortal**-toepassing kunnen leveren. Als een fout wordt weergegeven in de browser, wacht u enkele seconden tot **ProductsServer** is geladen en het volgende bericht wordt weergegeven. Klik vervolgens op **Vernieuwen** in de browser.
    >
    >
 
-   ![][37]
+   ![Uitvoer van de server][37]
 2. Als de browser opnieuw wordt weergegeven, klikt u op **Vernieuwen** op de **ProductsPortal**-pagina. Elke keer dat u de pagina vernieuwt, wordt met de server-app een bericht weergegeven wanneer `GetProducts()` vanuit **ProductsServer** wordt aangeroepen.
 
-    ![][38]
+    ![Bijgewerkte uitvoer][38]
 
 ## <a name="next-steps"></a>Volgende stappen
+Ga naar de volgende zelfstudie: 
 
-Raadpleeg de volgende resources voor meer informatie over Azure Relay:  
-
-* [Wat is Azure Relay?](relay-what-is-it.md)  
-* [Azure Relay gebruiken](relay-wcf-dotnet-get-started.md)  
+> [!div class="nextstepaction"]
+>[Een on-premises WCF-service zichtbaar maken voor een WCF-client buiten uw netwerk](service-bus-relay-tutorial.md)
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

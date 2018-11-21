@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981243"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613423"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Zelfstudie: Virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -262,7 +262,7 @@ Een Azure VM kan op een van de vele energiestatussen worden ingesteld. Deze stat
 | Toewijzing ongedaan gemaakt | Geeft aan dat de virtuele machine is verwijderd uit de hypervisor maar nog steeds beschikbaar is in het vlak van het besturingselement. Virtuele machines met de status Toewijzing ongedaan gemaakt genereren geen rekenkosten. |
 | - | Geeft aan dat de Aan-/uitstatus van de virtuele machine onbekend is. |
 
-### <a name="find-power-state"></a>Energiestatus zoeken
+### <a name="find-the-power-state"></a>De Aan-/uitstatus zoeken
 
 Als u de status van een bepaalde virtuele machine wilt ophalen, gebruikt u de opdracht [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Zorg ervoor dat u een geldige naam opgeeft voor de virtuele machine en resourcegroep. 
 

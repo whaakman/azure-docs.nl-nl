@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361708"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345705"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Wat is de Bing Spellingcontrole-API?
 
@@ -42,9 +42,12 @@ De standaardmodus is `Proof`. De spellingmodus `Proof` bevat de meest uitgebreid
 <br /><br/>**Opmerking:** als de querytekst langer is dan 4096, wordt deze afgekapt tot 4096 tekens, waarna deze wordt verwerkt. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spelling - voor webzoekopdrachten/query's
 `Spell` is een krachtigere functie waarmee betere zoekresultaten worden geretourneerd. In de modus `Spell` worden de meeste spelfouten gevonden, maar worden bepaalde grammaticafouten over het hoofd gezien die wel worden ontdekt door `Proof`, bijvoorbeeld hoofdlettergebruik en herhaalde woorden.
-<br /></br>**Opmerking:** de ondersteunde maximale querylengte wordt hieronder aangegeven. Als de query groter is dan de limiet, wordt in het resultaat aangegeven dat de query niet is gewijzigd.
-<ul><li>130 tekens voor de taalcode en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. </li>
-<li>65 tekens voor andere taalcodes</li></ul>
+
+> [!NOTE]
+> * Hieronder ziet u de maximale ondersteunde querylengte. Als de query de maximale lengte overschrijdt, worden de query en de bijbehorende resultaten niet gewijzigd.
+>    * 130 tekens voor de volgende taalcodes: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
+>    * 65 tekens voor alle andere taalcodes.
+> * De spellingmodus biedt geen ondersteuning voor vierkante haakjes (`[` en `]`) in query's, en kunnen inconsistente resultaten tot gevolg hebben. We raden u aan deze te verwijderen uit uw query's wanneer u de spellingmodus gebruikt.
 
 ## <a name="market-setting"></a>Marktinstelling
 De markt moet worden opgegeven in de queryparameter in de aanvraag-URL, anders wordt de standaardmarkt gebruikt op basis van het IP-adres.

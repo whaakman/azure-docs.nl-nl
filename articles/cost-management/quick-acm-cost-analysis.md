@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471285"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515723"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snelstart, de kosten van Azure verkennen en analyseren met Kostenanalyse
 
@@ -32,27 +32,14 @@ In deze snelstart leert u de volgende zaken:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Kostenanalyse is beschikbaar voor alle klanten met een [Enterprise Overeenkomst (EO)](https://azure.microsoft.com/pricing/enterprise-agreement/). U moet minimaal leestoegang hebben tot een of meer van de volgende bereiken om kostengegevens te kunnen bekijken.
+Kostenanalyse is beschikbaar voor alle klanten met een [Enterprise Overeenkomst (EO)](https://azure.microsoft.com/pricing/enterprise-agreement/). U moet minimaal leestoegang hebben tot een of meer van de volgende bereiken om kostengegevens te kunnen bekijken. Zie [Toegang tot gegevens toewijzen](assign-access-acm-data.md) voor meer informatie over het toewijzen van toegang tot de gegevens in Kostenbeheer.
 
-
-|**Bereik**|**Gedefinieerd op**|**Vereiste toegang om kosten van het bereik te analyseren**|**Vereiste EA-instelling**|**Voegt factureringsgegevens samen tot**|
-|---                |---                  |---                   |---            |---           |
-|Factureringsaccount<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Enterprise-beheerder|Geen|Alle abonnementen uit de Enterprise Overeenkomst|
-|Afdeling|[https://ea.azure.com ](https://ea.azure.com )|Afdelingsbeheerder|DA-kosten weergeven ingeschakeld|Alle abonnementen die horen bij een inschrijvingsaccount dat is gekoppeld aan de afdeling|
-|Inschrijvingsaccount<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Accounteigenaar|AO-kosten weergeven ingeschakeld|Alle abonnementen van het inschrijvingsaccount|
-|Beheergroep|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (of Reader)|AO-kosten weergeven ingeschakeld|Alle abonnementen onder de beheergroep|
-|Abonnement|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (of Reader)|AO-kosten weergeven ingeschakeld|Alle resources/resourcegroepen in het abonnement|
-|Resourcegroep|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (of Reader)|AO-kosten weergeven ingeschakeld|Alle resources in de resourcegroep|
-
-<sup>1</sup>Het factureringsaccount wordt vaak aangeduid als de Enterprise Overeenkomst of Inschrijving.
-
-<sup>2</sup>Het inschrijvingsaccount wordt vaak aangeduid als de accounteigenaar.
-
-Voor meer informatie over de configuratie van de instellingen **DA-kosten weergeven** en **AO-kosten weergeven** raadpleegt u [Toegang tot kosten inschakelen](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Factureringsaccount
+- Afdeling
+- Inschrijvingsaccount
+- Beheergroep
+- Abonnement
+- Resourcegroep
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

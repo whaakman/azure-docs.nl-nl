@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: c67a223a95e73161b58f8cd4f2aeba2614a9ee76
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419076"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615514"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
 
-In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Loading) uit met behulp van Azure Databricks. U haalt gegevens op uit Azure Data Lake Store en draagt deze over naar Azure Databricks, voert transformaties uit op de gegevens in Azure Databricks, waarna u de getransformeerde gegevens in Azure SQL Data Warehouse laadt. 
+In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Loading) uit met behulp van Azure Databricks. U haalt gegevens op uit Azure Data Lake Store en draagt deze over naar Azure Databricks, voert transformaties uit op de gegevens in Azure Databricks, waarna u de getransformeerde gegevens in Azure SQL Data Warehouse laadt.
 
 Voor de stappen in deze zelfstudie wordt gebruik gemaakt van de SQL Data Warehouse-connector voor Azure Databricks om gegevens over te dragen naar Azure Databricks. Op zijn beurt gebruikt deze connector Azure Blob Storage als tijdelijke opslag voor de gegevens die worden overgebracht tussen een Azure Databricks-cluster en Azure SQL Data Warehouse.
 
@@ -27,7 +27,7 @@ In de volgende afbeelding wordt de stroom van de toepassing weergegeven:
 
 ![Azure Databricks met Data Lake Store en SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks met Data Lake Store en SQL Data Warehouse")
 
-Deze zelfstudie bestaat uit de volgende taken: 
+Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Een Azure Databricks-werkruimte maken
@@ -64,7 +64,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     ![Een Azure Databricks-werkruimte maken](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Een Azure Databricks-werkruimte maken")
 
-    Geef de volgende waarden op: 
+    Geef de volgende waarden op:
      
     |Eigenschap  |Beschrijving  |
     |---------|---------|
@@ -95,14 +95,14 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
     Accepteer alle andere standaardwaarden die anders zijn dan de volgende waarden:
 
     * Voer een naam in voor het cluster.
-    * Voor dit artikel maakt u een cluster met een **4.0**-runtime. 
+    * Voor dit artikel maakt u een cluster met een **4.0**-runtime.
     * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
     
     Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
 
-In deze sectie maakt u een Azure Data Lake Store-account waaraan u een service-principal voor Azure Active Directory koppelt. Verderop in deze zelfstudie gebruikt u deze service-principal in Azure Databricks voor toegang tot Azure Data Lake Store. 
+In deze sectie maakt u een Azure Data Lake Store-account waaraan u een service-principal voor Azure Active Directory koppelt. Verderop in deze zelfstudie gebruikt u deze service-principal in Azure Databricks voor toegang tot Azure Data Lake Store.
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Opslag** > **Data Lake Store**.
 3. In de blade **Nieuwe Data Lake Store** geeft u de waarden op zoals u ze in de volgende schermafbeelding ziet:
@@ -189,7 +189,7 @@ Wanneer u zich programmatisch aanmeldt, moet u de tenant-id samen met uw verific
 
 1. Kopieer de **Map-id**. Deze waarde is uw tenant-id.
 
-   ![tenant-id](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
+   ![tenant-id](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png)
 
 ## <a name="upload-data-to-data-lake-store"></a>Gegevens uploaden naar Data Lake Store
 
@@ -306,7 +306,7 @@ U hebt nu de gegevens opgehaald uit Azure Data Lake Store en geladen in Azure Da
 
 ## <a name="transform-data-in-azure-databricks"></a>Gegevens transformeren in Azure Databricks
 
-De onbewerkte voorbeeldgegevensset **small_radio_json.json** legt de doelgroep voor een radiozender vast en bestaat uit een aantal kolommen. In deze sectie gaat u de gegevens zodanig transformeren dat alleen bepaalde kolommen uit de gegevensset worden opgehaald. 
+De onbewerkte voorbeeldgegevensset **small_radio_json.json** legt de doelgroep voor een radiozender vast en bestaat uit een aantal kolommen. In deze sectie gaat u de gegevens zodanig transformeren dat alleen bepaalde kolommen uit de gegevensset worden opgehaald.
 
 1. Begin met het ophalen van alleen de kolommen *firstName*, *lastName*, *gender*, *location* en *level* uit het dataframe dat u al hebt gemaakt.
 
@@ -340,7 +340,7 @@ De onbewerkte voorbeeldgegevensset **small_radio_json.json** legt de doelgroep v
         |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
         +---------+----------+------+--------------------+-----+
 
-2.  U kunt deze gegevens nog verder transformeren door de naam van de kolom **level** te wijzigen in **subscription_type**.
+2. U kunt deze gegevens nog verder transformeren door de naam van de kolom **level** te wijzigen in **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDf.show()
@@ -382,7 +382,7 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
-        val blobAccessKey =  "<ACCESS KEY>"
+        val blobAccessKey = "<ACCESS KEY>"
 
 2. Geef een tijdelijke map op die wordt gebruikt tijdens het verplaatsen van gegevens tussen Azure Databricks en Azure SQL Data Warehouse.
 
@@ -397,15 +397,15 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
 
         //SQL Data Warehouse related settings
         val dwDatabase = "<DATABASE NAME>"
-        val dwServer = "<DATABASE SERVER NAME>" 
+        val dwServer = "<DATABASE SERVER NAME>"
         val dwUser = "<USER NAME>"
         val dwPass = "<PASSWORD>"
-        val dwJdbcPort =  "1433"
+        val dwJdbcPort = "1433"
         val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Voer het volgende codefragment uit om het getransformeerde dataframe, **renamedColumnsDf**, als tabel te laden in SQL Data Warehouse. Met dit fragment wordt een tabel met de naam **SampleTable** gemaakt in de SQL-database. Houd er rekening mee dat Azure SQL DW een hoofdsleutel vereist.  U kunt een hoofdsleutel maken door de opdracht "CREATE MASTER KEY;" in SQL Server Management Studio uit te voeren.
+5. Voer het volgende codefragment uit om het getransformeerde dataframe, **renamedColumnsDf**, als tabel te laden in SQL Data Warehouse. Met dit fragment wordt een tabel met de naam **SampleTable** gemaakt in de SQL-database. Houd er rekening mee dat Azure SQL DW een hoofdsleutel vereist. U kunt een hoofdsleutel maken door de opdracht "CREATE MASTER KEY;" in SQL Server Management Studio uit te voeren.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
@@ -413,7 +413,7 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
         
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
-            .option("url", sqlDwUrlSmall) 
+            .option("url", sqlDwUrlSmall)
             .option("dbtable", "SampleTable")
             .option( "forward_spark_azure_storage_credentials","True")
             .option("tempdir", tempDir)
@@ -434,9 +434,9 @@ Nadat u de zelfstudie hebt voltooid, kunt u het cluster beëindigen. Dit doet u 
 
 ![Een Databricks-cluster stopzetten](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Een Databricks-cluster stopzetten")
 
-Als u het cluster niet handmatig beëindigt, stopt het cluster automatisch, op voorwaarde dat het selectievakje **Beëindigen na __ minuten inactiviteit** is ingeschakeld tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
+Als u het cluster niet handmatig beëindigt, stopt het cluster automatisch, op voorwaarde dat het selectievakje **Beëindigen na \_\_ minuten inactiviteit** is ingeschakeld tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
 
-## <a name="next-steps"></a>Volgende stappen 
+## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]

@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Virtuele machines met een SQL&#47;IIS&#47;.NET-stack maken in Azure | Microsoft Docs'
+title: "Zelfstudie: VM's maken waarop een SQL-, IIS-, .NET-stack wordt uitgevoerd in Azure | Microsoft Docs"
 description: In deze zelfstudie leert u hoe de Azure SQL, IIS, .NET-stack installeert op een virtuele Windows-machine in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464907"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515485"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Zelfstudie: De SQL&#47;IIS&#47;.NET-stack installeren op een Windows-VM met Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Zelfstudie: De SQL-, IIS-, .NET-stack installeren op een Windows-VM met Azure PowerShell
 
-In deze zelfstudie installeren we een SQL&#47;IIS&#47;.NET-stack met Azure PowerShell. Deze stack bestaat uit twee virtuele machines met Windows Server 2016, waarvan een met IIS en .NET en een met SQL Server.
+In deze zelfstudie installeren we een SQL-, IIS-, .NET-stack met Azure PowerShell. Deze stack bestaat uit twee virtuele machines met Windows Server 2016, waarvan een met IIS en .NET en een met SQL Server.
 
 > [!div class="checklist"]
 > * Een virtuele machine maken 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Installeer IIS en .NET Framework met behulp van de aangepaste scriptextensie.
+Installeer IIS en .NET Framework met behulp van de aangepaste scriptextensie met de cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `

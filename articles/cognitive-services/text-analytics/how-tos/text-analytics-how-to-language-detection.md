@@ -1,7 +1,6 @@
 ---
-title: 'Voorbeeld: Taaldetectie met de REST-API van Text Analytics'
-titleSuffix: Azure Cognitive Services
-description: Leer hoe u met behulp van de Text Analytics-REST API taal detecteert.
+title: Taaldetectie in de Text Analytics REST API (Microsoft Cognitive Services in Azure) | Microsoft Docs
+description: Leer in deze stapsgewijze zelfstudie hoe u taal detecteert met behulp van de Text Analytics REST API in Microsoft Cognitive Services in Azure.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,18 +9,21 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604549"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633561"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Voorbeeld: Hoe taal detecteren in Text Analytics
 
 De [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evalueert tekstinvoer voor elk document en retourneert de taal-id's met een score die wijst op de sterkte van de analyse. Text Analytics herkent maximaal 120 talen.
 
 Deze mogelijkheid is handig voor inhoudsarchieven die willekeurige tekst verzamelen, waarin de taal onbekend is. U kunt de resultaten van deze analyse parseren om te bepalen welke taal wordt gebruikt in het ingevoerde document. Het antwoord retourneert ook een score die overeenkomt met het vertrouwen van het model (een waarde tussen 0 en 1).
+
+> [!TIP]
+> Text Analytics biedt ook een Docker-containerinstallatiekopie op basis van Linux voor taaldetectie. U kunt de [Text Analytics-container dus dicht bij uw gegevens installeren en uitvoeren](text-analytics-how-to-install-containers.md).
 
 ## <a name="preparation"></a>Voorbereiding
 
@@ -62,7 +64,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 
 + Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
-+ Het HTTP-eindpunt voor taaldetectie instellen. Deze moet de `/languages`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages` bevatten
++ Stel het HTTP-eindpunt voor taaldetectie in, met behulp van een Text Analytics-resource in Azure of een geïnstantieerde [Text Analytics-container](text-analytics-how-to-install-containers.md). Deze moet de `/languages`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages` bevatten
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 

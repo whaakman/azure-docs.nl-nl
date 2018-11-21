@@ -12,58 +12,52 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 55e97ff95245ce222ccbc2a99f6ae2882cef3715
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: de905466d47774decf864ace5464bb2a68e5e6bc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248772"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51611995"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Aan de slag met HTTP-aanvragen voor hybride verbindingen van Relay in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Deze zelfstudie bevat een inleiding tot [Hybride verbindingen van Azure Relay](relay-what-is-it.md#hybrid-connections). Hier vindt u informatie over hoe u met Microsoft .NET een clienttoepassing kunt maken die aanvragen naar een bijbehorende listener-toepassing verzendt. 
+In deze snelstart maakt u .NET maakt u toepassingen voor afzenders en ontvangers waarmee berichten worden verzonden en ontvangen met behulp van het HTTP-protocol. De toepassingen maken gebruik van de functie Hybride verbindingen van Azure Relay. Zie [Azure Relay](relay-what-is-it.md) voor meer informatie over Azure Relay in het algemeen. 
 
-## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
-Voor Hybride verbindingen is zowel een client- als een servercomponent vereist. In deze zelfstudie voert u de volgende stappen uit om twee consoletoepassingen te maken:
+In deze snelstart voert u de volgende stappen uit:
 
 1. Een Relay-naamruimte maken met behulp van Azure Portal.
 2. Een hybride verbinding in die naamruimte maken met behulp van Azure Portal.
-3. Een serverconsoletoepassing (listener) schrijven om aanvragen te ontvangen.
-4. Een clientconsoletoepassing (afzender) schrijven om aanvragen te verzenden.
+3. Een serverconsoletoepassing (listener) schrijven om berichten te ontvangen.
+4. Een clientconsoletoepassing (afzender) schrijven om berichten te verzenden.
+5. Toepassingen uitvoeren. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* [Visual Studio 2015 of hoger](https://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
-* Een Azure-abonnement.
+* [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+* Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-## <a name="1-create-a-namespace-by-using-the-azure-portal"></a>1. Een naamruimte maken met behulp van Azure Portal
-Als u al een Relay-naamruimte hebt gemaakt, gaat u naar [Een hybride verbinding maken met behulp van Azure Portal](#2-create-a-hybrid-connection-using-the-azure-portal).
-
+## <a name="create-a-namespace"></a>Een naamruimte maken
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-by-using-the-azure-portal"></a>2. Een hybride verbinding maken met behulp van Azure Portal
-Als u al een hybride verbinding hebt gemaakt, gaat u naar [Een servertoepassing maken](#3-create-a-server-application-listener).
-
+## <a name="create-a-hybrid-connection"></a>Een hybride verbinding maken
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="3-create-a-server-application-listener"></a>3. Een servertoepassing (listener) maken
+## <a name="create-a-server-application-listener"></a>Een servertoepassing (listener) maken
 Maak in Visual Studio een C#-consoletoepassing om berichten van de Relay te beluisteren en te ontvangen.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4. Een clienttoepassing maken (afzender)
+## <a name="create-a-client-application-sender"></a>Een clienttoepassing maken (afzender)
 Maak in Visual Studio een C#-consoletoepassing om berichten naar de Relay te sturen.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. De toepassingen uitvoeren
+## <a name="run-the-applications"></a>De toepassingen uitvoeren
 1. Voer de servertoepassing uit. U ziet de volgende tekst in het consolevenster:
 
     ```
@@ -77,7 +71,6 @@ Gefeliciteerd, u hebt een end-to-end toepassing met hybride verbindingen gemaakt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Veelgestelde vragen over Relay](relay-faq.md)
-* [Een naamruimte maken](relay-create-namespace-portal.md)
-* [Aan de slag met knooppunten](relay-hybrid-connections-node-get-started.md)
+In deze snelstart hebt u een .NET-client- en servertoepassing gemaakt waarmee berichten worden verzonden en ontvangen met behulp van het HTTP-protocol. De functie Hybride verbindingen van Azure Relay ondersteunt tevens WebSockets voor het verzenden en ontvangen van berichten. Zie de [snelstart over WebSockets](relay-hybrid-connections-dotnet-get-started.md) voor informatie over het gebruik van WebSockets met hybride verbindingen van Azure Relay.
 
+In deze snelstart hebt u .NET Framework gebruikt om client- en servertoepassingen te maken. Zie de [snelstart over WebSockets in Node.js](relay-hybrid-connections-node-get-started.md) of de [snelstart over HTTP in Node.js](relay-hybrid-connections-http-requests-dotnet-get-started.md) voor informatie over het schrijven van client- en servertoepassingen in Node.js.

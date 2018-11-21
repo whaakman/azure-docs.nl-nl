@@ -1,139 +1,130 @@
 ---
-title: Inleiding tot Azure en Internet of Things (IoT)
-description: Overzicht van Azure IoT en de daarin opgenomen services
+title: Inleiding tot Azure Internet of Things (IoT)
+description: Inleiding met uitleg over de grondbeginselen van Azure IoT en de IoT-services, inclusief voorbeelden ter illustratie van het gebruik van IoT.
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: d7e5949be9ea09f94ff6ee86c9f996f2e203eac7
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069434"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288744"
 ---
-# <a name="introduction-to-azure-and-the-internet-of-things"></a>Inleiding tot Azure en Internet of Things
+# <a name="what-is-azure-internet-of-things-iot"></a>Wat is Azure Internet of Things (IoT)?
 
-Azure IoT bestaat uit drie gebieden technologieën en oplossingen: oplossingen, platformservices en edge. Deze zijn ontworpen om de end-to-end-ontwikkeling van uw IoT-toepassing mogelijk te maken. Dit artikel begint met een beschrijving van de algemene eigenschappen van een IoT-oplossing in de cloud, gevolgd door een overzicht van hoe Azure IoT uitdagingen bij IoT-projecten aanpakt en waarom u zou moeten overwegen Azure IoT te gebruiken.
+Azure Internet of Things (IoT) is een verzameling van door Microsoft beheerde cloudservices die miljarden IoT-assets met elkaar verbinden, bewaken en controleren. Eenvoudiger gezegd, een IoT-oplossing bestaat uit een of meer IoT-apparaten en een of meer back-endservices in de cloud die met elkaar communiceren. 
 
-## <a name="iot-solution-architecture"></a>Architectuur voor een IoT-oplossing
+In dit artikel vindt u een beschrijving van de grondbeginselen van IoT, gebruiksvoorbeelden en een overzicht van de acht verschillende beschikbare services. Als u weet wat er beschikbaar is, kunt u bepalen welke mogelijkheden u nader wilt onderzoeken voor het ontwerp van uw scenario.
 
-IoT-oplossingen vereisen een beveiligde communicatie tussen mogelijk miljoenen apparaten in twee richtingen, evenals een back-end van de oplossing. Een oplossing kan bijvoorbeeld gebruikmaken van geautomatiseerde predictive analytics om inzichten bloot te leggen over de gebeurtenisstroom van het apparaat naar de cloud. 
+## <a name="introduction"></a>Inleiding
 
-Het volgende diagram toont de belangrijkste elementen van een typische architectuur voor een IoT-oplossing. Het diagram staat los van de specifieke implementatiegegevens, zoals de gebruikte Azure-services en de besturingssystemen van apparaten. In deze architectuur verzamelen IoT-apparaten gegevens die ze naar een cloudgateway verzenden. De cloudgateway maakt de gegevens beschikbaar voor verwerking door andere back-endservices. Deze back-end-services kunnen gegevens leveren aan:
+De belangrijkste onderdelen van een IoT-oplossing zijn: apparaten, back-endservices en de communicatie tussen beide. 
 
-* Andere line-of-business-toepassingen.
-* Menselijke operators via een dashboard of een andere presentatiemethode.
+### <a name="iot-devices"></a>IoT-apparaten
 
-![Architectuur voor een IoT-oplossing](./media/iot-introduction/iot-reference-architecture.png)
+Apparaten bestaan meestal uit een printplaat met sensoren die verbinding maken met internet. Veel apparaten maken voor de communicatie gebruik van een Wi-Fi-chip. Hier volgen enkele voorbeelden van IoT-apparaten:
 
-> [!NOTE]
-> Zie [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referentiearchitectuur voor Microsoft Azure IoT) voor een uitgebreide beschrijving van de IoT-architectuur.
+* druksensoren op een externe oliepomp
+* temperatuur- en luchtvochtigheidssensoren in een airco-eenheid
+* versnellingsmeters in een lift
+* aanwezigheidssensoren in een ruimte
 
-### <a name="device-connectivity"></a>Connectiviteit van apparaten
+Twee apparaten die vaak worden gebruikt voor het ontwikkelen van prototypen zijn de MX Chip IoT-ontwikkelkit van Microsoft en Raspberry PI-apparaten. De MX Chip-ontwikkelkit heeft ingebouwde sensoren voor de temperatuur, druk en luchtvochtigheid, plus een gyroscoop en een versnellingsmeter, een magnetometer en een Wi-Fi-chip. Raspberry PI is een IoT-apparaat waaraan u veel verschillende soorten sensoren kunt koppelen, zodat u precies kunt selecteren wat u nodig hebt voor uw scenario. 
 
-In de architectuur van een IoT-oplossing verzenden apparaten doorgaans telemetriegegevens naar de cloud voor opslag en verwerking. In een scenario voor voorspeld onderhoud kan de back-end van de oplossing de stream van sensorgegevens bijvoorbeeld gebruiken om vast te stellen of er aan een pomp onderhoud moet worden uitgevoerd. Apparaten kunnen ook berichten ontvangen die van de cloud naar het apparaat zijn verstuurd en erop reageren door de berichten van een cloudeindpunt te lezen. Zo kunnen er hetzelfde voorbeeld door de back-end van de oplossing berichten worden verzonden naar andere pompen in een gemaal, zodat de waterstromen net voordat de onderhoudswerkzaamheden van start gaan, kunnen worden omgeleid. Deze procedure zorgt ervoor dat de onderhoudstechnicus meteen aan de slag kan wanneer hij aankomt.
+Met de [SDK's voor IoT-apparaten](../iot-hub/iot-hub-devguide-sdks.md) kunt u apps bouwen die worden uitgevoerd op uw apparaten, zodat ze de gewenste taken kunnen uitvoeren. Met de SDK's kunt u telemetriegegevens naar uw IoT-hub verzenden, berichten en updates van de IoT-hub ontvangen, enzovoort.
 
-De grootste uitdaging voor IoT-oplossingen is vaak om apparaten op een veilige en betrouwbare manier verbinding te laten maken. Vergeleken met andere clients zoals browsers en mobiele apps hebben IoT-apparaten namelijk andere kenmerken. IoT-apparaten:
+### <a name="communication"></a>Communicatie
+
+Uw apparaat kan communiceren met back-endservices in beide richtingen. Hier volgen enkele voorbeelden van manieren waarop het apparaat met de back-end-oplossing kan communiceren.
+
+#### <a name="examples"></a>Voorbeelden 
+
+* Uw apparaat kan de temperatuur van de koelinstallatie van een vrachtwagen elke 5 minuten naar een IoT-hub verzenden. 
+
+* De back-endservice kan het apparaat vragen om vaker telemetriegegevens te verzenden om een probleem te diagnosticeren. 
+
+* Uw apparaat kan waarschuwingen verzenden op basis van de uitgelezen waarden van de sensoren. Om een koelreactor in een chemische fabriek te bewaken, wilt u wellicht een waarschuwing verzenden wanneer de temperatuur een bepaalde waarde overschrijdt.
+
+* Uw apparaat kan informatie verzenden naar een dashboard voor weergave aan menselijke operators. In een controleruimte in een raffinaderij kunnen bijvoorbeeld de temperatuur en druk van elke pijpleiding worden weergegeven, evenals het volume dat door de pijpleiding stroomt, zodat de operators deze kunnen bewaken. 
+
+Deze (en nog veel meer) taken kunnen worden geïmplementeerd met behulp van de [SDK's voor IoT-apparaten](../iot-hub/iot-hub-devguide-sdks.md).
+
+#### <a name="connection-considerations"></a>Overwegingen voor de verbinding
+
+De grootste uitdaging voor IoT-oplossingen is vaak om apparaten op een veilige en betrouwbare manier verbinding te laten maken. Vergeleken met andere clients, zoals browsers en mobiele apps, hebben IoT-apparaten namelijk andere kenmerken. IoT-apparaten:
 
 * Zijn vaak ingesloten systemen waarbij geen menselijke operator komt kijken (in tegenstelling tot een telefoon).
+
 * Kunnen worden geïmplementeerd op verafgelegen locaties, waar fysieke toegang kostbaar is.
+
 * Kunnen mogelijk alleen worden bereikt via de back-end van de oplossing. Er is geen andere manier om te communiceren met het apparaat.
+
 * Hebben mogelijk een beperkt vermogen en een beperkt aantal verwerkingsbronnen.
+
 * Hebben mogelijk een onstabiele, trage of dure netwerkverbinding.
+
 * Vereisen mogelijk het gebruik van bedrijfseigen, aangepaste of branchespecifieke toepassingsprotocollen.
-* Kunnen worden gemaakt met behulp van een groot aantal populaire hardware- en softwareplatforms.
 
-Een IoT-oplossing heeft niet alleen bovenstaande beperkingen, maar moet ook schaalbaar, veilig en betrouwbaar zijn.
+### <a name="back-end-services"></a>Back-endservices 
 
-Afhankelijk van de beschikbaarheid van het communicatieprotocol en het netwerk, kan een apparaat rechtstreeks of via een tussenliggende gateway communiceren met de cloud. IoT-architecturen gebruiken vaak een combinatie van deze twee communicatiepatronen.
-
-### <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
-
-In moderne IoT-oplossingen vindt de gegevensverwerking in de cloud of in het apparaat plaats. Verwerking in het apparaat wordt ook wel *Edge computing* genoemd. De keuze van de locatie voor gegevensverwerking is afhankelijk van factoren zoals:
-
-* Netwerkbeperkingen. Als de bandbreedte tussen de apparaten en de cloud beperkt is, is er een stimulans om meer randbewerkingen uit te voeren.
-* Reactietijd. Als het een vereiste is dat een apparaat bijna in realtime moet reageren, kan het beter zijn om de reactie in het apparaat zelf te verwerken. Bijvoorbeeld een robotarm die moet worden gestopt in geval van nood.
-* Regelgeving. Sommige gegevens kunnen niet worden verzonden naar de cloud.
-
-De randverwerking en gegevensverwerking in de cloud zijn in het algemeen een combinatie van de volgende mogelijkheden:
+Hier volgen enkele voorbeelden van functies van back-endservices.
 
 * Ontvangen van telemetriegegevens van uw apparaten en bepalen hoe die gegevens moeten worden verwerkt en opgeslagen.
-* Analyse van de telemetriegegevens om inzichten te krijgen, ongeacht of deze in realtime of achteraf worden opgedaan.
-* Verzenden van opdrachten vanuit de cloud of een gateway-apparaat met een bepaald apparaat.
 
-Een IoT-back-end in de cloud moet daarnaast de volgende zaken bieden:
+* Analyseren van de telemetriegegevens om inzichten te krijgen, ongeacht of dat in realtime of achteraf wordt gedaan.
 
-* Registratiemogelijkheden voor apparaten waarmee u de volgende zaken kunt doen:
-    * Apparaten inrichten.
-    * Bepalen welke apparaten verbinding mogen maken met uw infrastructuur.
-* Apparaatbeheer om de status van uw apparaten bij te houden en hun activiteiten te volgen.
+* Verzenden van opdrachten vanuit de cloud naar een bepaald apparaat. 
+
+* Apparaten inrichten en bepalen welke apparaten verbinding mogen maken met uw infrastructuur.
+
+* Bijhouden van de status van uw apparaten en hun activiteiten volgen.
 
 In een scenario voor voorspeld onderhoud slaat de back-end van de cloud bijvoorbeeld historische telemetriegegevens op. De oplossing gebruikt deze gegevens om mogelijk afwijkend gedrag van specifieke pompen te identificeren voordat er een echt probleem ontstaat. Met behulp van gegevensanalyses kan worden bepaald dat de preventieve oplossing een opdracht moet verzenden naar het apparaat om een corrigerende actie te ondernemen. Dit proces genereert een automatische feedbacklus tussen het apparaat en de cloud die de efficiëntie van de oplossing aanzienlijk verhoogt.
 
-### <a name="presentation-and-business-connectivity"></a>Presentatie en bedrijfsconnectiviteit
+## <a name="an-iot-example"></a>Een IoT-voorbeeld
 
-De laag voor presentatie en bedrijfsconnectiviteit stelt eindgebruikers in staat te communiceren met de IoT-oplossing en de apparaten. Gebruikers kunnen met behulp hiervan de gegevens bekijken en analyseren die van hun apparaten zijn verzameld. Deze weergaven kunnen de vorm hebben van dashboards of BI-rapporten die zowel historische gegevens als gegevens in bijna realtime kunnen weergeven. Een operator kan bijvoorbeeld de status van een bepaald gemaal controleren en zien of het systeem eventueel waarschuwingen heeft gegeven. Deze laag maakt ook integratie mogelijk van de back-end van de IoT-oplossing met bestaande line-of-business-toepassingen zodat deze in bedrijfsprocessen of werkstromen kunnen worden ingevoegd. Een oplossing voor voorspeld onderhoud kan bijvoorbeeld worden geïntegreerd met een werkroostersysteem dat op het moment dat de oplossing een pomp identificeert waaraan onderhoud moet worden uitgevoerd, een technicus boekt die naar het gemaal met de desbetreffende pomp moet gaan.
+Hier volgt een voorbeeld van hoe een bedrijf IoT heeft gebruikt om miljoenen dollars te besparen. 
 
-## <a name="why-azure-iot"></a>Waarom Azure IoT?
+Een grote veehouderij heeft honderden tot duizenden koeien. Het is een hels karwei om zo veel koeien tegelijk in de gaten te houden en te weten hoe het met ze gaat. Daarvoor wordt heel wat afgereden. Daarom hebben ze elke koe voorzien van een sensor die informatie zoals de GPS-coördinaten en temperatuur doorgeeft aan een back-endservice. Vervolgens worden die gegevens naar een database geschreven.
 
-Azure IoT vereenvoudigt de complexiteit van IoT-projecten en pakt de uitdagingen aan, zoals beveiliging, incompatibiliteit met de infrastructuur en het schalen van uw IoT-oplossing. Dit gaat als volgt:
+Met behulp van een analytische service worden de binnenkomende gegevens gescand en per koe geanalyseerd op vragen als:
 
-### <a name="agile"></a>Flexibel
+* Heeft de koe koorts? Hoe lang heeft de koe al koorts? Als dit langer dan een dag is, halen ze de GPS-coördinaten op, zoeken de koe en behandelen deze zo nodig met antibiotica. 
 
-Versnel uw IoT-traject.
+* Is de koe langer dan een dag op dezelfde plek? Zo ja, dan worden de GPS-coördinaten opgehaald en gaat men de koe zoeken. Is de koe van een rots gevallen? Is het dier gewond? Heeft de koe hulp nodig? 
 
-* Schaal: begin klein, groei tot elke omvang, overal en altijd - miljoenen apparaten, terabytes aan gegevens, in de meeste regio's wereldwijd.
+Door deze IoT-oplossing te implementeren werd het mogelijk voor het bedrijf om de koeien snel te controleren en behandelen. Zo hoeft men minder vaak naar de dieren te rijden om ze te controleren, en dat bespaart het bedrijf veel geld. Zie [Microsoft Technical Case Studies for IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured) (technische casestudy's voor IoT van Microsoft) voor meer praktijkvoorbeelden van het gebruik van IoT door bedrijven. 
 
-* Open: gebruik wat u hebt, of moderniseer voor de toekomst, door verbinding te maken met een apparaat, software of service.
+## <a name="iot-services"></a>IoT-services
 
-* Hybride: bouw op basis van uw behoeften door uw IoT-oplossing te implementeren in de rand, in de cloud of ergens daartussen.
+Er zijn meerdere IoT-services in Azure en het kan moeilijk zijn om te bepalen welke u wilt gebruiken. Sommige services, zoals IoT Central en de IoT-oplossingsverbeteringen, bevatten sjablonen waarmee u uw eigen oplossing kunt maken zodat u snel aan de slag kunt met IoT. U kunt uw eigen oplossingen ook helemaal zelf ontwikkelen met behulp van andere services. Het hangt er maar net vanaf hoeveel hulp en controle u wilt. Hier volgt een lijst met de beschikbare services en waarvoor u ze kunt gebruiken.
 
-* Tempo: implementeer sneller, versnel de introductietijd en blijf uw concurrentie een stap voor met de leider op het gebied van oplossingsverbeteringen en vernieuwingstempo in IoT.
+1. [**IoT Central**](../iot-central/overview-iot-central.md): dit is een SaaS-oplossing waarmee u uw IoT-apparaten kunt verbinden, bewaken en beheren. Selecteer om te beginnen een sjabloon voor uw type apparaat, en maak en test een IoT Central-basistoepassing die de operators van het apparaat gaan gebruiken. Met de IoT Central-toepassing kunt u de apparaten ook bewaken en nieuwe apparaten inrichten. Deze service is geschikt voor eenvoudige IoT-oplossingen waarvoor geen uitgebreide serviceaanpassing is vereist. 
 
-### <a name="comprehensive"></a>Uitgebreid
+2. [**IoT-oplossingsverbeteringen**](/azure/iot-suite): dit is een verzameling van PaaS-oplossingen waarmee u de ontwikkeling van uw IoT-oplossing kunt versnellen. U begint met een vooraf gedefinieerde IoT-oplossing en past die vervolgens volledig naar wens aan. U moet beschikken over Java- of .NET-vaardigheden om de back-end aan te passen, en over JavaScript-vaardigheden om de visualisatie aan te passen. 
 
-Zorg dat uw bedrijf impact heeft.
+3. [**IoT Hub**](/azure/iot-hub/): met deze service kunt u uw apparaten verbinden met een IoT-hub en miljarden IoT-apparaten beheren. Dit is vooral handig als bidirectionele communicatie tussen uw IoT-apparaten en uw back-end vereist is. Dit is de onderliggende service voor IoT Central en IoT-oplossingsverbeteringen. 
 
-* Volledig: Microsoft is de enige provider van IoT-oplossingen met een volledig platform dat apparaat naar cloud overspant, over big data, geavanceerde analyses en met beheerde services.
+4. [**IoT Hub Device Provisioning Service**](/azure/iot-dps/): dit is een hulpservice voor IoT Hub waarmee u apparaten veilig kunt inrichten voor uw IoT-hub. Met deze service kunt u snel en eenvoudig miljoenen apparaten tegelijk inrichten in plaats van ze één voor één in te richten. 
 
-* Partner voor succes: maak gebruik van de kracht van 's werelds grootste ecosysteem voor partners en wek line-of-business en technologie tot leven, binnen de branche en over de hele wereld.
+5. [**IoT Edge**](/azure/iot-edge/): deze service bouwt voort op IoT Hub. Deze service kan worden gebruikt voor het analyseren van gegevens op de IoT-apparaten in plaats van in de cloud. Door uw werkbelasting gedeeltelijk te verplaatsen naar de randapparaten, hoeven er minder berichten te worden verzonden naar de cloud. 
 
-* Gegevensgestuurd: IoT gaat over gegevens en de beste IoT-oplossingen brengen alle tools samen die u nodig hebt om gegevens te bewaren, interpreteren, transformeren, analyseren en presenteren aan de juiste gebruiker, op de juiste plaats, op het juiste moment.
+6. [**Azure Digital Twins**](/azure/azure-digital-twins/): met deze service kunt u uitgebreide modellen van de fysieke omgeving maken. Zo kunt u de relaties en interacties tussen personen, ruimten en apparaten modelleren. U kunt bijvoorbeeld de onderhoudsbehoeften voor een fabriek voorspellen, het energieverbruik voor een elektriciteitsnet in realtime analyseren of het gebruik van de beschikbare kantoorruimte optimaliseren.
 
-* Apparaatgericht: met Microsoft IoT kunt u alles met elkaar verbinden, van verouderde apparatuur tot een enorm ecosysteem van gecertificeerde hardware, en hebt u de mogelijkheid om uw eigen apparaten te bouwen op Edge en op mobiele en ingesloten systemen.
+7. [**Time Series Insights**](/azure/time-series-insights): met deze service kunt u grote volumes gegenereerde tijdreeksgegevens van IoT-apparaten opslaan en visualiseren of er query's op uitvoeren. U kunt deze gebruiken in combinatie met IoT Hub. 
 
-### <a name="secure"></a>Beveiligen
-
-Los het lastigste onderdeel van IoT op: beveiliging.
-
-* Meer mogelijkheden: met Microsoft IoT kunt u uw visie samenbrengen met de technologie, aanbevolen procedures en de mogelijkheden om het lastigste onderdeel van IoT op te lossen, namelijk beveiliging.
-
-* Actie ondernemen: beveilig uw IoT-gegevens en beheer risico's met identiteits-en toegangsbeheer, bedreigings- en informatiebescherming en beveiligingsbeheer.
-
-* Gemoedsrust: garandeer de veiligheid van gevoelige informatie op alle apparaten, software, toepassingen en cloudservices, evenals in lokale omgevingen.
-
-* Naleving: Microsoft leidt de branche bij het vaststellen van de beveiligingsvereisten die voldoen aan een uitgebreide reeks internationale en branchespecifieke standaarden voor IoT-apparaten, gegevens en services.
+8. [**Azure Maps**](/azure/azure-maps): deze service biedt geografische gegevens voor web- en mobiele toepassingen. Er is een volledige set met REST-API's en een webgebaseerd JavaScript-besturingselement waarmee u flexibele toepassingen kunt maken voor gebruik in bureaublad- of mobiele toepassingen op Apple- en Windows-apparaten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verken de volgende technologieën en oplossingen.
+Zie de [technische casestudy's van Microsoft Azure IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured) voor enkele voorbeelden uit de praktijk en de architectuur die daarvoor is gebruikt.
 
-**Oplossingen**
+Zie de [projectcatalogus van de IoT-ontwikkelkit](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) voor enkele voorbeeldprojecten die u kunt uitproberen met een IoT-ontwikkelkit. 
 
-* [IoT-oplossingsversnellers](/azure/iot-suite)
-* [IoT Central](/azure/iot-central)
+Zie [Azure IoT-services en technologieën](iot-services-and-technologies.md) voor uitgebreide informatie over de verschillende services en hoe ze worden gebruikt.
 
-**Platformservices**
-
-* [IoT Hub](/azure/iot-hub)
-* [IoT Hub Device Provisioning Service](/azure/iot-dps)
-* [Azure Maps](/azure/azure-maps/)
-* [Time Series Insights](/azure/time-series-insights)
-
-**Edge**
-
-* [Overzicht van IoT Edge](/azure/iot-edge)
-* [Wat is IoT Edge?](/azure/how-iot-edge-works)
+Zie [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referentiearchitectuur voor Microsoft Azure IoT) voor een uitgebreide beschrijving van de IoT-architectuur.

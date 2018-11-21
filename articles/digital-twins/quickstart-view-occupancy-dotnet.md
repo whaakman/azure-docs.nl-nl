@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 590a7aa875f5f8c40576d69d7e73bdfc31fffbf8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281215"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636251"
 ---
-# <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Snelstart: Beschikbare ruimten zoeken met behulp van Azure Digital Twins
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snelstart: beschikbare ruimten zoeken met behulp van Azure Digital Twins
 
-Met de Azure Digital Twins-service kunt u een digitale kopie van uw fysieke omgeving opnieuw maken. U kunt vervolgens een melding ontvangen van gebeurtenissen in uw omgeving en uw reacties hierop aanpassen. 
+Met de Azure Digital Twins-service kunt u opnieuw een digitale kopie van uw fysieke omgeving maken. U kunt vervolgens een melding ontvangen van gebeurtenissen in uw omgeving en uw reacties hierop aanpassen. 
 
-Deze snelstart maakt gebruik van [een combinatie van .NET-voorbeelden](https://github.com/Azure-Samples/digital-twins-samples-csharp) voor het digitaliseren van een denkbeeldige kantoorgebouw, en laat u zien hoe u beschikbare ruimten kunt vinden in het gebouw. Met Digital Twins kunt u meerdere sensoren koppelen aan uw omgeving. Samen met de beschikbaarheid van ruimten kunt u hier met behulp van een gesimuleerde sensor voor koolstofdioxide ook vaststellen of de luchtkwaliteit van de beschikbare ruimte optimaal is. Door een van de voorbeeldtoepassingen worden willekeurige sensorgegevens gegenereerd, zodat u dit scenario beter kunt visualiseren.
+In deze snelstart wordt [een paar .NET-voorbeelden](https://github.com/Azure-Samples/digital-twins-samples-csharp) gebruikt om een denkbeeldig kantoorgebouw te digitaliseren. Hiermee kunt u zien hoe u beschikbare ruimten in dat gebouw kunt vinden. Met Digital Twins kunt u vele sensoren koppelen aan uw omgeving. U kunt met behulp van een gesimuleerde sensor voor koolstofdioxide ook vaststellen of de luchtkwaliteit van de beschikbare ruimte optimaal is. Door een van de voorbeeldtoepassingen worden willekeurige sensorgegevens gegenereerd, zodat u dit scenario beter kunt visualiseren.
 
 De volgende video geeft een overzicht van de installatie van de snelstart:
 
@@ -31,106 +31,129 @@ De volgende video geeft een overzicht van de installatie van de snelstart:
 
 1. Als u geen Azure-account hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-1. De twee consoletoepassingen die u uitvoert in deze snelstart zijn geschreven in C#. U moet [.NET Core SDK-versie 2.1.403 of hoger](https://www.microsoft.com/net/download) op de ontwikkelcomputer installeren. Als u .NET Core-SDK hebt geïnstalleerd, kunt u de huidige versie van C# op uw ontwikkelmachine controleren door de `dotnet --version` in een opdrachtprompt uit te voeren.
+1. De twee consoletoepassingen die u uitvoert in deze snelstart zijn geschreven in C#. Installeer [.NET Core SDK-versie 2.1.403 of hoger](https://www.microsoft.com/net/download) op uw ontwikkelcomputer. Als u de .NET Core-SDK hebt geïnstalleerd, controleert u de huidige versie van C# op uw ontwikkelmachine. Voer `dotnet --version` in een opdrachtprompt uit.
 
-1. Download het [C#-voorbeeldproject](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip) en pak het archief digital-twins-samples-csharp-master.zip uit. 
+1. Download het [C#-voorbeeldproject](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Pak het archief digital-twins-samples-csharp-master.zip uit. 
 
 
 ## <a name="create-a-digital-twins-instance"></a>Een Digital Twins-exemplaar maken
 
-Maak een nieuw exemplaar van Digital Twins in de [portal](https://portal.azure.com) met behulp van de stappen in deze sectie.
+Maak een nieuw exemplaar van Digital Twins in de [portal](https://portal.azure.com) door de stappen in deze sectie te volgen.
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Machtigingen instellen voor uw app
 
-In deze sectie registreert u uw voorbeeldtoepassing in Azure Active Directory (AAD), zodat deze toegang heeft tot uw Digital Twins-exemplaar. Als u al een AAD-app-registratie hebt, kunt u deze mogelijk opnieuw gebruiken voor uw voorbeeld. Zorg er wel voor dat deze is geconfigureerd zoals vermeld in deze sectie. 
+In deze sectie registreert u uw voorbeeldtoepassing in Azure Active Directory (Azure AD), zodat deze toegang heeft tot uw Digital Twins-exemplaar. Als u al over een app-registratie van Azure AD beschikt, kunt u deze opnieuw gebruiken voor uw voorbeeld. Controleer of deze is geconfigureerd zoals beschreven in deze sectie. 
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
 ## <a name="build-application"></a>Toepassing bouwen
 
-Gebruik de volgende opdracht om de bezettingstoepassing te maken:
+Volg deze stappen om de bezettingstoepassing te bouwen.
 
-1. Open een opdrachtprompt en navigeer naar de map waarin uw digital-twins-samples-csharp-master.zip-bestanden zijn uitgepakt.
+1. Open een opdrachtprompt. Ga naar de map waarin uw digital-twins-samples-csharp-master.zip-bestanden zijn uitgepakt.
 1. Voer `cd occupancy-quickstart/src` uit.
 1. Voer `dotnet restore` uit.
-1. Bewerk *appSettings.json* om de volgende variabelen bij te werken:
-    - *ClientId*: voer de *Toepassings-ID* van uw AAD-app-registratie in, die u in de voorgaande sectie hebt genoteerd.
-    - *Tenant*: voer de *Map-Id* van uw AAD-tenant in, die u ook in de vorige sectie hebt genoteerd.
-    - *BaseUrl*: de URL van de *Beheer-API* van uw Digital Twins-exemplaar, die wordt weergegeven in de volgende indeling `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Vervang de tijdelijke aanduidingen in deze URL door de waarden voor uw exemplaar uit de vorige sectie.
+1. Bewerk **appSettings.json** om de volgende variabelen bij te werken:
+    - **ClientId**: voer de toepassings-id van uw Azure AD-app-registratie in, die u in de voorgaande sectie hebt genoteerd.
+    - **Tenant**: voer de map-id van uw Azure AD-tenant in, die u ook in de vorige sectie hebt genoteerd.
+    - **BaseUrl**: de URL van de beheer-API van uw Digital Twins-exemplaar wordt weergegeven in de indeling `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Vervang de tijdelijke aanduidingen in deze URL door de waarden voor uw exemplaar uit de vorige sectie.
 
 ## <a name="provision-graph"></a>Grafiek inrichten
 
-In deze stap wordt uw ruimtelijke Digital Twins-grafiek ingericht met verschillende ruimten, één apparaat, twee sensoren, een aangepaste functie en één roltoewijzing. De ruimtelijke grafiek wordt ingericht met behulp van het bestand [*provisionSample.yaml*](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+In deze stap wordt uw ruimtelijke Digital Twins-grafiek ingericht met:
+ 
+- Diverse ruimten.
+- Eén apparaat.
+- Twee sensoren. 
+- Een aangepaste functie. 
+- Een roltoewijzing.
+ 
+De ruimtelijke grafiek wordt ingericht met behulp van het bestand [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
 1. Voer `dotnet run ProvisionSample` uit.
     >[!NOTE]
-    >We gebruiken het programma voor apparaataanmelding van de Azure CLI om de gebruiker bij Azure Active Directory te verifiëren. De gebruiker moet een bepaalde code invoeren om zich te verifiëren met behulp van [de Microsoft-aanmeldingspagina](https://microsoft.com/devicelogin). Nadat de code is ingevoerd, volgt u de stappen voor verificatie. De gebruiker wordt telkens wanneer het hulpprogramma wordt uitgevoerd verzocht om zich te verifiëren.
+    >Het programma voor apparaataanmelding van de Azure CLI wordt gebruikt om de gebruiker bij Azure AD te verifiëren. De gebruiker moet een bepaalde code invoeren om zich te verifiëren met behulp van [de Microsoft-aanmeldingspagina](https://microsoft.com/devicelogin). Nadat de code is ingevoerd, volgt u de stappen voor verificatie. De gebruiker moet zich verifiëren als het hulpprogramma wordt uitgevoerd.
     
     >[!TIP]
-    > Als u de volgende fout ontvangt bij het uitvoeren van deze stap, controleert u of uw variabelen juist zijn gekopieerd. 
-    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+    > Als u deze stap uitvoert, controleert u of de variabelen correct zijn gekopieerd als u dit foutbericht ziet: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 
-1. De inrichtingsstap kan enkele minuten duren. Er wordt ook een IoT Hub in uw Digital Twins-exemplaar ingericht en deze wordt uitgevoerd totdat IoTHub Status=`Running` heeft.
+1. De inrichtingsstap kan enkele minuten duren. Er wordt ook een IoT Hub binnen uw Digital Twins-exemplaar ingericht. Het inrichten blijft doorlopen totdat de status van de IoT Hub gelijk is aan `Running`.
 
     ![Voorbeeld van inrichting][4]
 
-1. Aan het einde van de uitvoering, kopieert u de `ConnectionString` van het apparaat voor gebruik in de voorbeeldapparaatsimulator. Kopieer alleen de tekenreeks die wordt beschreven op de onderstaande afbeelding:
+1. Aan het einde van de uitvoering, kopieert u de `ConnectionString` van het apparaat voor gebruik in de voorbeeldapparaatsimulator. Kopieer alleen de tekenreeks die wordt beschreven in deze afbeelding.
 
     ![Voorbeeld van inrichting][1]
 
 ## <a name="send-sensor-data"></a>Sensorgegevens verzenden
 
-U kunt de sensorsimulatortoepassing bouwen en uitvoeren met behulp van de onderstaande stappen:
+Bouw de sensorsimulatortoepassing en voer deze uit met behulp van de onderstaande stappen.
 
-1. Open een nieuwe opdrachtprompt en navigeer naar het project dat u hebt gedownload, in de map digital-twins-samples-csharp-master.
+1. Open een nieuwe opdrachtprompt. Ga naar het project dat u in de map digital-twins-samples-csharp-master hebt gedownload.
 1. Voer `cd device-connectivity` uit.
 1. Voer `dotnet restore` uit.
-1. Bewerk *appsettings.json* om *DeviceConnectionString* bij te werken met de `ConnectionString` hierboven.
-1. Voer `dotnet run` uit om te beginnen met het verzenden van sensorgegevens. U ziet dat deze naar de Digital Twins-service worden verzonden zoals op de onderstaande afbeelding wordt weergegeven:
+1. Bewerk **appsettings.json** om **DeviceConnectionString** bij te werken met de vorige `ConnectionString`.
+1. Voer `dotnet run` uit om te beginnen met het verzenden van gegevens. U ziet dat het wordt verzonden naar Digital Twins, zoals weergegeven in de volgende afbeelding.
 
      ![Connectiviteit van apparaten][2]
 
-1. Voer deze simulator uit, zodat u de resultaten naast de actie van de volgende stap kunt bekijken. In dit venster worden de gesimuleerde sensorgegevens weergegeven die zijn verzonden naar Digital Twins. In de volgende stap wordt in realtime een query uitgevoerd om te zoeken naar beschikbaar ruimten met frisse lucht.
+1. Voer deze simulator uit, zodat u de resultaten naast de actie van de volgende stap kunt bekijken. In dit venster kunt u zien dat de gesimuleerde sensorgegevens naar Digital Twins zijn verzonden. In de volgende stap wordt in realtime naar beschikbare ruimte met frisse lucht gezocht.
 
     >[!TIP]
-    > Als u de volgende fout ontvangt bij het uitvoeren van deze stap, controleert u of uw `DeviceConnectionString` op de juiste manier is gekopieerd.  
-    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+    > Als u deze stap uitvoert, controleert u of `DeviceConnectionString` correct is gekopieerd als u dit foutbericht ziet: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 ## <a name="find-available-spaces-with-fresh-air"></a>Beschikbare ruimten met frisse lucht zoeken
 
-In het sensorvoorbeeld worden willekeurige gegevenswaarden voor twee sensoren, beweging en koolstofdioxide, gesimuleerd. In ons voorbeeld worden beschikbare ruimten met frisse lucht gedefinieerd door geen aanwezigheid in de ruimte en een koolstofdioxidegehalte dat onder de 1000 ppm ligt. Als niet aan de voorwaarde wordt voldaan, is de ruimte niet beschikbaar of is de luchtkwaliteit slecht.
+Het sensorvoorbeeld simuleert willekeurige gegevenswaarden voor twee sensoren. Deze zijn beweging en koolstofdioxide. In het voorbeeld worden beschikbare ruimten met frisse lucht gedefinieerd door geen aanwezigheid in de ruimte. Ze worden ook gedefinieerd door een koolstofdioxidegehalte van minder dan 1000 ppm. Als niet aan de voorwaarde wordt voldaan, is de ruimte niet beschikbaar of is de luchtkwaliteit slecht.
 
-1. Open de opdrachtprompt die u hebt gebruikt voor het uitvoeren van de bovenstaande inrichtingsstap.
+1. Open de opdrachtprompt die u hebt gebruikt voor het uitvoeren van de vorige inrichtingsstap.
 1. Voer `dotnet run GetAvailableAndFreshSpaces` uit.
-1. Bekijk deze opdrachtprompt en de opdrachtprompt voor sensorgegevens naast elkaar zoals hieronder wordt beschreven. 
-1. De ene opdrachtprompt stuurt gesimuleerde gegevens over beweging en koolstofdioxide om de 5 seconden naar Digital Twins. De andere opdrachtprompt leest in realtime de grafiek om beschikbare ruimten met frisse lucht te vinden op basis van willekeurige gesimuleerde gegevens. Een van deze voorwaarden wordt in bijna realtime weergegeven op basis van welke sensorgegevens de laatste keer zijn verzonden:
+1. Bekijk deze opdrachtprompt en de opdrachtprompt voor sensorgegevens naast elkaar. 
+
+    De ene opdrachtprompt stuurt gesimuleerde gegevens over beweging en koolstofdioxide om de vijf seconden naar Digital Twins. De andere opdrachtprompt leest in realtime de grafiek om beschikbare ruimten met frisse lucht te vinden op basis van willekeurige, gesimuleerde gegevens. Een van deze voorwaarden wordt bijna in realtime weergegeven op basis van de sensorgegevens die de laatste keer zijn verzonden:
     - Beschikbare ruimten met frisse lucht.
     - Ruimte bezet of slechte luchtkwaliteit in de ruimte.
 
      ![Beschikbare ruimten met frisse lucht ophalen][3]
 
-Om te begrijpen wat is er gebeurd in deze snelstart en welke API's zijn aangeroepen, opent u [Visual Studio Code](https://code.visualstudio.com/Download) met het codewerkruimteproject dat zich in digital-twins-samples-csharp (zie de onderstaande opdracht) bevindt. In de zelfstudies wordt uitgebreid ingegaan op de code en u leert er hoe u configuratiegegevens kunt wijzigen en welke API's worden aangeroepen. Ga voor meer inzicht in de beheer-API's naar uw Digital Twins Swagger-pagina `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net//management/swagger` of blader voor uw gemak naar [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger). 
+Om te begrijpen wat is er gebeurd in deze snelstart en welke API's zijn aangeroepen, opent u [Visual Studio Code](https://code.visualstudio.com/Download) met het codewerkruimteproject dat zich in digital-twins-samples-csharp bevindt. Gebruik de volgende opdracht:
 
-```
+```plaintext
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
+In de zelfstudies wordt diep op de code ingegaan. U komt te weten hoe u configuratiegegevens kunt wijzigen en welke API's worden aangeroepen. Ga voor meer informatie over beheer-API's naar de pagina van Digital Twins Swagger:
+
+```plaintext
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
+```
+
+| Naam | Vervangen door |
+| --- | --- |
+| YOUR_INSTANCE_NAME | De naam van uw Digital Twins-exemplaar |
+| YOUR_LOCATION | De serverregio waarin het exemplaar wordt gehost |
+
+Of ga naar [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-In de zelfstudies wordt gedetailleerd ingegaan op hoe u een toepassing bouwt voor faciliteitsbeheerders waarmee zij de bezettingsproductiviteit kunnen verhogen en het gebouw efficiënter kunnen exploiteren.
+In de zelfstudies wordt ook in detail ingegaan op: 
 
-Als u wilt doorgaan met de zelfstudies, verwijder dan niet de resources die u in deze snelstart hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources die via deze snelstart zijn gemaakt, te verwijderen:
+- Het bouwen van een toepassing voor facility managers om de productiviteit van de aanwezigen te verhogen. 
+- Het gebouw efficiënter leiden.
+
+Als u doorgaat naar de zelfstudies, verwijder dan niet de resources die u in deze snelstart hebt gemaakt. Als u niet doorgaat, verwijdert u alle resources die u in deze snelstart hebt gemaakt.
 
 1. Verwijder de map die is gemaakt bij het downloaden van de opslagplaats met voorbeelden.
-1. Klik in het linkermenu van de [Azure-portal](http://portal.azure.com) op **Alle resources** en selecteer uw Digital Twins-resource. Klik boven aan het deelvenster **Alle resources** op **Verwijderen**.
+1. Selecteer **Alle resources** in het menu aan de linkerkant van de [Azure-portal](http://portal.azure.com). Selecteer vervolgens uw Digital Twins-resource. Selecteer boven aan het deelvenster **Alle resources** de optie **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een overzicht gekregen van een eenvoudig scenario voor het vinden van ruimten met goede werkomstandigheden. Voor een meer diepgaande analyse van dit scenario gaat u verder met deze zelfstudie:
+In deze snelstart is gebruikgemaakt van een eenvoudig scenario om te laten zien hoe u ruimten kunt vinden met goede werkomstandigheden. Zie de volgende zelfstudie voor een meer diepgaande analyse van dit scenario:
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Azure Digital Twins implementeren en een ruimtelijke grafiek configureren](tutorial-facilities-setup.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Terraform-modulegenerator voor VS Code
-description: Informatie over het gebruik van Yeoman voor het maken van een Terraform-basissjabloon.
+title: Een Terraform-basissjabloon maken in Azure met behulp van Yeoman
+description: Leer hoe u een Terraform-basissjabloon maakt in Azure met behulp van Yeoman.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, yeoman
@@ -8,24 +8,26 @@ author: v-mavick
 manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.openlocfilehash: 513b123c44cf2cd37cf81a91e0d2da9599eb1fcd
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 11/08/2018
+ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47396252"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288013"
 ---
-# <a name="create-a-terraform-base-template-using-yeoman"></a>Een Terraform-basissjabloon maken met behulp van Yeoman
+# <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Een Terraform-basissjabloon maken in Azure met behulp van Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
 ) biedt een manier om eenvoudig een infrastructuur te maken in Azure. [Yeoman](http://yeoman.io/) vereenvoudigt de taak van de module-ontwikkelaar enorm wat betreft het maken van Terraform-modules, en biedt daarnaast een uitstekend *best practices*-framework.
 
-In dit artikel leert u hoe u de modulegenerator van Yeoman gebruikt om een Terraform-basissjabloon te maken.
+In dit artikel leert u hoe u de modulegenerator van Yeoman gebruikt om een Terraform-basissjabloon te maken. Vervolgens leert u hoe u de nieuwe Terraform-sjabloon kunt testen met behulp van twee verschillende methoden:
+
+- Voer de Terraform-module uit met behulp van een Docker-bestand dat u maakt in dit artikel.
+- Voer de Terraform-module geïntegreerd uit in Azure Cloud Shell.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een computer waarop Windows 10, Linux of macOS 10.10+ wordt uitgevoerd.
 - **Azure-abonnement**: als u nog geen abonnement op Azure hebt, maakt u een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 - **Visual Studio Code**: we gebruiken [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) om bestanden te onderzoeken die zijn gemaakt door de Yeoman-generator. U kunt echter ook een andere code-editor gebruiken.
 - **Terraform**: u hebt een installatie van [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) nodig om de module uit te voeren die door Yeoman is gemaakt.
@@ -33,13 +35,13 @@ In dit artikel leert u hoe u de modulegenerator van Yeoman gebruikt om een Terra
 - **Go-programmeertaal**: u hebt een installatie van [Go](https://golang.org/) nodig omdat de testscenario's die door Yeoman zijn gegenereerd, zijn geschreven in Go.
 
 >[!NOTE]
->De meeste procedures in deze zelfstudie hebben betrekking op opdrachtregelvermeldingen. De hier beschreven stappen zijn van toepassing op alle besturingssystemen en opdrachtregelprogramma's. In onze voorbeelden hebben we gekozen voor PowerShell. U kunt echter ook een van de vele alternatieven kiezen, zoals Git Bash, Windows-opdrachtprompts of Linux- of macOS-opdrachtregelopdrachten.
+>De meeste procedures in deze zelfstudie hebben betrekking op opdrachtregelvermeldingen. De hier beschreven stappen zijn van toepassing op alle besturingssystemen en opdrachtregelprogramma's. In de voorbeelden hebben we ervoor gekozen om PowerShell te gebruiken voor de lokale omgeving en Git Bash voor de Cloud Shell-omgeving.
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
 ### <a name="install-nodejs"></a>Node.js installeren
 
-Als u Terraform in de Cloud Shell wilt gebruiken, moet u [Node.js](https://nodejs.org/en/download/) 6.0+ installeren.
+Als u Terraform in Cloud Shell wilt gebruiken, moet u [Node.js](https://nodejs.org/en/download/) 6.0+ installeren.
 
 >[!NOTE]
 >Als u wilt controleren of Node.js is geïnstalleerd, opent u een terminalvenster en voert u `node --version` in.
@@ -103,7 +105,7 @@ Vanaf een opdrachtprompt:
         ![Docker-installatiekopiebestand opnemen?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
-        >Voer `y` in. Als u **n** selecteert, zal de gegenereerde modulecode alleen ondersteuning bieden voor uitvoering in de systeemeigen modus.
+        >Voer `y` in. Als u **n** selecteert, biedt de gegenereerde modulecode alleen ondersteuning voor uitvoering in de systeemeigen modus.
 
 3. Voer `ls` in om de resulterende bestanden weer te geven die zijn gemaakt.
 
@@ -149,7 +151,7 @@ Definieert de buildstappen. Deze stappen omvatten:
 - End-to-end-tests proberen Terraform te gebruiken om alle items in te richten die zijn gedefinieerd onder **aansluiting** en vergelijken vervolgens de uitvoer in de code **template_output.go** met de vooraf gedefinieerde verwachte waarden.
 - **Gopkg.lock** en **Gopkg.toml**: definiëren uw afhankelijkheden. 
 
-## <a name="test-the-module-using-docker"></a>De module testen met Docker
+## <a name="test-your-new-terraform-module-using-a-docker-file"></a>De nieuwe Terraform-module testen met behulp van een Docker-bestand
 
 >[!NOTE]
 >In ons voorbeeld voeren we de module uit als een lokale module, dus buiten Azure om.
@@ -191,6 +193,8 @@ Als u wilt controleren of Docker werkelijk wordt uitgevoerd, typt u `docker info
 
     ![Docker-bestand weergeven](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
+### <a name="build-the-module"></a>De module bouwen
+
 1. Voer `bundle install` in.
 
     Wacht tot het bericht **Bundel voltooid** wordt weergegeven en ga dan verder met de volgende stap.
@@ -199,7 +203,7 @@ Als u wilt controleren of Docker werkelijk wordt uitgevoerd, typt u `docker info
 
     ![Rake-build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-### <a name="perform-the-end-to-end-test"></a>De end-to-end-test uitvoeren
+### <a name="run-the-end-to-end-test"></a>De end-to-end-test uitvoeren
 
 1. Voer `rake e2e` in.
 
@@ -207,7 +211,74 @@ Als u wilt controleren of Docker werkelijk wordt uitgevoerd, typt u `docker info
 
     ![GESLAAGD](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. Voer `exit` in om de end-to-end-test uit te voeren.
+1. Voer `exit` in om de end-to-end-test te voltooien en sluit de Docker-omgeving.
+
+## <a name="use-yeoman-generator-to-create-and-test-a-module-in-cloud-shell"></a>Yeoman-generator gebruiken om een module te maken en te testen in Cloud Shell
+
+In de vorige sectie hebt u geleerd hoe u een Terraform-module kunt testen met behulp van een Docker-bestand. In deze sectie gebruikt u de Yeoman-generator om een module te maken en te testen in Cloud Shell.
+
+Door Cloud Shell te gebruiken in plaats van een Docker-bestand wordt het proces sterk vereenvoudigd. Cloud Shell gebruiken:
+
+- U hoeft Node.jsnniet te installeren
+- U hoeft Yeoman niet te installeren
+- U hoeft Terraform niet te installeren
+
+Al deze items zijn vooraf geïnstalleerd in Cloud Shell.
+
+### <a name="start-a-cloud-shell-session"></a>Een Cloud Shell-sessie starten
+
+1. Start een Azure Cloud Shell-sessie in de [Azure-portal](https:/portal.azure.com/), op [shell.azure.com](https://shell.azure.com) of in de [mobiele Azure-app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+
+1. De pagina **Welkom bij Azure Cloud Shell** wordt geopend. Selecteer **Bash (Linux)**. (PowerShell wordt niet ondersteund.)
+
+    ![Welkom bij Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
+
+    >[!NOTE]
+    >In dit voorbeeld is Bash (Linux) geselecteerd.
+
+1. Als u nog geen Azure-opslagaccount hebt ingesteld, wordt het volgende scherm weergegeven. Selecteer **Opslag maken**.
+
+    ![U hebt geen opslag gekoppeld](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
+
+1. Azure Cloud Shell wordt in de geselecteerde shell geopend en er wordt informatie weergegeven voor de cloudschijf die zojuist voor u is gemaakt.
+
+    ![Uw cloudschijf is gemaakt](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
+
+### <a name="prepare-a-folder-to-hold-your-terraform-module"></a>Een map voorbereiden om de Terraform-module in op te slaan
+
+1. Bij dit punt aangekomen is GOPATH in Cloud Shell al voor u geconfigureerd in de omgevingsvariabelen. Voer `go env` in om het pad te zien.
+
+1. Maak de map $GOPATH als deze nog niet bestaat: Voer `mkdir ~/go` in.
+
+1. Maak een map in de map $GOPATH: Voer `mkdir ~/go/src` in. Deze map wordt gebruikt om de verschillende projectmappen die u eventueel gaat maken, op te slaan en te ordenen. Bijvoorbeeld de map <uw-modulenaam> die u maakt in de volgende stap.
+
+1. Maak een map om de Terraform-module in op te slaan: Voer `mkdir ~/go/src/<your-module-name>` in.
+
+    >[!NOTE]
+    >In dit voorbeeld hebben we `my-module-name` gekozen als mapnaam.
+
+1. Ga naar de modulemap: Voer `cd ~/go/src/<your-module-name>` in
+
+### <a name="create-and-test-your-terraform-module"></a>De Terraform-module maken en testen
+
+1. Voer `yo az-terra-module` in en volg de instructies in de wizard.
+
+    >[!NOTE]
+    >Wanneer u wordt gevraagd of u de Docker-bestanden wilt maken, kunt u `N` invoeren.
+
+1. Voer `bundle install` in om de afhankelijkheden te installeren.
+
+    Wacht tot het bericht **Bundel voltooid** wordt weergegeven en ga dan verder met de volgende stap.
+
+1. Voer `rake build` in om de module te bouwen.
+
+    ![Rake-build](media/terraform-vscode-module-generator/ymg-rake-build.png)
+
+1. Voer `rake e2e` in om de end-to-end-test uit te voeren.
+
+1. Na enkele ogenblikken wordt het bericht **GESLAAGD** weergegeven.
+
+    ![GESLAAGD](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,24 +15,38 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406463"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633645"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Een Python-app configureren voor Azure App Service met Linux
 
 In dit artikel wordt beschreven hoe Python-apps worden uitgevoerd in [Azure App Service in Linux](app-service-linux-intro.md) en hoe u het gedrag van Azure App Service zo nodig kunt aanpassen.
 
+## <a name="set-python-version"></a>De Python-versie instellen
+
+Er zijn twee basisinstallatiekopieën beschikbaar: Python 3.6 en Python 3.7. U kunt een app maken met de gewenste Python-installatiekopie. Als u bijvoorbeeld een app wilt maken met Python 3.7, voert u de volgende opdracht uit in de Cloud Shell:
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+Als u vervolgens de Python-versie (de installatiekopie) wilt wijzigen naar Python 3.6, voert u de volgende opdracht uit in de Cloud Shell:
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+Als u een andere versie van Python nodig hebt, moet u in plaats daarvan uw eigen containerinstallatiekopie bouwen en implementeren. Voor meer informatie raadpleegt u [Een aangepaste Docker-installatiekopie voor Web App for Containers gebruiken](tutorial-custom-docker-image.md).
+
 ## <a name="container-characteristics"></a>Containerkenmerken
 
-Python-apps die zijn geïmplementeerd in App Service met Linux worden uitgevoerd binnen een Docker-container die is gedefinieerd in de GitHub-opslagplaats [Azure-App-Service/python-container](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Python-apps die zijn geïmplementeerd in App Service met Linux worden uitgevoerd binnen een Docker-container die is gedefinieerd in de GitHub-opslagplaats [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) of [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
 Deze container heeft de volgende kenmerken:
-
-- De basisinstallatiekopie van de container is `python-3.7.0-slim-stretch`. Dat betekent dat apps worden uitgevoerd met Python 3.7. Als u een andere versie van Python nodig hebt, moet u in plaats daarvan uw eigen containerinstallatiekopie bouwen en implementeren. Voor meer informatie raadpleegt u [Een aangepaste Docker-installatiekopie voor Web App for Containers gebruiken](tutorial-custom-docker-image.md).
 
 - Apps worden uitgevoerd met behulp van de [WSGI HTTP-server Gunicorn](http://gunicorn.org/), met de aanvullende argumenten `--bind=0.0.0.0 --timeout 600`.
 

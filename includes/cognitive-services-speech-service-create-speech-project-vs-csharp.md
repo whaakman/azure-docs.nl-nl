@@ -4,49 +4,47 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 8ff8e8341b6f39f66c2cc8014d41d3d3a2918d2b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454529"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285801"
 ---
-1. Open Visual Studio 2017.
- 
-1. Controleer of de werkbelasting voor de **.NET-desktopomgeving** beschikbaar is. Kies **Extra** \> **Hulpmiddelen en onderdelen ophalen** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als de werkbelasting al is ingeschakeld, sluit u het dialoogvenster. 
+1. Start Visual Studio 2017.
 
-    Schakel anders het selectievakje in naast **.NET-desktopontwikkeling** en klik rechtsonder in het dialoogvenster op **Wijzigen**. De installatie van de nieuwe functie kan even duren.
+1. Selecteer in de menubalk van Visual Studio **Extra > Hulpprogramma's ophalen** en zorg ervoor dat de **.Net-desktopontwikkeling**-workload beschikbaar is. Als de workload niet is geïnstalleerd, schakelt u het selectievakje in en klikt u op **Wijzigen** om de installatie te starten. Het downloaden en installeren kan een paar minuten duren.
 
-    ![.NET-desktopontwikkeling inschakelen](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+   Als het selectievakje naast **.NET-desktopontwikkeling** is ingeschakeld, kunt u nu het dialoogvenster sluiten.
 
-1. Maak een nieuwe Visual C#-consoletoepassing. In het dialoogvenster **Nieuw project** in het linkerdeelvenster vouwt u **Geïnstalleerd** \> **Visual C#** \> **Windows-bureaublad** uit en kiest u **Consoletoepassing (.NET Framework)**. Voer als projectnaam *helloworld* in.
+   ![.NET-desktopontwikkeling inschakelen](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+
+1. Vervolgens gaat u een project maken. Selecteer **Bestand > Nieuw > Project** in de menubalk. Selecteer in het linkerdeelvenster van het dialoogvenster de secties **Geïnstalleerd > Visual C# > Windows-bureaublad** en selecteer **Consoletoepassing (.NET Framework)**. Geef dit project de naam *hallowereld*.
 
     ![Visual C#-consoletoepassing maken (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Visual C#-consoletoepassing maken (.NET Framework)")
 
-1. Installeer en bekijk het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget). Klik in Solution Explorer met de rechtermuisknop op de oplossing en kies **NuGet-pakketten beheren voor oplossing**.
+1. Nu het project is ingesteld, moet het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) worden geïnstalleerd en moet er in de code een verwijzing naar het pakket worden opgenomen. Zoek de Solution Explorer en klik met de rechtermuisknop op hallowereld. Selecteer in het menu de optie **NuGet-pakketten beheren...**.
 
-    ![Met de rechtermuisknop klikken op NuGet-pakketten beheren voor oplossing](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "NuGet-pakketten beheren voor oplossing")
+   ![Met de rechtermuisknop klikken op NuGet-pakketten beheren voor oplossing](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "NuGet-pakketten beheren voor oplossing")
 
-1. In de rechterbovenhoek selecteert u in het veld **Pakketbron** de optie **nuget.org**. Zoek het pakket `Microsoft.CognitiveServices.Speech` en installeer het in het project **helloworld**.
+1. Open rechtsboven in NuGet Package Manager de vervolgkeuzelijst **Package Source** en zorg ervoor dat **nuget.org** is geselecteerd. Selecteer **Browse**, zoek naar het pakket `Microsoft.CognitiveServices.Speech` en installeer de laatste stabiele versie.
 
-    ![Het NuGet-pakket Microsoft.CognitiveServices.Speech installeren](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png "NuGet-pakket installeren")
+   ![Het NuGet-pakket Microsoft.CognitiveServices.Speech installeren](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png "NuGet-pakket installeren")
 
-1. Accepteer de weergegeven licentie om te beginnen met het installeren van het NuGet-pakket.
+1. Accepteer alle overeenkomsten en licenties om de installatie te starten.
 
-    ![Accepteer de licentie](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accepteer de licentie")
+   ![Accepteer de licentie](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accepteer de licentie")
 
-    Wanneer het pakket is geïnstalleerd, wordt er een bevestiging weergegeven in de Package Manager-console.
+    Nadat het pakket is geïnstalleerd, wordt er een bevestiging weergegeven in de Package Manager-console.
 
-1. Maak via Configuration Manager een platformconfiguratie die overeenkomt met de architectuur van uw pc. Selecteer **Bouwen** > **Configuration Manager**.
+1. De volgende stap is het maken van een platformconfiguratie die overeenkomt met de architectuur van de computer waarmee u de consoletoepassing wilt bouwen en uitvoeren. Selecteer **Build** > **Configuration Manager...** in de menubalk.
 
     ![Configuration Manager openen](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-05-cfg-manager-click.png "Configuration Manager openen")
 
-1. In het **Configuration Manager**-dialoogvenster voegt u een nieuw platform toe. In de vervolgkeuzelijst **Platform actieve oplossing** selecteert u **Nieuw**.
+1. Open in het dialoogvenster **Configuration Manager** de vervolgkeuzelijst **Active solution platform** en selecteer **New**.
 
     ![Een nieuw platform toevoegen in het Configuration Manager-venster](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-06-cfg-manager-new.png "Een nieuw platform toevoegen in het Configuration Manager-venster")
 
-1. Als u 64-bits Windows uitvoert, maakt u een nieuwe platformconfiguratie met de naam `x64`. Als u 32-bits Windows uitvoert, maakt u een nieuwe platformconfiguratie met de naam `x86`.
+1. Als u met Windows 64-bits werkt en u de melding **Typ of selecteer het nieuwe platform** ziet, selecteert u `x64`. Werkt u met Windows 32-bits, selecteer dan `x86`. Als u klaar bent, klikt u op **OK**.
 
     ![In 64-bits Windows voegt u een nieuw platform toe met de naam x64](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-07-cfg-manager-add-x64.png "Het platform x64 toevoegen")
-
-

@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816647"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622531"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Snelstart: Het inhoudspakket voor Microsoft Azure Active Directory Power BI installeren
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816647"
 |Op dit moment maakt het inhoudspakket voor Microsoft Azure AD Power BI gebruik van de Azure AD Graph-API's om gegevens op te halen uit uw Azure AD-tenant. Hierdoor ziet u mogelijk enkele verschillen tussen de gegevens die beschikbaar zijn in het inhoudspakket en de gegevens die worden opgehaald met de [Microsoft Graph-API's voor rapportage](concept-reporting-api.md). |
 |  |
 
-Het Power BI-inhoudspakket voor Azure Active Directory biedt u de mogelijkheid om meer inzicht te krijgen in de bewerkingen met Active Directory. U kunt het vooraf gemaakte inhoudspakket downloaden en dit gebruiken om alle activiteiten in de map te rapporteren met behulp van de krachtige visualisatie-ervaring van Power BI. U kunt ook uw eigen dashboard maken en dit dashboard vervolgens eenvoudig delen met andere personen binnen uw organisatie. 
+Het Power BI-inhoudspakket voor Azure AD (Azure Active Directory) biedt u de mogelijkheid om de rapportgegevens van uw omgeving te visualiseren. U kunt het vooraf gemaakte inhoudspakket downloaden en dit gebruiken om alle activiteiten in de map te rapporteren met behulp van de krachtige visualisatie-ervaring van Power BI. U kunt ook uw eigen dashboard maken en dit dashboard vervolgens eenvoudig delen met andere personen binnen uw organisatie. 
 
 In deze snelstartgids leert u hoe u het inhoudspakket installeert.
 

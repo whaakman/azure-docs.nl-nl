@@ -10,12 +10,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: d500a5cab4373d21b729a177ef847c40c2f4211b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354016"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566445"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Een Azure Database for MariaDB-server maken met behulp van de Azure CLI
 
@@ -59,7 +59,7 @@ ssl-enforcement | **Ingeschakeld** | Of SSL moet worden ingeschakeld voor deze s
 storage-size | **51200** | De opslagcapaciteit van de server (de eenheid is MB). Geldige opslagruimten zijn 5.120 MB (minimaal) met verhogingen in stappen van 1024 MB. Zie [Prijscategorieën](./concepts-pricing-tiers.md) voor meer informatie over de opslaglimieten. 
 versie | **10.2** | De versie van de hoofd-engine van MariaDB.
 admin-user | **myadmin** | De gebruikersnaam voor aanmelding als beheerder. De parameter voor **admin-user** kan niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
-admin-password | *uw wachtwoord* | Het wachtwoord van het beheerdersaccount. Uw wachtwoord moet tussen 8 en 128 tekens bevatten. Het moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens.
+admin-password | *Uw wachtwoord* | Het wachtwoord van het beheerdersaccount. Uw wachtwoord moet tussen 8 en 128 tekens bevatten. Het moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens.
 
 De parameterwaarde voor de **sku-naam** volgt de conventie *prijscategorie*\_*compute-bewerking*\_*vCores*, zoals te zien is in de onderstaande voorbeelden:
 + `--sku-name B_Gen5_4` wordt toegewezen aan de prijscategorie Basic, de Gen 5-bewerking voor compute en 4 vCores.
@@ -212,11 +212,11 @@ Maak als volgt verbinding met de server met het opdrachtregelprogramma mysql:
   | Instelling | Voorgestelde waarde | Beschrijving |
   |---|---|---|
   | Verbindingsnaam | **Demoverbinding** | Geef een label op voor deze verbinding (de verbindingsnaam kan van alles zijn) |
-  | Verbindingsmethode | **Standaard (TCP/IP)** | Gebruik het TCP/IP-protocol om verbinding te maken met Azure Database for MariaDB |
+  | Verbindingsmethode | **Standard (TCP/IP)** | Gebruik het TCP/IP-protocol om verbinding te maken met Azure Database for MariaDB |
   | Hostnaam | **mydemoserver.mariadb.database.azure.com** | De servernaam die u eerder hebt genoteerd. |
   | Poort | **3306** | De standaardpoort voor Azure Database for MariaDB. |
   | Gebruikersnaam | **myadmin@mydemoserver** | De serverbeheerdersnaam die u eerder hebt genoteerd. |
-  | Wachtwoord | *uw wachtwoord* | Gebruik het beheerdersaccountwachtwoord voor het beheerdersaccount dat u eerder hebt ingesteld. |
+  | Wachtwoord | *Uw wachtwoord* | Gebruik het beheerdersaccountwachtwoord voor het beheerdersaccount dat u eerder hebt ingesteld. |
 
 3. Selecteer **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd.
 
@@ -236,9 +236,7 @@ Als u alleen de server wilt verwijderen die u hebt gemaakt in deze snelstart, vo
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-<!--
-## Next steps
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-using-cli.md)
--->
+> [Een MariaDB-database ontwerpen met Azure CLI](./tutorial-design-database-cli.md)

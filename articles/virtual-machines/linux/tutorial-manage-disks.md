@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978315"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685367"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Zelfstudie: Azure-schijven beheren met de Azure CLI
 
@@ -36,9 +36,6 @@ Virtuele machines (VM's) in Azure gebruiken schijven om het besturingssysteem, t
 > * De grootte van schijven wijzigen
 > * Momentopnamen van schijven
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="default-azure-disks"></a>Standaard Azure-schijven
 
@@ -48,35 +45,15 @@ Wanneer een virtuele Azure-machine wordt gemaakt, worden automatisch twee schijv
 
 **Tijdelijke schijf**: tijdelijke schijven gebruiken een SSD-schijf die zich op dezelfde Azure-host bevindt als de virtuele machine. Tijdelijke schijven leveren zeer goede prestaties en kunnen worden gebruikt voor bewerkingen als tijdelijke gegevensverwerking. Als de virtuele machine wordt verplaatst naar een nieuwe host, worden gegevens die zijn opgeslagen op een tijdelijke schijf echter verwijderd. De grootte van de tijdelijke schijf wordt bepaald door de VM-grootte. Tijdelijke schijven zijn gelabeld als */dev/sdb* en hebben een koppelpunt van */mnt*.
 
-### <a name="temporary-disk-sizes"></a>Groottes van tijdelijke schijven
-
-| Type | Veelgebruikte grootten | Maximumgrootte van tijdelijke schijf (GiB) |
-|----|----|----|
-| [Algemeen doel](sizes-general.md) | A-, B- en D-serie | 1600 |
-| [Geoptimaliseerde rekenkracht](sizes-compute.md) | F-serie | 576 |
-| [Geoptimaliseerd geheugen](sizes-memory.md) | D-, E-, G- en M-serie | 6144 |
-| [Geoptimaliseerde opslag](sizes-storage.md) | L-serie | 5630 |
-| [GPU](sizes-gpu.md) | N-serie | 1440 |
-| [Hoge prestaties](sizes-hpc.md) | A- en H-serie | 2000 |
 
 ## <a name="azure-data-disks"></a>Azure-gegevensschijven
 
-Voor de installatie van toepassingen en de opslag van gegevens kunnen extra gegevensschijven worden toegevoegd. Gegevensschijven moeten worden gebruikt in situaties waarin duurzame en responsieve gegevensopslag gewenst is. Elke gegevensschijf heeft een maximale capaciteit van 4 TB. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven aan een virtuele machine kunnen worden gekoppeld. Voor elke VM-vCPU kunnen twee schijven worden gekoppeld.
+Voor de installatie van toepassingen en de opslag van gegevens kunnen extra gegevensschijven worden toegevoegd. Gegevensschijven moeten worden gebruikt in situaties waarin duurzame en responsieve gegevensopslag gewenst is. Elke gegevensschijf heeft een maximale capaciteit van 4 TB. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven aan een virtuele machine kunnen worden gekoppeld. Voor elke VM-vCPU kunnen vier schijven worden gekoppeld.
 
-### <a name="max-data-disks-per-vm"></a>Max. aantal gegevensschijven per VM
-
-| Type | VM-grootte | Max. aantal gegevensschijven per VM |
-|----|----|----|
-| [Algemeen doel](sizes-general.md) | A-, B- en D-serie | 64 |
-| [Geoptimaliseerde rekenkracht](sizes-compute.md) | F-serie | 64 |
-| [Geoptimaliseerd geheugen](../virtual-machines-windows-sizes-memory.md) | D-, E- en G-serie | 64 |
-| [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md) | L-serie | 64 |
-| [GPU](sizes-gpu.md) | N-serie | 64 |
-| [Hoge prestaties](sizes-hpc.md) | A- en H-serie | 64 |
 
 ## <a name="vm-disk-types"></a>Typen VM-schijven
 
-Azure biedt twee typen schijven.
+Azure biedt twee typen schijven: Standard en Premium.
 
 ### <a name="standard-disk"></a>Standard-schijf
 
@@ -88,13 +65,20 @@ Premium-schijven worden ondersteund door hoogwaardige schijven met een lage late
 
 ### <a name="premium-disk-performance"></a>Prestaties Premium-schijf
 
-|Schijftype voor Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Schijfgrootte (afronden) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Max. aantal IOP's per schijf | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
-Doorvoer per schijf | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
+|Schijftype voor Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Schijfgrootte (afronden) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB)
+| Max. aantal IOP's per schijf | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
+Doorvoer per schijf | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
 
 In de bovenstaande tabel wordt het max. IOP's per schijf aangegeven, maar er kan een hoger prestatieniveau worden bereikt door striping van meerdere gegevensschijven. Een virtuele machine van het type Standard_GS5 kan bijvoorbeeld maximaal 80.000 IOPS bereiken. Zie [Linux VM-grootten](sizes.md) voor gedetailleerde informatie over het maximum aantal IOP's per VM.
+
+
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
+
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. 
+
+Als u Cloud Shell wilt openen, selecteert u **Proberen** in de rechterbovenhoek van een codeblok. U kunt Cloud Shell ook openen in een afzonderlijk browsertabblad door naar [https://shell.azure.com/powershell](https://shell.azure.com/bash) te gaan. Klik op **Kopiëren** om de codeblokken te kopiëren, plak deze in Cloud Shell en druk vervolgens op Enter om de code uit te voeren.
 
 ## <a name="create-and-attach-disks"></a>Schijven maken en koppelen
 
@@ -116,7 +100,6 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
@@ -139,7 +122,6 @@ az vm disk attach \
 
 Wanneer een schijf is gekoppeld aan de virtuele machine, moet het besturingssysteem worden geconfigureerd voor gebruik van de schijf. Het volgende voorbeeld laat zien hoe u een schijf handmatig configureert. Dit proces kan ook worden geautomatiseerd met behulp van cloud-init, wat wordt beschreven in een [latere zelfstudie](./tutorial-automate-vm-deployment.md).
 
-### <a name="manual-configuration"></a>Handmatige configuratie
 
 Maak een SSH-verbinding met de virtuele machine. Vervang het voorbeeld van een IP-adres door het openbare IP-adres van de virtuele machine.
 
@@ -204,42 +186,10 @@ Nu de schijf is geconfigureerd, sluit u de SSH-sessie.
 exit
 ```
 
-## <a name="resize-vm-disk"></a>Grootte van VM-schijf wijzigen
 
-Wanneer een virtuele machine is geïmplementeerd, kunnen het besturingssysteem of aangesloten gegevensschijven worden vergroot. Het vergroten van een schijf is handig wanneer u meer opslagruimte of betere prestaties (zoals P10, P20, P30) nodig hebt. Schijven kunnen niet worden verkleind.
+## <a name="snapshot-a-disk"></a>Een momentopname maken van een schijf
 
-U hebt de naam of id van de schijf nodig om de grootte ervan te kunnen wijzigen. Gebruik de opdracht [az disk list](/cli/azure/disk#az-disk-list) om alle schijven in een resourcegroep te retourneren. Noteer de naam van de schijf die u wilt vergroten of verkleinen.
-
-```azurecli-interactive
-az disk list \
-    --resource-group myResourceGroupDisk \
-    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-    --output table
-```
-
-De toewijzing van de virtuele machine moet ongedaan worden gemaakt. Gebruik de opdracht [az vm deallocate](/cli/azure/vm#az-vm-deallocate) om de virtuele machine te stoppen en de toewijzing van de virtuele machine ongedaan te maken.
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroupDisk --name myVM
-```
-
-Gebruik de opdracht [az disk update](/cli/azure/vm/disk#az-vm-disk-update) om de grootte van de schijf te wijzigen. In dit voorbeeld wordt de grootte van een schijf met de naam *myDataDisk* gewijzigd in 1 terabyte.
-
-```azurecli-interactive
-az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
-```
-
-Nadat de grootte is gewijzigd, start u de virtuele machine.
-
-```azurecli-interactive
-az vm start --resource-group myResourceGroupDisk --name myVM
-```
-
-Als u de grootte van de besturingssysteemschijf wijzigt, wordt de partitie automatisch uitgebreid. Als u de grootte van een gegevensschijf wijzigt, moeten alle huidige partities worden uitgebreid in het besturingssysteem van de virtuele machine.
-
-## <a name="snapshot-azure-disks"></a>Momentopname maken van Azure-schijven
-
-Wanneer u een momentopname van de schijf maakt, maakt Azure een alleen-lezen en tijdgebonden kopie van de schijf. Azure VM-momentopnamen zijn handig om snel de status van een virtuele machine op te slaan voordat u configuratiewijzigingen aanbrengt. Als configuratiewijzigingen ongewenst blijken te zijn, kan de status van de virtuele machine worden hersteld met behulp van de momentopname. Wanneer een virtuele machine meer dan één schijf heeft, wordt van elke schijf een momentopname gemaakt, onafhankelijk van de andere schijven. Overweeg de virtuele machine te stoppen voordat u momentopnamen van de schijf maakt, zodat u toepassingsconsistente back-ups kunt maken. U kunt ook de [Azure Backup-service](/azure/backup/) gebruiken, waarmee u automatische back-ups kunt maken terwijl de virtuele machine wordt uitgevoerd.
+Wanneer u een momentopname van de schijf maakt, maakt Azure een alleen-lezen en tijdgebonden kopie van de schijf. Azure VM-momentopnamen zijn handig om snel de status van een virtuele machine op te slaan voordat u configuratiewijzigingen aanbrengt. Bij een probleem of fout kan de virtuele machine worden hersteld met behulp van een momentopname. Wanneer een virtuele machine meer dan één schijf heeft, wordt van elke schijf een momentopname gemaakt, onafhankelijk van de andere schijven. Overweeg de virtuele machine te stoppen voordat u momentopnamen van de schijf maakt, zodat u toepassingsconsistente back-ups kunt maken. U kunt ook de [Azure Backup-service](/azure/backup/) gebruiken, waarmee u automatische back-ups kunt maken terwijl de virtuele machine wordt uitgevoerd.
 
 ### <a name="create-snapshot"></a>Momentopname maken
 

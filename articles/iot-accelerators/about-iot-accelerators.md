@@ -1,40 +1,40 @@
 ---
-title: Inleiding tot IoT-oplossingsverbeteringen van Microsoft Azure | Microsoft Docs
-description: Hier vindt u informatie over Azure IoT-oplossingsverbeteringen. IoT-oplossingsverbeteringen zijn volledige, end-to-end, kant-en-klare IoT-oplossingen.
+title: Inleiding tot IoT-oplossingsversnellers van Microsoft Azure | Microsoft Docs
+description: Hier vindt u informatie over Azure IoT-oplossingsversnellers. IoT-oplossingsversnellers zijn volledige, end-to-end, kant-en-klare IoT-oplossingen.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/24/2018
+ms.date: 11/09/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308109"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345110"
 ---
-# <a name="what-are-azure-iot-solution-accelerators"></a>Wat zijn Azure IoT-oplossingsverbeteringen?
+# <a name="what-are-azure-iot-solution-accelerators"></a>Wat zijn Azure IoT-oplossingsversnellers?
 
-Een IoT-cloudoplossing maakt doorgaans gebruik van aangepaste code en meerdere cloudservices om connectiviteit, gegevensverwerking en analyses en presentatie van apparaten te beheren.
+Een IoT-cloudoplossing maakt doorgaans gebruik van aangepaste code en cloudservices om connectiviteit, gegevensverwerking en analyses en presentatie van apparaten te beheren.
 
-De IoT-oplossingsverbeteringen zijn een verzameling volledige, kant-en-klare IoT-oplossingen voor het implementeren van algemene IoT-scenario's zoals externe controle, verbonden factory, predictief onderhoud en apparaatsimulatie. Wanneer u een oplossingsversneller implementeert, bevat de implementatie alle vereiste cloudservices samen met de vereiste toepassingscode.
+De IoT-oplossingsverbeteringen zijn complete, eenvoudig te implementeren IoT-oplossingen waarmee veelvoorkomende IoT-scenario's kunnen worden geïmplementeerd. De scenario's zijn onder meer externe bewaking, verbonden factory, predictief onderhoud en apparaatsimulatie. Wanneer u een oplossingsversneller implementeert, bevat de implementatie alle vereiste cloudservices samen met de vereiste toepassingscode.
 
-De oplossingsverbeteringen vormen het startpunt voor uw eigen IoT-oplossingen. De broncode voor alle oplossingsverbeteringen is open-source en beschikbaar in GitHub. U wordt aangeraden om de oplossingsverbeteringen te downloaden en aan te passen zodat ze voldoen aan uw vereisten.
+De oplossingsversnellers vormen het startpunt voor uw eigen IoT-oplossingen. De broncode voor alle oplossingsversnellers is open-source en beschikbaar in GitHub. U wordt aangeraden om de oplossingsverbeteringen te downloaden en aan te passen zodat ze voldoen aan uw vereisten.
 
-U kunt de oplossingsverbeteringen ook gebruiken als leermiddelen voordat u helemaal uw eigen IoT-oplossing gaat maken. De oplossingsverbeteringen implementeren bewezen procedures voor IoT-cloudoplossingen die u kunt volgen.
+U kunt de oplossingsversnellers ook gebruiken als leermiddelen voordat u helemaal uw eigen IoT-oplossing gaat maken. De oplossingsversnellers implementeren bewezen procedures voor IoT-cloudoplossingen die u kunt volgen.
 
 De toepassingscode in elke oplossingsverbetering bevat een web-app waarmee u de oplossingsverbetering beheren.
 
 ## <a name="supported-iot-scenarios"></a>Ondersteunde IoT-scenario's
 
-Er zijn momenteel vier oplossingsverbeteringen beschikbaar die u kunt implementeren:
+Er zijn momenteel vier oplossingsversnellers beschikbaar die u kunt implementeren:
 
-### <a name="remote-monitoring"></a>Externe controle
+### <a name="remote-monitoring"></a>Externe bewaking
 
-Gebruik deze oplossingsversneller voor het verzamelen van telemetrie van meerdere externe apparaten en om deze te beheren. Voorbeelden zijn koelingssystemen die zijn geïnstalleerd op de locatie van uw klanten of kleppen die zijn geïnstalleerd in externe pompstations.
+Gebruik deze oplossingsversneller voor het verzamelen van telemetrie van externe apparaten en om deze te beheren. Voorbeelden zijn koelingssystemen die zijn geïnstalleerd op de locatie van uw klanten of kleppen die zijn geïnstalleerd in externe pompstations.
 
 U kunt het dashboard voor externe controle gebruiken om de telemetrie van verbonden apparaten te bekijken, nieuwe apparaten in te richten of de firmware op verbonden apparaten bij te werken:
 
@@ -58,7 +58,7 @@ U kunt het dashboard voor predictief onderhoud gebruiken om de analyse voor pred
 
 ### <a name="device-simulation"></a>Apparaatsimulatie
 
-Gebruik deze oplossingsversneller voor het laten draaien van meerdere gesimuleerde apparaten die realistische telemetriegegevens genereren. U kunt deze oplossingsverbeteringen gebruiken voor het testen van het gedrag van de andere oplossingsverbeteringen of voor het testen van uw eigen aangepaste IoT-oplossingen.
+Gebruik deze oplossingsversneller voor het laten draaien van gesimuleerde apparaten die realistische telemetriegegevens genereren. U kunt deze oplossingsversneller gebruiken voor het testen van het gedrag van de andere oplossingsversnellers of voor het testen van uw eigen aangepaste IoT-oplossingen.
 
 U kunt de web-app voor apparaatsimulatie gebruiken om simulaties te configureren en uit te voeren:
 
@@ -66,7 +66,7 @@ U kunt de web-app voor apparaatsimulatie gebruiken om simulaties te configureren
 
 ## <a name="design-principles"></a>Ontwerpprincipes
 
-Alle oplossingsverbeteringen volgen dezelfde ontwerpprincipes en -doelen. Het ontwerp ervan is:
+Alle oplossingsversnellers volgen dezelfde ontwerpprincipes en -doelen. Het ontwerp ervan is:
 
 * **Schaalbaar**, zodat u verbinding kunt maken met miljoenen verbonden apparaten en deze kunt beheren.
 * **Uitbreidbaar**, zodat u ze kunt aanpassen aan uw behoeften.
@@ -76,11 +76,11 @@ Alle oplossingsverbeteringen volgen dezelfde ontwerpprincipes en -doelen. Het on
 
 ## <a name="architectures-and-languages"></a>Architecturen en talen
 
-De oorspronkelijke oplossingsverbeteringen werden geschreven met behulp van .NET en een model-view-controller (MVC)-architectuur. Microsoft werkt de oplossingsverbeteringen bij met een nieuwe architectuur op basis van microservices. In de volgende tabel wordt de huidige status van de oplossingsverbeteringen weergegeven met koppelingen naar de GitHub-opslagplaatsen:
+De oorspronkelijke oplossingsversnellers werden geschreven met behulp van .NET en een model-view-controller (MVC)-architectuur. Microsoft werkt de oplossingsversnellers bij met een nieuwe architectuur op basis van microservices. In de volgende tabel wordt de huidige status van de oplossingsverbeteringen weergegeven met koppelingen naar de GitHub-opslagplaatsen:
 
 | Oplossingsverbetering   | Architectuur  | Talen     |
 | ---------------------- | ------------- | ------------- |
-| Externe controle      | Microservices | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) en [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
+| Externe bewaking      | Microservices | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) en [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | Predictief onderhoud | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
 | Verbonden factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Apparaatsimulatie      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
@@ -93,7 +93,7 @@ U kunt de oplossingsverbeteringen implementeren op de site [Microsoft Azure IoT-
 
 U kunt de oplossingsverbetering voor externe controle implementeren in de volgende configuraties:
 
-* **Standard:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices naar meerdere virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
+* **Standard:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices in diverse virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
 * **Basic:** voordelige versie voor een demonstratie of het testen van een implementatie. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.
 * **Local:** implementatie op lokale computer voor testen en ontwikkeling. Bij deze aanpak worden de microservices geïmplementeerd op een lokale Docker-container die verbinding maakt met IoT Hub, Azure Cosmos DB en Azure-opslagservices in de cloud.
 

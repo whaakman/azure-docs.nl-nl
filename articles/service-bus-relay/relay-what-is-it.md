@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319333"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621019"
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
-De Azure Relay-service stelt u in staat om services die worden uitgevoerd in uw bedrijfsnetwerk op een veilige manier aan te bieden aan de openbare cloud. U kunt dit doen zonder een firewallverbinding te openen of de infrastructuur van het bedrijfsnetwerk ingrijpend te wijzigen. 
+De Azure Relay-service stelt u in staat om services die worden uitgevoerd in uw bedrijfsnetwerk op een veilige manier aan te bieden aan de openbare cloud. U kunt dit doen zonder een poort in de firewall te openen of de infrastructuur van het bedrijfsnetwerk ingrijpend te wijzigen. 
 
 De Relay-service ondersteunt de volgende scenario's tussen on-premises services en toepassingen die worden uitgevoerd in de cloud of in een andere on-premises omgeving. 
 
@@ -56,7 +56,7 @@ Zie [Azure Relay Hybrid Connections-protocol](relay-hybrid-connections-protocol.
 > De functie voor hybride verbindingen van Azure Relay vervangt de oude functie voor hybride verbindingen van BizTalk Services. De functie voor hybride verbindingen in BizTalk Services was gebaseerd op Azure Service Bus WCF Relay. De voorziening voor hybride verbindingen in Azure Relay is een aanvulling op de eerder bestaande WCF Relay. De mogelijkheden van deze twee services (WCF Relay en Hybride verbindingen) bestaan naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
 
 ## <a name="wcf-relay"></a>WCF-relay
-WCF Relay werkt met het volledige .NET Framework en voor WCF. U zet een verbinding op tussen uw on-premises service en de Relay-service met behulp van een reeks WCF 'Relay'-bindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. Zie [Aan de slag met WCF-relay](relay-wcf-dotnet-get-started.md) voor meer informatie.
+WCF Relay werkt met het volledige .NET Framework en voor WCF. U zet een verbinding op tussen uw on-premises service en de Relay-service met behulp van een reeks WCF 'Relay'-bindingen. De Relay-bindingen worden toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. Zie [Aan de slag met WCF-relay](relay-wcf-dotnet-get-started.md) voor meer informatie.
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Hybride verbindingen versus WCF-relay
 Zowel met hybride verbindingen als met WCF Relay wordt een beveiligde verbinding opgezet met assets die bestaan binnen een bedrijfsnetwerk. Of u de ene of de andere methode gebruikt is afhankelijk van uw specifieke behoeften, zoals wordt beschreven in de volgende tabel:
@@ -68,7 +68,7 @@ Zowel met hybride verbindingen als met WCF Relay wordt een beveiligde verbinding
 | **.NET Framework** |x |x |
 | **Java script/Node.JS** | |x |
 | **Open protocol op basis van standaarden** | |x |
-| **Meerdere RPC-programmeringsmodellen** | |x |
+| **RPC-programmeringsmodellen** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architectuur: verwerken van inkomende relay-aanvragen
 Het volgende diagram laat zien hoe binnenkomende relay-aanvragen worden verwerkt door de Azure Relay-service:
@@ -86,9 +86,9 @@ Het volgende diagram laat zien hoe binnenkomende relay-aanvragen worden verwerkt
 9. De gateway stuurt berichten van de verzendende client door naar de luisterende client.  
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Aan de slag met .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
+* [Aan de slag met .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 * [Aan de slag met .NET HTTP Requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Aan de slag met Node Websockets](relay-hybrid-connections-node-get-started.md)
+* [Aan de slag met Node WebSockets](relay-hybrid-connections-node-get-started.md)
 * [Aan de slag met Node HTTP Requests](relay-hybrid-connections-http-requests-node-get-started.md)
 * [Veelgestelde vragen over Relay](relay-faq.md)
 

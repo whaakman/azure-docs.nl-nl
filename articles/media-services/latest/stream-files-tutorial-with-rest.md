@@ -1,5 +1,5 @@
 ---
-title: Uploaden, coderen en streamen met Azure Media Services | Microsoft Docs
+title: Uploaden, coderen en streamen met Azure Media Services - REST | Microsoft Docs
 description: Volg de stappen van deze zelfstudie om met behulp van REST een bestand te uploaden, een video te coderen en inhoud te streamen met Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377424"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615769"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Zelfstudie: Video's uploaden, coderen en streamen met REST
 
-In deze zelfstudie ziet u hoe u videobestanden kunt uploaden, coderen en streamen met Azure Media Services.
+Met Azure Media Services kunt u mediabestanden coderen in indelingen die kunnen worden afgespeeld met een groot aantal verschillende browsers en apparaten. Zo kunt u bijvoorbeeld inhoud streamen in de indelingen Apple HLS of MPEG DASH. Voordat u gaat streamen, moet u uw digitale mediabestand van hoge kwaliteit coderen. Zie [Encoding](encoding-concept.md) voor richtlijnen voor codering.
 
-Met Media Services kunt u uw mediabestanden coderen in indelingen die kunnen worden afgespeeld op een groot aantal verschillende browsers en apparaten. Zo kunt u bijvoorbeeld inhoud streamen in de indelingen Apple HLS of MPEG DASH. Voordat u gaat streamen, moet u uw digitale mediabestand van hoge kwaliteit coderen. Zie [Encoding](encoding-concept.md) voor richtlijnen voor codering.
+In deze zelfstudie ziet u hoe u videobestanden kunt uploaden, coderen en streamen met Azure Media Services met behulp van REST. 
 
 ![De video afspelen](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ In deze zelfstudie ontdekt u hoe u:
 
 ## <a name="prerequisites"></a>Vereisten
 
+- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+
+    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
+
+- [Een Azure Media Services-account maken](create-account-cli-how-to.md).
+
+    Vergeet niet welke waarden u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account
+
 - Installeer de [Postman](https://www.getpostman.com/) REST-client als u de REST-API's wilt uitvoeren die in een aantal AMS REST-zelfstudies worden weergegeven. 
 
     We gebruiken **Postman** maar elk ander REST-hulpprogramma is hiervoor geschikt. Andere alternatieven zijn: **Visual Studio Code** met de REST-invoegtoepassing of **Telerik Fiddler**. 
@@ -53,10 +61,6 @@ Kloon een GitHub-opslagplaats die de Postman verzameling en -omgevingsbestanden 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -316,7 +320,7 @@ In deze sectie gaat u een URL voor HLS-streaming maken. URL's bestaan uit de vol
 
 2. De hostnaam van het StreamingEndpoint. In dit geval is de naam 'amsaccount-usw22.streaming.media.azure.net'.
 
-    U kunt de volgende GET-bewerking gebruiken om de hostnaam te verkrijgen:
+    U kunt de volgende GET-bewerking gebruiken om de hostnaam op te halen:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
@@ -352,11 +356,11 @@ Als u een resource wilt verwijderen, selecteert u de Delete-bewerking onder de r
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van de Media Services en opslagaccounts die u hebt gemaakt voor deze zelfstudie, verwijdert u de resourcegroep die u eerder hebt gemaakt. U kunt het hulpprogramma **CloudShell** gebruiken.
+Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van de Media Services en opslagaccounts die u hebt gemaakt voor deze zelfstudie, verwijdert u de resourcegroep die u eerder hebt gemaakt.  
 
-Voer in **CloudShell** de volgende opdracht uit:
+Voer de volgende CLI-opdracht uit:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342204"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636586"
 ---
 # <a name="what-is-azure-service-bus"></a>Wat is Azure Service Bus?
 
@@ -39,7 +39,7 @@ Berichten worden verzonden naar en ontvangen van *wachtrijen*. Wachtrijen maken 
 
 ![Wachtrij](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Berichten in wachtrijen worden bij ontvangst geordend en voorzien van een tijdstempel. Als een bericht is geaccepteerd, wordt het veilig ondergebracht in redundante opslag. Berichten worden afgeleverd in *pull*-modus, wat inhoudt dat berichten op aanvraag worden bezorgd.
+Berichten in wachtrijen worden bij ontvangst geordend en voorzien van een tijdstempel. Als een bericht is geaccepteerd, wordt het veilig ondergebracht in redundante opslag. Berichten worden afgeleverd in de  *pull*-modus, wat inhoudt dat berichten op aanvraag worden bezorgd.
 
 ## <a name="topics"></a>Onderwerpen
 
@@ -93,7 +93,7 @@ Abonnees kunnen definiëren welke berichten ze willen ontvangen van een onderwer
 
 ### <a name="duplicate-detection"></a>Detectie van duplicaten
 
-Als er een fout optreedt die tot gevolg heeft dat er bij de client twijfel is over de uitkomst van een verzendbewerking, neemt [duplicaatdetectie](duplicate-detection.md) deze twijfel weg door de afzender in staat te stellen hetzelfde bericht nogmaals te verzenden. Eventuele dubbele exemplaren worden hierbij verwijdert door de wachtrij of het onderwerp.
+Als er een fout optreedt die tot gevolg heeft dat er bij de client twijfel is over de uitkomst van een verzendbewerking, neemt [duplicaatdetectie](duplicate-detection.md) deze twijfel weg door de afzender in staat te stellen hetzelfde bericht nogmaals te verzenden. Eventuele dubbele exemplaren worden hierbij verwijderd door de wachtrij of het onderwerp.
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC en beheerde identiteiten voor Azure-resources
 
@@ -115,9 +115,9 @@ Service Bus ondersteunt clientbibliotheken voor [.NET](https://github.com/Azure/
 
 Service Bus kan volledig worden geïntegreerd met de volgende Azure-services:
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Functies](https://azure.microsoft.com/services/functions/) 
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Functies](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
