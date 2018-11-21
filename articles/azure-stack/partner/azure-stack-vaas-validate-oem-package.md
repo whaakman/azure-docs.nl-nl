@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646648"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261799"
 ---
 # <a name="validate-oem-packages"></a>OEM-pakketten valideren
 
@@ -58,22 +58,17 @@ Bij het maken van een **validatie van het pakket** werkstroom in de portal VaaS,
 
 #### <a name="option-1-generating-an-account-sas-url"></a>Optie 1: Genereren van een account-SAS-URL
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. In de [Azure-portal](https://portal.azure.com/), gaat u naar uw storage-account en navigeer naar de ZIP met uw pakket
 
-1. Selecteer **Blob** van **toegestane Services opties**. Schakel alle overige opties uit.
+2. Selecteer **SAS genereren** in het contextmenu
 
-1. Selecteer **Container** en **Object** van **toegestane resourcetypen**. Schakel alle overige opties uit.
+3. Selecteer **lezen** van **machtigingen**
 
-1. Selecteer **lezen** en **lijst** van **toegestane machtigingen**. Schakel alle overige opties uit.
+4. Instellen **begintijd** op de huidige tijd en **eindtijd** aan ten minste 48 uur vanaf **begintijd**. Als u andere tests worden uitgevoerd met hetzelfde pakket, kunt u overwegen verhogen **eindtijd** voor de lengte van de test. Alle tests gepland via VaaS na **eindtijd** zal mislukken en een nieuwe SAS moet worden gegenereerd.
 
-1. Stel **begintijd** op de huidige tijd en **eindtijd** naar één uur van de huidige tijd.
+5. Selecteer **blob SAS-token en URL genereren**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Dit is hoe de indeling moet worden weergegeven: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Wijzigen van de gegenereerde SAS-URL om op te nemen van de container pakket `{containername}`, en de naam van uw blob pakket `{mypackage.zip}`, als volgt:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Deze waarde gebruiken bij het starten van een nieuwe **validatie van het pakket** werkstroom in de portal VaaS.
+Gebruik **Blob SAS-URL** bij het starten van een nieuwe **validatie van het pakket** werkstroom in de portal VaaS.
 
 #### <a name="option-2-using-public-read-container"></a>Optie 2: Met behulp van openbare lezen container
 

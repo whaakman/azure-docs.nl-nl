@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966948"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275578"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met behulp van opgeslagen procedure-activiteit in Azure Data Factory
 In dit artikel wordt beschreven hoe u een SSIS-pakket van een Azure Data Factory-pijplijn aanroepen met behulp van een opgeslagen procedure-activiteit. 
@@ -115,7 +115,7 @@ Dit wordt een dummy-gegevensset die het schema van de pijplijn stuurt. U ziet da
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Een pijplijn maken met de opgeslagen procedure-activiteit 
 In deze stap maakt maken u een pijplijn met een opgeslagen procedure-activiteit. De activiteit roept de sp_executesql opgeslagen procedure voor het uitvoeren van uw SSIS-pakket. 
 
-1. Klik in het linkerdeelvenster op **... Meer** en vervolgens op **Nieuwe pijplijn**.
+1. Klik in het linkerdeelvenster op **... Meer** en vervolgens op **Nieuwe pijplijn.
 2. Kopieer de volgende JSON-fragment in de JSON-editor: 
 
     > [!IMPORTANT]
@@ -236,7 +236,7 @@ Een gekoppelde service koppelt uw Azure SQL-database die als host fungeert de SS
 ### <a name="create-an-output-dataset"></a>Een uitvoergegevensset maken
 Dit wordt een dummy-gegevensset die het schema van de pijplijn stuurt. U ziet dat de frequentie is ingesteld op elk uur en interval is ingesteld op 1. Daarom de pijplijn eenmaal per uur in de pijplijn start- en eindtijden uitgevoerd. 
 
-1. Maak een OuputDataset.json-bestand met de volgende inhoud: 
+1. Maak een OutputDataset.json-bestand met de volgende inhoud: 
     
     ```json
     {
