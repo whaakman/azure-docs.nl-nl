@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: c0d9494d24feaee80a9be92f047ca1d91d42c82c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452221"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276462"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>De versie 2 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 De Custom Script Extension versie 2 downloads en scripts uitvoeren op Azure virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden via Azure Storage of een andere toegankelijke internetlocatie of u ze aan de extensie-runtime kunt leveren. 
@@ -92,7 +92,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":123456789,          
+      "timestamp":123456789          
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",
@@ -109,7 +109,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 
 | Naam | Waarde / voorbeeld | Gegevenstype | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | Uitgever | Microsoft.Compute.Extensions | tekenreeks |
 | type | CustomScript | tekenreeks |
 | typeHandlerVersion | 2.0 | int |

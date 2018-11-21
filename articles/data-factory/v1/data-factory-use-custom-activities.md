@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730709"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275999"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -212,7 +212,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
         foreach (LinkedService ls in linkedServices)
             logger.Write("linkedService.Name {0}", ls.Name);
     
-        // get the first Azure Storate linked service from linkedServices object
+        // get the first Azure Storage linked service from linkedServices object
         // using First method instead of Single since we are using the same
         // Azure Storage linked service for input and output.
         inputLinkedService = linkedServices.First(
@@ -358,7 +358,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
     }
     ```
 
-    De methode GetFolderPath retourneert het pad naar de map die de gegevensset naar wijst en de getfilename,-methode retourneert de naam van de blob /-bestand dat de gegevensset naar wijst. Als u havefolderPath gedefinieerd met behulp van de variabelen zoals {Year}, {Month}, {Day} enz., de methode retourneert de tekenreeks als deze is zonder deze te vervangen door waarden van de runtime. Zie [toegang tot uitgebreide eigenschappen](#access-extended-properties) sectie voor meer informatie over het openen van de slicestart-waarde, SliceEnd, enzovoort.    
+    De methode GetFolderPath retourneert het pad naar de map die de gegevensset naar wijst en de getfilename,-methode retourneert de naam van de blob /-bestand dat de gegevensset naar wijst. Als u folderPath hebt gedefinieerd met behulp van de variabelen zoals {Year}, {Month}, {Day} enz., de methode retourneert de tekenreeks als deze is zonder deze te vervangen door waarden van de runtime. Zie [toegang tot uitgebreide eigenschappen](#access-extended-properties) sectie voor meer informatie over het openen van de slicestart-waarde, SliceEnd, enzovoort.    
 
     ```JSON
     "name": "InputDataset",
@@ -640,7 +640,7 @@ In deze stap maakt u gegevenssets voor invoer-en uitvoergegevens.
    ![Uitvoersegmenten](./media/data-factory-use-custom-activities/OutputSlices.png)
 4. Controleer of dat de uitvoerbestanden worden gegenereerd in de blob-opslag in de **adftutorial** container.
 
-   ![uitvoer van de aangepaste activiteit][image-data-factory-ouput-from-custom-activity]
+   ![uitvoer van de aangepaste activiteit][image-data-factory-output-from-custom-activity]
 5. Als u het uitvoerbestand opent, ziet u de uitvoer is vergelijkbaar met de volgende uitvoer:
 
     ```
@@ -1063,6 +1063,6 @@ De [Azure Data Factory - lokale omgeving](https://github.com/gbrueckl/Azure.Data
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
 
-[image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
+[image-data-factory-output-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png

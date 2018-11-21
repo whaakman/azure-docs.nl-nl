@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054729"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262550"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Een Linux CentOS Data Science Virtual Machine op Azure inrichten
 
@@ -77,7 +77,7 @@ Hier volgen de stappen voor het maken van een exemplaar van de Linux Data Scienc
    * **Naam**: naam van uw data science-server die u maakt.
    * **Gebruikersnaam**: eerste aanmelding bij het account ID.
    * **Wachtwoord**: eerste wachtwoord (u kunt openbare SSH-sleutel gebruiken in plaats van wachtwoord).
-   * **Abonnement**: als u meer dan één abonnement hebt, selecteert u het een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht. U kunt resource het maken van bevoegdheden voor dit abonnement moet hebben.
+   * **Abonnement**: als u meer dan één abonnement hebt, selecteert u het een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht. U hebt privileges voor het maken van resources nodig voor dit abonnement.
    * **Resourcegroep**: U kunt een nieuwe groep maken of een bestaande groep gebruikt.
    * **Locatie**: Selecteer het datacenter die het meest geschikt is. Dit is meestal het datacenter dat de meeste van uw gegevens, of zich het dichtst bij uw fysieke locatie voor de snelste toegang tot het netwerk.
    
@@ -97,12 +97,12 @@ Hier volgen de stappen voor het maken van een exemplaar van de Linux Data Scienc
    
    e. **Kopen**:
    
-   * Voor het starten van het inrichten, klikt u op **kopen**. Een koppeling is met de voorwaarden van de transactie opgegeven. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap.
+   * Voor het starten van het inrichten, klikt u op **kopen**. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap.
 
 De inrichting duurt ongeveer 10-20 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Toegang tot de Linux Data Science Virtual Machine
-Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. Op Windows, kunt u een SSH-clienthulpprogramma, zoals downloaden [Putty](http://www.putty.org). Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
+Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de tekst shell-interface. In Windows kunt u een SSH-clienthulpprogramma zoals [Putty](http://www.putty.org) downloaden. Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
 
 > [!NOTE]
 > De client X2Go uitgevoerd aanzienlijk beter dan X11 doorsturen in de testfase. Het is raadzaam om met behulp van de client X2Go voor een grafische interface voor het bureaublad.
@@ -160,7 +160,7 @@ Voor het installeren van extra Python-bibliotheken, die u nodig hebt om uit te v
     sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
-### <a name="jupyter-notebook"></a>Jupyter-notebook
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 De distributie Anaconda wordt geleverd met een Jupyter-notebook, een omgeving voor het delen van code en -analyse. De Jupyter-notebook toegankelijk is via JupyterHub. U aanmelden met uw lokale Linux-gebruikersnaam en wachtwoord.
 
 De Jupyter-notebook-server is vooraf geconfigureerd met Python 2, 3 van Python en R-kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' om te starten van de browser voor toegang tot de notebookserver. Als u van de virtuele machine via SSH of X2Go-client gebruikmaakt, kunt u ook bezoeken [ https://localhost:8000/ ](https://localhost:8000/) voor toegang tot de Jupyter-notebook-server.
@@ -374,6 +374,6 @@ Hier ziet u hoe u kunt doorgaan met uw learning en verkennen:
 
 * De [gegevenswetenschap op de Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM ingericht hier uitvoert. 
 * Verken de verschillende hulpprogramma's voor data science op de virtuele machine voor datatechnologie door het uitproberen van de hulpprogramma's die worden beschreven in dit artikel. U kunt ook uitvoeren *dsvm-meer-info* op de shell binnen de virtuele machine voor een algemene inleiding tot en tips voor meer informatie over de hulpprogramma's geïnstalleerd op de virtuele machine.  
-* Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 * Ga naar de [Cortana Analytics-galerie](http://gallery.cortanaanalytics.com) voor machine learning en data analytics-voorbeelden die gebruikmaken van de Cortana Analytics Suite.
 

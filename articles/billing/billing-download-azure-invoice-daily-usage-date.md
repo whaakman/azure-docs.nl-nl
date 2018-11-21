@@ -5,7 +5,7 @@ keywords: factuur downloaden van facturen, azure-factuur, gebruik van azure
 services: billing
 documentationcenter: ''
 author: genlin
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.service: billing
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: f0cdfef50c07674a08766933f2f7edfc946462a4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9067162c6f1bd95b0a1c25bef17836b19ecf6946
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395012"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276106"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 U kunt uw factuur downloaden de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) of wordt verzonden in e-mailbericht. Als u wilt uw dagelijkse gebruiksgegevens downloaden, gaat u naar de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Alleen bepaalde functies gemachtigd om facturering factuur en gebruiksgegevens, zoals de accountbeheerder te verkrijgen. Zie [Toegang tot factureringsgegevens voor Azure beheren](billing-manage-access.md) voor meer informatie over het verkrijgen van toegang tot factureringsgegevens.
@@ -100,15 +100,15 @@ Zie [Meer informatie over uw factuur voor Microsoft Azure](billing-understand-yo
 
 ## <a name="noinvoice"></a> Waarom zie ik een factuur niet voor de afgelopen betalingsperiode?
 
-Er zijn verschillende redenen dat er geen een factuur:
+Er kunnen verschillende redenen voor zijn dat u geen factuur ziet:
 
-- U hebt een maandelijks krediet aan uw abonnement die u niet langer zijn dan of u hebt een gratis proefversie. Een factuur wordt alleen gegenereerd wanneer u geld verschuldigd.
+- U hebt een maandelijks tegoed bij uw abonnement dat u niet volledig hebt gebruikt of u hebt een gratis proefversie. Er wordt alleen een factuur gegenereerd wanneer u geld verschuldigd bent.
 
-- Het is minder dan 30 dagen vanaf de dag die u geabonneerd op Azure.
+- Het is minder dan 30 dagen geleden dat u zich geabonneerd hebt op Azure.
 
-- De factuur niet is nog gegenereerd. Wachten tot het einde van de factureringsperiode.
+- De factuur is nog niet gegenereerd. Wacht tot het einde van de factureringsperiode.
 
-- Als u niet de accountbeheerder bent, oudere facturen mogelijk niet beschikbaar voor u.
+- Als u niet de accountbeheerder bent, zijn oudere facturen mogelijk niet beschikbaar voor u.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

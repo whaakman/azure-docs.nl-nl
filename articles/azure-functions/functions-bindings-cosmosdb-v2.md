@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 24bc0b19d03148e98083fe6d21dd3980fcdf3714
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249777"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276610"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
@@ -187,7 +187,7 @@ Dit is de Java-code:
             databaseName = "ToDoList",
             collectionName = "Items",
             leaseCollectionName = "leases",
-            reateLeaseCollectionIfNotExists = true,
+            createLeaseCollectionIfNotExists = true,
             connectionStringSetting = "AzureCosmosDBConnection") String[] items,
             final ExecutionContext context ) {
                 context.getLogger().info(items.length + "item(s) is/are changed.");
@@ -1157,9 +1157,9 @@ Dit is de JavaScript-code:
 
 <a name="infsharp"></a>
 
-### <a name="input---f-examples"></a>Invoer - F #-voorbeelden
+### <a name="input---f-examples"></a>Invoer - F# voorbeelden
 
-Het volgende voorbeeld ziet u een Cosmos DB-Invoerbinding in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie leest één document en updates van de tekstwaarde van het document.
+Het volgende voorbeeld ziet u een Cosmos DB-Invoerbinding in een *function.json* bestand en een [ F# functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie leest één document en updates van de tekstwaarde van het document.
 
 Hier volgt de binding-gegevens de *function.json* bestand:
 
@@ -1177,7 +1177,7 @@ Hier volgt de binding-gegevens de *function.json* bestand:
 
 De [configuratie](#input---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
     (* Change input document contents using Azure Cosmos DB input binding *)
@@ -1201,7 +1201,7 @@ In dit voorbeeld heeft een `project.json` -bestand dat Hiermee geeft u de `FShar
 }
 ```
 
-Om toe te voegen een `project.json` bestand, Zie [F #-Pakketbeheer](functions-reference-fsharp.md#package).
+Om toe te voegen een `project.json` bestand, Zie [ F# van Pakketbeheer](functions-reference-fsharp.md#package).
 
 ### <a name="input---java-examples"></a>Invoer - Java-voorbeelden
 
@@ -1255,7 +1255,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="input---usage"></a>Invoer - gebruik
 
-In C# en F #-functies, wanneer de functie wordt afgesloten, worden alle wijzigingen aan het ingevoerde document via benoemde invoerparameters automatisch doorgevoerd. 
+In C# en F# functioneert, wanneer de functie wordt afgesloten, alle wijzigingen aan het ingevoerde document via invoer van de benoemde parameters worden automatisch doorgevoerd. 
 
 In JavaScript-functies worden niet automatisch updates aangebracht bij afsluiten van de functie. In plaats daarvan gebruik `context.bindings.<documentName>In` en `context.bindings.<documentName>Out` om updates te maken. Zie de [JavaScript voorbeeld](#input---javascript-example).
 
@@ -1277,7 +1277,7 @@ Zie ook de [invoer voorbeeld](#input---c-examples) die gebruikmaakt van `Documen
 
 [Voorbeelden van uitvoer overslaan](#output---attributes)
 
-### <a name="ouput---c-examples"></a>Uitvoer geproduceerd - C#-voorbeelden
+### <a name="output---c-examples"></a>Uitvoer - C# voorbeelden
 
 Deze sectie bevat de volgende voorbeelden:
 
@@ -1562,9 +1562,9 @@ Dit is de JavaScript-code:
 
 [Voorbeelden van uitvoer overslaan](#output---attributes)
 
-### <a name="output---f-examples"></a>Uitvoer - F #-voorbeelden
+### <a name="output---f-examples"></a>Uitvoer - F# voorbeelden
 
-Het volgende voorbeeld ziet u een Azure Cosmos DB-Uitvoerbinding een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij-Invoerbinding voor een wachtrij die JSON in de volgende indeling ontvangt:
+Het volgende voorbeeld ziet u een Azure Cosmos DB-Uitvoerbinding een *function.json* bestand en een [ F# functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij-Invoerbinding voor een wachtrij die JSON in de volgende indeling ontvangt:
 
 ```json
 {
@@ -1600,7 +1600,7 @@ Hier volgt de binding-gegevens de *function.json* bestand:
 ```
 De [configuratie](#output---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
     open FSharp.Interop.Dynamic
@@ -1639,7 +1639,7 @@ In dit voorbeeld heeft een `project.json` -bestand dat Hiermee geeft u de `FShar
 }
 ```
 
-Om toe te voegen een `project.json` bestand, Zie [F #-Pakketbeheer](functions-reference-fsharp.md#package).
+Om toe te voegen een `project.json` bestand, Zie [ F# van Pakketbeheer](functions-reference-fsharp.md#package).
 
 ## <a name="output---java-examples"></a>Uitvoer - Java-voorbeelden
 

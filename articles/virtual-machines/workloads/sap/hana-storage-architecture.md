@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 614d6aef4a2b7be551574fd3c8e25e2a3e3c1c07
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028170"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275987"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architectuur voor SAP HANA (grote instanties)
 
-De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op het klassieke implementatiemodel via SAP aanbevolen richtlijnen. De richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document.
+De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op het klassieke implementatiemodel per SAP aanbevolen richtlijnen. De richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document.
 
 De HANA grote instantie van het Type ik klasse wordt geleverd met vier keer het geheugen volume als opslagvolume. De opslag is niet voor de klasse Type II van HANA grote instantie eenheden, vier keer meer. De eenheden worden geleverd met een volume dat is bedoeld voor het opslaan van HANA transactielogboekback-ups. Zie voor meer informatie, [installeren en configureren van SAP HANA (grote instanties) op Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -33,6 +33,7 @@ Zie de volgende tabel in termen van Opslagtoewijzing. De tabel bevat de ruwe cap
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
+| S96 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S192 | 4.608 GB | 1.024 GB | 1536 GB | 1.024 GB |
 | S192m | 11,520 GB | 1536 GB | 1.792 GB | 1536 GB |
 | S192xm |  11,520 GB |  1536 GB |  1.792 GB |  1536 GB |
@@ -72,7 +73,7 @@ Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor lay-out 
 
 Het is mogelijk om meer dan één actieve SAP HANA-instantie op HANA grote instantie eenheden te hosten. Een dergelijke configuratie vereist om de mogelijkheden van opslagmomentopnamen en herstel na noodgevallen, een volume per exemplaar instellen. Op dit moment kunnen HANA grote instantie eenheden als volgt worden onderverdeeld:
 
-- **S72, S72m, S144, S192**: In stappen van 256 GB, 256 GB wordt de kleinste vanaf eenheid. Verschillende stappen zoals 256 GB en 512 GB kunnen worden gecombineerd met het maximum van het geheugen van de eenheid.
+- **S72, S72m, S96, S144, S192**: In stappen van 256 GB, 256 GB wordt de kleinste vanaf eenheid. Verschillende stappen zoals 256 GB en 512 GB kunnen worden gecombineerd met het maximum van het geheugen van de eenheid.
 - **S144m en S192m**: In stappen van 256 GB, 512 GB wordt de kleinste eenheid. Verschillende stappen zoals 512 GB en biedt 768 GB kunnen worden gecombineerd met het maximum van het geheugen van de eenheid.
 - **Typ II klasse**: In stappen van 512 GB, waarbij de kleinste vanaf eenheid van 2 TB. Verschillende stappen zoals 512 GB, 1 TB en 1,5 TB kunnen worden gecombineerd met het maximum van het geheugen van de eenheid.
 
@@ -91,7 +92,7 @@ Er zijn ook andere verschillen.
 ## <a name="encryption-of-data-at-rest"></a>Versleuteling van data-at-rest
 De opslag die wordt gebruikt voor HANA grote instantie kunt een transparante versleuteling van de gegevens zoals deze wordt opgeslagen op de schijven. Als een eenheid HANA grote instantie is geïmplementeerd, kunt u dit type versleuteling inschakelen. U kunt ook wijzigen met versleutelde volumes na de implementatie plaatsvindt. De overstap van niet-versleutelde versleutelde volumes is transparant en vereist geen downtime. 
 
-Met het Type ik klasse van SKU's, het volume met de LUN wordt opgeslagen op opstarten is versleuteld. Voor het Type II-klasse van SKU's van HANA grote instantie moet u voor het versleutelen van het bestand Boot.ini LUN met besturingssysteem-methoden. Voor meer informatie contact op met het Microsoft-Service Management-team.
+Met het Type ik klasse van SKU's, het volume de LUN wordt opgeslagen, worden opnieuw opgestart, worden versleuteld. Voor het Type II-klasse van SKU's van HANA grote instantie moet u voor het versleutelen van het bestand Boot.ini LUN met besturingssysteem-methoden. Voor meer informatie contact op met het Microsoft-Service Management-team.
 
 **Volgende stappen**
 - Raadpleeg [scenario's ondersteund voor HANA grote instanties](hana-supported-scenario.md)

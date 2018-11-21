@@ -4,7 +4,7 @@ description: Meer informatie over de facturering van externe services, voorheen 
 services: ''
 documentationcenter: ''
 author: adpick
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ee11b7b565e669f61f6ba77e02139f071c452f4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 36db8274c42477631a480d4721a4331202db6c09
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392207"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276534"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Inzicht in uw Azure-facturering voor externe servicekosten
 Externe services worden gepubliceerd door leveranciers van software van derden in de Azure marketplace. SendGrid is bijvoorbeeld een externe services die u in Azure kunt kopen, maar niet is gepubliceerd door Microsoft.

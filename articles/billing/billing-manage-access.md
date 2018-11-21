@@ -4,7 +4,7 @@ description: ''
 services: ''
 documentationcenter: ''
 author: vikramdesai01
-manager: vikdesai
+manager: amberb
 editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0a8b5532f00d5feb964109710132816a191298e7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429640"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274769"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Toegang tot factureringsgegevens voor Azure met behulp van op rollen gebaseerd toegangsbeheer beheren
 
-U kunt toegang voor Azure-Factureringsinformatie verlenen aan leden van uw team door een van de volgende gebruikersrollen toewijzen aan uw abonnement: accountbeheerder, servicebeheerder, CO-beheerder, eigenaar, Inzender, lezer en facturering lezer. Ze zouden hebben toegang tot factureringsgegevens in de [Azure-portal](https://portal.azure.com/), en kan worden gebruikt de [facturering-API's](billing-usage-rate-card-overview.md) om op te halen via een programma facturen (één keer gekozen-in) en informatie over het gebruik. Voor meer informatie over die rollen kunt toewijzen, en welke functies kunt doen wat, Zie [rollen in Azure RBAC](../role-based-access-control/built-in-roles.md).
+U kunt toegang tot Azure-factureringsgegevens verlenen aan leden van uw team door een van de volgende gebruikersrollen toe te wijzen aan uw abonnement: accountbeheerder, servicebeheerder, co-beheerder, eigenaar, inzender, lezer of factureringslezer. Ze zouden hebben toegang tot factureringsgegevens in de [Azure-portal](https://portal.azure.com/), en kan worden gebruikt de [facturering-API's](billing-usage-rate-card-overview.md) om op te halen via een programma facturen (één keer gekozen-in) en informatie over het gebruik. Voor meer informatie over die rollen kunt toewijzen, en welke functies kunt doen wat, Zie [rollen in Azure RBAC](../role-based-access-control/built-in-roles.md).
 
 ## <a name="opt-in"></a> Deze extra gebruikers toegang krijgen tot facturen
 
@@ -42,13 +42,13 @@ De accountbeheerder moet aanmelden met behulp van de [Azure-portal](https://port
 
 Service-beheerder, CO-beheerder, eigenaar, Inzender, lezer en factureren voor lezer kan inschrijving op het abonnement voor het downloaden van facturen PDF-bestand in Azure portal. Facturen die ouder zijn dan December 2016 zijn echter beschikbaar alleen naar de accountbeheerder nu.
 
-De accountbeheerder kan ook configureren om facturen verzonden via e-mail. Zie voor meer informatie, [ophalen van uw factuur in e-mailbericht](billing-download-azure-invoice-daily-usage-date.md).
+De accountbeheerder kan de instellingen ook zo configureren dat facturen via e-mail worden verzonden. Raadpleeg [Uw factuur per e-mail ontvangen](billing-download-azure-invoice-daily-usage-date.md) voor meer informatie.
 
 ## <a name="adding-users-to-the-billing-reader-role"></a>Gebruikers toevoegen aan de rol van lezer facturering
 
 De rol factureren voor lezer heeft alleen-lezen toegang tot factureringsgegevens van abonnement in Azure portal en geen toegang tot services, zoals virtuele machines en opslagaccounts. De rol factureren voor lezer toewijzen aan iemand die toegang nodig tot de factureringsgegevens van het abonnement, maar niet de mogelijkheid heeft voor het beheren van Azure-services. Deze rol is geschikt voor gebruikers in een organisatie die alleen financiële en kosten beheer voor Azure-abonnementen uitvoeren.
 
-1. Selecteer uw abonnement uit de [blade abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
+1. Selecteer uw abonnement op de [blade Abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in de Azure-portal.
 
 1. Selecteer **toegangsbeheer (IAM)** en klik vervolgens op **toevoegen**.
 
@@ -58,11 +58,11 @@ De rol factureren voor lezer heeft alleen-lezen toegang tot factureringsgegevens
 
     ![Schermafbeelding ziet u factureren voor lezer in de weergave van pop-upvenster](./media/billing-manage-access/select-roles.PNG)
 
-1. Typ het e-mailbericht voor de gebruiker die u wilt uitnodigen en klik vervolgens op **OK** de uitnodiging te verzenden.
+1. Geef het e-mailadres op van de gebruiker die u wilt uitnodigen en klik vervolgens op **OK** om de uitnodiging te verzenden.
 
     ![Schermafbeelding van e-mailbericht om uit te nodigen iemand invoeren](./media/billing-manage-access/add-user.PNG)
 
-1. Volg de instructies in het e-mailbericht voor de uitnodiging voor aanmelden als een factureren voor lezer.
+1. De gebruiker volgt nu de instructies in de uitnodigingsmail om zich aan te melden als factureringslezer.
 
     ![Schermopname die laat zien wat de factureren voor lezer kan zien in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 

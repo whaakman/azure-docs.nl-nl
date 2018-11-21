@@ -3,7 +3,7 @@ title: Beheren van gegevens van de gebruiker gevonden in een onderzoek in Azure 
 description: " Informatie over het beheren van gegevens van de gebruiker gevonden in de onderzoeksfunctie van Azure Security Center. "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2018
-ms.author: terrylan
-ms.openlocfilehash: d3b5f0ee4aa656fa66d577aa40f66fc98dff148d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 11/20/2018
+ms.author: rkarlin
+ms.openlocfilehash: d9bf3618b32ce7c5ba7a300a929428dd0614743d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301647"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276241"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gebruikersgegevens gevonden in een onderzoek in Azure Security Center beheren
 In dit artikel bevat informatie over het beheren van de gebruikersgegevens gevonden in de onderzoeksfunctie van Azure Security Center. Onderzoek gegevens worden opgeslagen in [Azure Log Analytics](../log-analytics/log-analytics-overview.md) en zichtbaar gemaakt in Security Center. Gebruikersgegevens beheren, biedt de mogelijkheid om te verwijderen of exporteren van gegevens.
@@ -58,3 +58,4 @@ Security Center van een gebruiker de rol van eigenaar, Inzender, toegewezen of b
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het beheren van gebruikersgegevens [gebruikersgegevens in Azure Security Center beheren](security-center-privacy.md).
+Zie voor meer informatie over het verwijderen van persoonlijke gegevens in Log Analytics, [exporteren en verwijderen van persoonlijke gegevens](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).

@@ -1,6 +1,6 @@
 ---
-title: Application Insights inschakelen voor de Azure Machine Learning-service in productie
-description: Informatie over het instellen van Application Insights voor Azure Machine Learning-service voor implementatie voor Azure Kubernetes Service
+title: Application Insights inschakelen voor de Azure Machine Learning-service
+description: Informatie over het instellen van Application Insights voor services die zijn geïmplementeerd via Azure Machine Learning-service
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 71dc7c0dbb2400802235da4f1bb952c7863a1862
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713211"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275051"
 ---
-# <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Uw Azure Machine Learning-modellen in productie met Application Insights bewaken
+# <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Uw Azure Machine Learning-modellen met Application Insights bewaken
 
 In dit artikel leert u hoe u Azure Application Insights instellen voor uw Azure Machine Learning-service. Application Insights biedt u de mogelijkheid om te controleren:
 * Tarieven, reactietijden en foutpercentages aanvragen.
@@ -32,14 +32,53 @@ In dit artikel leert u hoe u Azure Application Insights instellen voor uw Azure 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://aka.ms/AMLfree) voordat u begint.
 * Een Azure Machine Learning-werkruimte en een lokale map met uw scripts en de Azure Machine Learning-SDK voor Python geïnstalleerd. Zie voor meer informatie over het verkrijgen van deze vereisten, [het configureren van een ontwikkelomgeving](how-to-configure-environment.md).
-* Een getraind model voor machine learning om te worden geïmplementeerd naar Azure Kubernetes Service (AKS). Als u niet hebt, raadpleegt u de [Train installatiekopie classificeringsmodel](tutorial-train-models-with-aml.md) zelfstudie.
-* Een [AKS-cluster](how-to-deploy-to-aks.md).
+* Een getrainde machine learning-model worden toegepast op Azure Kubernetes Service (AKS) of Azure Container exemplaar (ACI). Als u niet hebt, raadpleegt u de [Train installatiekopie classificeringsmodel](tutorial-train-models-with-aml.md) zelfstudie.
 
+
+## <a name="enable-and-disable-from-the-sdk"></a>In- en uitschakelen van de SDK
+
+### <a name="update-a-deployed-service"></a>Een geïmplementeerde service bijwerken
+1. Identificeren van de service in uw werkruimte. De waarde voor `ws` is de naam van uw werkruimte.
+
+    ```python
+    from azureml.core.webservice import Webservice
+    aks_service= Webservice(ws, "my-service-name")
+    ```
+2. Bijwerken van uw service en Application Insights inschakelen. 
+
+    ```python
+    aks_service.update(enable_app_insights=True)
+    ```
+
+### <a name="log-custom-traces-in-your-service"></a>Aangepaste logboektraceringen in uw service
+Als u wilt dat aangepaste logtraceringen, volgt u de standaard-implementatieproces voor [AKS](how-to-deploy-to-aks.md) of [ACI](how-to-deploy-to-aci.md) . Vervolgens:
+
+1. Het scoring-bestand bijwerken door toevoeging van afdrukken instructies.
+    
+    ```python
+    print ("model initialized" + time.strftime("%H:%M:%S"))
+    ```
+
+2. De serviceconfiguratie van de bijwerken.
+    
+    ```python
+    config = Webservice.deploy_configuration(enable_app_insights=True)
+    ```
+
+3. Bouw een installatiekopie en implementeer deze op [AKS](how-to-deploy-to-aks.md) of [ACI](how-to-deploy-to-aci.md).  
+
+### <a name="disable-tracking-in-python"></a>Bijhouden van wijzigingen in Python uitschakelen
+
+Als u wilt uitschakelen Application Insights, gebruik de volgende code:
+
+```python 
+## replace <service_name> with the name of the web service
+<service_name>.update(enable_app_insights=False)
+```
+    
 ## <a name="enable-and-disable-in-the-portal"></a>In- of uitschakelen in de portal
 
 U kunt in- en uitschakelen van Application Insights in Azure portal.
-
-### <a name="enable"></a>Inschakelen
 
 1. In de [Azure-portal](https://portal.azure.com), opent u uw werkruimte.
 
@@ -68,47 +107,7 @@ U kunt in- en uitschakelen van Application Insights in Azure portal.
    [![Het selectievakje is uitgeschakeld voor het inschakelen van diagnostische gegevens](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Selecteer **Update** aan de onderkant van het scherm om de wijzigingen toe te passen. 
-
-## <a name="enable-and-disable-from-the-sdk"></a>In- en uitschakelen van de SDK
-
-### <a name="update-a-deployed-service"></a>Een geïmplementeerde service bijwerken
-1. Identificeren van de service in uw werkruimte. De waarde voor `ws` is de naam van uw werkruimte.
-
-    ```python
-    aks_service= Webservice(ws, "my-service-name")
-    ```
-2. Bijwerken van uw service en Application Insights inschakelen. 
-
-    ```python
-    aks_service.update(enable_app_insights=True)
-    ```
-
-### <a name="log-custom-traces-in-your-service"></a>Aangepaste logboektraceringen in uw service
-Als u wilt dat aangepaste logtraceringen, volgt u de [standard implementatieproces voor AKS](how-to-deploy-to-aks.md). Vervolgens:
-
-1. Het scoring-bestand bijwerken door toevoeging van afdrukken instructies.
-    
-    ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
-    ```
-
-2. De AKS-configuratie bijwerken.
-    
-    ```python
-    aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
-    ```
-
-3. [De installatiekopie van het bouwen en implementeren het](how-to-deploy-to-aks.md).  
-
-### <a name="disable-tracking-in-python"></a>Bijhouden van wijzigingen in Python uitschakelen
-
-Als u wilt uitschakelen Application Insights, gebruik de volgende code:
-
-```python 
-## replace <service_name> with the name of the web service
-<service_name>.update(enable_app_insights=False)
-```
-    
+ 
 
 ## <a name="evaluate-data"></a>Gegevens evalueren
 Van uw service-gegevens worden opgeslagen in uw Application Insights-account, in dezelfde resourcegroep bevinden als uw Azure Machine Learning-service.

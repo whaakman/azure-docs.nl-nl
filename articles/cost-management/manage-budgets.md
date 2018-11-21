@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963426"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275501"
 ---
 # <a name="manage-budgets"></a>Budgetten beheren
 
@@ -27,7 +27,7 @@ Op basis van toegewezen budgetten, kunt u drempelwaarde voor waarschuwingen op b
 
 De rapporten met het toegewezen budget budget. Gebruikers kunnen bekijken als hun uitgaven boven, onder of ervoor met hun gebruik na verloop van tijd is. Wanneer u selecteert **velden weergeven/verbergen** aan de bovenkant van een budgetrapport, kunt u kosten, budget, totale kosten of totaal budget weergeven.
 
-Kostenbeheer van Azure biedt vergelijkbare functionaliteit aan Cloudyn. Kostenbeheer van Azure is een systeemeigen Azure cost management-oplossing. Het helpt u kosten analyseren, maken en budgetten beheren, gegevens, exporteren en bekijken en reageren op optimalisatie aanbevelingen om geld te besparen. Zie voor meer informatie over budgetten in Cost Management [maken en beheren van budgetten](tutorial-acm-create-budgets.md).
+Azure Cost Management biedt vergelijkbare functionaliteit als Cloudyn. Azure Cost Management is een systeemeigen Azure-oplossing voor kostenbeheer. Het helpt u kosten te analyseren, budgetten te maken en beheren, gegevens te exporteren en aanbevelingen voor optimalisatie te bekijken en er actie op te ondernemen om geld te besparen. Zie voor meer informatie over budgetten in Cost Management [maken en beheren van budgetten](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Budgetten maken
 

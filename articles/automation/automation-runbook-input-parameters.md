@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344860"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276683"
 ---
 # <a name="runbook-input-parameters"></a>Invoerparameters voor runbook
 
@@ -230,9 +230,8 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Een runbook start met behulp van de REST-API en parameters toe te wijzen
-Een runbook-taak kan worden gemaakt en gestart met de REST-API van Azure Automation met behulp van de **plaatsen** methode met de volgende aanvraag-URI:
+Een runbook-taak kan worden gemaakt en gestart met de REST-API van Azure Automation met behulp van de **plaatsen** methode met de volgende aanvraag-URI: https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
-    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
 In de aanvraag-URI, vervangt u de volgende parameters:
 
