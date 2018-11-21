@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623764"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275330"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -57,6 +57,9 @@ De gebruiker aanmeldingen rapport vindt u antwoorden op de volgende vragen:
 U kunt toegang tot het rapport-aanmeldingen door te selecteren **aanmeldingen** in de **activiteit** sectie van de **Azure Active Directory** -blade in de [vanAzureportal](https://portal.azure.com).
 
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/61.png "Aanmeldingsactiviteit")
+
+> [!IMPORTANT]
+> Rapport wordt weergegeven de aanmeldingen de **interactieve** aanmeldingen, die is, waarbij een gebruiker handmatig zich aanmeldt met hun gebruikersnaam en wachtwoord voor aanmeldingen. Niet-interactieve aanmeldingen, zoals verificatie van service-naar-service, worden niet weergegeven in het rapport-aanmeldingen. 
 
 Een aanmeldingslogboek heeft een standaardlijstweergave die het volgende laat zien:
 

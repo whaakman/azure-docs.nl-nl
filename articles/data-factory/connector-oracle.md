@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42312094"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275683"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,11 +65,46 @@ De volgende eigenschappen worden ondersteund voor de Oracle gekoppelde service.
 >[!TIP]
 >Als u fout uitspraak bereikt "ORA 01025: UPI parameter buiten het bereik ' en de Oracle-van versie 8i, toevoegen `WireProtocolMode=1` met de verbindingstekenreeks en probeer het opnieuw.
 
-Het inschakelen van versleuteling op Oracle-verbinding, hebt u twee opties:
+**Versleuteling op Oracle-verbinding inschakelen**, hebt u twee opties:
 
-1.  Aan de serverzijde Oracle, gaat u naar Oracle Advanced Security (OAS) en configureer de versleutelingsinstellingen, die ondersteuning biedt versleuteling van Triple-DES (3DES) en Advanced Encryption Standard (AES), verwijzen naar details [hier](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle-connector wordt automatisch onderhandelt over de versleutelingsmethode voor het gebruik van de versie die u in OAS configureert bij het maken van verbinding met Oracle.
+1.  Gebruik **versleuteling Triple-DES (3DES) en Advanced Encryption Standard (AES)**, Oracle-serverzijde, gaat u naar Oracle Advanced Security (OAS) en de versleutelingsinstellingen configureren, Raadpleeg de details [hier](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle-connector wordt automatisch onderhandelt over de versleutelingsmethode voor het gebruik van de versie die u in OAS configureert bij het maken van verbinding met Oracle.
 
-2.  U kunt toevoegen aan clientzijde, `EncryptionMethod=1` in de verbindingsreeks. Hiermee worden SSL/TLS gebruikt als de versleutelingsmethode. Om dit te gebruiken, moet u niet-SSL-coderingsinstellingen in OAS aan de serverzijde Oracle om te voorkomen dat versleuteling-conflict uitschakelen.
+2.  Gebruik **SSL**, volg de onderstaande stappen:
+
+    1.  Informatie over SSL-certificaat ophalen. Lees de informatie voor DER-gecodeerd certificaat van uw SSL-certificaat en sla de uitvoer (---Begin Certificate... Certificate---einde) als een tekstbestand.
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **Voorbeeld:** cert gegevens ophalen uit DERcert.cer; Sla de uitvoer op CERT
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.  De keystore of truststore maken. De volgende opdracht maakt u het bestand truststore met of zonder een wachtwoord in PKCS-12-indeling.
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **Voorbeeld:** maakt een PKCS12 trustsotre-bestand met de naam MyTrustStoreFile met een wachtwoord
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.  Plaats het bestand truststore op de machine zelfgehoste IR, bijvoorbeeld op C:\MyTrustStoreFile.
+    4.  In ADF, configureert u de Oracle-verbindingsreeks met `EncryptionMethod=1` en de bijbehorende `TrustStore` / `TrustStorePassword`waarde, bijvoorbeeld `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Voorbeeld:**
 

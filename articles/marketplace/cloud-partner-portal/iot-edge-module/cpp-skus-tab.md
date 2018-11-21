@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684814"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276037"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Tabblad IoT Edge module-SKU 's
 
@@ -125,7 +125,7 @@ De volgende tabel beschrijft het doel, inhoud en opmaak van de velden voor **sta
 
 |  **Veld**       |     **Beschrijving**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Standaardroutes**        | De standaardnaam van de route en de waarde moet minder dan 512 tekens. U kunt maximaal 5 standaardroutes definiëren. Zorg ervoor dat u een juiste [routeren syntaxis](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) in de waarde van de route. Om te verwijzen naar de module, gebruikt u de naam van de module standaard, die wordt uw **SKU titel** zonder spaties en speciale tekens. Om te verwijzen naar andere modules die nog niet bekend is, gebruikt u de `<FROM_MODULE_NAME>` naamgeving om aan te zodat uw klanten weten dat ze nodig hebben om bij te werken van deze gegevens. Meer informatie over [IoT Edge routes](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Bijvoorbeeld, als module `ContosoModule` luistert voor invoer `ContosoInput` - en uitvoergegevens op `ContosoOutput`, het verstandig om de volgende 2 standaardroutes definiëren:<br/>-De naam #1: `ToContosoModule`<br/>-Waarde #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-De naam #2: `FromContosoModuleToCloud`<br/>-Waarde #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **Standaardroutes**        | De standaardnaam van de route en de waarde moet minder dan 512 tekens. U kunt maximaal 5 standaardroutes definiëren. Zorg ervoor dat u een juiste [routeren syntaxis](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) in de waarde van de route. Om te verwijzen naar de module, gebruikt u de naam van de module standaard, die wordt uw **SKU titel** zonder spaties en speciale tekens. Om te verwijzen naar andere modules die nog niet bekend is, gebruikt u de `<FROM_MODULE_NAME>` naamgeving om aan te zodat uw klanten weten dat ze nodig hebben om bij te werken van deze gegevens. Meer informatie over [IoT Edge routes](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Bijvoorbeeld, als module `ContosoModule` luistert voor invoer `ContosoInput` - en uitvoergegevens op `ContosoOutput`, het verstandig om de volgende 2 standaardroutes definiëren:<br/>-De naam #1: `ToContosoModule`<br/>-Waarde #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-De naam #2: `FromContosoModuleToCloud`<br/>-Waarde #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **Standaard apparaatdubbel-gewenste eigenschappen**      | Elke standaardnaam apparaatdubbel-gewenste eigenschappen en de waarde moet minder dan 512 tekens. U kunt maximaal 5 naam/waarde apparaatdubbel-gewenste eigenschappen definiëren. Waarden van gewenste dubbeleigenschappen moet geldige JSON, niet-escape, met een geneste maximumhiërarchie van 4 en zonder matrices. Meer informatie over [apparaatdubbel-gewenste eigenschappen](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Bijvoorbeeld, als een module biedt ondersteuning voor een dynamisch configureerbare vernieuwingsfrequentie via apparaatdubbel-gewenste eigenschappen, verstandig het om de volgende standaard apparaatdubbel-gewenste eigenschap definiëren:<br/> -De naam #1: `RefreshRate`<br/>-Waarde #1: `60`|
 | **Standaard-omgevingsvariabelen**  | Elke standaardnaam variabelen van de omgeving en de waarde moet minder dan 512 tekens. U kunt maximaal 5 naam/waarde-omgevingsvariabelen definiëren. <br/>Als een module nodig heeft om te accepteren van de gebruiksrechtovereenkomst voordat het wordt gestart, kunt u bijvoorbeeld de volgende omgevingsvariabele definiëren:<br/> -De naam #1: `ACCEPT_EULA`<br/>-Waarde #1: `Y`|
 | **Standaard createOptions**  | De createOptions moet minder dan 512 tekens. Het moet geldige JSON, niet-escape. Meer informatie over [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Bijvoorbeeld, als een module nodig heeft een poort binden kunt u de volgende createOptions definiëren:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

@@ -3,8 +3,8 @@ title: Logboekregistratie voor Machine Learning-webservices | Microsoft Docs
 description: Leer hoe u logboekregistratie inschakelen voor Machine Learning-webservices. Logboekregistratie bevat aanvullende informatie over het oplossen van de API's.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: acca5e25079ae092df73c5b890186d593a858a5d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 693c619945dc791cf5350909a26adb1e507614c2
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818910"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261222"
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Logboekregistratie inschakelen voor Machine Learning-webservices
 Dit document bevat informatie over de mogelijkheid tot het vastleggen van Machine Learning-webservices. Logboekregistratie bevat aanvullende informatie, dan alleen een foutnummer en een bericht, waarmee u uw aanroepen naar de API's voor Machine Learning op te lossen.  

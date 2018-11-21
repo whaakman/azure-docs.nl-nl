@@ -3,8 +3,8 @@ title: 'Problemen oplossen: Maken en verbinding maken met een Machine Learning-w
 description: Oplossingen voor veelvoorkomende problemen bij het maken en verbinding te maken met een Azure Machine Learning-werkruimte
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 678d422cc241a75c1e3dc0c644f0ac5055750ca3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f86018c78de842717bf387c007fdd4c7cd048ef1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824146"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265199"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Gids voor probleemoplossing: een Machine Learning-werkruimte maken en hiermee verbinding maken
 Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning-werkruimten.

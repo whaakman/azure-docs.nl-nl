@@ -3,8 +3,8 @@ title: Experimentherhalingen in Machine Learning Studio beheren | Microsoft Docs
 description: Experimentherhalingen in Azure Machine Learning Studio beheren
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 3fd9a87ace7b78b394dc0c44a030efc5b4dffb09
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 31fab58a82487d0a5a3d39fd0ac1e907bc5565eb
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820066"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262462"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Iteraties van experimenten beheren in Azure Machine Learning Studio
 Het ontwikkelen van een predictive Analytics-model is in een iteratief proces - als u de verschillende functies en parameters van uw experiment wijzigt, worden de resultaten geconvergeerd tot u tevreden bent u een getraind en doeltreffend model hebt. Sleutel voor dit proces is het bijhouden van de verschillende iteraties van uw experiment parameters en configuraties.

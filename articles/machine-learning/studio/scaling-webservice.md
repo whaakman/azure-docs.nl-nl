@@ -3,8 +3,8 @@ title: Gelijktijdigheid van een Azure Machine Learning-webservice verhogen | Mic
 description: Leer hoe u gelijktijdigheid van een Azure Machine Learning-webservice verbeteren door het toevoegen van extra eindpunten.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: f0b639d27dd5114c47bd5a1cfa0f6a72a6d78d83
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6e827c88d840a111ef3bebfb8f2b2f116c02643e
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824180"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264859"
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Een Azure Machine Learning-webservice schalen door extra eindpunten toe te voegen
 > [!NOTE]

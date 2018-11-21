@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646776"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263000"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Werkstroom algemene parameters voor Azure Stack-validatie als een Service
 
@@ -40,11 +40,11 @@ Omgeving parameters beschrijven de Azure Stack-omgeving onder belasting. Deze wa
 
 1. Meld u aan bij de DVM of computers die toegang tot de Azure Stack-omgeving heeft.
 2. Voer de volgende opdrachten uit in een PowerShell-venster met verhoogde bevoegdheid:
-    ```PowerShell
+    ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
-    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
-    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
-    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $CloudAdminPassword)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation' -Credential $stampInfoCreds
     ConvertTo-Json $params > stampinfoproperties.json
     ```
 

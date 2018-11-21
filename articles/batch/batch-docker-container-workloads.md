@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155601"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262428"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Containertoepassingen uitvoeren op Azure Batch
 
@@ -25,7 +25,7 @@ U moet bekend zijn met de container-concepten en over het maken van een Batch-po
 
 ## <a name="why-use-containers"></a>Waarom containers gebruiken?
 
-Met behulp van containers biedt een eenvoudige manier Batch-taken uitvoeren zonder voor het beheren van een omgeving en afhankelijkheden toepassingen uit te voeren. Containers implementeren van toepassingen als lichtgewicht, draagbare, zelfvoorzienende eenheden die kunnen worden uitgevoerd in verschillende omgevingen. U kunt bijvoorbeeld bouwen en testen van een container is lokaal uitgevoerd en vervolgens de containerinstallatiekopie uploaden naar een register in Azure of ergens anders. Het implementatiemodel container zorgt ervoor dat de runtime-omgeving van uw toepassing altijd correct is geïnstalleerd en geconfigureerd wanneer u de toepassing wordt gehost. Op containers gebaseerde taken in Batch kunnen ook profiteren van functies van niet-container-taken, waaronder toepassingspakketten en beheer van resourcebestanden en uitvoerbestanden. 
+Met behulp van containers biedt een eenvoudige manier Batch-taken uitvoeren zonder voor het beheren van een omgeving en afhankelijkheden toepassingen uit te voeren. Containers implementeren van toepassingen als lichtgewicht, draagbare, zelfvoorzienende eenheden die kunnen worden uitgevoerd in verschillende omgevingen. Bijvoorbeeld, bouwen en testen van een container is lokaal uitgevoerd en vervolgens de containerinstallatiekopie uploaden naar een register in Azure of ergens anders. Het implementatiemodel container zorgt ervoor dat de runtime-omgeving van uw toepassing altijd correct is geïnstalleerd en geconfigureerd wanneer u de toepassing wordt gehost. Op containers gebaseerde taken in Batch kunnen ook profiteren van functies van niet-container-taken, waaronder toepassingspakketten en beheer van resourcebestanden en uitvoerbestanden. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -74,7 +74,7 @@ Deze installatiekopieën worden alleen ondersteund voor gebruik in Azure Batch-p
 
 * Vooraf geïnstalleerde NVIDIA GPU-stuurprogramma's, voor het stroomlijnen van implementatie op Azure uit de N-serie VM 's
 
-* Installatiekopieën met of zonder vooraf geïnstalleerde stuurprogramma's voor RDMA; Deze stuurprogramma's toestaan pool-knooppunten toegang hebben tot de Azure RDMA-netwerk wanneer geïmplementeerd op RDMA-compatibele VM-grootten  
+* Uw keuze van afbeeldingen met of zonder RDMA-stuurprogramma's die vooraf zijn geïnstalleerd. Deze stuurprogramma's kunnen knooppunten toegang hebben tot de Azure RDMA-netwerk wanneer geïmplementeerd op RDMA-compatibele VM-grootten in de pool. 
 
 U kunt ook aangepaste installatiekopieën maken van virtuele machines met Docker op een van de Linux-distributies die compatibel is met Batch. Als u kiest voor uw eigen aangepaste installatiekopie van Linux, raadpleegt u de instructies in [een beheerde aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md).
 
@@ -222,41 +222,62 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-
 ## <a name="container-settings-for-the-task"></a>Container-instellingen voor de taak
 
-Om uit te voeren taken van de container op de rekenknooppunten, moet u container-specifieke instellingen opgeven, zoals container uitvoeren opties, te gebruiken installatiekopieën en het register.
+Geef een container-taak uitvoeren op een groep container is ingeschakeld, container-specifieke instellingen. Instellingen omvatten de afbeelding om te gebruiken, het register en uitvoeringsopties.
 
-Gebruik de `ContainerSettings` eigenschap van de taak klassen om container-specifieke instellingen te configureren. Deze instellingen worden gedefinieerd door de [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) klasse.
+* Gebruik de `ContainerSettings` eigenschap van de taak klassen om container-specifieke instellingen te configureren. Deze instellingen worden gedefinieerd door de [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) klasse.
 
-Als u taken op containerinstallatiekopieën uitvoeren de [cloud taak](/dotnet/api/microsoft.azure.batch.cloudtask) en [jobbeheertaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) containerinstellingen vereisen. Echter, de [begintaak](/dotnet/api/microsoft.azure.batch.starttask), [jobvoorbereidingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), en [jobvrijgevingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) vereisen geen container-instellingen (dat wil zeggen, ze kunnen worden uitgevoerd binnen de context van een container of rechtstreeks op het knooppunt).
+* Als u taken op containerinstallatiekopieën uitvoeren de [cloud taak](/dotnet/api/microsoft.azure.batch.cloudtask) en [jobbeheertaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) containerinstellingen vereisen. Echter, de [begintaak](/dotnet/api/microsoft.azure.batch.starttask), [jobvoorbereidingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), en [jobvrijgevingstaak](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) vereisen geen container-instellingen (dat wil zeggen, ze kunnen worden uitgevoerd binnen de context van een container of rechtstreeks op het knooppunt).
 
-De optionele [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) extra argumenten die moeten worden de `docker create` opdracht dat de taak wordt uitgevoerd om de container te maken.
+### <a name="container-task-command-line"></a>De opdrachtregel van de container-taak
+
+Wanneer u een container-taak uitvoert, wordt automatisch Batch gebruikt de [docker maken](https://docs.docker.com/engine/reference/commandline/create/) opdracht om een container met behulp van de opgegeven in de taak te maken. Batch bepaalt vervolgens de uitvoering van de taak in de container. 
+
+Als met de Batch-taken niet-container instellen u een opdrachtregel voor de taak van een container. Omdat de container wordt automatisch gemaakt in Batch, de opdrachtregel alleen Hiermee geeft u de opdracht of opdrachten die in de container wordt uitgevoerd.
+
+Als de installatiekopie van de container voor een batchtaak is geconfigureerd met een [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) script, die u kunt de opdrachtregel te gebruiken de standaard ENTRYPOINT instellen of deze overschrijven: 
+
+* Voor het gebruik van de standaard ENTRYPOINT van de containerinstallatiekopie, stelt u de opdrachtregel van de taak op een lege tekenreeks `""`.
+
+* De standaardwaarde van het INGANGSPUNT vervangen, of als de afbeelding niet over een ENTRYPOINT instellen een opdrachtregel geschikt is voor de container, bijvoorbeeld `/app/myapp` of `/bin/sh -c python myscript.py`.
+
+Optionele [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) extra argumenten die u aan te bieden de `docker create` opdracht dat Batch maakt gebruik van maken en uitvoeren van de container. Bijvoorbeeld, om een werkmap voor de container, stel de `--workdir <directory>` optie. Zie de [docker maken](https://docs.docker.com/engine/reference/commandline/create/) verwijzing naar extra opties.
 
 ### <a name="container-task-working-directory"></a>Werkmap van de container-taak
 
-De opdrachtregel voor een Azure Batch-taak voor container in een werkmap in de container die erg lijkt op het milieu dat batch heeft ingesteld voor een normale (niet-container)-taak wordt uitgevoerd:
+Een Batch-container-taak wordt uitgevoerd in een werkmap in de container die erg lijkt op de map die batch heeft ingesteld voor een normale (niet-container)-taak. Houd er rekening mee dat deze werkmap van verschilt de [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) als geconfigureerd in de afbeelding of de werkmap van de standaard-container (`C:\` op een Windows-container of `/` op een Linux-container). 
 
-* Alle mappen recursief hieronder de `AZ_BATCH_NODE_ROOT_DIR` (de hoofdmap van de Azure Batch-mappen op het knooppunt) worden toegewezen aan de container
+Voor de taak van een Batch-container:
+
+* Alle mappen recursief hieronder de `AZ_BATCH_NODE_ROOT_DIR` op de host-knooppunt (de hoofdmap van de Azure Batch-mappen) naar de container zijn toegewezen
 * Alle variabelen voor de omgeving worden toegewezen aan de container
-* De werkmap van de toepassing is ingesteld dezelfde als die voor een normale taak, zodat u kunt functies zoals toepassingspakketten en bronbestanden gebruiken
+* De werkmap van de taak `AZ_BATCH_TASK_WORKING_DIR` op het knooppunt is dezelfde als die voor een normale taak ingesteld en naar de container is toegewezen. 
 
-Omdat de Batch Hiermee wijzigt u de standaard-werkmap in de container, de taak wordt uitgevoerd op een locatie die verschilt van de werkmap typische container (bijvoorbeeld `c:\` standaard op een Windows-container of `/` op Linux of een andere map als geconfigureerd in de container-installatiekopie). Om ervoor te zorgen dat uw containertoepassingen goed in de context van de Batch, moet u een van de volgende handelingen: 
+Deze toewijzingen kunnen u werken met taken van de container op ongeveer dezelfde manier als niet-container-taken. Bijvoorbeeld, installeren van toepassingen die gebruikmaken van toepassingspakketten, toegang krijgen tot resourcebestanden van Azure Storage gebruiken omgevingsinstellingen voor taken en uitvoerbestanden van de taak behouden nadat de container wordt gestopt.
 
-* Zorg ervoor dat in uw taak vanaf de opdrachtregel (of de werkmap van de container) een absoluut pad wordt opgegeven als deze niet al op deze manier is geconfigureerd.
+### <a name="troubleshoot-container-tasks"></a>Container taken oplossen
 
-* Stel in van de taak mag ContainerSettings, een werkmap in de container opties voor het uitvoeren. Bijvoorbeeld `--workdir /app`.
+Als uw container-taak niet wordt uitgevoerd zoals verwacht, moet u mogelijk voor informatie over de configuratie van WORKDIR of ENTRYPOINT van de containerinstallatiekopie. Als u wilt zien van de configuratie, de [docker-installatiekopie inspecteren](https://docs.docker.com/engine/reference/commandline/image_inspect/) opdracht. 
 
-Het volgende fragment van Python ziet u een eenvoudige opdrachtregel die wordt uitgevoerd in een Ubuntu-container opgehaald uit Docker Hub. Hier de `--rm` optie uitvoeren in een container wordt de container verwijderd nadat de taak is voltooid.
+Wijzig indien nodig de instellingen van de container-taak op basis van de installatiekopie:
+
+* Geef een absoluut pad in de opdrachtregel van de taak. Als de afbeelding standaard ENTRYPOINT wordt gebruikt voor de opdrachtregel van de taak, moet u controleren of een absoluut pad is ingesteld.
+
+* Wijzig de werkmap zodat deze overeenkomt met de WORKDIR in de afbeelding in opties voor het uitvoeren van de taak container. Bijvoorbeeld, stel `--workdir /app`.
+
+## <a name="container-task-examples"></a>Voorbeelden van container-taak
+
+Het volgende fragment van Python ziet u een eenvoudige opdrachtregel die wordt uitgevoerd in een container gemaakt op basis van de installatiekopie van een fictieve opgehaald uit Docker Hub. Hier de `--rm` container optie wordt de container verwijderd nadat de taak is voltooid, en de `--workdir` optie stelt u een werkmap. De container ENTRYPOINT met een eenvoudige shellopdracht die u een klein bestand naar de werkmap van de taak op de host schrijft heeft voorrang op de opdrachtregel. 
 
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='ubuntu', 
-    container_run_options='--rm')
+    image_name='myimage', 
+    container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='/bin/echo hello',
+    command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
 
@@ -267,11 +288,11 @@ De volgende C#-voorbeeld ziet u eenvoudige container-instellingen voor een cloud
 ```csharp
 // Simple container task command
 
-string cmdLine = "c:\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "--rm --read-only"
+    imageName: "myimage",
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (
@@ -287,6 +308,6 @@ CloudTask containerTask = new CloudTask (
 
 * Zie voor meer informatie over het installeren en met behulp van Docker CE voor Linux de [Docker](https://docs.docker.com/engine/installation/) documentatie.
 
-* Zie voor meer informatie over het gebruik van aangepaste installatiekopieën [een beheerde aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken ](batch-custom-images.md).
+* Zie voor meer informatie over het gebruik van aangepaste installatiekopieën [een beheerde aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken](batch-custom-images.md).
 
 * Meer informatie over de [Moby project](https://mobyproject.org/), een framework voor het maken van container-systemen.

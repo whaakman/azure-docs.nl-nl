@@ -1,3 +1,16 @@
+---
+author: kumudD
+ms.service: load-balancer
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: kumud
+ms.openlocfilehash: 459c99d1b45af9c98cc1a6d0d7dd7a9a04c824ec
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52269683"
+---
 Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. De load balancer biedt hoge beschikbaarheid bij het verdelen van inkomend verkeer over gezonde service-exemplaren in cloudservices of virtuele machines in een load balancer-set. Azure Load Balancer kan deze services ook toepassen op meerdere poorten, meerdere IP-adressen of allebei.
 
 U kunt een load balancer configureren voor:

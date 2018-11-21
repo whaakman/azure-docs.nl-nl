@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 984d4675aa96a890e7fa14f45eb6412bbd2ddc6f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161681"
+ms.locfileid: "52263890"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Doorvoer inrichten op Azure Cosmos-containers en databases
 
@@ -67,7 +67,6 @@ U kunt de twee modellen combineren, is inrichting doorvoer op zowel de database 
 
 |**Quotum**  |**Doorvoer die is ingericht op een database**  |**Doorvoer die is ingericht in een container**|
 |---------|---------|---------|
-|Eenheid van schaalbaarheid|Container|Container|
 |Minimale ru 's |400 |400|
 |Minimale ru's per container|100|400|
 |Minimale ru's nodig om te gebruiken van 1 GB aan opslagruimte|40|40|

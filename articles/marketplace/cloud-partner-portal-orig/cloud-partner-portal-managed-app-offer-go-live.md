@@ -1,5 +1,5 @@
 ---
-title: TITEL | Microsoft Docs
+title: Uw Azure-toepassing aanbieding live op Azure Marketplace | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809895"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263585"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Uw aanbieding op Azure Marketplace live Azure-toepassing maken 
 ===========================================================
@@ -33,19 +33,22 @@ Laat\'s gaat u door dit proces in meer detail om beter te begrijpen wat er gebeu
 <a name="publishing-process"></a>Publicatieproces 
 ------------------
 
-Klikt u op \"publiceren\" onder het tabblad Editor het publicatieproces te starten.
+Klikt u op \"publiceren\" onder de **Editor** tab om het publicatieproces te starten.
 
 ![Bieden van Go Live reeks 1 - publiceren](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-Op het tabblad Status ziet u de stappen voor publiceren en op uw aanbieding bij welke stap is.
+Onder de **Status** tabblad ziet u de publicatie stappen en uw aanbieding bij welke stap loopt.
 
 ![Bieden van Go Live reeks 2 - werkstroom](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-Op enig moment gedurende het publicatieproces, kunt u ook Meld u aan en klik op het tabblad alle biedt om de meest recente status voor het gebruik van uw aanbiedingen weer te geven. U kunt op rechtstreeks op de status van uw aanbieding en bekijk de details voor waar uw aanbieding in het publicatieproces is.
+Op enig moment gedurende het publicatieproces, kunt u ook Meld u aan en klikt u op de **alle biedt** tabblad om de meest recente status voor het gebruik van uw aanbiedingen. U kunt op rechtstreeks op de status van uw aanbieding en bekijk de details voor waar uw aanbieding in het publicatieproces is.
 
-Laat\'s doorlopen van de publicatie stappen bespreken wat er gebeurt bij elke stap en hoe lang u elke stap te schatten duurt.
+> [!WARNING]
+> Als de klant gebruik attribution niet is ingeschakeld, krijgt u de volgende strekking weergegeven tijdens het publicatieproces: 'Azure-partner klant gebruik attribution ontbreekt in een of meer Azure Resource Manager-sjablonen. Om op te lossen, kunt u een controleopties GUID toevoegen aan de Azure Resource Manager-sjabloon in mainTemplate.json pakketten voor de volgende indeling: servicenow. Zie voor meer informatie, http://aka.ms/customerusageattribution. " 
 
-### <a name="validate-pre-requisites-1-day"></a>Valideren van de vereisten (\<1 dag) 
+Laten we elk van de publicatie stappen doorlopen, en bespreken wat er gebeurt bij elke stap en hoe lang u moet een schatting maken dat elke stap duurt.
+
+### <a name="validate-prerequisites-1-day"></a>Valideer de vereisten (\<1 dag) 
 
 Wanneer u klikt op \"publiceren\", een geautomatiseerde controle vindt plaats om te controleren of u\'ve ingevuld alle vereiste velden in uw aanbieding. Als de velden worden niet ingevuld en u moet nauwkeurig vullen en klik vervolgens op een waarschuwing wordt weergegeven naast het veld \'publiceren\' opnieuw.
 
@@ -59,11 +62,11 @@ Deze stap is waar we diverse tests om te controleren of uw Azure-toepassingspakk
 
 Omdat deze stap enkele dagen duren kan, kunt u zich buiten de Cloud Partner-Portal. We sturen u een e-mailmelding als er fouten zijn. Als alles met succes is geslaagd, wordt het proces automatisch verdergaan met de Provisioning-stap.
 
-### <a name="packaging-and-lead-generation-registration-1-hour"></a>Pakketten en leiden generatie registratie (\<1 uur) 
+### <a name="packaging-and-lead-generation-registration-1-hour"></a>Verpakking en het genereren van registratie leiden (\<1 uur) 
 
 Tijdens deze fase, zijn we de inhoud van de technische en marketingmateriaal combineren in wat de productpagina van op de website zal zijn.
 
-### <a name="offer-available-in-preview"></a>De aanbieding is beschikbaar in Preview 
+### <a name="offer-available-in-preview"></a>De aanbieding is beschikbaar in preview 
 
 U ontvangt een e-mailmelding die uw aanbieding met succes is voltooid voor de stappen die nodig zijn voor toegang tot de aanbieding in preview. In deze stap moet u voorbeeld van uw aanbieding en zorg ervoor dat alles ziet er als u deze moet worden. Controleer als uw virtuele machine correct is geïmplementeerd in de faseringsomgeving.
 

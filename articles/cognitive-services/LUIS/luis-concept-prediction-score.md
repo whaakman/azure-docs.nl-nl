@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637951"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264383"
 ---
 # <a name="prediction-score"></a>Voorspellingsscore
 Een voorspelling score geeft aan dat de mate van vertrouwen die LUIS voor voorspellingsresultaten heeft. 
@@ -62,7 +62,7 @@ Wanneer u hetzelfde model in een andere app trainen en de scores niet hetzelfde 
 Als uw chatbot een specifieke LUIS score om aan te geven vertrouwen in opzet vereist, moet u in plaats daarvan de score verschil tussen de bovenste twee intents. Dit biedt flexibiliteit voor variaties in Trainingen. 
 
 ## <a name="punctuation"></a>Leestekens
-Interpunctie is een afzonderlijke token in LUIS. Een utterance met een punt aan het einde ten opzichte van een utterance die niet zijn twee afzonderlijke uitingen en twee verschillende voorspellingen kunnen krijgen. Zorg ervoor dat het model interpunctie ofwel worden verwerkt in de [voorbeeld uitingen](luis-concept-utterance.md) (met en niet met leestekens) of in de [patterns}(luis-concept-patterns.md) waar is het eenvoudiger om interpunctie met de syntaxis van de speciale negeren: `I am applying for the {Job} position[.]`
+Interpunctie is een afzonderlijke token in LUIS. Een utterance met een punt aan het einde ten opzichte van een utterance die niet zijn twee afzonderlijke uitingen en twee verschillende voorspellingen kunnen krijgen. Zorg ervoor dat het model interpunctie ofwel worden verwerkt in de [voorbeeld uitingen](luis-concept-utterance.md) (met en niet met leestekens) of in de [patronen](luis-concept-patterns.md) waar is het eenvoudiger om interpunctie met de syntaxis van de speciale negeren: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Volgende stappen
 

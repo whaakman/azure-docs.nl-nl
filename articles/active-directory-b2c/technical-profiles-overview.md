@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0f36cd798faac275e0f6dcb8a81bd37e14ab6d8d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578481"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275816"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Over technische profielen in Azure Active Directory B2C aangepast beleid
 
@@ -106,7 +106,7 @@ Beide **AAD-UserReadUsingAlternativeSecurityId-NoError** en **AAD-UserReadUsingA
 </TechnicalProfile>
 ```
 
-Een technisch profiel mag bevatten of overnemen van een ander technisch profiel, waaronder een andere naam. Er is geen limiet voor het aantal niveaus. Afhankelijk van de zakelijke vereisten, de gebruikersbeleving vragen mogelijk **AAD-UserReadUsingAlternativeSecurityId** die wordt een fout gegenereerd als een gebruiker sociaal account niet bestaat, of  **AAD-UserReadUsingAlternativeSecurityId-NoError** die een fout niet verhogen.
+Een technisch profiel mag bevatten of overnemen van een ander technisch profiel, waaronder een andere naam. Er is geen limiet voor het aantal niveaus. Afhankelijk van de zakelijke vereisten, de gebruikersbeleving vragen mogelijk **AAD-UserReadUsingAlternativeSecurityId** die wordt een fout gegenereerd als een sociaal account van gebruiker niet bestaat, of  **AAD-UserReadUsingAlternativeSecurityId-NoError** die een fout niet verhogen.
 
 
 

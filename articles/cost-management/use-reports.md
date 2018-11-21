@@ -8,20 +8,20 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976781"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276020"
 ---
-# <a name="use-cloudyn-reports"></a>Rapporten van Cloudyn gebruiken
+# <a name="use-cloudyn-reports"></a>Cloudyn-rapporten gebruiken
 
 Dit artikel wordt beschreven voor het doel van de Cloudyn-rapporten die zijn opgenomen in de Cloudyn-portal. Ook wordt beschreven hoe u de rapporten effectief kunt gebruiken. De meeste rapporten zijn intuïtief en een uniform uiterlijk hebben. De meeste van de acties die u in één rapport doen kunt, kunt u ook doen in andere rapporten. Zie voor een overzicht over het gebruik van Cloudyn-rapporten, waaronder over het aanpassen en opslaan of plannen van rapporten, [Understanding kostenrapportages](understanding-cost-reports.md).
 
-Kostenbeheer van Azure biedt vergelijkbare functionaliteit aan Cloudyn. Kostenbeheer van Azure is een systeemeigen Azure cost management-oplossing. Het helpt u kosten analyseren, maken en budgetten beheren, gegevens, exporteren en bekijken en reageren op optimalisatie aanbevelingen om geld te besparen. Zie voor meer informatie, [Azure Cost Management](overview-cost-mgt.md).
+Azure Cost Management biedt vergelijkbare functionaliteit als Cloudyn. Azure Cost Management is een systeemeigen Azure-oplossing voor kostenbeheer. Het helpt u kosten te analyseren, budgetten te maken en beheren, gegevens te exporteren en aanbevelingen voor optimalisatie te bekijken en er actie op te ondernemen om geld te besparen. Zie [Azure Cost Management](overview-cost-mgt.md) voor meer informatie.
 
 ## <a name="report-types"></a>Rapporttypen
 

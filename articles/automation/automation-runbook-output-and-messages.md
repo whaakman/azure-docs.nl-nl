@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 751c2df42ee8e4ace22fe94e1fef8d734ab81c3c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240729"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275663"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
 De meeste Azure Automation-runbooks hebben een vorm van uitvoer, zoals een foutbericht op dat de gebruiker of een complex object dat bedoeld om te worden verbruikt door een andere werkstroom. Windows PowerShell biedt [meerdere streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) voor het verzenden van uitvoer van een script of een werkstroom. Azure Automation anders werkt met elk van deze stromen en moet u Volg de aanbevolen procedures voor informatie over het gebruik van elk wanneer u een runbook maakt.
@@ -64,13 +64,17 @@ Workflow Test-Runbook
 
 De uitvoerstroom voor de runbooktaak zou zijn:
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 De uitgebreide stroom voor de runbooktaak zou zijn:
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 Nadat u het runbook hebt gepubliceerd en voordat u begint met het, u moet ook uitgebreide logboekregistratie inschakelen in de runbook-instellingen om op te halen van de uitvoer uitgebreide stroom.
 

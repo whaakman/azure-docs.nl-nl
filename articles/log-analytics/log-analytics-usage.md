@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a881ea18558e49656dc165d1545250bffeac4303
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 01603655be9b6051be9b894da4e55338ff4df810
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713075"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262122"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -29,37 +29,127 @@ ms.locfileid: "51713075"
 > - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](log-analytics-manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
 > - [Gebruik en geschatte kosten bewaken](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) wordt beschreven hoe u gebruik en geschatte kosten voor meerdere Azure-bewakingsfuncties voor verschillende prijsmodellen. Ook wordt beschreven hoe u kunt wijzigen van het prijsmodel.
 
-Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, vanuit welke bronnen de gegevens zijn verzonden, en de verschillende typen gegevens die zijn verzonden.  Gebruik het **Log Analytics-gebruiksdashboard** om het gegevensgebruik te controleren en analyseren. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
+## <a name="understand-usage"></a>Inzicht in gebruik
 
-## <a name="understand-the-usage-dashboard"></a>Inzicht in het dashboard met gebruiksgegevens
-Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
+Gebruik **Log Analytics gebruik en geschatte kosten** om te controleren en gegevensgebruik analyseren. De ziet u hoeveel gegevens worden verzameld door elke oplossing, hoeveel gegevens worden bewaard en een schatting van uw kosten op basis van de hoeveelheid gegevens die zijn opgenomen en eventuele aanvullende bewaarperiode na de inbegrepen hoeveelheid.
 
-- Gegevensvolume
-    - Gegevensvolume gedurende een bepaalde periode (op basis van uw huidige tijdsbereik)
-    - Gegevensvolume per oplossing
-    - Gegevens die niet zijn gekoppeld aan een computer
-- Computers
-    - Computers waarmee gegevens worden verzonden
-    - Computers zonder gegevens in de afgelopen 24 uur
-- Aanbiedingen
-    - Knooppunten voor Insight en Analytics
-    - Knooppunten voor automatisering en beheer
-    - Knooppunten voor beveiliging  
-- Prestaties
-    - Benodigde tijd voor het verzamelen en indexeren van gegevens  
-- Lijst met query's
+![Gebruik en geraamde kosten](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 
-![Gebruiks- en kostendashboard](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
+Als u wilt uw gegevens in meer detail te verkennen, klikt u op het pictogram aan de bovenkant van een van de grafieken in het **gebruik en geschatte kosten** pagina. Nu kunt u werken met deze query voor het verkennen van meer informatie over uw gebruik.  
+
+![Logboeken weergeven](media/log-analytics-usage/logs.png)<br>
+
+## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Het oplossen van problemen met een hoger gebruik dan verwacht
+Hoger gebruik wordt veroorzaakt door een of beide volgende oorzaken:
+- Er worden meer gegevens dan verwacht verzonden naar Log Analytics
+- Er worden meer knooppunten dan verwacht verzonden naar Log Analytics
+
+### <a name="data-volume"></a>Gegevensvolume 
+Op de **gebruik en geschatte kosten** pagina, de *opname van gegevens per oplossing* grafiek toont de totale hoeveelheid gegevens die worden verzonden en hoeveel er worden verzonden door elke oplossing. Hiermee kunt u bepalen trends, zoals of de algehele gegevensgebruik (of het gebruik door een bepaalde oplossing) groeit, stabiel blijft of afneemt. De query die wordt gebruikt voor het genereren van dit is
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Houd er rekening mee dat de component "waar IsBillable = true" gegevenstypen van bepaalde oplossingen waarvoor er geen kosten opname zijn filtert. 
+
+U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoorbeeld als u wilt kijken naar de gegevens vanwege een IIS-logboeken:
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="nodes-sending-data"></a>Knooppunten die gegevens verzenden
+
+Als u wilt het aantal knooppunten waarvoor gegevens zijn gerapporteerd in de afgelopen maand undersand, gebruiken
+
+`Heartbeat | where TimeGenerated > startofday(ago(31d))
+| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| render timechart`
+
+Als het aantal gebeurtenissen die per computer weergeven, gebruikt u
+
+`union withsource = tt *
+| summarize count() by Computer |sort by count_ nulls last`
+
+Gebruik deze query spaarzaam omdat deze duur om uit te voeren. Als u zien welke gegevenstypen zijn sendng gegevens aan een specifieke computer wilt, gebruikt:
+
+`union withsource = tt *
+| where Computer == "*computer name*"
+| summarize count() by tt |sort by count_ nulls last `
+
+> [!NOTE]
+> Sommige van de velden van het gegevenstype gebruik terwijl u nog steeds in het schema zijn afgeschaft en wordt dat niet meer door hun waarden worden ingevuld. Dit zijn **Computer** en de velden met betrekking tot de opname (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** en **AverageProcessingTimeMs**.
+
+Om u te verdiepen in de bron van gegevens voor een bepaald type, volgen hier enkele handige voorbeelden van query's:
+
++ **Beveiligingsoplossing**
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
++ **Logboekbeheeroplossing**
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
++ **Perf-gegevenstype**
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
++ **Gebeurtenisgegevenstype**
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
++ **Syslog-gegevenstype**
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
++ **AzureDiagnostics**-gegevenstype
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
+
+### <a name="tips-for-reducing-data-volume"></a>Tips voor het gegevensvolume verminderen
+
+Enkele suggesties voor het verminderen van het volume van de logboeken die worden verzameld zijn onder andere:
+
+| Bron van hoog gegevensvolume | Het gegevensvolume verminderen |
+| -------------------------- | ------------------------- |
+| Beveiligingsgebeurtenissen            | Selecteer [normale of minimale beveiligingsgebeurtenissen](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Wijzig het beleid voor beveiligingscontrole zodat alleen de gewenste gebeurtenissen worden verzameld. Controleer vooral de noodzaak voor het verzamelen van gebeurtenissen voor <br> - [filterplatform controleren](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [register controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [bestandssysteem controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [kernel-object controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [greepbewerking controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> -Verwijderbare opslag controleren |
+| Prestatiemeteritems       | Wijzig de [Prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md) in: <br> - Frequentie van het verzamelen van gegevens beperken <br> - Aantal prestatiemeteritems beperken |
+| Gebeurtenislogboeken                 | Wijzig [Configuratie van gebeurtenislogboek](log-analytics-data-sources-windows-events.md) in: <br> - Aantal verzamelde gebeurtenislogboeken beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*niveau niet verzamelen |
+| Syslog                     | Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md) in: <br> - Aantal verzamelde installaties beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*- en *foutopsporings*niveau niet verzamelen |
+| AzureDiagnostics           | Wijzig de resourcelogboekverzameling om: <br> - Het aantal resources dat logboeken naar Log Analytics verzendt te verkleinen <br> - Alleen vereiste logboeken te verzamelen |
+| Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
+
+### <a name="getting-node-counts"></a>Telt het aantal aan knooppunt 
+
+Als u op 'Per knooppunt (OMS)' prijscategorie, wordt in gebracht rekening op basis van het aantal knooppunten en oplossingen u gebruikt, het aantal inzichten en analyseknooppunten waarvoor u worden kosten in rekening gebracht in de tabel worden weergegeven op de **gebruik en geschatte kosten**pagina.  
+
+Als u wilt zien van het aantal afzonderlijke knooppunten voor beveiliging, kunt u de query:
+
+`union
+(
+    Heartbeat
+    | where (Solutions has 'security' or Solutions has 'antimalware' or Solutions has 'securitycenter')
+    | project Computer
+),
+(
+    ProtectionStatus
+    | where Computer !in~
+    (
+        (
+            Heartbeat
+            | project Computer
+        )
+    )
+    | project Computer
 )
+| distinct Computer
+| project lowComputer = tolower(Computer)
+| distinct lowComputer
+| count`
 
-### <a name="to-work-with-usage-data"></a>Werken met gebruiksgegevens
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
-3. Selecteer een werkruimte in de lijst met Log Analytics-werkruimten.
-4. Selecteer **Gebruik en geschatte kosten** in de lijst in het linkerdeelvenster.
-5. Op het dashboard **Gebruik en geschatte kosten** kunt u het tijdsbereik wijzigen door **Tijd: afgelopen 24 uur** te selecteren en het tijdsinterval te wijzigen.<br><br> ![tijdsinterval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-queries.md).<br><br> ![voorbeeld van kpi voor gegevensgebruik](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
-7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.<br><br> ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search-01.png)
+Als u wilt zien van het aantal afzonderlijke knooppunten voor automatisering, gebruikt u de query:
+
+` ConfigurationData 
+ | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
+ | extend lowComputer = tolower(Computer) | summarize by lowComputer 
+ | join (
+     Heartbeat 
+       | where SCAgentChannel == "Direct"
+       | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
+ ) on lowComputer
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Een waarschuwing instellen wanneer de gegevensverzameling groter is dan verwacht
 In deze sectie wordt beschreven hoe u een waarschuwing instelt als:
@@ -109,68 +199,6 @@ Bij het maken van de waarschuwing voor de tweede query - wanneer wordt voorspeld
 Maak een nieuwe [Actiegroep](../monitoring-and-diagnostics/monitoring-action-groups.md) of geef een bestaande op, zodat u een melding ontvangt wanneer aan de criteria voor een logboekwaarschuwing wordt voldaan.
 
 Wanneer u een waarschuwing ontvangt, gebruikt u de stappen in de volgende sectie om te bepalen waarom het-gebruik is hoger dan verwacht.
-
-## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Het oplossen van problemen met een hoger gebruik dan verwacht
-Het dashboard met gebruiksgegevens helpt u om te bepalen waarom het gebruik (en dus de kosten) groter is dan u verwacht.
-
-Hoger gebruik wordt veroorzaakt door een of beide volgende oorzaken:
-- Er worden meer gegevens dan verwacht verzonden naar Log Analytics
-- Er worden meer knooppunten dan verwacht verzonden naar Log Analytics
-
-### <a name="check-if-there-is-more-data-than-expected"></a>Controleren of er meer gegevens zijn dan verwacht 
-Er zijn twee belangrijke secties van de pagina met gebruiksgegevens waarmee u kunt achterhalen wat de oorzaak is van de meeste gegevens die worden verzameld.
-
-Het diagram *Gegevensvolume in een langere periode* toont het totale volume van de gegevens die worden verzonden en de computers die de meeste gegevens verzenden. In het diagram bovenaan kunt u zien of het algehele gegevensgebruik groeit, stabiel blijft of afneemt. De lijst met computers toont de 10 computers die de meeste gegevens verzenden.
-
-Het diagram *Gegevensvolume per oplossing* toont de hoeveelheid gegevens die wordt verzonden door elke oplossing en de oplossingen die de meeste gegevens verzenden. Het diagram bovenaan toont het totale volume van de gegevens die in een bepaalde periode door elke oplossing worden verzonden. Aan de hand van deze informatie kunt u bepalen of een oplossing meer gegevens, ongeveer dezelfde hoeveelheid gegevens of minder gegevens gedurende een bepaalde periode verzendt. De lijst met oplossingen toont de 10 oplossingen die de meeste gegevens verzendt. 
-
-Deze twee grafieken geven alle gegevens weer. Sommige gegevens zijn betaald, andere gegevens zijn gratis. Als u zich wilt richten op gegevens die betaald zijn, neemt u op de zoekpagina `IsBillable=true` op in de query.  
-
-![gegevensvolumediagrammen](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
-
-Bekijk het diagram *Gegevensvolume in een langere periode*. Klik op de naam van de computer om de oplossingen en gegevenstypen te bekijken die de meeste gegevens verzenden voor een specifieke computer. Klik op de naam van de eerste computer in de lijst.
-
-Op de volgende schermafbeelding verzendt het gegevenstype *Log Management / Perf* de meeste gegevens voor de computer.<br><br> ![gegevensvolume voor een computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
-
-Ga vervolgens terug naar het dashboard *Gebruik* en bekijk het diagram *Gegevensvolume per oplossing*. Klik op de naam van de oplossing in de lijst voor een overzicht van de computers die de meeste gegevens voor een oplossing verzenden. Klik op de naam van de eerste oplossing in de lijst. 
-
-In de volgende schermafbeelding ziet u dat de computer *mycon* de meeste gegevens verzendt voor het beheersysteem voor de oplossing Log Management.<br><br> ![gegevensvolume voor een oplossing](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
-
-Voer indien nodig extra analyses uit om grote volumes binnen een oplossing of gegevenstype te identificeren. Voorbeelden van query's zijn:
-
-+ **Beveiligingsoplossing**
-  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
-+ **Logboekbeheeroplossing**
-  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
-+ **Perf-gegevenstype**
-  - `Perf | summarize AggregatedValue = count() by CounterPath`
-  - `Perf | summarize AggregatedValue = count() by CounterName`
-+ **Gebeurtenisgegevenstype**
-  - `Event | summarize AggregatedValue = count() by EventID`
-  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
-+ **Syslog-gegevenstype**
-  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
-  - `Syslog | summarize AggregatedValue = count() by ProcessName`
-+ **AzureDiagnostics**-gegevenstype
-  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
-
-Gebruik de volgende stappen om het volume van de logboeken die worden verzameld te beperken:
-
-| Bron van hoog gegevensvolume | Het gegevensvolume verminderen |
-| -------------------------- | ------------------------- |
-| Beveiligingsgebeurtenissen            | Selecteer [normale of minimale beveiligingsgebeurtenissen](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Wijzig het beleid voor beveiligingscontrole zodat alleen de gewenste gebeurtenissen worden verzameld. Controleer vooral de noodzaak voor het verzamelen van gebeurtenissen voor <br> - [filterplatform controleren](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [register controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [bestandssysteem controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [kernel-object controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [greepbewerking controleren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> -Verwijderbare opslag controleren |
-| Prestatiemeteritems       | Wijzig de [Prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md) in: <br> - Frequentie van het verzamelen van gegevens beperken <br> - Aantal prestatiemeteritems beperken |
-| Gebeurtenislogboeken                 | Wijzig [Configuratie van gebeurtenislogboek](log-analytics-data-sources-windows-events.md) in: <br> - Aantal verzamelde gebeurtenislogboeken beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*niveau niet verzamelen |
-| Syslog                     | Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md) in: <br> - Aantal verzamelde installaties beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*- en *foutopsporings*niveau niet verzamelen |
-| AzureDiagnostics           | Wijzig de resourcelogboekverzameling om: <br> - Het aantal resources dat logboeken naar Log Analytics verzendt te verkleinen <br> - Alleen vereiste logboeken te verzamelen |
-| Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
-
-### <a name="check-if-there-are-more-nodes-than-expected"></a>Controleren of er meer knooppunten zijn dan verwacht
-Als u van gebruikmaakt de *per knooppunt (Log Analytics)* prijscategorie, worden de kosten berekend op basis van het aantal knooppunten en oplossingen die u gebruikt. In de sectie *Aanbiedingen* van het dashboard met gebruiksgegevens kunt u zien hoeveel knooppunten van elke aanbieding er worden gebruikt.<br><br> ![gebruiksdashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
-
-Klik op **Alles weergeven...**  om de volledige lijst met computers die gegevens verzenden voor het geselecteerde pakket weer te geven.
-
-Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-queries.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.

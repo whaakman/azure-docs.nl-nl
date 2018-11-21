@@ -6,7 +6,7 @@ items:
     href: home.md
 - name: Snelstartgidsen
   items:
-  - name: De .NET-SDK gebruiken
+  - name: De .NET SDK gebruiken
     items:
     - name: Classificatie van afbeeldingen
       href: csharp-tutorial.md
@@ -42,6 +42,8 @@ items:
     href: export-model-python.md
   - name: Een model bouwen met behulp van de REST-API
     href: rest-api-tutorial.md
+  - name: Accountgegevens exporteren of verwijderen
+    href: ./export-delete-data.md
 - name: Naslaginformatie
   items:
   - name: Custom Vision Training-API
@@ -60,25 +62,23 @@ items:
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Resources
   items:
-  - name: Releaseopmerkingen
-    href: release-notes.md
   - name: Voorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Prijzen en beperkingen
     href: limits-and-quotas.md
-  - name: Accountgegevens exporteren of verwijderen
-    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regionale beschikbaarheid
-    href: https://azure.microsoft.com/global-infrastructure/services/
-ms.openlocfilehash: 1394f71bceef7a0646411a155b63825771e839d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Releaseopmerkingen
+    href: release-notes.md
+ms.openlocfilehash: 9a084dbfbbc6d90a56e5986d967375da8a8fbb03
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281029"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276071"

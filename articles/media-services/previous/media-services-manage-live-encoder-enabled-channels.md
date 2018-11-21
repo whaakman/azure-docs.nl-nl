@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222060"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262615"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -268,8 +268,8 @@ Ingesteld op true, deze instelling configureert als het live coderingsprogramma 
 Optioneel. Hiermee geeft u de activa-Id van de Media Services-activa waarin de slateafbeelding. De standaardwaarde is null. 
 
 
->[!NOTE] 
->Voordat u het kanaal maakt, moet de slateafbeelding met de volgende beperkingen worden geüpload als een toegewezen asset (er worden geen andere bestanden moeten zich in deze asset). Deze installatiekopie wordt alleen gebruikt als het live coderingsprogramma een slate vanwege een ad-einde wordt ingevoegd of wordt expliciet naar een slate invoegen is aangegeven. Het live coderingsprogramma kan ook gaan op een slate modus tijdens bepaalde foutcondities – bijvoorbeeld als de invoer signaal verbroken is. Er is momenteel geen optie voor het gebruik van een aangepaste installatiekopie wanneer het live coderingsprogramma die een 'invoer verloren' staat invoert. U kunt stemmen voor deze functie [hier](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Voordat u het kanaal maakt, moet de slateafbeelding met de volgende beperkingen worden geüpload als een toegewezen asset (er worden geen andere bestanden moeten zich in deze asset). Deze installatiekopie wordt alleen gebruikt als het live coderingsprogramma een slate vanwege een ad-einde wordt ingevoegd of wordt expliciet naar een slate invoegen is aangegeven. Er is momenteel geen optie voor het gebruik van een aangepaste installatiekopie wanneer het live coderingsprogramma die een 'invoer verloren' staat invoert. U kunt stemmen voor deze functie [hier](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * Maximaal 1920 x 1080 resolutie.

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238996"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262089"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Herkenning biomedische entiteit met behulp van Team Data Science Process (TDSP)-sjabloon
 
@@ -174,7 +174,7 @@ Word2Vec is het woord insluiten zonder supervisie learning-algoritme dat een neu
 
 ![Model voor Gram overslaan](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Het model worden hiërarchische Softmax en negatieve steekproeven gebruikt om de prestaties te optimaliseren. Hiërarchische SoftMax (H-SoftMax) is een benadering geïnspireerd op binaire structuren. De platte SoftMax laag vervangt H SoftMax in feite door een hiërarchische laag waarvoor de woorden die als verlaat. Dit kan we berekenen van de kans van één woord in een reeks kans berekeningen, Hiermee slaat u ons niet hoeft te berekenen van de duur normalisering via alle woorden ontleden. Aangezien een evenwichtige binaire-structuur een diepte van log2 heeft (| V |) (V is het vocabulaire), we hebben alleen nodig om te evalueren maximaal log2 (| V |) knooppunten om op te halen van de laatste kans op een woord. De kans op een word-w gegeven van de context-c is dan gewoon het product van de waarschijnlijkheid van de juiste nemen en links schakelt respectievelijk die leiden tot de leaf-knooppunt. We bouwen een Huffman-boomstructuur op basis van de frequentie van de woorden in de gegevensset om ervoor te zorgen dat meer frequente woorden kortere voorstellingen krijgen. Zie voor meer informatie, [deze koppeling](http://sebastianruder.com/word-embeddings-softmax/).
+Het model worden hiërarchische Softmax en negatieve steekproeven gebruikt om de prestaties te optimaliseren. Hiërarchische SoftMax (H-SoftMax) is een benadering geïnspireerd op binaire structuren. De platte SoftMax laag vervangt H SoftMax in feite door een hiërarchische laag waarvoor de woorden die als verlaat. Dit kan we berekenen van de kans van één woord in een reeks kans berekeningen, Hiermee slaat u ons niet hoeft te berekenen van de duur normalisering via alle woorden ontleden. Aangezien een evenwichtige binaire-structuur een diepte van log2 heeft (| V |) (V is het vocabulaire), we hebben alleen nodig om te evalueren maximaal log2 (| V |) knooppunten om op te halen van de laatste kans op een woord. De kans op een word-w gegeven van de context-c is dan gewoon het product van de waarschijnlijkheid van de juiste nemen en links schakelt respectievelijk die leiden tot de leaf-knooppunt. We bouwen een Huffman-boomstructuur op basis van de frequentie van de woorden in de gegevensset om ervoor te zorgen dat meer frequente woorden kortere voorstellingen krijgen. Zie voor meer informatie, [deze koppeling](http://ruder.io/word-embeddings-softmax/).
 Afbeelding die is overgenomen uit [hier](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualisatie

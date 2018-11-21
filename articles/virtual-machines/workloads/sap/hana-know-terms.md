@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8197e3695da8869806e44775f601d95b17fcb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 902c4c94cc7366af342816e9b4776af603711c8b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028177"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275436"
 ---
 # <a name="know-the-terms"></a>Weet u de voorwaarden
 
@@ -39,7 +39,7 @@ Verschillende gemeenschappelijke definities worden veel gebruikt in de architect
    Gebruikers van een domein van de on-premises domein kunnen toegang tot de servers en services op deze VM's (zoals DBMS-services) uitvoeren. On-premises communicatie en naamomzetting tussen VM's geïmplementeerd en virtuele machines die met Azure is mogelijk. In dit scenario is normaal dat van de manier waarop de meeste SAP-activa zijn geïmplementeerd. Zie voor meer informatie, [plannen en ontwerpen voor Azure VPN-Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [een virtueel netwerk met een site-naar-site-verbinding maken met behulp van de Azure-portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant**: een klant die is geïmplementeerd in HANA grote instantie stempel wordt geïsoleerd in een *tenant.* Een tenant wordt geïsoleerd in de netwerken, opslag en compute-laag van andere tenants. Opslag- en rekencapaciteit eenheden toegewezen aan de verschillende tenants kunnen Zie elkaar of met elkaar communiceren op het niveau van de stempel HANA grote instantie. Een klant kan ervoor kiezen implementaties in verschillende tenants. Zelfs dan is er geen communicatie tussen tenants op het niveau van de stempel HANA grote instantie.
 - **SKU-categorie**: voor HANA grote instantie, de volgende twee categorieën van SKU's worden aangeboden:
-    - **Type ik klasse**: S72, S72m, S144, S144m, S192, S192m en S192xm
+    - **Type ik klasse**: S72, S72m, S96, S144, S144m, S192, S192m en S192xm
     - **Typ II klasse**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m
 
 

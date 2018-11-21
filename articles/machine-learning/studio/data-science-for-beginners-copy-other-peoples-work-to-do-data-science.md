@@ -4,8 +4,8 @@ description: 'Handelsgeheim van gegevenswetenschap: anderen uitnodigen voor uw w
 keywords: Data science voorbeelden, machine learning voorbeeld clustering-algoritme, clustering-algoritme-voorbeeld
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: 66af7e21943fb82826717ffef6e6ed153f1f5dd7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3b856b749edef38672fa584db2884121c4b6be22
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823517"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262719"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Werk van anderen kopiëren om gegevenswetenschap uit te voeren
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Gegevenswetenschap voor Beginners-serie

@@ -1,6 +1,6 @@
 ---
-title: Publiceren van een oplossingssjabloon | Microsoft Docs
-description: Een oplossingssjabloon publiceren in Azure Marketplace.
+title: Een Azure-oplossing-sjabloon publiceert | Microsoft Docs
+description: Een oplossingssjabloon publiceren in de Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345586"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261614"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Een oplossingssjabloon publiceren in Azure Marketplace
 
@@ -31,31 +31,22 @@ De volgende technische en niet-technische vereisten gelden voor het weergeven va
 
 ### <a name="technical"></a>Technisch
 
-- [Informatie over Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [Informatie over Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 - Azure Quickstart-sjablonen:
-
     - [Documentatie voor Azure-quickstart-sjabloon](https://azure.microsoft.com/documentation/templates/)
-
     - [Azure Quick Start-documentatie op GitHub](https://github.com/azure/azure-quickstart-templates)
-
  - [Gebruikersinterface in Azure portal-gebruiker een bestand maken](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - Schakel [klant gebruik attribution](./../azure-partner-customer-usage-attribution.md) voor het bijhouden van gebruik van Azure van de klantimplementaties van software op Azure.
 
 ### <a name="non-technical-business-requirements"></a>Niet-technische (zakelijke vereisten)
 
--   Uw bedrijf (of een dochteronderneming) moet zich bevinden in een verkoop van land/regio ondersteund via de Azure Marketplace.
-
--   Uw product moet op een manier die compatibel is met de factureringsmodellen ondersteund door de Azure Marketplace in licentie worden gegeven.
-
--   U bent verantwoordelijk voor het maken van technische ondersteuning beschikbaar voor klanten in een commercieel redelijke manier of gratis en betaalde of via communityondersteuning.
-
--   U bent zelf verantwoordelijk voor licentiëring van uw software en eventuele afhankelijkheden voor software van derden.
-
--   Geef de inhoud die voldoet aan criteria voor uw aanbieding wilt laten vermelden op Azure Marketplace en in de Azure Management Portal.
-
--   Ga akkoord met de voorwaarden van de Deelnamebeleid voor Azure Marketplace en de overeenkomst voor uitgevers.
-
--   Ga akkoord met de gebruiksvoorwaarden, de Microsoft-privacyverklaring en de overeenkomst inzake het Microsoft Azure Certified-programma.
+- Uw bedrijf (of een dochteronderneming) moet zich bevinden in een verkoop van land/regio ondersteund via de Azure Marketplace.
+- Uw product moet op een manier die compatibel is met de factureringsmodellen ondersteund door de Azure Marketplace in licentie worden gegeven.
+- U bent verantwoordelijk voor het maken van technische ondersteuning beschikbaar voor klanten in een commercieel redelijke manier of gratis en betaalde of via communityondersteuning.
+- U bent zelf verantwoordelijk voor licentiëring van uw software en eventuele afhankelijkheden voor software van derden.
+- Geef de inhoud die voldoet aan criteria voor uw aanbieding wilt laten vermelden op Azure Marketplace en in de Azure-portal.
+- Ga akkoord met de voorwaarden van de Deelnamebeleid voor Azure Marketplace en de overeenkomst voor uitgevers.
+- Ga akkoord met de gebruiksvoorwaarden, de Microsoft-privacyverklaring en de overeenkomst inzake het Microsoft Azure Certified-programma.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -101,7 +92,7 @@ Elke weergave bevat een set velden voor u om in te vullen. Vereiste velden worde
 
     **Aanbiedings-ID**
 
-     Een unieke id voor de aanbieding binnen een publisher-profiel. Deze ID wordt weergegeven in de URL's voor product, ARM-sjablonen en facturering rapporten. U kunt alleen kleine letters, alfanumerieke tekens en streepjes (-). De ID kan mag niet eindigen met een streepje en een maximum van 50 tekens. 
+     Een unieke id voor de aanbieding binnen een publisher-profiel. Deze ID wordt weergegeven in de product-URL's, Azure Resource Manager-sjablonen, en facturering rapporten. U kunt alleen kleine letters, alfanumerieke tekens en streepjes (-). De ID kan mag niet eindigen met een streepje en een maximum van 50 tekens. 
     >[!Note]
     >Dit veld wordt vergrendeld wanneer een aanbieding live meteen.
 
@@ -113,7 +104,7 @@ Elke weergave bevat een set velden voor u om in te vullen. Vereiste velden worde
 
     **Naam**
 
-    De weergavenaam voor uw aanbieding. Deze naam wordt weergegeven in Azure Marketplace en in Azure Portal. De naam mag maximaal 50 tekens bevatten. Gebruik de volgende richtlijnen voor de aanbiedingsnaam van:
+    De weergavenaam voor uw aanbieding. Deze naam wordt weergegeven in Azure Marketplace en in Azure portal. De naam mag maximaal 50 tekens bevatten. Gebruik de volgende richtlijnen voor de aanbiedingsnaam van:
     -  Gebruik een merknaam voor het product die makkelijk te herkennen is. 
     - Neem hier de naam van uw bedrijf niet, tenzij dat is hoe de aanbieding is gebracht.
     - Als u bent deze aanbieding op uw eigen website marketing, zorg er dan voor dat de naam is identiek aan de naam op uw website.
@@ -128,7 +119,7 @@ voor uw aanbieding.
 
     ![Nieuwe Voorraadeenheid](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    SKU-ID is een unieke id voor de SKU in een aanbieding. Deze ID wordt weergegeven in de URL's voor product, ARM-sjablonen en facturering rapporten. De SKU-ID:
+    SKU-ID is een unieke id voor de SKU in een aanbieding. Deze id wordt weergegeven in product-URL's, Resource Manager-sjablonen en factureringsrapporten. De SKU-ID:
     - Kan alleen een maximum van 50 tekens hebben.
     - Kan alleen worden samengesteld uit kleine letters, alfanumerieke tekens en streepjes (-).
     - De id mag niet eindigen op een streepje.
@@ -146,14 +137,10 @@ voor uw aanbieding.
 Geef de volgende instellingen voor de SKU.
 
 - **Titel** -een titel voor de SKU. Deze titel wordt weergegeven in de galerie voor dit item.
-
 - **Samenvatting** : een korte samenvatting beschrijving van de SKU. (Maximale lengte is 100 tekens.)
-
 - **Beschrijving** : een gedetailleerde beschrijving van de SKU.
-
 - **SKU-Type** -een vervolgkeuzelijst met deze waarden: 'Managed-toepassing (Preview)' en 'Oplossingssjabloon'. Selecteer voor dit scenario **oplossingssjabloon**.
-
-- **Beschikbaarheid in de cloud** -de locatie van de SKU. De standaardwaarde is de openbare Azure.
+- **Beschikbaarheid in de cloud** -de locatie van de SKU. De standaardwaarde is **openbare Azure**.
 
 ### <a name="package-details"></a>Pakketdetails
 
@@ -162,19 +149,16 @@ Nadat u de SKU-instellingen hebt voltooid, moet u de volgende pakketgegevens bev
 ![Pakketdetails](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
 - **Huidige versie** -de versie van het pakket dat u zult uploaden. Versie tags moet van het formulier X.Y.Z, waarbij X, Y en Z gehele getallen zijn.
-
 - **Pakketbestand** -dit pakket bevat de volgende bestanden, die zijn opgeslagen in een ZIP-bestand.
-
     -   MainTemplate.json - de implementatie-sjabloonbestand dat wordt gebruikt voor het implementeren van de oplossing/toepassing en de resources die zijn gedefinieerd voor de oplossing te maken. Zie voor meer informatie, [over het ontwerpen van implementatie-sjabloonbestanden](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-
-    -   createUIDefinition.json - dit bestand wordt gebruikt door de Azure-Portal voor het genereren van de gebruikersinterface voor het inrichten van deze oplossing/toepassing. Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheerde toepassing](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+    -   createUIDefinition.json - dit bestand wordt gebruikt door de Azure-portal voor het genereren van de gebruikersinterface voor het inrichten van deze oplossing/toepassing. Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheerde toepassing](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
 
     >[!IMPORTANT]
     >Dit pakket bevat geen andere geneste sjablonen of scripts die nodig zijn voor het inrichten van deze toepassing. De mainTemplate.json en createUIDefinition.json moeten zich in de hoofdmap.
 
 ## <a name="to-configure-the-marketplace"></a>Het configureren van de Marketplace
 
-Gebruik de Marketplace-weergave voor het configureren van de velden die worden weergegeven voor de aanbieding op [Azure Marketplace](https://azuremarketplace.microsoft.com) en klik op [Azure Portal](https://portal.azure.com/).
+Gebruik de Marketplace-weergave voor het configureren van de velden die worden weergegeven voor de aanbieding op [Azure Marketplace](https://azuremarketplace.microsoft.com) en klik op [Azure-portal](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Preview-versie abonnement-id 's
 
@@ -182,9 +166,9 @@ De lijst met Azure-abonnement-id's die u toegang hebben tot de aanbieding wilt w
 
 ### <a name="suggested-categories"></a>Aanbevolen categorieën
 
-Selecteer maximaal 5 categorieën in de opgegeven lijst dat uw aanbieding beste is gekoppeld. De geselecteerde categorieën worden gebruikt om uw aanbieding worden toegewezen aan de productcategorieën die beschikbaar zijn in [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Azure Portal](https://portal.azure.com/).
+Selecteer maximaal vijf categorieën in de opgegeven lijst dat uw aanbieding beste is gekoppeld. De geselecteerde categorieën worden gebruikt om uw aanbieding worden toegewezen aan de productcategorieën die beschikbaar zijn in [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Azure Portal](https://portal.azure.com/).
 
-De volgende voorbeelden ziet de marketplace-gegevens in de Azure Marketplace en de Azure-Portal.
+De volgende voorbeelden ziet de marketplace-gegevens in de Azure Marketplace en de Azure-portal.
 
 **Azure Marketplace**
 
@@ -215,11 +199,11 @@ Volg deze richtlijnen voor het logo's uploaden naar de Cloud Partner-Portal:
 -   De themakleuren van het Azure-portal zijn wit en zwart. Vermijd het gebruik van deze kleuren als de achtergrondkleur van uw logo's. Gebruik een kleur die uw logo's opvallende in Azure portal. We adviseren eenvoudige primaire kleuren.
 
     >[!Note] 
-    >Als u van een transparante achtergrond gebruikmaakt, moet u ervoor zorgen dat de logo's / tekst worden niet wit, zwart-wit of blauw.
+    >Als u van een transparante achtergrond gebruikmaakt, moet u ervoor zorgen dat de logo's / tekst worden niet wit, zwart of blauw.
 
 -   Gebruik geen achtergrond met een kleurovergang in het logo.
 
--   Plaats tekst op het logo. Dit omvat uw bedrijf of een merk. Het uiterlijk van uw logo moet *platte* en vermijd kleurovergangen.
+-   Plaats tekst op het logo. Deze richtlijn bevat uw bedrijf of een merk. Het uiterlijk van uw logo moet *platte* en vermijd kleurovergangen.
 
 -   Het logo mag niet worden uitgebreid.
 
@@ -229,7 +213,7 @@ De Hero-logo is optioneel. De publisher kunt niet een Hero-logo uploaden. Worden
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Richtlijnen voor het pictogram van Hero-logo
 
--   De weergavenaam van de uitgever, plan titel en de lange samenvatting van de aanbieding worden weergegeven met een witte gekleurde lettertype. Vermijd het gebruik van een lichte kleur op de achtergrond. Zwart-wit en transparante achtergrond zijn niet toegestaan voor de Hero-pictogrammen.
+-   De weergavenaam van de uitgever, plan titel en de lange samenvatting van de aanbieding worden weergegeven met een lettertype wit gekleurd. Vermijd het gebruik van een lichte kleur op de achtergrond. Zwart, wit en transparante achtergrond zijn niet toegestaan voor de Hero-pictogrammen.
 
 -   De uitgever weergavenaam, plan titel, de aanbieding voor lange samenvatting en de knop maken zijn ingesloten via een programma in de Hero-logo wanneer van de aanbieding weergegeven. Voer de tekst bij het ontwerpen van de Hero-logo. Laat een lege ruimte aan de rechterkant van het logo. Deze ruimte moet 415 x 100 pixels en wordt gecompenseerd door 370 pixels vanaf de linkerkant.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: d47878502816a0a61829859cc166c125448a2850
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710882"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260764"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Het uploaden, downloaden en met behulp van Node.js-SDK v2 blobs te vermelden
 
@@ -124,7 +124,7 @@ const listContainers = async () => {
 };
 ```
 
-De grootte van de groepen kan worden geconfigureerd via [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Het aanroepen van *listContainersSegmented* retourneert blobmetagegevens als een matrix met [ContainerResult](/nodejs/api/azure-storage/blobresult)-instanties. Resultaten worden geretourneerd in batches van 5000 blobs (segmenten). Als er in een container meer dan 5000 blobs zijn, bevatten de resultaten een waarde voor *continuationToken*. Als u volgende segmenten uit de blobcontainer wilt weergeven, kunt u het vervolgtoken als tweede argument doorgeven aan *listContainersSegmented*.
+De grootte van de groepen kan worden geconfigureerd via [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Het aanroepen van *listContainersSegmented* retourneert blobmetagegevens als een matrix met [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest)-instanties. Resultaten worden geretourneerd in batches van 5000 blobs (segmenten). Als er in een container meer dan 5000 blobs zijn, bevatten de resultaten een waarde voor *continuationToken*. Als u volgende segmenten uit de blobcontainer wilt weergeven, kunt u het vervolgtoken als tweede argument doorgeven aan *listContainersSegmented*.
 
 ### <a name="create-a-container"></a>Een container maken
 
@@ -167,7 +167,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>Een lokaal bestand uploaden
 
-De *uploadLocalFile*-functie maakt gebruik van de [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile)-functie om een bestand te uploaden en te schrijven of overschrijven vanuit het bestandssysteem naar de blobopslag. 
+De *uploadLocalFile*-functie maakt gebruik van de [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--)-functie om een bestand te uploaden en te schrijven of overschrijven vanuit het bestandssysteem naar de blobopslag. 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -184,11 +184,11 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Andere methoden voor het uploaden van inhoud naar blobs zijn werken met [tekst](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) en [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream). Om te controleren of het bestand is geüpload naar de blob-opslag, kunt u met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) de gegevens in uw account bekijken.
+Andere methoden voor het uploaden van inhoud naar blobs zijn werken met [tekst](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) en [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Om te controleren of het bestand is geüpload naar de blob-opslag, kunt u met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) de gegevens in uw account bekijken.
 
 ### <a name="list-the-blobs"></a>Blobs weergeven
 
-De *listBlobs*-functie roept de [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText)-methode aan om een lijst met blobmetagegevens in een container te retourneren. 
+De *listBlobs*-functie roept de [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--)-methode aan om een lijst met blobmetagegevens in een container te retourneren. 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -228,7 +228,7 @@ De hier getoonde implementatie verandert de bron en retourneert de inhoud van de
 
 ### <a name="delete-a-blob"></a>Een blob verwijderen
 
-De *deleteBlob*-functie roept de [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists)-functie aan. Zoals de naam al aangeeft, retourneert deze functie geen fout als de blob al is verwijderd.
+De *deleteBlob*-functie roept de [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--)-functie aan. Zoals de naam al aangeeft, retourneert deze functie geen fout als de blob al is verwijderd.
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1680a7d9fae9f8b8c04383c9f199e4c2ec8b8dfe
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166449"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275228"
 ---
 # <a name="my-first-powershell-runbook"></a>Mijn eerste PowerShell-runbook
 
@@ -116,7 +116,7 @@ Nu dat uw runbook voor uw Azure-abonnement verifieert, kunt u resources kunt beh
 
 1. Na *Connect-AzureRmAccount*, type *Start-AzureRmVM-Name 'VMName' - ResourceGroupName 'NameofResourceGroup'* daarbij de naam en de resourcegroep de naam van de virtuele machine te starten.  
    
-   ```
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -131,7 +131,7 @@ Uw runbook momenteel de virtuele machine gestart die u vastgelegd in het runbook
 
 1. Voeg parameters voor *VMName* en *ResourceGroupName* aan het runbook en gebruik deze variabelen met de **Start-AzureRmVM** cmdlet zoals in het volgende voorbeeld.
 
-   ```
+   ```powershell
    Param(
     [string]$VMName,
     [string]$ResourceGroupName

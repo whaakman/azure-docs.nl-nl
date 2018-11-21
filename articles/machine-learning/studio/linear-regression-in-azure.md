@@ -4,8 +4,8 @@ description: Een vergelijking van de lineaire regressiemodellen in Excel en in A
 metakeywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e7004cca1d64270a2b48ea1e41c74b3e7555317
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b96143ff587cbf5828f4a1d2d1dc11f5bcc33412
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823772"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261391"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Lineaire regressie gebruiken in Azure Machine Learning
 > *Kate Baroni* en *Ben Boatman* enterprise oplossingsarchitecten in van de Microsoft Data Insights Center Excellence zijn. In dit artikel beschreven ze hun ervaring migreren van een bestaande regressie analysis-pakket naar een cloud-gebaseerde oplossing met behulp van Azure Machine Learning. 

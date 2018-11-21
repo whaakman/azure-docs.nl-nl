@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963815"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261748"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriële console van de virtuele machine voor Linux
 
@@ -95,7 +95,7 @@ Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor al
 > Als u wilt in- of uitschakelen van de seriële console voor een abonnement, moet u hebt schrijfmachtigingen voor het abonnement. Deze machtigingen zijn beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
 
 ### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen
-De seriële console kan worden uitgeschakeld voor een volledige-abonnement via de [uitschakelen Console REST API-aanroep](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). U kunt de **uitproberen** functie beschikbaar is op deze pagina van de API-documentatie uitschakelen en inschakelen van de seriële console voor een abonnement. Voer uw abonnements-ID voor **subscriptionId**, voer **standaard** voor **standaard**, en selecteer vervolgens **uitvoeren**. Azure CLI-opdrachten zijn nog niet beschikbaar.
+De seriële console kan worden uitgeschakeld voor een volledige-abonnement via de [uitschakelen Console REST API-aanroep](/rest/api/serialconsole/console/disableconsole). U kunt de **uitproberen** functie beschikbaar is op deze pagina van de API-documentatie uitschakelen en inschakelen van de seriële console voor een abonnement. Voer uw abonnements-ID voor **subscriptionId**, voer **standaard** voor **standaard**, en selecteer vervolgens **uitvoeren**. Azure CLI-opdrachten zijn nog niet beschikbaar.
 
 ![REST-API uitproberen](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

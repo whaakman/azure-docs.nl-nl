@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578494"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261068"
 ---
 # <a name="determine-your-publishing-option"></a>Uw publicatieoptie bepalen
 De publicatieoptie die u voor uw aanbieding kiest is gekoppeld aan rechtstreeks aan de vereisten voor geschiktheid en de marketplace GTM-voordelen. De selectie van de optie en aanbiedingtype publiceren in de Cloud Partner-Portal definieert nog belangrijker, hoe gebruikers in uw aanbieding van marketplace zullen werken.
@@ -64,26 +64,18 @@ De webwinkel waar wordt uw aanbieding worden gepresenteerd, Azure Marketplace en
 
 De beschikbare publicatieopties gedifferentieerde klantbetrokkenheid en beschikt u over bieden toegang tot de leads delen en [Go-To-Market voordelen](https://partner.microsoft.com/en-US/reach-customers/gtm). Selecteer in drie mogelijke opties voor het publiceren voordat u een marketplace-aanbieding maken met de Cloud Partner-Portal. Houd rekening met de aanroepen om tot actie die met de publicatieoptie overeenkomen:
 
-**Lijst met** : eenvoudige lijst van uw toepassing of service waarmee een gebruiker marketplace om aan te vragen u om te verbinden met de klant via de **Contact Me** actie oproepen.
+| **Publicatieoptie**    | **Beschrijving**  |
+| :------------------- | :-------------------|
+| **Lijst met** | Eenvoudige lijst van uw toepassing of service waarmee een gebruiker marketplace om aan te vragen u om te verbinden met de klant via de **Contact Me** actie oproepen. |
+| **Proefversie** | Gebruik marketplace verbeterde detectie en automatiseren van de inrichting van de evaluatieversie van uw toepassing, waardoor potentiële gebruikers met uw SaaS, IaaS of Microsoft in de app-ervaring zonder kosten voor een beperkte periode voordat ze kopen. De aanroepen om tot actie die wordt gebruikt voor de proefversie publicatieoptie zijn: **gratis proefversie van** of **Test Drive**. |
+| **Transact** | Uw toepassing wordt uitgevoerd op Azure en kan worden ingericht als een resource rechtstreeks in van de klant Azure-abonnement wanneer de klant de Get deze nu aanzetten tot actie selecteert. Uw kosten voor de softwarelicentie kunnen eventueel worden aangeschaft en kosten in rekening gebracht via de keuze van de klant betaalmiddel voorwaarden en bepalingen, en u kunt kiezen om te bieden gedurende beperkte tijd toegang tot uw **gratis evaluatieperiode** (alleen beschikbaar voor Azure Marketplace.) |
 
-**Proefversie** – gebruik marketplace verbeterde detectie en automatiseren van de inrichting van de evaluatieversie van uw toepassing, waardoor potentiële gebruikers met uw SaaS, IaaS of Microsoft in de app-ervaring zonder kosten voor een beperkte periode voordat ze kopen. De aanroepen om tot actie die wordt gebruikt voor de proefversie publicatieoptie zijn: **gratis proefversie van** of **Test Drive**.
-
-**Transact** – uw toepassing wordt uitgevoerd op Azure en kunnen worden ingericht als een resource rechtstreeks in van de klant Azure-abonnement wanneer de klant de Get deze nu aanzetten tot actie selecteert. Uw kosten voor de softwarelicentie kunnen eventueel worden aangeschaft en kosten in rekening gebracht via de keuze van de klant betaalmiddel voorwaarden en bepalingen, en u kunt kiezen om te bieden gedurende beperkte tijd toegang tot uw **gratis evaluatieperiode** (alleen beschikbaar voor Azure Marketplace.) 
-
-## <a name="select-an-offer-type"></a>Selecteer een aanbiedingtype
-
-Nadat u kiest een publicatieoptie bent u klaar om te selecteren van het aanbiedingtype dat wordt gebruikt om uw aanbieding. 
-
-De aanbieding is de publicatie-object die u wilt maken, publiceren en beheren in de Cloud Partner-Portal. De structuur van de aanbieding met inbegrip van de metagegevens van artefacten en andere inhoud die wordt gebruikt om weer te geven van de aanbieding op marketplace wordt gedefinieerd door het aanbiedingtype.
-
-Voordat u een aanbieding maken kunt, moet u een aanbiedingtype. Het aanbiedingtype komt overeen met het type van de oplossing, app of service-aanbieding die u wilt publiceren, evenals de uitlijning op Microsoft-producten en services. 
-
-Een type één aanbieding kan anders worden geconfigureerd in de Cloud Partner-Portal om in te schakelen van verschillende opties voor publiceren, aanroepen naar actie inrichten of prijzen. De optie voor publiceren en de configuratie van het aanbiedingtype afgestemd ook op de aanbieding in aanmerking te komen en technische vereisten. 
-
-Zorg ervoor dat de webwinkel controleren en vereisten voor gegevenstypen in aanmerking te komen in deze aanbieding [Uitgevershandleiding voor](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) en de technische vereisten voordat u het maken van uw aanbieding publiceren.
+>[!Note]
+>Wanneer u de optie publiceren Transact gebruikt, is het belangrijk om te begrijpen van de prijzen, facturering, facturering en betalings-overwegingen voor het selecteren van een aanbiedingtype en het maken van uw aanbieding. Controleer de [Marketplace facturering en commerciële overwegingen artikel voor meer informatie](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
+*   Als u op een optie voor het publiceren besluit, bent u klaar om te [Selecteer het aanbiedingtype](./publisher-guide-by-offer-type.md) dat wordt gebruikt om uw aanbieding.
 *   Bekijk de vereisten voor geschiktheid in de opties voor publiceren door de sectie type aanbieding voor het voltooien van de selectie en configuratie van uw aanbieding.
 *   Bekijk de publishing patronen door webwinkel voor voorbeelden van hoe uw oplossing wordt toegewezen aan een aanbiedingtype en de configuratie.
 *   Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com) maken en configureren uw aanbieding.

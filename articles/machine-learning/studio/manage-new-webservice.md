@@ -3,8 +3,8 @@ title: De portal van Azure Machine Learning-webservices gebruiken | Microsoft Do
 description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API-webservices
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: 3ccf097134e21f7f0649b0748a6335d102de7285
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: e21d6e05e3d43bbdcc498c9c4b294269cc3069cd
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823381"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261340"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Een webservice met behulp van de portal van Azure Machine Learning-webservices beheren
 U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.

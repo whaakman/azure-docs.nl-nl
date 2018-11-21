@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 400ac3232b7e7dcd594734d818e3cafef09188fd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ade5fa78191fe670bd898e8edcbb1fab3b9b2379
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614545"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273994"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Een zone-redundante virtuele netwerkgateway maken in Azure-Beschikbaarheidszones
 
@@ -152,7 +152,7 @@ Ja, kunt u de Azure-portal naar de nieuwe SKU's implementeren. Echter, ziet u de
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Welke regio's zijn beschikbaar voor de nieuwe SKU's worden gebruikt?
 
-De nieuwe SKU's zijn beschikbaar in Azure-regio's waarvoor Azure Availability Zones - VS centraal, Frankrijk-centraal en West-Europa. In de toekomst zullen maken we zone-redundante gateways beschikbaar wilt voor u in andere openbare Azure-regio.
+De nieuwe SKU's zijn beschikbaar in Azure-regio's waarvoor Azure Availability Zones - VS centraal, Frankrijk-centraal, Noord-Europa, West-Europa en VS-West 2-regio's. In de toekomst zullen maken we zone-redundante gateways beschikbaar wilt voor u in andere openbare Azure-regio.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan ik wijzigen/migreren/upgrade mijn bestaande virtuele netwerkgateways met zone-redundante of zonegebonden-gateways?
 

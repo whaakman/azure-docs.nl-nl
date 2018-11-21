@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625824"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262649"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -37,7 +37,7 @@ A: ze zijn hetzelfde. [Log Analytics wordt als een functie in Azure Monitor geï
 A: log Search is momenteel nog steeds beschikbaar in de OMS-portal en in de Azure-portal onder de naam van de **Logboeken (klassiek)**. De OMS-portal wordt op 15 januari 2019 officieel stopgezet. De klassieke logboeken-ervaring in Azure portal worden geleidelijk stopgezet en vervangen door de nieuwe ervaring voor Logboeken. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>V. Kan ik nog steeds Advanced Analytics-Portal gebruiken? 
-De nieuwe ervaring van de logboeken in Azure portal is gebaseerd op de [Advanced Analytics-Portal](https://portal.loganalytics.io/), maar deze nog steeds toegankelijk buiten de Azure-portal. Het overzicht voor het buiten gebruik stellen van deze externe portal wordt binnenkort aangekondigd.
+De nieuwe ervaring van de logboeken in Azure portal is gebaseerd op de Portal Advanced Analytics, maar deze nog steeds toegankelijk buiten de Azure-portal. Het overzicht voor het buiten gebruik stellen van deze externe portal wordt binnenkort aangekondigd.
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>V. Waarom kan niet ik Zie Query Explorer en knoppen in de nieuwe ervaring voor Logboeken opslaan?
 
@@ -71,7 +71,7 @@ A: voor toegang tot een werkruimte in Azure, moet u toegewezen Azure-machtiginge
 A: Weergaveontwerper is alleen beschikbaar in Logboeken voor gebruikers die zijn toegewezen met machtigingen van de inzender of hoger.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>V. Kan ik nog steeds de Analytics-portal buiten Azure gebruiken?
-A. Ja, de logboeken pagina in Azure en de [portal Advanced Analytics](https://portal.loganalytics.io) zijn gebaseerd op de dezelfde code. Log Analytics wordt als een functie in Azure Monitor een meer uniform bewakingservaring geïntegreerd. U kunt nog steeds toegang tot Analytics-portal met behulp van de URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Ja, de pagina Logboeken in Azure en de portal Advanced Analytics zijn gebaseerd op de dezelfde code. Log Analytics wordt als een functie in Azure Monitor een meer uniform bewakingservaring geïntegreerd. U kunt nog steeds toegang tot Analytics-portal met behulp van de URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 

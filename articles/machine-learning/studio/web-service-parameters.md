@@ -3,8 +3,8 @@ title: Gebruik Azure Machine Learning Webserviceparameters | Microsoft Docs
 description: Het gebruik van Azure Machine Learning Web Service Parameters aan het gedrag van uw model wijzigen wanneer de web-service wordt geopend.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: db46dfd98b402668f5d716902b96fed469648460
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 34ae252ff2c37a6e4e9f90155c4fda79b81e29a2
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819064"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264332"
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Parameters voor Azure Machine Learning-webservice
 Een Azure Machine Learning-webservice wordt gemaakt door het publiceren van een experiment met modules met configureerbare parameters. In sommige gevallen kunt u het gedrag van de module niet wijzigen terwijl de webservice wordt uitgevoerd. *Web-Parameters van de Service* zodat u deze taak. 

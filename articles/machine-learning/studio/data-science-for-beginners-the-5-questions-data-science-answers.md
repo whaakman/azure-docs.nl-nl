@@ -4,8 +4,8 @@ description: Gegevenswetenschap leert voor Beginners is basisconcepten in 5 kort
 keywords: organiseert wetenschappelijke gegevens, data science beginners, gegevenswetenschap voor beginners, data science basisbeginselen, data science vragen, data science-video, data science-Inleiding
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 10f0c8256f991a0d873b38a3606c1218b9edf56d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 2e3d8805bfbe5b55aed111090cf1f7c02acb6a76
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819015"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262037"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Gegevenswetenschap voor beginners, video 1: de 5 vragen waarop gegevenswetenschap antwoord geeft
 Een korte inleiding data Science van *Gegevenswetenschap voor Beginners* in vijf korte video's van een top gegevenswetenschapper. Deze video's zijn basis, maar kan handig zijn, of u geïnteresseerd bent in de gegevenswetenschap of u de datawetenschappers samenwerkt.

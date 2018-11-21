@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 086399f669b704a0ae2c9f719906e7efa672b5b1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256269"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262499"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
@@ -34,7 +34,7 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [maakt u ee
 
 ## <a name="supported-operating-systems-for-backup"></a>Ondersteunde besturingssystemen voor back-up
 
- * **Linux**: Azure Backup biedt ondersteuning voor [een lijst met distributies die Azure ondersteunt](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van CoreOS Linux. Zie voor de lijst met Linux-besturingssystemen die ondersteuning voor het herstellen van bestanden, [bestanden herstellen vanuit back-up van virtuele machine](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Azure Backup biedt ondersteuning voor [een lijst met distributies die Azure ondersteunt](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van CoreOS Linux- en 32-bits besturingssysteem. Zie voor de lijst met Linux-besturingssystemen die ondersteuning voor het herstellen van bestanden, [bestanden herstellen vanuit back-up van virtuele machine](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Andere bring-your-own-Linux-distributies mogelijk werken, als de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python aanwezig. Deze distributies worden echter niet ondersteund.

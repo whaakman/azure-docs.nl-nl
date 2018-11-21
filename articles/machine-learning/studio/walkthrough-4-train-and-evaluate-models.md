@@ -3,8 +3,8 @@ title: 'Stap 4: Trainen en evalueren van de voorspellende analysemodellen | Micr
 description: 'Stap 4 van het ontwikkelen van een overzicht van de voorspellende oplossing: Train, beoordelen en evalueren van meerdere modellen in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 069e2f4d2cb6ae1e9890610bbace5298c62eee75
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d0277db665259d485c5a5a06f0013f3c0d6a177c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821018"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261782"
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Kennismaken, stap 4: De voorspellende analysemodellen trainen en evalueren
 In dit onderwerp bevat de vierde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)

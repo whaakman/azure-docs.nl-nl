@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f8092c7a05935dcb2ca176bee2c5820b50f3c814
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237582"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263550"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
-Gebruik de [SDK van Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) laden van verschillende typen invoergegevens. 
+Gebruik de [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) laden van verschillende typen invoergegevens. 
 
 Als u wilt uw gegevens laadt, geef het gegevenstype van het bestand en de bijbehorende parameters
 
@@ -194,13 +194,13 @@ dataflow.head(5)
 ```
 
 Voorbeelduitvoer:
-||010000|99999|ONJUISTE NOORWEGEN|NEE|NO_1|ENRS|Column7|Column8|Column9|
+||010000|99999|ONJUISTE NOORWEGEN|NO|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010003|99999|ONJUISTE NOORWEGEN|NEE|NEE|ENSO||||
-|1|010010|99999|JAN MAYEN|NEE|JN|ENJA|+70933|-008667|+00090|
-|2|010013|99999|ROST|NEE|NEE|||||
-|3|010014|99999|SOERSTOKKEN|NEE|NEE|ENSO|+59783|+005350|+00500|
-|4|010015|99999|BRINGELAND|NEE|NEE|ENBL|+61383|+005867|+03270|
+|0|010003|99999|ONJUISTE NOORWEGEN|NO|NO|ENSO||||
+|1|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|2|010013|99999|ROST|NO|NO|||||
+|3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 
 Als er geen kopteksten in de bestanden zijn, moet u de eerste rij als gegevens worden behandeld. Door door te geven `PromoteHeadersMode.NONE` aan het argument van het sleutelwoord header kunt u detectie van de koptekst te voorkomen en de juiste gegevens ophalen. Bijvoorbeeld:
@@ -217,12 +217,12 @@ Voorbeelduitvoer:
 
 ||Kolom1|Kolom2|Kolom3|Kolom4|Column5|Kolom6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010000|99999|ONJUISTE NOORWEGEN|NEE|NO_1|ENRS|Column7|Column8|Column9|
-|1|010003|99999|ONJUISTE NOORWEGEN|NEE|NEE|ENSO||||
-|2|010010|99999|JAN MAYEN|NEE|JN|ENJA|+70933|-008667|+00090|
-|3|010013|99999|ROST|NEE|NEE|||||
-|4|010014|99999|SOERSTOKKEN|NEE|NEE|ENSO|+59783|+005350|+00500|
-|5|010015|99999|BRINGELAND|NEE|NEE|ENBL|+61383|+005867|+03270|
+|0|010000|99999|ONJUISTE NOORWEGEN|NO|NO_1|ENRS|Column7|Column8|Column9|
+|1|010003|99999|ONJUISTE NOORWEGEN|NO|NO|ENSO||||
+|2|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|3|010013|99999|ROST|NO|NO|||||
+|4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 ## <a name="use-sql-data"></a>SQL-gegevens gebruiken
 De SDK van Azure Machine Learning Data Prep kan ook gegevens uit SQL-servers laden. Op dit moment wordt alleen Microsoft SQL Server ondersteund.

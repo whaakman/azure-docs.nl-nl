@@ -1,6 +1,6 @@
 ---
 title: Onveranderbare opslag voor Azure Storage-Blobs | Microsoft Docs
-description: Azure Storage biedt ondersteuning voor blobopslag (object) waarmee gebruikers gegevens opslaan in een status bewaarinterval, niet kan worden gewijzigd voor een opgegeven interval WORM (één keer schrijven, lezen veel).
+description: Azure Storage biedt ondersteuning voor blobopslag (object) waarmee gebruikers gegevens opslaan in een status bewaarinterval, niet kan worden gewijzigd voor een opgegeven interval WORM (Write Once, Read Many).
 services: storage
 author: xyh1
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036993"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261467"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
-Onveranderbare opslag voor Azure-blobopslag (object) kan gebruikers bedrijfskritieke gegevens opslaan in een status WORM (één keer schrijven, lezen veel). Deze status maakt de gegevens niet kan worden gewist en niet kan worden gewijzigd voor een gebruiker opgegeven interval. BLOBs kunnen worden gemaakt en lezen, maar niet gewijzigd of verwijderd voor de duur van de retentie-interval.
+Onveranderbare opslag voor Azure-blobopslag (object) kan gebruikers bedrijfskritieke gegevens opslaan in een status WORM (Write Once, Read Many). Deze status maakt de gegevens niet kan worden gewist en niet kan worden gewijzigd voor een gebruiker opgegeven interval. BLOBs kunnen worden gemaakt en lezen, maar niet gewijzigd of verwijderd voor de duur van de retentie-interval.
 
 ## <a name="overview"></a>Overzicht
 
@@ -47,7 +47,7 @@ Onveranderbare opslag is ingeschakeld in alle Azure openbare regio's.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Onveranderbare opslag voor Azure Blob storage ondersteunt twee typen onveranderbare beleidsregels of WORM: tijd gebaseerd bewaren en juridische bewaring. Zie voor meer informatie over het maken van deze onveranderbare beleidsregels de [aan de slag](#Getting-started) sectie.
+Onveranderbare opslag voor Azure Blob storage ondersteunt twee typen onveranderbare beleidsregels of WORM: tijd gebaseerd bewaren en juridische bewaring. Zie voor meer informatie over het maken van deze onveranderbare beleidsregels de [aan de slag](#getting-started) sectie.
 
 Wanneer een op tijd gebaseerd bewaarbeleid of een juridische bewaring wordt toegepast op een container, alle bestaande blobs verplaatsen naar de onveranderbare (schrijven en verwijderen die zijn beveiligd) staat. Alle nieuwe blobs die zijn geüpload naar de container wordt ook verplaatsen naar de status van de onveranderbare.
 
@@ -69,7 +69,7 @@ Voor nieuwe blobs is de effectieve retentieperiode gelijk aan de door de gebruik
 
 ### <a name="legal-holds"></a>Juridische bewaring
 
-Als u een juridische bewaring instelt, worden alle bestaande en nieuwe blobs in de status van de onveranderbare blijven totdat de juridische bewaring is uitgeschakeld. Zie voor meer informatie over het instellen en schakel juridische bewaring de [aan de slag](#Getting-started) sectie.
+Als u een juridische bewaring instelt, worden alle bestaande en nieuwe blobs in de status van de onveranderbare blijven totdat de juridische bewaring is uitgeschakeld. Zie voor meer informatie over het instellen en schakel juridische bewaring de [aan de slag](#getting-started) sectie.
 
 Een container kan zowel een juridische bewaring en een op tijd gebaseerd bewaarbeleid hebben op hetzelfde moment. Alle blobs in die container blijven in de status van de onveranderbare, totdat alle juridische bewaring zijn uitgeschakeld, zelfs als de daadwerkelijke bewaarperiode is verlopen. Daarentegen blijft een blob in een onveranderbare status totdat de daadwerkelijke bewaarperiode is verlopen, zelfs als alle juridische bewaring zijn gewist.
 

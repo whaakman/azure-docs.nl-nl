@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685698"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262598"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
-Uw oplossingen vereisen een Azure-onderdelen of ze moeten rechtstreeks op de infrastructuur van Azure worden geïmplementeerd als een software-partner voor Azure. Klanten die een partneroplossing implementeren en inrichten van hun eigen Azure-resources kunnen vinden het moeilijk om meer inzicht verkrijgen in de status van de implementatie en beeldverwerkingstoepassingen krijgen tot de impact op de groei van Azure. Wanneer u een hoger niveau van zichtbaarheid toevoegt, moet u zijn afgestemd op de Microsoft-verkoopteams en tegoed voor Microsoft-partner-programma's krijgen.   
+Uw oplossingen vereisen een Azure-onderdelen of ze moeten rechtstreeks op de infrastructuur van Azure worden geïmplementeerd als een software-partner voor Azure. Klanten die een partneroplossing implementeren en inrichten van hun eigen Azure-resources kunnen vinden het moeilijk om meer inzicht verkrijgen in de status van de implementatie en beeldverwerkingstoepassingen krijgen tot de impact op de groei van Azure. Wanneer u een hoger niveau van zichtbaarheid toevoegt, moet u zijn afgestemd op de Microsoft-verkoopteams en tegoed voor Microsoft-partner-programma's krijgen. 
 
 Microsoft biedt nu een methode om te kunnen bijhouden beter gebruik van Azure van implementaties van klanten van de software op Azure-partners. De nieuwe methode maakt gebruik van Azure Resource Manager voor het indelen van de implementatie van Azure-services.
 
 Als een Microsoft-partner, kunt u gebruik van Azure kunt koppelen aan alle Azure-resources die u namens een klant inricht. U kunt de koppeling via de Azure Marketplace, de Quick Start-opslagplaats, persoonlijke GitHub-opslagplaatsen en praat klantbetrokkenheid vormen. Als u wilt bijhouden inschakelt, zijn twee methoden beschikbaar:
 
 - Azure Resource Manager-sjablonen: Resource Manager-sjablonen of sjablonen voor oplossingen met de Azure-services voor het uitvoeren van de partner software implementeren. Partners kunnen maken van een Resource Manager-sjabloon voor het definiëren van de infrastructuur en configuratie van hun Azure-oplossing. Resource Manager-sjabloon kunt u en uw klanten om uw oplossing gedurende de levenscyclus te implementeren. U kunt er zeker van te zijn dat uw resources worden geïmplementeerd in een consistente status zijn. 
-
 - Azure Resource Manager-API's: Partners kunnen de Resource Manager-API's rechtstreeks naar het Resource Manager-sjabloon implementeren of voor het genereren van de API-aanroepen voor het inrichten van Azure-services rechtstreeks aanroepen. 
+
+Klant gebruik attribution is vereist op alle [oplossingssjablonen](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) gepubliceerde op Azure Marketplace. 
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager-sjablonen gebruiken
 

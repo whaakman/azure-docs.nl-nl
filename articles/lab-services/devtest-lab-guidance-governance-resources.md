@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740371"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262071"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Beheer van infrastructuur in Azure DevTest Labs - Resources
 In dit artikel komen de uitlijning en het beheer van resources voor DevTest Labs in uw organisatie. 
@@ -35,7 +35,7 @@ Voordat een organisatie begint om Azure te gebruiken voor het ontwikkelen van ee
 - Is vereist voor het scheiden van de ontwikkeling en productie-omgevingen segmentering? 
 - Welke besturingselementen worden geïntroduceerd voor eenvoudig beheer, de stabiliteit en groei van de lange termijn?
 
-De **eerst aanbevolen praktijk** is om te controleren van organisaties Azure taxonomie waar de afdelingen tussen productie en ontwikkeling abonnementen worden beschreven. In het volgende diagram kunt u de voorgestelde taxonomie een logische scheiding van ontwikkeling/testen en productie-omgevingen. Met deze methode kan een organisatie factureringscodes om bij te houden die zijn gekoppeld aan elke omgeving afzonderlijk kosten veroorzaken. Zie voor meer informatie, [Prescriptieve abonnementsgovernance](/architecture/cloud-adoption/appendix/azure-scaffold). Bovendien kunt u [Azure tags](../azure-resource-manager/resource-group-using-tags.md) om resources voor het bijhouden en facturering te organiseren.
+De **eerst aanbevolen praktijk** is om te controleren van organisaties Azure taxonomie waar de afdelingen tussen productie en ontwikkeling abonnementen worden beschreven. In het volgende diagram kunt u de voorgestelde taxonomie een logische scheiding van ontwikkeling/testen en productie-omgevingen. Met deze methode kan een organisatie factureringscodes om bij te houden die zijn gekoppeld aan elke omgeving afzonderlijk kosten veroorzaken. Zie voor meer informatie, [Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Bovendien kunt u [Azure tags](../azure-resource-manager/resource-group-using-tags.md) om resources voor het bijhouden en facturering te organiseren.
 
 De **tweede aanbevolen** bestaat uit het inschakelen van het abonnement DevTest binnen de Azure Enterprise portal. Hierdoor kan een organisatie om uit te voeren van de client-besturingssystemen die niet algemeen beschikbaar zijn in een Azure enterprise-abonnement. Vervolgens gebruikt u zakelijke software waarbij u betaalt alleen voor de compute en niet geen zorgen over de licentieverlening. Het zorgt ervoor dat de facturering voor de aangewezen services, met inbegrip van de galerie met installatiekopieën in IaaS, zoals Microsoft SQL Server, is gebaseerd op verbruik alleen. Meer informatie over de Azure DevTest-abonnement vindt [hier](https://azure.microsoft.com/offers/ms-azr-0148p/) voor Enterprise Agreement (EA)-klanten en [hier](https://azure.microsoft.com/offers/ms-azr-0023p/) voor betalen klanten.
 

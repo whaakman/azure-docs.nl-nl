@@ -3,8 +3,8 @@ title: Over het voorbereiden van uw model voor implementatie in Azure Machine Le
 description: Klik hier voor meer informatie over het voorbereiden van het getrainde model voor implementatie als een webservice op uw Machine Learning Studio-trainingsexperiment converteren naar een Voorspellend experiment.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 4e84558fc5ba085a622d35d1f5da76b41b1da216
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7849a21e2d005584030375e2193f74a99b3977bd
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824163"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265233"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Over het voorbereiden van uw model voor implementatie in Azure Machine Learning Studio
 

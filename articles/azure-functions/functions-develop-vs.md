@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515366"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275833"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -83,7 +83,7 @@ De projectsjabloon, maken een C#-project maakt, installeert de `Microsoft.NET.Sd
 * **Local.Settings.JSON**: onderhoudt instellingen die worden gebruikt bij het lokaal uitvoeren van functies. Deze instellingen worden niet gebruikt door Azure, ze worden gebruikt door de [Azure Functions Core Tools](functions-run-local.md). Dit bestand gebruiken om op te geven van de app-instellingen voor variabelen die zijn vereist door uw functies. Een nieuw item toevoegen aan de **waarden** matrix voor elke verbinding die is vereist voor de bindingen voor functions in uw project. Zie voor meer informatie, [lokale instellingenbestand](functions-run-local.md#local-settings-file) in het artikel Azure Functions Core Tools.
 
     >[!IMPORTANT]
-    >Omdat het bestand local.settings.json kunt geheimen bevat, moet u deze uitgesloten van uw project broncodebeheer. De **kopiëren naar de map voor uitvoer geproduceerd** instellen voor dit bestand altijd moet **kopiëren indien nieuwer**. 
+    >Omdat het bestand local.settings.json kunt geheimen bevat, moet u deze uitgesloten van uw project broncodebeheer. De **naar uitvoermap kopiëren** instellen voor dit bestand altijd moet **kopiëren indien nieuwer**. 
 
 Zie voor meer informatie, [Functions-klassebibliotheekproject](functions-dotnet-class-library.md#functions-class-library-project).
 

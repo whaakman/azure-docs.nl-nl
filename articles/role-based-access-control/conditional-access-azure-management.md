@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435045"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274735"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Toegang tot Azure-beheer met voorwaardelijke toegang beheren
 
@@ -32,7 +32,7 @@ Voor het maken van een beleid voor het beheer van Azure die u selecteert **Micro
 
 ![Voorwaardelijke toegang voor Azure-beheer](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Het beleid dat u maakt geldt voor alle Azure-beheereindpunten, met inbegrip van de klassieke Azure-portal, Azure-portal, Azure Resource Manager-provider, klassieke Service Management API's en Azure PowerShell.
+Het beleid dat u maakt geldt voor alle Azure-beheereindpunten, met inbegrip van de klassieke Azure-portal, Azure-portal, Azure Resource Manager-provider, klassieke Service Management API's en Azure PowerShell. Houd er rekening mee dat het beleid wordt toegepast op Azure PowerShell, waarmee de Azure Resource Manager-API aanroept. Dit geldt niet voor [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), die Microsoft Graph aanroepen.
 
 > [!CAUTION]
 > Zorg ervoor dat u begrijpt hoe voorwaardelijke toegang werkt voordat u een beleid instelt voor het beheren van toegang tot Azure-beheer. Zorg ervoor dat u geen voorwaarden die kunnen geblokkeerd door uw eigen toegang tot de portal maakt.

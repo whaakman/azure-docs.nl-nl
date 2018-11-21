@@ -2,32 +2,31 @@
 title: Overzicht van Azure Media Services dynamische pakketten | Microsoft Docs
 description: Het onderwerp biedt en overzicht van dynamische pakketten.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: 0d9e4f54-5daa-45c1-bfaa-cf09ca89b812
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 11/15/2018
 ms.author: juliako
-ms.openlocfilehash: 8f05015da1f66331413086c0e27c25cd5da75f5c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eccb141101e4d402fcc79fe5dd433f2fc3382e27
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788387"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263839"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
-## <a name="overview"></a>Overzicht
-Microsoft Azure Media Services kunnen worden gebruikt voor het leveren van veel bron bestandsindelingen mediastreaming indelingen, en beveiliging van inhoud bestandsindelingen naar verschillende technologieën van de client (bijvoorbeeld iOS-, XBOX, Silverlight, Windows 8). Deze clients begrijpen verschillende protocollen, bijvoorbeeld iOS een HTTP Live Streaming (HLS)-V4-indeling heeft en Silverlight en Xbox vereisen Smooth Streaming. Als u een set adaptive bitrate (multi-bitrate) hebt MP4-bestanden (ISO Base Media 14496-12) of een set adaptive bitrate Smooth Streaming-bestanden die u wilt leveren aan clients die MPEG DASH, HLS of Smooth Streaming begrijpen, moet u ook te profiteren van Media Services dynamische pakketten.
 
-Dynamische pakketten hoeft u een asset die bestaat uit een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden te maken. Klik, op basis van de opgegeven indeling de manifest- of fragmentdeel aanvraag, de On-Demand Streaming server zorgt ervoor dat u de stream ontvangt in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client.
+Microsoft Azure Media Services kunnen worden gebruikt om veel media bron-bestandsindelingen, streaming-indelingen, media en beveiliging van inhoud die is geformatteerd met tal van client-technologieën (bijvoorbeeld iOS-, XBOX, Silverlight, Windows 8). Deze clients begrijpen verschillende protocollen, bijvoorbeeld iOS heeft een HTTP Live Streaming (HLS)-V4-indeling en Silverlight en Xbox vereisen Smooth Streaming. Als u een set adaptive bitrate (multi-bitrate) hebt MP4-bestanden (ISO Base Media 14496-12) of een set adaptive bitrate Smooth Streaming-bestanden die u wilt gebruiken op clients die inzicht in MPEG-DASH, HLS of Smooth Streaming, moet u ook te profiteren van Media Services dynamische pakketten.
 
-Het volgende diagram ziet u de traditionele codering en de werkstroom voor statische pakketten.
+Met dynamische verpakking is alles wat u hoeft te maken van een asset die een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden bevat. Vervolgens, op basis van de opgegeven indeling in het manifest- of fragmentdeel, de On-Demand Streaming zorgt de server dat u de stream ontvangt in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client.
+
+Het volgende diagram toont de traditionele codering en statische pakketten werkstroom.
 
 ![Statische codering](./media/media-services-dynamic-packaging-overview/media-services-static-packaging.png)
 
@@ -35,25 +34,25 @@ Het volgende diagram toont de werkstroom dynamische pakketten.
 
 ![Dynamische codering](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-
-## <a name="common-scenario"></a>Gangbare scenario
-1. Upload een invoerbestand (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (voor een lijst met ondersteunde indelingen raadpleegt [indelingen ondersteund door de Media Encoder Standard](media-services-media-encoder-standard-formats.md).
-2. Codeer uw tussentijds bestand op H.264 MP4 adaptive bitrate sets.
+## <a name="common-scenario"></a>Algemeen scenario
+1. Upload een bestand voor invoer (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (Zie voor de lijst met ondersteunde indelingen [indelingen ondersteund door de Media Encoder Standard](media-services-media-encoder-standard-formats.md).
+2. Codeer uw tussentijds bestand op afspelen van H.264 MP4 adaptieve bitrate sets.
 3. Publiceer de asset met de adaptive bitrate MP4-set door de On-Demand-Locator te maken.
-4. Bouw de streaming-URL's voor toegang tot en de inhoud streamen.
+4. Bouw de streaming-URL's om te openen en de inhoud streamen.
 
-## <a name="preparing-assets-for-dynamic-streaming"></a>Activa voorbereiden voor dynamische streaming
-Als u wilt uw asset voorbereiden voor het streamen van dynamische hebt u twee opties:
+## <a name="preparing-assets-for-dynamic-streaming"></a>Activa voorbereiden voor het streamen van dynamische
+Als u wilt uw asset voorbereiden voor het streamen van dynamische hebt u de volgende opties:
 
-1. [Een master-bestand uploaden](media-services-dotnet-upload-files.md).
-2. [De Media Encoder Standard encoder gebruiken voor het produceren MP4 H.264 adaptive bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
-3. [De inhoud streamen](media-services-deliver-content-overview.md).
+- [Uploaden van een hoofdbestand](media-services-dotnet-upload-files.md).
+- [De Media Encoder Standard encoder gebruiken voor het produceren van afspelen van H.264 MP4 adaptieve bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
+- [De inhoud van uw Stream](media-services-deliver-content-overview.md).
 
-## <a id="unsupported_formats"></a>De opmaak die niet worden ondersteund door dynamische pakketten
-De volgende indelingen voor bron worden niet ondersteund voor dynamische pakketten.
+## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs audio wordt ondersteund door dynamische verpakking
 
-* Dolby digitale mp4-bestanden.
-* Dolby digitale smooth bestanden.
+Dynamische pakketten ondersteunt MP4-bestanden (of Smooth Streaming-bestanden) met audio die is gecodeerd met [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, hij AAC v1, v2 HE-AAC), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 of E-AC3), of [ DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, HD DTS, DTS HD zonder verlies).
+
+> [!Note]
+> Bestanden met biedt geen ondersteuning voor dynamische pakketten [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (dit is een verouderde codec).
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

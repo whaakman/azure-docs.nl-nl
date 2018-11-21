@@ -3,8 +3,8 @@ title: 'Stap 2: Gegevens uploaden naar een Machine Learning-experiment | Microso
 description: 'Stap 2 van het ontwikkelen van een overzicht van de voorspellende oplossing: uploaden die openbare gegevens opgeslagen in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: b320f7cfcad9a61d67c5785596744f5851313a1a
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 81f0cd108075d39c4694163736ad391cf938f958
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824656"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263703"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Kennismaken, stap 2: Bestaande gegevens uploaden naar een Azure Machine Learning-experiment
 Dit is de tweede stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)

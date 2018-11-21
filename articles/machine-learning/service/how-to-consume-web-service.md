@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685171"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262896"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
 Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document, informatie over het maken van clients voor de web service via C#, Go, Java en Python.
 
-Een webservice wordt gemaakt wanneer u een installatiekopie op een Azure Container Instance, Azure Kubernetes Service of Project Brainwave (veld programmable gate arrays implementeert). Installatiekopieën worden van geregistreerde modellen en scoring-bestanden gemaakt. De URI die wordt gebruikt voor toegang tot een webservice kan worden opgehaald met behulp van de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
+Een webservice wordt gemaakt wanneer u een installatiekopie op een Azure Container Instance, Azure Kubernetes Service of Project Brainwave (veld programmable gate arrays implementeert). Installatiekopieën worden van geregistreerde modellen en scoring-bestanden gemaakt. De URI die wordt gebruikt voor toegang tot een webservice kan worden opgehaald met behulp van de [SDK van Azure Machine Learning](https://aka.ms/aml-sdk). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
 
 De algemene werkstroom wanneer het maken van een client die gebruikmaakt van een ML-webservice is:
 

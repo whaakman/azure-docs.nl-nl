@@ -11,69 +11,113 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 06/21/2018
+ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: e52686a8cfd691a7f82c6e64968cd94634fd596e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: c1ae6e8c67ab42207aea73932bb2e887db727f16
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607792"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263381"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Een toegangsbeoordeling van leden van beveiligingsgroep of toegang tot toepassingen maken met Azure AD
 
-Toegangstoewijzingen worden 'verouderde' wanneer gebruikers toegang die ze niet meer nodig hebt. Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om te maken van een toegangscontrole voor leden van beveiligingsgroep of gebruikers die zijn toegewezen aan een toepassing, verminderen het risico dat samenhangt met verouderde toegangstoewijzingen. Het maken van terugkerende toegangsbeoordelingen mag tijd te besparen. Als u Controleer regelmatig de gebruikers die toegang hebben tot een toepassing of lid zijn van een groep wilt, kunt u de frequentie van deze beoordelingen definiëren. Zie voor meer informatie over deze scenario's, [gebruikerstoegang beheren](manage-user-access-with-access-reviews.md) en [beheren van toegang voor gasten](manage-guest-access-with-access-reviews.md). 
+Toegang tot groepen en toepassingen voor werknemers en gasten gewijzigd na verloop van tijd. Beheerders kunnen Azure Active Directory (Azure AD) gebruiken voor het maken van toegangsbeoordelingen voor groepsleden of toegang tot toepassingen, verminderen het risico dat samenhangt met verouderde toegangstoewijzingen. Als u regelmatig toegang beoordelen wilt, kunt u ook terugkerende toegangsbeoordelingen te maken. Zie voor meer informatie over deze scenario's, [gebruikerstoegang beheren](manage-user-access-with-access-reviews.md) en [beheren van toegang voor gasten](manage-guest-access-with-access-reviews.md).
+
+In dit artikel wordt beschreven hoe u een nieuwe toegangsbeoordeling maken voor leden van beveiligingsgroep of toegang tot toepassingen.
+
+## <a name="prerequisites"></a>Vereisten
+
+- [Toegangsbeoordelingen ingeschakeld](access-reviews-overview.md)
+- Globale beheerder of accountbeheerder
 
 ## <a name="create-an-access-review"></a>Een toegangsbeoordeling maken
 
-1. Als een globale beheerder of beheerder van gebruikersaccounts, gaat u naar de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), en selecteer **programma's**.
+1. Aanmelden bij Azure portal en open de [Toegangsbeoordelingen pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-2. Selecteer het programma waarin het toegangsbeheer controleren dat om te maken. **Standaardprogramma dat** is altijd aanwezig is, of u kunt een ander programma maken. Bijvoorbeeld, u kunt een programma voor elke initiatief naleving of zakelijke doelstelling.
+1. Klik op **besturingselementen**.
 
-3. Selecteer in het programma **besturingselementen**, en selecteer vervolgens **toevoegen** een besturingselement toevoegen.
+1. Klik op **nieuwe toegangsbeoordeling** naar een nieuwe toegangsbeoordeling maken.
 
-4. De naam van de toegangsbeoordeling. (Optioneel) Geef de beoordeling van een beschrijving. De naam en beschrijving worden weergegeven aan de revisoren.
+    ![Overzicht van Access - besturingselementen](./media/create-access-review/controls.png)
 
-5. Stel de begindatum. Standaard een toegangsbeoordeling gebeurt eenmaal, hetzelfde moment die wordt deze gemaakt begint en eindigt in één maand. Kunt u het begin en einddatum hebben een toegang controleren start in de toekomst en laatste hoeveel dagen u dat wilt.
+1. De naam van de toegangsbeoordeling. (Optioneel) Geef de beoordeling van een beschrijving. De naam en beschrijving worden weergegeven aan de revisoren.
 
-6. Als u de toegang tot revisie terugkerende, de frequentie van één keer te wijzigen, wekelijks, maandelijks, per kwartaal of jaar en gebruik de schuifregelaar of in het tekstvak voor het definiëren van het aantal dagen elke beoordeling van de reeks terugkerende is geopend voor invoer van de revisoren. Bijvoorbeeld, is de maximale duur voor u kunt instellen voor een maandelijkse controle 27 dagen om te voorkomen dat overlappende beoordelingen. 
+    ![Een toegangsbeoordeling - naam van de beoordeling en een beschrijving maken](./media/create-access-review/name-description.png)
 
-7.  De reeks terugkerende toegangsbeoordelingen in 3 manieren kunt beëindigen: deze continu wordt uitgevoerd voor het starten van beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U, een andere beheerder van gebruikersaccounts of een ander algemeen beheerder kunt stoppen de reeks na het maken van door het veranderen van de datum in de instellingen, zodat deze wordt beëindigd op die datum.
+1. Stel de **begindatum**. Standaard een toegangsbeoordeling gebeurt eenmaal, hetzelfde moment die wordt deze gemaakt begint en eindigt in één maand. Kunt u het begin en einddatum hebben een toegang controleren start in de toekomst en laatste hoeveel dagen u dat wilt.
 
-8. Met toegangsbeoordelingen kunnen zich voor de leden van een groep of voor gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de app), in plaats van het controleren van alle gebruikers die lid zijn of die toegang tot de toepassing hebben.
+    ![Maken van een toegangscontrole - begin- en einddatums](./media/create-access-review/start-end-dates.png)
 
-9. Selecteer een of meer mensen te bekijken van alle gebruikers in het bereik. Of u kunt selecteren om de leden hun eigen toegang beoordelen. Als de resource een groep is, kunt u vragen de eigenaren van groepen om te controleren. Ook kunt u vereisen dat de revisoren een reden opgeven wanneer ze toegang goedkeuren.
+1. Als u de toegang tot revisie terugkerende, wijzigen de **frequentie** instellen op basis van **één keer** naar **wekelijkse**, **maandelijkse**,  **Elk kwartaal** of **jaarlijks**, en gebruik de **duur** schuifregelaar of tekst in om te bepalen hoeveel dagen elk onderzoek van de reeks terugkerende is geopend voor invoer van de revisoren. Bijvoorbeeld, is de maximale duur die u voor een maandelijkse revisie instellen kunt 27 dagen, om te voorkomen dat overlappende beoordelingen.
 
-10. Als u de resultaten handmatig toepassen wilt als de controle is voltooid, klikt u op **Start**.  Anders de volgende sectie wordt uitgelegd hoe u de controle voor het automatisch configureren van toepassing.
+1. Gebruik de **End** instelling kunt u opgeven hoe de toegang tot de terugkerende beëindigen serie bekijken. De reeks kunt op drie manieren beëindigen: deze continu wordt uitgevoerd voor het starten van beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U een andere beheerder van gebruikersaccounts of een ander algemeen beheerder kunt stoppen de reeks na het maken van door het veranderen van de datum in de **instellingen**, zodat deze wordt beëindigd op die datum.
 
-### <a name="configuring-an-access-review-with-auto-apply"></a>Een toegangsbeoordeling configureren met auto-apply
+1. In de **gebruikers** sectie, geeft u de gebruikers die toegang tot revisie van toepassing op. Met toegangsbeoordelingen kunnen zich voor de leden van een groep of voor gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de toepassing), in plaats van het controleren van alle gebruikers die lid zijn of die toegang tot de toepassing hebben.
 
-1.  Vouw het menu voor na voltooiing van de instellingen en schakel automatisch resultaten toepassen op resource. 
+    ![Een toegangsbeoordeling - gebruikers maken](./media/create-access-review/users.png)
 
-2.  In gevallen waar gebruikers door de revisor niet zijn beoordeeld binnen de periode van de toegangsbeoordeling, hebt u de toegangsbeoordeling overnemen van het systeem de aanbeveling (indien ingeschakeld) weigeren/goedkeuren van blijvende toegang van de gebruiker, laat u de toegang die niet worden gewijzigd of verwijderen van hun de toegang. Dit is niet van invloed op gebruikers die handmatig door de revisoren zijn gecontroleerd als van de revisor van de definitieve beslissing weigeren, wordt de gebruiker toegang wordt verwijderd.
+1. In de **revisoren** sectie, selecteer een of meer mensen te bekijken van alle gebruikers in het bereik. Of u kunt selecteren om de leden hun eigen toegang beoordelen. Als de resource een groep is, kunt u vragen de eigenaren van groepen om te controleren. Ook kunt u vereisen dat de revisoren een reden opgeven wanneer ze toegang goedkeuren.
 
-3.  Om in te schakelen de optie voor het nemen van aanbevelingen voor moeten revisoren niet reageren, vouwt u geavanceerde instellingen en aanbevelingen weergeven inschakelen.
- 
-4.  Klik tot slot, **Start**.
+    ![Een toegangsbeoordeling - revisoren maken](./media/create-access-review/reviewers.png)
 
-Op basis van uw selecties in na voltooiing van de instellingen, auto-toepassing zal worden uitgevoerd na de einddatum van de beoordeling of wanneer u de beoordeling handmatig stoppen. De status van de beoordeling wordt gewijzigd van voltooide via tussenliggende Staten zoals toepassen en tot slot naar status toegepast. U kunt verwachten om te zien van geweigerde gebruikers, indien van toepassing, wordt verwijderd uit de groepstoewijzing voor lidmaatschap of uw app in een paar minuten.
+1. In de **programma's** sectie, selecteer het programma dat u wilt gebruiken. U kunt bijhouden en verzamelen van toegangsbeoordelingen voor verschillende doeleinden door ze te ordenen in programma's vereenvoudigen. **Standaardprogramma dat** is altijd aanwezig is, of u kunt een ander programma maken. Bijvoorbeeld, u kunt een programma voor elke initiatief naleving of zakelijke doelstelling.
 
+    ![Een toegangsbeoordeling - programma's maken](./media/create-access-review/programs.png)
 
-## <a name="manage-the-access-review"></a>Beheren van de toegangsbeoordeling
+### <a name="upon-completion-settings"></a>Na voltooiing van de instellingen
+
+1. Om op te geven wat gebeurt er wanneer een beoordeling is voltooid, vouw de **na voltooiing van de instellingen** sectie.
+
+    ![Na voltooiing van de instellingen](./media/create-access-review/upon-completion-settings.png)
+
+1. Als u automatisch de toegang verwijderen voor gebruikers die zijn geweigerd wilt, stelt u **automatisch resultaten toepassen op resource** naar **inschakelen**. Als u de resultaten handmatig toepassen wilt als de controle is voltooid, stelt u de switch op **uitschakelen**.
+
+1. Gebruik de **moet revisor niet reageert** lijst om op te geven wat er gebeurt met gebruikers die niet zijn beoordeeld door de revisor binnen de controleperiode. Deze instelling heeft geen invloed op gebruikers die handmatig door de revisoren zijn gecontroleerd. Als de laatste revisor besluit weigeren, wordt de toegang van de gebruiker worden verwijderd.
+
+    - **Er is geen wijziging** -gebruikerstoegang, ongewijzigd laten
+    - **Verwijderen van de optie** -van de gebruiker toegang verwijderen
+    - **Toegang goedkeuren** -van de gebruiker toegang goedkeuren
+    - **Aanbevelingen ophalen** - nemen van het systeem de aanbeveling weigeren of goedkeuring van de gebruiker de blijvende toegang
+
+### <a name="advanced-settings"></a>Geavanceerde instellingen
+
+1. Als u aanvullende instellingen, vouw de **geavanceerde instellingen** sectie.
+
+    ![Geavanceerde instellingen](./media/create-access-review/advanced-settings.png)
+
+1. Stel **aanbevelingen weergeven** naar **inschakelen** om weer te geven de revisoren van het systeem aanbevelingen op basis van de gebruiker toegang tot informatie.
+
+1. Stel **reden vereisen bij goedkeuring** naar **inschakelen** naar de revisor moet een reden voor goedkeuring opgeven.
+
+1. Stel **e-mailmeldingen** naar **inschakelen** dat Azure AD e-mailmeldingen naar revisoren verzenden wanneer een toegangsbeoordeling wordt gestart, en naar beheerders wanneer een beoordeling is voltooid.
+
+1. Stel **herinneringen** naar **inschakelen** om in Azure AD herinneringen stuurt van toegangsbeoordelingen wordt uitgevoerd naar de revisors die de beoordeling nog niet hebben voltooid.
+
+## <a name="start-the-access-review"></a>Start de toegangsbeoordeling
+
+Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op **Start**.
 
 Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de evaluatie wordt gestart. Als u geen Azure AD-tenant het e-mailbericht verzenden, zorg er dan voor dat laten weten de revisoren een toegangsbeoordeling wordt gewacht om uit te voeren. U ze kunt weergeven, kunt u de instructies voor het [toegang beoordelen](perform-access-review.md). Als uw beoordeling voor gasten op hun eigen toegang beoordelen, geven ze de instructies voor het [uw eigen toegang beoordelen](perform-access-review.md).
 
 Als sommige van de revisoren gasten, gasten krijgt een melding via e-mail alleen als ze al hun uitnodiging hebt geaccepteerd.
 
-Voor het beheren van een reeks toegangsbeoordelingen, gaat u naar de toegangsbeoordeling van **besturingselementen**, en u toekomstige voorvallen niet vinden in de geplande beoordelingen, en de einddatum bewerken of toevoegen/verwijderen revisoren dienovereenkomstig. 
+## <a name="manage-the-access-review"></a>Beheren van de toegangsbeoordeling
 
 U kunt de voortgang volgen als de revisoren voltooid hun beoordelingen in het dashboard Azure AD in de **Toegangsbeoordelingen** sectie. Er is geen toegangsrechten worden gewijzigd in de map tot [de beoordeling is voltooid](complete-access-review.md).
 
-## <a name="next-steps"></a>Volgende stappen
-
-Wanneer een toegangsbeoordeling is gestart, Azure AD er automatisch revisoren verzendt een e-mail waarin wordt gevraagd om ze toegang beoordelen. Als een gebruiker is niet een e-mailbericht ontvangen, kunt u verzenden ze de instructies voor het [toegang beoordelen](perform-access-review.md). 
-
 Als dit een eenmalige beoordeling, klikt u vervolgens of de beheerder van de toegangsbeoordeling, stopt de periode van de toegangsbeoordeling is via de stappen in [een toegangscontrole voltooien](complete-access-review.md) om te zien en de resultaten van toepassing.  
 
-Als dit een reeks toegangsbeoordelingen, navigeer vervolgens naar **geschiedenis bekijken** op de pagina toegang controleren-serie, een voltooide toegangsbeoordeling selecteren.  Toekomstige revisies worden vermeld in **geplande beoordeling**, waar u kunt de duur, bewerken en toevoegen of revisoren voor afzonderlijke beoordelingen verwijderen.
+Voor het beheren van een reeks toegangsbeoordelingen, gaat u naar de toegangsbeoordeling van **besturingselementen**, en u toekomstige voorvallen niet vinden in de geplande beoordelingen, en de einddatum bewerken of toevoegen/verwijderen revisoren dienovereenkomstig. 
+
+Op basis van uw selecties in na voltooiing van de instellingen, auto-toepassing zal worden uitgevoerd na de einddatum van de beoordeling of wanneer u de beoordeling handmatig stoppen. De status van de beoordeling wordt gewijzigd van voltooide via tussenliggende Staten zoals toepassen en tot slot naar status toegepast. U kunt verwachten om te zien van geweigerde gebruikers, indien van toepassing, wordt verwijderd uit de groepstoewijzing voor lidmaatschap of uw toepassing in een paar minuten.
+
+## <a name="create-reviews-via-apis"></a>Beoordelingen via API's maken
+
+U kunt ook toegangsbeoordelingen met behulp van API's maken. Wat u doet voor het beheren van toegang tot beoordelingen van groepen en gebruikers van de toepassing in Azure portal kunnen ook worden uitgevoerd met behulp van Microsoft Graph-API's. Zie voor meer informatie de [Azure AD-Toegangsbeoordelingen API-verwijzing](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root). Zie voor een codevoorbeeld, [voorbeeld van het ophalen van Azure AD-Toegangsbeoordelingen via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Een toegangscontrole starten met Azure AD-Toegangsbeoordelingen](perform-access-review.md)
+- [Een toegangscontrole van leden van een groep of gebruikers toegang tot een toepassing in Azure AD voltooien](complete-access-review.md)

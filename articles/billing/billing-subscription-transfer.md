@@ -5,7 +5,7 @@ keywords: overdracht van abonnement voor azure-abonnement, azure-overdracht, azu
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e9b5d1a84417cf6e6264211ea6e542ab712f9fe
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 66ad7c4eb07946daa278589e4a1a819f12315270
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422595"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276361"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
@@ -110,9 +110,9 @@ Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is beschikbaar
 
 ### <a name="whoisaa"></a> Wie de accountbeheerder voor het abonnement is?
 
-De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonnement hebt gekocht. Ze zijn gemachtigd voor toegang tot de [Accountcentrum](https://account.azure.com/Subscriptions) en uitvoeren van verschillende beheertaken, zoals het maken van abonnementen, abonnementen annuleren, wijzigen van de facturering voor een abonnement of wijzigen van de Service-beheerder. Als u niet zeker weet wie de accountbeheerder is voor een abonnement, gebruikt u de volgende stappen uit om erachter te komen.
+De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonnement hebt gekocht. Ze zijn gemachtigd voor toegang tot de [Accountcentrum](https://account.azure.com/Subscriptions) en uitvoeren van verschillende beheertaken, zoals het maken van abonnementen, abonnementen annuleren, wijzigen van de facturering voor een abonnement of wijzigen van de Service-beheerder. Als u niet zeker weet wie de accountbeheerder is voor een abonnement, gebruikt u de volgende stappen om erachter te komen.
 
-1. Ga naar de [pagina met abonnementen in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Ga naar de [pagina Abonnementen in de Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecteer het abonnement dat u wilt controleren, en ga vervolgens naar **instellingen**.
 1. Selecteer **eigenschappen**. De accountbeheerder voor het abonnement wordt weergegeven in de **accountbeheerder** vak.
 

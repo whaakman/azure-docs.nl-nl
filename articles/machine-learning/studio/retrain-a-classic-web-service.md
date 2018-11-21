@@ -3,8 +3,8 @@ title: Een klassieke webservice opnieuw trainen | Microsoft Docs
 description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: be4f1e4705d1f8357198f01e2fa6d5aae83159c7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bd8fb59390bc54e5819183d13f16a557d62ec7ce
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820083"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260746"
 ---
 # <a name="retrain-a-classic-web-service"></a>Een klassieke webservice opnieuw trainen
 De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling scoringeindpunt. Standaardeindpunten worden bewaard gesynchroniseerd met de oorspronkelijke training en scoren van experimenten en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt de webservice opnieuw trainen, moet u een nieuw eindpunt toevoegen aan de webservice. 

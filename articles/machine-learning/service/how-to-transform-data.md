@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 76b417d1592671006d3d5cfa2363e306e4db48fd
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945668"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263032"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
 
-De [SDK van Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) biedt andere transformatie methoden om uw gegevens opruimen. Deze methoden kunnen u eenvoudig aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden.
+De [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) biedt andere transformatie methoden om uw gegevens opruimen. Deze methoden kunnen u eenvoudig aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden.
 
 Momenteel zijn er methoden voor de volgende taken:
 - [Met behulp van een expressie kolom toevoegen](#column)
@@ -347,7 +347,7 @@ df
 
 De SDK bevat de methoden `Dataflow.drop_columns` en `Dataflow.filter` zodat u kolommen of rijen filteren.
 
-### <a name="initial-setup"></a>Eerste configuratie
+### <a name="initial-setup"></a>Eerste installatie
 ```
 import azureml.dataprep as dprep
 from datetime import datetime

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/3/2018
+ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 713deee8ead1fb5cdc1ca48e4c832fc295dedc15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2be1f6ef5a10e23888f31c68c66b804f0be49632
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236649"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275313"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Beveiligingsbeleid instellen in Azure Security Center
 In dit artikel leest u hoe u beveiligingsbeleid configureert in Security Center.
@@ -43,7 +43,7 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerk
 
 3. Selecteer het abonnement waarvoor u een beveiligingsbeleid wilt inschakelen.
 
-4. Schakel de beleidsregels die u wilt inschakelen voor het abonnement. U ontvangt aanbevelingen op basis van elk beleid dat u selecteert. 
+4. Schakel de beleidsregels die u wilt inschakelen voor het abonnement. U ontvangt aanbevelingen op basis van elk beleid dat u selecteert.
   ![lijst met beleidsregels](./media/security-center-policies/policies.png)
 5. Selecteer **Opslaan** als u klaar bent.
 
@@ -57,6 +57,7 @@ Bekijk de volgende tabel om inzicht te krijgen in de beleidsdefinities die besch
 | Beveiligingsconfiguraties |Hiermee worden dagelijks besturingssysteemconfiguraties gecontroleerd om te bepalen of er problemen zijn die de virtuele machine kwetsbaar kan maken voor aanvallen. Vanuit het beleid zal ook worden aangeraden om deze beveiligingslekken aan te pakken door wijzigingen in de configuratie aan te brengen. Zie de [lijst met aanbevolen basislijnen](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) voor meer informatie over de specifieke configuraties die worden bewaakt. (Op dit moment wordt Windows Server 2016 niet volledig ondersteund.) |
 | Eindpuntbeveiliging |Hiermee wordt aanbevolen dat voor alle virtuele machines in Windows eindpuntbeveiliging wordt ingesteld om virussen, spyware en andere schadelijke software op te sporen en te verwijderen. |
 | Schijfversleuteling |Hiermee wordt aanbevolen om schijfversleuteling in te schakelen in alle virtuele machines om de beveiliging van opgeslagen gegevens te verbeteren. |
+| Adaptieve toepassingsbesturingselementen | Hiermee wordt aanbevolen dat u besturingselementen voor adaptieve toepassingen op de virtuele machine inschakelt. |
 | Netwerkbeveiligingsgroepen |Hiermee wordt aanbevolen om [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) te configureren om binnenkomend en uitgaand verkeer naar VM's met openbare eindpunten te beheren. Netwerkbeveiligingsgroepen die zijn geconfigureerd voor een subnet, worden overgenomen door alle netwerkinterfaces van virtuele machines, tenzij anders wordt aangegeven. Behalve dat wordt gecontroleerd of een netwerkbeveiligingsgroep is geconfigureerd, worden met deze beleidsregel ook de beveiligingsregels voor binnenkomend verkeer beoordeeld die binnenkomend verkeer toestaan. |
 | Web Application Firewall |Hiermee wordt aanbevolen om een Web Application Firewall in te stellen op virtuele machines wanneer een van de volgende omstandigheden waar is: <ul><li>Er wordt een [openbaar IP op exemplaarniveau](../virtual-network/virtual-networks-instance-level-public-ip.md) gebruikt, en de beveiligingsregels voor binnenkomend verkeer van de gekoppelde netwerkbeveiligingsgroep worden geconfigureerd om toegang tot poort 80/443 toe te staan.</li><li>Er wordt een IP met taakverdeling gebruikt en de bijbehorende taakverdeling en de inkomende NAT-regels (Network Address Translation) worden geconfigureerd om toegang tot poort 80/443 toe te staan. Zie [Azure Resource Manager-ondersteuning voor load balancer](../load-balancer/load-balancer-arm.md) voor meer informatie.</li> |
 | Next Generation Firewall |Hiermee wordt meer netwerkbeveiliging toegevoegd dan met de netwerkbeveiligingsgroepen die in Azure zijn ingebouwd. Security Center detecteert implementaties waarvoor een Next Generation Firewall wordt aanbevolen. Vervolgens kunt u een virtuele toepassing instellen. |

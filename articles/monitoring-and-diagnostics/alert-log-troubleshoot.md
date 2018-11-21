@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616483"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264876"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
 ## <a name="overview"></a>Overzicht
@@ -61,7 +61,7 @@ Omdat de opdracht bevat *... samenvatten op* en twee variabelen (timestamp & $ta
 
 ![Metrische meting queryuitvoering met meerdere waarden](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Als ' totale "$table is: de gegevens gesorteerd op kolom $table (zoals in rood); we groep en zoek naar "Cumulatieve bij" veld typen (dat wil zeggen) $table – bijvoorbeeld: waarden voor de availabilityResults worden beschouwd als een diagram/entiteit (zoals gemarkeerd in oranje). In deze entiteit/waarde plot: waarschuwing service controleert op drie achtereenvolgende schendingen optreden (zoals weergegeven in groen) voor die waarschuwing wordt ophalen geactiveerd voor de tabelwaarde 'availabilityResults'. Op dezelfde manier als voor een andere waarde voor $table als drie achtereenvolgende schendingen worden gezien - wordt nog een waarschuwing geactiveerd voor hetzelfde; met waarschuwing service automatisch de waarden in één diagram/entiteit (zoals in oranje) op tijd te sorteren.
+Als ' totale "$table is: de gegevens gesorteerd op kolom $table (zoals in rood); we groep en zoek naar "Cumulatieve bij" veld typen (dat wil zeggen) $table – bijvoorbeeld: waarden voor de availabilityResults worden beschouwd als een diagram/entiteit (zoals gemarkeerd in oranje). In deze entiteit/waarde plot: waarschuwing service controleert op drie achtereenvolgende schendingen optreden (zoals weergegeven in groen) voor die waarschuwing wordt ophalen geactiveerd voor de tabelwaarde 'availabilityResults'. Op dezelfde manier als voor een andere waarde voor $table als zijn zichtbaar voor drie opeenvolgende inbreuken op - worden een andere waarschuwingsmeldingen geactiveerd voor hetzelfde; met waarschuwing service automatisch de waarden in één diagram/entiteit (zoals in oranje) op tijd te sorteren.
 
 Stel meting van metrische gegevens waarschuwingsregel is gewijzigd en de query is `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` met de rest van de configuratie van de resterende hetzelfde als voordat waarschuwingslogica voor drie opeenvolgende schendingen. De optie 'Samenvoegen op' in dit geval zal worden standaard: timestamp. Omdat er slechts één waarde is opgegeven in de query voor samenvatten... op de timestamp (dat wil zeggen); vergelijkbaar met het vorige voorbeeld, aan het einde van de uitvoering van de uitvoer zou zijn zoals hieronder weergegeven. 
 
