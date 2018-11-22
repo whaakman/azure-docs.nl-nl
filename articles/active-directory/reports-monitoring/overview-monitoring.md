@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 92e200f358098d5516246d057d1cef406750e326
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623193"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264679"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Wat is bewaking van Azure Active Directory? (preview)
 
@@ -32,6 +32,8 @@ Op dit moment kunt u de logboeken routeren naar:
 - Een Azure Storage-account.
 - Een Azure Event Hub, zodat u deze kunt integreren met uw Splunk en Sumologic-exemplaren.
 - Azure Log Analytics-werkruimte, waarin u de gegevens kunt analyseren en een dashboard en waarschuwingen voor specifieke gebeurtenissen kunt maken
+
+> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="diagnostic-settings-configuration"></a>Configuratie voor diagnostische instellingen
 

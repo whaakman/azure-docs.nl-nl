@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 11/09/2018
-ms.openlocfilehash: fff08131af277b20034ad23c354b70e73ae32f2e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 6258717e5c068c910ad9faac3b03f13df8030487
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578277"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710644"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Snelstart: Python gebruiken om aan de slag te gaan met Azure Machine Learning
 
@@ -42,7 +42,7 @@ De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wann
 >[!NOTE]
 > Code in dit artikel is getest met Azure Machine Learning SDK-versie 0.1.74 
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 
 ## <a name="install-the-sdk"></a>De SDK installeren

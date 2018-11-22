@@ -9,13 +9,13 @@ ms.date: 09/14/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: bed1ea3785c35d1053a0ff2147c3bdd797e28581
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996624"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273560"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Een Azure Enterprise Overeenkomst registreren en kostengegevens weergeven
 
@@ -50,7 +50,7 @@ Zie [How to Find Your EA Enrollment ID and API Key for use in Cloudyn](https://y
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u uw Azure Enterprise Overeenkomst gebruikt om u te registreren bij Cloudyn. U hebt u ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga voor meer informatie over Cloudyn verder met de zelfstudie voor Cloudyn.
+In deze snelstart hebt u uw Azure Enterprise Overeenkomst gebruikt om u te registreren bij Cloudyn. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga voor meer informatie over Cloudyn verder met de zelfstudie voor Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Gebruik en kosten controleren](./tutorial-review-usage.md)

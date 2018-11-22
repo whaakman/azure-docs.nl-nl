@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288013"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284332"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Een Terraform-basissjabloon maken in Azure met behulp van Yeoman
 
@@ -227,7 +227,7 @@ Al deze items zijn vooraf geïnstalleerd in Cloud Shell.
 
 ### <a name="start-a-cloud-shell-session"></a>Een Cloud Shell-sessie starten
 
-1. Start een Azure Cloud Shell-sessie in de [Azure-portal](https:/portal.azure.com/), op [shell.azure.com](https://shell.azure.com) of in de [mobiele Azure-app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+1. Start een Azure Cloud Shell-sessie in de [Azure-portal](https://portal.azure.com/), op [shell.azure.com](https://shell.azure.com) of in de [mobiele Azure-app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
 1. De pagina **Welkom bij Azure Cloud Shell** wordt geopend. Selecteer **Bash (Linux)**. (PowerShell wordt niet ondersteund.)
 

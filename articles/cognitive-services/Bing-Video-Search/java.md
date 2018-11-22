@@ -3,19 +3,19 @@ title: "Snelstart: Bing Video's zoeken-API, Java"
 titlesuffix: Azure Cognitive Services
 description: Informatie en codevoorbeelden ophalen om u te helpen snel aan de slag te gaan met de Bing Video’s zoeken-API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 8ec5aa9e832a24fcd3b029727217bffb3b4d94e0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: 0f1fc9fc5481adab3e5addfb5771a4e274077464
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223233"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164427"
 ---
 # <a name="quickstart-bing-video-search-api-with-java"></a>Snelstart: Bing Video's zoeken-API met Java
 
@@ -27,9 +27,9 @@ Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservi
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="bing-video-search"></a>Bing Video’s zoeken
+## <a name="bing-video-search"></a>Bing Video Search
 
 Met de [Bing Video’s zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) worden videoresultaten geretourneerd uit de zoekmachine van Bing.
 

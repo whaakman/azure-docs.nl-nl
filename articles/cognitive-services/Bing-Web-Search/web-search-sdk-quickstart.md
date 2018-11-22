@@ -3,19 +3,19 @@ title: 'Snelstartgids: de Bing Web Search SDK voor C# gebruiken'
 titleSuffix: Azure Cognitive Services
 description: Met de Bing Web Search SDK kunt u Bing Web Search eenvoudig integreren in uw C#-toepassing. In deze snelstartgids leert u hoe u een instantie maakt voor een client, een aanvraag verzendt en het antwoord weergeeft.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 04a70c2afbd499d3965e23487cd49540b38e08af
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: aahi
+ms.openlocfilehash: 0c5ac37b5a3992c3f9e80fd8f155f368fa61615c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318653"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163806"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snelstartgids: de Bing Web Search SDK voor C# gebruiken
 

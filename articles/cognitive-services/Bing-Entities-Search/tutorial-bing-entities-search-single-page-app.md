@@ -3,19 +3,19 @@ title: 'Zelfstudie: Web-app met één pagina maken met Bing Entiteiten zoeken'
 titlesuffix: Azure Cognitive Services
 description: Hier leert u hoe u de Bing Entiteiten zoeken-API kunt gebruiken in een webtoepassing met één pagina.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: tutorial
 ms.date: 12/08/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 6bf3944017075ee04fe6ed3472a0cbe12d7f8ba0
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815542"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162004"
 ---
 # <a name="tutorial-single-page-web-app"></a>Zelfstudie: Web-app van één pagina
 
@@ -506,7 +506,7 @@ Met onze rendererfunctie worden de volgende handelingen uitgevoerd:
 
 > [!div class="checklist"]
 > * De HTML-tag `<img>` bouwen om de miniatuur van de afbeelding weer te geven, indien beschikbaar. 
-> * De HTML-tag `<a>` bouwen die wordt gekoppeld aan de pagina die de afbeelding bevat.
+> * Hiermee wordt de HTML-`<a>`-tag gebouwd die is gekoppeld aan de pagina die de afbeelding bevat.
 > * De beschrijving met informatie over de afbeelding en de bijbehorende site wordt samengesteld.
 > * De classificatie van de entiteit opnemen met behulp van de weergavehints, indien beschikbaar.
 > * Een koppeling opnemen naar een zoekopdracht met Bing om meer informatie over de entiteit op te vragen.
@@ -514,13 +514,13 @@ Met onze rendererfunctie worden de volgende handelingen uitgevoerd:
 
 ## <a name="persisting-client-id"></a>Permanente client-id
 
-Antwoorden van de Bing Zoeken-API kunnen een `X-MSEdge-ClientID`-header bevatten die bij volgende aanvragen moet worden teruggestuurd naar de API. Als er meerdere Bing Zoeken-API’s worden gebruikt, moet voor al deze API’s, indien mogelijk, dezelfde client-id worden gebruikt.
+Antwoorden van de Bing Zoeken-API’s kunnen een `X-MSEdge-ClientID`-header omvatten die bij volgende aanvragen moet worden teruggestuurd naar de API. Als er meerdere Bing Zoeken-API’s worden gebruikt, moet voor al deze API’s, indien mogelijk, dezelfde client-id worden gebruikt.
 
 Door de `X-MSEdge-ClientID`-header op te geven kunnen met Bing-API’s alle zoekopdrachten van een gebruiker worden gekoppeld. Dit heeft twee belangrijke voordelen.
 
 Ten eerste kan met de Bing-zoekmachine vroegere context worden toegepast op zoekopdrachten om beter kloppende resultaten te vinden voor de gebruiker. Als een gebruiker bijvoorbeeld eerder heeft gezocht naar termen die zijn gerelateerd aan zeilen, kan bij een latere zoekopdracht naar ‘knopen’ de voorkeur worden gegeven aan informatie over knopen die worden gebruikt bij zeilen.
 
-Ten tweede kunnen in Bing willekeurig gebruikers worden geselecteerd om nieuwe functies uit te proberen voordat deze algemeen beschikbaar worden. Door bij elke aanvraag dezelfde client-id op te geven, zien gebruikers die de functie zien, deze altijd. Zonder de client-id kan het gebeuren dat de gebruiker een functie, schijnbaar willekeurig, ziet verschijnen en verdwijnen in de zoekresultaten.
+Ten tweede kunnen in Bing willekeurig gebruikers worden geselecteerd om nieuwe functies te proberen voordat deze algemeen beschikbaar worden. Door bij elke aanvraag dezelfde client-id op te geven, zien gebruikers die de functie zien, deze altijd. Zonder de client-id kan het gebeuren dat de gebruiker een functie, schijnbaar willekeurig, ziet verschijnen en verdwijnen in de zoekresultaten.
 
 Beveiligingsbeleid voor browsers (CORS) kan ervoor zorgen dat de `X-MSEdge-ClientID`-header niet beschikbaar is in JavaScript. Deze beperking treedt op wanneer het antwoord op een zoekopdracht een andere oorsprong heeft dan de pagina waarop de zoekopdracht is uitgevoerd. In een productieomgeving kunt u dit beleid omzeilen door een serverscript te hosten waarmee de API wordt aangeroepen in hetzelfde domein als de webpagina. Omdat het script dezelfde oorsprong heeft als de webpagina, is de `X-MSEdge-ClientID`-header vervolgens beschikbaar voor JavaScript.
 

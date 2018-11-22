@@ -3,19 +3,19 @@ title: 'Snelstartgids: de Bing Web Search SDK voor Java gebruiken'
 titleSuffix: Azure Cognitive Services
 description: Met de Bing Web Search SDK kunt u Bing Web Search eenvoudig integreren in uw Java-toepassing. In deze snelstartgids leert u hoe u een aanvraag verzendt, een JSON-antwoord ontvangt en de resultaten filtert en parseert.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.author: erhopf
-ms.openlocfilehash: 854cf1646d716f7cd721a7286b79a0f733243268
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: aahi
+ms.openlocfilehash: 71628862c7949df303f10181737a140a7f1e9ac4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416222"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165302"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Snelstartgids: de Bing Web Search SDK voor Java gebruiken
 

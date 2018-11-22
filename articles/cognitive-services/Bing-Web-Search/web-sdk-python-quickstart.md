@@ -3,19 +3,19 @@ title: 'Snelstartgids: de Bing Web Search SDK voor Python gebruiken'
 titleSuffix: Azure Cognitive Services
 description: Met de Bing Web Search SDK kunt u Bing Web Search eenvoudig integreren in uw Python-toepassing. In deze snelstartgids leert u hoe u een aanvraag verzendt, een JSON-antwoord ontvangt en de resultaten filtert en parseert.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: c83848bc3c8f14aa49c1f87f1cd44224bb3e8081
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127633"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283279"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Snelstartgids: de Bing Web Search SDK voor Python gebruiken
 
@@ -206,7 +206,7 @@ In dit voorbeeld worden de parameters `count` en `offset` gebruikt voor het bepe
 
 ### <a name="filter-for-news-and-freshness"></a>Filteren op nieuws en actuele items
 
-In dit voorbeeld worden de parameters `response_filter` en `freshness` gebruikt om de zoekresultaten te filteren met de [`search`-methode](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search) van de SDK. De geretourneerde zoekresultaten zijn beperkt tot nieuwsartikelen en pagina's die Bing heeft gedetecteerd gedurende de afgelopen 24 uur. De `name` en `URL` voor het eerste resultaat worden weergegeven.
+In dit voorbeeld worden de parameters `response_filter` en `freshness` gebruikt om de zoekresultaten te filteren met de [`search`-methode](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search) van de SDK. De geretourneerde zoekresultaten zijn beperkt tot nieuwsartikelen en pagina's die Bing heeft gedetecteerd gedurende de afgelopen 24 uur. De `name` en `URL` voor het eerste resultaat worden weergegeven.
 
 1. Voeg deze code toe aan uw Python-project:
     ```python
