@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288030"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264122"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
@@ -33,9 +33,16 @@ U kunt cognitief zoeken uitproberen in een Azure Search-service in de volgende g
 * US - west-centraal
 * US - zuid-centraal
 * US - oost
+* US - oost 2
+* US - west 2
+* Canada - midden
 * Europa -west
+* Verenigd Koninkrijk Zuid
 * Europa - noord
+* Brazilië - zuid
 * Azië - zuidoost
+* India - centraal
+* Australië - oost
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

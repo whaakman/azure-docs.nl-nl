@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: f71a7ad538e22359a2a0dd9c2e3f6c4448ee5a2d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5d1e86630ff9143a75e5b0502a64c7661cc2822c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232382"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161074"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Inleiding tot Azure Cosmos DB: SQL API
 
@@ -24,7 +24,7 @@ ms.locfileid: "51232382"
 
 ![Azure SQL API](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
-Met de SQL API biedt Azure Cosmos DB rijke en vertrouwde [SQL-querymogelijkheden](sql-api-sql-query.md) met consistente lage latenties voor JSON-gegevens zonder schema. In dit artikel krijgt u een overzicht van de Azure Cosmos DB SQL API en leert u hoe u deze kunt gebruiken om grote hoeveelheden JSON-gegevens op te slaan, hoe u er query's voor uitvoert met een latentie van milliseconden en hoe u het schema eenvoudig kunt veranderen. 
+Met de SQL API biedt Azure Cosmos DB rijke en vertrouwde [SQL-querymogelijkheden](how-to-sql-query.md) met consistente lage latenties voor JSON-gegevens zonder schema. In dit artikel krijgt u een overzicht van de Azure Cosmos DB SQL API en leert u hoe u deze kunt gebruiken om grote hoeveelheden JSON-gegevens op te slaan, hoe u er query's voor uitvoert met een latentie van milliseconden en hoe u het schema eenvoudig kunt veranderen. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Welke mogelijkheden en belangrijke functies biedt Azure Cosmos DB?
 Azure Cosmos DB biedt via de SQL API de volgende belangrijke mogelijkheden en voordelen:
@@ -34,7 +34,7 @@ Azure Cosmos DB biedt via de SQL API de volgende belangrijke mogelijkheden en vo
 
 * **Replicatie voor meerdere regio's:** Azure Cosmos DB repliceert uw gegevens transparant naar alle regio's die u aan uw Azure Cosmos DB-account hebt gekoppeld, zodat u toepassingen kunt ontwikkelen waarvoor wereldwijde toegang tot gegevens is vereist, en die tegelijkertijd zorgen voor een balans tussen consistentie, beschikbaarheid en prestaties, allemaal met overeenkomstige garanties. Azure Cosmos DB biedt transparante regionale failover met multihoming-API's en de mogelijkheid om doorvoer en opslag wereldwijd elastisch te schalen. Zie [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md) (Gegevens wereldwijd distribueren met Azure Cosmos DB) voor meer informatie.
 
-* **Ad-hocquery's met bekende SQL-syntaxis:** u kunt heterogene JSON-documenten opslaan en query's op deze documenten uitvoeren via een bekende SQL-syntaxis. Azure Cosmos DB maakt gebruik van een vrijwel gelijktijdige en vergrendelingsvrije indexeringstechnologie op basis van een logboekenstructuur om alle documentinhoud automatisch te indexeren. Zodoende kunt u realtime query's uitvoeren zonder dat u schemahints, secundaire indexen of weergaven hoeft op te geven. Zie [Query Azure Cosmos DB](sql-api-sql-query.md) (Query's uitvoeren voor Azure Cosmos DB) voor meer informatie. 
+* **Ad-hocquery's met bekende SQL-syntaxis:** u kunt heterogene JSON-documenten opslaan en query's op deze documenten uitvoeren via een bekende SQL-syntaxis. Azure Cosmos DB maakt gebruik van een vrijwel gelijktijdige en vergrendelingsvrije indexeringstechnologie op basis van een logboekenstructuur om alle documentinhoud automatisch te indexeren. Zodoende kunt u realtime query's uitvoeren zonder dat u schemahints, secundaire indexen of weergaven hoeft op te geven. Zie [Query Azure Cosmos DB](how-to-sql-query.md) (Query's uitvoeren voor Azure Cosmos DB) voor meer informatie. 
 * **Uitvoeren van JavaScript in de database:** Express-toepassingslogica als opgeslagen procedures en triggers en door de gebruiker gedefinieerde functies (UDF's) met standaard-JavaScript. Zodoende kan uw toepassingslogica worden toegepast op gegevens zonder dat u zich zorgen hoeft te maken over onjuiste overeenkomsten tussen de toepassing en het databaseschema. Met de SQL API kan de JavaScript-toepassingslogica volledig transactioneel en rechtstreeks worden uitgevoerd in de database-engine. Dankzij de diepe integratie van JavaScript kunnen de bewerkingen INSERT, REPLACE, DELETE en SELECT als geïsoleerde transactie worden uitgevoerd vanuit een JavaScript-programma. Zie [Programmeren op de SQL-server](programming.md) voor meer informatie.
 
 * **Instelbare consistentieniveaus:** selecteer een van de vijf goed gedefinieerde consistentieniveaus voor een optimale balans tussen consistentie en prestaties. Voor query's en leesbewerkingen biedt Azure Cosmos DB vijf verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Op basis van deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt u een goede balans vinden tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.

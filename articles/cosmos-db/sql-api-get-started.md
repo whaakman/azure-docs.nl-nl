@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: c4f86b9fa949c854b557812a41aa9d86a11ecc94
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: b1ff7e7a2f79d99bc14f8e25ea82b212fad2acef
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636982"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165507"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: zelfstudie Aan de slag met de SQL-API
 
@@ -367,7 +367,7 @@ Gefeliciteerd! U hebt twee Azure Cosmos DB-documenten gemaakt.
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Stap 7: query's uitvoeren op Azure Cosmos DB-resources
-Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](sql-api-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode bevat verschillende query's, waarvoor zowel gebruik wordt gemaakt van de Azure Cosmos DB SQL-syntaxis als LINQ, die u kunt uitvoeren voor de documenten die zijn ingevoegd tijdens de vorige stap.
+Azure Cosmos DB biedt ondersteuning voor uitgebreide [query's](how-to-sql-query.md) op de JSON-documenten die zijn opgeslagen in elke verzameling.  De volgende voorbeeldcode bevat verschillende query's, waarvoor zowel gebruik wordt gemaakt van de Azure Cosmos DB SQL-syntaxis als LINQ, die u kunt uitvoeren voor de documenten die zijn ingevoegd tijdens de vorige stap.
 
 Kopieer de methode **ExecuteSimpleQuery** en plak deze na de methode **CreateFamilyDocumentIfNotExists**.
 
@@ -420,7 +420,7 @@ In het volgende diagram ziet u hoe de Azure Cosmos DB SQL-querysyntaxis wordt aa
 
 ![Diagram ter illustratie van het bereik en de betekenis van de query die wordt gebruikt in de NoSQL-zelfstudie om een toepassing C#-consoletoepassing te maken](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-Het trefwoord [FROM](sql-api-sql-query.md#FromClause) is optioneel in de query omdat Azure Cosmos DB-query's al zijn afgestemd op één verzameling. Daarom kan FROM Families f worden ingewisseld door FROM root r, of een andere gewenste variabelenaam. Azure Cosmos DB leidt af dat 'Families', 'root' of de variabelenaam die u hebt gekozen, standaard verwijst naar de huidige verzameling.
+Het trefwoord [FROM](how-to-sql-query.md#FromClause) is optioneel in de query omdat Azure Cosmos DB-query's al zijn afgestemd op één verzameling. Daarom kan FROM Families f worden ingewisseld door FROM root r, of een andere gewenste variabelenaam. Azure Cosmos DB leidt af dat 'Families', 'root' of de variabelenaam die u hebt gekozen, standaard verwijst naar de huidige verzameling.
 
 ## <a id="ReplaceDocument"></a>Stap 8: JSON-document vervangen
 Azure Cosmos DB biedt ondersteuning voor het vervangen van JSON-documenten.  

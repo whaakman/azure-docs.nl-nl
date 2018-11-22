@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734130"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712021"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snelstart: .NET gebruiken om een blob te maken in de objectopslag
 
@@ -21,9 +21,7 @@ In deze snelstart leert u hoe u de Azure Storage-clientbibliotheek voor .NET kun
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-Maak om deze snelstart te volgen eerst een Azure opslagaccount in [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Zie voor meer informatie over het maken van het account [Een opslagaccount maken](../common/storage-quickstart-create-account.md).
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 Download en installeer vervolgens .NET Core 2.0 voor uw besturingssysteem. Als u Windows uitvoert, kunt u desgewenst Visual Studio installeren en .NET Framework gebruiken. U kunt ook een editor installeren die u wilt gebruiken bij uw besturingssysteem.
 

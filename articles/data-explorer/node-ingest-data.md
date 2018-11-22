@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: d5385ad5142c402a04bb6d5272573917b830754b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: fa322ee685d09717ac5b98398d4d1d61de2be1e9
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142602"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706623"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Snelstart: gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer
 
@@ -149,8 +149,8 @@ kustoClient.execute(kustoDatabse, query, (err, results) => {
 Meld u aan bij [https://dataexplorer.azure.com](https://dataexplorer.azure.com) en maak verbinding met uw cluster. Voer de volgende opdracht uit in uw database om te zien of er in de afgelopen vier uur fouten zijn opgetreden tijdens het opnemen van gegevens. Vervang de naam van de database voordat u de opdracht uitvoert.
     
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Voer de volgende opdracht uit om de status op te vragen van alle bewerkingen voor het opnemen van gegevens van de afgelopen vier uur. Vervang de naam van de database voordat u de opdracht uitvoert.

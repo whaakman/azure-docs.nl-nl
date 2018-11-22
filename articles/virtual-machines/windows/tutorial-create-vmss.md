@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: aa4957375a368da193cb27fd3c8c32651f425a2d
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 561bd71f371be9261686c0a4c34f388ed8324d76
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515502"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284418"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Zelfstudie: Een virtuele-machineschaalset maken en een toepassing met hoge beschikbaarheid implementeren in Windows met Azure PowerShell
 Met een schaalset voor virtuele machines kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal virtuele machines in de schaalset handmatig schalen. U kunt ook regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In deze zelfstudie implementeert u een virtuele-machineschaalset in Azure en leert u het volgende:
@@ -96,10 +96,9 @@ Update-AzureRmVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-
 ## <a name="allow-traffic-to-application"></a>Verkeer toestaan naar de toepassing
 
-Maak een netwerkbeveiligingsgroep met [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) en [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup) om toegang toe te staan tot de eenvoudige webtoepassing. Zie voor meer informatie [Netwerken voor schaalsets voor virtuele Azure-machines](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+Maak een netwerkbeveiligingsgroep met [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) en [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) om toegang toe te staan tot de eenvoudige webtoepassing. Zie voor meer informatie [Netwerken voor schaalsets voor virtuele Azure-machines](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set

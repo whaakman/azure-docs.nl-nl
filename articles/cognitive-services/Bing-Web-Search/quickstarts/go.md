@@ -3,20 +3,20 @@ title: 'Snelstart: Een zoekopdracht uitvoeren met Go - Bing Webzoekopdrachten-AP
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met Go en een JSON-antwoord ontvangt.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
+ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: 7ce3dd565709567bf75dbbb4ec8f206bba96c195
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9ba0501f9d4b408e4972f36806ab21cba6519b59
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408674"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163772"
 ---
 # <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>Snelstart: Go gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 

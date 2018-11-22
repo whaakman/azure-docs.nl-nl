@@ -1,25 +1,25 @@
 ---
 title: 'Zelfstudie: Een web-app van één pagina maken: Bing Webzoekopdrachten-API'
 titleSuffix: Azure Cognitive Services
-description: Deze app met één pagina toont aan hoe de Bing Webzoekopdrachten-API kan worden gebruikt voor het ophalen, parseren en weergeven van relevante zoekresultaten in een app met één pagina.
+description: Deze app met één pagina laat zien aan hoe de Bing Webzoekopdrachten-API kan worden gebruikt voor het ophalen, parseren en weergeven van relevante zoekresultaten in een app met één pagina.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
-ms.author: erhopf
-ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126476"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161919"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Zelfstudie: Een app van één pagina maken met de Bing Webzoekopdrachten-API
 
-Deze app met één pagina toont aan hoe u zoekresultaten uit de Bing Webzoekopdrachten-API ophaalt, parseert en weergeeft. De zelfstudie gebruikt standaard HTML en CSS en is gericht op de JavaScript-code. HTML-, CSS- en JS-bestanden zijn beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) met snelstartinstructies.
+Deze app met één pagina laat zien hoe u zoekresultaten uit de Bing Webzoekopdrachten-API ophaalt, parseert en weergeeft. De zelfstudie gebruikt standaard HTML en CSS en is gericht op de JavaScript-code. Op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) zijn HTML-, CSS- en JS-bestanden met snelstartinstructies beschikbaar.
 
 Met deze voorbeeld-app kunt u:
 
@@ -60,14 +60,14 @@ De voorbeeld-app die we gaan bouwen, bestaat uit vier onderdelen:
 
 * `bing-web-search.js`: onze Express.js-app. Hiermee verwerkt u de aanvraag-/antwoordlogica en routering.
 * `public/index.html`: de basis van onze app; hiermee wordt gedefinieerd hoe gegevens aan de gebruiker worden aangeboden.
-* `public/css/styles.css`: hiermee worden paginastijlen zoals, lettertypen, kleuren en tekengrootte gedefinieerd.
+* `public/css/styles.css`: hiermee worden paginastijlen zoals lettertypen, kleuren en tekengrootte gedefinieerd.
 * `public/js/scripts.js`: bevat de logica om aanvragen naar de Bing Webzoekopdrachten-API te maken, abonnementssleutels te beheren, antwoorden te verwerken en te parseren en resultaten weer te geven.
 
 Deze zelfstudie is gericht op `scripts.js` en de logica die is vereist om de Bing Webzoekopdrachten-API aan te roepen en het antwoord te verwerken.
 
 ## <a name="html-form"></a>HTML-formulier
 
-De `index.html` bevat een formulier waarmee gebruikers kunnen zoeken en zoekopties kunnen selecteren. Het `onsubmit`-kenmerk wordt geactiveerd wanneer het formulier is ingediend, waardoor de `bingWebSearch()`-methode die in `scripts.js` is gedefinieerd, wordt aangeroepen. Hiervoor zijn drie argumenten nodig:
+`index.html` bevat een formulier waarmee gebruikers kunnen zoeken en zoekopties kunnen selecteren. Het kenmerk `onsubmit` wordt geactiveerd wanneer het formulier is ingediend, waardoor de methode `bingWebSearch()` die in `scripts.js` is gedefinieerd, wordt aangeroepen. Hiervoor zijn drie argumenten nodig:
 
 * Zoekquery
 * Geselecteerde opties
@@ -85,17 +85,17 @@ Het HTML-formulier bevat opties waarmee queryparameters worden toegewezen in de 
 | Parameter | Beschrijving |
 |-----------|-------------|
 | `query` | Een tekstveld voor het invoeren van een querytekenreeks. |
-| `where` | U kunt in een vervolgkeuzelijst de markt selecteren (locatie en taal). |
+| `where` | Een vervolgkeuzelijst om de markt te selecteren (locatie en taal). |
 | `what` | Selectievakjes voor het promoten van specifieke resultaattypen. Door bijvoorbeeld afbeeldingen te promoten, verhoogt u de beoordeling van afbeeldingen in zoekresultaten. |
-| `when` | Een vervolgkeuzelijst waarmee de gebruiker de zoekresultaten kunnen beperken tot vandaag, deze week of deze maand. |
-| `safe` | Een selectievakje voor het inschakelen van Bing SafeSearch, waarmee erotische inhoud wordt gefilterd. |
+| `when` | Een vervolgkeuzelijst waarmee de gebruiker de zoekresultaten kan beperken tot vandaag, deze week of deze maand. |
+| `safe` | Een selectievakje voor het inschakelen van Bing SafeSearch, waarmee inhoud voor volwassenen wordt weggefilterd. |
 | `count` | Verborgen veld. Het aantal zoekresultaten dat moet worden geretourneerd bij elke aanvraag. Wijzig deze waarde om minder of meer resultaten per pagina weer te geven. |
 | `offset` | Verborgen veld. De verschuiving van het eerste zoekresultaat in de aanvraag. Dit wordt gebruikt voor wisselgeheugengebruik. Deze waarde wordt bij elke nieuwe aanvraag opnieuw ingesteld op `0`. |
 
 > [!NOTE]
 > De Bing Webzoekopdrachten-API biedt aanvullende queryparameters om de zoekresultaten te verfijnen. In dit voorbeeld worden er maar een paar gebruikt. Zie de [Bing Webzoekopdrachten-API v7-naslag](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters) voor een complete lijst met beschikbare parameters.
 
-Met de `bingSearchOptions()`-functie converteert u deze opties zodat ze overeenkomen met de indeling die voor de Bing Zoeken-API is vereist.
+Met de functie `bingSearchOptions()` converteert u deze opties zodat ze overeenkomen met de indeling die voor de Bing Zoeken-API is vereist.
 
 ```javascript
 // Build query options from selections in the HTML form.
@@ -297,7 +297,7 @@ Fouten worden verwerkt door `renderErrorMessage()` aan te roepen. Als het antwoo
 
 ## <a name="display-search-results"></a>Zoekresultaten weergeven
 
-Er zijn [gebruiks- en weergavevereisten](useanddisplayrequirements.md) voor resultaten die door de Bing Webzoekopdrachten-API zijn geretourneerd. Aangezien een antwoord diverse resultaattypen kan bevatten, is alleen het herhalen van de `WebPages`-verzameling op het hoogste niveau niet voldoende. In plaats daarvan gebruikt de voorbeeld-app `RankingResponse` om de resultaten op specificaties te sorteren.
+Er zijn [gebruiks- en weergavevereisten](useanddisplayrequirements.md) voor resultaten die door de Bing Webzoekopdrachten-API worden geretourneerd. Aangezien een antwoord diverse resultaattypen kan bevatten, is alleen het herhalen van de `WebPages`-verzameling op het hoogste niveau niet voldoende. In plaats daarvan gebruikt de voorbeeld-app `RankingResponse` om de resultaten op specificaties te sorteren.
 
 > [!NOTE]
 > Als u maar één resultaattype wilt krijgen, gebruikt u de `responseFilter`-queryparameter, of gebruik u een van de andere Bing zoeken-eindpunten, zoals Bing Image Search.
@@ -380,7 +380,7 @@ searchItemRenderers = {
 ```
 
 > [!IMPORTANT]
-> De voorbeeld-app beschikt over renderers voor webpagina’s, nieuws, afbeeldingen, video’s en gerelateerde zoekopdrachten. Uw toepassing heeft renderers nodig voor elk type resultaten dat wordt ontvangen, zoals berekeningen, spellingsuggesties, entiteiten, tijdzones en definities.
+> De voorbeeld-app beschikt over renderers voor webpagina's, nieuws, afbeeldingen, video's en gerelateerde zoekopdrachten. Uw toepassing heeft renderers nodig voor elk type resultaten dat wordt ontvangen, zoals berekeningen, spellingsuggesties, entiteiten, tijdzones en definities.
 
 Een aantal renderingsfuncties accepteert alleen de `item`-parameter. Andere functies accepteren aanvullende parameters, die kunnen worden gebruikt om items verschillend te renderen op basis van de context. Een renderer die deze informatie niet gebruikt, hoeft deze parameters niet te accepteren.
 

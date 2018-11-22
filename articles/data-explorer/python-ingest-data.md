@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: faf7ba745b57fb6e0155afe8cee52cef81ba5896
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b6aa2dd16b1731c24b5f24068fa825500589a2e2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138640"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711171"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Snelstart: gegevens opnemen met behulp van de Python-bibliotheek voor Azure Data Explorer
 
@@ -161,8 +161,8 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 Meld u aan bij [https://dataexplorer.azure.com](https://dataexplorer.azure.com) en maak verbinding met uw cluster. Voer de volgende opdracht uit in uw database om te zien of er in de afgelopen vier uur fouten zijn opgetreden tijdens het opnemen van gegevens. Vervang de naam van de database voordat u de opdracht uitvoert.
 
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Voer de volgende opdracht uit om de status op te vragen van alle bewerkingen voor het opnemen van gegevens van de afgelopen vier uur. Vervang de naam van de database voordat u de opdracht uitvoert.

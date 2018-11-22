@@ -3,19 +3,19 @@ title: 'Snelstart: Bing Nieuws zoeken-API, Python'
 titlesuffix: Azure Cognitive Services
 description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Nieuws zoeken-API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 583b304a742d9abfd799442c9aa2999ad6783a34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: 2696401b15ceca86c7e7b7d33e7e7f7887f4b7dc
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803542"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164334"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-python"></a>Snelstart voor Bing Nieuws zoeken-API met Python
 In deze kennismaking wordt een eenvoudig voorbeeld gegeven van het aanroepen van de Bing Nieuws zoeken-API en het nabewerken van het resulterende JSON-object. Zie de [Bing Nieuws zoeken-documentatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) voor meer informatie.  

@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159006"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710253"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snelstart: de Azure-portal gebruiken om aan de slag te gaan met Azure Machine Learning
 
@@ -37,7 +37,7 @@ De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wann
 
 De resources die u hebt gemaakt, kunnen worden gebruikt als vereisten voor andere zelfstudies en artikelen met procedures voor de Machine Learning-service. Net als bij andere Azure-services gelden er limieten voor bepaalde resources die zijn gekoppeld aan Machine Learning. Een voorbeeld is de Azure Batch AI-clustergrootte. Zie [dit artikel](how-to-manage-quotas.md) voor meer informatie over standaardlimieten en hoe u de quota kunt verhogen.
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken 

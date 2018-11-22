@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412717"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262054"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
 
@@ -178,7 +178,7 @@ In dit gedeelte ziet u hoe u met de Maps Search-API een nuttige plaats vindt op 
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Voeg vervolgens het volgende scriptblok toe om de zoekquery te maken. Hierin wordt de service Fuzzy zoeken gebruikt, een basiszoek-API van de Search Service. Via de service Fuzzy zoeken wordt de meeste fuzzy invoer verwerkt, zoals adressen, plaatsen en nuttige plaatsen. Met deze code wordt gezocht naar benzinestations binnen de opgegeven radius. Het antwoord wordt vervolgens geparseerd in de GeoJSON-indeling en toegevoegd aan de gegevensbron. Dit leidt er automatisch toe dat de gegevens worden weergegeven op de kaart via de symboollaag. In het laatste deel van het script wordt de cameraweergave van de kaarten weergegeven met behulp van het selectiekader van de resultaten met behulp van de eigenschap [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) van Maps. Er wordt een opvulling toegevoegd om te compenseren voor de pixelafmetingen van de symboolpictogrammen omdat het selectiekader wordt berekend op basis van de coördinaten. 
+2. Voeg vervolgens het volgende scriptblok toe om de zoekquery te maken. Hierin wordt de service Fuzzy zoeken gebruikt, een basiszoek-API van de Search Service. Via de service Fuzzy zoeken wordt de meeste fuzzy invoer verwerkt, zoals adressen, plaatsen en nuttige plaatsen. Met deze code wordt gezocht naar benzinestations binnen de opgegeven radius. Het antwoord wordt vervolgens geparseerd in de GeoJSON-indeling en toegevoegd aan de gegevensbron. Dit leidt er automatisch toe dat de gegevens worden weergegeven op de kaart via de symboollaag. In het laatste deel van het script wordt de cameraweergave van de kaarten weergegeven met behulp van het selectiekader van de resultaten met behulp van de eigenschap [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) van Maps. Er wordt een opvulling toegevoegd om te compenseren voor de pixelafmetingen van de symboolpictogrammen omdat het selectiekader wordt berekend op basis van de coördinaten. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.

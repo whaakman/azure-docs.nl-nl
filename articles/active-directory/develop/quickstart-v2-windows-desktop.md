@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2018
+ms.date: 11/15/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7e7e5e16b6f7de1cee8312fd31801c202c3e16ef
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 847300fffb2dd67cae4b51b4baf7d978c569a664
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962908"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284247"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een Windows-bureaublad-app
 
@@ -33,20 +33,21 @@ In deze quickstart leert u hoe u een .NET-toepassing (WPF) voor Windows-bureaubl
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>De quickstart-app registreren en downloaden
-> [!div renderon="docs" class="sxs-lookup"]
 > U hebt twee opties voor het starten van de snelstarttoepassing:
 > * [Express] [Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens de voorbeeldcode](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Handmatig] [Optie 2: registreer de toepassing en configureer handmatig de toepassing en het codevoorbeeld](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: de app registreren en automatisch configureren, en vervolgens de voorbeeldcode downloaden
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Optie 1: registreer de toepassing en laat deze automatisch configureren. Download vervolgens het codevoorbeeld
 >
-> 1. Ga naar de [Azure-portal - toepassingsregistratie](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)
+> 1. Ga naar de [Azure Portal - Toepassingsregistratie (preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Voer een naam in voor de toepassing en selecteer **Registreren**.
 > 1. Volg de instructies om de nieuwe toepassing met slechts één klik te downloaden en automatisch te configureren.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Optie 2: registreer de toepassing en configureer handmatig de toepassing en het codevoorbeeld
-> [!div renderon="docs"]
+>
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
+> Volg deze stappen om de toepassing te registreren en de registratiegegevens van de app handmatig toe te voegen aan uw oplossing:
+>
 > 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
 > 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
 > 1. Selecteer in het linkernavigatiedeelvenster de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview)** > **Nieuwe registratie**.
@@ -58,8 +59,8 @@ In deze quickstart leert u hoe u een .NET-toepassing (WPF) voor Windows-bureaubl
 > 1. Ga in de sectie **Omleidings-URI's** naar de sectie **Voorgestelde omleidings-URI's voor openbare clients (mobiel, desktop)**, en selecteer **"urn:ietf:wg:oauth:2.0:oob**.
 > 1. Selecteer **Opslaan**.
 
-> [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Stap 1: Uw toepassing configureren
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Stap 1: Uw toepassing configureren in Azure Portal
 > Voor een juiste werking van het codevoorbeeld uit deze quickstart moet u een antwoord-URL toevoegen als **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Deze wijziging voor mij maken]()

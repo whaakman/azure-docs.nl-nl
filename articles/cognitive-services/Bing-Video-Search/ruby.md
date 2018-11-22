@@ -3,19 +3,19 @@ title: 'Quickstart: Bing Video’s zoeken, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Krijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Bing Video’s zoeken-API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: dfabfe24a653f84e5e242f32167b57b6a28b0075
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: b92fbbfdeb38c0fadca038007918c882c16e97cd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223566"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165710"
 ---
 # <a name="quickstart-bing-video-search-api-with-ruby"></a>Quickstart: Bing Video’s zoeken-API met Ruby
 
@@ -27,11 +27,11 @@ Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservi
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze quickstart. U hebt de opgegeven toegangssleutel nodig bij het activeren van de gratis proefversie of u kunt betaalde abonnementssleutel gebruiken vanuit het Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="bing-video-search"></a>Bing Video’s zoeken
+## <a name="bing-video-search"></a>Bing Video Search
 
-Met de [Bing Video’s zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) worden videoresultaten geretourneerd uit de zoekmachine van Bing.
+Met de [Bing Video Search-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) worden videoresultaten geretourneerd uit de zoekmachine van Bing.
 
 1. Maak een nieuw Ruby-project in uw favoriete IDE of editor.
 2. Voeg de onderstaande code toe.
@@ -202,4 +202,4 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="see-also"></a>Zie ook 
 
- [Op internet zoeken naar video's](search-the-web.md) [Uitproberen](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Internet doorzoeken op video's](search-the-web.md) [Probeer het uit](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

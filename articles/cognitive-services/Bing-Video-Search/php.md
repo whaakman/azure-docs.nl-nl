@@ -3,19 +3,19 @@ title: 'Snelstart: Bing Video Search, PHP'
 titlesuffix: Azure Cognitive Services
 description: Informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Bing Video Search-API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 4e64771802564da1e1cb9efccef1ef63b38c2b80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: e345c9c2e265478b438af6952f7721d3ecc6103b
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224712"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165254"
 ---
 # <a name="quickstart-bing-video-search-api-with-php"></a>Snelstart: Bing Video Search-API met PHP
 
@@ -27,7 +27,7 @@ Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservi
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Search-API's** nodig. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
 ## <a name="bing-video-search"></a>Bing Video Search
 
