@@ -39,8 +39,10 @@ items:
     href: troubleshoot-rdp-static-ip.md
   - name: Een RDP-fout in de VM oplossen die verband houdt met een uitgeschakelde NIC
     href: troubleshoot-rdp-nic-disabled.md
-  - name: RDP-fouten oplossen die verband houden met de veilige modus
+  - name: Een RDP-fout oplossen die verband houdt met de veilige modus
     href: troubleshoot-rdp-safe-mode.md
+  - name: Een RDP-fout oplossen die verband houdt met netvsc.sys
+    href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
   - name: Problemen met SSH oplossen
@@ -151,9 +153,9 @@ items:
   href: understand-vm-reboot.md
 - name: Hulpprogramma's voor probleemoplossing op afstand
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: fbbc44073d4cb27222800943826ab7a177709833
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5b5da17002955e7a5c24e1b528ebf3076f2de24a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260626"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283811"
