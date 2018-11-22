@@ -1,5 +1,5 @@
 ---
-title: Instellen van HBase en Phoenix back-up en replicatie - Azure HDInsight
+title: Instellen van Apache HBase- en Apache Phoenix back-up en replicatie - Azure HDInsight
 description: Back-up en replicatie voor HBase en Phoenix instellen.
 services: hdinsight
 author: ashishthaps
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 0dfb1cf5ce16e9aa30bb7f9fcc43bd24ccb90d76
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 00402b7ba6004d382693d5f6f82c1108a254fba8
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042216"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283567"
 ---
-# <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>Instellen van back-up en replicatie voor HBase en Phoenix op HDInsight
+# <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Instellen van back-up en replicatie voor Apache HBase- en Apache Phoenix op HDInsight
 
-HBase ondersteunt diverse benaderingen voor het beveiligen tegen verlies van gegevens:
+Apache HBase ondersteunt diverse benaderingen voor het beveiligen tegen verlies van gegevens:
 
 * Kopieer de `hbase` map
 * Importeren exporteren
@@ -101,7 +101,7 @@ Het doeladres bestaat uit de volgende drie onderdelen:
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>` is een door komma's gescheiden lijst met ZooKeeper-knooppunten, bijvoorbeeld:
+* `<ZooKeeperQuorum>` is een door komma's gescheiden lijst van Apache ZooKeeper-knooppunten, bijvoorbeeld:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
@@ -109,7 +109,7 @@ Het doeladres bestaat uit de volgende drie onderdelen:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
-Zie [handmatig verzamelen van de lijst met ZooKeeper-Quorum](#manually-collect-the-zookeeper-quorum-list) in dit artikel voor meer informatie over het ophalen van deze waarden voor uw HDInsight-cluster.
+Zie [handmatig verzamelen van de lijst met Apache ZooKeeper-Quorum](#manually-collect-the-apache-zookeeper-quorum-list) in dit artikel voor meer informatie over het ophalen van deze waarden voor uw HDInsight-cluster.
 
 Het hulpprogramma CopyTable biedt ook ondersteuning voor parameters om op te geven van het tijdsbereik van de rijen te kopiëren, en om op te geven van de subset met kolomfamilies in een tabel om te kopiëren. Als u wilt zien van de volledige lijst met parameters die worden ondersteund door CopyTable, CopyTable worden uitgevoerd zonder parameters:
 
@@ -120,7 +120,7 @@ CopyTable scant de volledige tabel broninhoud die worden gekopieerd naar de doel
 > [!NOTE]
 > Voor het automatiseren van het kopiëren van gegevens tussen tabellen, Zie de `hdi_copy_table.sh` script in de [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) -bibliotheek op GitHub.
 
-### <a name="manually-collect-the-zookeeper-quorum-list"></a>De ZooKeeper-quorum lijst handmatig verzamelen
+### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Handmatig verzamelen van de Apache ZooKeeper-quorum lijst
 
 Wanneer beide HDInsight-clusters zich in hetzelfde virtuele netwerk, zoals eerder beschreven, is het omzetten van de interne hostnaam automatische. Voor het gebruik van CopyTable voor HDInsight-clusters in twee afzonderlijke virtuele netwerken die zijn verbonden met een VPN-Gateway, moet u IP-adressen van de Zookeeper-knooppunten in het quorum voor de hostopslag verzorgen.
 
@@ -201,8 +201,8 @@ De algemene stappen voor het instellen van replicatie zijn:
 5. Bestaande gegevens kopiëren van de brontabellen naar de doeltabellen.
 6. Replicatie kopieert automatisch nieuwe gegevens worden aangebracht aan de brontabellen in doeltabellen.
 
-U schakelt replicatie in HDInsight, een scriptactie van toepassing op uw actieve bron HDInsight-cluster. Zie voor een overzicht van het inschakelen van replicatie in uw cluster, of om te experimenteren met replicatie op de voorbeeld-clusters die in virtuele netwerken met behulp van Azure Resource Management-sjablonen zijn gemaakt, [configureren HBase-replicatie](apache-hbase-replication.md). Dit artikel bevat ook instructies voor het inschakelen van replicatie van Phoenix-metagegevens.
+U schakelt replicatie in HDInsight, een scriptactie van toepassing op uw actieve bron HDInsight-cluster. Zie voor een overzicht van het inschakelen van replicatie in uw cluster, of om te experimenteren met replicatie op de voorbeeld-clusters die in virtuele netwerken met behulp van Azure Resource Management-sjablonen zijn gemaakt, [configureren Apache HBase-replicatie](apache-hbase-replication.md). Dit artikel bevat ook instructies voor het inschakelen van replicatie van Phoenix-metagegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [HBase-replicatie configureren](apache-hbase-replication.md)
+* [Apache HBase-replicatie configureren](apache-hbase-replication.md)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fa1fa65315f38d0ce2900b738b70ca3718b0c00e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376700"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285098"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -78,7 +78,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
    Hier kunt u wordt gevraagd naar:
    - Geef de **ResourceGroup namen als doel**. Deze waarden zijn de namen van resourcegroepen met virtuele machines worden beheerd door deze oplossing. U kunt meer dan één naam invoeren en scheiden met een komma (waarden zijn niet hoofdlettergevoelig). Jokertekens worden ondersteund als de bewerking moet worden gericht op VM's in alle resourcegroepen in het abonnement. Deze waarde wordt opgeslagen in de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** variabelen.
    - Geef de **uitsluitingslijst VM (tekenreeks)**. Deze waarde is de naam van een of meer virtuele machines van de doelresourcegroep. U kunt meer dan één naam invoeren en scheiden met een komma (waarden zijn niet hoofdlettergevoelig). Gebruik een jokerteken wordt ondersteund. Deze waarde wordt opgeslagen in de **External_ExcludeVMNames** variabele.
-   - Selecteer een **planning**. Deze waarde is een periodieke datum en tijd voor het starten en stoppen van de virtuele machines in de doel-resourcegroepen. Het schema is standaard geconfigureerd voor 30 minuten vanaf nu. Selecteren van een andere regio is niet beschikbaar. Zie voor meer informatie over het configureren van de planning voor de tijdzone van uw specifieke na het configureren van de oplossing [wijzigen van de planning voor opstarten en afsluiten](#modify-the-startup-and-shutdown-schedule).
+   - Selecteer een **planning**. Deze waarde is een periodieke datum en tijd voor het starten en stoppen van de virtuele machines in de doel-resourcegroepen. Het schema is standaard geconfigureerd voor 30 minuten vanaf nu. Selecteren van een andere regio is niet beschikbaar. Zie voor meer informatie over het configureren van de planning voor de tijdzone van uw specifieke na het configureren van de oplossing [wijzigen van de planning voor opstarten en afsluiten](#modify-the-startup-and-shutdown-schedules).
    - Voor het ontvangen van **e-mailmeldingen** uit een actiegroep, accepteer de standaardwaarde van **Ja** en geef een geldig e-mailadres. Als u selecteert **Nee** , maar besluit dat op een later tijdstip dat u wilt ontvangen van e-mailmeldingen, u kunt bijwerken de [actiegroep](../monitoring-and-diagnostics/monitoring-action-groups.md) die is gemaakt met geldige e-mailadressen gescheiden door een komma. U moet ook de volgende regels voor waarschuwingen inschakelen:
 
      - AutoStop_VM_Child
@@ -217,16 +217,16 @@ In alle scenario's, de **External_Start_ResourceGroupNames**, **External_Stop_Re
 
 ### <a name="schedules"></a>Planningen
 
-De volgende tabel geeft een lijst van elk van de standaardschema's in uw Automation-account hebt gemaakt. U kunt deze wijzigen of maken van uw eigen aangepaste schema's. Standaard alle van de schema's zijn uitgeschakeld, behalve voor **Scheduled_StartVM** en **Scheduled_StopVM**.
+De volgende tabel geeft een lijst van elk van de standaardschema's in uw Automation-account hebt gemaakt. U kunt deze wijzigen of maken van uw eigen aangepaste schema's. Standaard alle van de schema's zijn uitgeschakeld, behalve voor **Scheduled_StartVM** en **Scheduled_StopVM**.
 
 U moet alle schema's is niet inschakelen omdat dit mogelijk overlappende schema-acties maken. Het is raadzaam om te bepalen welke optimalisaties die u wilt uitvoeren en aanpassen. Zie de voorbeeldscenario's in de overzichtssectie voor verdere uitleg.
 
 |Schemanaam | Frequentie | Beschrijving|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Om de 8 uur | Wordt uitgevoerd het AutoStop_CreateAlert_Parent runbook om de 8 uur, wat op zijn beurt voorkomt dat de waarden op basis van een virtuele machine in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. U kunt ook kunt u een door komma's gescheiden lijst met virtuele machines met behulp van de parameter VMList.|
-|Scheduled_StopVM | Door de gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van _stoppen_ elke dag om de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door asset variabelen automatisch gestopt. Inschakelen van het bijbehorende schema **geplande StartVM**.|
-|Scheduled_StartVM | Door de gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van _Start_ elke dag om de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door de betreffende variabelen wordt automatisch gestart. Inschakelen van het bijbehorende schema **geplande StopVM**.|
-|Gesequentieerd StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van _stoppen_ elke vrijdag op het opgegeven tijdstip. Sequentieel worden verwerkt (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StartVM**.|
+|Scheduled_StopVM | Door de gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van _stoppen_ elke dag om de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door asset variabelen automatisch gestopt. Inschakelen van het bijbehorende schema **geplande StartVM**.|
+|Scheduled_StartVM | Door de gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van _Start_ elke dag om de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door de betreffende variabelen wordt automatisch gestart. Inschakelen van het bijbehorende schema **geplande StopVM**.|
+|Gesequentieerd StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van _stoppen_ elke vrijdag op het opgegeven tijdstip. Sequentieel worden verwerkt (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StartVM**.|
 |Gesequentieerd StartVM | 1:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van _Start_ elke maandag op het opgegeven tijdstip. Sequentieel worden verwerkt alle virtuele machines (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StopVM**.|
 
 ## <a name="log-analytics-records"></a>Log Analytics-records

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 99bac69d096095f660e2624194b72e1390c6fc22
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275561"
+ms.locfileid: "52284979"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-group-using-tags.md).
@@ -193,7 +193,6 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Ja | 
-| DataBoxEdgeDevices/checkNameAvailability | Nee | 
 
 ## <a name="data-catalog"></a>Data Catalog
 | Resourcetype | Ondersteunt tags |
@@ -451,8 +450,8 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tagging](resource-
 ## <a name="resources"></a>Resources
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Resourcegroepen | Nee | 
-| abonnementen/resourcegroepen | Nee | 
+| Resourcegroepen | Ja | 
+| abonnementen/resourcegroepen | Ja | 
 
 ## <a name="scheduler"></a>Scheduler
 | Resourcetype | Ondersteunt tags |

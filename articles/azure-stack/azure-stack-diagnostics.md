@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976125"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283449"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -76,9 +76,6 @@ if($s)
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog uitvoeren op een Azure Stack Development Kit (ASDK)-systeem
 Volg deze stappen om uit te voeren van Get-AzureStackLog op een hostcomputer ASDK.
 
-- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het opslaan van Logboeken in een gebruiker die is opgegeven locatie.
-- De **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Als deze parameters niet zijn opgegeven, worden logboeken verzameld voor de afgelopen vier uur standaard.
-
 1. Meld u als **AzureStack\CloudAdmin** op de hostcomputer ASDK.
 2. Open een nieuwe PowerShell-venster als beheerder.
 3. Voer de **Get-AzureStackLog** PowerShell-cmdlet.
@@ -111,7 +108,10 @@ Volg deze stappen om uit te voeren van Get-AzureStackLog op een hostcomputer ASD
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Parameter-overwegingen voor zowel ASDK en geïntegreerde systemen
 
-- Als de **FromDate** en **ToDate** parameters niet zijn opgegeven, wordt standaard logboeken voor de afgelopen vier uur worden verzameld.
+- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het opslaan van Logboeken in een gebruiker die is opgegeven locatie.
+
+- De **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Als deze parameters niet zijn opgegeven, worden logboeken verzameld voor de afgelopen vier uur standaard.
+
 - Gebruik de **FilterByNode** parameter Logboeken filteren op computernaam. Bijvoorbeeld:
 
     ```powershell

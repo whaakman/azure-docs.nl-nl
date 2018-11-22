@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038465"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284826"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -198,7 +198,9 @@ Bekijk de volgende video voor een 12 minuten durende inleiding en demonstratie v
 
 * De Azure PowerShell-versie die ondersteuning biedt voor deze functie is 6.6.0 of hoger (AzureRM.DataFactoryV2, 0.5.7 of hoger).
 
-* Als u wilt machtigen, moet de gebruiker de rol eigenaar of de overgenomen rol van eigenaar in de data factory waar de gedeelde IR bestaat. 
+* Als u wilt machtigen, moet de gebruiker de rol eigenaar of de overgenomen rol van eigenaar in de data factory waar de gedeelde IR bestaat.
+
+* Functie voor het delen werkt alleen voor Data Factory's binnen dezelfde Azure Active Directory-tenant.
 
 * Voor Active Directory [gastgebruikers](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), de zoekfunctie van (alle data factory's vermeld met behulp van een zoekwoord) in de gebruikersinterface [werkt niet](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Maar, zolang de gastgebruiker de eigenaar van de data factory is, kunnen zij de IR zonder de zoekfunctie delen door direct het MSI-bestand van de data factory die waarmee de IR worden gedeeld moet de **machtiging toewijzen** in het tekstvak en selecteren **toevoegen** in de Azure Data Factory-UI. 
 

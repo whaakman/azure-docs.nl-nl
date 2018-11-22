@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 0bd91eba80aba340619f5aa76d5bc19894a3510f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163075"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284486"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Georuimtelijke en GeoJSON locatiegegevens gebruiken met Azure Cosmos DB SQL API-account
 
@@ -393,5 +393,5 @@ U hebt geleerd hoe u aan de slag met georuimtelijke ondersteuning in Azure Cosmo
 * Gaan coderen met de [georuimtelijke .NET-codevoorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Aan de slag met georuimtelijke query's uitvoeren op de [Azure Cosmos DB testomgeving voor Query's](http://www.documentdb.com/sql/demo#geospatial)
 * Meer informatie over [Azure Cosmos DB-Query](how-to-sql-query.md)
-* Meer informatie over [Azure Cosmos DB indexeren van beleid](indexing-policies.md)
+* Meer informatie over [Azure Cosmos DB indexeren van beleid](index-policy.md)
 

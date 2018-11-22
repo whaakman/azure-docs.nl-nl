@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5133a3d724a362a3d022e0dfd29f798a509c4743
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275466"
+ms.locfileid: "52282734"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario: een AWS-machine inrichten
 In dit artikel leert u hoe u kunt gebruikmaken van Azure Automation voor het inrichten van een virtuele machine in uw abonnement Amazon Web Service (AWS) en geef die virtuele machine een specifieke naam – AWS verwijst naar als 'codering' van de virtuele machine.
@@ -25,7 +25,7 @@ Voor de doeleinden van dit artikel moet u een Azure Automation-account en een AW
 ## <a name="deploy-amazon-web-services-powershell-module"></a>PowerShell-Module van Amazon Web Services implementeren
 Uw runbook Inrichtingsstatus van VM's maakt gebruik van de AWS-PowerShell-module voor het werk doen. De volgende stappen uitvoeren om de module toevoegen aan uw Automation-account dat is geconfigureerd met de referenties voor uw AWS-abonnement.  
 
-1. Open uw webbrowser en navigeer naar de [PowerShell Gallery](http://www.powershellgallery.com/packages/AWSPowerShell/) en klik op de **implementeren in Azure Automation-knop**.<br><br> ![AWS PS-Module importeren](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+1. Open uw webbrowser en navigeer naar de [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell/) en klik op de **implementeren in Azure Automation-knop**.<br><br> ![AWS PS-Module importeren](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
 2. Gaat u naar de aanmeldingspagina van Azure en na het verifiëren, u wordt doorgestuurd naar de Azure-portal en krijgt de volgende pagina:<br><br> ![Pagina van de Module importeren](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
 3. Selecteer het Automation-Account wilt gebruiken en op **OK** implementatie te starten.
 
@@ -60,7 +60,7 @@ Zodra de AWS-PowerShell-Module is geïmplementeerd, kunt u nu een runbook voor h
     > 
     > * Het runbook bevat een aantal standaardwaarden voor parameters. Alle standaardwaarden evalueren en werk indien nodig.
     > * Als u uw AWS-referenties hebt opgeslagen als een referentie-element met de naam anders dan **AWScred**, moet u het script op regel 57 zodat deze overeenkomen met dienovereenkomstig bijwerken.  
-    > * Als u werkt met de AWS-CLI-opdrachten in PowerShell, vooral bij dit voorbeeld van een runbook, moet u de AWS-regio opgeven. Anders mislukt de de cmdlets. Weergave AWS onderwerp [AWS regio opgeven](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in de AWS-hulpprogramma's voor PowerShell-document voor meer informatie.  
+    > * Als u werkt met de AWS-CLI-opdrachten in PowerShell, vooral bij dit voorbeeld van een runbook, moet u de AWS-regio opgeven. Anders mislukt de de cmdlets. Weergave AWS onderwerp [AWS regio opgeven](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in de AWS-hulpprogramma's voor PowerShell-document voor meer informatie.  
     >
 
 7. PowerShell ISE starten om op te halen een lijst met namen van afbeeldingen uit uw AWS-abonnement, en importeer de PowerShell-Module van AWS. Verificatie aan de hand van AWS te vervangen **Get-AutomationPSCredential** in uw ISE-omgeving met **AWScred = Get-Credential**. Hiermee vraagt u om uw referenties en u krijgt uw **toegangssleutel-ID** voor de gebruikersnaam en **geheime toegangssleutel** voor het wachtwoord. Zie het voorbeeld hieronder:  

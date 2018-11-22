@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622513"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284758"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Ondersteuning voor spraak-API voor Service taal en regio
 
@@ -70,7 +70,6 @@ ar-SA | Arabisch (Saoedi-Arabië) | Man | "Microsoft Server spraak tekst en spra
 bg-BG | Bulgaars | Man | "Microsoft Server tekst naar spraak stem (bg-BG, Ivan)"
 CA-ES | Catalaans | Vrouw | "Microsoft Server tekst naar spraak stem (ca-ES, HerenaRUS)"
 cs-CZ | Tsjechisch | Man | "Microsoft Server spraak tekst en spraak spraak (cs-CZ, Jakub)"
-cs-CZ | Tsjechisch | Man | "Microsoft Server spraak tekst en spraak spraak (cs-CZ, Vit)"
 da-DK | Deens | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (da-DK, HelleRUS)"
 de-AT | Duits (Oostenrijk) | Man | "Microsoft Server spraak tekst en spraak, spraak (de-AT, Michael)"
 de CH | Duits (Zwitserland) | Man | "Microsoft Server spraak tekst en spraak, spraak (de-h, Karsten)"
@@ -86,7 +85,6 @@ en-GB | English (UK) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak 
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-GB, HazelRUS)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (en-GB, George, Apollo)"
 NL-Internet Explorer | Engels (Ierland) |Man | "Microsoft Server spraak tekst en spraak, spraak (en Internet Explorer, Jan)"
-NL-Internet Explorer | Engels (Ierland) |Man | "Microsoft Server spraak tekst en spraak, spraak (en Internet Explorer, Shaun)"
 NL-IN | English (India) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Heera, Apollo)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, PriyaRUS)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Ravi, Apollo)"
@@ -153,10 +151,10 @@ zh-TW | Chinees (Taiwan)|Vrouw | "Microsoft Server spraak tekst en spraak, spraa
 
 ### <a name="customization"></a>Aanpassing
 
-Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US), vasteland Chinees (zh-CN) en Italiaans (it-IT).
+Stem aanpassing is beschikbaar voor ons Engels (en-US), vasteland Chinees (zh-CN), Frans (fr-FR), Duits (nl-nl) en Italiaans (it-IT).
 
 > [!NOTE]
-> Trainingen voor de Italiaanse toon begint met een gegevensset van meer dan 2000 uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een initiële gegevensset van meer dan 2000 uitingen.
+> Frans, Duits en Italiaans trainingen voor de toon begint met een gegevensset van 2000 + uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een initiële gegevensset van meer dan 2000 uitingen.
 
 ## <a name="speech-translation"></a>Spraakomzetting
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855388"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282546"
 ---
 # <a name="message-deferral"></a>Berichten uitstellen
 
@@ -40,7 +40,6 @@ Als u wilt een uitgesteld bericht ophalen, de eigenaar is verantwoordelijk voor 
 
 Als een bericht kan niet worden verwerkt omdat een bepaalde resource voor het verwerken van dat bericht tijdelijk niet beschikbaar is, maar berichtverwerking moet niet summarily worden onderbroken, een manier om dat bericht over een paar minuten aan de zijde te onthouden is de  **SequenceNumber** in een [gepland bericht](message-sequencing.md) worden geplaatst in een paar minuten en het uitgestelde bericht opnieuw ophalen als de geplande bericht wordt ontvangen. Als een berichtenhandler afhankelijk van een database voor alle bewerkingen is en dat de database tijdelijk niet beschikbaar is is, moet deze niet gebruiken om, maar in plaats daarvan onderbreken ontvangen van berichten helemaal totdat de database weer beschikbaar is.
 
-Het uitstellen van berichten, heeft dit geen invloed op het verlopen van berichten, wat betekent dat uitgestelde berichten nog steeds op het in eerste instantie geplande tijdstip is verlopen en worden verplaatst naar de dead-letter-wachtrij, indien geconfigureerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

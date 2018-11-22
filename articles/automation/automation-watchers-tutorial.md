@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 2786de150307b21b06b624914d5fea55ded6e3c7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249786"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282769"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Maak een Azure Automation-watcher-taken voor het bijhouden van wijzigingen in bestanden op een lokale computer
 
@@ -103,13 +103,13 @@ Als u wilt testen van de watcher werkt zoals verwacht, moet u een testbestand te
 
 Extern verbinding maken met de hybrid worker. Open **PowerShell** en een testbestand in de map te maken.
   
-   ```PowerShell-interactive
-   New-Item -Name ExampleFile1.txt
-   ```
+```azurepowerShell-interactive
+New-Item -Name ExampleFile1.txt
+```
 
 Het volgende voorbeeld wordt de verwachte uitvoer weergegeven.
 
-```
+```output
     Directory: D:\examplefiles
 
 
@@ -129,7 +129,7 @@ Mode                LastWriteTime         Length Name
 
 De verwachte uitvoer wanneer het nieuwe bestand wordt gevonden in het volgende voorbeeld weergegeven:
 
-```
+```output
 Message is Process new file...
 
 

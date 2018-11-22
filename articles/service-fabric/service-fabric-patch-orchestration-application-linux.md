@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746714"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285149"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor de Linux-besturingssysteem in uw Service Fabric-cluster
 
@@ -147,7 +147,7 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 
 1. Bereid het cluster door de vereiste stappen is voltooid.
 2. De patch orchestration-app, zoals elke andere Service Fabric-app implementeren. U kunt de app implementeren met behulp van PowerShell of Azure Service Fabric-CLI. Volg de stappen in [implementeren en remove-toepassingen met behulp van PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) of [toepassing implementeren met behulp van Azure Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. Voor het configureren van de toepassing op het moment van implementatie, geven de `ApplicationParamater` naar de `New-ServiceFabricApplication` cmdlet of de scripts opgegeven. Voor uw gemak powershell (Deploy.ps1) en (Deploy.sh) bash-scripts vindt u samen met de toepassing. Het script gebruiken:
+3. Voor het configureren van de toepassing op het moment van implementatie, geven de `ApplicationParameter` naar de `New-ServiceFabricApplication` cmdlet of de scripts opgegeven. Voor uw gemak powershell (Deploy.ps1) en (Deploy.sh) bash-scripts vindt u samen met de toepassing. Het script gebruiken:
 
     - Verbinding maken met een Service Fabric-cluster.
     - Voer het script implementeren. (Optioneel) de toepassing-parameter doorgeven aan het script. bijvoorbeeld:.\Deploy.ps1 - ApplicationParameter @{UpdateFrequency = "Dagelijks, 11:00:00"} of./Deploy.sh "{\"UpdateFrequency\":\"dagelijks, 11:00:00\"}" 

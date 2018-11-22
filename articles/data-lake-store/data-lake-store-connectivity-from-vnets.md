@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 130d0154fc0558ae7284e8407ba88fda3a2a53d5
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391297"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284009"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Toegang tot Azure Data Lake Storage Gen1 van virtuele machines binnen een Azure VNET
 Azure Data Lake Storage Gen1 is een PaaS-service die wordt uitgevoerd op het openbare Internet-IP-adressen. Een server die u verbinding met het openbare Internet maken kunt kunt maken doorgaans verbinding met Azure Data Lake Storage Gen1 eindpunten ook. Standaard worden alle virtuele machines die zich in Azure vnet's hebben toegang tot het Internet en daarom hebben toegang tot Azure Data Lake Storage Gen1. Het is echter mogelijk om te configureren van virtuele machines in een VNET-naar-geen toegang tot het Internet. Voor dergelijke VM's wordt toegang tot Azure Data Lake Storage Gen1 beperkt ook. Openbare toegang via Internet blokkeren voor virtuele machines in Azure vnet's kan worden gedaan met behulp van een van de volgende methoden:
@@ -29,7 +29,7 @@ Azure Data Lake Storage Gen1 is een PaaS-service die wordt uitgevoerd op het ope
 In dit artikel leert u hoe u kunt toegang inschakelen voor Azure Data Lake Storage Gen1 van Azure VM's, die zijn beperkt tot toegang tot resources met behulp van een van de drie methoden die eerder is vermeld.
 
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>Om verbinding met Azure Data Lake Storage Gen1 van virtuele machines met beperkte connectiviteit
-Voor toegang tot Azure Data Lake Storage Gen1 van dergelijke virtuele machines, moet u configureren zodat ze toegang krijgen tot het IP-adres waar het Gen1 van Azure Data Lake Storage-account beschikbaar is. U kunt de IP-adressen voor de accounts van uw Data Lake Storage Gen1 identificeren door het omzetten van de DNS-namen van uw accounts (`<account>.azuredatalakestore.net`). U kunt oplossen door een DNS-namen van uw accounts, kunt u hulpprogramma's zoals **nslookup**. Open een opdrachtprompt op uw computer en voer de volgende opdracht uit:
+Voor toegang tot Azure Data Lake Storage Gen1 van dergelijke virtuele machines, moet u configureren zodat ze toegang krijgen tot het IP-adres voor de regio waar het Gen1 van Azure Data Lake Storage-account beschikbaar is. U kunt de IP-adressen voor uw Data Lake Storage Gen1 account regio's identificeren door het omzetten van de DNS-namen van uw accounts (`<account>.azuredatalakestore.net`). U kunt oplossen door een DNS-namen van uw accounts, kunt u hulpprogramma's zoals **nslookup**. Open een opdrachtprompt op uw computer en voer de volgende opdracht uit:
 
     nslookup mydatastore.azuredatalakestore.net
 

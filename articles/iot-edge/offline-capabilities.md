@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567023"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284639"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten (preview)
 
@@ -48,7 +48,7 @@ Het volgende voorbeeld ziet u de werking van een IoT Edge-scenario in de offline
 
 De uitgebreide offline-mogelijkheden die worden beschreven in dit artikel zijn beschikbaar in [IoT Edge versie 1.0.4 of hoger](https://github.com/Azure/azure-iotedge/releases). Eerdere versies hebben een subset van de offline functies. IoT Edge bestaande apparaten waarvoor geen uitgebreide mogelijkheden voor offline kunnen niet worden bijgewerkt door het veranderen van de runtimeversie, maar moeten opnieuw worden geconfigureerd met een nieuwe IoT Edge-apparaat-id te krijgen van deze functies. 
 
-Uitgebreide offline ondersteuning is beschikbaar in alle regio's waar de IoT Hub verkrijgbaar, met uitzondering van VS-Oost en West-Europa is. 
+Uitgebreide offline ondersteuning is beschikbaar in alle regio's waar de IoT Hub verkrijgbaar is, **behalve** VS-Oost.
 
 Alleen niet - Microsoft Edge-IoT-apparaten kunnen worden toegevoegd als onderliggende apparaten. 
 
@@ -65,6 +65,19 @@ Onderliggende apparaten mag niet-Edge-apparaat dat is geregistreerd bij dezelfde
    ![Onderliggende apparaten beheren vanaf de pagina met details van IoT Edge-apparaat](./media/offline-capabilities/manage-child-devices.png)
 
 Bovenliggende apparaten kunnen meerdere onderliggende apparaten hebben, maar een onderliggend apparaat kan slechts één bovenliggend object hebben.
+
+### <a name="specifying-dns-servers"></a>DNS-servers op te geven 
+
+Het verdient ter verbetering van robuustheid biedt u de adressen van de DNS-server in uw omgeving gebruikt. Bijvoorbeeld: in Linux, werken **/etc/docker/daemon.json** (mogelijk moet u het bestand maken) om op te nemen:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Als u een lokale DNS-server gebruikt, vervangt u de 1.1.1.1 met het IP-adres van de lokale DNS-server. Start de docker-service de wijzigingen van kracht te laten worden.
+
 
 ## <a name="optional-offline-settings"></a>Optionele offline-instellingen
 

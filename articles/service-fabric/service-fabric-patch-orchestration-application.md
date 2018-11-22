@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409353"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285047"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -167,7 +167,7 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 
 1. Voltooi de vereiste stappen voor het voorbereiden van het cluster.
 2. De patch orchestration-app, zoals elke andere Service Fabric-app implementeren. U kunt de app implementeren met behulp van PowerShell. Volg de stappen in [implementeren en remove-toepassingen met behulp van PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. Voor het configureren van de toepassing op het moment van implementatie, geven de `ApplicationParamater` naar de `New-ServiceFabricApplication` cmdlet. Voor uw gemak hebben we het script Deploy.ps1 samen met de toepassing opgegeven. Het script gebruiken:
+3. Voor het configureren van de toepassing op het moment van implementatie, geven de `ApplicationParameter` naar de `New-ServiceFabricApplication` cmdlet. Voor uw gemak hebben we het script Deploy.ps1 samen met de toepassing opgegeven. Het script gebruiken:
 
     - Verbinding maken met een Service Fabric-cluster met behulp van `Connect-ServiceFabricCluster`.
     - Voer de PowerShell-script Deploy.ps1 met de juiste `ApplicationParameter` waarde.

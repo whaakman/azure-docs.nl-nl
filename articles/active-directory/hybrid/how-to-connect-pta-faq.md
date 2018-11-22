@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 220fc7b2b0ce3a4c5fd943c35952a345379a1b91
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685647"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284213"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass through-verificatie: Veelgestelde vragen
 
@@ -132,7 +132,7 @@ Voor een schatting van netwerkverkeer, gebruik de volgende richtlijn voor formaa
 Twee of drie verificatie-Agents in totaal zijn voor de meeste klanten voldoende voor hoge beschikbaarheid en capaciteit. U moet verificatie-Agents installeren dicht bij uw domeincontrollers voor het aanmelden latentie verbeteren.
 
 >[!NOTE]
->Er is een limiet van 12 verificatie-Agents per tenant.
+>Er is een limiet van 40 verificatie-Agents per tenant.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Kan ik de eerste Pass through-verificatie-Agent installeren op een andere server dan die wordt uitgevoerd van Azure AD Connect?
 

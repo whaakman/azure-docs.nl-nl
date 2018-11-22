@@ -9,16 +9,50 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52c8eed7f8b5a65ef13215e677d52f44cb95fd64
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261569"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284996"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
+
+## <a name="2018-11-20"></a>2018-11-20
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning-SDK voor Python v0.1.80
+
++ **Belangrijke wijzigingen** 
+  * *azureml.Train.widget* naamruimte is verplaatst naar *azureml.train*.
+  * *azureml.core.compute.AmlCompute* Hiermee wordt vervangen *azureml.core.compute.BatchAICompute*. De laatste klasse wordt verwijderd in toekomstige releases.
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning-Dataprep SDK v0.5.1 
+Meer informatie over de SDK voor Data Prep door te lezen [verwijzen naar docs](https://aka.ms/data-prep-sdk).
++ **Nieuwe functies**
+   * Een nieuwe DataPrep CLI DataPrep-pakketten uitvoeren en weergeven van het gegevensprofiel van de voor een gegevensset of gegevensstroom gemaakt
+   * Opnieuw ontworpen API SetColumnType de bruikbaarheid verbeteren
+   * Hernoemd smart_read_file naar auto_read_file
+   * Bevat nu scheeftrekken en kurtosis in het profiel van gegevens
+   * Met steekproeven toepassing stratificatie kunt steekproef
+   * Van het zip-bestanden met CSV-bestanden kan lezen
+   * Kan gegevenssets row-wise met willekeurige gesplitst gesplitst (bijvoorbeeld in test-trein sets)
+   * Kunt krijgen alle kolom gegevenstypen van een gegevensstroom of een gegevensprofiel door het aanroepen van .dtypes
+   * Het aantal rijen kunt krijgen van een gegevensstroom of een gegevensprofiel door het aanroepen van .row_count
+
++ **Oplossingen voor problemen**
+   * Vaste lang naar dubbele conversie 
+   * Vaste assert nadat een kolom toevoegen 
+   * Er is een probleem opgelost met FuzzyGrouping, waar groepen niet in sommige gevallen detecteren zou
+   * Vaste sorteerfunctie rekening houden met meerdere kolommen sorteervolgorde
+   * Vaste en/of expressies zijn vergelijkbaar met hoe Pandas ze verwerkt
+   * Vaste lezen van dbfs pad
+   * Begrijpelijker foutberichten 
+   * Nu niet meer mislukt bij het lezen van op externe compute-doel met AML-token
+   * Nu mislukt niet meer op Linux-DSVM
+   * Nu niet meer loopt vast bij niet-tekenreekswaarden in tekenreeks predicaten zijn
+   * Nu assertion fouten worden verwerkt wanneer gegevensstroom correct moet mislukken
+   * Biedt nu ondersteuning voor dbutils gekoppeld opslaglocaties op Azure Databricks
 
 ## <a name="2018-11-05"></a>2018-11-05
 

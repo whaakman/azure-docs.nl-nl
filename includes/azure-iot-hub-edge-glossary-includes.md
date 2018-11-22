@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: dobett
+ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279576"
+---
 ## <a name="automatic-device-management"></a>Automatisch apparaatbeheer
 Automatische Apparaatbeheer in Azure IoT Hub automatiseert veel herhaalde en complexe taken van grote apparaat vloten via het geheel van de levenscycli hiervan te beheren. Met automatisch beheer van apparaten, kunt u een set met apparaten op basis van hun eigenschappen als doel, definieert een gewenste configuratie en IoT Hub-apparaten bijgewerkt wanneer ze bereik binnenkomen, kunnen.  Bestaat uit [automatische apparaatconfiguraties](../articles/iot-hub/iot-hub-auto-device-config.md) en [IoT Edge-automatische implementaties](../articles/iot-edge/how-to-deploy-monitor.md).
 

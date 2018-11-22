@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c8dc240172451118fd75b042ba267740999882d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321764"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284560"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Workers oplossen
 
@@ -30,7 +30,7 @@ De Hybrid Runbook Worker is afhankelijk van een agent kan communiceren met uw Au
 
 Uitvoering van Runbook is mislukt en u het volgende foutbericht:
 
-```
+```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 

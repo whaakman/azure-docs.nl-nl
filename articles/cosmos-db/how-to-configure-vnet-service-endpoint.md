@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 37c2d12a5385b4f3dd2cf6d7df644d9a41d2d59b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 16cd959a83850a3bc940803cd23e7542e34825c8
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976636"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283209"
 ---
 # <a name="how-to-access-azure-cosmos-db-resources-from-virtual-networks"></a>Toegang tot Azure Cosmos DB-resources van virtuele netwerken
 
@@ -79,7 +79,10 @@ Om te controleren of u toegang hebt tot Azure Cosmos DB metrische gegevens van d
 
 4.  Klik op **opslaan** de wijzigingen worden toegepast.
 
-## <a id="configure-using-powershell"></a>Service-eindpunt configureren met behulp van Azure PowerShell 
+## <a id="configure-using-powershell"></a>Service-eindpunt configureren met behulp van Azure PowerShell
+
+> [!NOTE]
+> Wanneer u PowerShell of CLI, moet u de volledige lijst van VNET-ACL's en het IP-filters opgeven in de parameters, niet alleen degene die moeten worden toegevoegd.
 
 Gebruik de volgende stappen uit service-eindpunt voor een Azure Cosmos-account configureren met behulp van Azure PowerShell:  
 
@@ -122,34 +125,37 @@ Gebruik de volgende stappen uit service-eindpunt voor een Azure Cosmos-account c
      -Name $acctName
    ```
 
-1. Initialiseren van de variabelen voor later gebruik. Alle variabelen instellen vanuit de definitie van de bestaande account. In deze stap configureert u service-eindpunt voor virtueel netwerk ook door in te stellen van de variabele 'accountVNETFilterEnabled' op 'True'. Deze waarde wordt later opnieuw toegewezen aan de parameter 'isVirtualNetworkFilterEnabled'.
+1. Initialiseren van de variabelen voor later gebruik. Alle variabelen instellen vanuit de definitie van de bestaande account.
 
    ```powershell
    $locations = @()
 
    foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
       $locations += , @{
-         locationName = $readLocation.locationName;
+         locationName     = $readLocation.locationName;
          failoverPriority = $readLocation.failoverPriority;
       }
    }
 
-   $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
-   $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $sname  
-   $virtualNetworkRules = @(@{"id"=$subnetID})
-   $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
+   $virtualNetworkRules = @(@{
+      id = "$($vnProp.Id)/subnets/$sname";
+   })
+
+   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
+      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
+   }
    ```
 
 1. Eigenschappen van Azure Cosmos-account bijwerken met de nieuwe configuratie door het uitvoeren van de volgende cmdlets: 
 
    ```powershell
    $cosmosDBProperties = @{
-      databaseAccountOfferType = $databaseAccountOfferType;
-      locations = $locations;
-      consistencyPolicy = $consistencyPolicy;
-      virtualNetworkRules = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $accountVNETFilterEnabled;
+      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
+      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
+      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
+      locations                     = $locations;
+      virtualNetworkRules           = $virtualNetworkRules;
+      isVirtualNetworkFilterEnabled = $True;
    }
 
    Set-AzureRmResource `
@@ -222,43 +228,48 @@ Zodra de service-eindpunt voor Azure Cosmos-account is ingeschakeld voor een sub
      -Name $acctName
    ```
 
-1. De variabelen voor het gebruik ervan later opnieuw worden geïnitialiseerd. Alle variabelen instellen vanuit de definitie van de bestaande account. Voeg de VNET-ACL voor alle Azure-Cosmos-accounts worden geopend vanuit het subnet met de `ignoreMissingVNetServiceEndpoint` vlag. In deze stap configureert u service-eindpunt voor virtueel netwerk ook door in te stellen van de variabele 'accountVNETFilterEnabled' op 'True'. Deze waarde wordt later opnieuw toegewezen aan de parameter 'isVirtualNetworkFilterEnabled'.
+1. De variabelen voor het gebruik ervan later opnieuw worden geïnitialiseerd. Alle variabelen instellen vanuit de definitie van de bestaande account. Voeg de VNET-ACL voor alle Azure-Cosmos-accounts worden geopend vanuit het subnet met de `ignoreMissingVNetServiceEndpoint` vlag.
 
    ```powershell
    $locations = @()
 
    foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
       $locations += , @{
-         locationName = $readLocation.locationName;
+         locationName     = $readLocation.locationName;
          failoverPriority = $readLocation.failoverPriority;
       }
    }
 
-   $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
-   $accountVNETFilterEnabled = $True
    $subnetID = "Subnet ARM URL" e.g "/subscriptions/f7ddba26-ab7b-4a36-a2fa-7d01778da30b/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/subnet1"
 
-   $virtualNetworkRules = @(@{"id"=$subnetID, "ignoreMissingVNetServiceEndpoint"="True"})
-   $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
+   $virtualNetworkRules = @(@{
+      id = $subnetID;
+      ignoreMissingVNetServiceEndpoint = "True";
+   })
+
+   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
+      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
+   }
    ```
 
 1. Eigenschappen van Azure Cosmos-account bijwerken met de nieuwe configuratie door het uitvoeren van de volgende cmdlets:
 
    ```powershell
    $cosmosDBProperties = @{
-      databaseAccountOfferType = $databaseAccountOfferType;
-      locations = $locations;
-      consistencyPolicy = $consistencyPolicy;
-      virtualNetworkRules = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $accountVNETFilterEnabled;
+      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
+      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
+      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
+      locations                     = $locations;
+      virtualNetworkRules           = $virtualNetworkRules;
+      isVirtualNetworkFilterEnabled = $True;
    }
 
    Set-AzureRmResource `
-    -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-    -ApiVersion $apiVersion `
-    -ResourceGroupName $rgName `
-    -Name $acctName `
-    -Properties $CosmosDBProperties
+      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
+      -ApiVersion $apiVersion `
+      -ResourceGroupName $rgName `
+      -Name $acctName `
+      -Properties $CosmosDBProperties
    ```
 
 1. Herhaal stappen 1-3 voor alle Azure Cosmos-accounts die u vanuit het subnet opent.
@@ -274,11 +285,11 @@ Zodra de service-eindpunt voor Azure Cosmos-account is ingeschakeld voor een sub
    $subnetPrefix = "<Subnet address range>"
 
    Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
-    -Name $sname `
-    -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+      -ResourceGroupName $rgname `
+      -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+      -Name $sname `
+      -AddressPrefix $subnetPrefix `
+      -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
    ```
 
 1. IP-firewallregel voor het subnet verwijderen.
@@ -286,4 +297,3 @@ Zodra de service-eindpunt voor Azure Cosmos-account is ingeschakeld voor een sub
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer informatie over het configureren van een firewall voor Azure Cosmos DB [firewall-ondersteuning](firewall-support.md) artikel.
-

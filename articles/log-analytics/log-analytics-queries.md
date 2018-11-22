@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 921be3f6cc793857a701cb56236d75680d0c1232
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612744"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282308"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -42,7 +42,7 @@ De verschillende manieren die u query's in Log Analytics gebruikt omvatten het v
 
 - **Portals.** U kunt uitvoeren interactieve analyses van logboekgegevens in de [Azure-portal](log-analytics-log-search-portals.md).  Hiermee kunt u uw query bewerken en analyseer de resultaten in verschillende indelingen en visualisaties.  
 - **Regels voor waarschuwingen.** [Waarschuwingsregels](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactief problemen van gegevens in uw werkruimte te identificeren.  De waarschuwingsregel is gebaseerd op een logboekzoekopdracht die automatisch met regelmatige tussenpozen wordt uitgevoerd.  De resultaten worden gecontroleerd om te bepalen of een waarschuwing moet worden gemaakt.
-- **Dashboards.** U kunt de resultaten van elke query in vastmaken een [Azure-dashboard]() waarmee u logboek- en metrische gegevens bij elkaar te visualiseren en (optioneel) delen met andere Azure-gebruikers. 
+- **Dashboards.** U kunt de resultaten van elke query in vastmaken een [Azure-dashboard](log-analytics-dashboards.md) waarmee u logboek- en metrische gegevens bij elkaar te visualiseren en (optioneel) delen met andere Azure-gebruikers. 
 - **Weergaven.**  Kunt u visualisaties van gegevens moeten worden opgenomen in de Gebruikersdashboards met [Weergaveontwerper](log-analytics-view-designer.md).  Logboeken-query's leveren de gegevens die worden gebruikt door [tegels](log-analytics-view-designer-tiles.md) en [visualisatie delen](log-analytics-view-designer-parts.md) in elke weergave.  
 - **Exporteren.**  Wanneer u gegevens importeren uit Log Analytics-werkruimte in Excel of [Power BI](log-analytics-powerbi.md), maakt u een logboekquery voor het definiëren van de gegevens te exporteren.
 - **PowerShell.** U kunt een PowerShell-script uitvoeren vanaf een opdrachtregel of een Azure Automation-runbook die gebruikmaakt van [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) voor het ophalen van gegevens van Log Analytics.  Deze cmdlet is vereist voor een query om te bepalen van de gegevens moeten worden opgehaald.

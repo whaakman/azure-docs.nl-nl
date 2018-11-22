@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244522"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284809"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer met Azure Automation State Configuration
 
@@ -42,7 +42,7 @@ Met Azure Automation State Configuration kunt u eenvoudig Azure-machines vrij (k
 
 ### <a name="azure-portal"></a>Azure Portal
 
-In de [Azure-portal](http://portal.azure.com/), klikt u op **Bladeren** -> **virtuele machines (klassiek)**. Selecteer de Windows-VM die u vrijgeven wilt. Klik op de blade voor het dashboard van de virtuele machine **alle instellingen** -> **extensies** -> **toevoegen** -> **Azure Automation DSC** -> **maken**.
+In de [Azure-portal](https://portal.azure.com/), klikt u op **Bladeren** -> **virtuele machines (klassiek)**. Selecteer de Windows-VM die u vrijgeven wilt. Klik op de blade voor het dashboard van de virtuele machine **alle instellingen** -> **extensies** -> **toevoegen** -> **Azure Automation DSC** -> **maken**.
 Voer de [PowerShell DSC Local Configuration Manager-waarden](/powershell/dsc/metaconfig4) vereist zijn voor uw situatie, registratiesleutel van uw Automation-account en registratie-URL en eventueel een knooppuntconfiguratie toewijzen aan de virtuele machine.
 
 ![Azure VM-extensies voor DSC](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -132,7 +132,7 @@ Als de computer beschikt niet over de PowerShell desired state-uitbreiding geïn
 
 Onder **registratie**, voer de [PowerShell DSC Local Configuration Manager-waarden](/powershell/dsc/metaconfig4) vereist zijn voor uw situatie, en (optioneel) een knooppuntconfiguratie toewijzen aan de virtuele machine.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![Onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 

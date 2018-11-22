@@ -10,12 +10,12 @@ ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06613ed1eac43ebe865666f85235de74903b1d5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3fac7c6d0a2274813c6ba6d96d8014d6452d28f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953585"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284894"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Prognoses modellen met Azure Machine Learning bouwen en implementeren
 
@@ -109,7 +109,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Gegevens laden en verkennen
 
-Dit codefragment laat zien dat het normale proces beginnen met een set met onbewerkte gegevens, in dit geval de [gegevens uit fijner voedingsmiddelen van Dominick](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  U kunt ook de functie voor uw gemak bedoeld; [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Dit codefragment laat zien dat het normale proces beginnen met een set met onbewerkte gegevens, in dit geval de [gegevens uit fijner voedingsmiddelen van Dominick](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  U kunt ook de functie voor uw gemak bedoeld; [load_dominicks_oj_data](/python/api/azuremlftk/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -340,7 +340,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 De gegevens bevat ongeveer 250 verschillende combinaties van opslag en merk in een gegevensframe. Elke combinatie definieert een eigen tijdreeksen van de verkoop. 
 
-U kunt de [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klasse die u wilt een eenvoudig model meerdere reeksen in een enkele gegevens structuur met de _tijdsinterval_. Het tijdsinterval is opgegeven door de `store` en `brand` kolommen.
+U kunt de [TimeSeriesDataFrame](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe) klasse die u wilt een eenvoudig model meerdere reeksen in een enkele gegevens structuur met de _tijdsinterval_. Het tijdsinterval is opgegeven door de `store` en `brand` kolommen.
 
 Het verschil tussen _tijdsinterval_ en _groep_ tijdsinterval is altijd fysiek zinvol in de praktijk, terwijl de groep hoeft te zijn. Groep gebruik interne pakket functies om één model uit meerdere tijdreeksen als de gebruiker is van mening dat deze groepering helpt modelprestaties te verbeteren. Standaard groep is ingesteld op gelijk zijn aan tijdsinterval en één model is gebouwd voor elk tijdsinterval. 
 
@@ -500,10 +500,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
   </tbody>
 </table>
 
-
-
-De [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) functie genereert een uitgebreid rapport van het tijdsbestek voor de gegevens van reeks. Het rapport bevat zowel een beschrijving van de algemene gegevens als statistieken die specifiek zijn voor time series-gegevens. 
-
+De [TimeSeriesDataFrame.ts_report](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#ts-report) functie genereert een uitgebreid rapport van het tijdsbestek voor de gegevens van reeks. Het rapport bevat zowel een beschrijving van de algemene gegevens als statistieken die specifiek zijn voor time series-gegevens. 
 
 ```python
 whole_tsdf.ts_report()
@@ -843,7 +840,7 @@ whole_tsdf.head()
       <td>1.59</td>
       <td>0.12</td>
       <td>0,32.</td>
-      <td>0.05</td>
+      <td>0,05</td>
       <td>10.92</td>
       <td>0,10</td>
       <td>0.41</td>
@@ -867,7 +864,7 @@ whole_tsdf.head()
       <td>2.99</td>
       <td>0.12</td>
       <td>0,32.</td>
-      <td>0.05</td>
+      <td>0,05</td>
       <td>10.92</td>
       <td>0,10</td>
       <td>0.41</td>
@@ -889,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Gegevens voorverwerken en worden toegerekend ontbrekende waarden
 
-Starten door op te splitsen in trainingsset en een testen instellen met de [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van de tijdreeks. 
+Starten door op te splitsen in trainingsset en een testen instellen met de [last_n_periods_split](/python/api/azuremlftk/ftk.ts_utils#last-n-periods-split) hulpprogrammafunctie. De resulterende set testen bevat de laatste 40 opmerkingen van de tijdreeks. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Basic time series modellen nodig aaneengesloten tijdreeksen. Controleer of de reeks zijn reguliere, wat betekent dat ze een tijdsindex met regelmatige intervallen, met behulp van een steekproef genomen hebben de [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) functie.
+Basic time series modellen nodig aaneengesloten tijdreeksen. Controleer of de reeks zijn reguliere, wat betekent dat ze een tijdsindex met regelmatige intervallen, met behulp van een steekproef genomen hebben de [check_regularity_by_grain](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#check-regularity-by-grain) functie.
 
 
 ```python
@@ -971,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-U kunt zien dat de meeste van de serie (213 van 249) onregelmatig zijn. Een [toerekening transformatie](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) is vereist voor het aanvullen van ontbrekende verkoophoeveelheid waarden. Er zijn veel toerekening opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
+U kunt zien dat de meeste van de serie (213 van 249) onregelmatig zijn. Een [toerekening transformatie](/python/api/azuremlftk/ftk.transforms.time_series_imputer.timeseriesimputer) is vereist voor het aanvullen van ontbrekende verkoophoeveelheid waarden. Er zijn veel toerekening opties, de volgende voorbeeldcode maakt gebruik van een lineaire interpolatie.
 
 
 ```python
@@ -1037,8 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combineren van meerdere modellen
 
-De [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator kunt u meerdere loopt combineren en past/voorspellen op met behulp van één regel code.
-
+De [ForecasterUnion](/python/api/azuremlftk/ftk.models.forecaster_union.forecasterunion) estimator kunt u meerdere loopt combineren en past/voorspellen op met behulp van één regel code.
 
 ```python
 forecaster_union = ForecasterUnion(
@@ -1251,7 +1247,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-De [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) functie, terugloopt sklearn regressie loopt zodat ze kunnen worden getraind op TimeSeriesDataFrame. De verpakte forecaster worden elke groep, ook in dit geval archief in hetzelfde model geplaatst. De forecaster leert u een model voor een groep van de reeks die is vastgesteld dat vergelijkbare en kunnen worden samengevoegd. Een model voor een groep van reeks maakt vaak gebruik van de gegevens van meer reeks voor het verbeteren van prognoses voor korte-serie. U kunt deze modellen voor alle andere modellen in de bibliotheek die ondersteuning bieden voor regressie vervangen. 
+De [RegressionForecaster](/python/api/azuremlftk/ftk.models.regression_forecaster.regressionforecaster) functie, terugloopt sklearn regressie loopt zodat ze kunnen worden getraind op TimeSeriesDataFrame. De verpakte forecaster worden elke groep, ook in dit geval archief in hetzelfde model geplaatst. De forecaster leert u een model voor een groep van de reeks die is vastgesteld dat vergelijkbare en kunnen worden samengevoegd. Een model voor een groep van reeks maakt vaak gebruik van de gegevens van meer reeks voor het verbeteren van prognoses voor korte-serie. U kunt deze modellen voor alle andere modellen in de bibliotheek die ondersteuning bieden voor regressie vervangen. 
 
 
 ```python
@@ -1369,13 +1365,13 @@ Sommige machine learning-modellen konden profiteren van de nieuwe functies en de
 
 ### <a name="cross-validation-parameter-and-model-sweeping"></a>Kruisvalidatie, Parameter en het Model Sweeping    
 
-Het pakket zich enkele traditionele machine learning-functies voor een prognose toepassing aanpast.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) kruisvalidatie tijdelijk, biedt wat zou en zou niet bekend zijn in een prognoses framework wordt gerespecteerd. 
+Het pakket zich enkele traditionele machine learning-functies voor een prognose toepassing aanpast.  [RollingOriginValidator](/python/api/azuremlftk/ftk.model_selection.cross_validation.rollingoriginvalidator) kruisvalidatie tijdelijk, biedt wat zou en zou niet bekend zijn in een prognoses framework wordt gerespecteerd. 
 
 In de afbeelding hieronder staat elke vierkant gegevens van een tijdstip. De blauwe kwadraten vertegenwoordigen training en oranje vierkanten weer in elke Vouw testen. Testgegevens moet afkomstig zijn van de tijdpunten na de grootste training-tijdstip. Gegevens uit de toekomst is anders in trainingsgegevens veroorzaakt door de model-evaluatie ongeldig wordt gelekt. 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Parameter Sweeping**  
-De [TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) klasse uitgebreid zoeken via de opgegeven parameterwaarden en maakt gebruik van `RollingOriginValidator` parameter om prestaties te evalueren om te zoeken van de beste parameters.
+De [TSGridSearchCV](/python/api/azuremlftk/ftk.model_selection.search.tsgridsearchcv) klasse uitgebreid zoeken via de opgegeven parameterwaarden en maakt gebruik van `RollingOriginValidator` parameter om prestaties te evalueren om te zoeken van de beste parameters.
 
 
 ```python
@@ -1647,7 +1643,7 @@ aml_deployment.deploy()
 
 ### <a name="score-the-web-service"></a>De webservice te beoordelen
 
-Voor het scoren van een kleine gegevensset, gebruikt u de [score](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) methode voor het indienen van een webservice aanroepen voor alle gegevens.
+Voor het scoren van een kleine gegevensset, gebruikt u de [score](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score) methode voor het indienen van een webservice aanroepen voor alle gegevens.
 
 
 ```python
@@ -1668,8 +1664,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-Voor het scoren van een grote gegevensset, gebruikt u de [parallelle scoren](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) modus om in te dienen meerdere webservice aanroept, één voor elke groep van gegevens.
-
+Voor het scoren van een grote gegevensset, gebruikt u de [parallelle scoren](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score-parallel) modus om in te dienen meerdere webservice aanroept, één voor elke groep van gegevens.
 
 ```python
 results = aml_web_service.score(score_context=score_context, method='parallel')

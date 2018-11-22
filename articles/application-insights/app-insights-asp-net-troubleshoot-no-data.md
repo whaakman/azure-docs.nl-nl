@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228535"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284673"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -175,8 +175,14 @@ Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insig
 
 U kunt deze uitschakelen, maar dit wordt niet aanbevolen. Steekproeven is zo ontworpen dat gerelateerde telemetrie correct wordt verzonden, voor diagnostische doeleinden. 
 
-## <a name="client-ip-address-is-0000"></a>Client-IP-adres is 0.0.0.0 
-Februari 2018, we [aangekondigd](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) dat we het vastleggen van de Client-IP-adres verwijderd. Dit heeft geen invloed op geografische locatie.
+## <a name="client-ip-address-is-0000"></a>Client-IP-adres is 0.0.0.0
+
+Op 5 februari 2018 hebben we aangekondigd dat we het vastleggen van de Client-IP-adres verwijderd. Dit heeft geen invloed op geografische locatie.
+
+> [!NOTE]
+> Als u de eerste 3 octetten van het IP-adres nodig hebt, kunt u een [telemetrische initializer](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) een aangepast kenmerk toe te voegen.
+> Dit heeft geen invloed op gegevens die zijn verzameld vóór 5 februari 2018.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Onjuiste geografische gegevens in de telemetrie van de gebruiker
 De plaats, regio en land dimensies zijn afgeleid van IP-adressen en niet altijd nauwkeurig. Deze IP-adressen zijn voor de locatie als eerste verwerkt en vervolgens worden gewijzigd op 0.0.0.0 worden opgeslagen.

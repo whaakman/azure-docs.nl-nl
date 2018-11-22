@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4172afc3adf23a05384fec0413465cf491af3a79
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275296"
+ms.locfileid: "52284792"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Voorbeeld van gebruik: Continue implementatie voor virtuele Machines met behulp van de configuratie van de Automation-status en Chocolatey
 
@@ -34,14 +34,14 @@ Nadat de beide core processen zijn gemaakt, is een korte stap voor het automatis
 ## <a name="component-overview"></a>Onderdelenoverzicht
 
 Pakket managers zoals [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) heel erg bekend zijn in de wereld van Linux, maar niet zoveel in de wereld van Windows.
-[Chocolatey](https://chocolatey.org/) is die een ding en Scott Hanselman van [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) op het onderwerp is een goede inleiding. Kortom, kunt Chocolatey u om pakketten te installeren vanuit een centrale opslagplaats van pakketten in een Windows-systeem via de opdrachtregel. U kunt maken en beheren van uw eigen opslagplaats en Chocolatey pakketten kunt installeren van een willekeurig aantal opslagplaatsen die u opgeeft.
+[Chocolatey](https://chocolatey.org/) is die een ding en Scott Hanselman van [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) op het onderwerp is een goede inleiding. Kortom, kunt Chocolatey u om pakketten te installeren vanuit een centrale opslagplaats van pakketten in een Windows-systeem via de opdrachtregel. U kunt maken en beheren van uw eigen opslagplaats en Chocolatey pakketten kunt installeren van een willekeurig aantal opslagplaatsen die u opgeeft.
 
 Desired State Configuration (DSC) ([overzicht](/powershell/dsc/overview)) is een PowerShell-hulpprogramma waarmee u de configuratie die u wilt gebruiken voor een virtuele machine declareren. U kunt bijvoorbeeld, "Ik wil Chocolatey geïnstalleerd, ik wil dat IIS is geïnstalleerd, ik wil dat de poort 80 is geopend, ik wil dat versie 1.0.0 van mijn website geïnstalleerd." De DSC lokale Configuration Manager (LCM) implementeert dat de configuratie. Een DSC-Pull-Server bevat een opslagplaats van configuraties voor uw virtuele machines. De LCM op elke computer controleert periodiek op of de configuratie ervan overeenkomt met de opgeslagen configuratie. Het kan de status rapporteren of worden geprobeerd om de machine weer in overeenstemming met de opgeslagen configuratie. U kunt de opgeslagen configuratie op de pull-server om te leiden tot een machine of een set van machines komen in overeenstemming met de gewijzigde configuratie bewerken.
 
 Azure Automation is een beheerde service in Microsoft Azure waarmee u verschillende taken automatiseren met runbooks, knooppunten, referenties, resources en -assets zoals schema's en globale variabelen.
 Azure Automation State Configuration breidt deze automation-mogelijkheid om op te nemen van de PowerShell DSC-hulpprogramma's. Hier is een goed [overzicht](automation-dsc-overview.md).
 
-Een DSC-Resource is een module van code die beschikt over specifieke mogelijkheden, zoals het beheren van netwerken, Active Directory of SQL Server. De Chocolatey DSC-Resource weet hoe u toegang tot een NuGet-Server (onder andere), -pakketten downloaden, installeren van pakketten, enzovoort. Er zijn veel andere DSC-Resources in de [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
+Een DSC-Resource is een module van code die beschikt over specifieke mogelijkheden, zoals het beheren van netwerken, Active Directory of SQL Server. De Chocolatey DSC-Resource weet hoe u toegang tot een NuGet-Server (onder andere), -pakketten downloaden, installeren van pakketten, enzovoort. Er zijn veel andere DSC-Resources in de [PowerShell Gallery](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Deze modules zijn geïnstalleerd in uw Azure Automation-staat configuratie Pull-Server (door u), zodat ze kunnen worden gebruikt door uw configuraties.
 
 Resource Manager-sjablonen bieden een declaratieve manier voor het genereren van uw infrastructuur - handelingen zoals netwerken, subnetten, netwerkbeveiliging en routering, load balancers, NIC's en virtuele machines. Hier volgt een [artikel](../azure-resource-manager/resource-manager-deployment-model.md) die vergelijkt de Resource Manager-implementatiemodel (declaratief) met het implementatiemodel van Azure Service Management (ASM of klassiek) (imperatief), en bespreekt de resourceproviders core, Reken-, opslag en het netwerk.
@@ -179,7 +179,7 @@ Het resultaat van deze stappen in een nieuwe configuratie van de knooppunten met
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>Stap 5: Het maken en onderhouden van pakketmetagegevens
 
 Voor elk pakket dat u in de opslagplaats van het pakket hebt geplaatst, moet u een nuspec die wordt beschreven.
-Deze nuspec moet worden gecompileerd en opgeslagen in de NuGet-server. Dit proces wordt beschreven [hier](http://docs.nuget.org/create/creating-and-publishing-a-package). U kunt MyGet.org gebruiken als een NuGet-server. Ze deze service verkopen, maar hebben een starter SKU die gratis is. Op NuGet.org vindt u instructies over het installeren van uw eigen NuGet-server voor uw persoonlijke pakketten.
+Deze nuspec moet worden gecompileerd en opgeslagen in de NuGet-server. Dit proces wordt beschreven [hier](https://docs.nuget.org/create/creating-and-publishing-a-package). U kunt MyGet.org gebruiken als een NuGet-server. Ze deze service verkopen, maar hebben een starter SKU die gratis is. Op NuGet.org vindt u instructies over het installeren van uw eigen NuGet-server voor uw persoonlijke pakketten.
 
 ## <a name="step-6-tying-it-all-together"></a>Stap 6: Alles bij elkaar verbinden
 

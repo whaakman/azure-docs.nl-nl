@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d80d9a4d39a3f21539e5e6e498fc52df213a19
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248809"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282682"
 ---
 # <a name="add-symbols-and-markers-to-a-map"></a>Symbolen en markeringen toevoegen aan een kaart
 
@@ -51,7 +51,7 @@ In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject.
 
 In het tweede blok van code, een matrix van functies is gedefinieerd en een [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest) object wordt gemaakt. Object voor een gegevensbron wordt vervolgens gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse en de MultiPoint-object wordt toegevoegd aan de gegevensbron.
 
-Een [Bel laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) wordt weergegeven op basis van een punt-gegevens die zijn ingepakt in de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als cirkels op de kaart. Het laatste blok van code maakt een bel-laag en voegt deze toe aan de kaart. Controleer de eigenschappen van een laag Bel op [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+Een [Bel laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) wordt weergegeven op basis van een punt-gegevens die zijn ingepakt in de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als cirkels op de kaart. Het laatste blok van code maakt een bel-laag en voegt deze toe aan de kaart. Controleer de eigenschappen van een laag Bel op [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
 De MultiPoint-object, de gegevensbron en de bel-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de cirkel wordt weergegeven nadat de kaart volledig is geladen.
 
@@ -64,9 +64,9 @@ De bovenstaande code ziet u hoe om te visualiseren en labelgegevens op de kaart.
 
 Het tweede blok van code, maakt een [wijst](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) object. Het maakt vervolgens een gegevensbron object via de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse en voegt u het punt toe aan de gegevensbron.
 
-Een [Bel laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) wordt weergegeven op basis van een punt-gegevens die zijn ingepakt in de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als cirkels op de kaart. Het derde blok van code maakt een bel-laag en voegt deze toe aan de kaart. Controleer de eigenschappen van een laag Bel op [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+Een [Bel laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) wordt weergegeven op basis van een punt-gegevens die zijn ingepakt in de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als cirkels op de kaart. Het derde blok van code maakt een bel-laag en voegt deze toe aan de kaart. Controleer de eigenschappen van een laag Bel op [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
-Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart. Het laatste blok van code maakt en voegt een laag symbool aan de kaart die het tekstlabel voor de belgrootte wordt weergegeven. Controleer de eigenschappen van een laag symbool op [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.symbollayeroptions?view=azure-iot-typescript-latest).
+Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart. Het laatste blok van code maakt en voegt een laag symbool aan de kaart die het tekstlabel voor de belgrootte wordt weergegeven. Controleer de eigenschappen van een laag symbool op [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
 
 De gegevensbron en de lagen worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat gegevens worden weergegeven nadat de kaart volledig is geladen.
 

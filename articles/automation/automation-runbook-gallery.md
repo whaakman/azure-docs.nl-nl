@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca19ce2cca314950adc40bbf065dec80e7fa3e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227923"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283289"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van het maken van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot een verscheidenheid aan scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder wijzigingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
@@ -68,7 +68,7 @@ Microsoft raadt u runbooks toevoegen aan de Runbook-galerie waarvan u denkt dat 
 * Automation werkt de galerie eenmaal per uur, zodat u kunt uw bijdragen niet onmiddellijk weergegeven.
 
 ## <a name="modules-in-powershell-gallery"></a>Modules in PowerShell Gallery
-PowerShell-modules bevatten cmdlets die u in uw runbooks gebruiken kunt en bestaande modules die u in Azure Automation installeren kunt zijn beschikbaar in de [PowerShell Gallery](http://www.powershellgallery.com).  U kunt deze galerie starten vanuit de Azure-portal en deze rechtstreeks in Azure Automation te installeren of u kunt ze downloaden en deze handmatig installeren.  
+PowerShell-modules bevatten cmdlets die u in uw runbooks gebruiken kunt en bestaande modules die u in Azure Automation installeren kunt zijn beschikbaar in de [PowerShell Gallery](https://www.powershellgallery.com).  U kunt deze galerie starten vanuit de Azure-portal en deze rechtstreeks in Azure Automation te installeren of u kunt ze downloaden en deze handmatig installeren.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Een module importeren uit de galerie met Automation-Module met de Azure-portal
 1. Open uw Automation-account in Azure Portal.

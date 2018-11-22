@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279575"
+---
 Een virtuele Azure-machine biedt ondersteuning voor het koppelen van meerdere gegevensschijven. Dit artikel wordt beschreven schaalbaarheids- en prestatiedoelen voor gegevensschijven van een virtuele machine. Gebruik deze doelen om te bepalen het aantal en type van de schijf die u nodig hebt om te voldoen aan de vereisten van uw prestaties en capaciteit. 
 
 > [!IMPORTANT]

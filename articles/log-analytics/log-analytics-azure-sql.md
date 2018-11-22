@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: 5eb398cf981edbcfe9b98ee89c3dd4e12b3f758f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 84ccd411fd93004a4d3de50e8f4e844f77635421
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615490"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284350"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -32,9 +32,7 @@ Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangep
 
 Zie de ingesloten video voor een praktische overzicht over het gebruik van Azure SQL Analytics-oplossing en voor typische gebruiksscenario's:
 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
->
+[!VIDEO https://youtu.be/GK2Hl21aZqQ]
 
 ## <a name="connected-sources"></a>Verbonden bronnen
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0be10c155398133887fadb1fe9954068f3afb9d9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568111"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282529"
 ---
 # <a name="add-a-popup-to-the-map"></a>Een pop-up toevoegen aan de kaart
 
@@ -33,7 +33,7 @@ Het tweede codeblok maakt u een gegevensbron object via de [DataSource](https://
 
 Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart.  Een symbool-laag wordt gemaakt in het derde blok van code. De gegevensbron wordt toegevoegd aan het symbool-laag, die wordt vervolgens toegevoegd aan de kaart.
 
-De vierde blok van code maakt een [pop-upvenster object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Pop-upmenu eigenschappen zoals de positie en pixelOffset maken deel uit van [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). PopupOptions kunnen worden gedefinieerd in het pop-upvenster constructor of via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) functie van de klasse pop-upvenster. Een `mouseover` gebeurtenislistener voor de laag symbool wordt gemaakt.
+De vierde blok van code maakt een [pop-upvenster object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Pop-upmenu eigenschappen zoals de positie en pixelOffset maken deel uit van [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). PopupOptions kunnen worden gedefinieerd in het pop-upvenster constructor of via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) functie van de klasse pop-upvenster. Een `mouseover` gebeurtenislistener voor de laag symbool wordt gemaakt.
 
 Het laatste blok van code maakt een functie die wordt geactiveerd door de `mouseover` gebeurtenislistener. Het instellen van de inhoud en eigenschappen van het pop-upvenster en het pop-object toegevoegd aan de kaart.
 

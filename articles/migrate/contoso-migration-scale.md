@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 5c1858fca1ca5f6bc48f5225ecf2d52dee055c91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 37f0ba800cca4b096691a8bb6b43eb33a636d833
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092742"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284860"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - schaal een migratie naar Azure
 
@@ -194,7 +194,7 @@ Contoso-behoeften te gebruiken Azure Migrate geeft de schaal van deze migratie.
 --- | ---
 Azure Migrate-project maken | 1500 VM 's
 Detectie | 1500 VM 's
-Evaluatie | 1500 VM 's
+Beoordeling | 1500 VM 's
 
 Contoso wordt Azure Migrate gebruiken als volgt:
 
@@ -289,9 +289,9 @@ Contoso moet weten over het implementeren van deze onderdelen, op basis van capa
 --- | ---
 **Maximale dagelijkse veranderingssnelheid** | Een dagelijkse kan worden verwerkt door een enkele processerver wijzigen beoordelen tot 2 TB. Omdat een virtuele machine slechts één processerver gebruiken kan, is de maximale dagelijkse veranderingssnelheid van gegevens die wordt ondersteund voor een gerepliceerde virtuele machine 2 TB.
 **Maximale doorvoer** | Een standaard Azure storage-account kan maximaal 20.000 aanvragen per seconde worden verwerkt en i/o-bewerkingen per seconde (IOP's) voor een replicerende virtuele machine moet binnen deze limiet. Bijvoorbeeld, als een virtuele machine 5 schijven heeft, en elke schijf 120 IOPS (8 kB grootte) op de virtuele machine genereert, zal klikt u vervolgens het zijn binnen de door Azure per schijf-IOPS-limiet van 500.<br/><br/> Houd er rekening mee dat het aantal opslagaccounts die nodig gelijk aan de totale bronmachine IOP's is, gedeeld door 20.000. Een gerepliceerde machine kan alleen deel uitmaken van een enkel opslagaccount in Azure.
-**Configuratieserver** | Op basis van het Contoso-schatting van het repliceren van 100 = 200 virtuele machines die samen, en de [configuratieserver formaat vereisten](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server), Contoso schatten moet als volgt een configuratie-servercomputer is:<br/><br/> CPU: 16 vcpu's (2-sockets * @ 2,5 GHz-8 kernen)<br/><br/> Geheugen: 32 GB<br/><br/> Cacheschijf: 1 TB<br/><br/> Veranderingssnelheid van gegevens: 1 TB tot 2 TB.<br/><br/> Naast het formaat van de vereisten voor moet Contoso om ervoor te zorgen dat de configuratieserver is optimaal bevinden, in het hetzelfde netwerk en LAN-segment als de virtuele machines die worden gemigreerd.
+**Configuratieserver** | Op basis van het Contoso-schatting van het repliceren van 100 = 200 virtuele machines die samen, en de [configuratieserver formaat vereisten](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server), Contoso schatten moet als volgt een configuratie-servercomputer is:<br/><br/> CPU: 16 vcpu's (2-sockets * @ 2,5 GHz-8 kernen)<br/><br/> Geheugen: 32 GB<br/><br/> Cacheschijf: 1 TB<br/><br/> Veranderingssnelheid van gegevens: 1 TB tot 2 TB.<br/><br/> Naast het formaat van de vereisten voor moet Contoso om ervoor te zorgen dat de configuratieserver is optimaal bevinden, in het hetzelfde netwerk en LAN-segment als de virtuele machines die worden gemigreerd.
 **Processerver** | Contoso wordt een speciaal toegewezen proces zelfstandige server implementeren met de mogelijkheid voor het repliceren van 100-200 virtuele machines:<br/><br/> CPU: 16 vcpu's (2-sockets * @ 2,5 GHz-8 kernen)<br/><br/> Geheugen: 32 GB<br/><br/> Cacheschijf: 1 TB<br/><br/> Veranderingssnelheid van gegevens: 1 TB tot 2 TB.<br/><br/> De processerver is hard werken en als zodanig moet zich bevinden op een ESXi-host die de schijf-i/o, het netwerkverkeer en de CPU nodig is voor de replicatie kan verwerken. Contoso worden beschouwd als een toegewezen host voor dit doel. 
-**Netwerken** | Contoso heeft gecontroleerd van de huidige site-naar-site VPN-infrastructuur en besloten voor het implementeren van Azure ExpressRoute. De implementatie is kritiek omdat het wordt lagere latentie en bandbreedte naar de primaire East US 2 Azure-regio van Contoso te verbeteren.<br/><br/> **Bewaking**: Contoso moet zorgvuldig controleren gegevensstromen van de processerver. Als de gegevens de bandbreedte van het netwerk worden beschouwd als Contoso overloads [beperking van de bandbreedte van de server proces](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+**Netwerken** | Contoso heeft gecontroleerd van de huidige site-naar-site VPN-infrastructuur en besloten voor het implementeren van Azure ExpressRoute. De implementatie is kritiek omdat het wordt lagere latentie en bandbreedte naar de primaire East US 2 Azure-regio van Contoso te verbeteren.<br/><br/> **Bewaking**: Contoso moet zorgvuldig controleren gegevensstromen van de processerver. Als de gegevens de bandbreedte van het netwerk worden beschouwd als Contoso overloads [beperking van de bandbreedte van de server proces](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Azure Storage** | Voor de migratie, moet het identificeren van Contoso het juiste type en aantal doel-Azure storage-accounts.  Site Recovery repliceert de VM-gegevens naar Azure storage.<br/><br/> Site Recovery kunt repliceren naar standard of premium (SSD) storage-accounts.<br/><br/> Om te beslissen over storage, Contoso moet doornemen [opslaglimieten](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage), en factor van de verwachte groei en toegenomen gebruik na verloop van tijd. Gezien de snelheid en de prioriteit van de migratie, heeft Contoso besloten om het gebruik van premium storage-accounts.<br/><br/> Ze zullen maken en meerdere opslagaccounts gebruiken tijdens het migratieproces.
 Contoso heeft gemaakt de beslissing om beheerde schijven gebruiken voor alle virtuele machines die zijn geïmplementeerd naar Azure.  De vereiste IOPS-waarde bepaalt als de schijven standaard (HDD) of Premium (SSD worden).<br/>.<br/>
 

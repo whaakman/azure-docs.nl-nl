@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 46fd31b54b7692700cce0bebe484c4f5de591942
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226890"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279566"
 ---
 Bij het toevoegen van gegevensschijven met een Linux VM, kan er fouten optreden als een schijf niet op LUN 0 bestaat. Als u een schijf handmatig met behulp van toevoegt de `azure vm disk attach-new` opdracht en geeft u een LUN (`--lun`) in plaats van het Azure-platform om te bepalen van de juiste LUN toe te staan, Let erop dat een schijf al bestaat / wordt aangelegd op LUN 0. 
 
@@ -20,7 +20,7 @@ Houd rekening met het volgende voorbeeld met een fragment van de uitvoer van `ls
 [5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd 
 ```
 
-De twee gegevensschijven tegelijk LUN 0 en LUN 1 (de eerste kolom in de `lsscsi` uitvoer details `[host:channel:target:lun]`). Beide schijven moeten accessbile uit vanuit de virtuele machine. Als u had handmatig de eerste schijf moet worden toegevoegd op LUN 1 en de tweede schijf op LUN 2 hebt opgegeven, ziet u mogelijk niet de schijven goed uit vanuit de virtuele machine.
+De twee gegevensschijven tegelijk LUN 0 en LUN 1 (de eerste kolom in de `lsscsi` uitvoer details `[host:channel:target:lun]`). Beide schijven moeten toegankelijk is vanuit de virtuele machine. Als u had handmatig de eerste schijf moet worden toegevoegd op LUN 1 en de tweede schijf op LUN 2 hebt opgegeven, ziet u mogelijk niet de schijven goed uit vanuit de virtuele machine.
 
 > [!NOTE]
 > De Azure `host` waarde is ingesteld op 5 in deze voorbeelden, maar dit kan variëren afhankelijk van het type opslag die u selecteert.

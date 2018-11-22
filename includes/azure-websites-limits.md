@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 515aeac3531a45080824df126ad674353f70cdb8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279569"
+---
 | Resource | Gratis | Gedeeld | Basic | Standard | Premium (v2) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Web, mobiele Apps of API apps](https://azure.microsoft.com/services/app-service/) per [App Service-plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup>|

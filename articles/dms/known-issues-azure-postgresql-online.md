@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: e30ffe2dd79d55e856ef297608745b60578cf7e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131299"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282873"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure DB voor PostgreSQL
 
 Bekende problemen en beperkingen die zijn gekoppeld aan online migraties van PostgreSQL met Azure Database for PostgreSQL worden in de volgende secties beschreven. 
 
 ## <a name="online-migration-configuration"></a>Configuratie voor de online migratie
-- De bron PostgreSQL-Server versie 9.5.11, 9.6.7 of 10.3 moet worden uitgevoerd of hoger. Zie voor meer informatie het artikel [PostgreSQL-Database-versies ondersteund](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- De bron PostgreSQL-Server versie 9.5.11, 9.6.7 of 10.3 moet worden uitgevoerd of hoger. Zie voor meer informatie het artikel [PostgreSQL-Database-versies ondersteund](../postgresql/concepts-supported-versions.md).
 - Alleen dezelfde versie migraties worden ondersteund. Bijvoorbeeld: migreren PostgreSQL 9.5.11 met Azure Database for PostgreSQL 9.6.7 wordt niet ondersteund.
 - Om logische replicatie in te schakelen de **source PostgreSQL postgresql.conf** bestand, stelt u de volgende parameters:
     - **wal_level** = logische
@@ -66,7 +66,7 @@ Bekende problemen en beperkingen die zijn gekoppeld aan online migraties van Pos
     
     ```
 
-    Voer de drop refererende sleutel (dit is de tweede kolom) in het queryresultaat.
+    Voer het 'drop foreign key'-script (de tweede kolom) uit in het queryresultaat.
 
 - Het schema in de doel-Azure Database for PostgreSQL mag geen geen triggers. Gebruik de volgende triggers in doeldatabase uitschakelen:
 

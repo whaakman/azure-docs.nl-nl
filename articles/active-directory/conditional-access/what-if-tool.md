@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9bdc35e732a84920800424a260610fd6f068c94
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3bc7dd8103bed9a5a04566d08a1daec0708a59c4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626087"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285030"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Wat is de wat als hulpprogramma voor de voorwaardelijke toegang van Azure Active Directory?
 
@@ -32,7 +32,7 @@ In dit artikel wordt uitgelegd hoe u dit hulpprogramma kunt gebruiken voor het t
 
 ## <a name="what-it-is"></a>Wat is het?
 
-De **voor voorwaardelijke toegang in wat als beleid hulpprogramma** kunt u begrijp de gevolgen van het beleid voor voorwaardelijke toegang in uw omgeving. In plaats van de test het beleid door het uitvoeren van meerdere aanmeldingen handmatig te stimuleren, kunt dit hulpprogramma u een gesimuleerde aanmelding van een gebruiker evalueren. De simulatie maakt een schatting van het effect dat aanmelding heeft op uw beleid en genereert een simulatierapport. Het rapport alleen de lijst bevat niet de toegepaste voorwaardelijke toegangsbeleid, maar ook [klassieke beleidsregels](policy-migration.md#classic-policies) als deze bestaan.    
+De **voor voorwaardelijke toegang in wat als beleid hulpprogramma** kunt u begrijp de gevolgen van het beleid voor voorwaardelijke toegang in uw omgeving. In plaats van de test het beleid door het uitvoeren van meerdere aanmeldingen handmatig te stimuleren, kunt dit hulpprogramma u een gesimuleerde aanmelding van een gebruiker evalueren. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport. Het rapport alleen de lijst bevat niet de toegepaste voorwaardelijke toegangsbeleid, maar ook [klassieke beleidsregels](policy-migration.md#classic-policies) als deze bestaan.    
 
 Wat bepalen als hulpprogramma's biedt ook een manier om snel de beleidsregels die betrekking hebben op een specifieke gebruiker. U kunt de informatie, bijvoorbeeld gebruiken als u nodig hebt om een probleem te verhelpen.  
 
@@ -51,9 +51,6 @@ Als de volgende stap kunt u een simulatie uitvoeren die wordt geëvalueerd als d
 
 Wanneer de evaluatie is voltooid, genereert het hulpprogramma een rapport van het betreffende beleid.
 
-
-> [!NOTE]
-> Op dit moment wat als tool biedt geen ondersteuning voor geneste groepen. Als een gebruiker zich in een groep en die groep is lid van een andere groep die wordt gebruikt in een beleid voor voorwaardelijke toegang, dan zal de wat gebeurt er als hulpprogramma niet correct wordt weergegeven het effect van dit beleid voor de gebruiker. 
 
 
 ## <a name="running-the-tool"></a>Het programma wordt uitgevoerd
@@ -127,6 +124,6 @@ In de lijst met beleidsregels die niet van toepassing op de gebruiker, u kunt en
 
 - Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
 
-- Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 
+- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren. 
 
 - Als u migreren van klassiek beleid wilt, raadpleegt u [klassiek beleid migreren in Azure portal](policy-migration.md)  

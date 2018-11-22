@@ -1,11 +1,11 @@
 ---
-title: Kan geen verbinding maken naar Azure Virtual Machines, omdat het RDP-poort is niet ingeschakeld in NSG | Microsoft Docs
+title: Kan geen verbinding met virtuele Azure-machines, omdat de RDP-poort niet is ingeschakeld in NSG | Microsoft Docs
 description: Meer informatie over het oplossen van problemen waarbij RDP is mislukt vanwege de NSG-configuratie in Azure portal | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
-editor: ''
+editor: v-jesits
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: troubleshooting
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 89af30533e10df0968b60039d7ea15886e89bc25
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266819"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284724"
 ---
-#  <a name="cannot-rdp-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Niet van RDP-verbinding met een virtuele machine omdat RDP-poort niet is ingeschakeld in NSG
+#  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Kan niet extern verbinding maken met een virtuele machine omdat RDP-poort niet is ingeschakeld in NSG
 
-In dit artikel laat zien hoe een probleem waarbij u geen verbinding naar Azure Windows Virtual Machines (VM's maken) omdat de poort niet is ingeschakeld in de netwerkbeveiligingsgroep op te lossen.
+In dit artikel wordt uitgelegd hoe u een probleem waarbij u geen verbinding met een Windows Azure-machine (VM maken) omdat de Remote Desktop Protocol (RDP)-poort is niet ingeschakeld in de netwerkbeveiligingsgroep (NSG) op te lossen.
 
 
 > [!NOTE] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel. 
+> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../azure-resource-manager/resource-manager-deployment-model.md). U wordt aangeraden dat u in plaats van het klassieke implementatiemodel voor nieuwe implementaties het Resource Manager-implementatiemodel gebruiken. 
 
 ## <a name="symptom"></a>Symptoom
 
-U kunt een Remote Desktop Protocol (RDP)-verbinding met een virtuele machine in Azure vanwege de RDP-poort niet is geopend in de netwerkbeveiligingsgroep niet maken.
+U kan een RDP-verbinding maken met een virtuele machine in Azure, omdat de RDP-poort niet is geopend in de netwerkbeveiligingsgroep.
 
 ## <a name="solution"></a>Oplossing 
 
 Wanneer u een nieuwe virtuele machine maakt, is standaard al het verkeer van Internet geblokkeerd. 
 
-Volg deze stappen zodat de RDP-poort in de netwerkbeveiligingsgroep:
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
-2. In **virtuele Machines**, de virtuele machine die het probleem zich voordoet. 
+Volg deze stappen zodat de RDP-poort in een NSG:
+1. Aanmelden bij [de Azure-portal](https://portal.azure.com).
+2. In **virtuele Machines**, selecteer de virtuele machine waarop het probleem optreedt. 
 3. In **instellingen**, selecteer **netwerken**. 
-4. In **regels voor binnenkomende poort**, of als de RDP-poort juist is ingesteld. Hier volgt een voorbeeld van de configuratie. 
+4. In **regels voor binnenkomende poort**, controleert u of de RDP-poort juist is ingesteld. Hier volgt een voorbeeld van de configuratie: 
 
     **Prioriteit**: 300 </br>
     **Poort**: 3389 </br>
@@ -51,16 +51,16 @@ Volg deze stappen zodat de RDP-poort in de netwerkbeveiligingsgroep:
     **Bestemmingen**: </br>
     **Actie**: toestaan </br>
 
-In geeft u het bron-IP-adres, deze instelling kunt verkeer alleen vanaf een specifiek IP- of bereik van IP-adressen verbinding maken met de virtuele machine. Zorg ervoor dat de computer die u gebruikt voor het initialiseren van de RDP-sessie in het bereik.
+In geeft u het bron-IP-adres, deze instelling kan alleen verkeer vanaf een specifiek IP-adres of een bereik van IP-adressen verbinding maken met de virtuele machine. Zorg ervoor dat de computer die u gebruikt voor de RDP-sessie te starten binnen het bereik is.
 
-Zie voor meer informatie over de netwerkbeveiligingsgroep [netwerkbeveiligingsgroep](../../virtual-network/security-overview.md).
+Zie voor meer informatie over nsg's [netwerkbeveiligingsgroep](../../virtual-network/security-overview.md).
 
 > [!NOTE]
-> RDP-poort 3389 wordt blootgesteld aan Internet. Dit wordt alleen aanbevolen voor testen. Voor productieomgevingen wordt u aangeraden een VPN- of particuliere verbinding.
+> RDP-poort 3389 wordt blootgesteld aan Internet. Daarom raden wij aan dat u deze poort alleen aanbevolen voor testen. Voor productieomgevingen, raden wij aan dat u een VPN- of particuliere verbinding.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als de RDP-poort is al ingeschakeld in de netwerkbeveiligingsgroep, Zie [problemen met een algemene fout RDP in Azure VM](./troubleshoot-rdp-general-error.md).
+Als de RDP-poort is al ingeschakeld in NSG, Zie [problemen met een algemene fout RDP in Azure VM](./troubleshoot-rdp-general-error.md).
 
 
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9358f280efb847bdce802cc3a20e64710ffc3214
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 1f7bd4bc74e63e3b4dd25a7185ce3641712538f1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275381"
+ms.locfileid: "52284384"
 ---
 # <a name="available-skus-for-hli"></a>Beschikbare SKU's voor HLI
 
@@ -52,7 +52,7 @@ In veel gevallen voert u deze serverconfiguraties klantspecifieke meer geheugen 
 
 | SKU|CPU | Geheugen | Storage | Beschikbaarheid |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA op Azure S96<br /> -4 x Intel® Xeon® Processor E7-8890 v4<br /> 48 CPU-kernen en 96 CPU-threads |  768 TB |  3 TB | Beschikbaar |
+| S96 | SAP HANA op Azure S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4<br /> 48 CPU-kernen en 96 CPU-threads |  768 TB |  3 TB | Beschikbaar |
 
 
 | Oorspronkelijke SKU die kan worden <br /> uitgebreid in het geheugen | CPU | Geheugen | Storage | Beschikbaarheid |

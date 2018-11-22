@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 751c2df42ee8e4ace22fe94e1fef8d734ab81c3c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275663"
+ms.locfileid: "52284111"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
-De meeste Azure Automation-runbooks hebben een vorm van uitvoer, zoals een foutbericht op dat de gebruiker of een complex object dat bedoeld om te worden verbruikt door een andere werkstroom. Windows PowerShell biedt [meerdere streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) voor het verzenden van uitvoer van een script of een werkstroom. Azure Automation anders werkt met elk van deze stromen en moet u Volg de aanbevolen procedures voor informatie over het gebruik van elk wanneer u een runbook maakt.
+De meeste Azure Automation-runbooks hebben een vorm van uitvoer, zoals een foutbericht op dat de gebruiker of een complex object dat bedoeld om te worden verbruikt door een andere werkstroom. Windows PowerShell biedt [meerdere streams](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) voor het verzenden van uitvoer van een script of een werkstroom. Azure Automation anders werkt met elk van deze stromen en moet u Volg de aanbevolen procedures voor informatie over het gebruik van elk wanneer u een runbook maakt.
 
 De volgende tabel bevat een korte beschrijving van elk van de stromen en hun gedrag in de Azure-portal bij het uitvoeren van een gepubliceerd runbook en wanneer [testen van een runbook](automation-testing-runbook.md). In de volgende secties vindt u meer informatie over elke stroom.
 
@@ -135,7 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>Uitgebreide stroom
-De uitgebreide berichtenstroom is bedoeld voor algemene informatie over de runbookwerking. Omdat de [foutopsporing Stream](#Debug) is niet beschikbaar in een runbook uitgebreide berichten moeten worden gebruikt voor gegevens voor foutopsporing. Uitgebreide berichten uit gepubliceerde runbooks is standaard niet opgeslagen in de taakgeschiedenis. Voor het opslaan van uitgebreide berichten, configureert u gepubliceerde runbooks voor uitgebreide Records registreren op het tabblad configureren van het runbook in Azure portal. In de meeste gevallen moet u de standaardinstelling niet registreren van uitgebreide records voor een runbook uit prestatieoverwegingen behouden. Schakel deze optie alleen voor probleemoplossing of foutopsporing van een runbook.
+De uitgebreide berichtenstroom is bedoeld voor algemene informatie over de runbookwerking. Omdat de [foutopsporing Stream](#debug-stream) is niet beschikbaar in een runbook uitgebreide berichten moeten worden gebruikt voor gegevens voor foutopsporing. Uitgebreide berichten uit gepubliceerde runbooks is standaard niet opgeslagen in de taakgeschiedenis. Voor het opslaan van uitgebreide berichten, configureert u gepubliceerde runbooks voor uitgebreide Records registreren op het tabblad configureren van het runbook in Azure portal. In de meeste gevallen moet u de standaardinstelling niet registreren van uitgebreide records voor een runbook uit prestatieoverwegingen behouden. Schakel deze optie alleen voor probleemoplossing of foutopsporing van een runbook.
 
 Wanneer [testen van een runbook](automation-testing-runbook.md), uitgebreide berichten worden niet weergegeven, zelfs als het runbook is geconfigureerd voor logboekregistratie van uitgebreide records. Om weer te geven van uitgebreide berichten tijdens [testen van een runbook](automation-testing-runbook.md), moet u de variabele $VerbosePreference instellen om verder te gaan. Met deze variabele is ingesteld, worden uitgebreide berichten weergegeven in het deelvenster Testuitvoer van de Azure-portal.
 

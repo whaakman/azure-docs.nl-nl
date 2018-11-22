@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649309"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284367"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -60,6 +60,16 @@ Cortana vooraf gebouwde apps zijn afgeschaft in 2017. Ze worden niet meer onders
 
 ## <a name="luis-endpoint"></a>LUIS-eindpunt
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Mijn query eindpunt heeft onverwachte resultaten geretourneerd. Wat moet ik doen?
+
+Onverwachte query voorspellingsresultaten zijn gebaseerd op de status van het gepubliceerde model. Om op te lossen het model, u mogelijk nodig hoeven te wijzigen van het model trainen en opnieuw publiceren. 
+
+Bezig met het herstellen van het model begint met [actief leren](luis-how-to-review-endoint-utt.md).
+
+U kunt niet-deterministisch training verwijderen door het bijwerken van de [toepassing versie instellingen API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) om te kunnen gebruiken alle trainingsgegevens. 
+
+Controleer de [aanbevolen procedures](luis-concept-best-practices.md) voor meer tips. 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Waarom LUIS spaties toevoegen aan de query rond of in het midden woorden
 LUIS [basis van woordgrenzen](luis-glossary.md#token) de utterance op basis van de [cultuur](luis-language-support.md#tokenization). Zowel de oorspronkelijke waarde en de waarde van de tokens zijn beschikbaar voor [gegevensextractie](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ LUIS [basis van woordgrenzen](luis-glossary.md#token) de utterance op basis van 
 [Maken van de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure voor uw [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) niveau. [Toewijzen van de sleutel](luis-how-to-manage-keys.md#assign-endpoint-key) op de **[sleutels en eindpunten](luis-how-to-manage-keys.md)** pagina. Er is geen overeenkomende API voor deze actie. Vervolgens moet u de HTTP-aanvraag naar het eindpunt naar [gebruikt u de nieuwe eindpuntsleutel](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Hoe ik LUIS scores worden geïnterpreteerd?
-Uw systeem moet de hoogste score intentie, ongeacht de waarde ervan gebruiken. Bijvoorbeeld, betekent een score lager (minder dan 50%) 0,5 niet noodzakelijkerwijs dat LUIS weinig vertrouwen heeft. Biedt meer trainingsgegevens, kan u helpen verhogen van de score van de meest waarschijnlijke intentie.
+Uw systeem moet de hoogste score intentie, ongeacht de waarde ervan gebruiken. Bijvoorbeeld, betekent een score lager (minder dan 50%) 0,5 niet noodzakelijkerwijs dat LUIS weinig vertrouwen heeft. Biedt meer training gegevens kunt verhogen de [score](luis-concept-prediction-score.md) van het meest waarschijnlijk doel.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Waarom zie ik geen mijn treffers eindpunt in het Dashboard van mijn app?
 De totale eindpunt treffers in uw app Dashboard worden regelmatig bijgewerkt, maar de metrische gegevens die zijn gekoppeld aan uw LUIS-eindpuntsleutel in Azure portal vaker worden bijgewerkt.
@@ -117,7 +127,7 @@ Zie [voorspelling verschillen tussen exemplaren van dezelfde app](luis-concept-p
 
 Zie [Train met alle gegevens](luis-how-to-train.md#train-with-all-data).
 
-## <a name="app-publishing"></a>App-publicatie
+## <a name="app-publishing"></a>App publiceren
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Wat is de tenant-ID in het venster 'Toevoegen een sleutel aan uw app'?
 In Azure vertegenwoordigt een tenant de client of organisatie die is gekoppeld aan een service. Uw tenant-ID niet vinden in Azure portal in de **map-ID** selectievakje in naast selecteren **Azure Active Directory** > **beheren**  >  **Eigenschappen**.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261210"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284537"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 U wilt toevoegen een **Get-AutomationConnection** activiteit aan een grafisch runbook door te selecteren met de rechtermuisknop op de verbinding in het deelvenster bibliotheek van de grafische editor **toevoegen aan papier**.
 
-![](media/automation-connections/connection-add-canvas.png)
+![Toevoegen aan papier](media/automation-connections/connection-add-canvas.png)
 
 De volgende afbeelding toont een voorbeeld van het gebruik van een verbinding in een grafisch runbook.  Dit is hetzelfde voorbeeld hierboven voor de verificatie met behulp van de uitvoeren als-account met een tekstuele runbook.  In dit voorbeeld wordt de **constante waarde** -gegevensset naar de **uitvoeren als-verbinding ophalen** activiteit die een verbindingsobject voor verificatie gebruikt.  Een [pijplijn koppeling](automation-graphical-authoring-intro.md#links-and-workflow) wordt gebruikt, omdat de parameterset ServicePrincipalCertificate één object verwacht.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![verbindingen ophalen](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Voorbeeld van Python2-runbook
 Het volgende voorbeeld toont hoe u verifieert met behulp van de uitvoeren als-verbinding in een Python2-runbook.
