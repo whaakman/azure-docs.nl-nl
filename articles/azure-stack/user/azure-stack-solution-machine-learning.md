@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616364"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285115"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
 
@@ -89,7 +89,7 @@ Kennis van Azure en Azure Stack is vereist. Beginnen met de volgende onderwerpen
 
  -  Een geïntegreerde Azure Stack-systeem of de implementatie van Azure Stack Development Kit.
 
-    - U vindt instructies voor het installeren van Azure Stack op [installeren van de Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+    - U vindt instructies voor het installeren van Azure Stack op [installeren van de Azure Stack Development Kit](../asdk/asdk-install.md).
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Deze installatie is mogelijk een paar uur te voltooien.
 
  -  Implementatie van [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-services met Azure Stack
