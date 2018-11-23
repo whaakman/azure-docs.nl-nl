@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/29/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404474"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291076"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Gebeurtenis analyses en visualisatie met Log Analytics
-Log Analytics verzamelt en analyseert telemetrie van toepassingen en services die worden gehost in de cloud biedt analyse hulpprogramma's waarmee u hun beschikbaarheid en prestaties te maximaliseren. In dit artikel bevat een overzicht van het uitvoeren van query's in Log Analytics inzicht en problemen met wat er gebeurt in uw cluster. De volgende veelgestelde vragen worden behandeld:
+ Log Analytics verzamelt en analyseert telemetrie van toepassingen en services die worden gehost in de cloud biedt analyse hulpprogramma's waarmee u hun beschikbaarheid en prestaties te maximaliseren. In dit artikel bevat een overzicht van het uitvoeren van query's in Log Analytics inzicht en problemen met wat er gebeurt in uw cluster. De volgende veelgestelde vragen worden behandeld:
 
 * Hoe kan ik statusgebeurtenissen oplossen?
 * Hoe weet ik wanneer een knooppunt wordt uitgeschakeld?
@@ -30,9 +30,12 @@ Log Analytics verzamelt en analyseert telemetrie van toepassingen en services di
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-werkruimte
 
+>[!NOTE] 
+>Opslagaccount voor diagnostische is standaard ingeschakeld tijdens de aanmaak van het cluster, moet u de Log Analytics-werkruimte nog steeds instellen om te lezen uit het opslagaccount voor diagnostische.
+
 Log Analytics verzamelt gegevens van beheerde resources, met inbegrip van een Azure storage-tabel of een agent, en deze in een centrale opslagplaats bijhoudt. De gegevens kunnen vervolgens worden gebruikt voor analyse, waarschuwingen en visualisatie, of het verder exporteren. Log Analytics biedt ondersteuning voor gebeurtenissen, prestatiegegevens of een andere aangepaste gegevens. Bekijk [stappen voor het configureren van de extensie voor diagnostische gegevens voor](service-fabric-diagnostics-event-aggregation-wad.md) en [stappen voor het maken van een Log Analytics-werkruimte te lezen van de gebeurtenissen in de opslag](service-fabric-diagnostics-oms-setup.md) om ervoor te zorgen dat gegevens worden doorgestuurd naar Log Analytics .
 
-Nadat de gegevens worden ontvangen door Log Analytics, Azure heeft verscheidene *beheeroplossingen* die zijn voorverpakte oplossingen voor het bewaken van binnenkomende gegevens, aangepast aan verschillende scenario's. Deze omvatten een *Service Fabric-analyse* oplossing en een *Containers* oplossing, zijn de twee meest relevante diagnostische gegevens en de bewaking van bij het gebruik van Service Fabric-clusters. In dit artikel wordt beschreven hoe u van de Service Fabric-analyse-oplossing die is gemaakt met de werkruimte.
+Nadat de gegevens worden ontvangen door Log Analytics, Azure heeft verscheidene *beheeroplossingen* die zijn voorverpakte oplossingen of operationele dashboards voor het bewaken van binnenkomende gegevens, aangepast aan verschillende scenario's. Deze omvatten een *Service Fabric-analyse* oplossing en een *Containers* oplossing, zijn de twee meest relevante diagnostische gegevens en de bewaking van bij het gebruik van Service Fabric-clusters. In dit artikel wordt beschreven hoe u van de Service Fabric-analyse-oplossing die is gemaakt met de werkruimte.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Toegang tot de Service Fabric-analyse-oplossing
 
@@ -40,7 +43,7 @@ Nadat de gegevens worden ontvangen door Log Analytics, Azure heeft verscheidene 
 
 2. Selecteer de resource **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Kortom ziet u tegels in de vorm van een grafiek voor elk van de oplossingen ingeschakeld, met inbegrip van een Service Fabric. Klik op de **Service Fabric** graph (eerste afbeelding hieronder) om door te gaan naar de Service Fabric-analyse-oplossing (tweede afbeelding hieronder).
+2. In `Summary`, ziet u tegels in de vorm van een grafiek voor elk van de oplossingen ingeschakeld, met inbegrip van een Service Fabric. Klik op de **Service Fabric** graph (eerste afbeelding hieronder) om door te gaan naar de Service Fabric-analyse-oplossing (tweede afbeelding hieronder).
 
     ![Service Fabric-oplossing](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -48,12 +51,12 @@ Nadat de gegevens worden ontvangen door Log Analytics, Azure heeft verscheidene 
 
 De bovenstaande afbeelding is de startpagina van de Service Fabric-analyse-oplossing. Dit is een momentopname van wat in uw cluster gebeurt er. Als u diagnostische gegevens bij het maken van een cluster hebt ingeschakeld, kunt u gebeurtenissen voor bekijken 
 
-* [Operationele kanaal](service-fabric-diagnostics-event-generation-operational.md): op een hoger niveau bewerkingen die de Service Fabric-platform (verzameling van systeemservices) wordt uitgevoerd.
+* [Service Fabric-cluster-gebeurtenissen](service-fabric-diagnostics-event-generation-operational.md)
 * [Reliable Actors programming modelgebeurtenissen](service-fabric-reliable-actors-diagnostics.md)
 * [Reliable Services programming modelgebeurtenissen](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Naast het operationele kanaal meer gedetailleerde systeemgebeurtenissen kunnen worden verzameld door [bijwerken van de configuratie van de extensie voor diagnostische gegevens](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Naast de Service Fabric-gebeurtenissen uit het vak, meer gedetailleerde systeemgebeurtenissen kunnen worden verzameld door [bijwerken van de configuratie van de extensie voor diagnostische gegevens](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Met inbegrip van acties op knooppunten van Service Fabric-gebeurtenissen op weergeven
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: juliako
-ms.openlocfilehash: e9b66721135456320134f41c614b194d1e22b10f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 758a3b30717e3bf516c1bceb5c255c397a6072cc
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381033"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291387"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Voorinstellingen voor Azure Media Services v3 en Video Indexer vergelijken 
 
@@ -30,8 +30,8 @@ Er is momenteel een overlapping tussen de functies die worden aangeboden door de
 
 |Functie|Video Indexer-API 's |Analyzer video en Audio Analyzer voorinstellingen<br/>in Media Services v3 API's|
 |---|---|---|
-|Media-inzichten|[Verbeterde](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json) |[Basisprincipes](../latest/intelligence-concept.md)|
-|Ervaringen|Zie de volledige lijst van ondersteunde functies: <br/> [Overzicht](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)|Retourneert alleen inzichten in video 's|
+|Media-inzichten|[Verbeterde](video-indexer-output-json-v2.md) |[Basisprincipes](../latest/intelligence-concept.md)|
+|Ervaringen|Zie de volledige lijst van ondersteunde functies: <br/> [Overzicht](video-indexer-overview.md)|Retourneert alleen inzichten in video 's|
 |Billing|[Prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Naleving|NOG TE BEPALEN|Media Services is compatibel met veel certificeringen. Bekijk [Azure naleving Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) en zoek naar 'Media Services' om te zien als deze aan een certificaat van belang zijn voldoet.|
 |Gratis proefversie|US - oost|Niet beschikbaar|
@@ -39,6 +39,6 @@ Er is momenteel een overlapping tussen de functies die worden aangeboden door de
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Overzicht van Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)
+[Overzicht van Video Indexer](video-indexer-overview.md)
 
-[Overzicht van Media Services v3](../../media-services/latest/media-services-overview.md)
+[Overzicht van Media Services v3](../latest/media-services-overview.md)

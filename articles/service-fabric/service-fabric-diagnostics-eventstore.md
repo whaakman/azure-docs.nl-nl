@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric gebeurtenis Store | Microsoft Docs
-description: Meer informatie over de Azure Service Fabric-EventStore
+title: Azure Service Fabric Event Store | Microsoft Docs
+description: Meer informatie over Azure Service Fabric van EventStore
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,46 +12,49 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
-ms.author: dekapur
-ms.openlocfilehash: 1d235d5a75975c8d58cad1bbde0f16df2b1b3e7a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 11/21/2018
+ms.author: srrengar
+ms.openlocfilehash: cd58e24a51b153d6bf217f7d32a82e882183ed73
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206513"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290668"
 ---
-# <a name="eventstore-service-overview"></a>Overzicht van de service EventStore
-
->[!NOTE]
->Vanaf Service Fabric versie 6.2. de EventStore APIs zijn momenteel in preview voor Windows-clusters die alleen wordt uitgevoerd op Azure. We werken over het overdragen van deze functionaliteit op Linux, evenals onze zelfstandige-clusters.
+# <a name="eventstore-service-overview"></a>Overzicht van EventStore-service
 
 ## <a name="overview"></a>Overzicht
 
-De EventStore-service is geïntroduceerd in versie 6.2, is een controleoptie in Service Fabric die biedt een manier om u inzicht in de status van uw cluster of werkbelastingen op een bepaald tijdstip. De service EventStore beschrijft Service Fabric-gebeurtenissen via API's kunt u oproepen maken. Deze EventStore APIs kunt u query uitvoeren op het knooppunt rechtstreeks voor diagnostische gegevens over een entiteit in het cluster en moet worden gebruikt om u te helpen:
-* Problemen vaststellen op ontwikkeling of tests, of waarop u een pijplijn bewaking mogelijk gebruiken
-* Bevestig dat beheeracties die u op het cluster onderneemt correct wordt verwerkt door het cluster
+Die is geïntroduceerd in versie 6.2, is de EventStore-service een optie voor de bewaking in Service Fabric, waarmee u een manier om u inzicht krijgt in de status van uw cluster of de werkbelastingen op een bepaald tijdstip. Service Fabric-gebeurtenissen via een reeks API's (toegankelijk via REST-eindpunten of via de clientbibliotheek) wordt aangegeven dat de EventStore-service. Deze APIs EventStore kunt u query uitvoeren op het cluster rechtstreeks gebruikt om toegang te krijgen van diagnostische gegevens voor elke entiteit in het cluster en moet worden gebruikt om u te helpen:
+
+* Problemen vaststellen op de ontwikkeling en testen, of waar mogelijk gebruikt u een pijplijn voor bewaking
+* Bevestig dat beheeracties die u op het cluster onderneemt correct worden verwerkt door uw cluster
 
 Zie voor een volledige lijst van gebeurtenissen die beschikbaar zijn in de EventStore [Service Fabric-gebeurtenissen](service-fabric-diagnostics-event-generation-operational.md).
 
-De service EventStore kan worden opgevraagd voor gebeurtenissen die beschikbaar voor elke entiteit en dit entiteitstype in het cluster zijn. Dit betekent dat u kunt een query voor gebeurtenissen op de volgende niveaus;
-* Cluster: alle cluster niveau gebeurtenissen
-* Knooppunten: alle knooppunt niveau gebeurtenissen
+>[!NOTE]
+>Vanaf het Service Fabric versie 6.2. De APIs EventStore zijn momenteel in Preview-versie van Windows-clusters wordt alleen uitgevoerd op Azure. Er wordt gewerkt aan het overzetten van deze functionaliteit voor zowel Linux als onze zelfstandige clusters.
+
+De EventStore-service kan worden opgevraagd voor gebeurtenissen die beschikbaar voor elke entiteit en het type van de entiteit in het cluster zijn. Dit betekent dat u kunt een query voor gebeurtenissen op de volgende niveaus;
+* Cluster: alle gebeurtenissen op toepassingsniveau cluster
+* Knooppunten: alle knooppunt op gebeurtenissen
 * Knooppunt: gebeurtenissen die specifiek zijn voor één knooppunt, op basis van `nodeName`
-* Toepassingen: alle niveau toepassingsgebeurtenissen
+* Toepassingen: alle gebeurtenissen op toepassingsniveau
 * Toepassing: gebeurtenissen die specifiek zijn voor één toepassing
 * Services: gebeurtenissen van alle services in uw clusters
-* -Service: gebeurtenissen van een specifieke service
+* -Service: gebeurtenissen naar een specifieke service
 * Partities: gebeurtenissen van alle partities
 * -Partitie: gebeurtenissen van een specifieke partitie
-* Replica's: gebeurtenissen van alle replica's / exemplaren
-* De replica: gebeurtenissen van een specifieke replica / exemplaar
+* Replica's: gebeurtenissen van alle replica's / instanties
+* De replica is: gebeurtenissen van een specifieke replica / exemplaar
 
 
-De service EventStore heeft ook de mogelijkheid gebeurtenissen in het cluster met elkaar correleren. De EventStore-service is door te kijken gebeurtenissen die van andere entiteiten die mogelijk zijn van invloed op elkaar op hetzelfde moment zijn geschreven, kunnen deze gebeurtenissen om te helpen bij het identificeren van mogelijke oorzaken voor activiteiten in uw cluster koppelen. Bijvoorbeeld, als een van uw toepassingen worden niet in orde zonder geïnduceerde wijzigingen gebeurt, de EventStore wordt ook blik op andere gebeurtenissen die worden weergegeven door het platform en kan correleren dit met een `NodeDown` gebeurtenis. Dit helpt bij het sneller foutdetectie en hoofdoorzaken analyse.
+De EventStore-service biedt ook de mogelijkheid te correleren van gebeurtenissen in uw cluster. De EventStore-service is door te kijken op gebeurtenissen die zijn geschreven op hetzelfde moment uit verschillende entiteiten die mogelijk van invloed is elkaar worden verbonden, niet koppelen van deze gebeurtenissen om te helpen bij het identificeren van mogelijke oorzaken voor activiteiten in uw cluster. Bijvoorbeeld, als een van uw toepassingen met een slechte status zonder wijzigingen in de geïnduceerde gebeurt, de EventStore wordt ook een overzicht van andere gebeurtenissen die worden weergegeven door het platform en kan correleren van dit met een `NodeDown` gebeurtenis. Dit helpt met snellere foutdetectie en analyse van hoofdoorzaken.
 
-Om te beginnen met het gebruik van de service EventStore Zie [Query EventStore APIs voor Clustergebeurtenissen](service-fabric-diagnostics-eventstore-query.md).
+We raden u aan de EventStore gebruiken voor snelle analyse en voor een momentopname beter beeld van hoe uw cluster wordt uitgevoerd, en als dingen gebeuren als er verwacht.
+
+Om te beginnen met het gebruik van de service EventStore, Zie [Query EventStore APIs voor Clustergebeurtenissen](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Overzicht van controle en diagnostische gegevens in Service Fabric - [controle en diagnostische gegevens voor Service Fabric](service-fabric-diagnostics-overview.md)
-* Meer informatie over het bewaken van uw cluster- [bewaking van het cluster en het platform](service-fabric-diagnostics-event-generation-infra.md).
+* Overzicht van controle en diagnostische gegevens in Service Fabric - [bewaking en diagnose voor Service Fabric](service-fabric-diagnostics-overview.md)
+* Meer informatie over het controleren van uw cluster- [bewaking van het cluster en het platform](service-fabric-diagnostics-event-generation-infra.md).

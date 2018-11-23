@@ -12,22 +12,24 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: aedbc5925a6e101299170843abef79ef6125eafe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230417"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291042"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Gebeurtenis analyses en visualisatie met Application Insights
 
-Microsoft Azure Application Insights is een uitbreidbaar platform voor de toepassingsbewaking en diagnostische gegevens. Het bevat een krachtige analyses en het uitvoeren van query's hulpprogramma, aanpasbaar dashboard en visualisaties en meer opties, waaronder automatische waarschuwingen. Het is het aanbevolen platform voor bewaking en diagnostische gegevens voor Service Fabric-toepassingen en services. In dit artikel helpt u bij het adres van de volgende veelgestelde vragen
+Onderdeel van Azure Monitor, Application Insights is een uitbreidbaar platform voor de toepassingsbewaking en diagnostische gegevens. Het bevat een krachtige analyses en het uitvoeren van query's hulpprogramma, aanpasbaar dashboard en visualisaties en meer opties, waaronder automatische waarschuwingen. De Application Insights-integratie met Service Fabric bevat verschillende hulpprogramma's voor Visual Studio en Azure portal, evenals Service Fabric-specifieke metrische gegevens, biedt een uitgebreide logboekregistratie voor out-of-the-box-ervaring. Hoewel veel logboeken worden automatisch gemaakt en die voor u worden verzameld met Application Insights, raden wij u aan meer aangepaste logboekregistratie voor uw toepassingen voor het maken van een rijkere ervaring voor diagnostische gegevens.
 
-* Hoe weet ik wat er gebeurt in de telemetrie van mijn toepassingen en services en verzamelen
-* Hoe los ik mijn toepassing, met name services met elkaar communiceren
-* Hoe krijg ik metrische gegevens over hoe mijn services uitvoert, bijvoorbeeld, de laadtijd van browserpagina, http-aanvragen
+Dit artikel helpt de volgende veelgestelde vragen-adres:
+
+* Hoe weet ik wat er gebeurt in mijn toepassingen en services en verzamelen telemetrie?
+* Hoe los ik mijn toepassing, met name services met elkaar communiceren?
+* Hoe krijg ik metrische gegevens over hoe mijn services uitvoert, bijvoorbeeld, de laadtijd van browserpagina, HTTP-aanvragen?
 
 Het doel van dit artikel is om te laten zien hoe u inzicht en oplossen van in Application Insights. Als u wilt meer informatie over het instellen en configureren van Application Insights met Service Fabric, bekijk dan deze [zelfstudie](service-fabric-tutorial-monitoring-aspnet.md).
 
@@ -110,7 +112,7 @@ Zorg ervoor dat u de benodigde wijzigingen aanbrengen in de filters, evenals all
 
 Het verdient aanbeveling met EventFlow en WAD aggregatieoplossingen, omdat ze toestaan voor een meer modulaire benadering voor diagnose en controle, dat wil zeggen als u wilt wijzigen van de uitvoer van EventFlow, zonder veranderingen in uw werkelijke instrumentation vereist alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit om door te investeren in met behulp van Application Insights en waarschijnlijk niet wijzigen in een ander platform, moet u zoeken naar nieuwe Application Insights-SDK gebruiken voor het aggregeren van gebeurtenissen en deze te verzenden naar Application Insights. Dit betekent dat u niet langer hoeft EventFlow voor het verzenden van uw gegevens naar Application Insights configureren, maar in plaats daarvan de ApplicationInsight van Service Fabric NuGet-pakket wordt geïnstalleerd. Meer informatie over het pakket kunnen worden gevonden [hier](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Application Insights-ondersteuning voor Microservices en Containers](https://azure.microsoft.com/blog/app-insights-microservices/) ziet u enkele van de nieuwe functies die zijn wordt gewerkt (momenteel nog steeds in beta), waarmee u kunt uitgebreidere controle out-of-the-box-opties met Application Insights hebt. Hieronder vallen afhankelijkheid bijhouden (gebruikt voor het bouwen van een toepassingstoewijzing van uw services en toepassingen in een cluster en de communicatie ertussen) en betere correlatie van traceringen die afkomstig zijn van uw services (helpt u bij het beter een probleem in de werkstroom van dicht een app of service).
+[Application Insights-ondersteuning voor Microservices en Containers](https://azure.microsoft.com/blog/app-insights-microservices/) ziet u enkele van de nieuwe functies die zijn wordt gewerkt (momenteel nog steeds in beta), waarmee u kunt uitgebreidere controle out-of-the-box-opties met Application Insights hebt. Hieronder vallen afhankelijkheid bijhouden (gebruikt voor het bouwen van een toepassingstoewijzing van uw services en toepassingen in een cluster en de communicatie ertussen) en betere correlatie van traceringen die afkomstig zijn van uw services (helpt u bij het beter een probleem in de werkstroom van dicht een toepassing of service).
 
 Als u in .NET ontwikkelt en zal waarschijnlijk worden met behulp van enkele van Service Fabric-programmeermodellen en bereid Application Insights gebruiken als uw platform voor het visualiseren en analyseren van de gebeurtenis-en log, klikt u vervolgens raadzaam dat u via de Application Insights gaat SDK-route als de werkstroom voor controle en diagnostische gegevens. Lezen [dit](../application-insights/app-insights-asp-net-more.md) en [dit](../application-insights/app-insights-asp-net-trace-logs.md) aan de slag met het gebruik van Application Insights te verzamelen en weergeven van uw Logboeken.
 

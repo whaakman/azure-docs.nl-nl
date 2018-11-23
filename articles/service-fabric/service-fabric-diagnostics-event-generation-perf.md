@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408010"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290770"
 ---
 # <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
@@ -31,6 +31,7 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 
 | Categorie | Naam van teller |
 | --- | --- |
+| Logische schijf | Beschikbare ruimte logische schijf |
 | Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf lezen |
 | Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf schrijven |
 | Fysieke schijf (per schijf) | Gem. Schijf sec/lezen |
@@ -49,6 +50,9 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 | Proces (per service) | Virtuele Bytes |
 | Proces (per service) | Werkset |
 | Proces (per service) | Werkset - privé |
+| Netwerk Interface(all-instances) | Bytes recd |
+| Netwerk Interface(all-instances) | Verzonden bytes |
+| Netwerk Interface(all-instances) | Totaal aantal bytes |
 | Netwerk Interface(all-instances) | Wachtrijlengte uitvoer |
 | Netwerk Interface(all-instances) | Uitgaande pakketten dat is verwijderd |
 | Netwerk Interface(all-instances) | Genegeerde ontvangen pakketten |
@@ -65,6 +69,8 @@ De volgende prestatiemeteritems verzamelen als u .NET-services met uw cluster im
 | .NET CLR-geheugen (per service) | # Totaal toegewezen Bytes |
 | .NET CLR-geheugen (per service) | # Totaal aantal Bytes gereserveerd |
 | .NET CLR-geheugen (per service) | Aantal bytes in alle Heaps |
+| .NET CLR-geheugen (per service) | Groot Object-Heap-grootte |
+| .NET CLR-geheugen (per service) | # GC verwerkt |
 | .NET CLR-geheugen (per service) | # Verzamelingen van generatie 0 |
 | .NET CLR-geheugen (per service) | # Verzamelingen van generatie 1 |
 | .NET CLR-geheugen (per service) | # Verzamelingen van generatie 2 |
@@ -76,7 +82,7 @@ Service Fabric genereert een aanzienlijke hoeveelheid van het aangepaste prestat
 
 In de toepassingen die u implementeert met uw cluster, als u gebruikmaakt van Reliable Actors, toe te voegen countes van `Service Fabric Actor` en `Service Fabric Actor Method` categorieën (Zie [Service Fabric Reliable Actors-Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-Als u betrouwbare Services gebruikt, hebben we op dezelfde manier `Service Fabric Service` en `Service Fabric Service Method` categorieën voor prestatiemeteritems die u moet verzamelen van prestatiemeteritems. 
+Als u betrouwbare Services of Service voor externe toegang gebruikt, hebben we op dezelfde manier `Service Fabric Service` en `Service Fabric Service Method` teller categorieën dat u over items, Zie verzamelen moet [bewaking met service remoting](service-fabric-reliable-serviceremoting-diagnostics.md) en [betrouwbare Services-prestatiemeteritems](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Als u betrouwbare verzamelingen, raden wij aan toe te voegen de `Avg. Transaction ms/Commit` uit de `Service Fabric Transactional Replicator` voor het verzamelen van de gemiddelde doorvoervertraging per transactie metrisch gegeven.
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 070e405703a0a794266373a19f8e79977c71a17f
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228127"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290842"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
@@ -33,7 +33,7 @@ Media Services ondersteunt momenteel de volgende ingebouwde analyzer voorinstell
 
 |**Vooraf ingestelde naam**|**Scenario**|**Details**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack.<br/>U kunt de taal voor de nettolading van de audio opgeven in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' (bijvoorbeeld ' en-US'). De lijst met ondersteunde talen zijn 'en-US', "en-GB", "es-ES", 'es-MX', 'fr-FR', it-IT, ja-JP, pt-BR, zh-CN.|
+|**AudioAnalyzerPreset**|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack.<br/>U kunt de taal voor de nettolading van de audio opgeven in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' (bijvoorbeeld ' en-US'). De lijst met ondersteunde talen is 'en-US', "en-GB", "es-ES", 'es-MX', 'fr-FR', it-IT, ja-JP, pt-BR, zh-CN.|
 |**VideoAnalyzerPreset**|Analyse van audio en video|Inzichten (uitgebreide metagegevens) wordt geëxtraheerd uit de audio en video en voert een bestand met JSON-indeling. U kunt opgeven of u alleen audio inzicht wilt bij het verwerken van een videobestand. Zie voor meer informatie, [analyseren video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

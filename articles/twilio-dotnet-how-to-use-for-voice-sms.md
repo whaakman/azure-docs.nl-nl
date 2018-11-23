@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: cde668fdeda7e484585a457a46fc5c25ce6ea6ae
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 5b39094ef081aadc813849399ebebc0c2e8a666d
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310535"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291292"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Twilio voor spraak en SMS-mogelijkheden van Azure gebruiken
 Deze handleiding laat zien hoe u algemene programming taken met de Twilio API-service op Azure uitvoeren. De behandelde scenario's omvatten een telefonische oproep maken en verzenden van een bericht Short Message Service (SMS). Zie voor meer informatie over Twilio en het gebruik van spraak en SMS-berichten in uw toepassingen, de [Vervolgstappen](#NextSteps) sectie.
@@ -29,9 +29,7 @@ Twilio is de toekomst van zakelijke communicatie, zodat ontwikkelaars kunnen spr
 
 **Twilio-stem** zorgt ervoor dat uw toepassingen maken en telefoongesprekken binnenkrijgt. **Twilio-SMS** kunnen uw toepassingen te verzenden en ontvangen van SMS-berichten. **Twilio-Client** kunt u VoIP-aanroepen vanuit een telefoon, tablet of een browser en biedt ondersteuning voor WebRTC.
 
-## <a id="Pricing"></a>Twilio-prijzen en speciale aanbiedingen
-Azure-klanten ontvangen een [speciale aanbieding](http://www.twilio.com/azure): gratis $10 van Twilio-tegoed bij de upgrade van uw Twilio-Account. Deze Twilio-tegoed kan worden toegepast op een Twilio-gebruik (tegoed van $10 gelijk aan maximaal 1000 SMS-berichten verzenden of ontvangen van maximaal 1000 inkomende Voice-minuten, afhankelijk van de locatie van uw telefoon en -bericht of aanroep van de bestemming). Wisselen van deze Twilio-tegoed en aan de slag op [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
-
+## <a id="Pricing"></a>Twilio-prijzen
 Twilio is een betalen per gebruik. Er zijn geen kosten voor configuratie en kunt u uw account op elk gewenst moment sluiten. U vindt meer informatie op [Twilio prijzen](http://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Concepten

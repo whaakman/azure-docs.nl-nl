@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 03dd056363cd99f5354dc10ed5ae328eb39c3ec2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427090"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291059"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen (Preview)
 
@@ -169,10 +169,25 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using those credentials
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
+
+blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
 ```
 
 > [!NOTE]
 > Azure AD-integratie met Azure Storage is vereist dat u HTTPS voor Azure Storage-bewerkingen gebruiken.
+
+In het bovenstaande voorbeeld worden de .NET-clientbibliotheek verwerkt de autorisatie van de aanvraag voor het maken van de blok-blob. Andere storage-clientbibliotheken worden ook de autorisatie van de aanvraag voor u verwerkt. Echter, als u een Azure Storage-bewerking met een OAuth-token met behulp van de REST-API aanroept, klikt u vervolgens u moet autoriseren van de aanvraag met het OAuth-token.   
+
+Voor het aanroepen van Blob en Queue-service-bewerkingen met behulp van OAuth-toegangstokens, geeft u het toegangstoken in de **autorisatie** koptekst met behulp van de **Bearer** -schema en geeft u een serviceversie van 2017-11-09 of hoger, als in het volgende voorbeeld weergegeven:
+
+```
+GET /container/file.txt HTTP/1.1
+Host: mystorageaccount.blob.core.windows.net
+x-ms-version: 2017-11-09
+Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
+```
+
+Zie voor meer informatie over het machtigen van Azure Storage-bewerkingen van REST [verifiëren met Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## <a name="next-steps"></a>Volgende stappen
 

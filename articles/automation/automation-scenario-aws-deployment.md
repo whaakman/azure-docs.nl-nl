@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282734"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290889"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario: een AWS-machine inrichten
 In dit artikel leert u hoe u kunt gebruikmaken van Azure Automation voor het inrichten van een virtuele machine in uw abonnement Amazon Web Service (AWS) en geef die virtuele machine een specifieke naam – AWS verwijst naar als 'codering' van de virtuele machine.
@@ -41,7 +41,7 @@ Uw runbook Inrichtingsstatus van VM's maakt gebruik van de AWS-PowerShell-module
 Zodra de AWS-PowerShell-Module is geïmplementeerd, kunt u nu een runbook voor het automatiseren van de inrichting van een virtuele machine in AWS met behulp van een PowerShell-script schrijven. De volgende stappen laten zien hoe u gebruikmaken van systeemeigen PowerShell-script in Azure Automation.  
 
 > [!NOTE]
-> Voor meer opties en informatie over dit script, gaat u naar de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> Voor meer opties en informatie over dit script, gaat u naar de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
 1. Het PowerShell-script New-AwsVM downloaden vanuit de PowerShell Gallery door een PowerShell-sessie openen en het volgende te typen:<br>

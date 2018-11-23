@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: bc86ef5a32e08bc00b5a2fa53dccb8d6313f167b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230982"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290319"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestatiebewaking met de Windows Azure Diagnostics-extensie
 
@@ -106,6 +106,89 @@ Hier volgt een voorbeeld van een configuratie met de teller voor het *totale pro
 
  De samplefrequentie voor het item kan worden aangepast aan de hand van uw behoeften. De indeling voor deze is `PT<time><unit>`, dus als u wilt dat de teller die elke seconde verzameld, klikt u vervolgens moet u instellen de `"sampleRate": "PT15S"`.
 
+ U kunt ook variabelen in de ARM-sjabloon gebruiken voor het verzamelen van een matrix van prestatiemeteritems die kunnen worden geleverd in handig bij het verzamelen van prestatiemeteritems per proces. In het onderstaande voorbeeld, die we verzamelen processortijd en garbagecollector tijd per proces en vervolgens 2 prestatiemeteritems op de knooppunten zelf met behulp van alle variabelen. 
+
+ ```json
+"variables": {
+  "copy": [
+      {
+        "name": "processorTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\Process([parameters('monitoredProcesses')[copyIndex('processorTimeCounters')]])\\% Processor Time",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('processorTimeCounters')],' Processor Time')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      },
+      {
+        "name": "gcTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\.NET CLR Memory([parameters('monitoredProcesses')[copyIndex('gcTimeCounters')]])\\% Time in GC",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('gcTimeCounters')],' Time in GC')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      }
+    ],
+    "machineCounters": [
+      {
+        "counterSpecifier": "\\Memory\\Available Bytes",
+        "sampleRate": "PT1M",
+        "unit": "KB",
+        "sinks": "applicationInsights",
+        "annotation": [
+          {
+            "displayName": "Memory Available Kb",
+            "locale": "en-us"
+          }
+        ]
+      },
+      {
+        "counterSpecifier": "\\Memory\\% Committed Bytes In Use",
+        "sampleRate": "PT15S",
+        "unit": "percent",
+        "annotation": [
+          {
+            "displayName": "Memory usage",
+            "locale": "en-us"
+          }
+        ]
+      }
+    ]
+  }
+....
+"WadCfg": {
+    "DiagnosticMonitorConfiguration": {
+      "overallQuotaInMB": "50000",
+      "Metrics": {
+        "metricAggregation": [
+          {
+            "scheduledTransferPeriod": "PT1M"
+          }
+        ],
+        "resourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmNodeTypeApp2Name'))]"
+      },
+      "PerformanceCounters": {
+        "scheduledTransferPeriod": "PT1M",
+        "PerformanceCounterConfiguration": "[concat(variables ('processorTimeCounters'), variables('gcTimeCounters'),  variables('machineCounters'))]"
+      },
+....
+```
+
  >[!NOTE]
  >Hoewel u kunt `*` als u groepen van prestatiemeteritems die op dezelfde manier worden genoemd, geen prestatiemeteritems verzenden via een sink (naar Application Insights) vereist dat ze afzonderlijk worden gedeclareerd. 
 
@@ -115,8 +198,9 @@ Hier volgt een voorbeeld van een configuratie met de teller voor het *totale pro
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Zodra de upgrade is voltooid (duurt tussen 15 tot 45 minuten), uitrollen met WAD moet worden verzamelen van de prestatiemeteritems en deze te verzenden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount dat is gekoppeld aan het cluster. Zie de prestatiemeteritems in Application Insights door [de AI-Sink toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+5. Zodra de upgrade is voltooid moet (duurt tussen 15 tot 45 minuten afhankelijk van of het de eerste implementatie en de grootte van uw resourcegroep), uitrollen met WAD de prestatiemeteritems verzamelen en deze te verzenden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount dat is gekoppeld aan het cluster. Zie de prestatiemeteritems in Application Insights door [de AI-Sink toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Verzamelen van meer prestatiemeteritems voor uw cluster. Zie [maatstaven voor prestaties](service-fabric-diagnostics-event-generation-perf.md) voor een lijst met items die u moet verzamelen.
 * [Gebruik controle en diagnostische gegevens met een Windows-VM en Azure Resource Manager-sjablonen](../virtual-machines/windows/extensions-diagnostics-template.md) naar verdere wijzigingen aanbrengen in uw `WadCfg`, inclusief het configureren van extra opslagaccounts voor het verzenden van diagnostische gegevens.
+* Ga naar de [WadCfg builder](http://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is.

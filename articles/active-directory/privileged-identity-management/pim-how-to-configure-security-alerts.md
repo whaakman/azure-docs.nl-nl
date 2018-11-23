@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/01/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e7204c223681b9a33c439b0d9fc653167422384a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011694"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291212"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren
 
@@ -34,6 +34,47 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor director
 * **Gemiddeld**: geen directe actie is vereist, maar geeft een mogelijke schending van het beleid.
 * **Lage**: geen directe actie is vereist, maar stelt u een beleidswijziging van de voorkeur boven het.
 
+### <a name="administrators-arent-using-their-privileged-roles"></a>Beheerders hun bevoorrechte rollen niet gebruikt
+
+| | |
+| --- | --- |
+| **Ernst** | Laag |
+| **Waarom krijg ik deze waarschuwing?** | Gebruikers die zijn toegewezen aan de bevoorrechte rollen die ze nodig hebben geen verhoogt de kans op een aanval. Ook is het gemakkelijker voor aanvallers om te blijven ongemerkt in accounts die zijn niet actief wordt gebruikt. |
+| **Over het oplossen van?** | Bekijk de gebruikers in de lijst en verwijder ze van bevoorrechte rollen die ze niet hoeven. |
+| **Preventie** | Alleen bevoorrechte rollen toewijzen aan gebruikers die een zakelijke rechtvaardiging hebben. </br>Plannen van regelmatige [toegangsbeoordelingen](pim-how-to-start-security-review.md) om te controleren dat gebruikers nog steeds hun toegang nodig. |
+| **In de portal risicobeperking actie** | Hiermee verwijdert u het account van hun bevoegde rol. |
+| **Trigger** | Geactiveerd als een gebruiker een bepaalde hoeveelheid tijd gaat zonder een rol activeren. |
+| **Aantal dagen** | Deze instelling bepaalt u het aantal dagen tussen 0 en 100, die een gebruiker zonder het activeren van een rol kan raadplegen.|
+
+### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Rollen vereisen geen meervoudige verificatie voor activering
+
+| | |
+| --- | --- |
+| **Ernst** | Laag |
+| **Waarom krijg ik deze waarschuwing?** | Zonder MFA, kunnen verdachte gebruikers bevoorrechte rollen activeren. |
+| **Over het oplossen van?** | Bekijk de lijst met rollen en [MFA vereisen](pim-how-to-change-default-settings.md) voor elke rol. |
+| **Preventie** | [MFA vereisen](pim-how-to-change-default-settings.md) voor elke rol.  |
+| **In de portal risicobeperking actie** | MFA vereist voor de activering van de bevoorrechte rol maakt. |
+
+### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>De tenant geen Azure AD Premium P2
+
+| | |
+| --- | --- |
+| **Ernst** | Laag |
+| **Waarom krijg ik deze waarschuwing?** | De huidige tenant heeft geen Azure AD Premium P2. |
+| **Over het oplossen van?** | Lees de informatie over [Azure AD-edities](../fundamentals/active-directory-whatis.md). Een upgrade uitvoeren naar Azure AD Premium P2. |
+
+### <a name="potential-stale-accounts-in-a-privileged-role"></a>Mogelijke verouderde accounts in een bevoorrechte rol
+
+| | |
+| --- | --- |
+| **Ernst** | Middelgroot |
+| **Waarom krijg ik deze waarschuwing?** | Accounts die hun wachtwoord niet hebt gewijzigd onlangs mogelijk service of gedeelde accounts die worden niet bijgehouden. Deze accounts in bevoorrechte rollen zijn kwetsbaar voor aanvallen. |
+| **Over het oplossen van?** | Bekijk de accounts in de lijst. Als deze toegang niet meer nodig hebt, kunt u ze uit hun bevoorrechte rollen verwijderen. |
+| **Preventie** | Zorg ervoor dat de accounts die worden gedeeld sterke wachtwoorden zijn draaien wanneer er een wijziging in de gebruikers die het wachtwoord weten. </br>Controleer regelmatig accounts met bevoorrechte rollen met behulp van [toegangsbeoordelingen](pim-how-to-start-security-review.md) en verwijderen van roltoewijzingen die niet meer nodig zijn. |
+| **In de portal risicobeperking actie** | Hiermee verwijdert u het account van hun bevoegde rol. |
+| **Aanbevolen procedures** | Gedeeld, service, en toegang in noodgevallen-accounts die worden geverifieerd met een wachtwoord en zijn toegewezen aan maximaal beschermde beheerderrol, zoals globale beheerder of beveiligingsbeheerder moeten hebben hun wachtwoorden gedraaid voor de volgende gevallen:<ul><li>Na een beveiligingsincident met betrekking tot misbruik of inbreuk op de administratieve toegangsrechten</li><li>Nadat de bevoegdheden van een gebruiker zijn gewijzigd zodat ze zijn niet langer een beheerder (bijvoorbeeld: nadat een werknemer die een beheerder leaves IT is of de organisatie verlaat)</li><li>Met regelmatige tussenpozen (voor bijvoorbeeld, per kwartaal of per jaar), zelfs als er is geen bekende nakoming of wijziging van IT personeel</li></ul>Omdat meerdere personen toegang tot deze accounts referenties hebben, moeten de referenties om ervoor te zorgen dat mensen die er nog over hun rollen geen toegang meer de accounts tot kan worden gedraaid. [Meer informatie](https://aka.ms/breakglass) |
+
 ### <a name="roles-are-being-assigned-outside-of-pim"></a>Rollen worden toegewezen buiten PIM
 
 | | |
@@ -43,28 +84,6 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor director
 | **Over het oplossen van?** | Bekijk de gebruikers in de lijst en verwijder ze van bevoorrechte rollen toegewezen buiten PIM. |
 | **Preventie** | Onderzoeken waar gebruikers bevoorrechte rollen buiten PIM worden toegewezen en toekomstige toewijzingen van daaruit verbieden. |
 | **In de portal risicobeperking actie** | Hiermee verwijdert u het account van hun bevoegde rol. |
-
-### <a name="potential-stale-accounts-in-a-privileged-role"></a>Mogelijke verouderde accounts in een bevoorrechte rol
-
-| | |
-| --- | --- |
-| **Ernst** | Middelgroot |
-| **Waarom krijg ik deze waarschuwing?** | Accounts die hun wachtwoord niet hebt gewijzigd onlangs mogelijk service of gedeelde accounts die worden niet bijgehouden. Deze accounts in bevoorrechte rollen zijn kwetsbaar voor aanvallen. |
-| **Over het oplossen van?** | Bekijk de accounts in de lijst. Als deze toegang niet meer nodig hebt, kunt u ze uit hun bevoorrechte rollen verwijderen. |
-| **Preventie** | Zorg ervoor dat de accounts die worden gedeeld sterke wachtwoorden zijn draaien wanneer er een wijziging in de gebruikers die het wachtwoord weten. </br>Regelmatig accounts met bevoorrechte rollen met toegangsbeoordelingen het controleren en verwijderen van roltoewijzingen die niet meer nodig zijn. |
-| **In de portal risicobeperking actie** | Hiermee verwijdert u het account van hun bevoegde rol. |
-
-### <a name="users-arent-using-their-privileged-roles"></a>Gebruikers worden niet met behulp van hun bevoorrechte rollen
-
-| | |
-| --- | --- |
-| **Ernst** | Laag |
-| **Waarom krijg ik deze waarschuwing?** | Gebruikers die zijn toegewezen aan de bevoorrechte rollen die ze nodig hebben geen verhoogt de kans op een aanval. Ook is het gemakkelijker voor aanvallers om te blijven ongemerkt in accounts die zijn niet actief wordt gebruikt. |
-| **Over het oplossen van?** | Bekijk de gebruikers in de lijst en verwijder ze van bevoorrechte rollen die ze niet hoeven. |
-| **Preventie** | Alleen bevoorrechte rollen toewijzen aan gebruikers die een zakelijke rechtvaardiging hebben. </br>Planning reguliere toegangsbeoordelingen om te controleren dat gebruikers nog steeds nodig hun toegang hebben. |
-| **In de portal risicobeperking actie** | Hiermee verwijdert u het account van hun bevoegde rol. |
-| **Trigger** | Geactiveerd als een gebruiker een bepaalde hoeveelheid tijd gaat zonder een rol activeren. |
-| **Aantal dagen** | Deze instelling bepaalt u het aantal dagen tussen 0 en 100, die een gebruiker zonder het activeren van een rol kan raadplegen.|
 
 ### <a name="there-are-too-many-global-administrators"></a>Er zijn te veel globale beheerders
 
@@ -91,16 +110,6 @@ In deze sectie geeft een lijst van alle beveiligingswaarschuwingen voor director
 | **Trigger** | Geactiveerd als een gebruiker dezelfde bevoorrechte rol meerdere keren binnen een opgegeven periode activeert. U kunt zowel de periode en het aantal activeringen configureren. |
 | **Activeringsvernieuwing** | Deze instelling bepaalt u in dagen, uren, minuten en vervolgens de periode die u wilt gebruiken voor het bijhouden van verdachte vernieuwingen. |
 | **Aantal vernieuwingen van activering** | Deze instelling bepaalt u het aantal activeringen van 2 tot en met 100, waarmee u rekening houden daling van waarschuwing in de periode die u hebt gekozen. U kunt deze instelling wijzigen door de schuifregelaar of een getal in het tekstvak te typen. |
-
-### <a name="roles-dont-require-mfa-for-activation"></a>Rollen vereisen MFA voor activering
-
-| | |
-| --- | --- |
-| **Ernst** | Laag |
-| **Waarom krijg ik deze waarschuwing?** | Zonder MFA, kunnen verdachte gebruikers bevoorrechte rollen activeren. |
-| **Over het oplossen van?** | Bekijk de lijst met rollen en [MFA vereisen](pim-how-to-change-default-settings.md) voor elke rol. |
-| **Preventie** | [MFA vereisen](pim-how-to-change-default-settings.md) voor elke rol.  |
-| **In de portal risicobeperking actie** | MFA vereist voor de activering van de bevoorrechte rol maakt. |
 
 ## <a name="configure-security-alert-settings"></a>Instellingen voor beveiligingswaarschuwingen configureren
 

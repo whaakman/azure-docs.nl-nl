@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 52c8eed7f8b5a65ef13215e677d52f44cb95fd64
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284996"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291337"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -25,9 +25,11 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning-SDK voor Python v0.1.80
 
 + **Belangrijke wijzigingen** 
-  * *azureml.Train.widget* naamruimte is verplaatst naar *azureml.train*.
-  * *azureml.core.compute.AmlCompute* Hiermee wordt vervangen *azureml.core.compute.BatchAICompute*. De laatste klasse wordt verwijderd in toekomstige releases.
+  * *azureml.Train.widgets* naamruimte is verplaatst naar *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* Hiermee wordt de volgende klassen - vervangen *azureml.core.compute.BatchAICompute* en *azureml.core.compute.DSVMCompute*. De laatste klasse wordt verwijderd in toekomstige releases. De klasse AmlCompute heeft nu een eenvoudiger definitie gewoon moet een vm_size en de max_nodes en wordt uw cluster vanaf 0 naar de max_nodes automatisch schalen wanneer een job wordt verzonden. Onze [voorbeeldnotitieblokken] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) zijn bijgewerkt met deze informatie en moet u voorbeelden geven over hoe u dit. We hopen u, zoals deze vereenvoudiging en nog veel meer interessante functies komen in een latere versie.
+
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning-Dataprep SDK v0.5.1 
+
 Meer informatie over de SDK voor Data Prep door te lezen [verwijzen naar docs](https://aka.ms/data-prep-sdk).
 + **Nieuwe functies**
    * Een nieuwe DataPrep CLI DataPrep-pakketten uitvoeren en weergeven van het gegevensprofiel van de voor een gegevensset of gegevensstroom gemaakt

@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346756"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291320"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics-uitvoer oplossen
 
@@ -29,7 +29,7 @@ Deze pagina worden veelvoorkomende problemen met verbindingen van de uitvoer en 
       - Als de taak een Event Hub gebruikt wordt, controleert u of de hoofdtekst van het bericht is *Null*.
       
     - Als Gegevensconversiefouten > 0 en stijgt, kan het volgende waar zijn:
-      - De taak kan mogelijk niet de gebeurtenissen niet deserialiseren.
+      - De uitvoergebeurtenis komt niet overeen met het schema van de doel-sink. 
       - Het gebeurtenissenschema mogelijk niet overeen met het opgegeven of verwachte schema van de gebeurtenissen in de query.
       - De gegevenstypen van sommige velden in de gebeurtenis mogelijk niet overeen met de verwachtingen.
       
