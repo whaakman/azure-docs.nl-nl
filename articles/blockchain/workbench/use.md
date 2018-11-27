@@ -1,5 +1,5 @@
 ---
-title: Met behulp van toepassingen in Azure Blockchain Workbench
+title: Toepassingen in Azure Blockchain Workbench gebruiken
 description: Opdrachten voor het gebruik van de toepassing in Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
@@ -17,7 +17,7 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 10/03/2018
 ms.locfileid: "48242661"
 ---
-# <a name="using-applications-in-azure-blockchain-workbench"></a>Met behulp van toepassingen in Azure Blockchain Workbench
+# <a name="using-applications-in-azure-blockchain-workbench"></a>Toepassingen in Azure Blockchain Workbench gebruiken
 
 U kunt Blockchain Workbench gebruiken om contracten te maken en acties op contracten uit te voeren. Ook kunt u contractdetails bekijken zoals de status en transactie-geschiedenis.
 
