@@ -88,7 +88,7 @@ NL-Internet Explorer | Engels (Ierland) |Man | "Microsoft Server spraak tekst en
 NL-IN | English (India) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Heera, Apollo)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, PriyaRUS)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Ravi, Apollo)"
-nl-NL | English (US) |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, ZiraRUS)"
+en-US | English (US) |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, ZiraRUS)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, JessaRUS)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (en-US, BenjaminRUS)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)"
