@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 717a0234f0155229597c6fc4fe70a7868a536975
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242287"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160730"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
 
 * **Zeer responsieve en bedrijfskritische toepassingen bouwen**
     * Azure Cosmos DB garandeert voor klanten een lage end-to-end latentie in het 99e percentiel. 
-    * Voor een gemiddeld item van 1 kB betekent dit dat in 99% van de gevallen een end-to-end latentie van minder dan 10 ms wordt gegarandeerd voor leesbewerkingen en van minder dan 15 ms voor geïndexeerde schrijfbewerkingen (binnen dezelfde Azure-regio). De gemiddelde latenties zijn aanzienlijk lager (minder dan 5 ms).
+    * Voor een gemiddeld item van 1 kB betekent dit dat in 99% van de gevallen een end-to-end latentie van minder dan 10 ms wordt gegarandeerd voor leesbewerkingen en van minder dan 10 ms voor geïndexeerde schrijfbewerkingen (binnen dezelfde Azure-regio). De gemiddelde latenties zijn aanzienlijk lager (minder dan 5 ms).
 
 * **Zorgen voor vrijwel volledige beschikbaarheid**
     * SLA voor een beschikbaarheid van 99,99% voor alle databaseaccounts voor één regio en leesbeschikbaarheid van 99,999% voor alle databaseaccounts voor meerdere regio's.
@@ -79,9 +79,9 @@ Azure Cosmos DB biedt de beste mogelijkheden van traditionele, relationele en ni
 | --- | --- | --- | --- |
 | Wereldwijde distributie | Nee | Nee | Ja, kant-en-klare distributie in meer dan 30 regio's met multihoming-API's|
 | Horizontaal schalen | Nee | Ja | Ja, u kunt doorvoer en opslag onafhankelijk van elkaar schalen | 
-| Gegarandeerde latentie | Nee | Ja | Ja, 99% van de leesbewerkingen in < 10 ms en van de schrijfbewerkingen in < 15 ms | 
+| Gegarandeerde latentie | Nee | Ja | Ja, 99% van de leesbewerkingen in < 10 ms en van de schrijfbewerkingen in < 10 ms | 
 | Hoge beschikbaarheid | Nee | Ja | Ja, Azure Cosmos DB is altijd ingeschakeld, beschikt over duidelijk omschreven PACELC-tradeoffs, en biedt opties voor automatische en handmatige failover|
-| Gegevensmodel + API | Relationeel + SQL | Meerdere modellen + OSS-API | Meerdere modellen + SQL + OSS-API (binnenkort meer) |
+| Gegevensmodel + API | Relationeel + SQL | Meerdere modellen + OSS-API | Meerdere modellen + SQL + OSS API |
 | SLA's | Ja | Nee | Ja, uitgebreide SLA's voor latentie, doorvoer, consistentie en beschikbaarheid |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Oplossingen die profiteren van Azure Cosmos DB

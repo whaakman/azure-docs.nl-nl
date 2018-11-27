@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 0a8a97be89893dbf072942501be51b82d20c1ef4
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578035"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851667"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Snelstart: Gezichten in een afbeelding detecteren met de REST API en Java
 
@@ -62,7 +62,7 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Essentiële velden toevoegen
 
-Voeg aan de klasse **Main** de volgende velden toe. Met deze gegevens wordt aangegeven hoe de Face-service moet worden verbonden en waar de invoergegevens kunnen worden opgehaald. U moet het veld `subscriptionKey` bijwerken met de waarde van de abonnementssleutel en mogelijk moet u de tekenreeks `uriBase` wijzigen, zodat deze de juiste regio-id bevat. U kunt ook de waarde `imageWithFaces` instellen voor een pad dat naar een ander afbeeldingsbestand verwijst.
+Voeg aan de klasse **Main** de volgende velden toe. Met deze gegevens wordt aangegeven hoe de Face-service moet worden verbonden en waar de invoergegevens kunnen worden opgehaald. U moet het veld `subscriptionKey` bijwerken met de waarde van de abonnementssleutel en mogelijk moet u de tekenreeks `uriBase` wijzigen, zodat deze de juiste regio-id bevat (zie de [Face API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). U kunt ook de waarde `imageWithFaces` instellen voor een pad dat naar een ander afbeeldingsbestand verwijst.
 
 Het veld `faceAttributes` is gewoon een lijst met bepaalde kenmerktypen. Dit veld geeft aan welke informatie over de gedetecteerde gezichten moet worden opgehaald.
 
@@ -75,7 +75,7 @@ private static final String subscriptionKey = "<Subscription Key>";
 // subscription keys from westus, replace "westcentralus" in the URL
 // below with "westus".
 //
-// Free trial subscription keys are generated in the westcentralus region. If you
+// Free trial subscription keys are generated in the "westus" region. If you
 // use a free trial subscription key, you shouldn't need to change this region.
 private static final String uriBase =
     "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";

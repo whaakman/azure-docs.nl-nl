@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 40bee31b7880a323a48e92912ee323c43c3a97da
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634758"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165455"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Zelfstudie: een Java EE- en Postgres-web-app in Azure maken
 
@@ -31,7 +31,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. [Download and install Git](https://git-scm.com/) (Git downloaden en installeren)
+1. [Download en installeer Git](https://git-scm.com/)
 1. [Download and install Maven 3](https://maven.apache.org/install.html) (Maven downloaden en installeren)
 1. [Azure CLI downloaden en installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
@@ -51,13 +51,38 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 Werk de Maven-POM bij met de gewenste naam en resourcegroep van uw App Service. Deze waarden worden toegevoegd aan de Azure-invoegtoepassing, verderop in het bestand _pom.xml_. U hoeft niet van tevoren het App Service-plan of -exemplaar te maken. Met de Maven-invoegtoepassing worden de resourcegroep en App Service gemaakt indien deze nog niet aanwezig zijn.
 
+U kunt naar beneden schuiven naar de sectie `<plugins>` van _pom.xml_ om de Azure-invoegtoepassing te inspecteren. De `<plugin>`-configuratiesectie in _pom.xml_ voor de azure-webapp-maven-plugin moet de volgende configuratie bevatten:
+
+```xml
+      <!--*************************************************-->
+      <!-- Deploy to WildFly in App Service Linux           -->
+      <!--*************************************************-->
+ 
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+ 
+          <!-- Web App information -->
+          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+          <appName>${WEBAPP_NAME}</appName>
+          <region>${REGION}</region>
+ 
+          <!-- Java Runtime Stack for Web App on Linux-->
+          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+ 
+        </configuration>
+      </plugin>
+```
+
 Vervang de tijdelijke aanduidingen door gewenste resourcenamen:
 ```xml
 <azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
 <azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
 ```
 
-U kunt naar beneden schuiven naar de sectie `<plugins>` van _pom.xml_ om de Azure-invoegtoepassing te inspecteren.
 
 ## <a name="build-and-deploy-the-application"></a>De toepassing compileren en implementeren
 

@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b6c05382a3a40aa9157fd64a7f0192c58e79b0ee
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578029"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853775"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Snelstart: Gezichten in een afbeelding detecteren met de Face REST API en cURL
 
@@ -40,7 +40,7 @@ Vervang `<Subscription Key>` door een geldige Face-abonnementssleutel.
 
 ### <a name="face-endpoint-url"></a>Eindpunt-URL voor Face
 
-De URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` geeft het Azure Face-eindpunt aan waarvoor een query moet worden uitgevoerd. U moet het eerste gedeelte van deze URL wijzigen zodat deze overeenkomt met de regio die bij uw abonnementssleutel hoort (tenzij dit al klopt).
+De URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` geeft het Azure Face-eindpunt aan waarvoor een query moet worden uitgevoerd. Mogelijk moet u het eerste gedeelte van deze URL wijzigen zodat deze overeenkomt met de regio die bij uw abonnementssleutel hoort (zie de [documentatie voor de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten).
 
 ### <a name="url-query-string"></a>Queryreeks voor URL
 

@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140854"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824775"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: Een cloudoplossing voor externe controle uitproberen
 
@@ -32,7 +32,7 @@ Wanneer u de oplossingsverbetering implementeert in uw Azure-abonnement, moet u 
 
 Meld u aan bij [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) met behulp van de referenties van uw Azure-account.
 
-Klik op de tegel **Externe controle** op **Nu proberen**.
+Klik op de tegel **Externe bewaking**. Klik op de pagina **Externe bewaking**  op **Nu proberen**:
 
 ![Externe controle kiezen](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ Selecteer een **basisimplementatie** op de pagina **Oplossing voor externe contr
 
 Kies **.NET** als de taal. De Java- en .NET-implementaties hebben dezelfde functies.
 
-Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe controle. Voor deze quickstart noemen we die van ons **contoso-rm2**.
+Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe controle. Voor deze quickstart noemen we die van ons **contoso-rm**.
 
-Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze quickstart gebruiken we **Visual Studio Enterprise** en **Europa - west**. U moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn in het abonnement.
+Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze quickstart maken we gebruik van **US - oost**.
+U kunt **Visual Studio Enterprise** kiezen, maar u moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn om dit te doen.
 
 Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/30/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: dadc90e6a39b9e9689bab0249e6496fdea6f6205
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b9d140eedf69ed730985412ba1dcdca2d626b191
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450212"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706701"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Zelfstudie: toegang tot een leslokaallab in Azure Lab Services
 In deze zelfstudie maakt u als student verbinding met een virtuele machine (VM) in een leslokaallab. 
@@ -35,7 +35,7 @@ In deze zelfstudie voert u de volgende acties uit:
 1. Navigeer naar de **registratie-URL** die u hebt ontvangen van de docent. 
 2. Meld u aan bij de service met uw schoolaccount om de registratie te voltooien. 
 3. Controleer nadat u zich hebt geregistreerd of u de virtuele machines ziet voor het lab waartoe u toegang hebt. 
-2. Wacht tot de virtuele machine gereed is en **start** dan de virtuele machine.
+2. Wacht tot de virtuele machine gereed is en **start** dan de virtuele machine. Dit proces duurt enige tijd.  
 
     ![De virtuele machine starten](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
 
@@ -44,13 +44,13 @@ In deze zelfstudie voert u de volgende acties uit:
 1. Selecteer **Verbinding maken** op de tegel van de virtuele machine van het lab dat u wilt openen. 
 
     ![Verbinding maken met de virtuele machine](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Sla het RDP-bestand op de harde schijf op en open het. 
+2. Sla het RDP-bestand op de harde schijf op en open het (ervan uitgaande dat het een Windows-VM is)
 3. Gebruik de **gebruikersnaam** en het **wachtwoord** dat u van uw docent hebt gekregen om zich aan te melden bij de computer. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een leslokaallab geopend met behulp van de registratiekoppeling die u van uw docent krijgt.
 
-Als eigenaar van een lab wilt u zien wie er is geregistreerd bij uw lab en wilt u het gebruik van virtuele machines bijhouden. Ga naar de volgende zelfstudie als u wilt weten hoe u dat doet:
+Als eigenaar van een lab wilt u zien wie zich heeft geregistreerd bij uw lab en wilt u het gebruik van virtuele machines bijhouden. Ga verder met de volgende zelfstudie voor meer informatie over het bijhouden van het gebruik van het lab:
 
 > [!div class="nextstepaction"]
 > [Gebruik van een lab bijhouden](tutorial-track-usage.md) 

@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: b7cba2959bead5eeed72a87219c70f896b5a48b8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 76e6bc006ff6049b631409a3515628fbd169f713
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51682959"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976975"
 ---
 # <a name="what-is-custom-translator-preview"></a>Wat is Custom Translator (Preview)?
 
@@ -32,7 +32,7 @@ Custom Translator biedt verschillende mogelijkheden voor het bouwen van een aang
 |---------|---------|
 |[Maak gebruik van neurale technologie voor automatische vertalingen](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Verbeter de vertalingen door gebruik te maken van neurale machinevertalingen (NMT) van Custom Translator.       |
 |[Bouw systemen met uw eigen vaktermen](what-are-parallel-documents.md)     |  Bouw vertaalsystemen en pas vertaalsystemen aan met behulp van parallelle documenten in de terminologie van uw eigen bedrijf en bedrijfstak.       |
-|[Gebruik een woordenlijst voor het opbouwen van uw modellen](what-is-dictionary.md)     |   Als u geen set met trainingsgegevens hebt, kunt u een model trainen met alleen de gegevens van een woordenlijst.       |
+|[Een woordenlijst gebruiken om uw modellen te bouwen](what-is-dictionary.md)     |   Als u geen set met trainingsgegevens hebt, kunt u een model trainen met alleen de gegevens van een woordenlijst.       |
 |[Werk samen met anderen](how-to-manage-settings.md#share-your-workspace)     |   Werk samen met uw team door uw werk te delen met andere personen.     |
 |[Toegang tot uw aangepaste vertaalmodel](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Uw aangepaste vertaalmodel kan op elk gewenst moment worden geopend door uw bestaande toepassingen/programma's via Microsoft Translator Text-API V3.       |
 

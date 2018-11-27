@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345110"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824537"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Wat zijn Azure IoT-oplossingsversnellers?
 
@@ -50,7 +50,7 @@ U kunt de verbonden factory gebruiken om industriële apparaten te controleren e
 
 ### <a name="predictive-maintenance"></a>Predictief onderhoud
 
-Gebruik deze oplossingsversneller om te voorspellen wanneer een extern apparaat naar verwachting defect raakt, zodat u onderhoud kunt plegen voordat het voorspelde defect zich voordoet. De oplossingsversneller maakt gebruik van machine learning-algoritmen om fouten op basis van telemetriegegevens van apparaten te voorspellen. Voorbeelden van dergelijke apparaten zijn vliegtuigmotoren en liften.
+Gebruik deze oplossingsversneller om te voorspellen wanneer een extern apparaat naar verwachting defect raakt, zodat u onderhoud kunt plegen voordat het apparaat uitvalt. De oplossingsversneller maakt gebruik van machine learning-algoritmen om fouten op basis van telemetriegegevens van apparaten te voorspellen. Voorbeelden van dergelijke apparaten zijn vliegtuigmotoren en liften.
 
 U kunt het dashboard voor predictief onderhoud gebruiken om de analyse voor predictief onderhoud te bekijken:
 
@@ -97,7 +97,7 @@ U kunt de oplossingsverbetering voor externe controle implementeren in de volgen
 * **Basic:** voordelige versie voor een demonstratie of het testen van een implementatie. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.
 * **Local:** implementatie op lokale computer voor testen en ontwikkeling. Bij deze aanpak worden de microservices geïmplementeerd op een lokale Docker-container die verbinding maakt met IoT Hub, Azure Cosmos DB en Azure-opslagservices in de cloud.
 
-De kosten voor het uitvoeren van een oplossingsversneller zijn een combinatie van de [kosten van de onderliggende Azure-services](https://azure.microsoft.com/pricing). U ziet details van de gebruikte Azure-services wanneer u uw implementatieopties kiest.
+De kosten voor het uitvoeren van een oplossingsversneller zijn de gecombineerde [kosten van de onderliggende Azure-services](https://azure.microsoft.com/pricing). U ziet details van de gebruikte Azure-services wanneer u uw implementatieopties kiest.
 
 ## <a name="next-steps"></a>Volgende stappen
 

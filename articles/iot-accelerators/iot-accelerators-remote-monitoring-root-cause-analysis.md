@@ -5,15 +5,15 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8258c8f34b4b9a1b216d9d497dcdf7d3b8db1373
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369399"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284558"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Zelfstudie: Een analyse uitvoeren van de hoofdoorzaak van een waarschuwing
 
@@ -40,7 +40,7 @@ Gebruik filters om te selecteren welke verbonden apparaten worden weergegeven op
 
 [![Filteren op trucks in het dashboard](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-Wanneer u een filter toepast, worden alleen de apparaten die voldoen aan de filtervoorwaarden weergegeven op de kaart en in het deelvenster Telemetrie op de pagina **Dashboard**. U kunt zien dat twee trucks verbonden zijn met de oplossingsversnellers, waaronder **vrachtwagen-02**.
+Wanneer u een filter toepast, worden alleen de apparaten die voldoen aan de filtervoorwaarden weergegeven op de kaart en in het deelvenster Telemetrie van het **Dashboard**. U kunt zien dat twee trucks verbonden zijn met de oplossingsversnellers, waaronder **vrachtwagen-02**.
 
 ## <a name="view-real-time-telemetry"></a>Telemetrie in realtime weergeven
 
@@ -66,7 +66,7 @@ Filter de apparaten door **delivery-truck** in het filtervak te typen en selecte
 
 [![TSI Explorer temperatuur vrachtwagen](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-U ziet dezelfde weergave die u zag op het dashboard voor externe bewaking en u kunt nu verder inzoomen op het tijdsbestek waarin de waarschuwing is geactiveerd:
+U ziet dezelfde weergave als in het dashboard Externe bewaking. Bovendien kunt u nu verder inzoomen op het tijdsbestek waarin de waarschuwing is geactiveerd:
 
 [![Zoomen met TSI-verkenner](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
@@ -74,13 +74,13 @@ U kunt ook andere telemetriestreams toevoegen die afkomstig zijn uit de vrachtwa
 
 [![TSI Explorer met nieuw deelvenster](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
 
-In het nieuwe deelvenster wijzigt u de naam van het nieuwe label in **Apparaten** zodat dit overeenkomt met de vorige. Selecteer **hoogte** als de **Meeteenheid** en **iothub-connection-device-id** als de **Scheiden op**-waarde om de hoogtetelemetrie in uw weergave toe te voegen:
+In het nieuwe deelvenster wijzigt u de naam van het nieuwe label in **Apparaten** zodat dit overeenkomt met de vorige. Selecteer **hoogte** als de **Meeteenheid** en **iothub-connection-device-id** als de **Splitsen op**-waarde om de hoogtetelemetrie in uw weergave toe te voegen:
 
 [![TSI Explorer met temperatuur en hoogte](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
 ## <a name="diagnose-the-alert"></a>De waarschuwing diagnosticeren
 
-Wanneer u de streams in de huidige weergave bekijkt, kunt u zien dat de hoogteprofielen voor de twee vrachtwagens zeer verschillend zijn. Daarnaast treedt het temperatuurverval in **delivery-truck-02** op wanneer de vrachtwagen een grote hoogte bereikt. U bent verbaasd over deze resultaten, omdat was gepland dat de vrachtwagens dezelfde route zouden nemen.
+Wanneer u de streams in de huidige weergave bekijkt, kunt u zien dat de hoogteprofielen voor de twee vrachtwagens verschillend zijn. Daarnaast treedt het temperatuurverval in **delivery-truck-02** op wanneer de vrachtwagen een grote hoogte bereikt. U bent verbaasd over deze resultaten, omdat was gepland dat de vrachtwagens dezelfde route zouden nemen.
 
 Als u wilt bevestigen dat de vrachtwagens andere routes hebben afgelegd, voegt u in het zijpaneel een nieuw deelvenster toe met behulp van de knop **Toevoegen**. In het nieuwe deelvenster wijzigt u de naam van het nieuwe label in **Apparaten** zodat dit overeenkomt met de vorige. Selecteer **lengtegraad** als **Meeteenheid** en **iothub-connection-device-id** als de **Scheiden op**-waarde om de lengtegraadtelemetrie in uw weergave toe te voegen. U kunt zien dat de vrachtwagens inderdaad een andere route heeft gevolgd door naar het verschil tussen de **lengtegraad**-streams te kijken:
 
@@ -88,7 +88,7 @@ Als u wilt bevestigen dat de vrachtwagens andere routes hebben afgelegd, voegt u
 
 ## <a name="create-a-new-rule"></a>Een nieuwe regel maken
 
-Hoewel vrachtwagenroutes doorgaans van tevoren zijn geoptimaliseerd, realiseert u zich dat verkeerspatronen, het weer en andere onverwachte gebeurtenissen tot vertragingen kunnen leiden en dat vrachtwagenchauffeurs naar eigen inzicht op het laatste moment nog de route kunnen veranderen. Aangezien de temperatuur van uw assets in het voertuig echter essentieel is, moet u een aanvullende regel in uw oplossing voor externe bewaking maken om ervoor te zorgen dat u een waarschuwing krijgt als de gemiddelde hoogte in een interval van 1 minuut boven 350 feet komt:
+Hoewel vrachtwagenroutes doorgaans van tevoren zijn geoptimaliseerd, realiseert u zich dat verkeerspatronen, het weer en andere onverwachte gebeurtenissen tot vertragingen kunnen leiden en dat vrachtwagenchauffeurs naar eigen inzicht op het laatste moment nog de route kunnen veranderen. Aangezien de temperatuur van uw assets in het voertuig echter essentieel is, moet u een aanvullende regel in uw oplossing voor externe bewaking maken. Deze regel moet ervoor zorgen dat u een waarschuwing krijgt als de gemiddelde hoogte in een interval van 1 minuut boven 350 feet komt:
 
 [![Tabblad Regels voor externe bewaking voor instellen hoogteregel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 

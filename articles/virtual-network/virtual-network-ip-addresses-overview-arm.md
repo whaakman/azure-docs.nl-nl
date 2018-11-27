@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993592"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822226"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -75,7 +75,7 @@ Openbare IP-adressen van de standaard-SKU:
 
 - Worden uitsluitend toegewezen met de statische toewijzingsmethode.
 - Zijn standaard veilig en gesloten voor binnenkomend verkeer. U moet toegestaan binnenkomend verkeer met behulp van een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) expliciet opnemen in een whitelist.
-- Worden toegewezen aan netwerkinterfaces of openbare Standard-load balancers. Zie [Overzicht van load balancer uit Standard-SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over Standard-load balancers van Azure.
+- Toegewezen aan netwerkinterfaces, openbare standaard load balancers, toepassingsgateways of VPN-gateways. Zie [Overzicht van load balancer uit Standard-SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over Standard-load balancers van Azure.
 - Zijn standaard zone-redundant. Kunnen zonegebonden worden gemaakt en gegarandeerd in een bepaalde beschikbaarheidszone. Zie [Overzicht van beschikbaarheidszones in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Standard-load balancer en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
  
 > [!NOTE]
@@ -132,8 +132,8 @@ De volgende tabel toont de specifieke eigenschap waarmee een openbaar IP-adres k
 | --- | --- | --- | --- |
 | Virtuele machine |Netwerkinterface |Ja |Ja |
 | Internetgerichte load balancer |Front-end-configuratie |Ja |Ja |
-| VPN-gateway |Gateway-IP-configuratie |Ja |Nee |
-| Toepassingsgateway |Front-end-configuratie |Ja |Nee |
+| VPN-gateway |Gateway-IP-configuratie |Ja |Ja |
+| Toepassingsgateway |Front-end-configuratie |Ja |Ja |
 
 ## <a name="private-ip-addresses"></a>Privé-IP-adressen
 Privé-IP-adressen stellen Azure-resources in staat om via een VPN-gateway of een ExpressRoute-circuit te communiceren met andere resources in een [virtueel netwerk](virtual-networks-overview.md) of een on-premises netwerk, zonder gebruik te maken van een via internet bereikbaar IP-adres.

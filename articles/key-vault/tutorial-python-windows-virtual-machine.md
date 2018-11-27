@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in .NET | Microsoft Docs'
+title: 'Zelfstudie: Azure Key Vault gebruiken met Azure Linux Virtual Machine in Python | Microsoft Docs'
 description: 'Zelfstudie: Een ASP.NET Core-toepassing configureren voor het lezen van een geheim uit Key Vault'
 services: key-vault
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 863f3a8c18eab5b42b5f1377ca0f91f9740c06e7
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711324"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265967"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met Azure Windows Virtual Machine in .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Zelfstudie: Azure Key Vault gebruiken met Azure Linux Virtual Machine in Python
 
 Azure Key Vault helpt u bij het beveiligen van geheimen zoals API-sleutels, databaseverbindingsreeksen die nodig zijn voor toegang tot uw toepassingen, services en IT-resources.
 
-In deze zelfstudie voert u de stappen uit die nodig zijn om een consoletoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Deze zelfstudie is gebaseerd op [Azure Web Apps](../app-service/app-service-web-overview.md). Hieronder leert u:
+In deze zelfstudie voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Deze zelfstudie is gebaseerd op [Azure Web Apps](../app-service/app-service-web-overview.md). Hieronder leert u:
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
@@ -51,7 +51,7 @@ Het werkt als volgt. Wanneer u MSI inschakelt voor een Azure-service zoals Virtu
 
 ![MSI](media/MSI.png)
 
-Vervolgens roept uw ​​code een lokale metagegevensservice aan die beschikbaar is op de Azure-resource om een ​​toegangstoken te verkrijgen.
+Vervolgens roept uw ​​code een lokale metadataservice aan die beschikbaar is op de Azure-resource om een ​​toegangstoken te verkrijgen.
 Uw code gebruikt het toegangstoken dat wordt verkregen van het lokale MSI_ENDPOINT zich te authenticeren bij een Azure Key Vault-service. 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
@@ -124,7 +124,7 @@ Hieronder wordt de door het systeem toegewezen identiteit (systemAssignedIdentit
 }
 ```
 
-## <a name="give-vm-identity-permission-to-key-vault"></a>VM-identiteit machtigen voor Key Vault
+## <a name="give-virtual-machine-identity-permission-to-key-vault"></a>Identiteit van virtuele machine machtigen voor Key Vault
 Nu kunnen we de hierboven gemaakte identiteit machtigen voor Key Vault met de volgende opdracht
 
 ```
@@ -135,87 +135,45 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 U kunt deze [zelfstudie](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon) volgen
 
-## <a name="install-net-core"></a>.NET Core installeren
+## <a name="create-and-run-sample-python-app"></a>Python-voorbeeld-app maken en uitvoeren
 
-U kunt .NET Core installeren door de stappen in dit [artikel](https://www.microsoft.com/net/download) te volgen
+Het volgende bestand is slechts een voorbeeldbestand met de naam 'Sample.py'. Hierbij wordt gebruikgemaakt van de bibliotheek [requests](http://docs.python-requests.org/master/) (aanvragen) voor HTTP GET-aanroepen.
 
-## <a name="create-and-run-sample-dot-net-app"></a>.Net-voorbeeld-app maken en uitvoeren
-
-Open een opdrachtprompt
-
-Als u de onderstaande opdrachten uitvoert, wordt 'Hallo wereld' weergegeven in de console
+## <a name="edit-samplepy"></a>Sample.py bewerken
+Nadat u Sample.py hebt gemaakt, opent u het bestand en kopieert u de onderstaande code
 
 ```
-dotnet new console -o helloworldapp
-cd helloworldapp
-dotnet run
+The below is a 2 step process. 
+1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
+2. Pass the token to Key Vault and fetch your secret 
+```
+    # importing the requests library 
+    import requests 
+
+    # Step 1: Fetch an access token from a Managed Identity enabled azure resource      
+    # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
+    MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
+    r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
+      
+    # extracting data in json format 
+    # This request gets a access_token from Azure Active Directory using the local MSI endpoint
+    data = r.json() 
+    
+    # Step 2: Pass the access_token received from previous HTTP GET call to Key Vault
+    KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+    kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
+    
+    print(kvSecret.json()["value"])
 ```
 
-## <a name="edit-console-app"></a>Console-app bewerken
-Open het bestand Program.cs en voeg deze pakketten toe
+By running you should see the secret value 
 ```
-using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-```
-Wijzig vervolgens het klassebestand met de volgende code. Dit proces omvat twee stappen. 
-1. Een token uit het lokale MSI-eindpunt op de virtuele machine ophalen zodat er een token uit Azure Active Directory wordt opgehaald
-2. Het token doorgeven aan Key Vault en het geheim ophalen 
-
-```
- class Program
-    {
-        static void Main(string[] args)
-        {
-            // Step 1: Get a token from local (URI) Managed Service Identity endpoint which in turn fetches it from Azure Active Directory
-            var token = GetToken();
-
-            // Step 2: Fetch the secret value from Key Vault
-            System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
-        }
-
-        static string GetToken()
-        {
-            WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
-            request.Headers.Add("Metadata", "true");
-            WebResponse response = request.GetResponse();
-            return ParseWebResponse(response, "access_token");
-        }
-
-        static string FetchSecretValueFromKeyVault(string token)
-        {
-            WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
-            kvRequest.Headers.Add("Authorization", "Bearer "+  token);
-            WebResponse kvResponse = kvRequest.GetResponse();
-            return ParseWebResponse(kvResponse, "value");
-        }
-
-        private static string ParseWebResponse(WebResponse response, string tokenName)
-        {
-            string token = String.Empty;
-            using (Stream stream = response.GetResponseStream())
-            {
-                StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                String responseString = reader.ReadToEnd();
-
-                JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];             
-                token = ojObject.Value.ToString();
-            }
-            return token;
-        }
-    }
+python Sample.py
 ```
 
+The above code shows you how to do operations with Azure Key Vault in an Azure Windows Virtual Machine. 
 
-In de bovenstaande code ziet u hoe u bewerkingen met Azure Key Vault uitvoert op een virtuele Linux-machine in Azure. 
-
-
-
-## <a name="next-steps"></a>Volgende stappen
+## Next steps
 
 > [!div class="nextstepaction"]
-> [REST-API van Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)

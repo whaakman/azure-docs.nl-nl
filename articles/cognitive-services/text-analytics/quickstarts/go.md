@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: f1907ef46f508bea81065e15f83c6e97000e0862
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 10b6015a5d0755c77c787003e429c79f0e2669e5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268086"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283416"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: Go gebruiken om de Text Analytics Cognitive Service aan te roepen 
 <a name="HOLTop"></a>
 
-In dit artikel ziet u hoe u de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met Go kunt gebruiken om [taal te detecteren](#Detect), [sentiment te analyseren](#SentimentAnalysis), [sleuteltermen ophalen](#KeyPhraseExtraction) en [gekoppelde entiteiten te identificeren](#Entities).
+In dit artikel ziet u hoe u de  [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711)  met Go kunt gebruiken om [taal te detecteren](#Detect), [sentiment te analyseren](#SentimentAnalysis), [sleuteltermen op te halen](#KeyPhraseExtraction) en [gekoppelde entiteiten te identificeren](#Entities).
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics-API**. U kunt de **gratis laag voor 5000 transacties/maand** gebruiken om deze snelstart te voltooien.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie.
 

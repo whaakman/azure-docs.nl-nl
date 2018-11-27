@@ -4,17 +4,17 @@ description: Azure IoT Edge uitproberen door analyses uit te voeren op een gesim
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/02/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 16c5b15612acebacfa034c6c55dd053a21eac0d2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 78cb00c568942e6b8c0f5da035381c82f5789a08
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566326"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977009"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstart: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -62,7 +62,7 @@ IoT Edge-apparaat:
   * Windows 10 of hoger
   * Windows Server 2016 of hoger
 * Als dit een Windows-computer is, controleert u of deze voldoet aan de [systeemvereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V.
-* Als u een virtuele machine gebruikt, schakelt u [geneste virtualisatie](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) in en dient u ten minste 2 GB geheugen toe te wijzen.
+* Als u een virtuele machine gebruikt, schakelt u [geneste virtualisatie](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) in en wijst u ten minste 2 GB geheugen toe.
 * Installeer [Docker voor Windows](https://docs.docker.com/docker-for-windows/install/) en contoleer of dit wordt uitgevoerd.
 
 > [!TIP]
@@ -82,7 +82,7 @@ Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **I
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
    ```
 
-   Als er een fout optreedt omdat er al één gratis hub in uw abonnement is, wijzigt u de SKU in **S1**.
+   Als er een fout optreedt omdat er al één gratis hub in uw abonnement is, wijzigt u de SKU in **S1**. Als u het foutbericht ontvangt dat de naam van de IoT Hub niet beschikbaar is, betekent dit dat iemand anders al een hub met die naam heeft. Probeer een andere naam. 
 
 ## <a name="register-an-iot-edge-device"></a>Een IoT Edge-apparaat registreren
 
@@ -91,7 +91,7 @@ Registreer een IoT Edge-apparaat bij uw net gemaakte IoT Hub.
 
 Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT-hub kan communiceren. De apparaat-id is opgeslagen in de cloud, en u gebruikt een unieke apparaatverbindingsreeks om een fysiek apparaat te koppelen aan een apparaat-id.
 
-Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd dan typische IoT-apparaten, geeft u vanaf het begin aan dat dit een IoT Edge-apparaat is.
+Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd dan gewone IoT-apparaten, declareert u deze identiteit met een `--edge-enabled`-vlag als een identiteit van een IoT Edge-apparaat. 
 
 1. Voer in Azure Cloud Shell de volgende opdracht in om een ​​apparaat met de naam **myEdgeDevice** in uw hub te maken.
 
@@ -99,13 +99,15 @@ Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd da
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-1. Haal de verbindingsreeks voor uw apparaat op, zodat uw fysieke apparaat aan de bijbehorende identiteit in IoT Hub wordt gekoppeld.
+   Als u een foutbericht over iothubowner-beleidssleutels ontvangt, controleer dan of in de cloudshell de meest recente versie van de azure-cli-iot-ext-extensie wordt uitgevoerd. 
+
+2. Haal de verbindingsreeks voor uw apparaat op, zodat uw fysieke apparaat aan de bijbehorende identiteit in IoT Hub wordt gekoppeld.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. Kopieer de verbindingsreeks en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie.
+3. Kopieer de verbindingsreeks en sla deze op. U gebruikt deze waarde voor het configureren van de IoT Edge-runtime in de volgende sectie.
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>De IoT Edge-runtime installeren en starten
 
@@ -118,7 +120,9 @@ Tijdens de installatie van de runtime wordt u naar de apparaatverbindingsreeks g
 
 Met de instructies in dit gedeelte wordt de IoT Edge-runtime met Linux-containers geconfigureerd. Als u Windows-containers wilt gebruiken, raadpleegt u [Azure IoT Edge-runtime installeren onder Windows voor gebruik met Windows-containers](how-to-install-iot-edge-windows-with-windows.md).
 
-Voer de volgende stappen uit op de Windows-computer of virtuele machine die u hebt voorbereid om te fungeren als een IoT Edge-apparaat.
+### <a name="connect-to-your-iot-edge-device"></a>Verbinding maken met uw IoT Edge-apparaat
+
+De stappen in deze sectie worden allemaal uitgevoerd op uw IoT Edge-apparaat. Als u uw eigen computer als IoT Edge-apparaat gebruikt, kunt u dit gedeelte overslaan. Als u een virtuele machine of secundaire hardware gebruikt, wilt u nu verbinding maken met die computer. 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>De IoT Edge-service downloaden en installeren
 
@@ -195,7 +199,7 @@ iotedge logs tempSensor -f
 
   ![De gegevens van uw module bekijken](./media/quickstart/iotedge-logs.png)
 
-U kunt de berichten die door uw IoT Hub worden ontvangen, ook bekijken met behulp van de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+U kunt de berichten ook zien binnenkomen bij uw IoT Hub door de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) te gebruiken. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -203,7 +207,7 @@ Als u wilt doorgaan met de IoT Edge-zelfstudies, kunt u het apparaat gebruiken d
 
 ### <a name="delete-azure-resources"></a>Azure-resources verwijderen
 
-Als u uw virtuele machine en IoT-hub in een nieuwe resourcegroep hebt gemaakt, kunt u die groep en alle bijbehorende resources verwijderen. Als er iets in die resourcegroep staat dat u wilt behouden, verwijder dan alleen de afzonderlijke resources die u wilt opschonen.
+Als u uw virtuele machine en IoT-hub in een nieuwe resourcegroep hebt gemaakt, kunt u die groep en alle bijbehorende resources verwijderen. Controleer de inhoud van de resourcegroep zorgvuldig om te na te gaan of er niets is dat u wilt behouden. Als u niet de hele groep wilt verwijderen, kunt u in plaats daarvan afzonderlijke resources verwijderen.
 
 Verwijder de groep **IoTEdgeResources**.
 

@@ -8,12 +8,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366043"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706990"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
@@ -36,7 +36,7 @@ In deze zelfstudie komen deze onderwerpen aan bod:
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze zelfstudie wordt de functie Ontwikkelhulpprogramma's gebruikt (ook wel bekend als DevTools of F12), een functie die beschikbaar is in de meeste moderne webbrowsers, zoals [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) en andere. Als u nog niet bekend bent met deze functie, wilt u misschien eerst wat met deze functie experimenteren in uw browser voordat u verdergaat met deze zelfstudie.
+In deze zelfstudie wordt de functie Ontwikkelhulpprogramma's gebruikt (ook wel bekend als DevTools of F12), een functie die beschikbaar is in de meeste moderne webbrowsers, zoals [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) en andere. Als u nog niet bekend bent met deze functie, wilt u misschien eerst wat met deze functie experimenteren in uw browser voordat u verdergaat met deze zelfstudie.
 
 ## <a name="time-series-insights-sample-application"></a>Time Series Insights-voorbeeldtoepassing
 

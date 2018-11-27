@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856631"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706004"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -81,7 +81,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
         > [!WARNING]
         > Zodra u de sjabloon hebt gepubliceerd, kan dit niet ongedaan worden gemaakt. 
-    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. Nadat de wizard is voltooid, kunt u de VM-sjabloon publiceren. Zie het gedeelte [De sjabloon publiceren](how-to-manage-classroom-labs.md#publish-the-template) in het artikel [Leslokaallabs beheren](how-to-manage-classroom-labs.md) voor meer informatie over het configureren en publiceren nadat de wizard is voltooid.
+    2. Als u later wilt publiceren, selecteert u **Opslaan voor later**. Nadat de wizard is voltooid, kunt u de VM-sjabloon publiceren. Zie het gedeelte [De sjabloon publiceren](how-to-create-manage-template.md#publish-the-template-vm) in het artikel [Leslokaallabs beheren](how-to-manage-classroom-labs.md) voor meer informatie over het configureren en publiceren nadat de wizard is voltooid.
 
         ![Sjabloon publiceren](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. U kunt de **voortgang van het publiceren** van de sjabloon bekijken. Dit proces duurt maximaal een uur. 
@@ -97,17 +97,33 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 
     ![Virtuele machines met de status Gestopt](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>Gebruikers toevoegen aan het lab
+
+1. Selecteer **Gebruikers** in het menu links. De optie **Toegang beperken** is standaard ingeschakeld. Wanneer deze instelling is ingeschakeld, kan een gebruiker zich niet registreren bij het lab, zelfs niet als deze de registratiekoppeling heeft, tenzij de gebruiker in de lijst met gebruikers staat. Alleen gebruikers in de lijst kunnen zich registreren bij het lab door de registratiekoppeling te gebruiken die u verzendt. In deze procedure kunt u gebruikers toevoegen aan de lijst. U kunt ook **Toegang beperken** uitschakelen, zodat gebruikers zich bij het lab kunnen registreren zolang ze de registratiekoppeling hebben. 
+2. Selecteer **Gebruikers toevoegen** op de werkbalk. 
+3. Op de pagina **Gebruikers toevoegen** voert u e-mailadressen van gebruikers in op afzonderlijke regels of op één regel gescheiden door puntkomma's. 
+
+    ![E-mailadressen van gebruikers toevoegen](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selecteer **Opslaan**. U ziet de e-mailadressen van gebruikers en hun status (al dan niet geregistreerd) in de lijst. 
+
+    ![Lijst met gebruikers](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>Registratiekoppeling naar studenten verzenden
 
-1. Schakel over naar de weergave **Dashboard** door in het menu links **Dashboard** te selecteren. 
-2. Selecteer de tegel **Gebruikersregistratie**.
+1. Schakel over naar de weergave **Gebruikers** als u nog niet op die pagina bent. 
+2. Selecteer de tegel **Registratiekoppeling ophalen**.
 
     ![Registratiekoppeling voor studenten](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. Selecteer in het dialoogvenster **Gebruikersregistratie** de knop **Kopiëren**. De koppeling wordt naar het klembord gekopieerd. Plak deze in een e-mailprogramma en verstuur een e-mail naar de student. 
+1. Selecteer in het dialoogvenster **Gebruikersregistratie** de knop **Kopiëren**. De koppeling wordt naar het klembord gekopieerd. 
 
     ![Registratiekoppeling voor studenten](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Selecteer in het dialoogvenster **Gebruikersregistratie** de optie **Sluiten**. 
-3. Deel de registratielink met een student zodat de student zich voor de les kan registreren. 
+4. Deel de registratiekoppeling met een student zodat de student zich voor de les kan registreren. Als u de instelling **Optie beperken** hebt ingeschakeld en een lijst met gebruikers in de lijst hebt, voert u de volgende acties uit:
+    1. Selecteer het **e-mailadres** van de gebruiker in de lijst. 
+    2. U ziet een venster van uw standaard-e-mailprogramma met het **Aan**-adres ingevuld. 
+    3. Plak de **registratie-URL** die u eerder hebt gekopieerd in het bericht. 
+    4. Verzend het **e-mailbericht**.
 
 
 ## <a name="next-steps"></a>Volgende stappen

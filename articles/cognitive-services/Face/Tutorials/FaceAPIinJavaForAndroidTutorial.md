@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686225"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852891"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Zelfstudie: een Android-app maken om gezichten in een afbeelding te herkennen en te omlijsten
 
@@ -92,11 +92,7 @@ Voeg vervolgens boven de methode **onCreate** de volgende code toe aan de klasse
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
 
-U dient `<Subscription Key>` door uw abonnementssleutel te vervangen. Vervang tevens `<API endpoint>` door het eindpunt van de Face-API met behulp van de juiste regio-id voor uw sleutel. Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**. Een voorbeeld van een mogelijk API-eindpunt is:
-
-```java
-apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-```
+U dient `<Subscription Key>` door uw abonnementssleutel te vervangen. Vervang ook `<API endpoint>` door het eindpunt van de Face-API met behulp van de juiste regio-id voor uw sleutel (zie de [documentatie voor de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**.
 
 Vouw in het deelvenster **Project** achtereenvolgens **app**, **manifests** uit en open *AndroidManifest.xml*. Voeg het volgende element in als een direct onderliggend element van het `manifest`-element:
 

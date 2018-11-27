@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a5223b026705cef5abbcd0be6f64cf0c98fd0930
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309022"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283958"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: C# gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
 
-In dit artikel ziet u hoe u de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C# kunt gebruiken om taal te detecteren, sentiment te analyseren en sleuteltermen op te halen. De code is geschreven om te werken met een .Net Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u moet de code ook kunnen gebruiken met Linux of macOS.
+In dit artikel ziet u hoe u de  [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C# gebruikt om taal te detecteren, sentiment te analyseren en sleuteltermen op te halen. De code is geschreven om te werken met een .Net Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u moet de code ook kunnen gebruiken met Linux of macOS.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics-API**. U kunt de **gratis laag voor 5000 transacties/maand** gebruiken om deze snelstart te voltooien.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
 

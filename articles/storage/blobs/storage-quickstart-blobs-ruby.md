@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 88394d7da1aab52b752aee68de60e638d0c7e7f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f6a163b151a6b9066ea58c5834204ed54e51cfc2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992759"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711222"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Ruby
 
@@ -21,18 +21,17 @@ In deze snelstartgids leert u hoe u Ruby kunt gebruiken om blok-bobs te uploaden
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze snelstart: 
-* [Ruby](https://www.ruby-lang.org/en/downloads/) installeren
-* Installeer de [Azure Storage-bibliotheek voor Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) met het pakket rubygem. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+Zorg dat u de volgende aanvullende vereisten hebt geïnstalleerd:
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [Azure Storage-bibliotheek voor Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) met het rubygem-pakket: 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    ```
+    gem install azure-storage-blob
+    ```
+    
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) die in deze snelstartgids wordt gebruikt, is een Ruby-basistoepassing.  
 

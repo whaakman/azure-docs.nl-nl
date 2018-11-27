@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Gegevens van Apache Spark analyseren met Power BI in Azure HDInsight '
-description: Gebruik Microsoft Power BI om Spark-gegevens te visualiseren die zijn opgeslagen in HDInsight-clusters
+description: Gebruik Microsoft Power BI om Apache Spark-gegevens te visualiseren die zijn opgeslagen in HDInsight-clusters
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252459"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712412"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Zelfstudie: Spark-gegevens analyseren met Power BI in HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Zelfstudie: Gegevens van Apache Spark analyseren met Power BI in HDInsight 
 
 Leer hoe u Microsoft Power BI kunt gebruiken om gegevens in een Apache Spark-cluster te analyseren in Azure HDInsight.
 
@@ -78,7 +78,7 @@ De eerste stappen om te werken met Spark zijn verbinding maken met het cluster i
     ![Gegevens van HDInsight Apache Spark overbrengen naar Power BI Desktop](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Gegevens van HDInsight Apache Spark overbrengen naar Power BI Desktop")
 
 
-2. Typ `Spark` in het zoekvak, selecteer **Azure HDInsight Spark (bèta)** en klik vervolgens op **Verbinding maken**.
+2. Typ `Spark` in het zoekvak, selecteer **Azure HDInsight Spark** en klik vervolgens op **Verbinding maken**.
 
     ![Gegevens van Apache Spark BI overbrengen naar Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Gegevens van Apache Spark BI overbrengen naar Power BI")
 

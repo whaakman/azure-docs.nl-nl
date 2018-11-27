@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741025"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706973"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Zelfstudie: Gegevens migreren naar een Azure Cosmos DB MongoDB-API-account
 
@@ -36,13 +36,13 @@ Voordat u gegevens naar het MongoDB-API-account migreert, moet u enkele MongoDB-
 
 1. Maak van tevoren de verzamelingen en schaal deze:
         
-    * Azure Cosmos DB levert standaard een nieuwe MongoDB-verzameling met 1000 aanvraageenheden per seconde. Maak voordat u de migratie start met mongoimport of mongorestore van tevoren alle verzamelingen in [Azure Portal](https://portal.azure.com) of uit de MongoDB-stuurprogramma's en -hulpprogramma's. Als de omvang van uw gegevens groter is dan 10 GB, moet u een [gepartitioneerde verzameling](partition-data.md) met de betreffende shardsleutel maken.
+   * Azure Cosmos DB levert standaard een nieuwe MongoDB-verzameling met 1000 aanvraageenheden per seconde. Maak voordat u de migratie start met mongoimport of mongorestore van tevoren alle verzamelingen in [Azure Portal](https://portal.azure.com) of uit de MongoDB-stuurprogramma's en -hulpprogramma's. Als de omvang van uw gegevens groter is dan 10 GB, moet u een [gepartitioneerde verzameling](partition-data.md) met de betreffende shardsleutel maken. MongoDB beveelt aan om entiteitsgegevens op te slaan in verzamelingen. U kunt entiteiten van vergelijkbare omvang bij elkaar plaatsen en doorvoer inrichten op het niveau van de Azure Cosmos-database.
 
-    * Verhoog vlak voor de migratie in [Azure Portal](https://portal.azure.com) de doorvoer voor uw verzamelingen van 1000 aanvraageenheden per seconde voor één gepartitioneerde verzameling en 2500 aanvraageenheden per seconde voor een gedeelde verzameling. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. U kunt de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
+   * Gebruik de [Azure-portal](https://portal.azure.com) om voor duur van de migratie de doorvoer voor uw verzameling te verhogen van 1000 RU/seconde voor een verzameling met één partitie en 2500 RU/seconde voor een verzameling met sharding. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. U kunt de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
 
-    * Naast het leveren van aanvraageenheden per seconde op het verzamelingsniveau kunt u ook aanvraageenheden per seconde leveren voor een reeks verzamelingen op het bovenliggende databaseniveau. In dat geval moet u van tevoren de database en verzamelingen maken. Daarnaast moet u voor elke verzameling een shardsleutel definiëren.
+   * Naast het leveren van aanvraageenheden per seconde op het verzamelingsniveau kunt u ook aanvraageenheden per seconde leveren voor een reeks verzamelingen op het bovenliggende databaseniveau. In dat geval moet u van tevoren de database en verzamelingen maken. Daarnaast moet u voor elke verzameling een shardsleutel definiëren.
 
-    * U kunt shardverzamelingen maken via uw favoriete hulpprogramma, stuurprogramma of SDK. In dit voorbeeld gebruiken we de Mongo-shell om een shardverzameling te maken:
+   * U kunt shardverzamelingen maken via uw favoriete hulpprogramma, stuurprogramma of SDK. In dit voorbeeld gebruiken we de Mongo-shell om een shardverzameling te maken:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

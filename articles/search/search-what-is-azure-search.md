@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: bf616dda602edff6add5070ad1f1ab85b6a21380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568968"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285132"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.
@@ -91,7 +91,7 @@ Belangrijke pluspunten zijn onder andere:
 
 Onder onze klanten bevinden zich degenen die het breedste scala aan functies in Azure Search gebruiken, onder andere onlinecatalogussen, Line-Of-Business-programma’s en toepassingen voor het ontdekken van documenten.
 
-## <a name="rest-api--net-sdk"></a>REST API | .Net SDK
+## <a name="rest-api--net-sdk"></a>REST API | .NET SDK
 
 Hoewel veel taken in de portal kunnen worden uitgevoerd, is Azure Search bedoelt voor ontwikkelaars die de zoekfunctie willen integreren in bestaande toepassingen. De volgende programmeerinterfaces zijn beschikbaar.
 

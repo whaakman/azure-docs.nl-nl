@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7bfcbf2c72dbe33727097841f34f3f6869e9d2d8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053128"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706463"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Golang en Azure Portal
 
@@ -42,7 +42,7 @@ Met andere woorden, uw Golang-toepassing weet alleen dat deze wordt verbonden me
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) en basiskennis van de [Go](https://golang.org/)-taal.
-- Een IDE: [Gogland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft of [Atom](https://atom.io/). In deze zelfstudie wordt Goglang gebruikt.
+- Een IDE: [Goland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft, of [Atom](https://atom.io/). In deze zelfstudie wordt Goglang gebruikt.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
@@ -65,7 +65,7 @@ Kloon de voorbeeldtoepassing en installeer de vereiste pakketten.
     go get gopkg.in/mgo.v2
     ```
 
-Het [mgo](http://labix.org/mgo)-stuurprogramma (uitgesproken als *mango*) is een [MongoDB](http://www.mongodb.org/)-stuurprogramma voor de [Go-taal](http://golang.org/). Hiermee wordt een uitgebreide en goed geteste reeks functies geïmplementeerd op basis van een heel eenvoudige API die is voorzien van standaard-Go-terminologie.
+Het [mgo](http://labix.org/mgo)-stuurprogramma is een [MongoDB](http://www.mongodb.org/)-stuurprogramma voor de [Go-taal](http://golang.org/). Hiermee wordt een uitgebreide en goed geteste reeks functies geïmplementeerd op basis van een heel eenvoudige API die is voorzien van standaard-Go-terminologie.
 
 <a id="connection-string"></a>
 

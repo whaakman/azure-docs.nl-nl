@@ -9,13 +9,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/26/2018
-ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 11/19/2018
+ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615514"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265259"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
 
@@ -378,7 +378,7 @@ In deze sectie uploadt u de getransformeerde gegevens naar Azure SQL Data Wareho
 
 Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Blob Storage als een tijdelijke opslaglocatie voor het uploaden van gegevens tussen Azure Databricks en Azure SQL Data Warehouse. U begint met het opgeven van de configuratie om verbinding te maken met het opslagaccount. U moet het account al hebben gemaakt als onderdeel van de vereisten voor dit artikel.
 
-1. Geef de configuratie op voor toegang tot het Azure Storage-account vanuit Azure Databricks.
+1. Geef de configuratie op voor toegang tot het Azure Storage-account vanuit Azure Databricks. Als u de URL voor de blob-opslag vanuit de portal kopiëren, moet u *https://* van het begin verwijderen. 
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"

@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222146"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821046"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
 
@@ -63,7 +63,7 @@ Als u gedetailleerde diagnostische gegevens wilt zien, schuift u omlaag in het d
 
 ## <a name="act-on-a-device"></a>Reageren op een apparaat
 
-Om te testen of het gesimuleerde engine-apparaat correct reageert op acties die worden gestart vanuit het dashboard, voert u de **FirmwareUpdate**-methode uit. Als u een apparaat test door een methode uit te voeren, selecteert u het apparaat in de lijst met apparaten en klikt u op **Taken**. U kunt meer dan één apparaat selecteren om te testen. In het deelvenster **Taken** selecteert u **Methode uitvoeren**. Het **Engine**-apparaatmodel werkt met drie methoden: **FirmwareUpdate**, **FillTank** en **EmptyTank**:
+Om te testen of het gesimuleerde engine-apparaat correct reageert op acties die worden gestart vanuit het dashboard, voert u de **FirmwareUpdate**-methode uit. Als u een apparaat test door een methode uit te voeren, selecteert u het apparaat in de lijst met apparaten en klikt u op **Taken**. U kunt meer dan één apparaat selecteren om te testen. In het deelvenster **Taken** selecteert u **Methoden**. Het **Engine**-apparaatmodel werkt met drie methoden: **FirmwareUpdate**, **FillTank** en **EmptyTank**:
 
 [![Engine-methoden](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Als u meerdere apparaten van verschillende typen selecteert op de pagina **Appar
 
 ## <a name="reconfigure-a-device"></a>Een apparaat opnieuw configureren
 
-Als u wilt testen of u configuratie-eigenschappen van het apparaat kunt bijwerken, selecteert u het apparaat in de lijst met apparaten op de pagina **Apparaten**. Klik vervolgens op **Taken** en kies **Opnieuw configureren**. Het deelvenster Taken geeft voor het geselecteerde apparaat de eigenschapswaarden weer die kunnen worden bijgewerkt:
+Als u wilt testen of u configuratie-eigenschappen van het apparaat kunt bijwerken, selecteert u het apparaat in de lijst met apparaten op de pagina **Apparaten**. Klik vervolgens op **Taken** en kies **Eigenschappen**. Het deelvenster Taken geeft voor het geselecteerde apparaat de eigenschapswaarden weer die kunnen worden bijgewerkt:
 
 [![Een apparaat opnieuw configureren](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

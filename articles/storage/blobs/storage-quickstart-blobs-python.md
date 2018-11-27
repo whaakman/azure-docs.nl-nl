@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 3550d9e63288ad0cfb45dc6267f20762d3068b6a
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: dd304bd4a53094605149483c0996cd5f12040a84
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219389"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713177"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snelstart: Blobs downloaden, uploaden en vermelden met behulp van Python
 
@@ -21,13 +21,12 @@ In deze zelfstudie leert u hoe u Python kunt gebruiken om blok-blobs te uploaden
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze snelstart: 
-* Installeer [Python](https://www.python.org/downloads/).
-* Download en installeer [Azure Storage-SDK voor Python](https://github.com/Azure/azure-sdk-for-python). 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Zorg dat u de volgende aanvullende vereisten hebt geïnstalleerd:
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+* [Python](https://www.python.org/downloads/)
+* [Azure Storage SDK voor Python](https://github.com/Azure/azure-sdk-for-python)
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) in deze snelstart is een Python-basistoepassing.  

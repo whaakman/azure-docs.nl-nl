@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913560"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822351"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Gegevensexports instellen en beheren
 
-Als u de zelfstudie over kostenanalyse hebt doorgenomen, bent u al bekend met het handmatig downloaden van gegevens uit Cost Management. U kunt echter ook een dagelijks uitgevoerde taak instellen om uw Cost Management-gegevens automatisch naar uw Azure-opslag te exporteren. De gegevens worden in CSV-indeling geëxporteerd en bevatten alle informatie die door Cost Management is verzameld. U kunt de geëxporteerde gegevens in uw Azure-opslag vervolgens in externe systemen laden en combineren met uw eigen gegevens. Externe systemen waarin de geëxporteerde gegevens kunnen worden gebruikt, zijn bijvoorbeeld dashboards of andere financiële systemen.
+Als u de zelfstudie over kostenanalyse hebt doorgenomen, bent u al bekend met het handmatig downloaden van gegevens uit Cost Management. U kunt echter ook een terugkerende taak instellen om uw Cost Management-gegevens automatisch dagelijks, wekelijks of maandelijks naar uw Azure-opslag te exporteren. De gegevens worden in CSV-indeling geëxporteerd en bevatten alle informatie die door Cost Management is verzameld. U kunt de geëxporteerde gegevens in uw Azure-opslag vervolgens in externe systemen laden en combineren met uw eigen gegevens. Externe systemen waarin de geëxporteerde gegevens kunnen worden gebruikt, zijn bijvoorbeeld dashboards of andere financiële systemen.
 
 De voorbeelden in deze zelfstudie laten u stapsgewijs zien hoe u uw Cost Management-gegevens exporteert en vervolgens controleert of de export is gelukt.
 
@@ -48,11 +48,17 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 Kostenbeheer en facturering &gt; Kostenbeheer &gt; selecteer een abonnement of een resourcegroep in een abonnement &gt; Exporteren &gt; **Toevoegen**.
 
-Typ een naam voor de export en geef het abonnement, het Azure-opslagaccount, de container en de map voor bestandsopslag of de blobcontainer op. Klik vervolgens op **Maken**.
+Typ een naam voor de export en selecteer de optie Dagelijkse export van kosten (maand tot heden)'. Klik op **Volgende**.
 
-![Nieuwe export](./media/tutorial-export-acm-data/new-export01.png)
+![Nieuwe export: exporttype](./media/tutorial-export-acm-data/basics_exports.png)
 
-Uw nieuwe export wordt weergegeven in de lijst met exports. Standaard worden nieuwe exports meteen ingeschakeld en dagelijks uitgevoerd. Als u een geplande export wilt uitschakelen of verwijderen, klikt u op het betreffende item in de lijst en vervolgens op **Uitschakelen** of **Verwijderen**.
+Geef het abonnement voor uw Azure opslagaccount op en selecteer vervolgens uw opslagaccount.  Geef de opslagcontainer en het pad naar de map op waar u het exportbestand wilt opslaan.  Klik op **Volgende**.
+
+![Nieuwe export: opslag](./media/tutorial-export-acm-data/storage_exports.png)
+
+Controleer de details van uw export en klik op **Maken**.
+
+Uw nieuwe export wordt weergegeven in de lijst met exports. Nieuwe exports zijn standaard ingeschakeld. Als u een geplande export wilt uitschakelen of verwijderen, klikt u op het betreffende item in de lijst en vervolgens op **Uitschakelen** of **Verwijderen**.
 
 Het kan één tot twee uur duren voordat de export voor het eerst wordt uitgevoerd. Het kan echter maximaal vier uur duren voordat er in het exportbestand gegevens worden opgenomen.
 

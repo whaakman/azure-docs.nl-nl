@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343755"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283652"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie 1: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning-service
 
@@ -33,7 +33,10 @@ Leer hoe u het volgende doet:
 
 In [deel twee van deze zelfstudie](tutorial-deploy-models-with-aml.md) leert u hoe u een model selecteert en dit implementeert. 
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
+
+>[!NOTE]
+> Code in dit artikel is getest met Azure Machine Learning SDK-versie 0.1.79
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
@@ -42,7 +45,7 @@ Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> In deze zelfstudie is getest met Azure Machine Learning SDK versie 0.168 
+> Deze zelfstudie is getest met Azure Machine Learning-SDK versie 0.1.74 
 
 ## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
 
@@ -93,41 +96,43 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-remote-compute-target"></a>Extern rekendoel maken
 
-Azure Batch AI is een beheerde service waarmee gegevenswetenschappers machine learning-modellen kunnen trainen op clusters met virtuele Azure-machines, inclusief VM's met GPU-ondersteuning.  In deze zelfstudie maakt u een Azure Batch AI-cluster als uw trainingsomgeving. Met deze code wordt een cluster voor u gemaakt als dit niet nog niet bestaat in uw werkruimte. 
+Azure ML Managed Computer is een beheerde service waarmee gegevenswetenschappers machine learning-modellen kunnen trainen op clusters met virtuele Azure-machines, inclusief VM's met GPU-ondersteuning.  In deze zelfstudie maakt u een Azure Managed Computer-cluster als uw trainingsomgeving. Met deze code wordt een cluster voor u gemaakt als dit niet nog niet bestaat in uw werkruimte. 
 
  **Het maken van het cluster duurt ongeveer 5 minuten.** Als het cluster al aanwezig is in de werkruimte, wordt het cluster gebruikt door deze code en wordt er geen nieuw cluster gemaakt.
 
 
 ```python
-from azureml.core.compute import ComputeTarget, BatchAiCompute
-from azureml.core.compute_target import ComputeTargetException
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = "traincluster"
+compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
 
-try:
-    # look for the existing cluster by name
-    compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if type(compute_target) is BatchAiCompute:
-        print('found compute target {}, just use it.'.format(batchai_cluster_name))
-    else:
-        print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
-except ComputeTargetException:
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
     print('creating a new compute target...')
-    compute_config = BatchAiCompute.provisioning_configuration(vm_size="STANDARD_D2_V2", # small CPU-based VM
-                                                                #vm_priority='lowpriority', # optional
-                                                                autoscale_enabled=True,
-                                                                cluster_min_nodes=0, 
-                                                                cluster_max_nodes=4)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it uses the scale settings for the cluster
+    # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-    # Use the 'status' property to get a detailed status for the current cluster. 
+     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -143,7 +148,7 @@ Voordat u een model gaat trainen, is het belangrijk dat u de gegevens begrijpt d
 
 ### <a name="download-the-mnist-dataset"></a>De MNIST-gegevensset downloaden
 
-Download de MNIST-gegevensset en sla de bestanden op in een lokale map `data`.  Er worden afbeeldingen en labels gedownload voor trainings- en testdoeleinden.  
+Download de MNIST-gegevensset en sla de bestanden op in een lokale map `data`.  Er worden afbeeldingen en labels gedownload voor trainings- en testdoeleinden.
 
 
 ```python
@@ -160,7 +165,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Enkele voorbeeldafbeeldingen weergeven
 
-Laad de gecomprimeerde bestanden in `numpy`-matrices. Gebruik vervolgens `matplotlib` om 30 willekeurige afbeeldingen uit de gegevensset te tekenen, met de bijbehorende labels erboven. Voor deze stap hebt u een functie `load_data` nodig die opgenomen in het bestand `util.py`. Dit bestand staat in de map met voorbeelden. Zorg ervoor dat u het bestand in de map met dit notebook zet. De functie `load_data` parseert de gecomprimeerde bestanden in numpy-matrices.
+Laad de gecomprimeerde bestanden in `numpy`-matrices. Gebruik vervolgens `matplotlib` om 30 willekeurige afbeeldingen uit de gegevensset te tekenen, met de bijbehorende labels erboven. Voor deze stap hebt u een functie `load_data` nodig die is opgenomen in een bestand `util.py`. Dit bestand staat in de map met voorbeelden. Zorg ervoor dat u het bestand in de map met dit notebook zet. De functie `load_data` parseert de gecomprimeerde bestanden simpelweg in numpy-matrices.
 
 
 
@@ -209,9 +214,9 @@ ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=T
 ```
 U hebt nu alles wat u nodig hebt om een model te gaan trainen. 
 
-## <a name="train-a-model-locally"></a>Een model lokaal trainen
+## <a name="train-a-local-model"></a>Een lokaal model trainen
 
-U gaat een eenvoudig logistiek regressiemodel lokaal trainen vanuit scikit-learn.
+U gaat een eenvoudig logistiek regressiemodel lokaal trainen met scikit-learn.
 
 **Lokaal trainen duurt een minuut of twee**, afhankelijk van de configuratie van uw computer.
 
@@ -243,7 +248,7 @@ U kunt dit eenvoudige model uitbreiden door een model met een andere regularisat
 Voor deze taak verstuurt u de taak naar het cluster voor externe training dat u eerder hebt ingesteld.  Om een taak te verzenden, moet u het volgende doen:
 * Een map maken
 * Een trainingsscript maken
-* Een estimator maken
+* Een estimator-object maken
 * De taak verzenden 
 
 ### <a name="create-a-directory"></a>Een map maken
@@ -314,11 +319,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 U ziet hoe met het script gegevens worden opgehaald en modellen worden opgeslagen:
 
-+ Het trainingsscript leest een argument om de map met de gegevens te vinden.  Als u de taak later verstuurt, wijst u naar het gegevensarchief voor dit argument: `parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')`
-
++ Het trainingsscript leest een argument om de map met de gegevens te vinden.  Als u de taak later verstuurt, wijst u naar het gegevensarchief voor dit argument: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
     
 + Het trainingsscript slaat uw model op in een map met de naam outputs. <br/>
-`joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')`<br/>
+`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Alles gegevens die naar deze map worden geschreven, worden automatisch geüpload naar uw werkruimte. Verderop in de zelfstudie gaat u dit model openen vanuit deze map.
 
 Vanuit het trainingsscript wordt verwezen naar het bestand `utils.py` om de gegevensset juist te laden.  Kopieer dit script naar de map script, zodat het samen met het trainingsscript vanaf de externe resource kan worden geopend.
@@ -341,7 +345,7 @@ Er wordt een estimator-object gebruikt om de run te verzenden.  Maak de estimato
 * Vereiste parameters uit het trainingsscript 
 * Python-pakketten die nodig zijn voor training
 
-In deze zelfstudie is dit doel het Batch AI-cluster. Alle bestanden in de projectmap worden naar de clusterknooppunten geüpload voor uitvoering. De data_folder is ingesteld voor gebruik van het gegevensarchief (`ds.as_mount()`).
+In deze zelfstudie is dit doel het Batch AI-cluster. Alle bestanden in de scriptmap worden naar de clusterknooppunten geüpload om te worden uitgevoerd. De data_folder is ingesteld voor gebruik van het gegevensarchief (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -395,7 +399,7 @@ U kunt de voortgang van de rum volgen met een Jupyter-widget.  Net als het indie
 
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
@@ -423,7 +427,7 @@ De uitvoer laat zien dat het externe model een nauwkeurigheid heeft die iets hog
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
-In de zelfstudie over implementatie wordt dit model in meer detail besproken.
+In de volgende zelfstudie wordt dit model in meer detail besproken.
 
 ## <a name="register-model"></a>Model registreren
 

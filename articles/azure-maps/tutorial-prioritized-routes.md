@@ -3,18 +3,18 @@ title: Meerdere routes met Azure Maps | Microsoft Docs
 description: Routes vinden voor verschillende manieren van reizen met Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 67b68489f2e06b9149f842f293a769fa7f688be0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412700"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705274"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Routes vinden voor verschillende manieren van reizen met Azure Maps
 
@@ -84,7 +84,7 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesl
     
     U ziet dat de HTML-header de CSS- en JavaScript-bronbestanden bevat, gehost door de Azure Map Control-bibliotheek. Let op de gebeurtenis `onload` in het hoofdtekstgedeelte van de pagina. Deze zorgt ervoor dat de functie `GetMap` wordt aangeroepen nadat het hoofdtekstgedeelte van de pagina is geladen. Deze functie bevat de inline JavaScript-code voor toegang tot de API's van Azure Maps.
 
-3. Voeg de volgende JavaScript-code toe aan de functie `GetMap`. Vervang de tekenreeks **\<Your Azure Maps Key\>** door de primaire sleutel die u hebt gekopieerd uit uw Maps-account.
+3. Voeg de volgende JavaScript-code toe aan de functie `GetMap`. Vervang de tekenreeks **\<Your Azure Maps Key\>** door de primaire sleutel die u hebt gekopieerd in uw Maps-account.
 
     ```JavaScript
     //Add your Azure Maps subscription key to the map SDK. 
@@ -178,7 +178,7 @@ In deze zelfstudie worden twee routes berekend en weergegeven op de kaart. Eén 
     
     Deze code maakt twee [GeoJSON-objecten](https://en.wikipedia.org/wiki/GeoJSON) die de begin- en eindpunten van de route vertegenwoordigen. Aan elk punt wordt een eigenschap `title` en `icon` toegevoegd.
 
-3. Voeg nu de volgende JavaScript-code toe om de spelden voor de begin- en eindpunten aan de kaart toe te voegen:
+3. Voeg nu de volgende JavaScript-code toe om de spelden voor de begin- en eindpunten toe te voegen aan de kaart:
 
     ```JavaScript
     //Add the data to the data source.
@@ -191,7 +191,7 @@ In deze zelfstudie worden twee routes berekend en weergegeven op de kaart. Eén 
     });
     ```
     
-    De begin- en eindpunten worden aan de gegevensbron toegevoegd. Het begrenzingsvak voor de begin- en eindpunten wordt berekend met behulp van de functie `atlas.data.BoundingBox.fromData`. Dit begrenzingsvak wordt gebruikt om de cameraweergave van de kaart met behulp van de functie `map.setCamera` in te stellen op het begin- en eindpunt. Er wordt opvulling toegevoegd om de grootte van de pixels in de symboolpictogrammen te compenseren.
+    De begin- en eindpunten worden toegevoegd aan de gegevensbron. Het begrenzingsvak voor de begin- en eindpunten wordt berekend met behulp van de functie `atlas.data.BoundingBox.fromData`. Dit begrenzingsvak wordt gebruikt om de cameraweergave van de kaart met behulp van de functie `map.setCamera` in te stellen op het begin- en eindpunt. Er wordt opvulling toegevoegd om de grootte van de pixels in de symboolpictogrammen te compenseren.
 
 4. Sla het bestand op en vernieuw de browser. De spelden worden weergegeven op de kaart. De kaart is nu gecentreerd op Seattle en u ziet de ronde blauwe speld die het beginpunt aangeeft en de blauwe speld die het eindpunt aangeeft.
 
@@ -291,12 +291,7 @@ De voorbeeldcode voor deze zelfstudie vindt u hier:
 
 [Het livevoorbeeld ziet u hier](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-Voor meer informatie over de dekking en de mogelijkheden van Azure Maps:
+In de volgende zelfstudie ziet u het proces voor het maken van een eenvoudige winkellocator met behulp van Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Zoomniveaus en tegelraster](zoom-levels-and-tile-grid.md)
-
-Voor meer voorbeelden van code en interactieve codering:
-
-> [!div class="nextstepaction"]
-> [Map Control gebruiken](how-to-use-map-control.md)
+> [Een winkellocator maken met behulp van Azure Maps](./tutorial-create-store-locator.md)

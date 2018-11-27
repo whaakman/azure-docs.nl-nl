@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683998"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853146"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Snelstart: een Python-script maken om gezichten in een afbeelding te herkennen en te omlijsten
 
@@ -35,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="detect-faces-in-an-image"></a>Gezichten in een afbeelding detecteren
 
-Maak een nieuw Python-script: _FaceQuickstart.py_. Voeg de volgende code toe. Dit is de kernfunctionaliteit van gezichtsdetectie. U dient `<Subscription Key>` te vervangen door de waarde van de sleutel. Mogelijk dient u ook de waarde van `BASE_URL` te wijzigen, zodat u de juiste regio-id voor uw sleutel kunt gebruiken. Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**. U kunt `img_url` eventueel instellen op een afbeelding die u wilt gebruiken.
+Maak een nieuw Python-script: _FaceQuickstart.py_. Voeg de volgende code toe. Dit is de kernfunctionaliteit van gezichtsdetectie. U dient `<Subscription Key>` te vervangen door de waarde van de sleutel. Mogelijk moet u ook de waarde van `BASE_URL` wijzigen om de juiste regio-id voor uw sleutel te gebruiken (zie de [documentatie bij de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst van alle regio-eindpunten). Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westus**. U kunt `img_url` eventueel instellen op een afbeelding die u wilt gebruiken.
 
 Met het script worden gezichten gedetecteerd door het aanroepen van de methode **cognitive_face.face.detect**. Hiermee wordt de [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)-REST API verpakt en een lijst met gezichten geretourneerd.
 

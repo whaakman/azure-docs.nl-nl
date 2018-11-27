@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1481c32512266f494c03f9ffdc1ce67ef503b4a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255197"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263312"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure PowerShell
 
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>VM's maken van de installatiekopie
 
-Nu u een installatiekopie hebt gemaakt, kunt u een of meer nieuwe VM's van de installatiekopie maken met behulp. Het maken van een VM op basis van een aangepaste installatiekopie is vergelijkbaar met het maken van een VM met behulp van een Marketplace-installatiekopie. Wanneer u een Marketplace-installatiekopie gebruikt, hebt u de informatie over de installatiekopie, de leverancier van de installatiekopie, de aanbieding, de SKU en de versie. Met de vereenvoudigde parameterset voor de cmdlet [New-AzureRMVM]() hoeft u alleen de naam op te geven van de aangepaste installatiekopie, zolang deze zich in dezelfde resourcegroep bevindt. 
+Nu u een installatiekopie hebt gemaakt, kunt u een of meer nieuwe VM's van de installatiekopie maken met behulp. Het maken van een VM op basis van een aangepaste installatiekopie is vergelijkbaar met het maken van een VM met behulp van een Marketplace-installatiekopie. Wanneer u een Marketplace-installatiekopie gebruikt, hebt u de informatie over de installatiekopie, de leverancier van de installatiekopie, de aanbieding, de SKU en de versie. Met de vereenvoudigde parameterset voor de cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) hoeft u alleen de naam op te geven van de aangepaste installatiekopie, zolang deze zich in dezelfde resourcegroep bevindt. 
 
 In dit voorbeeld wordt een VM met de naam *myVMfromImage* gemaakt van een installatiekopie met de naam *myImage* in *myResourceGroup*.
 
@@ -130,11 +130,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Een installatiekopie verwijderen. In dit voorbeeld wordt de installatiekopie met de naam *myOldImage* verwijderd uit de *myResourceGroup*.
+Een installatiekopie verwijderen. In dit voorbeeld wordt de installatiekopie met de naam *myImage* verwijderd uit *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```
 
