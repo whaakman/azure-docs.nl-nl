@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: eb5cf5c6eb210e8bd26c7c074ef6f499e5d4c83d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740745"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712259"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Quickstart: De Azure Data Box Disk implementeren met de Azure-portal (preview)
 
@@ -31,11 +31,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Voordat u begint:
 
-- Zorg ervoor dat uw abonnement is ingeschakeld voor de Azure Data Box-service. [Registreer u voor de service](http://aka.ms/azuredataboxfromdiskdocs) om uw abonnement in te schakelen voor deze service.
+- Zorg ervoor dat uw abonnement is ingeschakeld voor de Azure Data Box-service. [Registreer u voor de service](https://aka.ms/azuredataboxfromdiskdocs) om uw abonnement in te schakelen voor deze service.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Meld u aan bij de Azure Portal op [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Bestellen
 
@@ -67,7 +67,7 @@ Deze stap neemt ongeveer 5 minuten in beslag.
 
     1. Ga in de Azure-portal naar **Algemeen > Apparaatdetails** en haal de wachtwoordsleutel op.
     2. Download en extraheer het Data Box Disk-ontgrendelingsprogramma voor het specifieke besturingssysteem op de computer die wordt gebruikt om de gegevens naar schijven te kopiëren. 
-    3. Voer het Data Box Disk-ontgrendelingsprogramma uit en geef de wachtwoordsleutel op. Voor elke schijf die opnieuw wordt geplaatst, voert u het ontgrendelingshulpprogramma opnieuw uit en geeft de wachtwoordsleutel op. **Gebruik niet het BitLocker-dialoogvenster of de BitLocker-sleutel voor het ontgrendelen van de schijf.** Ga naar [Schijven ontgrendelen op een Windows-client]() of [Schijven ontgrendelen op een Linux-client]() voor meer informatie over het ontgrendelen van schijven.
+    3. Voer het Data Box Disk-ontgrendelingsprogramma uit en geef de wachtwoordsleutel op. Voor elke schijf die opnieuw wordt geplaatst, voert u het ontgrendelingshulpprogramma opnieuw uit en geeft de wachtwoordsleutel op. **Gebruik niet het BitLocker-dialoogvenster of de BitLocker-sleutel voor het ontgrendelen van de schijf.** Ga naar [Schijven ontgrendelen op een Windows-client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) of [Schijven ontgrendelen op een Linux-client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client) voor meer informatie over het ontgrendelen van schijven.
     4. De stationsletter die is toegewezen aan de schijf wordt weergegeven in het hulpprogramma. Noteer de letter van het schijfstation. Deze wordt in de volgende stappen gebruikt.
 
 ## <a name="copy-data-and-validate"></a>Gegevens kopiëren en valideren
@@ -85,7 +85,6 @@ De duur van deze bewerking hangt af van de hoeveelheid gegevens.
 2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam om de `DataBoxDiskValidation.cmd` in de map *DataBoxDiskImport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
 3. Ontkoppel de schijf. 
 
-
 ## <a name="ship-to-azure"></a>Verzenden naar Azure
 
 Deze stap neemt ongeveer 5 tot 7 minuten in beslag.
@@ -94,7 +93,6 @@ Deze stap neemt ongeveer 5 tot 7 minuten in beslag.
 2. Lever het verzegelde pakket in bij een vestiging van de verzender.  
 
 De Data Box Disk-service verzendt een melding via e-mail en werkt de orderstatus bij in de Azure-portal.
-
 
 ## <a name="verify-your-data"></a>Uw gegevens verifiëren
 
@@ -126,5 +124,3 @@ In deze quickstart hebt u Azure Data Box Disk geïmplementeerd om u te helpen uw
 
 > [!div class="nextstepaction"]
 > [De Azure-portal gebruiken om Data Box Disk te beheren](data-box-portal-ui-admin.md)
-
-
