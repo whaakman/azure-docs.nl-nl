@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 39aeef8b8c88737a7e50f7dc1db5e874279176c0
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8495d003113b2ba607dada7b8f5624d8281d3583
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784652"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284401"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Snelstart: Ruby gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
 
-In dit artikel ziet u hoe u de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met Ruby kunt gebruiken om [taal te detecteren](#Detect), [sentiment te analyseren](#SentimentAnalysis), [sleuteltermen op te halen](#KeyPhraseExtraction) en [gekoppelde entiteiten te identificeren](#Entities).
+In dit artikel ziet u hoe u de  [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711)  met Ruby kunt gebruiken om [taal te detecteren](#Detect), [sentiment te analyseren](#SentimentAnalysis), [sleuteltermen op te halen](#KeyPhraseExtraction) en [gekoppelde entiteiten te identificeren](#Entities).
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics-API**. U kunt de **gratis laag voor 5000 transacties/maand** gebruiken om deze snelstart te voltooien.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
 

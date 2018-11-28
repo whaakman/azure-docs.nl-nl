@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393709"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854098"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Zelfstudie: gegevens visualiseren van Azure Data Explorer in Power BI
 
@@ -36,9 +36,9 @@ Naast Azure- en Power BI-abonnementen hebt u ook het volgende nodig om deze zelf
 
 * [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
 
-* [De StormEvents-voorbeeldgegevens](ingest-sample-data.md)
+* [De StormEvents-voorbeeldgegevens](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klik op **GRATIS DOWNLOADEN**)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (selecteer **GRATIS DOWNLOADEN**)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Visuele elementen genereren in Azure Data Explorer
 
@@ -82,17 +82,17 @@ Het is nu tijd om naar Power BI te kijken, maar u kunt nog veel meer doen met vi
 
 U maakt nu verbinding met Azure Data Explorer in Power BI Desktop.
 
-1. Selecteer in Power BI Desktop **Gegevens ophalen** en vervolgens **Meer**.
+1. Ga in Power BI Desktop naar het tabblad **Start**, selecteer de optie **Gegevens ophalen** en vervolgens **Meer**.
 
     ![Gegevens ophalen](media/visualize-power-bi/get-data-more.png)
 
-1. Zoek naar *Kusto*, selecteer **Azure Kusto (Beta)** en kies daarna **Verbinding maken**.
+1. Zoek naar *Azure Data Explorer*, selecteer **Azure Data Explorer (bèta)** en vervolgens **Verbinding maken**.
 
     ![Gegevens zoeken en ophalen](media/visualize-power-bi/search-get-data.png)
 
 1. Selecteer in het scherm **Preview-connector** de opties **Doorgaan**.
 
-1. Voer in het scherm **Kusto** de naam van uw testcluster en database in. Clusters moeten de vorm `https://<ClusterName>.<Region>.kusto.windows.net` hebben. Voer als naam van de tabel *StormEvents* in. Laat voor alle andere opties de standaardwaarden staan en selecteer **OK**.
+1. Voer in het volgende scherm de naam van uw testcluster en database in. Clusters moeten de vorm `https://<ClusterName>.<Region>.kusto.windows.net` hebben. Voer als naam van de tabel *StormEvents* in. Laat voor alle andere opties de standaardwaarden staan en selecteer **OK**.
 
     ![Cluster-, database-, tabelopties](media/visualize-power-bi/cluster-database-table.png)
 

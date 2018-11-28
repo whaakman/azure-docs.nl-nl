@@ -16,17 +16,18 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e5377078010e899c41b27ef0ea5248ff4a09df8e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 545ec1d4f5cd817b1fa02a135d305b997c9945bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301782"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705392"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect in Microsoft Cloud Duitsland - Openbare preview
 ## <a name="introduction"></a>Inleiding
 Azure AD Connect voorziet in synchronisatie tussen uw on-premises Active Directory en Azure Active Directory.
-Op dit moment moeten veel van de scenario's in [Microsoft Cloud Duitsland](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) worden uitgevoerd door de operator. Wanneer u Microsoft Cloud Duitsland gebruikt, moet u zich van de volgende zaken bewust zijn:
+Op dit moment moeten veel van de scenario's in [Microsoft Cloud Duitsland](https://azure.microsoft.com/global-infrastructure/germany/
+) worden uitgevoerd door de operator. Wanneer u Microsoft Cloud Duitsland gebruikt, moet u rekening houden met de volgende informatie:
 
 * De volgende URL's moeten via een proxyserver worden geopend als u wilt dat de synchronisatie succesvol verloopt:
   
@@ -40,13 +41,13 @@ Op dit moment moeten veel van de scenario's in [Microsoft Cloud Duitsland](https
 U kunt Azure AD Connect downloaden via de Azure AD Connect-blade in de portal.  Volg de onderstaande instructies om de Azure AD Connect-blade te vinden.
 
 ### <a name="the-azure-ad-connect-blade"></a>De Azure AD Connect-blade
-Wanneer u zich bij Azure Portal hebt aangemeld, doet u het volgende:
+Zodra u bent aangemeld bij de Azure-portal:
 
 1. Ga naar Bladeren
 2. Selecteer Azure Active Directory
 3. Selecteer vervolgens Azure AD Connect
 
-U ziet nu het volgende:
+U ziet deze details:
 
 ![De Azure AD Connect-blade](./media/reference-connect-germany/germany1.png)
 
@@ -62,5 +63,5 @@ In de volgende tabel staan welke functies worden weergegeven in de blade.
 Als u Azure AD Connect wilt installeren, kunt u [deze](how-to-connect-install-roadmap.md) documentatie gebruiken.
 
 ## <a name="advanced-features-and-additional-information"></a>Geavanceerde functies en aanvullende informatie
-Zie [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md) voor meer informatie en tips over aangepaste instellingen en geavanceerde configuraties.  Deze pagina bevat informatie over en koppelingen naar aanvullende richtlijnen.
+Ga naar [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md) voor aanvullende informatie over aangepaste instellingen of geavanceerde configuraties. Deze pagina bevat informatie over en koppelingen naar aanvullende richtlijnen.
 

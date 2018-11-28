@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003744"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852194"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Kiezen tussen Azure-services die berichten bezorgen
 
@@ -54,6 +54,8 @@ Een bericht bestaat uit onbewerkte gegevens die zijn geproduceerd door een servi
 Event Grid is een gebeurtenisbackplane die gebeurtenisafhankelijke en reactieve programmering mogelijk maakt. Hiervoor wordt een Publiceren-Abonneren-model gebruikt. Uitgevers verzenden gebeurtenissen, maar hebben geen verwachting over welke gebeurtenissen worden afgehandeld. Abonnees bepalen welke gebeurtenissen ze willen afhandelen.
 
 Event Grid is in grote mate geïntegreerd met Azure-services en kan worden geïntegreerd met services van derden. Het vereenvoudigt het verbruik van gebeurtenissen en verlaagt de kosten omdat constante polling niet nodig is. Event Grid routeert op efficiënte en betrouwbare wijze gebeurtenissen van Azure- en niet-Azure-resources. Het distribueert gebeurtenissen aan eindpunten van geregistreerde abonnees. Het gebeurtenisbericht bevat de informatie die u nodig hebt om te reageren op wijzigingen in services en toepassingen. Event Grid is geen gegevenspijplijn en levert niet het werkelijke object dat is bijgewerkt.
+
+Event Grid biedt ondersteuning voor plaatsing in wachtrij voor onbestelbare berichten voor gebeurtenissen die niet zijn bezorgd bij een eindpunt.
 
 Het heeft de volgende kenmerken:
 

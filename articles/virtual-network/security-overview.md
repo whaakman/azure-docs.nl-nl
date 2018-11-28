@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 6501444aacd36c794c8a169a8d1b16898efad018
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159074"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977247"
 ---
 # <a name="security-groups"></a>Beveiligingsgroepen
 <a name="network-security-groups"></a>
@@ -206,7 +206,7 @@ Voor uitgaand verkeer worden eerst de regels verwerkt in een netwerkbeveiligings
 U kunt eenvoudig de cumulatieve regels bekijken die op een netwerkinterface worden toegepast door de [effectieve beveiligingsregels](virtual-network-network-interface.md#view-effective-security-rules) voor een netwerkinterface te bekijken. U kunt ook de functie [IP-stroom controleren](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher gebruiken om te bepalen of de communicatie van of naar een netwerkinterface is toegestaan. IP-stroom controleren geeft aan of communicatie is toegestaan en welke netwerkbeveiligingsregel verkeer toestaat of weigert.
 
 > [!NOTE]
-> Netwerkbeveiligingsgroepen worden gekoppeld aan subnetten of aan virtuele machines en cloudservices die het klassieke implementatiemodel implementeren, in plaats van aan netwerkinterfaces in het Resource Manager-implementatiemodel. Zie [Over Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over Azure-implementatiemodellen.
+> Netwerkbeveiligingsgroepen worden gekoppeld aan subnetten of aan virtuele machines en cloudservices die zijn geïmplementeerd in het klassieke implementatiemodel, in plaats van aan netwerkinterfaces in het Resource Manager-implementatiemodel. Zie [Over Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over Azure-implementatiemodellen.
 
 > [!TIP]
 > Het wordt aangeraden een netwerkbeveiligingsgroep aan hetzij een subnet, hetzij een netwerkinterface te koppelen, tenzij u een bepaalde reden hebt om ze aan beide te koppelen. Aangezien regels in een netwerkbeveiligingsgroep die aan een subnet is gekoppeld, kunnen conflicteren met regels in een netwerkbeveiligingsgroep die aan een netwerkinterface is gekoppeld, kunnen er onverwachte communicatieproblemen optreden waarvoor een probleemoplossing dient te worden uitgevoerd.

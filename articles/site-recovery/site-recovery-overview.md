@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b03681e6205b7db24960c99a87a3c84c213884d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: dbd4b1cc7c1ec2a6d612020a99367138cada24a8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240287"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161008"
 ---
 # <a name="about-site-recovery"></a>Site Recovery
 
@@ -56,7 +56,7 @@ Met Site Recovery kunt u replicatie beheren voor:
 
 **Ondersteund** | **Details**
 --- | ---
-**Replicatiescenario's** | Repliceer VM's van de ene Azure-regio naar de andere.<br/><br/>  Repliceer on-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux), Azure4 Stack-VM's naar Azure.<br/><br/> Repliceer on-premises VMware-VM’s, Hyper-V-VM’s die worden beheerd met System Center VMM, en fysieke servers naar een secundaire site.
+**Replicatiescenario's** | Repliceer VM's van de ene Azure-regio naar de andere.<br/><br/>  Repliceer on-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux), Azure Stack-VM's naar Azure.<br/><br/> Repliceer on-premises VMware-VM’s, Hyper-V-VM’s die worden beheerd met System Center VMM, en fysieke servers naar een secundaire site.
 **Regio's** | Bekijk [ondersteunde regio's](https://azure.microsoft.com/regions/services/) voor Site Recovery. |
 **Gerepliceerde machines** | Lees de replicatievereisten voor [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)-replicatie, [on-premises virtuele VMware-machines en fysieke servers](vmware-physical-azure-support-matrix.md#replicated-machines), en [on-premises virtuele Hyper-V-machines](hyper-v-azure-support-matrix.md#replicated-vms).
 **Workloads** | U kunt iedere workload repliceren die wordt uitgevoerd op een computer waarvoor replicatie wordt ondersteund. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).

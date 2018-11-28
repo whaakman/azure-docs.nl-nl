@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.date: 11/21/2018
+ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426886"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284741"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Zelfstudie: Een classificatiemodel trainen met geautomatiseerde machine learning in Azure Machine Learning-service
 
@@ -34,7 +34,10 @@ U leert het volgende:
 > * Trainingsresultaten bekijken
 > * Het beste model registreren
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
+
+>[!NOTE]
+> Code in dit artikel is getest met Azure Machine Learning SDK-versie 0.1.79
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
@@ -214,7 +217,7 @@ Bekijk de resultaten van het experiment met een Jupyter-widget of door de geschi
 Gebruik de widget Jupyter Notebook om een grafiek en een tabel met alle resultaten te bekijken.
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 

@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: afee50db98b361b11371e9ac382060e200a1f62f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 928339a245525933ae142a5d73137ce699cf1f7c
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688236"
+ms.locfileid: "51712327"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met Azure Linux Virtual Machine in .NET
 
 Azure Key Vault helpt u bij het beveiligen van geheimen zoals API-sleutels, databaseverbindingsreeksen die nodig zijn voor toegang tot uw toepassingen, services en IT-resources.
 
-In deze zelfstudie voert u de stappen uit die nodig zijn om een Azure-webtoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Deze zelfstudie is gebaseerd op [Azure Web Apps](../app-service/app-service-web-overview.md). Hieronder leert u:
+In deze zelfstudie voert u de stappen uit die nodig zijn om een consoletoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Deze zelfstudie is gebaseerd op [Azure Web Apps](../app-service/app-service-web-overview.md). Hieronder leert u:
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
@@ -259,8 +259,7 @@ Wijzig vervolgens het klassebestand met de volgende code. Dit proces omvat twee 
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];   
                 token = ojObject.Value.ToString();
             }
             return token;

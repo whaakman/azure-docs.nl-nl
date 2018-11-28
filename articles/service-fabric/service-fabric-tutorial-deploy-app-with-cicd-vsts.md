@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380145"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853726"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Zelfstudie: Een toepassing met CI/CD implementeren in een Service Fabric-cluster
 
@@ -94,23 +94,23 @@ Een release-pijplijn van Azure DevOps beschrijft een werkstroom waarmee een toep
 
 Open een webbrowser en ga naar uw nieuwe project op: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Selecteer het tabblad **Build and release**, vervolgens **Builds** en klik daarna op **New Pipeline**.
+Selecteer het tabblad **Pijplijnen**, vervolgens **Builds** en klik daarna op **Nieuwe pijplijn**.
 
 ![Nieuwe pijplijn][new-pipeline]
 
-Selecteer **Azure DevOps Git** als de bron, **Voting** project, **Voting** Repository en **master** Standaardvertakking of handmatige en geplande builds.  Klik vervolgens op **Doorgaan**.
+Selecteer **Azure Repos Git** als de bron, **Voting** Team project, **Voting** Repository en **master** standaardbranch voor handmatige en geplande builds.  Klik vervolgens op **Doorgaan**.
+
+![Opslagplaats selecteren][select-repo]
 
 Selecteer in **Select a template** de sjabloon **Azure Service Fabric Application** en klik op **Apply**.
 
 ![Build-sjabloon kiezen][select-build-template]
 
-Voer in **Tasks** Hosted VS2017 in als de **Agent queue**.
+Voer in **Taken** Hosted VS2017 in als de **Agentgroep**.
 
 ![Taken selecteren][save-and-queue]
 
-Schakel onder **Triggers** continue integratie in door **Enable continuous integration** in te schakelen. Binnen **Vertakkingsfilters** klikt u op **+ Toevoegen**, en de **Vertakkingsspecificatie** wordt standaard op **master** ingesteld. Selecteer **Save and queue** om handmatig een build te starten.
-
-In het dialoogvenster **Save build pipeline and queue** klikt u op **Save & queue**.
+Schakel onder **Triggers** continue integratie in door **Enable continuous integration** in te schakelen. Binnen **Branchfilters** zijn de standaardwaarden voor **Branchspecificatie** ingesteld op **master**. Selecteer **Save and queue** om handmatig een build te starten.
 
 ![Triggers selecteren][save-and-queue2]
 
@@ -118,7 +118,7 @@ Hiermee worden ook triggers gebouwd na pushen of inchecken. Als u de voortgang v
 
 ### <a name="create-a-release-pipeline"></a>Een release-pijplijn maken
 
-Selecteer het tabblad **Build & Release**, vervolgens **Releases** en **+ New pipeline**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Deployment** in de lijst en vervolgens **Apply**.
+Selecteer het tabblad **Pijplijnen**, vervolgens **Releases** en daarna **+ Nieuwe pijplijn**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Deployment** in de lijst en vervolgens **Apply**.
 
 ![Release-sjabloon kiezen][select-release-template]
 
@@ -198,6 +198,7 @@ Ga door naar de volgende zelfstudie:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

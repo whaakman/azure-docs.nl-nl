@@ -6,14 +6,14 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: ea94a4e537a46ac8287e4454a2cfd10c59db590b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 43db4ca12fbdf8ee637ca86e1a90cc3baf4ec572
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416865"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713279"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Snelstart: Blobs uploaden, downloaden en vermelden met behulp van de Java Storage SDK V10
 
@@ -21,14 +21,12 @@ In deze snelstart leert u hoe u de nieuwe Java Storage SDK kunt gebruiken om blo
 
 ## <a name="prerequisites"></a>Vereisten
 
-Installeer en configureer deze applicaties:
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-* [ Maven ](http://maven.apache.org/download.cgi) om te werken vanaf de opdrachtregel of de Java-geïntegreerde ontwikkelomgeving van uw voorkeur
+Zorg dat u de volgende aanvullende vereisten hebt geïnstalleerd:
+
+* [Maven](http://maven.apache.org/download.cgi) om te werken vanaf de opdrachtregel of een Java integrated development environment van uw voorkeur.
 * [JDK](https://aka.ms/azure-jdks)
-
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 

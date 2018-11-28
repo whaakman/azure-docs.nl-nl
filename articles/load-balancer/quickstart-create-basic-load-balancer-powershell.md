@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: c675b6d50cf6bf5c4e7ea064f3741cae7a091946
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578310"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974815"
 ---
 # <a name="get-started"></a>Snelstart: Een openbare load balancer maken met behulp van Azure PowerShell
 In deze snelstart vindt u meer informatie over het maken van een Basic Load Balancer met behulp Azure PowerShell. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Windows-server wordt uitgevoerd en waarbij de taken van een webapp gelijkelijk over de VM's worden verdeeld.
@@ -44,7 +44,7 @@ Om toegang te krijgen tot uw app op internet, hebt u een openbaar IP-adres nodig
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## <a name="create-basic-load-balancer"></a>Load balancer van het type Basic maken
@@ -251,7 +251,7 @@ Stel een beheerdersnaam en -wachtwoord voor de VM’s in met [Get-Credential](ht
 $cred = Get-Credential
 ```
 
-Nu kunt u de VM’s maken met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). In het volgende voorbeeld worden twee VM's en de vereiste virtuele netwerkonderdelen gemaakt als deze nog niet bestaan:
+Nu kunt u de VM’s maken met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). In het volgende voorbeeld worden twee VM's en de vereiste onderdelen van het virtuele netwerk gemaakt als deze nog niet bestaan. Tijdens het onderstaande voorbeeld van het maken van een VM worden de eerder gemaakte NIC’s gekoppeld aan de VM’s, omdat hieraan hetzelfde virtuele netwerk (*myVnet*) en hetzelfde subnet (*mySubnet*) zijn toegewezen:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

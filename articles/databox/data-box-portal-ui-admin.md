@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091677"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974986"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>De Azure-portal gebruiken om uw Data Box Disk te beheren (preview)
 
@@ -129,7 +129,7 @@ Voer de volgende stappen uit om meldingsdetails te bewerken.
 |Verwerkt     | De order is verwerkt. <br> Tijdens de orderverwerking vinden de volgende acties plaats:<li>Schijven worden versleuteld met AES-128 BitLocker-versleuteling. </li> <li>De Data Box Disks worden vergrendeld om onbevoegde toegang te voorkomen.</li><li>De wachtwoordsleutel die de schijven ontgrendelt, wordt tijdens dit proces gegenereerd.</li>        |
 |Verzonden     | De order is verzonden. U moet de order binnen 1 tot 2 dagen ontvangen.        |
 |Afgeleverd     | De order is afgeleverd op het adres dat in de order is opgegeven.        |
-|Opgehaald     |Uw retourzending is opgehaald. <br> Zodra de retourzending is ontvangen door het Azure-datacenter, worden de gegevens automatisch naar Azure geüpload.         |
+|Opgehaald     |Uw retourzending is opgehaald. <br> Zodra de retourzending is ontvangen in het Azure-datacenter, worden de gegevens automatisch geüpload naar Azure.         |
 |Ontvangen     | Uw schijven zijn ontvangen door het Azure-datacenter. Het kopiëren van gegevens zal binnenkort starten.        |
 |Gegevens gekopieerd     |Het kopiëren van gegevens is in voortgang.<br> Wacht totdat het kopiëren van gegevens is voltooid.         |
 |Voltooid       |De order is voltooid.<br> Verifieer dat uw gegevens zich in Azure bevinden voordat u de on-premises gegevens van servers verwijdert.         |

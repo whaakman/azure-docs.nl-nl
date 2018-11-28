@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 99761cf5105535105a7dd9576a32a79e0ae39768
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6ce4dda4a8a927ea904d241d63eed3483468961e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247787"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282818"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Quickstart: PHP gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
 
-In dit artikel ziet u hoe u de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met PHP kunt gebruiken om [taal te detecteren](#Detect), [sentiment te analyseren](#SentimentAnalysis), [sleuteltermen op te halen](#KeyPhraseExtraction) en [gekoppelde entiteiten te identificeren](#Entities).
+In dit artikel ziet u hoe u de  [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711)  met PHP kunt gebruiken om [taal te detecteren](#Detect), [sentiment te analyseren](#SentimentAnalysis), [sleuteltermen op te halen](#KeyPhraseExtraction) en [gekoppelde entiteiten te identificeren](#Entities).
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics-API**. U kunt de **gratis laag voor 5000 transacties/maand** gebruiken om deze snelstart te voltooien.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
 

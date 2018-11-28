@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920709"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822463"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met de Azure Portal
 
@@ -36,6 +36,9 @@ Met een NSG (netwerkbeveiligingsgroep) kunt u inkomend verkeer naar en uitgaand 
 > * Logboekgegevens weergeven
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+> [!NOTE] 
+> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Configuratie is beschikbaar via de Azure-portal en REST API. Als u Versie 2-logboeken inschakelt in een niet-ondersteunde regio worden de Versie 1-logboeken opgeslagen in uw opslagaccount.
 
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 
@@ -100,8 +103,9 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
 
 6. Selecteer de NSG met de naam **myVm-nsg**.
 7. Selecteer onder **Instellingen voor stroomlogboeken** de optie **Aan**.
-8. Selecteer het opslagaccount dat u in stap 3 hebt gemaakt.
-9. Stel **Bewaartermijn (dagen)** in op 5 en selecteer **Opslaan**.
+8. Selecteer de versie voor stroomlogboekregistratie. Versie 2 bevat statistische gegevens over stroomsessies (bytes en pakketten). ![Versie voor stroomlogboeken selecteren](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. Selecteer het opslagaccount dat u in stap 3 hebt gemaakt.
+10. Stel **Bewaartermijn (dagen)** in op 5 en selecteer **Opslaan**.
 
 ## <a name="download-flow-log"></a>Stroomlogboek downloaden
 
@@ -126,6 +130,7 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
 
 De volgende json is een voorbeeld van wat u in het bestand PT1H.json ziet voor elke stroom waarvoor gegevens worden geregistreerd:
 
+### <a name="version-1-flow-log-event"></a>Versie 1-stroomlogboekgebeurtenis
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -135,29 +140,83 @@ De volgende json is een voorbeeld van wat u in het bestand PT1H.json ziet voor e
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
-        "flows": [{
-            "rule": "UserRule_default-allow-rdp",
-            "flows": [{
-                "mac": "000D3A170C69",
-                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-            }]
-        }]
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
+### <a name="version-2-flow-log-event"></a>Versie 2-stroomlogboekgebeurtenis
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 De waarde voor **mac** in de vorige uitvoer is het MAC-adres van de netwerkinterface die is gemaakt toen de VM werd gemaakt. De door komma's gescheiden informatie voor **flowTuples** bevat het volgende:
 
 | Voorbeeldgegevens | Wat de gegevens voorstellen   | Uitleg                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | Tijdstempel             | Het tijdstempel van wanneer de stroom heeft plaatsgevonden, in de indeling UNIX-EPOCHE. In het vorige voorbeeld is de datum omgezet in 1 mei 2018 op 2:59:05 PM GMT.                                                                                    |
-| 192.168.1.4  | IP-adres van bron      | Het IP-adres van de bron waaruit de stroom afkomstig is.
-| 10.0.0.4     | IP-adres van doel | Het IP-adres van het doel waarvoor de stroom is bestemd. 10.0.0.4 is het privé-IP-adres van de VM die u hebt gemaakt in [Een virtuele machine maken](#create-a-vm).                                                                                 |
-| 55960        | Bronpoort            | De bronpoort waaruit de stroom afkomstig is.                                           |
-| 3389         | Doelpoort       | De doelpoort waarvoor de stroom is bestemd. Aangezien het verkeer was bestemd voor poort 3389, is de stroom verwerkt door de regel met de naam **UserRule_default-allow-rdp** in het logboekbestand.                                                |
+| 1542110377   | Tijdstempel             | Het tijdstempel van wanneer de stroom heeft plaatsgevonden, in de indeling UNIX-EPOCHE. In het vorige voorbeeld is de datum omgezet in 1 mei 2018 op 2:59:05 PM GMT.                                                                                    |
+| 10.0.0.4  | IP-adres van bron      | Het IP-adres van de bron waaruit de stroom afkomstig is. 10.0.0.4 is het privé-IP-adres van de VM die u hebt gemaakt in [Een virtuele machine maken](#create-a-vm).
+| 13.67.143.118     | IP-adres van doel | Het IP-adres van het doel waarvoor de stroom is bestemd.                                                                                  |
+| 44931        | Bronpoort            | De bronpoort waaruit de stroom afkomstig is.                                           |
+| 443         | Doelpoort       | De doelpoort waarvoor de stroom is bestemd. Aangezien het verkeer was bestemd voor poort 443, is de stroom verwerkt op basis van de regel met de naam **UserRule_default-allow-rdp** in het logboekbestand.                                                |
 | T            | Protocol               | Hiermee wordt aangegeven of het protocol van de stroom TCP (T) of UDP (U).                                  |
-| I            | Richting              | Hiermee wordt aangegeven of het verkeer inkomend (I) of uitgaand (O) was.                                     |
-| A            | Bewerking                 | Hiermee wordt aangegeven of het verkeer was toegelaten (A) of geweigerd (D).                                           |
+| O            | Richting              | Hiermee wordt aangegeven of het verkeer inkomend (I) of uitgaand (O) was.                                     |
+| A            | Bewerking                 | Hiermee wordt aangegeven of het verkeer was toegelaten (A) of geweigerd (D).  
+| C            | Stroomstatus **Alleen Versie 2** | Legt de status van de stroom vast. Mogelijke statussen zijn **B**: Begin, wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Continu, voor een actieve stroom. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Eind, wanneer een stroom is beëindigd. Er worden statistische gegevens geleverd. |
+| 30 | Verzonden pakketten: bron naar doel, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketten dat sinds de laatste update is verzonden van de bron naar het doel. |
+| 16978 | Verzonden bytes: bron naar doel, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketbytes dat sinds de laatste update is verzonden van de bron naar het doel. Pakketbytes omvatten de pakket-header en -nettolading. | 
+| 24 | Verzonden pakketten: doel naar bron, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketten dat sinds de laatste update is verzonden van het doel naar de bron. |
+| 14008| Verzonden bytes: doel naar bron, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketbytes dat sinds de laatste update is verzonden van het doel naar de bron. Pakketbytes omvatten een pakket-header en -nettolading.| |
 
 ## <a name="next-steps"></a>Volgende stappen
 

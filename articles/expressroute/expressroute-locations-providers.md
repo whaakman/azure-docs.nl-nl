@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/23/2018
 ms.author: pareshmu
-ms.openlocfilehash: a55e57c2cc1c0ff2ba44f681cbae90ba69fdc434
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ead7ad9178264bc2cfa323eb440c235ab52c069b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957788"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275850"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -40,18 +40,18 @@ U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio 
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regio's naar ExpressRoute-locaties binnen een geopolitieke regio
 In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-locaties binnen een geopolitieke regio.
 
-| **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
-| --- | --- | --- |
-| **Noord-Amerika** |US - oost, US - west, US - oost 2, US - west 2, US - centraal, US - zuid-centraal, US - noord-centraal, US - west-centraal, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
-| **Zuid-Amerika** |Brazilië - zuid |Sao Paulo |
-| **Europa** |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Marseille, Londen, Newport (Wales), Parijs |
-| **Azië** |Azië - oost, Azië - zuidoost |Hongkong, Kuala Lumpur, Singapore, Singapore2 |
-| **Japan** |Japan - west, Japan - oost |Osaka, Tokio |
-| **Australië** |Australië - zuidoost, Australië - oost |Melbourne, Sydney |
-| **Australië - overheid** | Australië Centraal, Australië Centraal 2 |Canberra, Canberra2 | 
-| **India** |India - west, India - centraal, India - zuid |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Zuid-Korea** |Korea Centraal, Korea Zuid |Busan, Seoul |
-| **Zuid-Afrika** |[Zuid-Afrika - west+, Zuid-Afrika - noord+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Kaapstad, Johannesburg |
+| **Geopolitieke regio** | **Zone** | **Azure-regio's** | **ExpressRoute-locaties** |
+| --- | --- | --- | --- |
+| **Australië - overheid** |Zone 1 | Australië Centraal, Australië Centraal 2 |Canberra, Canberra2 |
+| **Europa** |Zone 1 |Frankrijk - centraal, Frankrijk - zuid, Europa - noord, Europa - west, VK - west, VK - zuid |Amsterdam, Amsterdam2, Dublin, Londen, Marseille, Newport (Wales), Parijs |
+| **Noord-Amerika** |Zone 1 |US - oost, US - west, US - oost 2, US - west 2, US - centraal, US - zuid-centraal, US - noord-centraal, US - west-centraal, Canada Centraal, Canada Oost |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **Azië** |Zone 2 |Azië - oost, Azië - zuidoost |Hongkong, Kuala Lumpur, Singapore, Singapore2 |
+| **Australië** |Zone 2 |Australië - zuidoost, Australië - oost |Melbourne, Sydney | 
+| **India** |Zone 2 |India - west, India - centraal, India - zuid |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japan** |Zone 2 |Japan - west, Japan - oost |Osaka, Tokio |
+| **Zuid-Korea** |Zone 2 |Korea Centraal, Korea Zuid |Busan, Seoul|
+| **Zuid-Afrika** |Zone 3 |[Zuid-Afrika - west+, Zuid-Afrika - noord+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Kaapstad, Johannesburg |
+| **Zuid-Amerika** |Zone 3 |Brazilië - zuid |Sao Paulo |
 
  **+** betekent binnenkort beschikbaar
 

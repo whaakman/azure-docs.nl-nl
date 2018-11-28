@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 710d157dcf4c6d060e59bcfbb69455e2ddc91bdd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450127"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707092"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Zelfstudie: Gebruik van een lab bijhouden in Azure Lab Services
 In deze zelfstudie leert u hoe een maker of eigenaar van een lab het gebruik van een lab kan bijhouden.
@@ -44,23 +44,19 @@ In deze zelfstudie voert u de volgende acties uit:
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Het gebruik van virtuele machines in het lab weergeven 
 
 1. Selecteer **Virtuele machines** in het menu aan de linkerkant. 
-2. Controleer of u de status van virtuele machines kunt zien en het aantal uur dat de virtuele machines actief zijn geweest. De tijd die u besteedt op de virtuele machine van een student wordt niet meegeteld in de gebruikstijd die in de laatste kolom wordt weergegeven. 
+2. Controleer of u de status van virtuele machines kunt zien en het aantal uur dat de virtuele machines actief zijn geweest. De tijd die u besteedt op de VM van een student, wordt niet meegeteld in de gebruikstijd die wordt weergegeven in de laatste kolom. 
 
     ![VM-gebruik](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Virtuele machines van studenten beheren 
-Als u de muisaanwijzer boven een rij in de lijst van virtuele machine houdt, ziet u besturingselementen waarmee u de volgende taken kunt uitvoeren: 
+Als u met de muisaanwijzer een rij aanwijst in de lijst met virtuele machines, ziet u besturingselementen waarmee u de volgende taken kunt uitvoeren (zoals weergegeven in de afbeelding in de vorige sectie): 
 
 - Verbinding maken met een VM
 - Een VM starten
 - Een VM stoppen
 - Een VM verwijderen
 
-![Besturingselementen van virtuele machines](../media/tutorial-track-usage/vm-controls.png) 
-
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u gebruikers vindt die zijn geregistreerd bij het lab, hoe u het gebruik van virtuele machines in het lab bijhoudt en hoe u virtuele machines in het lab beheert.
-
-Voor meer informatie over leslokaallabs raadpleegt u de onderwerpen onder [Handleidingen](how-to-manage-lab-accounts.md).
+Zie de artikelen onder [Instructiegidsen](how-to-manage-lab-accounts.md) voor meer informatie over leslokaallabs.

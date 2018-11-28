@@ -1,49 +1,61 @@
-
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genemi
+ms.openlocfilehash: c4329b9efef3cdb2911466e64ac6c9f07a1e9b31
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52269689"
+---
 <a name="cs_0_csharpprogramexample_h2"/>
 
 ## <a name="c-program-example"></a>Voorbeeld van C#-programma
 
-Een C#-programma dat gebruikmaakt van ADO.NET Transact-SQL-instructies verzenden naar de SQL-database aanwezig zijn in de volgende secties van dit artikel. De C#-programma worden de volgende acties uitgevoerd:
+In de volgende secties van dit artikel wordt een C#-programma gepresenteerd dat gebruikmaakt van ADO.NET voor het verzenden van Transact-SQL-instructies naar de SQL-database. Met het C#-programma worden de volgende acties uitgevoerd:
 
-1. [Maakt verbinding met de SQL-database met ADO.NET](#cs_1_connect).
-2. [Tabellen gemaakt](#cs_2_createtables).
-3. [Vult de tabellen met gegevens, door uitgifte van INSERT T-SQL-instructies](#cs_3_insert).
-4. [Updates van gegevens via het gebruik van een join](#cs_4_updatejoin).
-5. [Hiermee verwijdert u gegevens via het gebruik van een join](#cs_5_deletejoin).
-6. [Rijen met gegevens via het gebruik van een join selecteert](#cs_6_selectrows).
-7. Hiermee sluit u de verbinding (die geen tijdelijke tabellen verwijderd van tempdb).
+1. [Maakt verbinding met de SQL-database met behulp van ADO.NET](#cs_1_connect).
+2. [Maakt tabellen](#cs_2_createtables).
+3. [Vult de tabellen met gegevens, door T-SQL INSERT-instructies uit te geven](#cs_3_insert).
+4. [Werkt gegevens bij met behulp van een join](#cs_4_updatejoin).
+5. [Verwijdert gegevens met behulp van een join](#cs_5_deletejoin).
+6. [Selecteert gegevensrijen met behulp van een join](#cs_6_selectrows).
+7. Sluit de verbinding (waardoor alle tijdelijke tabellen worden gestopt vanuit tempdb).
 
-De C#-programma bevat:
+Het C#-programma bevat:
 
-- C#-code verbinding maken met de database.
-- Methoden die resulteren in de broncode T-SQL.
-- Twee methoden die de T-SQL met de database verzenden.
+- C#-code om verbinding te maken met de database.
+- Methoden waarmee de T-SQL-broncode wordt geretourneerd.
+- Twee methoden waarmee de T-SQL wordt verzonden naar de database.
 
 #### <a name="to-compile-and-run"></a>Compileren en uitvoeren
 
-Dit C#-programma is logisch één .cs-bestand. Maar het programma is hier fysiek onderverdeeld in meerdere codeblokken om elk blok gemakkelijker te zien en begrijpen. Voor het samenstellen en uitvoering van dit programma, het volgende doen:
+Dit C#-programma is logischerwijs één .cs-bestand. Maar hier is het programma fysiek onderverdeeld in verschillende codeblokken, waardoor elk blok gemakkelijker te zien en te begrijpen is. Ga als volgt te werk om dit programma te compileren en uit te voeren:
 
 1. Maak een C#-project in Visual Studio.
-    - Het projecttype moet een *console* toepassing van ongeveer de volgende hiërarchie: **sjablonen** > **Visual C#** >  **Classic Windows Desktop** > **Console-App (.NET Framework)**.
-3. In het bestand **Program.cs**, de kleine starter coderegels wissen.
-3. In Program.cs kopieert en plakt u elk van de volgende blokken in dezelfde volgorde als die ze hier wordt weergegeven.
-4. Bewerk in Program.cs de volgende waarden in de **Main** methode:
+    - Het projecttype moet een *consoletoepassing* zijn met een hiërarchie die lijkt op de volgende: **Sjablonen** > **Visual C#** > **klassieke Windows-bureaublad** > **Consoletoepassing (.NET Framework)**.
+3. Wis in het bestand **Program.cs** de kleine coderegels aan het begin.
+3. Kopieer en plak elk van de volgende blokken in Program.cs, in dezelfde volgorde die hier wordt weergegeven.
+4. Werk in Program.cs de volgende waarden bij in de methode **Main**:
 
-   - **CB. Gegevensbron**
-   - **cd. Gebruikers-id**
-   - **CB. Wachtwoord**
+   - **cb.DataSource**
+   - **cd.UserID**
+   - **cb.Password**
    - **InitialCatalog**
 
-5. Controleren of de assembly **System.Data.dll** wordt verwezen. Om te controleren, vouw de **verwijzingen** knooppunt in de **Solution Explorer** deelvenster.
-6. Als u wilt maken van het programma in Visual Studio, klikt u op de **bouwen** menu.
-7. Om het programma uitvoert vanuit Visual Studio, klikt u op de **Start** knop. De rapportuitvoer wordt weergegeven in een cmd.exe-venster.
+5. Controleer of wordt verwezen naar de assembly **System.Data.dll**. Vouw in het deelvenster **Solution Explorer** het knooppunt **Verwijzingen** uit om dit te controleren.
+6. Klik op het menu **Bouwen** om het programma te bouwen in Visual Studio.
+7. Klik op de knop **Start** om het programma uit te voeren in Visual Studio. De rapportuitvoer wordt weergegeven in een cmd.exe-venster.
 
 > [!NOTE]
-> U hebt de optie voor het bewerken van de T-SQL van om toe te voegen geen voorlooptekens  **#**  de tabelnamen die deze als tijdelijke tabellen maakt in **tempdb**. Dit is handig voor demonstratiedoeleinden, wanneer er geen testdatabase beschikbaar is. Tijdelijke tabellen worden automatisch verwijderd wanneer de verbinding wordt gesloten. Alle verwijzingen van refererende sleutels worden niet afgedwongen voor tijdelijke tabellen.
+> U kunt de T-SQL bewerken om een **#** toe te voegen vóór de tabelnamen. Hierdoor worden ze tijdelijke tabellen in **tempdb**. Dit kan nuttig zijn voor demonstratiedoeleinden, wanneer er geen testdatabase beschikbaar is. Tijdelijke tabellen worden automatisch verwijderd als de verbinding wordt verbroken. Alle VERWIJZINGEN naar refererende sleutels worden niet afgedwongen voor tijdelijke tabellen.
 >
 
 <a name="cs_1_connect"/>
-### <a name="c-block-1-connect-by-using-adonet"></a>C# blok 1: verbinding maken met behulp van de ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>C#-blok 1: Verbinding maken met behulp van ADO.NET
 
 - [Volgende](#cs_2_createtables)
 
@@ -99,9 +111,9 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>C# blok 2: T-SQL-tabellen te maken
+### <a name="c-block-2-t-sql-to-create-tables"></a>C#-blok 2: T-SQL voor het maken van tabellen
 
-- [Vorige](#cs_1_connect) &nbsp;  /  &nbsp; [volgende](#cs_3_insert)
+- [Vorige](#cs_1_connect) &nbsp; / &nbsp; [Volgende](#cs_3_insert)
 
 ```csharp
       static string Build_2_Tsql_CreateTables()
@@ -131,19 +143,19 @@ CREATE TABLE tabEmployee
       }
 ```
 
-#### <a name="entity-relationship-diagram-erd"></a>Diagram van relatie tussen (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>ERD (diagram Relatie tussen eenheden)
 
-De voorgaande CREATE TABLE-instructies hebben betrekking op de **verwijzingen** sleutelwoord maken een *refererende sleutel* (FK) relatie tussen twee tabellen.  Als u van tempdb gebruikmaakt, uitcommentariëren de `--REFERENCES` sleutelwoord met behulp van een combinatie van toonaangevende streepjes.
+Voor de voorgaande CREATE TABLE-instructies is het trefwoord **VERWIJZINGEN** nodig voor het maken van een *FK*-relatie (refererende sleutel) relatie tussen twee tabellen.  Als u tempdb gebruikt, geeft u commentaar bij het trefwoord `--REFERENCES` met behulp van twee streepjes aan het begin.
 
-Hierna volgt een Noodhersteldiskette die de relatie tussen de twee tabellen wordt weergegeven. De waarden in de #tabEmployee.DepartmentCode *onderliggende* kolom zijn beperkt tot de waarden aanwezig zijn in de #tabDepartment.Department *bovenliggende* kolom.
+Hierna volgt een ERD die de relatie tussen de twee tabellen weergeeft. De waarden in de #tabEmployee.DepartmentCode *onderliggende* kolom zijn beperkt tot de waarden in de #tabDepartment.Department *bovenliggende* kolom.
 
-![Refererende sleutel van ERD weergeven](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
+![ERD met refererende sleutel](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 
 <a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>C# blok 3: T-SQL gegevens invoegen
+### <a name="c-block-3-t-sql-to-insert-data"></a>C#-blok 3: T-SQL voor het invoegen van tabellen
 
-- [Vorige](#cs_2_createtables) &nbsp;  /  &nbsp; [volgende](#cs_4_updatejoin)
+- [Vorige](#cs_2_createtables) &nbsp; / &nbsp; [Volgende](#cs_4_updatejoin)
 
 
 ```csharp
@@ -173,9 +185,9 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>C# blok 4: T-SQL-update-join
+### <a name="c-block-4-t-sql-to-update-join"></a>C#-blok 4: T-SQL voor update-join
 
-- [Vorige](#cs_3_insert) &nbsp;  /  &nbsp; [volgende](#cs_5_deletejoin)
+- [Vorige](#cs_3_insert) &nbsp; / &nbsp; [Volgende](#cs_5_deletejoin)
 
 
 ```csharp
@@ -201,9 +213,9 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>C# blok 5: T-SQL delete join
+### <a name="c-block-5-t-sql-to-delete-join"></a>C#-blok 5: T-SQL voor delete-join
 
-- [Vorige](#cs_4_updatejoin) &nbsp;  /  &nbsp; [volgende](#cs_6_selectrows)
+- [Vorige](#cs_4_updatejoin) &nbsp; / &nbsp; [Volgende](#cs_6_selectrows)
 
 
 ```csharp
@@ -233,9 +245,9 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>C# blok 6: T-SQL om rijen te selecteren
+### <a name="c-block-6-t-sql-to-select-rows"></a>C#-blok 6: T-SQL voor het selecteren van rijen
 
-- [Vorige](#cs_5_deletejoin) &nbsp;  /  &nbsp; [volgende](#cs_6b_datareader)
+- [Vorige](#cs_5_deletejoin) &nbsp; / &nbsp; [Volgende](#cs_6b_datareader)
 
 
 ```csharp
@@ -261,11 +273,11 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-### <a name="c-block-6b-executereader"></a>C# blok 6 ter: ExecuteReader
+### <a name="c-block-6b-executereader"></a>C#-blok 6b: ExecuteReader
 
-- [Vorige](#cs_6_selectrows) &nbsp;  /  &nbsp; [volgende](#cs_7_executenonquery)
+- [Vorige](#cs_6_selectrows) &nbsp; / &nbsp; [Volgende](#cs_7_executenonquery)
 
-Deze methode is bedoeld om uit te voeren van de T-SQL SELECT-instructie die is gebouwd door het **Build_6_Tsql_SelectEmployees** methode.
+Deze methode is ontworpen voor het uitvoeren van de T-SQL SELECT-instructie die wordt gebouwd met de methode **Build_6_Tsql_SelectEmployees**.
 
 
 ```csharp
@@ -297,11 +309,11 @@ Deze methode is bedoeld om uit te voeren van de T-SQL SELECT-instructie die is g
 
 
 <a name="cs_7_executenonquery"/>
-### <a name="c-block-7-executenonquery"></a>C# blok 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>C#-blok 7: ExecuteNonQuery
 
-- [Vorige](#cs_6b_datareader) &nbsp;  /  &nbsp; [volgende](#cs_8_output)
+- [Vorige](#cs_6b_datareader) &nbsp; / &nbsp; [Volgende](#cs_8_output)
 
-Deze methode is aangeroepen voor bewerkingen waarvoor de gegevensinhoud van tabellen zonder gegevensrijen terug te wijzigen.
+Deze methode wordt aangeroepen voor bewerkingen die de gegevensinhoud van tabellen wijzigen zonder gegevensrijen te retourneren.
 
 
 ```csharp
@@ -335,11 +347,11 @@ Deze methode is aangeroepen voor bewerkingen waarvoor de gegevensinhoud van tabe
 
 
 <a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>C# blok 8: werkelijke testuitvoer naar de console
+### <a name="c-block-8-actual-test-output-to-the-console"></a>C#-blok 8: Werkelijke testuitvoer naar de console
 
 - [Vorige](#cs_7_executenonquery)
 
-Deze sectie bevat de uitvoer die wordt verzonden naar de console. Alleen de guid-waarden verschillen tussen de test wordt uitgevoerd.
+In deze sectie wordt de uitvoer vastgelegd die via het programma is verzonden naar de console. Alleen de GUID-waarden variëren tussen testuitvoeringen.
 
 
 ```text
