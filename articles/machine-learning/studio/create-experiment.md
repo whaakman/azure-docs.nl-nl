@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 8f4740a559e73620500c4ab04ea6e9e25405b8a3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263567"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425707"
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Zelfstudie over Machine Learning: uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio
 
@@ -43,9 +43,7 @@ Hierin wordt beschreven hoe u aan de slag gaat met Studio en uw eerste Machine L
 - [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md) (Cheatsheet voor machine learning-algoritmen) en [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) (Algoritmen kiezen voor Microsoft Azure Machine Learning) - In deze downloadbare poster en het bijbehorende artikel worden de Studio-algoritmen in detail besproken.
 - [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Machine Learning Studio: hulp bij algoritmen en modules) - Dit is een volledig naslagwerk voor alle Studio-modules, inclusief de machine learning-algoritmen.
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="how-does-machine-learning-studio-help"></a>Op welke wijze is Machine Learning Studio nuttig?
 

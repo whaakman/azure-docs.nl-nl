@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981158"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334224"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepten, terminologie en entiteiten in Azure Scheduler
 
@@ -319,5 +319,5 @@ Bijvoorbeeld:
 * [Concepten, terminologie en entiteitenhiërarchie](scheduler-concepts-terms.md)
 * [Complexe schema's en geavanceerde terugkeerpatronen bouwen](scheduler-advanced-complexity.md)
 * [Limieten, quota, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
-* [Naslaginformatie over REST API van Azure Scheduler](https://docs.microsoft.com/rest/api/schedule)
+* [Naslaginformatie over REST API van Azure Scheduler](/rest/api/scheduler)
 * [Naslaginformatie over Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md)

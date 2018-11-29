@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418839"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443114"
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
@@ -39,9 +39,11 @@ In de volgende video kunt u zien hoe u API Management kunt bewaken met Azure Mon
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Leer de [terminologie van Azure API Management](api-management-terminology.md).
++ Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
 + Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="view-metrics-of-your-apis"></a>Metrische gegevens van uw API's weergeven
 

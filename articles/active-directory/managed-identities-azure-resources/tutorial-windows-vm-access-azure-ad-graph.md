@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 18141e0f58a0b5227c3f5f5c36210017da101780
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6e8f7f18196eb23900c815048e12d57a238d08f7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625331"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423053"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot de Azure AD Graph API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Deze zelfstudie laat zien hoe u toegang krijgt tot de Microsoft Graph API met een door het systeem toegewezen beheerde identiteit voor een virtuele Windows-machine (VM) om de groepslidmaatschappen te kunnen ophalen. Beheerde entiteiten voor Azure-resources worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Microsoft Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen.  Tijdens deze zelfstudie gaat u voor uw VM-identiteitsabonnement query's uitvoeren in Azure AD-groepen. Groepsgegevens worden vaak gebruikt bij het nemen van autorisatiebeslissingen. Achter de schermen wordt de beheerde identiteit van uw VM in Azure AD vertegenwoordigd door een **service-principal**. Voordat u de groepsquery uitvoert, voegt u de service-principal van de VM-identiteit toe aan een groep in Azure AD. U kunt dit doen met Azure PowerShell, Azure AD PowerShell of Azure CLI.
 

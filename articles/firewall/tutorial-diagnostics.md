@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987425"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426164"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Zelfstudie: Azure Firewall-logboeken en metrische gegevens bewaken
 
 U kunt Azure Firewall bewaken met behulp van firewall-logboeken. U kunt ook activiteitenlogboeken gebruiken om bewerkingen in Azure Firewall-resources te controleren. Met metrische gegevens kunt u prestatiemeteritems in de portal zien. 
 
-Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage en Event Hubs en kunnen worden geanalyseerd in Log Analytics of door verschillende hulpprogramma’s zoals Excel en Power BI.
+Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage en Event Hubs en kunnen worden geanalyseerd in Log Analytics of door verschillende hulpprogramma’s zoals Excel en Power BI.
 
 In deze zelfstudie leert u het volgende:
 
@@ -94,7 +94,7 @@ U kunt activiteitenlogboekgegevens bekijken en analyseren via een van de volgend
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>De logboeken voor netwerk- en toepassingsregels bekijken en analyseren
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) verzamelt de teller- en gebeurtenislogboekbestanden. Het omvat visualisaties en krachtige zoekmogelijkheden om uw logboeken te analyseren.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) verzamelt de teller- en gebeurtenislogboekbestanden. Het omvat visualisaties en krachtige zoekmogelijkheden om uw logboeken te analyseren.
 
 Zie [Voorbeelden van Azure Firewall Log Analytics](log-analytics-samples.md) voor voorbeeldquery’s van Azure Firewall Log Analytics.
 
@@ -111,7 +111,7 @@ Ga naar een Azure Firewall via **Bewaking** en klik op **Metrische gegevens**. O
 Nu u uw firewall hebt geconfigureerd om logboeken te verzamelen, kunt u Log Analytics verkennen om uw gegevens te bekijken.
 
 > [!div class="nextstepaction"]
-> [Netwerkbewakingsoplossingen in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Netwerkbewakingsoplossingen in Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

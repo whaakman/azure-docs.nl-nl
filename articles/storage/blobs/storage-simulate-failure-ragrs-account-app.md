@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180940"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335109"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Zelfstudie: een fout simuleren bij het openen van redundante opslag met leestoegang
 
@@ -145,7 +145,7 @@ Als u een statische route voor de doelhost wilt toevoegen, typt u de volgende op
  
 Vervang `<destination_ip>` door het IP-adres van uw opslagaccount en `<gateway_ip>` door het IP-adres van uw lokale host. Druk op **een willekeurige toets** om de toepassing te hervatten.
 
-Wanneer de toepassing weer wordt uitgevoerd, gaan de aanvragen naar het primaire eindpunt mislukken. De toepassing probeert 5 keer opnieuw verbinding te maken met het primaire eindpunt. Na de foutdrempelwaarde van vijf pogingen wordt de installatiekopie van het secundaire eindpunt met alleen leestoegang aangevraagd. Nadat de toepassing de installatiekopie 20 keer van het secundaire eindpunt heeft opgehaald, probeert de toepassing verbinding te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing het lezen van het secundaire eindpunt. Dit patroon is het [circuitonderbreker](/azure/architecture/patterns/circuit-breaker.md)-patroon dat in de vorige zelfstudie is beschreven.
+Wanneer de toepassing weer wordt uitgevoerd, gaan de aanvragen naar het primaire eindpunt mislukken. De toepassing probeert 5 keer opnieuw verbinding te maken met het primaire eindpunt. Na de foutdrempelwaarde van vijf pogingen wordt de installatiekopie van het secundaire eindpunt met alleen leestoegang aangevraagd. Nadat de toepassing de installatiekopie 20 keer van het secundaire eindpunt heeft opgehaald, probeert de toepassing verbinding te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing het lezen van het secundaire eindpunt. Dit patroon is het [circuitonderbreker](/azure/architecture/patterns/circuit-breaker)-patroon dat in de vorige zelfstudie is beschreven.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Herstel van het primaire eindpunt simuleren
 

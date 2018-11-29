@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288744"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582415"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Wat is Azure Internet of Things (IoT)?
 
@@ -113,7 +113,7 @@ Er zijn meerdere IoT-services in Azure en het kan moeilijk zijn om te bepalen we
 
 5. [**IoT Edge**](/azure/iot-edge/): deze service bouwt voort op IoT Hub. Deze service kan worden gebruikt voor het analyseren van gegevens op de IoT-apparaten in plaats van in de cloud. Door uw werkbelasting gedeeltelijk te verplaatsen naar de randapparaten, hoeven er minder berichten te worden verzonden naar de cloud. 
 
-6. [**Azure Digital Twins**](/azure/azure-digital-twins/): met deze service kunt u uitgebreide modellen van de fysieke omgeving maken. Zo kunt u de relaties en interacties tussen personen, ruimten en apparaten modelleren. U kunt bijvoorbeeld de onderhoudsbehoeften voor een fabriek voorspellen, het energieverbruik voor een elektriciteitsnet in realtime analyseren of het gebruik van de beschikbare kantoorruimte optimaliseren.
+6. [**Azure Digital Twins**](../digital-twins/index.yml): met deze service kunt u uitgebreide modellen van de fysieke omgeving maken. Zo kunt u de relaties en interacties tussen personen, ruimten en apparaten modelleren. U kunt bijvoorbeeld de onderhoudsbehoeften voor een fabriek voorspellen, het energieverbruik voor een elektriciteitsnet in realtime analyseren of het gebruik van de beschikbare kantoorruimte optimaliseren.
 
 7. [**Time Series Insights**](/azure/time-series-insights): met deze service kunt u grote volumes gegenereerde tijdreeksgegevens van IoT-apparaten opslaan en visualiseren of er query's op uitvoeren. U kunt deze gebruiken in combinatie met IoT Hub. 
 

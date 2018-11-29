@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277525"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498602"
 ---
 # <a name="what-is-azure-blueprints"></a>Wat is Azure Blueprints?
 
@@ -57,7 +57,7 @@ Een blauwdruk bestaat uit _artefacten_. Blauwdrukken ondersteunen momenteel de v
 |Resource  | Hiërarchieopties| Beschrijving  |
 |---------|---------|---------|
 |Resourcegroepen     | Abonnement | Een nieuwe resourcegroep maken voor gebruik door andere artefacten binnen de blauwdruk.  Met deze tijdelijke resourcegroepen kunt u resources precies zo indelen als u ze wilt structureren, en het bereik beperken voor opgenomen beleids- en roltoewijzingsartefacten, en Azure Resource Manager-sjablonen.         |
-|Azure Resource Manager-sjabloon      | Resourcegroep | Sjablonen worden gebruikt om complexe omgevingen samen te stellen. Voorbeeldomgevingen: een SharePoint-farm, Azure Automation State Configuration of een Log Analytics-werkruimte. |
+|Azure Resource Manager-sjabloon      | Abonnement, resourcegroep | Sjablonen worden gebruikt om complexe omgevingen samen te stellen. Voorbeeldomgevingen: een SharePoint-farm, Azure Automation State Configuration of een Log Analytics-werkruimte. |
 |Beleidstoewijzing     | Abonnement, resourcegroep | Hiermee kan een beleid of initiatief worden toegewezen aan het abonnement waaraan de blauwdruk wordt toegewezen. Het beleid of initiatief moet binnen het bereik van de blauwdruk vallen (in de blauwdrukbeheergroep). Als het beleid of initiatief parameters heeft, worden deze parameters toegewezen bij het maken of toewijzen van de blauwdruk.       |
 |Roltoewijzing   | Abonnement, resourcegroep | Voeg een bestaande gebruiker of groep toe aan een ingebouwde rol om ervoor te zorgen dat de juiste mensen altijd over de juiste toegang tot uw bronnen beschikken. Roltoewijzingen kunnen voor het hele abonnement worden gedefinieerd of genest in een specifieke resourcegroep die in de blauwdruk is opgenomen. |
 

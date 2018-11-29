@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14e675097a23b50c8ff193c69c377ac8edfb989f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251318"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317259"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Een virtuele Linux-machine beheren in Azure met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele Azure-machines, net zoals andere resources. In dit artikel leest u hoe u een virtuele Linux-machine start en stopt met een Ansible-playbook. 
@@ -141,4 +141,4 @@ In deze sectie wordt beschreven hoe u een virtuele Azure-machine start waarvan d
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Inventarisatie van dynamische Azure-resources beheren met Ansible](/articles/ansible/ansible-manage-azure-dynamic-inventories)
+> [Inventarisatie van dynamische Azure-resources beheren met Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

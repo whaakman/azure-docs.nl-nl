@@ -2,20 +2,20 @@
 title: Azure-snelstartgids - Batch-taak uitvoeren - Python
 description: Voer snel een Batch-taak en taken uit met behulp van de Batch Python-clientbibliotheek.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/26/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 424516a4a321227e4e79cfe33d40e8fdca24a779
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815270"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427316"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snelstartgids: Uw eerste Batch-taak uitvoeren met de Python API
 
@@ -55,8 +55,7 @@ Installeer de vereiste pakketten in de Python-ontwikkelomgeving met behulp van `
 pip install -r requirements.txt
 ```
 
-Open het bestand `python_quickstart_client.py`. Werk de referentietekenreeksen van het Batch- en Storage-account bij met de waarden die u hebt gekregen voor de accounts. Bijvoorbeeld:
-
+Open het bestand `config.py`. Werk de referentietekenreeksen van het Batch- en Storage-account bij met de waarden die u hebt gekregen voor de accounts. Bijvoorbeeld:
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -81,7 +80,7 @@ Nadat het script is uitgevoerd, bekijkt u de code voor meer informatie over wat 
 Wanneer u de voorbeeldtoepassing uitvoert, ziet de uitvoer van de console er ongeveer als volgt uit. De actieve uitvoering wordt bij `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` onderbroken terwijl de rekenknooppunten van de pool worden gestart. Taken worden in de wachtrij geplaatst om te worden uitgevoerd zodra het eerste rekenknooppunt actief is. Ga naar uw Batch-account in [ Azure Portal](https://portal.azure.com) om de pool, rekenknooppunten en taken in het Batch-account te controleren.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -115,7 +114,7 @@ Met de Python-app in deze snelstartgids worden de volgende bewerkingen uitgevoer
 * Er wordt een Batch-taak gemaakt, plus drie taken die moeten worden uitgevoerd op de knooppunten. Met elke taak wordt een van de invoerbestanden verwerkt met behulp van een Bash-shell-opdrachtregel.
 * Er worden bestanden weergegeven die zijn geretourneerd met de taken.
 
-Bekijk het bestand `python_quickstart_client.py` en de volgende secties voor de details. 
+Bekijk het bestand `python_quickstart_client.py` en de volgende secties voor de details.
 
 ### <a name="preliminaries"></a>Voorbereidingen
 
@@ -123,8 +122,8 @@ Voor het werken met een opslagaccount gebruikt de app het [azure-storage-blob](h
 
 ```python
 blob_client = azureblob.BlockBlobService(
-    account_name=_STORAGE_ACCOUNT_NAME,
-    account_key=_STORAGE_ACCOUNT_KEY)
+    account_name=config._STORAGE_ACCOUNT_NAME,
+    account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
 De app gebruikt de `blob_client`-verwijzing om een container te maken in het opslagaccount en om gegevensbestanden naar de container te uploaden. De bestanden in de opslag zijn gedefinieerd als Batch [ResourceFile](/python/api/azure.batch.models.resourcefile)-objecten die later met Batch kunnen worden gedownload op rekenknooppunten.
@@ -142,14 +141,13 @@ input_files = [
 De app maakt een [BatchServiceClient](/python/api/azure.batch.batchserviceclient)-object om pools, Batch-taken en taken in de Batch-service te maken en te beheren. De Batch-client in het voorbeeld gebruikt verificatie op basis van gedeelde sleutels. Batch ondersteunt ook Azure Active Directory-verificatie.
 
 ```python
-credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
+    config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=_BATCH_ACCOUNT_URL)
+    base_url=config._BATCH_ACCOUNT_URL)
 ```
-
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Een pool met rekenknooppunten maken
 
@@ -170,8 +168,8 @@ new_pool = batch.models.PoolAddParameter(
             version="latest"
             ),
         node_agent_sku_id="batch.node.ubuntu 16.04"),
-    vm_size=_POOL_VM_SIZE,
-    target_dedicated_nodes=_POOL_NODE_COUNT
+    vm_size=config._POOL_VM_SIZE,
+    target_dedicated_nodes=config._POOL_NODE_COUNT
 )
 batch_service_client.pool.add(new_pool)
 ```
@@ -220,7 +218,7 @@ for task in tasks:
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, _STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

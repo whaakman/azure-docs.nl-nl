@@ -4,17 +4,17 @@ description: In dit artikel helpt u bij de stappen om de Resource Graph-module v
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 001805aaf87ed6c3481a8ad8378cdc22ef74d274
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6bd7ceaeaf0b064ebbd8f069a4741489349bb980
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646385"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427502"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Uw eerste Resource Graph-query uitvoeren met Azure PowerShell
 
@@ -37,9 +37,6 @@ Voor de Azure Resource Graph-module is de volgende software vereist:
   - Voor PowerShell Core gebruikt u de **Az**-versie van de Azure PowerShell-module.
 
   - Voor Windows PowerShell gebruikt u de **AzureRm**-versie van de Azure PowerShell-module.
-
-  > [!NOTE]
-  > Het wordt momenteel niet aanbevolen om de module te installeren in Cloud Shell.
 
 - PowerShellGet 2.0.1 of hoger. Als deze nog niet is geïnstalleerd of bijgewerkt, volgt u [deze instructies](/powershell/gallery/installing-psget) op.
 

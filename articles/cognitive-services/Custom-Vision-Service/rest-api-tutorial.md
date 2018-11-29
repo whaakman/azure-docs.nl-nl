@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364955"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334717"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>Zelfstudie: De Custom Vision REST API gebruiken
 
@@ -47,7 +47,7 @@ Wanneer u een aanvraag indient, wordt de sleutel als aanvraagheader verzonden.
 
 Als u de sleutels voor uw account wilt ophalen, gaat u naar de [Custom Vision-webpagina](https://customvision.ai) en selecteert u het __tandwielpictogram__ in de rechterbovenhoek. In de sectie __Accounts__ kopieert u de waarden uit de velden __Trainingssleutel__ en __Voorspellingssleutel__.
 
-![Installatiekopie van de gebruikersinterface van de sleutels](./media/rest-api-tutorial/training-prediction-keys.png)
+![Afbeelding van de gebruikersinterface van de sleutels](./media/rest-api-tutorial/training-prediction-keys.png)
 
 > [!IMPORTANT]
 > Omdat de sleutels worden gebruikt om elke aanvraag te verifiëren, wordt in de voorbeelden in dit document ervan uitgegaan dat de sleutelwaarden zijn opgenomen in de omgevingsvariabelen. Gebruik de volgende opdrachten om de sleutels op te slaan in omgevingsvariabelen voordat u andere codefragmenten in dit document gebruikt:
@@ -100,7 +100,7 @@ Het antwoord op de aanvraag is vergelijkbaar met het volgende JSON-document:
 > [!TIP]
 > De `id`-vermelding in het antwoord is de ID van het nieuwe project. Deze wordt gebruikt in andere voorbeelden verderop in dit document.
 
-Zie [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290) voor meer informatie over deze aanvraag.
+Zie [CreateProject](https://go.microsoft.com/fwlink/?linkid=865446) voor meer informatie over deze aanvraag.
 
 ### <a name="specific-domains"></a>Specifieke domeinen
 

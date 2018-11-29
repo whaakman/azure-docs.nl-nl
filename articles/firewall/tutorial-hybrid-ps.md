@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854166"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316392"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell
 
@@ -309,9 +309,6 @@ Maak nu een paar routes:
 
 - Een route van het subnet van de hub-gateway naar het spoke-subnet via het IP-adres van de firewall
 - Een standaardroute van het spoke-subnet via het IP-adres van de firewall
-
-> [!NOTE]
-> Azure Firewall leert uw on-premises netwerken met behulp van BGP. Dit kan een standaardroute zijn die internetverkeer terug routeert via het on-premises netwerk. In een productieomgeving wilt u misschien dat internetverkeer rechtstreeks vanuit de firewall wordt verzonden naar internet. U kunt een door de gebruiker gedefinieerde standaardroute toevoegen (0.0.0.0/0) in de AzureFirewallSubnet met het volgende hoptype **Internet**. Het verkeer dat voor on-premises is bestemd, wordt nog steeds geforceerd getunneld via de VPN/ExpressRoute-gateway met behulp van de meer specifieke routes die zijn geleerd met BGP.
 
 ```azurepowershell
 #Create a route table

@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283652"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496223"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie 1: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning-service
 
@@ -40,7 +40,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://ak
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Voer het `01.train-models.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://aka.ms/aml-notebook-tut-01). Voer het `01.train-models.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

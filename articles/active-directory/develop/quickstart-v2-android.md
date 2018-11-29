@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995734"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427009"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
@@ -42,7 +42,7 @@ Deze snelstart bevat een codevoorbeeld die u laat zien hoe een Android-toepassin
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
 > Ga als volgt te werk om de toepassing te registreren en de registratiegegevens van de toepassing toe te voegen aan uw oplossing:
 > 1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app) om een toepassing te registreren.
-> 1. Typ een naam voor de toepassing in het vak **Toepassingsnaam**.
+> 1. Typ in het vak **Toepassingsnaam** een naam voor de toepassing.
 > 1. Zorg ervoor dat het selectievakje **Stapsgewijze instelling** is uitgeschakeld en selecteer vervolgens **Maken**.
 > 1. Selecteer **Platform toevoegen**, selecteer **Systeemeigen toepassing** en selecteer vervolgens **Opslaan**.
 
@@ -123,7 +123,7 @@ Lees de volgende secties voor meer informatie over deze snelstart.
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) is de bibliotheek die wordt gebruikt voor het aanmelden van gebruikers en het aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd met Microsoft Azure AD (Azure Active Directory). U kunt Gradle gebruiken om deze te installeren door het volgende toe te voegen in **Gradle-Scripts** > **build.gradle (Module: app)** onder **Afhankelijkheden**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is de bibliotheek die wordt gebruikt voor het aanmelden van gebruikers en het aanvragen van tokens die worden gebruikt voor toegang tot een API die wordt beveiligd met Microsoft Azure AD (Azure Active Directory). U kunt Gradle gebruiken om deze te installeren door het volgende toe te voegen in **Gradle-Scripts** > **build.gradle (Module: app)** onder **Afhankelijkheden**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'

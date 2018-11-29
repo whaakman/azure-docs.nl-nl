@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/6/2018
 ms.author: diberry
-ms.openlocfilehash: bcb19ebdcf6d4ca1c01612f815700fbbc0dd2fda
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567720"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334956"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Snelstart: Een knowledge base maken in QnA Maker met behulp van C#
 
@@ -67,7 +67,7 @@ De volgende code maakt een HTTPS-aanvraag naar de QnA Maker-API om een KB bij te
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
 
-Deze API-aanroep retourneert een JSON-antwoord dat de bewerkings-id in het headerveld **Locatie** bevat. Gebruik de bewerkings-id om te bepalen of de KB is gemaakt. 
+Deze API-aanroep retourneert een JSON-antwoord dat de bewerkings-id bevat. Gebruik de bewerkings-id om te bepalen of de KB is gemaakt. 
 
 ```JSON
 {
