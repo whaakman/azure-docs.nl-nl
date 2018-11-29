@@ -6,17 +6,17 @@ manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/28/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.topic: overview
+ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748167"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584601"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources organiseren met Azure-beheergroepen
 
@@ -28,12 +28,12 @@ U kunt bijvoorbeeld beleid toepassen op een beheergroep, dat het aantal regio's 
 
 U kunt een flexibele structuur van managementgroepen en abonnementen bouwen om uw resources in een hiërarchie te ordenen voor uniform beleid en toegangsbeheer. Het volgende diagram laat een voorbeeld zien van hoe een hiërarchie voor governance kan worden gemaakt met behulp van beheergroepen.
 
-![boomstructuur](./media/MG_overview.png)
+![boomstructuur](./media/tree.png)
 
-Als u een hiërarchie maakt zoals die in dit voorbeeld, kunt u een beleid toepassen, bijvoorbeeld VM-locaties in alleen de regio US - west in de groep ‘Beheergroep infrastructuurteam’ om intern beleid voor compliance en beveiliging in te schakelen. Dit beleid wordt overgenomen door beide EA-abonnementen onder deze beheergroep en geldt voor alle VM’s onder deze abonnementen. Omdat dit beleid van de beheergroep wordt doorgegeven aan de abonnementen, kan het beveiligingsbeleid niet worden gewijzigd door de eigenaar van de resource of het abonnement, wat zorgt voor betere governance.
+Maak een hiërarchie, zodat u een beleid kunt toepassen. Bijvoorbeeld: de VM-locaties voor de groep 'Beheergroep infrastructuurteam' beperken tot de regio US - west. Dit beleid wordt overgenomen door beide EA-abonnementen onder deze beheergroep en geldt voor alle VM’s onder deze abonnementen. Dit beveiligingsbeleid kan niet worden gewijzigd door de eigenaar van de resource of het abonnement, wat zorgt voor betere governance.
 
-Een ander scenario waarbij u beheergroepen kunt gebruiken, is om gebruikers toegang te geven tot meerdere abonnementen. Als u meerdere abonnementen onder die beheergroep verplaatst, hebt u de mogelijkheid om in de beheergroep één toewijzing voor [op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md) (role-based access control, RBAC) te maken, die de toegang doorgeeft aan alle abonnementen.
-Eén toewijzing in de beheergroep kan gebruikers toegang geven tot alles wat ze nodig hebben, zonder dat er scripts moeten worden geschreven voor RBAC-toewijzingen in meerdere abonnementen.
+Een ander scenario waarin u beheergroepen kunt gebruiken, is gebruikers toegang verlenen tot meerdere abonnementen. Als u een groot aantal abonnementen naar de betreffende beheergroep verplaatst, kunt u in de beheergroep één toewijzing voor [op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md) (role-based access control, RBAC) maken, die de toegang doorgeeft aan alle abonnementen.
+Eén toewijzing in de beheergroep kan gebruikers toegang geven tot alles wat ze nodig hebben. Er hoeven dan geen scripts te worden geschreven voor RBAC-toewijzingen in meerdere abonnementen.
 
 ### <a name="important-facts-about-management-groups"></a>Belangrijke feiten over beheergroepen
 
@@ -41,7 +41,7 @@ Eén toewijzing in de beheergroep kan gebruikers toegang geven tot alles wat ze 
 - Een beheergroepstructuur ondersteunt tot wel zes niveaus.
   - Deze limiet is exclusief het hoofdniveau of het abonnementsniveau.
 - Een beheergroep of abonnement biedt ondersteuning voor slechts één bovenliggend item.
-- Elke beheergroep kan meerdere onderliggende items hebben.
+- Elke beheergroep kan een groot aantal onderliggende items hebben.
 - Alle abonnementen en beheergroepen bevinden zich in één hiërarchie in elke map. Zie [Belangrijke feiten over de hoofdbeheergroep](#important-facts-about-the-root-management-group) voor uitzonderingen die optreden tijdens de preview-periode.
 
 ## <a name="root-management-group-for-each-directory"></a>Hoofdbeheergroep voor elke map
@@ -73,17 +73,17 @@ Wanneer een gebruiker start met het gebruik van beheergroepen, vindt er een proc
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemen met de weergave van alle abonnementen
 
-Bij een aantal directory's dat vroeg in de preview (vóór 25 juni 2018) met beheergroepen is gaan werken, kan zich een probleem voordoen waarbij niet van alle abonnementen opname in de hiërarchie wordt afgedwongen.  De reden hiervoor is dat de processen voor het afdwingen van opname van abonnementen in de hiërarchie zijn geïmplementeerd nadat een rol- of beleidstoewijzing is uitgevoerd in de hoofdbeheergroep in de directory.
+Bij een aantal mappen dat vroeg in de preview (vóór 25 juni 2018) met beheergroepen is gaan werken, kan zich een probleem voordoen waarbij niet van alle abonnementen opname in de hiërarchie wordt afgedwongen.  Dit komt doordat de processen voor het afdwingen van opname van abonnementen in de hiërarchie zijn geïmplementeerd nadat er een rol- of beleidstoewijzing is uitgevoerd in de hoofdbeheergroep in de map.
 
 ### <a name="how-to-resolve-the-issue"></a>Het probleem oplossen
 
-Er zijn twee opties om dit in eigen beheer op te lossen.
+U kunt dit probleem op twee manieren verhelpen.
 
 1. Alle rol- en beleidstoewijzingen uit de hoofdbeheergroep verwijderen
-    1. Door alle beleids- en roltoewijzingen van de hoofdbeheergroep te verwijderen, zal de service alle abonnementen in de hiërarchie aanvullen tijdens de volgende nachtelijke cyclus.  De reden voor deze controle is om ervoor te zorgen dat er geen onopzettelijke toegang wordt gegeven of beleid toegewezen aan alle abonnementen van de tenant.
+    1. Door alle beleids- en roltoewijzingen van de hoofdbeheergroep te verwijderen, zal de service alle abonnementen in de hiërarchie aanvullen tijdens de volgende nachtelijke cyclus.  Dankzij dit proces wordt er niet onbedoeld toegang verleend of beleid toegewezen aan alle abonnementen van de tenant.
     1. De beste manier om dit proces uit te voeren zonder uw services te beïnvloeden, is de rol- of beleidstoewijzingen één niveau onder de hoofdbeheergroep toe te passen. Vervolgens kunt u alle toewijzingen van het hoofdbereik verwijderen.
 1. De API rechtstreeks aanroepen om het backfill-proces te starten
-    1. Elke geautoriseerde klant in de directory kan de API's *TenantBackfillStatusRequest* of *StartTenantBackfillRequest* aanroepen. Wanneer de API StartTenantBackfillRequest wordt aangeroepen, wordt hiermee het initiële instellingsproces gestart voor het verplaatsen van alle abonnementen naar de hiërarchie. Met dit proces wordt ook afgedwongen dat alle nieuwe abonnementen een onderliggend element van de hoofdbeheergroep worden gemaakt. Dit proces kan worden uitgevoerd zonder toewijzingen op het hoofdniveau te wijzigen, omdat u aangeeft dat elke beleid- of toegangstoewijzing in de hoofdmap mag worden toegepast op alle abonnementen.
+    1. Elke klant in de map kan de API's *TenantBackfillStatusRequest* en *StartTenantBackfillRequest* aanroepen. Wanneer de API StartTenantBackfillRequest wordt aangeroepen, wordt hiermee het initiële instellingsproces gestart voor het verplaatsen van alle abonnementen naar de hiërarchie. Met dit proces wordt ook afgedwongen dat alle nieuwe abonnementen een onderliggend element van de hoofdbeheergroep worden gemaakt. Dit proces kan worden uitgevoerd zonder de toewijzingen op het hoofdniveau te wijzigen. Door de API aan te roepen, geeft u aan dat een beleids- of toegangstoewijzing in de hoofdmap mag worden toegepast op alle abonnementen.
 
 Als u vragen hebt over dit backfill-proces, neemt u contact op met: managementgroups@microsoft.com  
   
@@ -105,11 +105,25 @@ In de volgende tabel staat een lijst met rollen en de acties die worden onderste
 |Inzender voor resourcebeleid |        |        |      |        |               | X             |       |
 |Beheerder van gebruikerstoegang   |        |        |      |        | X             |               |       |
 
-*: Met de rollen Beheergroep-inzender en Beheergroep-lezer kunnen gebruikers alleen die acties uitvoeren op beheergroep-niveau.  
+*: Met de rollen Beheergroep-inzender en Beheergroep-lezer kunnen gebruikers deze acties alleen uitvoeren op beheergroepniveau.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Definitie en toewijzing van aangepaste RBAC-rollen
 
 Op dit moment worden aangepaste RBAC-rollen niet ondersteund in beheergroepen. Ga naar het [feedbackforum voor beheergroepen](https://aka.ms/mgfeedback) om de status van dit item te bekijken.
+
+## <a name="audit-management-groups-using-activity-logs"></a>Beheergroepen controleren met behulp van activiteitenlogboeken
+
+Als u de activiteit van beheergroepen wilt bijhouden via een API, gebruikt u de [Tenant Activity Log-API](/rest/api/monitor/tenantactivitylogs). Het is momenteel niet mogelijk om de activiteit van beheergroepen bij te houden met PowerShell, de CLI of de Azure-portal.
+
+1. [Verhoog het toegangsniveau](../../role-based-access-control/elevate-access-global-admin.md) als tenantbeheerder van de Azure AD-tenant en wijs vervolgens de rol van Lezer toe aan de controlerende gebruiker voor het bereik `/providers/microsoft.insights/eventtypes/management`.
+1. Roep als controlerende gebruiker de [Tenant Activity Log-API](/rest/api/monitor/tenantactivitylogs) aan om de activiteit van beheergroepen weer te geven. Voor alle activiteit van beheergroepen moet u filteren op de resourceprovider **Microsoft.Management**.  Voorbeeld:
+
+```
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Probeer [ARMClient](https://github.com/projectkudu/ARMClient) om deze API eenvoudig aan te roepen vanaf de opdrachtregel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -117,6 +131,6 @@ Voor meer informatie over beheergroepen gaat u naar:
 
 - [Beheergroepen maken om Azure-resources te ordenen](create.md)
 - [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
-- [De Azure PowerShell-module installeren](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [De REST API-specificaties bekijken](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [De Azure CLI-extensie installeren](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](https://aka.ms/mgPSdocs)
+- [Beheergroepen bekijken via de REST-API](https://aka.ms/mgAPIdocs)
+- [Beheergroepen bekijken via de Azure-CLI](https://aka.ms/mgclidoc)
