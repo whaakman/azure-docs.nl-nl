@@ -3,19 +3,19 @@ title: Aangepaste automatische suggesties suggesties - Bing Custom Search defini
 titlesuffix: Azure Cognitive Services
 description: Hierin wordt beschreven hoe het configureren van aangepaste automatische suggestie met aangepaste suggesties
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 6d7ee4ef1a84b644a7075e24c0760ea46b407754
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cf3c9061b953264794fbe4f94cbcdcee9d3c69b3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465539"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423004"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configureren van uw aangepaste automatische suggesties-ervaring
 
@@ -52,7 +52,7 @@ Als u Bing suggesties opneemt, kunt u een lijst met zoekreeksen van query's die 
 
 
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 >[!NOTE]  
 >Het duurt maximaal 24 uur voor aangepaste automatische suggesties configuratiewijzigingen worden doorgevoerd.

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: b9a5658c91a44289442f48993118e996bf2691c2
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 181a8ad7291a8e8a0aa2a8373985c8747bd4569b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164044"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446820"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Globale gegevensdistributie met Azure Cosmos DB
 
@@ -22,7 +22,7 @@ De hedendaagse toepassingen vereisen zeer responsieve en altijd online. Als u wi
 
 Azure Cosmos DB is een fundamentele Azure-service en is beschikbaar in alle [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/) standaard. Microsoft Azure-datacenters in 54 + regio's over de hele wereld werkt en blijft om uit te breiden, regionaal aanwezigheid om te voldoen aan de groeiende behoeften van klanten. Wanneer u een Azure Cosmos-account maakt, kunt u bepalen welke regio('s) moet worden geïmplementeerd in. Microsoft heeft de Azure Cosmos DB service 24/7, zodat u zich op uw toepassingen richten kunt.
 
-U kunt uw databases zijn wereldwijd gedistribueerde en beschikbaar zijn in een van de Azure-regio's configureren. Als u wilt de latentie verlagen, plaatst u de gegevens dichter naar waar uw gebruikers zich bevinden. De vereiste regio's te kiezen, is afhankelijk van het wereldwijde bereik van uw toepassing en waar uw gebruikers zich bevinden. Azure Cosmos DB repliceert de gegevens in uw account transparant naar alle regio's die zijn gekoppeld aan uw account in alle regio's die zijn gekoppeld aan uw account. Het biedt één integraal beeld van uw Azure Cosmos-database wereldwijd worden gedistribueerd en containers die uw toepassing kunt lezen en schrijven naar lokaal. U kunt met Azure Cosmos DB, toevoegen of verwijderen van de regio's die zijn gekoppeld aan uw account op elk gewenst moment. Uw toepassing hoeft niet te worden onderbroken of opnieuw als u wilt toevoegen of verwijderen van een regio zijn geïmplementeerd. Deze maximaal beschikbaar blijft continu vanwege de multi-homingmogelijkheden die de service biedt.
+U kunt uw databases zijn wereldwijd gedistribueerde en beschikbaar zijn in een van de Azure-regio's configureren. Als u wilt de latentie verlagen, plaatst u de gegevens dichter naar waar uw gebruikers zich bevinden. De vereiste regio's te kiezen, is afhankelijk van het wereldwijde bereik van uw toepassing en waar uw gebruikers zich bevinden. Azure Cosmos DB repliceert de gegevens in uw account transparant naar alle regio's die zijn gekoppeld aan uw account. Het biedt één integraal beeld van uw Azure Cosmos-database wereldwijd worden gedistribueerd en containers die uw toepassing kunt lezen en schrijven naar lokaal. U kunt met Azure Cosmos DB, toevoegen of verwijderen van de regio's die zijn gekoppeld aan uw account op elk gewenst moment. Uw toepassing hoeft niet te worden onderbroken of opnieuw als u wilt toevoegen of verwijderen van een regio zijn geïmplementeerd. Deze maximaal beschikbaar blijft continu vanwege de multi-homingmogelijkheden die de service biedt.
 
 ## <a name="key-benefits-of-global-distribution"></a>Belangrijkste voordelen van wereldwijde distributie
 

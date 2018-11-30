@@ -1,25 +1,21 @@
 ---
 title: Team Data Science Process Group Manager taken - Azure | Microsoft Docs
 description: Een overzicht van de taken voor een groepmanager op een data science-teamproject.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: a89c0f916f67de1bae81a5e1b3dcfc2cae41d248
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304183"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446344"
 ---
 # <a name="group-manager-tasks"></a>Groepsbeheerder taken
 
@@ -101,7 +97,7 @@ Vul de gegevens voor de Azure DevOps-Services die u maken wilt de **maken van uw
 ![5](./media/group-manager-tasks/create-account-2.png)
 
 
-Klik op **blijven**. 
+Klik op **Doorgaan**. 
 
 ## <a name="2-groupcommon-project"></a>2. GroupCommon Project
 

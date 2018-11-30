@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 60b80843ce343c667413be55b59d02ac14b349f3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d2aeb41c2fcc11c37ec56707932eabcf63e026a0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037512"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497212"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Gepubliceerde toepassing - H2O Sparkling Water installeren
 
-In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [H20 Sparkling Water](http://www.h2o.ai/) gepubliceerd Apache Hadoop-toepassing in Azure HDInsight. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
+In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [H20 Sparkling Water](http://www.h2o.ai/) gepubliceerd [Apache Hadoop](https://hadoop.apache.org/) toepassing voor Azure HDInsight. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-h2o-sparkling-water"></a>Over H2O Sparkling Water
 
-H2O Sparkling Water is een open source, volledig gedistribueerde in-memory-machine learning-platform met lineaire schaalbaarheid. H2O Sparkling Water kunt u de snelle, schaalbare machine learning-algoritmen van H2O met de mogelijkheden van Spark te combineren. Met Sparkling Water kunnen gebruikers berekening station van Scala, R en Python met behulp van de gebruikersinterface van H2O Flow.
+H2O Sparkling Water is een open source, volledig gedistribueerde in-memory-machine learning-platform met lineaire schaalbaarheid. H2O Sparkling Water kunt u de snelle, schaalbare machine learning-algoritmen van H2O met de mogelijkheden van combineren [Apache Spark](https://spark.apache.org/). Met Sparkling Water kunnen gebruikers berekening van station. [Scala](https://www.scala-lang.org/), R en Python met behulp van de gebruikersinterface van H2O Flow.
 
 H2O Sparkling Water biedt:
 
@@ -49,11 +49,11 @@ Als u wilt deze app installeren op een nieuw HDInsight-cluster of een bestaand c
 
 ## <a name="install-the-h2o-sparkling-water-published-application"></a>Gepubliceerde toepassing installeren de H2O Sparkling Water
 
-Lees voor stapsgewijze instructies over het installeren van deze en andere beschikbare ISV-toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md).
+Lees voor stapsgewijze instructies over het installeren van deze en andere beschikbare ISV-toepassingen [Apache Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-h2o-sparkling-water"></a>Starten van H2O Sparkling Water
 
-1. Na de installatie, u kunt beginnen met H2O Sparkling Water (h2o-sparklingwater) van het cluster in Azure portal door het openen van Jupyter Notebooks (`https://<ClusterName>.azurehdinsight.net/jupyter`). U kunt ook naar Jupyter ophalen door het selecteren van **clusterdashboard** in uw cluster deelvenster in de portal, selecteert u vervolgens **Jupyter-Notebook**. U wordt gevraagd uw referenties in te voeren. Voer referenties in van het cluster Hadoop zoals opgegeven op het maken van clusters.
+1. Na de installatie, u kunt beginnen met H2O Sparkling Water (h2o-sparklingwater) van het cluster in Azure portal door te openen [Jupyter-Notebooks](https://jupyter.org/) (`https://<ClusterName>.azurehdinsight.net/jupyter`). U kunt ook naar Jupyter ophalen door het selecteren van **clusterdashboard** in uw cluster deelvenster in de portal, selecteert u vervolgens **Jupyter-Notebook**. U wordt gevraagd uw referenties in te voeren. Voer referenties in van het cluster Hadoop zoals opgegeven op het maken van clusters.
 
 2. In Jupyter, ziet u drie mappen: H2O-PySparkling-voorbeelden, voorbeelden van de PySpark en Scala-voorbeelden. Selecteer de **H2O-PySparkling-voorbeelden** map.
 

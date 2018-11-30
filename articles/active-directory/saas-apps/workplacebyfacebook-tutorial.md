@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423868"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425171"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Zelfstudie: Azure Active Directory-integratie met werkplek op Facebook
 
@@ -62,7 +62,7 @@ Voor het configureren van de integratie van werkplek door Facebook in Azure AD, 
 
 **Als u wilt toevoegen werkplek door Facebook uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -140,7 +140,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
    > [!NOTE] 
    > Als onderdeel van het SAML-verificatieproces, eventueel werkplek queryreeksen van de grootte van maximaal 2,5 kB gebruiken om de parameters kunt toevoegen aan Azure AD.
 
-1. In de **bedrijf Dashboard**, gaat u naar de **verificatie** tabblad.
+1. In de **Admin deelvenster**, gaat u naar de **Security** tabblad vervolgens **verificatie**.
 
 1. Onder **SAML-verificatie**, selecteer **SSO alleen** uit de vervolgkeuzelijst.
 

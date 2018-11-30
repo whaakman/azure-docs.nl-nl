@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054652"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423725"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
 De ForEach-activiteit definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
@@ -572,6 +572,17 @@ Expressie voor het verzamelen van de uitvoer van alle herhalingen van een ForEac
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>Beperkingen en tijdelijke oplossingen
+
+Hier zijn enkele beperkingen van de ForEach-activiteit en voorgestelde oplossingen.
+
+| Beperking | Tijdelijke oplossing |
+|---|---|
+| Een ForEach-lus in een andere ForEach-lus (of een Until-lus) kunnen niet worden genest. | Ontwerp een twee niveaus pijplijn waar de buitenste pijplijn met de buitenste ForEach-lus over een binnenste pijplijn met de geneste lus doorloopt. |
+| De ForEach-activiteit heeft een maximale `batchCount` van 50 voor parallelle verwerking en maximaal 100.000 items. | Ontwerp een twee niveaus pijplijn waar de buitenste pijplijn met de ForEach-activiteit over een binnenste-pijplijn doorloopt. |
+| | |
+
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 
 

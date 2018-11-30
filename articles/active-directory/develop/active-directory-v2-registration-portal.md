@@ -17,12 +17,12 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0a9ec2e84197729f98fbf90bac53b505a8c99a19
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190112"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427325"
 ---
 # <a name="app-registration-reference"></a>Naslaginformatie over app-registratie
 Dit document bevat context en beschrijvingen van de verschillende functies die zijn gevonden in de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
@@ -37,7 +37,7 @@ Deze lijst bevat al uw toepassingen die zijn geregistreerd voor gebruik met de A
 Deze lijst bevat al uw toepassingen die zijn geregistreerd voor gebruik uitsluitend met Microsoft-account. Ze zijn niet ingeschakeld voor gebruik met Azure Active Directory. Dit is waar het vinden van alle toepassingen die eerder zijn geregistreerd met de MSA-ontwikkelaarsportal op `https://account.live.com/developers/applications`. Alle functies die u eerder hebt uitgevoerd op `https://account.live.com/developers/applications` kan nu worden uitgevoerd in deze nieuwe portal `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Toepassingsgeheimen
-Toepassingsgeheimen zijn referenties waarmee uw toepassing uit te voeren betrouwbare [clientverificatie](http://tools.ietf.org/html/rfc6749#section-2.3) met Azure AD. In OAuth en OpenID Connect, een toepassingsgeheim wordt vaak aangeduid als een `client_secret`. In het v2.0-protocol, een toepassing die u een beveiligingstoken op een website opgevraagd locatie ontvangt (met behulp van een `https` schema) moet een toepassingsgeheim gebruiken om zichzelf te identificeren met Azure AD bij het inwisselen van die beveiligingstoken. Bovendien een systeemeigen client die tokens op een apparaat ontvangt zal worden is niet toegestaan vanuit een toepassingsgeheim met clientverificatie uitvoeren. Dit ontmoedigt de opslag van geheimen in omgevingen met niet-beveiligd.
+Toepassingsgeheimen zijn referenties waarmee uw toepassing uit te voeren betrouwbare [clientverificatie](https://tools.ietf.org/html/rfc6749#section-2.3) met Azure AD. In OAuth en OpenID Connect, een toepassingsgeheim wordt vaak aangeduid als een `client_secret`. In het v2.0-protocol, een toepassing die u een beveiligingstoken op een website opgevraagd locatie ontvangt (met behulp van een `https` schema) moet een toepassingsgeheim gebruiken om zichzelf te identificeren met Azure AD bij het inwisselen van die beveiligingstoken. Bovendien een systeemeigen client die tokens op een apparaat ontvangt zal worden is niet toegestaan vanuit een toepassingsgeheim met clientverificatie uitvoeren. Dit ontmoedigt de opslag van geheimen in omgevingen met niet-beveiligd.
 
 Elke app kan twee geldige toepassingsgeheimen op een bepaald moment bevatten. Dankzij de twee geheimen, hebt u de mogelijkheid om uit te voeren van periodieke sleutelrollover binnen de gehele omgeving van uw toepassing. Wanneer u het geheel van uw toepassing in een nieuw geheim hebt gemigreerd, kunt u de oude geheim verwijderen en inrichten van een nieuwe.
 

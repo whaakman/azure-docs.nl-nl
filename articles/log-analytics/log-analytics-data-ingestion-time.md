@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f7b0f7c1cd08168db3f0f0ffd6cf6c4fa2c604e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955240"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334547"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tijd van de gegevens opnemen in Log Analytics
 Azure Log Analytics is een service voor grote schaal in Azure Monitor die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor gegevens beschikbaar in Log Analytics nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
@@ -40,7 +40,7 @@ Meer informatie over de verschillende latentie die is geïntroduceerd in dit pro
 Agents en oplossingen voor gebruik van verschillende strategieën voor het verzamelen van gegevens van een virtuele machine, die mogelijk invloed hebben op de latentie. Enkele specifieke voorbeelden omvatten het volgende:
 
 - Windows-gebeurtenissen, syslog-gebeurtenissen en metrische gegevens voor prestaties worden onmiddellijk verzameld. Linux-prestatiemeteritems zijn gepeild intervallen van 30 seconden.
-- IIS-logboeken en aangepaste logboeken worden verzameld als hun timestamp wordt gewijzigd. Voor IIS-logboeken, dit wordt beïnvloed door de [rollover schema dat is geconfigureerd voor IIS](log-analytics-data-sources-iis-logs.md). 
+- IIS-logboeken en aangepaste logboeken worden verzameld als hun timestamp wordt gewijzigd. Voor IIS-logboeken, dit wordt beïnvloed door de [rollover schema dat is geconfigureerd voor IIS](../azure-monitor/platform/data-sources-iis-logs.md). 
 - Oplossing voor Active Directory-replicatie wordt de evaluatie van elke vijf dagen uitgevoerd terwijl de oplossing Active Directory-evaluatie wordt uitgevoerd voor een wekelijkse beoordeling van uw Active Directory-infrastructuur. De agent verzamelt deze logboeken alleen wanneer de evaluatie is voltooid.
 
 ### <a name="agent-upload-frequency"></a>De uploadfrequentie agent
@@ -61,7 +61,7 @@ Raadpleeg de documentatie voor elke oplossing om te bepalen van de verzamelingsf
 Wanneer records in logboek registreren in Log Analytics-pijplijn zijn opgenomen, wordt deze zijn geschreven naar de tijdelijke opslag om te controleren of isolatie van tenants en om ervoor te zorgen dat gegevens niet verloren gaan. Dit proces wordt doorgaans 5 tot 15 seconden. Sommige oplossingen implementeren zwaardere algoritmen voor het samenvoegen van gegevens en inzichten worden afgeleid omdat gegevensstromen. Bijvoorbeeld, aggregeert de Netwerkprestatiemeter binnenkomende gegevens gedurende 3 minuten durende intervallen, effectief toe te voegen 3 minuten latentie. Een ander proces dat wordt toegevoegd latentie is het proces die verantwoordelijk is voor aangepaste logboeken. In sommige gevallen kan dit proces enkele minuten met een latentie van toevoegen aan de logboeken die worden verzameld van bestanden door de agent.
 
 ### <a name="new-custom-data-types-provisioning"></a>Nieuwe aangepaste gegevenstypen inrichten
-Wanneer een nieuw type aangepaste gegevens is gemaakt op basis van een [aangepast logboek](../log-analytics/log-analytics-data-sources-custom-logs.md) of de [Data Collector API](../log-analytics/log-analytics-data-collector-api.md), een toegewezen opslagcontainer wordt gemaakt. Dit is een eenmalige overhead die wordt uitgevoerd alleen op de eerste weergave van dit gegevenstype.
+Wanneer een nieuw type aangepaste gegevens is gemaakt op basis van een [aangepast logboek](../log-analytics/../azure-monitor/platform/data-sources-custom-logs.md) of de [Data Collector API](../log-analytics/log-analytics-data-collector-api.md), een toegewezen opslagcontainer wordt gemaakt. Dit is een eenmalige overhead die wordt uitgevoerd alleen op de eerste weergave van dit gegevenstype.
 
 ### <a name="surge-protection"></a>Piek-beveiliging
 De hoogste prioriteit van Log Analytics is om ervoor te zorgen dat er geen gegevens van de klant verbroken is, zodat het systeem beschikt over ingebouwde beveiliging voor gegevens pieken. Dit omvat buffers om ervoor te zorgen dat zelfs bij zeer grote belasting kan het systeem blijft gewoon functioneren. Bij normale belasting kan deze besturingselementen toevoegen van minder dan een minuut, maar in extreme omstandigheden en fouten die ze kunnen veel tijd en gegevens tegelijkertijd toevoegen veilig is.

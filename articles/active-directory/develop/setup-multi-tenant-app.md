@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 0007afaf1a961b578b68925fc554cd0195bd5621
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fe7d305110d8d78c0550741419bc35a0c4a4498e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723993"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423572"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Het configureren van een nieuwe toepassing met meerdere tenants
 
@@ -31,4 +31,4 @@ Hier volgt een lijst met aanbevolen onderwerpen voor meer informatie over toepas
 - Lees voor meer diepgang [hoe een toepassing met meerdere tenants is geconfigureerd en end-to-end gecodeerd](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), met inbegrip van informatie over het registreren, gebruikt u het eindpunt van de 'algemene' implementeren 'gebruiker' en 'admin' instemt, het implementeren van meer geavanceerde meerdere lagen scenario 's
 
 ## <a name="next-steps"></a>Volgende stappen
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

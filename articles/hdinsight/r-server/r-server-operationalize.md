@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005951"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496921"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML-Services-cluster in Azure HDInsight operationeel maken
 
@@ -79,9 +79,9 @@ Nadat u Services ML-cluster in HDInsight gebruikt hebt om uit te voeren van het 
 
     d. Voer bij de menuopties weergegeven, **E** om te keren naar het hoofdmenu en voer **8** om af te sluiten van het beheerprogramma.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Lange vertragingen bij het gebruiken van webservice op Spark
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Lange vertragingen bij het gebruiken van webservice op Apache Spark
 
-Als er lange vertragingen optreden bij het gebruiken van een webservice die is gemaakt met mrsdeploy-functies in een Spark-compute-context, moet u mogelijk een aantal ontbrekende mappen toevoegen. De Spark-toepassing is van een gebruiker met de naam *rserve2* wanneer de toepassing wordt aangeroepen vanuit een webservice met behulp van mrsdeploy-functies. Dit probleem omzeilen:
+Als er lange vertragingen optreden bij het gebruik van een webservice die is gemaakt met mrsdeploy-functies in een Apache Spark-compute-context, moet u mogelijk aantal ontbrekende mappen toevoegen. De Spark-toepassing is van een gebruiker met de naam *rserve2* wanneer de toepassing wordt aangeroepen vanuit een webservice met behulp van mrsdeploy-functies. Dit probleem omzeilen:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ Als u wilt de compute-knooppunten schalen, moet u eerst uit bedrijf nemen de wor
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Stap 1: Uit bedrijf nemen de worker-knooppunten
 
-ML-Services cluster niet wordt beheerd via YARN. Als de worker-knooppunten niet uit bedrijf genomen, werkt de resourcemanager YARN niet zoals verwacht, omdat het is niet op de hoogte van de resources in beslag wordt genomen door de server. Om deze sitatie te voorkomen raden we u aan de werkknooppunten uit bedrijf te nemen voordat u de rekenknooppunten uitschaalt.
+ML-Services cluster niet wordt beheerd via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Als de worker-knooppunten niet uit bedrijf genomen, werkt de resourcemanager YARN niet zoals verwacht, omdat het is niet op de hoogte van de resources in beslag wordt genomen door de server. Om deze sitatie te voorkomen raden we u aan de werkknooppunten uit bedrijf te nemen voordat u de rekenknooppunten uitschaalt.
 
 Volg deze stappen voor het worker-knooppunten uit bedrijf nemen:
 

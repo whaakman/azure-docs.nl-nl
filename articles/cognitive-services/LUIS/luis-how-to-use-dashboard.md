@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212805"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335007"
 ---
 # <a name="application-dashboard"></a>Toepassingsdashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing op **mijn Apps** pagina selecteert **Dashboard** uit boven in het venster. 
@@ -26,17 +26,9 @@ Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard**
 > * Gebruik LUIS eindpuntsleutel voor alle endpoint-aanvragen, met inbegrip van LUIS [API](https://aka.ms/luis-endpoint-apis) en bot
 > * Gebruik verschillende eindpuntsleutel voor elke LUIS-app. Gebruik een sleutel van één eindpunt niet voor alle apps. De eindpuntsleutel wordt bijgehouden op het niveau van de sleutel, niet op het niveau van de app.  
 
-De **Dashboard** pagina geeft een overzicht van de LUIS-app met inbegrip van het huidige model staat, evenals [eindpunt](luis-glossary.md#endpoint) gebruik na verloop van tijd. <!--The following image shows the **Dashboard** page.-->
-
-<!-- TBD: Get a working screen shot
-![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
--->
-
-<!-- TBD: IS THIS STILL TRUE?
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
--->
+De **Dashboard** pagina geeft een overzicht van de LUIS-app met inbegrip van het huidige model staat, evenals [eindpunt](luis-glossary.md#endpoint) gebruik na verloop van tijd. 
   
-## <a name="app-status"></a>App-status
+## <a name="app-status"></a>Status van de App
 Het dashboard wordt weergegeven van de toepassing training en publicatiestatus, met inbegrip van de datum en tijd wanneer de app het laatst getraind en gepubliceerd.  
 
 ![Dashboard - App-Status](./media/luis-how-to-use-dashboard/app-state.png)
@@ -49,7 +41,6 @@ Het dashboard toont het totale aantal intenties en entiteiten gelabelde uitingen
 ## <a name="endpoint-hits"></a>Eindpunt treffers
 Het dashboard toont de totale eindpunt treffers die de LUIS-app ontvangt en kunt u om weer te geven treffers binnen een periode die u opgeeft. Het totale aantal hits weergegeven is de som van eindpunt treffers die gebruikmaken van een [eindpuntsleutel](./luis-concept-keys.md#endpoint-key) en eindpunt treffers die gebruikmaken van een [ontwerpen sleutel](./luis-concept-keys.md#authoring-key).
 
-<!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Eindpunt treffers](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 

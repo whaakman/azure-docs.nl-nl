@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 83f648b67ae4f8e6fb964d82c245f1c7ba475542
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568536"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422912"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Hoe u een telefonische oproep met behulp van Twilio in een Webrol in Azure
 Deze handleiding laat zien hoe u Twilio gebruiken om een aanroep van een webpagina die wordt gehost in Azure te maken. De resulterende toepassing vraagt de gebruiker aanroepen met de gegeven getal en het bericht, zoals wordt weergegeven in de volgende schermafbeelding.
@@ -29,7 +29,7 @@ Deze handleiding laat zien hoe u Twilio gebruiken om een aanroep van een webpagi
 ## <a name="twilio-prereqs"></a>Vereisten
 U moet doen het volgende voor het gebruik van de code in dit onderwerp:
 
-1. Een Twilio-account en de verificatie verkrijgen token van de [Twilio Console][twilio_console]. Als u aan de slag met Twilio, wilt u zich aanmelden bij [ https://www.twilio.com/try-twilio ] [ try_twilio]. U kunt evalueren prijzen bij [ http://www.twilio.com/pricing ] [ twilio_pricing]. Zie voor meer informatie over de API die door Twilio [ http://www.twilio.com/voice/api ] [ twilio_api].
+1. Een Twilio-account en de verificatie verkrijgen token van de [Twilio Console][twilio_console]. Als u aan de slag met Twilio, wilt u zich aanmelden bij [ https://www.twilio.com/try-twilio ] [ try_twilio]. U kunt evalueren prijzen bij [ https://www.twilio.com/pricing ] [ twilio_pricing]. Zie voor meer informatie over de API die door Twilio [ https://www.twilio.com/voice/api ] [ twilio_api].
 2. Voeg de *Twilio .NET-bibliotheek* voor uw Webrol. Zie **de Twilio-bibliotheken toevoegen aan uw webproject rol**verderop in dit onderwerp.
 
 U moet bekend bent met het maken van een eenvoudige [Webrol op Azure][azure_webroles_get_started].
@@ -126,7 +126,7 @@ namespace WebRole1
                 // Create a URL using the Twilio message and the user-entered
                 // text. You must replace spaces in the user's text with '%20'
                 // to make the text suitable for a URL.
-                var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
+                var url = $"https://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
                 var twimlUri = new Uri(url);
 
                 // Display the endpoint, API version, and the URL for the message.
@@ -148,7 +148,7 @@ De aanroep is uitgevoerd en het eindpunt van de Twilio API-versie en de status v
 
 ![De aanroep van de Azure-antwoord met Twilio en ASP.NET][twilio_dotnet_basic_form_output]
 
-Meer informatie over TwiML kan worden gevonden op [ http://www.twilio.com/docs/api/twiml ] [ twiml]. Meer informatie over &lt;zeg&gt; en andere termen Twilio kunnen u vinden op [ http://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
+Meer informatie over TwiML kan worden gevonden op [ https://www.twilio.com/docs/api/twiml ] [ twiml]. Meer informatie over &lt;zeg&gt; en andere termen Twilio kunnen u vinden op [ https://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
 
 ## <a id="nextsteps"></a>Volgende stappen
 Deze code is opgegeven om weer te geven u basisfunctionaliteit met behulp van Twilio in een ASP.NET-Webrol in Azure. Voordat u implementeert naar Azure in de productieomgeving, kunt u meer foutafhandeling of andere functies toe te voegen. Bijvoorbeeld:
@@ -162,15 +162,15 @@ Deze code is opgegeven om weer te geven u basisfunctionaliteit met behulp van Tw
 * [Twilio voor spraak en SMS-mogelijkheden van Azure gebruiken](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
-[twilio_pricing]: http://www.twilio.com/pricing
-[try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/voice/api
+[twilio_pricing]: https://www.twilio.com/pricing
+[try_twilio]: https://www.twilio.com/try-twilio
+[twilio_api]: https://www.twilio.com/voice/api
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified
 
 [twilio_dotnet_basic_form]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
 [twilio_dotnet_basic_form_output]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png
 
-[twiml]: http://www.twilio.com/docs/api/twiml
+[twiml]: https://www.twilio.com/docs/api/twiml
 
 
 
@@ -181,10 +181,10 @@ Deze code is opgegeven om weer te geven u basisfunctionaliteit met behulp van Tw
 [howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
-[twilio_docs_security]: http://www.twilio.com/docs/security
-[twilio_docs]: http://www.twilio.com/docs
-[twilio_say]: http://www.twilio.com/docs/api/twiml/say
+[twilio_docs_security]: https://www.twilio.com/docs/security
+[twilio_docs]: https://www.twilio.com/docs
+[twilio_say]: https://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+[azure_runtime_ref_dotnet]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 [azure_webroles_get_started]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-get-started

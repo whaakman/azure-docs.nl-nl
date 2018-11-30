@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/01/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320642"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495184"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 
@@ -36,7 +36,7 @@ De volgende tabel beschrijft de verschillen tussen de drie versies van multi-fac
 | Azure Multi-Factor Authentication | Azure multi-factor Authentication is vaak aangeduid als de 'volledige' versie, biedt de uitgebreidste set mogelijkheden. Het biedt aanvullende configuratie-opties via de [Azure-portal](https://portal.azure.com), geavanceerde rapportage en ondersteuning voor een bereik van on-premises en cloudtoepassingen. Azure multi-factor Authentication is een functie van [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), en kan worden geïmplementeerd in de cloud of on-premises. |
 
 > [!NOTE]
-> Nieuwe klanten kunnen niet meer Azure multi-factor Authentication aanschaffen als zelfstandige aanbieding met 1 September 2018. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
+> Nieuwe klanten kunnen niet meer Azure multi-factor Authentication aanschaffen als zelfstandige aanbieding met 1 September 2018. Meervoudige verificatie blijft beschikbaar als een functie in Azure AD Premium-licenties.
 
 ## <a name="feature-comparison-of-versions"></a>Vergelijking van versies
 
@@ -63,14 +63,13 @@ De volgende tabel geeft een lijst van de functies die beschikbaar in de verschil
 | Aangepaste Nummerweergave voor telefoongesprekken | | |● |
 | Goedgekeurde IP-adressen | | |● |
 | MFA herinneren voor vertrouwde apparaten |● |● |● |
-| MFA SDK | | |● (afgeschaft) | 
 | MFA voor on-premises toepassingen | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Het inschakelen van Azure multi-factor Authentication voor beheerders van Azure AD
 
 Gebruikers die zijn toegewezen de rol globale beheerder in Azure AD-tenants kunt verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten. Als u van een Microsoft-Account gebruikmaakt, kunt u registreren voor meervoudige verificatie met behulp van de richtlijnen in het ondersteuningsartikel voor Microsoft-account gevonden [over verificatie in twee stappen](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). Als u een Microsoft-Account niet gebruikt, schakelt u multi-factor authentication voor globale beheerders volgens de richtlijnen die zijn gevonden in het artikel [hoe u verificatie in twee stappen vereist voor een gebruiker of groep](howto-mfa-userstates.md).
 
-## <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
+## <a name="how-to-purchase-azure-multi-factor-authentication"></a>Over het aanschaffen van Azure multi-factor Authentication
 
 Als u de volledige functionaliteit van Azure multi-factor Authentication, zijn er verschillende opties:
 
@@ -78,14 +77,11 @@ Als u de volledige functionaliteit van Azure multi-factor Authentication, zijn e
 
 Koop-licenties met Azure multi-factor Authentication, zoals Azure Active Directory Premium of een licentie-bundel met Azure AD Premium, en deze toewijzen aan uw gebruikers in Azure Active Directory.
 
-Als u deze optie gebruikt, moet u een Azure multi-factor Authentication-Provider maken alleen als u moet ook de verificatie in twee stappen voor gebruikers die geen licenties opgeven. Anders wordt u mogelijk worden kosten in rekening gebracht twee keer.
-
 ### <a name="option-2---mfa-consumption-based-model"></a>Optie 2 - MFA consumptie gebaseerd model
 
-> [!NOTE]
-> Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen nog steeds worden gebruikt en bijgewerkt. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
+Deze optie is niet meer beschikbaar voor nieuwe klanten vanaf 1 September 2018.
 
-Maak een Azure multi-factor Authentication-Provider in een Azure-abonnement. Azure MFA-Providers zijn Azure-resources die in rekening op basis van uw Enterprise Agreement, monetaire toezegging voor Azure of creditcard is geregistreerd, zoals alle andere Azure-resources gebracht worden. Deze providers kunnen alleen worden gemaakt in de volledige Azure-abonnementen, niet beperkt Azure-abonnementen waarvoor een bestedingslimiet van $0 uitzetten. Beperkte abonnementen worden gemaakt wanneer u licenties, zoals in de opties voor 1 activeren.
+Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen nog steeds worden gebruikt en bijgewerkt. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
 
 Wanneer u een Azure multi-factor Authentication-Provider gebruikt, zijn er twee gebruiksmodellen beschikbaar die worden in rekening gebracht via uw Azure-abonnement:
 

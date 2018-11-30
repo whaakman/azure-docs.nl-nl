@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 7eabe50ed1069a6027d5ec387f0c1dba45feb58e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 756e1426d417c47210e3b766d9d67ef1a70d2516
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828361"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334140"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../../azure-monitor/overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -131,14 +131,14 @@ Logboeken zijn met name nuttig voor het combineren van gegevens uit diverse bron
 Logboeken die worden verzameld door Azure Monitor worden opgeslagen in Log Analytics dat Telemetrie en andere gegevens worden verzameld uit een groot aantal bronnen. Het biedt een uitgebreide querytaal en een analyse-engine waarmee u inzicht in de werking van uw toepassingen en resources. Andere Azure-services zoals [Azure Security Center](../../security-center/security-center-intro.md) hun gegevens opslaan in Log Analytics om te voorzien van een algemeen gegevensplatform in de Azure management.
 
 > [!IMPORTANT]
-> Gegevens uit Application Insights wordt opgeslagen in Log Analytics, zoals andere logboekgegevens, behalve dat deze opgeslagen in een afzonderlijke partitie. Dit biedt ondersteuning voor dezelfde functionaliteit als andere Log Analytics-gegevens, maar moet u de [Application Insights-console](/application-insights/app-insights-analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../../log-analytics/log-analytics-cross-workspace-search.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
+> Gegevens uit Application Insights wordt opgeslagen in Log Analytics, zoals andere logboekgegevens, behalve dat deze opgeslagen in een afzonderlijke partitie. Dit biedt ondersteuning voor dezelfde functionaliteit als andere Log Analytics-gegevens, maar moet u de [Application Insights-console](../../application-insights/app-insights-analytics.md) of de [Application Insights-API](https://dev.applicationinsights.io/) voor toegang tot deze gegevens. U kunt een [meerdere bronnen query](../../log-analytics/log-analytics-cross-workspace-search.md) voor het analyseren van gegevens, samen met andere gegevens van een toepassing.
 
 
 ### <a name="sources-of-log-data"></a>Bronnen van logboekgegevens
 Log Analytics kan gegevens verzamelen uit diverse bronnen, zowel binnen Azure en on-premises bronnen. Bronnen van gegevens die worden geschreven naar Log Analytics omvatten het volgende:
 
 - [Activiteitenlogboeken](../../log-analytics/log-analytics-activity.md) van Azure-resources met informatie over de configuratie en de status en [diagnostische logboeken](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) die inzicht geven in hun werking.
-- Agents op [Windows](../../log-analytics/log-analytics-windows-agent.md) en [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Log Analytics volgens verzenden [gegevensbronnen](../../log-analytics/log-analytics-data-sources.md) die u configureert.
+- Agents op [Windows](../../log-analytics/log-analytics-windows-agent.md) en [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuele machines die telemetrie vanuit de Gast-besturingssysteem en toepassingen naar Log Analytics volgens verzenden [gegevensbronnen](../../azure-monitor/platform/agent-data-sources.md) die u configureert.
 - Toepassingsgegevens verzameld door [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Gegevens die inzicht bieden in een bepaalde toepassing of service van [bewakingsoplossingen](../insights/solutions.md) of functies zoals Container Insights, inzichten van de virtuele machine of Resource Group inzichten.
 - Beveiligingsgegevens die zijn verzameld door [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
@@ -156,7 +156,7 @@ Taken die u met Logboeken uitvoeren kunt omvatten het volgende:
 
 - Gebruik de [Log Analytics-pagina](../../log-analytics/query-language/get-started-analytics-portal.md) in de Azure portal voor het schrijven van query's voor het analyseren van logboekgegevens.  Resultaten weergegeven als tabellen of grafieken vastmaken een [Azure-dashboard](../../azure-portal/azure-portal-dashboards.md).
 - Configureren van een [waarschuwingsregel](../../monitoring-and-diagnostics/alert-log.md) die duurt of verzendt een melding [automatische actie](../../monitoring-and-diagnostics/monitoring-action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.
-- Een werkstroom op basis van gegevens in met behulp van Log Analytics bouwen [Logic Apps]().
+- Een werkstroom op basis van gegevens in met behulp van Log Analytics bouwen [Logic Apps](~/articles/logic-apps/index.yml).
 - De resultaten van een query voor het exporteren [Power BI](../../log-analytics/log-analytics-powerbi.md) verschillende visualisaties gebruiken en delen met gebruikers buiten Azure.
 - Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) of [REST-API](https://dev.loganalytics.io/).
 

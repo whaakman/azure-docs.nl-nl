@@ -1,25 +1,21 @@
 ---
 title: Team Data Science Process Team leiden taken - Azure | Microsoft Docs
 description: Een overzicht van de taken voor een team leiden op een data science-teamproject.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 86ab49cb0acd9ffee47fb1f8f531c3a0cd6e6730
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297958"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443846"
 ---
 # <a name="team-lead-tasks"></a>Team Lead taken
 
@@ -66,7 +62,7 @@ De namen opgegeven voor de opslagplaatsen en mappen in deze zelfstudie is te vin
 Team leads moeten in elk geval laat de teamleden weten welke sjabloon en hulpprogramma's voor opslagplaatsen vast te stellen wanneer ze zijn instellen en de opslagplaatsen project en hulpprogramma's voor het klonen. Project leads diende de [Project leiden taken voor een team van gegevenswetenschappers](project-lead-tasks.md) te maken project-opslagplaatsen, of onder de verschillende projecten of een enkel project. 
 
 
-## <a name="0-prerequisites"></a>0. Vereiste onderdelen
+## <a name="0-prerequisites"></a>0. Vereisten
 
 De vereisten wordt voldaan door het uitvoeren van de taken die zijn toegewezen aan uw groepmanager die worden beschreven in [groepsbeheerder taken voor een team van gegevenswetenschappers](group-manager-tasks.md). Om samen te vatten hier, moeten de volgende vereisten voldoen voordat u begint met het team lead taken: 
 

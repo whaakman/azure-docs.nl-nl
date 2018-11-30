@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395120"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427298"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (Private Preview) inschakelen
 
@@ -24,7 +24,7 @@ Voor het implementeren van uw service in veel regio's en zorg ervoor dat deze wo
 
 Deployment Manager is een functie van Resource Manager. Hiermee wordt uw mogelijkheden tijdens de implementatie. Deployment Manager gebruiken wanneer u een complexe service die moet worden geïmplementeerd voor meerdere regio's. Door de implementatie van uw service te faseren, kunt u potentiële problemen opsporen voordat de service is geïmplementeerd voor alle regio's. Als u niet de extra voorzorgsmaatregelen van een gefaseerde implementatie nodig hebt, gebruikt u de standaard [implementatieopties](resource-group-template-deploy-portal.md) voor Resource Manager. Deployment Manager integreert naadloos met alle bestaande hulpprogramma's van derden die ondersteuning bieden voor Resource Manager-implementaties, zoals continue integratie en continue levering (CI/CD)-aanbiedingen. 
 
-Azure Deployment Manager is in de beperkte Preview-versie. Voer voor het gebruik van Azure Deployment Manager, de [aanmeldingsformulier hebt ingevuld](https://aka.ms/admsignup). Help-informatie van de functie verbeteren door [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager bevindt zich in beperkte preview. Voer voor het gebruik van Azure Deployment Manager, de [aanmeldingsformulier hebt ingevuld](https://aka.ms/admsignup). Help-informatie van de functie verbeteren door [feedback](https://aka.ms/admfeedback).
 
 Deployment Manager wilt gebruiken, moet u vier bestanden maken:
 
@@ -34,6 +34,8 @@ Deployment Manager wilt gebruiken, moet u vier bestanden maken:
 * Parameterbestand voor implementatie
 
 U implementeren de sjabloon topologie voordat u de implementatie-sjabloon implementeert.
+
+De Azure Deployment Manager REST API-verwijzing vindt [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## <a name="supported-locations"></a>Ondersteunde locaties
 

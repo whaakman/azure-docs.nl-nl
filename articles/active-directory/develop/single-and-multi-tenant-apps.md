@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988220"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424337"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenants in Azure Active Directory
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) organiseert objecten, zoals gebruikers en apps
 
 ## <a name="who-can-sign-in-to-your-app"></a>Wie kan zich aanmelden bij uw app?
 
-Als het gaat om het ontwikkelen van apps, ontwikkelaars kunnen kiezen hun app configureren voor één tenant of meerdere tenants worden tijdens de appregistratie in de [Azure-portal](http://portal.azure.com).
+Als het gaat om het ontwikkelen van apps, ontwikkelaars kunnen kiezen hun app configureren voor één tenant of meerdere tenants worden tijdens de appregistratie in de [Azure-portal](https://portal.azure.com).
 * Apps met één tenant zijn alleen beschikbaar in de tenant die ze in, ook wel bekend als hun starttenant zijn geregistreerd.
 * Apps met meerdere tenants zijn beschikbaar voor gebruikers in hun starttenant en andere tenants.
 

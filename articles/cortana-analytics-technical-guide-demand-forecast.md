@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238859"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427060"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor vraagprognose in energie
 ## <a name="overview"></a>**Overzicht**
@@ -159,14 +159,14 @@ Zodra de Gegevensgenerator wordt gestart, wordt de pijplijn wordt gehydrateerd o
 In deze sectie wordt beschreven hoe u Power BI-dashboard te visualiseren van uw realtime gegevens van Azure stream analytics (dynamisch pad), evenals resultaten van Azure machine learning-(koud pad) prognose instellen.
 
 ### <a name="setup-hot-path-dashboard"></a>Snelpad Dashboard instellen
-De volgende stappen helpen u over het visualiseren van realtime-gegevens-uitvoer van Stream Analytics-taken die zijn gegenereerd op het moment van implementatie van de oplossing. Een [Power BI online](http://www.powerbi.com/) account is vereist om de volgende stappen uitvoeren. Als u geen account hebt, kunt u [maakt u er een](https://powerbi.microsoft.com/pricing).
+De volgende stappen helpen u over het visualiseren van realtime-gegevens-uitvoer van Stream Analytics-taken die zijn gegenereerd op het moment van implementatie van de oplossing. Een [Power BI online](https://www.powerbi.com/) account is vereist om de volgende stappen uitvoeren. Als u geen account hebt, kunt u [maakt u er een](https://powerbi.microsoft.com/pricing).
 
 1. Power BI-uitvoer in Azure Stream Analytics (ASA) toevoegen.
 
    * Moet u de instructies in [Azure Stream Analytics en Power BI: een realtime analytics-dashboard voor realtime zichtbaarheid van streaminggegevens](stream-analytics/stream-analytics-power-bi-dashboard.md) voor het instellen van de uitvoer van uw Azure Stream Analytics-taak als uw Power BI-dashboard .
    * Ga naar de stream analytics-taak in uw [Azure-portal](https://portal.azure.com). De naam van de taak moet zijn: YourSolutionName + "streamingjob" + willekeurig getal + "asapbi' (dat wil zeggen demostreamingjob123456asapbi).
    * Een Power BI-uitvoer voor de ASA-taak toevoegen. Stel de **uitvoer Alias** als **'PBIoutput'**. Stel uw **gegevenssetnaam** en **tabelnaam** als **'EnergyStreamData'**. Nadat u de uitvoer hebt toegevoegd, klikt u op **'Start'** aan de onderkant van de pagina om de Stream Analytics-taak te starten. U moet een bevestigingsbericht wordt weergegeven (bijvoorbeeld ' eerste stream analytics-taak myteststreamingjob12345asablob is voltooid').
-2. Meld u aan bij [Power BI online](http://www.powerbi.com)
+2. Meld u aan bij [Power BI online](https://www.powerbi.com)
 
    * In het linkerdeelvenster, gegevenssets sectie in mijn werkruimte, moet u een nieuwe gegevensset weergegeven in het linkerdeelvenster van Power BI zien. Dit is de streaminggegevens die u van Azure Stream Analytics in de vorige stap hebt gepusht.
    * Zorg ervoor dat de ***visualisaties*** deelvenster is geopend en wordt weergegeven aan de rechterkant van het scherm.
@@ -207,7 +207,7 @@ In pijplijn koude pad, wordt het essentiële doel is om op te halen van de vraag
    * Vervang in het pop-outmodus venster, **'Server'** en **'Database'** met uw eigen namen van de server en database, en klik vervolgens op **'OK'**. Voor de servernaam van de, zorg ervoor dat u de poort 1433 opgeven (**YourSolutionName.database.windows.net, 1433**). Negeer de waarschuwingsberichten die worden weergegeven op het scherm.
    * In het volgende pop-outmodus venster, ziet u twee opties in het linkerdeelvenster (**Windows** en **Database**). Klik op **'Database'**, vult u uw **'Gebruikersnaam'** en **'Wachtwoord'** (dit is de gebruikersnaam en het wachtwoord dat u hebt ingevoerd wanneer u eerst de oplossing wordt geïmplementeerd en een Azure wordt gemaakt SQL database). In ***Selecteer welk gegevensniveau voor deze instellingen toepassen op***, een optie voor database controleren. Klik vervolgens op **'Verbinding maken'**.
    * Nadat u terug naar de vorige pagina Begeleide bent, sluit u het venster. Een bericht POP's uit - Klik **toepassen**. Klik ten slotte de **opslaan** knop de wijzigingen op te slaan. Uw Power BI-bestand is nu ingesteld voor verbinding met de server. Als uw visualisaties leeg zijn, zorg er dan voor dat u de gewenste opties op de visualisaties aan alle gegevens visualiseren door te klikken op het gumpictogram in de rechterbovenhoek van de legenda's uitschakelen. Gebruik de vernieuwknop om nieuwe gegevens voor de visualisaties weer te geven. In eerste instantie alleen ziet u de seedgegevens op uw visualisaties als de data factory is gepland om te vernieuwen elke drie uur. Na 3 uur ziet u de nieuwe voorspellingen doorgevoerd in uw visualisaties bij het vernieuwen van de gegevens.
-3. (Optioneel) Het koude pad-dashboard om te publiceren [Power BI online](http://www.powerbi.com/). Houd er rekening mee dat deze stap moet een Power BI-account (of Office 365-account).
+3. (Optioneel) Het koude pad-dashboard om te publiceren [Power BI online](https://www.powerbi.com/). Houd er rekening mee dat deze stap moet een Power BI-account (of Office 365-account).
 
    * Klik op **'Publiceren'** en enkele seconden later er verschijnt een venster weergegeven "Publiceren naar Power BI succes!" met een groen vinkje. Klik op de volgende koppeling "Open demoprediction.pbix in Power BI". Gedetailleerde instructies, Zie [publiceren vanuit Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Een nieuw dashboard maken: klik op de **+** Meld u aan bij de **Dashboards** sectie in het linkerdeelvenster. Voer de naam 'Vraag voorspellen Demo' voor dit nieuwe dashboard.

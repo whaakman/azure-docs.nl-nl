@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 32571d88ffc08c19f819335254b4f5dda521bdb0
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885918"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317106"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Kies een stijl kaart op Azure-kaarten
 
@@ -42,7 +42,7 @@ Het tweede codeblok maakt gebruik van de kaart [setStyle](https://docs.microsoft
 
 Het eerste codeblok in de bovenstaande code stelt de abonnementssleutel en maakt u een kaartobject, de stijl van de kaart is vooraf ingesteld op grayscale_dark. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
-Het tweede codeblok vormt een stijl selector met behulp van de atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) constructor.
+Het tweede codeblok vormt een stijl selector met behulp van de atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) constructor.
 
 Een stijl kiezen kunt stijl selectie voor de kaart. Het derde codeblok wordt de Stijlkiezer toegevoegd aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. De stijl selector is binnen de kaart **gebeurtenislistener** om ervoor te zorgen dat deze wordt geladen nadat de kaart volledig is geladen.
 

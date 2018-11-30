@@ -10,28 +10,28 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 053e571b6285cd405ea17f43fec1d3ea99732070
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2003b90f95c8c139bf5b3526ed8d3994ee08efd9
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235578"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444474"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Wat is de Azure Database Migration Service?
-Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime (online migratie).
+Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure data platforms met minimale downtime (online migratie).
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Databases migreren naar Azure met vertrouwde hulpprogramma 's
-Azure Database Migration Service kan worden geïntegreerd enkele van de functionaliteit van onze bestaande hulpprogramma's en services. Daardoor kunnen klanten met een uitgebreide en zeer beschikbare oplossing. De service wordt gebruikt de [Data Migration Assistant](https://aka.ms/dma) voor het genereren van evaluatierapporten die aanbevelingen te doen om u te begeleiden bij de wijzigingen die zijn vereist voordat u een migratie uitvoert. Het is aan u om uit te voeren van een herstel is vereist. Wanneer u klaar om te beginnen met het migratieproces bent, wordt de Azure Database Migration Service voert alle vereiste stappen. U kunt worden geactiveerd en vergeten uw migratieprojecten met een hart, te weten dat gebruikgemaakt van best practices wordt, zoals wordt bepaald door Microsoft.
+Azure Database Migration Service kan worden geïntegreerd enkele van de functionaliteit van onze bestaande hulpprogramma's en services. Daardoor kunnen klanten met een uitgebreide en zeer beschikbare oplossing. De service wordt gebruikt de [Data Migration Assistant](https://aka.ms/dma) voor het genereren van evaluatierapporten die aanbevelingen te doen om u te begeleiden bij de wijzigingen die zijn vereist voordat u een migratie uitvoert. Het is aan u om uit te voeren van een herstel is vereist. Wanneer u klaar bent om met het migratieproces te beginnen, voert de Azure Database Migration Service alle vereiste stappen uit. U kunt worden geactiveerd en vergeten uw migratieprojecten met een hart, te weten dat gebruikgemaakt van best practices wordt, zoals wordt bepaald door Microsoft.
 
 > [!NOTE]
 > Met behulp van de Azure Database Migration Service om uit te voeren van een online migratie vereist het maken van een exemplaar op basis van de bedrijfskritieke (Preview) prijscategorie.
 
 ## <a name="regional-availability"></a>Regionale beschikbaarheid
-Azure Database Migration Service is momenteel beschikbaar in de volgende regio's:
 
-![Azure Database Migration Service regionale beschikbaarheid](media\overview\dms-regional-availability1.png)
+Zie voor bijgewerkte informatie over regionale beschikbaarheid van de Azure Database Migration Service [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
-Zie voor de meest actuele informatie over regionale beschikbaarheid van de Azure Database Migration Service, op de site van de globale Azure-infrastructuur, [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/).
+## <a name="pricing"></a>Prijzen
+Zie voor actuele informatie over de prijzen voor Azure Database Migration Service [prijzen voor Azure Database Migration Service](https://azure.microsoft.com/pricing/details/database-migration/).
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Maak een instantie van de Azure Database Migration Service met behulp van de Azure-portal](quickstart-create-data-migration-service-portal.md).

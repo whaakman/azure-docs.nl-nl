@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: f8945ee49ff41a65548da5a3a3c374279bdcc435
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e7049ec075cbabb678a98502527f0190dab99ea
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413584"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444525"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Verzenden van Guest OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele machine van Windows
 
@@ -153,7 +153,7 @@ Voeg de volgende configuratie om in te schakelen van de extensie voor diagnostis
             "properties": { 
             "publisher": "Microsoft.Azure.Diagnostics", 
             "type": "IaaSDiagnostics", 
-            "typeHandlerVersion": "1.4", 
+            "typeHandlerVersion": "1.12", 
             "autoUpgradeMinorVersion": true, 
             "settings": { 
                 "WadCfg": { 

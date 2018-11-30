@@ -1,9 +1,9 @@
 ---
-title: Azure Security Center-beveiligingsbeleid kunnen worden ingesteld, afzonderlijk of als onderdeel van het Azure-beleid | Microsoft Docs
-description: Dit document helpt u beleidsregels instellen in Azure Security Center of Azure Policy.
+title: Azure Security Center-beveiligingsbeleid kunnen worden ingesteld als onderdeel van Azure-beleid en bekeken in Security Center | Microsoft Docs
+description: Dit document helpt u beleid instellen in Azure Policy of ze weergeven in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -12,27 +12,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/5/2018
-ms.author: terrylan
-ms.openlocfilehash: 0b38c6895421b43d6f80e0c34cc23b379a673559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/25/2018
+ms.author: rkarlin
+ms.openlocfilehash: 330b66e64484417e50f39c35cf90a6fd62b1e888
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261941"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334666"
 ---
-# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Beveiligingsbeleid instellen in Security Center of Azure Policy
+# <a name="view-security-policies"></a>Weergave-beveiligingsbeleid
 
-Dit artikel helpt u bij het configureren van Azure Security Center-beveiligingsbeleid. Azure klantomgevingen Center-beleid worden geïntegreerd met Azure-beleid, zodat u kunt deze instellen in Security Center op een bepaald abonnement of in [Azure Policy](../azure-policy/azure-policy-introduction.md), waarmee u kunt voor het instellen van beleidsregels binnen beheergroepen en over meerdere abonnementen...
+In dit artikel wordt uitgelegd hoe beleidsregels voor veiligheid zijn geconfigureerd en hoe ze weergeven in Security Center. Azure Security Center wordt automatisch toegewezen de [ingebouwde beveiligingsbeleid](security-center-policy-definitions.md) voor elk abonnement dat is geïmplementeerd. U kunt configureren dat ze in [Azure Policy](../azure-policy/azure-policy-introduction.md), die u kunt ook beleidsregels binnen beheergroepen en voor meerdere abonnementen.
+
+Zie voor instructies over het instellen van beleidsregels met behulp van PowerShell [Snelstartgids: een beleidstoewijzing maken om te identificeren van niet-compatibele resources met behulp van de Azure DB PowerShell-module](../azure-policy/assign-policy-definition-ps.md).
+
+
 
 ## <a name="what-are-security-policies"></a>Wat is beveiligingsbeleid?
-Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. U kunt in Azure Security Center definieert beleid voor uw Azure-abonnementen en past u dit aan uw type workload of de vertrouwelijkheid van uw gegevens. Toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, kunnen bijvoorbeeld vereisen dat een hoger beveiligingsniveau dan andere werkbelastingen. Als u wilt een beleid instellen voor abonnementen of beheergroepen, stelt u deze [Azure Policy](../azure-policy/azure-policy-introduction.md).
+Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. In Azure Policy, kunt u beleidsregels definiëren voor uw Azure-abonnementen en past u dit aan uw type workload of de vertrouwelijkheid van uw gegevens. Toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, kunnen bijvoorbeeld vereisen dat een hoger beveiligingsniveau dan andere werkbelastingen. Als u wilt een beleid instellen voor abonnementen of beheergroepen, stelt u deze [Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+
+
+Uw beveiligingsbeleid de aanbevelingen voor beveiliging die in Azure Security Center u krijgt het station. Naleving van deze kunt u mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen, kunt u controleren. Zie voor meer informatie over hoe om te bepalen welke optie geschikt is voor u is, de lijst met [ingebouwde beveiligingsbeleid](security-center-policy-definitions.md).
+
+### <a name="management-groups"></a>Beheergroepen
+Als uw organisatie veel abonnementen heeft, moet u de toegang, beleidsregels en naleving voor deze abonnementen op een efficiënte manier kunnen beheren. Azure Beheergroepen biedt een scopeniveau boven abonnementen. U organiseert abonnementen in containers, zogenaamde 'beheergroepen', en past uw governance-beleid op de beheergroepen toe. Alle abonnementen in een beheergroep nemen automatisch het beleid over dat op de beheergroep is toegepast. Elke directory krijgt één beheergroep op het hoogste niveau, de 'hoofdbeheergroep'. Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn opgevouwen. Met deze hoofdbeheergroep kunt u algemene beleidsregels en RBAC-toewijzingen op directoryniveau toepassen. Als u beheergroepen voor gebruik met Azure Security Center instelt, volg de instructies in [tenant-brede inzicht voor Azure Security Center](security-center-management-groups.md).
 
 > [!NOTE]
-> Als u eerder beveiligingsbeleid voor een abonnement dat deel uitmaakt van een beheergroep, of meerdere toewijzingen van beleid is geconfigureerd, grijs dat beleid weergegeven in Security Center zodat u kunt het beleid op het niveau van beheer via de Azure beheren Pagina met beleid. 
+> Het is belangrijk dat u de hiërarchie van beheergroepen en abonnementen begrijpt. Zie [Organize your resources with Azure Management Groups](../governance/management-groups/index.md#root-management-group-for-each-directory) (Resources organiseren met Azure Beheergroepen) voor meer informatie over beheergroepen, hoofdbeheer en toegang tot beheergroepen.
+>
 
 ## <a name="how-security-policies-work"></a>Hoe beveiligingsbeleid werkt
-In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. U kunt het beleid bewerken in Security Center of Azure Policy gebruiken om het volgende doen:
+In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. U kunt het beleid in Azure-beleid voor de volgende handelingen kunt bewerken:
 - Nieuwe beleidsdefinities maken.
 - Beleid toepassen binnen beheergroepen en abonnementen; deze kunnen de hele organisatie of een zakelijke eenheid binnen de organisatie vertegenwoordigen.
 - Beleidsnaleving bewaken.
@@ -41,9 +53,9 @@ Lees [Beleid maken en beheren om naleving af te dwingen](../azure-policy/create-
 
 De Azure-beleid bestaat uit de volgende onderdelen:
 
-- Een **beleid** is een regel
-- Een **initiatief** is een verzameling beleidsregels
-- Een **toewijzing** is een toepassing van een initiatief of een beleid op een bepaalde scope (beheergroep, abonnement of resourcegroep)
+- Een **beleid** is een regel.
+- Een **initiatief** is een verzameling van het beleid.
+- Een **toewijzing** is de toepassing van een initiatief of een beleid voor een bepaald bereik (beheergroep, abonnement of resourcegroep).
 
 Een resource wordt geëvalueerd op basis van de beleidsregels die eraan zijn toegewezen en krijgt een waardering op basis van het aantal beleidsregels waaraan de resource voldoet.
 
@@ -54,67 +66,45 @@ Security Center maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC), waarme
 - Beveiligingsbeheerder: de dezelfde rechten weergeven als beveiligingslezer hebben, en ze kunnen ook bijwerken van het beveiligingsbeleid en aanbevelingen en waarschuwingen sluiten.
 
 ## <a name="edit-security-policies"></a>Beveiligingsbeleid bewerken
-U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen en beheergroepen bewerken in Security Center. U kunt een beveiligingsbeleid alleen wijzigen als u een eigenaar, bijdrager of beveiligingsbeheerder van dat abonnement bent of van de bovenliggende beheergroep. Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Security Center:
+U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen en beheergroepen in bewerken [Azure Policy](../governance/policy/tutorials/create-and-manage.md). U kunt een beveiligingsbeleid alleen wijzigen als u een eigenaar, bijdrager of beveiligingsbeheerder van dat abonnement bent of van de bovenliggende beheergroep.
 
-> [!NOTE]
-> Alle beleidsregels die zijn ingesteld op een abonnement dat deel uitmaakt van een beheergroep, of heeft meerdere toewijzingen van beleid, wordt grijs weergegeven in Security Center. U kunt deze beleidsregels in bewerken [Azure Policy](../azure-policy/azure-policy-introduction.md). 
+Zie voor instructies over het bewerken van een beveiligingsbeleid in Azure Policy en [maken en beheren van beleidsregels voor het afdwingen van naleving](../governance/policy/tutorials/create-and-manage.md).
 
-1. Ga in het dashboard van **Security Center** naar **BELEID EN NALEVING** en selecteer **Beveiligingsbeleid**. **Beleidsbeheer** wordt geopend.
+## <a name="view-security-policies"></a>Weergave-beveiligingsbeleid
 
-    ![Het deelvenster Beleidsbeheer](./media/security-center-azure-policy/security-center-policies-fig10.png)
+Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Security Center:
 
-  In Beleidsbeheer wordt het aantal beheergroepen, abonnementen en werkruimten weergegeven, evenals de structuur van uw managementgroep.
+1. In de **Security Center** dashboard, selecteer **beveiligingsbeleid**.
+
+    ![Het deelvenster Beleidsbeheer](./media/security-center-policies/security-center-policy-mgt.png)
+
+  In de **beleidsbeheer** scherm ziet u het aantal beheergroepen, abonnementen en werkruimten, evenals de structuur van uw management groep.
 
   > [!NOTE]
-  > Het is mogelijk dat in het Security Center-dashboard een hoger aantal abonnementen onder **Abonnementsdekking** wordt weergegeven dan het aantal abonnementen dat wordt weergegeven onder **beleidsbeheer**. Abonnementsdekking toont het aantal Standaard-, gratis en 'Niet gedekt' abonnementen. Voor de 'Niet gedekt'-abonnementen is Security Center niet ingeschakeld. Deze worden niet weergegeven onder **Beleidsbeheer**.
-  >
+  > - Het dashboard van Security Center kan een hoger aantal abonnementen onder tonen **abonnementsdekking** dan het aantal abonnementen die wordt weergegeven onder **beleidsbeheer**. Abonnementsdekking toont het aantal Standaard-, gratis en 'Niet gedekt' abonnementen. De abonnementen 'wordt niet gedekt' geen Security Center is ingeschakeld en worden niet weergegeven onder **beleidsbeheer**.
   >
 
   De kolommen in de tabel bevat de volgende gegevens:
 
- - Toewijzing beleidsinitiatieven: in Security Center ingebouwde beleidsregels en initiatieven die zijn toegewezen aan een abonnement of beheergroep.
- - Naleving: algemene nalevingsscore voor een beheergroep, abonnement of werkruimte. De score is het gewogen gemiddelde van de toewijzingen. Bij het gewogen gemiddelde wordt rekening gehouden met het aantal beleidsregels in één toewijzing en het aantal resources waarop de toewijzing van toepassing is.
+ - **Toewijzing beleidsinitiatieven** – Security Center [ingebouwde beleidsregels](security-center-policy-definitions.md) en initiatieven die zijn toegewezen aan een groep abonnement of de beheergroep.
+ - **Naleving** : totale nalevingsscore voor een beheergroep, het abonnement of de werkruimte. De score is het gewogen gemiddelde van de toewijzingen. Bij het gewogen gemiddelde wordt rekening gehouden met het aantal beleidsregels in één toewijzing en het aantal resources waarop de toewijzing van toepassing is.
 
  Als uw abonnement bijvoorbeeld twee virtuele machines heeft en een initiatief waaraan vijf beleidsregels zijn toegewezen, dan hebt u 10 beoordelingen in uw abonnement. Als een van de virtuele machines niet aan twee van de beleidsregels voldoet, is de algemene nalevingsscore van uw abonnementstoewijzing 80%.
 
- - Dekking: toont de prijscategorie, Gratis of Standaard, waarin de beheergroep, het abonnement of de werkruimte wordt uitgevoerd.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
- - Instellingen: abonnementen hebben een koppeling **Instellingen bewerken**. Wanneer u **Instellingen bewerken** selecteert, kunt u uw abonnementsinstellingen bewerken, instellingen voor het verzamelen van gegevens, de prijscategorie en e-mailmeldingen.
+ - **Dekking** – identificeert de prijscategorie gratis of Standard, dat de beheergroep, het abonnement of de werkruimte op wordt uitgevoerd.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
+ - **Instellingen voor** – abonnementen hebben de koppeling **instellingen bewerken**. Selecteren **instellingen bewerken** kunt u werken uw [Security Center-instellingen](security-center-policies-overview.md) voor elke groep abonnement of de beheergroep.
 
-2. Selecteer het abonnement of de beheergroep waarvoor u een beveiligingsbeleid wilt inschakelen. **Beveiligingsbeleid** wordt geopend.
+2. Selecteer de groep abonnement of de beheergroep waarvan beleidsregels die u wilt weergeven.
 
-3.  Selecteer onder **Beveiligingsbeleid** de gewenste besturingselementen die u met Security Center wilt bewaken en waarvoor u aanbevelingen wilt krijgen, door **Aan** te selecteren.  Selecteer **Uit** als u niet wilt dat het besturingselement door Security Center wordt bewaakt.
+  - De **beveiligingsbeleid** scherm weerspiegelt de actie op die door de beleidsregels die zijn toegewezen op de geselecteerde groep van abonnement of de beheergroep.
+  - Gebruik de onderstaande koppelingen voor het openen van elk beleid aan de bovenkant **toewijzing** die van toepassing is op de groep abonnement of de beheergroep. Gebruik de koppelingen kunt u toegang tot de toewijzing en bewerken of uitschakelen van het beleid. Als u ziet dat de toewijzing van een bepaald beleid effectief eindpuntbeveiliging weigert, kunt u de koppeling bijvoorbeeld gebruiken voor toegang tot het beleid en bewerken of uitschakelen.
+  - In de lijst met beleidsregels ziet u de effectieve toepassing van het beleid op uw abonnement of beheergroep. Dit betekent dat de instellingen die betrekking hebben op het bereik van elk beleid in aanmerking worden genomen en u u met de cumulatieve resultaten vindt van welke actie wordt ondernomen door het beleid. Bijvoorbeeld, als in één toewijzing het beleid is uitgeschakeld, maar in een andere dat is ingesteld op AuditIfNotExist, klikt u vervolgens het cumulatieve effect is van toepassing AuditIfNotExist. Het meer actieve effect heeft altijd voorrang.
+  - Het beleid voor effect mag: toevoegen, controleren, AuditIfNotExists, weigeren, DeployIfNotExists, uitgeschakeld. Zie voor meer informatie over hoe effecten worden toegepast, [beleid begrijpen effecten](../governance/policy/concepts/effects.md).
 
-    ![Beleidsonderdelen](./media/security-center-azure-policy/security-policy.png)
-
-4. Selecteer **Opslaan**.
-
-## <a name="available-security-policy-definitions"></a>Beschikbare beveiligingsbeleiddefinities
-
-Bekijk de volgende tabel om inzicht te krijgen in de beleidsdefinities die beschikbaar zijn in het standaardbeveiligingsbeleid:
-
-| Beleid | Wat het ingeschakelde beleid doet |
-| --- | --- |
-| Systeemupdates |Hiermee wordt via Windows Update of Windows Server Update Services een dagelijkse lijst opgehaald van beschikbare beveiligingsupdates en essentiële updates. De opgehaalde lijst varieert per service die is geconfigureerd voor uw virtuele machines, en bevat aanbevelingen voor het toepassen van ontbrekende updates. Voor Linux-systemen maakt het beleid gebruik van het door de distributie beschikbaar gestelde pakketbeheersysteem om te bepalen voor welke pakketten er updates beschikbaar zijn. Ook wordt bij [virtuele Azure Cloud Services-machines](../cloud-services/cloud-services-how-to-configure-portal.md) gecontroleerd of er beveiligingsupdates en essentiële updates zijn. |
-| Beveiligingsconfiguraties |Hiermee worden dagelijks besturingssysteemconfiguraties gecontroleerd om te bepalen of er problemen zijn die de virtuele machine kwetsbaar kan maken voor aanvallen. Vanuit het beleid zal ook worden aangeraden om deze beveiligingslekken aan te pakken door wijzigingen in de configuratie aan te brengen. Zie de [lijst met aanbevolen basislijnen](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) voor meer informatie over de specifieke configuraties die worden bewaakt. (Op dit moment wordt Windows Server 2016 niet volledig ondersteund.) |
-| Eindpuntbeveiliging |Hiermee wordt aanbevolen dat voor alle virtuele machines in Windows eindpuntbeveiliging wordt ingesteld om virussen, spyware en andere schadelijke software op te sporen en te verwijderen. |
-| Schijfversleuteling |Hiermee wordt aanbevolen om schijfversleuteling in te schakelen in alle virtuele machines om de beveiliging van opgeslagen gegevens te verbeteren. |
-| Netwerkbeveiligingsgroepen |Hiermee wordt aanbevolen om [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) te configureren om binnenkomend en uitgaand verkeer naar VM's met openbare eindpunten te beheren. Netwerkbeveiligingsgroepen die zijn geconfigureerd voor een subnet, worden overgenomen door alle netwerkinterfaces van virtuele machines, tenzij anders wordt aangegeven. Behalve dat wordt gecontroleerd of een netwerkbeveiligingsgroep is geconfigureerd, worden met deze beleidsregel ook de beveiligingsregels voor binnenkomend verkeer beoordeeld die binnenkomend verkeer toestaan. |
-| Web Application Firewall |Hiermee wordt aanbevolen om een Web Application Firewall in te stellen op virtuele machines wanneer een van de volgende zaken waar is: <ul><li>Er wordt een [openbaar IP op exemplaarniveau](../virtual-network/virtual-networks-instance-level-public-ip.md) gebruikt, en de beveiligingsregels voor binnenkomend verkeer van de gekoppelde netwerkbeveiligingsgroep worden geconfigureerd om toegang tot poort 80/443 toe te staan.</li><li>Er wordt een IP met taakverdeling gebruikt en de bijbehorende taakverdeling en de inkomende NAT-regels (Network Address Translation) worden geconfigureerd om toegang tot poort 80/443 toe te staan. Zie [Azure Resource Manager-ondersteuning voor load balancer](../load-balancer/load-balancer-arm.md) voor meer informatie.</li> |
-| Next Generation Firewall |Hiermee wordt meer netwerkbeveiliging toegevoegd dan met de netwerkbeveiligingsgroepen die in Azure zijn ingebouwd. Security Center detecteert implementaties waarvoor een Next Generation Firewall wordt aanbevolen. Vervolgens kunt u een virtuele toepassing instellen. |
-| Controleren voor SQL en bedreigingen detecteren |Hiermee wordt aanbevolen dat de controle van toegang tot de Azure-database wordt ingeschakeld voor naleving, geavanceerde detectie en onderzoek. |
-| SQL-versleuteling |Hiermee wordt aanbevolen dat versleuteling-at-rest wordt ingeschakeld voor uw Azure SQL-databases, gekoppelde back-ups en transactielogboekbestanden. Zelfs bij een inbreuk kunnen uw gegevens niet worden gelezen. |
-| Evaluatie van beveiligingsproblemen |Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
-| Storage-versleuteling |Deze functie is momenteel beschikbaar voor Azure-blobopslag en Azure Files. Nadat Storage-serviceversleuteling is ingeschakeld, worden alleen nieuwe gegevens versleuteld. Alle bestaande bestanden in dit opslagaccount zijn nog steeds niet-versleuteld. |
-| JIT-netwerktoegang |Wanneer JIT-netwerktoegang is ingeschakeld, wordt binnenkomend verkeer naar de Azure-VM's vergrendeld via Security Center door een beveiligingsgroepregel te maken. U selecteert de poorten op de VM waarop binnenkomend verkeer moet worden vergrendeld. Zie [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) (VM-toegang beheren met behulp van JIT) voor meer informatie. |
-
-## <a name="management-groups"></a>Beheergroepen
-Als uw organisatie veel abonnementen heeft, moet u de toegang, beleidsregels en naleving voor deze abonnementen op een efficiënte manier kunnen beheren. Azure Beheergroepen biedt een scopeniveau boven abonnementen. U organiseert abonnementen in containers, zogenaamde 'beheergroepen', en past uw governance-beleid op de beheergroepen toe. Alle abonnementen in een beheergroep nemen automatisch het beleid over dat op de beheergroep is toegepast. Elke directory krijgt één beheergroep op het hoogste niveau, de 'hoofdbeheergroep'. Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn opgevouwen. Met deze hoofdbeheergroep kunt u algemene beleidsregels en RBAC-toewijzingen op directoryniveau toepassen. Als u beheergroepen wilt instellen voor gebruik met Azure Security Center, volgt u de instructies in het artikel [Tenantbrede zichtbaarheid verkrijgen voor Azure Security Center](security-center-management-groups.md). 
+   ![beleid scherm](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> Het is belangrijk dat u de hiërarchie van beheergroepen en abonnementen begrijpt. Zie [Organize your resources with Azure Management Groups](../governance/management-groups/index.md#root-management-group-for-each-directory) (Resources organiseren met Azure Beheergroepen) voor meer informatie over beheergroepen, hoofdbeheer en toegang tot beheergroepen.
->
->
-
+> - Wanneer u weergeven aan beleidsregels toegewezen, kunt u meerdere toewijzingen bekijken en kunt u zien hoe elke toewijzing is geconfigureerd op een eigen.
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Center configureert. Zie de volgende artikelen voor meer informatie over Security Center:
@@ -123,7 +113,7 @@ In dit artikel hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Cent
 * [Beveiligingsstatus controleren in Azure Security Center](security-center-monitoring.md): meer informatie over het controleren van de status van uw Azure-resources.
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
-* [Tenantbrede zichtbaarheid verkrijgen voor Azure Security Center](security-center-management-groups.md): informatie over het instellen van beheergroepen voor Azure Security Center. 
+* [Tenantbrede zichtbaarheid verkrijgen voor Azure Security Center](security-center-management-groups.md): informatie over het instellen van beheergroepen voor Azure Security Center.
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
 

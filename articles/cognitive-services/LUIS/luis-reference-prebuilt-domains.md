@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040037"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335620"
 ---
 # <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
@@ -27,27 +27,27 @@ LUIS biedt 20 vooraf gemaakte domeinen.
 
 | Vooraf gedefinieerde domein | Beschrijving | Ondersteunde talen |
 | ---------------- |-----------------------|:------:|
-| Agenda | Het domein van de agenda biedt intentie en entiteiten voor toe te voegen, te verwijderen, of bewerken van een afspraak, deelnemers aan de beschikbaarheid gecontroleerd en zoeken naar informatie over een agenda-gebeurtenis.| nl-NL<br/> zh-CN |
-| Camera | Het domein van de Camera biedt intenties en entiteiten voor het maken van afbeeldingen, video's opnemen en uitzenden video aan een toepassing.| nl-NL |
-| Communicatie | Verzenden van berichten en telefoongesprekken.| nl-NL <br/> zh-CN |
-| entertainment  | Verwerking van query's met betrekking tot muziek, films en tv-programma's.| nl-NL |
-| Gebeurtenissen | Reservering van tickets voor concerten, festivals, sport-games en comedy bevat.| nl-NL |
-| Geschiktheid | Afhandeling van aanvragen met betrekking tot het bijhouden van geschiktheid activiteiten.| nl-NL |
-| Gaming | Afhandeling van aanvragen die betrekking hebben op een game partij in een spel.| nl-NL |
-| HomeAutomation | Slimme home apparaten zoals verlichting en apparaten beheert.| nl-NL<br/> zh-CN |
-| MovieTickets | Tickets naar films op een film theater reservering.| nl-NL |
-| Muziek | Het afspelen van muziek op een muziekspeler.| nl-NL<br/> zh-CN |
-| Opmerking | Het domein Opmerking biedt intenties en entiteiten met betrekking tot het maken, bewerken en het zoeken van notities.| nl-NL<br/> zh-CN |
-| OnDevice | Het domein OnDevice biedt intenties en entiteiten die betrekking hebben op het apparaat te beheren.| nl-NL<br/> zh-CN |
-| Plaatsen  | Verwerking van query's die betrekking hebben op locaties zoals bedrijven, instellingen, restaurants, ruimten voor algemeen gebruik en -adressen.| nl-NL<br/> zh-CN |
-| Herinnering | Afhandeling van aanvragen in verband met het maken, bewerken en zoeken van herinneringen.| nl-NL<br/> zh-CN |
-| RestaurantReservation | Afhandeling van aanvragen voor het beheren van restaurant reserveringen.| nl-NL<br/> zh-CN |
-| Over taxi 's | Reserveringen voor een taxi verwerken.| nl-NL<br/> zh-CN |
-| Vertalen | Vertalen van tekst naar een doel-taal.| nl-NL<br/> zh-CN |
-| TV-PROGRAMMA 'S | Tv's beheren.| nl-NL |
-| Nutsbedrijven  | Afhandeling van aanvragen die gemeenschappelijk zijn in veel domeinen, zoals "help", "Herhaal", "opnieuw beginnen."| nl-NL |
-| Weer | Ophalen van de rapporten weer en geeft een prognose.| nl-NL<br/> zh-CN |
-| Web | Navigeren naar een website.| nl-NL<br/> zh-CN |
+| Agenda | Het domein van de agenda biedt intentie en entiteiten voor toe te voegen, te verwijderen, of bewerken van een afspraak, deelnemers aan de beschikbaarheid gecontroleerd en zoeken naar informatie over een agenda-gebeurtenis.| en-US<br/> zh-CN |
+| Camera | Het domein van de Camera biedt intenties en entiteiten voor het maken van afbeeldingen, video's opnemen en uitzenden video aan een toepassing.| en-US |
+| Communicatie | Verzenden van berichten en telefoongesprekken.| en-US <br/> zh-CN |
+| entertainment  | Verwerking van query's met betrekking tot muziek, films en tv-programma's.| en-US |
+| Gebeurtenissen | Reservering van tickets voor concerten, festivals, sport-games en comedy bevat.| en-US |
+| Geschiktheid | Afhandeling van aanvragen met betrekking tot het bijhouden van geschiktheid activiteiten.| en-US |
+| Gaming | Afhandeling van aanvragen die betrekking hebben op een game partij in een spel.| en-US |
+| HomeAutomation | Slimme home apparaten zoals verlichting en apparaten beheert.| en-US<br/> zh-CN |
+| MovieTickets | Tickets naar films op een film theater reservering.| en-US |
+| Muziek | Het afspelen van muziek op een muziekspeler.| en-US<br/> zh-CN |
+| Opmerking | Het domein Opmerking biedt intenties en entiteiten met betrekking tot het maken, bewerken en het zoeken van notities.| en-US<br/> zh-CN |
+| OnDevice | Het domein OnDevice biedt intenties en entiteiten die betrekking hebben op het apparaat te beheren.| en-US<br/> zh-CN |
+| Plaatsen  | Verwerking van query's die betrekking hebben op locaties zoals bedrijven, instellingen, restaurants, ruimten voor algemeen gebruik en -adressen.| en-US<br/> zh-CN |
+| Herinnering | Afhandeling van aanvragen in verband met het maken, bewerken en zoeken van herinneringen.| en-US<br/> zh-CN |
+| RestaurantReservation | Afhandeling van aanvragen voor het beheren van restaurant reserveringen.| en-US<br/> zh-CN |
+| Over taxi 's | Reserveringen voor een taxi verwerken.| en-US<br/> zh-CN |
+| Vertalen | Vertalen van tekst naar een doel-taal.| en-US<br/> zh-CN |
+| TV-PROGRAMMA 'S | Tv's beheren.| en-US |
+| Nutsbedrijven  | Afhandeling van aanvragen die gemeenschappelijk zijn in veel domeinen, zoals "help", "Herhaal", "opnieuw beginnen."| en-US |
+| Weer | Ophalen van de rapporten weer en geeft een prognose.| en-US<br/> zh-CN |
+| Web | Navigeren naar een website.| en-US<br/> zh-CN |
 
 Zie de volgende secties voor meer informatie over elk domein.
 
@@ -171,7 +171,7 @@ Het domein van de gebeurtenissen biedt intenties en entiteiten die betrekking he
 ### <a name="intents"></a>Intents
 | De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Boek| Tickets op een gebeurtenis kopen.|Ik wil graag een ticket voor de symphony dit weekend kopen.|
+| Book| Tickets op een gebeurtenis kopen.|Ik wil graag een ticket voor de symphony dit weekend kopen.|
 
 
 ### <a name="entities"></a>Entiteiten
@@ -250,7 +250,7 @@ When is Captain Omar showing?
 ### <a name="intents"></a>Intents
 | De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Boek | Film tickets kopen.|Boek me twee tickets voor kapitein Omar en de twee musketeers<br/>Ik wil een ticket voor morgen film kopen<br/>Ik wilt een ticket Captian Omar deel 2 volgende woensdag|
+| Book | Film tickets kopen.|Boek me twee tickets voor kapitein Omar en de twee musketeers<br/>Ik wil een ticket voor morgen film kopen<br/>Ik wilt een ticket Captian Omar deel 2 volgende woensdag|
 |GetShowTime| Haal de showtime van een film.|Wanneer wordt kapitein Omar weergegeven?|
 
 
@@ -511,7 +511,7 @@ Cancel my Uber
 ### <a name="intents"></a>Intents
 | De naam van de intentie | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Boek | Een taxi aanroepen. |Hoe kom ik een CAB-bestand<br/>Een taxi zoeken<br/>Boek me een uber x|
+| Book | Een taxi aanroepen. |Hoe kom ik een CAB-bestand<br/>Een taxi zoeken<br/>Boek me een uber x|
 | Annuleren | Een actie met betrekking tot een taxi reservering annuleren.|Mijn taxi annuleren<br/>Mijn Uber annuleren|
 | Bijhouden | Een taxi route traceren.|Hoe lang heb ik mijn taxi wachten?<br/>Waar bevindt mijn Uber?|
 

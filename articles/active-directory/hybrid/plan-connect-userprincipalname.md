@@ -1,5 +1,5 @@
 ---
-title: Azure AD UserPrincipalName populatie
+title: Populatie van Azure AD UserPrincipalName
 description: Het volgende document wordt beschreven hoe het kenmerk UserPrincipalName wordt ingevuld.
 author: billmath
 ms.component: hybrid
@@ -9,14 +9,14 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637711"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426805"
 ---
-# <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName populatie
+# <a name="azure-ad-userprincipalname-population"></a>Populatie van Azure AD UserPrincipalName
 
 Dit artikel wordt beschreven hoe het kenmerk UserPrincipalName wordt ingevuld in Azure Active Directory (Azure AD).
 De waarde van het kenmerk UserPrincipalName is de Azure AD-gebruikersnaam voor de gebruikersaccounts.
@@ -34,7 +34,7 @@ In dit artikel gebruikt de volgende terminologie:
 |Alternatieve aanmeldings-ID|Een on-premises kenmerk dan UserPrincipalName, zoals e-mailkenmerk, die wordt gebruikt voor aanmelding bij.|
 
 ## <a name="what-is-userprincipalname"></a>Wat is UserPrincipalName?
-UserPrincipalName is een kenmerk dat is een aanmeldingsnaam voor Internet-stijl voor een gebruiker op basis van de standaard Internet [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+UserPrincipalName is een kenmerk dat is een aanmeldingsnaam voor Internet-stijl voor een gebruiker op basis van de standaard Internet [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>UPN-indeling
 Een UPN bestaat uit een UPN-voorvoegsel (naam van het gebruikersaccount) en een UPN-achtervoegsel (een DNS-domeinnaam). Het voorvoegsel wordt samengevoegd met het achtervoegsel met behulp van de '\@"symbool. Bijvoorbeeld, "iemand\@voorbeeld.com '. Een UPN moet uniek zijn in alle beveiligings-principals in een directory-forest. 

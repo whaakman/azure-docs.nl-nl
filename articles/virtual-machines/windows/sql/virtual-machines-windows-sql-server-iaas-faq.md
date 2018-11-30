@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259153"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495482"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -71,16 +71,48 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Hoe kan ik mijn gelicentieerd exemplaar van SQL Server installeren op een Azure VM?**
 
-   Er zijn twee manieren om dit te doen. U kunt inrichten van een van de [installatiekopieën voor virtuele machines die ondersteuning biedt voor licenties](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), die ook wel bekend als bring-your-own-license (BYOL). Een andere optie is het installatiemedium van SQL Server naar een Windows Server VM kopiëren en vervolgens de installatie van SQL Server op de virtuele machine. Echter, als u SQL Server handmatig installeren, er geen integratie met de portal is en de SQL Server IaaS Agent-extensie wordt niet ondersteund, dus functies zoals automatische back-up en Automated patching uit handen werkt niet in dit scenario. Om deze reden wordt aangeraden een van de galerie met BYOL-installatiekopieën te gebruiken. Voor het gebruik van BYOL- of uw eigen SQL Server-media op een Azure VM, moet u hebben [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
+   Er zijn twee manieren om dit te doen. U kunt inrichten van een van de [installatiekopieën voor virtuele machines die ondersteuning biedt voor licenties](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), die ook wel bekend als bring-your-own-license (BYOL). Een andere optie is het installatiemedium van SQL Server naar een Windows Server VM kopiëren en vervolgens de installatie van SQL Server op de virtuele machine. Echter, als u SQL Server handmatig installeren, er geen integratie met de portal is en de SQL Server IaaS Agent-extensie wordt niet ondersteund, dus functies zoals automatische back-up en Automated patching uit handen werkt niet in dit scenario. Daarom wordt u aangeraden een van de galerie met BYOL-installatiekopieën. Voor het gebruik van BYOL- of uw eigen SQL Server-media op een Azure VM, moet u hebben [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
 
-1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie, als deze is gemaakt op basis van een van de galerie met betalen per gebruik-installatiekopieën wijzigen?**
-
-   Nee. U kunt niet overstappen van het betalen-per-seconde voor het gebruik van uw eigen licentie-licentieverlening. Maak een nieuwe Azure-machine met behulp van een van de [BYOL-installatiekopieën](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), en vervolgens migreren van uw databases naar de nieuwe server met behulp van standaard [gegevensmigratietechnieken](virtual-machines-windows-migrate-sql.md).
 
 1. **Heb ik betalen voor de licentie voor SQL Server op een Azure-VM als deze alleen wordt gebruikt voor de stand-by/failover?**
 
-   Als u Software Assurance en License Mobility gebruiken zoals wordt beschreven in [virtuele Machine Veelgestelde vragen over licenties](https://azure.microsoft.com/pricing/licensing-faq/) en u niet hoeft te betalen voor een licentie op één SQL Server die als een passieve secundaire replica in de implementatie van een HA deelneemt. Anders moet u deze licentie te betalen.
+   Als u Software Assurance en License Mobility gebruiken zoals wordt beschreven in de virtuele Machine Veelgestelde vragen over licenties,] (https://azure.microsoft.com/pricing/licensing-faq/) en u niet hoeft te betalen voor een licentie op één SQL Server die als een passieve secundaire replica in de implementatie van een HA deelneemt. Anders moet u deze licentie te betalen.
 
+1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie, als deze is gemaakt op basis van een van de galerie met betalen per gebruik-installatiekopieën wijzigen?**
+
+   Ja. U kunt eenvoudig verplaatsen verplaatsen tussen de twee licentiemodellen, ongeacht de installatiekopie die oorspronkelijk is geïmplementeerd. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md).
+
+1. **Moet ik BYOL-installatiekopieën of SQL VM RP gebruiken om nieuwe SQL-VM te maken?**
+
+   Bring-your-own-license (BYOL)-installatiekopieën zijn alleen beschikbaar voor EA-klanten. Andere klanten met Software Assurance moeten de SQL-VM-resourceprovider gebruiken om te maken van een SQL-VM met [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
+
+1. **Moeten overzetten licentiemodellen uitvaltijd voor SQL Server?**
+
+   Nee. [Wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) vereist geen uitvaltijd voor SQL Server als de wijziging wordt onmiddellijk van kracht en niet opnieuw opstarten van de virtuele machine vereist. 
+
+1. **Kunnen CSP-abonnementen Azure Hybrid Benefit activeren?**
+
+   Ja. [Wijzigen van de licentiemodel](virtual-machines-windows-sql-ahb.md) is beschikbaar voor CSP-abonnementen. 
+
+1. **Mijn VM met de nieuwe SQL-VM-resourceprovider registreert gebruik te maken van extra kosten aan verbonden?**
+
+   Nee. De resourceprovider van SQL-VM maakt alleen extra beheerbaarheid voor SQL Server op virtuele Azure-machine met geen extra kosten berekend. 
+
+1. **De resourceprovider van SQL-VM is beschikbaar voor alle klanten?**
+ 
+   Ja. Alle klanten zich registreren bij de nieuwe SQL-VM-resourceprovider. Echter alleen klanten met Software Assurance-voordeel kunnen activeren de [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (of byol-model) op een virtuele machine van SQL Server. 
+
+1. **Wat gebeurt er met de _* Microsoft.SqlVirtualMachine_* resource als de VM-resource is verplaatst of verwijderd?** 
+
+   Wanneer de Microsoft.Compute/VirtualMachine-resource is verwijderd of verplaatst, en vervolgens de gekoppelde Microsoft.SqlVirtualMachine-resource is op de hoogte gesteld aan de bewerking asynchroon te repliceren.
+
+1. **Wat gebeurt er met de virtuele machine als de _* Microsoft.SqlVirtualMachine_* resource wordt verwijderd?**
+
+   De resource Microsoft.Compute/VirtualMachine wordt niet negatief beïnvloed wanneer de Microsoft.SqlVirtualMachine-resource is verwijderd. De licentie wijzigingen wordt echter standaard terug naar de oorspronkelijke bron van installatiekopie. 
+
+1. **Is het mogelijk zelf geïmplementeerde VM's voor SQL-Server registreren bij de resourceprovider van SQL-VM?**
+
+   Ja. Als u SQL Server vanaf uw eigen media hebt geïmplementeerd, kunt u uw SQL-VM met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie registreren. U bent echter kan niet worden geconverteerd van een zelf geïmplementeerde SQL-VM naar betalen per gebruik. 
 
 ## <a name="administration"></a>Beheer
 

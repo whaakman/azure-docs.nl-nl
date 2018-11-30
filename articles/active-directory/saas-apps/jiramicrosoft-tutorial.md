@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010725"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met JIRA SAML SSO door Microsoft
 
@@ -154,11 +154,26 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. Zodra de invoegtoepassing is geïnstalleerd, wordt deze weergegeven **gebruiker geïnstalleerd** invoegtoepassingen-sectie van **beheren invoegtoepassing** sectie. Klik op **configureren** het configureren van de nieuwe-invoegtoepassing.
+9. Voer de volgende stappen uit voor het uitvoeren van de omgekeerde proxy JIRA scenario of load balancer-scenario:
+
+    > [!NOTE]
+    > U moet configureren de server eerst met de onderstaande instructies en installeer vervolgens de invoegtoepassing.
+
+    a. Voeg hieronder een kenmerk in **connector** poort in **server.xml** bestand JIRA-servertoepassing.
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![Eenmalige aanmelding configureren](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. Wijziging **basis-URL** in **systeeminstellingen** op basis van proxy/load balancer.
+
+    ![Eenmalige aanmelding configureren](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. Zodra de invoegtoepassing is geïnstalleerd, wordt deze weergegeven **gebruiker geïnstalleerd** invoegtoepassingen-sectie van **beheren invoegtoepassing** sectie. Klik op **configureren** het configureren van de nieuwe-invoegtoepassing.
 
     ![Eenmalige aanmelding configureren](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. Voert u de volgende stappen uit op de configuratiepagina:
+11. Voert u de volgende stappen uit op de configuratiepagina:
 
     ![Eenmalige aanmelding configureren](./media/jiramicrosoft-tutorial/addon52.png)
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fed1078b9a4e0ca4d0674db522f73705fa3efd0a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254484"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422301"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Zelfstudie: Één AD-forest met behulp van Pass through-verificatie (PTA) integreren
 
@@ -249,7 +249,7 @@ Nu controleren we dat de gebruikers die we in onze on-premises directory hebben 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden met een van onze gebruikers testen
 
-1.  Blader naar [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Blader naar [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Aanmelden met een gebruikersaccount dat is gemaakt in onze nieuwe tenant.  U moet aanmelding met de volgende notatie: (user@domain.onmicrosoft.com). Gebruik hetzelfde wachtwoord dat de gebruiker gebruikt voor aanmelding bij on-premises.
 ![Controleer of](media/tutorial-password-hash-sync/verify1.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory - casestudy's van klanten | Microsoft Docs
-description: Meer informatie over hoe enkele van onze klanten Azure Data Factory hebt gebruikt.
+title: Azure Data Factory - casestudy's | Microsoft Docs
+description: Meer informatie over hoe sommige van onze klanten Azure Data Factory hebt gebruikt.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -14,36 +14,36 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d8264f896b7c6cac8fc46616ab3ee579c5acb8b7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d291d7ecd5ee9b8bf5645296ef345ac436f1d047
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621646"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495909"
 ---
-# <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - casestudy's van klanten
-Data Factory is een cloud-gebaseerde informatie management-service waarmee de verplaatsing en transformatie van gegevens worden geautomatiseerd. Klanten over veel bedrijven gebruiken Gegevensfactory en andere Azure-services te bouwen hun pijplijnen analytics en hun bedrijfsproblemen.  Kom rechtstreeks van onze klanten hoe en waarom ze Data Factory gebruiken.
+# <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - casestudy 's
+Data Factory is een cloud-gebaseerde information management-service waarmee de verplaatsing en transformatie van gegevens worden geautomatiseerd. Klanten vele branches gebruik Data Factory en andere Azure-services hun analytics pijplijnen bouwen en hun zakelijke problemen kunt oplossen.  Leer rechtstreeks van onze klanten hoe en waarom ze Data Factory gebruiken.
 
 ## <a name="milliman"></a>Milliman
-[Bovenste actuariële vast transformeert de verzekeringssector](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+[Bovenste actuariële bedrijf transformeert de verzekeringsbranche](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
 ## <a name="rockwell-automation"></a>Rockwell Automation
-[Industriële automatisering vast knippen kosten tot 90 procent met big data-oplossingen](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[Industriële automatisering vast knippen kosten tot 90 procent met big data oplossingen](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk
-[Spel dat u wilt gaan met deze burger? Ziosk wellicht al bekend is.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+[Spel dat u wilt gaan met deze burger? Ziosk mogelijk al kent.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## <a name="alaska-airlines"></a>Alaska Airlines
-[Luchtvaartmaatschappij Tablets, Cloudservices bieden toegankelijke onderweg Entertainment gebruikt](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
+[Luchtvaartmaatschappij maakt gebruik van Tablets, Cloudservices te bieden aantrekkelijkere die onderweg zijn Entertainment](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
 ## <a name="tacoma-public-schools"></a>Tacoma openbare scholen
-[Voorspellen studenten Drop-out risico's, diploma tarieven met cloud analytics verhogen](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
+[Voorspellen student Drop-out risico's, verhogen Afstuderen tarieven met cloud-analyse](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
-## <a name="real-madrid-fc"></a>Echte Madrid FC
-[Echte Madrid biedt het stadium dichter bij 450 miljoen ventilatoren over de hele wereld, met de Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
+## <a name="real-madrid-fc"></a>Real Madrid FC
+[Real Madrid brengt het stadion dichter bij 450 miljoen fans over de hele wereld, met de Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
 ## <a name="pier-1-imports"></a>Pier 1 Imports
-[Zoeken naar een betere verbinding met klanten via Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
+[Zoeken naar een betere verbinding met klanten via de Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
-[Het leveren van epic Xbox optreedt door te analyseren honderden miljarden gebeurtenissen per dag](https://customers.microsoft.com/en-us/story/xboxunlimited)
+[Leveren van epische Xbox-ervaringen bieden door honderden miljarden gamegebeurtenissen per dag analyseren](https://customers.microsoft.com/en-us/story/xboxunlimited)

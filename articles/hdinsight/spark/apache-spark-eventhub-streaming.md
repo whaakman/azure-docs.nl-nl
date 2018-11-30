@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 537ae87fa694a8b0e82cb2830dd8ad1f62986093
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283407"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496435"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Zelfstudie: Een proces tweet met behulp van Azure Event Hubs en Spark in HDInsight
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Zelfstudie: Een proces tweet met behulp van Azure Event Hubs en Apache Spark in HDInsight
 
-In deze zelfstudie leert u over het maken van een Apache Spark streaming toepassing tweets verzenden naar een Azure event hub en een andere toepassing de tweets lezen van de event hub maken. Zie voor een gedetailleerde uitleg van de Spark-streaming [Apache Spark-streaming overzicht](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight biedt de dezelfde streaming-functies voor een Spark-cluster in Azure.
+In deze zelfstudie leert u over het maken van een [Apache Spark](https://spark.apache.org/) streaming van toepassing op tweets verzenden naar een Azure event hub en een andere toepassing de tweets lezen van de event hub maken. Zie voor een gedetailleerde uitleg van de Spark-streaming [Apache Spark-streaming overzicht](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight biedt de dezelfde streaming-functies voor een Spark-cluster in Azure.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -102,7 +102,7 @@ U kunt deze event hub gebruiken voor het opslaan van tweets.
 
 Moet u een Jupyter-notebook maken en geef deze de naam **SendTweetsToEventHub**. 
 
-1. Voer de volgende code om toe te voegen van de externe Maven-bibliotheken:
+1. Voer de volgende code om toe te voegen van de externe Apache Maven-bibliotheken:
 
     ```
     %%configure
@@ -184,7 +184,7 @@ Moet u een Jupyter-notebook maken en geef deze de naam **SendTweetsToEventHub**.
 
 Moet u een andere Jupyter-notebook maken en geef deze de naam **ReadTweetsFromEventHub**. 
 
-1. Voer de volgende code om toe te voegen een externe Maven-bibliotheek:
+1. Voer de volgende code om toe te voegen een externe bibliotheek voor Apache Maven:
 
     ```
     %%configure -f

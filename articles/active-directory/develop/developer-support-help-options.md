@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9b2ccce4ef6fad4f7710ba2092d67ac5f4e73b71
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39602009"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422436"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opties voor ondersteuning en hulp voor ontwikkelaars 
 
@@ -67,13 +67,13 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 
 |Onderdeel/gebied  |Tags  |
 |---------|---------|
-|ADAL-bibliotheek |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
-|Bibliotheek met MSAL     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
-|OWIN-middleware  |[[azure active directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure ad b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
-|Een andere gebied met betrekking tot verificatie of autorisatie-onderwerpen |[[azure active directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
+|ADAL-bibliotheek |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
+|Bibliotheek met MSAL     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
+|OWIN-middleware  |[[azure active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
+|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure ad b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
+|Een andere gebied met betrekking tot verificatie of autorisatie-onderwerpen |[[azure active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
 > De volgende posts in Stack Overflow bevatten tips over het maken van vragen en tips over het toevoegen van broncode - volgen van deze richtlijnen kunnen helpen verhogen van de kans op leden van de community om te beoordelen en snel reageren op uw vraag:  

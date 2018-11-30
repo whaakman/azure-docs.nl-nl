@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414400"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443573"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -43,6 +43,8 @@ De volgende stappen bevatten een overzicht van het beheer van uw API Management-
 5. De wijzigingen in uw opslagplaats implementeren in uw service-configuratiedatabase
 
 In dit artikel wordt beschreven hoe u om te schakelen en gebruik Git om de serviceconfiguratie van uw te beheren en bevat een referentie voor de bestanden en mappen in de Git-opslagplaats.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="access-git-configuration-in-your-service"></a>Toegang tot Git-configuratie in uw service
 

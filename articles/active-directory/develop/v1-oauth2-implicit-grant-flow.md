@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985723"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422028"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informatie over de impliciete stroom voor OAuth2 in Azure Active Directory (AD)
 
@@ -34,7 +34,7 @@ De impliciete goedkeuring voor oauth2 is algemeen wordt de toekenning met de lan
 
 De ultieme [OAuth2-autorisatiecode verlenen](https://tools.ietf.org/html/rfc6749#section-1.3.1) is de autorisatietoekenning die gebruikmaakt van twee afzonderlijke eindpunten. Het autorisatie-eindpunt wordt gebruikt voor de gebruiker interactie fase, wat tot een autorisatiecode leidt. Het token-eindpunt wordt vervolgens gebruikt door de client voor het uitwisselen van de code voor een toegangstoken en vaak ook een vernieuwingstoken. Web-Apps zijn vereist voor de referenties van hun eigen toepassingen bij het tokeneindpunt, zodat de autorisatieserver de client kan verifiëren.
 
-De [impliciete goedkeuring voor oauth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) is een variant van andere toestemming verleent. Hierdoor kan een client een toegangstoken verkrijgen (en id_token, bij het gebruik van [OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html)) rechtstreeks vanuit het autorisatie-eindpunt, zonder contact opnemen met het tokeneindpunt noch authenticatie van de client. Deze variant is ontworpen voor toepassingen die worden uitgevoerd in een webbrowser die JavaScript zijn gebaseerd: in de oorspronkelijke OAuth2-specificatie tokens worden geretourneerd in een URI-fragment. Hiermee kunt u de token bits beschikbaar voor de JavaScript-code in de client, maar het garandeert dat ze niet opgenomen in omgeleid naar de server. Tokens geretourneerd via de browser wordt omgeleid rechtstreeks vanuit het autorisatie-eindpunt. Het bevat ook het voordeel van het elimineren van eventuele vereisten voor cross-origin-aanroepen, die noodzakelijk zijn als de JavaScript-toepassing moet contact opnemen met het token-eindpunt.
+De [impliciete goedkeuring voor oauth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) is een variant van andere toestemming verleent. Hierdoor kan een client een toegangstoken verkrijgen (en id_token, bij het gebruik van [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) rechtstreeks vanuit het autorisatie-eindpunt, zonder contact opnemen met het tokeneindpunt noch authenticatie van de client. Deze variant is ontworpen voor toepassingen die worden uitgevoerd in een webbrowser die JavaScript zijn gebaseerd: in de oorspronkelijke OAuth2-specificatie tokens worden geretourneerd in een URI-fragment. Hiermee kunt u de token bits beschikbaar voor de JavaScript-code in de client, maar het garandeert dat ze niet opgenomen in omgeleid naar de server. Tokens geretourneerd via de browser wordt omgeleid rechtstreeks vanuit het autorisatie-eindpunt. Het bevat ook het voordeel van het elimineren van eventuele vereisten voor cross-origin-aanroepen, die noodzakelijk zijn als de JavaScript-toepassing moet contact opnemen met het token-eindpunt.
 
 Een belangrijk kenmerk van de impliciete goedkeuring voor oauth2 is het feit dat die nooit geretourneerde vernieuwingstokens naar de client stromen. De volgende sectie laat zien hoe dit niet nodig en is in feite een beveiligingsprobleem.
 

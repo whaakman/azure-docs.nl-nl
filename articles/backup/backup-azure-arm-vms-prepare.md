@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 086399f669b704a0ae2c9f719906e7efa672b5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262499"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422793"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Voorbereiden op back-up van virtuele Azure-machines
 
@@ -49,13 +49,14 @@ Voordat u uw omgeving hebt voorbereid, moet u deze beperkingen begrijpt:
 * Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel instellen (LUKS)-codering wordt niet ondersteund.
 * Wordt niet aanbevolen back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out bestandsserver. Als u klaar bent, wordt mislukken van CSV-schrijvers verwacht. Ze nodig hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie van het cluster tijdens de taak van een momentopname. Azure Backup biedt geen ondersteuning voor meerdere VM's.
 * Back-upgegevens bevat geen gekoppeld netwerkstations die zijn gekoppeld aan een virtuele machine.
-* Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
+* **Vervang bestaande** optie in de **configuratie terugzetten** helpt om te vervangen bestaande schijven in de huidige virtuele machine met het geselecteerde herstelpunt. Deze bewerking kan alleen worden uitgevoerd als de huidige VM zich bevindt. 
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
 * Tijdens het configureren van back up, zorg ervoor dat de **Firewalls en virtuele netwerken** opslagaccountinstellingen zodat toegang vanaf alle netwerken.
 * Voor de geselecteerde netwerken, na het configureren van de firewall en virtuele-netwerkinstellingen voor uw opslagaccount, selecteer **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** als uitzondering aan Azure Backup-service inschakelen toegang tot het netwerk beperkte storage-account. Herstel op itemniveau wordt niet ondersteund voor het netwerk beperkte opslagaccounts.
 * U kunt back-up van virtuele machines in alle openbare regio's van Azure. (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's.) Als de regio die u zoekt momenteel niet ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
 * Herstellen van een domeincontroller wordt (DC) virtuele machine die deel uitmaakt van een multi-DC-configuratie ondersteund alleen via PowerShell. Zie voor meer informatie, [een multi-DC-domeincontroller terugzetten](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Momentopname op de schijf Write Accelerator is ingeschakeld, wordt niet ondersteund. Deze beperking blokkeert Azure Backup-service de mogelijkheid om uit te voeren een toepassingsconsistente momentopname van alle schijven van de virtuele machine.
+* Azure Backup biedt geen ondersteuning voor automatische aanpassing van de klok voor zomer-en wintertijd wijzigingen voor back-ups van virtuele Azure-machine. Indien nodig, het beleid aanpassen om de wijziging zomer-en besparen tijd rekening te houden.
 * Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen via PowerShell ondersteund. Virtuele machines die zijn gemaakt via de werkstroom terugzetten in de gebruikersinterface wordt geen van deze configuraties van het netwerk nadat de herstelbewerking voltooid is. Zie voor meer informatie, [virtuele machines herstellen met speciale netwerkconfiguraties](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Virtuele machines in onder de load balancer-configuratie (intern en extern)
   * Virtuele machines met meerdere gereserveerde IP-adressen

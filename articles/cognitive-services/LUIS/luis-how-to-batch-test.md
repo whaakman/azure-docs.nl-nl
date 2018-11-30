@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032118"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333493"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testen met een set van voorbeeld-uitingen batch
+
  Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>Importeren van een gegevensset-bestand voor het testen van batch
 
 1. Selecteer **Test** in de bovenste menubalk en selecteert u vervolgens **Batch testen deelvenster**.
@@ -36,6 +38,7 @@ ms.locfileid: "47032118"
 4. Selecteer **Done**. De gegevensset-bestand wordt toegevoegd.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Voer, wijzig de naam van, exporteren of gegevensset verwijderen
+
 Als u wilt uitvoeren, wijzig de naam van, exporteren of verwijderen van de gegevensset, gebruikt u het beletselteken (***...*** ) knop aan het einde van de rij van de gegevensset.
 
 ![Gegevensset acties](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ De downloadbare gegevensset is de hetzelfde bestand dat is geüpload voor het te
 |![Gereed voor het testen van pictogram](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test is gereed om uit te voeren.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>Batch-testresultaten weergeven 
+
 Als u wilt controleren van de resultaten van de batch, selecteer **resultaten**.
 
 ![De resultaten van batch](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ Als u wilt controleren van de resultaten van de batch, selecteer **resultaten**.
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>Resultaten van de grafiek filteren
 
 Om te filteren op de kaart op een bepaald doel of de entiteit, selecteert u het doel of de entiteit in het filteren aan de rechterkant-deelvenster. De gegevenspunten en de verdeling ervan bijwerken in de grafiek op basis van uw selectie. 
@@ -71,6 +77,7 @@ Om te filteren op de kaart op een bepaald doel of de entiteit, selecteert u het 
 ![Testresultaat gevisualiseerde Batch](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>Single point utterance-gegevens weergeven
+
 In de grafiek, Beweeg de muisaanwijzer boven een gegevenspunt om te zien van de score zekerheid van de voorspelling. Selecteer een gegevenspunt om op te halen van de bijbehorende utterance in de lijst uitingen onder aan de pagina. 
 
 ![Geselecteerde utterance](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ In de grafiek, Beweeg de muisaanwijzer boven een gegevenspunt om te zien van de 
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>Gegevens van de sectie weergeven
+
 Selecteer in de grafiek van vier cijfers, de naam van de sectie zoals **ONWAAR positief** in de rechterbovenhoek van de grafiek. Onder de grafiek, worden alle uitingen in die sectie onder de grafiek in een lijst weergegeven. 
 
 ![Geselecteerde uitingen door sectie](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003556"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496482"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor SQL Server Azure VM 's
 
@@ -90,6 +90,9 @@ Voor het maken van een SQL Server 2017 Azure VM met een van de betalen per gebru
 >
 >Deze omvatten geen aanvullende SQL Server-licentiekosten voor Web, Standard en Enterprise-edities. Als u de meest nauwkeurige schatting van de prijzen, selecteert u uw besturingssysteem en de editie van SQL Server op de pagina met prijzen voor [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) of [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
+> [!NOTE]
+> Het is nu mogelijk om te wijzigen van de licentiemodel van betalen per gebruik uw eigen licentie (BYOL) en vervolgens weer. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md). 
+
 ## <a id="byol"></a> Uw eigen licentie (BYOL)
 
 **Uw eigen SQL Server-licentie brengen License Mobility through**, ook wel **BYOL**houdt met behulp van een bestaande SQL Server-Volume-licentie met Software Assurance in een Azure-VM. Een SQL Server-VM met BYOL alleen kosten in rekening gebracht voor de kosten van het uitvoeren van de virtuele machine, niet voor SQL Server-licentieverlening, gezien het feit dat u al licenties en Software Assurance hebt aangeschaft via een Volume Licensing-programma.
@@ -123,7 +126,9 @@ Voor het maken van een SQL Server 2017 Azure VM met een van deze installatiekopi
 > Laat het ons weten binnen 10 dagen hoeveel SQL Server-licenties die u in Azure gebruikt. De koppelingen naar de vorige afbeeldingen hebben instructies over hoe u dit doet.
 
 > [!NOTE]
-> Het is niet mogelijk om te wijzigen van de licentiemodel van een betalen-per-seconde SQL Server-VM naar uw eigen licentie gebruiken. Als u dit wilt doen, moet u een nieuwe BYOL-VM maken en uw databases naar de nieuwe VM migreren.
+> Het is nu mogelijk om te wijzigen van de licentiemodel van betalen per gebruik uw eigen licentie (BYOL) en vervolgens weer. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md). 
+
+
 
 ## <a name="reduce-costs"></a>Kosten verlagen
 

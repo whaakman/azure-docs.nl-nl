@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516184"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445018"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Door de taak identiteit in Azure Active Directory-beheerdersrollen
 
@@ -107,7 +107,7 @@ Alle configuratie lezen | Lezers van mappen | Standaard-gebruikersrol ([Raadplee
 Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
 Azure AD Domain Services-exemplaar maken | Globale beheerder | 
-Uitvoeren van alle Azure AD Domain Services-taken | Azure AD-DC-beheerdersgroep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Alle Azure AD Domain Services-taken uitvoeren | Azure AD-DC-beheerdersgroep ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Alle configuratie lezen | Lezer voor Azure-abonnement met AD DS-service | 
 
 ## <a name="devices"></a>Apparaten
@@ -147,7 +147,7 @@ Licentie toewijzen | Beheerder van gebruikersaccounts |
 Groep maken | Beheerder van gebruikersaccounts | 
 Maken, bijwerken of verwijderen van de toegangsbeoordeling van een groep of van een app | Beheerder van gebruikersaccounts | 
 Vervaldatum van de groep beheren | Beheerder van gebruikersaccounts | 
-Groepsinstellingen beheren | Beheerder van gebruikersaccounts | 
+Groepsinstellingen beheren | Globale beheerder | 
 Lezen van alle configuratie (met uitzondering van verborgen lidmaatschap) | Lezers van mappen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Lezen, verborgen lidmaatschap | Een lid van | Eigenaar van de groep, wachtwoordbeheerder, Exchange-beheerder, SharePoint-beheerder, beheerder van Teams, beheerder van gebruikersaccounts
 Lidmaatschap van groepen met verborgen lidmaatschap lezen | Helpdeskbeheerder | Beheerder van gebruikersaccounts, Teams beheerder

@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605926"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317484"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integreer Azure Time Series Insights met Externe bewaking
 
@@ -292,6 +292,6 @@ Configureren van de omgeving van `standard` implementatie voor de bovenstaande b
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over hoe u uw gegevens verkennen en analyseren van een waarschuwing in de Verkenner van Time Series Insights, onze zelfstudie op [analyse uitvoeren van een basis van de hoofdoorzaak](/tutorials).
+* Zie voor meer informatie over hoe u uw gegevens verkennen en analyseren van een waarschuwing in de Verkenner van Time Series Insights, onze zelfstudie op [analyse uitvoeren van een basis van de hoofdoorzaak](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * Meer informatie over het verkennen en het opvragen van gegevens in de Verkenner van Time Series Insights, Zie de documentatie over de [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318602"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426064"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met behulp van de extensie voor Network Policy Server (NPS) en Azure AD integreren
 
@@ -359,7 +359,7 @@ Om uit te voeren geavanceerde opties voor problemen, raadpleegt u de NPS-databas
 
 Voor een beschrijving van deze logboekbestanden, Zie [interpreteren NPS indeling databaselogboekbestanden](https://technet.microsoft.com/library/cc771748.aspx). De vermeldingen in deze logboekbestanden kunnen lastig zijn om te interpreteren zonder ze te importeren in een werkblad of een database. U kunt online verschillende IAS-parsers vinden helpt u bij het interpreteren van de logboekbestanden. 
 
-De onderstaande afbeelding ziet u de uitvoer van een dergelijke downloadbare [shareware toepassing](http://www.deepsoftware.com/iasviewer). 
+De onderstaande afbeelding ziet u de uitvoer van een dergelijke downloadbare [shareware toepassing](https://www.deepsoftware.com/iasviewer). 
 
 ![Shareware app](./media/howto-mfa-nps-extension-rdg/image35.png)
 

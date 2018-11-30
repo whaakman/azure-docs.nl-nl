@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035302"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497099"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aangepaste Apache Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster
 
-Informatie over het vooraf laden Apache Hive-bibliotheken op HDInsight. Dit document bevat informatie over het gebruik van een scriptactie bibliotheken vooraf laden tijdens het maken van clusters. Bibliotheken die zijn toegevoegd met behulp van de stappen in dit document zijn wereldwijd beschikbaar in Hive - hoeft niet te gebruiken [toevoegen JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) te laden.
+Meer informatie over het vooraf laden [Apache Hive](https://hive.apache.org/) bibliotheken op HDInsight. Dit document bevat informatie over het gebruik van een scriptactie bibliotheken vooraf laden tijdens het maken van clusters. Bibliotheken die zijn toegevoegd met behulp van de stappen in dit document zijn wereldwijd beschikbaar in Hive - hoeft niet te gebruiken [toevoegen JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) te laden.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
@@ -93,4 +93,4 @@ Als het maken van clusters is voltooid, bent u de JAR-bestanden van Hive via dit
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het werken met Hive [Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+Zie voor meer informatie over het werken met Hive [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)

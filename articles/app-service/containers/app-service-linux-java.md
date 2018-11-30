@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037656"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497337"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -28,6 +28,10 @@ Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-o
 ## <a name="logging-and-debugging-apps"></a>Logboekregistratie en foutopsporing van apps
 
 Rapporten, verkeer visualisaties en de gezondheid van controles zijn beschikbaar voor eeach app via de Azure-portal. Zie de [overzicht van Azure App Service-diagnostics](/azure/app-service/app-service-diagnostics) voor meer informatie over hoe u toegang tot en gebruik deze diagnostische hulpprogramma's.
+
+## <a name="application-performance-monitoring"></a>Bewaking van toepassingsprestaties
+
+Zie [hulpprogramma's met Java-toepassingen in Azure App Service on Linux bewaking van toepassingsprestaties](how-to-java-apm-monitoring.md) naar instructies voor het configureren van New Relic en AppDynamics met Java-apps die worden uitgevoerd op App Service on Linux.
 
 ### <a name="ssh-console-access"></a>Toegang tot de SSH-console 
 
@@ -124,7 +128,7 @@ U kunt ook de app-instelling met behulp van de App Service-Maven-invoegtoepassin
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>Beveiligde toepassingen
+## <a name="secure-applications"></a>Beveiligde toepassingen
 
 Java-toepassingen die worden uitgevoerd in App Service for Linux hebben dezelfde set [best practices voor beveiliging](/azure/security/security-paas-applications-using-app-services) als andere toepassingen. 
 
@@ -168,7 +172,7 @@ Voor gegevensbronnen op toepassingsniveau:
 
 1. Voeg een `context.xml` als deze niet bestaat in uw webtoepassing en toe te voegen de `META-INF` map van het WAR-bestand wanneer het project wordt gemaakt.
 
-2. In dit bestand voegt een `Context` padvermelding voor de gegevensbron een koppeling naar een adres JNDI. de
+2. In dit bestand voegt een `Context` padvermelding voor de gegevensbron een koppeling naar een adres JNDI.
 
     ```xml
     <Context>
@@ -192,7 +196,7 @@ Voor gegevensbronnen op toepassingsniveau:
 
 Voor gedeelde bronnen op serverniveau:
 
-1. Kopieer de inhoud van `/usr/local/tomcat/conf` in `/home/tomcat` exemplaar met behulp van SSH als u nog niet een configuratie er hebt in uw App Service Linux.
+1. Kopieer de inhoud van `/usr/local/tomcat/conf` in `/home/tomcat/conf` exemplaar met behulp van SSH als u nog niet een configuratie er hebt in uw App Service Linux.
 
 2. Toevoegen van de context aan uw `server.xml`
 
@@ -231,7 +235,7 @@ Voor gedeelde bronnen op serverniveau:
 
     3. Verbinding maken met de lokale tunneling poort met uw SFTP-client en de bestanden te uploaden de `/home/tomcat/lib` map.
 
-5. De App Service Linux-toepassing opnieuw hebt gestart. Tomcat wordt opnieuw ingesteld `CATALINA_HOME` naar `/home/tomcat` en de bijgewerkte configuratie en -klassen gebruiken.
+5. De App Service Linux-toepassing opnieuw hebt gestart. Tomcat wordt opnieuw ingesteld `CATALINA_HOME` naar `/home/tomcat/conf` en de bijgewerkte configuratie en -klassen gebruiken.
 
 ## <a name="docker-containers"></a>Docker-containers
 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250815"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444799"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Automatisch schalen van een Azure API Management-exemplaar  
 
@@ -32,6 +32,8 @@ Als u wilt volgen de stappen in dit artikel, moet u:
 + Een Azure API Management-exemplaar hebben. Zie voor meer informatie, [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
 + Informatie over het concept van [capaciteit van een Azure API Management-exemplaar](api-management-capacity.md).
 + Inzicht in [handmatig proces van een Azure API Management-exemplaar schalen](upgrade-and-scale.md), met inbegrip van consequenties van kosten.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Beperkingen van Azure API Management-functie voor automatisch schalen
 

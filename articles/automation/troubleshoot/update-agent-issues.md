@@ -9,84 +9,84 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 33ae9160cd173ae594407220390c4dab1806fa94
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824129"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335143"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Windows-agent in beheer van updates
 
-Mogelijk zijn er veel oorzaken waardoor uw niet-Azure-machine wordt niet weergegeven **gereed** in beheer van updates. U kunt de status van een Hybrid Worker-agent om te bepalen van het onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser uitvoert vanuit de Azure-portal en in offlinescenario's.
+Er zijn diverse redenen waarom een Azure-machine kan niet worden weergegeven een **gereed** status in Azure updatebeheer. U kunt de status van een Hybrid Worker-agent om te bepalen van de onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser voor het beheer van updates vanuit de Azure-portal en in offlinescenario's worden uitgevoerd.
 
 ## <a name="start-the-troubleshooter"></a>De probleemoplosser voor starten
 
-Door te klikken op de **oplossen** koppeling onder de **gereedheid voor Update-Agent** kolom in de portal, start u de **Update-Agent oplossen** pagina. Deze pagina ziet u problemen met de agent en een koppeling naar dit artikel helpt u bij het oplossen van uw problemen.
+In de Azure-portal, de **Update-Agent oplossen** pagina problemen met de agent wordt weergegeven. Er is een koppeling naar dit artikel om u te helpen bij het oplossen van problemen op de pagina. Naar de **Update-Agent oplossen** weergeeft, schakelt de **oplossen** herstelkoppeling in de **gereedheid voor Update-Agent** kolom.
 
-![de pagina van de VM-lijst](../media/update-agent-issues/vm-list.png)
+![Beheerlijst met van virtuele machines bijwerken](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> De controles moeten de virtuele machine worden uitgevoerd. Als de virtuele machine wordt niet uitgevoerd krijgt u een knop **Start de virtuele machine**.
+> Om te controleren of de status van een agent, moet de virtuele machine worden uitgevoerd. Als de virtuele machine niet wordt uitgevoerd, een **Start de virtuele machine** knop wordt weergegeven.
 
-Op de **Update-Agent oplossen** pagina, klikt u op **uitvoeren controleert**, de probleemoplosser voor starten. Maakt gebruik van de probleemoplosser voor [RunCommand-](../../virtual-machines/windows/run-command.md) een script uitvoeren op de machine om te controleren of de afhankelijkheden die de agent heeft. Wanneer de probleemoplosser voor voltooid is, wordt het resultaat van de controles.
+Op de **Update-Agent oplossen** weergeeft, schakelt **controles uitvoeren** de probleemoplosser voor starten. Maakt gebruik van de probleemoplosser voor [opdracht uitvoeren](../../virtual-machines/windows/run-command.md) een script uitvoeren op de machine om te controleren of de afhankelijkheden voor clientagent. Wanneer de probleemoplosser voor voltooid is, wordt het resultaat van de controles.
 
-![Pagina oplossen](../media/update-agent-issues/troubleshoot-page.png)
+![Pagina van de Update-Agent oplossen](../media/update-agent-issues/troubleshoot-page.png)
 
-Als u klaar bent, worden de resultaten worden geretourneerd in het venster. De [Controleer gedeelte](#pre-requisistes-checks) bevatten informatie over wat elke controle zoekt.
+Resultaten worden weergegeven op de pagina wanneer ze klaar voor bent. De [controleert secties](#prerequisiste-checks) wat opgenomen in elke controle weergeven.
 
-![Update-agent controleert op pagina](../media/update-agent-issues/update-agent-checks.png)
+![Controles van de Update-Agent oplossen](../media/update-agent-issues/update-agent-checks.png)
 
 ## <a name="prerequisite-checks"></a>Controles van vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De OS-controle alleen gecontroleerd of de Hybrid Runbook Worker wordt uitgevoerd een van de volgende besturingssystemen:
+De controle van het besturingssysteem wordt geverifieerd of de Hybrid Runbook Worker een van deze besturingssystemen wordt uitgevoerd:
 
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken evaluaties.         |
-|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5.1 of later is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid.  ([Downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 RTM, WindowsServer 2008 | Ondersteunt alleen bijwerken evaluaties.         |
+|Windows Server 2008 R2 SP1 en hoger |.NET framework 4.5.1 of later is vereist. ([Downloaden van het .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([Downloaden van Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid.  ([Downloaden van Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### <a name="net-451"></a>.NET 4.5.1
 
-De .NET framework-controle alleen gecontroleerd als het systeem heeft een minimum van [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653) aanwezig zijn.
+De .NET Framework-controle wordt geverifieerd dat het systeem een minimum van heeft [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653) geïnstalleerd.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-De controle van WMF, controleert u of als het systeem heeft de vereiste versie van Windows Management Framework. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is de laagste versie die wordt ondersteund. Het is raadzaam dat u installeert [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) voor verbeterde betrouwbaarheid van de Hybrid Runbook Worker.
+De WMF-controle wordt geverifieerd dat het systeem de vereiste versie van de Windows Management Framework (WMF heeft). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is de eerste ondersteunde versie. Het is raadzaam dat u installeert [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) te vergroten van de betrouwbaarheid van de Hybrid Runbook Worker.
 
 ### <a name="tls-12"></a>TLS 1.2
 
-Deze controle bepaalt als u TLS 1.2 uw communicatie te versleutelen. TLS 1.0 wordt niet meer ondersteund door het platform en het verdient aanbeveling dat clients gebruik van TLS 1.2 om te communiceren met updatebeheer.
+Deze controle wordt bepaald of u TLS 1.2 uw communicatie te versleutelen. TLS 1.0 is niet meer ondersteund door het platform. U wordt aangeraden dat clients gebruik van TLS 1.2 om te communiceren met updatebeheer.
 
 ## <a name="connectivity-checks"></a>Controles voor connectiviteit
 
 ### <a name="registration-endpoint"></a>Eindpunt voor clientregistratie
 
-Deze controle bepaalt als de agent correct met de agent-service communiceren kan.
+Deze controle wordt bepaald of de agent correct met de agent-service communiceren kan.
 
-Proxy- en firewallinstellingen configuraties moeten de Hybrid Runbook Worker-agent kan communiceren met het eindpunt voor clientregistratie toestaan. Zie voor een lijst van adressen en poorten te openen, [netwerk planning voor Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy- en firewallinstellingen configuraties moeten de Hybrid Runbook Worker-agent kan communiceren met het eindpunt voor clientregistratie toestaan. Zie voor een lijst van adressen en poorten te openen, [netwerk planning voor Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Operations-eindpunt
 
-Deze controle bepaalt als de agent correct met de taak-Runtime-gegevens-Service communiceren kan.
+Deze controle wordt bepaald of de agent correct met de taak Runtime Data-Service communiceren kan.
 
-Proxy- en firewallinstellingen configuraties moeten de Hybrid Runbook Worker-agent kan communiceren met de taak Runtime Data-Service toestaan. Zie voor een lijst van adressen en poorten te openen, [netwerk planning voor Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy- en firewallinstellingen configuraties moeten de Hybrid Runbook Worker-agent kan communiceren met de taak Runtime Data-Service toestaan. Zie voor een lijst van adressen en poorten te openen, [netwerk planning voor Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Statuscontroles van VM-service
 
 ### <a name="monitoring-agent-service-status"></a>Status van agent-service controleren
 
-Deze controle wordt bepaald of de Microsoft Monitoring Agent, `HealthService` wordt uitgevoerd op de machine.
+Deze controle wordt bepaald of `HealthService`, de Microsoft Monitoring Agent, op de machine wordt uitgevoerd.
 
 Zie voor meer informatie over het oplossen van de service, [The Microsoft Monitoring Agent wordt niet uitgevoerd](hybrid-runbook-worker.md#mma-not-running).
 
-Als u wilt de Microsoft Monitoring Agent installeren, Zie [installeren en configureren van de Microsoft Monitoring Agent](/log-analytics/log-analytics-concept-hybrid.md#install-and-configure-agent)
+Als u wilt de Microsoft Monitoring Agent installeren, Zie [installeren en configureren van de Microsoft Monitoring Agent](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Gebeurtenissen van de agent-service controleren
 
-Deze controle bepaalt als er een is `4502` in de Operations Manager-gebeurtenislogboek op de computer in de afgelopen 24 uur.
+Deze controle wordt bepaald of een `4502` gebeurtenissen worden weergegeven in het Azure Operations Manager-gebeurtenislogboek op de computer in de afgelopen 24 uur.
 
 Zie voor meer informatie over deze gebeurtenis, de [problemen oplossen met](hybrid-runbook-worker.md#event-4502) voor deze gebeurtenis.
 
@@ -94,11 +94,11 @@ Zie voor meer informatie over deze gebeurtenis, de [problemen oplossen met](hybr
 
 ### <a name="machinekeys-folder-access"></a>Toegang tot als een map
 
-De controle van toegang tot de Crypto-map bepaalt als lokale systeemaccount toegang tot heeft `C:\ProgramData\Microsoft\Crypto\RSA`
+De toegangscontrole voor Crypto-map wordt bepaald of het lokale systeemaccount toegang tot C:\ProgramData\Microsoft\Crypto\RSA heeft.
 
 ## <a name="troubleshoot-offline"></a>Offline oplossen
 
-U kunt de probleemoplosser voor offline gebruiken op een Hybrid Runbook Worker door het script lokaal worden uitgevoerd. Het script [problemen oplossen-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) is te vinden in de PowerShell Gallery. Een voorbeeld van de uitvoer van dit script wordt weergegeven in het volgende voorbeeld:
+U kunt de probleemoplosser voor op een Hybrid Runbook Worker offline gebruiken door het script lokaal worden uitgevoerd. U kunt het script, krijgen [problemen oplossen-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), in de PowerShell Gallery. De uitvoer van dit script ziet er als volgt uit:
 
 ```output
 RuleId                      : OperatingSystemCheck
@@ -194,4 +194,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aanvullende problemen met de Hybrid Runbook Workers, Zie [problemen oplossen - Hybrid Runbook Workers](hybrid-runbook-worker.md)
+Zie meer problemen met de Hybrid Runbook Workers, [oplossen Hybrid Runbook Workers](hybrid-runbook-worker.md).

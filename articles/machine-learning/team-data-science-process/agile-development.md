@@ -1,25 +1,21 @@
 ---
 title: Flexibele ontwikkeling van wetenschappelijke gegevensprojecten - Azure Machine Learning | Microsoft Docs
 description: Hoe kunnen ontwikkelaars een data science-project in een systematische, versie beheerd en gezamenlijke manier binnen een projectteam uitvoeren met behulp van het Team Data Science Process.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: a032127d249f944d08cc6578a03f1a7e5a658361
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 9fd8714e4c9fdc89036a3b05ba835b140363c0e3
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301086"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443369"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Flexibele ontwikkeling van wetenschappelijke gegevensprojecten
 
@@ -146,7 +142,7 @@ In dit artikel wordt uitgelegd hoe het instellen van een flexibele data science-
     - Inzicht in het bedrijf
     - Gegevens ophalen
     - Modelleren
-    - Distributie
+    - Implementatie
 
 6. Wijzig de naam 'Gebruiker verhaal' in 'TDSP Substages"met type werkitem standaard ingesteld op de zojuist gemaakte"TDSP Substage'-type.
 

@@ -2,30 +2,26 @@
 title: Functie-engineering in datatechnologie | Microsoft Docs
 description: De toepassing van feature-engineering uitgelegd en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 3fde69e8-5e7b-49ad-b3fb-ab8ef6503a4d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51343989"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446672"
 ---
 # <a name="feature-engineering-in-data-science"></a>Functie-engineering in datatechnologie
 Dit artikel worden de doeleinden van feature-engineering en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning. De voorbeelden die wordt gebruikt ter illustratie van dit proces worden getekend van Azure Machine Learning Studio. 
 
-Deze taak is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Deze taak is een stap in de [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 Functie engineering pogingen te verhogen van de voorspellende kracht van de learning-algoritmen met het maken van de functies van onbewerkte gegevens die helpen bij het leerproces te vergemakkelijken. Het technische team en de selectie van functies maakt deel uit van de TDSP die worden beschreven in de [wat is de levenscyclus van het Team Data Science Process?](overview.md) Feature-engineering en selectie maken deel uit van de **functies ontwikkelen** stap van de TDSP. 
 

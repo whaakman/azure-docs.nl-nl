@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 49516523abdd927c3ae60235fcd74473689c6856
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019767"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426873"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian Jira en samenloop beheerdershandleiding voor Azure Active Directory
 
@@ -67,9 +67,23 @@ Houd rekening met de volgende informatie voordat u de invoegtoepassing installer
 
 De invoegtoepassing biedt ondersteuning voor de volgende versies van Jira en samenloop:
 
-* Jira-Core- en Software: 6.0-7.8
-* Jira-servicedesk: 3.0 en 3.2
+* Jira-Core- en Software: 6.0-7,12
+* Jira-servicedesk: 3.0.0 naar 3.5.0
+* JIRA biedt ook ondersteuning voor 5.2. Voor meer informatie klikt u op [Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Samenloop: 5.0 naar versie 5.10
+* Samenloop: 6.0.1
+* Samenloop: 6.1.1
+* Samenloop: 6.2.1
+* Samenloop: 6.3.4
+* Samenloop: 6.4.0
+* Samenloop: 6.5.0
+* Samenloop: 6.6.2
+* Samenloop: 6.7.0
+* Samenloop: 6.8.1
+* Samenloop: 6.9.0
+* Samenloop: 6.10.0
+* Samenloop: 6.11.0
+* Samenloop: 6.12.0
 
 ## <a name="installation"></a>Installatie
 
@@ -79,7 +93,7 @@ Volg deze stappen voor het installeren van de invoegtoepassing:
 
 2. Ga naar de Jira/samenloop administration console en selecteer **invoegtoepassingen**.
 
-3. Zoek op Atlassian Marketplace **Microsoft SAML SSO-invoegtoepassing**.
+3. Downloaden van het Microsoft Download Center, de [Microsoft SAML SSO-invoegtoepassing voor Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO-invoegtoepassing voor samenloop](https://www.microsoft.com/download/details.aspx?id=56503).
 
    De juiste versie van de invoegtoepassing wordt weergegeven in de lijst met zoekresultaten.
 
@@ -171,9 +185,23 @@ Nee. De invoegtoepassing ondersteunt alleen on-premises versies van Jira en same
 
 De invoegtoepassing biedt ondersteuning voor deze versies:
 
-* Jira-Core- en Software: 6.0-7.8
-* Jira-servicedesk: 3.0 en 3.2
+* Jira-Core- en Software: 6.0-7,12
+* Jira-servicedesk: 3.0.0 naar 3.5.0
+* JIRA biedt ook ondersteuning voor 5.2. Voor meer informatie klikt u op [Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Samenloop: 5.0 naar versie 5.10
+* Samenloop: 6.0.1
+* Samenloop: 6.1.1
+* Samenloop: 6.2.1
+* Samenloop: 6.3.4
+* Samenloop: 6.4.0
+* Samenloop: 6.5.0
+* Samenloop: 6.6.2
+* Samenloop: 6.7.0
+* Samenloop: 6.8.1
+* Samenloop: 6.9.0
+* Samenloop: 6.10.0
+* Samenloop: 6.11.0
+* Samenloop: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>De invoegtoepassing is gratis of betaald?
 

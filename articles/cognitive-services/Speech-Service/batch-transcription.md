@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035948"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495599"
 ---
-# <a name="use-batch-transcription"></a>Gebruik batch transcriptie
+# <a name="why-use-batch-transcription"></a>Waarom Batch transcriptie gebruiken?
 
-Batch transcriptie is ideaal als u grote hoeveelheden audio in storage hebt. U kunt met behulp van de REST-API, wijst u audio-bestanden door de handtekening voor gedeelde toegang (SAS) URI en asynchroon ontvangen transcripties.
+Batch transcriptie is ideaal als u grote hoeveelheden audio in storage hebt. U kunt met behulp van de toegewezen REST-API, wijst u audio-bestanden door een shared access signature (SAS) URI en asynchroon ontvangen transcripties.
 
 ## <a name="the-batch-transcription-api"></a>De Batch-transcriptie API
 
@@ -36,16 +36,16 @@ De Batch-API voor transcriptie biedt asynchrone transcriptie van spraak naar tek
 
 De Batch-API voor transcriptie ondersteunt de volgende indelingen:
 
-Naam| Kanaal  |
-----|----------|
-MP3 |   Mono   |   
-MP3 |  Stereo  | 
-wav |   Mono   |
-wav |  Stereo  |
-Opus|   Mono   |
-Opus|  Stereo  |
+| Indeling | Codec | Bitrate | Samplefrequentie |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bits | 8 of 16 kHz, mono, stereo |
+| MP3 | PCM | 16-bits | 8 of 16 kHz, mono, stereo |
+| OGG | OPUS | 16-bits | 8 of 16 kHz, mono, stereo |
 
-Voor stereo audiostreams, wordt de linker- en -kanaal in batch transcriptie gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. De uitvoer van een kanaal, inclusief eigenschappen voor het instellen van het filter voor scheldwoorden en het model interpunctie wordt weergegeven in de volgende JSON-voorbeeld:
+> [!NOTE]
+> De Batch-API voor transcriptie vereist een S0-sleutel (betalen laag). Het werkt niet met een sleutel gratis (f0).
+
+De Batch-transcriptie API wordt de linker- en -kanaal voor stereo audiostreams gesplitst tijdens de transcriptie. De twee JSON-bestanden met het resultaat zijn alle gemaakt van één kanaal. De tijdstempels per utterance bieden de ontwikkelaar te maken van een geordende definitieve transcriptie. De volgende JSON-voorbeeld ziet u de uitvoer van een kanaal, includuing eigenschappen voor het instellen van het filter voor scheldwoorden en het model leestekens.
 
 ```json
 {
@@ -62,6 +62,16 @@ Voor stereo audiostreams, wordt de linker- en -kanaal in batch transcriptie gesp
 
 > [!NOTE]
 > De Batch transcriptie-API maakt gebruik van een REST-service voor het aanvragen van transcripties, hun status en de bijbehorende resultaten. U kunt de API vanuit een willekeurige taal gebruiken. De volgende sectie wordt beschreven hoe de API wordt gebruikt.
+
+### <a name="query-parameters"></a>Queryparameters
+
+Deze parameters kunnen worden opgenomen in de query-tekenreeks van de REST-aanvraag.
+
+| Parameter | Beschrijving | Vereiste / optioneel |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Geeft aan hoe grof taalgebruik in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld grof taalgebruik filteren, `masked` die grof taalgebruik vervangen door sterretjes, `removed` waarbij alle scheldwoorden worden verwijderd uit het resultaat, of `tags` zodat 'grof taalgebruik' tags aan wordt toegevoegd. De standaardinstelling is `masked`. | Optioneel |
+| `PunctuationMode` | Geeft aan hoe interpunctie in herkenningsresultaten worden verwerkt. Geaccepteerde waarden zijn `none` die wordt uitgeschakeld interpunctie, `dictated` dit expliciete interpunctie houdt `automatic` waarmee de decoder interpunctie, behandelt of `dictatedandautomatic` dit houdt bepaald leestekens of automatisch. | Optioneel |
+
 
 ## <a name="authorization-token"></a>Autorisatietoken
 

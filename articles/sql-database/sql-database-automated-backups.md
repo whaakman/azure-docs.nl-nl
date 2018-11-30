@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985689"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422507"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -42,7 +42,7 @@ U kunt deze back-ups te gebruiken:
 
 ## <a name="how-long-are-backups-kept"></a>Hoe lang worden back-ups opgeslagen
 
-Elke SQL-Database back-up is de bewaarperiode voor een standaard die is gebaseerd op de servicelaag van de database en een verschil oplevert tussen de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). U kunt de bewaarperiode voor back-up voor een database bijwerken. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
+Elke SQL-Database heeft een back-up bewaartermijn tussen 7 en 35 dagen die afhankelijk zijn van de [aankoopmodel en servicelaag](#pitr-retention-period). U kunt de bewaarperiode voor back-up voor een database op logische Azure-Server (deze functie wordt binnenkort ingeschakeld in het beheerde exemplaar) bijwerken. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
 
 Als u een database verwijdert, blijven SQL-Database de back-ups op dezelfde manier als zou voor een online-database. Als u een Basic-database met een bewaarperiode van zeven dagen verwijdert, wordt bijvoorbeeld een back-up die vier dagen oud is drie dagen opgeslagen.
 

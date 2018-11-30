@@ -1,26 +1,22 @@
 ---
 title: 'DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker, Kubernetes en Python Flask-toepassing'
 description: 'DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes'
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: jainr
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: jainr
-ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=jainr, ms.author=jainr)
+ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094383"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496752"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes
 Er zijn vaak twee stromen werkzaamheden, Data Scientists, het bouwen van machine learning-modellen en App-ontwikkelaars het bouwen van de toepassing en beschikbaar te maken voor eindgebruikers te gebruiken voor een toepassing AI. In dit artikel laten we zien hoe u voor het implementeren van een continue integratie (CI) / pijplijn voor continue levering (CD) voor een AI-toepassing. AI-toepassing is een combinatie van een model dat machine learning (ML) zijn ingebed toepassingscode. In dit artikel we bij het ophalen van een pretrained model vanuit een persoonlijke Azure-blob storage-account, wordt een AWS S3-account. Voor het artikel gebruiken we een eenvoudige python flask-toepassing.
@@ -55,7 +51,7 @@ De pijplijn-architectuur wordt hieronder.
 1. Ontwikkelaar werken op de IDE van hun keuze in de toepassingscode.
 2. Ze doorvoeren de code in broncodebeheer van hun keuze (Azure DevOps biedt goede ondersteuning voor verschillende besturingselementen voor gegevensbronnen)
 3. Afzonderlijk, werken de gegevenswetenschapper over het ontwikkelen van hun model.
-4. Zodra tevreden, dat zij het model publiceren naar een model-opslagplaats, in dit geval gebruiken we een blob storage-account. Dit kan eenvoudig worden vervangen door de Azure ML Workbench Modelbeheer-service via de REST-API's.
+4. Zodra tevreden, dat zij het model publiceren naar een model-opslagplaats, in dit geval gebruiken we een blob storage-account. 
 5. Een bewerking wordt gestart in Azure DevOps op basis van het doorvoeren in GitHub.
 6. Azure DevOps-Build-pijplijn haalt de nieuwste model uit Blob-container en wordt een container gemaakt.
 7. Azure DevOps wordt de image gepusht naar persoonlijke installatiekopie-opslagplaats in Azure Container Registry

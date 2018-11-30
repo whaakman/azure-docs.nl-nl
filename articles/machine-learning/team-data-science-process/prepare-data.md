@@ -1,107 +1,103 @@
 ---
-title: Reinigen en voorbereiden van gegevens voor Azure Machine Learning | Microsoft Docs
-description: Vooraf verwerken en gegevens naar de voorbereiding op deze machine learning opgeschoond.
+title: Opschonen en gegevens worden voorbereid voor Azure Machine Learning | Microsoft Docs
+description: Voorverwerken en opschonen van gegevens naar deze voorbereidt voor machine learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-ms.openlocfilehash: 127c51b9a2617c6b8520d972a3cd4b6c3bbcddd1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 52457e19cede5d8d2b74d9c3d81ebf35e3ad06c4
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837691"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446557"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Taken om gegevens voor te bereiden voor verbeterde Machine Learning
-Vooraf verwerken en het opruimen van gegevens zijn belangrijke taken die normaal gesproken plaatsvinden moeten voordat gegevensset effectief kan worden gebruikt voor machine learning. Onbewerkte gegevens is vaak veel ruis veroorzaken en onbetrouwbare mogelijk ontbreken waarden. Met deze gegevens voor modellering kan misleidende resultaten opleveren. Deze taken maken deel uit van het Team gegevens wetenschap proces (TDSP) en doorgaans als volgt een initiële exploratie van een gegevensset die wordt gebruikt om te detecteren en plannen van de vooraf verwerken vereist. Voor meer instructies voor het proces TDSP gedetailleerde, Zie de stappen in de [Team gegevens wetenschap proces](overview.md).
+Vooraf verwerken en opschonen van gegevens zijn belangrijke taken die normaal gesproken moeten worden uitgevoerd voordat de gegevensset effectief kan worden gebruikt voor machine learning. Onbewerkte gegevens is vaak veel ruis veroorzaken en onbetrouwbare en mogelijk ontbreken waarden. Met behulp van dergelijke gegevens voor modellen kan misleidend resultaten opleveren. Deze taken maken deel uit van het Team Data Science Process (TDSP) en een eerste onderzoek van een gegevensset die wordt gebruikt om te detecteren en plannen van het vooraf verwerken vereist doorgaans als volgt. Zie voor meer instructies voor de TDSP-proces gedetailleerde, de stappen die worden beschreven de [Team Data Science Process](overview.md).
 
-Vooraf verwerken en opschonen van taken, zoals de taak van de exploratie gegevens kunnen worden uitgevoerd in een groot aantal verschillende omgevingen, zoals SQL of Hive of Azure Machine Learning Studio, en met verschillende hulpprogramma's en talen, zoals het R- of Python, afhankelijk van waar de gegevens worden opgeslagen en hoe deze is geformatteerd. Omdat TDSP iteratieve aard, deze taken kunnen worden uitgevoerd op verschillende stappen in de werkstroom van het proces.
+Het vooraf verwerken en opschonen van taken, zoals de gegevens verkennen-taak kunnen worden uitgevoerd in een groot aantal omgevingen, zoals SQL of Hive of Azure Machine Learning Studio, en met verschillende hulpprogramma's en talen, zoals R of Python, afhankelijk van waar uw gegevens worden opgeslagen en hoe dit wordt geformatteerd. Aangezien TDSP iteratieve van aard is, kunnen deze taken plaatsvinden op verschillende stappen in de werkstroom van het proces.
 
-Dit artikel bevat verschillende gegevensverwerking concepten en taken beschreven die kunnen worden uitgevoerd vóór of na het ophalen van gegevens in Azure Machine Learning.
+Dit artikel bevat verschillende gegevensverwerking concepten en taken die kunnen worden uitgevoerd vóór of na het ophalen van gegevens in Azure Machine Learning.
 
-Zie voor een voorbeeld van gegevensverkenning en vooraf verwerken die zijn uitgevoerd in Azure Machine Learning studio, de [vooraf verwerken van gegevens in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
+Zie voor een voorbeeld van gegevens verkennen en de voorverwerking gedaan in Azure Machine Learning studio, de [vooraf verwerken van gegevens in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
-## <a name="why-pre-process-and-clean-data"></a>Waarom vooraf verwerken en de gegevens opschonen?
-Concrete gegevens uit diverse bronnen worden verzameld en processen en onregelmatigheden of beschadigde gegevens inbreuk op de kwaliteit van de gegevensset mag bevatten. De standaard data quality-problemen die ontstaan zijn:
+## <a name="why-pre-process-and-clean-data"></a>Waarom voorverwerken en opschonen van gegevens?
+Werkelijk bestaande gegevens uit diverse bronnen worden verzameld en processen en onregelmatigheden of beschadigde gegevens in gevaar brengt de kwaliteit van de gegevensset kunnen bevatten. De gebruikelijke data quality-problemen die zich voordoen zijn:
 
-* **Onvolledig**: gegevens beschikt niet over kenmerken of met ontbrekende waarden.
-* **Veel ruis veroorzaken**: gegevens foutieve records bevat of uitschieters.
+* **Onvolledige**: gegevens beschikt niet over kenmerken of met ontbrekende waarden.
+* **Ruis**: gegevens bevat onjuiste records of uitbijters.
 * **Inconsistente**: gegevens bevat conflicterende records of afwijkingen.
 
-Kwaliteitsgegevens is een vereiste voor kwaliteit voorspellende modellen. Als u wilt voorkomen 'garbagecollection in garbagecollection out' en kwaliteit van de gegevens te verbeteren en daarom model prestaties, is het noodzakelijk voor het uitvoeren van een health het scherm om problemen met de vroeg herkennen en bepaal de bijbehorende gegevens verwerken en de reinigingstape stappen.
+Kwaliteitsgegevens is een vereiste voor kwaliteit voorspellende modellen. Om te voorkomen 'garbagecollection in garbagecollection out' en de gegevenskwaliteit te verbeteren en daarom model prestaties, is het van cruciaal belang voor het uitvoeren van een scherm van de status gegevens om problemen met gegevens vroeg signaleren en te beslissen over de bijbehorende gegevens verwerken en opschonen stappen.
 
 ## <a name="what-are-some-typical-data-health-screens-that-are-employed"></a>Wat zijn enkele typische gegevens health schermen die worden gebruikt?
-We kunnen de algemene kwaliteit van gegevens controleren door te controleren:
+We kunt de algemene kwaliteit van de gegevens controleren door te controleren:
 
 * Het aantal **records**.
 * Het aantal **kenmerken** (of **functies**).
-* Het kenmerk **gegevenstypen** (nominaal, rangtelwoord of continu).
+* Het kenmerk **gegevenstypen** (nominale, rangtelwoord of continue).
 * Het aantal **ontbrekende waarden**.
 * **-Opmaak** van de gegevens.
-  * Als de gegevens in TSV- of CSV, controleert u of de kolom scheidingstekens en een regel scheidingstekens altijd goed kolommen en lijnen scheiden.
-  * Als de gegevens in de HTML-indeling of XML-indeling, controleert u of de gegevens is opgemaakt op basis van hun respectieve standaarden.
-  * Bij het parseren van kan ook nodig zijn om gestructureerde gegevens ophalen uit semi-gestructureerde of ongestructureerde gegevens.
-* **Inconsistente gegevensrecords**. Controleer het bereik van waarden zijn toegestaan. bijvoorbeeld als de gegevens studenten GPA, Controleer bevatten of de GPA in het opgegeven bereik is 0 spreken ~ 4.
+  * Als de gegevens zich bevinden in TSV- of CSV, controleert u dat de kolom scheidingstekens en regel scheidingstekens altijd goed scheiden van kolommen en regels.
+  * Als de gegevens zich bevinden in HTML of XML-indeling, controleert u of de gegevens is goed samengesteld op basis van hun respectieve standaarden.
+  * Parseren kan ook nodig zijn om gestructureerde informatie onttrekken aan semi-gestructureerde of ongestructureerde gegevens.
+* **Inconsistente gegevensrecords**. Controleer het bereik van waarden zijn toegestaan. bijvoorbeeld als de gegevens student GPA, Controleer bevat of de GPA binnen het bereik is aangewezen, zeg 0 ~ 4.
 
-Als u problemen met de gegevens gevonden **verwerken stappen** nodig die vaak omvat het opruimen van de ontbrekende waarden, gegevensnormalisatie, onderscheidende zijn, verwerking van tekst naar verwijderen en/of vervang ingesloten tekens die mogelijk van invloed op gegevens uitlijning gemengde gegevenstypen gemeenschappelijk velden en anderen.
+Als u problemen met gegevens, **verwerkingsstappen** nodig die vaak omvat het opschonen van de ontbrekende waarden, gegevens normaliseren, onderscheidende, verwerking van de tekst te verwijderen en/of vervang ingesloten tekens die mogelijk van invloed op gegevens uitlijning, gemengde gegevenstypen in algemene velden en anderen.
 
-**Azure Machine Learning verbruikt juist opgemaakte tabelgegevens**.  Als de gegevens zich al in tabelvorm, worden gegevens vooraf verwerken rechtstreeks met Azure Machine Learning in de Machine Learning Studio uitgevoerd.  Als gegevens niet in tabelvorm, als deze zich in de XML parseren mogelijk zijn vereist om de gegevens omzetten in tabelvorm.  
+**Azure Machine Learning verbruikt opgemaakte tabelgegevens**.  Als de gegevens zich al in tabelvorm, kan gegevens vooraf verwerken rechtstreeks met Azure Machine Learning in Machine Learning Studio en worden uitgevoerd.  Als gegevens niet in tabelvorm, zeg dat deel uitmaakt van XML-parsering mogelijk zijn vereist om te kunnen omzetten van de gegevens in tabelvorm.  
 
-## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Wat zijn enkele van de belangrijkste taken in gegevens vooraf verwerken?
-* **Gegevens gereinigd**: invullen of ontbrekende waarden detecteren en veel ruis veroorzaken en uitschieters verwijderen.
-* **Gegevenstransformatie**: normaliseren gegevens als dimensies en ruis wilt beperken.
-* **Gegevens vermindering**: Sample gegevensrecords of kenmerken voor gemakkelijker de verwerking van gegevens.
-* **Gegevens onderscheidende**: doorlopende kenmerken met bepaalde methoden van machine learning converteren naar categorische kenmerken voor eenvoudig te gebruiken.
-* **Tekst reinigen**: Verwijder de ingesloten tekens waardoor de uitlijning van gegevens voor bijvoorbeeld ingesloten tabbladen in een gegevensbestand met door tabs gescheiden ingesloten voor nieuwe regels die mogelijk worden verbroken records, enzovoort.
+## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Wat zijn enkele van de belangrijkste taken in vooraf verwerken van gegevens?
+* **Het opschonen van gegevens**: vul of ontbrekende waarden, detecteren en verwijderen van de ruis gegevens en de uitschieters.
+* **Gegevenstransformatie**: normaliseren gegevens om dimensies en ruis te reduceren.
+* **Gegevensreductie**: voorbeeld gegevensrecords of kenmerken voor eenvoudiger verwerking van gegevens.
+* **Gegevens onderscheidende**: converteren naar de doorlopende kenmerken categorische kenmerken voor gebruiksgemak gebruikt met bepaalde methoden van machine learning.
+* **Tekst opschonen**: Verwijder de ingesloten tekens wat leiden gegevens in de uitlijning tot kunnen, zoals ingesloten tabbladen in een gegevensbestand met door tabs gescheiden ingesloten voor nieuwe regels die werken mogelijk niet meer records, enzovoort.
 
-De volgende secties bevatten informatie over enkele van de volgende stappen verwerken van gegevens.
+De volgende secties bevatten informatie over enkele van deze stappen gegevensverwerking.
 
 ## <a name="how-to-deal-with-missing-values"></a>Het omgaan met ontbrekende waarden?
-Om door te gaan met ontbrekende waarden, is het beste eerst de reden voor de ontbrekende waarden beter wordt verwerkt het probleem te achterhalen. Typische ontbrekende waarde verwerking methoden zijn:
+Als u wilt omgaan met ontbrekende waarden, is het beste eerst het probleem bepalen de reden voor de ontbrekende waarden beter wordt verwerkt. Typische ontbrekende waarde verwerking methoden zijn:
 
-* **Verwijdering**: verwijderen van records met ontbrekende waarden
-* **Vervanging testupdate worden uitgevoerd**: ontbrekende waarden vervangt door een dummy-waarde: bijvoorbeeld, *onbekende* voor categorische of 0 voor numerieke waarden.
-* **Gemiddelde vervanging**: als de ontbrekende gegevens numerieke, de ontbrekende waarden vervangt het gemiddelde.
-* **Regelmatige vervanging**: als de ontbrekende gegevens categorische, de ontbrekende waarden vervangt het meest voorkomende item
-* **Regressie vervanging**: gebruik van een regressiemethode ontbrekende waarden vervangt door de waarden opgelost.  
+* **Verwijdering**: records met ontbrekende waarden te verwijderen
+* **Testupdate worden uitgevoerd van vervanging**: ontbrekende waarden vervangen door een dummy-waarde: bijvoorbeeld *onbekende* voor categorische of 0 voor numerieke waarden.
+* **Vervanging betekenen**: als de ontbrekende gegevens numeriek is, vervangt u de ontbrekende waarden door het gemiddelde.
+* **Vervanging frequente**: als de ontbrekende gegevens categorische is, vervangt u de ontbrekende waarden met de meest voorkomende item
+* **Regressie vervanging**: een regressiemethode ontbrekende waarden te vervangen door verminderde waarden gebruiken.  
 
 ## <a name="how-to-normalize-data"></a>Hoe kan ik gegevens normaliseren?
-Gegevensnormalisatie schaalt opnieuw numerieke waarden aan een opgegeven bereik. Populaire gegevens normalisatie methoden zijn:
+Gegevens normalisering past numerieke waarden aan een opgegeven bereik. Populaire normalisering methoden zijn onder andere:
 
-* **Min-Max normalisatie**: Lineair transformeren naar een bereik, spreken tussen 0 en 1, waarbij de min-waarde in 0 en max-waarde moet 1 wordt geschaald.
-* **Z-score normalisatie**: gegevens op basis van gemiddelde en standaarddeviatie schalen: het verschil tussen de gegevens en het gemiddelde wordt gedeeld door de standaarddeviatie.
-* **Decimale schalen**: schalen van de gegevens door het verplaatsen van het decimaalteken van de kenmerkwaarde.  
+* **Min-Max normalisering**: lineair worden de gegevens transformeren naar een bereik, zeg tussen 0 en 1, waarbij de minimumwaarde is geschaald naar 0 en maximale waarde in 1.
+* **Z-score normalisering**: gegevens op basis van gemiddelde en standaarddeviatie schalen: het verschil tussen de gegevens en het gemiddelde delen door de standaarddeviatie.
+* **Decimale schalen**: schalen van de gegevens door te verplaatsen van het decimaalteken van de waarde van het kenmerk.  
 
-## <a name="how-to-discretize-data"></a>Hoe gegevens moeten worden onderscheiden?
-Gegevens kunnen worden onderscheiden door doorlopende waarden converteren naar nominaal kenmerken of intervallen. Er zijn een aantal manieren om dit te doen:
+## <a name="how-to-discretize-data"></a>Hoe kunt u voor het onderscheiden van gegevens?
+Gegevens kunnen worden onderscheiden door doorlopende waarden converteren naar de nominale kenmerken of intervallen. Er zijn enkele manieren waarop u dit doet:
 
-* **Gelijke breedte Binning**: het bereik van alle mogelijke waarden van een kenmerk verdelen in groepen N van dezelfde grootte en de waarden die niet in een opslaglocatie toewijzen met het opslaglocatienummer.
-* **Met Binning gelijk hoogte**: het bereik van alle mogelijke waarden van een kenmerk verdelen in groepen, N, elk met hetzelfde aantal exemplaren en vervolgens de waarden die niet in een opslaglocatie toewijzen met het opslaglocatienummer.  
+* **Gelijke breedte Binning**: het bereik van alle mogelijke waarden van een kenmerk onderverdelen in N groepen van dezelfde grootte en de waarden die kunnen worden onderverdeeld in een opslaglocatie toewijzen met het opslaglocatienummer van de.
+* **Gelijk hoogte Binning**: het bereik van alle mogelijke waarden van een kenmerk onderverdelen in N groepen, elk met hetzelfde aantal instanties en wijs vervolgens de waarden die kunnen worden onderverdeeld in een opslaglocatie met het opslaglocatienummer van de.  
 
-## <a name="how-to-reduce-data"></a>Hoe om gegevens te reduceren?
-Er zijn verschillende methoden om gegevensgrootte voor gemakkelijker de afhandeling van gegevens te beperken. Afhankelijk van de gegevensgrootte van en het domein, kunnen de volgende methoden worden toegepast:
+## <a name="how-to-reduce-data"></a>Hoe kunt u het om gegevens te reduceren?
+Er zijn verschillende methoden om gegevensgrootte voor de afhandeling van gegevens gemakkelijker te beperken. Afhankelijk van de grootte en het domein, kunnen de volgende methoden worden toegepast:
 
 * **Vastleggen van steekproeven**: voorbeeld van de records met gegevens en kiest u alleen de representatieve subset van de gegevens.
-* **Kenmerk steekproeven**: alleen een subset van de belangrijkste kenmerken van de gegevens te selecteren.  
-* **Aggregatie**: de gegevens verdelen in groepen en opslaan van de getallen voor elke groep. Bijvoorbeeld, kunnen de dagelijkse omzet getallen van een keten restaurant in de afgelopen 20 jaar worden samengevoegd voor maandelijkse omzet om de grootte van de gegevens te beperken.  
+* **Steekproeven van het kenmerk**: selecteert u alleen een subset van de belangrijkste kenmerken van de gegevens.  
+* **Aggregatie**: de gegevens verdelen in groepen en op te slaan van de getallen voor elke groep. De dagelijkse omzet-nummers van een restaurantketen in de afgelopen 20 jaar kan bijvoorbeeld worden geaggregeerd naar maandelijkse omzet om de grootte van de gegevens te beperken.  
 
-## <a name="how-to-clean-text-data"></a>Hoe tekst gegevens?
-**Tekstvelden in tabelgegevens** kunnen tekens die van invloed op grenzen die kolommen uitlijning en/of record bevatten. Voor bijvoorbeeld tabbladen in een bestand met door tabs gescheiden oorzaak kolom uitlijning van gegevenstypen ingesloten en ingesloten opsplitsen nieuwe-regeltekens record regels. Onjuiste tekst codering verwerking tijdens het schrijven/lezen tekst leidt tot gegevensverlies, onbedoeld introductie van onleesbaar tekens, bijvoorbeeld nulwaarden en mogelijk ook invloed tekst te parseren. Zorgvuldige geparseerd en bewerkt mogelijk nodig om op te schonen tekstvelden voor de juiste uitlijning en/of extract gestructureerde gegevens van niet-gestructureerde of semi-gestructureerde gegevens.
+## <a name="how-to-clean-text-data"></a>Hoe kunt u voor het opschonen van gegevens?
+**Tekstvelden in gegevens in tabelvorm** tekens die invloed hebben op de grenzen van de uitlijning en/of de record van de kolommen kan bevatten. Voor bijvoorbeeld tabbladen in een bestand met door tabs gescheiden oorzaak kolom uitlijning ingesloten en ingesloten verbreken nieuwe-regeltekens record regels. Onjuiste tekst codering verwerking tijdens het schrijven/lezen tekst leidt tot gegevensverlies van, onbedoeld introductie van onleesbaar tekens, bijvoorbeeld nulwaarden en kan ook invloed op tekst te parseren. Zorg ervoor dat bij het parseren en het bewerken van mogelijk nodig om u te reinigen tekstvelden voor de juiste uitlijning en/of extract gestructureerde gegevens uit ongestructureerde of semi-gestructureerde tekstgegevens.
 
-**Gegevensverkenning** biedt een vroege weergave in de gegevens. Een aantal problemen kan ongedekte tijdens deze stap en bijbehorende methoden kunnen worden toegepast om die problemen op te lossen.  Het is belangrijk om te vragen zoals wat is er de oorzaak van het probleem en hoe het probleem mogelijk ontstaan. Dit helpt u ook bepalen op de gegevensverwerking stappen die worden uitgevoerd moeten om deze kunt oplossen. Het soort insights een wil worden afgeleid van de gegevens kan ook worden gebruikt om de prioriteit van de gegevensverwerking inspanning.
+**Gegevens verkennen** biedt een vroege weergeven in de gegevens. Een aantal problemen met gegevens kan worden gezien tijdens deze stap en de bijbehorende methoden kunnen worden toegepast om die problemen op te lossen.  Het is belangrijk om te vragen, zoals wat is de oorzaak van het probleem en hoe het probleem kan zijn geïntroduceerd. Dit helpt u ook beslissen over de verwerking van data-stappen die worden genomen moeten om op te lossen. Het soort insights een zal worden afgeleid van de gegevens kan ook worden gebruikt om de inspanning gegevensverwerking prioriteit te geven.
 
 ## <a name="references"></a>Verwijzingen
-> *Gegevensanalyse: Concepten en technieken*, Third Edition Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber en Jian Pei
+> *Gegevensanalyse: De concepten en technieken voor*, derde Edition Morgan Kaufmann, 2011, Jiawei Han Micheline Kamber en Jian Pei
 > 
 > 
 

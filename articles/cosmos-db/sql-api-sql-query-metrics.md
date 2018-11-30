@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 9358e0a712f820671edec518b1cc93ecee5302ad
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162515"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425136"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Afstemming van prestaties van query's met Azure Cosmos DB
 
@@ -218,7 +218,7 @@ Zie [Azure DB Cosmos globale distributie](tutorial-global-distribution-sql-api.m
 De sectie over query uitvoering van metrische gegevens wordt uitgelegd hoe u de servertijden van de uitvoering van query's worden opgehaald ( `totalExecutionTimeInMs`), zodat u tijd besteed aan het uitvoeren van query's en -tijd besteed aan het netwerk onderweg kunt onderscheiden.
 
 ### <a name="indexing-policy"></a>Indexeringsbeleid
-Zie [indexeringsbeleid configureren](indexing-policies.md) voor indexering paden, soorten en modi en hoe ze invloed op de uitvoering van de query. Het indexeringsbeleid gebruikt standaard hash-indexering voor tekenreeksen, die geldt voor gelijkheid query's, maar niet voor de bereik-query's / OrderBy-query's. Als u een bereik-query's nodig voor tekenreeksen, wordt u aangeraden het indextype bereik voor alle tekenreeksen op te geven. 
+Zie [indexeringsbeleid configureren](index-policy.md) voor indexering paden, soorten en modi en hoe ze invloed op de uitvoering van de query. Het indexeringsbeleid gebruikt standaard hash-indexering voor tekenreeksen, die geldt voor gelijkheid query's, maar niet voor de bereik-query's / OrderBy-query's. Als u een bereik-query's nodig voor tekenreeksen, wordt u aangeraden het indextype bereik voor alle tekenreeksen op te geven. 
 
 ## <a name="query-execution-metrics"></a>Query uitvoering van metrische gegevens
 U kunt gedetailleerde metrische gegevens over het uitvoeren van query's verkrijgen door de optionele `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in de .NET SDK). De waarde die wordt geretourneerd `x-ms-documentdb-query-metrics` heeft de volgende sleutel-waardeparen bedoeld voor geavanceerde probleemoplossing van het uitvoeren van query's. 
@@ -276,6 +276,6 @@ Hier volgen enkele voorbeeldquery's en over het interpreteren van de metrische g
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over de ondersteunde SQL-query-operators en trefwoorden, [SQL-query](how-to-sql-query.md). 
 * Zie voor meer informatie over aanvraageenheden, [aanvraageenheden](request-units.md).
-* Zie voor meer informatie over het indexeringsbeleid, [indexeringsbeleid](indexing-policies.md) 
+* Zie voor meer informatie over het indexeringsbeleid, [indexeringsbeleid](index-policy.md) 
 
 

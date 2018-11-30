@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577008"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335211"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -462,7 +462,7 @@ We raden aan het framework voor logboekregistratie die is ontwikkeld voor ASP.NE
 
 ### <a name="log-filtering"></a>Logboek filteren
 
-Elk logboek wordt gemaakt door een `ILogger` exemplaar heeft een bijbehorende `Category` en `Level`. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) een opsomming, en de code geheel getal geeft aan dat het relatieve belang:
+Elk logboek wordt gemaakt door een `ILogger` exemplaar heeft een bijbehorende `Category` en `Level`. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) een opsomming, en de code geheel getal geeft aan dat het relatieve belang:
 
 |LogLevel    |Code|
 |------------|---|
@@ -474,7 +474,7 @@ Elk logboek wordt gemaakt door een `ILogger` exemplaar heeft een bijbehorende `C
 |Kritiek    | 5 |
 |Geen        | 6 |
 
-Elke categorie kan onafhankelijk van elkaar worden gefilterd tot een bepaald [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). Bijvoorbeeld, kunt u alle logboeken voor de blob trigger verwerking, maar alleen `Error` en hoger voor alle andere.
+Elke categorie kan onafhankelijk van elkaar worden gefilterd tot een bepaald [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). Bijvoorbeeld, kunt u alle logboeken voor de blob trigger verwerking, maar alleen `Error` en hoger voor alle andere.
 
 Als u wilt maken het gemakkelijker om op te geven van filterregels, de WebJobs SDK biedt de `LogCategoryFilter` die kunnen worden doorgegeven in veel van de bestaande logboekregistratie-providers, met inbegrip van Application Insights en -Console.
 

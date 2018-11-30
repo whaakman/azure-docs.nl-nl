@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6448e592db8024d911831b0b3634dabb4ed3b101
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063112"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443402"
 ---
 # <a name="suspended-domains"></a>Onderbroken domeinen
 Wanneer Azure Active Directory Domain Services (Azure AD DS) kan niet worden uitgevoerd een beheerd domein voor een lange periode, worden het beheerde domein in de status onderbroken geplaatst. In dit artikel wordt uitgelegd waarom de beheerde domeinen worden onderbroken en het herstellen van een domein onderbroken.
@@ -43,7 +43,7 @@ Een beheerd domein dat correct geconfigureerde en operationele regelmatig wordt 
 
 
 ### <a name="needs-attention-state"></a>Status 'Aandacht is vereist'
-Een beheerd domein is in de **aandacht** status als een of meer problemen vereist. een beheerder actie onderneemt. De health-pagina van uw beheerde domein bevat een of meer waarschuwingen in deze status. 
+Een beheerd domein is in de **aandacht** status als een of meer problemen vereist. een beheerder actie onderneemt. De health-pagina van uw beheerde domein bevat een of meer waarschuwingen in deze status.
 
 Bijvoorbeeld, als u een beperkende NSG voor het virtuele netwerk hebt geconfigureerd, Microsoft niet mogelijk om te werken en bewaken van uw beheerde domein. Deze ongeldige configuratie activeert een waarschuwing waarmee uw beheerde domein in de status "Aandacht" wordt geplaatst.
 

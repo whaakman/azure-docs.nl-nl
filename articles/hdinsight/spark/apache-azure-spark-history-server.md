@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042360"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497275"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Server van de geschiedenis van uitgebreide Spark gebruiken om te fouten opsporen en diagnosticeren van Spark-toepassingen
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uitgebreide geschiedenis Server van de Apache Spark op fouten opsporen en diagnosticeren van Apache Spark-toepassingen gebruiken
 
-Dit artikel bevat instructies over het gebruik van uitgebreide Spark geschiedenis Server fouten opsporen en diagnosticeren van Spark-toepassingen is voltooid en wordt uitgevoerd. De extensie bevat het tabblad data en graph tabbladen en diagnose. Op de **gegevens** tabblad gebruikers kunnen de gegevens voor invoer en uitvoer van de Spark-taak controleren. Op de **Graph** tabblad gebruikers kunnen de gegevens stromen af te handelen van de taakgrafiek controleren. Op de **diagnose** tabblad gebruiker kan verwijzen naar **gegevens scheeftrekken**, **Tijdverschilbereik** en **Executor gebruiksanalyse**.
+Dit artikel bevat instructies over het gebruik van uitgebreide Apache Spark geschiedenis Server voor het fouten opsporen en diagnosticeren van Spark-toepassingen is voltooid en wordt uitgevoerd. De extensie bevat het tabblad data en graph tabbladen en diagnose. Op de **gegevens** tabblad gebruikers kunnen de gegevens voor invoer en uitvoer van de Spark-taak controleren. Op de **Graph** tabblad gebruikers kunnen de gegevens stromen af te handelen van de taakgrafiek controleren. Op de **diagnose** tabblad gebruiker kan verwijzen naar **gegevens scheeftrekken**, **Tijdverschilbereik** en **Executor gebruiksanalyse**.
 
-## <a name="get-access-to-spark-history-server"></a>Toegang krijgen tot Spark geschiedenis-Server
+## <a name="get-access-to-apache-spark-history-server"></a>Toegang krijgen tot de Server voor Apache Spark-geschiedenis
 
-Spark geschiedenis-Server is de web-UI voor Spark-toepassingen is voltooid en wordt uitgevoerd. 
+Apache Spark geschiedenis-Server is de web-UI voor Spark-toepassingen is voltooid en wordt uitgevoerd. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>De Webgebruikersinterface van Spark geschiedenis Server openen vanuit Azure portal
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>De Webgebruikersinterface voor Apache Spark geschiedenis Server openen vanuit Azure portal
 
 1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Van **snelkoppelingen**, klikt u op **Clusterdashboard**, en klik vervolgens op **Spark geschiedenis Server**. Wanneer u hierom wordt gevraagd, voert u de beheerdersreferenties voor de Spark-cluster. 
@@ -52,7 +52,7 @@ Selecteer de taak-ID en klik vervolgens op **gegevens** op het menu aan de gegev
 
 + Alle rijen door te klikken op de knop kopiëren **kopie**.
 
-    ![Het kopiëren van gegevens](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![Gegevens kopiëren](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
 
 + Alle gegevens opslaan als CSV-bestand door te klikken op de knop **csv**.
 
@@ -87,7 +87,7 @@ Selecteer de taak-ID en klik vervolgens op **gegevens** op het menu aan de gegev
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Graph-tabblad in Spark geschiedenis-Server
+## <a name="graph-tab-in-apache-spark-history-server"></a>Graph-tabblad Apache Spark geschiedenis-server
 Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma om de taak graph beeld te krijgen.
 
 + Overzicht van uw taak controleren door de gegenereerde taakgrafiek. 
@@ -158,7 +158,7 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Tabblad diagnose in Spark geschiedenis-Server
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Tabblad diagnose Apache Spark geschiedenis-server
 Selecteer de taak-ID en klik vervolgens op **diagnose** in het menu Extra om uw werk diagnose weergeven. Bevat het tabblad diagnose **gegevens scheeftrekken**, **Tijdverschilbereik**, en **Executor gebruiksanalyse**.
     
 + Controleer de **gegevens scheeftrekken**, **Tijdverschilbereik**, en **Executor gebruiksanalyse** door respectievelijk de tabbladen selecteren.
@@ -326,8 +326,8 @@ Als u upgraden met hotfix wilt, gebruikt u het onderstaande script spark-enhance
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Resources beheren voor een Spark-cluster in HDInsight](apache-spark-resource-manager.md)
-* [Spark-instellingen configureren](apache-spark-settings.md)
+* [Resources beheren voor een Apache Spark-cluster in HDInsight](apache-spark-resource-manager.md)
+* [Apache Spark-instellingen configureren](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Contact opnemen

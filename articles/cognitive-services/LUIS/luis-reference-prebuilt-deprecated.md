@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: ae23e6b8fd1d2f6d63293a9626880ae3823afc61
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033274"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334105"
 ---
 # <a name="deprecated-entities"></a>Afgeschafte entiteiten
 De volgende vooraf gemaakte entiteiten zijn afgeschaft en kunnen niet worden toegevoegd aan de nieuwe LUIS-apps.
@@ -29,7 +29,7 @@ De volgende vooraf gemaakte entiteiten zijn afgeschaft en kunnen niet worden toe
 
 #### <a name="3-geography-subtypes"></a>3 Geografie subtypen
 
-Vooraf gemaakte entiteiten   |   Voorbeeld utterance   |   JSON
+Vooraf gemaakte entiteiten   |   Voorbeeld van een utterance   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -64,7 +64,7 @@ Encyclopedie ingebouwde entiteit bevat meer dan 100 subtypen in de volgende tabe
  ```
 
 
-Vooraf gemaakte entiteiten   |   Vooraf gedefinieerde entiteit (subtypen)   |   Voorbeeld utterance
+Vooraf gemaakte entiteiten   |   Vooraf gedefinieerde entiteit (subtypen)   |   Voorbeeld van een utterance
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

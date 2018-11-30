@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d104b5de22281817626f8de0f41029e76e06e3a2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824809"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423344"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure DB Cosmos globale distributie - achter de schermen
 
@@ -72,7 +72,7 @@ Voor de Cosmos-databases is geconfigureerd met meerdere regio's voor schrijven e
 
 Of u uw Cosmos-database met één of meerdere regio's voor schrijven configureren, kunt u kiezen uit vijf duidelijk gedefinieerde consistentiemodellen. Met de zojuist toegevoegde ondersteuning voor het inschakelen van meerdere regio's voor schrijven, volgen hier enkele belangrijke aspecten van de consistentieniveaus:  
 
-Als vóór de consistentie voor gebonden veroudering zorgt ervoor dat alle leesbewerkingen opgenomen in k prefixen of t seconden van de meest recente schrijven in een van de regio's worden. Bovendien worden leesbewerkingen met consistentie voor gebonden veroudering monotone en consistent voorvoegsel garanties worden gegarandeerd. Het protocol anti entropie werkt op een manier beperkt in de snelheid en zorgt ervoor dat de voorvoegsels niet worden en de tegendruk op de schrijfbewerkingen niet hoeft te worden toegepast. Voordat u, gelezen sessie consistentie gegarandeerd monotone lezen, monotone schrijfbewerkingen, uw eigen schrijfbewerkingen, garandeert lezen van de volgende manier en consistent voorvoegsel over de hele wereld. Voor de databases die zijn geconfigureerd met sterke consistentie en schrijven de systeem-switches terug naar een enkele regio door het toewijzen van een leider wordt erkend in elk van de partitie-sets. 
+Als vóór de consistentie voor gebonden veroudering zorgt ervoor dat alle leesbewerkingen opgenomen in k prefixen of t seconden van de meest recente schrijven in een van de regio's worden. Bovendien worden leesbewerkingen met consistentie voor gebonden veroudering monotone en consistent voorvoegsel garanties worden gegarandeerd. Het protocol anti entropie werkt op een manier beperkt in de snelheid en zorgt ervoor dat de voorvoegsels niet worden en de tegendruk op de schrijfbewerkingen niet hoeft te worden toegepast. Voordat u, gelezen sessie consistentie gegarandeerd monotone lezen, monotone schrijfbewerkingen, uw eigen schrijfbewerkingen, garandeert lezen van de volgende manier en consistent voorvoegsel over de hele wereld. Voor de databases die zijn geconfigureerd met sterke consistentie, de voordelen van multi-onder de knie krijgen (schrijven met lage latentie, hoge schrijven beschikbaarheid) is niet van toepassing vanwege synchrone replicatie tussen regio's.
 
 De semantiek van de vijf consistentiemodellen in Cosmos DB worden beschreven [hier](consistency-levels.md) en wiskundig weergegeven met behulp van een op hoog niveau TLA + specificaties [hier](https://github.com/Azure/azure-cosmos-tla).
 

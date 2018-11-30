@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 20aa1824656ee6eb861f3848d969d678b07e9378
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038427"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422725"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -41,7 +41,7 @@ Azure Storage Explorer wordt ondersteund op de volgende versies van Windows:
 
 Voor alle versies van Windows, .NET Framework 4.6.2 of hoger is vereist.
 
-[Storage Explorer downloaden en installeren](http://www.storageexplorer.com)
+[Storage Explorer downloaden en installeren](https://www.storageexplorer.com)
 
 # <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
@@ -49,7 +49,7 @@ Azure Storage Explorer wordt op de volgende versies van macOS ondersteund:
 
 * macOS 10.12 'Sierra' en latere versies
 
-[Storage Explorer downloaden en installeren](http://www.storageexplorer.com)
+[Storage Explorer downloaden en installeren](https://www.storageexplorer.com)
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -70,7 +70,7 @@ U moet ook de volgende afhankelijkheden/bibliotheken geïnstalleerd voor uitvoer
 
 Azure Storage Explorer [opmerkingen bij de Release](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor het aantal distributies bevatten.
 
-[Storage Explorer downloaden en installeren](http://www.storageexplorer.com)
+[Storage Explorer downloaden en installeren](https://www.storageexplorer.com)
 
 ---
 

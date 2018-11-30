@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b3639e76b55a9bdc0c981993181c8e23b09eceab
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f7b9723f752b4da540c5860afde0afa62dcac9e0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715660"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333034"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Het uitschakelen van de bewaking van uw virtuele machines met Azure Monitor voor virtuele machines (Preview)
 
@@ -57,7 +57,7 @@ De volgende stappen wordt beschreven hoe u voor het verwijderen van Azure Monito
 5. Selecteer in de lijst met oplossingen **InfrastructureInsights (Werkruimtenaam)**, en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
 6. Selecteer in de lijst met oplossingen **ServiceMap (Werkruimtenaam)**, en klik vervolgens op de **overzicht** pagina voor de oplossing, klikt u op **verwijderen**.  Wanneer u hierom wordt gevraagd om te bevestigen, klikt u op **Ja**.  
 
-Voordat u onboarding van Azure Monitor voor virtuele machines, zijn als u niet [verzamelen van de prestatiemeteritems ingeschakeld](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) voor de Windows- of Linux gebaseerde VM's in uw werkruimte, moet u deze regels uitschakelen door de stappen die worden beschreven [hier](../../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) voor Windows en Linux.
+Voordat u onboarding van Azure Monitor voor virtuele machines, zijn als u niet [verzamelen van de prestatiemeteritems ingeschakeld](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) voor de Windows- of Linux gebaseerde VM's in uw werkruimte, moet u deze regels uitschakelen door de stappen die worden beschreven [hier](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) voor Windows en Linux.
 
 ## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Schakel bewaking voor een Azure-VM en bewaren van werkruimte  
 

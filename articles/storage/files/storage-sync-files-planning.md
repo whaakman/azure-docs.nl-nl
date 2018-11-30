@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625297"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335177"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -109,10 +109,11 @@ De resultaten weergeven in CSV:
 ```
 
 ### <a name="system-requirements"></a>Systeemvereisten
-- Een server met Windows Server 2012 R2 of Windows Server 2016:
+- Een server met Windows Server 2012 R2, Windows Server 2016 of Windows Server 2019:
 
     | Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
     |---------|----------------|------------------------------|
+    | WindowsServer 2019 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
     | Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
     | Windows Server 2012 R2 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
 
@@ -198,10 +199,10 @@ Microsofts interne antivirusoplossingen, Windows Defender en System Center Endpo
 ### <a name="backup-solutions"></a>Back-upoplossingen
 Back-upoplossingen kunnen leiden tot het intrekken van gelaagde bestanden, zoals antivirus-oplossingen. U wordt aangeraden met behulp van een cloudoplossing voor back-up naar back-up van de Azure-bestandsshare in plaats van een on-premises back-product.
 
-Als u een back-up on-premises-oplossing gebruikt, moeten de back-ups worden uitgevoerd op een server in de groep voor synchronisatie met cloud-opslaglagen uitgeschakeld. Bij het herstellen van bestanden in de locatie van de server-eindpunt, gebruikt u de optie bestand herstelbewerkingen op. Bestanden hersteld zal worden gesynchroniseerd met alle eindpunten in de groep voor synchronisatie en bestaande bestanden wordt vervangen door de versie van back-up hersteld.
+Als u een back-up on-premises-oplossing gebruikt, moeten de back-ups worden uitgevoerd op een server in de groep voor synchronisatie met cloud-opslaglagen uitgeschakeld. Wanneer u een herstelbewerking uitvoert, gebruikt u de opties voor het volume op serverniveau of op bestandsniveau herstellen. Bestanden die zijn hersteld met behulp van de optie voor terugzetten op bestandsniveau wordt gesynchroniseerd met alle eindpunten in de groep voor synchronisatie en bestaande bestanden wordt vervangen door de versie van back-up hersteld.  Volumeniveau herstelbewerkingen wordt niet vervangen met nieuwere versies van bestanden in de Azure-bestandsshares of andere servereindpunten.
 
 > [!Note]  
-> App-gerichte volumeniveau en bare metal (BMR) terugzetten opties kunnen leiden tot onverwachte resultaten en worden momenteel niet ondersteund. Deze opties worden ondersteund in een toekomstige release terugzetten.
+> (BMR) bare-metal-herstel kan leiden tot onverwachte resultaten en wordt momenteel niet ondersteund.
 
 ### <a name="encryption-solutions"></a>Versleutelingsoplossingen voor
 Ondersteuning voor versleutelingsoplossingen voor, is afhankelijk van hoe ze worden geïmplementeerd. Azure File Sync is bekend bij het werken met:

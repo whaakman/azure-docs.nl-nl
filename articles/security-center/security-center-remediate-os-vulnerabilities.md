@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238774"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317492"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Beveiligingsconfiguraties in Azure Security Center herstellen
 Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie die kan de virtuele machines en computers die meer kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van het besturingssysteem komt niet overeen met de aanbevolen configuratie van beveiligingsregels en er configuratiewijzigingen aanbevolen om deze beveiligingsproblemen te verhelpen.
@@ -101,7 +101,7 @@ De specifieke configuraties die worden bewaakt, Zie [lijst met aanbevolen config
 Zie voor meer informatie over Security Center, de volgende bronnen:
 
 * Zie voor een lijst met ondersteunde Windows en Linux-VM's, [ondersteunde platforms in Azure Security Center](security-center-os-coverage.md).
-* Zie voor informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen, [beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md).
+* Zie voor informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen, [beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md).
 * Zie voor meer informatie hoe aanbevelingen u helpen bij uw Azure-resources beveiligen, [aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md).
 * Zie voor meer informatie over het bewaken van de status van uw Azure-resources, [beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md).
 * Zie voor meer informatie over het beheren en reageren op beveiligingswaarschuwingen, [beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md).

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: af3b87fbe79624143b6c2b7e0a3c50852e532524
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042118"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495416"
 ---
-# <a name="use-the-hbase-net-sdk"></a>De HBase .NET SDK gebruiken
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Gebruik de .net SDK voor Apache HBase
 
-[HBase](apache-hbase-overview.md) twee primaire manieren om te werken met uw gegevens: [Hive-query's en aanroepen van HBase RESTful API](apache-hbase-tutorial-get-started-linux.md). U kunt werken rechtstreeks met de REST-API met behulp van de `curl` opdracht of een vergelijkbaar hulpprogramma.
+[Apache HBase](apache-hbase-overview.md) twee primaire manieren om te werken met uw gegevens: [Apache Hive-query's en aanroepen naar de HBase-RESTful-API](apache-hbase-tutorial-get-started-linux.md). U kunt werken rechtstreeks met de REST-API met behulp van de `curl` opdracht of een vergelijkbaar hulpprogramma.
 
 Voor C# en .NET-toepassingen, de [Microsoft HBase REST-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) biedt een clientbibliotheek boven op de HBase REST-API.
 
@@ -37,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-CLUSTERNAME vervangen door de naam van HDInsight HBase-cluster, en de gebruikersnaam en wachtwoord met de Hadoop-referenties opgegeven voor het maken van clusters. De standaardnaam van de Hadoop-gebruiker is **admin**.
+Vervang CLUSTERNAME met de naam van HDInsight HBase-cluster, en de gebruikersnaam en wachtwoord door de Apache Hadoop-referenties opgegeven voor het maken van clusters. De standaardnaam van de Hadoop-gebruiker is **admin**.
 
 ## <a name="create-a-new-table"></a>Een nieuwe tabel maken
 
@@ -113,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implementeert BigTable, zodat de gegevensindeling ziet er als volgt uit:
+HBase implementeert [Cloud BigTable](https://cloud.google.com/bigtable/), zodat de gegevensindeling uitziet:
 
 ![Gebruiker met de Cluster-gebruikersrol](./media/apache-hbase-rest-sdk/table.png)
 
@@ -189,4 +189,4 @@ finally
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Aan de slag met een voorbeeld voor Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Maken van een end-to-end toepassing met [realtime Twitter-gevoel met HBase analyseren](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Maken van een end-to-end toepassing met [realtime Twitter-gevoel met Apache HBase analyseren](../hdinsight-hbase-analyze-twitter-sentiment.md)

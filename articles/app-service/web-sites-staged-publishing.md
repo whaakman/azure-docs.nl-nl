@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 47b67a6a3475b7f159a14825b168bbf0049db9b8
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: cb7b114836c83338f71c85f59299ecf1dc4613a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291144"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317616"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -169,7 +169,7 @@ Als er fouten worden geïdentificeerd in de productieomgeving na een wisselen va
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Aangepaste warmen voordat wisselen
-Sommige apps mogelijk aangepaste warmen acties. De `applicationInitialization` configuratie-element in web.config kunt u opgeven de initialisatie van de aangepaste acties worden uitgevoerd voordat een aanvraag wordt ontvangen. De wisselbewerking moet wachten voor deze aangepaste warmen om te voltooien. Hier volgt een voorbeeld van web.config fragment.
+Bij het gebruik van [automatisch wisselen](#Auto-Swap), sommige apps mogelijk aangepaste warmen acties. De `applicationInitialization` configuratie-element in web.config kunt u opgeven de initialisatie van de aangepaste acties worden uitgevoerd voordat een aanvraag wordt ontvangen. De wisselbewerking moet wachten voor deze aangepaste warmen om te voltooien. Hier volgt een voorbeeld van web.config fragment.
 
     <system.webServer>
         <applicationInitialization>

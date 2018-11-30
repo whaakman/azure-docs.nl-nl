@@ -3,24 +3,24 @@ title: Java-HBase-client - Azure HDInsight
 description: Informatie over het gebruik van Apache Maven in een Apache HBase op basis van een Java-toepassing bouwen en vervolgens implementeert u deze in HBase op Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
-ms.openlocfilehash: 677714487aac6e25a0505cce978792c76bb1cee4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/27/2018
+ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016077"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445648"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Java-toepassingen voor Apache HBase bouwen
 
 Meer informatie over het maken van een [Apache HBase](http://hbase.apache.org/) toepassing in Java. Gebruik vervolgens de toepassing met HBase op Azure HDInsight.
 
-De stappen in dit document gebruiken [Maven](http://maven.apache.org/) maken en bouw het project. Maven is een begrip hulpprogramma waarmee u software, documentatie en rapporten voor Java-projecten bouwen en beheer van software-project.
+De stappen in dit document gebruiken [Apache Maven](https://maven.apache.org/) maken en bouw het project. Maven is een begrip hulpprogramma waarmee u software, documentatie en rapporten voor Java-projecten bouwen en beheer van software-project.
 
 > [!NOTE]
 > De stappen in dit document zijn meest recent getest met HDInsight 3.6.
@@ -35,9 +35,9 @@ De stappen in dit document gebruiken [Maven](http://maven.apache.org/) maken en 
     > [!NOTE]
     > HDInsight 3.5 en hoger is vereist voor Java 8. Eerdere versies van HDInsight is Java 7 vereist.
 
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [Een Azure HDInsight op basis van Linux-cluster met HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [Een Azure HDInsight op basis van Linux-cluster met Apache HBase](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## <a name="create-the-project"></a>Het project maken
 
@@ -59,7 +59,7 @@ De stappen in dit document gebruiken [Maven](http://maven.apache.org/) maken en 
    * **pom.XML**: de Project-objectmodel ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) bevat informatie en configuratie die wordt gebruikt om het project te bouwen.
    * **SRC**: de map waarin zich de **main/java/com/microsoft/voorbeelden** directory waarin u de toepassing maken.
 
-3. Verwijder de `src/test/java/com/microsoft/examples/apptest.java` bestand. Het is niet in dit voorbeeld worden gebruikt.
+3. Verwijder de `src/test/java/com/microsoft/examples/apptest.java` bestand. Het wordt niet gebruikt in dit voorbeeld.
 
 ## <a name="update-the-project-object-model"></a>Het objectmodel Project bijwerken
 
@@ -81,9 +81,9 @@ De stappen in dit document gebruiken [Maven](http://maven.apache.org/) maken en 
     In deze sectie geeft aan dat het project moet **hbase-client** en **phoenix-core** onderdelen. Bij het compileren, worden deze afhankelijkheden gedownload vanuit de opslagplaats van de Maven standaard. U kunt de [Maven Central Repository zoeken](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) voor meer informatie over deze afhankelijkheid.
 
    > [!IMPORTANT]
-   > Het versienummer van de hbase-client moet overeenkomen met de versie van HBase die beschikbaar is in uw HDInsight-cluster. Gebruik de volgende tabel om te vinden van het juiste versienummer.
+   > Het versienummer van de hbase-client moet overeenkomen met de versie van Apache HBase die beschikbaar is in uw HDInsight-cluster. Gebruik de volgende tabel om te vinden van het juiste versienummer.
 
-   | HDInsight-clusterversie | HBase-versie moet worden gebruikt |
+   | HDInsight-clusterversie | Apache HBase-versie moet worden gebruikt |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 en 3.6 |1.1.2 |
@@ -363,7 +363,7 @@ De stappen in dit document gebruiken [Maven](http://maven.apache.org/) maken en 
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Uploaden van de JAR en voert u taken (SSH)
 
-De volgende stappen `scp` om te kopiëren van de JAR met het primaire hoofdknooppunt van uw HBase op HDInsight-cluster. De `ssh` opdracht wordt vervolgens gebruikt om verbinding met het cluster en voer het voorbeeld rechtstreeks op het hoofdknooppunt.
+De volgende stappen `scp` de JAR kopiëren naar het primaire hoofdknooppunt van het Apache HBase op HDInsight-cluster. De `ssh` opdracht wordt vervolgens gebruikt om verbinding met het cluster en voer het voorbeeld rechtstreeks op het hoofdknooppunt.
 
 1. Als u wilt de jar uploaden naar het cluster, moet u de volgende opdracht gebruiken:
 
@@ -412,7 +412,7 @@ De volgende stappen `scp` om te kopiëren van de JAR met het primaire hoofdknoop
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Uploaden van de JAR en voert u taken (PowerShell)
 
-Azure PowerShell de volgende stappen gebruiken voor het uploaden van de JAR naar de standaardopslag voor het HBase-cluster. HDInsight-cmdlets worden gebruikt voor het extern uitvoeren van de voorbeelden.
+Azure PowerShell de volgende stappen gebruiken voor het uploaden van de JAR naar de standaardopslag voor het Apache HBase-cluster. HDInsight-cmdlets worden gebruikt voor het extern uitvoeren van de voorbeelden.
 
 1. Nadat het installeren en configureren van Azure PowerShell, maakt een bestand met de naam `hbase-runner.psm1`. Gebruik de volgende tekst als de inhoud van dit bestand:
 
@@ -644,7 +644,7 @@ Azure PowerShell de volgende stappen gebruiken voor het uploaden van de JAR naar
 
     Vervang `hdinsightclustername` door de naam van uw cluster. Wanneer u wordt gevraagd, typt u de clusternaam van het aanmeldingswachtwoord (beheerder) en het wachtwoord.
 
-    Deze opdracht maakt u een tabel met de naam **mensen** in HBase op uw HDInsight-cluster. Met deze opdracht wordt geen uitvoer niet weergegeven in het consolevenster.
+    Deze opdracht maakt u een tabel met de naam **mensen** in HBase op uw HDInsight-cluster. Met deze opdracht weergegeven niet eventuele uitvoer in het consolevenster.
 
 6. Als u wilt zoeken naar vermeldingen in de tabel, gebruik de volgende opdracht:
 
@@ -683,4 +683,4 @@ __Azure PowerShell__:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Informatie over het gebruik van SQuirreL SQL met HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Informatie over het gebruik van SQuirreL SQL met Apache HBase](apache-hbase-phoenix-squirrel-linux.md)

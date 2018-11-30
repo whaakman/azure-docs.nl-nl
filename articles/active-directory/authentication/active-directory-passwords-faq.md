@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160739"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425250"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -35,7 +35,7 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
 
 * **Vraag: kunnen mijn gebruikers registreren hun eigen wachtwoord opnieuw instellen van gegevens?**
 
-  > **A:** Ja. Als voor wachtwoord opnieuw instellen is ingeschakeld en ze een licentie hebben, kunnen gebruikers gaan naar de registratieportal voor wachtwoordherstel (https://aka.ms/ssprsetup) hun verificatiegegevens te registreren. Gebruikers kunnen ook registreren via het toegangsvenster (http://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
+  > **A:** Ja. Als voor wachtwoord opnieuw instellen is ingeschakeld en ze een licentie hebben, kunnen gebruikers gaan naar de registratieportal voor wachtwoordherstel (https://aka.ms/ssprsetup) hun verificatiegegevens te registreren. Gebruikers kunnen ook registreren via het toegangsvenster (https://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
   >
   >
 * **V: als ik inschakelt wachtwoord opnieuw instellen voor een groep en vervolgens besluit zodat het voor iedereen zijn mijn gebruikers vereist opnieuw registreren?**
@@ -170,7 +170,7 @@ Deze Veelgestelde vragen is opgesplitst in de volgende secties:
   >
 * **V: kan ik mijn beleid om te vereisen dat gebruikers vragen over de beveiliging gebruiken voor het opnieuw instellen hebt geconfigureerd, maar de Azure-beheerders lijken op verschillende manieren worden geconfigureerd.**
 
-  > **A:** dit is het verwachte gedrag. Microsoft dwingt een beleid standaard een sterk wachtwoord twee-poort opnieuw instellen voor alle Azure-beheerdersrol. Dit voorkomt dat beheerders met behulp van vragen over de beveiliging. U vindt meer informatie over dit beleid in de [wachtwoordbeleid en beperkingen in Azure Active Directory](concept-sspr-policy.md) artikel.
+  > **A:** dit is het verwachte gedrag. Microsoft dwingt voor elke Azure-beheerdersrol standaard een sterk beleid met twee-staps-verificatie af voor het opnieuw instellen van wachtwoorden. Dit voorkomt dat beheerders met behulp van vragen over de beveiliging. U vindt meer informatie over dit beleid in de [wachtwoordbeleid en beperkingen in Azure Active Directory](concept-sspr-policy.md) artikel.
   >
   >
 * **Vraag: als een gebruiker meer dan het maximum aantal vragen dat vereist is voor het opnieuw instellen is geregistreerd, hoe worden de beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**

@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81a156f3c3d211caffbc33a1f0b45a6c6cd56cb4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975139"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495866"
 ---
-# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Toegang Apache YARN-toepassingslogboeken in HDInsight op basis van Windows
-Dit document wordt uitgelegd hoe u toegang tot de logboeken voor Apache YARN-toepassingen die klaar bent met het op een Windows-gebaseerde Hadoop-cluster in Azure HDInsight
+# <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Toegang Apache Hadoop YARN-toepassingslogboeken in HDInsight op basis van Windows
+Dit document wordt uitgelegd hoe u toegang tot de logboeken voor [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) toepassingen die klaar bent met het op een Windows-gebaseerde Apache Hadoop-cluster in Azure HDInsight
 
 > [!IMPORTANT]
-> De informatie in dit document geldt alleen voor Windows-gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het verkrijgen van toegang tot YARN-op Linux gebaseerde HDInsight-clusters logboeken [toegang Apache YARN-toepassingslogboeken in Linux gebaseerde Hadoop op HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> De informatie in dit document geldt alleen voor Windows-gebaseerde HDInsight-clusters. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het verkrijgen van toegang tot YARN-op Linux gebaseerde HDInsight-clusters logboeken [toegang Apache Hadoop YARN-toepassingslogboeken in Linux-gebaseerde Apache Hadoop op HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
 ### <a name="prerequisites"></a>Vereisten
-* Een Windows-gebaseerde HDInsight-cluster.  Zie [Windows maken op basis van Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Een Windows-gebaseerde HDInsight-cluster.  Zie [Windows maken op basis van Apache Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-De <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> biedt algemene informatie over voltooide toepassingen ook als frameworkspecifieke toepassingsinformatie via twee verschillende interfaces. Specifiek:
+De <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a> biedt algemene informatie over voltooide toepassingen ook als frameworkspecifieke toepassingsinformatie via twee verschillende interfaces. Specifiek:
 
 * Opslaan en ophalen van informatie over algemene toepassingen op HDInsight-clusters is ingeschakeld met versie 3.1.1.374 of hoger zijn.
 * Een onderdeel van de application framework-specifieke gegevens van de tijdlijn-Server is momenteel niet beschikbaar op HDInsight-clusters.
@@ -53,7 +53,7 @@ YARN biedt ondersteuning voor meerdere programmeermodellen door het resourcebehe
 * Een container biedt de context van een basiseenheid voor werk. 
 * Werk dat wordt uitgevoerd binnen de context van een container wordt uitgevoerd op de één worker-knooppunt dat de container is toegewezen aan. 
 
-Zie voor meer informatie, [YARN concepten][YARN-concepts].
+Zie voor meer informatie, [Apache Hadoop YARN concepten][YARN-concepts].
 
 Toepassingslogboeken (en de bijbehorende containerlogboeken), zijn essentieel tijdens de foutopsporing problematische Hadoop-toepassingen. YARN biedt een mooie raamwerk voor het verzamelen, verzamelen en opslaan van toepassingslogboeken met de [logboeken gegevensaggregatie] [ log-aggregation] functie. De functie Logboeken gegevensaggregatie kunt toegang tot toepassingslogboeken meer deterministische, omdat deze logboeken alle containers op een worker-knooppunt verzamelt en slaat deze op als een geaggregeerde logboekbestand per worker-knooppunt op het standaardbestandssysteem nadat een toepassing is voltooid. Uw toepassing kan gebruikmaken van honderden of duizenden containers, maar de logboeken voor alle containers die worden uitgevoerd op een knooppunt één werknemer worden samengevoegd in één bestand, wat resulteert in één bestand per worker-knooppunt wordt gebruikt door uw toepassing. Aggregatie van logboek is standaard ingeschakeld op HDInsight-clusters (versie 3.0 en hoger), en samengevoegde logboeken kunnen worden gevonden in de standaardcontainer van uw cluster op de volgende locatie:
 

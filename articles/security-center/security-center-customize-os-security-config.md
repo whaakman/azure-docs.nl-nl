@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 925f45f8d251882cfc8acf4b04902cea45451dd4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007252"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334190"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview)
 
@@ -32,7 +32,7 @@ Azure Security Center bewaakt beveiligingsconfiguraties door het toepassen van e
 Aanpassen van de regels, kunnen organisaties bepalen welke opties zijn meer geschikt is voor hun omgeving. U kunt een evaluatie van aangepaste beleid instellen en vervolgens toepassen op alle computers die van toepassing in het abonnement.
 
 > [!NOTE]
-> - Aanpassing van de OS-beveiligingsconfiguratie is momenteel beschikbaar voor Windows Server 2008, 2008 R2, 2012 en 2012 R2-versies alleen besturingssystemen.
+> - Aanpassing van de OS-beveiligingsconfiguratie is momenteel beschikbaar voor Windows Server 2008, 2008 R2, 2012, 2012 R2 en 2016-versies alleen besturingssystemen.
 > - De configuratie is van toepassing op alle virtuele machines en computers die zijn verbonden met alle werkruimten onder het geselecteerde abonnement.
 > - Aanpassing van het besturingssysteem beveiliging-configuratie is alleen beschikbaar op de prijscategorie standard van Security Center.
 >
@@ -60,7 +60,7 @@ Voor het aanpassen van de standaard OS-beveiligingsconfiguratie in Security Cent
 3.  In de rij van het abonnement dat u wilt aanpassen, klikt u op **instellingen bewerken**.
 
 4. Selecteer **beveiligingsconfiguraties bewerken**.  
-    
+
     ![Het venster 'Beveiligingsconfiguraties bewerken'](media/security-center-customize-os-security-config/blade.png)
 
 5. Volg de stappen om te downloaden, bewerken en het gewijzigde bestand uploaden.

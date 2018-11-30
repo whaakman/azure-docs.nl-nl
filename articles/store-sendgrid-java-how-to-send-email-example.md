@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: 400c8ac229e00e818e336f1c47b126d3e8a2d155
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253836"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421944"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hoe u E-mail verzenden via SendGrid van Java in een Azure-implementatie
 Het volgende voorbeeld ziet u hoe u SendGrid kunt gebruiken voor het verzenden van e-mailberichten van een webpagina die wordt gehost in Azure. De resulterende toepassing krijgt de gebruiker voor e-waarden, zoals wordt weergegeven in de volgende schermopname.
@@ -32,7 +32,7 @@ Het e-mailbericht ziet eruit als de volgende schermopname.
 
 U moet het volgende voor het gebruik van de code in dit onderwerp doen:
 
-1. De javax.mail JAR-bestanden, bijvoorbeeld verkrijgen van <http://www.oracle.com/technetwork/java/javamail/index.html>.
+1. De javax.mail JAR-bestanden, bijvoorbeeld verkrijgen van <https://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Voeg de JAR-bestanden toe aan uw Java build path.
 3. Als u Eclipse gebruikt om deze Java-toepassing te maken, kunt u de SendGrid-bibliotheken opnemen in uw toepassing implementatie-bestand (WAR) met behulp van Eclipse de implementatiefunctie van assembly. Als u Eclipse niet gebruikt om deze Java-toepassing te maken, controleert u of de clientbibliotheken zijn opgenomen in de dezelfde Azure-rol als uw Java-toepassing en toegevoegd aan het klassepad van uw toepassing.
 
@@ -45,7 +45,7 @@ De volgende code toont het maken van een webformulier om op te halen gebruikersg
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -101,7 +101,7 @@ De volgende code, die wordt aangeroepen wanneer u het formulier in emailform.jsp
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

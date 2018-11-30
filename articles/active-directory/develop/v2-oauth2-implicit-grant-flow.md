@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289016"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424097"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 
@@ -34,7 +34,7 @@ Met het v2.0-eindpunt, kunt u gebruikers zich in uw apps met één pagina met zo
 * Veel autorisatieservers en id-providers bieden geen ondersteuning voor CORS-aanvragen.
 * Volledige pagina browser wordt omgeleid weg van de app worden met name Invasief tot de gebruikerservaring.
 
-Voor deze toepassingen (AngularJS, Ember.js, React.js, enzovoort), Azure Active Directory (Azure AD) biedt ondersteuning voor de impliciete toekenning van OAuth 2.0-stroom. De impliciete stroom wordt beschreven in de [OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749#section-4.2). Het belangrijkste voordeel is dat de app om op te halen van tokens van Azure AD zonder uit te voeren van een back-endserver uitwisseling van verificatiegegevens. Hiermee wordt de app te melden bij de gebruiker, sessie en het verkrijgen van tokens, voor andere web-API's in de client JavaScript-code. Er zijn enkele belangrijke beveiligingsoverwegingen rekening moet houden bij het gebruik van de impliciete stroom specifiek ongeveer [client](http://tools.ietf.org/html/rfc6749#section-10.3) en [gebruikersimitatie](http://tools.ietf.org/html/rfc6749#section-10.3).
+Voor deze toepassingen (AngularJS, Ember.js, React.js, enzovoort), Azure Active Directory (Azure AD) biedt ondersteuning voor de impliciete toekenning van OAuth 2.0-stroom. De impliciete stroom wordt beschreven in de [OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749#section-4.2). Het belangrijkste voordeel is dat de app om op te halen van tokens van Azure AD zonder uit te voeren van een back-endserver uitwisseling van verificatiegegevens. Hiermee wordt de app te melden bij de gebruiker, sessie en het verkrijgen van tokens, voor andere web-API's in de client JavaScript-code. Er zijn enkele belangrijke beveiligingsoverwegingen rekening moet houden bij het gebruik van de impliciete stroom specifiek ongeveer [client](https://tools.ietf.org/html/rfc6749#section-10.3) en [gebruikersimitatie](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 Als u de impliciete stroom en de Azure AD gebruiken wilt voor verificatie toevoegen aan uw JavaScript-app, raden we u de JavaScript-bibliotheek van open-source [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
 
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri` | Aanbevolen |De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. |
 | `scope` | vereist |Een door spaties gescheiden lijst met bereiken. Voor de OpenID Connect, moet deze het bereik bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. (Optioneel) u kunt ook om op te nemen de `email` of `profile` [scopes](v2-permissions-and-consent.md) voor het verkrijgen van toegang tot aanvullende gegevens. U kunt ook andere bereiken in deze aanvraag voor het aanvragen van toestemming aan verschillende resources opnemen. |
 | `response_mode` | optioneel |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app. De standaardwaarde als de aanvraag een id_token bevat te vragen voor een toegangstoken, maar het fragment. |
-| `state` | Aanbevolen |Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
+| `state` | Aanbevolen |Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
 | `nonce` | vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die wordt opgenomen in de resulterende id_token als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. Alleen vereist wanneer een id_token wordt aangevraagd. |
 | `prompt` | optioneel |Geeft het type tussenkomst van de gebruiker die is vereist. De enige geldige waarden op dit moment zijn 'aanmelding', 'none', 'select_account', ' toestemming geven '. `prompt=login` wordt de gebruiker te dwingen zijn referenties invoeren voor deze aanvraag, zodat eenmalige aanmelding. `prompt=none` is het tegenovergestelde - dit zorgt ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet op de achtergrond via eenmalige aanmelding worden voltooid, wordt het v2.0-eindpunt een fout geretourneerd. `prompt=select_account` Hiermee verzendt de gebruiker naar een accountkiezer waarin alle accounts die zijn opgeslagen in de sessie wordt weergegeven. `prompt=consent` het dialoogvenster OAuth wordt worden geactiveerd nadat de gebruiker zich heeft aangemeld, waarin de gebruiker wordt om de app-machtigingen te verlenen. |
 | `login_hint`  |optioneel |Kan worden gebruikt om te vooraf vullen van het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker, als u bekend bent met hun gebruikersnaam vooraf. Vaak apps Gebruik deze parameter tijdens hernieuwde verificatie de gebruikersnaam die al worden geëxtraheerd uit een vorige aanmelden met behulp van de `preferred_username` claim.|
@@ -131,7 +131,7 @@ error=access_denied
 
 ## <a name="validate-the-idtoken"></a>De id_token valideren
 
-Alleen een id_token ontvangen is niet voldoende om te verifiëren van de gebruiker. u moet ook de handtekening van het id_token valideren en controleer of de claims in het token op basis van de vereisten van uw app. Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
+Alleen een id_token ontvangen is niet voldoende om te verifiëren van de gebruiker. u moet ook de handtekening van het id_token valideren en controleer of de claims in het token op basis van de vereisten van uw app. Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
 U kunt kiezen om te valideren de `id_token` in client-code, maar een gebruikelijk is voor het verzenden van de `id_token` naar een back-endserver en er de validatie uit te voeren. Nadat u de handtekening van het id_token hebt gevalideerd, zijn er enkele claims u moet om te controleren. Zie de [ `id_token` verwijzing](id-tokens.md) voor meer informatie, met inbegrip van [valideren van tokens](id-tokens.md#validating-an-idtoken) en [belangrijke informatie over de rollover van ondertekeningssleutel gebruiken](active-directory-signing-key-rollover.md). Het is raadzaam om gebruik van een bibliotheek voor het parseren en valideren van tokens: Er is ten minste één beschikbaar voor de meeste talen en platforms.
 

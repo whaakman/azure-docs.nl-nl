@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery experimenten | Microsoft Docs
+title: Azure AI Gallery-experimenten - Azure Machine Learning Studio | Microsoft Docs
 description: Detecteren en experimenten in Azure AI Gallery delen.
 services: machine-learning
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 43e5cc14ac98b85dd50391380033834cf642b1a9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264468"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317463"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Detecteren van experimenten in Azure AI Gallery
 
-[Azure AI Gallery](http://gallery.cortanaintelligence.com) heeft een groot aantal verschillende [experimenten](https://gallery.cortanaintelligence.com/experiments) die zijn ontwikkeld [Azure Machine Learning Studio](https://studio.azureml.net). Experimenten variëren van snelle proof of concept experimenten die een specifieke machine learning-technieken, naar volledig ontwikkelde oplossingen voor problemen met complexe machine learning laten zien.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) heeft een aantal [experimenten](https://gallery.cortanaintelligence.com/experiments) die zijn ontwikkeld [Azure Machine Learning Studio](https://studio.azureml.net). Experimenten variëren van snelle proof of concept experimenten die een specifieke machine learning-technieken, naar volledig ontwikkelde oplossingen voor problemen met complexe machine learning laten zien.
 
 > [!NOTE]
 > Een ***experimenteren*** is van een canvas in Machine Learning Studio die u gebruiken kunt om samen te stellen van een predictive Analytics-model. U kunt het model maken door verbinding te maken van gegevens met verschillende analytische modules. U kunt verschillende ideeën probeert, proefuitvoeringen doen en uiteindelijk uw model als een webservice in Azure implementeren. Zie voor een voorbeeld van het maken van een eenvoudige experiment [Machine learning-zelfstudie: uw eerste experiment maken in Azure Machine Learning Studio](create-experiment.md). Zie voor een uitgebreider overzicht van het maken van een predictive analytics-oplossing, [scenario: een predictive analytics-oplossing voor kredietrisicobeoordeling in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md).

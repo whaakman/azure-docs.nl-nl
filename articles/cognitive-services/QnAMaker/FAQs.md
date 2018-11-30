@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 2e4a5d9b7ee2a1a88bcfe819be6540385458108f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622360"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496340"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -25,7 +25,7 @@ ms.locfileid: "51622360"
 
 Alle verwijderingen worden permanent, met inbegrip van paren van vragen en antwoorden, bestanden, URL's, aangepaste vragen en antwoorden, knowledge bases of Azure-resources. Zorg ervoor dat u uw knowledge base van exporteert de **instellingen** pagina voordat u verwijdert een deel van uw knowledge base. 
 
-### <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>Waarom wordt mijn URL('s) / paren met vraag-antwoord is niet uitpakken van bestanden?
+### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>Waarom wordt mijn URL('s) / bestand(en) niet extraheren vraag-antwoord paren?
 
 Het is mogelijk dat QnA Maker kan niet automatisch-extract vraag en antwoord (QnA) inhoud van geldige Veelgestelde vragen over URL's. In dergelijke gevallen kunt u de QnA-inhoud plakken in een txt-bestand en ziet als het hulpprogramma kan voorverwerkingsstappen toe. U kunt ook u redactioneel inhoud kunt toevoegen aan uw knowledge base via de [QnA Maker portal](https://qnamaker.ai).
 
@@ -41,13 +41,13 @@ U kunt de QnA Maker-services nog niet hebt nog gemaakt in Azure. Lezen [hier](./
 
 Delen werkt op het niveau van een QnA Maker-service, dat wil zeggen, wordt alle knowledge bases in de service gedeeld. Lezen [hier](./How-To/collaborate-knowledge-base.md) hoe u kunt samenwerken op een knowledge base.
 
-### <a name="can-you-share-a-kb-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-kb"></a>Kunt u een KB met een bijdrager die zich niet in dezelfde AAD-tenant, om te wijzigen van een KB delen? 
+### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>Kunt u een kennisdatabase met een bijdrager die zich niet in dezelfde AAD-tenant, om te wijzigen van een kennisdatabase delen? 
 
 Delen is gebaseerd op rollen gebaseerd toegangsbeheer in Azure (RBAC). Als u kunt delen _eventuele_ resource in Azure met een andere gebruiker, kunt u ook QnA Maker te delen.
 
-### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-kbs-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-kb"></a>Als u een App Service-Plan met 5 QnAMaker kB's. Kunt u lezen/schrijven-rechten aan 5 verschillende gebruikers toewijzen zodat elk van deze krijgt slechts 1 QnAMaker KB tot toegang?
+### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>Als u een App Service-Plan met 5 QnAMaker knowledge bases. Kunt u lezen/schrijven-rechten aan 5 verschillende gebruikers toewijzen zodat elk van deze krijgt slechts 1 QnAMaker-kennisdatabase tot toegang?
 
-U kunt een hele QnAMaker-service, niet voor afzonderlijke kB's delen.
+U kunt een hele QnAMaker-service, niet voor afzonderlijke knowledge bases delen.
 
 ### <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Hoe kan ik het standaardbericht wijzigen wanneer er geen goede overeenkomst is gevonden?
 
@@ -65,8 +65,7 @@ Het standaardbericht is onderdeel van de instellingen in uw appservice.
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Waarom wordt Mijn SharePoint-koppeling niet ophalen van opgehaald?
 
-Het hulpprogramma alleen openbare URL's worden geparseerd en biedt geen ondersteuning voor geverifieerde gegevensbronnen op dit moment. U kunt ook het bestand te downloaden en het uploaden van bestand-optie gebruiken om aan te vragen en antwoorden extraheren.
-
+Zie [gegevensbron locaties](./Concepts/data-sources-supported.md#data-source-locations) voor meer informatie.
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>De updates die ik heb in mijn knowledge base aangebracht worden niet weergegeven bij publicatie. Waarom niet?
 
@@ -94,9 +93,13 @@ Uw appservice vernieuwen wanneer het waarschuwingspictogram naast de versiewaard
 
 Uw eindpunt-sleutels vernieuwen als u vermoedt dat ermee is geknoeid.
 
-### <a name="can-i-use-the-same-azure-search-resource-for-kbs-using-multiple-languages"></a>Kan ik de dezelfde Azure Search-resource gebruiken voor kB's met behulp van meerdere talen?
+### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>Kan ik de dezelfde Azure Search-resource gebruiken voor knowledge bases met behulp van meerdere talen?
 
-Als u meerdere talen en meerdere kB's, wordt de gebruiker heeft om een QnA Maker-resource voor elke taal te maken. Hiermee maakt u een afzonderlijke Azure search-services per taal. Met een combinatie van andere taal kB's in een enkele Azure search-service, leidt dit gedegradeerde relevantie van resultaten.
+Als u meerdere talen en meerdere knowledge bases, wordt de gebruiker heeft om een QnA Maker-resource voor elke taal te maken. Hiermee maakt u een afzonderlijke Azure search-services per taal. Met een combinatie van andere taal knowledge bases in een enkele Azure search-service, leidt dit gedegradeerde relevantie van resultaten.
+
+### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Hoe kan ik de naam van de Azure Search-resource die worden gebruikt door de QnA Maker wijzigen?
+
+De naam van de Azure Search-resource is de naam van de QnA Maker-resource met een willekeurige letters toegevoegd aan het einde. Dit maakt het moeilijk te onderscheiden van meerdere resources zoeken voor QnA Maker. Een afzonderlijke Azure Search-service (vermeld de manier waarop u wilt) maken en verbinden met uw QnA-Service. De stappen zijn vergelijkbaar met de stappen die u doen wilt, tot [upgraden van een Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
 
 ## <a name="integrate-with-other-services-including-bots"></a>Integreren met andere services zoals Bots
 

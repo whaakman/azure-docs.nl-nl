@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014325"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495370"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Een HDInsight-toepassing publiceren in de Azure Marketplace
 U kunt een Azure HDInsight-toepassing installeren op een Linux gebaseerde HDInsight-cluster. In dit artikel leert u hoe u een HDInsight-toepassing publiceren in de Azure Marketplace. Raadpleeg voor algemene informatie over het publiceren op Azure Marketplace [een aanbieding publiceren in de Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -102,6 +102,6 @@ Een HDInsight-toepassing publiceren:
 * Meer informatie over het [HDInsight-toepassingen installeren](hdinsight-apps-install-applications.md) in uw clusters.
 * Meer informatie over het [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md) en implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
 * Meer informatie over het [scriptactie gebruiken op Linux gebaseerde HDInsight-clusters aanpassen](hdinsight-hadoop-customize-cluster-linux.md) en meer toepassingen toevoegen. 
-* Meer informatie over het [Linux gebaseerde Hadoop-clusters in HDInsight maken met behulp van Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Meer informatie over het [Apache Hadoop op basis van Linux-clusters in HDInsight maken met behulp van Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Meer informatie over het [een leeg edge-knooppunt gebruiken in HDInsight](hdinsight-apps-use-edge-node.md) voor toegang tot HDInsight-clusters, HDInsight toepassingen testen en HDInsight-toepassingen hosten.
 

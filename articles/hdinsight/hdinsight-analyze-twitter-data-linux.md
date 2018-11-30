@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d037c4fc65bc32ff183ddc7a8925cd2f51411ea0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 41b9d295837d377df98208d43c9cd4699f380b86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034623"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494388"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Twitter-gegevens met Apache Hive en Apache Hadoop in HDInsight analyseren
 
-Leer hoe u Twitter-gegevens verwerken met Apache Hive. Het resultaat is een lijst van Twitter-gebruikers die de meeste tweets met een bepaald woord verzonden.
+Meer informatie over het gebruik van [Apache Hive](https://hive.apache.org/) verwerken Twitter-gegevens. Het resultaat is een lijst van Twitter-gebruikers die de meeste tweets met een bepaald woord verzonden.
 
 > [!IMPORTANT]
 > De stappen in dit document zijn getest in HDInsight 3.6.
@@ -182,7 +182,7 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
 
 ## <a name="run-the-hiveql-job"></a>Voer de taak HiveQL
 
-1. Gebruik de volgende opdracht om te maken van een bestand met HiveQL-instructies:
+1. Gebruik de volgende opdracht om te maken van een bestand met [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) instructies:
 
    ```bash
    nano twitter.hql
@@ -322,7 +322,7 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe een niet-gestructureerde JSON-gegevensset omzetten in een gestructureerde Hive-tabel. Zie de volgende documenten voor meer informatie over Hive in HDInsight:
+U hebt geleerd hoe een niet-gestructureerde JSON-gegevensset omzetten in een gestructureerde [Apache Hive](https://hive.apache.org/) tabel. Zie de volgende documenten voor meer informatie over Hive in HDInsight:
 
 * [Aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight met gegevens van vertragingen van vluchten analyseren](hdinsight-analyze-flight-delay-data-linux.md)

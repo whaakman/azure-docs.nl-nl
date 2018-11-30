@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/31/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59bce2c61db5838bb21a29757d4e354311ecffd5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 249680f60b3c2ee10ff3f3f1eb39d4bf74e57cd9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666244"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497329"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Mijn Azure-resource-rollen in PIM activeren
 
@@ -67,9 +67,25 @@ Wanneer u nodig hebt om de rol van een Azure-resource te, kunt u activering aanv
 
 1. Klik op **activeren**.
 
-    Als de rol geen goedkeuring is vereist, wordt deze nu geactiveerd en de rol wordt weergegeven in de lijst met actieve rollen. Als de [rol is goedkeuring vereist](pim-resource-roles-approval-workflow.md) wilt activeren, een melding wordt weergegeven in de rechterbovenhoek van uw browser waarin de aanvraag is in afwachting van goedkeuring.
+    Als de rol geen goedkeuring is vereist, wordt deze geactiveerd en toegevoegd aan de lijst met actieve rollen. Als u de rol meteen gebruiken wilt, volgt u de stappen in de volgende sectie.
+
+    Als de [rol is goedkeuring vereist](pim-resource-roles-approval-workflow.md) wilt activeren, een melding wordt weergegeven in de rechterbovenhoek van uw browser waarin de aanvraag is in afwachting van goedkeuring.
 
     ![Aanvraag in behandeling melding](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>Gebruik een rol onmiddellijk na de activering
+
+Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Als u wilt afdwingen dat een update van uw machtigingen, gebruiken de **toegang tot toepassingen** pagina zoals beschreven in de volgende stappen uit.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Klik op de **toegang tot toepassingen** pagina.
+
+    ![Toegang tot PIM toepassingen - schermafbeelding](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Klik op de **Azure-resources** koppeling naar de portal openen op de **alle resources** pagina.
+
+    Als u deze koppeling klikt, kunt u uw huidige token vervalt en afdwingen dat de Azure-portal een nieuw token met uw bijgewerkte machtigingen te verkrijgen.
 
 ## <a name="view-the-status-of-your-requests"></a>De status van de aanvragen bekijken
 
@@ -82,20 +98,6 @@ U ziet de status van de in behandeling zijnde aanvragen om te activeren.
     ![Azure AD-directory-rollen en functies van Azure-resource - mijn aanvragen](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Schuif naar rechts om weer te geven de **de Status van wijzigingsaanvragen** kolom.
-
-## <a name="use-a-role-immediately-after-activation"></a>Gebruik een rol onmiddellijk na de activering
-
-Vanwege de caching, treden niet onmiddellijk activeringen op in Azure portal zonder te vernieuwen. Als u nodig hebt om te beperken van de mogelijkheid van vertragingen na het activeren van een rol, kunt u de **toegang tot toepassingen** pagina in de portal. Toepassingen die via deze pagina meteen controleren of er nieuwe roltoewijzingen.
-
-1. Open Azure AD Privileged Identity Management.
-
-1. Klik op de **toegang tot toepassingen** pagina.
-
-    ![Toegang tot PIM toepassingen - schermafbeelding](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
-
-1. Klik op **Azure-resources** opnieuw openen van de portal op de **alle resources** pagina.
-
-    Als u deze koppeling klikt, wordt u geforceerd vernieuwen en er is een controle voor nieuwe Azure-resource-roltoewijzingen.
 
 ## <a name="cancel-a-pending-request"></a>Een aanvraag in behandeling annuleren
 
@@ -110,6 +112,21 @@ Als u geen activering van een rol waarvoor goedkeuring wordt vereist, kunt u een
     Wanneer u op Annuleren klikt, wordt de aanvraag geannuleerd. Voor het activeren van de rol opnieuw, moet u een nieuwe aanvraag voor activering te verzenden.
 
    ![Aanvraag in behandeling annuleren](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## <a name="troubleshoot"></a>Problemen oplossen
+
+### <a name="permissions-not-granted-after-activating-a-role"></a>Machtigingen niet na het activeren van een rol
+
+Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Als u wilt afdwingen dat een update van uw machtigingen, gebruiken de **toegang tot toepassingen** pagina zoals eerder beschreven in [gebruik van een rol onmiddellijk na de activering](#use-a-role-immediately-after-activation).
+
+Zie voor aanvullende stappen voor probleemoplossing, [verhoogde machtigingen voor het oplossen van](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+
+### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>Een rol vanwege een resourcevergrendeling activeren niet
+
+Als u een bericht dat wordt een Azure-resource vergrendeld wanneer u probeert om een rol te activeren, kan het zijn dat een resource binnen het bereik van een roltoewijzing een resourcevergrendeling is. Resources beveiligen vergrendelingen tegen per ongeluk verwijderen of onverwacht worden gewijzigd. Een vergrendeling voorkomt ook dat PIM een roltoewijzing op de bron aan het einde van de activeringsperiode verwijderen. Aangezien PIM kan niet goed werken als een vergrendeling wordt toegepast, verbiedt PIM gebruikers uit het activeren van rollen op de resource. Er zijn twee manieren die u kunt dit probleem kunt oplossen:
+
+- Verwijder de vergrendeling zoals beschreven in [Vergrendel resources om te voorkomen dat onverwachte wijzigingen](../../azure-resource-manager/resource-group-lock-resources.md).
+- Als u behouden van de vergrendeling wilt, de roltoewijzing permanent maken of een einde glas-account gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

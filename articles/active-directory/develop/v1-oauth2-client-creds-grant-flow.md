@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d894dd85bda63c724e391193615e91fc5ca51a3f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 8f32d8f05d5ba5a7a813157adbf07ff7590153bb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986148"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425375"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Service-serviceaanroepen met behulp van clientreferenties (gedeeld geheim of certificaat)
 
@@ -58,10 +58,10 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-servi
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist |Hiermee geeft u het aangevraagde verlenen. In een stroom-clientreferenties de waarde moet **client_credentials**. |
-| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de aanroepende webservice. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de toepassing. De client_id is de *toepassings-ID* |
-| client_secret |Vereist |Geef een sleutel die is geregistreerd voor de aanroepende web service- of daemon-App in Azure AD. Klik op om een sleutel in Azure portal **Azure Active Directory**, klikt u op **App-registraties**, klik op de toepassing, **instellingen**, klikt u op **sleutels** , en voeg een sleutel.  URL-codering dit geheim bij het opgeven van deze. |
-| Bron |Vereist |Voer de URI van de App-ID van de ontvangende webservice. U kunt de URI van de App-ID vinden in Azure portal op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en  **Eigenschappen van**. |
+| grant_type |vereist |Hiermee geeft u het aangevraagde verlenen. In een stroom-clientreferenties de waarde moet **client_credentials**. |
+| client_id |vereist |Hiermee geeft u de Azure AD-client-id van de aanroepende webservice. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de toepassing. De client_id is de *toepassings-ID* |
+| client_secret |vereist |Geef een sleutel die is geregistreerd voor de aanroepende web service- of daemon-App in Azure AD. Klik op om een sleutel in Azure portal **Azure Active Directory**, klikt u op **App-registraties**, klik op de toepassing, **instellingen**, klikt u op **sleutels** , en voeg een sleutel.  URL-codering dit geheim bij het opgeven van deze. |
+| Bron |vereist |Voer de URI van de App-ID van de ontvangende webservice. U kunt de URI van de App-ID vinden in Azure portal op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en  **Eigenschappen van**. |
 
 #### <a name="example"></a>Voorbeeld
 De volgende HTTP POST-verzoeken om een [toegangstoken](access-tokens.md) voor de https://service.contoso.com/ webservice. De `client_id` identificeert de webservice die door het toegangstoken worden aangevraagd.
@@ -79,11 +79,11 @@ Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volg
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist |Hiermee geeft u het aangevraagde Responstype. In een stroom-clientreferenties de waarde moet **client_credentials**. |
-| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de aanroepende webservice. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de toepassing. De client_id is de *toepassings-ID* |
-| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | (Een JSON Web Token) een bewering die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
-| Bron | Vereist |Voer de URI van de App-ID van de ontvangende webservice. U kunt de URI van de App-ID vinden in Azure portal op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en  **Eigenschappen van**. |
+| grant_type |vereist |Hiermee geeft u het aangevraagde Responstype. In een stroom-clientreferenties de waarde moet **client_credentials**. |
+| client_id |vereist |Hiermee geeft u de Azure AD-client-id van de aanroepende webservice. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de toepassing. De client_id is de *toepassings-ID* |
+| client_assertion_type |vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |vereist | (Een JSON Web Token) een bewering die u wilt maken en te ondertekenen met het certificaat dat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de verklaring.|
+| Bron | vereist |Voer de URI van de App-ID van de ontvangende webservice. U kunt de URI van de App-ID vinden in Azure portal op **Azure Active Directory**, klikt u op **App-registraties**, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en  **Eigenschappen van**. |
 
 U ziet dat de parameters bijna hetzelfde als in het geval van de aanvraag van het gedeelde geheim zijn, behalve dat de waarde voor client_secret-parameter is vervangen door twee parameters: een client_assertion_type en client_assertion.
 
@@ -105,7 +105,7 @@ Een geslaagde reactie bevat een JSON OAuth 2.0-antwoord met de volgende paramete
 | Parameter | Beschrijving |
 | --- | --- |
 | access_token |Het aangevraagde toegangstoken. De aanroepende webservice kan dit token gebruiken om te verifiëren bij de ontvangende webservice. |
-| token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot de vervaltijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
 | not_before |De tijd van waaruit het toegangstoken gebruikt wordt. De datum wordt weergegeven als het aantal seconden vanaf 1970-01-01T0:0:0Z UTC tot geldigheidsduur voor het token.|

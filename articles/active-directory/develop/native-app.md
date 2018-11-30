@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955396"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422368"
 ---
 # <a name="native-apps"></a>Systeemeigen apps
 
-Systeemeigen apps zijn toepassingen die namens een gebruiker een web-API aanroepen. In dit scenario is gebaseerd op het machtigingstype van OAuth 2.0 machtiging code met een openbare client, zoals beschreven in sectie 4.1 van de [OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). De systeemeigen toepassing verkrijgt een toegangstoken voor de gebruiker met behulp van de OAuth 2.0-protocol. Deze toegangstoken wordt verzonden in de aanvraag naar de web-API, die de gebruiker toestaat en retourneert de gewenste resource.
+Systeemeigen apps zijn toepassingen die namens een gebruiker een web-API aanroepen. In dit scenario is gebaseerd op het machtigingstype van OAuth 2.0 machtiging code met een openbare client, zoals beschreven in sectie 4.1 van de [OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749). De systeemeigen toepassing verkrijgt een toegangstoken voor de gebruiker met behulp van de OAuth 2.0-protocol. Deze toegangstoken wordt verzonden in de aanvraag naar de web-API, die de gebruiker toestaat en retourneert de gewenste resource.
 
 ## <a name="diagram"></a>Diagram
 

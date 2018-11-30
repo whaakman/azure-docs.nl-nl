@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 86d2f013567d768437e589df366c5c131e1bcf50
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300095"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421908"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen beheerde identiteit met behulp van REST-API aanroepen
 
@@ -44,8 +44,6 @@ In dit artikel leert u hoe u maken, weergeven en verwijderen van een gebruiker t
 
 Voor het maken van een gebruiker toegewezen beheerde identiteit, uw account moet de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roltoewijzing.
 
-Gebruik de volgende CURL-aanvraag naar de Azure Resource Manager-API voor het maken van een gebruiker toegewezen beheerde identiteit. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, en `<ACCESS TOKEN>` waarden door uw eigen waarden:
-
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```bash
@@ -54,31 +52,61 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+
+**Aanvraagheaders**
+
+|Aanvraagheader  |Beschrijving  |
+|---------|---------|
+|*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
+|*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
+
+**Aanvraagtekst**
+
+|Naam  |Beschrijving  |
+|---------|---------|
+|location     | Vereist. Resourcelocatie.        |
+
 ## <a name="list-user-assigned-managed-identities"></a>Lijst met door de gebruiker toegewezen identiteiten beheren
 
 Als u wilt lezen/lijst met een gebruiker toegewezen beheerde identiteit, uw account moet de [beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) of [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roltoewijzing.
 
-Aan de lijst van beheerde identiteiten gebruiker toegewezen, gebruikt u de volgende CURL-aanvraag naar de Azure Resource Manager-API. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, en `<ACCESS TOKEN>` waarden door uw eigen waarden:
-
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
+```
+
+|Aanvraagheader  |Beschrijving  |
+|---------|---------|
+|*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
+|*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
+
 ## <a name="delete-a-user-assigned-managed-identity"></a>Verwijderen van een gebruiker toegewezen beheerde identiteit
 
 Als u wilt verwijderen van een gebruiker toegewezen beheerde identiteit, uw account moet de [beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roltoewijzing.
 
-Als u wilt verwijderen van een gebruiker toegewezen beheerde identiteit, gebruikt u de volgende CURL-aanvraag naar de Azure Resource Manager-API. Vervang de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, en `<ACCESS TOKEN>` parameterwaarden door uw eigen waarden:
-
 > [!NOTE]
-> Verwijderen van een gebruiker toegewezen beheerde identiteit, wordt de verwijzing van een willekeurige deze is toegewezen aan resource niet verwijderen. Verwijderen van een gebruiker toegewezen beheerd vanaf een virtuele machine met CURL Zie [verwijderen van een gebruiker toegewezen identiteit van een Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> Verwijderen van een gebruiker toegewezen beheerde identiteit, wordt de verwijzing van een willekeurige deze is toegewezen aan resource niet verwijderen. Verwijderen van een gebruiker toegewezen beheerde identiteit van een virtuele machine met CURL Zie [verwijderen van een gebruiker toegewezen identiteit van een Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+|Aanvraagheader  |Beschrijving  |
+|---------|---------|
+|*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
+|*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over het toewijzen van een beheerde identiteit voor de gebruiker toegewezen aan een Azure-VM/VMSS met CURL, [configureren beheerde identiteiten voor een Azure-resources op een Azure-VM met behulp van REST-API-aanroepen](qs-configure-rest-vm.md#user-assigned-managed-identity) en [configureren die worden beheerd identiteiten voor een Azure-resources op een VM-schaalset met behulp van REST API-aanroepen](qs-configure-rest-vmss.md#user-assigned-managed-identity).
-
-

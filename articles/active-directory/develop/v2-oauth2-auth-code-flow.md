@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b5f36bcce77ad0dac3a6e2e9da39493be6751539
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4ac036bbb94ae8b009700ff21bad1a117843584c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985842"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427196"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
 
@@ -33,7 +33,7 @@ De OAuth 2.0-autorisatiecode verlenen kan worden gebruikt in apps die zijn geïn
 > [!NOTE]
 > Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](active-directory-v2-limitations.md).
 
-De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). Deze wordt gebruikt voor verificatie en autorisatie in het merendeel van de app-typen, met inbegrip van [web-apps](v2-app-types.md#web-apps) en [systeemeigen geïnstalleerde apps](v2-app-types.md#mobile-and-native-apps). De stroom kunt apps aan te schaffen veilig access_tokens die kunnen worden gebruikt voor toegang tot resources die zijn beveiligd door het v2.0-eindpunt. 
+De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749). Deze wordt gebruikt voor verificatie en autorisatie in het merendeel van de app-typen, met inbegrip van [web-apps](v2-app-types.md#web-apps) en [systeemeigen geïnstalleerde apps](v2-app-types.md#mobile-and-native-apps). De stroom kunt apps aan te schaffen veilig access_tokens die kunnen worden gebruikt voor toegang tot resources die zijn beveiligd door het v2.0-eindpunt. 
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
 
@@ -69,7 +69,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri          | Aanbevolen | De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | scope                 | vereist    | Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md) dat u wilt dat de gebruiker toe te staan.           |
 | response_mode         | Aanbevolen | Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app. Kan `query`, `fragment`, of `form_post`. `query` biedt de code als een queryreeks-parameter op uw omleidings-URI. Als u een ID-token met behulp van de impliciete stroom aanvragen, u niet gebruiken `query` zoals opgegeven in de [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Als u alleen de code aanvragen, kunt u `query`, `fragment`, of `form_post`. `form_post` voert een bericht met de code op uw omleidings-URI. Zie voor meer informatie, [OpenID Connect-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
-| state                 | Aanbevolen | Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12). De waarde kan ook informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
+| state                 | Aanbevolen | Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De waarde kan ook informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
 | prompt                | optioneel    | Geeft het type tussenkomst van de gebruiker die is vereist. De enige geldige waarden op dit moment zijn 'aanmelding', 'none', ' toestemming geven '. `prompt=login` wordt de gebruiker te dwingen zijn referenties invoeren voor deze aanvraag, zodat eenmalige aanmelding. `prompt=none` is het tegenovergestelde - dit zorgt ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet worden voltooid op de achtergrond via eenmalige aanmelding, het v2.0-eindpunt retourneert een `interaction_required` fout. `prompt=consent` het dialoogvenster OAuth wordt worden geactiveerd nadat de gebruiker zich heeft aangemeld, waarin de gebruiker wordt om de app-machtigingen te verlenen. |
 | login_hint            | optioneel    | Kan worden gebruikt om het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten. Vaak apps Gebruik deze parameter tijdens hernieuwde verificatie de gebruikersnaam die al worden geëxtraheerd uit een vorige aanmelden met behulp van de `preferred_username` claim.                                                                                                                                                                                                                                                                                                    |
 | domain_hint           | optioneel    | Een van `consumers` of `organizations`. Als opgenomen, wordt overgeslagen tijdens de detectie op basis van een e-mailadres van die gebruiker doorloopt op de pagina v2.0 aanmelden leidt tot een iets meer gestroomlijnde gebruikerservaring. Vaak apps wordt deze parameter gebruikt tijdens hernieuwde verificatie door te extraheren de `tid` van een vorige aanmelding. Als de `tid` claim waarde `9188040d-6c67-4c5b-b112-36a304b66dad`, moet u `domain_hint=consumers`. Gebruik anders `domain_hint=organizations`.                                                                                                              |

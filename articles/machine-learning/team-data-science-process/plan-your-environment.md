@@ -2,25 +2,21 @@
 title: Scenario's identificeren en plan uw analytics-proces - Azure | Microsoft Docs
 description: Plan voor geavanceerde analyses op basis van een reeks van belangrijke vragen.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 949bd8337ced7aa12d4354a46f6ee887a1922a7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227736"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446415"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Scenario's en plannen identificeren voor geavanceerde analytische gegevensverwerking
 Welke resources moet u van plan bent om op te nemen bij het instellen van een omgeving voor het geavanceerde analyseren verwerking van een gegevensset? Dit artikel bevat een reeks vragen die de taken en resources relevante uw scenario identificeren. De volgorde van stappen op hoog niveau voor voorspellende analyses die worden beschreven in [wat is Team Data Science Process (TDSP)?](overview.md). Elk van deze stappen vereist specifieke resources voor de taken die relevant zijn voor uw specifieke scenario. De belangrijkste vragen om te bepalen van uw scenario heeft betrekking op gegevenslogistiek, kenmerken, de kwaliteit van de gegevenssets en de hulpprogramma's en talen die u liever de analyse.
@@ -59,7 +55,7 @@ Deze vragen zijn essentieel voor plannen van uw opslag en verwerking van omgevin
    * Numerieke
    * Categorische gegevens
    * Tekenreeksen
-   * Binair bestand
+   * binaire bestanden
 2. **Hoe wordt de gegevens opgemaakt?** Bijvoorbeeld:
    
    * Door komma's gescheiden (CSV) of platte bestanden (TSV) door tabs gescheiden

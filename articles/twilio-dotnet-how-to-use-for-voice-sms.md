@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 5b39094ef081aadc813849399ebebc0c2e8a666d
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291292"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427537"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Twilio voor spraak en SMS-mogelijkheden van Azure gebruiken
 Deze handleiding laat zien hoe u algemene programming taken met de Twilio API-service op Azure uitvoeren. De behandelde scenario's omvatten een telefonische oproep maken en verzenden van een bericht Short Message Service (SMS). Zie voor meer informatie over Twilio en het gebruik van spraak en SMS-berichten in uw toepassingen, de [Vervolgstappen](#NextSteps) sectie.
@@ -29,8 +29,10 @@ Twilio is de toekomst van zakelijke communicatie, zodat ontwikkelaars kunnen spr
 
 **Twilio-stem** zorgt ervoor dat uw toepassingen maken en telefoongesprekken binnenkrijgt. **Twilio-SMS** kunnen uw toepassingen te verzenden en ontvangen van SMS-berichten. **Twilio-Client** kunt u VoIP-aanroepen vanuit een telefoon, tablet of een browser en biedt ondersteuning voor WebRTC.
 
-## <a id="Pricing"></a>Twilio-prijzen
-Twilio is een betalen per gebruik. Er zijn geen kosten voor configuratie en kunt u uw account op elk gewenst moment sluiten. U vindt meer informatie op [Twilio prijzen](http://www.twilio.com/voice/pricing).
+## <a id="Pricing"></a>Twilio-prijzen en speciale aanbiedingen
+Azure-klanten ontvangen een [speciale aanbieding](https://www.twilio.com/azure): gratis $10 van Twilio-tegoed bij de upgrade van uw Twilio-Account. Deze Twilio-tegoed kan worden toegepast op een Twilio-gebruik (tegoed van $10 gelijk aan maximaal 1000 SMS-berichten verzenden of ontvangen van maximaal 1000 inkomende Voice-minuten, afhankelijk van de locatie van uw telefoon en -bericht of aanroep van de bestemming). Wisselen van deze Twilio-tegoed en aan de slag op [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
+
+Twilio is een betalen per gebruik. Er zijn geen kosten voor configuratie en kunt u uw account op elk gewenst moment sluiten. U vindt meer informatie op [Twilio prijzen](https://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Concepten
 De Twilio API is een RESTful-API die spraak en SMS-functionaliteit voor toepassingen biedt. -Clientbibliotheken zijn beschikbaar in meerdere talen. Zie voor een lijst [Twilio API-bibliotheken][twilio_libraries].
@@ -40,7 +42,7 @@ Belangrijke aspecten van de Twilio API zijn Twilio-termen en Twilio Markup Langu
 ### <a id="Verbs"></a>Twilio-termen
 De API maakt gebruik van Twilio termen; bijvoorbeeld, de **&lt;zeg&gt;** term geeft Twilio hoorbaar een bericht te bezorgen bij een oproep.
 
-Hier volgt een lijst met Twilio-bewerkingen.  Meer informatie over de andere bewerkingen en mogelijkheden via [Twilio Markup Language documentatie](http://www.twilio.com/docs/api/twiml).
+Hier volgt een lijst met Twilio-bewerkingen.  Meer informatie over de andere bewerkingen en mogelijkheden via [Twilio Markup Language documentatie](https://www.twilio.com/docs/api/twiml).
 
 * `<Dial>`: De oproepende functie verbindt met een ander telefoonnummer.
 * `<Gather>`: Verzamelt cijfers ingevoerd op het telefoonnummer.
@@ -96,9 +98,9 @@ Twilio biedt vijf-bibliotheken voor .NET-ontwikkelaars:
 
 De voorbeelden in deze handleiding de Twilio.API-bibliotheek gebruiken.
 
-De bibliotheken mag [geïnstalleerd met behulp van de NuGet package manager-extensie](http://www.twilio.com/docs/csharp/install) beschikbaar voor Visual Studio 2010 maximaal 2015.  De broncode wordt gehost op [GitHub][twilio_github_repo], waaronder een Wiki met volledige documentatie voor het gebruik van de bibliotheken.
+De bibliotheken mag [geïnstalleerd met behulp van de NuGet package manager-extensie](https://www.twilio.com/docs/csharp/install) beschikbaar voor Visual Studio 2010 maximaal 2015.  De broncode wordt gehost op [GitHub][twilio_github_repo], waaronder een Wiki met volledige documentatie voor het gebruik van de bibliotheken.
 
-Microsoft Visual Studio 2010 installeert standaard versie 1.2 van NuGet. Installeren van de Twilio-bibliotheken vereist versie 1.6 van NuGet of hoger. Zie voor meer informatie over het installeren of bijwerken van NuGet [ http://nuget.org/ ] [ nuget].
+Microsoft Visual Studio 2010 installeert standaard versie 1.2 van NuGet. Installeren van de Twilio-bibliotheken vereist versie 1.6 van NuGet of hoger. Zie voor meer informatie over het installeren of bijwerken van NuGet [ https://nuget.org/ ] [ nuget].
 
 > [!NOTE]
 > Als u wilt installeren de nieuwste versie van NuGet, moet u eerst de geladen versie met behulp van de Visual Studio-extensie Manager verwijderen. Om dit te doen, moet u Visual Studio als administrator uitvoeren. Anders wordt is de knop verwijderen uitgeschakeld.
@@ -126,7 +128,7 @@ const string authToken = "your_twilio_authentication_token";
 TwilioClient.Init(accountSID, authToken);
 
 // Use the Twilio-provided site for the TwiML response.
-var url = "http://twimlets.com/message";
+var url = "https://twimlets.com/message";
 url = $"{url}?Message%5B0%5D=Hello%20World";
 
 // Set the call From, To, and URL values to use for the call.
@@ -139,7 +141,7 @@ var call = CallResource.Create(
     }
 ```
 
-Voor meer informatie over de parameters doorgegeven aan de **CallResource.Create** methode, Zie [ http://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
+Voor meer informatie over de parameters doorgegeven aan de **CallResource.Create** methode, Zie [ https://www.twilio.com/docs/api/rest/making-calls ] [ twilio_rest_making_calls].
 
 Zoals gezegd, wordt met deze code een Twilio-opgegeven site gebruikt om terug te keren van het antwoord TwiML. U kunt uw eigen locatie in plaats daarvan gebruiken voor het antwoord TwiML. Zie voor meer informatie, [hoe: bieden TwiML reacties van uw eigen website](#howto_provide_twiml_responses).
 
@@ -171,10 +173,10 @@ catch (TwilioException ex)
 ```
 
 ## <a id="howto_provide_twiml_responses"></a>Hoe: bieden van respons TwiML van uw eigen website
-Wanneer een aanroep naar de Twilio-API - voorbeeld in uw toepassing wordt gestart de **CallResource.Create** methode - Twilio stuurt de aanvraag naar een URL die wordt verwacht dat een TwiML antwoord. Het voorbeeld in [hoe: een uitgaande aanroep](#howto_make_call) maakt gebruik van de URL van de geleverde Twilio [ http://twimlets.com/message ] [ twimlet_message_url] om terug te keren van het antwoord.
+Wanneer een aanroep naar de Twilio-API - voorbeeld in uw toepassing wordt gestart de **CallResource.Create** methode - Twilio stuurt de aanvraag naar een URL die wordt verwacht dat een TwiML antwoord. Het voorbeeld in [hoe: een uitgaande aanroep](#howto_make_call) maakt gebruik van de URL van de geleverde Twilio [ https://twimlets.com/message ] [ twimlet_message_url] om terug te keren van het antwoord.
 
 > [!NOTE]
-> Terwijl TwiML is bedoeld voor gebruik door webservices, kunt u de TwiML weergeven in uw browser. Bijvoorbeeld, klikt u op [ http://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege `<Response>` element; een ander voorbeeld, klikt u op [ http://twimlets.com/message?Message%5B0%5D=Hello%20World ](http://twimlets.com/message?Message%5B0%5D=Hello%20World) om te zien een `<Response>` element met een &lt;zeg&gt; element.
+> Terwijl TwiML is bedoeld voor gebruik door webservices, kunt u de TwiML weergeven in uw browser. Bijvoorbeeld, klikt u op [ https://twimlets.com/message ] [ twimlet_message_url] om te zien van een lege `<Response>` element; een ander voorbeeld, klikt u op [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) om te zien een `<Response>` element met een &lt;zeg&gt; element.
 >
 
 In plaats van de geleverde Twilio-URL, kunt u uw eigen URL-locatie waarmee HTTP-antwoorden worden geretourneerd. U kunt de site maken in elke taal waarmee HTTP-antwoorden worden geretourneerd. In dit onderwerp wordt ervan uitgegaan dat u de URL van een ASP.NET-handler voor algemene moet worden gehost.
@@ -271,17 +273,17 @@ Zie voor meer informatie over het gebruik van Twilio in Azure met ASP.NET [hoe u
 
 [howto_phonecall_dotnet]: partner-twilio-cloud-services-dotnet-phone-call-web-role.md
 
-[twimlet_message_url]: http://twimlets.com/message
+[twimlet_message_url]: https://twimlets.com/message
 
-[twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
+[twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
-[nuget]:http://nuget.org/
+[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/console
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified

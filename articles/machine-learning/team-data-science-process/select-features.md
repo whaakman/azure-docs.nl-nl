@@ -1,73 +1,69 @@
 ---
-title: Functie selectie in de procedure voor wetenschappelijke gegevens Team | Microsoft Docs
-description: Wordt het doel van functieselectie en vindt u voorbeelden van hun rol in de procedure voor de verbetering van gegevens van machine learning.
+title: Functies selecteren in het Team Data Science Process | Microsoft Docs
+description: Het doel van functieselectie wordt beschreven en vindt u voorbeelden van hun rol in de uitbreiding van de synchronisatiegegevens van machine learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 878541f5-1df8-4368-889a-ced6852aba47
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 2504d14bad3a7a3b3845e880e40034ef7e4c126b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838626"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442369"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Functies selecteren in Team Data Science Process (TDSP)
-In dit artikel worden de doeleinden van functieselectie en voorbeelden gegeven van de rol in de procedure voor de verbetering van gegevens van machine learning. Deze voorbeelden zijn afkomstig van Azure Machine Learning Studio. 
+Dit artikel worden de doeleinden van functieselectie en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning. Deze voorbeelden worden van Azure Machine Learning Studio getekend. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-De engineering en de selectie van functies maakt deel uit van het Team gegevens wetenschap proces (TDSP) die worden beschreven in het artikel [wat is het proces Team gegevens wetenschappelijke?](overview.md). Functie-engineering en een selectie maken deel uit van de **functies ontwikkelen** stap van de TDSP.
+Het technische team en de selectie van functies maakt deel uit van het Team Data Science Process (TDSP) die worden beschreven in het artikel [wat is Team Data Science Process?](overview.md). Feature-engineering en selectie maken deel uit van de **functies ontwikkelen** stap van de TDSP.
 
-* **functie-engineering**: dit proces probeert extra relevante functies maken op basis van de bestaande onbewerkte functies in de gegevens, en predictive vermogen de learning-algoritme te vergroten.
-* **functie selectie**: dit proces selecteert u de belangrijkste subset van de oorspronkelijke functies van de gegevens in een poging de dimensionaliteit van het probleem training verminderen.
+* **functie-engineering**: dit proces probeert te maken van aanvullende desbetreffende functies van de bestaande onbewerkte functies in de gegevens en voorspellende power om het learning-algoritme te vergroten.
+* **functies selecteren**: dit proces selecteert u de belangrijke subset van functies van de oorspronkelijke gegevens in een poging om te beperken de dimensionaliteit van het probleem training.
 
-Normaal gesproken **functie-engineering** als eerste toegepast voor het genereren van aanvullende functies, en vervolgens de **functie selectie** stap wordt uitgevoerd om de functies niet relevant, redundante of maximaal gecorreleerde elimineren.
+Normaal gesproken **functie-engineering** eerst wordt toegepast voor het genereren van extra functies, en vervolgens de **functies selecteren** stap wordt uitgevoerd om te voorkomen, niet van belang, redundante of zeer gecorreleerde functies.
 
-## <a name="filter-features-from-your-data---feature-selection"></a>Functies van uw gegevens - Functieselectie filteren
-Functieselectie is een proces dat meestal wordt toegepast voor de constructie van training gegevenssets voor taken zoals classificatie- of regressiemodel taken voorspellende modellen. Het doel is het selecteren van een subset van de functies van de oorspronkelijke gegevensset aan die de afmetingen verminderen met behulp van een minimale set van functies die de maximale hoeveelheid in de gegevens van de variantie vertegenwoordigt. Deze subset van functies wordt gebruikt voor het model trainen. Functieselectie fungeert twee hoofddoelen.
+## <a name="filter-features-from-your-data---feature-selection"></a>Filteren van de functies van uw gegevens - Functieselectie
+Functies selecteren is een proces dat vaak wordt toegepast voor de bouw van trainingdatasets voor voorspellende modelleertaken zoals classificatie- of regressiemodel taken. Het doel is om te selecteren van een subset van de functies van de oorspronkelijke gegevensset die de afmetingen beperken met behulp van een minimale set functies voor de maximale hoeveelheid afwijking in de gegevens. Deze subset van functies wordt gebruikt om het model te trainen. Functieselectie heeft twee hoofddoelen.
 
-* Eerst Functieselectie vaak verhoogt de nauwkeurigheid van de classificatie doordat irrelevante, redundante of maximaal gecorreleerde functies.
-* Ten tweede neemt het aantal functies, waardoor het model trainingsproces efficiënter af. Efficiëntie is vooral belangrijk voor overbrengen die dure te trainen zoals ondersteuning vector machines.
+* Eerst Functieselectie vaak verhoogt de nauwkeurigheid van de classificatie door het elimineren van irrelevante, redundante of nauw verband houden functies.
+* Ten tweede neemt het aantal functies, waardoor het proces van de training model efficiënter af. Efficiëntie is vooral belangrijk voor cursisten die duur zijn in trainen zoals support vector machines.
 
-Hoewel Functieselectie zoeken naar Verminder het aantal onderdelen in de gegevensset die wordt gebruikt voor het model trainen, wordt deze niet verwezen door de term 'dimensionaliteit vermindering'. Functie selectiemethodes extraheren een subset van de oorspronkelijke functies in de gegevens niet wijzigen.  Dimensionaliteit vermindering methoden gebruiken engineering functies die u kunnen de oorspronkelijke functies transformeren en ze zo te wijzigen. Voorbeelden van dimensionaliteit vermindering methoden zijn Principal onderdeel analyse, canonieke correlatieanalyse en enkelvoud waarde afbreken.
+Hoewel Functieselectie gezocht tot Verminder het aantal functies in de gegevensset die wordt gebruikt voor het model te trainen, wordt dit niet aangeduid met de term 'dimensionaliteitsvermindering'. Functie selectiemethodes Pak een subset van de oorspronkelijke functies in de gegevens zonder dat ze worden gewijzigd.  Dimensionaliteit vermindering methoden maken gebruik van Social engineering functies die kunnen transformeren van de oorspronkelijke functies en ze zo te wijzigen. Voorbeelden van dimensionaliteit vermindering methoden zijn Principal onderdeel analyse, correlatieanalyse van de canonieke en enkelvoudige waarde ontleding.
 
-Onder andere wordt één breed worden toegepast categorie van functie selectiemethoden in een context die onder supervisie 'filter gebaseerde Functieselectie' genoemd. Deze methoden toepassen voor het evalueren van de correlatie tussen elke functie en het kenmerk target een statistische meting om een score toewijzen aan elke functie. De functies zijn vervolgens door de score moet kunnen worden gebruikt om u te helpen bij het instellen van de drempelwaarde voor bewaren of verwijderen van een specifieke functie gerangschikt. Voorbeelden van de statistische metingen gebruikt in deze methoden zijn persoon correlatie, wederzijdse informatie en de test van de Chi-kwadraat.
+Onder andere, wordt een breed toegepaste categorie selectiemethodes functie in een context die onder supervisie 'functies op basis van een filter selecteren' genoemd. Door het evalueren van de correlatie tussen elke functie en het doelkenmerk, gelden deze methoden een statistische meting een score toewijzen aan elke functie. De functies worden vervolgens door de score, die kan worden gebruikt om u te helpen bij het instellen van de drempelwaarde voor bewaren of verwijderen van een specifieke functie gerangschikt. Voorbeelden van de statistische metingen gebruikt in deze methoden zijn persoon correlatie, wederzijdse informatie en de test van de Chi-kwadraat.
 
-In Azure Machine Learning Studio zijn er modules die zijn opgegeven voor de Functieselectie van de. Zoals u in de volgende afbeelding, deze modules bevatten [Functieselectie op basis van het Filter] [ filter-based-feature-selection] en [Fisher lineaire Discriminant analyse][fisher-linear-discriminant-analysis].
+In Azure Machine Learning Studio zijn er modules die zijn opgegeven voor de functies selecteren. Zoals u in de volgende afbeelding, deze modules bevatten [Functieselectie op basis van een Filter] [ filter-based-feature-selection] en [Fisher lineaire Discriminant analyse] [ fisher-linear-discriminant-analysis].
 
-![Voorbeeld van de functie-selectie](./media/select-features/feature-Selection.png)
+![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection.png)
 
-Overweeg bijvoorbeeld het gebruik van de [Functieselectie op basis van het Filter] [ filter-based-feature-selection] module. Voor het gemak blijven in het voorbeeld van de analysestructuur tekst. Wordt ervan uitgegaan dat u maken van een regressiemodel wilt nadat een set van 256 functies zijn gemaakt via de [hash-functie] [ feature-hashing] -module is en of de antwoord-variabele de 'Col1' adresboek revisie classificaties met getal van 1 tot en met 5. Door in te stellen op 'Functie scoreprofiel methode' moet 'Pearson correlatie', 'doelkolom' als 'Col1' en het 'aantal gewenste functies' tot 50. Klik in de module [Functieselectie op basis van het Filter] [ filter-based-feature-selection] produceert een gegevensset met 50 functies samen met het kenmerk target 'Col1'. De volgende afbeelding ziet de stroom van dit experiment en de invoerparameters:
+Bijvoorbeeld, kunt u het gebruik van de [Functieselectie op basis van een Filter] [ filter-based-feature-selection] module. Doorgaan met behulp van het voorbeeld van de analysestructuur tekst voor het gemak. Wordt ervan uitgegaan dat u maken van een regressiemodel wilt nadat een set van 256-functies zijn gemaakt via de [hash-functies] [ feature-hashing] -module en dat de variabele antwoord is de 'Col1' book revisie classificaties met variërend van 1 tot 5. Door in te stellen 'Functie scoring methode' moet 'Pearson correlatie', de kolom' doel' moet 'Col1', en het 'aantal gewenste functies' tot 50. Vervolgens de module [Functieselectie op basis van een Filter] [ filter-based-feature-selection] produceert een gegevensset met 50 functies samen met het doelkenmerk 'Col1'. De volgende afbeelding ziet u de stroom van dit experiment en de invoerparameters:
 
-![Voorbeeld van de functie-selectie](./media/select-features/feature-Selection1.png)
+![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection1.png)
 
 De volgende afbeelding ziet de resulterende gegevenssets:
 
-![Voorbeeld van de functie-selectie](./media/select-features/feature-Selection2.png)
+![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection2.png)
 
-Elke functie wordt berekend op basis van de correlatie Pearson tussen zichzelf en het kenmerk target 'Col1'. De functies van bovenste scores worden bewaard.
+Elke functie wordt berekend op basis van de Pearson-correlatie tussen zichzelf en het doelkenmerk 'Col1'. De functies van de bovenste scores worden bewaard.
 
 De bijbehorende scores van de geselecteerde onderdelen worden weergegeven in de volgende afbeelding:
 
-![Voorbeeld van de functie-selectie](./media/select-features/feature-Selection3.png)
+![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection3.png)
 
-Door het toepassen van dit [Functieselectie op basis van het Filter] [ filter-based-feature-selection] module, 50 van 256 functies zijn geselecteerd omdat ze de meest gecorreleerde functies met de doelvariabele 'Col1' hebben op basis van de score 'Pearson correlatie'-methode.
+Door toe te passen dit [Functieselectie op basis van een Filter] [ filter-based-feature-selection] 50 van 256 functies worden geselecteerd omdat ze de meest gecorreleerde functies met de doelvariabele "Col1"-module op basis van de scoring-methode 'Pearson correlatie'.
 
 ## <a name="conclusion"></a>Conclusie
-Functie-engineering en Functieselectie zijn twee meestal ontworpen en geselecteerde onderdelen verhoogt de efficiëntie van het trainingsproces die pogingen tot het extraheren van gegevens van de sleutel die is opgenomen in de gegevens. Ze verbeteren ook de kracht van deze modellen voor het classificeren van de invoergegevens nauwkeurig en meer krachtig voorspellen van resultaten van belang. Selectie van functie-engineering en kunnen ook zodat de learning meer rekenkundig tractable combineren. Dit gebeurt met verbeteren en vervolgens het aantal benodigde kalibreren of het model trainen functies te verminderen. Wiskundig spreken, zijn de functies die zijn geselecteerd voor het model trainen een minimale set van onafhankelijke variabelen die de patronen in de gegevens wordt uitgelegd en vervolgens de resultaten met succes voorspellen.
+Feature-engineering en Functieselectie zijn twee meestal ontworpen en geselecteerde onderdelen verhoogt de efficiëntie van de trainingsproces die pogingen tot het ophalen van gegevens van de sleutel die is opgenomen in de gegevens. Ze verbeteren de kracht van deze modellen voor het classificeren van de ingevoerde gegevens correct en om te voorspellen van uitkomsten van belang zijn meer databases robuuster worden ook. Feature-engineering en selectie kunnen ook zodat de learning meer rekenintensief tractable combineren. Dit gebeurt verbeteren en vervolgens het aantal functies die nodig zijn om te kalibreren of een model te trainen te verminderen. Wiskundig spreken, zijn de functies die zijn geselecteerd voor het model te trainen een minimale set van onafhankelijke variabelen die uitgelegd van de patronen in de gegevens en vervolgens de resultaten met succes voorspellen.
 
-Het is niet altijd noodzakelijkerwijs Functieselectie techniek of functie uitvoeren. Of het nodig of niet is, is afhankelijk van de verzamelde gegevens, de algoritme die is geselecteerd en het doel van het experiment.
+Het is niet altijd noodzakelijk om uit te voeren Functieselectie engineering of functie. Of het nodig of niet is, is afhankelijk van de gegevens die zijn verzameld, de algoritme die is geselecteerd en het doel van het experiment.
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

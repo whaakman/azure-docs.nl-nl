@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241613"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495142"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Apache Hadoop-clusters in HDInsight maken met behulp van Resource Manager-sjablonen
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -32,7 +32,7 @@ Als u wilt de instructies in dit artikel hebt u het volgende nodig:
 ### <a name="resource-manager-templates"></a>Resource Manager-sjablonen
 Resource Manager-sjabloon kunt gemakkelijk maken van de volgende resoruces voor uw toepassing in een enkele, gecoördineerde bewerking:
 * HDInsight-clusters en de bijbehorende afhankelijke bronnen (zoals het standaardopslagaccount)
-* Andere bronnen (zoals Azure SQL Database Apache Sqoop gebruiken)
+* Andere bronnen (zoals Azure SQL Database gebruiken [Apache Sqoop](http://sqoop.apache.org/))
 
 In de sjabloon definieert u de resources die nodig zijn voor de toepassing. U geeft ook implementatieparameters voor het invoeren van waarden voor verschillende omgevingen. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruikt om waarden voor uw implementatie samen te stellen.
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 31461e1d316953c2e69d252f1313180c57562dfd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009188"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496299"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Extra opslagaccounts toevoegen aan HDInsight
 
 Informatie over het gebruik van scriptacties aanvullende Azure storage-accounts toevoegen aan HDInsight. De stappen in dit document wordt een storage-account toevoegen aan een bestaand HDInsight op basis van Linux-cluster.
 
 > [!IMPORTANT]
-> De informatie in dit document is over het toevoegen van extra opslag aan een cluster nadat deze is gemaakt. Zie voor meer informatie over het toevoegen van storage-accounts tijdens het maken van een cluster [clusters instellen in HDInsight met Hadoop, Spark, Kafka en meer](hdinsight-hadoop-provision-linux-clusters.md).
+> De informatie in dit document is over het toevoegen van extra opslag aan een cluster nadat deze is gemaakt. Zie voor meer informatie over het toevoegen van storage-accounts tijdens het maken van een cluster [clusters instellen in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
@@ -43,7 +43,7 @@ Tijdens de verwerking voert het script de volgende acties:
 
 * Het opslagaccount dat aan het bestand core-site.xml toegevoegd.
 
-* Gestopt en opnieuw gestart van de services Oozie, YARN, MapReduce2 en HDFS. Deze services starten en stoppen, kunnen ze het nieuwe opslagaccount gebruiken.
+* Stopt en start u de [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), en [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) services. Deze services starten en stoppen, kunnen ze het nieuwe opslagaccount gebruiken.
 
 > [!WARNING]
 > Met behulp van een storage-account in een andere locatie dan het HDInsight-cluster wordt niet ondersteund.

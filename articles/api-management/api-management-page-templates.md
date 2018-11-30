@@ -1,6 +1,6 @@
 ---
 title: Sjablonen in Azure API Management | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen in Azure API Management.
+description: Informatie over het aanpassen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,31 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27745006"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441907"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Sjablonen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunnen u de inhoud van het teken in sign up aanpassen en pagina's pagina niet vinden in de portal voor ontwikkelaars.  
+ De sjablonen in deze sectie kunt u de inhoud van het teken in sign up aanpassen en pagina's pagina niet gevonden in de portal voor ontwikkelaars.  
   
 -   [Aanmelden](#SignIn)  
   
 -   [Aanmelden](#SignUp)  
   
--   [Pagina is niet gevonden](#PageNotFound)  
+-   [Pagina niet gevonden](#PageNotFound)  
   
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar kunnen worden gewijzigd vanwege de continue verbeteringen. U kunt de live standaardsjablonen weergeven in de portal voor ontwikkelaars door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [over het aanpassen van de API Management-ontwikkelaarsportal met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="SignIn"></a>Aanmelden  
+##  <a name="SignIn"></a> Aanmelden  
  De **aanmelden** sjabloon kunt u de aanmeldingspagina in de ontwikkelaarsportal aanpassen.  
   
- ![Meld u aan de pagina](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM aanmelden pagina Developer Portal-sjablonen")  
+ ![Meld u aan op de pagina](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM sjablonen voor Ontwikkelaarsportals pagina aanmelden")  
   
 ### <a name="default-template"></a>Standaardsjabloon  
   
@@ -97,16 +99,16 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- Deze sjabloon kan gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Deze sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [Basic-aanmelding](api-management-page-controls.md#basic-signin)  
   
--   [providers](api-management-page-controls.md#providers)  
+-   [Providers](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Gegevensmodel  
- [Gebruiker aanmelden](api-management-template-data-model-reference.md#UseSignIn) entiteit.  
+ [Aanmelding door een gebruiker in](api-management-template-data-model-reference.md#UseSignIn) entiteit.  
   
-### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {
@@ -134,10 +136,10 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 }
 ```  
   
-##  <a name="SignUp"></a>Aanmelden  
- De **aanmelden** sjabloon kunt u de registratiepagina in de ontwikkelaarsportal aanpassen.  
+##  <a name="SignUp"></a> Aanmelden  
+ De **aanmelden** sjabloon blijft u op de aanmeldpagina voor in de ontwikkelaarsportal aanpassen.  
   
- ![Aanmeldingspagina](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM aanmelden pagina Developer Portal-sjablonen")  
+ ![Aanmeldingspagina](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM sjablonen voor Ontwikkelaarsportals pagina aanmelden")  
   
 ### <a name="default-template"></a>Standaardsjabloon  
   
@@ -156,14 +158,14 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- Deze sjabloon kan gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Deze sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [aanmelden](api-management-page-controls.md#sign-up)  
+-   [Meld u aan](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Gegevensmodel  
- [Gebruiker aanmelden](api-management-template-data-model-reference.md#UserSignUp) entiteit.  
+ [Gebruikersregistraties](api-management-template-data-model-reference.md#UserSignUp) entiteit.  
   
-### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -182,10 +184,10 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 }  
 ```  
   
-##  <a name="PageNotFound"></a>Pagina is niet gevonden  
- De **pagina niet gevonden** sjabloon kunt u de pagina pagina niet gevonden in de ontwikkelaarsportal aanpassen.  
+##  <a name="PageNotFound"></a> Pagina niet gevonden  
+ De **pagina niet gevonden** sjabloon blijft u op de pagina pagina niet gevonden in de ontwikkelaarsportal aanpassen.  
   
- ![Niet gevonden pagina](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM niet gevonden pagina Developer Portal-sjablonen")  
+ ![Pagina niet gevonden](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM niet gevonden pagina Developer Portal-sjablonen")  
   
 ### <a name="default-template"></a>Standaardsjabloon  
   
@@ -226,13 +228,13 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|referenceCode|tekenreeks|De code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|Foutcode|tekenreeks|De code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
+|referenceCode|tekenreeks|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
+|Foutcode|tekenreeks|Code gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
 |emailBody|tekenreeks|E-instantie die worden gegenereerd als deze pagina wordt weergegeven als gevolg van een interne fout.|  
-|requestedUrl|tekenreeks|De URL die is aangevraagd wanneer de pagina is niet gevonden.|  
-|referrerUrl|tekenreeks|De verwijzende URL naar de aangevraagde URL.|  
+|requestedUrl|tekenreeks|De URL die wordt gevraagd wanneer de pagina is niet gevonden.|  
+|referrerUrl|tekenreeks|De verwijzende site-URL voor de aangevraagde URL.|  
   
-### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -245,4 +247,4 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [over het aanpassen van de API Management-ontwikkelaarsportal met behulp van sjablonen](api-management-developer-portal-templates.md).

@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
-ms.openlocfilehash: 8908a6ceb87e2c0e4c7222e8a8e72fa7ebfa7f82
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309260"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421280"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Hoe u E-mail verzenden via SendGrid met Node.js
 
@@ -131,7 +131,7 @@ sendgrid.send({
 ```
 
 > [!NOTE]
-> Wanneer u de **bestanden** eigenschap, het bestand moet toegankelijk zijn via [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Als het bestand dat u wilt koppelen wordt gehost in Azure Storage, zoals in een Blob-container, moet u eerst het bestand kopiëren naar lokale opslag of naar een Azure-station voordat deze kan worden verzonden als een bijlage met de **bestanden** eigenschap.
+> Wanneer u de **bestanden** eigenschap, het bestand moet toegankelijk zijn via [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Als het bestand dat u wilt koppelen wordt gehost in Azure Storage, zoals in een Blob-container, moet u eerst het bestand kopiëren naar lokale opslag of naar een Azure-station voordat deze kan worden verzonden als een bijlage met de **bestanden** eigenschap.
 > 
 > 
 

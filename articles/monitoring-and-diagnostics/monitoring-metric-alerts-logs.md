@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a8baa67296c721fdda4cb0728e1b68f2e67e217c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 92474bdead021429792f5d51a28ffb7bafc5be2b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824231"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334241"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Metrische waarschuwingen maken voor logboeken in Azure Monitor  
 
@@ -21,10 +21,10 @@ ms.locfileid: "51824231"
 Azure Monitor ondersteunt [metrische Waarschuwingstype](monitoring-near-real-time-metric-alerts.md) welke voordelen heeft via de [klassieke waarschuwingen](alert-metric-classic.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). Dit artikel wordt uitgelegd voor het gebruik van een subset (dat wil zeggen) voor de resource - `Microsoft.OperationalInsights/workspaces`. 
 
 U kunt metrische waarschuwingen voor populaire Log Analytics-Logboeken als metrische gegevens als onderdeel van de metrische gegevens van Logboeken, met inbegrip van resources in Azure of on-premises hebt uitgepakt. Hieronder vindt u de ondersteunde Log Analytics-oplossingen:
-- [Prestatiemeteritems](../log-analytics/log-analytics-data-sources-performance-counters.md) voor Windows en Linux-machines
+- [Prestatiemeteritems](../azure-monitor/platform/data-sources-performance-counters.md) voor Windows en Linux-machines
 - [Heartbeat-records voor de status van Agent](../azure-monitor/insights/solution-agenthealth.md)
 - [Updatebeheer](../automation/automation-update-management.md) records
-- [Gebeurtenisgegevens](../log-analytics/log-analytics-data-sources-windows-events.md) Logboeken
+- [Gebeurtenisgegevens](../azure-monitor/platform/data-sources-windows-events.md) Logboeken
  
 Er zijn veel voordelen voor het gebruik van **metrische waarschuwingen voor logboeken** op basis van de [Logboekwaarschuwingen](alert-log.md) in Azure; sommige hiervan worden hieronder vermeld:
 - Metrische waarschuwingen bieden bewakingsmogelijkheid bijna realtime en waarschuwingen voor metrische gegevens voor logboeken splitsingen gegevens van bron om ervoor te zorgen dat hetzelfde logboek
@@ -47,8 +47,8 @@ Metrische gegevens van populaire Logboeken is doorgesluisd voordat deze wordt ve
 Voordat u metrische gegevens voor logboeken verzameld op Log Analytics data werkt, moet het volgende worden ingesteld en beschikbaar is:
 1. **Actieve Log Analytics-werkruimte**: een geldig en actief Log Analytics-werkruimte moet aanwezig zijn. Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **Agent is geconfigureerd voor Log Analytics-werkruimte**: Agent moet worden geconfigureerd voor virtuele Azure-machines (en/of) On-premises VM's om gegevens te verzenden naar de Log Analytics-werkruimte in de vorige stap gebruikt. Zie voor meer informatie, [Log Analytics - overzicht](../azure-monitor/platform/agents-overview.md).
-3. **Ondersteunde Log Analytics-oplossingen is geïnstalleerd**: Log Analytics-oplossing moet worden geconfigureerd en verzenden van gegevens in Log Analytics-werkruimte - ondersteunde oplossingen zijn [prestatiemeteritems voor Windows en Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Heartbeat-records voor de status van Agent](../azure-monitor/insights/solution-agenthealth.md), [updatebeheer, en [gebeurtenisgegevens](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Meld u Analytics-oplossingen die zijn geconfigureerd voor het verzenden van logboeken**: Log Analytics-oplossing moet de vereiste Logboeken/gegevens die overeenkomt met [metrische gegevens die worden ondersteund voor Log Analytics-werkruimten](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) ingeschakeld. Bijvoorbeeld: voor *% beschikbaar geheugen* teller hiervan moet worden geconfigureerd in [prestatiemeteritems](../log-analytics/log-analytics-data-sources-performance-counters.md) oplossing eerste.
+3. **Ondersteunde Log Analytics-oplossingen is geïnstalleerd**: Log Analytics-oplossing moet worden geconfigureerd en verzenden van gegevens in Log Analytics-werkruimte - ondersteunde oplossingen zijn [prestatiemeteritems voor Windows en Linux](../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat-records voor de status van Agent](../azure-monitor/insights/solution-agenthealth.md), [updatebeheer, en [gebeurtenisgegevens](../azure-monitor/platform/data-sources-windows-events.md).
+4. **Meld u Analytics-oplossingen die zijn geconfigureerd voor het verzenden van logboeken**: Log Analytics-oplossing moet de vereiste Logboeken/gegevens die overeenkomt met [metrische gegevens die worden ondersteund voor Log Analytics-werkruimten](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) ingeschakeld. Bijvoorbeeld: voor *% beschikbaar geheugen* teller hiervan moet worden geconfigureerd in [prestatiemeteritems](../azure-monitor/platform/data-sources-performance-counters.md) oplossing eerste.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Waarschuwing voor metrische gegevens voor logboeken configureren
  metrische waarschuwingen kunnen worden gemaakt en beheerd via de Azure portal, Resource Manager-sjablonen, REST-API, PowerShell en Azure CLI. Waarschuwingen voor Logboeken, metrische gegevens is een variant van metrische waarschuwingen - wanneer u klaar bent met de vereisten, kan waarschuwing voor metrische gegevens voor logboeken worden gemaakt voor de opgegeven Log Analytics-werkruimte. Alle eigenschappen en functionaliteiten van [ metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md) van toepassing is op metrische waarschuwingen voor Logboeken, evenals, inclusief nettolading schema, de quotalimieten voor van toepassing en worden gefactureerd prijs.
@@ -58,8 +58,7 @@ Zie voor stapsgewijze details en voorbeelden van - [maken en beheren van metrisc
 - Signaal gekozen voor waarschuwing voor metrische gegevens voor geselecteerde *Log Analytics-werkruimte* is van het type **metrische gegevens**
 - Filteren op specifieke voorwaarden of resource met behulp van dimensiefilters. metrische gegevens voor logboeken zijn multi-dimensionale
 - Bij het configureren van *Signaallogica*, één waarschuwing kan worden gemaakt voor het bereik van meerdere waarden van de dimensie (bijvoorbeeld Computer)
-- Als **niet** met behulp van Azure portal voor het maken van de waarschuwing voor metrische gegevens voor geselecteerde *Log Analytics-werkruimte*; vervolgens handmatig moet de gebruiker eerst maken een expliciete regel voor het converteren van logboekgegevens naar een metrische waarde met behulp van [Azure Monitor - geplande queryregels](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
-).
+- Als **niet** met behulp van Azure portal voor het maken van de waarschuwing voor metrische gegevens voor geselecteerde *Log Analytics-werkruimte*; vervolgens handmatig moet de gebruiker eerst maken een expliciete regel voor het converteren van logboekgegevens naar een metrische waarde met behulp van [Azure Monitor - geplande queryregels](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
 > Bij het maken van de waarschuwing voor metrische gegevens voor Log Analytics-werkruimte via Azure portal - regel voor het converteren van logboekgegevens naar metrische gegevens via overeenkomt [Azure Monitor - queryregels gepland](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) wordt automatisch gemaakt op de achtergrond,  *zonder de noodzaak van een tussenkomst van de gebruiker of een actie*. Zie voor waarschuwing voor metrische gegevens voor het maken van de logboeken met gebruikmaking van dan Azure portal, [Resource-sjabloon voor metrische waarschuwingen voor logboeken](#resource-template-for-metric-alerts-for-logs) sectie over de wijze van voorbeeld van het maken van een logboek ScheduledQueryRule op basis van metrische conversie-regel voor waarschuwing voor metrische gegevens maken - anders zal er geen gegevens voor de waarschuwing voor metrische gegevens op Logboeken die zijn gemaakt.

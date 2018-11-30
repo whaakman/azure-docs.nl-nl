@@ -1,7 +1,19 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440108"
+---
 1. Open het project in Android Studio.
 
-2. In **Projectverkenner** in Android Studio, opent u de `ToDoActivity.java` -bestand en voeg de volgende importinstructies:
+2. In **Projectverkenner** in Android Studio opent u de `ToDoActivity.java` bestand en voeg de volgende importinstructies toe:
 
     ```java
     import java.util.concurrent.ExecutionException;
@@ -15,7 +27,7 @@
     import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
     ```
 
-3. Voeg de volgende methode voor de **ToDoActivity** klasse:
+3. Toevoegen van de volgende methode naar de **ToDoActivity** klasse:
 
     ```java
     // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
@@ -47,20 +59,20 @@
     }
     ```
 
-    Deze code maakt een methode voor het afhandelen van het verificatieproces Google. Een dialoogvenster geeft de ID van de geverifieerde gebruiker. U kunt alleen doorgaan op een geslaagde verificatie.
+    Deze code maakt een methode voor het afhandelen van het Google-verificatieproces uit. Een dialoogvenster geeft de ID van de geverifieerde gebruiker. U kunt alleen doorgaan op een geslaagde verificatie.
 
     > [!NOTE]
-    > Als u van een id-provider dan Google gebruikmaakt, wijzig de waarde die is doorgegeven aan de **aanmelding** methode op een van de volgende waarden: _MicrosoftAccount_, _Facebook_, _Twitter_, of _windowsazureactivedirectory_.
+    > Als u van een id-provider dan Google gebruikmaakt, wijzigt u de waarde die is doorgegeven aan de **aanmelding** methode op een van de volgende waarden: _MicrosoftAccount_, _Facebook_, _Twitter_, of _windowsazureactivedirectory_.
 
-4. In de **onCreate** methode, voeg de volgende regel code na de code die wordt de `MobileServiceClient` object.
+4. In de **onCreate** methode, voeg de volgende coderegel toe na de code waarmee een instantie de `MobileServiceClient` object.
 
     ```java
     authenticate();
     ```
 
-    Deze aanroep start het verificatieproces.
+    Deze aanroep begint het verificatieproces uit.
 
-5. Verplaatsen van de resterende code na `authenticate();` in de **onCreate** methode naar een nieuwe **createTable** methode:
+5. Verplaatst u de resterende code na `authenticate();` in de **onCreate** methode naar een nieuwe **createTable** methode:
 
     ```java
     private void createTable() {
@@ -80,7 +92,7 @@
     }
     ```
 
-6. Om ervoor te zorgen omleiding werkt zoals verwacht, Voeg het volgende fragment van `RedirectUrlActivity` naar `AndroidManifest.xml`:
+6. Voeg de volgende tekstfragment toe om ervoor te zorgen omleiding werkt zoals verwacht, `RedirectUrlActivity` naar `AndroidManifest.xml`:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -111,7 +123,7 @@
     }
     ```
 
-8. Voeg `com.android.support:customtabs:23.0.1` naar de afhankelijkheden in uw `build.gradle`:
+8. Voeg `com.android.support:customtabs:23.0.1` aan de afhankelijkheden in uw `build.gradle`:
 
     ```gradle
     dependencies {
@@ -120,9 +132,9 @@
     }
     ```
 
-9. Van de **uitvoeren** menu, klikt u op **app uitvoeren** starten van de app en meld u aan met uw gekozen id-provider.
+9. Uit de **uitvoeren** menu, klikt u op **app uitvoeren** om te beginnen met de app en meld u aan met uw gekozen identiteitsprovider.
 
 > [!WARNING]
-> Het URL-schema vermeld is hoofdlettergevoelig. Zorg ervoor dat alle instanties van `{url_scheme_of_you_app}` gebruiken hetzelfde hoofdlettergebruik.
+> Het URL-schema vermeld is hoofdlettergevoelig. Zorg ervoor dat alle instanties van `{url_scheme_of_you_app}` gebruik van hetzelfde hoofdlettergebruik.
 
-Wanneer u bent aangemeld, de app moet worden uitgevoerd zonder fouten en moet u kunnen de back-endservice doorzoeken en updates aanbrengen in de gegevens.
+Wanneer u bent aangemeld, wordt de app moet worden uitgevoerd zonder fouten en moet u kunnen opvragen van de back-end-service en updates aanbrengen in gegevens.

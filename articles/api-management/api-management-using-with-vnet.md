@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959040"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443522"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -27,7 +27,8 @@ Met Azure API Management kunnen worden geïmplementeerd in het virtuele netwerk 
 
 > [!NOTE]
 > Met Azure API Management biedt ondersteuning voor zowel klassieke als Azure Resource Manager VNets.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,7 +39,6 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + Een APIM-instantie. Zie voor meer informatie, [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
-+ VNET-connectiviteit is beschikbaar in de Premium- en Developer alleen-lagen. Overstappen op een van deze lagen door de aanwijzingen in de [bijwerken en schalen](upgrade-and-scale.md#upgrade-and-scale) onderwerp.
 
 ## <a name="enable-vpn"> </a>VNET-verbinding inschakelen
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0dc4019d2b3f33bfc92d73aeadadc0c64ecaab3b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158513"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446855"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 
@@ -42,6 +42,22 @@ Maakt de wizard automatisch de beheergroep in uw Azure AD-directory. Deze groep 
 
 3. Wanneer u klaar bent, klikt u op **OK** op naar de **samenvatting** pagina van de wizard.
 
+## <a name="configure-synchronization"></a>Synchronisatie configureren
+
+Azure AD Domain Services kunnen voor een volledige synchronisatie van alle gebruikers en groepen die beschikbaar zijn in Azure AD of kunt u binnen het bereik synchronisatie om te synchroniseren van alleen specifieke groepen selecteren. Als u de volledige synchronisatie kiest, wordt u **niet** kunnen kiezen binnen het bereik synchronisatie op een later tijdstip. Voor meer informatie over scoped synchronisatie, gaat u naar de [Azure AD Domain Services binnen het bereik van synchronisatie artikel](active-directory-ds-scoped-synchronization.md).
+
+### <a name="full-synchronization"></a>Volledige synchronisatie
+
+1. Voor volledige synchronisatie, klikt u er gewoon 'OK' aan de onderkant van het scherm als volledige nog is geselecteerd.
+    ![Volledige synchronisatie](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+
+### <a name="scoped-synchronization"></a>Synchronisatie van binnen het bereik
+
+1. In-/ uitschakelen met de synchronisatieknop 'Binnen bereik' en een pagina groepen selecteren wordt weergegeven. In dit ziet u welke groepen zijn al geselecteerd worden gesynchroniseerd met uw beheerde domein.
+    ![Synchronisatie van binnen het bereik](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+2. Klik op **groepen selecteren** in de bovenste navigatiebalk. Hier, wordt het kiezen van een groep weergegeven aan de zijde. Gebruik dit om eventuele extra groepen moeten worden gesynchroniseerd met Azure AD Domain Services. Wanneer u klaar bent, klikt u op **Selecteer** om te sluiten van het kiezen van de groep en voegt u deze groepen toe aan de geselecteerde lijst.
+    ![Scoped synchronisatie groepen selecteren](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+3. Klik op **OK** verplaatsen naar de pagina overzicht.
 
 ## <a name="deploy-your-managed-domain"></a>Uw beheerde domein implementeren
 

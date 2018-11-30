@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/6/2018
 ms.author: tylerfox
-ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 936e53ca328b0f54bfd75e7b3d4f6747b0037669
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235255"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495173"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell kan worden gebruikt om te beheren en automatiseren van de implementatie en het beheer van uw workloads in Azure. In dit artikel leert u hoe u voor het beheren van Apache Hadoop-clusters in Azure HDInsight met behulp van Azure PowerShell. Zie voor een lijst van de HDInsight PowerShell-cmdlets, [HDInsight-cmdlet-verwijzing](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell kan worden gebruikt om te beheren en automatiseren van de implementatie en het beheer van uw workloads in Azure. In dit artikel leert u hoe u voor het beheren van [Apache Hadoop](https://hadoop.apache.org/) -clusters in Azure HDInsight met behulp van Azure PowerShell. Zie voor een lijst van de HDInsight PowerShell-cmdlets, [HDInsight-cmdlet-verwijzing](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Vereisten**
 
@@ -80,12 +80,12 @@ Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebr
 
 De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cluster die door HDInsight worden ondersteund:
 
-* Hadoop
+* Apache Hadoop
 
     Het aantal worker-knooppunten in een Hadoop-cluster dat wordt uitgevoerd zonder gevolgen voor alle taken die in behandeling of wordt uitgevoerd, kunt u naadloos verhogen. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor vergroten/verkleinen probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
 
     Wanneer een Hadoop-cluster is omlaag geschaald door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw opgestart. Opnieuw starten van services zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking vergroten/verkleinen. U kunt echter de taken opnieuw zodra de bewerking voltooid is.
-* HBase
+* Apache HBase
 
     U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de vergroten/verkleinen bewerking. U kunt echter ook handmatig de regionale servers in evenwicht door te melden bij het hoofdknooppunt van het cluster en voer de volgende opdrachten vanuit een opdrachtpromptvenster:
 
@@ -95,7 +95,7 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cl
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Maar na een geslaagde bewerking vergroten/verkleinen is voltooid, moet u opnieuw verdelen van de topologie.
 
@@ -207,25 +207,25 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Verzenden van taken
-**MapReduce-taken indienen**
+**Apache Hadoop MapReduce-taken indienen**
 
-Zie [uitvoeren van de MapReduce-voorbeelden opgenomen in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Zie [uitvoeren van de Apache Hadoop MapReduce-voorbeelden opgenomen in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Hive-taken indienen**
+**Apache Hive-taken indienen**
 
-Zie [uitvoeren Hive-query's met behulp van PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+Zie [uitvoeren Apache Hive-query's met behulp van PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Pig-taken indienen**
+**Apache Pig-taken indienen**
 
-Zie [uitvoeren Pig-taken met behulp van PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
+Zie [uitvoeren Apache Pig-taken met behulp van PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**Sqoop taken indienen**
+**Apache Sqoop taken indienen**
 
-Zie [Sqoop gebruiken met HDInsight](hadoop/hdinsight-use-sqoop.md).
+Zie [Apache Sqoop gebruiken met HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**Oozie-taken indienen**
+**Apache Oozie-taken indienen**
 
-Zie [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight](hdinsight-use-oozie.md).
+Zie [Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren in HDInsight](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure Blob-opslag
 Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].
@@ -236,7 +236,7 @@ Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].
 * [HDInsight met een opdrachtregelinterface beheren][hdinsight-admin-cli]
 * [HDInsight-clusters maken][hdinsight-provision]
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
-* [Hadoop-taken indienen via een programma][hdinsight-submit-jobs]
+* [Programmatisch verzenden van Apache Hadoop-taken][hdinsight-submit-jobs]
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

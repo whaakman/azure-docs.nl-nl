@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: e132ceb857b05f24664c93729dd43d75b5a19ac2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015057"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494470"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opties voor COMPUTE context voor ML-Services op HDInsight
 
 ML-Services op Azure HDInsight bepaalt hoe aanroepen zijn uitgevoerd door de instelling van de compute-context. In dit artikel bevat een overzicht van de opties die beschikbaar zijn om op te geven of en hoe de uitvoering is geparallelliseerd over kernen van het edge-knooppunt of de HDInsight-cluster.
 
-Het edge-knooppunt van een cluster biedt een handige locatie verbinding maken met het cluster en uw R-scripts uit te voeren. Met een edge-knooppunt hebt u de mogelijkheid van het uitvoeren van de geparallelliseerde gedistribueerde functies van RevoScaleR over de kernen van het edge-knooppunt-server. U kunt ook ze uitvoeren op de knooppunten van het cluster met behulp van RevoScaleR Hadoop-Mapreduce of Spark compute-context.
+Het edge-knooppunt van een cluster biedt een handige locatie verbinding maken met het cluster en uw R-scripts uit te voeren. Met een edge-knooppunt hebt u de mogelijkheid van het uitvoeren van de geparallelliseerde gedistribueerde functies van RevoScaleR over de kernen van het edge-knooppunt-server. U kunt ook ze uitvoeren op de knooppunten van het cluster met behulp van RevoScaleR Hadoop-Mapreduce of Apache Spark compute-context.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML-Services op Azure HDInsight
-[ML-Services op Azure HDInsight](r-server-overview.md) biedt de nieuwste mogelijkheden voor analyse op basis van R van. Deze kunt gegevens die zijn opgeslagen in een HDFS-container in uw [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob-opslag") storage-account, een Data Lake store of het lokale bestandssysteem van Linux. Omdat het ML-Services is gebouwd op open-source R, wordt in de toepassingen op basis van R die u bouwt de 8000 + open source R-pakketten kunnen toepassen. Ze kunnen ook de routines in gebruiken [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), van Microsoft big data analytics-pakket dat is opgenomen in ML-Services.  
+[ML-Services op Azure HDInsight](r-server-overview.md) biedt de nieuwste mogelijkheden voor analyse op basis van R van. Deze kunt gegevens die zijn opgeslagen in een Apache Hadoop HDFS-container in uw [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob-opslag") storage-account, een Data Lake store of het lokale bestandssysteem van Linux. Omdat het ML-Services is gebouwd op open-source R, wordt in de toepassingen op basis van R die u bouwt de 8000 + open source R-pakketten kunnen toepassen. Ze kunnen ook de routines in gebruiken [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), van Microsoft big data analytics-pakket dat is opgenomen in ML-Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>COMPUTE-context voor een edge-knooppunt
 In het algemeen een R-script dat wordt uitgevoerd in de cluster ML-Services op het edge-knooppunt uitgevoerd binnen de R-interpreter op dat knooppunt. De uitzonderingen zijn de stappen die een RevoScaleR-functie aanroepen. De RevoScaleR-aanroepen uitgevoerd in een compute-omgeving die wordt bepaald door het stelt u in de RevoScaleR compute-context.  Wanneer u uw R-script vanaf een edge-knooppunt uitvoeren, wordt de mogelijke waarden van de compute-context zijn:
@@ -52,7 +52,7 @@ Welke van de drie opties waarmee geparallelliseerde worden uitgevoerd die u kies
 - Herhaalde analyses zijn sneller als de gegevens lokaal en als deze zich binnen XDF.
 - Is het beter om te streamen kleine hoeveelheden gegevens uit een tekstgegevensbron. Als de hoeveelheid gegevens groter is, deze converteren naar XDF voor analyse.
 - De overhead van het kopiëren of de streaminggegevens op het edge-knooppunt voor de analyse wordt voor zeer grote hoeveelheden gegevens.
-- Spark is sneller dan Mapreduce voor analyse in Hadoop.
+- ApacheSpark is sneller dan Mapreduce voor analyse in Hadoop.
 
 Deze beginselen worden gegeven, bieden in de volgende secties sommige algemene vuistregels voor het selecteren van een compute-context.
 
@@ -60,10 +60,10 @@ Deze beginselen worden gegeven, bieden in de volgende secties sommige algemene v
 * Als de hoeveelheid gegevens te analyseren klein is en geen herhaalde analyse vereist, vervolgens streamen deze rechtstreeks in de analyse van routinematige via *lokale* of *localpar*.
 * Als de hoeveelheid gegevens te analyseren is van kleine of middelgrote en herhaalde analyse vereist, klikt u vervolgens kopiëren naar het lokale bestandssysteem, importeert u het naar XDF en analyseer ze via *lokale* of *localpar*.
 
-### <a name="hadoop-spark"></a>Hadoop Spark
+### <a name="apache-spark"></a>Apache Spark
 * Als de hoeveelheid gegevens te analyseren groot is, dan importeren naar een Spark DataFrame met **RxHiveData** of **RxParquetData**, of XDF in HDFS (tenzij opslag een probleem is), en analyseer ze met behulp van de Spark-compute context.
 
-### <a name="hadoop-map-reduce"></a>Hadoop-Mapreduce
+### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop-Mapreduce
 * Gebruik de compute-context voor Mapreduce alleen als er een onoverkomelijke probleem met de Spark compute-context omdat deze meestal minder.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Inline-hulp op rxSetComputeContext
@@ -76,7 +76,7 @@ U kunt ook verwijzen naar de [gedistribueerd overzicht van cloudcomputing](https
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd over de opties die beschikbaar zijn om op te geven of en hoe de uitvoering is geparallelliseerd over kernen van het edge-knooppunt of de HDInsight-cluster. Zie de volgende onderwerpen voor meer informatie over het gebruik van ML-Services met HDInsight-clusters:
 
-* [Overzicht van ML-Services voor Hadoop](r-server-overview.md)
-* [Aan de slag met ML-Services voor Hadoop](r-server-get-started.md)
+* [Overzicht van ML-Services voor Apache Hadoop](r-server-overview.md)
+* [Aan de slag met ML-Services voor Apache Hadoop](r-server-get-started.md)
 * [Opties voor Azure Storage voor ML-Services op HDInsight](r-server-storage.md)
 

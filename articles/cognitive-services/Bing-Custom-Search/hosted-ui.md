@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: 566990ea7c6ac8498b47528c906710ed4c9078e4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163024"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424983"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configureren van uw gehoste gebruikersinterface-ervaring
 
@@ -105,7 +105,7 @@ Volg deze stappen voor het configureren van een gehoste UI voor uw web-app:
 > [!NOTE]
 > Als u wijzigingen in de configuratie van de aangepaste gehoste UI aanbrengt, bevat het deelvenster aan de rechterkant een visuele referentie voor wijzigingen in de. De weergegeven lijst met zoekresultaten zijn niet de werkelijke resultaten voor uw exemplaar.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Aangepaste UI gebruiken
 

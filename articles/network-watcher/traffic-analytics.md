@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457405"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443029"
 ---
 # <a name="traffic-analytics"></a>Verkeersanalyse
 
@@ -53,9 +53,39 @@ Verkeersanalyse onderzoekt de onbewerkte NSG-stroomlogboeken en verminderde Logb
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-U kunt traffic analytics voor nsg's in een van de volgende regio's: West-Centraal VS, VS-Oost, VS-Oost 2, Noord-centraal VS, Zuid-centraal VS, VS-midden, VS-West, VS-West 2, Canada-centraal, West-Europa, Noord-Europa, UK-West, UK-Zuid, Japan-Oost, centraal-India , Australië-Oost, Australië-Zuidoost en Zuidoost-Azië. 
+U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteunde regio's:
 
-De log analytics-werkruimte moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, VK Zuid, Centraal Canada, Japan-Oost, India Centraal Australië-Zuidoost of de regio Zuidoost-Azië.
+* Canada - midden
+* US - west-centraal
+* US - oost
+* US - oost 2
+* US - noord-centraal
+* US - zuid-centraal
+* US - centraal
+* US - west
+* US - west 2
+* Europa -west
+* Europa - noord
+* Brazilië - zuid
+* Verenigd Koninkrijk West
+* Verenigd Koninkrijk Zuid
+* Australië - oost
+* Australië - zuidoost
+* Azië - zuidoost
+* India - centraal
+* India - zuid
+* Japan - oost 
+
+De Log Analytics-werkruimte moet bestaan in de volgende regio's:
+* Canada - midden
+* US - west-centraal
+* US - oost
+* Europa -west
+* Verenigd Koninkrijk Zuid
+* Australië - zuidoost
+* Azië - zuidoost
+* India - centraal
+* Japan - oost
 
 ## <a name="prerequisites"></a>Vereisten
 

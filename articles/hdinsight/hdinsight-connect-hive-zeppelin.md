@@ -10,23 +10,23 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 75ec0e17e9866d2cd3420ff6ecf648bf22a8ae8e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 035e70eef88d5d5dae08c329017430db25c20464
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277950"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494824"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Apache Zeppelin Apache Hive-query's uitvoeren in Azure HDInsight gebruiken 
 
-HDInsight Interactive Query-clusters bevatten Apache Zeppelin-notitieblokken die u gebruiken kunt om uit te voeren van interactieve Hive-query's. In dit artikel leert u hoe u Apache Hive-query's uitvoeren in Azure HDInsight met Apache Zeppelin. 
+HDInsight Interactive Query-clusters bevatten [Apache Zeppelin](https://zeppelin.apache.org/) laptops die u gebruiken kunt voor het uitvoeren van interactieve Hive-query's. In dit artikel leert u hoe u Apache Zeppelin gebruiken om uit te voeren [Apache Hive](https://hive.apache.org/) query's in Azure HDInsight. 
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u verdergaat met dit artikel, hebt u de volgende items:
 
 * **HDInsight Interactive Query-cluster**. Zie [-cluster maken](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) om een HDInsight-cluster te maken.  Zorg ervoor dat u de interactieve query's te kiezen. 
 
-## <a name="create-a-apache-zeppelin-note"></a>Een Apache Zeppelin notitie maken
+## <a name="create-an-apache-zeppelin-note"></a>Een Apache Zeppelin notitie maken
 
 1. Blader naar de volgende URL:
 
@@ -69,12 +69,12 @@ Voordat u verdergaat met dit artikel, hebt u de volgende items:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u gegevens uit HDInsight met behulp van Power BI visualiseren.  Zie de volgende artikelen voor meer informatie:
+In dit artikel hebt u geleerd hoe u voor het visualiseren van gegevens uit HDInsight met behulp van [Microsoft Power BI](https://powerbi.microsoft.com/).  Zie de volgende artikelen voor meer informatie:
 
-* [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Interactive Query Hive-gegevens visualiseren met Power BI in Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+* [Apache Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Apache Interactive Query Hive-gegevens visualiseren met Power BI in Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Koppel Excel aan Hadoop met Power Query](hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Verbinding maken met Azure HDInsight en het uitvoeren van Hive-query's met Data Lake Tools voor Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* [Excel verbinden met Apache Hadoop met Power Query](hadoop/apache-hadoop-connect-excel-power-query.md).
+* [Verbinding maken met Azure HDInsight en Apache Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 * [Azure HDInsight-hulpprogramma gebruiken voor Visual Studio Code](hdinsight-for-vscode.md).
 * [Gegevens uploaden naar HDInsight](./hdinsight-upload-data.md).

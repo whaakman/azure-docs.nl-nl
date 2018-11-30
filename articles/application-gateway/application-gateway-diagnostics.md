@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237193"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427162"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -95,7 +95,7 @@ Het volgende codefragment toont een voorbeeld van het antwoord:
 
 ## <a name="diagnostic-logging"></a>Diagnostische logboeken
 
-U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en problemen oplossen Toepassingsgateways. Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Alle logboeken kunnen worden opgehaald uit Azure Blob-opslag en bekeken in verschillende hulpprogramma's, zoals [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de volgende lijst:
+U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en problemen oplossen Toepassingsgateways. Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Alle logboeken kunnen worden opgehaald uit Azure Blob-opslag en bekeken in verschillende hulpprogramma's, zoals [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de volgende lijst:
 
 * **Activiteitenlogboek**: U kunt [Azure-activiteitenlogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md) (voorheen bekend als de operationele logboeken en auditlogboeken) om alle bewerkingen die worden verzonden naar uw Azure-abonnement en hun status weer te geven. Activiteitenlogboekitems worden standaard verzameld en kunnen in de Azure-portal worden bekeken.
 * **Toegangslogboek**: U kunt dit logboek patronen voor databasetoegang van Application Gateway weergeven en analyseren van informatie, waaronder van de oproepende functie IP, aangevraagde URL wachttijd van het antwoord, retourcode en bytes in en uit. Aanmeldgegevens voor de toegang is verzameld om de 300 seconden. Dit logboek bevat één record per exemplaar van Application Gateway. De toepassingsgateway-exemplaar kan worden geïdentificeerd door de eigenschap instanceId.
@@ -303,7 +303,7 @@ U kunt activiteitenlogboekgegevens bekijken en analyseren via een van de volgend
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Bekijk en analyseer de toegang, prestaties en firewall-Logboeken
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) kan de bestanden gebeurtenislogboeken en prestatiemeteritems verzamelen van uw Blob storage-account. Het omvat visualisaties en krachtige zoekmogelijkheden om uw logboeken te analyseren.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) kan de bestanden gebeurtenislogboeken en prestatiemeteritems verzamelen van uw Blob storage-account. Het omvat visualisaties en krachtige zoekmogelijkheden om uw logboeken te analyseren.
 
 U kunt ook verbinding maken met uw opslagaccount en de JSON-logboekitems voor toegangs- en prestatielogboeken ophalen. Nadat u de JSON-bestanden hebt gedownload, kunt u ze naar de CSV-indeling converteren en in Excel, Power BI of een ander hulpprogramma voor gegevensvisualisatie bekijken.
 
@@ -379,7 +379,7 @@ Voor meer informatie over webhooks en hoe u ze kunt gebruiken met waarschuwingen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Prestatiemeteritems en gebeurtenislogboeken visualiseren met behulp van [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+* Prestatiemeteritems en gebeurtenislogboeken visualiseren met behulp van [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
 * [Uw Azure-activiteitenlogboek met Power BI visualiseren](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
 * [Bekijk en analyseer Azure-activiteitenlogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogbericht.
 

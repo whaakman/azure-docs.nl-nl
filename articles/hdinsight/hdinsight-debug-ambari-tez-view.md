@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034673"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494959"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Apache Ambari-weergaven gebruiken om op te sporen Apache Tez-taken in HDInsight
 
-De Apache Ambari-Webgebruikersinterface voor HDInsight bevat een overzicht van Apache Tez die kan worden gebruikt om te begrijpen en taken die gebruikmaken van Tez. De Tez-weergave kunt u de taak als een diagram van verbonden items visualiseren, Inzoomen op elk item en statistieken en waardevolle informatie ophalen.
+De [Apache Ambari](https://ambari.apache.org/) Webgebruikersinterface voor HDInsight bevat een [Apache TEZ](https://tez.apache.org/) weergeven die kan worden gebruikt om te begrijpen en taken die gebruikmaken van Tez. De Tez-weergave kunt u de taak als een diagram van verbonden items visualiseren, Inzoomen op elk item en statistieken en waardevolle informatie ophalen.
 
 > [!IMPORTANT]
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -101,8 +101,8 @@ Gebruik de volgende stappen uit om uit te voeren van een Hive-query die gebruikm
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu hebt u geleerd hoe u de Tez-weergave, meer informatie over [met behulp van Hive in HDInsight](hadoop/hdinsight-use-hive.md).
+Nu hebt u geleerd hoe u de Apache Tez-weergave, meer informatie over [Apache Hive in HDInsight met behulp van](hadoop/hdinsight-use-hive.md).
 
-Zie voor meer technische informatie over Tez, de [Tez-pagina op Hortonworks](http://hortonworks.com/hadoop/tez/).
+Zie voor meer technische informatie over Apache Tez, de [Apache Tez-pagina op Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-Zie voor meer informatie over het gebruik van Ambari met HDInsight [beheren HDInsight-clusters met behulp van de Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
+Zie voor meer informatie over het gebruik van Apache Ambari met HDInsight [beheren HDInsight-clusters met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)

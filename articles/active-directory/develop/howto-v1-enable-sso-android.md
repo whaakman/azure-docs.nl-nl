@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c7d1665eece966053f52e118bb0d6f7f5ec4cba6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957860"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422844"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Hoe: verschillende Apps SSO inschakelen op Android met behulp van ADAL
 
@@ -130,7 +130,7 @@ U kunt deze omleidings-URI registreren in uw app-registratie met de [Azure-porta
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Stap 3: De juiste machtigingen in uw toepassing instellen
 
-De broker-toepassing in Android maakt gebruik van de Accounts Manager-functie van de Android-besturingssysteem voor het beheer van referenties voor toepassingen. Als u wilt gebruiken van de broker in Android moet uw app-manifest machtigingen hebben voor AccountManager accounts gebruiken. Deze machtigingen worden besproken in de [hier Google documentatie voor Account Manager](http://developer.android.com/reference/android/accounts/AccountManager.html)
+De broker-toepassing in Android maakt gebruik van de Accounts Manager-functie van de Android-besturingssysteem voor het beheer van referenties voor toepassingen. Als u wilt gebruiken van de broker in Android moet uw app-manifest machtigingen hebben voor AccountManager accounts gebruiken. Deze machtigingen worden besproken in de [hier Google documentatie voor Account Manager](https://developer.android.com/reference/android/accounts/AccountManager.html)
 
 In het bijzonder zijn deze machtigingen:
 

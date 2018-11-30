@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: cdc6e082207b9128be3e3005305510f3ee493850
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427838"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422079"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>E-mail via SendGrid van Java verzenden
 Deze handleiding laat zien hoe u veelvoorkomende programming taken met de e-mailservice van SendGrid uitvoeren op Azure. De voorbeelden zijn geschreven in Java. De behandelde scenario's zijn **maken e**, **verzenden van e-mail**, **bijlagen toevoegen**, **met behulp van filters**, en **bijwerken van eigenschappen**. Zie voor meer informatie over SendGrid en het verzenden van e-mail, het [Vervolgstappen](#next-steps) sectie.
@@ -34,13 +34,13 @@ SendGrid is een [cloud-gebaseerde e-mailservice] die zorgt voor betrouwbare [tra
 * Doorsturen van vragen van klanten
 * E-mailmeldingen van uw toepassing
 
-Zie voor meer informatie, <http://sendgrid.com>.
+Zie voor meer informatie, <https://sendgrid.com>.
 
 ## <a name="create-a-sendgrid-account"></a>Een SendGrid-account maken
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Hoe: Gebruik de bibliotheken javax.mail
-De javax.mail-bibliotheken, bijvoorbeeld verkrijgen van <http://www.oracle.com/technetwork/java/javamail> en importeer ze in uw code. Bij een op hoog niveau, wordt het proces voor het gebruik van de bibliotheek javax.mail e-mail verzenden via SMTP is het volgende doen:
+De javax.mail-bibliotheken, bijvoorbeeld verkrijgen van <https://www.oracle.com/technetwork/java/javamail> en importeer ze in uw code. Bij een op hoog niveau, wordt het proces voor het gebruik van de bibliotheek javax.mail e-mail verzenden via SMTP is het volgende doen:
 
 1. Geef de SMTP-waarden, met inbegrip van de SMTP-server, waarbij voor SendGrid smtp.sendgrid.net is.
 
@@ -184,13 +184,13 @@ Nu dat u de basisprincipes van de SendGrid-e-mailservice hebt geleerd, volgt u d
 * SendGrid-API-documentatie: <https://sendgrid.com/docs/API_Reference/index.html>
 * SendGrid speciaal aanbod voor Azure-klanten: <https://sendgrid.com/windowsazure.html>
 
-[http://sendgrid.com]: https://sendgrid.com
-[http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
+[https://sendgrid.com]: https://sendgrid.com
+[https://sendgrid.com/pricing.html]: https://sendgrid.com/pricing.html
 [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
-[http://sendgrid.com/features]: https://sendgrid.com/features
-[http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
+[https://sendgrid.com/features]: https://sendgrid.com/features
+[https://www.oracle.com/technetwork/java/javamail]: https://www.oracle.com/technetwork/java/javamail/index.html
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
-[http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
+[https://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [cloud-gebaseerde e-mailservice]: https://sendgrid.com/email-solutions
 [transactionele e-mail delivery]: https://sendgrid.com/transactional-email

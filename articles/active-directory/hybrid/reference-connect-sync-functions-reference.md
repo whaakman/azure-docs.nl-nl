@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2302061d5a3eaf9ef51543b1304104e2dbe54bd9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312905"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425690"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: functieverwijzing
 In Azure AD Connect, worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -600,7 +600,7 @@ De functie FormatDateTime wordt gebruikt om de opmaak van een datum/tijd naar ee
 * indeling: een tekenreeks voor de indeling moet worden geconverteerd naar.
 
 **Opmerking:**  
-De mogelijke waarden voor de indeling vindt u hier: [door de gebruiker gedefinieerde datum/tijd-indelingen (functie Format)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+De mogelijke waarden voor de indeling vindt u hier: [door de gebruiker gedefinieerde datum/tijd-indelingen (functie Format)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
 **Voorbeeld:**  
 
@@ -1013,7 +1013,7 @@ De PadRight functie rechts-buiten een tekenreeks aan een opgegeven lengte met be
 **Opmerking:**
 
 * Als de lengte van tekenreeks kleiner dan de lengte is, is klikt u vervolgens padCharacter herhaaldelijk toegevoegd aan het einde (rechts) van de tekenreeks totdat het heeft een lengte die gelijk zijn aan lengte.
-* padCharacter kan een spatie, maar mag niet een null-waarde.
+* PadCharacter kan een spatie, maar mag niet een null-waarde.
 * Als de lengte van de tekenreeks gelijk aan of groter is dan de lengte is, tekenreeks geretourneerd ongewijzigd.
 * Als de tekenreeks een lengte die groter zijn dan of gelijk zijn aan lengte heeft, wordt een tekenreeks die identiek is aan de tekenreeks geretourneerd.
 * Als de lengte van tekenreeks kleiner dan de lengte is, wordt een nieuwe tekenreeks van de gewenste lengte met tekenreeks die is opgevuld met een padCharacter geretourneerd.

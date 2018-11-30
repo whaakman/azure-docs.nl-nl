@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016927"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496124"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight verbinden met uw on-premises netwerk
 
@@ -321,12 +321,12 @@ Om rechtstreeks verbinding maken met HDInsight via het virtuele netwerk, gebruik
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Zie het vaststellen van de poort die een service is beschikbaar in de [poorten die worden gebruikt door de services van Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+2. Zie het vaststellen van de poort die een service is beschikbaar in de [poorten die worden gebruikt door de services van Apache Hadoop op HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
     > [!IMPORTANT]
     > Sommige services die worden gehost op de hoofdknooppunten zijn alleen actief is op één knooppunt tegelijk. Als u probeert toegang tot een service op één hoofdknooppunt en dat mislukt, kunt u overschakelen naar het hoofdknooppunt.
     >
-    > Ambari is bijvoorbeeld alleen actief is op één hoofdknooppunt op een tijdstip. Als u probeert toegang tot Ambari op één hoofdknooppunt en er een 404-fout retourneert, wordt klikt u vervolgens deze uitgevoerd op het hoofdknooppunt.
+    > Apache Ambari is bijvoorbeeld alleen actief is op één hoofdknooppunt op een tijdstip. Als u probeert toegang tot Ambari op één hoofdknooppunt en er een 404-fout retourneert, wordt klikt u vervolgens deze uitgevoerd op het hoofdknooppunt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

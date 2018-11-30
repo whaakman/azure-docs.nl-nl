@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 3e9765bf2c6b746b892f7fbc97ea3124f80d772e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6c11062dbae18eed618fe7dde95daa55024d2ddd
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976007"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444848"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Vergelijking van de Azure AD v2.0-eindpunt met het eindpunt v1.0
 
@@ -137,7 +137,7 @@ Voor elke app die u wilt integreren met het v2.0-eindpunt, kunt u een app-regist
 App-registraties die ondersteuning bieden voor werk en schoolaccounts en persoonlijke accounts hebben het volgende voorbehoud:
 
 * Twee appgeheimen zijn toegestaan per toepassings-ID.
-* Een app-registratie geregistreerd door een gebruiker met een persoonlijk Microsoft-account in de Portal voor App-registratie kan worden bekeken en beheerd alleen door een enkele developer-account. Het kan niet worden gedeeld tussen meerdere ontwikkelaars. Als u wilt delen van de registratie van uw app met meerdere ontwikkelaars, kunt u de toepassing met behulp van de App-registraties (Preview)-gedeelte van de Azure-portal kunt maken.
+* Een toepassing die niet is geregistreerd in een tenant kan alleen worden beheerd door de account die geregistreerd. Het kan niet worden gedeeld met andere ontwikkelaars. Dit is het geval is bij de meeste apps die zijn geregistreerd met behulp van een persoonlijk Microsoft-account in de Portal voor App-registratie. Als u wilt delen van de registratie van uw app met meerdere ontwikkelaars, de toepassing registreren in een tenant met behulp van de **(Preview) van de App-registraties** sectie van de Azure portal.
 * Er zijn enkele beperkingen op de indeling van de omleidings-URL die is toegestaan. Zie de volgende sectie voor meer informatie over Omleidings-URL.
 
 ### <a name="restrictions-on-redirect-urls"></a>Beperkingen van de omleidings-URL 's
@@ -183,7 +183,7 @@ Ondersteuning voor clientbibliotheek voor het v2.0-eindpunt is momenteel beperkt
 * Als u een webtoepassing bouwt, kunt u veilig de algemeen beschikbare server-side-middleware gebruiken om uit te voeren, aanmelden en token-validatie. Hieronder vallen de OpenID Connect OWIN-middleware voor ASP.NET en de Node.js Passport-invoegtoepassing. Zie voor voorbeelden van code die gebruikmaken van Microsoft-middleware, de [v2.0 aan de slag](v2-overview.md#getting-started) sectie.
 * Als u een desktop- of mobiele toepassing bouwt nu, kunt u een van de Preview-versie van Microsoft Authentication Libraries (MSAL). Deze bibliotheken zijn in een productie-ondersteunde preview, dus is het veilig om ze in productie-Apps gebruiken. U kunt meer lezen over de voorwaarden van de Preview-versie en de beschikbare bibliotheken in [verificatie-bibliotheken verwijzing](reference-v2-libraries.md).
 * Voor platforms die niet wordt gedekt door Microsoft-bibliotheken, kunt u integreren met het v2.0-eindpunt door rechtstreeks verzenden en ontvangen van protocolberichten in uw toepassingscode. De OpenID Connect en OAuth-protocollen van v2.0 [expliciet worden gedocumenteerd](active-directory-v2-protocols.md) om u te helpen bij het uitvoeren van een dergelijke integratie.
-* Ten slotte kunt u open source-bibliotheken voor OpenID Connect en OAuth om te integreren met het v2.0-eindpunt. Het v2.0-eindpunt moet compatibel zijn met veel open-source-protocol bibliotheken zonder wijzigingen. De beschikbaarheid van dit soort bibliotheken varieert per taal en platform. De [OpenID Connect](http://openid.net/connect/) en [OAuth 2.0](http://oauth.net/2/) websites een lijst met populaire implementaties bijhouden. Zie voor meer informatie, [Azure Active Directory v2.0 en verificatie bibliotheken](reference-v2-libraries.md), en de lijst met open source-clientbibliotheken en voorbeelden die zijn getest met het v2.0-eindpunt.
+* Ten slotte kunt u open source-bibliotheken voor OpenID Connect en OAuth om te integreren met het v2.0-eindpunt. Het v2.0-eindpunt moet compatibel zijn met veel open-source-protocol bibliotheken zonder wijzigingen. De beschikbaarheid van dit soort bibliotheken varieert per taal en platform. De [OpenID Connect](https://openid.net/connect/) en [OAuth 2.0](https://oauth.net/2/) websites een lijst met populaire implementaties bijhouden. Zie voor meer informatie, [Azure Active Directory v2.0 en verificatie bibliotheken](reference-v2-libraries.md), en de lijst met open source-clientbibliotheken en voorbeelden die zijn getest met het v2.0-eindpunt.
 * Voor een verwijzing naar de `.well-known` -eindpunt voor de algemene v2.0-eindpunt is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Vervang `common` door uw tenant-ID op specifieke gegevens ophalen in uw tenant.  
 
 ### <a name="protocol-changes"></a>Protocol wijzigingen

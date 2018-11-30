@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: dc3bbab2242321ae736f3f2cefb1eed5e96e834e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288727"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425306"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Woordenlijst voor Azure Active Directory-ontwikkelaars
 
@@ -173,7 +173,7 @@ Een best practice-naamconventie, is het gebruik van een 'resource.operation.cons
 
 ## <a name="security-token"></a>beveiligingstoken
 
-Een ondertekend document met claims, zoals een OAuth2-verificatietoken ophalen of SAML 2.0-verklaring. Voor een OAuth2 [autorisatietoekenning](#authorization-grant), een [toegangstoken](#access-token) (OAuth2) en een [ID-Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) zijn typen beveiligingstokens, die beide worden geïmplementeerd als een [JSON Web Token (JWT)][JWT].
+Een ondertekend document met claims, zoals een OAuth2-verificatietoken ophalen of SAML 2.0-verklaring. Voor een OAuth2 [autorisatietoekenning](#authorization-grant), een [toegangstoken](#access-token) (OAuth2) en een [ID-Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) zijn typen beveiligingstokens, die beide worden geïmplementeerd als een [JSON Web Token (JWT)][JWT].
 
 ## <a name="service-principal-object"></a>service-principal-object
 
@@ -181,7 +181,7 @@ Wanneer u registreren/update een toepassing in de [Azure-portal][AZURE-portal], 
 
 Zie voor meer informatie, [toepassing en Service-Principal-objecten][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>aanmelding
+## <a name="sign-in"></a>aanmelden
 
 Het proces van een [clienttoepassing](#client-application) verificatie door eindgebruikers wordt gestart en vastleggen van gerelateerde staat voor het verkrijgen van een [beveiligingstoken](#security-token) en bereik van de toepassingssessie naar deze staat. Status kunnen bestaan uit artefacten, zoals informatie over gebruikersprofielen en gegevens die zijn afgeleid van token claims.
 
@@ -251,6 +251,6 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help om te verfijnen e
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
-[OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
-[OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
-[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+[OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html
+[OpenIDConnect-AuthZ-Endpoint]: https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+[OpenIDConnect-ID-Token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken

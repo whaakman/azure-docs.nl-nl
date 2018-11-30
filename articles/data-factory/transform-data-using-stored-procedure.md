@@ -1,6 +1,6 @@
 ---
-title: Transformeer gegevens met behulp van de activiteit opgeslagen Procedure in Azure Data Factory | Microsoft Docs
-description: Legt uit hoe u de activiteit opgeslagen Procedure van SQL Server gebruiken om aan te roepen, een opgeslagen procedure in een Azure SQL Database/datawarehouse van een Data Factory-pijplijn.
+title: Gegevens transformeren met behulp van de opgeslagen Procedure-activiteit in Azure Data Factory | Microsoft Docs
+description: Wordt uitgelegd hoe u SQL Server opgeslagen Procedure-activiteit gebruikt om aan te roepen een opgeslagen procedure in een Azure SQL Database/Data Warehouse vanuit een Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,40 +10,40 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054021"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444025"
 ---
-# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van de activiteit opgeslagen Procedure van SQL Server in Azure Data Factory
+# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van de SQL Server opgeslagen Procedure-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-stored-proc-activity.md)
+> * [Versie 1:](v1/data-factory-stored-proc-activity.md)
 > * [Huidige versie](transform-data-using-stored-procedure.md)
 
-U activiteiten voor gegevenstransformatie gebruiken in een Data Factory [pijplijn](concepts-pipelines-activities.md) transformeren en verwerken van onbewerkte gegevens in de voorspellingen en inzichten. De activiteit opgeslagen Procedure is een van de activiteiten voor gegevenstransformatie die ondersteuning biedt voor Data Factory. In dit artikel is gebaseerd op de [gegevens transformeren](transform-data.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten in de Data Factory toont.
+Gebruik van activiteiten voor gegevenstransformatie in een Data Factory [pijplijn](concepts-pipelines-activities.md) transformeren en verwerken van onbewerkte gegevens in voorspellingen en inzichten. De activiteit opgeslagen Procedure is een van de activiteiten voor gegevenstransformatie die ondersteuning biedt voor Data Factory. In dit artikel is gebaseerd op de [gegevens transformeren](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten in Data Factory geeft.
 
 > [!NOTE]
-> Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Factory](introduction.md) en voer de zelfstudie: [zelfstudie: gegevens transformeren](tutorial-transform-data-spark-powershell.md) voordat u dit artikel leest. 
+> Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Factory](introduction.md) en de zelfstudie: [zelfstudie: gegevens transformeren](tutorial-transform-data-spark-powershell.md) voordat het lezen van dit artikel. 
 
-U kunt de activiteit opgeslagen Procedure gebruiken om aan te roepen een opgeslagen procedure in een van de volgende gegevens worden opgeslagen in uw onderneming of op Azure een virtuele machine (VM): 
+U kunt de activiteit opgeslagen Procedure gebruiken om aan te roepen een opgeslagen procedure in een van de volgende gegevensarchieven in uw onderneming of op een Azure-machine (VM): 
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- SQL Server-Database.  Als u van SQL Server gebruikmaakt, host zichzelf integratie runtime installeren op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer die toegang heeft tot de database. Host zichzelf integratie runtime is een onderdeel dat wordt verbinding gemaakt op-premises/op virtuele machine van Azure met cloudservices gegevensbronnen op een manier veilig en beheerd. Zie [zelf gehost integratie runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+- SQL Server-Database.  Als u SQL Server gebruikt, installeert u zelf-hostende integratieruntime op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer die toegang tot de database heeft. Zelf-Hostende integratieruntime is een onderdeel waarmee gegevens verbonden gegevensbronnen on-premises/op virtuele Azure-machine met cloudservices op een veilige, beheerde manier. Zie [zelf-hostende integratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
 
 > [!IMPORTANT]
-> Wanneer gegevens worden gekopieerd naar Azure SQL Database of SQL Server, kunt u de **SqlSink** in een kopieeractiviteit om aan te roepen een opgeslagen procedure met behulp van de **sqlWriterStoredProcedureName** eigenschap. Zie voor meer informatie over de eigenschap connector artikelen te volgen: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Een opgeslagen procedure aanroepen tijdens het kopiëren van gegevens in een Azure SQL Data Warehouse met behulp van een kopieeractiviteit wordt niet ondersteund. Maar u kunt de activiteit opgeslagen procedure gebruiken om aan te roepen, een opgeslagen procedure in een SQL Data Warehouse. 
+> Het kopiëren van gegevens in Azure SQL Database of SQL Server, kunt u de **SqlSink** in de kopieeractiviteit om aan te roepen een opgeslagen procedure met behulp van de **sqlWriterStoredProcedureName** eigenschap. Zie voor meer informatie over de eigenschap connector artikelen te volgen: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Aanroepen van een opgeslagen procedure tijdens het kopiëren van gegevens in een Azure SQL Data Warehouse met behulp van een kopieeractiviteit wordt niet ondersteund. Maar u kunt de opgeslagen procedure-activiteit gebruiken voor het aanroepen van een opgeslagen procedure in een SQL Data Warehouse. 
 >
-> Wanneer het kopiëren van gegevens van Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in een kopieeractiviteit om aan te roepen, een opgeslagen procedure voor het lezen van gegevens uit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> Het kopiëren van gegevens uit Azure SQL Database of SQL Server of Azure SQL Data Warehouse, kunt u configureren **SqlSource** in de kopieeractiviteit om aan te roepen een opgeslagen procedure voor het lezen van gegevens vanuit de brondatabase met behulp van de  **sqlReaderStoredProcedureName** eigenschap. Zie voor meer informatie de volgende artikelen voor de connector: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
 
  
 
-## <a name="syntax-details"></a>Details van de syntaxis
-Hier volgt de JSON-indeling voor het definiëren van een activiteit opgeslagen Procedure:
+## <a name="syntax-details"></a>Syntaxis van de details
+Dit is de JSON-indeling voor het definiëren van een activiteit opgeslagen Procedure:
 
 ```json
 {
@@ -70,14 +70,18 @@ De volgende tabel beschrijft deze JSON-eigenschappen:
 | Eigenschap                  | Beschrijving                              | Vereist |
 | ------------------------- | ---------------------------------------- | -------- |
 | naam                      | Naam van de activiteit                     | Ja      |
-| description               | Beschrijving van wat de activiteit wordt gebruikt | Nee       |
-| type                      | Voor de activiteit opgeslagen Procedure, het activiteitstype is **SqlServerStoredProcedure** | Ja      |
-| linkedServiceName         | Verwijzing naar de **Azure SQL Database** of **Azure SQL Data Warehouse** of **SQL Server** geregistreerd als een gekoppelde service in de Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
-| storedProcedureName       | Geef de naam van de opgeslagen procedure aan te roepen. | Ja      |
-| storedProcedureParameters | Geef de waarden voor parameters van opgeslagen procedure. Gebruik `"param1": { "value": "param1Value","type":"param1Type" }` doorgeven parameterwaarden en hun type dat wordt ondersteund door de gegevensbron. Als u null zijn voor een parameter doorgeven moet, gebruikt u `"param1": { "value": null }` (alle kleine letter). | Nee       |
+| description               | Beschrijving van het doel waarvoor de activiteit wordt gebruikt | Nee       |
+| type                      | Voor de opgeslagen Procedureactiviteit, het activiteitstype is **SqlServerStoredProcedure** | Ja      |
+| linkedServiceName         | De verwijzing naar de **Azure SQL Database** of **Azure SQL Data Warehouse** of **SQL Server** geregistreerd als een gekoppelde service in Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
+| storedProcedureName       | Geef de naam van de opgeslagen procedure om aan te roepen. | Ja      |
+| storedProcedureParameters | Geef de waarden voor parameters van de opgeslagen procedure. Gebruik `"param1": { "value": "param1Value","type":"param1Type" }` doorgeven van parameterwaarden en hun type wordt ondersteund door de gegevensbron. Als u moet null zijn voor een parameter door te geven, gebruikt `"param1": { "value": null }` (alleen kleine letters). | Nee       |
+
+## <a name="error-info"></a>Foutgegevens
+
+Wanneer een opgeslagen procedure mislukt en retourneert de foutdetails, kunt u de foutgegevens rechtstreeks in de uitvoer van de activiteit niet kan vastleggen. Data Factory pumps echter alle van de activiteit die wordt uitgevoerd van gebeurtenissen naar Azure Monitor. Tussen de gebeurtenissen die Data Factory pompen naar Azure Monitor, gepusht foutdetails er. U kunt bijvoorbeeld e-mailwaarschuwingen instellen van deze gebeurtenissen. Zie voor meer informatie, [waarschuwen en bewaken van data factory's met behulp van Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen waarin wordt uitgelegd hoe voor het transformeren van gegevens op andere manieren: 
+Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegevens op andere manieren: 
 
 * [U-SQL-activiteit](transform-data-using-data-lake-analytics.md)
 * [Hive-activiteit](transform-data-using-hadoop-hive.md)
@@ -86,5 +90,5 @@ Zie de volgende artikelen waarin wordt uitgelegd hoe voor het transformeren van 
 * [Hadoop-Streamingactiviteit](transform-data-using-hadoop-streaming.md)
 * [Spark-activiteit](transform-data-using-spark.md)
 * [.NET aangepaste activiteit](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach uitvoering van activiteit](transform-data-using-machine-learning.md)
-* [De activiteit opgeslagen procedure](transform-data-using-stored-procedure.md)
+* [Machine Learning-Bach tot uitvoering van activiteit](transform-data-using-machine-learning.md)
+* [Opgeslagen procedureactiviteit](transform-data-using-stored-procedure.md)

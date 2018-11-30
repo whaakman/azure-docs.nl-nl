@@ -9,34 +9,27 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
-ms.openlocfilehash: 08510961616d2be8eac9b6a19063d5f0d613321f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 11/27/2018
+ms.openlocfilehash: 91d0f3565db484504a67a3b6ae0989b9291cd24f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263295"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446421"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Gegevens voorbereiden voor modellen met Azure Machine Learning
- 
-In dit artikel leert u over de use cases en de unieke eigenschappen van de Azure Machine Learning Data Prep SDK. Voorbereiden van gegevens is het belangrijkste onderdeel van een machine learning-werkstroom. Echte gegevens worden vaak opgesplitst, inconsistente of kan niet worden gebruikt als trainingsgegevens zonder significante opschonen en transformeren. Corrigeren van fouten en afwijkingen in de onbewerkte gegevens en het bouwen van nieuwe functies die relevant voor het probleem dat u wilt oplossen zijn, wordt de nauwkeurigheid van model verhogen.
+
+In dit artikel leert u over de use cases en de unieke eigenschappen van de Azure Machine Learning Data Prep SDK. Voorbereiden van gegevens is het belangrijkste onderdeel van een machine learning-werkstroom. Echte gegevens worden vaak opgesplitst, inconsistente of kan niet worden gebruikt als trainingsgegevens zonder significante opschonen en transformeren. Corrigeren van fouten en afwijkingen in de onbewerkte gegevens en het bouwen van nieuwe functies die relevant voor het probleem dat u wilt oplossen zijn, wordt de nauwkeurigheid van model verhogen. De SDK is ontworpen om vertrouwd te raken voor gebruikers van andere algemene gegevens prep-bibliotheken, terwijl bieden voordelen voor belangrijke scenario's en onderhouden van interoperabiliteit met die andere bibliotheken.
 
 U kunt uw gegevens in met behulp van Python voorbereiden de [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk).
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning gegevensvoorbereiding SDK
 
-De [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) is een Python-bibliotheek met:
-+ Veel algemene gegevens voorverwerking 's
-+ Geautomatiseerde feature-engineering en transformaties die zijn afgeleid van voorbeelden
+De [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) is een Python-bibliotheek biedt:
 
-De SDK is vergelijkbaar in de core-functionaliteit met populaire bibliotheken zoals **Pandas** en **PySpark**, biedt nog meer flexibiliteit. Pandas is doorgaans meest geschikt voor kleinere gegevenssets (< 2-5 GB) voordat capaciteit geheugenbeperkingen invloed hebben op prestaties. Daarentegen PySpark is in het algemeen voor big data-toepassingen, maar voert een overhead die met kleine gegevenssets veel trager verloopt werken.
-
-De Azure Machine Learning Data Prep SDK biedt:
-- Uitvoerbaarheid en het gemak bij het werken met kleine gegevenssets
-
-- Schaalbaarheid voor moderne toepassingen, big data
-
-- De mogelijkheid om te gebruiken en dezelfde code voor beide gebruiksvoorbeelden schalen
+* Intelligente tijdbesparende transformaties zoals Fuzzy groeperen, afgeleide kolom per voorbeeld, automatisch splitsen, slimme lezen-bestand en onregelmatige rechts schema-verwerking.
+* Een enkele API die geschikt is voor gegevens lokaal kleine of grote hoeveelheden gegevens in de cloud, met **paar aan zonder codewijzigingen**.
+* De mogelijkheid om effectiever schalen op een enkele computer door het gebruik van een streaming-benadering voor het verwerken van de gegevens, in plaats van in het geheugen wordt geladen.
 
 ### <a name="install-the-sdk"></a>De SDK installeren
 
@@ -57,9 +50,12 @@ import azureml.dataprep as dprep
 Zie voor meer informatie over de functies van deze SDK en -modules, de [Data Prep SDK-referentiedocumenten](https://aka.ms/data-prep-sdk).
 
 De volgende voorbeelden markeert u enkele van de unieke functies van de SDK, met inbegrip van:
-+ Automatische detectie
-+ Geautomatiseerde feature-engineering
-+ Samenvattende statistieken
+
+* Automatische detectie
+* Intelligente transformaties
+* Samenvattende statistieken
+* Functionaliteit voor cross-omgeving
+
 
 #### <a name="automatic-file-type-detection"></a>Automatische detectie
 
@@ -69,7 +65,7 @@ Gebruik de `smart_read_file()` functie voor het laden van uw gegevens zonder te 
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
-#### <a name="automated-feature-engineering"></a>Geautomatiseerde feature-engineering
+#### <a name="intelligent-transforms"></a>Intelligente transformaties
 
 De SDK gebruiken voor splitsen en afleiden van kolommen op zowel voorbeeld en Deductie feature-engineering automatiseren. Stel dat u hebt een veld in de gegevensstroom-object met de naam `datetime` met een waarde van `2018-09-15 14:30:00`.
 
@@ -130,6 +126,7 @@ Als u gedetailleerde voorbeelden en de code voor elke stap voorbereiding weergev
 ![Gegevens voorbereiden](./media/concept-data-preparation/data-prep-process.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Bekijk een [voorbeeld notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) van gegevens voor te bereiden met behulp van de Azure Machine Learning Data Prep SDK.
 
 Azure Machine Learning Data Prep SDK [referentiedocumentatie](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).

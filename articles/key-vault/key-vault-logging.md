@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159585"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426941"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
@@ -265,7 +265,7 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 
 ## <a id="loganalytics"></a>Log Analytics gebruiken
 
-Met de oplossing Azure Key Vault in Log Analytics kunt u de AuditEvent-logboeken van Azure Key Vault controleren. Zie [Azure Key Vault solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (De oplossing Azure Key Vault in Log Analytics) voor meer informatie. Dit artikel bevat ook instructies voor als u moet migreren van de oude Key Vault-oplossing die tijdens de preview van Log Analytics werd aangeboden en waarbij u uw logboeken eerst moest doorsturen naar een Azure-opslagaccount en Log Analytics moest configureren om van daaruit te lezen.
+Met de oplossing Azure Key Vault in Log Analytics kunt u de AuditEvent-logboeken van Azure Key Vault controleren. Zie [Azure Key Vault solution in Log Analytics](../azure-monitor/insights/azure-key-vault.md) (De oplossing Azure Key Vault in Log Analytics) voor meer informatie. Dit artikel bevat ook instructies voor als u moet migreren van de oude Key Vault-oplossing die tijdens de preview van Log Analytics werd aangeboden en waarbij u uw logboeken eerst moest doorsturen naar een Azure-opslagaccount en Log Analytics moest configureren om van daaruit te lezen.
 
 ## <a id="next"></a>Volgende stappen
 Zie [Azure Key Vault in een webtoepassing gebruiken](key-vault-use-from-web-application.md) voor een zelfstudie over het gebruik van Azure Key Vault in een webtoepassing.

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/19/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd55bb78fd385ab12d711e569ca6d5013c48e545
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4ad1633e4d56e44e3b82f90121a14c6ef6f0b976
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221992"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441398"
 ---
 # <a name="bing-visual-search-sdk"></a>Bing visuele zoekopdrachten SDK
 
@@ -32,6 +32,16 @@ Bing visuele zoekopdrachten biedt de volgende client-SDK's die u gebruiken kunt 
     * [Python-bibliotheken](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) voor definities en afhankelijkheden
 
 SDK-voorbeelden voor elke taal omvatten een Leesmij-bestand aan de vereisten voor het gebruik van de SDK samen met stappen voor het installeren en uitvoeren van de voorbeelden.
+
+Voor deze voorbeelden, moet u een abonnement op S9 prijs laag zoals wordt weergegeven in [Cognitive Services-prijsinformatie: Bing zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Om te beginnen een abonnement in Azure Portal:
+1. Voer 'BingSearchV7' in het tekstvak aan de bovenkant van de Azure-Portal met de melding dat `Search resources, services, and docs`.  
+2. Selecteer onder de Marketplace in de vervolgkeuzelijst, `Bing Search v7`.
+3. Voer `Name` voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go` abonnement.
+5. Selecteer `S9` prijscategorie.
+6. Klik op `Enable` starten van het abonnement.
 
 ### <a name="sdk-tools"></a>SDK-hulpprogramma 's
 SDK-hulpprogramma's om te verkennen van de mogelijkheden van Bing visuele zoekopdrachten vindt u in deze Git-Repo: [Bing visuele zoekopdrachten-hulpprogramma's](https://github.com/Azure-Samples/bing-visualsearch-tools)

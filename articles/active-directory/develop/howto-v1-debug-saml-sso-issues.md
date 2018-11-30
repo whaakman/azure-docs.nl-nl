@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: bcdc665c59a900d4c57d03140654fffec26af0eb
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706752"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422250"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -75,7 +75,7 @@ De fout kunt oplossen zonder dat MyApps beveiligde aanmelding-extensie wordt ge�
     - Een instructie de hoofdoorzaak van het probleem te identificeren.
 2.  Ga terug naar Azure AD en zoek de **eenmalige aanmelding testen** blade.
 3.  In het bovenstaande tekstvak **resolutie begeleiding**, plakt u het foutbericht.
-3.  Klik op **resolutie begeleiding** om stappen voor het oplossen van het probleem weer te geven. De richtlijnen mogelijk gegevens uit de SAML-aanvraag of SAML-antwoord. Als u niet de extensie MyApps beveiligde aanmelding gebruikt, moet u mogelijk een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) om op te halen van de SAML-aanvraag en het antwoord.
+3.  Klik op **resolutie begeleiding** om stappen voor het oplossen van het probleem weer te geven. De richtlijnen mogelijk gegevens uit de SAML-aanvraag of SAML-antwoord. Als u niet de extensie MyApps beveiligde aanmelding gebruikt, moet u mogelijk een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om op te halen van de SAML-aanvraag en het antwoord.
 4.  Controleer of het doel in de SAML-aanvraag overeenkomt met de SAML Single Sign-On Service-URL ophalen uit Azure Active Directory
 5.  Controleer of dat de uitgever in de SAML-aanvraag wordt dezelfde id die u hebt geconfigureerd voor de toepassing in Azure Active Directory. Azure AD maakt gebruik van de uitgever van een toepassing zoeken in uw directory.
 6.  Controleer of dat assertionconsumerserviceurl is waar de toepassing verwacht voor het ontvangen van het SAML-token uit Azure Active Directory. U kunt deze waarde configureren in Azure Active Directory, maar dit is niet verplicht als het deel van de SAML-aanvraag uitmaakt.
@@ -90,7 +90,7 @@ De fout kunt oplossen:
 1. Als de toepassing bevindt zich in de Azure AD-galerie, controleert u of dat u de stappen voor het integreren van de toepassing met Azure AD hebt gevolgd. De integratie-instructies voor uw toepassing, Zie de [lijst met zelfstudies over integratie van SaaS-toepassing](../saas-apps/tutorial-list.md).
 2. De SAML-antwoord ophalen.
     - Als de mijn Apps beveiligde aanmelding-extensie is geïnstalleerd, uit de **eenmalige aanmelding testen** blade, klikt u op **downloaden van het SAML-antwoord**.
-    - Als de extensie is niet geïnstalleerd, gebruikt u een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) om op te halen van het SAML-antwoord. 
+    - Als de extensie is niet geïnstalleerd, gebruikt u een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) om op te halen van het SAML-antwoord. 
 3. U ziet deze elementen in het SAML-antwoord-token:
     - De unieke id van de gebruiker van NameID-waarde en indeling
     - Uitgegeven claims in het token

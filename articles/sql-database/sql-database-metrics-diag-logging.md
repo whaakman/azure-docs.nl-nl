@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087743"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425996"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
 
@@ -101,7 +101,7 @@ Om in te schakelen van diagnostische gegevens telemetrie voor streaming **Azure 
    ![Diagnostische gegevens voor SQL Database configureren](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Controlelogboek kan niet worden ingeschakeld vanuit database diagnostische instellingen. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en ziet ook [SQL auditlogboeken beschikbaar zijn in Azure Log Analytics en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Beveiligingscontrole logboeken zijn kan niet worden ingeschakeld vanuit database diagnostische instellingen. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en ziet ook [SQL auditlogboeken beschikbaar zijn in Azure Log Analytics en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Om in te schakelen van diagnostische gegevens telemetrie voor streaming **Manage
 2. Selecteer **diagnostische instellingen**
 3. Selecteer **diagnostische gegevens inschakelen** als er geen vorige instellingen bestaat, of selecteer **instelling bewerken** een vorige instelling bewerken
 
-   ![Diagnostische gegevens inschakelen voor beheerd exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Diagnostische gegevens inschakelen voor beheerd exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Typ de naam voor de instelling: voor eigen referentie
 5. Selecteer naar welke resource moet worden stream diagnostische gegevens van de elastische pool: **archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**
@@ -190,7 +190,7 @@ Om in te schakelen van diagnostische gegevens telemetrie voor streaming **Manage
 7. Schakel het selectievakje in voor diagnostische gegevens telemetrie **ResourceUsageStats**
 8. Klik op **Opslaan**.
 
-   ![Diagnostische gegevens configureren voor Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Diagnostische gegevens configureren voor Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Herhaal de bovenstaande stappen voor elk beheerd exemplaar u wilt bewaken.
@@ -675,7 +675,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |Schema_s|Databaseschema.|
 |Table_s|De tabel is beïnvloed.|
 |IndexName_s|Naam van de index.|
-|IndexColumns_s|De naam van de kolom.|
+|IndexColumns_s|Kolomnaam.|
 |IncludedColumns_s|Kolommen die zijn opgenomen.|
 |EstimatedImpact_s|Geschatte invloed van automatisch afstemmen aanbeveling JSON.|
 |Event_s|Type gebeurtenis voor automatisch afstemmen.|

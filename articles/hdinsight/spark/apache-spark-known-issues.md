@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: c364f9d06d29a601dfb9598bb568e7a6218d0a6f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8c3e3fa6dee41725c95be6f820440f6be50c53e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013799"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496492"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Bekende problemen voor Apache Spark-cluster in HDInsight
 
 Dit document houdt van alle bekende problemen voor de openbare preview van HDInsight Spark.  
 
-## <a name="livy-leaks-interactive-session"></a>Interactieve sessie wordt gelekt Livy
-Wanneer Livy opnieuw wordt opgestart (van Ambari of vanwege hoofdknooppunt 0 virtuele machine opnieuw opstarten) met een interactieve sessie nog steeds actief, wordt de sessie van een interactieve taak gelekt. Als gevolg hiervan nieuwe taken kunnen blijven steken bij de status goedgekeurd.
+## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy lekt interactieve sessie
+Wanneer [Apache Livy](https://livy.incubator.apache.org/) opnieuw wordt opgestart (van [Apache Ambari](https://ambari.apache.org/) of als gevolg van het hoofdknooppunt 0 virtuele machine opnieuw opstarten) met een interactieve sessie nog steeds actief zijn, een taak interactieve sessie is gelekt. Als gevolg hiervan nieuwe taken kunnen blijven steken bij de status goedgekeurd.
 
 **Risicobeperking:**
 
@@ -33,7 +33,7 @@ Gebruik de volgende procedure om het probleem te omzeilen:
    
         yarn application –list
    
-    De namen van de taak standaard worden Livy als de taken zijn gestart met een interactieve sessie Livy met geen expliciete namen opgegeven. Voor de Livy-sessie gestart met Jupyter-notebook, begint de naam van de taak met remotesparkmagics_ *. 
+    De namen van de taak standaard worden Livy als de taken zijn gestart met een interactieve sessie Livy met geen expliciete namen opgegeven. Voor de Livy-sessie gestart door [Jupyter-Notebook](https://jupyter.org/), naam van de taak wordt gestart met remotesparkmagics_ *. 
 3. Voer de volgende opdracht om deze taken af te sluiten. 
    
         yarn application –kill <Application ID>
@@ -112,20 +112,20 @@ Wanneer de Spark-cluster heeft onvoldoende resources, wordt de Spark- en PySpark
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op afstand fouten in Spark Scala-toepassingen op te lossen](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Zeppelin-notebooks gebruiken met een Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
-* [Beschikbare kernels voor Jupyter-notebook in Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op te sporen Apache Spark-toepassingen op afstand](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Beschikbare kernels voor Jupyter-notebook in Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](apache-spark-jupyter-notebook-install-locally.md)
 

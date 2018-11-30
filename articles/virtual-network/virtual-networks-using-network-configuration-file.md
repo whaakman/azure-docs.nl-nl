@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986112"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421841"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Een virtueel netwerk (klassiek) met behulp van een netwerkconfiguratiebestand configureren
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-implementatiemodel gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-implementatiemodel gebruiken.
 
 U kunt maken en configureren van een virtueel netwerk (klassiek) met een netwerkconfiguratiebestand met behulp van de Azure classic-opdrachtregelinterface (CLI) of Azure PowerShell. U kunt maken of wijzigen van een virtueel netwerk via het Azure Resource Manager-implementatiemodel met behulp van een netwerkconfiguratiebestand. U niet de Azure-portal gebruiken voor het maken of wijzigen van een virtueel netwerk (klassiek) met behulp van een netwerkconfiguratiebestand, maar u de Azure-portal gebruiken kunt om te maken van een virtueel netwerk (klassiek) zonder een netwerkconfiguratiebestand.
 
@@ -44,7 +44,7 @@ U kunt PowerShell of de klassieke Azure CLI gebruiken voor het exporteren van ee
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-classic-cli"></a>CLI van Azure classic
+### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
 
 1. [De klassieke Azure-CLI installeren](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Voltooi de resterende stappen van een klassieke CLI-opdrachtprompt.
 2. Meld u aan bij Azure door te voeren de `azure login` opdracht.
@@ -132,9 +132,9 @@ U kunt PowerShell of de klassieke CLI gebruiken voor het importeren van een netw
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-classic-cli"></a>CLI van Azure classic
+### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
 
-1. [De klassieke Azure-CLI installeren](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Voltooi de resterende stappen van een klassieke CLI-opdrachtprompt.
+1. [De klassieke Azure-CLI installeren](/cli/azure/install-classic-cli). Voltooi de resterende stappen van een klassieke CLI-opdrachtprompt.
 2. Meld u aan bij Azure door te voeren de `azure login` opdracht.
 3. Zorg ervoor dat u bent in asm-modus door op te geven de `azure config mode asm` opdracht.
 4. Wijzig de map en bestandsnaam in de volgende opdracht uit als nodig is, voert u de opdracht voor het importeren van het netwerkconfiguratiebestand:

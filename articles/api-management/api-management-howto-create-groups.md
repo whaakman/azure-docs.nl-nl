@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603061"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442410"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Hoe u groepen maken en gebruiken voor het beheren van accounts voor ontwikkelaars in Azure API Management
+
 In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Producten voor het eerst zichtbaar aan groepen zijn gemaakt, en vervolgens ontwikkelaars in deze groepen kunnen weergeven en zich abonneren op de producten die gekoppeld aan de groepen zijn. 
 
 API Management heeft de volgende onveranderbare systeemgroepen:
@@ -34,6 +35,8 @@ Naast deze systeemgroepen kunnen beheerders aangepaste groepen maken of [gebruik
 Deze handleiding wordt beschreven hoe beheerders van een exemplaar van API Management kunnen nieuwe groepen toevoegen en deze koppelen aan producten en -ontwikkelaars.
 
 Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met behulp van de API Management REST API [groep](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 

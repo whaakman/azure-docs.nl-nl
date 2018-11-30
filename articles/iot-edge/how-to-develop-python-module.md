@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0dfe096bb3a2a2116ead2423f53a5e44c8f02630
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c3cf2b703760debb368e26d629ee73f56ce93d39
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567516"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441248"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in Python-modules voor Azure IoT Edge
 
@@ -66,7 +66,7 @@ Volg deze stappen voor het maken van een IoT Edge-module op basis van Azure IoT 
 
 7. Voer een naam voor uw module. Kies een naam die uniek is binnen uw containerregister. 
 
-8. Geef de naam van de opslagplaats voor installatiekopieën van de module. VS Code autopopulates de module met naam **localhost:5000**. Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**. Vervang alleen het onderdeel localhost van de tekenreeks, verwijder niet de naam van de module. 
+8. Geef de naam van de opslagplaats voor installatiekopieën van de module. VS Code autopopulates de module met naam **localhost:5000**. Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**. Vervang alleen het onderdeel localhost van de tekenreeks, verwijder niet de naam van de module. De laatste tekenreeks ziet eruit als \<registernaam\>.azurecr.io/\<modulename\>.
 
    ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/how-to-develop-c-module/repository.png)
 
@@ -81,6 +81,7 @@ Er zijn vier items in de oplossing:
    > Het omgevingsbestand wordt alleen gemaakt als u een opslagplaats voor installatiekopieën voor de module opgeven. Als u de standaardinstellingen localhost om te testen en fouten opsporen in lokaal hebt geaccepteerd, moet u geen omgevingsvariabelen declareren. 
 
 * Een **deployment.template.json** bestand geeft een lijst van de nieuwe module samen met een voorbeeld van een **tempSensor** module die gegevens simuleert u voor testdoeleinden kunt gebruiken. Zie voor meer informatie over hoe implementatie werk manifesten [informatie over het gebruik van implementatie manifesten implementeren modules en routes tot stand brengen](module-composition.md). 
+* Een **deployment.debug.template.json** containers de foutopsporingsversie van de module met de juiste container opties afbeeldingen-bestand.
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
@@ -92,13 +93,7 @@ Wanneer u klaar bent om de Python-sjabloon met uw eigen code aanpassen, gebruikt
 
 In elke modulemap zijn er verschillende Docker-bestanden voor andere containertypen. Gebruik een van deze bestanden die met de extensie eindigen **.debug** uw-module voor het testen van maken. Op dit moment ondersteunen Python-modules foutopsporing alleen in Linux amd64-containers. 
 
-1. In VS Code, gaat u naar de `deployment.template.json` bestand. De afbeeldings-URL van uw module bijwerken door toe te voegen **.debug** aan het einde.
-
-2. Vervang de Python-module createOptions in **deployment.template.json** met onderstaande inhoud en sla dit bestand: 
-    
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"5678/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"5678/tcp\":[{\"HostPort\":\"5678\"}]}}}"
-    ```
+1. In VS Code, gaat u naar de `deployment.debug.template.json` bestand. Dit bestand bevat de foutopsporingsversie van de module installatiekopieën met de juiste opties maken. 
 
 3. Navigeer naar `main.py`, de volgende codes toevoegen na de importsectie
     
@@ -132,9 +127,9 @@ In elke modulemap zijn er verschillende Docker-bestanden voor andere containerty
     ```
 
 2. Voer in het opdrachtenpalet VS Code en voer de opdracht **Azure IoT Edge: Build and Push IoT Edge-oplossing**.
-3. Selecteer de `deployment.template.json` -bestand voor uw oplossing van de command palette. 
+3. Selecteer de `deployment.debug.template.json` -bestand voor uw oplossing van de command palette. 
 4. In Azure IoT Hub Device Explorer met de rechtermuisknop op een IoT Edge-apparaat-ID. Selecteer vervolgens **implementatie voor één apparaat maken**. 
-5. Openen van uw oplossing **config** map. Selecteer vervolgens de `deployment.json` bestand. Kies **Selecteer Edge-implementatie Manifest**. 
+5. Openen van uw oplossing **config** map. Selecteer vervolgens de `deployment.debug.amd64.json` bestand. Kies **Selecteer Edge-implementatie Manifest**. 
 
 Hier ziet u de implementatie is gemaakt met een implementatie-ID in een VS Code geïntegreerde terminal.
 

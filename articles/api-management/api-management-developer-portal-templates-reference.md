@@ -1,6 +1,6 @@
 ---
-title: Azure API Management Developer portal-sjablonen | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen in Azure API Management.
+title: Sjablonen voor Azure API Management Ontwikkelaarsportals | Microsoft Docs
+description: Informatie over het aanpassen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26128746"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445477"
 ---
-# <a name="developer-portal-templates"></a>Developer portal-sjablonen
+# <a name="developer-portal-templates"></a>Sjablonen voor ontwikkelaarsportals
 
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
   
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).  
+Zie voor meer informatie over het werken met sjablonen [over het aanpassen van de API Management-ontwikkelaarsportal met behulp van sjablonen](api-management-developer-portal-templates.md).  
 
-##  <a name="DeveloperPortalTemplates"></a>Developer portal-sjablonen  
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+##  <a name="DeveloperPortalTemplates"></a> Sjablonen voor ontwikkelaarsportals  
   
 -   [API's](api-management-api-templates.md)  
     -   [API-lijst](api-management-api-templates.md#APIList)  
@@ -48,20 +50,20 @@ Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API
     -   [Lijst met toepassingen](api-management-application-templates.md#ProductList)  
     -   [Toepassing](api-management-application-templates.md#Application)  
 -   [Problemen](api-management-issue-templates.md)  
-    -   [Lijst met kwesties](api-management-issue-templates.md#IssueList)  
+    -   [Lijst met probleem](api-management-issue-templates.md#IssueList)  
 -   [Gebruikersprofiel](api-management-user-profile-templates.md)  
     -   [Profiel](api-management-user-profile-templates.md#Profile)  
     -   [Abonnementen](api-management-user-profile-templates.md#Subscriptions)  
     -   [Toepassingen](api-management-user-profile-templates.md#Applications)  
-    -   [Update-accountgegevens](api-management-user-profile-templates.md#UpdateAccountInfo)  
+    -   [Accountgegevens bijwerken](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Pagina's](api-management-page-templates.md)  
     -   [Aanmelden](api-management-page-templates.md#SignIn)  
     -   [Aanmelden](api-management-page-templates.md#SignUp)  
-    -   [Pagina is niet gevonden](api-management-page-templates.md#PageNotFound)
+    -   [Pagina niet gevonden](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-+ [Verwijzing naar de sjabloon](api-management-developer-portal-templates-reference.md)  
++ [Sjabloonverwijzing](api-management-developer-portal-templates-reference.md)  
 + [Naslaginformatie over gegevensmodellen](api-management-template-data-model-reference.md)  
 + [Paginabesturingselementen](api-management-page-controls.md)  
 + [Sjabloonresources](api-management-template-resources.md)

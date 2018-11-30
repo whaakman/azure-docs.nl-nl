@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8a92852a2721bd391ddf7c3cf3489b820c4a1400
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f5f790d4cdba8b6ebc1ed2694cb4552cb565f676
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277612"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427213"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Rollen van de entiteit in de patronen zijn contextuele subtypen
 Rollen zijn met de naam, contextuele subtypen van een entiteit gebruikt alleen in [patronen](luis-concept-patterns.md).
@@ -29,7 +29,7 @@ Functies bieden een naam op die verschillen:
 |Locatie|oorsprong|waar het vlak van verlaat|
 |Locatie|destination|waar het vlak van terechtkomt|
 |Vooraf gedefinieerde datetimeV2|tot|einddatum|
-|Vooraf gedefinieerde datetimeV2|uit|begindatum|
+|Vooraf gedefinieerde datetimeV2|van|begindatum|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Hoe worden de rollen in patronen gebruikt?
 Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utterance: 
@@ -43,7 +43,7 @@ Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utteranc
 De entiteit en de rol worden tussen haakjes, `{}`. De entiteit en de rol worden gescheiden door een dubbele punt. 
 
 
-[!INCLUDE[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+[!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>Rollen met vooraf gemaakte entiteiten
 

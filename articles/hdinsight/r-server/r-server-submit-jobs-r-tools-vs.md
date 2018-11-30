@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248568"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497128"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Taken verzenden vanuit R-hulpprogramma's voor Visual Studio
 
@@ -64,7 +64,7 @@ RTVS verbetert uw R-werkstroom door het aanbieden van hulpprogramma's zoals de [
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Verzenden van taken naar een ML-Services van HDInsight-cluster
 
-Met behulp van een Microsoft ML Server/Microsoft R Client van een Windows-computer die zijn uitgerust met PuTTY, kunt u een compute-context die wordt uitgevoerd gedistribueerde `RevoScaleR` functies van de lokale client met uw HDInsight-cluster. Gebruik `RxSpark` te maken van de compute-context, op te geven uw gebruikersnaam, de Hadoop-cluster edge-knooppunt, SSH-switches, enzovoort.
+Met behulp van een Microsoft ML Server/Microsoft R Client van een Windows-computer die zijn uitgerust met PuTTY, kunt u een compute-context die wordt uitgevoerd gedistribueerde `RevoScaleR` functies van de lokale client met uw HDInsight-cluster. Gebruik `RxSpark` te maken van de compute-context, op te geven uw gebruikersnaam, het Apache Hadoop-cluster edge-knooppunt, SSH-switches, enzovoort.
 
 1. Als u de hostnaam van uw edge-knooppunt zoekt, opent u het deelvenster ML-Services van HDInsight-cluster op Azure, en selecteer vervolgens **Secure Shell (SSH)** in het bovenste menu van het overzichtsvenster van.
 
@@ -132,7 +132,7 @@ Met behulp van een Microsoft ML Server/Microsoft R Client van een Windows-comput
 
         ![Gekopieerde bestand](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. Nadat u klaar met de huidige Spark-context bent, moet u voorkomen dat deze. U kunt verschillende contexten niet tegelijk uitvoeren.
+6. Nadat u klaar met de huidige Apache Spark-context bent, moet u voorkomen dat deze. U kunt verschillende contexten niet tegelijk uitvoeren.
 
     ```R
     rxStopEngine(mySparkCluster)

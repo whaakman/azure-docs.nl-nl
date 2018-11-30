@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870176"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444381"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Gegevens over het gebruik van LUIS-service van Azure Cloud Shell
 De Azure-portal kunt u PowerShell-cmdlets gebruiken om te werken met LUIS-resources. 
@@ -32,7 +32,7 @@ Nadat u een storage-account hebt en worden geverifieerd, kunt u PowerShell-cmdle
 ## <a name="open-cloud-shell"></a>Cloud Shell openen
 Wanneer u de Azure portal cloudshell gebruikt, bent u altijd op de meest recente versie van PowerShell. 
 
-Gebruik de **Cloud Shell openen** knop Cloud Shell openen of open een browser met [ https://shell.azure.com ](https://shell.azure.com). 
+Gebruik de **Cloud Shell openen** knop Cloud Shell openen of open een browser met [ https://shell.azure.com ](https://shell.azure.com). Selecteer Power Shell als de omgeving. Als u een Azure Storage-account niet hebt, moet u er een maken. 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 

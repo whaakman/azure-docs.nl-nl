@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 333e73af3578cdc363e7ede08ca52207cfd0fdb0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248899"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446786"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -157,13 +157,13 @@ public static string Run(CustomObject req, ILogger log)
 }
 
 public class CustomObject {
-     public String name {get; set;}
+     public string name {get; set;}
 }
 ```
 
-### <a name="trigger---f-example"></a>Trigger - F #-voorbeeld
+### <a name="trigger---f-example"></a>Trigger - F# voorbeeld
 
-Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie zoekt naar een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
+Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [ F# functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie zoekt naar een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
 
 Hier volgt de *function.json* bestand:
 
@@ -188,7 +188,7 @@ Hier volgt de *function.json* bestand:
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
 open System.Net
@@ -348,7 +348,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
-Voor C# en F #-functies, kunt u het type van de invoer voor een trigger declareren `HttpRequestMessage` of een aangepast type. Als u ervoor kiest `HttpRequestMessage`, krijgt u volledige toegang tot het request-object. Voor een type aangepaste probeert de runtime parseren van de hoofdtekst van de JSON-aanvraag voor het instellen van eigenschappen van het object.
+Voor C# en F# functies, kunt u het type van de invoer voor een trigger declareren `HttpRequestMessage` of een aangepast type. Als u ervoor kiest `HttpRequestMessage`, krijgt u volledige toegang tot het request-object. Voor een type aangepaste probeert de runtime parseren van de hoofdtekst van de JSON-aanvraag voor het instellen van eigenschappen van het object.
 
 De Functions-runtime biedt voor JavaScript-functies, de hoofdtekst van de aanvraag in plaats van het request-object. Zie voor meer informatie de [JavaScript trigger voorbeeld](#trigger---javascript-example).
 
@@ -434,6 +434,45 @@ Standaard alle functie-routes worden voorafgegaan door *api*. U kunt ook aanpass
 }
 ```
 
+### <a name="working-with-client-identities"></a>Werken met client-id 's
+
+Als uw functie-app [App Service-verificatie / autorisatie](../app-service/app-service-authentication-overview.md), vindt u informatie over geverifieerde clients vanuit uw code. Deze informatie is beschikbaar als [aanvraagheaders geïnjecteerd door het platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+
+U kunt deze informatie ook lezen uit het binden van gegevens. Deze mogelijkheid is alleen beschikbaar voor de Functions-runtime 2.x. Het is ook momenteel alleen beschikbaar voor .NET-talen.
+
+In .NET languagues, deze informatie is beschikbaar als een [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). Het ClaimsPrincipal is beschikbaar als onderdeel van de context van de aanvraag zoals wordt weergegeven in het volgende voorbeeld:
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkResult();
+}
+```
+
+Het ClaimsPrincipal kan ook gewoon worden opgenomen als een extra parameter in de functiehandtekening:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+
+```
+
 ### <a name="authorization-keys"></a>Sleutels voor de verificatieregel
 
 Functions kunt u sleutels gebruiken voor het moeilijker voor toegang tot uw HTTP-eindpunten voor de functie tijdens de ontwikkeling.  Een standaard HTTP-trigger mogelijk dat die een API-sleutel worden gebruikt in de aanvraag. 
@@ -483,7 +522,7 @@ U kunt anonieme aanvragen, waarvoor geen sleutels. U kunt ook vereisen dat de ho
 
 Als u wilt uw functie-eindpunten in de productieomgeving volledig te beveiligen, moet u overwegen implementatie van een van de volgende opties voor functie-app-beveiliging:
 
-* Inschakelen van App Service-verificatie / autorisatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD) en diverse externe id-providers gebruiken om clients te verifiëren. U kunt deze gebruiken voor het implementeren van aangepaste regels voor uw functies en u kunt werken met de gebruikersinformatie uit uw functiecode aan te geven. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/app-service-authentication-overview.md).
+* Inschakelen van App Service-verificatie / autorisatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD) en diverse externe id-providers gebruiken om clients te verifiëren. U kunt deze gebruiken voor het implementeren van aangepaste regels voor uw functies en u kunt werken met de gebruikersinformatie uit uw functiecode aan te geven. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/app-service-authentication-overview.md) en [werken met client-id's](#working-with-client-identities).
 
 * Azure API Management (APIM) gebruiken om aanvragen te verifiëren. APIM biedt een verscheidenheid aan opties voor API-beveiliging voor binnenkomende aanvragen. Zie voor meer informatie, [API Management-verificatiebeleid](../api-management/api-management-authentication-policies.md). Met APIM op locatie, kunt u uw functie-app voor het accepteren van aanvragen van het IP-adres van de APIM-instantie te configureren. Zie voor meer informatie, [IP-adresbeperkingen](ip-addresses.md#ip-address-restrictions).
 

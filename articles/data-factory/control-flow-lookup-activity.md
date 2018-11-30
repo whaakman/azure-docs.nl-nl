@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002917"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426788"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-activiteit in Azure Data Factory
 
@@ -297,6 +297,15 @@ Dit exemplaar van Azure SQL Database bevat de gegevens moeten worden gekopieerd 
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>Beperkingen en tijdelijke oplossingen
+
+Hier zijn enkele beperkingen van de Lookup-activiteit en voorgestelde oplossingen.
+
+| Beperking | Tijdelijke oplossing |
+|---|---|
+| De Lookup-activiteit heeft maximaal 5000 rijen en een maximale grootte van 2 MB. | Ontwerp een twee niveaus pijplijn waar de buitenste pijplijn doorloopt over een binnenste-pijplijn waarmee gegevens worden opgehaald die niet groter is dan het maximum aantal rijen of de grootte. |
+| | |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 

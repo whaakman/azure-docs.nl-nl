@@ -1,4 +1,16 @@
-
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+ms.openlocfilehash: ede5e2587f1f4d99193e621965b68f75fbad27f4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440099"
+---
 Nu dat u de basisprincipes van Azure Blob storage hebt geleerd, volgt u deze koppelingen voor meer informatie over complexere opslagtaken.
 
 * Bekijk de naslagdocumentatie van de Blob-service in de [Azure Storage-clientbibliotheek voor .NET](https://go.microsoft.com/fwlink/?LinkID=390731) verwijzing voor meer informatie over beschikbare API's.

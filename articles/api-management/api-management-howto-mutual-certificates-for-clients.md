@@ -1,5 +1,5 @@
 ---
-title: Met behulp van client API's beveiligd tegen certificaatverificatie in API Management - Azure API Management | Microsoft Docs
+title: Met behulp van client-API's beveiligen in API Management - Azure API Management-certificaatverificatie | Microsoft Docs
 description: Meer informatie over het beveiligen van toegang tot API's met behulp van clientcertificaten
 services: api-management
 documentationcenter: ''
@@ -13,22 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 841825923819bdb257e5b5983071d999cca805e9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3307ea391734828cb83c927e8df8aca79685279a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26406740"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441533"
 ---
-# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Het beveiligen van API's met behulp van client certificaatverificatie in API Management
+# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Hoe u met behulp van client-API's beveiligen certificaatverificatie in API Management
 
-API Management biedt de mogelijkheid om toegang tot API's (dat wil zeggen, de client naar API Management) te beveiligen met behulp van clientcertificaten. Op dit moment kunt u de vingerafdruk van een certificaat met een waarde van de gewenste controleren. U kunt ook de vingerafdruk op basis van bestaande certificaten geüpload naar de API Management controleren.  
+API Management biedt de mogelijkheid voor het beveiligen van toegang tot API's (dat wil zeggen, de client naar API Management) met behulp van clientcertificaten. Op dit moment kunt u de vingerafdruk van een certificaat met een gewenste waarde controleren. De vingerafdruk op basis van bestaande certificaten geüpload naar de API Management kunt u ook controleren.  
 
-Zie voor meer informatie over het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten (dat wil zeggen, API Management aan back-end) [het beveiligen van back-end-services met behulp van client verificatie via certificaat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+Zie voor meer informatie over het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten (dat wil zeggen, API Management naar back-end) [over het beveiligen van back-endservices met behulp van client-certificaatverificatie](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
-## <a name="checking-the-expiration-date"></a>Controleren of de vervaldatum
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren of het certificaat is verlopen:
+## <a name="checking-the-expiration-date"></a>De vervaldatum controleren
+
+Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren als het certificaat is verlopen:
 
 ```
 <choose>
@@ -42,7 +44,7 @@ Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren of het
 
 ## <a name="checking-the-issuer-and-subject"></a>Controle van de verlener en onderwerp
 
-Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de verlener en onderwerp van een certificaat:
+Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren of de uitgever en het onderwerp van een clientcertificaat:
 
 ```
 <choose>
@@ -54,9 +56,9 @@ Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a>Controleren of de vingerafdruk
+## <a name="checking-the-thumbprint"></a>De vingerafdruk controleren
 
-Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de vingerafdruk van een certificaat:
+Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren of de vingerafdruk van een clientcertificaat:
 
 ```
 <choose>
@@ -68,9 +70,9 @@ Onderstaande beleidsregels kunnen worden geconfigureerd om te controleren van de
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Controleren of een vingerafdruk tegen certificaten geüpload naar de API Management
+## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Een vingerafdruk op basis van certificaten controleren geüpload naar de API Management
 
-Het volgende voorbeeld ziet u hoe u controleert de vingerafdruk van een clientcertificaat tegen certificaten geüpload naar de API Management: 
+Het volgende voorbeeld laat zien hoe om te controleren of de vingerafdruk van een clientcertificaat op basis van certificaten die zijn geüpload naar de API Management: 
 
 ```
 <choose>
@@ -85,6 +87,6 @@ Het volgende voorbeeld ziet u hoe u controleert de vingerafdruk van een clientce
 
 ## <a name="next-step"></a>Volgende stap
 
-*  [Het beveiligen van back-end-services met behulp van client verificatie via certificaat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-*  [Het uploaden van certificaten](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Over het beveiligen van back-endservices met behulp van client-certificaatverificatie](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+*  [Over het uploaden van certificaten](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

@@ -1,25 +1,21 @@
 ---
 title: Uitvoeren van datatechnologietaken - Azure Machine Learning | Microsoft Docs
 description: Hoe een gegevenswetenschapper een data science-project kunt uitvoeren in een herleidbare versie beheerd en gezamenlijke manier.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112641"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495690"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Datatechnologietaken uitvoeren: gegevensonderzoek, modelleren en implementatie
 
@@ -34,7 +30,7 @@ Datatechnologietaken doorgaans bevatten gegevens gegevensonderzoek, modelleren e
 
 Een gegevenswetenschapper kunt verkennen en rapportage in tal van manieren uitvoeren: met behulp van bibliotheken en pakketten beschikbaar voor Python (matplotlib bijvoorbeeld) of met R (ggplot of andere voorbeeld). Gegevenswetenschappers kunnen aanpassen van dergelijke code aan de behoeften van de gegevens verkennen voor specifieke scenario's aan. De behoeften voor het omgaan met gestructureerde gegevens zijn verschillend voor ongestructureerde gegevens zoals tekst of afbeeldingen. 
 
-Producten, zoals Azure Machine Learning Workbench bieden ook [geavanceerde gegevensvoorbereiding](../desktop-workbench/tutorial-bikeshare-dataprep.md) voor data wrangling en onderzoek, met inbegrip van de functie maken. De gebruiker beslissen over de hulpprogramma's, bibliotheken en pakketten die het best suite hun behoeften. 
+Producten, zoals Azure Machine Learning-service bieden ook [geavanceerde gegevensvoorbereiding](../service/how-to-transform-data.md) voor data wrangling en onderzoek, met inbegrip van de functie maken. De gebruiker beslissen over de hulpprogramma's, bibliotheken en pakketten die het best suite hun behoeften. 
 
 Het product aan het einde van deze fase is een rapport verkennen. Het rapport moet bieden een redelijk uitgebreide weergave van de gegevens moet worden gebruikt voor het maken van modellering en een evaluatie van of de gegevens zijn geschikt om door te gaan naar de stap modelleren. Het Team Data Science Process (TDSP) hulpprogramma's beschreven in de volgende secties voor de semi-automatische verkennen, modelleren en rapportage bieden ook gestandaardiseerde gegevens verkennen en modelleren van rapporten. 
 
@@ -90,7 +86,7 @@ Productie-implementatie kunt een model voor het een actieve rol spelen in een be
 Er zijn verschillende benaderingen en platforms modellen in productie te plaatsen. Hier zijn enkele opties:
 
 
-- [Modelimplementatie in Azure Machine Learning](../desktop-workbench/model-management-overview.md)
+- [Modelimplementatie in Azure Machine Learning-service](../service/how-to-deploy-and-where.md)
 - [Implementatie van een model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

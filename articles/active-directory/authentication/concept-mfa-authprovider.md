@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 41edbc621baede92c548f43ad2730b73f59756c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094974"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496106"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Wanneer u een Azure multi-factor Authentication-Provider
 
@@ -26,13 +26,11 @@ Azure multi-factor Authentication-Provider wordt gebruikt om te profiteren van f
 Als u licenties die betrekking hebben op alle gebruikers in uw organisatie hebt, klikt u vervolgens hoeft niet u Azure multi-factor Authentication-Provider. Maak een Azure multi-factor Authentication-Provider alleen als u moet ook opgeven de verificatie in twee stappen voor gebruikers die geen licenties.
 
 > [!NOTE]
-> Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen nog steeds worden gebruikt en bijgewerkt. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
+> Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen nog steeds worden gebruikt en bijgewerkt. Meervoudige verificatie blijft beschikbaar als een functie in Azure AD Premium-licenties.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Waarschuwingen met betrekking tot de Azure MFA-SDK
 
-Een Azure Multi-Factor Authentication-provider is vereist als u de SDK wilt downloaden. Houd er rekening mee de SDK is afgeschaft en wordt niet meer ondersteund voor nieuwe klanten en alleen blijven werken tot en met 14 November 2018. Na deze datum kan de SDK niet meer worden aangeroepen.
-
-Voor het downloaden van de SDK een Azure multi-factor Authentication-Provider te maken, zelfs als u Azure MFA, AAD Premium of andere gebundelde licenties hebt. Als u een Azure Multi-Factor Authentication-provider voor dit doeleinde maakt en al licenties hebt, moet u ervoor zorgen dat u de provider maakt met het model **Per ingeschakelde gebruiker**. Vervolgens de Provider een koppeling naar de map waarin de Azure MFA, Azure AD Premium of andere gebundelde licenties. Deze configuratie zorgt ervoor dat u alleen een rekening ontvangt als u meer unieke gebruikers hebt die verificatie in twee stappen gebruiken dan het aantal licenties dat u in uw bezit hebt.
+Houd er rekening mee de SDK is gedeprecieerd en wordt alleen blijven werken tot en met 14 November 2018. Na deze datum kan de SDK niet meer worden aangeroepen.
 
 ## <a name="what-is-an-mfa-provider"></a>Wat is een MFA-provider?
 

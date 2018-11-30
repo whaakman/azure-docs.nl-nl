@@ -1,25 +1,21 @@
 ---
 title: Platformen en hulpprogramma's voor datatechnologie-team projecten - Azure | Microsoft Docs
 description: Vindt u een specificatie en worden de gegevens en analyses resources beschikbaar voor ondernemingen standaardiseren het Team Data Science Process besproken.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 5cfe86414473f352673f39850a34f8ef265c91f5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258898"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446446"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformen en hulpprogramma's voor data science-projecten
 
@@ -152,4 +148,4 @@ Als u van machines voor Linux (CentOS gebruikmaakt) de git-opdrachten uitvoeren,
 
 End-to-end-scenario's die laten zien van alle de stappen in het proces voor het volledige **specifieke scenario's** worden ook gegeven. Ze worden weergegeven en die is gekoppeld met miniaturen beschrijvingen in de [voorbeeld walkthroughs](walkthroughs.md) onderwerp. Ze laten zien hoe u naar de cloud, on-premises hulpprogramma's en services combineren in een werkstroom of een pijplijn te maken van een intelligente toepassingen. 
 
-Zie voor meer voorbeelden stappen uitvoeren in het Team Data Science Process die gebruikmaken van Azure Machine Learning Studio, de [met Azure ML](https://aka.ms/datascienceprocess) leertraject.
+Zie voor meer voorbeelden stappen uitvoeren in het Team Data Science Process die gebruikmaken van Azure Machine Learning Studio, de [met Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) leertraject.

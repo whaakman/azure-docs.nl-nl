@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 91da40613e940b3dd577362273cf14e68d019f26
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256167"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442473"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Tips voor betere prestaties voor Azure Cosmos DB en .NET
 
@@ -104,7 +104,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     Azure Cosmos DB-aanvragen via HTTPS/REST worden gemaakt wanneer u de Gateway gebruikt, en zijn onderworpen aan de standaardlimiet voor de verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxConnections ingesteld op een hogere waarde (100-1000), zodat de clientbibliotheek van meerdere gelijktijdige verbindingen met Azure Cosmos DB gebruikmaken kan. In de .NET SDK 1.8.0 en hoger wordt de standaardwaarde voor [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 en de waarde wilt wijzigen, kunt u instellen de [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)op een hogere waarde.   
 4. **Parallelle query's voor gepartitioneerde verzamelingen afstemmen**
 
-     SQL .NET SDK versie 1.9.0 en hoger ondersteuning parallelle query's, zodat ze een gepartitioneerde verzameling worden parallel query (Zie [werken met de SDK's](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) en de verwante [codevoorbeelden](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) voor meer informatie). Parallelle query's zijn ontworpen voor betere latentie van query en de doorvoer via de seriële equivalent. Parallelle query's bieden twee parameters die gebruikers afstemmen kunnen om zodat de vereisten (a) MaxDegreeOfParallelism: om te bepalen het maximum aantal partities vervolgens kan worden opgevraagd in parallelle instructies, en (b) MaxBufferedItemCount: voor het beheren van het aantal vooraf opgehaalde resultaten.
+     SQL .NET SDK versie 1.9.0 en hoger ondersteuning parallelle query's, zodat ze een gepartitioneerde verzameling worden parallel query. Zie voor meer informatie, [codevoorbeelden](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) met betrekking tot het werken met de SDK's. Parallelle query's zijn ontworpen voor betere latentie van query en de doorvoer via de seriële equivalent. Parallelle query's bieden twee parameters die gebruikers afstemmen kunnen om zodat de vereisten (a) MaxDegreeOfParallelism: om te bepalen het maximum aantal partities vervolgens kan worden opgevraagd in parallelle instructies, en (b) MaxBufferedItemCount: voor het beheren van het aantal vooraf opgehaalde resultaten.
 
     (a) ***afstemmen MaxDegreeOfParallelism\:***  parallelle query werkt door het opvragen van meerdere partities parallel. Gegevens van een afzonderlijke gepartitioneerde verzamelen is echter worden opgehaald met betrekking tot de query. Dus heeft de MaxDegreeOfParallelism instellen voor het aantal partities de maximale kans dat het bereiken van de meeste goed presterende query, mits alle andere system omstandigheden gelijk blijven. Als u het aantal partities niet weet, kunt u de MaxDegreeOfParallelism instellen op een groot aantal en het systeem de minimale (het aantal partities, door de gebruiker opgegeven invoer) als de MaxDegreeOfParallelism kiest.
 
@@ -172,7 +172,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    Zie voor meer informatie, [Azure Cosmos DB indexeringsbeleid](indexing-policies.md).
+    Zie voor meer informatie, [Azure Cosmos DB indexeringsbeleid](index-policy.md).
 
 ## <a name="throughput"></a>Doorvoer
 <a id="measure-rus"></a>

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297568"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423114"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -438,7 +438,7 @@ Hier ziet u een gerelateerde gebeurtenis vanuit de Azure multi-factor Authentica
 
 Als u wilt doen probleemoplossing, raadpleegt u de NPS-database-indeling logboekbestanden waarop de NPS-service is geïnstalleerd. De logboekbestanden worden gemaakt in de _%SystemRoot%\System32\Logs_ map als bestanden met door komma's gescheiden tekst. Zie voor een beschrijving van de logboekbestanden, [interpreteren NPS indeling databaselogboekbestanden](https://technet.microsoft.com/library/cc771748.aspx). 
 
-De items in deze logboekbestanden zijn moeilijk te interpreteren, tenzij u ze naar een werkblad of een database exporteert. Hier vindt u veel Internet Authentication Service (IAS) is online hulpprogramma's om u te helpen u bij het interpreteren van de logboekbestanden te parseren. De uitvoer van een dergelijke downloadbare [shareware toepassing](http://www.deepsoftware.com/iasviewer) wordt hier weergegeven: 
+De items in deze logboekbestanden zijn moeilijk te interpreteren, tenzij u ze naar een werkblad of een database exporteert. Hier vindt u veel Internet Authentication Service (IAS) is online hulpprogramma's om u te helpen u bij het interpreteren van de logboekbestanden te parseren. De uitvoer van een dergelijke downloadbare [shareware toepassing](https://www.deepsoftware.com/iasviewer) wordt hier weergegeven: 
 
 ![Shareware bevat toepassing](./media/howto-mfa-nps-extension-vpn/image49.png)
 

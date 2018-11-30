@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231518"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426251"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor vraagprognose van energie
 ## <a name="executive-summary"></a>Managementsamenvatting
@@ -122,7 +122,7 @@ Als uit deze tabel kan worden gezien, is het heel belangrijk dat u onderscheid m
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Voorbeeld van de Use Case 1: eSmart systemen – overbelasting optimalisatie
 Een belangrijke rol van een [slimme grid](https://en.wikipedia.org/wiki/Smart_grid) is dynamisch en voortdurend te optimaliseren en aanpassen aan de veranderende gebruikspatronen voor databasebronnen. Energieverbruik kan worden beïnvloed door die voornamelijk worden veroorzaakt door temperatuur fluctuaties (*bijvoorbeeld*, meer stroom wordt gebruikt voor lucht voorwaarde of verwarming). Energieverbruik wordt tegelijkertijd, ook beïnvloed door op de lange termijn trends. Deze kunnen seizoensgebondenheid effecten, feestdagen, op de lange termijn de groei van consumptie en zelfs de economische factoren zoals consumenten index, de olieprijs en bbp bevatten.
 
-In dit geval gebruik [eSmart](http://www.esmartsystems.com/) wilde implementeren van een cloud-gebaseerde oplossing waarmee de neiging zullen zijn van overbelasting van het raster op een bepaalde onderstation voorspellen. In het bijzonder wilde eSmart substations die waarschijnlijk overbelasten binnen een uur, zodat een onmiddellijke actie kan worden ondernomen om te voorkomen of oplossen van die situatie identificeren.
+In dit geval gebruik [eSmart](https://www.esmartsystems.com/) wilde implementeren van een cloud-gebaseerde oplossing waarmee de neiging zullen zijn van overbelasting van het raster op een bepaalde onderstation voorspellen. In het bijzonder wilde eSmart substations die waarschijnlijk overbelasten binnen een uur, zodat een onmiddellijke actie kan worden ondernomen om te voorkomen of oplossen van die situatie identificeren.
 
 Een nauwkeurige en het uitvoeren van snelle voorspelling vereist implementatie van drie voorspellende modellen:
 
@@ -365,7 +365,7 @@ Nadat we hebben, kunt u de model-fase en de modelprestaties die we staan klaar o
 In de context van energie-vraagprognose is ons doel om aan te roepen doorlopende en periodieke prognoses terwijl ervoor te zorgen dat er nieuwe gegevens beschikbaar zijn voor het model is en dat de verwachte gegevens worden verzonden naar de client in beslag nemen.
 
 ### <a name="web-services-deployment"></a>Implementatie van Web Services
-De belangrijkste implementeerbare bouwsteen in Azure ML is de web-service. Dit is de meest efficiënte manier om in te schakelen verbruik van een Voorspellend model in de cloud. De webservice bevat het model en afgerond met een [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). De API kan worden gebruikt als onderdeel van een clientcode, zoals wordt geïllustreerd in het onderstaande diagram.
+De belangrijkste implementeerbare bouwsteen in Azure ML is de web-service. Dit is de meest efficiënte manier om in te schakelen verbruik van een Voorspellend model in de cloud. De webservice bevat het model en afgerond met een [RESTful](https://www.restapitutorial.com/) API (Application Programming Interface). De API kan worden gebruikt als onderdeel van een clientcode, zoals wordt geïllustreerd in het onderstaande diagram.
 
 ![We-Service-implementatie en het verbruik](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

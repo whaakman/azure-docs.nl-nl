@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059157"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443012"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio 's
 
@@ -26,11 +26,10 @@ Met Azure API Management biedt ondersteuning voor implementatie voor meerdere re
 
 Een nieuwe Azure API Management-service bevat in eerste instantie slechts één [eenheid] [ unit] in één Azure-regio, de primaire regio. Extra regio's kunnen eenvoudig worden toegevoegd via de Azure-portal. Een API Management gateway-server is geïmplementeerd in elke regio en aanroep verkeer wordt doorgestuurd naar de dichtstbijzijnde gateway. Als een regio offline gaat, wordt het verkeer automatisch omgeleid naar de volgende dichtstbijzijnde gateway.
 
-> [!IMPORTANT]
-> Implementatie in meerdere regio's is alleen beschikbaar in de **[Premium] [ Premium]** laag.
-
 > [!NOTE]
 > Met Azure API Management wordt alleen het onderdeel in de API-gateway gerepliceerd tussen regio's. Het onderdeel van de management-service wordt alleen in de primaire regio gehost. In het geval van een storing in de primaire regio is wijzigingen in de configuratie toepassen op een exemplaar van de Azure API Management-service niet mogelijk - met inbegrip van instellingen of beleid voor updates.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>Exemplaar van API Management-service implementeren naar een nieuwe regio
 

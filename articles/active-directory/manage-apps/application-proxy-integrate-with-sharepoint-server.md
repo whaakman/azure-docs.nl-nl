@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456895"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425204"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen
 
@@ -119,7 +119,7 @@ De eenvoudigste manier voor het instellen van de SPN's is de SPN-indelingen die 
 1. Blader naar de site met de SPN-naam van een andere computer.
  Wanneer u dit doet, wordt de betreffende set Kerberos-tickets in cache op de machine. Deze tickets bevatten de SPN-naam van de doelsite die u hebt gebladerd.
 
-2. U kunt de SPN voor die site ophalen met behulp van een hulpprogramma met de naam [Klist uit](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). In een opdrachtvenster die in dezelfde context als de gebruiker die toegang krijgen de site in de browser tot wordt uitgevoerd, moet u de volgende opdracht uitvoeren:
+2. U kunt de SPN voor die site ophalen met behulp van een hulpprogramma met de naam [Klist uit](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). In een opdrachtvenster die in dezelfde context als de gebruiker die toegang krijgen de site in de browser tot wordt uitgevoerd, moet u de volgende opdracht uitvoeren:
 ```
 Klist
 ```

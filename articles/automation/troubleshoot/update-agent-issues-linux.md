@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 20bd2fe8877c635b0f55bb4f904658a595658518
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828322"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335824"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Inzicht in de resultaten van Linux-agent in beheer van updates
 
-Mogelijk zijn er veel oorzaken waardoor uw computer wordt niet weergegeven **gereed** in beheer van updates. U kunt de status van een Hybrid Worker-agent om te bepalen van het onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser uitvoert vanuit de Azure-portal en in offlinescenario's.
+Mogelijk zijn er veel oorzaken waardoor uw Azure-machine wordt niet weergegeven **gereed** in beheer van updates. U kunt de status van een Hybrid Worker-agent om te bepalen van het onderliggende probleem controleren in Update Management. In dit artikel wordt beschreven hoe u de probleemoplosser uitvoert vanuit de Azure-portal en in offlinescenario's.
 
 ## <a name="start-the-troubleshooter"></a>De probleemoplosser voor starten
 
@@ -54,7 +54,8 @@ De OS-controle alleen gecontroleerd of de Hybrid Runbook Worker wordt uitgevoerd
 
 ### <a name="oms-agent"></a>OMS-agent
 
-Deze controles zorgt ervoor dat de OMS-Agent voor Linux is geïnstalleerd. Zie voor instructies over hoe u deze installeert, [de agent voor Linux installeren](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux).
+Deze controles zorgt ervoor dat de OMS-Agent voor Linux is geïnstalleerd. Zie voor instructies over hoe u deze installeert, [de agent voor Linux installeren](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+).
 
 ### <a name="oms-agent-status"></a>Status van de OMS-Agent
 

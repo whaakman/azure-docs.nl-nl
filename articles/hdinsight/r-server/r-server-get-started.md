@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006359"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496459"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Aan de slag met ML Services in Azure HDInsight
 
-Met Azure HDInsight kunt u een cluster met ML Services maken. Met deze optie kunnen R-scripts gebruikmaken van Spark en MapReduce om gedistribueerde berekeningen uit te voeren. In dit artikel leert u hoe u een cluster met ML Services in HDInsight maakt en hoe u een R-script uitvoert waarin wordt gedemonstreerd hoe Apache Spark wordt gebruikt voor gedistribueerde R-berekeningen.
+Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-scripts gebruiken [Apache Spark](https://spark.apache.org/) en [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) op gedistribueerde berekeningen kunt uitvoeren. In dit artikel leert u hoe u een cluster met ML Services in HDInsight maakt en hoe u een R-script uitvoert waarin wordt gedemonstreerd hoe Apache Spark wordt gebruikt voor gedistribueerde R-berekeningen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -37,7 +37,7 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Met deze optie kun
 
     * **Clusternaam**: de naam van het HDInsight-cluster.
     * **Abonnement**: selecteer het abonnement dat u wilt gebruiken.
-    * **Aanmeldingsgebruikersnaam** en -**wachtwoord** van cluster: de aanmeldingsgegevens voor toegang tot het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services als de Ambari-webinterface of de REST-API.
+    * **Aanmeldingsgebruikersnaam** en -**wachtwoord** van cluster: de aanmeldingsgegevens voor toegang tot het cluster via HTTPS. U gebruikt deze referenties voor toegang tot services, zoals de Apache Ambari-Webinterface of de REST-API.
     * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
     * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
     * **Locatie**: de Azure-regio waarin het cluster wordt gemaakt.

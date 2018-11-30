@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9d3399ba6ee724d91117486744ad1431f53edbce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053833"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444684"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Een aangepaste CA-certificaat toevoegen in Azure API Management
 
 Azure API Management kunnen CA-certificaten installeren op de computer in de vertrouwde basiscertificeringsinstanties en tussenliggende gebruikerscertificaatarchieven bevinden. Deze functionaliteit moet worden gebruikt als voor uw services is een aangepaste CA-certificaat vereist.
 
 Het artikel wordt beschreven hoe u voor het beheren van CA-certificaten van een exemplaar van de Azure API Management-service in Azure portal.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Een CA-certificaat uploaden
 

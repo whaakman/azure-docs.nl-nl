@@ -1,8 +1,20 @@
-
-Het vorige voorbeeld blijkt een standaard aanmelden, die vereist dat de client contact opnemen met zowel de id-provider en de back-end Azure service telkens wanneer de app wordt gestart. Deze methode is inefficiënt en u kunt problemen met de informatie over het gebruik hebben als veel klanten willen gelijktijdig uw app te starten. Er is een betere benadering het verificatietoken dat wordt geretourneerd door de Azure-service in de cache en probeer het eerst moet worden gebruikt deze voordat u een provider gebaseerde aanmelden.
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440089"
+---
+Het vorige voorbeeld hebt u een standaard geleerd aanmelden, waarvoor de client verbinding maken met zowel de id-provider en de back-end Azure-service telkens wanneer de app wordt gestart. Deze methode is inefficiënt en u kunt problemen met betrekking tot gebruik hebben als veel klanten uw app tegelijkertijd start. Een betere benadering is het verificatietoken dat is geretourneerd door de Azure-service in de cache en probeer het gebruik van deze eerste voordat u een aanmelding op basis van een provider.
 
 > [!NOTE]
-> U kunt het token dat is uitgegeven door de back-end Azure-service ongeacht of u van verificatie van client beheerd of service gebruikmaakt-cache. Deze zelfstudie maakt gebruik van authentication service beheerd.
+> U kunt het token dat is uitgegeven door de back-end Azure-service, ongeacht of u van verificatie-client of de service worden beheerd gebruikmaakt in de cache. In deze zelfstudie maakt gebruik van beheerde service-verificatie.
 >
 >
 
@@ -14,7 +26,7 @@ Het vorige voorbeeld blijkt een standaard aanmelden, die vereist dat de client c
     import android.content.SharedPreferences.Editor;
     ```
 
-2. De volgende leden toevoegen aan de `ToDoActivity` klasse.
+2. Toevoegen van de volgende leden aan de `ToDoActivity` klasse.
 
     ```java
     public static final String SHAREDPREFFILE = "temp";
@@ -22,7 +34,7 @@ Het vorige voorbeeld blijkt een standaard aanmelden, die vereist dat de client c
     public static final String TOKENPREF = "tkn";
     ```
 
-3. Voeg in het bestand ToDoActivity.java de volgende definitie voor de `cacheUserToken` methode.
+3. In het bestand ToDoActivity.java, voeg de volgende definitie voor de `cacheUserToken` methode.
 
     ```java
     private void cacheUserToken(MobileServiceUser user)
@@ -35,14 +47,14 @@ Het vorige voorbeeld blijkt een standaard aanmelden, die vereist dat de client c
     }
     ```
 
-    Deze methode slaat de gebruikers-ID en -token in een voorkeursbestand dat is gemarkeerd als privé. Dit moet toegang tot de cache beveiligen zodat andere apps op het apparaat geen toegang tot het token. De voorkeur is sandbox voor de app. Echter, als iemand toegang tot het apparaat krijgt, is het mogelijk dat ze toegang tot de tokencache andere wijze krijgen kunnen.
+    Deze methode worden de gebruikers-ID en het token opgeslagen in een voorkeursbestand dat is gemarkeerd als privé. Dit moet toegang tot de cache beveiligen zodat andere apps op het apparaat geen toegang tot het token. De voorkeur is sandbox voor de app. Echter, als iemand zich toegang verschaft tot het apparaat, is het mogelijk dat ze toegang tot de tokencache via andere middelen krijgen kunnen.
 
    > [!NOTE]
-   > U kunt het token met versleuteling, verder beschermen als token toegang tot uw gegevens wordt beschouwd als uiterst gevoelige en iemand toegang te tot het apparaat krijgen mogelijk. Een volledig veilige oplossing valt buiten het bereik van deze zelfstudie, echter, en is afhankelijk van uw beveiligingsvereisten.
+   > U kunt het token met versleuteling, verder beveiligen als token toegang tot uw gegevens wordt beschouwd als uiterst gevoelige en iemand mogelijk toegang krijgen tot het apparaat. Een volledig veilige oplossing valt buiten het bereik van deze zelfstudie, echter, en is afhankelijk van uw beveiligingsvereisten.
    >
    >
 
-4. Voeg in het bestand ToDoActivity.java de volgende definitie voor de `loadUserTokenCache` methode.
+4. In het bestand ToDoActivity.java, voeg de volgende definitie voor de `loadUserTokenCache` methode.
 
     ```java
     private boolean loadUserTokenCache(MobileServiceClient client)
@@ -63,7 +75,7 @@ Het vorige voorbeeld blijkt een standaard aanmelden, die vereist dat de client c
     }
     ```
 
-5. In de *ToDoActivity.java* bestand, vervangt de `authenticate` en `onActivityResult` methoden met de volgende waarden dat gebruikmaakt van een token cache. De aanmeldingsprovider niet wijzigen als u wilt gebruiken een ander account dan Google.
+5. In de *ToDoActivity.java* bestand, vervangt de `authenticate` en `onActivityResult` methoden met de volgende query, dat gebruikmaakt van een token cache. De provider voor de aanmelding wijzigen als u wilt gebruiken een ander account dan Google.
 
     ```java
     private void authenticate() {
@@ -102,4 +114,4 @@ Het vorige voorbeeld blijkt een standaard aanmelden, die vereist dat de client c
     }
     ```
 
-6. Bouw de app en test verificatie met een geldig account. Ten minste tweemaal wordt uitgevoerd. Tijdens de eerste keer uitvoert, moet u wordt gevraagd om te melden en de tokencache maken. Daarna wordt elke uitvoering probeert te laden van de tokencache voor verificatie. U moet niet vereist voor aanmelding.
+6. Bouw de app en test-verificatie met behulp van een geldig account. Ten minste tweemaal wordt uitgevoerd. Tijdens de eerste keer uitvoert ontvangt u een prompt om te melden en de token cache maken. Daarna wordt elke uitvoering probeert te laden van de tokencache voor verificatie. U moet niet worden vereist aan te melden.

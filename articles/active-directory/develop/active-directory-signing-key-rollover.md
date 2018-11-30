@@ -16,18 +16,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: eaaeaf1b37c0d732d8d0009ad5a66f2118674b66
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e00591338fd09cbba6d97e6affebc9dce2399f7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240451"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423759"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover van ondertekeningssleutel gebruiken in Azure Active Directory
 In dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) om beveiligingstokens te ondertekenen. Het is belangrijk te weten dat de rollover van deze sleutels op periodieke basis en, in geval van nood, direct kan worden meegenomen. Alle toepassingen die gebruikmaken van Azure AD moet kunnen via de programmacode verwerken van het proces sleutelrollover of tot stand brengen van een periodieke handmatige rollover-proces. Lees verder voor u te begrijpen hoe de sleutels werken, het beoordelen wat de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of een rollover van periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig tot stand brengen.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Overzicht van het ondertekenen van sleutels in Azure AD
-Azure AD maakt gebruik van cryptografie met openbare sleutels die is gebouwd op industrienormen vertrouwensrelatie tussen zelf en de toepassingen die worden gebruikt. In de praktijk dit werkt in de volgende manier: Azure AD maakt gebruik van een ondertekeningssleutel die uit een openbare en persoonlijke sleutelpaar bestaat. Wanneer een gebruiker zich aanmeldt bij een toepassing die gebruikmaakt van Azure AD voor verificatie, maakt Azure AD een beveiligingstoken dat informatie over de gebruiker bevat. Dit token is ondertekend door Azure AD met behulp van de persoonlijke sleutel voordat deze wordt verzonden naar de toepassing. Om te controleren dat het token geldig en oorsprong van Azure AD is, de toepassing van het token handtekening met behulp van de openbare sleutel beschikbaar is gemaakt door Azure AD die is opgenomen in de tenant moet worden gevalideerd [OpenID Connect discovery-document](http://openid.net/specs/openid-connect-discovery-1_0.html) of SAML / WS-Federation [document met federatieve metagegevens](azure-ad-federation-metadata.md).
+Azure AD maakt gebruik van cryptografie met openbare sleutels die is gebouwd op industrienormen vertrouwensrelatie tussen zelf en de toepassingen die worden gebruikt. In de praktijk dit werkt in de volgende manier: Azure AD maakt gebruik van een ondertekeningssleutel die uit een openbare en persoonlijke sleutelpaar bestaat. Wanneer een gebruiker zich aanmeldt bij een toepassing die gebruikmaakt van Azure AD voor verificatie, maakt Azure AD een beveiligingstoken dat informatie over de gebruiker bevat. Dit token is ondertekend door Azure AD met behulp van de persoonlijke sleutel voordat deze wordt verzonden naar de toepassing. Om te controleren dat het token geldig en oorsprong van Azure AD is, de toepassing van het token handtekening met behulp van de openbare sleutel beschikbaar is gemaakt door Azure AD die is opgenomen in de tenant moet worden gevalideerd [OpenID Connect discovery-document](https://openid.net/specs/openid-connect-discovery-1_0.html) of SAML / WS-Federation [document met federatieve metagegevens](azure-ad-federation-metadata.md).
 
 Uit veiligheidsoverwegingen kan belangrijke rollen op periodieke basis en, in het geval van een noodsituatie voor ondertekening van Azure AD worden meegenomen onmiddellijk. Elke toepassing die kan worden geïntegreerd met Azure AD moet worden voorbereid voor het afhandelen van een gebeurtenis sleutelrollover, ongeacht hoe vaak deze optreden. Als dat niet het geval, en uw toepassing probeert een verlopen sleutel gebruiken om te controleren of de handtekening van een token, mislukken de aanmeldingsaanvraag.
 

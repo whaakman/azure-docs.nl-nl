@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e440cca59bde1c845bc99ef137c18242e888ee06
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: da7ae9c77d7bb94f1d06cf5fdb48149775c93201
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230094"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333800"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestatiebewaking met Log Analytics
 
@@ -98,6 +98,6 @@ Nu dat u hebt de Log Analytics-agent, head toegevoegd op wilt naar de Log Analyt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Collect relevante [prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md). Voor het configureren van de Log Analytics-agent voor het verzamelen van specifieke prestatiemeteritems, Bekijk [gegevensbronnen configureren](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Collect relevante [prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md). Voor het configureren van de Log Analytics-agent voor het verzamelen van specifieke prestatiemeteritems, Bekijk [gegevensbronnen configureren](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
 * Log Analytics configureren om het instellen van [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) bij detectie en diagnostiek
 * Als alternatief kunt u verzamelen van prestatiemeteritems via [Azure Diagnostics-extensie en ze verzenden naar Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)

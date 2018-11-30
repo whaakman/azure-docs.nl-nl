@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 161a5710766db626e4c4ec6bb6fdfafcc20650d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248041"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426380"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Zelfstudie: Een omgeving met één AD-forest naar de cloud federeren
 
@@ -280,7 +280,7 @@ Nu controleren we dat de gebruikers die we in onze on-premises directory hebben 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden met een van onze gebruikers testen
 
-1.  Blader naar [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Blader naar [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Aanmelden met een gebruikersaccount dat is gemaakt in onze nieuwe tenant.  U moet aanmelding met de volgende notatie: (user@domain.onmicrosoft.com). Gebruik hetzelfde wachtwoord dat de gebruiker gebruikt voor aanmelding bij on-premises.
 ![Controleer of](media/tutorial-password-hash-sync/verify1.png)
 

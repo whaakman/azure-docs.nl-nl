@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145737"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446500"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
 * Extern
 * Intern
 
-
 Wanneer er wordt een API Management geïmplementeerd in de modus voor intern virtueel netwerk, zijn alle service-eindpunten (gateway, de portal voor ontwikkelaars, de Azure portal, direct beheer en Git) alleen zichtbaar binnen een virtueel netwerk dat u de toegang tot beheert. Geen van de service-eindpunten zijn geregistreerd op de openbare DNS-server.
 
 U kunt de volgende scenario's met behulp van API Management in de modus voor interne, bereiken:
+
 * API's die worden gehost in uw privéverbindingen voor datacenters veilig toegankelijk worden gemaakt door derde partijen buiten deze met behulp van site-naar-site of Azure ExpressRoute-VPN-verbindingen maken
 * Hybride cloud-scenario's inschakelen bij het blootstellen van uw cloud-gebaseerde API's en on-premises API's via een gateway.
 * Beheer uw API's die worden gehost in meerdere geografische locaties met behulp van een enkele gateway-eindpunt. 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -51,7 +52,7 @@ De API Management-service in een intern virtueel netwerk wordt gehost achter een
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>De verbinding van een virtueel netwerk met behulp van de Azure-portal inschakelen
 
 1. Blader naar de Azure API Management-instantie in de [Azure-portal](https://portal.azure.com/).
-2. Selecteer **virtueel netwerk**.
+2. Selecteer **Virtueel netwerk**.
 3. De API Management-exemplaar om te worden geïmplementeerd in het virtuele netwerk configureren.
 
     ![Menu voor het instellen van een Azure API Management in een intern virtueel netwerk][api-management-using-internal-vnet-menu]

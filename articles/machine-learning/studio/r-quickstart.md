@@ -1,5 +1,5 @@
 ---
-title: Beknopte zelfstudie voor de taal R voor Machine Learning | Microsoft Docs
+title: Beknopte zelfstudie voor de taal R voor Machine Learning Studio - Azure | Microsoft Docs
 description: Gebruik deze programmeren R-zelfstudie aan de slag snel met behulp van de R-taal met Azure Machine Learning Studio om een prognose-oplossing te maken.
 keywords: Quick Start, r-taal, de programmeertaal r, programmeren r-zelfstudie
 services: machine-learning
@@ -17,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 028672a9bb0fb1aa256083a0422cc1c565977250
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265318"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317667"
 ---
-# <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Beknopte zelfstudie voor programmeertaal R voor Azure Machine Learning
+# <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Beknopte zelfstudie voor de programmeertaal R voor Azure Machine Learning Studio
 
 <!-- Stephen F Elston, Ph.D. -->
 

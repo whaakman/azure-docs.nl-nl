@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3e1acb714cfc1c059f8d02240c2a6d49be9f4971
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010584"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335279"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Aangepaste velden in Log Analytics
 De **aangepaste velden** functie van Log Analytics kunt u bestaande records in Log Analytics uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld op basis van gegevens die zijn geëxtraheerd uit andere eigenschappen in dezelfde record.
@@ -81,7 +81,7 @@ U kunt een lijst van alle aangepaste velden weergeven in uw beheergroep vanuit d
 Er zijn twee manieren om te verwijderen van een aangepast veld.  De eerste is de **verwijderen** optie voor elk veld bij het weergeven van de volledige lijst, zoals hierboven beschreven.  De andere methode is het ophalen van een record en klik op de knop aan de linkerkant van het veld.  Het menu heeft een optie voor het verwijderen van het aangepaste veld.
 
 ## <a name="sample-walkthrough"></a>Walkthrough voor voorbeeld
-De volgende sectie leert u hoe via een compleet voorbeeld van het maken van een aangepast veld.  In dit voorbeeld haalt de naam van de service in Windows-gebeurtenissen die duiden op een service status wordt gewijzigd.  Dit is gebaseerd op gebeurtenissen die door Service Control Manager zijn gemaakt in het systeemlogboek op Windows-computers.  Als u dit voorbeeld volgen wilt, moet u [verzamelen van gebeurtenissen voor het systeemlogboek](log-analytics-data-sources-windows-events.md).
+De volgende sectie leert u hoe via een compleet voorbeeld van het maken van een aangepast veld.  In dit voorbeeld haalt de naam van de service in Windows-gebeurtenissen die duiden op een service status wordt gewijzigd.  Dit is gebaseerd op gebeurtenissen die door Service Control Manager zijn gemaakt in het systeemlogboek op Windows-computers.  Als u dit voorbeeld volgen wilt, moet u [verzamelen van gebeurtenissen voor het systeemlogboek](../azure-monitor/platform/data-sources-windows-events.md).
 
 Vullen we de volgende query uit om het ophalen van alle gebeurtenissen van Service Control Manager waarvoor een gebeurtenis-ID van 7036 die de gebeurtenis die aangeeft van een service starten of stoppen.
 
@@ -141,5 +141,5 @@ We kunnen nu het aangepaste veld, zoals een andere record eigenschap gebruiken. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [zoekopdrachten](log-analytics-queries.md) query's met behulp van aangepaste velden voor criteria bouwen.
-* Monitor [aangepaste logboekbestanden](log-analytics-data-sources-custom-logs.md) die u met behulp van aangepaste velden parseren.
+* Monitor [aangepaste logboekbestanden](../azure-monitor/platform/data-sources-custom-logs.md) die u met behulp van aangepaste velden parseren.
 
