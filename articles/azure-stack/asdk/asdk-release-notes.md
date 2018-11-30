@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515757"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427247"
 ---
 # <a name="asdk-release-notes"></a>Opmerkingen bij de release van ASDK  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit (ASDK). Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -233,7 +233,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 
 - <!-- ASDK --> **Galerij-items voor Virtual Machine Scale Sets zijn nu ingebouwde**.  Virtuele-Machineschaalset galerie-items worden nu beschikbaar in de gebruiker en beheerder portals gemaakt zonder deze te downloaden. 
 
-- <!-- IS, ASDK --> **Virtuele-Machineschaalset schalen**.  U kunt de portal gebruiken om [schaal van een virtuele-Machineschaalset](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+- <!-- IS, ASDK --> **Virtuele-Machineschaalset schalen**.  U kunt de portal gebruiken om [schaal van een virtuele-Machineschaalset](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
 - <!-- 2489570 | IS ASDK--> **Ondersteuning voor aangepaste configuraties voor beleid voor IPSec/IKE** voor [VPN-gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 

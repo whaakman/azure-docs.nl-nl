@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300146"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496202"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure Stack
 
@@ -117,6 +117,10 @@ In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvo
 *Houd er rekening mee (1)* -VPN-doorvoer is niet een gegarandeerde doorvoer voor cross-premises verbindingen via Internet. Het is de meting van de maximaal mogelijke doorvoer.  
 *Houd er rekening mee (2)* -Max tunnels wordt het totale aantal per Azure Stack-implementatie voor alle abonnementen.  
 *Houd er rekening mee (3)* -BGP-routering wordt niet ondersteund voor de basis-SKU.
+
+>[!NOTE]
+>Slechts één Site-naar-Site VPN-verbinding kan worden gemaakt tussen twee Azure Stack-implementaties.  Dit is vanwege een beperking van het platform waarmee slechts één VPN-verbinding met hetzelfde IP-adres.  Omdat Azure Stack maakt gebruik van de gateway met meerdere tenants die gebruikmaakt van een enkel openbaar IP-adres voor alle VPN-Gateways in het Azure Stack-systeem, kunnen er slechts één VPN-verbinding tussen twee Azure Stack-systemen.  Deze beperking geldt ook voor het verbinden met meer dan één Site-naar-Site VPN-verbindingen een VPN-Gateway die gebruikmaakt van één IP-adres.  Azure Stack kunt niet meer dan één lokale netwerkgateway resource moet worden gemaakt met behulp van hetzelfde IP-adres.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
