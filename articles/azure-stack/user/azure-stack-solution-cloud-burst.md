@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095335"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334887"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Zelfstudie: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
 
@@ -49,7 +49,7 @@ In deze zelfstudie bouwt u een Voorbeeldomgeving:
 -   Azure-abonnement. Maak indien nodig een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
 - Een geïntegreerde Azure Stack-systeem of de implementatie van Azure Stack Development Kit.
-    - U vindt instructies voor het installeren van Azure Stack op [installeren van de Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+    - U vindt instructies voor het installeren van Azure Stack op [installeren van de Azure Stack Development Kit](../asdk/asdk-install.md).
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Deze installatie is mogelijk een paar uur te voltooien.
 
 -   Implementeer [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-services met Azure Stack.
@@ -97,7 +97,7 @@ Werk de DNS-zonebestand voor het domein. Azure AD wordt eigenaar van de aangepas
 Hybride continue integratie en continue implementatie (CI/CD) instellen voor Web-App implementeren in Azure en Azure Stack en breng wijzigingen over naar beide clouds automatisch.
 
 > [!Note]  
-> Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" sectie voor Azure Stack-operators.
+> Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](../azure-stack-app-service-before-you-get-started.md)" sectie voor Azure Stack-operators.
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Voeg Code toe aan Visual Studio Team Services-Project
 
@@ -259,7 +259,7 @@ Nu informatie over het eindpunt bestaat, de VSTS aan Azure Stack-verbinding is k
 ## <a name="develop-the-application-build"></a>De build toepassing ontwikkelen
 
 > [!Note]  
-> Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" sectie voor Azure Stack-operators.
+> Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](../azure-stack-app-service-before-you-get-started.md)" sectie voor Azure Stack-operators.
 
 Gebruik [Azure Resource Manager-sjablonen, zoals web](https://azure.microsoft.com/resources/templates/) app-code van VSTS om te implementeren voor beide clouds.
 

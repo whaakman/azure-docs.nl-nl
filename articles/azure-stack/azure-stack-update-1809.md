@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cc6af421551ba8ca973c15455daebf58c317d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976482"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314669"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -88,7 +88,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 - Back-upservice infrastructuur verplaatst van de [openbare infrastructuurnetwerk](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) naar de [openbare VIP-netwerk](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Klanten moet om te controleren of de service heeft toegang tot de back-upopslag-locatie van het openbare VIP-netwerk.  
 
 > [!IMPORTANT]  
-> Hebt u een firewall die verbindingen van het openbare VIP-netwerk met de server niet is toegestaan, wordt deze wijziging infrastructuur back-ups mislukken met 'Fout 53 het netwerkpad is niet gevonden'. Dit is een belangrijke wijziging waarvoor geen redelijke oplossing. Op basis van feedback van klanten, wordt Microsoft deze wijziging in een hotfix hersteld. Raadpleeg de [update stappen sectie boeken](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) voor meer informatie over beschikbare hotfixes voor 1809. Zodra de hotfix beschikbaar is, zorg ervoor dat er na het bijwerken van 1809 alleen als uw beleid voor netwerken niet toestaan het openbare VIP-netwerk dat voor toegang tot bronnen van de infrastructuur van toepassing. in 1811, wordt deze wijziging wordt toegepast op alle systemen. Als u de hotfix in 1809 toegepast, is er geen verdere actie vereist.  
+> Hebt u een firewall die verbindingen van het openbare VIP-netwerk met de server niet is toegestaan, wordt deze wijziging infrastructuur back-ups mislukken met 'Fout 53 het netwerkpad is niet gevonden'. Dit is een belangrijke wijziging waarvoor geen redelijke oplossing. Op basis van feedback van klanten, wordt Microsoft deze wijziging in een hotfix hersteld. Raadpleeg de [update stappen sectie boeken](#post-update-steps) voor meer informatie over beschikbare hotfixes voor 1809. Zodra de hotfix beschikbaar is, zorg ervoor dat er na het bijwerken van 1809 alleen als uw beleid voor netwerken niet toestaan het openbare VIP-netwerk dat voor toegang tot bronnen van de infrastructuur van toepassing. in 1811, wordt deze wijziging wordt toegepast op alle systemen. Als u de hotfix in 1809 toegepast, is er geen verdere actie vereist.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
 
@@ -173,7 +173,7 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 > Bereid u voor uw Azure Stack-implementatie voor extensie-host die door de volgende updatepakket is ingeschakeld. Voorbereiden van uw systeem met behulp van de volgende richtlijnen [voorbereiden voor de host van de extensie voor Azure Stack](azure-stack-extension-host-prepare.md).
 
 Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).  
-- [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
 
@@ -226,7 +226,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    
   Voer de [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet om te controleren of de status van de instanties van de infrastructuur en schaal eenheid knooppunten. Als er geen problemen zijn gedetecteerd door [Test AzureStack](azure-stack-diagnostic-test.md), kunt u deze waarschuwingen negeren. Als er een probleem is gedetecteerd, kunt u proberen om de infrastructuur-rolinstantie of knooppunt met de beheerportal of PowerShell te starten.
 
-  Dit probleem is opgelost in de meest recente [1809 hotfix release](https://support.microsoft.com/help/4471993/), dus zorg ervoor dat deze hotfix wilt installeren als u het probleem ondervindt. 
+  Dit probleem is opgelost in de meest recente [1809 hotfix release](https://support.microsoft.com/help/4477849/), dus zorg ervoor dat deze hotfix wilt installeren als u het probleem ondervindt. 
 
 <!-- 1264761 - IS ASDK -->  
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
