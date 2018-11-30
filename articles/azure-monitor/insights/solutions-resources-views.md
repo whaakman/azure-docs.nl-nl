@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: f00c11881da7624809b1253361c17285666d9ba3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715317"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635761"
 ---
 # <a name="views-in-management-solutions-preview"></a>Weergaven in oplossingen voor beheer (Preview)
 > [!NOTE]
 > Dit is een voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. Er is geen schema die hieronder worden beschreven kan worden gewijzigd.    
 
 
-[Beheeroplossingen](solutions.md) bevatten meestal een of meer weergaven om gegevens te visualiseren.  In dit artikel wordt beschreven hoe u voor het exporteren van een weergave die zijn gemaakt door de [Weergaveontwerper](../../log-analytics/log-analytics-view-designer.md) en deze opnemen in een oplossing voor beheer.  
+[Beheeroplossingen](solutions.md) bevatten meestal een of meer weergaven om gegevens te visualiseren.  In dit artikel wordt beschreven hoe u voor het exporteren van een weergave die zijn gemaakt door de [Weergaveontwerper](../../azure-monitor/platform/view-designer.md) en deze opnemen in een oplossing voor beheer.  
 
 > [!NOTE]
 > De voorbeelden in dit artikel Gebruik parameters en variabelen die zijn vereist of gemeenschappelijke beheeroplossingen en wordt beschreven in [ontwerpen en bouwen van een oplossing in Azure](solutions-creating.md)
@@ -37,7 +37,7 @@ ms.locfileid: "51715317"
 In dit artikel wordt ervan uitgegaan dat u bent al bekend bent met het [maken van een oplossing voor](solutions-creating.md) en de structuur van een oplossingsbestand.
 
 ## <a name="overview"></a>Overzicht
-Als u wilt opnemen een weergave in een oplossing voor beheer, maakt u een **resource** voor in de [oplossingsbestand](solutions-creating.md).  De JSON die wordt beschreven gedetailleerde configuratie van de weergave is doorgaans complexe echter en niet iets dat de auteur van een typische oplossing zou kunnen handmatig maken.  De meest voorkomende methode is het maken van de weergave met de [Weergaveontwerper](../../log-analytics/log-analytics-view-designer.md), exporteren en vervolgens de gedetailleerde configuratie toevoegen aan de oplossing.
+Als u wilt opnemen een weergave in een oplossing voor beheer, maakt u een **resource** voor in de [oplossingsbestand](solutions-creating.md).  De JSON die wordt beschreven gedetailleerde configuratie van de weergave is doorgaans complexe echter en niet iets dat de auteur van een typische oplossing zou kunnen handmatig maken.  De meest voorkomende methode is het maken van de weergave met de [Weergaveontwerper](../../azure-monitor/platform/view-designer.md), exporteren en vervolgens de gedetailleerde configuratie toevoegen aan de oplossing.
 
 De eenvoudige stappen een weergave toevoegen aan een oplossing zijn als volgt.  Elke stap wordt nader besproken in de onderstaande secties beschreven.
 
@@ -46,7 +46,7 @@ De eenvoudige stappen een weergave toevoegen aan een oplossing zijn als volgt.  
 3. De weergavedetails toevoegen.
 
 ## <a name="export-the-view-to-a-file"></a>De weergave exporteren naar een bestand
-Volg de instructies op [Weergaveontwerper van Log Analytics](../../log-analytics/log-analytics-view-designer.md) een weergave exporteren naar een bestand.  Het geëxporteerde bestand worden weergegeven in JSON-indeling met dezelfde [elementen als het oplossingsbestand](solutions-solution-file.md).  
+Volg de instructies op [Weergaveontwerper van Log Analytics](../../azure-monitor/platform/view-designer.md) een weergave exporteren naar een bestand.  Het geëxporteerde bestand worden weergegeven in JSON-indeling met dezelfde [elementen als het oplossingsbestand](solutions-solution-file.md).  
 
 De **resources** element van het weergavebestand heeft een resource met een type **Microsoft.OperationalInsights/workspaces** die de Log Analytics-werkruimte representeert.  Dit element heeft een subelement van het type **weergaven** die staat voor de weergave en de gedetailleerde configuratie bevat.  U kopieert u de details van dit element en kopieer deze vervolgens in uw oplossing.
 

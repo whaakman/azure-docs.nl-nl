@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230424"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499120"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -61,7 +61,7 @@ Voor een cluster met 48-knooppunten het beste 4 tot en met 8 storage-accounts. H
 
 ## <a name="choose-a-cluster-type"></a>Kies een clustertype
 
-Het clustertype bepaalt de werkbelasting van die uw HDInsight-cluster is geconfigureerd om uit te voeren, zoals Hadoop, Storm, Kafka en Spark. Zie voor een gedetailleerde beschrijving van de beschikbare typen [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Elk clustertype heeft een specifieke implementatietopologie die voldoet aan vereisten voor de grootte en het aantal knooppunten.
+Het clustertype bepaalt de werkbelasting van uw HDInsight-cluster is geconfigureerd om uit te voeren, zoals [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), of [ Apache Spark](https://spark.apache.org/). Zie voor een gedetailleerde beschrijving van de beschikbare typen [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Elk clustertype heeft een specifieke implementatietopologie die voldoet aan vereisten voor de grootte en het aantal knooppunten.
 
 ## <a name="choose-the-vm-size-and-type"></a>Kies de VM-grootte en het type
 
@@ -79,7 +79,7 @@ De VM-grootte en het type wordt bepaald door de CPU-verwerking van kracht, RAM-g
 
 ## <a name="choose-the-cluster-scale"></a>Kies de cluster-schaal
 
-De schaal van een cluster wordt bepaald door de hoeveelheid van de VM-knooppunten. Voor alle clustertypen zijn er knooppunttypen waarvoor een specifieke schaal en typen die ondersteuning bieden voor scale-out. Een cluster kan bijvoorbeeld vereisen dat precies drie ZooKeeper-knooppunten of twee hoofdknooppunten. Worker-knooppunten die gegevens in een gedistribueerde manier verwerken kunnen profiteren van het uitschalen, door het toevoegen van extra werkknooppunten.
+De schaal van een cluster wordt bepaald door de hoeveelheid van de VM-knooppunten. Voor alle clustertypen zijn er knooppunttypen waarvoor een specifieke schaal en typen die ondersteuning bieden voor scale-out. Voor een cluster kan bijvoorbeeld vereisen exact drie [Apache ZooKeeper](https://zookeeper.apache.org/) knooppunten of twee hoofdknooppunten. Worker-knooppunten die gegevens in een gedistribueerde manier verwerken kunnen profiteren van het uitschalen, door het toevoegen van extra werkknooppunten.
 
 Afhankelijk van het clustertype, waardoor het aantal worker-knooppunten voegt extra verwerkingscapaciteit (zoals meer kernen), maar kan ook toevoegen aan de totale hoeveelheid geheugen die nodig is voor het hele cluster ter ondersteuning van de opslag in het geheugen van de gegevens die worden verwerkt. Net als bij de keuze van de VM-grootte en hetzelfde type, is de juiste cluster schaal selecteren doorgaans bereikt empirisch, gesimuleerde werkbelasting of canary query's.
 
@@ -90,7 +90,7 @@ U kunt schalen van uw cluster om te voldoen aan de piekvraag laden en vervolgens
 U betaalt voor de levensduur van een cluster. Als er alleen specifieke tijden dat u uw cluster omhoog en die wordt uitgevoerd moet, kunt u [on-demand clusters met Azure Data Factory maken](hdinsight-hadoop-create-linux-clusters-adf.md). U kunt ook PowerShell-scripts die inrichten en verwijderen van uw cluster te maken en plan vervolgens deze scripts met behulp van [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
-> Wanneer een cluster wordt verwijderd, wordt de standaard Hive-metastore ook verwijderd. Om te blijven behouden de metastore voor de volgende cluster opnieuw wordt gemaakt, gebruikt u een extern metagegevensarchief zoals Azure-Database of Oozie.
+> Wanneer een cluster wordt verwijderd, wordt de standaard Hive-metastore ook verwijderd. Om te blijven behouden de metastore voor de volgende cluster opnieuw wordt gemaakt, gebruikt u een extern metagegevensarchief zoals Azure-Database of [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Cluster-taakfouten isoleren
@@ -109,5 +109,5 @@ Echter er gelden enkele beperkingen vaste quota, bijvoorbeeld een enkel Azure-ab
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Clusters instellen in HDInsight met Hadoop, Spark, Kafka en meer](hdinsight-hadoop-provision-linux-clusters.md): meer informatie over het instellen en configureren van clusters in HDInsight met Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-Services of Storm.
+* [Clusters instellen in HDInsight met Apache Hadoop, Spark, Kafka en meer](hdinsight-hadoop-provision-linux-clusters.md): meer informatie over het instellen en configureren van clusters in HDInsight met Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-Services of Storm.
 * [Cluster-prestaties bewaken](hdinsight-key-scenarios-to-monitor.md): meer informatie over belangrijke scenario's voor het bewaken van voor uw HDInsight-cluster die invloed kan hebben op de capaciteit van uw cluster.

@@ -13,29 +13,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: 9067162c6f1bd95b0a1c25bef17836b19ecf6946
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276106"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583105"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
-U kunt uw factuur downloaden de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) of wordt verzonden in e-mailbericht. Als u wilt uw dagelijkse gebruiksgegevens downloaden, gaat u naar de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Alleen bepaalde functies gemachtigd om facturering factuur en gebruiksgegevens, zoals de accountbeheerder te verkrijgen. Zie [Toegang tot factureringsgegevens voor Azure beheren](billing-manage-access.md) voor meer informatie over het verkrijgen van toegang tot factureringsgegevens.
 
-In dit artikel is niet van toepassing op Enterprise Agreement (EA)-klanten. Als u een EA-klant bent, worden uw facturen rechtstreeks naar de beheerders van de inschrijving verzonden.
+Voor de meeste abonnementen, kunt u uw factuur op basis van de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) of wordt verzonden in e-mailbericht. Als u een Azure-klant met een Enterprise Agreement (EA-klant), kunt u niet van uw organisatie facturen downloaden. Facturen worden verzonden naar degene die is ingesteld voor het ontvangen van facturen voor de inschrijving.
+
+Als u downloaden gebruik als een EA-klant bent wilt, is beschikbaar in de [Azure-portal](https://portal.azure.com/) > **kostenbeheer en facturering** > **gebruik en kosten**. Voor andere abonnementen, gaat u naar de [Azure-Accountcentrum](https://account.azure.com/Subscriptions).
+
+Alleen bepaalde functies zijn gemachtigd te factuurgegevens ophalen factuur- en gebruiksgegevens, zoals de accountbeheerder of Enterprise-beheerder. Zie [Toegang tot factureringsgegevens voor Azure beheren](billing-manage-access.md) voor meer informatie over het verkrijgen van toegang tot factureringsgegevens.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-> [!div class="nextstepaction"]
-> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+## <a name="download-or-view-your-invoice"></a>Downloaden of uw factuur weergeven
 
-## <a name="get-your-invoice-in-email-pdf"></a>Uw factuur in e-mailbericht (PDF) niet ophalen
+ Als u een EA-klant bent, kunt u niet van uw organisatie facturen downloaden. Facturen worden verzonden naar degene die is ingesteld voor het ontvangen van facturen voor de inschrijving. Voor andere abonnementen, kunt u uw factuur in e-mailbericht niet ophalen of het downloaden van de Azure-portal.
+
+### <a name="get-your-invoice-in-email-pdf"></a>Uw factuur in e-mailbericht (PDF) niet ophalen
 U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van uw Azure facturen in een e-mailbericht. Deze functie mogelijk niet beschikbaar voor bepaalde abonnementen, zoals ondersteuning biedt, Enterprise Agreements of Azure in Open.
 
-1. Selecteer uw abonnement uit de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Aanmelden voor elk abonnement dat u de eigenaar bent. Klik op **facturen** vervolgens **e-mijn factuur**. 
+1. Selecteer uw abonnement uit de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). U meldt zich voor elk abonnement dat u de eigenaar bent. Klik op **facturen** vervolgens **e-mijn factuur**. 
 
     ![Schermafbeelding van de stroom opt-in](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -50,11 +54,11 @@ U kunt ervoor kiezen en configureren van extra ontvangers voor het ontvangen van
 Als u niet een e-mail ontvangen nadat de stappen hebt uitgevoerd, controleert u of uw e-mailadres klopt in de [communicatievoorkeuren in uw profiel](https://account.windowsazure.com/profile).
 
 ### <a name="opt-out-from-getting-your-invoice-in-email"></a>Opt-out van het ontvangen van uw factuur in e-mailbericht
-Als u niet wilt ophalen van uw factuur in e-mailbericht, klikt u op Opt uit van facturen per e-mail. Hiermee verwijdert u alle e-mailadressen die is ingesteld op facturen in e-mailbericht ontvangt. Als u ervoor kiezen moeten back in uw ontvangers configureren.
+Als u niet wilt ophalen van uw factuur in e-mailbericht, klikt u op **afmelden voor facturen per e-mail**. Deze optie verwijdert alle e-mailadressen die is ingesteld op facturen in e-mailbericht ontvangt. Als u zich opnieuw aan, moet u geadresseerden configureren.
 
  ![Schermafbeelding van de stroom opt-out](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
-## <a name="download-invoice-from-azure-portal-pdf"></a>Factuur downloaden via Azure portal (PDF)
+### <a name="download-invoice-from-azure-portal-pdf"></a>Factuur downloaden via Azure portal (PDF)
 
 1. Selecteer uw abonnement uit de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal als [een gebruiker met toegang tot facturen](billing-manage-access.md).
 
@@ -70,7 +74,23 @@ Als u niet wilt ophalen van uw factuur in e-mailbericht, klikt u op Opt uit van 
 
 Zie voor meer informatie over uw factuur [meer informatie over uw factuur voor Microsoft Azure](billing-understand-your-bill.md). Zie voor meer informatie over het beheren van kosten, [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md).
 
-## <a name="download-usage-from-the-account-center-csv"></a>Gebruiksgegevens downloaden via het Accountcentrum (.csv)
+### <a name="noinvoice"></a> Waarom zie ik een factuur niet voor de afgelopen betalingsperiode?
+
+Er kunnen verschillende redenen voor zijn dat u geen factuur ziet:
+
+- U hebt een maandelijks tegoed bij uw abonnement dat u niet volledig hebt gebruikt of u hebt een gratis proefversie. Er wordt alleen een factuur gegenereerd wanneer u geld verschuldigd bent.
+
+- Het is minder dan 30 dagen geleden dat u zich geabonneerd hebt op Azure.
+
+- De factuur is nog niet gegenereerd. Wacht tot het einde van de factureringsperiode.
+
+- Als u niet de accountbeheerder bent, zijn oudere facturen mogelijk niet beschikbaar voor u.
+
+## <a name="download-usage"></a>Gebruiksgegevens downloaden
+
+ Voor de meeste abonnementen, zoek het dagelijkse gebruiksbestand in de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Als u downloaden gebruik als een EA-klant bent wilt, is beschikbaar in de [Azure-portal](https://portal.azure.com/) > **kostenbeheer en facturering** > **gebruik en kosten**. 
+
+### <a name="download-usage-from-the-account-center-csv"></a>Gebruiksgegevens downloaden via het Accountcentrum (.csv)
 
 1. Meld u aan bij de [Azure-Accountcentrum](https://account.windowsazure.com/subscriptions) als de accountbeheerder.
 
@@ -98,18 +118,18 @@ Alleen de accountbeheerder kan toegang tot het Azure-Accountcentrum. Andere fact
 
 Zie [Meer informatie over uw factuur voor Microsoft Azure](billing-understand-your-bill.md) voor meer informatie over uw dagelijkse gebruik. Zie voor meer informatie over het beheren van kosten, [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md).
 
-## <a name="noinvoice"></a> Waarom zie ik een factuur niet voor de afgelopen betalingsperiode?
+### <a name="download-usage-for-ea-customers"></a>Gebruiksgegevens downloaden voor EA-klanten
 
-Er kunnen verschillende redenen voor zijn dat u geen factuur ziet:
+Als u wilt weergeven en downloaden van gegevens over gebruik als een EA-klant bent, moet u een Enterprise-beheerder of eigenaar van Account of afdeling beheerder zijn met de weergave kosten beleid is ingeschakeld.
 
-- U hebt een maandelijks tegoed bij uw abonnement dat u niet volledig hebt gebruikt of u hebt een gratis proefversie. Er wordt alleen een factuur gegenereerd wanneer u geld verschuldigd bent.
+1. Meld u aan bij [Azure Portal]( http://portal.azure.com).
+1. Zoeken op **kosten Management en facturering**.
 
-- Het is minder dan 30 dagen geleden dat u zich geabonneerd hebt op Azure.
+    ![Schermafbeelding van zoeken in Azure portal](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
 
-- De factuur is nog niet gegenereerd. Wacht tot het einde van de factureringsperiode.
+1. Selecteer **gebruik en kosten**.
+1. Voor de maand die u wilt downloaden, selecteert u **downloaden**.
 
-- Als u niet de accountbeheerder bent, zijn oudere facturen mogelijk niet beschikbaar voor u.
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
-Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
-
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

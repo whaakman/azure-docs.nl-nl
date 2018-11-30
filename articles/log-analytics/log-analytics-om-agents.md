@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 11/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ebd5c06b8174c9838a398e97439671e4d3f4c518
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 8b061ad2926110e27524ededb5c33dffa5ea04b6
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713483"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635455"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Voor het onderhouden van uw bestaande investeringen in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) en uitgebreide mogelijkheden met Log Analytics gebruiken, kunt u Operations Manager integreren met uw Log Analytics-werkruimte. Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
@@ -37,7 +37,7 @@ Het volgende diagram toont de verbinding tussen de beheerservers en agents in ee
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-Als uw IT-beveiligingsbeleid niet computers in uw netwerk verbinding maken met Internet toestaat, kunnen servers voor het beheer worden geconfigureerd voor het verbinding maken met de Log Analytics-gateway naar configuratie-informatie ontvangen en verzenden van verzamelde gegevens, afhankelijk van de oplossingen ingeschakeld. Zie voor meer informatie en instructies over het configureren van uw Operations Manager-beheergroep om te communiceren via een Log Analytics-gateway naar de Log Analytics-service, [computers koppelen aan Log Analytics met behulp van de Log Analytics-gateway](log-analytics-oms-gateway.md).  
+Als uw IT-beveiligingsbeleid niet computers in uw netwerk verbinding maken met Internet toestaat, kunnen servers voor het beheer worden geconfigureerd voor het verbinding maken met de Log Analytics-gateway naar configuratie-informatie ontvangen en verzenden van verzamelde gegevens, afhankelijk van de oplossingen ingeschakeld. Zie voor meer informatie en instructies over het configureren van uw Operations Manager-beheergroep om te communiceren via een Log Analytics-gateway naar de Log Analytics-service, [computers koppelen aan Log Analytics met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Vereisten 
 Voordat u begint, raadpleegt u de volgende vereisten.
@@ -49,10 +49,13 @@ Voordat u begint, raadpleegt u de volgende vereisten.
 
 >[!NOTE]
 >Recente wijzigingen in Azure API's wordt voorkomen dat klanten kunnen met succes integratie tussen de beheergroep en de Log Analytics voor het eerst configureren. Voor klanten die hun beheergroep al hebt geïntegreerd met de service, wordt u niet beïnvloed, tenzij u nodig hebt om uw bestaande verbinding opnieuw te configureren.  
->Een nieuw managementpack is vrijgegeven voor elke versie van Operations Manager:  
+>Een nieuw managementpack is vrijgegeven voor de volgende versies van Operations Manager:
+>  
 >* Download het managementpack uit voor System Center Operations Manager 1801 [hier](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* Voor System Center 2016 - Operations Manager, downloadt u het managementpack uit [hier](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* Voor System Center Operations Manager 2012 R2, downloadt u het managementpack uit [hier](https://www.microsoft.com/download/details.aspx?id=57171)  
+>
+>Dit management pack-update is niet van toepassing op System Center Operations Manager 1807, dit is een update-release van versie 1801 en niet een volledige build van het product.   
 
 ### <a name="network"></a>Netwerk
 De onderstaande lijst bevat de vereiste proxy- en firewallconfiguratiegegevens voor de Operations Manager-agent, beheerservers en Operations-console voor communicatie met Log Analytics. Het verkeer van elk onderdeel is uitgaand vanaf het netwerk naar de Log Analytics-service.   

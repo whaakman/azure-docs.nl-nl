@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 1472e6cf05485b942c93f632c147fcb0b0311c61
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828345"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632344"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
-U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../../log-analytics/log-analytics-data-sources.md) op agents en ook [gegevens verzameld van Azure](../../log-analytics/log-analytics-azure-storage.md).  Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.   
+U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../../azure-monitor/platform/agent-data-sources.md) op agents en ook [gegevens verzameld van Azure](../../log-analytics/log-analytics-azure-storage.md).  Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.   
 
 Deze zelfstudie leidt u door het proces voor het maken en plannen van een runbook in Azure Automation om gegevens te schrijven naar Log Analytics.
 
@@ -212,7 +212,7 @@ Telkens wanneer een runbook wordt gestart, [wordt een taak gemaakt](../../automa
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Gebruik [Weergaveontwerper](../../log-analytics/log-analytics-view-designer.md) een weergave met de gegevens die u hebt verzameld in de Log Analytics-opslagplaats te maken.
+- Gebruik [Weergaveontwerper](../../azure-monitor/platform/view-designer.md) een weergave met de gegevens die u hebt verzameld in de Log Analytics-opslagplaats te maken.
 - Uw runbook in het pakket een [beheeroplossing](../../azure-monitor/insights/solutions-creating.md) te distribueren naar klanten.
 - Meer informatie over [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Meer informatie over [Azure Automation](https://docs.microsoft.com/azure/automation/).

@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 10eeb7a94bd6b2513dc36d0d8a1829eddb452835
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2bbcfc95895ca925b585ab15d4a2edf404eb162f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040047"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634843"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Service Manager-Web-app met behulp van de geautomatiseerde scripts maken
 
-Het volgende script gebruiken om te maken van de Web-app voor uw exemplaar van Service Manager. Meer informatie over Service Manager-verbinding is hier: [Service Manager-Web-app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Het volgende script gebruiken om te maken van de Web-app voor uw exemplaar van Service Manager. Meer informatie over Service Manager-verbinding is hier: [Service Manager-Web-app](../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Voer het script door te geven van de volgende vereiste gegevens:
 
 - Details van de Azure-abonnement
-- Resourcegroepnaam
+- Naam van de resourcegroep
 - Locatie
 - Service Manager-server-gegevens (naam, domein, gebruikersnaam en wachtwoord)
 - Voorvoegsel van de site de naam voor uw Web-app
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Volgende stappen
-[Configureren van de hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Configureren van de hybride verbinding](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

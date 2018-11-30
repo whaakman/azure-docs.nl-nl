@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091709"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498748"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u Azure-Blobs, Azure Files of Azure-schijven gebruiken
 
@@ -42,7 +42,7 @@ De volgende tabel vergelijkt de bestanden van Azure met Azure-Blobs.
 |Eindpunten|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Mappen|Platte-naamruimte|De waarde True directory-objecten|  
 |Hoofdlettergevoeligheid van namen|Hoofdlettergevoelig|Niet hoofdlettergevoelig, maar de aanvraag te behouden|  
-|Capaciteit|Maximaal 500 TiB containers|5 TiB-bestandsshares|  
+|Capaciteit|Tot 2 gaat dit Account is bereikt |5 TiB-bestandsshares|  
 |Doorvoer|Maximaal 60 MiB/s per blok-blob|Maximaal 60 MiB/s per share|  
 |Grootte van object|Maximaal ongeveer 4.75 TiB per blok-blob|Tot 1 TiB per bestand|  
 |Gefactureerde capaciteit|Op basis van aantal geschreven bytes|Op basis van de bestandsgrootte|  

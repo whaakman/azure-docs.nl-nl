@@ -9,28 +9,32 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983642"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634282"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
 
 > [!NOTE] 
-> App Service op Linux- en Web App for Containers bieden momenteel geen ondersteuning voor beheerde identiteiten.
+> Beheerde identiteit ondersteuning voor App Service op Linux- en Web App for Containers is momenteel in preview.
 
 > [!Important] 
 > Beheerde identiteiten voor App Service en Azure Functions wordt niet meer zoals verwacht als uw app voor abonnementen/tenants wordt gemigreerd. De app moet ophalen van een nieuwe identiteit, die kan worden uitgevoerd door te schakelen en de functie opnieuw in te schakelen. Zie [verwijderen van een identiteit](#remove) hieronder. Downstream resources moet ook zijn bijgewerkt voor het gebruik van de nieuwe identiteit toegangsbeleid.
 
 In dit onderwerp leest u hoe u een beheerde identiteit voor toepassingen van App Service en Azure Functions maken en te gebruiken voor toegang tot andere resources. Een beheerde identiteit uit Azure Active Directory kan uw app eenvoudig toegang tot andere AAD beveiligde bronnen, zoals Azure Key Vault. De identiteit wordt beheerd door het Azure-platform en vereist niet dat u in te richten of er geheimen draaien. Zie voor meer informatie over beheerde identiteiten in AAD, [beheerde identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="creating-an-app-with-an-identity"></a>Het maken van een app met een identiteit
+Uw toepassing kan twee soorten identiteiten worden verleend: 
+- Een **systeem toegewezen identiteit** is gekoppeld aan uw toepassing en wordt verwijderd als uw app wordt verwijderd. Een app kan slechts één systeem toegewezen identiteit hebben. Ondersteuning voor het systeem toegewezen identiteit is algemeen beschikbaar voor Windows-apps. 
+- Een **gebruiker toegewezen identiteit** is een afzonderlijke Azure-resource die kan worden toegewezen aan uw app. Een app kan meerdere gebruiker toegewezen identiteiten hebben. Er is ondersteuning voor de gebruiker toegewezen identiteiten Preview-versie voor alle app-typen.
 
-Het maken van een app met een identiteit is het vereist een extra eigenschap worden ingesteld voor de toepassing.
+## <a name="adding-a-system-assigned-identity"></a>Toevoegen van een systeem toegewezen identiteit
+
+Het maken van een app met een door het systeem toegewezen identiteit, moet een extra eigenschap worden ingesteld voor de toepassing.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
@@ -42,9 +46,9 @@ Als u een beheerde identiteit in de portal instelt, wordt u eerst maken van een 
 
 3. Selecteer **beheerde identiteit**.
 
-4. Switch **registreren bij Azure Active Directory** naar **op**. Klik op **Opslaan**.
+4. Binnen de **systeem toegewezen** tabblad **Status** naar **op**. Klik op **Opslaan**.
 
-![Beheerde identiteit in App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Beheerde identiteit in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI gebruiken
 
@@ -94,7 +98,7 @@ De volgende stappen helpen u bij het maken van een web-app en het toewijzen van 
     New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Voer de `identity assign` opdracht voor het maken van de identiteit voor deze toepassing:
+3. Voer de `Set-AzureRmWebApp -AssignIdentity` opdracht voor het maken van de identiteit voor deze toepassing:
 
     ```azurepowershell-interactive
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -111,7 +115,10 @@ Een resource van het type `Microsoft.Web/sites` kunnen worden gemaakt met een id
 }    
 ```
 
-Hiermee wordt aangegeven voor Azure maken en beheren van de identiteit voor uw toepassing.
+> [!NOTE] 
+> Een toepassing kan zowel door het systeem toegewezen als de gebruiker toegewezen identiteiten hebben op hetzelfde moment. In dit geval de `type` eigenschap `SystemAssigned,UserAssigned`
+
+Toevoegen van het type systeem toegewezen weet Azure maken en beheren van de identiteit voor uw toepassing.
 
 Een web-app kan er bijvoorbeeld als volgt uitzien:
 ```json
@@ -139,12 +146,100 @@ Een web-app kan er bijvoorbeeld als volgt uitzien:
 Wanneer de site wordt gemaakt, heeft de volgende aanvullende eigenschappen:
 ```json
 "identity": {
+    "type": "SystemAssigned",
     "tenantId": "<TENANTID>",
     "principalId": "<PRINCIPALID>"
 }
 ```
 
 Waar `<TENANTID>` en `<PRINCIPALID>` zijn vervangen door de GUID's. De eigenschap tenantId identificeert welke deel uitmaakt van de identiteit aan AAD-tenant. De principalId is een unieke id voor de nieuwe identiteit van de toepassing. In AAD heeft de service-principal dezelfde naam die u hebt gegeven tot uw App Service of Azure Functions-exemplaar.
+
+
+## <a name="adding-a-user-assigned-identity-preview"></a>Toevoegen van een gebruiker toegewezen identiteit (preview)
+
+> [!NOTE] 
+> Gebruiker toegewezen identiteiten zijn momenteel in preview. Sovreign clouds zijn nog niet ondersteund.
+
+Het maken van een app met een gebruiker toegewezen identiteit is vereist dat u de identiteit maken en vervolgens de resource-id aan uw app-configuratie toevoegen.
+
+### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
+
+> [!NOTE] 
+> Deze portal-ervaring wordt geïmplementeerd en kan nog niet beschikbaar in alle regio's.
+
+U moet eerst een resource door de gebruiker toegewezen identiteit maken.
+
+1. Maak een beheerde identiteit gebruiker toegewezen resource volgens [deze instructies](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+2. Zoals u gewend bent, kunt u een app maken in de portal. Navigeren in de portal.
+
+3. Als u een functie-app gebruikt, gaat u naar **platformfuncties**. Voor andere typen, schuif omlaag naar de **instellingen** groep in het linkernavigatievenster.
+
+4. Selecteer **beheerde identiteit**.
+
+5. Binnen de **gebruiker toegewezen (preview)** tabblad **toevoegen**.
+
+6. Zoek de identiteit die u eerder hebt gemaakt en selecteer deze. Klik op **Add**.
+
+![Beheerde identiteit in App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+
+### <a name="using-an-azure-resource-manager-template"></a>Met behulp van een Azure Resource Manager-sjabloon
+
+Een Azure Resource Manager-sjabloon kan worden gebruikt om de implementatie van uw Azure-resources te automatiseren. Zie voor meer informatie over implementeren naar App Service en Functions [automatiseren van resource-implementatie in App Service](../app-service/app-service-deploy-complex-application-predictably.md) en [automatiseren van resource-implementatie in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+
+Een resource van het type `Microsoft.Web/sites` kunnen worden gemaakt met een identiteit die door het volgende blok in de resourcedefinitie vervangen `<RESOURCEID>` met de resource-ID van de gewenste identiteit:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}    
+```
+
+> [!NOTE] 
+> Een toepassing kan zowel door het systeem toegewezen als de gebruiker toegewezen identiteiten hebben op hetzelfde moment. In dit geval de `type` eigenschap `SystemAssigned,UserAssigned`
+
+Toevoegen van het type gebruiker toegewezen en een cotells van Azure maken en beheren van de identiteit voor uw toepassing.
+
+Een web-app kan er bijvoorbeeld als volgt uitzien:
+```json
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "UserAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
+```
+
+Wanneer de site wordt gemaakt, heeft de volgende aanvullende eigenschappen:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+Waar `<PRINCIPALID>` en `<CLIENTID>` zijn vervangen door de GUID's. De principalId is een unieke id voor de identiteit die wordt gebruikt voor het beheer van AAD. De clientId is een unieke id voor de nieuwe identiteit van de toepassing die wordt gebruikt voor het op te geven welke identiteit moet worden gebruikt tijdens runtime-aanroepen.
+
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Het verkrijgen van tokens voor Azure-resources
 
@@ -188,7 +283,8 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 > |-----|-----|-----|
 > |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald.|
 > |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie die wordt ondersteund.|
-> |geheim|Koptekst|De waarde van de omgevingsvariabele MSI_SECRET.|
+> |geheim|Header|De waarde van de omgevingsvariabele MSI_SECRET.|
+> |clientid|Query’s uitvoeren|(Optioneel) De ID van de gebruiker toegewezen identiteit moet worden gebruikt. Als u dit weglaat, wordt het systeem toegewezen identiteit wordt gebruikt.|
 
 
 Een geslaagde respons met 200 OK bevat een JSON-hoofdtekst met de volgende eigenschappen:
@@ -241,7 +337,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 
 <a name="token-js"></a>In Node.JS:
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
     var options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
@@ -265,7 +361,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>Een identiteit die is verwijderd
 
-Een identiteit kan worden verwijderd door het uitschakelen van de functie met behulp van de portal, PowerShell of CLI op dezelfde manier waarop deze is gemaakt. In het protocol dat REST/ARM-sjabloon, wordt dit gedaan door het instellen van het type 'Geen':
+Een systeem toegewezen identiteit kan worden verwijderd door het uitschakelen van de functie met behulp van de portal, PowerShell of CLI op dezelfde manier waarop deze is gemaakt. Gebruiker toegewezen identiteiten kunnen afzonderlijk worden verwijderd. Als u wilt verwijderen van alle identiteiten in het protocol REST/ARM-sjabloon, wordt dit gedaan door het instellen van het type 'Geen':
 
 ```json
 "identity": {
@@ -273,7 +369,7 @@ Een identiteit kan worden verwijderd door het uitschakelen van de functie met be
 }    
 ```
 
-De identiteit van de op deze manier verwijderen, wordt de principal ook verwijderd uit AAD. Het systeem toegewezen identiteit worden automatisch verwijderd uit AAD wanneer de app-resource wordt verwijderd.
+Verwijderen van een systeem toegewezen identiteit op deze manier, wordt deze ook verwijderd uit AAD. Het systeem toegewezen identiteit worden ook automatisch verwijderd uit AAD wanneer de app-resource wordt verwijderd.
 
 > [!NOTE] 
 > Er is ook een toepassingsinstelling die kan worden ingesteld, WEBSITE_DISABLE_MSI, waardoor alleen de lokale token-service is uitgeschakeld. Echter, laat u de identiteit in plaats en hulpprogramma's worden nog steeds de beheerde identiteit als 'aan' of 'ingeschakeld'. Als gevolg hiervan is gebruik van deze instelling niet aanbevolen.

@@ -7,22 +7,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 835a56413a4274a2be2511278b4dedd7f83c54c3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ab7602f7bae4dfb77a733dd7efe011a29b730377
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016672"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581582"
 ---
-# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Met Spark oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark oplossen met behulp van Azure HDInsight
 
-Meer informatie over de meest voorkomende problemen en hun oplossingen als u werkt met Apache Spark-nettoladingen in Apache Ambari.
+Meer informatie over de meest voorkomende problemen en hun oplossingen als u werkt met [Apache Spark](https://spark.apache.org/) nettoladingen in [Apache Ambari](https://ambari.apache.org/).
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Hoe configureer ik een Spark-toepassing via Ambari op clusters?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van Apache Ambari op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-De configuratiewaarden voor deze procedure zijn eerder ingesteld in HDInsight. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
+De configuratiewaarden voor deze procedure zijn eerder ingesteld in HDInsight. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 1. Selecteer in de lijst met clusters, **Spark2**.
 
@@ -84,14 +84,14 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hoe configureer ik een Spark-toepassing met behulp van een Jupyter-notebook op clusters?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van een Jupyter-notebook op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. In de eerste cel van de Jupyter-notebook nadat de **%% configureren** richtlijn, geeft u de Spark-configuraties in geldige JSON-indeling. De werkelijke waarden zo nodig wijzigen:
 
@@ -99,14 +99,14 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Hoe configureer ik een Spark-toepassing met behulp van Livy op clusters?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van Apache Livy op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 2. De Spark-toepassing naar Livy indienen met behulp van een REST-client, zoals cURL. Een vergelijkbaar met de volgende opdracht gebruiken. De werkelijke waarden zo nodig wijzigen:
 
@@ -116,14 +116,14 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Hoe configureer ik een toepassing met behulp van spark-submit Spark in clusters?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van spark-submit op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat ervoor zorgt dat een uitzondering van Apache Spark-toepassing OutofMemoryError](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. Spark-shell met behulp van een vergelijkbaar met de volgende opdracht start. De werkelijke waarde van de configuraties zo nodig wijzigen: 
 
@@ -133,10 +133,10 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt?
+## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt?
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
@@ -217,8 +217,8 @@ De meest waarschijnlijke oorzaak van deze uitzondering is dat niet voldoende hea
 
 ### <a name="additional-reading"></a>Meer lezen
 
-- [Overzicht van Spark geheugen](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Fouten opsporen in een Spark-toepassing op een HDInsight-cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Overzicht van Apache Spark geheugen](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Fouten opsporen in een Apache Spark-toepassing op een HDInsight-cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Zie ook

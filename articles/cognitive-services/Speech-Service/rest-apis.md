@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 5522b076fdf3d4e339f5e170679f389259ff1359
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713126"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584856"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -286,7 +286,7 @@ Audio wordt verzonden in de hoofdtekst van de HTTP `POST` aanvraag. Het moet zic
 | OGG | OPUS | 16-bits | 16 kHz, mono |
 
 >[!NOTE]
->De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de Speech-Service. De [spraak SDK](/index.yml) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
+>De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de Speech-Service. De [spraak SDK](speech-sdk.md) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
 
 ### <a name="sample-request"></a>Voorbeeld van een aanvraag
 
@@ -433,8 +433,8 @@ De spraak-Service ondersteunt 24-KHz-audio-uitvoer, samen met de uitvoer van de 
 
 | Landinstelling | Taal   | Geslacht | Toewijzing |
 |--------|------------|--------|---------|
-| nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" |
-| nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)" |
+| en-US  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" |
+| en-US  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)" |
 
 Zie voor een volledige lijst met beschikbare stemmen [ondersteunde talen](language-support.md#text-to-speech).
 

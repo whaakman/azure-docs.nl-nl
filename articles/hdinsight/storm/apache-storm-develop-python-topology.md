@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: b46fa5eb9772a19a5613fc276071167d884f6057
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 04046b4c7c36418b9024a690ad5279f9e34578a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008756"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583632"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Apache Storm-topologieën met behulp van Python op HDInsight ontwikkelen
 
-Informatie over het maken van een Apache Storm-topologie die gebruikmaakt van Python-onderdelen. Apache Storm biedt ondersteuning voor meerdere talen, zelfs zodat u kunt het combineren van componenten van verschillende talen in één topologie. De lichtstroom framework (geïntroduceerd met Storm 0.10.0) kunt u eenvoudig om oplossingen te maken die gebruikmaken van Python-onderdelen.
+Meer informatie over het maken van een [Apache Storm](http://storm.apache.org/) topologie die gebruikmaakt van Python-onderdelen. Apache Storm biedt ondersteuning voor meerdere talen, zelfs zodat u kunt het combineren van componenten van verschillende talen in één topologie. De [lichtstroom](http://storm.apache.org/releases/current/flux.html) framework (geïntroduceerd met Storm 0.10.0) kunt u eenvoudig om oplossingen te maken die gebruikmaken van Python-onderdelen.
 
 > [!IMPORTANT]
 > De informatie in dit document is getest met Storm op HDInsight 3.6. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -32,7 +32,7 @@ De code voor dit project is beschikbaar op [ https://github.com/Azure-Samples/hd
 
 * Java JDK 1.8 of hoger
 
-* Maven 3
+* [Apache Maven 3](https://maven.apache.org/download.cgi)
 
 * (Optioneel) Een lokale ontwikkelingsomgeving voor Storm. Een lokale Storm-omgeving is alleen nodig als u wilt de topologie lokaal uitvoeren. Zie voor meer informatie, [een ontwikkelomgeving instellen](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
@@ -148,5 +148,5 @@ Als u wilt de topologie stoppen, gebruikt u __Ctrl + C__.
 
 Zie de volgende documenten voor andere manieren om Python gebruiken met HDInsight:
 
-* [Hoe u Python gebruikt voor het streamen van MapReduce-taken](../hadoop/apache-hadoop-streaming-python.md)
-* [Het gebruik van Python gebruiker gedefinieerde functies (UDF's) in Pig en Hive](../hadoop/python-udf-hdinsight.md)
+* [Hoe u Python gebruikt voor het streamen van Apache Hadoop MapReduce-taken](../hadoop/apache-hadoop-streaming-python.md)
+* [Het gebruik van Python gebruiker gedefinieerde functies (UDF's) in Apache Pig- en Apache Hive](../hadoop/python-udf-hdinsight.md)

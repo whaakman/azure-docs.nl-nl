@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634994"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634537"
 ---
-# <a name="install-and-run-containers"></a>Installeren en uitvoeren van containers
+# <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
 
 Containerstrategie is een benadering voor softwaredistributie waarin een toepassing of service wordt geleverd als een containerinstallatiekopie. De configuratie en afhankelijkheden voor de toepassing of service zijn opgenomen in de containerinstallatiekopie. De container-installatiekopie kan vervolgens worden geïmplementeerd op een containerhost met weinig of geen wijziging. Containers zijn geïsoleerd van elkaar worden verbonden en het onderliggende besturingssysteem, met een kleinere footprint dan een virtuele machine. Containers kunnen worden geïnstantieerd van containerinstallatiekopieën voor taken op korte termijn en verwijderd wanneer het niet meer nodig hebt.
 
@@ -58,9 +58,6 @@ Voer de volgende stappen uit om te maken en gegevens ophalen uit een bron voor F
 
 1. Maak een Face-resource in Azure portal.  
    Als u de Face-container gebruiken wilt, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie, [Snelstartgids: een Cognitive Services-account maken in Azure portal](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > De Face-bron moet de prijscategorie F0 gebruiken.
 
 1. De eindpunt-URL en abonnement-sleutel voor de Azure-resource ophalen.  
    Nadat de Azure-resource is gemaakt, moet u de eindpunt-URL en abonnement sleutel van die resource voor het starten van de bijbehorende Face-container. U kunt de eindpunt-URL en abonnement sleutel kopiëren uit respectievelijk de Quick Start- en sleutels's van de Face-resource in Azure portal.

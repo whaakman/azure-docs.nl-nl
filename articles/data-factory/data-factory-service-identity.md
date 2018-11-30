@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 892fa32f73cec86e5d10a0d67da3d80bedd539aa
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249210"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619858"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-service-identiteit
 
@@ -30,7 +30,8 @@ Bij het maken van een data factory, kan een service-identiteit worden gemaakt, s
 Data factory-service-identiteit voordelen biedt voor de volgende functies:
 
 - [Referentie in Azure Key Vault Store](store-credentials-in-key-vault.md), in welk geval data factory-service-identiteit wordt gebruikt voor verificatie van Azure Key Vault.
-- Connectors zoals [Azure Blob-opslag](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure SQL Database](connector-azure-sql-database.md), en [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- Connectors zoals [Azure Blob-opslag](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), en [Azure SQL datawarehouse](connector-azure-sql-data-warehouse.md).
+- [Activiteit web](control-flow-web-activity.md).
 
 ## <a name="generate-service-identity"></a>Service-identiteit genereren
 
@@ -44,6 +45,7 @@ Als u uw data factory beschikt niet over een service-identiteit die is gekoppeld
 
 - [Genereren van service-identiteit met behulp van PowerShell](#generate-service-identity-using-powershell)
 - [Genereren met behulp van REST-API voor service-identiteit](#generate-service-identity-using-rest-api)
+- [Genereren van service-identiteit met een Azure Resource Manager-sjabloon](#generate-service-identity-using-resource-management-template)
 - [Service-identiteit met behulp van SDK genereren](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -92,7 +94,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ```json
 {
-    "name": "ADFV2DemoFactory",
+    "name": "<dataFactoryName>",
     "tags": {},
     "properties": {
         "provisioningState": "Succeeded",
@@ -107,7 +109,27 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
     },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory",
     "type": "Microsoft.DataFactory/factories",
-    "location": "EastUS"
+    "location": "<region>"
+}
+```
+
+### <a name="generate-service-identity-using-an-azure-resource-manager-template"></a>Genereren van service-identiteit met een Azure Resource Manager-sjabloon
+
+**Sjabloon**: "identiteit" toevoegen: {"type": "SystemAssigned"}.
+
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "resources": [{
+        "name": "<dataFactoryName>",
+        "apiVersion": "2018-06-01",
+        "type": "Microsoft.DataFactory/factories",
+        "location": "<region>",
+        "identity": {
+            "type": "SystemAssigned"
+        }
+    }]
 }
 ```
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2678db223fc26a377de8daa79b85a9b8cda7a02
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284945"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635812"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -69,7 +69,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken evaluaties.         |
-|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5.1 of later is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid.  ([Downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 en hoger (inclusief Windows Server 2012- en 2016)    |.NET framework 4.5.1 of later is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid.  ([Downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Patch toepassen op classificatie gebaseerde vereist 'yum' om terug te keren beveiligingsgegevens CentOS hoeft niet dezelfde kant.         |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
@@ -88,7 +88,7 @@ De volgende tabel geeft een overzicht van de besturingssystemen die niet worden 
 
 #### <a name="windows"></a>Windows
 
-Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-server of ze moeten toegang hebben tot Microsoft Update. U kunt updatebeheer gebruiken met System Center Configuration Manager. Zie voor meer informatie over scenario's voor gegevensintegratie, [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md#configuration). De [Windows agent](../log-analytics/log-analytics-agent-windows.md) is vereist. De agent wordt automatisch geïnstalleerd als u onboarding van een virtuele machine van Azure.
+Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-server of ze moeten toegang hebben tot Microsoft Update. U kunt updatebeheer gebruiken met System Center Configuration Manager. Zie voor meer informatie over scenario's voor gegevensintegratie, [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md#configuration). De [Windows agent](../azure-monitor/platform/agent-windows.md) is vereist. De agent wordt automatisch geïnstalleerd als u onboarding van een virtuele machine van Azure.
 
 #### <a name="linux"></a>Linux
 
@@ -148,7 +148,7 @@ Op een Windows-computer, kunt u de volgende informatie om te controleren of agen
 1. Open in het Configuratiescherm, **Microsoft Monitoring Agent**. Op de **Azure Log Analytics** tabblad en de agent het volgende bericht weergegeven: **The Microsoft Monitoring Agent is verbonden met Log Analytics**.
 2. Open het Windows-gebeurtenislogboek. Ga naar **toepassings- en servicelogboeken\operations Manager** en zoek naar gebeurtenis-ID 3000 en 5002 van de gebeurtenis-ID van de bron **serviceconnector**. Deze gebeurtenissen geven aan dat de computer is geregistreerd bij de Log Analytics-werkruimte en of deze configuratie ontvangt.
 
-Als de agent kan niet met Log Analytics communiceren en de agent is geconfigureerd voor communicatie met internet via een firewall of proxyserver, controleert u of dat de firewall of proxyserver correct is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxy-server correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../log-analytics/log-analytics-agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
+Als de agent kan niet met Log Analytics communiceren en de agent is geconfigureerd voor communicatie met internet via een firewall of proxyserver, controleert u of dat de firewall of proxyserver correct is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxy-server correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../azure-monitor/platform/agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of Log Analytics-Gateway en u bent onboarding van deze oplossing, update de *proxy.conf* machtigingen voor het verlenen van de groep omiuser leesmachtigingen voor het bestand met behulp van de de volgende opdrachten:
@@ -583,6 +583,6 @@ Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw
 > [Updates en patches voor uw Azure Windows VM's beheren](automation-tutorial-update-management.md)
 
 * Gebruik logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
-* [Waarschuwingen maken](../log-analytics/log-analytics-alerts.md) als essentiële updates ontbreken van computers worden gedetecteerd of als een computer met automatische updates uitgeschakeld is.
+* [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-alerts.md) als essentiële updates ontbreken van computers worden gedetecteerd of als een computer met automatische updates uitgeschakeld is.
 
 * Zie voor meer informatie over de communicatie met updatebeheer via de REST-API, [configuraties van Software-Update](/rest/api/automation/softwareupdateconfigurations)

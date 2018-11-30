@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32ce9cb456e302647e2e09db6ed549cd4795fed7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448387"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635149"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-gegevensmodel voor Azure backup-gegevens
 De Log Analytics-gegevensmodel gebruiken om rapporten te maken. U kunt met het gegevensmodel, aangepaste query's en dashboards maken of aanpassen van Azure backup-gegevens, maar u wilt.
@@ -38,7 +38,7 @@ Deze tabel bevat informatie over waarschuwingen gerelateerde velden.
 | State_s |Tekst |Huidige status van de waarschuwing object, bijvoorbeeld: actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor het uitvoeren van back-up, bijvoorbeeld IaaSVM FileFolder waarop deze waarschuwing hoort bij |
 | OperationName |Tekst |Naam van de huidige bewerking, bijvoorbeeld: waarschuwing |
-| Category |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Altijd AzureBackupReport |
+| Categorie |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Altijd AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | ProtectedServerUniqueId_s |Tekst |De unieke id van de beveiligde server die is gekoppeld aan de waarschuwing |
 | VaultUniqueId_s |Tekst |De unieke id van de beveiligde kluis die zijn gekoppeld aan de waarschuwing |
@@ -66,7 +66,7 @@ Deze tabel bevat informatie over back-item-gerelateerde velden.
 | State_s |Tekst |Status van de back-upitem-object, bijvoorbeeld, actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor het uitvoeren van back-up, bijvoorbeeld IaaSVM FileFolder waaraan dit back-upitem behoort |
 | OperationName |Tekst |Naam van de bewerking, bijvoorbeeld BackupItem |
-| Category |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Altijd AzureBackupReport |
+| Categorie |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Altijd AzureBackupReport |
 | Resource |Tekst |Resource voor welke gegevens worden verzameld, bijvoorbeeld de naam voor Recovery Services-kluis |
 | SourceSystem |Tekst |Bronsysteem van de huidige gegevens - Azure |
 | ResourceId |Tekst |Resource-id voor gegevens die worden verzameld, bijvoorbeeld: Recovery Services-kluis resource-id |
@@ -86,7 +86,7 @@ Deze tabel bevat informatie over back-upitem koppelingen met verschillende entit
 | State_s |Tekst |Huidige status van het back-upitem koppeling-object, bijvoorbeeld: actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
 | OperationName |Tekst |Dit veld vertegenwoordigt naam van de huidige bewerking - BackupItemAssociation |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | PolicyUniqueId_g |Tekst |De unieke id voor het beleid dat is gekoppeld aan het back-upitem |
 | ProtectedServerUniqueId_s |Tekst |De unieke id van de beveiligde server die is gekoppeld aan het back-upitem |
@@ -98,7 +98,7 @@ Deze tabel bevat informatie over back-upitem koppelingen met verschillende entit
 | ResourceProvider |Tekst |Resourceprovider voor gegevens die worden verzameld, bijvoorbeeld Microsoft.RecoveryServices |
 | ResourceType |Tekst |Type van de resource voor de gegevens worden verzameld, bijvoorbeeld kluizen |
 
-### <a name="job"></a>Job
+### <a name="job"></a>Taak
 Deze tabel bevat details over velden met betrekking tot de taak.
 
 | Veld | Gegevenstype | Beschrijving |
@@ -109,7 +109,7 @@ Deze tabel bevat details over velden met betrekking tot de taak.
 | State_s |Tekst |Huidige status van het taakobject, bijvoorbeeld: actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
 | OperationName |Tekst |Dit veld vertegenwoordigt de naam van de huidige bewerking - taak |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | ProtectedServerUniqueId_s |Tekst |De unieke id van de beveiligde server die de taak |
 | VaultUniqueId_s |Tekst |De unieke id van de beveiligde kluis |
@@ -138,7 +138,7 @@ Deze tabel bevat informatie over beleid-gerelateerde velden.
 | State_s |Tekst |Huidige status van het Groepsbeleid-object, bijvoorbeeld actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
 | OperationName |Tekst |Dit veld vertegenwoordigt de naam van de huidige bewerking - beleid |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | PolicyUniqueId_g |Tekst |De unieke Id voor het identificeren van het beleid |
 | PolicyName_s |Tekst |Naam van het beleid is gedefinieerd |
@@ -178,7 +178,7 @@ Deze tabel bevat informatie over beleidskoppelingen met verschillende entiteiten
 | State_s |Tekst |Huidige status van het Groepsbeleid-object, bijvoorbeeld actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
 | OperationName |Tekst |Dit veld vertegenwoordigt naam van de huidige bewerking - PolicyAssociation |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | PolicyUniqueId_g |Tekst |De unieke Id voor het identificeren van het beleid |
 | VaultUniqueId_s |Tekst |De unieke Id van de kluis waarop dit beleid behoort |
@@ -200,7 +200,7 @@ Deze tabel bevat informatie over beveiligde velden met betrekking tot de server.
 | State_s |Tekst |Huidige status van de beveiligde server-object, bijvoorbeeld: actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
 | OperationName |Tekst |Dit veld vertegenwoordigt naam van de huidige bewerking - ProtectedServer |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | ProtectedServerUniqueId_s |Tekst |De unieke Id van de beveiligde server |
 | RegisteredContainerId_s |Tekst |Id van de container is geregistreerd voor back-up |
@@ -224,7 +224,7 @@ Deze tabel bevat informatie over de beveiligde server koppelingen met andere ent
 | State_s |Tekst |Huidige status van de beveiligde server koppelingsobject, bijvoorbeeld: actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
 | OperationName |Tekst |Dit veld vertegenwoordigt naam van de huidige bewerking - ProtectedServerAssociation |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | ProtectedServerUniqueId_s |Tekst |De unieke Id van de beveiligde server |
 | VaultUniqueId_s |Tekst |De unieke Id van de kluis waarnaar deze beveiligde server behoort |
@@ -247,7 +247,7 @@ Deze tabel bevat details over velden met betrekking tot opslag.
 | State_s |Tekst |Huidige status van het opslagobject, bijvoorbeeld: actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor de server die back-uptaak, bijvoorbeeld IaaSVM, FileFolder doen |
 | OperationName |Tekst |Dit veld vertegenwoordigt de naam van de huidige bewerking - opslag |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | ProtectedServerUniqueId_s |Tekst |De unieke Id van de beveiligde server waarvoor de opslag wordt berekend |
 | VaultUniqueId_s |Tekst |De unieke Id van de kluis voor de opslag wordt berekend |
@@ -267,7 +267,7 @@ Deze tabel bevat details over velden met betrekking tot de kluis.
 | SchemaVersion_s |Tekst |Dit veld geeft de huidige versie van het schema, is het **V1** |
 | State_s |Tekst |Huidige status van het object van de kluis, bijvoorbeeld: actief, verwijderd |
 | OperationName |Tekst |Dit veld vertegenwoordigt de naam van de huidige bewerking - kluis |
-| Category |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
+| Categorie |Tekst |Dit veld categorie van diagnostische gegevens naar Log Analytics gepusht vertegenwoordigt, is het AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | VaultUniqueId_s |Tekst |De unieke Id van de kluis |
 | VaultName_s |Tekst |Naam van de kluis |
@@ -281,4 +281,4 @@ Deze tabel bevat details over velden met betrekking tot de kluis.
 | ResourceType |Tekst |Het type van de resource waarvoor gegevens worden verzameld. Bijvoorbeeld-kluizen |
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u het gegevensmodel voor het maken van Azure Backup-rapporten bekijkt, kunt u starten [dashboard maken](../log-analytics/log-analytics-dashboards.md) in Log Analytics.
+Als u het gegevensmodel voor het maken van Azure Backup-rapporten bekijkt, kunt u starten [dashboard maken](../azure-monitor/platform/dashboards.md) in Log Analytics.

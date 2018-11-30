@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 29fc264a04111fbbe69c90ebd7250e25022c1217
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274618"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582527"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -167,7 +167,8 @@ Als u wilt zien als u de accountbeheerder bent, gaat u naar de [blade abonnement
 
 Als u niet de accountbeheerder bent, wordt dat iemand waarschijnlijk heeft gestuurd gedeeltelijke toegang via [toegangsbeheer op basis van Azure Active Directory-rol](../role-based-access-control/role-assignments-portal.md) (RBAC). Voor het beheren van abonnementen en facturering informatie wijzigen [vinden van de accountbeheerder](billing-subscription-transfer.md#whoisaa) en vraag deze om uit te voeren van de taken of [het abonnement aan u overdragen](billing-subscription-transfer.md).
 
-Als uw beheerder van het Account niet meer met uw organisatie is en u moet voor het beheren van facturering, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+Als uw beheerder van het Account niet meer met uw organisatie is en u moet voor het beheren van facturering, [contact met ons opnemen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

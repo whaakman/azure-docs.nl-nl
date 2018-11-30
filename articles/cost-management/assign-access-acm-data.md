@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 0c34b44bb0dc5458bab842e62a88403db08dc07a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275415"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582595"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Toegang tot gegevens van kostenbeheer toewijzen
 
@@ -42,7 +42,7 @@ Als u wilt weergeven van gegevens van cost, een gebruiker moet ten minste lezen 
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Toegang tot de kosten van de EA-portal inschakelen
 
-De facturering accountbereik vereist de **DA weergave kosten** optie **ingeschakeld** in de EA-portal. Alle andere bereiken vereisen de **kosten weergeven die door de AO** optie **ingeschakeld** in de EA-portal.
+Het bereik van de afdeling is vereist de **DA weergave kosten** optie **ingeschakeld** in de EA-portal. Alle andere bereiken vereisen de **kosten weergeven die door de AO** optie **ingeschakeld** in de EA-portal.
 
 Een optie inschakelen:
 
@@ -75,7 +75,7 @@ Het duurt maximaal 30 minuten voordat de nieuwe gebruiker toegang heeft tot gege
 
 ### <a name="assign-department-scope-access"></a>Afdeling bereik toegang toewijzen
 
-Toegang tot het bereik van de afdeling is vereist afdeling beheerderstoegang (kosten voor het weergeven van DA) in de EA-portal. De beheerder van de afdeling heeft toegang tot de kosten en gebruiksgegevens die zijn gekoppeld met een afdeling of op meerdere afdelingen weergeven.  Gegevens voor de afdeling bevatten alle abonnementen die behoren tot een inschrijvingsaccount die zijn gekoppeld aan de afdeling. Er is geen actie is vereist in de Azure-portal.
+Toegang tot het bereik van de afdeling is vereist afdeling beheerderstoegang (kosten voor het weergeven van DA) in de EA-portal. De beheerder van de afdeling heeft toegang tot de kosten en gebruiksgegevens die zijn gekoppeld met een afdeling of op meerdere afdelingen weergeven. Gegevens voor de afdeling bevatten alle abonnementen die behoren tot een inschrijvingsaccount die zijn gekoppeld aan de afdeling. Er is geen actie is vereist in de Azure-portal.
 
 1. Meld u aan bij de EA-portal op [ https://ea.azure.com ](https://ea.azure.com) met een enterprise-beheerdersaccount.
 2. Selecteer **beheren** in het linkerdeelvenster.
@@ -89,7 +89,7 @@ Toegang tot het bereik van de afdeling is vereist afdeling beheerderstoegang (ko
 
 ## <a name="assign-enrollment-account-scope-access"></a>Toegang tot het bereik voor inschrijving toewijzen
 
-Toegang tot het bereik van de account inschrijving vereist account eigenaar (kosten door de AO weergeven) toegang in de EA-portal. Eigenaar van het account kan kosten en gebruiksgegevens die zijn gekoppeld aan een registratie-account weergeven. Gegevens in het inschrijvingsaccount bevatten alle Azure-abonnementen die zijn gekoppeld aan de inschrijving. Er is geen actie is vereist in de Azure-portal.
+Toegang tot het bereik van de account inschrijving vereist account eigenaar (kosten door de AO weergeven) toegang in de EA-portal. Eigenaar van het account kan kosten- en gebruiksgegevens die zijn gekoppeld aan de abonnementen die zijn gemaakt op basis van die apparaatregistratie-account weergeven. Er is geen actie is vereist in de Azure-portal.
 
 1. Meld u aan bij de EA-portal op [ https://ea.azure.com ](https://ea.azure.com) met een enterprise-beheerdersaccount.
 2. Selecteer **beheren** in het linkerdeelvenster.
@@ -101,9 +101,11 @@ Toegang tot het bereik van de account inschrijving vereist account eigenaar (kos
 8. Klik op **toevoegen** om het account te maken.  
     ![In het account toevoegen](./media/assign-access-acm-data/add-account.png)
 
+Na het voltooien van de bovenstaande stappen het gebruikersaccount dat wordt een voor apparaatregistratie-account in de Enterprise portal en -abonnementen kunt maken. De gebruiker kan toegang tot gegevens van kosten en gebruik voor abonnementen die ze maken.
+
 ## <a name="assign-management-group-scope-access"></a>Bereik toegang tot de groep toewijzen
 
-Toegang tot een beheerbereik van de groep moet ten minste toestemming kosten Management Reader (of lezer). U configureren machtiging voor beheergroep in Azure portal. U hebt ten minste de machtiging Inzender aan de beheergroep om toegang te voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
+Toegang tot een beheerbereik van de groep moet ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een beheergroep configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de beheergroep die u wilt toegang inschakelen voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
 1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _beheergroepen_en selecteer vervolgens **beheergroepen**.
@@ -119,7 +121,7 @@ Toegang tot een beheerbereik van de groep moet ten minste toestemming kosten Man
 
 ## <a name="assign-subscription-scope-access"></a>Abonnement bereik toegang toewijzen
 
-Toegang tot een abonnement vereist ten minste toestemming kosten Management Reader (of lezer). U configureren toestemming om een abonnement te in Azure portal. U hebt ten minste de machtiging Inzender voor het abonnement om toegang te voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
+Toegang tot een abonnement vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen voor een abonnement configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor het abonnement om toegang te voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
 1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _abonnementen_en selecteer vervolgens **abonnementen**.
@@ -133,7 +135,7 @@ Toegang tot een abonnement vereist ten minste toestemming kosten Management Read
 
 ## <a name="assign-resource-group-scope-access"></a>Resource group bereik toegang toewijzen
 
-Toegang tot een resourcegroep vereist ten minste toestemming kosten Management Reader (of lezer). U configureren machtigingen voor een resourcegroep in Azure portal. U hebt ten minste de machtiging Inzender voor de resourcegroep voor het inschakelen van toegang voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
+Toegang tot een resourcegroep is vereist ten minste de machtiging Cost Management Reader (of lezer). U kunt machtigingen om een resourcegroep te configureren in Azure portal. U hebt ten minste de machtiging Administrator voor gebruikerstoegang (of eigenaar) voor de resourcegroep voor het inschakelen van toegang voor anderen. En u moet ook zijn ingeschakeld de **kosten weergeven die door de AO** instellen in de EA-portal.
 
 1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
 2. Selecteer **alle Services** Zoek in de zijbalk _resourcegroepen_en selecteer vervolgens **resourcegroepen**.

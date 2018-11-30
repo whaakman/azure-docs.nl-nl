@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 207cc6f114153bebea82bbd996b02f92782b248b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: bea7f0e88a371474db907dd74f08bd74c0e7c9e1
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275097"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584363"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Een aanvraag indient bij de Azure-abonnement betalen per factuur
 
@@ -50,6 +50,6 @@ U kunt de betalingsmethode voor uw Azure-abonnement te factureren door het indie
 
 Als we een kredietcontrole worden uitgevoerd vanwege de hoeveelheid tegoed die u nodig hebt moeten, sturen we dat u een tegoed dat u de toepassing controleren. Nadat u de toepassing hebt verzonden, kan 5-7 dagen voor het verwerken van duren voordat de kredietaanvraag.
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6a3e33fe74199f0b9c02c6924d5e5e41b37f385c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d1b7b5baeba88ec0209abff60e9327031afa8b66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820967"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633772"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -47,7 +47,7 @@ De querytaal van Log Analytics is geschikt voor eenvoudige logboeken-query's, ma
 ![Logboeken](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Welke gegevens worden verzameld door Azure Monitor?
-Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zien van de bewakingsgegevens voor uw toepassingen in lagen, variërend van uw toepassing, alle besturingssysteem en services afhankelijk, omlaag naar het platform zelf wordt geboden. Azure Monitor verzamelt gegevens van elk van de volgende lagen:
+Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zien van de bewakingsgegevens voor uw toepassingen in lagen, variërend van uw toepassing, elk besturingssysteem en services die afhankelijk van, omlaag naar het platform zelf wordt geboden. Azure Monitor verzamelt gegevens van elk van de volgende lagen:
 
 - **Gegevens voor toepassingsbewaking**: gegevens over de prestaties en functionaliteit van de code u hebt geschreven, ongeacht het platform.
 - **Gastbesturingssysteem bewakingsgegevens**: gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Dit kan worden uitgevoerd in Azure, een andere cloud of on-premises. 
@@ -57,7 +57,7 @@ Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zi
 
 Als u een Azure-abonnement en begin toevoegen van resources, zoals virtuele machines en web-apps maakt, wordt Azure Monitor gestart verzamelen van gegevens.  [Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) opnemen wanneer resources worden gemaakt of gewijzigd. [Metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) uitgelegd hoe de resource wordt uitgevoerd en de resources die voor deze wordt gebruikt. 
 
-Uitbreiden van de gegevens die u verzamelt in de huidige bewerking van de resources door [diagnostische gegevens inschakelen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) en [toevoegen van een agent](../log-analytics/log-analytics-agent-windows.md) om resources te berekenen. Hierdoor wordt het verzamelen van telemetrie voor de interne werking van de resource en kunt u het configureren van verschillende [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) voor het verzamelen van Logboeken en metrische gegevens van Windows en Linux Gast-besturingssysteem. 
+Uitbreiden van de gegevens die u verzamelt in de huidige bewerking van de resources door [diagnostische gegevens inschakelen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) en [toevoegen van een agent](../azure-monitor/platform/agent-windows.md) om resources te berekenen. Hierdoor wordt het verzamelen van telemetrie voor de interne werking van de resource en kunt u het configureren van verschillende [gegevensbronnen](../azure-monitor/platform/agent-data-sources.md) voor het verzamelen van Logboeken en metrische gegevens van Windows en Linux Gast-besturingssysteem. 
 
 [Een instrumentatiepakket toevoegen aan uw toepassing](../application-insights/app-insights-azure-web-apps.md), Application Insights voor het verzamelen van gedetailleerde informatie over uw toepassing met inbegrip van paginaweergaven, aanvragen en uitzonderingen inschakelen. De beschikbaarheid van uw toepassing verder controleren door het configureren van een [beschikbaarheidstest](../application-insights/app-insights-monitor-web-app-availability.md) gebruikersverkeer simuleren.
 
@@ -86,7 +86,7 @@ Azure Monitor VM insights bewaakt uw Azure virtual machines (VM) op schaal door 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Bewakingsoplossingen
-[Bewakingsoplossingen](../azure-monitor/insights/solutions.md) zijn verpakt sets met logica die inzicht voor een bepaalde toepassing of service geven in Azure Monitor. Deze gegevens verzamelen in Log Analytics, samen met andere gegevens, met behulp van [query's](../log-analytics/log-analytics-queries.md) voor analyse en [weergaven](../log-analytics/log-analytics-view-designer.md) voor visualisatie. Bewakingsoplossingen zijn [verkrijgbaar bij Microsoft](../azure-monitor/insights/solutions-inventory.md) en partners om te voorzien in bewaking voor verschillende Azure-services en andere toepassingen.
+[Bewakingsoplossingen](../azure-monitor/insights/solutions.md) zijn verpakt sets met logica die inzicht voor een bepaalde toepassing of service geven in Azure Monitor. Deze gegevens verzamelen in Log Analytics, samen met andere gegevens, met behulp van [query's](../log-analytics/log-analytics-queries.md) voor analyse en [weergaven](../azure-monitor/platform/view-designer.md) voor visualisatie. Bewakingsoplossingen zijn [verkrijgbaar bij Microsoft](../azure-monitor/insights/solutions-inventory.md) en partners om te voorzien in bewaking voor verschillende Azure-services en andere toepassingen.
 
 ![Bewakingsoplossingen](media/overview/solutions-overview.png)
 
@@ -115,7 +115,7 @@ Automatisch schalen kunt u de juiste hoeveelheid resources die worden uitgevoerd
 ![Dashboard](media/overview/dashboard.png)
 
 ### <a name="views"></a>Weergaven
-[Weergaven in Azure Monitor](../log-analytics/log-analytics-view-designer.md) visueel weergegeven logboekgegevens in Log Analytics.  Elke weergave bevat één tegel die ingezoomd op een combinatie van visualisaties, zoals staaf- en lijndiagrammen naast een lijst met essentiële gegevens samenvatten.  Bewakingsoplossingen bevatten weergaven waarin gegevens voor een bepaalde toepassing worden samengevat en kunt u uw eigen weergaven openen om te presenteren van gegevens vanuit een Log Analytics zoekopdracht in Logboeken. Net als andere elementen in Azure Monitor kunnen weergaven worden toegevoegd aan Azure-dashboards.
+[Weergaven in Azure Monitor](../azure-monitor/platform/view-designer.md) visueel weergegeven logboekgegevens in Log Analytics.  Elke weergave bevat één tegel die ingezoomd op een combinatie van visualisaties, zoals staaf- en lijndiagrammen naast een lijst met essentiële gegevens samenvatten.  Bewakingsoplossingen bevatten weergaven waarin gegevens voor een bepaalde toepassing worden samengevat en kunt u uw eigen weergaven openen om te presenteren van gegevens vanuit een Log Analytics zoekopdracht in Logboeken. Net als andere elementen in Azure Monitor kunnen weergaven worden toegevoegd aan Azure-dashboards.
 
 ![Log Analytics-weergave](media/overview/view.png)
 

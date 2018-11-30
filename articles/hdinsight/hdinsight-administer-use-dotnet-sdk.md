@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2371f52591db667498398daa889ebc14708a9674
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037753"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499216"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -228,7 +228,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Dit kan ook worden gedaan via de Portal. Zie [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>HTTP-gebruikersreferenties bijwerken
-Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access). Als het cluster heeft de HTTP-toegang is verleend, moet u eerst het intrekken.  En hen vervolgens machtigen de toegang met nieuwe HTTP-gebruikersreferenties.
+Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access).  Als het cluster heeft de HTTP-toegang is verleend, moet u eerst het intrekken.  En hen vervolgens machtigen de toegang met nieuwe HTTP-gebruikersreferenties.
 
 ## <a name="find-the-default-storage-account"></a>Het standaardopslagaccount vinden
 Het volgende codefragment laat zien hoe u de standaardnaam van de storage-account en de standaard-toegangssleutel voor een cluster.
@@ -242,25 +242,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>Verzenden van taken
-**MapReduce-taken indienen**
+**Apache Hadoop MapReduce-taken indienen**
 
-Zie [voorbeelden van Hadoop MapReduce uitvoeren in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Zie [voorbeelden van Apache Hadoop MapReduce uitvoeren in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Apache Hive-taken indienen** 
 
-Zie [uitvoeren Hive-query's met .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+Zie [uitvoeren Apache Hive-query's met .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **Apache Pig-taken indienen**
 
-Zie [uitvoeren Pig-taken met behulp van .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+Zie [uitvoeren Apache Pig-taken met behulp van .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **Apache Sqoop taken indienen**
 
-Zie [Sqoop gebruiken met HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+Zie [Apache Sqoop gebruiken met HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **Apache Oozie-taken indienen**
 
-Zie [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight](hdinsight-use-oozie-linux-mac.md).
+Zie [Apache Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure Blob-opslag
 Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].

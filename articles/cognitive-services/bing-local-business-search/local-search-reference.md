@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 100d2a6163c6b2b7a7bf8a557e69e1082b48eaee
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: b985521fdcfc5ca67b6410719ad72c0962004df6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979213"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499599"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Verwijzing van lokale bedrijven zoeken-API voor Bing versie 7
 
@@ -52,7 +52,7 @@ Hier volgen de headers die bijvoorbeeld een aanvraag en antwoord bevatten.
   
 |Header|Beschrijving|  
 |------------|-----------------|  
-|Accepteren|Optionele aanvraagheader.<br /><br /> De standaard-mediatype is application/json. Om op te geven dat het antwoord gebruiken [JSON-LD](http://json-ld.org/), de Accept-header ingesteld op application/ld + json.|  
+|Akkoord|Optionele aanvraagheader.<br /><br /> De standaard-mediatype is application/json. Om op te geven dat het antwoord gebruiken [JSON-LD](http://json-ld.org/), de Accept-header ingesteld op application/ld + json.|  
 |<a name="acceptlanguage" />Accept-Language|Optionele aanvraagheader.<br /><br /> Een door komma's gescheiden lijst met talen die moet worden gebruikt voor gebruikersinterfacetekenreeksen. De lijst is in aflopende volgorde van voorkeur. Zie [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) voor meer informatie, waaronder de verwachte indeling.<br /><br /> Deze header en de queryparameter [setLang](#setlang) sluiten elkaar uit&mdash;geef ze niet beide op.<br /><br /> Als u deze header instelt, moet u ook de queryparameter [cc](#cc) opgeven. Om de markt te bepalen waarvoor resultaten moeten worden geretourneerd, gebruikt Bing de eerste ondersteunde taal die wordt gevonden in de lijst en combineert deze met de parameterwaarde `cc`. Als de lijst geen ondersteunde taal bevat, vindt Bing de dichtstbijzijnde taal en markt die de aanvraag ondersteunen, of gebruikt een geaggregeerde of standaardmarkt voor de resultaten. Zie de header BingAPIs-Market om de markt te bepalen die Bing heeft gebruikt.<br /><br /> Gebruik deze header en de queryparameter `cc` alleen als u meerdere talen opgeeft. Gebruik anders de queryparameters [mkt](#mkt) en [setLang](#setlang).<br /><br /> Een gebruikersinterfacetekenreeks is een tekenreeks die wordt gebruikt als label in een gebruikersinterface. Er zijn maar weinig gebruikersinterfacetekenreeksen in de JSON-antwoordobjecten. De opgegeven taal wordt toegepast op koppelingen naar Bing.com-eigenschappen in de antwoordobjecten.|  
 |<a name="market" />BingAPIs-Market|Antwoordheader.<br /><br /> De markt die wordt gebruikt door de aanvraag. De notatie is \<languageCode\>-\<countryCode\>. Bijvoorbeeld: nl-NL.|  
 |<a name="traceid" />BingAPIs-TraceId|Antwoordheader.<br /><br /> De id van de logboekvermelding die de details van de aanvraag bevat. Registreer deze id wanneer er een fout optreedt. Als u het probleem niet kunt vaststellen en oplossen, neemt u deze id op bij de andere informatie die u aan het ondersteuningsteam verstrekt.|  
@@ -155,7 +155,7 @@ Informatie over een lokale bedrijven, zoals een restaurant of een hotel definiee
 |----------|-----------|----------|  
 |_Type|Type-hint die kan worden ingesteld op een van de volgende:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|Reeks|  
 |Adres|Het postadres van waar de entiteit zich bevindt.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|Meer informatie over de entiteit, zoals de hints die u gebruiken kunt om te bepalen van de entiteit-type. Of het is bijvoorbeeld een restaurant of in een hotel. De `entityScenario` ListItem is ingeschakeld.|[EntityPresentationInfo](#entitypresentationinfo)|  
+|entityPresentationInfo|Meer informatie over de entiteit, zoals de hints die u gebruiken kunt om te bepalen van de entiteit-type. Of het is bijvoorbeeld een restaurant of in een hotel. De `entityScenario` ListItem is ingeschakeld.|[entityPresentationInfo](#entitypresentationinfo)|  
 |naam|De naam van de entiteit.|Reeks|  
 |Telefoonnummer|Het telefoonnummer van de entiteit.|Reeks|  
 |url|De URL naar de website van de entiteit.<br /><br /> Gebruik deze URL samen met de naam van de entiteit op een hyperlink maken die terugkoppeling leidt de gebruiker naar de website van de entiteit.|Reeks|  

@@ -1,104 +1,118 @@
 ---
-title: IoT DevKit naar de cloud--verbinden met IoT DevKit AZ3166 oplossingsverbetering voor externe controle IoT | Microsoft Docs
-description: In deze zelfstudie leert u hoe u de status van sensoren op IoT DevKit AZ3166 verzendt naar externe controle IoT-oplossingsversnellers voor het controleren en visualisatie.
+title: IoT DevKit verbinden met externe controle oplossingsverbetering - Azure | Microsoft Docs
+description: In deze handleiding leert u hoe u voor het verzenden van telemetrie van de sensoren op IoT DevKit AZ3166 apparaat de aan de oplossingsverbetering voor externe controle voor controle en visualisatie.
 author: isabelcabezasm
 manager: ''
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 32742b2a680370f443051e2d86f90d94e8632850
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7f67868f6220ab2940aa8ac4d4bf24f82191cc22
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720579"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620248"
 ---
-# <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit AZ3166 verbinden met de externe controle IoT-oplossingsversnellers
+# <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Een apparaat IoT DevKit verbinden met de oplossingsverbetering voor externe controle
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-U leert hoe u een voorbeeld-app op uw IoT DevKit om sensorgegevens te verzenden naar uw oplossingenaccelerator uitvoert.
+In deze gebruiksaanwijzing laat zien hoe u een voorbeeld van toepassing op uw apparaat IoT DevKit uitvoeren. De voorbeeldcode wordt telemetrie van de sensoren op het apparaat DevKit verzendt naar uw oplossingenaccelerator.
 
-De [MXChip IoT DevKit](https://aka.ms/iot-devkit) is een compatibele alles-in-een Arduino-bord met uitgebreide randapparatuur en sensoren. U kunt ontwikkelen via [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) in Visual Studio Code. En wordt geleverd met een groeiend [projecten catalogus](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) om u te begeleiden prototype Internet of Things (IoT)-oplossingen die van Microsoft Azure-services profiteren.
+De [IoT DevKit](https://aka.ms/iot-devkit) is een compatibele alles-in-een Arduino-bord met uitgebreide randapparatuur en sensoren. U kunt ontwikkelen via [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) in Visual Studio Code. De [projecten catalogus](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) bevat voorbeeldtoepassingen om u te helpen prototype IoT-oplossingen.
 
-## <a name="what-you-need"></a>Wat u nodig hebt
+## <a name="prerequisites"></a>Vereisten
 
-Doorloop de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) en **voltooien van de volgende secties alleen**:
+Ga als volgt de [IoT DevKet aan de slag](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) en voer alleen de volgende secties:
 
 * Bereid uw hardware
 * Wi-Fi configureren
 * Start met behulp van de DevKit
 * De ontwikkelomgeving voorbereiden
 
-## <a name="open-the-remote-monitoring-sample-in-vs-code"></a>Het voorbeeld bewaking op afstand openen in VS Code
+## <a name="open-the-sample"></a>Open het voorbeeld
 
-1. Zorg ervoor dat uw IoT DevKit is **niet verbonden** op uw computer. VS Code eerst start, en vervolgens de DevKit verbinden met uw computer.
+Het voorbeeld bewaking op afstand openen in VS Code:
 
-2. Klik op `F1` openen het opdrachtenpalet, type en selecteer **IoT Workbench: voorbeelden**. Selecteer vervolgens **IoT DevKit** als bord.
+1. Zorg ervoor dat uw IoT DevKit is niet op uw computer. VS Code eerst start, en vervolgens de DevKit verbinden met uw computer.
 
-3. Zoek **bewaking op afstand** en klikt u op **Open voorbeeld**. Een nieuwe VS Code-venster wordt het geopend met de map in het project.
+1. Klik op `F1` openen het opdrachtenpalet, type en selecteer **IoT Workbench: voorbeelden**. Selecteer vervolgens **IoT DevKit** als bord.
+
+1. Zoek **bewaking op afstand** en klikt u op **Open voorbeeld**. Een nieuwe VS Code-venster wordt geopend met de projectmap:
+
   ![IoT-Workbench, selecteer Remote Monitoring-voorbeeld](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
-## <a name="configure-iot-hub-device-connection-string"></a>Verbindingsreeks voor IoT Hub-apparaat configureren
+## <a name="configure-the-device"></a>Het apparaat configureren
 
-1. Overschakelen van de IoT DevKit in **configuratiemodus**. Dit doet u als volgt:
-   * Houd **A**.
-   * Push en laat de **opnieuw** knop.
+IoT Hub apparaat-verbindingsreeks op uw apparaat DevKit configureren:
 
-2. Het scherm wordt weergegeven de DevKit-ID en 'Configuration'.
-   
-  ![IoT DevKit configuratiemodus](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
+1. Overschakelen van de IoT DevKit in **configuratiemodus**:
 
-3. Klik op `F1` openen het opdrachtenpalet, type en selecteer **IoT Workbench: apparaat > configuratie-instellingen voor apparaten**.
+    * Houd **A**.
+    * Push en laat de **opnieuw** knop.
 
-4. Plak de verbindingsreeks die u zojuist hebt gekopieerd, klikt u op `Enter` te configureren.
+1. Het scherm wordt weergegeven de DevKit-ID en `Configuration`.
 
-## <a name="build-and-upload-the-device-code"></a>Bouwen en de apparaatcode uploaden
+    ![IoT DevKit configuratiemodus](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. Klik op `F1` openen het opdrachtenpalet, type en selecteer **IoT Workbench: apparaat > apparaat uploaden**.
-  ![IoT-Workbench: Apparaat - > uploaden](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+1. Druk op **F1** openen het opdrachtenpalet, type en selecteer **IoT Workbench: apparaat > configuratie-instellingen voor apparaten**.
 
-1. VS Code wordt vervolgens gestart compileren en de code uploaden naar uw DevKit.
-  ![IoT-Workbench: Apparaat - > geüpload](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+1. Plak de verbindingsreeks die u eerder hebt gekopieerd en druk op **Enter** het apparaat te configureren.
 
-De DevKit opnieuw wordt opgestart en de code wordt gestart.
+## <a name="build-the-code"></a>De code bouwen
 
-## <a name="test-the-project"></a>Het project testen
+Om te bouwen en de apparaatcode uploaden:
+
+1. Druk op **F1**' ** om te openen van het opdrachtenpalet, type en selecteer **IoT Workbench: apparaat > apparaat uploaden**:
+
+    ![IoT-Workbench: Apparaat - > uploaden](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+
+1. VS Code kan worden gecompileerd en wordt de code geüpload naar uw apparaat DevKit:
+
+    ![IoT-Workbench: Apparaat - > geüpload](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+
+1. Het apparaat DevKit opnieuw wordt opgestart en wordt uitgevoerd op de code die u hebt geüpload.
+
+## <a name="test-the-sample"></a>Het voorbeeld testen
+
+Om te controleren of de voorbeeldtoepassing die u hebt geüpload naar het apparaat DevKit werkt, voert u de volgende stappen uit:
 
 ### <a name="view-the-telemetry-sent-to-remote-monitoring-solution"></a>De telemetrie die verzonden naar de oplossing voor externe controle weergeven
 
-Wanneer de voorbeeld-app wordt uitgevoerd, verzendt DevKit sensorgegevens via Wi-Fi naar uw oplossing voor externe controle. Het resultaat wilt weergeven, de volgende stappen uit:
+Wanneer de voorbeeld-app wordt uitgevoerd, verzendt het apparaat DevKit telemetrie van de gegevens van sensoren via Wi-Fi naar uw oplossingenaccelerator. De telemetrie bekijken:
 
 1. Ga naar het dashboard van uw oplossing en klik **apparaten**.
 
-2. Klik op de naam van het apparaat, klikt u op het tabblad rechts ziet u de status van de sensor op DevKit in realtime.
-  ![Sensorgegevens in Azure IoT Suite](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
+1. Klik op de naam van het apparaat van uw apparaat DevKit. u kunt de telemetrie van de DevKit in realtime zien op het tabblad rechter:
 
-### <a name="send-a-c2d-message"></a>Een C2D-bericht verzenden
+    ![Sensorgegevens in Azure IoT Suite](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
 
-Oplossing voor externe controle kunt u externe methode op het apparaat aanroepen. De code sxample publiceert drie methoden die u kunt zien in de **methode** sectie als de sensor is geselecteerd.
+### <a name="control-the-devkit-device"></a>Het apparaat DevKit beheren
+
+De oplossingsverbetering voor externe controle kunt u uw apparaat op afstand beheren. De voorbeeldcode implementeert drie methoden die u kunt zien in de **methode** sectie wanneer u het apparaat selecteert op de **apparaten** pagina:
 
 ![IoT DevKit methoden](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
-Laat het ons probeert de kleur van een van de DevKit-LED's met behulp van de methode 'LedColor' wijzigen.
+U kunt de kleur van een van de DevKit-LED's wijzigen met de **LedColor** methode:
 
-1. Selecteer de naam van het apparaat uit de lijst met apparaten en klik op de **taken**.
+1. Selecteer de naam van het apparaat uit de lijst met apparaten en klik op de **taken**:
 
-  ![Een taak maken](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
+    ![Een taak maken](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
 
-2. Configureren van de taken zoals hieronder en klik op **toepassen**.
-  * Selecteer taak: **methode uitvoeren**
-  * Methodenaam: **LedColor**
-  * Taaknaam: **ChangeLedColor**
-  
-  ![Taakinstellingen](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+1. Configureren van de taken die met behulp van de volgende waarden en klik op **toepassen**:
 
-In enkele seconden, moet uw DevKit de kleur van de RGB-LED beheren (onder de knop A) wijzigen.
+    * Selecteer taak: **methode uitvoeren**
+    * Methodenaam: **LedColor**
+    * Taaknaam: **ChangeLedColor**
 
-![IoT DevKit red geleid](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
+    ![Taakinstellingen](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+
+1. Na een paar seconden verandert de kleur van de RGB-LED (onder de knop A) op uw DevKit:
+
+    ![IoT DevKit red geleid](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -117,8 +131,8 @@ Als u problemen ondervindt, raadpleegt u [de veelgestelde vragen over de IoT Dev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe u een apparaat DevKit verbinden met uw externe controle van Azure IoT-oplossingsversnellers en de sensorgegevens visualiseren, vindt hier u de voorgestelde volgende stappen:
+Nu dat u hebt geleerd hoe u een apparaat DevKit verbinden met uw oplossingsverbetering voor externe controle, worden hier enkele Voorgestelde volgende stappen:
 
-* [Overzicht oplossingsversnellers Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [De gebruikersinterface aanpassen](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
+* [Overzicht oplossingsversnellers Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
+* [De gebruikersinterface aanpassen](iot-accelerators-remote-monitoring-customize.md)
 * [IoT DevKit verbinden met uw Azure IoT Central-toepassing](../iot-central/howto-connect-devkit.md)

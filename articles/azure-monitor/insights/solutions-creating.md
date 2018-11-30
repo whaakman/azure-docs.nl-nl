@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4fba078487f99347804362a888bcc2c33dde1ef
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715334"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632463"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Ontwerpen en bouwen van een oplossing in Azure (Preview)
 > [!NOTE]
@@ -42,16 +42,16 @@ De meest algemene patroon voor een oplossing voor beheer wordt in het volgende d
 
 
 ### <a name="data-sources"></a>Gegevensbronnen
-De eerste stap bij het ontwerpen van een oplossing is het vaststellen van de gegevens die u nodig van de opslagplaats van Log Analytics hebt.  Deze gegevens kan worden verzameld door een [gegevensbron](../../log-analytics/log-analytics-data-sources.md) of [een andere oplossing]( solutions.md), of uw oplossing moet mogelijk opgeven van het proces voor het verzamelen van deze.
+De eerste stap bij het ontwerpen van een oplossing is het vaststellen van de gegevens die u nodig van de opslagplaats van Log Analytics hebt.  Deze gegevens kan worden verzameld door een [gegevensbron](../../azure-monitor/platform/agent-data-sources.md) of [een andere oplossing]( solutions.md), of uw oplossing moet mogelijk opgeven van het proces voor het verzamelen van deze.
 
-Er zijn een aantal manieren om gegevensbronnen die kunnen worden verzameld in de Log Analytics-opslagplaats, zoals beschreven in [gegevensbronnen in Log Analytics](../../log-analytics/log-analytics-data-sources.md).  Dit omvat gebeurtenissen in het Windows-gebeurtenislogboek of die worden gegenereerd door Syslog naast prestatiemeteritems voor zowel Windows als Linux-clients.  U kunt ook gegevens verzamelen van Azure-resources die door Azure Monitor worden verzameld.  
+Er zijn een aantal manieren om gegevensbronnen die kunnen worden verzameld in de Log Analytics-opslagplaats, zoals beschreven in [gegevensbronnen in Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Dit omvat gebeurtenissen in het Windows-gebeurtenislogboek of die worden gegenereerd door Syslog naast prestatiemeteritems voor zowel Windows als Linux-clients.  U kunt ook gegevens verzamelen van Azure-resources die door Azure Monitor worden verzameld.  
 
 Als u gegevens die niet toegankelijk zijn via een van de beschikbare gegevensbronnen nodig hebt, dan kunt u de [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) waarmee u gegevens schrijven naar de Log Analytics-opslagplaats van een willekeurige client die een REST-API kunt aanroepen.  Aangepaste gegevensverzameling in een oplossing voor de meest voorkomende manier is het maken van een [runbook in Azure Automation](../../automation/automation-runbook-types.md) die de vereiste gegevens verzamelt van Azure of externe resources en de Collector-API gebruikt om te schrijven naar de opslagplaats.  
 
 ### <a name="log-searches"></a>Zoekopdrachten in Logboeken
 [Zoekopdrachten](../../log-analytics/log-analytics-queries.md) worden gebruikt om te extraheren en analyseren van gegevens in de Log Analytics-opslagplaats.  Ze worden gebruikt door weergaven en waarschuwingen naast de mogelijkheid van de gebruiker voor het uitvoeren van ad hoc-analyse van gegevens in de opslagplaats.  
 
-U moet alle query's waarvan u denkt is handig om de gebruiker dat, zelfs als ze niet worden gebruikt door alle weergaven of waarschuwingen definiëren.  Deze worden weergegeven die voor hen beschikbaar als opgeslagen zoekopdrachten in de portal en u kunt ook opnemen in een [lijstquery's visualisatie onderdeel](../../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in uw aangepaste weergave.
+U moet alle query's waarvan u denkt is handig om de gebruiker dat, zelfs als ze niet worden gebruikt door alle weergaven of waarschuwingen definiëren.  Deze worden weergegeven die voor hen beschikbaar als opgeslagen zoekopdrachten in de portal en u kunt ook opnemen in een [lijstquery's visualisatie onderdeel](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) in uw aangepaste weergave.
 
 ### <a name="alerts"></a>Waarschuwingen
 [Waarschuwingen in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) geven aan welke problemen via [zoekopdrachten](#log-searches) ten opzichte van de gegevens in de opslagplaats.  Ze een melding van de gebruiker of automatisch een actie uitvoeren als reactie. U moet verschillende waarschuwing voorwaarden voor uw toepassing te identificeren en bijbehorende waarschuwingsregels opnemen in uw oplossingsbestand.
@@ -61,9 +61,9 @@ Als het probleem kan mogelijk worden opgelost met een geautomatiseerd proces, zu
 Als uw oplossing externe functionaliteit in reactie op een waarschuwing vereist, dan kunt u een [antwoord voor webhook](../../monitoring-and-diagnostics/alert-metric.md).  Hiermee kunt u een externe webservice verzenden van gegevens uit de waarschuwing niet aanroepen.
 
 ### <a name="views"></a>Weergaven
-Weergaven in Log Analytics worden gebruikt voor het visualiseren van gegevens uit de opslagplaats van Log Analytics.  Elke oplossing bevatten doorgaans één weergave met een [tegel](../../log-analytics/log-analytics-view-designer-tiles.md) die wordt weergegeven op de belangrijkste dashboard van de gebruiker.  De weergave mag een willekeurig aantal [visualisatie delen](../../log-analytics/log-analytics-view-designer-parts.md) voor verschillende visualisaties van de verzamelde gegevens voor de gebruiker.
+Weergaven in Log Analytics worden gebruikt voor het visualiseren van gegevens uit de opslagplaats van Log Analytics.  Elke oplossing bevatten doorgaans één weergave met een [tegel](../../azure-monitor/platform/view-designer-tiles.md) die wordt weergegeven op de belangrijkste dashboard van de gebruiker.  De weergave mag een willekeurig aantal [visualisatie delen](../../azure-monitor/platform/view-designer-parts.md) voor verschillende visualisaties van de verzamelde gegevens voor de gebruiker.
 
-U [aangepaste weergaven maken met de ontwerper](../../log-analytics/log-analytics-view-designer.md) die u kunt later exporteren voor opname in het oplossingsbestand van uw.  
+U [aangepaste weergaven maken met de ontwerper](../../azure-monitor/platform/view-designer.md) die u kunt later exporteren voor opname in het oplossingsbestand van uw.  
 
 
 ## <a name="create-solution-file"></a>Oplossingsbestand maken

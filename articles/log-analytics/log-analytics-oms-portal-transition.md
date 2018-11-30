@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612802"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634792"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal naar Azure verplaatsen
 
@@ -84,7 +84,7 @@ U bent niet langer om nieuwe werkruimten met behulp van de OMS-portal te maken. 
 Waarschuwingen zijn [uitgebreid naar Azure portal](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Zodra dit voltooid is, zijn acties voor waarschuwingen alleen worden beschikbaar in Azure portal. Bestaande-waarschuwingen blijven worden vermeld in de OMS-portal. Als u waarschuwingen programmatisch met behulp van de Log Analytics Alert REST API of Log Analytics-waarschuwing Resourcesjabloon opent, moet u actiegroepen gebruiken in plaats van acties in uw API-aanroepen, Azure Resource Manager-sjablonen en PowerShell-opdrachten.
 
 ### <a name="alert-management-solution"></a>Oplossing voor waarschuwing
-In plaats van de [waarschuwingenbeheeroplossing](log-analytics-solution-alert-management.md), kunt u [van Azure Monitor unified interface waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md) te visualiseren en waarschuwingen beheren. Deze nieuwe ervaring aggregeert waarschuwingen uit meerdere bronnen binnen Azure inclusief waarschuwingen van Log Analytics. U kunt distributies van uw waarschuwingen bekijken, profiteer van geautomatiseerde groeperen van gerelateerde waarschuwingen via slimme groepen en weergeven van waarschuwingen voor meerdere abonnementen terwijl geavanceerde filters zijn toegepast. Al deze functies zijn beschikbaar in Preview-versie 4 juni 2018 beginnen. Het beheersysteem voor de waarschuwing is niet beschikbaar in de Azure portal. 
+In plaats van de [waarschuwingenbeheeroplossing](../azure-monitor/platform/alert-management-solution.md), kunt u [van Azure Monitor unified interface waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md) te visualiseren en waarschuwingen beheren. Deze nieuwe ervaring aggregeert waarschuwingen uit meerdere bronnen binnen Azure inclusief waarschuwingen van Log Analytics. U kunt distributies van uw waarschuwingen bekijken, profiteer van geautomatiseerde groeperen van gerelateerde waarschuwingen via slimme groepen en weergeven van waarschuwingen voor meerdere abonnementen terwijl geavanceerde filters zijn toegepast. Al deze functies zijn beschikbaar in Preview-versie 4 juni 2018 beginnen. Het beheersysteem voor de waarschuwing is niet beschikbaar in de Azure portal. 
 
 De gegevens die zijn verzameld door de oplossing van waarschuwingen te beheren (records met een type van de waarschuwing) blijft in Log Analytics, zolang de oplossing voor de werkruimte is geïnstalleerd. Vanaf augustus 2018, wordt streaming van waarschuwingen van geïntegreerde waarschuwingen in werkruimten ingeschakeld, vervangt deze mogelijkheid. Sommige wijzigingen in het schema worden verwacht en op een later tijdstip worden aangekondigd.
 
@@ -98,7 +98,7 @@ Met de ondersteuning van [query's voor meerdere bronnen](log-analytics-cross-wor
 
 
 ## <a name="azure-network-security-group-analytics"></a>Analyse van Azure-netwerkbeveiligingsgroep
-De [oplossing Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) wordt vervangen met onlangs geopende [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) waarmee u inzicht in gebruikers en toepassingen op cloudnetwerken. Traffic Analytics kunt u controle-activiteit op het netwerk, beveiligde toepassingen en gegevens van uw organisatie, werkbelasting prestaties te optimaliseren en blijven voldoen. 
+De [oplossing Azure Network Security Group Analytics](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) wordt vervangen met onlangs geopende [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) waarmee u inzicht in gebruikers en toepassingen op cloudnetwerken. Traffic Analytics kunt u controle-activiteit op het netwerk, beveiligde toepassingen en gegevens van uw organisatie, werkbelasting prestaties te optimaliseren en blijven voldoen. 
 
 Deze oplossing analyseert Stroomlogboeken logboeken en biedt inzicht in de volgende.
 

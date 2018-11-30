@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: a1b21afb02cffe608ece8687359a021c84b05e1e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014292"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497994"
 ---
-# <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Application Insights-logboekbestanden met telemetrie analyseren met Spark in HDInsight
+# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Application Insights-logboekbestanden met telemetrie met Apache Spark in HDInsight analyseren
 
-Informatie over het gebruik van Spark in HDInsight naar Application Insights-telemetriegegevens te analyseren.
+Meer informatie over het gebruik van [Apache Spark](https://spark.apache.org/) op HDInsight naar Application Insights-telemetriegegevens te analyseren.
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) is een Analyseservice die uw webtoepassingen bewaakt. Telemetrische gegevens die worden gegenereerd door Application Insights kunnen worden geëxporteerd naar Azure Storage. Wanneer de gegevens in Azure Storage, kan HDInsight worden gebruikt om te analyseren.
 
@@ -26,7 +26,7 @@ Informatie over het gebruik van Spark in HDInsight naar Application Insights-tel
 
 * Een toepassing die is geconfigureerd voor het gebruik van Application Insights.
 
-* Als u bekend bent met het maken van een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie, [maakt Spark in HDInsight](apache-spark-jupyter-spark-sql.md).
+* Als u bekend bent met het maken van een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie, [maakt Apache Spark in HDInsight](apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
   > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -362,14 +362,14 @@ Gebruik de informatie in de Azure Storage-Account toevoegen aan een bestaand clu
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende documenten voor meer voorbeelden van het gebruik van Spark voor het werken met gegevens en services in Azure:
+Zie de volgende documenten voor meer voorbeelden van het gebruik van Apache Spark voor het werken met gegevens en services in Azure:
 
-* [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Zie de volgende documenten voor meer informatie over het maken en uitvoeren van Spark-toepassingen:
 
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 495806d47839d471976cd8dff112a1db0b072db9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006104"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498328"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Een niet-interactieve verificatie HDInsight .NET-toepassing maken
 U kunt uw Microsoft .NET-Azure HDInsight-toepassing onder de identiteit van de toepassing (niet-interactieve) of onder de identiteit van de aangemelde gebruiker van de toepassing (interactief) uitvoeren. Dit artikel laat u het maken van een niet-interactieve verificatie .NET-toepassing verbinding maakt met Azure en beheren van HDInsight. Zie voor een voorbeeld van een interactieve toepassing [verbinding maken met Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -43,7 +43,7 @@ Toewijzen van uw Azure AD-toepassing een [rol](../role-based-access-control/buil
 ## <a name="develop-an-hdinsight-client-application"></a>Een HDInsight-client-toepassing ontwikkelen
 
 1. Maak een C#-consoletoepassing.
-2. De volgende NuGet-pakketten toevoegen:
+2. Voeg de volgende [NuGet](https://www.nuget.org/) pakketten:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre

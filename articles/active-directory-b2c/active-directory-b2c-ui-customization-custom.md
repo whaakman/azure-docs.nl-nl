@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625791"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583446"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -100,7 +100,7 @@ Voor het maken van een openbare container in Blob-opslag, het volgende doen:
 Blob-opslag configureren voor het delen van Cross-Origin-Resource door het volgende te doen:
 
 1. Selecteer in het menu **CORS**.
-2. Voor **oorsprongen toegestaan**, voer `your-tenant-name.b2clogin.com`. Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant. Bijvoorbeeld `fabrikam.b2clogin.com`.
+2. Voor **oorsprongen toegestaan**, voer `your-tenant-name.b2clogin.com`. Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant. Bijvoorbeeld `fabrikam.b2clogin.com`. U moet alle kleine letters gebruiken bij het invoeren van de tenantnaam van uw.
 3. Voor **toegestaan methoden**, selecteert u beide `GET` en `OPTIONS`.
 4. Voor **toegestaan Headers**, geeft u een sterretje (*).
 5. Voor **blootgesteld Headers**, geeft u een sterretje (*).

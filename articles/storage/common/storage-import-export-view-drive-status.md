@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521520"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584669"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>De status van de Azure Import/Export-taken weergeven
 
@@ -23,7 +23,6 @@ In dit artikel bevat informatie over hoe u de status van het station en de taak 
 U kunt de status van de importbewerking volgen of taken exporteren vanuit Azure portal. Klik op de **Import/Export** tabblad. Een lijst van uw taken wordt weergegeven op de pagina.
 
 ![Status van de taak weergeven](./media/storage-import-export-service/jobstate.png)
-
 
 ## <a name="view-job-status"></a>Taakstatus weergeven
 
@@ -74,7 +73,7 @@ De hoeveelheid tijd die nodig is voor het verwerken van een import-/ exporttaak 
 -  Type taak en de grootte van de gegevens worden gekopieerd
 -  Het aantal schijven in een taak. 
 
-Import/Export-service beschikt niet over een SLA, maar de service streeft ernaar voor het voltooien van de kopie in 7 tot en met 10 dagen nadat de schijven zijn ontvangen. Naast de status geplaatst in Azure Portal, kan de REST-API's worden gebruikt voor het bijhouden van de voortgang van de taak. Het percentage voltooid-parameter in de [lijst met taken]() API-bewerkingsaanroep bevat het percentage exemplaar wordt uitgevoerd.
+Import/Export-service beschikt niet over een SLA, maar de service streeft ernaar voor het voltooien van de kopie in 7 tot en met 10 dagen nadat de schijven zijn ontvangen. Naast de status geplaatst in Azure Portal, kan de REST-API's worden gebruikt voor het bijhouden van de voortgang van de taak. Het percentage voltooid-parameter in de [lijst met taken](/previous-versions/azure/dn529083(v=azure.100)) API-bewerkingsaanroep bevat het percentage exemplaar wordt uitgevoerd.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -82,4 +81,3 @@ Import/Export-service beschikt niet over een SLA, maar de service streeft ernaar
 * [Instellen van het hulpprogramma WAImportExport](storage-import-export-tool-how-to.md)
 * [Gegevens overdragen met AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
 * [Voorbeeld van Azure Import Export REST-API](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

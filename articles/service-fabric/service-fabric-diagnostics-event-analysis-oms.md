@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 332939710517e99aaa77642dc5e67256b476bd66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291076"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634572"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Gebeurtenis analyses en visualisatie met Log Analytics
  Log Analytics verzamelt en analyseert telemetrie van toepassingen en services die worden gehost in de cloud biedt analyse hulpprogramma's waarmee u hun beschikbaarheid en prestaties te maximaliseren. In dit artikel bevat een overzicht van het uitvoeren van query's in Log Analytics inzicht en problemen met wat er gebeurt in uw cluster. De volgende veelgestelde vragen worden behandeld:
@@ -108,7 +108,7 @@ De Kusto-query-taal is krachtig. Er is een andere waardevolle query die u kunt u
 ## <a name="next-steps"></a>Volgende stappen
 
 * Om in te schakelen prestatiemeteritems dat wil zeggen de controle van infrastructuren, Ga naar [toe te voegen de Log Analytics-agent](service-fabric-diagnostics-oms-agent.md). De agent verzamelt prestatiemeters en voegt deze toe aan uw bestaande werkruimte.
-* Voor clusters van on-premises biedt Log Analytics een Gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Log Analytics. Meer informatie over die in [computers zonder internettoegang verbinden met Log Analytics met behulp van de Log Analytics-gateway](../log-analytics/log-analytics-oms-gateway.md).
+* Voor clusters van on-premises biedt Log Analytics een Gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Log Analytics. Meer informatie over die in [computers zonder internettoegang verbinden met Log Analytics met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md).
 * Configureer [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) voor detectie en diagnostiek.
 * Vertrouwd raken met de functies [zoeken in logboeken en query's uitvoeren](../log-analytics/log-analytics-log-searches.md) die als onderdeel van Log Analytics worden aangeboden.
 * Ophalen van een meer gedetailleerd overzicht van Log Analytics en de mogelijkheden van het startpakket, lezen [wat is Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).

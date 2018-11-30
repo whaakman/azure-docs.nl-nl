@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5f5143800c423bdbaac9994b55e500723018dce4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712242"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634350"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -84,7 +84,7 @@ De meeste instellingen voor de verbonden gegevensbron beheren de in de **geavanc
 | System Center     | **Geavanceerde instellingen** menu voor de werkruimte. |
 | Office 365        | Zie de [documentatie voor Office 365-beheeroplossing](../azure-monitor/insights/solution-office-365.md) voor informatie over de configuratie. |
 | Windows-telemetrie | Instellingenmenu voor de oplossing. Zie [Windows Analytics in Azure portal](/windows/deployment/update/windows-analytics-azure-portal) voor informatie over de configuratie. |
-| ITSM-Connector    | Zie [verbinding maken met ITSM-producten en services met IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) voor instructies voor uw ITSM-service te verbinden met Log Analytics. |
+| ITSM-Connector    | Zie [verbinding maken met ITSM-producten en services met IT Service Management Connector](../log-analytics/../azure-monitor/platform/itsmc-connections.md) voor instructies voor uw ITSM-service te verbinden met Log Analytics. |
 
 ### <a name="data"></a>Gegevens
 Instellingen voor de meeste gegevens beheren de in de **geavanceerde instellingen** menu voor de werkruimte. De volgende tabel bevat details voor elke sectie van dit menu.
@@ -113,7 +113,7 @@ In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplo
 Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../monitoring-and-diagnostics/alert-metric.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hoe krijg ik toegang tot Mijn dashboards?
-De [mijn Dashboard](../log-analytics/log-analytics-dashboards.md) functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](../log-analytics/log-analytics-view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../log-analytics/log-analytics-tutorial-dashboards.md) aan Azure-Dashboards.
+De [mijn Dashboard](../log-analytics/../azure-monitor/platform/dashboards.md) functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](../log-analytics/../azure-monitor/platform/view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../log-analytics/log-analytics-tutorial-dashboards.md) aan Azure-Dashboards.
 
 ## <a name="how-do-i-check-my-usage"></a>Hoe kan ik mijn gebruik controleren?
 U kunt nu eenvoudig bekijken en beheren van uw gebruik en kosten van Log Analytics door te selecteren **gebruik en geraamde kosten** in uw werkruimte.

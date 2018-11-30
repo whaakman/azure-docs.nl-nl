@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235187"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635829"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Aan de slag met Key Vault-certificaten
 De volgende scenario's worden enkele van de primaire gebruik van Key Vault de certificate management-service met inbegrip van de extra stappen vereist voor het maken van uw eerste certificaat in uw key vault.
@@ -51,14 +51,14 @@ Certificaten worden samengesteld uit drie onderling verbonden resources samen al
 
 **Stap 3** -een Contoso-beheerder, samen met een Contoso-werknemer (Key Vault-gebruiker) die eigenaar is van certificaten, afhankelijk van de CA kunt verkrijgen van een certificaat van de beheerder of rechtstreeks vanuit het account met de CA.  
 
--   Beginnen met een bewerking van de referentie toevoegen tot een key vault door [instellen van een certificaatverlener](/rest/api/keyvault/setcertificateissuer) resource. Een certificaatverlener is een entiteit in Azure Key Vault (KV) als een resource CertificateIssuer weergegeven. Deze wordt gebruikt voor informatie over de oorzaak van een certificaat KV; naam van verlener, provider, referenties en andere administratieve informatie.
+-   Beginnen met een bewerking van de referentie toevoegen tot een key vault door [instellen van een certificaatverlener](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. Een certificaatverlener is een entiteit in Azure Key Vault (KV) als een resource CertificateIssuer weergegeven. Deze wordt gebruikt voor informatie over de oorzaak van een certificaat KV; naam van verlener, provider, referenties en andere administratieve informatie.
     -   Bijvoorbeeld MyDigiCertIssuer  
         -   Provider  
         -   Referenties: de referenties van de CA-account. Elke CA heeft een eigen specifieke gegevens.  
 
      Zie voor meer informatie over het maken van accounts met CA-Providers, het bijbehorende bericht op de [Key Vault-blog](https://aka.ms/kvcertsblog).  
 
-**Stap 3.1** : Stel [contactpersonen van het certificaat](/rest/api/keyvault/setcertificatecontacts) voor meldingen. Dit is de contactpersoon voor de Key Vault-gebruiker. Deze stap worden niet afgedwongen door Key Vault.  
+**Stap 3.1** : Stel [contactpersonen van het certificaat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) voor meldingen. Dit is de contactpersoon voor de Key Vault-gebruiker. Deze stap worden niet afgedwongen door Key Vault.  
 
 Opmerking: dit proces, via stap 3.1, is een eenmalige bewerking.  
 
@@ -83,7 +83,7 @@ Opmerking: dit proces, via stap 3.1, is een eenmalige bewerking.
       -   Informatie over verlenging - > ex. 90 dagen vóór de verloopdatum  
 
   - Proces voor het maken van een certificaat is meestal een asynchroon proces en omvat het opvragen van configuratiegegevens bij uw key vault voor de status van de certificaatbewerking maken.  
-[Get-certificaatbewerking](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
+[Get-certificaatbewerking](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Status: voltooid, is mislukt met de informatie over de fout of, geannuleerd  
       -   Vanwege de vertraging te maken, kan een annuleringsbewerking worden gestart. Het annuleren kan of kan niet worden van kracht.  
 

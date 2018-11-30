@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954310"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633109"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Toevoegen, wijzigen of verwijderen van een subnet van een virtueel netwerk
 
@@ -69,7 +69,7 @@ Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden 
 4. Selecteer het subnet dat u wilt wijzigen van instellingen voor in de lijst met subnetten. U kunt de volgende instellingen wijzigen:
 
     - **Adresbereik:** als er geen resources binnen het subnet worden geïmplementeerd, kunt u het adresbereik. Als alle resources in het subnet bestaat, moet u de resources verplaatsen naar een ander subnet of deze eerst verwijderen uit het subnet. De stappen die u moet een resource verwijderen of verplaatsen, is afhankelijk van de resource. Voor informatie over het verplaatsen of verwijderen van resources die zich in subnetten, Raadpleeg de documentatie voor elk resourcetype die u wilt verplaatsen of verwijderen. Zie de beperkingen voor **adresbereik** in stap 5 van [toevoegen van een subnet](#add-a-subnet).
-    - **Gebruikers**: U kunt toegang tot het subnet beheren met behulp van ingebouwde rollen of uw eigen aangepaste rollen. Zie voor meer informatie over het toewijzen van rollen en gebruikers toegang krijgen tot het subnet, [roltoewijzing gebruiken voor het beheren van toegang tot uw Azure-resources](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
+    - **Gebruikers**: U kunt toegang tot het subnet beheren met behulp van ingebouwde rollen of uw eigen aangepaste rollen. Zie voor meer informatie over het toewijzen van rollen en gebruikers toegang krijgen tot het subnet, [roltoewijzing gebruiken voor het beheren van toegang tot uw Azure-resources](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Netwerkbeveiligingsgroep** en **routetabel**: Zie stap 5 van [toevoegen van een subnet](#add-a-subnet).
     - **Service-eindpunten**: service-eindpunten in stap 5 van Zie [toevoegen van een subnet](#add-a-subnet). Bij het inschakelen van een service-eindpunt voor een bestaand subnet, zorg ervoor dat er geen kritieke taken worden uitgevoerd voor de resources in het subnet. Service-eindpunten overschakelen routes op elke netwerkinterface in het subnet van het gebruik van de standaard-route met de *0.0.0.0/0* voorvoegsel en volgend hoptype van *Internet*, voor het gebruik van een nieuwe route met de adres van de voorvoegsels van de service en een volgend hoptype van *VirtualNetworkServiceEndpoint*. Tijdens de switch kunnen geopende TCP-verbindingen worden beëindigd. Het service-eindpunt is niet ingeschakeld totdat verkeersstromen tot de service voor alle netwerkinterfaces worden bijgewerkt met de nieuwe route. Zie voor meer informatie over routering, [routeringoverzicht](virtual-networks-udr-overview.md).
     - **Subnet delegering:** Zie service-eindpunten in stap 5 van [toevoegen van een subnet](#add-a-subnet). Subnet overdracht kan worden gewijzigd op nul of meerdere overdrachten zijn ingeschakeld voor deze. Als een resource voor een service is al geïmplementeerd in het subnet, kunnen subnet overdracht kan niet worden verwijderd totdat de alle bronnen voor de service zijn verwijderd. Als u wilt delegeren voor een andere service, selecteert u de service die u overdragen wilt aan van de **Services** lijst. 

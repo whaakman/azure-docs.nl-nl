@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: a57aae3b5f854871c94d5a4d62b41ad6a1bafcfd
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824928"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499658"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -39,7 +39,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [AcrImageSigner](#acrimagesigner) | acr-afbeeldingsondertekenaar |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-quarantainegegevenslezer |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-quarantainegegevensschrijver |
-| [Inzender voor API Management-Services](#api-management-service-contributor) | Kunt u API Management-services, maar niet de toegang tot beheren. |
+| [Inzender voor API Management-Services](#api-management-service-contributor) | Kan de service en de API's beheren |
 | [Rol Operator API Management-Service](#api-management-service-operator-role) | Kan de service beheren, maar niet de API's |
 | [Rol Lezer API Management-Service](#api-management-service-reader-role) | Alleen-lezentoegang tot de service en API's |
 | [Application Insights-Onderdeelinzender](#application-insights-component-contributor) | Kan onderdelen van Application Insights beheren |
@@ -53,7 +53,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Back-Inzender](#backup-contributor) | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
 | [Back-upoperator](#backup-operator) | Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van back-ups, het maken van kluizen en het verlenen van toegang aan anderen |
 | [Back-Uplezer](#backup-reader) | Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen |
-| [Facturering voor lezer](#billing-reader) | Hiermee kunt u lezen factureringsgegevens |
+| [Facturering voor lezer](#billing-reader) | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
 | [Inzender voor BizTalk](#biztalk-contributor) | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
 | [Inzender voor CDN-eindpunt](#cdn-endpoint-contributor) | Kan CDN-eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 | [Lezer voor CDN-eindpunt](#cdn-endpoint-reader) | Kan CDN-eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
@@ -70,12 +70,14 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Kostenbeheer-lezer](#cost-management-reader) | Kan kostengegevens en configuratie weergeven (bijvoorbeeld budgetten, exports) |
 | [Inzender voor Data Box](#data-box-contributor) | Hiermee kunt u alles onder de Data Box-service beheren behalve toegang verlenen aan anderen. |
 | [Data Box-lezer](#data-box-reader) | Hiermee kunt u de Data Box-service beheren behalve orders maken of details van orders bewerken en toegang geven aan anderen. |
-| [Inzender Data Factory](#data-factory-contributor) | U kunt data factory's, maar niet de toegang tot beheren. |
+| [Inzender Data Factory](#data-factory-contributor) | Data factory's en de onderliggende resources hierin maken en beheren. |
 | [Data Lake Analytics-ontwikkelaar](#data-lake-analytics-developer) | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
 | [Gegevens Purger](#data-purger) | Kan analytische gegevens verwijderen |
-| [DevTest Labs-gebruiker](#devtest-labs-user) | Hiermee kunt u verbinding kunt maken, starten, opnieuw opstarten en afsluiten van virtuele machines in Azure DevTest Labs. |
+| [DevTest Labs-gebruiker](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
 | [Inzender voor DNS-Zone](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [Inzender voor het DocumentDB-Account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
+| [EventGrid EventSubscription Inzender (Preview)](#eventgrid-eventsubscription-contributor-preview) | Kunt u bewerkingen in het abonnement EventGrid gebeurtenis beheren. |
+| [EventGrid EventSubscription Reader (Preview)](#eventgrid-eventsubscription-reader-preview) | Hiermee kunt u gebeurtenisabonnementen EventGrid lezen. |
 | [HDInsight Domain Services-Inzender](#hdinsight-domain-services-contributor) | Kan bewerkingen met betrekking tot domeinservices lezen, maken, wijzigen en verwijderen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
 | [Inzender voor het Account van de intelligente systemen](#intelligent-systems-account-contributor) | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
 | [Inzender voor Key Vault](#key-vault-contributor) | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
@@ -101,7 +103,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor Scheduler-taak](#scheduler-job-collections-contributor) | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
 | [Inzender voor Search-Services](#search-service-contributor) | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
 | [Beveiligingsbeheerder](#security-admin) | In Security Center alleen: kunt weergeven beveiligingsbeleid, security status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, waarschuwingen en aanbevelingen negeren |
-| [Security Manager](#security-manager) | Hiermee kunt u security-onderdelen, beveiligingsbeleid en virtuele machines beheren |
+| [Beveiligingsbeheer (verouderd)](#security-manager-legacy) | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
 | [Beveiligingslezer](#security-reader) | In Security Center alleen: aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
 | [Site Recovery-Inzender](#site-recovery-contributor) | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
 | [Site Recovery-Operator](#site-recovery-operator) | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
@@ -119,7 +121,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor Traffic Manager](#traffic-manager-contributor) | Hiermee kunt u Traffic Manager-profielen beheren, maar kunt u niet bepalen wie toegang heeft. |
 | [Beheerder van gebruikerstoegang](#user-access-administrator) | Hiermee beheert u de gebruikerstoegang tot Azure-resources. |
 | [Beheerdersaanmelding bij virtuele Machine](#virtual-machine-administrator-login) | Virtuele machines in de portal weergeven en aanmelden als beheerder |
-| [Inzender voor virtuele machines](#virtual-machine-contributor) | Hiermee kunt u beheren van virtuele machines, maar niet de toegang tot, en niet het virtuele netwerk of storage-account die zijn gekoppeld. |
+| [Inzender voor virtuele machines](#virtual-machine-contributor) | Hiermee beheert u virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount waaraan de virtuele machines zijn gekoppeld, beheren. |
 | [Gebruikersaanmelding bij virtuele Machine](#virtual-machine-user-login) | Virtuele machines weergeven in de portal en aanmelden als normale gebruiker. |
 | [Inzender voor webabonnementen](#web-plan-contributor) | Hiermee beheert u de webabonnementen voor websites, maar kunt u niet de toegang tot de abonnementen beheren. |
 | [Inzender voor websites](#website-contributor) | Hiermee beheert u websites (niet webabonnementen), maar kunt u niet de toegang tot de websites beheren. |
@@ -146,7 +148,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Authorization/*/Delete | Functies en roltoewijzingen verwijderen niet |
 > | Microsoft.Authorization/*/Write | Kan de rollen en roltoewijzingen niet maken |
 > | Microsoft.Authorization/elevateAccess/Action | Hiermee wordt oproepende functie de rechten van Administrator voor gebruikerstoegang gegeven voor het tenantbereik |
-> | Microsoft.Blueprint/blueprintAssignments/write | Alle blauwdrukartefacten maken of bijwerken |
+> | Microsoft.Blueprint/blueprintAssignments/write | Maken of bijwerken van alle blauwdrukartefacten |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
 
 ## <a name="reader"></a>Lezer
@@ -165,8 +167,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | acr-afbeeldingsondertekenaar |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Acties** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
+> | Microsoft.ContainerRegistry/registries/sign/write | Push of eruit te halen de metagegevens van inhoud vertrouwensrelatie voor een container registry. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -175,7 +176,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | acr-quarantainegegevenslezer |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Acties** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull- of in quarantaine geplaatste afbeeldingen kunt verkrijgen van containerregister |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -184,14 +185,14 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | acr-quarantainegegevensschrijver |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Acties** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull- of in quarantaine geplaatste afbeeldingen kunt verkrijgen van containerregister |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Status van de in quarantaine plaatsen van in quarantaine geplaatste afbeeldingen schrijven/wijzigen |
 
 ## <a name="api-management-service-contributor"></a>Inzender voor API Management-services
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Kunt u API Management-services, maar niet de toegang tot beheren. |
+> | **Beschrijving** | Kan de service en de API's beheren |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Acties** |  |
 > | Microsoft.ApiManagement/service/* | Maken en beheren van API Management-service |
@@ -536,7 +537,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Hiermee kunt u lezen factureringsgegevens |
+> | **Beschrijving** | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -813,7 +814,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | U kunt data factory's, maar niet de toegang tot beheren. |
+> | **Beschrijving** | Data factory's en de onderliggende resources hierin maken en beheren. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -872,7 +873,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Hiermee kunt u verbinding kunt maken, starten, opnieuw opstarten en afsluiten van virtuele machines in Azure DevTest Labs. |
+> | **Beschrijving** | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
@@ -883,13 +884,14 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Compute/virtualMachines/restart/action | Hiermee wordt de virtuele machine opnieuw gestart |
 > | Microsoft.Compute/virtualMachines/start/action | Hiermee wordt de virtuele machine gestart |
 > | Microsoft.DevTestLab/*/read | De eigenschappen van een lab lezen |
-> | Microsoft.DevTestLab/labs/createEnvironment/action | Virtuele machines in een lab maken. |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Claim een willekeurige claimbare virtuele machine in het lab. |
+> | Microsoft.DevTestLab/labs/createEnvironment/action | Virtuele machines in een lab maken. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Verwijderen van formules. |
 > | Microsoft.DevTestLab/labs/formulas/read | Formules worden gelezen. |
 > | Microsoft.DevTestLab/labs/formulas/write | Toevoegen of wijzigen van formules. |
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Lab-beleid evalueert. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Eigenaar worden van een bestaande virtuele machine |
+> | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Geeft een lijst van de planning van toepassing starten/stoppen, indien van toepassing. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Lid wordt van een load balancer binnenkomende nat-regel |
 > | Microsoft.Network/networkInterfaces/*/read | Lezen van de eigenschappen van een netwerkinterface (bijvoorbeeld alle load balancers die de netwerkinterface een deel van is) |
@@ -936,6 +938,37 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Inzender (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u bewerkingen in het abonnement EventGrid gebeurtenis beheren. |
+> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **Acties** |  |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.EventGrid/eventSubscriptions/* |  |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Lijst met algemene gebeurtenisabonnementen op Onderwerptype |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | Lijst met regionale gebeurtenisabonnementen |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Lijst met regionale gebeurtenisabonnementen door topictype |
+> | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
+> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Reader (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u gebeurtenisabonnementen EventGrid lezen. |
+> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **Acties** |  |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.EventGrid/eventSubscriptions/read | Een eventSubscription lezen |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Lijst met algemene gebeurtenisabonnementen op Onderwerptype |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | Lijst met regionale gebeurtenisabonnementen |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Lijst met regionale gebeurtenisabonnementen door topictype |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Inzender HDInsight Domain Services
 > [!div class="mx-tableFixed"]
@@ -1089,6 +1122,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | Hiermee kunt u acties op resources van beheerde toepassingen lezen en uitvoeren |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Acties** |  |
+> | * / lezen | Bronnen van alle typen, met uitzondering van geheimen worden gelezen. |
 > | Microsoft.Solutions/applications/read | Hiermee wordt een lijst met toepassingen opgehaald. |
 
 ## <a name="managed-applications-reader"></a>Reader Beheerde toepassingen
@@ -1185,7 +1219,6 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Publisher voor metrische gegevens bewaken
 > [!div class="mx-tableFixed"]
@@ -1332,15 +1365,17 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Security/locations/tasks/activate/action | Een beveiligingsaanbeveling activeren |
 > | Microsoft.Security/locations/tasks/dismiss/action | Een beveiligingsaanbeveling negeren |
 > | Microsoft.Security/policies/write | Updates van het beveiligingsbeleid |
-> | Microsoft.Security/securityContacts/write | Updates van de contactpersoon voor beveiliging |
+> | Microsoft.Security/pricings/write | De prijzen instellingen voor de scope-updates |
+> | Microsoft.Security/pricings/delete | Hiermee verwijdert u de instellingen voor prijscategorie voor het bereik |
 > | Microsoft.Security/securityContacts/delete | Hiermee verwijdert u de contactpersoon voor beveiliging |
+> | Microsoft.Security/securityContacts/write | Updates van de contactpersoon voor beveiliging |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="security-manager"></a>Beveiligingsbeheer
+## <a name="security-manager-legacy"></a>Beveiligingsbeheer (verouderd)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Hiermee kunt u security-onderdelen, beveiligingsbeleid en virtuele machines beheren |
+> | **Beschrijving** | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
@@ -1559,11 +1594,13 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL server audit beleid maken en beheren |
 > | Microsoft.Sql/servers/auditingSettings/* | Maken en beheren van SQL server-controle-instellingen |
+> | Microsoft.Sql/servers/extendedAuditingSettings/read | Gegevens van de uitgebreide server blob auditing dat is geconfigureerd op een bepaalde server niet ophalen |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Maken en beheren van controlebeleid van de SQL server-database |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Maken en beheren van SQL server-database controle-instellingen |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Controlerecords lezen |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL server-database verbinding beleid maken en beheren |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Maken en beheren van SQL server-databasegegevens maskeren beleid |
+> | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | De gegevens van de uitgebreide blob controleren dat is geconfigureerd op een bepaalde database ophalen |
 > | Microsoft.Sql/servers/databases/read | Retourneert de lijst met databases of haalt de eigenschappen voor de opgegeven database. |
 > | Microsoft.Sql/servers/databases/schemas/read | Lijst van schema's van een database ophalen |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Lijst met kolommen van een tabel ophalen |
@@ -1753,7 +1790,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschrijving** | Hiermee kunt u beheren van virtuele machines, maar niet de toegang tot, en niet het virtuele netwerk of storage-account die zijn gekoppeld. |
+> | **Beschrijving** | Hiermee beheert u virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount waaraan de virtuele machines zijn gekoppeld, beheren. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |

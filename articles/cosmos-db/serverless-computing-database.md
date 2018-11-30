@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623146"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582782"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverless database computing met behulp van Azure Cosmos DB en Azure Functions
 
@@ -124,7 +124,7 @@ Azure Functions biedt de mogelijkheid om te maken van schaalbare eenheden van we
 
 Azure Cosmos DB is de aanbevolen database voor uw serverloze computing-architectuur voor de volgende redenen:
 
-* **Directe toegang tot al uw gegevens**: hebt u nauwkeurige toegang tot elke waarde die is opgeslagen, omdat Azure Cosmos DB [automatisch geïndexeerd](indexing-policies.md) alle gegevens standaard, en maakt deze indexen onmiddellijk beschikbaar. Dit betekent dat u zich kunt voortdurend query, bijwerken, en nieuwe items toevoegen aan uw database en directe toegang via Azure Functions hebben.
+* **Directe toegang tot al uw gegevens**: hebt u nauwkeurige toegang tot elke waarde die is opgeslagen, omdat Azure Cosmos DB [automatisch geïndexeerd](index-policy.md) alle gegevens standaard, en maakt deze indexen onmiddellijk beschikbaar. Dit betekent dat u zich kunt voortdurend query, bijwerken, en nieuwe items toevoegen aan uw database en directe toegang via Azure Functions hebben.
 
 * **Schemaloos**. Azure Cosmos DB is schemaloos - dus is het een unieke overweg kan met elke gegevensuitvoer van een Azure-functie. Deze aanpak 'aankunnen,' maakt het eenvoudig om een verscheidenheid aan functies maken die alle uitvoer naar Azure Cosmos DB.
 

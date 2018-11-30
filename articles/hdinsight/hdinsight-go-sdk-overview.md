@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901903"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498290"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Ga naar HDInsight Management SDK-Preview
 
@@ -141,7 +141,7 @@ Een nieuw cluster kan worden gemaakt door het aanroepen van `client.Create()`.
 
 #### <a name="example"></a>Voorbeeld
 
-In dit voorbeeld ziet u hoe u een Spark-cluster maken met 2 hoofdknooppunten en 1 worker-knooppunt.
+In dit voorbeeld laat zien over het maken van een [Apache Spark](https://spark.apache.org/) cluster met 2 hoofdknooppunten en 1 worker-knooppunt.
 
 > [!NOTE]
 > U moet eerst een resourcegroep en de Storage-Account, zoals hieronder wordt uitgelegd. Als u deze al hebt gemaakt, kunt u deze stappen overslaan.

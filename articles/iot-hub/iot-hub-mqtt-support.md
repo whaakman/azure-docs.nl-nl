@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344962"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497620"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -66,11 +66,11 @@ Als een apparaat de apparaat-SDK's gebruiken kan, kan deze nog steeds verbinding
 
 * Voor de **ClientId** veld, gebruikt u de **deviceId**.
 
-* Voor de **gebruikersnaam** veld, gebruikt u `{iothubhostname}/{device_id}/api-version=2016-11-14`, waarbij `{iothubhostname}` is de volledige CName van de IoT-hub.
+* Voor de **gebruikersnaam** veld, gebruikt u `{iothubhostname}/{device_id}/api-version=2018-06-30`, waarbij `{iothubhostname}` is de volledige CName van de IoT-hub.
 
     Bijvoorbeeld, als de naam van uw IoT-hub is **contoso.azure devices.net** en als de naam van uw apparaat is **MyDevice01**, de volledige **gebruikersnaam** veld moet bevatten:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
+    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
 * Voor de **wachtwoord** veld, gebruikt u een SAS-token. De indeling van de SAS-token is dezelfde als die voor de HTTPS- en het AMQP-protocollen:
 

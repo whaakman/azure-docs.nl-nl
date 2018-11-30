@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6f4f2f6a7999b2d26e198a11bb7cee27991a775b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711953"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633466"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -126,7 +126,7 @@ Nadat u Docker hebt geïnstalleerd, gebruikt u de volgende instellingen voor uw 
 
 **Voor alle hosts door Linux-container met uitzondering van CoreOS:**
 
-- Zie voor meer informatie en stappen voor het installeren van de Log Analytics-agent voor Linux, [Log Analytics-agent overzicht](log-analytics-agent-overview.md).
+- Zie voor meer informatie en stappen voor het installeren van de Log Analytics-agent voor Linux, [Log Analytics-agent overzicht](../azure-monitor/platform/log-analytics-agent.md).
 
 **Voor alle Linux-containerhosts met inbegrip van CoreOS:**
 
@@ -524,9 +524,9 @@ Zie voor meer informatie over de configuratie van de Docker-daemon gebruikt in c
 
 #### <a name="install-windows-agents"></a>Windows-agents installeren
 
-Als u Windows- en Hyper-V-containers bewaken, installeert u Microsoft Monitoring Agent (MMA) op Windows-computers die containerhosts zijn. Voor computers waarop Windows wordt uitgevoerd in uw on-premises-omgeving, Zie [verbinding maken met Windows-computers naar Log Analytics](log-analytics-agent-windows.md). Voor virtuele machines die worden uitgevoerd in Azure, verbind deze met Log Analytics met behulp van de [extensie van virtuele machine](log-analytics-quick-collect-azurevm.md).
+Als u Windows- en Hyper-V-containers bewaken, installeert u Microsoft Monitoring Agent (MMA) op Windows-computers die containerhosts zijn. Voor computers waarop Windows wordt uitgevoerd in uw on-premises-omgeving, Zie [verbinding maken met Windows-computers naar Log Analytics](../azure-monitor/platform/agent-windows.md). Voor virtuele machines die worden uitgevoerd in Azure, verbind deze met Log Analytics met behulp van de [extensie van virtuele machine](log-analytics-quick-collect-azurevm.md).
 
-U kunt Windows-containers die worden uitgevoerd in Service Fabric bewaken. Echter alleen [virtuele machines die worden uitgevoerd in Azure](log-analytics-quick-collect-azurevm.md) en [computers waarop Windows wordt uitgevoerd in uw on-premises omgeving](log-analytics-agent-windows.md) worden momenteel ondersteund voor Service Fabric.
+U kunt Windows-containers die worden uitgevoerd in Service Fabric bewaken. Echter alleen [virtuele machines die worden uitgevoerd in Azure](log-analytics-quick-collect-azurevm.md) en [computers waarop Windows wordt uitgevoerd in uw on-premises omgeving](../azure-monitor/platform/agent-windows.md) worden momenteel ondersteund voor Service Fabric.
 
 U kunt controleren of de Container Monitoring solution juist is ingesteld voor Windows. Als u wilt controleren of het managementpack downloaden goed is, zoekt *ContainerManagement.xxx*. De bestanden moeten zich in de map C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepacks.
 
@@ -543,7 +543,7 @@ De oplossing Container Monitoring verzamelt verschillende metrische gegevens en 
 Gegevens worden elke drie minuten worden verzameld door de volgende typen van de agent.
 
 - [Log Analytics-agent voor Linux](log-analytics-quick-collect-linux-computer.md)
-- [Windows-agent](log-analytics-agent-windows.md)
+- [Windows-agent](../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM-extensie](log-analytics-quick-collect-azurevm.md)
 
 

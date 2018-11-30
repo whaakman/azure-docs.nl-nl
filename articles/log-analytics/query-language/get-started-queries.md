@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32e95c9098999305d4c48d5c43fae5ef6d3ac36e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267695"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619772"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Aan de slag met query's in Log Analytics
 
@@ -138,7 +138,7 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Een tijdsperiode opgeven
 
 ### <a name="time-picker"></a>Tijdkiezer
-De tijdkiezer is in de linkerbovenhoek waarmee wordt aangegeven dat we query's alleen records uit de afgelopen 24 uur. Dit is het tijdsbereik voor standaard toegepast op alle query's. Als u alleen de records van het afgelopen uur, selecteer _afgelopen uur_ en voer de query opnieuw uit.
+De tijdkiezer naast de knop uitvoeren en geeft aan dat we bij het opvragen van alleen de records van de afgelopen 24 uur. Dit is het tijdsbereik voor standaard toegepast op alle query's. Als u alleen de records van het afgelopen uur, selecteer _afgelopen uur_ en voer de query opnieuw uit.
 
 ![Tijdkiezer](media/get-started-queries/timepicker.png)
 
@@ -226,14 +226,14 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Samenvatten op een time-kolom
 Resultaten groeperen kan ook worden gebaseerd op een time-kolom, of een andere continue waarde. Samenvatting van gewoon `by TimeGenerated` echter zou groepen maken voor elke één milliseconde gedurende het tijdsbereik, omdat dit unieke waarden zijn. 
 
-Voor het maken van groepen op basis van doorlopende waarden, het is raadzaam om het bereik in beheerbare eenheden met behulp van **bin**. De volgende query worden geanalyseerd *Perf* records die het meten van beschikbaar geheugen (*beschikbare megabytes (MB)*) op een specifieke computer. Het berekenen van de gemiddelde waarde voor elke periode als 1 uur, in de afgelopen 2 dagen:
+Voor het maken van groepen op basis van doorlopende waarden, het is raadzaam om het bereik in beheerbare eenheden met behulp van **bin**. De volgende query worden geanalyseerd *Perf* records die het meten van beschikbaar geheugen (*beschikbare megabytes (MB)*) op een specifieke computer. Het berekenen van de gemiddelde waarde voor elke periode als 1 uur, gedurende de afgelopen 7 dagen:
 
 ```Kusto
 Perf 
-| where TimeGenerated > ago(2d)
+| where TimeGenerated > ago(7d)
 | where Computer == "ContosoAzADDS2" 
 | where CounterName == "Available MBytes" 
-| summarize count() by bin(TimeGenerated, 1h)
+| summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
 Als u de uitvoer duidelijker, schakelt u weer te geven als een tijdgrafiek van het beschikbare geheugen na verloop van tijd:

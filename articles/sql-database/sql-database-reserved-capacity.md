@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e9edbc2a3bbc878f7a3cf99a3ca6efb4e69797ad
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394707"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584148"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -64,9 +64,9 @@ Bijvoorbeeld: Stel dat u een algemene, Gen5 – 16 vCore elastische pool en twee
 
 ## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
 
-Als u nodig hebt om te annuleren van uw SQL-Database gereserveerde capaciteit, kunnen er een kosten voor vroegtijdige beëindiging van 12%. Restituties zijn gebaseerd op de laagste prijzen van uw aankoopprijs of de huidige prijs van de reservering. Restituties zijn beperkt tot 50.000 per jaar. U ontvangt restitutie is het resterende bedrag naar rato minus de kosten voor vroegtijdige beëindiging van 12%. Om aan te vragen bij een annulering, gaat u naar de reservering in de Azure portal en selecteer **gerestitueerd** een ondersteuningsaanvraag wilt maken.
+Als u nodig hebt om te annuleren van uw SQL-Database gereserveerde capaciteit, kunnen er een kosten voor vroegtijdige beëindiging van 12%. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. Restituties zijn beperkt tot $ 50.000 per jaar. De restitutie die u ontvangt, is het resterende bedrag naar rato saldo minus de kosten voor vroegtijdige beëindiging van 12%. Om aan te vragen bij een annulering, gaat u naar de reservering in de Azure portal en selecteer **gerestitueerd** een ondersteuningsaanvraag wilt maken.
 
-Als u wijzigen van de SQL-Database gereserveerde capaciteitsreservering naar een andere regio, implementatietype, prestatielaag of term wilt, kunt u het uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de termijn voor de nieuwe reservering niet meegenomen in de reservering uitgewisseld. De 1 of 3 jaar term wordt gestart wanneer u de nieuwe reservering maakt. Om aan te vragen bij een uitwisseling, gaat u naar de reservering in Azure portal en selecteer **Exchange** een ondersteuningsaanvraag wilt maken.
+Als u wijzigen van de SQL-Database gereserveerde capaciteitsreservering naar een andere regio, implementatietype, prestatielaag of term wilt, kunt u het uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar start vanaf het moment dat u de nieuwe reservering maakt. Om aan te vragen bij een uitwisseling, gaat u naar de reservering in Azure portal en selecteer **Exchange** een ondersteuningsaanvraag wilt maken.
 
 ## <a name="vcore-size-flexibility"></a>vCore grootte flexibiliteit
 
@@ -87,7 +87,7 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Azure-reserveringen in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 681f0eeff0d93e6af341d2dddaf7da4475c13d9d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a9635a7c9bad9079814750dc4be945701ba80451
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007192"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632310"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Verzamelen van metrische gegevens voor Azure PaaS-resources met Log Analytics configureren
 
@@ -85,4 +85,4 @@ U wordt gevraagd om te beantwoorden van dezelfde informatie als wanneer u het sc
 
 * Gebruik [aangepaste velden](log-analytics-custom-fields.md)(voor het parseren van de gebeurtenis legt vast in afzonderlijke velden.
 
-* Beoordeling [maken van een aangepast dashboard voor gebruik in Log Analytics](log-analytics-dashboards.md) wilt weten hoe u voor het visualiseren van uw logboek wordt gezocht op allerlei zinvolle manieren voor de organisatie.
+* Beoordeling [maken van een aangepast dashboard voor gebruik in Log Analytics](../azure-monitor/platform/dashboards.md) wilt weten hoe u voor het visualiseren van uw logboek wordt gezocht op allerlei zinvolle manieren voor de organisatie.

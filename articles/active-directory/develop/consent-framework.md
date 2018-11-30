@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2f9cefa31b007cae715ff2ea98bccb3112babbef
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288472"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619789"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory-toestemmingsframework
 
@@ -39,23 +39,29 @@ De volgende stappen laten zien hoe de toestemming werkt ervaren voor zowel de on
 
 1. Stel dat u hebt een web-clienttoepassing die nodig zijn om aan te vragen van specifieke machtigingen voor toegang tot een resource/API. Leert u hoe u deze configuratie in de volgende sectie, maar in feite de Azure-portal wordt gebruikt om te declareren machtigingsaanvragen tijdens de configuratie. Net als andere configuratie-instellingen worden ze onderdeel van Azure AD-registratie van de toepassing:
 
-  ![Machtigingen voor andere toepassingen](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Machtigingen voor andere toepassingen](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
 
 1. Houd rekening met dat van uw toepassing machtigingen zijn bijgewerkt, de toepassing wordt uitgevoerd en een gebruiker is gebruikt voor de eerste keer. Eerst de toepassing moet een autorisatiecode ophalen uit Azure AD `/authorize` eindpunt. De autorisatiecode kan vervolgens worden gebruikt bij het aanschaffen van een nieuwe toegang en vernieuwen van het token.
 
 1. Als de gebruiker nog niet is geverifieerd, Azure AD van `/authorize` eindpunt vraagt de gebruiker zich aanmeldt.
 
-  ![Gebruiker of beheerder aanmelden bij Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    [Gebruiker of beheerder aanmelden bij Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
 1. Nadat de gebruiker is aangemeld, wordt Azure AD te bepalen of de gebruiker moet een instemmingspagina weergegeven. Deze beslissing is gebaseerd op of de gebruiker (of de beheerder van hun organisatie) heeft al verleend de toestemming van de toepassing. Als toestemming nog niet is gedaan, wordt Azure AD de gebruiker om toestemming wordt gevraagd en geeft de vereiste machtigingen die nodig is om te werken. De reeks machtigingen die worden weergegeven in het dialoogvenster overeenkomen met de die u hebt geselecteerd de **overgedragen machtigingen** in Azure portal.
 
-  ![Gebruikerservaring voor toestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Gebruikerservaring voor toestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Nadat de gebruiker toestemming verleent, wordt een autorisatiecode voor uw toepassing, die wordt ingewisseld voor een toegangstoken verkrijgen en vernieuwen van het token geretourneerd. Zie voor meer informatie over deze stroom, [Web-API-app-type](web-api.md).
 
-1. Als beheerder, kunt u ook toestemming voor gedelegeerde machtigingen namens alle gebruikers van een toepassing in uw tenant. Toestemming van een beheerder voorkomt u het dialoogvenster worden weergegeven voor elke gebruiker in de tenant en kan worden uitgevoerd in de [Azure-portal](https://portal.azure.com) door gebruikers met de beheerdersrol. Uit de **instellingen** -pagina voor uw toepassing, selecteert **vereiste machtigingen** en klik op de **machtigingen verlenen** knop.
+1. Als beheerder, kunt u ook toestemming voor gedelegeerde machtigingen namens alle gebruikers van een toepassing in uw tenant. Toestemming van een beheerder voorkomt u het dialoogvenster worden weergegeven voor elke gebruiker in de tenant en kan worden uitgevoerd in de [Azure-portal](https://portal.azure.com) door gebruikers met de beheerdersrol. Als u wilt weten welke beheerder rollen toestemming voor gedelegeerde machtigingen geven kunnen, Zie [rol beheerdersmachtigingen in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-  ![Machtigingen verlenen voor expliciete beheerderstoestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+    **Als u wilt toestemming geven voor een app, de overgedragen machtigingen**
+
+    1. Ga naar de **instellingen** pagina voor uw toepassing
+    1. Selecteer **vereiste machtigingen**.
+    1. Klik op de **machtigingen verlenen** knop.
+
+    ![Machtigingen verlenen voor expliciete beheerderstoestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
   > Expliciete verleent toestemming met behulp van de **machtigingen verlenen** knop is momenteel vereist voor toepassingen met één pagina (SPA) die gebruikmaken van ADAL.js. Anders mislukt de toepassing wanneer het toegangstoken wordt aangevraagd.

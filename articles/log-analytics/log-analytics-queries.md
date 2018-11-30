@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 921be3f6cc793857a701cb56236d75680d0c1232
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 4aeb14bd7962205b89e1207e082f551999f54558
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282308"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634520"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -42,8 +42,8 @@ De verschillende manieren die u query's in Log Analytics gebruikt omvatten het v
 
 - **Portals.** U kunt uitvoeren interactieve analyses van logboekgegevens in de [Azure-portal](log-analytics-log-search-portals.md).  Hiermee kunt u uw query bewerken en analyseer de resultaten in verschillende indelingen en visualisaties.  
 - **Regels voor waarschuwingen.** [Waarschuwingsregels](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactief problemen van gegevens in uw werkruimte te identificeren.  De waarschuwingsregel is gebaseerd op een logboekzoekopdracht die automatisch met regelmatige tussenpozen wordt uitgevoerd.  De resultaten worden gecontroleerd om te bepalen of een waarschuwing moet worden gemaakt.
-- **Dashboards.** U kunt de resultaten van elke query in vastmaken een [Azure-dashboard](log-analytics-dashboards.md) waarmee u logboek- en metrische gegevens bij elkaar te visualiseren en (optioneel) delen met andere Azure-gebruikers. 
-- **Weergaven.**  Kunt u visualisaties van gegevens moeten worden opgenomen in de Gebruikersdashboards met [Weergaveontwerper](log-analytics-view-designer.md).  Logboeken-query's leveren de gegevens die worden gebruikt door [tegels](log-analytics-view-designer-tiles.md) en [visualisatie delen](log-analytics-view-designer-parts.md) in elke weergave.  
+- **Dashboards.** U kunt de resultaten van elke query in vastmaken een [Azure-dashboard](../azure-monitor/platform/dashboards.md) waarmee u logboek- en metrische gegevens bij elkaar te visualiseren en (optioneel) delen met andere Azure-gebruikers. 
+- **Weergaven.**  Kunt u visualisaties van gegevens moeten worden opgenomen in de Gebruikersdashboards met [Weergaveontwerper](../azure-monitor/platform/view-designer.md).  Logboeken-query's leveren de gegevens die worden gebruikt door [tegels](../azure-monitor/platform/view-designer-tiles.md) en [visualisatie delen](../azure-monitor/platform/view-designer-parts.md) in elke weergave.  
 - **Exporteren.**  Wanneer u gegevens importeren uit Log Analytics-werkruimte in Excel of [Power BI](log-analytics-powerbi.md), maakt u een logboekquery voor het definiëren van de gegevens te exporteren.
 - **PowerShell.** U kunt een PowerShell-script uitvoeren vanaf een opdrachtregel of een Azure Automation-runbook die gebruikmaakt van [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) voor het ophalen van gegevens van Log Analytics.  Deze cmdlet is vereist voor een query om te bepalen van de gegevens moeten worden opgehaald.
 - **Log Analytics-API.**  De [Log Analytics search API melden](../monitoring-and-diagnostics/monitoring-overview-alerts.md) kan een client REST-API om op te halen van logboekgegevens uit de werkruimte.  De API-aanvraag bevat een query die wordt uitgevoerd op basis van Log Analytics om te bepalen van de gegevens moeten worden opgehaald.
@@ -111,4 +111,4 @@ Terwijl [Application Insights](../application-insights/app-insights-overview.md)
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over de [portals die u gebruiken om te maken en bewerken van zoekopdrachten](log-analytics-log-search-portals.md).
-- Bekijk een [zelfstudie over het schrijven van query's](log-analytics-tutorial-viewdata.md) met behulp van de nieuwe querytaal.
+- Bekijk een [zelfstudie over het schrijven van query's](query-language/get-started-queries.md) met behulp van de nieuwe querytaal.

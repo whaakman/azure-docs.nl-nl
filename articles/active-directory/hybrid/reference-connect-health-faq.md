@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 264e7f3d885535304470c833e228660ba51fefc6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312303"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497737"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -62,7 +62,7 @@ Voorbeeld:
 
 **V: bevat Azure-Cloud voor Duitsland-ondersteuning voor Azure AD Connect Health?**
 
-Azure AD Connect Health wordt niet ondersteund in de Duitse Cloud, behalve voor de [synchronisatiefunctie fouten rapport](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview). 
+Azure AD Connect Health wordt niet ondersteund in de Duitse Cloud, behalve voor de [synchronisatiefunctie fouten rapport](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
 | Rollen | Functies | Ondersteund in de Duitse Cloud |
 | ------ | --------------- | --- |

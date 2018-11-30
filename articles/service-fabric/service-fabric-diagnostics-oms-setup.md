@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 88b956fbe283dd39dfc51d6127b32b6f031e8b85
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291127"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632769"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Log Analytics instellen voor een cluster
 
@@ -128,4 +128,4 @@ U kunt ook andere oplossingen toevoegen of andere wijzigingen aanbrengen in uw L
 ## <a name="next-steps"></a>Volgende stappen
 * [De Log Analytics-agent implementeren](service-fabric-diagnostics-oms-agent.md) naar uw knooppunten om te verzamelen prestatiemeteritems en verzamelen van Logboeken voor uw containers en docker-statistieken
 * Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Log Analytics
-* [Weergaveontwerper gebruiken om te maken van aangepaste weergaven in Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Weergaveontwerper gebruiken om te maken van aangepaste weergaven in Log Analytics](../azure-monitor/platform/view-designer.md)

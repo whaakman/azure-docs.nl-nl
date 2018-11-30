@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a803353b5dacaa56c181cdad0955191d547eb3c4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092250"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620214"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -165,7 +165,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 Wanneer u klaar bent met het plannen, selecteert u de **maken** terug te keren naar het statusdashboard. De **geplande** tabel ziet u de implementatieplanning die u hebt gemaakt.
 
 > [!NOTE]
-> Updatebeheer biedt ondersteuning voor eerste updates van derden implementeren en vooraf downloaden van patches. Dit vereist wijzigingen in de systemen die wordt hersteld, Zie [eerste partij en vooraf downloaden ondersteuning](automation-update-management.md#firstparty-predownload) voor meer informatie over deze instellingen configureren op uw systemen.
+> Updatebeheer biedt ondersteuning voor het implementeren van eerste partij-updates en het vooraf downloaden van patches. Dit vereist wijzigingen in de systemen die wordt hersteld, Zie [eerste partij en vooraf downloaden ondersteuning](automation-update-management.md#firstparty-predownload) voor meer informatie over deze instellingen configureren op uw systemen.
 
 ## <a name="view-results-of-an-update-deployment"></a>Resultaten van een update-implementatie weergeven
 

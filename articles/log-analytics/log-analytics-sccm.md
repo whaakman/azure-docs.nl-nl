@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016699"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633143"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager koppelen aan Log Analytics
 U kunt uw System Center Configuration Manager-omgeving koppelen aan Azure Log Analytics apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -57,7 +57,7 @@ In de volgende procedure, verleent u de *Inzender* rol in uw Log Analytics-werkr
 6. Onder de **toegang toewijzen aan** vervolgkeuzelijst, selecteer de Configuration Manager-toepassing eerder hebt gemaakt in AD, en klik vervolgens op **OK**.  
 
 ## <a name="download-and-install-the-agent"></a>De agent downloaden en installeren
-Lees het artikel [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](log-analytics-agent-windows.md) om te begrijpen van de methoden die beschikbaar zijn voor het installeren van de Microsoft Monitoring Agent op de computer die als host fungeert de service van Configuration Manager verbinding sitesysteemrol.  
+Lees het artikel [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../azure-monitor/platform/agent-windows.md) om te begrijpen van de methoden die beschikbaar zijn voor het installeren van de Microsoft Monitoring Agent op de computer die als host fungeert de service van Configuration Manager verbinding sitesysteemrol.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Een verbinding met Log Analytics toevoegen aan Configuration Manager
 Als u wilt toevoegen van Log Analytics-verbinding, uw Configuration Manager-omgeving moet hebben een [serviceaansluitpunt](https://technet.microsoft.com/library/mt627781.aspx) geconfigureerd voor de onlinemodus bevindt.

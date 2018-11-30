@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 01603655be9b6051be9b894da4e55338ff4df810
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e702e1f5eb1816b007317765e4c9a9f88bb99bfd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635421"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -42,7 +42,12 @@ Als u wilt uw gegevens in meer detail te verkennen, klikt u op het pictogram aan
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Het oplossen van problemen met een hoger gebruik dan verwacht
 Hoger gebruik wordt veroorzaakt door een of beide volgende oorzaken:
 - Er worden meer gegevens dan verwacht verzonden naar Log Analytics
-- Er worden meer knooppunten dan verwacht verzonden naar Log Analytics
+- Meer knooppunten dan verwacht verzenden van gegevens naar Log Analytics of bepaalde knooppunten verzenden meer gegevens dan normaal
+
+We gaan kijken hoe kunnen we meer informatie over beide van deze oorzaken. 
+
+> [!NOTE]
+> Sommige velden van het type gebruik gegevens terwijl u nog steeds in het schema zijn afgeschaft en hun waarden niet meer worden ingevuld. Dit zijn **Computer** en de velden met betrekking tot de opname (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** en **AverageProcessingTimeMs**.
 
 ### <a name="data-volume"></a>Gegevensvolume 
 Op de **gebruik en geschatte kosten** pagina, de *opname van gegevens per oplossing* grafiek toont de totale hoeveelheid gegevens die worden verzonden en hoeveel er worden verzonden door elke oplossing. Hiermee kunt u bepalen trends, zoals of de algehele gegevensgebruik (of het gebruik door een bepaalde oplossing) groeit, stabiel blijft of afneemt. De query die wordt gebruikt voor het genereren van dit is
@@ -60,7 +65,7 @@ U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoor
 
 ### <a name="nodes-sending-data"></a>Knooppunten die gegevens verzenden
 
-Als u wilt het aantal knooppunten waarvoor gegevens zijn gerapporteerd in de afgelopen maand undersand, gebruiken
+Voor meer informatie over het aantal knooppunten waarvoor gegevens zijn gerapporteerd in de afgelopen maand, gebruik
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
@@ -69,16 +74,20 @@ Als u wilt het aantal knooppunten waarvoor gegevens zijn gerapporteerd in de afg
 Als het aantal gebeurtenissen die per computer weergeven, gebruikt u
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Gebruik deze query spaarzaam omdat deze duur om uit te voeren. Als u zien welke gegevenstypen zijn sendng gegevens aan een specifieke computer wilt, gebruikt:
+Gebruik deze query spaarzaam omdat deze duur om uit te voeren. Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt u 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Als u zien welke factureerbare typen gegevens worden verzonden naar een specifieke computer wilt, gebruikt:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
-
-> [!NOTE]
-> Sommige van de velden van het gegevenstype gebruik terwijl u nog steeds in het schema zijn afgeschaft en wordt dat niet meer door hun waarden worden ingevuld. Dit zijn **Computer** en de velden met betrekking tot de opname (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** en **AverageProcessingTimeMs**.
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 Om u te verdiepen in de bron van gegevens voor een bepaald type, volgen hier enkele handige voorbeelden van query's:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 09ecd46837a12f5f1a8278b1644dc099701bcd00
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227364"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584720"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Facturering en de kosten management automation-scenario 's
 
@@ -122,4 +122,4 @@ Deze API's bieden vergelijkbare gegevenssets, maar hebben verschillende doelgroe
 
 - Zie voor meer informatie over het gebruik van Azure-API's voor het programmatisch Krijg inzicht in uw Azure-gebruik [API-overzicht van Azure-verbruik](billing-consumption-api-overview.md) en [Azure Billing API-overzicht](billing-usage-rate-card-overview.md).
 - Als u wilt vergelijken in uw factuur met de gedetailleerde dagelijks gebruik van bestands- en -rapporten voor de kosten in de Azure-portal, Zie [meer informatie over uw factuur voor Microsoft Azure](billing-understand-your-bill.md)
-- Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+- Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

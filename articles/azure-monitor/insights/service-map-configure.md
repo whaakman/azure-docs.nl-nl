@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 9885783428b51a71fee8733a9d054e82eca0f2f9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828326"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632956"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -133,8 +133,8 @@ Serviceoverzicht worden de gegevens uit de agent voor Microsoft Dependency opgeh
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
-| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows-computers. <br><br>Naast de [Log Analytics-agent voor Windows](../../log-analytics/log-analytics-agent-overview.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-computers. <br><br>Naast de [Log Analytics-agent voor Linux](../../log-analytics/log-analytics-agent-overview.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows-computers. <br><br>Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-computers. <br><br>Naast de [Log Analytics-agent voor Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../../log-analytics/log-analytics-om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van agentcomputers, dus er zijn geen gegevens te verzamelen over Azure Storage. |
 
@@ -153,7 +153,7 @@ Als u een System Center Operations Manager-klant bent met een beheergroep die is
 - Als de System Center Operations Manager-agents toegang heeft tot het Internet verbinding maken met Log Analytics, is geen aanvullende configuratie vereist.  
 - Als de System Center Operations Manager-agents geen toegang Log Analytics via Internet tot, moet u de Log Analytics-gateway om te werken met System Center Operations Manager configureren.
   
-Als uw Windows- of Linux-computers kunnen niet rechtstreeks verbinding met de service maken, moet u de Log Analytics-agent verbinding maken met de Log Analytics-werkruimte met behulp van de gateway configureren. Zie voor meer informatie over het implementeren en configureren van de Log Analytics-gateway [verbinding maken met computers zonder toegang tot het Internet met behulp van de Log Analytics-gateway](../../log-analytics/log-analytics-oms-gateway.md).  
+Als uw Windows- of Linux-computers kunnen niet rechtstreeks verbinding met de service maken, moet u de Log Analytics-agent verbinding maken met de Log Analytics-werkruimte met behulp van de gateway configureren. Zie voor meer informatie over het implementeren en configureren van de Log Analytics-gateway [verbinding maken met computers zonder toegang tot het Internet met behulp van de Log Analytics-gateway](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Management packs
 Als Service Map in een Log Analytics-werkruimte is geactiveerd, wordt een 300 KB managementpack wordt doorgestuurd naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht managementpack van System Center Operations Manager is geïmplementeerd. 
@@ -230,7 +230,7 @@ De agent voor afhankelijkheden kan handmatig worden geïnstalleerd op Windows-co
 
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Windows-computer:
 
-1.  De Log Analytics-agent voor de volgende op een van de methoden die worden beschreven in Windows installeren [Log Analytics-agent overzicht](../../log-analytics/log-analytics-agent-overview.md).
+1.  De Log Analytics-agent voor de volgende op een van de methoden die worden beschreven in Windows installeren [Log Analytics-agent overzicht](../../azure-monitor/platform/log-analytics-agent.md).
 2.  De Windows-agent downloaden en uitvoeren met behulp van de volgende opdracht uit: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ De agent voor afhankelijkheden is geïnstalleerd op Linux-doelcomputers uit `Ins
 
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Linux-computer:
 
-1.  De volgende op een van de methoden die worden beschreven in Log Analytics-agent installeren [Log Analytics-agent overzicht](../../log-analytics/log-analytics-agent-overview.md).
+1.  De volgende op een van de methoden die worden beschreven in Log Analytics-agent installeren [Log Analytics-agent overzicht](../../azure-monitor/platform/log-analytics-agent.md).
 2.  De agent voor Linux-afhankelijkheden als root installeren met de volgende opdracht:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -390,7 +390,7 @@ Als uw agent-installatie van afhankelijkheid is voltooid, maar u kunt uw server 
 
         Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt uw Log Analytics-Agent naar behoren werkt en communiceren met Log Analytics. Als dit niet het geval is, controleert u de agent op uw server: [Log Analytics-agent voor het oplossen van Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [Log Analytics-agent voor het oplossen van Linux](../../log-analytics/log-analytics-agent-linux-support.md).
+Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt uw Log Analytics-Agent naar behoren werkt en communiceren met Log Analytics. Als dit niet het geval is, controleert u de agent op uw server: [Log Analytics-agent voor het oplossen van Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [Log Analytics-agent voor het oplossen van Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Server wordt weergegeven in het Serviceoverzicht, maar er zijn geen processen is
 Als u uw server in het Serviceoverzicht ziet, maar er geen gegevens verwerken of verbinding, die aangeeft dat de agent voor afhankelijkheden geïnstalleerd en actief is, maar het kernelstuurprogramma zijn niet geladen. 

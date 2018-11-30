@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984370"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620537"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Een Service Fabric-cluster maken in Azure met behulp van de Azure-portal
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Toepassingscertificaten kunnen niet worden geconfigureerd wanneer [het maken van
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Cluster maken in Azure portal
 
-Het maken van een productiecluster om te voldoen aan de behoeften van uw toepassing een planning voor hulp bij die omvat, het is raadzaam dat u leest en begrijpt [Service Fabric-Cluster planningsoverwegingen] [ service-fabric-cluster-capacity] document. 
+Het maken van een productiecluster om te voldoen aan de behoeften van uw toepassing een planning voor hulp bij die omvat, het is raadzaam dat u leest en begrijpt de [Service Fabric-Cluster planningsoverwegingen] [ service-fabric-cluster-capacity] document. 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Zoeken naar de Service Fabric-cluster-bron
 
@@ -117,13 +117,13 @@ Configureer uw clusterknooppunten. Knooppunttypen definiëren de VM-grootten, he
 1. Kies een naam voor het knooppunttype (1-12 tekens die alleen letters en cijfers bevatten).
 2. De minimale **grootte** van virtuele machines voor het primaire knooppunt type wordt aangedreven door de **duurzaamheidslaag** u kiest voor het cluster. De standaardwaarde voor de duurzaamheidslaag is Brons. Zie voor meer informatie over duurzaamheid [u bij het kiezen van de Service Fabric-cluster duurzaamheid][service-fabric-cluster-durability].
 3. Selecteer de **grootte van virtuele machine**. Virtuele machines uit de D-serie hebben SSD-stations en wordt sterk aanbevolen voor stateful toepassingen. Geen gebruik van een VM-SKU die gedeeltelijke kernen heeft of minder dan 10 GB aan beschikbare schijfruimte capaciteit hebben. Raadpleeg [service fabric-cluster overweging planningsdocument] [ service-fabric-cluster-capacity] voor hulp bij het selecteren van de VM-grootte.
-4. Kies de **eerste VM-schaalset** voor het knooppunttype. U kunt omhoog of omlaag het aantal virtuele machines in een knooppunttype later schalen, maar op het primaire knooppunttype, de minimumwaarde is 5 voor werkbelastingen voor productie. Andere typen kunnen hebben een minimum van een virtuele machine. De minimale **getal** van virtuele machines voor het primaire knooppunt type stations de **betrouwbaarheid** van uw cluster.  
-5. **Eén knooppuntcluster en clusters met drie knooppunten** zijn bedoeld voor test-gebruik. Ze worden niet ondersteund voor alle actieve productieworkloads.
+4.  **Eén knooppuntcluster en clusters met drie knooppunten** zijn bedoeld voor test-gebruik. Ze worden niet ondersteund voor alle actieve productieworkloads.
+5. Kies de **eerste VM-schaalset** voor het knooppunttype. U kunt omhoog of omlaag het aantal virtuele machines in een knooppunttype later schalen, maar op het primaire knooppunttype, de minimumwaarde is 5 voor werkbelastingen voor productie. Andere typen kunnen hebben een minimum van een virtuele machine. De minimale **getal** van virtuele machines voor het primaire knooppunt type stations de **betrouwbaarheid** van uw cluster.  
 6. Configureer **aangepaste eindpunten**. Dit veld kunt u een door komma's gescheiden lijst met poorten die u beschikbaar via de Azure Load Balancer met het openbare Internet voor uw toepassingen wilt invoeren. Bijvoorbeeld, als u van plan bent een webtoepassing in uw cluster implementeert, voert u "80" hier toestaan van verkeer op poort 80 in uw cluster. Zie voor meer informatie over eindpunten [communiceren met toepassingen][service-fabric-connect-and-communicate-with-services]
 7. **Inschakelen van omgekeerde proxy**.  De [Service Fabric reverse proxy](service-fabric-reverseproxy.md) helpt microservices die worden uitgevoerd in een Service Fabric-cluster detecteren en communiceren met andere services die http-eindpunten hebben.
-8. Onder **+ optionele instellingen weergeven**, cluster configureren **diagnostics**. Diagnostische gegevens zijn standaard ingeschakeld in uw cluster om te helpen bij het oplossen van problemen. Als u wilt uitschakelen, wijzigen van de diagnostische gegevens over de **Status** overzet naar **uit**. Het uitschakelen van diagnostische gegevens wordt **niet** aanbevolen. Als u al Application Insights-project dat wordt gemaakt hebt, geeft vervolgens de sleutel, zodat de toepassingstraceringen worden doorgestuurd naar het.
+8. Terug in de **clusterconfiguratie** blade onder **+ optionele instellingen weergeven**, cluster configureren **diagnostics**. Diagnostische gegevens zijn standaard ingeschakeld in uw cluster om te helpen bij het oplossen van problemen. Als u wilt uitschakelen, wijzigen van de diagnostische gegevens over de **Status** overzet naar **uit**. Het uitschakelen van diagnostische gegevens wordt **niet** aanbevolen. Als u al Application Insights-project dat wordt gemaakt hebt, geeft vervolgens de sleutel, zodat de toepassingstraceringen worden doorgestuurd naar het.
 9. **DNS-service opnemen**.  De [DNS-service](service-fabric-dnsservice.md) een optionele service waarmee u andere services met behulp van het DNS-protocol.
-10. Selecteer de **Fabric upgrademodus** u wilt instellen van uw cluster op. Selecteer **automatische**, als u wilt dat het systeem automatisch kiezen van de meest recente versie en een upgrade uitvoert voor het cluster toe. De modus instellen op **handmatig**, als u wilt kiezen van een ondersteunde versie. Voor meer informatie over de infrastructuur modus, Zie upgraden de [service-fabric-cluster-upgrade-document.][service-fabric-cluster-upgrade]
+10. Selecteer de **Fabric upgrademodus** u wilt instellen van uw cluster op. Selecteer **automatische**, als u wilt dat het systeem automatisch kiezen van de meest recente versie en een upgrade uitvoert voor het cluster toe. De modus instellen op **handmatig**, als u wilt kiezen van een ondersteunde versie. Voor meer informatie over de infrastructuur modus, Zie upgraden de [document upgraden van Service Fabric-Cluster.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > We ondersteunen alleen clusters die ondersteunde versies van Service Fabric worden uitgevoerd. Door het selecteren van de **handmatig** modus u onderneemt op de verantwoordelijkheid voor uw cluster upgraden naar een ondersteunde versie.
@@ -158,10 +158,10 @@ Als u al hebt uitgevoerd de stappen in deze sectie overslaan de **Basic** optie.
 
 ![SecurityCustomOption]
 
-U moet de CertificateThumbprint, SourceVault en de gegevens CertificateURL om uit te voeren van de pagina. Als u deze bij de hand hebt, opent u een ander browservenster en Ga als volgt
+U moet de bronsleutelkluis, URL van het certificaat en certificaatgegevens van de vingerafdruk voor het voltooien van de pagina. Als u deze bij de hand hebt, opent u een ander browservenster en doe het volgende in de Azure-portal
 
-1. Navigeer naar uw key vault, selecteert u het certificaat. 
-2. Selecteer het tabblad 'Eigenschappen' en 'RESOURCE-ID' naar 'Bron Key vault' in het browservenster kopiëren 
+1. Navigeer naar uw sleutelkluis-service.
+2. Selecteer het tabblad 'Eigenschappen' en 'RESOURCE-ID' naar 'Bronsleutelkluis' in het browservenster kopiëren 
 
     ![CertInfo0]
 
@@ -171,8 +171,8 @@ U moet de CertificateThumbprint, SourceVault en de gegevens CertificateURL om ui
 
     ![CertInfo1]
 
-6. U zou nu moeten op het scherm, zoals hieronder. 'De vingerafdruk van het' naar 'De vingerafdruk van certificaat' in het browservenster kopiëren
-7. Kopieer de gegevens geheim-id aan de 'certificaat-URL' op andere browservenster.
+6. U zou nu moeten op het scherm, zoals hieronder. Kopieer de vingerafdruk van het hexadecimale SHA-1 naar "Vingerafdruk" van het browservenster
+7. Kopieer de id van het geheim aan de 'certificaat-URL' op andere browservenster.
 
     ![CertInfo2]
 
@@ -186,7 +186,7 @@ Als u wilt maken van het cluster hebt voltooid, klikt u op **maken**. Eventueel 
 
 ![Samenvatting]
 
-U kunt de voortgang van het maken in de meldingen bekijken. (Klik op het belpictogram bij de statusbalk rechtsboven in uw scherm.) Als u tijdens het maken van het cluster op **Vastmaken aan Startboard** hebt geklikt, ziet u dat **Service Fabric-cluster implementeren** is vastgemaakt aan het **Startboard**.
+U kunt de voortgang van het maken in de meldingen bekijken. (Klik op het belpictogram bij de statusbalk rechtsboven in uw scherm.) Als u tijdens het maken van het cluster op **Vastmaken aan Startboard** hebt geklikt, ziet u dat **Service Fabric-cluster implementeren** is vastgemaakt aan het **Startboard**. Dit proces zal enige tijd duren. 
 
 Beheerbewerkingen wilt uitvoeren op uw cluster met behulp van Powershell of CLI, moet u verbinding maken met uw cluster, meer informatie over het op [verbinding maken met uw cluster](service-fabric-connect-to-secure-cluster.md).
 

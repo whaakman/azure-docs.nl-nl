@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627361"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633245"
 ---
 # <a name="upload-a-document"></a>Een document uploaden
 
 In [aangepaste Translator](https://portal.customtranslator.azure.ai), kunt u uw omzettingsmodellen van de trein parallelle documenten uploaden. [Parallelle documenten](what-are-parallel-documents.md) zijn paren van documenten, een vertaling van de andere is. Een document in het paar zinnen in de source-taal bevat en het andere document bevat deze zinnen vertaald naar de doel-taal.
+
+Bekijk voordat u uw documenten te uploaden, de [indelingen en naming convention richtlijnen](document-formats-naming-convention.md) om te controleren of het bestand-indeling wordt ondersteund in aangepaste Translator.
 
 ## <a name="how-to-upload-document"></a>Het document uploaden?
 

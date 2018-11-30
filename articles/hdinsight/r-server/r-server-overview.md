@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016281"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499468"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot ML-Services en mogelijkheden van de open-source R op HDInsight
 
@@ -27,7 +27,7 @@ Microsoft Machine Learning Server is beschikbaar als een implementatie-opties wa
 
 ML-Services op HDInsight biedt de nieuwste mogelijkheden voor analyses op basis van R op gegevenssets van vrijwel elke grootte, geladen in Azure Blob of Data Lake-opslag. Omdat het cluster ML-Services is gebouwd op open-source R, de toepassingen op basis van R die u bouwt gebruik kunnen maken van de 8000 + open source R-pakketten. De routines in ScaleR van Microsoft big data analytics-pakket zijn ook beschikbaar.
 
-Het edge-knooppunt van een cluster biedt een handige locatie verbinding maken met het cluster en uw R-scripts uit te voeren. Met een edge-knooppunt hebt u de mogelijkheid van het uitvoeren van de functies voor geparallelliseerde gedistribueerde van ScaleR over de kernen van het edge-knooppunt-server. U kunt ook ze uitvoeren op de knooppunten van het cluster met behulp van de ScaleR Hadoop-Mapreduce of Spark compute-context.
+Het edge-knooppunt van een cluster biedt een handige locatie verbinding maken met het cluster en uw R-scripts uit te voeren. Met een edge-knooppunt hebt u de mogelijkheid van het uitvoeren van de functies voor geparallelliseerde gedistribueerde van ScaleR over de kernen van het edge-knooppunt-server. U kunt ze ook uitvoeren op de knooppunten van het cluster met behulp van de ScaleR Hadoop Mapreduce of Apache Spark-compute-context.
 
 De modellen of voorspellingen op die het resultaat van de analyse kunnen worden gedownload voor on-premises gebruik. Ze kunnen ook operationaliseren elders in Azure, met name via [Azure Machine Learning Studio](http://studio.azureml.net) [webservice](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
@@ -114,7 +114,7 @@ Als u alleen van routines uit de ScaleR-bibliotheek in het cluster gebruikmaakt,
 
 In dergelijke gevallen kunnen de extra pakketten met een scriptactie worden geïnstalleerd nadat u het cluster hebt gemaakt. Zie voor meer informatie, [ML-Services beheren in HDInsight-cluster](r-server-hdinsight-manage.md).
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>Hadoop MapReduce-geheugeninstellingen wijzigen
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Apache Hadoop MapReduce-geheugeninstellingen wijzigen
 
 Een cluster kan worden gewijzigd als u wilt wijzigen van de hoeveelheid geheugen die voor ML-Services beschikbaar is wanneer deze een MapReduce-taak wordt uitgevoerd. Voor het wijzigen van een cluster, gebruikt u de Apache Ambari-Webinterface die is beschikbaar via de blade in Azure portal voor uw cluster. Zie voor instructies over hoe u toegang tot de Ambari UI voor uw cluster [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](../hdinsight-hadoop-manage-ambari.md).
 

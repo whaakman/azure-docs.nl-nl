@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238978"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497791"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -25,7 +25,7 @@ Informatie over het gebruik van HDInsight met een [Azure Virtual Network](../vir
 
 * Verbinding maken met HDInsight gegevens opslaat in een Azure-netwerk.
 
-* Rechtstreeks toegang hebben tot de Apache Hadoop-services die niet beschikbaar openbaar via internet zijn. Bijvoorbeeld, Kafka-API's of de HBase-Java-API.
+* Rechtstreeks toegang hebben tot [Apache Hadoop](https://hadoop.apache.org/) services die niet beschikbaar openbaar via internet zijn. Bijvoorbeeld, [Apache Kafka](https://kafka.apache.org/) API's of de [Apache HBase](https://hbase.apache.org/) Java-API.
 
 > [!WARNING]
 > De informatie in dit document is een goed begrip van TCP/IP-netwerken vereist. Als u niet bekend met TCP/IP-netwerken bent, moet u samenwerken met iemand die dit voordat u wijzigingen in productienetwerken.
@@ -171,11 +171,11 @@ Om in te schakelen naamomzetting tussen het virtuele netwerk en de resources in 
 
 Zie voor meer informatie de [naamomzetting voor VM's en Rolexemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
-## <a name="directly-connect-to-hadoop-services"></a>Rechtstreeks verbinding maken met Hadoop-services
+## <a name="directly-connect-to-apache-hadoop-services"></a>Rechtstreeks verbinding maken met Apache Hadoop-services
 
 U kunt verbinding maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres maakt gebruik van een openbaar IP-adres, die mogelijk niet bereikbaar als u nsg's hebt gebruikt om te beperken van inkomend verkeer van internet. Bovendien wanneer u het cluster in een VNet implementeert u het kunt openen met behulp van de persoonlijke eindpunt https://CLUSTERNAME-int.azurehdinsight.net. Dit eindpunt wordt omgezet naar een privé IP-adres binnen het VNet voor toegang tot het cluster.
 
-Voor verbinding met Ambari en andere webpagina's met het virtuele netwerk, gebruikt u de volgende stappen uit:
+Als u wilt verbinding maken met Apache Ambari en andere webpagina's met het virtuele netwerk, gebruikt u de volgende stappen uit:
 
 1. Voor het detecteren van de interne volledig gekwalificeerde domeinnamen (FQDN) van de HDInsight-clusterknooppunten, moet u een van de volgende methoden gebruiken:
 
@@ -316,7 +316,7 @@ Als u van plan bent over het gebruik van een netwerk **virtueel apparaat firewal
 * 11000-11999
 * 14000-14999
 
-Zie voor een lijst met poorten voor specifieke services, de [poorten die worden gebruikt door de services van Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+Zie voor een lijst met poorten voor specifieke services, de [poorten die worden gebruikt door de services van Apache Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
 Zie voor meer informatie over firewall-regels voor virtuele apparaten, de [virtueel apparaat scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
 
@@ -660,8 +660,8 @@ Na het voltooien van deze stappen kunt u verbinding maken met resources in het v
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor een end-to-end-voorbeeld van het configureren van HDInsight verbinden met een on-premises netwerk, [verbinding maken met HDInsight op een on-premises netwerk](./connect-on-premises-network.md).
-* Zie voor het configureren van Hbase-clusters in virtuele netwerken van Azure, [maken HBase-clusters in HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
-* Zie voor het configureren van HBase-geo-replicatie, [instellen van replicatie van HBase-cluster in virtuele netwerken van Azure](hbase/apache-hbase-replication.md).
+* Zie voor het configureren van Apache Hbase-clusters in virtuele netwerken van Azure, [maakt Apache HBase-clusters in HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Zie voor het configureren van Apache HBase-geo-replicatie, [Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen](hbase/apache-hbase-replication.md).
 * Zie voor meer informatie over virtuele netwerken van Azure, de [overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 * Zie voor meer informatie over netwerkbeveiligingsgroepen [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).

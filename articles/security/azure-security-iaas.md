@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364255"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498348"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -41,7 +41,7 @@ De eerste stap bij het beschermen van uw virtuele machines is om ervoor te zorge
 **Beste**: beheer-VM-toegang.   
 **Details**: Gebruik [Azure beleid](../azure-policy/azure-policy-introduction.md) conventies voor resources in uw organisatie vast te stellen en aangepaste beleidsregels maken. Dit beleid van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md). Virtuele machines die deel uitmaken van een resourcegroep worden overgenomen voorgeschreven beleid.
 
-Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier om efficiënt beheer van toegang, beleid en naleving voor deze abonnementen. [Azure-beheergroepen](../azure-resource-manager/management-groups-overview.md) een bepaald niveau van bereik hierboven abonnementen. U ordenen van abonnementen in beheergroepen (containers) en de voorwaarden van uw beheeracties toepassen op deze groepen. Alle abonnementen in een beheergroep worden automatisch de voorwaarden die aan de groep overgenomen. Van beheergroepen bieden u zakelijke management op grote schaal, ongeacht welk type abonnementen die u mogelijk hebt.
+Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier om efficiënt beheer van toegang, beleid en naleving voor deze abonnementen. [Azure-beheergroepen](../azure-resource-manager/management-groups-overview.md) een bepaald niveau van bereik hierboven abonnementen. U ordenen van abonnementen in beheergroepen (containers) en de voorwaarden van uw beheeracties toepassen op deze groepen. Alle abonnementen in een beheergroep worden automatisch de voorwaarden die aan de groep overgenomen. Beheergroepen bieden u beheer van bedrijfskwaliteit op grote schaal, ongeacht de typen abonnementen die u hebt.
 
 **Beste**: variabiliteit bij de installatie en implementatie van VM's verminderen.   
 **Details**: Gebruik [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjablonen versterking van uw implementatieopties en maken het gemakkelijker om te begrijpen en inventariseren van de virtuele machines in uw omgeving.
@@ -51,7 +51,7 @@ Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier om effici
 
 - [Inzender voor virtuele machines](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): kunt beheren, virtuele machines, maar niet op het virtuele netwerk of opslag account waaraan ze zijn verbonden.
 - [Inzender voor klassieke virtuele machines](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, maar niet op het virtuele netwerk of opslag account waarmee de virtuele machines zijn verbonden kunt beheren.
-- [Security Manager](../role-based-access-control/built-in-roles.md#security-manager): security-onderdelen, beveiligingsbeleid en virtuele machines kunt beheren.
+- [Beveiligingsbeheerder](../role-based-access-control/built-in-roles.md#security-admin): In Security Center alleen: kunt weergeven beveiligingsbeleid, security status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, waarschuwingen en aanbevelingen negeren.
 - [DevTest Labs-gebruiker](../role-based-access-control/built-in-roles.md#devtest-labs-user): kan alles weergeven en verbinding maken, starten, opnieuw opstarten en VM's af.
 
 Uw abonnementsbeheerders en coadmins kunt deze instelling, waardoor ze beheerders van alle virtuele machines in een abonnement wijzigen. Zorg ervoor dat u al uw abonnementsbeheerders en coadmins aanmelden bij een van uw machines vertrouwen.

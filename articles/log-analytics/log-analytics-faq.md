@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4c31831aedefabc285c92861e9010b242cacf0d7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262649"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635778"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -160,7 +160,7 @@ A. Nee, is het niet mogelijk om te lezen uit verschillende tabellen of container
 
 A. De service Log Analytics is gebaseerd op Azure. Log Analytics-IP-adressen zijn de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Als de service-implementaties worden gemaakt, wordt de werkelijke IP-adressen van de service Log Analytics wijzigen. De DNS-namen om toe te staan via de firewall zijn gedocumenteerd in [vereisten voor de](log-analytics-agent-overview.md#network-firewall-requirements).
+Als de service-implementaties worden gemaakt, wordt de werkelijke IP-adressen van de service Log Analytics wijzigen. De DNS-namen om toe te staan via de firewall zijn gedocumenteerd in [vereisten voor de](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>V. Ik ExpressRoute gebruiken voor verbinding met Azure. Mijn verkeer Log Analytics maakt gebruik van mijn ExpressRoute-verbinding?
 
@@ -198,9 +198,22 @@ Onder **Azure Log Analytics (OMS)**, verwijder alle werkruimten die worden verme
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>V: Waarom krijg ik een foutbericht wanneer ik wil mijn werkruimte van één Azure-abonnement verplaatsen naar een andere?
 
-A: als u de Azure-portal gebruikt, zorg ervoor dat alleen de werkruimte is geselecteerd voor de verplaatsing. Selecteer niet de oplossingen--ze automatisch worden verplaatst nadat de werkruimte is verplaatst. 
+A: om een werkruimte naar een ander abonnement of resourcegroep verplaatsen, moet u eerst het Automation-account in de werkruimte ontkoppelen. Bezig met ontkoppelen van een Automation-account vereist dat het verwijderen van deze oplossingen als ze zijn geïnstalleerd in de werkruimte: updatebeheer, wijzigingen bijhouden of VM's starten/stoppen buiten kantooruren worden verwijderd. Nadat deze oplossingen zijn verwijderd, het Automation-account loskoppelen door te selecteren **gekoppeld werkruimten** resource in het linkerdeelvenster in de Automation-account in en klikt u op **werkruimte ontkoppelen** op het lint.
+ > Oplossingen hoeft te worden geïnstalleerd in de werkruimte verwijderd en het Automation-koppeling naar de werkruimte moet na de verplaatsing worden aangepast.
 
 Zorg ervoor dat u gemachtigd in zowel Azure-abonnementen.
+
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>V: Waarom krijg ik een foutbericht wanneer ik wil een SavedSearch bijwerken?
+
+A: u nodig hebt om toe te voegen 'etag' in de hoofdtekst van de API of de sjablooneigenschappen van de Azure Resource Manager:
+```
+"properties": {
+   "etag": "*",
+   "query": "SecurityEvent | where TimeGenerated > ago(1h) | where EventID == 4625 | count",
+   "displayName": "An account failed to log on",
+   "category": "Security"
+}
+```
 
 ## <a name="agent-data"></a>Gegevens van de gebruikersagent
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>V. Hoeveel gegevens kan ik verzenden via de agent naar Log Analytics? Is er een maximale hoeveelheid gegevens per klant?

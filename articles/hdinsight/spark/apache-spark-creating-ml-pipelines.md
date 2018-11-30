@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd27438247b801e384b80d96ba288896b4c5aae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234219"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499405"
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Een machine learning-pijplijn in Spark maken
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Een Apache Spark machine learning-pijplijn maken
 
 Apache Spark van schaalbare machine learning-bibliotheek (MLlib) biedt mogelijkheden voor modellen in een gedistribueerde omgeving. Het Spark-pakket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) is een set op hoog niveau API's die zijn gebouwd op gegevensframes. Deze API's te maken en af te stemmen praktische machine learning-pijplijnen.  *Machine learning in Spark* verwijst naar deze MLlib DataFrame-API, niet de oudere op basis van een RDD pijplijn API.
 
@@ -131,4 +131,4 @@ De `model` object kan nu worden gebruikt om voorspellingen te doen. Zie voor het
 
 ## <a name="see-also"></a>Zie ook
 
-* [Gegevenswetenschap met Scala en Spark op Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Gegevenswetenschap met Scala en Apache Spark op Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

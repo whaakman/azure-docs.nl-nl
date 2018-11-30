@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036373"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499552"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: On-demand Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In dit artikel leert u hoe u een Apache Hadoop-cluster, on-demand, in Azure HDInsight met behulp van Azure Data Factory maakt. Vervolgens gebruikt u gegevenspijplijnen in Azure Data Factory Hive-taken uitvoeren en verwijderen van het cluster. Aan het einde van deze zelfstudie leert u hoe u voor het operationeel maken van een big data-taak uitgevoerd waar het cluster te maken, taak uitvoeren en verwijderen van de cluster worden uitgevoerd volgens een schema.
+In dit artikel leert u over het maken van een [Apache Hadoop](https://hadoop.apache.org/) cluster, on-demand, in Azure HDInsight met behulp van Azure Data Factory. Vervolgens gebruikt u gegevenspijplijnen in Azure Data Factory Hive-taken uitvoeren en verwijderen van het cluster. Aan het einde van deze zelfstudie leert u hoe u voor het operationeel maken van een big data-taak uitgevoerd waar het cluster te maken, taak uitvoeren en verwijderen van de cluster worden uitgevoerd volgens een schema.
 
 Deze zelfstudie bestaat uit de volgende taken: 
 
@@ -43,7 +43,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
 
-In deze sectie maakt u een opslagaccount dat wordt gebruikt als de standaardopslag voor het maken van on-demand HDInsight-cluster. Dit opslagaccount bevat ook het voorbeeld HiveQL-script (**hivescript.hql**) die u gebruikt voor het simuleren van een voorbeeld-Hive-taak die wordt uitgevoerd op het cluster.
+In deze sectie maakt u een opslagaccount dat wordt gebruikt als de standaardopslag voor het maken van on-demand HDInsight-cluster. Dit opslagaccount bevat ook het voorbeeld [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (**hivescript.hql**) dat u gebruikt voor het simuleren van een voorbeeld van een [Apache Hive](https://hive.apache.org/) taak die wordt uitgevoerd op het cluster.
 
 Deze sectie wordt een Azure PowerShell-script voor het maken van de storage-account en kopiëren via de vereiste bestanden in de storage-account. De Azure PowerShell-voorbeeldscript in deze sectie worden de volgende taken uitgevoerd:
 
@@ -338,7 +338,7 @@ U kunt ook de hele resourcegroep die u hebt gemaakt voor deze zelfstudie verwijd
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u on-demand HDInsight-cluster maken en uitvoeren van Hive-taken met Azure Data Factory. Ga naar de volgende artciel voor informatie over het maken van HDInsight-clusters met aangepaste configuratie.
+In dit artikel hebt u geleerd hoe u Azure Data Factory gebruiken om te maken van on-demand HDInsight-cluster en voer [Apache Hive](https://hive.apache.org/) taken. Ga naar de volgende artciel voor informatie over het maken van HDInsight-clusters met aangepaste configuratie.
 
 > [!div class="nextstepaction"]
 >[Azure HDInsight-clusters maken met aangepaste configuratie](hdinsight-hadoop-provision-linux-clusters.md)

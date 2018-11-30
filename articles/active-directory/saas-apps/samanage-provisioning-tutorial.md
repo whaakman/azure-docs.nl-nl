@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347950"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634503"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Zelfstudie: Samanage configureren voor het automatisch inrichten van gebruikers
 
@@ -28,7 +28,7 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
 
@@ -141,7 +141,7 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
     ![Samanage inrichten](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van Samanage door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie.
+15. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van Samanage door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie. Bij het kiezen van de **alle gebruikers en groepen synchroniseren** optie, houd rekening met de beperkingen, zoals beschreven in de **Connector beperkingen** onderstaande sectie.
 
     ![Samanage inrichten](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -154,7 +154,11 @@ Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebru
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="connector-limitations"></a>Connector-beperkingen
+
+* Als de **alle gebruikers en groepen synchroniseren** optie is geselecteerd en een standaardwaarde is geconfigureerd voor de Samanage **rollen** kenmerk, zorg ervoor dat de gewenste waarde onder de **standaardwaarde indien null (is optioneel)** veld wordt uitgedrukt in de volgende indeling **{'displayName': 'rol'}** waar rol is de gewenste standaardwaarde.
+
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

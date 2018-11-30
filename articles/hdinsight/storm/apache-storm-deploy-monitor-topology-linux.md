@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259051"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582839"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Apache Storm-topologieën op Azure HDInsight implementeren en beheren 
 
-In dit document leert u de basisbeginselen van het beheren en controleren van Storm-topologieën met op Storm op HDInsight-clusters.
+In dit document leert de basisbeginselen van het beheren en controleren van [Apache Storm](http://storm.apache.org/) topologieën voor Storm op HDInsight-clusters waarop.
 
 > [!IMPORTANT]
 > De stappen in dit artikel is een op Linux gebaseerde Storm op HDInsight-cluster vereist. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. 
@@ -186,7 +186,7 @@ Selecteren van een koppeling van de **Topology summary** sectie vindt u de volge
   * **Deactiveren**: een actieve topologie wordt onderbroken.
   * **Opnieuw verdelen**: Hiermee past u de parallelle uitvoering van de topologie. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met deze bewerking kunt de topologie aangepast aan parallelle uitvoering om te compenseren voor het grotere of kleinere aantal knooppunten in het cluster.
 
-    Zie <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Inzicht in de parallelle uitvoering van een Storm-topologie</a> voor meer informatie.
+    Zie voor meer informatie, <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">inzicht in de parallelle uitvoering van een Apache Storm-topologie</a>.
   * **Kill**: een Storm-topologie na de opgegeven time-out beëindigd.
 * **Topology stats**: statistieken over de topologie. Om in te stellen het tijdsbestek voor de overige items op de pagina, gebruik de koppelingen in de **venster** kolom.
 * **Spouts**: de spouts die worden gebruikt door de topologie. Gebruik de koppelingen in deze sectie om meer informatie over specifieke spouts weer te geven.
@@ -208,10 +208,10 @@ Selecteren van een spout uit de **Spouts** of **Bolts** secties bevat de volgend
 
 De Storm-gebruikersinterface is gebaseerd op de REST-API, zodat u soortgelijke beheer en controle van functies met behulp van de REST-API kunt uitvoeren. De REST-API kunt u aangepaste hulpprogramma's voor het beheren en controleren van Storm-topologieën maken.
 
-Zie voor meer informatie, [REST-API van Storm-gebruikersinterface](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). De volgende informatie is specifiek voor de REST-API gebruiken met Apache Storm op HDInsight.
+Zie voor meer informatie, [REST-API voor Apache Storm-gebruikersinterface](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). De volgende informatie is specifiek voor de REST-API gebruiken met Apache Storm op HDInsight.
 
 > [!IMPORTANT]
-> De Storm-REST-API is niet openbaar beschikbaar via het internet, en moeten worden geopend via een SSH-tunnel naar het hoofdknooppunt van HDInsight-cluster. Zie voor meer informatie over het maken en gebruiken van een SSH-tunnel [SSH-Tunneling gebruiken voor toegang tot de Ambari-Webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere webgebruikersinterfaces](../hdinsight-linux-ambari-ssh-tunnel.md).
+> De Storm-REST-API is niet openbaar beschikbaar via het internet, en moeten worden geopend via een SSH-tunnel naar het hoofdknooppunt van HDInsight-cluster. Zie voor meer informatie over het maken en gebruiken van een SSH-tunnel [SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, ResourceManager JobHistory, NameNode, Apache Oozie en andere webgebruikersinterfaces](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>Basis-URI
 
@@ -232,10 +232,10 @@ Aanvragen voor de REST-API moeten gebruiken **basisverificatie**, zodat u de beh
 
 ### <a name="return-values"></a>Retourwaarden
 
-Informatie die wordt geretourneerd vanaf de REST-API kan alleen worden gebruikt in binnen het cluster. Bijvoorbeeld, is de volledig gekwalificeerde domeinnaam (FQDN) geretourneerd voor de Zookeeper-servers niet toegankelijk is vanaf Internet.
+Informatie die wordt geretourneerd vanaf de REST-API kan alleen worden gebruikt in binnen het cluster. Bijvoorbeeld, de volledig gekwalificeerde domeinnaam (FQDN) geretourneerd voor [Apache ZooKeeper](https://zookeeper.apache.org/) servers is niet toegankelijk vanaf Internet.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [ontwikkelen op Java gebaseerde topologieën met behulp van Maven](apache-storm-develop-java-topology.md).
+Meer informatie over het [ontwikkelen op Java gebaseerde topologieën met behulp van Apache Maven](apache-storm-develop-java-topology.md).
 
-Zie voor een lijst van meer voorbeeldtopologieën, [voorbeeldtopologieën van Storm op HDInsight](apache-storm-example-topology.md).
+Zie voor een lijst van meer voorbeeldtopologieën, [voorbeeldtopologieën van Apache Storm op HDInsight](apache-storm-example-topology.md).

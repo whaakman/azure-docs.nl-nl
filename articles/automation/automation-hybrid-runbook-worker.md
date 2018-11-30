@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb7e422e0eb4a71e0f88a911083f8f5d6fb0ef2f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092165"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634163"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -95,7 +95,7 @@ Als u wilt een groep verwijderen, moet u eerst de Hybrid Runbook Worker verwijde
 
 ### <a name="hybrid-worker-role"></a>Hybride werkrol
 
-De Hybrid Runbook Worker verbinding maken met en registreren met Log Analytics, moet de toegang tot het poortnummer en de URL's die worden beschreven in deze sectie hebben. Deze toegang is boven aan de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) verbinding maken met Log Analytics.
+De Hybrid Runbook Worker verbinding maken met en registreren met Log Analytics, moet de toegang tot het poortnummer en de URL's die worden beschreven in deze sectie hebben. Deze toegang is boven aan de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) verbinding maken met Log Analytics.
 
 Als u een proxyserver voor communicatie tussen de agent en de Log Analytics-service gebruikt, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt voor toegang tot internet te beperken, moet u uw firewall zodanig toegang configureren. Als u de Log Analytics-gateway als een proxy gebruikt, controleert u of dat deze is geconfigureerd voor hybrid workers. Zie voor instructies over hoe u dit doet, [de Log Analytics-gateway configureren voor Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 

@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5917cd7a5e4fcc2733765f642ad0958092372c1
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ab9e04b8a9eb4290891b3c7d55f8262c4ba64d44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616211"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584043"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Bouw en implementeer modellen voor classificatie van de installatiekopie met Azure Machine Learning
 
@@ -37,7 +37,7 @@ Als het bouwen en implementeren van dit model met AMLPCV, gaat u door de volgend
 7. Implementatie-webservice
 8. Webservice Belastingstesten
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) wordt gebruikt als de deep learning-frameworks, training wordt lokaal uitgevoerd op een GPU gemaakte virtuele machine, zoals de ([Deep learning, Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), en implementatie maakt gebruik van de CLI van Azure ML uitoefening.
+[CNTK](https://docs.microsoft.com/cognitive-toolkit/) wordt gebruikt als de deep learning-frameworks, training wordt lokaal uitgevoerd op een GPU gemaakte virtuele machine, zoals de ([Deep learning, Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), en implementatie maakt gebruik van de CLI van Azure ML uitoefening.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -175,7 +175,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Afbeeldingen verbeteren
 
-De [ `augmentation` module](https://docs.microsoft.com/python/api/cvtk.augmentation) biedt functionaliteit uitbreiden-object voor een gegevensset met behulp van de transformaties die zijn beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek. Afbeelding transformaties kunnen worden gegroepeerd in één pijplijn, in welk geval alle transformaties in de pijplijn tegelijkertijd worden toegepast elke afbeelding. 
+De [ `augmentation` module](/python/api/cvtk/cvtk.augmentation.augmentation) biedt functionaliteit uitbreiden-object voor een gegevensset met behulp van de transformaties die zijn beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek. Afbeelding transformaties kunnen worden gegroepeerd in één pijplijn, in welk geval alle transformaties in de pijplijn tegelijkertijd worden toegepast elke afbeelding. 
 
 Als u wilt andere uitdiepen stappen afzonderlijk toegepast, of op een andere manier kunt u meerdere pijplijnen definiëren en ze doorgeven aan de *augment_dataset* functie. Zie voor meer informatie en voorbeelden van afbeelding uitdiepen, de [imgaug documentatie](https://github.com/aleju/imgaug).
 

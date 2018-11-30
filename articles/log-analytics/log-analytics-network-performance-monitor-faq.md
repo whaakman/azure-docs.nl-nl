@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 31070d03711891353823a72ed9c805995d36024b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415182"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633160"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -26,7 +26,7 @@ ms.locfileid: "50415182"
 
 In dit artikel bevat de antwoorden op veelgestelde vragen over (Netwerkprestatiemeter) in Azure
 
-[Netwerkprestatiemeter](/azure/networking/network-monitoring-overview) is een cloud-gebaseerde [hybride netwerkbewaking](log-analytics-network-performance-monitor-performance-monitor.md) oplossing waarmee u netwerkprestaties tussen verschillende punten in uw netwerkinfrastructuur te bewaken. Ook kunt u verbinding met het netwerk te bewaken [service en toepassing eindpunten](log-analytics-network-performance-monitor-service-endpoint.md) en [de prestaties van Azure ExpressRoute controleren](log-analytics-network-performance-monitor-expressroute.md). 
+[Netwerkprestatiemeter](/azure/networking/network-monitoring-overview) is een cloud-gebaseerde [hybride netwerkbewaking](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) oplossing waarmee u netwerkprestaties tussen verschillende punten in uw netwerkinfrastructuur te bewaken. Ook kunt u verbinding met het netwerk te bewaken [service en toepassing eindpunten](../azure-monitor/insights/network-performance-monitor-service-endpoint.md) en [de prestaties van Azure ExpressRoute controleren](../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detecteert netwerkproblemen, zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet kan detecteren. De oplossing genereert waarschuwingen en waarschuwt u als een drempelwaarde voor een netwerkverbinding wordt overschreden. Bovendien worden problemen met de netwerkprestaties tijdig gedetecteerd en wordt de oorzaak van het probleem op een bepaald netwerksegment of apparaat opgespoord. 
 
@@ -47,21 +47,21 @@ De mogelijkheid voor het bewaken van netwerken met behulp van knooppunten op bas
 Voor het uitvoeren van de NPM-oplossing op knooppunt VM's voor het bewaken van netwerken, moet de knooppunten ten minste 500 MB geheugen en één kern. U hoeft niet te gebruiken van afzonderlijke knooppunten voor het uitvoeren van NPM. De oplossing kunt uitvoeren op de knooppunten waarop andere werkbelastingen die erop worden uitgevoerd. De oplossing heeft de mogelijkheid om te stoppen van het bewakingsproces in het geval het maakt gebruik van meer dan 5% CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Voor het gebruik van NPM, moet ik verbinding maken met mijn knooppunten als agent toewijzen of via System Center Operations Manager?
-Zowel de Prestatiemeter en de Connectiviteitsmonitor voor Service-mogelijkheden ondersteunen knooppunten [verbonden als Direct Agents](log-analytics-agent-windows.md) , evenals [verbonden zijn via Operations Manager](log-analytics-om-agents.md).
+Zowel de Prestatiemeter en de Connectiviteitsmonitor voor Service-mogelijkheden ondersteunen knooppunten [verbonden als Direct Agents](../azure-monitor/platform/agent-windows.md) , evenals [verbonden zijn via Operations Manager](log-analytics-om-agents.md).
 
 Voor ExpressRoute-bewaking functionaliteit, die moeten de Azure-knooppunten worden verbonden als Direct Agents alleen. Azure knooppunten die zijn verbonden via Operations Manager worden niet ondersteund. Voor on-premises knooppunten, worden de knooppunten verbonden als Direct Agents en via Operations Manager ondersteund voor het bewaken van een ExpressRoute-circuit.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Welk protocol TCP-en ICMP zo worden gekozen voor het bewaken van?
 Als u uw netwerk met behulp van Windows server-gebaseerde knooppunten worden bewaakt, raden wij aan u TCP als protocol voor bewaking omdat het biedt betere nauwkeurigheid. 
 
-ICMP wordt aanbevolen voor Windows-desktops /-client op basis van een besturingssysteem knooppunten. Dit platform is niet toegestaan voor TCP-gegevens worden verzonden via onbewerkte sockets, welke NPM voor het detecteren van de netwerktopologie.
+ICMP wordt aanbevolen voor Windows-desktops /-client op basis van een besturingssysteem knooppunten. Dit platform is niet toegestaan voor TCP-gegevens worden verzonden via onbewerkte sockets, dat gebruikmaakt van NPM voor het detecteren van de netwerktopologie.
 
-U kunt meer informatie krijgen over de relatieve voordelen van elk protocol [hier](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
+U kunt meer informatie krijgen over de relatieve voordelen van elk protocol [hier](../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Hoe configureer ik een knooppunt om te controleren met behulp van TCP-protocol ondersteunen?
 Voor het knooppunt voor de ondersteuning van bewaking met TCP-protocol: 
 * Zorg ervoor dat het platform knooppunt Windows Server (2008 SP1 of hoger).
-* Voer [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell-script op het knooppunt. Zie [instructies](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) voor meer informatie.
+* Voer [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell-script op het knooppunt. Zie [instructies](../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) voor meer informatie.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hoe kan ik de TCP-poort wordt gebruikt door NPM voor het bewaken van wijzigen?
@@ -126,10 +126,10 @@ Gebruik voor circuit niveau informatie, de hieronder genoemde query
     | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Welke regio's worden ondersteund voor de NPM-Prestatiemeter?
-NPM kunt Controleer de connectiviteit tussen netwerken in een deel van de hele wereld, uit een werkruimte die wordt gehost in een van de [ondersteunde regio's](log-analytics-network-performance-monitor.md#supported-regions)
+NPM kunt Controleer de connectiviteit tussen netwerken in een deel van de hele wereld, uit een werkruimte die wordt gehost in een van de [ondersteunde regio's](../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>Welke regio's worden ondersteund voor de Connectiviteitsmonitor voor de NPM-Service?
-NPM kunt connectiviteit controleren naar services in een deel van de hele wereld, uit een werkruimte die wordt gehost in een van de [ondersteunde regio's](log-analytics-network-performance-monitor.md#supported-regions)
+NPM kunt connectiviteit controleren naar services in een deel van de hele wereld, uit een werkruimte die wordt gehost in een van de [ondersteunde regio's](../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Welke regio's worden ondersteund voor ExpressRoute-bewaking van NPM?
 NPM kunt bewaken van uw ExpressRoute-circuits die zich in een Azure-regio. Voor Onboarding van NPM, moet u een Log Analytics-werkruimte die moet worden gehost in een van de [ondersteunde regio's](/azure/expressroute/how-to-npm#regions)
@@ -222,4 +222,4 @@ NPM rondt af naar de latentie van getallen in de gebruikersinterface en in milli
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over Network Performance Monitor door te verwijzen naar [oplossing in Azure Network Performance Monitor](log-analytics-network-performance-monitor.md).
+- Meer informatie over Network Performance Monitor door te verwijzen naar [oplossing in Azure Network Performance Monitor](../azure-monitor/insights/network-performance-monitor.md).

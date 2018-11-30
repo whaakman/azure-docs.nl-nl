@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576991"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635064"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Een API beveiligen met behulp van OAuth 2.0 met Azure Active Directory en API Management
 
@@ -100,8 +100,6 @@ Nu u twee toepassingen voor de Developer-Console en de API hebt geregistreerd, m
 
 > [!NOTE]
 > Als **Azure Active Directory** niet wordt vermeld onder de machtigingen voor andere toepassingen, selecteer **toevoegen** toe te voegen in de lijst.
-> 
-> 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>De gebruikersautorisatie OAuth 2.0 in de Developer-Console inschakelen
 
@@ -109,7 +107,7 @@ Op dit moment u uw toepassingen in Azure AD hebt gemaakt en juiste machtigingen 
 
 In dit voorbeeld is de Developer-Console de client-app. De volgende stappen wordt beschreven hoe u de gebruikersautorisatie OAuth 2.0 in de Developer-Console inschakelen. 
 
-1. Blader naar de API Management-instantie.
+1. In Azure Portal, blader naar de API Management-instantie.
 
 2. Selecteer **OAuth 2.0** > **toevoegen**.
 
@@ -120,6 +118,9 @@ In dit voorbeeld is de Developer-Console de client-app. De volgende stappen word
 5. Voor **toekenningstypen**, selecteer **autorisatiecode**.
 
 6. Geef de **autorisatie-eindpunt-URL** en **Token-eindpunt-URL**. Ophalen van deze waarden uit de **eindpunten** pagina in uw Azure AD-tenant. Blader naar de **App-registraties** pagina opnieuw en selecteer **eindpunten**.
+
+    >[!NOTE]
+    > Gebruik de **v1** hier eindpunten
 
 7. Kopieer de **OAuth 2.0-autorisatie-eindpunt**, en plak deze in de **autorisatie-eindpunt-URL** in het tekstvak.
 
@@ -154,6 +155,9 @@ De volgende stap is om in te schakelen gebruikersautorisatie OAuth 2.0 voor uw A
 5. Selecteer **Opslaan**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Is de API aanroepen vanuit de ontwikkelaarsportal
+
+> [!NOTE]
+> In deze sectie geldt niet voor de **verbruik** laag, die geen ondersteuning biedt voor de developer-portal.
 
 Nu dat de gebruikersautorisatie OAuth 2.0 is ingeschakeld op de `Echo API`, de Ontwikkelaarsconsole verkrijgt een toegangstoken namens de gebruiker voordat u de API aanroept.
 

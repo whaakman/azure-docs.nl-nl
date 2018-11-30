@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/12/2018
-ms.openlocfilehash: 04e47e15206e22e7965121c6c277e4032ea04ddf
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a03ead5e577b261b99e635addf6f9a98d8f3cadd
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621051"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619689"
 ---
 # <a name="supported-postgresql-database-versions"></a>Ondersteunde versies van de PostgreSQL-database
 Microsoft beoogt ter ondersteuning van n-2 versies van de PostgreSQL-engine in de Azure Database for PostgreSQL-service. De versies worden de huidige primaire versie van Azure (n) en de twee voorgaande primaire versies (-2).
@@ -31,7 +31,7 @@ Raadpleeg de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.6/stati
 Raadpleeg de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.5/static/release-9-5-14.html) voor meer informatie over verbeteringen en oplossingen in deze secundaire versie.
 
 ## <a name="managing-updates-and-upgrades"></a>Beheren van updates en upgrades
-Azure Database voor PostgreSQL beheert automatisch patches voor secundaire versie. Primaire versie-upgrade is op dit moment niet ondersteund. Bijvoorbeeld, wordt een upgrade van PostgreSQL 9.5 naar PostgreSQL 9.6 niet ondersteund. Als u wilt upgraden naar de volgende primaire versie, een [dump maken en terugzetten](./howto-migrate-using-dump-and-restore.md) deze naar een server die is gemaakt met de versie van de nieuwe engine.
+Azure Database voor PostgreSQL beheert automatisch patches voor secundaire versie. Primaire versie-upgrade is op dit moment niet ondersteund. Bijvoorbeeld, wordt een upgrade van PostgreSQL 9.5 naar PostgreSQL 9.6 niet ondersteund. Als u upgraden naar de volgende primaire versie wilt, maakt u een database [dump maken en terugzetten](./howto-migrate-using-dump-and-restore.md) deze naar een server die is gemaakt met de versie van de nieuwe engine.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over de ondersteuning van verschillende PostgreSQL-extensies [PostgreSQL-extensies](concepts-extensions.md).

@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038515"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498673"
 ---
-# <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
+# <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
 
-HDInsight bevat Apache Hadoop-clusters voor grootschalige gegevensverwerking toepassingen. Beheer, controle en optimaliseren van deze complexe clusters met meerdere knooppunten kunnen lastig zijn. [Apache Ambari](http://ambari.apache.org/) is een webinterface voor het beheren en controleren van HDInsight Linux-clusters.  Voor Windows-clusters, gebruikt u de Ambari [REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight biedt [Apache Hadoop](https://hadoop.apache.org/) clusters voor toepassingen voor grootschalige gegevensverwerking. Beheer, controle en optimaliseren van deze complexe clusters met meerdere knooppunten kunnen lastig zijn. [Apache Ambari](http://ambari.apache.org/) is een webinterface voor het beheren en controleren van HDInsight Linux-clusters.  Voor Windows-clusters, gebruikt u de [Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Zie voor een inleiding tot het gebruik van de Ambari-Webgebruikersinterface, [beheren HDInsight-clusters met behulp van de Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
+Zie voor een inleiding tot het gebruik van de Ambari-Webgebruikersinterface, [beheren HDInsight-clusters met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
 
 Meld u aan bij de Ambari op `https://CLUSTERNAME.azurehdidnsight.net` met de clusterreferenties van uw. Het eerste scherm bevat een dashboard met een.
 
@@ -59,16 +59,16 @@ De NameNode Java heap-grootte wijzigen:
 
     ![Wijzigingen opslaan](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
-## <a name="hive-optimization"></a>Hive-optimalisatie
+## <a name="apache-hive-optimization"></a>Apache Hive-optimalisatie
 
-De volgende secties beschrijven de configuratieopties voor het optimaliseren van de algehele prestaties van Hive.
+De volgende secties beschrijven de configuratieopties voor het optimaliseren van de algehele prestaties van de Apache Hive.
 
 1. Voor het wijzigen van Hive-configuratieparameters, selecteer **Hive** in de zijbalk Services.
 1. Navigeer naar de **Peeringconfiguraties** tabblad.
 
 ### <a name="set-the-hive-execution-engine"></a>De engine voor het uitvoeren van Hive instellen
 
-Hive biedt twee uitvoering motoren: MapReduce en Tez. Tez is veel sneller dan MapReduce. HDInsight Linux-clusters hebben Tez als de standaard-uitvoeringsengine. Wijzigen van de engine voor het uitvoeren:
+Hive biedt twee uitvoering motoren: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) en [Apache TEZ](https://tez.apache.org/). Tez is veel sneller dan MapReduce. HDInsight Linux-clusters hebben Tez als de standaard-uitvoeringsengine. Wijzigen van de engine voor het uitvoeren:
 
 1. In de component **Peeringconfiguraties** tabblad, typt u **-uitvoeringsengine** in het filtervak.
 
@@ -99,7 +99,7 @@ Deze wijzigingen hebben invloed op alle Tez-taken op de server. Als u een optima
 
 ### <a name="tune-reducers"></a>Reducers tegelijkertijd afstemmen
 
-ORC en Snappy bieden hoge prestaties. Hive hebben echter te weinig reducers tegelijkertijd standaard, waardoor knelpunten.
+[Apache ORC](https://orc.apache.org/) en [Snappy](https://google.github.io/snappy/) bieden hoge prestaties. Hive hebben echter te weinig reducers tegelijkertijd standaard, waardoor knelpunten.
 
 Stel dat u hebt een grootte van de invoergegevens van 50 GB. Gegevens in ORC-indeling met Snappy compressie is 1 GB. Hive maakt een schatting van het aantal benodigde reducers tegelijkertijd: (aantal bytes invoer voor mappers / `hive.exec.reducers.bytes.per.reducer`).
 
@@ -287,9 +287,9 @@ Extra aanbevelingen voor het optimaliseren van de engine voor het uitvoeren van 
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10.000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
-## <a name="pig-optimization"></a>Pig-optimalisatie
+## <a name="apache-pig-optimization"></a>Apache Pig-optimalisatie
 
-Pig-eigenschappen kunnen worden gewijzigd via de Ambari-webgebruikersinterface om af te stemmen Pig-query's. Pig-eigenschappen van Ambari rechtstreeks wijzigen wijzigt u de Pig-eigenschappen in de `/etc/pig/2.4.2.0-258.0/pig.properties` bestand.
+[Apache Pig](https://pig.apache.org/) eigenschappen kunnen worden gewijzigd via de Ambari-webgebruikersinterface om af te stemmen Pig-query's. Pig-eigenschappen van Ambari rechtstreeks wijzigen wijzigt u de Pig-eigenschappen in de `/etc/pig/2.4.2.0-258.0/pig.properties` bestand.
 
 1. Pig om eigenschappen te wijzigen, gaat u naar de Pig **Peeringconfiguraties** tabblad uit en vouw vervolgens de **geavanceerde pig-eigenschappen** deelvenster.
 
@@ -344,7 +344,7 @@ Pig genereert tijdelijke bestanden tijdens het uitvoeren van taak. De tijdelijke
 
 * `pig.tmpfilecompression`: Als deze eigenschap waar is, kunt tijdelijk bestandscompressie. De standaardwaarde is false.
 
-* `pig.tmpfilecompression.codec`: De compressiecodec moet worden gebruikt voor de tijdelijke bestanden te comprimeren. De aanbevolen compressiecodecs zijn LZO en Snappy voor lagere CPU-gebruik.
+* `pig.tmpfilecompression.codec`: De compressiecodec moet worden gebruikt voor de tijdelijke bestanden te comprimeren. De aanbevolen compressiecodecs zijn [LZO](https://www.oberhumer.com/opensource/lzo/) en Snappy voor lagere CPU-gebruik.
 
 ### <a name="enable-split-combining"></a>Inschakelen van split combineren
 
@@ -361,9 +361,9 @@ Het aantal mappers wordt bepaald door het wijzigen van de eigenschap `pig.maxCom
 Het aantal reducers tegelijkertijd wordt berekend op basis van de parameter `pig.exec.reducers.bytes.per.reducer`. De parameter geeft u het aantal bytes dat per reducer wordt verwerkt, standaard 1 GB. Om te beperken het maximum aantal reducers tegelijkertijd, stel de `pig.exec.reducers.max` eigenschap standaard 999.
 
 
-## <a name="hbase-optimization-with-the-ambari-web-ui"></a>HBase-optimalisatie met de Ambari-Webinterface
+## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Apache HBase-optimalisatie met de Ambari-Webinterface
 
-HBase-configuratie is gewijzigd vanuit de **HBase Configs** tabblad. De volgende secties beschrijven enkele van de belangrijke configuratie-instellingen die invloed hebben op prestaties van HBase.
+[Apache HBase](https://hbase.apache.org/) configuratie is gewijzigd vanuit de **HBase Configs** tabblad. De volgende secties beschrijven enkele van de belangrijke configuratie-instellingen die invloed hebben op prestaties van HBase.
 
 ### <a name="set-hbaseheapsize"></a>Set HBASE_HEAPSIZE
 
@@ -453,5 +453,5 @@ Gebruik van setSize() lokale toewijzing buffer wordt bepaald door de eigenschap 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [HDInsight-clusters met de Ambari-Webinterface beheren](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [HDInsight-clusters met de Apache Ambari-Webinterface beheren](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)

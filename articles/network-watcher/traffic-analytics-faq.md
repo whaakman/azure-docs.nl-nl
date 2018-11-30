@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402757"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582493"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic analytics
 
@@ -30,7 +30,7 @@ Traffic analytics is het volgende vereist:
 
 - Een abonnement Network Watcher is ingeschakeld.
 - Stroomlogboeken van Netwerkbeveiligingsgroep (NSG) ingeschakeld voor de nsg's die u wilt bewaken.
-- Een Azure Storage-account voor het opslaan van onbewerkte flog Logboeken.
+- Een Azure Storage-account voor het opslaan van Logboeken van de onbewerkte stroom.
 - Een Azure Log Analytics-werkruimte met lees- en schrijftoegang.
 
 Uw account moet voldoen aan een van de volgende verkeersanalyse inschakelen:
@@ -63,7 +63,38 @@ Als u geen uitvoer niet ziet, moet u contact op met de beheerder van het betreff
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>In welke Azure regio's zijn verkeersanalyse beschikbaar?
 
-U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteunde regio's: West-Centraal VS, VS-Oost, VS-Oost 2, Noord-centraal VS, Zuid-centraal VS, VS-midden, VS-West, VS-West 2, West-Europa, Noord-Europa, UK-West, UK-Zuid, Australië-Oost, Australië-Zuidoost en Zuidoost-Azië. De Log Analytics-werkruimte moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, UK-Zuid, Australië-Zuidoost of de regio Zuidoost-Azië.
+U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteunde regio's:
+- Canada - midden
+- US - west-centraal
+- US - oost
+- US - oost 2
+- US - noord-centraal
+- US - zuid-centraal
+- US - centraal
+- US - west
+- US - west 2
+- Europa -west
+- Europa - noord
+- Brazilië - zuid
+- Verenigd Koninkrijk West
+- Verenigd Koninkrijk Zuid
+- Australië - oost
+- Australië - zuidoost 
+- Azië - zuidoost
+- India - centraal
+- India - zuid
+- Japan - oost
+
+De Log Analytics-werkruimte moet bestaan in de volgende regio's:
+- Canada - midden
+- US - west-centraal
+- US - oost
+- Europa -west
+- Verenigd Koninkrijk Zuid
+- Australië - zuidoost
+- Azië - zuidoost 
+- India - centraal
+- Japan - oost
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan de nsg's ik stroom inschakelen Logboeken voor zich in verschillende regio's dan mijn werkruimte?
 
@@ -94,8 +125,8 @@ Selecteer een ondersteunde regio. Als u een niet-ondersteunde regio selecteert, 
 De Microsoft.Insights-provider moet worden geregistreerd voor flow logboekregistratie voor een goede werking. Als u niet zeker weet of de Microsoft.Insights-provider is geregistreerd voor uw abonnement, Vervang *xxxxx-xxxxx-xxxxxx-xxxx* in de volgende opdracht uit en voer de volgende opdrachten vanuit PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Heb ik hebt de oplossing geconfigureerd. Waarom zie ik iets op het dashboard?

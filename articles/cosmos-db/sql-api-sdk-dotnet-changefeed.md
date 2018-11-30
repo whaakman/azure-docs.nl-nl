@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 611f7ccf9ef701bf589a8f9450f8f02695357224
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291178"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632480"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "52291178"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="v2-builds"></a>v2-builds
+
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* Nieuwe eigenschap toegevoegd ChangeFeedProcessorOptions.StartContinuation ter ondersteuning van de eerste wijziging feed van aanvraag vervolgtoken. Dit wordt alleen gebruikt wanneer leaseverzameling leeg is of een lease heeft geen ContinuationToken instellen. De ContinuationToken wordt gebruikt voor leases in leaseverzameling waarvoor ContinuationToken instellen en ChangeFeedProcessorOptions.StartContinuation wordt genegeerd.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 * Er is ondersteuning toegevoegd voor het gebruik van aangepaste store om vast te leggen voortzetting van tokens per partitie.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228892"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620180"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS-toepassing technische Publicatiehandleiding voor
 ===========================================
@@ -32,7 +32,7 @@ Voor een overzicht van alle andere Marketplace-aanbiedingen, raadpleegt u de [Ma
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>Wat zijn de vereisten voor het publiceren van een SaaS-App?
 -------------------------------------------------
 
-Portal voor publiceren op basis van rollen toegang biedt tot de portal zodat meerdere personen samen te werken voor het publiceren van een aanbieding. Zie voor meer informatie, [gebruikers beheren](./cloud-partner-portal-manage-users.md). 
+De [Cloud Partner-Portal](https://cloudpartner.azure.com) biedt toegang tot de portal zodat meerdere personen samen te werken voor het publiceren van een aanbieding op basis van rollen. Zie voor meer informatie, [gebruikers beheren](./cloud-partner-portal-manage-users.md). 
 
 Voordat een aanbieding kan worden gepubliceerd namens een publisher-account, een van de personen met *eigenaar* rol moet instemmen met de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), en [Microsoft Azure Certified-ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ De aanbieding voor SaaS-App bestaat uit vijf secties wordt beschreven in de volg
 
 ### <a name="creating-a-new-offer"></a>Het maken van een nieuwe aanbieding
 
-Nadat u zich bij de Cloud Partner-Portal aanmelden, selecteert u de **nieuwe aanbieding** item op de menubalk linksboven, waarin een menu met beschikbare aanbiedingen filteren. De volgende afbeelding toont een voorbeeld van deze aanbiedingen:
+Nadat u zich aanmeldt bij de [Cloud Partner-Portal](https://cloudpartner.azure.com), selecteer de **nieuwe aanbieding** item op de menubalk linksboven, waarin een menu met beschikbare aanbiedingen filteren. De volgende afbeelding toont een voorbeeld van deze aanbiedingen:
 
 ![Nieuwe aanbieding voor SaaS](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ De volgende tabel beschrijft de Marketing-velden:
 
 | **Velden van aanbod** | **Beschrijving**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Logo 's            | Als u een **verkopen via Azure** SaaS-app, moet u alle logo's bieden. Als u slechts een aanbieding, zijn alleen 2 logo's zijn vereist. Alle de logo's die in de Cloud Partner-Portal is geüpload, moeten de volgende richtlijnen gebruiken:     <br/> -Houd het aantal primaire en secundaire kleuren op uw logo laag. Het Azure-ontwerp heeft een eenvoudig kleurenpalet.     <br/> -Vermijd het gebruik van zwart of als de achtergrondkleur van het logo van uw wit. De themakleuren van het Azure-Portal zijn zwart-wit. In plaats daarvan gebruik kleur die uw logo opvallende in de Azure-Portal zou maken. We adviseren eenvoudige primaire kleuren. Als u een transparante achtergrond gebruikt, zorg ervoor dat het logo en de tekst niet zwart-wit of blauwe wordt weergegeven.     <br/> -Gebruik niet een kleurovergang achtergrond op het logo.     <br/> -Voorkomen dat tekst, zelfs uw bedrijf of de naam van het merk, geplaatst op het logo. Het uiterlijk van uw logo moet 'vast' en vermijd kleurovergangen.    <br/> -De logoafbeelding moet niet worden uitgebreid.                   |
+| Logo 's            | Als u een **verkopen via Azure** SaaS-app, moet u alle logo's bieden. Als u slechts een aanbieding, zijn alleen 2 logo's zijn vereist. De logo's uploaden van de [Cloud Partner-Portal](https://cloudpartner.azure.com) moet gebruiken de volgende richtlijnen:     <br/> -Houd het aantal primaire en secundaire kleuren op uw logo laag. Het Azure-ontwerp heeft een eenvoudig kleurenpalet.     <br/> -Vermijd het gebruik van zwart of als de achtergrondkleur van het logo van uw wit. De themakleuren van het Azure-Portal zijn zwart-wit. In plaats daarvan gebruik kleur die uw logo opvallende in de Azure-Portal zou maken. We adviseren eenvoudige primaire kleuren. Als u een transparante achtergrond gebruikt, zorg ervoor dat het logo en de tekst niet zwart-wit of blauwe wordt weergegeven.     <br/> -Gebruik niet een kleurovergang achtergrond op het logo.     <br/> -Voorkomen dat tekst, zelfs uw bedrijf of de naam van het merk, geplaatst op het logo. Het uiterlijk van uw logo moet 'vast' en vermijd kleurovergangen.    <br/> -De logoafbeelding moet niet worden uitgebreid.                   |
 | Video's           | Hiermee kunt u koppelingen van video's van uw aanbieding toevoegen. U kunt koppelingen naar YouTube en/of Vimeo-video's worden weergegeven, samen met uw aanbieding aan klanten. U moet ook een miniatuur van de video met een PNG-afbeelding van 1280 x 720 pixels invoeren. U kunt maximaal vier video's per aanbieding hebben. |
 | Documenten        | Hiermee kunt u marketing documenten toevoegen aan uw aanbieding. Alle documenten in PDF-indeling moeten worden en u kunt maximaal drie documenten per aanbieding hebben.                                                                                                                                                      |
 | Schermopnamen      | Hiermee kunt u toevoegen van schermopnamen van uw aanbieding. Er is een maximum van vijf schermafbeeldingen die per aanbieding kunnen worden toegevoegd. De maximale afbeeldingsgrootte is 1280 x 720 pixels.                                                                                                                                             |

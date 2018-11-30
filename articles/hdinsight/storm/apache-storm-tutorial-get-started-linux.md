@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d2181fb22079112c84e3e7c65575b12aa0c867ac
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006546"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498267"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Aan de slag met Apache Storm in HDInsight met behulp van Storm-Starter-voorbeelden
 
-Leer hoe u Apache Storm gebruikt in HDInsight aan de hand van de Storm-Starter-voorbeelden.
+Meer informatie over het gebruik van [Apache Storm](http://storm.apache.org/) in HDInsight met behulp van de storm starter-voorbeelden.
 
 Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime berekeningssysteem voor het verwerken van gegevensstromen. Met Storm in Azure HDInsight kunt u een op een cloud gebaseerd Storm-cluster maken dat in realtime big data-analyses uitvoert.
 
@@ -34,7 +34,7 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 
 * **Kennis van SSH en SCP**. Zie [SSH-sleutels gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-## <a name="create-a-storm-cluster"></a>Een Storm-cluster maken
+## <a name="create-an-apache-storm-cluster"></a>Een Apache Storm-cluster maken
 
 Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
@@ -139,7 +139,7 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
     * **Deactivate**: een actieve topologie wordt onderbroken.
 
-    * **Rebalance**: de parallelle uitvoering van de topologie wordt aangepast. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met het opnieuw verdelen wordt de parallelle uitvoering aangepast om te compenseren voor het toegenomen/afgenomen aantal knooppunten in het cluster. Zie [Inzicht in de parallelle uitvoering van een Storm-topologie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
+    * **Rebalance**: de parallelle uitvoering van de topologie wordt aangepast. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met het opnieuw verdelen wordt de parallelle uitvoering aangepast om te compenseren voor het toegenomen/afgenomen aantal knooppunten in het cluster. Zie voor meer informatie, [inzicht in de parallelle uitvoering van een Apache Storm-topologie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     * **Kill**: hiermee wordt een Storm-topologie na de opgegeven time-out beëindigd.
 
@@ -187,15 +187,15 @@ Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#
 
 ## <a id="next"></a>Volgende stappen
 
-In deze zelfstudie voor Apache Storm hebt u de basisbeginselen van het werken met Storm op HDInsight geleerd. U kunt nu gaan leren hoe u [op Java gebaseerde topologieën met Maven ontwikkelt](apache-storm-develop-java-topology.md).
+In deze zelfstudie voor Apache Storm hebt u de basisbeginselen van het werken met Storm op HDInsight geleerd. Vervolgens wordt uitgelegd hoe u [ontwikkelen op Java gebaseerde topologieën met behulp van Apache Maven](apache-storm-develop-java-topology.md).
 
 Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën, raadpleegt u het document [Apache Storm-topologieën implementeren en beheren in HDInsight](apache-storm-deploy-monitor-topology-linux.md).
 
-Als u .NET-ontwikkelaar bent, kunt u C#- of hybride C#-/Java-topologieën maken met Visual Studio. Zie [C#-topologieën ontwikkelen voor Apache Storm op HDInsight met behulp van Hadoop-hulpprogramma's voor Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) voor meer informatie.
+Als u .NET-ontwikkelaar bent, kunt u C#- of hybride C#-/Java-topologieën maken met Visual Studio. Zie voor meer informatie, [ontwikkelen C# topologieën voor Apache Storm op HDInsight met behulp van Apache Hadoop-hulpprogramma's voor Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 Zie voor voorbeeldtopologieën die kunnen worden gebruikt met Storm op HDInsight de volgende voorbeelden:
 
-* [Voorbeeldtopologieën van Storm op HDInsight](apache-storm-example-topology.md)
+* [Example Storm toplogies and components for Apache Storm on HDInsight](apache-storm-example-topology.md) (Voorbeelden van Storm-topologieën en -onderdelen in HDInsight)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

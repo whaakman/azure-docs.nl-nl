@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428288"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Zelfstudie: Azure Active Directory-integratie met MobileIron
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van MobileIron in Azure AD, moet u Mobil
 
 **Als u wilt toevoegen MobileIron uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -106,22 +106,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. Op de **MobileIron domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. Op de **MobileIron domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![MobileIron domein en URL's, eenmalige aanmelding informatie](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://www.mobileiron.com/<key>`
+    1. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://www.mobileiron.com/<key>`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![MobileIron domein en URL's, eenmalige aanmelding](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<host>.mobileiron.com/user/login.html`
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. U ontvangt de waarden van sleutel en de host van de beheerdersportal van MobileIron die later in de zelfstudie wordt uitgelegd.
+    > [!NOTE]  Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. U ontvangt de waarden van sleutel en de host van de beheerdersportal van MobileIron die later in de zelfstudie wordt uitgelegd.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -174,13 +173,13 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het dialoogvenster gebruiker](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    1. In de **naam** in het vak **BrittaSimon**.
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+    1. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    1. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
-    d. Klik op **Create**.
+    1. Klik op **Create**.
   
 ### <a name="create-a-mobileiron-test-user"></a>Maak een testgebruiker MobileIron
 
@@ -199,13 +198,13 @@ In het geval van MobileIron is inrichten een handmatige taak.
 
     ![Configureren van eenmalige aanmelding voor gebruiker de knop toevoegen](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals brittasimon@contoso.com.
+    1. In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals brittasimon@contoso.com.
 
-    b. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals Julia.
+    1. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals Julia.
 
-    c. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals Simon.
+    1. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals Simon.
     
-    d. Klik op **Gereed**.  
+    1. Klik op **Gereed**.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

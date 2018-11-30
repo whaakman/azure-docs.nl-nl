@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 220fc7b2b0ce3a4c5fd943c35952a345379a1b91
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284213"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619811"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass through-verificatie: Veelgestelde vragen
 
@@ -34,7 +34,7 @@ Beoordeling [in deze handleiding](https://docs.microsoft.com/azure/security/azur
 
 Pass through-verificatie is een gratis functie. U hoeft niet elke betaalde versies van Azure AD om deze te gebruiken.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Pass through-verificatie beschikbaar is in de [cloud van Microsoft Azure Duitsland](http://www.microsoft.de/cloud-deutschland) en de [Microsoft Azure Government-cloud](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Pass through-verificatie beschikbaar is in de [cloud van Microsoft Azure Duitsland](https://www.microsoft.de/cloud-deutschland) en de [Microsoft Azure Government-cloud](https://azure.microsoft.com/features/gov/)?
 
 Nee. Pass through-verificatie is alleen beschikbaar in het wereldwijde exemplaar van Azure AD.
 
@@ -44,7 +44,7 @@ Ja. Alle mogelijkheden voor voorwaardelijke toegang, met inbegrip van Azure mult
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Ondersteunt Pass-through-verificatie 'Alternatieve ID' als de gebruikersnaam, in plaats van 'userPrincipalName'?
 
-Ja. Pass through-verificatie ondersteunt `Alternate ID` als de gebruikersnaam wanneer in Azure AD Connect hebt geconfigureerd. Zie voor meer informatie, [aangepaste installatie van Azure AD Connect](how-to-connect-install-custom.md). Niet alle Office 365-toepassingen ondersteuning bieden voor `Alternate ID`. Raadpleeg de documentatie-ondersteuningsverklaring van de specifieke toepassing.
+Ja, Pass-through-verificatie ondersteunt `Alternate ID` als de gebruikersnaam wanneer in Azure AD Connect hebt geconfigureerd. Als een vereiste is, Azure AD Connect moet de on-premises Active Directory synchroniseren `UserPrincipalName` kenmerk naar Azure AD. Zie voor meer informatie, [aangepaste installatie van Azure AD Connect](how-to-connect-install-custom.md). Niet alle Office 365-toepassingen ondersteuning bieden voor `Alternate ID`. Raadpleeg de documentatie-ondersteuningsverklaring van de specifieke toepassing.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Wachtwoord-hashsynchronisatie fungeren als een terugval naar Pass-through-verificatie?
 
@@ -119,6 +119,10 @@ Als u van AD FS (of andere technologieën voor federatie) naar Pass-through-veri
 
 Ja. Omgevingen met meerdere forests worden ondersteund als er forestvertrouwensrelaties tussen uw Active Directory-forests en als naamachtervoegsels correct is geconfigureerd.
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>Pass through-verificatie is zorgt voor taakverdeling over meerdere verificatie-Agents?
+
+Nee, meerdere Pass through-verificatie-Agents installeren zorgt ervoor dat alleen [hoge beschikbaarheid](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Biedt geen deterministische taakverdeling tussen de verificatie-Agents. Verificatie-Agent kan (willekeurig) een bepaalde gebruiker aanmelden aanvraag verwerken.
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Hoeveel Pass through-verificatie-Agents heb ik nodig om te installeren?
 
 Meerdere Pass through-verificatie-Agents installeren garandeert [hoge beschikbaarheid](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Maar biedt niet deterministisch taakverdeling tussen de verificatie-Agents.
@@ -149,6 +153,22 @@ De Azure AD Connect-wizard opnieuw uitvoeren en wijzig de aanmeldingsmethode geb
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Wat gebeurt er wanneer ik een Pass through-verificatie-Agent verwijderen?
 
 Als u een Pass through-verificatie-Agent van een server verwijderen, worden de server om te stoppen met het accepteren van aanmeldingsaanvragen. Om te voorkomen dat de gebruiker aanmelden mogelijkheid belangrijke op uw tenant, controleert u of een andere verificatie-Agent wordt uitgevoerd voordat u een Pass through-verificatie-Agent verwijderen.
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Ik heb een oudere-tenant die is oorspronkelijk ingesteld met behulp van AD FS.  We onlangs is gemigreerd naar PTA maar nu onze synchroniseert met Azure AD UPN-wijzigingen niet ziet.  Waarom zijn onze UPN verandert niet wordt gesynchroniseerd?
+
+A: in de volgende omstandigheden kunnen de wijzigingen van uw on-premises UPN niet gesynchroniseerd als:
+
+- Uw Azure AD-tenant is gemaakt vóór 15 juni-2015
+- U zijn in eerste instantie gefedereerd met uw Azure AD-tenant met behulp van AD FS voor verificatie
+- U bent overgeschakeld naar gebruikers met behulp van PTA als verificatie dat beheerde
+
+Dit komt doordat het standaardgedrag van tenants die zijn gemaakt vóór 15 juni-2015 is UPN wijzigingen blokkeren.  Als u uitschrijven blok UPN wijzigingen wilt die u wilt uitvoeren van de volgende PowerShell-cmdlt:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Tenants die zijn gemaakt na 15 juni-2015 hebben het standaardgedrag van de UPN-wijzigingen synchroniseren.   
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Huidige beperkingen](how-to-connect-pta-current-limitations.md): informatie over welke scenario's worden ondersteund en welke niet.

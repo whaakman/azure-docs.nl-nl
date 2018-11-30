@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e20faa36f14e681b6eb81203024e79a649f47c95
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394162"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582544"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Vermijd oninbaar voor uw gratis Azure-account
 
@@ -62,6 +62,6 @@ Uw gratis services en de aantallen verloopt aan het einde van 12 maanden. Vindt 
 
 Nadat uw gratis services en de aantallen zijn verlopen, wordt Azure rekent u betalen per gebruik-tarieven voor alle services die u gebruikt. U kunt de Azure-portal gebruiken om de resources voor de services die u niet gebruikt te verwijderen. Als u niet dat elke Azure-service gebruikt wilt, kunt u [uw abonnement annuleert](billing-how-to-cancel-azure-subscription.md).
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

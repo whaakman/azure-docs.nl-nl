@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: d38b4e511defbb50dd5f74ae72e71d3316a57b3c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 524195372abde91b302ee03c13152f234ef56406
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567125"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498265"
 ---
-# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar HDFS van Apache Storm op HDInsight
+# <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar Apache Hadoop HDFS van Apache Storm op HDInsight
 
-Informatie over het gebruik van Storm om gegevens te schrijven naar de HDFS-compatibele opslag gebruikt met Apache Storm op HDInsight. HDInsight kunt beide gebruiken Azure Storage en Azure Data Lake opslaan als HDFS-compatibele opslag. Storm biedt een [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) onderdeel waarmee gegevens naar HDFS schrijft. Dit document bevat informatie over het schrijven naar beide typen opslag van de HdfsBolt. 
+Meer informatie over het gebruik van [Apache Storm](http://storm.apache.org/) gegevens schrijven naar het HDFS-compatibele opslag van Apache Storm op HDInsight. HDInsight kunt beide gebruiken Azure Storage en Azure Data Lake opslaan als HDFS-compatibele opslag. Storm biedt een [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) onderdeel waarmee gegevens naar HDFS schrijft. Dit document bevat informatie over het schrijven naar beide typen opslag van de HdfsBolt. 
 
 > [!IMPORTANT]
 > De voorbeeldtopologie die in dit document, is afhankelijk van onderdelen die deel van Storm op HDInsight uitmaken. Het mogelijk moeten worden aangepast om te werken met Azure Data Lake Store gebruikt in combinatie met andere Apache Storm-clusters.
@@ -129,7 +129,7 @@ Deze YAML definieert de volgende items:
 * `rotationPolicy`: Hiermee definieert u bij het draaien van bestanden. In dit voorbeeld wordt geen draaiing uitgevoerd.
 * `hdfs-bolt`: De eerdere onderdelen gebruikt als parameters voor de configuratie voor de `HdfsBolt` klasse.
 
-Zie voor meer informatie over het framework lichtstroom [ https://storm.apache.org/releases/1.1.2/flux.html ](https://storm.apache.org/releases/1.1.2/flux.html).
+Zie voor meer informatie over het framework lichtstroom [ https://storm.apache.org/releases/current/flux.html ](https://storm.apache.org/releases/current/flux.html).
 
 ## <a name="configure-the-cluster"></a>Het cluster configureren
 
@@ -219,5 +219,5 @@ Storm-topologieën uitgevoerd totdat deze wordt gestopt of het cluster wordt ver
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u kunt Storm gebruiken om te schrijven naar Azure Storage en Azure Data Lake Store, Ontdek andere [Storm-voorbeelden voor HDInsight](apache-storm-example-topology.md).
+U hebt geleerd hoe u Apache Storm gebruiken om te schrijven naar Azure Storage en Azure Data Lake Store, Ontdek andere [voorbeelden voor Apache Storm voor HDInsight](apache-storm-example-topology.md).
 

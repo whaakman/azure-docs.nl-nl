@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956611"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584618"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Bekende problemen
 
 * U toevoegen geen objecten of -matrices aan de parameters bij het gebruik van scripts voor vóór en na. Het runbook zal mislukken.
-* Runbooks die niet zijn gepubliceerd worden weergegeven als geselecteerd bij het kiezen van een script voor vóór of na. Alleen runbooks die worden gepubliceerd moeten worden gekozen als niet-gepubliceerde runbooks kunnen niet worden aangeroepen en mislukken.
-* Computers die zijn toegevoegd aan een implementatie met [dynamische groepen (preview)](automation-update-management.md#using-dynamic-groups) ze geen momenteel deel uit van de **SoftwareUpdateConfigurationRunContext** parameter die is doorgegeven aan de scripts voor vóór en na.
 
 ## <a name="next-steps"></a>Volgende stappen
 

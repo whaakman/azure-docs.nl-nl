@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 302f2f96a7f17699411ab9fdbdb6ab1f9de149c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e1512d63e83ee213513a3dcd4b858331684dc8a8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277593"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497564"
 ---
-# <a name="access-apache-yarn-application-logs-on-linux-based-hdinsight"></a>Toegang tot Apache YARN-toepassingslogboeken op Linux gebaseerde HDInsight
+# <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Toegang tot Apache Hadoop YARN-toepassingslogboeken op Linux gebaseerde HDInsight
 
-Leer hoe u toegang tot de logboeken voor toepassingen op een Apache Hadoop-cluster in Azure HDInsight Apache YARN (nog een andere Resource Negotiator).
+Leer hoe u toegang tot de logboeken voor [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (nog een andere Resource Negotiator)-toepassingen op een [Apache Hadoop](https://hadoop.apache.org/) -cluster in Azure HDInsight.
 
 > [!IMPORTANT]
 > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.6 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-De [Apache YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) biedt algemene informatie over voltooide toepassingen
+De [Apache Hadoop YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) biedt algemene informatie over voltooide toepassingen
 
 YARN Timeline Server omvat het volgende type gegevens:
 
@@ -36,9 +36,9 @@ YARN Timeline Server omvat het volgende type gegevens:
 
 ## <a name="YARNAppsAndLogs"></a>YARN-toepassingen en Logboeken
 
-YARN biedt ondersteuning voor meerdere programmeermodellen (MapReduce wordt een van beide) door het resourcebeheer van toepassingen plannen/bewaking ontkoppeling. YARN maakt gebruik van een algemene *ResourceManager* (DB), per worker-knooppunt *NodeManagers* (NMs), en per toepassing *ApplicationMasters* (AMs). Het uur per toepassing onderhandelt over de resources (CPU, geheugen, schijf-, netwerk) voor het uitvoeren van uw toepassing met de RM. De RM werkt met NMs verlenen deze resources, die zijn verleend als *containers*. Het uur is verantwoordelijk voor het bijhouden van de voortgang van de containers die zijn toegewezen door de RM. Een toepassing mogelijk veel containers, afhankelijk van de aard van de toepassing.
+YARN biedt ondersteuning voor meerdere programmeermodellen ([Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) wordt een van beide) door het resourcebeheer van toepassingen plannen/bewaking ontkoppeling. YARN maakt gebruik van een algemene *ResourceManager* (DB), per worker-knooppunt *NodeManagers* (NMs), en per toepassing *ApplicationMasters* (AMs). Het uur per toepassing onderhandelt over de resources (CPU, geheugen, schijf-, netwerk) voor het uitvoeren van uw toepassing met de RM. De RM werkt met NMs verlenen deze resources, die zijn verleend als *containers*. Het uur is verantwoordelijk voor het bijhouden van de voortgang van de containers die zijn toegewezen door de RM. Een toepassing mogelijk veel containers, afhankelijk van de aard van de toepassing.
 
-Elke toepassing kan bestaan uit meerdere *toepassing pogingen*. Als een toepassing mislukt, wordt deze opnieuw uitgevoerd als een nieuwe poging. Elke poging wordt uitgevoerd in een container. In zekere zin biedt een container in de context voor de basiseenheid voor werk dat door een YARN-toepassing uitgevoerd. Al het werk dat wordt uitgevoerd binnen de context van een container wordt uitgevoerd op de één worker-knooppunt waarop de container is toegewezen. Zie [YARN concepten] [ YARN-concepts] voor verdere verwijzing.
+Elke toepassing kan bestaan uit meerdere *toepassing pogingen*. Als een toepassing mislukt, wordt deze opnieuw uitgevoerd als een nieuwe poging. Elke poging wordt uitgevoerd in een container. In zekere zin biedt een container in de context voor de basiseenheid voor werk dat door een YARN-toepassing uitgevoerd. Al het werk dat wordt uitgevoerd binnen de context van een container wordt uitgevoerd op de één worker-knooppunt waarop de container is toegewezen. Zie [Apache Hadoop YARN concepten] [ YARN-concepts] voor verdere verwijzing.
 
 Toepassingslogboeken (en de bijbehorende containerlogboeken), zijn essentieel tijdens de foutopsporing problematische Hadoop-toepassingen. YARN biedt een mooie raamwerk voor het verzamelen, verzamelen en opslaan van toepassingslogboeken met de [logboeken gegevensaggregatie] [ log-aggregation] functie. De functie Logboeken gegevensaggregatie kunt de toegang tot toepassingslogboeken meer deterministische. Deze logboeken verzamelt alle containers op een worker-knooppunt en slaat deze op als een geaggregeerde logboekbestand per worker-knooppunt. Het logboek wordt opgeslagen op het standaardbestandssysteem nadat een toepassing is voltooid. Uw toepassing kan gebruikmaken van honderden of duizenden containers, maar de logboeken voor alle containers die worden uitgevoerd op een knooppunt één werknemer altijd worden samengevoegd in één bestand. Er is dus alleen 1 logboek per worker-knooppunt wordt gebruikt door uw toepassing. Aggregatie van logboek is standaard op HDInsight-clusters versie 3.0 en hoger ingeschakeld. Samengevoegde logboeken bevinden zich in de standaardopslag voor het cluster. Het volgende pad, is het HDFS-pad naar de logboeken:
 

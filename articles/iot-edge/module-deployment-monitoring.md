@@ -8,20 +8,20 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b97a88a36631af1de3c95f0730a9a951b9a3a907
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569060"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584839"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Informatie over IoT Edge-implementaties voor individuele apparaten of op schaal
+# <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informatie over IoT Edge-automatische implementaties voor individuele apparaten of op schaal
 
 Azure IoT Edge-apparaten gaat u als volgt een [levenscyclus van apparaat](../iot-hub/iot-hub-device-management-overview.md) die is vergelijkbaar met andere typen IoT-apparaten:
 
-1. IoT Edge-apparaten zijn ingericht, die betrekking heeft op een apparaat met een besturingssysteem imaging en het installeren van de [IoT Edge-runtime](iot-edge-runtime.md).
-2. De apparaten zijn geconfigureerd om uit te voeren [IoT Edge-modules](iot-edge-modules.md), en vervolgens voor health worden bewaakt. 
-3. Ten slotte apparaten kunnen worden buiten gebruik gesteld wanneer ze worden vervangen of verouderd raken.  
+1. Nieuwe IoT Edge-apparaten inrichten met een apparaat met een besturingssysteem imaging en het installeren van de [IoT Edge-runtime](iot-edge-runtime.md).
+2. Configureren van de apparaten om uit te voeren [IoT Edge-modules](iot-edge-modules.md), en vervolgens hun status controleren. 
+3. Ten slotte apparaten buiten gebruik stellen wanneer ze worden vervangen of verouderd raken.  
 
 Azure IoT Edge zorgt voor het configureren van de modules mogen worden uitgevoerd op IoT Edge-apparaten op twee manieren: één voor ontwikkeling en snelle iteraties op één apparaat (u hebt deze methode gebruikt in de Azure IoT Edge [zelfstudies](tutorial-deploy-function.md)), en één voor het beheren van grote vissersvloten van IoT Edge-apparaten. Beide van deze methoden zijn beschikbaar in Azure portal en programmatisch. Die zijn gericht op groepen of een groot aantal apparaten, kunt u opgeven welke apparaten die u wilt implementeren de modules voor het gebruik van [tags](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) op het dubbele apparaat. De volgende stappen uit praten over een implementatie op een apparaatgroep de staat Washington is geïdentificeerd door de eigenschap tags. 
 
@@ -29,16 +29,16 @@ In dit artikel is gericht op de configuratie en bewaking van de fasen voor vlote
 
 1. Een operator definieert een implementatie die een reeks modules, evenals de doelapparaten beschrijft. Elke implementatie heeft een implementatie-manifest die overeenkomt met deze informatie. 
 2. De IoT Hub-service communiceert met alle apparaten uit de doelgroep om deze te configureren met de gewenste modules. 
-3. De IoT Hub-service wordt de status opgehaald van de IoT Edge-apparaten en oppervlakken die voor de operator om te controleren.  Bijvoorbeeld, ziet een operator wanneer een Edge-apparaat niet is geconfigureerd of als een module is mislukt tijdens runtime. 
+3. De IoT Hub-service wordt de status opgehaald van de IoT Edge-apparaten en maakt ze beschikbaar voor de operator.  Bijvoorbeeld, ziet een operator wanneer een Edge-apparaat niet is geconfigureerd of als een module is mislukt tijdens runtime. 
 4. Op elk gewenst moment zijn nieuwe IoT Edge-apparaten die voldoen aan de doelitems voorwaarden geconfigureerd voor de implementatie. Bijvoorbeeld, configureert een implementatie die gericht is op alle IoT Edge-apparaten in de staat Washington automatisch een nieuwe IoT Edge-apparaat nadat deze is ingericht en aan de groep met apparaten van de staat Washington toevoegen. 
  
 Dit artikel wordt beschreven voor elk onderdeel is betrokken bij het configureren en controleren van een implementatie. Zie voor een overzicht van het maken en bijwerken van een implementatie [implementeren en controleren van IoT Edge-modules op schaal](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Implementatie
 
-De automatische implementatie van een IoT Edge toegewezen IoT Edge module installatiekopieën uit te voeren als de exemplaren in een bepaalde set van IoT Edge-apparaten. Dit gebeurt door het configureren van een manifest van de IoT Edge-implementatie om op te nemen van een lijst met modules met de bijbehorende initialisatieparameters. Een implementatie kan worden toegewezen aan één apparaat (op basis van apparaat-ID) of aan een groep van apparaten (op basis van tags). Wanneer een IoT Edge-apparaat ontvangt een implementatie van het manifest, het downloadt en installeert de module containerinstallatiekopieën vanuit opslagplaatsen voor de desbetreffende container en configureert u deze dienovereenkomstig. Nadat een implementatie wordt gemaakt, kunt de status van de implementatie om te zien of de beoogde apparaten correct zijn geconfigureerd door een operator controleren.
+De automatische implementatie van een IoT Edge toegewezen IoT Edge module installatiekopieën uit te voeren als de exemplaren in een bepaalde set van IoT Edge-apparaten. Dit gebeurt door het configureren van een manifest van de IoT Edge-implementatie om op te nemen van een lijst met modules met de bijbehorende initialisatieparameters. Een implementatie kan worden toegewezen aan één apparaat (op basis van apparaat-ID) of aan een groep van apparaten (op basis van tags). Zodra een IoT Edge-apparaat ontvangt een implementatie van het manifest, het downloadt en installeert de containerinstallatiekopieën vanuit opslagplaatsen voor de desbetreffende container en configureert u deze dienovereenkomstig. Nadat een implementatie wordt gemaakt, kunt de status van de implementatie om te zien of de beoogde apparaten correct zijn geconfigureerd door een operator controleren.
 
-Apparaten moeten worden ingericht als IoT Edge-apparaten kan worden geconfigureerd met een implementatie. De volgende vereisten moeten zijn op het apparaat voordat de implementatie kan ontvangen:
+IoT Edge-apparaten kunnen worden geconfigureerd met een implementatie. De volgende vereisten moeten zijn op het apparaat voordat de implementatie kan ontvangen:
 
 * Het basisbesturingssysteem
 * Een container management-systeem, zoals Moby of Docker
@@ -53,7 +53,7 @@ De metagegevens van de configuratie voor elke module bevat: 
 * Versie 
 * Type 
 * Status (bijvoorbeeld wordt uitgevoerd of gestopt) 
-* Beleid voor opnieuw starten 
+* Beleid voor opnieuw opstarten 
 * Afbeeldings- en container registry
 * Routes voor invoer en uitvoer 
 
@@ -61,9 +61,9 @@ Als de module-installatiekopie is opgeslagen in een privécontainerregister, bev
 
 ### <a name="target-condition"></a>Doelvoorwaarde
 
-De doelvoorwaarde wordt voortdurend geëvalueerd, zodat nieuwe apparaten die voldoen aan de vereisten worden opgenomen of verwijderen van apparaten die niet langer gedurende de levensduur van de implementatie. De implementatie wordt opnieuw worden geactiveerd als de service wordt gedetecteerd door elke wijziging van de voorwaarde doel. 
+De doelvoorwaarde wordt voortdurend geëvalueerd throughtout de levensduur van de implementatie. Nieuwe apparaten die voldoen aan de vereisten zijn opgenomen en alle bestaande apparaten die niet langer worden verwijderd. De implementatie opnieuw wordt geactiveerd als de service wordt gedetecteerd door elke wijziging van de voorwaarde doel. 
 
-Bijvoorbeeld, hebt u een A-implementatie met een doel voorwaarde tags.environment = 'prod'. Wanneer u een vliegende start de implementatie, zijn er tien productieapparaten. De modules zijn in deze tien apparaten geïnstalleerd. De Status van de IoT Edge-Agent wordt weergegeven als het totaal aantal apparaten 10, 10 gelukt-antwoorden, 0 mislukte reacties en 0 in behandeling-antwoorden. Nu u bij het toevoegen van vijf meer apparaten met tags.environment = 'prod'. De service detecteert de wijziging en de Status van de IoT Edge-Agent wordt 15 totaal aantal apparaten, 10 gelukt-antwoorden, 0 mislukte reacties en 5 in behandeling-antwoorden als er wordt geprobeerd om in de vijf nieuwe apparaten te implementeren.
+Bijvoorbeeld, hebt u een A-implementatie met een doel voorwaarde tags.environment = 'prod'. Wanneer u een vliegende start de implementatie, zijn er 10 productieapparaten. De modules zijn geïnstalleerd in deze 10-apparaten. De Status van de IoT Edge-Agent wordt weergegeven als het totaal aantal apparaten 10, 10 gelukt-antwoorden, 0 mislukte reacties en 0 in behandeling-antwoorden. Nu u bij het toevoegen van vijf meer apparaten met tags.environment = 'prod'. De service detecteert de wijziging en de Status van de IoT Edge-Agent wordt 15 totaal aantal apparaten, 10 gelukt-antwoorden, 0 mislukte reacties en 5 in behandeling-antwoorden als er wordt geprobeerd om in de vijf nieuwe apparaten te implementeren.
 
 Gebruik een Boole-voorwaarde op device twins tags of deviceId de doelapparaten selecteren. Als u wilt de voorwaarde met tags gebruiken, moet u 'tags' toevoegen:{} sectie in de apparaatdubbel onder hetzelfde niveau als eigenschappen. [Meer informatie over tags in de apparaatdubbel](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -78,8 +78,8 @@ Voorbeelden van de doel-voorwaarden:
 Hier volgen enkele beperkingen wanneer u een doelvoorwaarde maken:
 
 * In de apparaatdubbel, kunt u alleen een doelvoorwaarde met behulp van labels of deviceId bouwen.
-* Dubbele aanhalingstekens zijn niet toegestaan in een gedeelte van de doelvoorwaarde. Gebruik enkele aanhalingstekens.
-* Enkele aanhalingstekens vertegenwoordigen de waarden van de doelvoorwaarde. Daarom moet u de enkel aanhalingsteken met een andere enkel aanhalingsteken escape-als het deel van de naam van het apparaat uitmaakt. Bijvoorbeeld, de doelvoorwaarde voor: operator'sDevice zou moeten worden geschreven als de apparaat-id ='operator '' sDevice'.
+* Dubbele aanhalingstekens zijn niet toegestaan in een gedeelte van de doelvoorwaarde. Gebruikt u enkele aanhalingstekens.
+* Enkele aanhalingstekens vertegenwoordigen de waarden van de doelvoorwaarde. Daarom moet u de enkel aanhalingsteken met een andere enkel aanhalingsteken escape-als het deel van de naam van het apparaat uitmaakt. Bijvoorbeeld: op een apparaat met de naam `operator'sDevice`, schrijven `deviceId='operator''sDevice'`.
 * Cijfers, letters en de volgende tekens zijn toegestaan in de voorwaarde doelwaarden: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Prioriteit
@@ -97,7 +97,7 @@ Een implementatie kan worden gecontroleerd om te bepalen of deze is toegepast vo
 * **Doel** IoT Edge-apparaten die overeenkomen met de implementatie die gericht is op voorwaarde weergegeven.
 * **Werkelijke** ziet u de betreffende IoT Edge-apparaten die niet door een andere implementatie van een hogere prioriteit zijn bedoeld.
 * **In orde** ziet u de IoT Edge-apparaten die zijn gerapporteerd terug aan de service dat de modules met succes is geïmplementeerd. 
-* **Niet in orde** ziet u de IoT Edge apparaten terug naar de service die een hebben gerapporteerd of modules niet met succes zijn geïmplementeerd. Voor verder onderzoek van de fout, extern verbinding maken met die apparaten en de logboekbestanden.
+* **Niet in orde** ziet u de IoT Edge apparaten terug naar de service die een hebben gerapporteerd of modules niet met succes zijn geïmplementeerd. Voor verder onderzoek van de fout, extern verbinding maken met deze apparaten en de logboekbestanden.
 * **Onbekende** IoT Edge-apparaten die elke status die deel uitmaakt van deze implementatie geen rapporteren weergegeven. Verder te onderzoeken, service-gegevens en logboekbestanden bestanden weergeven
 
 ## <a name="phased-rollout"></a>Gefaseerde implementatie 
@@ -115,7 +115,7 @@ Een gefaseerde implementatie wordt uitgevoerd in de volgende fasen en stappen: 
 
 ## <a name="rollback"></a>Ongedaan maken
 
-Implementaties kunnen worden teruggedraaid in het geval van fouten of onjuiste configuraties.  Omdat een implementatie de absolute moduleconfiguratie voor een IoT Edge-apparaat definieert, moet de implementatie van een extra ook zijn gericht op hetzelfde apparaat met een lagere prioriteit, zelfs als het doel is om het verwijderen van alle modules.  
+Implementaties kunnen worden teruggedraaid terug als er fouten of onjuiste configuraties.  Omdat een implementatie de absolute moduleconfiguratie voor een IoT Edge-apparaat definieert, moet de implementatie van een extra ook zijn gericht op hetzelfde apparaat met een lagere prioriteit, zelfs als het doel is om het verwijderen van alle modules.  
 
 Terugdraaiacties in de volgende handelingen uitvoeren: 
 

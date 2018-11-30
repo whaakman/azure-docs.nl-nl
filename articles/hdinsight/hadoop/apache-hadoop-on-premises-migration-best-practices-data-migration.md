@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418174"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584703"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
 
@@ -25,20 +25,12 @@ In dit artikel biedt aanbevelingen voor gegevensmigratie naar Azure HDInsight. H
 Er zijn twee manieren om gegevens te migreren van on-premises naar Azure-omgeving:
 
 1.  Gegevens overdragen via het netwerk met TLS
-    1.  Via internet
-    2.  ExpressRoute
-2.  Verzendgegevens
-    1.  Import / Export-service
-        - Interne SATA HDD's of SSD's alleen
-        - In RUST versleuteld met (AES-128 / AES-256)
-        - Import-taak mag maximaal 10 schijven hebben.
-        - Beschikbaar in alle openbare regio's en algemeen beschikbaar
-    1.  Data Box
-        - Tot 80 TB aan gegevens per Data box
-        - Versleuteld in RUST (AES-256)
-        - Maakt gebruik van NAS-protocollen en biedt ondersteuning voor veelgebruikte gegevens kopiëren-hulpprogramma 's
-        - Robuust hardware
-        - Beschikbaar in VS alleen en Preview-versie
+    1. Via internet - kunt u gegevens overbrengen naar Azure-opslag via een gewone internetverbinding met behulp van een van verschillende hulpprogramma's zoals: Azure Storage Explorer, AzCopy, Azure Powershell en Azure CLI.  Zie [om gegevens te verplaatsen naar en van Azure Storage](../../storage/common/storage-moving-data.md) voor meer informatie.
+    2. Express Route - ExpressRoute is een Azure-service waarmee u particuliere verbindingen maken tussen Microsoft-datacenters en infrastructuur on-premises of in een CO-locatiefaciliteit. ExpressRoute-verbindingen niet het openbare Internet en bieden een hogere beveiliging, betrouwbaarheid en snelheid met kortere wachttijden dan gebruikelijke verbindingen via Internet. Zie voor meer informatie, [maken en aanpassen van een ExpressRoute-circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    1. Data Box online-gegevensoverdracht - gegevens in het Edge- en Data Box-Gateway zijn online-gegevens overbrengen producten die fungeren als gateways voor het beheren van gegevens tussen uw locatie en Azure storage. Met Data Box Edge, een on-premises netwerkapparaat, worden gegevens overdragen van en naar Azure en worden gegevens verwerkt met behulp van Edge-rekenprocessen met artificial intelligence (AI). Data Box Gateway is een virtueel apparaat met opslaggatewaymogelijkheden. Zie voor meer informatie, [Azure Data Box-documentatie - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
+1.  Verzending van gegevens Offline
+    1. Import / Export-service - kunt u fysieke schijven naar Azure verzenden en ze voor u worden geüpload. Zie voor meer informatie, [wat is Azure Import/Export-service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    1. Gegevens vak offline gegevensoverdracht - gegevens in het Data Box-schijf, en gegevens in het zware apparaten kunnen u grote hoeveelheden gegevens overdragen naar Azure als het netwerk niet als een optie. Deze apparaten voor offlinegegevensoverdracht worden verzonden van het Azure-datacenter naar uw organisatie en vice versa. De apparaten maken gebruik van AES-versleuteling om uw gegevens tijdens de overdracht te beveiligen en ondergaan na het uploaden een grondig opschoningsproces om uw gegevens van het apparaat te verwijderen. Zie voor meer informatie, [Azure Data Box-documentatie - Offline Transfer](https://docs.microsoft.com/azure/databox/).
 
 De volgende tabel bevat geschatte data transfer duur op basis van de gegevens volume en de netwerkbandbreedte. Een Data box gebruiken als de gegevensmigratie wordt verwacht dat meer dan drie weken duren.
 

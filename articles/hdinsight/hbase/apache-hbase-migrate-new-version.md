@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 64b3762c40cc2e01944d78c546ebe267503526a7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049327"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499305"
 ---
-# <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Een HBase-cluster migreren naar een nieuwe versie
+# <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Een Apache HBase-cluster migreren naar een nieuwe versie
 
-Clusters op basis van een taak, zoals Spark en Hadoop, zijn eenvoudige upgrade - Zie [Upgrade HDInsight-cluster naar een nieuwere versie](../hdinsight-upgrade-cluster.md):
+Clusters op basis van een taak, zoals [Apache Spark](https://spark.apache.org/) en [Apache Hadoop](https://hadoop.apache.org/), zijn simpel upgrade-Zie [Upgrade HDInsight-cluster naar een nieuwere versie](../hdinsight-upgrade-cluster.md):
 
 1. Back-up van gegevens voor tijdelijke (lokaal opgeslagen).
 2. Het bestaande cluster verwijderen.
@@ -26,14 +26,14 @@ Clusters op basis van een taak, zoals Spark en Hadoop, zijn eenvoudige upgrade -
 4. Tijdelijke gegevens importeren.
 5. Taken starten en gaan met de verwerking op het nieuwe cluster.
 
-Als u wilt een HBase-cluster upgraden zijn enkele extra stappen nodig, zoals beschreven in dit artikel.
+Upgrade een [Apache HBase](http://hbase.apache.org/) cluster enkele extra stappen nodig zijn, zoals beschreven in dit artikel.
 
 > [!NOTE]
 > De uitvaltijd tijdens de upgrade moet minimaal orde van grootte minuten. Deze uitvaltijd wordt veroorzaakt door de stappen leegmaken van alle in-memory-gegevens en vervolgens de tijd voor het configureren en opnieuw starten van de services op het nieuwe cluster. De resultaten zullen verschillen, afhankelijk van het aantal knooppunten, de hoeveelheid gegevens en andere variabelen.
 
-## <a name="review-hbase-compatibility"></a>HBase-compatibiliteit evalueren
+## <a name="review-apache-hbase-compatibility"></a>Apache HBase compatibiliteit evalueren
 
-Controleer of dat de HBase-versies in de bron- en -clusters compatibel zijn voor het upgraden van HBase. Zie voor meer informatie, [Hadoop-onderdelen en versies die beschikbaar met HDInsight](../hdinsight-component-versioning.md).
+Vóór de upgrade van Apache HBase, zorg ervoor dat de HBase-versies in de bron- en -clusters zijn compatibel. Zie voor meer informatie, [Hadoop-onderdelen en versies die beschikbaar met HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]
 > Is het raadzaam dat u de versie-compatibiliteitsmatrix in controleren de [HBase book](https://hbase.apache.org/book.html#upgrading).
@@ -57,7 +57,7 @@ Hier volgt een voorbeeld van de versie compatibiliteitsmatrix, waar Y compatibil
 > [!NOTE]
 > Eventuele incompatibiliteiten belangrijke moeten worden beschreven in de releaseopmerkingen voor HBase-versie.
 
-## <a name="upgrade-with-same-hbase-major-version"></a>Een upgrade uitvoert op dezelfde hoofdversie van HBase
+## <a name="upgrade-with-same-apache-hbase-major-version"></a>Een upgrade uitvoert op dezelfde primaire versie van Apache HBase
 
 De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide worden geleverd met Apache HBase 1.1.2) met de dezelfde primaire versie van HBase. Andere versie-upgrades zijn vergelijkbaar, zolang er geen compatibiliteitsproblemen tussen bron- en -versies zijn.
 
@@ -187,7 +187,7 @@ De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide word
     
 4. Stop de opname voor het oude HBase-cluster.
 5. Voer het vorige script opnieuw uit om ervoor te zorgen dat alle recente gegevens in de geheugenopslag is leeggemaakt.
-6. Meld u aan bij de Ambari op het oude cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) en stop de HBase-services. Wanneer u wordt gevraagd om te bevestigen dat u wilt de services te stoppen, schakel het selectievakje inschakelen in de onderhoudsmodus voor HBase. Zie voor meer informatie over verbinding maken met en het gebruik van Ambari [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](../hdinsight-hadoop-manage-ambari.md).
+6. Meld u aan bij [Apache Ambari](https://ambari.apache.org/) op het oude cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) en stop de HBase-services. Wanneer u wordt gevraagd om te bevestigen dat u wilt de services te stoppen, schakel het selectievakje inschakelen in de onderhoudsmodus voor HBase. Zie voor meer informatie over verbinding maken met en het gebruik van Ambari [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](../hdinsight-hadoop-manage-ambari.md).
 
     ![In de Ambari, klikt u op het tabblad Services en vervolgens HBase in het menu links en Stop vervolgens onder serviceacties](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
@@ -211,9 +211,9 @@ De volgende scenario is voor het upgraden van HDInsight 3.4 naar 3.6 (beide word
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen voor meer informatie over het HBase- en HDInsight-clusters upgraden:
+Voor meer informatie over [Apache HBase](http://hbase.apache.org/) en HDInsight-clusters bijwerkt, Zie de volgende artikelen:
 
 * [Een HDInsight-cluster upgraden naar een nieuwere versie](../hdinsight-upgrade-cluster.md)
-* [Controleren en beheren van Azure HDInsight met behulp van de Ambari-Webinterface](../hdinsight-hadoop-manage-ambari.md)
-* [Hadoop-onderdelen en versies](../hdinsight-component-versioning.md)
-* [Configuraties met behulp van Ambari optimaliseren](../hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)
+* [Controleren en beheren van Azure HDInsight met behulp van de Apache Ambari-Webinterface](../hdinsight-hadoop-manage-ambari.md)
+* [Apache Hadoop-onderdelen en versies](../hdinsight-component-versioning.md)
+* [Configuraties met behulp van Apache Ambari optimaliseren](../hdinsight-changing-configs-via-ambari.md#apache-hbase-optimization-with-the-ambari-web-ui)

@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.topic: conceptual
+ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956405"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620111"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor resource organisatie en beheer maken
 
@@ -29,7 +29,7 @@ U kunt de beheergroep maken met behulp van de portal, PowerShell of Azure CLI. O
 
 ### <a name="create-in-portal"></a>In de portal maken
 
-1. Meld u aan bij de [Azure-portal](http://portal.azure.com).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
 1. Selecteer **alle services** > **beheergroepen**.
 
@@ -76,8 +76,8 @@ az account management-group create --name 'Contoso'
 
 Voor meer informatie over beheergroepen gaat u naar:
 
-- [Resources organiseren met beheergroepen voor Azure](overview.md)
+- [Beheergroepen maken om Azure-resources te ordenen](create.md)
 - [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
-- [De Azure PowerShell-module installeren](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [De REST API-specificaties bekijken](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [De Azure CLI-extensie installeren](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](https://aka.ms/mgPSdocs)
+- [Beheergroepen bekijken via de REST-API](https://aka.ms/mgAPIdocs)
+- [Beheergroepen bekijken via de Azure-CLI](https://aka.ms/mgclidoc)

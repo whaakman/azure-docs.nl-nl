@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 876a564c3cf5ee4b19d7f2530ecff1ed12bebe63
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255247"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581815"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake Store
 
-In deze zelfstudie gebruikt u Jupyter-notebook beschikbaar met HDInsight Spark-clusters een taak die gegevens uit een Data Lake Store-account leest uit te voeren.
+In deze zelfstudie gebruikt u [Jupyter-Notebook](https://jupyter.org/) beschikbaar met HDInsight Spark-clusters een taak die gegevens uit een Data Lake Store-account leest uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -61,7 +61,7 @@ Als u een HDInsight-cluster met Data Lake Store als extra opslag en Azure Storag
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-store"></a>Gebruik van een HDInsight Spark-cluster met Data Lake Store
 
-1. Klik vanuit de [Azure Portal](https://portal.azure.com/), vanaf het startboard, op de tegel voor uw Spark-cluster (als u deze aan het startboard hebt vastgemaakt). U kunt ook naar uw cluster navigeren onder **Bladeren** > **HDInsight-clusters**.
+1. Uit de [Azure Portal](https://portal.azure.com/), vanaf het startboard, klikt u op de tegel voor uw Apache Spark-cluster (als u deze aan het startboard hebt vastgemaakt). U kunt ook naar uw cluster navigeren onder **Bladeren** > **HDInsight-clusters**.
 
 2. Klik vanuit de blade Spark-cluster op **Snelkoppelingen**. Klik vervolgens vanuit het **Cluster-dashboard** op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
 
@@ -115,7 +115,7 @@ Als u een HDInsight-cluster met Data Lake Store als extra opslag en Azure Storag
             # Register the data fram as a table to run queries against
             hvacdf.registerTempTable("hvac")
 
-6. Omdat u een PySpark-kernel gebruikt, kunt u nu rechtstreeks een SQL-query uitvoeren op de tijdelijke tabel **hvac**, die u zojuist hebt gemaakt met behulp van de `%%sql`-magic. Voor meer informatie over de `%%sql`-magic, evenals over andere magics die voor de PySpark-kernel beschikbaar zijn, raadpleegt u [Beschikbare kernels op Jupyter-notebooks met HDInsight Spark-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Omdat u een PySpark-kernel gebruikt, kunt u nu rechtstreeks een SQL-query uitvoeren op de tijdelijke tabel **hvac**, die u zojuist hebt gemaakt met behulp van de `%%sql`-magic. Voor meer informatie over de `%%sql` magic, evenals andere magics die beschikbaar zijn met de PySpark-kernel, Zie [beschikbare Kernels op Jupyter-notebooks met Apache Spark HDInsight-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -134,5 +134,5 @@ Als u een HDInsight-cluster met Data Lake Store als extra opslag en Azure Storag
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een zelfstandig Scala-toepassing uit te voeren op Apache Spark-cluster maken](apache-spark-create-standalone-application.md)
-* [HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ gebruiken voor het Spark-toepassingen voor HDInsight Spark Linux-cluster maken](apache-spark-intellij-tool-plugin.md)
-* [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken voor het Spark-toepassingen voor HDInsight Spark Linux-cluster maken](apache-spark-eclipse-tool-plugin.md)
+* [HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ gebruiken om toepassingen van Apache Spark voor HDInsight Spark Linux-cluster te maken](apache-spark-intellij-tool-plugin.md)
+* [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken om toepassingen van Apache Spark voor HDInsight Spark Linux-cluster te maken](apache-spark-eclipse-tool-plugin.md)

@@ -3,7 +3,7 @@ title: Microsoft Advanced Threat Analytics met Azure Security Center verbinden |
 description: Meer informatie over hoe Azure Security Center kan worden geïntegreerd met Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
-ms.author: yurid
-ms.openlocfilehash: 6129c83e33d046c2fc9ce1724a27efce5efdfa0e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: bcd9b006c5451cb2d251cd5ff9e6ae5e0bd17f3c
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258796"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634010"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Maken van verbinding Microsoft Advanced Threat Analytics met Azure Security Center
 Dit document helpt u bij het configureren van de integratie tussen Microsoft Advanced Threat Analytics en Azure Security Center.
 
 ## <a name="why-add-advanced-threat-analytics-data"></a>Advanced Threat Analytics-gegevens waarom toevoegen?
-[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) is een on-premises platform waarmee helpt bij het detecteren van verdachte gedrag. Wanneer de verbinding is gemaakt, bent u verdachte activiteit gedetecteerd door ATA in Security Center weergeven. Deze integratie kunt u bekijken, correleren en onderzoeken van alle beveiligingswaarschuwingen die betrekking hebben op uw hybride cloudworkloads in Security Center. 
+[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) is een on-premises platform waarmee helpt bij het detecteren van verdachte gedrag. Wanneer de verbinding is gemaakt, bent u verdachte activiteit gedetecteerd door ATA in Security Center weergeven. Deze integratie kunt u bekijken, correleren en onderzoeken van alle beveiligingswaarschuwingen die betrekking hebben op uw hybride cloudworkloads in Security Center.
 
 ## <a name="how-do-i-configure-this-integration"></a>Hoe configureer ik deze integratie?
 Ervan uitgaande dat u al hebt ATA is geïnstalleerd, en goed werkt on-premises, als volgt te werk om deze integratie te configureren:
@@ -46,7 +46,7 @@ Ervan uitgaande dat u al hebt ATA is geïnstalleerd, en goed werkt on-premises, 
 8. Onder **Advanced Threat Analytics**, klikt u op **toevoegen**.
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig3.png)
-    
+
 9. Ga naar de laatste stap en klik op **downloaden agent**.
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig4.png)
@@ -62,13 +62,13 @@ Ervan uitgaande dat u al hebt ATA is geïnstalleerd, en goed werkt on-premises, 
 12. Deze agent in het ATA Center installeren. Tijdens de installatie, zorg ervoor dat u de optie **de agent verbinden met Azure Log Analytics**, en geef de *werkruimte-ID*, en *primaire sleutel* wanneer aangevraagd.
 
 
-Zodra u klaar bent met de installatie, de integratie is voltooid en u wordt mogelijk nieuwe waarschuwingen die vanaf ATA verzonden naar Security Center in de **zoeken** resultaat. De oplossing wordt weergegeven in de **beveiligingsoplossingen** pagina onder **verbonden oplossingen**. 
+Zodra u klaar bent met de installatie, de integratie is voltooid en u wordt mogelijk nieuwe waarschuwingen die vanaf ATA verzonden naar Security Center in de **zoeken** resultaat. De oplossing wordt weergegeven in de **beveiligingsoplossingen** pagina onder **verbonden oplossingen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u geleerd hoe u verbinding maken met Microsoft ATA met Security Center. Zie de volgende artikelen voor meer informatie over Security Center:
 
 * [Azure Active Directory Identity Protection koppelen aan Azure Security Center](security-center-aadip-integration.md)
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md) : informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) : Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
 * [Beheren en erop reageren op beveiligingswaarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : informatie over het beheren van en reageren op beveiligingswaarschuwingen.
@@ -76,5 +76,3 @@ In dit document hebt u geleerd hoe u verbinding maken met Microsoft ATA met Secu
 - [Beveiliging van Azure Security Center gegevens](security-center-data-security.md) -informatie over hoe gegevens worden beheerd en beveiligd in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-Beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/) : ophalen van de meest recente Azure-beveiliging-nieuws en informatie.
-
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262196"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584771"
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van de beveiliging van Azure-database
 
@@ -199,7 +199,7 @@ SQL geavanceerde Threat Protection (ATP) biedt een geavanceerde SQL-beveiligings
 - Toegang vanaf een mogelijk schadelijke toepassing 
 - Brute force Azure database voor PostgreSQL-referenties 
 
-[Azure Database for MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md) biedt beveiliging die vergelijkbaar is met geavanceerde beveiliging voor PostgreSQL.  
+[Azure Database for MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md) biedt beveiliging die vergelijkbaar is met geavanceerde beveiliging voor PostgreSQL.  
 
 ## <a name="centralized-security-management"></a>Gecentraliseerd beheer
 
@@ -220,7 +220,7 @@ Security Center biedt ondersteuning voor toegang op basis van rollen.
 
 Bovendien berekent het resultaat gevoeligheid van de SQL-query's, zo instellen dat query's die gevoelige gegevens extraheren expliciet kunnen worden gecontroleerd en de gegevens kunnen worden beveiligd. Zie voor meer informatie over SQL Information Protection, Azure SQL Database-gegevensdetectie en classificatie.
 
-U kunt configureren [SQL Information Protection-beleid](/security-center/security-center-info-protection-policy.md) in Azure Security Center.
+U kunt configureren [SQL Information Protection-beleid](../security-center/security-center-info-protection-policy.md) in Azure Security Center.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

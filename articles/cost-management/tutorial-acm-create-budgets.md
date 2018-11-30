@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686157"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583688"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -33,13 +33,15 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Budgetten zijn beschikbaar voor alle Azure EA-klanten. U moet leestoegang tot een Azure EA-abonnement hebben om budgetten te maken en beheren. U kunt afzonderlijke budgetten voor EA-abonnementen en resourcegroepen. U kan echter budgetten maken voor facturering van accounts EA.
+Budgetten zijn beschikbaar voor alle Azure EA-klanten. U moet leestoegang hebben tot een budgetten Azure EA-abonnement weergeven. Als u wilt maken en beheren van budgetten, moet u de machtiging Inzender hebt. U kunt afzonderlijke budgetten voor EA-abonnementen en resourcegroepen. U kan echter budgetten maken voor facturering van accounts EA.
 
 De volgende Azure-machtigingen worden per abonnement voor budgetten door gebruikers en groepen ondersteund:
 
 - Eigenaar: eigenaren kunnen budgetten voor een abonnement instellen, wijzigen en verwijderen.
-- Inzender: inzenders kunnen hun eigen budgetten instellen, wijzigen en verwijderen. Inzenders kunnen ook de budgetbedragen aanpassen voor budgetten die zijn gemaakt door anderen.
-- Lezer: lezers kunnen budgetten inzien waarvoor ze zijn gemachtigd.
+- Inzender en Inzender van Cost Management – kunt maken, wijzigen of verwijderen van hun eigen budgetten. Inzenders kunnen ook de budgetbedragen aanpassen voor budgetten die zijn gemaakt door anderen.
+- Lezer en kostenbeheer lezer – kunt budgetten die ze gemachtigd zijn om te bekijken.
+
+Zie voor meer informatie over het toewijzen van machtigingen aan gegevens van Cost Management [toegang tot gegevens van kostenbeheer toewijzen](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

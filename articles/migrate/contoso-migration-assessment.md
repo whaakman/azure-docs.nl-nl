@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: ea0987eaea8ee558df35ecce6afb5e7bab3ac4de
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087614"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635013"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: on-premises workloads evalueren voor migratie naar Azure
 
@@ -125,8 +125,8 @@ Contoso en andere gebruikers moeten voldoen aan de volgende vereisten voor de ev
 - Ten minste twee on-premises virtuele VMware-machines, en op één daarvan moet een SQL Server-database worden uitgevoerd.
 - Machtigingen voor het Azure Migrate-agents installeren op elke virtuele machine.
 - De virtuele machines moeten directe verbinding met internet hebben.  
-        - U kunt de toegang tot internet beperken de [vereiste URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        -Als uw VM's geen verbinding met internet, de Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md) moet worden geïnstalleerd op deze en verkeer dat bestemd is via deze agent.
+    - U kunt de toegang tot internet beperken de [vereiste URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - Als uw virtuele machines niet over een internetverbinding beschikt, de Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md) moet worden geïnstalleerd op deze en verkeer dat bestemd is via deze agent.
 - De FQDN-naam van de virtuele machine waarop het SQL Server-exemplaar wordt uitgevoerd. Deze wordt gebruikt voor database-evaluatie.
 - Windows Firewall op de SQL Server-VM moet externe verbindingen toestaan via TCP-poort 1433 (standaard). Deze instelling kan Data Migration Assistant om verbinding te maken.
 

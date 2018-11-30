@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567142"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620622"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>Exporteren van een asynchrone-functie
-Bij het gebruik van de JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaratie of anders retourneert een JavaScript [belofte](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (niet beschikbaar met Functions v1.x), u niet expliciet hoeft aan te roepen de [ `context.done` ](#contextdone-method) callback gebruikt om op te geven dat de functie is voltooid. De functie is voltooid wanneer de geëxporteerde async-functie/belofte is voltooid.
-
 Wanneer u de [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaratie of gewoon JavaScript [beloften](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) in versie 2.x van de Functions-runtime, hoeft u niet expliciet aan te roepen de [ `context.done` ](#contextdone-method) callback gebruikt om op te geven dat de functie is voltooid. De functie is voltooid wanneer de geëxporteerde async-functie/belofte is voltooid. Voor de functies die gericht is op de versie 1.x-runtime, moet u nog steeds aanroepen [ `context.done` ](#contextdone-method) wanneer uw code wordt uitgevoerd wordt uitgevoerd.
 
 Het volgende voorbeeld wordt een eenvoudige functie die registreert dat hij is geactiveerd en is onmiddellijk voltooid.

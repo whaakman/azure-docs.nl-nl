@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6cbcb42ee8c77ff0c8ded966b4f04af8815ca726
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614941"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632990"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
@@ -150,7 +150,7 @@ Als de POST-aanvraag geslaagd is, wordt de status van een HTTP 200 OK, samen met
 }
 ```
 
-Dit antwoord geeft aan dat de waarschuwingen hebt uitgebreid naar Azure-waarschuwingen. De versie-eigenschap is alleen om te controleren of er waarschuwingen zijn uitgebreid naar Azure, en zijn niet gerelateerd aan de [Log Analytics Search API](../log-analytics/log-analytics-api-alerts.md). Wanneer de waarschuwingen worden uitgebreid naar Azure, een e-mailadressen opgegeven met het bericht aanvraag een rapport worden verzonden. Als de waarschuwingen in de opgegeven werkruimte zijn al gepland worden uitgebreid, wordt het antwoord op uw POST-aanvraag is dat de poging (een 403-statuscode) is niet is toegestaan. Als u wilt weergeven van een foutmelding krijgt of begrijpen als het proces is vastgelopen, kunt u een GET-aanvraag indienen. Als er een foutbericht weergegeven, wordt deze geretourneerd, samen met de samenvattende informatie.
+Dit antwoord geeft aan dat de waarschuwingen hebt uitgebreid naar Azure-waarschuwingen. De versie-eigenschap is alleen om te controleren of er waarschuwingen zijn uitgebreid naar Azure, en zijn niet gerelateerd aan de [Log Analytics Search API](../azure-monitor/platform/api-alerts.md). Wanneer de waarschuwingen worden uitgebreid naar Azure, een e-mailadressen opgegeven met het bericht aanvraag een rapport worden verzonden. Als de waarschuwingen in de opgegeven werkruimte zijn al gepland worden uitgebreid, wordt het antwoord op uw POST-aanvraag is dat de poging (een 403-statuscode) is niet is toegestaan. Als u wilt weergeven van een foutmelding krijgt of begrijpen als het proces is vastgelopen, kunt u een GET-aanvraag indienen. Als er een foutbericht weergegeven, wordt deze geretourneerd, samen met de samenvattende informatie.
 
 ```json
 {

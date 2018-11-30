@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: ab0b48f8c8579af8a3314bad14dafbe79f9a9781
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393737"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584397"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Services die zijn opgenomen in de gratis Azure-account maken
 
@@ -34,6 +34,6 @@ Zie voor meer informatie over de beschikbaarheid van de Azure-service per regio,
 ## <a name="multiple-instances-of-services-can-be-created-within-allowed-limits"></a>Meerdere exemplaren van de services kunnen worden gemaakt binnen de toegestane limieten
 U kunt meerdere exemplaren van services voor gratis kunt maken, zolang de som van het gebruik van binnen de limiet voor het gebruik valt. Bijvoorbeeld, u 750 uren van een virtuele machine voor Windows B1S gratis per maand met uw gratis Azure-account. U kunt 750 uur in een willekeurige combinatie die u wilt gebruiken. U kunt bijvoorbeeld 5 B1S Windows virtuele machines maken en deze gebruiken voor 150 uur. 
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

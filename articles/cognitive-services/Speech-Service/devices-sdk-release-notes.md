@@ -10,16 +10,21 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2040c80687b8961c2db6b1b954a317807ebbbb13
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 10ebb5f549aba42c4de74cec2c16ed63f90532a1
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946025"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633738"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Opmerkingen bij de release van Cognitive Services spraak Devices SDK
 
 De volgende secties lijst met wijzigingen in de meest recente versies.
+
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Services cognitive spraak apparaten 1.1.0: 2018-november release van SDK 
+
+* Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.1.0. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew). 
+* Uiterst veld spraakherkenning is, verbeterd met onze verbeterde verwerking van audio-algoritme  
 
 ## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Services cognitive spraak apparaten 1.0.1: 2018-oktober release van SDK 
 

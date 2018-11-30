@@ -12,15 +12,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158853"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582629"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die gebruikmaken van Azure AD Connect-synchronisatie als de integratieoplossing key. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -84,7 +84,9 @@ U vindt meer informatie in [inzicht in de standaardconfiguratie](concept-azure-a
 
 Met meer dan één Azure AD Connect-synchronisatieserver die is verbonden met één Azure AD-tenant wordt niet ondersteund. De uitzondering hierop is het gebruik van een [testserver](#staging-server).
 
-### <a name="multiple-forests-separate-topologies"></a>Meerdere forests, afzonderlijke topologieën
+Deze topologie verschilt van het voorbeeld hieronder in die **meerdere synchronisatieservers** verbonden aan één Azure AD tenant niet wordt ondersteund.
+
+### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Meerdere forests, één synchronisatieserver, gebruikers worden weergegeven in slechts één directory
 ![Optie voor de vertegenwoordiging van gebruikers slechts één keer op alle mappen](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
 ![Weergave van meerdere forests en afzonderlijke topologieën](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)

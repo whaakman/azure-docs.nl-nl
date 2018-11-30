@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: de5cb85e751ad1d0c25ea31b185a3266eb9de05d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275398"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581547"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Meer informatie over uw factuur voor Microsoft Azure
 
@@ -114,5 +114,6 @@ De volgende tabel beschrijft de kolomkoppen van de gebruik kosten in rekening ge
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Hoe ik ervoor zorgen dat de kosten in rekening gebracht op mijn factuur correct zijn?
 Als er een kosten in rekening gebracht op uw factuur die u graag meer details op, Zie [meer informatie over uw factuur voor Microsoft Azure.](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
-Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

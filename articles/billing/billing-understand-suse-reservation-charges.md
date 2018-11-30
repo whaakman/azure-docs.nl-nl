@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 62f75be44ed92528b48fc0f093f5966284662312
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 1317435a3a8fef5c9e3efa8c9cfb19fb85254a22
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393686"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582663"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Begrijpen hoe de korting voor SUSE Linux Enterprise software plan wordt toegepast
 
@@ -50,7 +50,7 @@ Naam van de Azure portal marketplace:
 
 - SLES 12 SP3 voor HPC (prioriteit)
 
-|SUSE VIRTUELE MACHINE | Meter-id| Verhouding| Voorbeeld van de VM-grootte|
+|SUSE VIRTUELE MACHINE | MeterId| Verhouding| Voorbeeld van de VM-grootte|
 | -------| ------------------------| --- |--- |
 |SLES voor HPC-1-2-vcpu 's|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
 |SLES voor HPC 3-4 vcpu 's|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
@@ -62,7 +62,7 @@ Naam van de Azure portal marketplace:
 
 - SLES 12 SP3 voor HPC
 
-|SUSE VIRTUELE MACHINE | Meter-id | Verhouding|Voorbeeld van de VM-grootte|
+|SUSE VIRTUELE MACHINE | MeterId | Verhouding|Voorbeeld van de VM-grootte|
 | ------- | --- | ------------------------| --- | --- |
 |SLES voor HPC-1-2-vcpu 's |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
 |SLES voor HPC 3-4 vcpu 's|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
@@ -76,7 +76,7 @@ Namen van de Azure portal marketplace:
 - SLES voor SAP-12 SP3 (prioriteit)
 - SLES voor SAP-12 SP2 (prioriteit)
 
-|SUSE VIRTUELE MACHINE | Meter-id | Verhouding|Voorbeeld van de VM-grootte|
+|SUSE VIRTUELE MACHINE | MeterId | Verhouding|Voorbeeld van de VM-grootte|
 | ------- |------------------------| --- | --- |
 |SLES voor SAP Priority 1-2-vcpu 's|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
 |SLES voor SAP Priority 3-4 vcpu 's |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
@@ -90,7 +90,7 @@ Namen van de Azure portal marketplace:
 - SLES 12 SP3 (prioriteit)
 - SLES 11 SP4 (prioriteit)
 
-|SUSE VIRTUELE MACHINE | Meter-id | Verhouding|Voorbeeld van de VM-grootte|
+|SUSE VIRTUELE MACHINE | MeterId | Verhouding|Voorbeeld van de VM-grootte|
 | ------- |------------------------| --- |--- |
 |SLES 1 vCPU|462cd632-ec6b-4663-b79f-39715f4e8b38|1|B1ms|
 |SLES 2-4 vcpu 's |924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
@@ -116,7 +116,7 @@ Namen van de Azure portal marketplace:
 - SLES 15 (standaard)
 - SLES 12 SP3 (standaard)
 
-|SUSE VIRTUELE MACHINE | Meter-id | Verhouding|Voorbeeld van de VM-grootte|
+|SUSE VIRTUELE MACHINE | MeterId | Verhouding|Voorbeeld van de VM-grootte|
 | ------- |------------------------| --- |--- |
 |SLES 1-2 kernen vcpu 's |4b2fecfc-B110-4312-8f9d-807db1cb79ae|1|D2s_v3|
 |SLES 3-4 kernen vcpu 's |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
@@ -128,11 +128,11 @@ Zie voor meer informatie over reserveringen, de volgende artikelen:
 
 - [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
 - [Betaal vooruit voor SUSE-software plannen met Azure-reserveringen](../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Vooruitbetalen voor Virtual Machines met Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264451"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52585685"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -136,6 +136,10 @@ Nee, wanneer de nieuwe schijf wordt gemaakt op dat moment een volledig zelfstand
 **Kan ik een beheerde of niet-beheerde schijf wijzigen nadat deze is gemaakt?**
 
 Voor beheerde schijven kan niet u deze wijzigen. U mag een niet-beheerde schijf echter wijzigen, zolang het is momenteel niet gekoppeld aan een VHD of de virtuele machine.
+
+**Kan ik de GBT partitioneren op een Azure-schijf gebruiken?**
+
+GBT partitioneren kan alleen op gegevensschijven, niet de OS-schijven worden gebruikt. Besturingssysteemschijven moeten de partitiestijl MBR gebruiken.
 
 ## <a name="standard-ssd-disks"></a>Standard-SSD-schijven
 
@@ -300,7 +304,7 @@ Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf 
 
 **Wat is de maximale grootte uit pagina-blob die wordt ondersteund?**
 
-Pagina-blob is de maximumgrootte die ondersteuning biedt voor Azure 8 TiB (8.191 GiB). De maximale blog paginagrootte wanneer gekoppeld aan een virtuele machine als de gegevens of besturingssysteemschijven is 4 TiB (4095 GiB).
+Pagina-blob is de maximumgrootte die ondersteuning biedt voor Azure 8 TiB (8.191 GiB). De maximale blob paginagrootte wanneer gekoppeld aan een virtuele machine als de gegevens of besturingssysteemschijven is 4 TiB (4095 GiB).
 
 **Moet ik een nieuwe versie van Azure-hulpprogramma's gebruiken om te maken, koppelen, vergroten of verkleinen en de schijven die groter zijn dan 1 TiB uploaden?**
 

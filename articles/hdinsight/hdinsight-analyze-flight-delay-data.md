@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e792eb9ab2e2902bfc9c84db7c1c344fb0cf67f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622341"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497745"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight
-Hive biedt een manier van het Apache Hadoop MapReduce-taken uitvoeren via een SQL-achtige scripttaal genaamd  *[HiveQL][hadoop-hiveql]*, die kunnen worden gebruikt voor het samenvatten, uitvoeren van query's en analyseren van grote hoeveelheden gegevens.
+# <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight
+[Apache Hive](https://hive.apache.org/) biedt een methode die wordt uitgevoerd [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) taken via een SQL-achtige taal met de naam *[HiveQL] [ hadoop-hiveql]*, die kunnen worden gebruikt voor het samenvatten, uitvoeren van query's en analyseren van grote hoeveelheden gegevens.
 
 > [!IMPORTANT]
-> De stappen in dit document moet een Windows-gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor stappen die met een cluster op basis van Linux werken [gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> De stappen in dit document moet een Windows-gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor stappen die met een cluster op basis van Linux werken [gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 Een van de grootste voordelen van Azure HDInsight is het scheiden van de opslag van gegevens en rekenprocessen vereist. HDInsight maakt gebruik van Azure Blob-opslag voor gegevensopslag. Een typische taak bestaat uit drie delen:
 
@@ -44,7 +44,7 @@ Het belangrijkste gedeelte van de zelfstudie laat zien hoe u een Windows PowerSh
 In de bijlagen vindt u de instructies voor het uploaden van gegevens van vertragingen van vluchten, het maken van/uploaden van een Hive-query-tekenreeks en de Azure SQL-database voorbereiden voor de taak Sqoop.
 
 > [!NOTE]
-> De stappen in dit document zijn specifiek voor HDInsight op basis van een Windows-clusters. Zie voor stappen die met een cluster op basis van Linux werken [analyseren van gegevens van vertragingen van vluchten met behulp van Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> De stappen in dit document zijn specifiek voor HDInsight op basis van een Windows-clusters. Zie voor stappen die met een cluster op basis van Linux werken [analyseren van gegevens van vertragingen van vluchten met behulp van Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
@@ -76,7 +76,7 @@ De volgende tabel bevat de bestanden die in deze zelfstudie worden gebruikt:
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Cluster maken en uitvoeren van Hive/Sqoop taken
 Hadoop MapReduce is batchverwerking. De meest rendabele manier om uit te voeren van een Hive-taak is een cluster maken voor de taak en de taak te verwijderen nadat de taak is voltooid. Het volgende script bevat informatie over het hele proces.
-Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoeren van Hive-taken [Hadoop-clusters maken in HDInsight] [ hdinsight-provision] en [Hive gebruiken met HDInsight] [hdinsight-use-hive].
+Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoeren van Hive-taken [Apache Hadoop-clusters maken in HDInsight] [ hdinsight-provision] en [Apache Hive gebruiken met HDInsight] [hdinsight-use-hive].
 
 **Het Hive-query's uitvoeren met Azure PowerShell**
 
@@ -237,10 +237,10 @@ Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoer
 - - -
 
 ## <a id="appendix-a"></a>Bijlage A - gegevens van vertragingen van vluchten uploaden naar Azure Blob storage
-Uploaden van het gegevensbestand en de HiveQL-script-bestanden (Zie [bijlage B](#appendix-b)) vereist een planning. Het idee is voor het opslaan van de gegevensbestanden en het bestand HiveQL voor het maken van een HDInsight-cluster en de Hive-taak uitvoeren. U hebt hiervoor twee opties:
+Uploaden van het gegevensbestand en de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) scriptbestanden (Zie [bijlage B](#appendix-b)) vereist een planning. Het idee is voor het opslaan van de gegevensbestanden en het bestand HiveQL voor het maken van een HDInsight-cluster en de Hive-taak uitvoeren. U hebt hiervoor twee opties:
 
 * **Gebruik hetzelfde Azure Storage-account dat wordt gebruikt door het HDInsight-cluster als het standaardbestandssysteem.** Omdat het HDInsight-cluster de toegangssleutel voor Opslagaccount hebt wordt, moet u geen eventuele aanvullende wijzigingen aanbrengen.
-* **Gebruik een ander Azure Storage-account van het standaardbestandssysteem van HDInsight-cluster.** Als dit het geval is, moet u het onderdeel voor het maken van de Windows PowerShell-script uit wijzigen [maken van HDInsight-cluster en het uitvoeren Hive/Sqoop taken](#runjob) om het opslagaccount als een extra opslagaccount te koppelen. Zie voor instructies [Hadoop-clusters maken in HDInsight][hdinsight-provision]. Het HDInsight-cluster kent de toegangssleutel voor het opslagaccount.
+* **Gebruik een ander Azure Storage-account van het standaardbestandssysteem van HDInsight-cluster.** Als dit het geval is, moet u het onderdeel voor het maken van de Windows PowerShell-script uit wijzigen [maken van HDInsight-cluster en voer Apache Hive/Sqoop taken](#runjob) om het opslagaccount als een extra opslagaccount te koppelen. Zie voor instructies [Apache Hadoop-clusters maken in HDInsight][hdinsight-provision]. Het HDInsight-cluster kent de toegangssleutel voor het opslagaccount.
 
 > [!NOTE]
 > Het pad van de Blob-opslag voor het gegevensbestand is hard gecodeerd in het bestand HiveQL-script. U moet deze dienovereenkomstig bijwerken.
@@ -359,7 +359,7 @@ Het pad naar zelfstudies/flightdelay/gegevens is de virtuele map die u hebt gema
 - - -
 
 ## <a id="appendix-b"></a>Bijlage B - maken en uploaden van een HiveQL-script
-Met Azure PowerShell, kunt u meerdere HiveQL-instructies een tegelijk uitgevoerd, of pakket met de instructie HiveQL in een scriptbestand. Deze sectie leest u hoe u een HiveQL-script maken en het script uploaden naar Azure Blob-opslag met behulp van Azure PowerShell. Hive vereist de HiveQL scripts worden opgeslagen in Azure Blob-opslag.
+Met Azure PowerShell, kunt u uitvoeren meerdere [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) instructies een aan een periode, of pakket met de instructie HiveQL in een scriptbestand. Deze sectie leest u hoe u een HiveQL-script maken en het script uploaden naar Azure Blob-opslag met behulp van Azure PowerShell. Hive vereist de HiveQL scripts worden opgeslagen in Azure Blob-opslag.
 
 Het HiveQL-script wordt het volgende doen:
 
@@ -369,7 +369,7 @@ Het HiveQL-script wordt het volgende doen:
 4. **Maken van de tabel vertragingen**. Het is handig voor het opschonen van de gegevens voor verdere verwerking. Deze query maakt u een nieuwe tabel *vertragingen*, uit de tabel delays_raw. Houd er rekening mee dat de tijdelijke kolommen (zoals eerder vermeld) niet worden gekopieerd, en dat de **subtekenreeks** functie wordt gebruikt om de aanhalingstekens verwijderen uit de gegevens.
 5. **Berekent de gemiddelde weersomstandigheden vertraging en groepen die de resultaten met de plaatsnaam.** Dit wordt ook de resultaten naar Blob-opslag uitvoeren. Houd er rekening mee dat de query, apostroffen wordt verwijderd uit de gegevens en sluit rijen waar de waarde voor **weather_delay** is null. Dit is nodig omdat niet zonder problemen die waarden met Sqoop, verderop in deze zelfstudie gebruikt standaard verwerken.
 
-Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Language met][hadoop-hiveql]. Elke opdracht HiveQL moet eindigen met een puntkomma.
+Zie voor een volledige lijst van de opdrachten HiveQL [Data Definition Language met Apache Hive][hadoop-hiveql]. Elke [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) opdracht moet eindigen met een puntkomma.
 
 **Een HiveQL-script-bestand maken**
 
@@ -712,13 +712,13 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Lang
 5. Valideer de uitvoer van het script. Zorg ervoor dat het script is uitgevoerd.
 
 ## <a id="nextsteps"></a> Volgende stappen
-U weet nu hoe u een bestand uploaden naar Azure Blob-opslag, hoe u een Hive-tabel te vullen met behulp van de gegevens uit Azure Blob-opslag, het uitvoeren van Hive-query's en hoe u Sqoop gebruiken voor het exporteren van gegevens uit HDFS met een Azure SQL-database. Zie de volgende artikelen voor meer informatie:
+Nu u begrijpt hoe u een bestand uploaden naar Azure Blob-opslag, hoe u een Apache Hive-tabel invullen met behulp van de gegevens uit Azure Blob-opslag, het uitvoeren van Hive-query's en hoe u Sqoop gebruiken om te exporteren van gegevens uit [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) met een Azure SQL de database. Zie de volgende artikelen voor meer informatie:
 
 * [Aan de slag met HDInsight][hdinsight-get-started]
-* [Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Oozie gebruiken met HDInsight][hdinsight-use-oozie]
-* [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
-* [Pig gebruiken met HDInsight][hdinsight-use-pig]
+* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
+* [Apache Oozie gebruiken met HDInsight][hdinsight-use-oozie]
+* [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
+* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: ca2591f34a0aba598c12815de684ec6bb8fca929
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345960"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620350"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 Preview met behulp van Azure Data Factory (Preview)
 
@@ -29,7 +29,7 @@ U kunt gegevens uit een ondersteund brongegevensarchief kopiëren naar Data Lake
 
 Deze connector ondersteunt name:
 
-- Kopiëren van gegevens met behulp van de sleutel.
+- Kopiëren van gegevens met behulp van de sleutel, service-principal of beheerde identiteiten van Azure-resources-verificaties.
 - Kopiëren van bestanden als- of parseren of genereren van bestanden met [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
@@ -49,7 +49,15 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor Data Lake Storage Gen2 gekoppelde service:
+Azure Data Lake Storage Gen2 connector ondersteunt de volgende verificatietypen, verwijzen naar de overeenkomstige sectie voor meer informatie:
+
+- [Verificatie van account-sleutel](#account-key-authentication)
+- [Verificatie van service-principal](#service-principal-authentication)
+- [Beheerde identiteiten voor verificatie van de Azure-resources](#managed-identity)
+
+### <a name="account-key-authentication"></a>Verificatie van account-sleutel
+
+Voor het gebruik van storage-account sleutelverificatie, worden de volgende eigenschappen ondersteund:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
@@ -62,7 +70,7 @@ De volgende eigenschappen worden ondersteund voor Data Lake Storage Gen2 gekoppe
 
 ```json
 {
-    "name": "AzureDataLakeStorageLinkedService",
+    "name": "AzureDataLakeStorageGen2LinkedService",
     "properties": {
         "type": "AzureBlobFS",
         "typeProperties": {
@@ -71,6 +79,95 @@ De volgende eigenschappen worden ondersteund voor Data Lake Storage Gen2 gekoppe
                 "type": "SecureString", 
                 "value": "<accountkey>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="service-principal-authentication"></a>Verificatie van service-principal
+
+Volg deze stappen voor het gebruik van service-principal verificatie:
+
+1. Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) door [uw toepassing registreren bij een Azure AD-tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Noteer de volgende waarden, die u gebruikt voor het definiëren van de gekoppelde service:
+
+    - Toepassings-id
+    - Toepassingssleutel
+    - Tenant-id
+
+2. Geef de service principal juiste toestemming in Azure storage.
+
+    - **Als bron**, toegang beheren (IAM), ten minste verlenen **gegevenslezer voor Opslagblob** rol.
+    - **Als sink**, toegang beheren (IAM), ten minste verlenen **Gegevensbijdrager voor Blob** rol.
+
+Deze eigenschappen worden ondersteund in de gekoppelde service:
+
+| Eigenschap | Beschrijving | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type moet worden ingesteld op **AzureBlobFS**. |Ja |
+| url | Eindpunt voor de Data Lake Storage Gen2 met het patroon van `https://<accountname>.dfs.core.windows.net`. | Ja | 
+| servicePrincipalId | Opgeven van de toepassing client-ID. | Ja |
+| servicePrincipalKey | Geef de sleutel van de toepassing. Dit veld als markeert een **SecureString** voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. Deze ophalen door de muis in de rechterbovenhoek van de Azure-portal. | Ja |
+| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als uw gegevensopslag in een particulier netwerk is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+
+**Voorbeeld:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Beheerde identiteiten voor verificatie van de Azure-resources
+
+Een data factory kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze service-identiteit rechtstreeks gebruiken voor Blob storage-verificatie zijn vergelijkbaar met het gebruik van uw eigen service-principal. Hiermee kunt deze aangewezen factory toegang en gegevens kopiëren van/naar de Blob-opslag.
+
+Voor het gebruik van beheerde identiteiten voor verificatie van de Azure-resources, de volgende stappen uit:
+
+1. [Ophalen van data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity) door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren.
+
+2. Verleen de juiste machtiging beheerde identiteit in Azure storage. 
+
+    - **Als bron**, toegang beheren (IAM), ten minste verlenen **gegevenslezer voor Opslagblob** rol.
+    - **Als sink**, toegang beheren (IAM), ten minste verlenen **Gegevensbijdrager voor Blob** rol.
+
+Deze eigenschappen worden ondersteund in de gekoppelde service:
+
+| Eigenschap | Beschrijving | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type moet worden ingesteld op **AzureBlobFS**. |Ja |
+| url | Eindpunt voor de Data Lake Storage Gen2 met het patroon van `https://<accountname>.dfs.core.windows.net`. | Ja | 
+| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als uw gegevensopslag in een particulier netwerk is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+
+**Voorbeeld:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

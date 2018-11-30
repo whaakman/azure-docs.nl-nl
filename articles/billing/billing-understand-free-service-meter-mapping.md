@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 4a8b2c07754b1a1c9679f7b044f112bf03dfb433
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392105"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581576"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Inzicht in de gratis service toewijzing van de meter
 
@@ -53,10 +53,6 @@ Elke Azure-service verzendt gebruik ten opzichte van de meter, waarbij de Azure-
 
 \** Gedeelde meters kunnen worden gebruikt door meerdere services. Zowel virtuele machines en opslag introduceren bijvoorbeeld gebruik ten opzichte van de gegevens overdragen Out(GB) meter.
 
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-
-
-
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
-
-Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

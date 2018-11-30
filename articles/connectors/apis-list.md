@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233630"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635438"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors voor Azure Logic Apps
 
@@ -74,7 +74,7 @@ Hier vindt u ingebouwde acties voor het werken met gegevens uitvoer en hun indel
 
 |   |   | 
 |---|---| 
-| ![Ingebouwde pictogram][data-operations-icon]<br/>**Gegevensbewerkingen** | Bewerkingen uitvoeren met gegevens: <p>- **Opstellen**: een enkele van de uitvoer van meerdere invoergegevens met verschillende typen maken. <br>- **CSV-tabel maken**: een tabel met door komma's gescheiden waarden (CSV) van een matrix met JSON-objecten maken. <br>- **HTML-tabel maken**: een HTML-tabel maken van een matrix met JSON-objecten. <br>- **Matrix filteren**: maken van een matrix van items in een andere matrix die voldoen aan uw criteria. <br>- **Deelnemen aan**: maken van een tekenreeks van alle items in een matrix en scheid de items met het opgegeven scheidingsteken. <br>- **JSON parseren**: gebruiksvriendelijke-tokens aanmaken van de eigenschappen en hun waarden in de JSON-inhoud zodat u deze eigenschappen in uw werkstroom gebruiken kunt. <br>- **Selecteer**: maken van een matrix met JSON-objecten door items of waarden in een andere matrix te transformeren en het toewijzen van deze items naar de opgegeven eigenschappen. | 
+| [![Ingebouwde pictogram][data-operations-icon]<br/>**gegevensbewerkingen**][data-operations-doc] | Bewerkingen uitvoeren met gegevens: <p>- **Opstellen**: een enkele van de uitvoer van meerdere invoergegevens met verschillende typen maken. <br>- **CSV-tabel maken**: een tabel met door komma's gescheiden waarden (CSV) van een matrix met JSON-objecten maken. <br>- **HTML-tabel maken**: een HTML-tabel maken van een matrix met JSON-objecten. <br>- **Matrix filteren**: maken van een matrix van items in een andere matrix die voldoen aan uw criteria. <br>- **Deelnemen aan**: maken van een tekenreeks van alle items in een matrix en scheid de items met het opgegeven scheidingsteken. <br>- **JSON parseren**: gebruiksvriendelijke-tokens aanmaken van de eigenschappen en hun waarden in de JSON-inhoud zodat u deze eigenschappen in uw werkstroom gebruiken kunt. <br>- **Selecteer**: maken van een matrix met JSON-objecten door items of waarden in een andere matrix te transformeren en het toewijzen van deze items naar de opgegeven eigenschappen. | 
 | ![Ingebouwde pictogram][date-time-icon]<br/>**Datum en tijd** | Met tijdstempels bewerkingen wilt uitvoeren: <p>- **Optellen bij tijd**: het opgegeven aantal eenheden toevoegen aan een tijdstempel. <br>- **Tijdzone converteren**: een tijdstempel van de brontijdzone converteren naar de doeltijdzone. <br>- **Huidige tijd**: de huidige tijdstempel als tekenreeks geretourneerd. <br>- **Toekomstige tijd ophalen**: retourneert de huidige tijdstempel plus de opgegeven periode-eenheden. <br>- **In het verleden tijd ophalen**: retourneert de huidige tijdstempel minus de opgegeven periode-eenheden. <br>- **Aftrekken van tijd**: moet worden afgetrokken van een aantal eenheden van een tijdstempel. |
 | [![Ingebouwde pictogram][variables-icon]<br/>**variabelen**][variables-doc] | Bewerkingen uitvoeren met variabelen: <p>- **Toevoegen aan een matrixvariabele**: plaats een waarde als het laatste item in een matrix die zijn opgeslagen door een variabele. <br>- **Toevoegen aan een tekenreeksvariabele**: plaats een waarde als het laatste teken in een tekenreeks door een variabele opgeslagen. <br>- **Variabele verlagen**: verkleinen van een variabele met een constante waarde. <br>- **Variabele verhogen**: een variabele verhoogd met een constante waarde. <br>- **Variabele initialiseren**: Maak een variabele en declareert de gegevens van het type en de initiële waarde. <br>- **Variabele instellen**: een andere waarde toewijzen aan een bestaande variabele. |
 |  |  | 
@@ -193,6 +193,7 @@ Als u aangepaste API Apps of connectors openbare voor iedereen die het gebruik i
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organiseer acties in gevallen waarin de unieke waarden zijn toegewezen. Alleen het geval is uitgevoerd waarvan de waarde komt overeen met het resultaat van een expressie, een object of een token. Als er geen overeenkomsten bestaat, de standaard-aanvraag uitvoeren"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stoppen of annuleren van een actief actieve werkstroom voor uw logische app"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Acties herhalen totdat de opgegeven voorwaarde waar is of sommige status is gewijzigd"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Gegevensbewerkingen, zoals het filteren van matrices of het maken van CSV- en HTML-tabellen"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Met variabelen, zoals het initialiseren, set, verhogen, verlagen, bewerkingen wilt uitvoeren en toevoegen aan de tekenreeks of matrix van variabele"
 
 <!--Managed API doc links-->

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ddd78e2fad401add35bc246a64236e2679c33cbc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023542"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620520"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Service voor externe toegang in C# met Reliable Services
 
@@ -98,7 +98,7 @@ Maken van de Service-proxy is een lichte bewerking, zodat u zoveel behoefte kunt
 
 ### <a name="service-proxy-factory-lifetime"></a>Service-proxy factory levensduur
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is een factory die de proxy worden exemplaren voor externe communicatie van andere interfaces gemaakt. Als u de API `ServiceProxy.Create` voor het maken van een proxy, het framework maakt u een singleton-serviceproxy.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is een factory die de proxy worden exemplaren voor externe communicatie van andere interfaces gemaakt. Als u de API `ServiceProxyFactory.CreateServiceProxy` voor het maken van een proxy, het framework maakt u een singleton-serviceproxy.
 Het is handig om een handmatig maken wanneer u nodig hebt voor de onderdrukking [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) eigenschappen.
 Maken van de factory is een dure bewerking. Een service proxy factory onderhoudt een interne cache van de client communicatie.
 Er is een best practice om de service proxy factory zo lang mogelijk in cache.

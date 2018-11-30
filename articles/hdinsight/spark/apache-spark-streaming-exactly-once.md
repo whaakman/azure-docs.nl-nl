@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241310"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580997"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Taken met Spark Streaming precies maken-eenmaal gebeurtenis verwerken
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Taken met Apache Spark Streaming precies maken-eenmaal gebeurtenis verwerken
 
 Stream-toepassingen voor batchverwerking worden verschillende benaderingen hoe ze opnieuw verwerken om berichten te na een storing in het systeem verwerken:
 
@@ -25,7 +25,7 @@ Stream-toepassingen voor batchverwerking worden verschillende benaderingen hoe z
 
 In dit artikel leest u hoe het configureren van Spark Streaming te bereiken exact-één keer worden verwerkt.
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Precies-once-semantiek met Spark Streaming
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Precies-once-semantiek met Apache Spark-Streaming
 
 Eerst, houd rekening met hoe alle system Point of failure start opnieuw op nadat er een probleem en hoe kunt u voorkomen dat gegevens verloren gaan. Er is een toepassing voor Spark Streaming:
 
@@ -41,11 +41,11 @@ Precies-zodra semantiek vereisen dat er geen gegevens verloren gegaan op elk gew
 
 De bron die uw toepassing Spark Streaming van de gebeurtenissen van lezen moet zijn *replayable*. Dit betekent dat in gevallen waarin het bericht opgehaald, maar vervolgens het systeem is mislukt voordat het bericht kan worden bewaard of verwerkt, de bron moet hetzelfde bericht opnieuw opgeven.
 
-Geef replayable bronnen in Azure, zowel Azure Event Hubs en Kafka in HDInsight. Een ander voorbeeld van een replayable bron is een fouttolerante bestandssysteem, zoals HDFS, Azure Storage-blobs of Azure Data Lake Store, waar alle gegevens worden bewaard blijven en op elk gewenst moment u kunt de gegevens in zijn geheel opnieuw te lezen.
+In Azure, zowel Azure Event Hubs en [Apache Kafka](https://kafka.apache.org/) op HDInsight bieden replayable bronnen. Een ander voorbeeld van een replayable bron is een fouttolerante bestandssysteem, zoals [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage-blobs of Azure Data Lake Store, waar alle gegevens definitief worden bewaard en op elk gewenst moment kunt u opnieuw de gegevens in zijn geheel te lezen.
 
 ### <a name="reliable-receivers"></a>Betrouwbare ontvangers
 
-Gegevensbronnen in de Spark Streaming, zoals Event Hubs en Kafka *betrouwbare ontvangers*, waarbij elke ontvanger van wordt bijgehouden de voortgang lezen van de bron. Een betrouwbare ontvanger clusterverbinding blijven behouden de status in fouttolerante opslag, binnen het ZooKeeper of in Spark Streaming controlepunten die worden geschreven naar HDFS. Als deze een ontvanger mislukt en later wordt opnieuw is opgestart, het verder kan gaan waar het afgebroken.
+Gegevensbronnen in de Spark Streaming, zoals Event Hubs en Kafka *betrouwbare ontvangers*, waarbij elke ontvanger van wordt bijgehouden de voortgang lezen van de bron. Een betrouwbare ontvanger zich blijft voordoen de status in fouttolerante opslag, hetzij in [Apache ZooKeeper](https://zookeeper.apache.org/) of in Spark Streaming controlepunten die worden geschreven naar HDFS. Als deze een ontvanger mislukt en later wordt opnieuw is opgestart, het verder kan gaan waar het afgebroken.
 
 ### <a name="use-the-write-ahead-log"></a>Gebruik de Write-Ahead van logboek
 
@@ -89,5 +89,5 @@ Een ander voorbeeld is het gebruik van een gepartitioneerde bestandssysteem, zoa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Spark-Streaming-overzicht](apache-spark-streaming-overview.md)
-* [Maximaal beschikbare Spark Streaming taken maken in YARN](apache-spark-streaming-high-availability.md)
+* [Apache Spark-Streaming-overzicht](apache-spark-streaming-overview.md)
+* [Het maken van maximaal beschikbare Apache Spark Streaming taken in Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

@@ -1,6 +1,6 @@
 ---
-title: Het beheren van Media Services-activa tussen meerdere Opslagaccounts | Microsoft Docs
-description: In dit artikel geeft richtlijnen voor het beheren van media services-elementen tussen meerdere opslagaccounts.
+title: Assets beheren van Media Services voor meerdere Opslagaccounts | Microsoft Docs
+description: In dit artikel geeft u informatie over het beheren van media services-elementen voor meerdere opslagaccounts.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89d1838eb9fed1751581b026d82b06bc20de4ecc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788555"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620265"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Het beheren van Media Services-activa tussen meerdere Opslagaccounts
-Beginnen met Microsoft Azure Media Services 2.2, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen. De mogelijkheid meerdere opslagaccounts koppelen aan een Media Services-account biedt de volgende voordelen:
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Assets Services beheren van Media voor meerdere Opslagaccounts
+Beginnen met Microsoft Azure Media Services 2.2, kunt u meerdere opslagaccounts koppelen aan een enkel Media Services-account. Mogelijkheid om meerdere opslagaccounts koppelen aan een Media Services-account biedt de volgende voordelen:
 
-* Uw assets te verdelen over meerdere opslagaccounts worden geladen.
-* Schalen Media Services voor grote hoeveelheden inhoud verwerken (zoals een enkele storage-account is momenteel een limiet van 500 TB). 
+* De taakverdeling van uw activa voor meerdere opslagaccounts.
+* Vergroten/verkleinen Media Services voor grote hoeveelheden inhoud verwerken (zoals een enkel opslagaccount heeft een maximale limiet van 500 TB). 
 
-In dit artikel laat zien hoe u het koppelen van meerdere opslagaccounts aan een Media Services-account met [Azure Resource Manager-API's](https://docs.microsoft.com/rest/api/media/mediaservice) en [Powershell](/powershell/module/azurerm.media). Ook ziet u hoe verschillende opslagaccounts opgeven bij het maken van activa met behulp van de Media Services SDK. 
+In dit artikel ziet u hoe u meerdere opslagaccounts koppelen aan een Media Services-account met [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](/powershell/module/azurerm.media). U ziet ook hoe u kunt verschillende opslagaccounts opgeven bij het maken van assets met behulp van de Media Services SDK. 
 
 ## <a name="considerations"></a>Overwegingen
-Als u meerdere opslagaccounts aan uw Media Services-account koppelt, past u de volgende overwegingen:
+Meerdere opslagaccounts aan Media Services-account koppelt, gelden de volgende overwegingen:
 
 * Alle opslagaccounts die zijn gekoppeld aan een Media Services-account moeten zich in hetzelfde Datacenter als het Media Services-account.
-* Worden op dit moment eenmaal is een opslagaccount is toegevoegd aan de opgegeven Media Services-account, deze kan niet losgekoppeld.
-* Primaire opslagaccount wordt aangegeven dat tijdens de aanmaakfase voor Media Services-account. Op dit moment kunt wijzigen u het standaardopslagaccount niet. 
-* Op dit moment als u wilt een Cool Storage-account toevoegen aan de AMS-account, moet het storage-account een type Blob en ingesteld op niet-primaire.
+* Worden op dit moment zodra een storage-account is gekoppeld aan het opgegeven Media Services-account, het kan niet losgekoppeld.
+* Primaire storage-account is opgegeven tijdens het aanmaken van Media Services-account. U kunt het standaardopslagaccount op dit moment niet wijzigen. 
+* Op dit moment als u een Cool Storage-account toevoegen aan de AMS-account wilt, moet het storage-account een blobtype en ingesteld op niet-primaire.
 
 Andere overwegingen:
 
-Media Services maakt gebruik van de waarde van de **IAssetFile.Name** eigenschap tijdens het bouwen van URL's voor de streaming-inhoud (bijvoorbeeld http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ streamingParameters.) Om deze reden is procent codering niet toegestaan. De waarde van de eigenschap Name geen van de volgende [procent-encoding-gereserveerde tekens](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] '. Bovendien kunnen alleen er een '.' voor de bestandsnaamextensie.
+Media Services wordt de waarde van de **IAssetFile.Name** eigenschap bij het bouwen van URL's voor de streaming-inhoud (bijvoorbeeld http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ streamingParameters.) Om deze reden is procent codering niet toegestaan. De waarde van de eigenschap Name geen van de volgende [procent-encoding-gereserveerde tekens](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] '. Bovendien kunnen alleen er een '.' voor de bestandsnaamextensie.
 
 ## <a name="to-attach-storage-accounts"></a>Storage-accounts koppelen  
 
-Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Manager-API's](https://docs.microsoft.com/rest/api/media/mediaservice) en [Powershell](/powershell/module/azurerm.media), zoals wordt weergegeven in het volgende voorbeeld:
+Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](/powershell/module/azurerm.media), zoals wordt weergegeven in het volgende voorbeeld:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -58,14 +58,14 @@ Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Man
     
     Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
-### <a name="support-for-cool-storage"></a>Ondersteuning voor de Cool Storage
+### <a name="support-for-cool-storage"></a>Ondersteuning voor ' Cool ' opslag
 
-Op dit moment als u wilt een Cool Storage-account toevoegen aan de AMS-account, moet het storage-account een type Blob en ingesteld op niet-primaire.
+Op dit moment als u een Cool Storage-account toevoegen aan de AMS-account wilt, moet het storage-account een blobtype en ingesteld op niet-primaire.
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Media Services om activa te beheren tussen meerdere Opslagaccounts
-De volgende code wordt de meest recente Media Services SDK gebruikt de volgende taken uitvoeren:
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Voor het beheren van Media Services-activa voor meerdere Opslagaccounts
+De volgende code gebruikt de meest recente Media Services SDK voor de volgende taken uitvoeren:
 
-1. Alle opslagaccounts die zijn gekoppeld aan de opgegeven Media Services-account weergegeven.
+1. Alle opslagaccounts die zijn gekoppeld aan het opgegeven Media Services-account weergegeven.
 2. De naam van het standaardopslagaccount ophalen.
 3. Maak een nieuwe asset in het standaardopslagaccount.
 4. Maak een uitvoerasset van de coderingstaak in het opgegeven opslagaccount.

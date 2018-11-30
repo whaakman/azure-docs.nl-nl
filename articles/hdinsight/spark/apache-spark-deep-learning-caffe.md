@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255916"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498180"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning
 
@@ -22,9 +22,9 @@ ms.locfileid: "51255916"
 
 Deep learning is van invloed op Alles van healthcare vervoer naar productie, en meer. Bedrijven deep learning moeilijke problemen wilt oplossen, wordt [afbeeldingsclassificatie](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [spraakherkenning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), opname-object en vertalen van de computer. 
 
-Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, enzovoort. Caffe is een van de grootste beroemdheid niet symbolische (imperatieve) neural network-frameworks en veelvuldig worden gebruikt in veel gebieden, met inbegrip van de computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval deep learning eenvoudig kan worden gebruikt op een bestaande Hadoop-cluster. Voor volledige oplossing learning kunt u deep learning met Spark ' ETL-pijplijnen, te reduceren system complexiteit en latentie.
+Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, enzovoort. [Caffe](http://caffe.berkeleyvision.org/) is een van de grootste beroemdheid niet symbolische (imperatieve) neural network-frameworks en veelvuldig worden gebruikt in veel gebieden, met inbegrip van de computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval deep learning eenvoudig kan worden gebruikt op een bestaande Hadoop-cluster. Voor volledige oplossing learning kunt u deep learning met Spark ' ETL-pijplijnen, te reduceren system complexiteit en latentie.
 
-[HDInsight](https://azure.microsoft.com/services/hdinsight/) is een cloud Hadoop aanbieding waarmee de geoptimaliseerde clusters voor open source-Analytics voor Spark, Hive, Hadoop, HBase, Storm, Kafka en ML-Services. HDInsight wordt ondersteund door een SLA van 99,9%. Elk van deze big data-technologieën en ISV-toepassingen is eenvoudig te implementeren als beheerde clusters met beveiliging en bewaking voor ondernemingen.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/) is een cloud Apache Hadoop aanbieding waarmee de geoptimaliseerde clusters voor open source-Analytics voor Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka en ML-Services. HDInsight wordt ondersteund door een SLA van 99,9%. Elk van deze big data-technologieën en ISV-toepassingen is eenvoudig te implementeren als beheerde clusters met beveiliging en bewaking voor ondernemingen.
 
 In dit artikel ziet u hoe u voor het installeren van [Caffe op Spark](https://github.com/yahoo/CaffeOnSpark) voor een HDInsight-cluster. In dit artikel wordt ook de ingebouwde MNIST-demo om weer te geven over het gebruik van gedistribueerd Deep Learning met behulp van HDInsight Spark op CPU's.
 
@@ -69,7 +69,7 @@ Om te beginnen, kunt u alleen uitvoeren met deze scriptactie op basis van uw clu
 ![Scriptacties voor het installeren van afhankelijkheden](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>Stap 2: Bouw Caffe op Spark voor HDInsight op het hoofdknooppunt
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Stap 2: Bouw Caffe op Apache Spark voor HDInsight op het hoofdknooppunt
 
 De tweede stap is het Caffe bouwen op het hoofdknooppunt en distribueert u vervolgens de gecompileerde bibliotheken die u moet alle worker-knooppunten. In deze stap moet u [ssh in uw hoofdknooppunt](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Hierna kunt u moet volgen de [CaffeOnSpark bouwproces](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Hieronder ziet u het script dat kunt u CaffeOnSpark bouwen met een paar extra stappen. 
 
@@ -294,8 +294,8 @@ In deze documentatie, hebt je geprobeerd CaffeOnSpark installeren met het uitvoe
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Resources beheren
 * [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](apache-spark-resource-manager.md)

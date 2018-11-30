@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 45d296b8867884a4c40dc10adc1f9aa83d7f9eab
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715338"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633194"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -477,7 +477,7 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
 
 ## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="supported-agents"></a>Ondersteunde agents
-De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../../log-analytics/log-analytics-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
+De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../../azure-monitor/platform/agent-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 Het duurt een paar uur gegevens zijn in eerste instantie worden verzameld. Zodra deze wordt gestart met het verzamelen van Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens naar Log Analytics telkens wanneer een record wordt gemaakt. Deze record is beschikbaar in Log Analytics binnen een paar minuten nadat u hebt ontvangen.
@@ -710,5 +710,5 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik Logboekzoekopdrachten in [Log Analytics](../../log-analytics/log-analytics-queries.md) om gedetailleerde updategegevens weer te geven.
-* [Maak uw eigen dashboards](../../log-analytics/log-analytics-dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
+* [Maak uw eigen dashboards](../../azure-monitor/platform/dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
 * [Waarschuwingen maken](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  

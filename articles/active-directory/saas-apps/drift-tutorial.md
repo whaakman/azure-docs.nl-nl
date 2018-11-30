@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 1904d6a8866a814e9d9c96ffbc65de9ea25daf3b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c08b57c41cc43bfa47dee69a75663e7a58ef4c21
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977539"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>Zelfstudie: Azure Active Directory-integratie met afwijking
 
@@ -148,7 +148,17 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![De downloadkoppeling certificaat](./media/drift-tutorial/tutorial_drift_certificate.png) 
 
-8. Het configureren van eenmalige aanmelding op **Drift** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** naar [Drift ondersteuningsteam](mailto:integrations@drift.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+8. In een ander browservenster, meld u aan bij Drift als beheerder.
+
+9. Klik vanaf de linkerkant van de in de menubalk op **Instellingenpictogram** > **App-instellingen** > **verificatie** en voer de volgende stappen uit:
+
+    ![De beheerder-koppeling](./media/drift-tutorial/tutorial_drift_admin.png)
+
+    a. Upload de **federatieve metagegevens-XML** die u hebt gedownload vanuit Azure portal, in de **metagegevensbestand van de identiteitsprovider uploaden** in het tekstvak.
+
+    b. Na het uploaden van het bestand met metagegevens, krijgen alle overgebleven waarden automatisch op de pagina automatisch ingevuld.
+
+    c. Klik op **SAML inschakelen**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 

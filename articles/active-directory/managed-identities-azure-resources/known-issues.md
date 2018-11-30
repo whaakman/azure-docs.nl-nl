@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913985"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632786"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
@@ -43,18 +43,33 @@ Nee, beheerde identiteiten voor Azure-resources nog niet is geïntegreerd met AD
 
 De beveiligingsgrens van de identiteit is de resource waaraan deze is gekoppeld. Bijvoorbeeld, de beveiligingsgrens voor een virtuele Machine met beheerde identiteiten voor Azure-resources ingeschakeld, wordt de virtuele Machine. Een code die wordt uitgevoerd op deze VM is kan aanroepen van de beheerde identiteiten voor Azure-resources eindpunt en de aanvraag-tokens. Het is de vergelijkbare ervaring met andere resources die ondersteuning bieden voor beheerde identiteiten voor Azure-resources.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Welke identiteit wordt IMDS standaard als de identiteit niet opgeeft in de aanvraag?
+
+- Als systeem toegewezen beheerde identiteit is ingeschakeld en er is geen identiteit in de aanvraag is opgegeven, wordt het systeem toegewezen identiteit beheerde IMDS standaard.
+- Als het systeem toegewezen beheerde identiteit niet is ingeschakeld, en slechts één gebruiker toegewezen beheerde identiteit bestaat, standaard IMDS die door één gebruiker toegewezen beheerde identiteit. 
+- Als systeem toegewezen beheerde identiteit is niet ingeschakeld en meerdere gebruiker beheerde identiteiten toegewezen bestaat, is het vereist dat u vervolgens een beheerde identiteit op te geven in de aanvraag.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Moet ik de beheerde identiteiten voor Azure-resources VM IMDS eindpunt of het eindpunt van de VM-extensie gebruiken?
 
 Bij gebruik van beheerde identiteiten voor Azure-resources met virtuele machines, wordt u aangeraden met behulp van de beheerde identiteiten voor Azure-resources IMDS eindpunt. De Azure Instance Metadata Service is een toegankelijk is voor alle IaaS-VM's die zijn gemaakt via de Azure Resource Manager REST-eindpunt. Enkele van de voordelen van het gebruik van beheerde identiteiten voor Azure-resources via IMDS zijn:
-
-1. Alle besturingssystemen van Azure IaaS ondersteund kunt beheerde identiteiten gebruiken voor Azure-resources via IMDS. 
-2. Niet meer hoeft te installeren van een uitbreiding op de virtuele machine om in te schakelen van beheerde identiteiten voor Azure-resources. 
-3. De certificaten die op beheerde identiteiten voor Azure-resources zijn niet meer aanwezig zijn in de virtuele machine. 
-4. Het eindpunt IMDS is een bekende niet-routeerbare IP-adres, alleen beschikbaar vanuit de virtuele machine. 
+    - Alle besturingssystemen van Azure IaaS ondersteund kunt beheerde identiteiten gebruiken voor Azure-resources via IMDS.
+    - Niet meer hoeft te installeren van een uitbreiding op de virtuele machine om in te schakelen van beheerde identiteiten voor Azure-resources. 
+    - De certificaten die op beheerde identiteiten voor Azure-resources zijn niet meer aanwezig zijn in de virtuele machine.
+    - Het eindpunt IMDS is een bekende niet-routeerbare IP-adres, alleen beschikbaar vanuit de virtuele machine.
 
 De beheerde identiteiten voor VM-extensie nog steeds beschikbaar is voor gebruik vandaag nog; Azure-resources echter vooruit we standaard het IMDS-eindpunt. De beheerde identiteiten voor VM-extensie voor Azure-resources worden afgeschaft in januari 2019. 
 
 Zie voor meer informatie over Azure Instance Metadata Service [IMDS-documentatie](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Beheerde identiteiten worden opnieuw gemaakt automatisch als ik een abonnement naar een andere directory verplaatst?
+
+Nee. Als u een abonnement naar een andere map verplaatst, moet u handmatig opnieuw te maken en Azure RBAC-roltoewijzingen opnieuw verlenen.
+    - Voor het systeem beheerde identiteiten toegewezen: uitschakelen en weer inschakelen.
+    - Voor de gebruiker toegewezen beheerde identiteiten: verwijderen, opnieuw te maken en ze opnieuw koppelen aan de benodigde resources (bijvoorbeeld virtuele machines)
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan ik een beheerde identiteit gebruiken voor toegang tot een bron in een andere directory/tenant?
+
+Nee. Beheerde identiteiten bieden momenteel geen ondersteuning voor scenario's voor cross-directory. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Wat zijn de ondersteunde Linux-distributies?
 

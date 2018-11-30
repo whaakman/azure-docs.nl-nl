@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404848"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633402"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics VM-extensie voor Linux
 
@@ -219,7 +219,7 @@ Extensie uitvoering uitvoer wordt vastgelegd in het volgende bestand:
 | 51 | Deze extensie wordt niet ondersteund voor besturingssysteem van de virtuele machine | |
 | 55 | Kan geen verbinding maken met de Log Analytics-service of vereiste pakketten ontbreken of dpkg Pakketbeheer is vergrendeld| Controleer of het systeem heeft toegang tot Internet of dat een geldige HTTP-proxy is opgegeven. Bovendien Controleer de juistheid van de werkruimte-ID en controleer of curl en tar-hulpprogramma's zijn geïnstalleerd. |
 
-Als u meer informatie over probleemoplossing vindt u op de [Log Analytics-Agent voor Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Als u meer informatie over probleemoplossing vindt u op de [Log Analytics-Agent voor Linux Troubleshooting Guide](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Ondersteuning
 

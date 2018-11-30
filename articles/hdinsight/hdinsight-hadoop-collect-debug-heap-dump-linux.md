@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037679"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498685"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Heapdumps voor Apache Hadoop-services op Linux gebaseerde HDInsight inschakelen
 
@@ -39,7 +39,7 @@ U kunt ook heapdumps voor de kaart inschakelen en verminder processen die worden
 
 ## <a name="configuration"></a>Understanding heap dump configuratie
 
-Heapdumps zijn ingeschakeld door opties (soms ook wel bekend als kan worden gebruikt, of parameters) naar de JVM wanneer een service wordt gestart. Voor de meeste Hadoop-services, kunt u de shell-script gebruikt voor het starten van de service voor het doorgeven van deze opties wijzigen.
+Heapdumps zijn ingeschakeld door opties (soms ook wel bekend als kan worden gebruikt, of parameters) naar de JVM wanneer een service wordt gestart. Voor de meeste [Apache Hadoop](https://hadoop.apache.org/) services, kunt u de shell-script gebruikt voor het starten van de service voor het doorgeven van deze opties wijzigen.
 
 In elk script, er is een export voor  **\* \_OPTS**, die de opties die zijn doorgegeven aan de JVM bevat. Bijvoorbeeld, in de **hadoop-env.sh** script, de regel die begint met `export HADOOP_NAMENODE_OPTS=` bevat de opties voor de service NameNode.
 
@@ -49,7 +49,7 @@ Worden toegewezen en verminder processen zijn iets anders, omdat deze bewerkinge
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> U wordt aangeraden gebruik Apache Ambari om te wijzigen van de scripts en de instellingen voor mapred-site.xml als de Ambari-ingang voor het repliceren van wijzigingen op knooppunten in het cluster. Zie de [met behulp van Ambari](#using-ambari) sectie voor specifieke stappen.
+> Wordt u aangeraden [Apache Ambari](https://ambari.apache.org/) voor het wijzigen van de scripts en de instellingen voor mapred-site.xml, als de Ambari verwerken repliceren van wijzigingen op knooppunten in het cluster. Zie de [met behulp van Apache Ambari](#using-apache-ambari) sectie voor specifieke stappen.
 
 ### <a name="enable-heap-dumps"></a>Heapdumps inschakelen
 
@@ -77,11 +77,11 @@ U kunt ook een script activeren wanneer een **OutOfMemoryError** optreedt. Bijvo
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Aangezien Hadoop een gedistribueerd systeem is, moet een script dat wordt gebruikt op alle knooppunten in het cluster dat de service wordt uitgevoerd op worden geplaatst.
+> Aangezien Apache Hadoop een gedistribueerd systeem is, moet een script dat wordt gebruikt op alle knooppunten in het cluster dat de service wordt uitgevoerd op worden geplaatst.
 > 
 > Het script moet ook worden op een locatie die toegankelijk is via het account dat de service wordt uitgevoerd als en moet machtigingen voor uitvoeren. Bijvoorbeeld, u kunt desgewenst voor het opslaan van scripts in `/usr/local/bin` en gebruik `chmod go+rx /usr/local/bin/filename.sh` verleent u lees-en machtigingen voor uitvoeren.
 
-## <a name="using-ambari"></a>Met behulp van Ambari
+## <a name="using-apache-ambari"></a>Met behulp van Apache Ambari
 
 Als u wilt wijzigen van de configuratie van een service, gebruikt u de volgende stappen uit:
 

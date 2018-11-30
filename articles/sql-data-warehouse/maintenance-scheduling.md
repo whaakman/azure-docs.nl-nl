@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711902"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498014"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Onderhoudsschema's gebruiken voor het beheren van service-updates en onderhoud
 
-Azure SQL Data Warehouse-onderhoud plannen is nu in preview. Deze functie integreert het geplande onderhoud Servicestatusmeldingen, Resource Health controleren bewaken en de Azure SQL Data Warehouse onderhoud Scheduler-service.
+Onderhoudsschema's is nu beschikbaar in alle regio's voor Azure SQL Data Warehouse. Deze functie integreert het geplande onderhoud Servicestatusmeldingen, Resource Health controleren bewaken en de Azure SQL Data Warehouse onderhoud Scheduler-service.
 
 U onderhoud plannen van een bepaalde periode kiezen wanneer is het handig is voor het ontvangen van nieuwe functies, upgrades en patches. Kiest u een primaire en secundaire onderhoud binnen een periode van zeven dagen. Een voorbeeld is een primaire venster van zaterdag 22:00 tot zondag 01:00 uur en een tweede venster van woensdag 19:00 op 22:00 uur. Als SQL Data Warehouse onderhoud niet tijdens uw primaire onderhoudsvenster uitvoeren kan, zal proberen het onderhoud opnieuw tijdens uw secundaire onderhoudsvenster.
 
@@ -51,6 +51,7 @@ Zelfs als gepland onderhoud is niet beschikbaar in de geselecteerde regio, kunt 
 - [Meer informatie](changing-maintenance-schedule.md) over het wijzigen van een onderhoudsplanning.
 - [Meer informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) over het maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor.
 - [Meer informatie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) over webhookacties voor waarschuwingsregels.
+- [Meer informatie](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) maken en beheren van Actiegroepen.
 - [Meer informatie](https://docs.microsoft.com/azure/service-health/service-health-overview) over Azure Service Health.
 
 

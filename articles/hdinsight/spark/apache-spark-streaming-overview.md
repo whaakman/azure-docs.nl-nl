@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 229c3eff0db4f3689f4e2e3fd457410ecccb8ba7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041519"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583210"
 ---
-# <a name="overview-of-spark-streaming"></a>Overzicht van de Spark-Streaming
+# <a name="overview-of-apache-spark-streaming"></a>Overzicht van Apache Spark-Streaming
 
-Spark Streaming zorgt voor verwerking van gegevensstromen in HDInsight Spark-clusters, met een garantie dat een gebeurtenis invoer exact één keer wordt verwerkt, zelfs als er een storing op een knooppunt optreedt. Een Spark-Stream is een langlopende taak die invoergegevens ontvangt van een groot aantal bronnen, met inbegrip van Azure Event Hubs, een Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, onbewerkte TCP-sockets, of van het HDFS-bestandssystemen bewaken. In tegenstelling tot een proces uitsluitend op gebeurtenissen gebaseerde, een Spark-Stream invoergegevens batches in tijdvensters, zoals een segment 2 seconden en klikt u vervolgens elke batch met behulp van de kaart worden getransformeerd, verminderen, join en uitpakken van activiteiten. De getransformeerde gegevens schrijft uit de Spark-Stream vervolgens bestandssystemen, databases, dashboards en de-console.
+[Apache Spark](https://spark.apache.org/) Streaming biedt gegevensstroomverwerking in HDInsight Spark-clusters, met een garantie dat een gebeurtenis invoer exact één keer wordt verwerkt, zelfs als er een storing op een knooppunt optreedt. Een Spark-Stream is een langlopende taak die invoergegevens van een groot aantal bronnen, met inbegrip van Azure Event Hubs, een Azure IoT Hub ontvangt [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ ](http://zeromq.org/), onbewerkte TCP-sockets, of van bewaking [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) bestandssystemen. In tegenstelling tot een proces uitsluitend op gebeurtenissen gebaseerde, een Spark-Stream invoergegevens batches in tijdvensters, zoals een segment 2 seconden en klikt u vervolgens elke batch met behulp van de kaart worden getransformeerd, verminderen, join en uitpakken van activiteiten. De getransformeerde gegevens schrijft uit de Spark-Stream vervolgens bestandssystemen, databases, dashboards en de-console.
 
 ![Stream verwerken met HDInsight en Spark-Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -86,7 +86,7 @@ De streaming-toepassing te starten en uitvoeren totdat er een afsluitingssignaal
     ssc.start()            
     ssc.awaitTermination()
 
-Zie voor meer informatie over de Spark Stream-API, samen met de bronnen van gebeurtenissen, transformaties en uitvoer-bewerkingen ondersteund [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+Zie voor meer informatie over de Spark Stream-API, samen met de bronnen van gebeurtenissen, transformaties en uitvoer-bewerkingen ondersteund [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 Het volgende voorbeeld van toepassing is ingesloten, zodat u kunt uitvoeren in een [Jupyter-Notebook](apache-spark-jupyter-notebook-kernels.md). In dit voorbeeld maakt een mock-gegevensbron in de klasse DummySource die de waarde van een item en de huidige tijd in milliseconden om de vijf seconden uitvoert. Een nieuwe StreamingContext-object heeft een batch-interval van 30 seconden. Telkens wanneer een batch is gemaakt, de streaming toepassing onderzoekt de RDD geproduceerd de RDD converteert naar een Spark-gegevensframe en een tijdelijke tabel wordt gemaakt via het DataFrame.
 
@@ -211,10 +211,10 @@ U doorgaans een Spark Streaming-toepassing lokaal in een JAR-bestand maken en de
 
 ![Implementatie van een toepassing voor Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-De status van alle toepassingen kan ook worden gecontroleerd met een GET-aanvraag voor een LIVY-eindpunt. Ten slotte kunt u een toepassing die wordt uitgevoerd met behulp van een DELETE-aanvraag voor het eindpunt LIVY beëindigen. Zie voor meer informatie over de API LIVY [externe taken met LIVY](apache-spark-livy-rest-interface.md)
+De status van alle toepassingen kan ook worden gecontroleerd met een GET-aanvraag voor een LIVY-eindpunt. Ten slotte kunt u een toepassing die wordt uitgevoerd met behulp van een DELETE-aanvraag voor het eindpunt LIVY beëindigen. Zie voor meer informatie over de API LIVY [externe taken met LIVY Apache](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Maken van een Apache Spark-cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [Spark-taken met LIVY op afstand starten](apache-spark-livy-rest-interface.md)
+* [Apache Spark-Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Apache Spark-taken op afstand met Apache LIVY starten](apache-spark-livy-rest-interface.md)

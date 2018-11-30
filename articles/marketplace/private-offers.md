@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: cd94f17c6f8bb8cc5bc09222d4b561eefff6b20c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266956"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620010"
 ---
 # <a name="private-offers"></a>Persoonlijke aanbiedingen
 
@@ -37,13 +37,13 @@ Persoonlijke aanbiedingen kunnen uitgevers om te profiteren van de schaal en wer
 
 Persoonlijke aanbiedingen zijn nu beschikbaar voor virtuele Machine, Azure-toepassing (geïmplementeerd als oplossingssjablonen of beheerde toepassingen) en SaaS-Apps biedt. Net als openbare aanbiedingen persoonlijke aanbiedingen kunnen worden gemaakt en beheerd de [Cloud Partner-Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  Klanten kunnen worden verleend of ingetrokken van toegang tot persoonlijke aanbiedingen in minuten.
 
-## <a name="creating-private-offers-using-skus-and-plans"></a>Het maken van persoonlijke aanbiedingen met behulp van SKU's en abonnementen
+## <a name="creating-private-offers-using-skus-and-plans"></a>Het maken van persoonlijke biedt maakt gebruik van SKU's en abonnementen
 
 Voor *nieuwe of bestaande aanbiedingen met openbare-SKU's of abonnementen*, uitgevers kunnen eenvoudig nieuwe, persoonlijke varianten maken door het maken van nieuwe SKU's of abonnementen en ze te markeren als privé.  [Privé-SKU's](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) en abonnementen zijn onderdelen van een aanbieding en zijn alleen zichtbaar en die kunnen worden gekocht door de betreffende klanten. Privé-SKU's en -abonnementen kunnen gebruiken de basisinstallatiekopieën en/of metagegevens die al zijn gepubliceerd voor een openbare SKU of van plan zijn te bieden. Deze optie kan uitgevers meerdere persoonlijke varianten van een openbare aanbieding maken zonder het publiceren van meerdere versies van de dezelfde basisinstallatiekopie en metagegevens bieden. Voor de virtuele Machine en de Azure-toepassing biedt alleen, dat als een persoonlijke SKU een basisinstallatiekopie met een openbare SKU deelt eventuele wijzigingen in de basisinstallatiekopie van de aanbieding wordt doorgegeven in alle openbare en persoonlijke SKU's met behulp van deze basisinstallatiekopie.
 
 Voor *nieuwe aanbiedingen die alleen persoonlijke SKU's of abonnementen bevatten*, uitgevers hun aanbiedingen maken als een andere aanbieding en vervolgens de SKU's of abonnementen markeren als privé. De aanbiedingen die alleen persoonlijke SKU's of abonnementen hebben zich niet kunnen worden gedetecteerd of toegankelijk is via [Azure Marketplace](https://azuremarketplace.microsoft.com) of de [Azure-portal](https://azure.microsoft.com/features/azure-portal/) door klanten die niet gekoppeld aan de aanbieding zijn.
 
-## <a name="targeting-customers-with-private-offers"></a>Die gericht zijn op klanten met persoonlijke aanbiedingen
+## <a name="targeting-customers-with-private-offers"></a>Die gericht zijn op klanten met een persoonlijke aanbiedingen
 Uitgevers kunnen klanten die gebruikmaken van de abonnements-id's zijn gericht voor zowel nieuwe als bestaande persoonlijke aanbiedingen. Uitgevers met behulp van een aanbieding van een virtuele Machine of Azure-toepassing kunnen beperken van de beschikbaarheid van een privé-SKU naar een afzonderlijke Azure-abonnement-ID of een CSV van maximaal 20.000 Azure-abonnement-id's uploaden. Tijdens het gebruik van een persoonlijke aanbieding van SaaS-App, kunnen uitgevers koppelen een Azure-abonnement-ID of tenant-ID voor het beperken van de beschikbaarheid van een privé-abonnement, met behulp van de handmatige methode of CSV-upload-benadering.
 
 Zodra een aanbieding is gecertificeerd en gepubliceerd, kunnen klanten kunnen worden bijgewerkt of verwijderd uit de SKU of van Plan zijn binnen enkele minuten met behulp van de functie voor synchronisatie privé-abonnementen. Op deze manier kunt snel en eenvoudig de lijst van de klanten waarop de persoonlijke SKU of de planning wordt weergegeven zonder recertifying of de aanbieding publiceren bijwerken-uitgevers.

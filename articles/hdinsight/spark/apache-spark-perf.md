@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 4a7777be01cc15ed5cc4c9c091230afe1ddfa897
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047439"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499148"
 ---
-# <a name="optimize-spark-jobs"></a>Spark-taken optimaliseren
+# <a name="optimize-apache-spark-jobs"></a>Optimaliseren voor Apache Spark-taken
 
-Informatie over het optimaliseren van de configuratie van een Spark-cluster voor uw specifieke workload.  De meest voorkomende uitdaging is geheugengbelasting, vanwege een onjuiste configuraties (met name verkeerde formaat executor), langlopende bewerkingen en taken die in Cartesische bewerkingen resulteren. U kunt taken met de juiste opslaan in cache en door toe te staan voor versnellen [gegevensverschil](#optimize-joins-and-shuffles). Voor de beste prestaties bewaken en controleren van langlopende en resource-intensieve Spark taakuitvoeringen.
+Meer informatie over het optimaliseren van [Apache Spark](https://spark.apache.org/) clusterconfiguratie voor uw specifieke workload.  De meest voorkomende uitdaging is geheugengbelasting, vanwege een onjuiste configuraties (met name verkeerde formaat executor), langlopende bewerkingen en taken die in Cartesische bewerkingen resulteren. U kunt taken met de juiste opslaan in cache en door toe te staan voor versnellen [gegevensverschil](#optimize-joins-and-shuffles). Voor de beste prestaties bewaken en controleren van langlopende en resource-intensieve Spark taakuitvoeringen.
 
 De volgende secties beschrijven algemene optimalisaties voor Spark-taak en aanbevelingen.
 
@@ -58,7 +58,7 @@ De beste indeling voor prestaties is parquet met *snappy compressie*, dit is de 
 
 Wanneer u een nieuw Spark-cluster maakt, hebt u de optie voor het selecteren van Azure Blob Storage of Azure Data Lake Store als standaardopslag van uw cluster. Beide opties bieden u het voordeel van langdurige opslag voor tijdelijke clusters, zodat uw gegevens worden niet automatisch verwijderd wanneer u uw cluster verwijdert. U kunt een tijdelijke cluster opnieuw en nog steeds toegang tot uw gegevens.
 
-| Store-Type | Bestandssysteem | Snelheid | Tijdelijke | Use Cases |
+| Store-Type | Bestandssysteem | Snelheid | Tijdelijke | Gebruiksvoorbeelden |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:**//url/ | **Standard** | Ja | Tijdelijke cluster |
 | Azure Data Lake Store | **adl:**//url/ | **Faster** | Ja | Tijdelijke cluster |
@@ -94,7 +94,7 @@ De structuur van de Spark-geheugen en enkele belangrijke executor geheugen param
 
 ### <a name="spark-memory-considerations"></a>Overwegingen met betrekking tot Spark-geheugen
 
-Als u van YARN gebruikmaakt, bepaalt de maximale som van geheugen gebruikt door alle containers op elk knooppunt Spark met YARN.  Het volgende diagram toont de belangrijkste objecten en hun relaties.
+Als u [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), en vervolgens YARN de maximale som van geheugen gebruikt door alle containers op elk knooppunt Spark bepaalt.  Het volgende diagram toont de belangrijkste objecten en hun relaties.
 
 ![YARN Spark geheugenbeheer](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Fouten opsporen in Spark-taken die worden uitgevoerd op Azure HDInsight](apache-spark-job-debugging.md)
-* [Resources beheren voor een Spark-cluster in HDInsight](apache-spark-resource-manager.md)
-* [De Spark-REST-API gebruiken voor het indienen van externe taken met een Spark-cluster](apache-spark-livy-rest-interface.md)
-* [Spark afstemmen](https://spark.apache.org/docs/latest/tuning.html)
-* [Hoe om af te stemmen daadwerkelijk uw Spark dus taken werken ze](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Apache Spark-taken die worden uitgevoerd op Azure HDInsight](apache-spark-job-debugging.md)
+* [Resources beheren voor een Apache Spark-cluster in HDInsight](apache-spark-resource-manager.md)
+* [Apache Spark REST-API gebruiken voor het indienen van externe taken met een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
+* [Apache Spark afstemmen](https://spark.apache.org/docs/latest/tuning.html)
+* [Hoe om af te stemmen daadwerkelijk de Apache Spark-taken zodat werken ze](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo serialisatie](https://github.com/EsotericSoftware/kryo)

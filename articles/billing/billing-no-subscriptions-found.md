@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 669e597424ae936dda59564ad072ac7d77107321
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276155"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581779"
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Geen abonnementen gevonden fout in Azure portal of Azure-accountcentrum
 
@@ -53,6 +53,6 @@ Controleer of het account dat u gebruikt de accountbeheerder. Om te controleren 
 1. Selecteer het abonnement dat u wilt controleren, en ga vervolgens naar **instellingen**.
 1. Selecteer **eigenschappen**. De accountbeheerder voor het abonnement wordt weergegeven in de **accountbeheerder** vak.  
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) om uw probleem snel worden opgelost. 
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

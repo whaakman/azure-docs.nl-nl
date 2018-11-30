@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297534"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582374"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
-De Network Policy Server (NPS)-extensie voor Azure MFA voegt cloud-gebaseerde MFA functies aan uw infrastructuur voor verificatie met behulp van uw bestaande servers. Met de NPS-extensie kunt u telefonische oproepen, SMS-bericht of verificatie via de telefoon-app toevoegen aan uw bestaande verificatiestroom zonder te installeren, configureren en onderhouden van nieuwe servers. 
+De Network Policy Server (NPS)-extensie voor Azure MFA voegt cloud-gebaseerde MFA functies aan uw infrastructuur voor verificatie met behulp van uw bestaande servers. Met de NPS-extensie kunt u telefonische oproepen, SMS-bericht of verificatie via de telefoon-app toevoegen aan uw bestaande verificatiestroom zonder te installeren, configureren en onderhouden van nieuwe servers. 
 
 Deze extensie is bedoeld voor organisaties die beveiligen van VPN-verbindingen willen zonder de Azure MFA-Server te implementeren. De NPS-extensie fungeert als een adapter tussen RADIUS- en cloud-gebaseerde Azure MFA voor een tweede factor-verificatie voor federatieve of gebruikers gesynchroniseerde.
 
-Wanneer u de NPS-extensie voor Azure MFA, bevat de verificatie-stroom de volgende onderdelen: 
+Wanneer u de NPS-extensie voor Azure MFA, bevat de verificatie-stroom de volgende onderdelen: 
 
-1. **NAS/VPN-Server** ontvangt verzoeken van VPN-clients en converteert deze naar RADIUS-aanvragen naar de NPS-servers. 
-2. **NPS-Server** maakt verbinding met Active Directory voor het uitvoeren van de primaire verificatie voor de RADIUS-aanvragen en implementatie is geslaagd, geeft u de aanvraag aan een geïnstalleerde extensies.  
-3. **NPS-extensie** een aanvraag voor Azure MFA voor de secundaire verificatie wordt geactiveerd. Nadat de extensie-antwoord is ontvangen, en als de MFA-controle is geslaagd, de verificatieaanvraag is voltooid door te geven van de NPS-server met beveiligingstokens die een MFA-claim bevatten, dat is uitgegeven door Azure STS.  
+1. **NAS/VPN-Server** ontvangt verzoeken van VPN-clients en converteert deze naar RADIUS-aanvragen naar de NPS-servers. 
+2. **NPS-Server** maakt verbinding met Active Directory voor het uitvoeren van de primaire verificatie voor de RADIUS-aanvragen en implementatie is geslaagd, geeft u de aanvraag aan een geïnstalleerde extensies.  
+3. **NPS-extensie** een aanvraag voor Azure MFA voor de secundaire verificatie wordt geactiveerd. Nadat de extensie-antwoord is ontvangen, en als de MFA-controle is geslaagd, de verificatieaanvraag is voltooid door te geven van de NPS-server met beveiligingstokens die een MFA-claim bevatten, dat is uitgegeven door Azure STS.  
 4. **Azure MFA** communiceert met Azure Active Directory voor het ophalen van gegevens van de gebruiker en de secundaire authenticatie met behulp van een verificatiemethode die is geconfigureerd voor de gebruiker wordt uitgevoerd.
 
-Het volgende diagram illustreert deze aanvraagstroom op hoog niveau verificatie: 
+Het volgende diagram illustreert deze aanvraagstroom op hoog niveau verificatie: 
 
 ![Stroomdiagram voor verificatie](./media/howto-mfa-nps-extension/auth-flow.png)
 
@@ -118,7 +118,7 @@ Er zijn twee factoren die invloed hebben op welke verificatiemethoden zijn besch
 
 Wanneer u de NPS-extensie implementeert, gebruikt u deze factoren om te evalueren welke methoden zijn beschikbaar voor uw gebruikers. Als de RADIUS-client PAP ondersteunt, maar de UX-client geen invoervelden voor een verificatiecode, klikt u vervolgens zijn voor bellen en mobiele app-meldingen de twee ondersteunde opties.
 
-U kunt [uitschakelen van niet-ondersteunde verificatiemethoden](howto-mfa-mfasettings.md#selectable-verification-methods) in Azure.
+U kunt [uitschakelen van niet-ondersteunde verificatiemethoden](howto-mfa-mfasettings.md#verification-methods) in Azure.
 
 ### <a name="register-users-for-mfa"></a>Gebruikers registreren voor MFA
 
@@ -212,15 +212,31 @@ Zoek het zelfondertekende certificaat dat is gemaakt door het installatieprogram
 
 Open PowerShell-opdrachtprompt en voer de volgende opdrachten uit:
 
-```
+``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
 Deze opdrachten afdrukken alle certificaten in uw tenant koppelen met uw exemplaar van de NPS-extensie in de PowerShell-sessie. Zoek naar uw certificaat door het clientcertificaat exporteren als een 'Base-64 gecodeerde x.509 (.cer)'-bestand zonder de persoonlijke sleutel en vergelijken met de lijst van PowerShell.
 
+De volgende opdracht maakt u een bestand met de naam 'npscertificate' op de schijf "C:" in de indeling cer.
+
+``` PowerShell
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+```
+
+Zodra u deze opdracht uitvoert, gaat u naar de C-schijf naar het bestand en dubbelklik erop. Gaat u naar de details en bladert u omlaag naar "vingerafdruk", de vingerafdruk van het certificaat is geïnstalleerd op de server om deze te vergelijken. De vingerafdrukken van het certificaat moeten overeenkomen met.
+
 Geldige-van en geldig-totdat tijdstempels die in leesbare vorm, kan aan de hand liggende misfits eruit gefilterd als de opdracht meer dan één certificaat retourneert worden gebruikt.
+
+-------------------------------------------------------------
+
+### <a name="why-cant-i-sign-in"></a>Waarom kan ik aanmelden?
+
+Controleer of uw wachtwoord nog niet is verlopen. De NPS-extensie biedt geen ondersteuning voor wijzigen van wachtwoorden als onderdeel van de werkstroom aanmelden. Neem contact op met de IT-afdeling van uw organisatie voor verdere ondersteuning.
 
 -------------------------------------------------------------
 

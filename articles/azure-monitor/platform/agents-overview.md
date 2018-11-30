@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4fc38d033181b60f105fd016a3fa968acd9d9177
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828353"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634265"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
 Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillende typen gegevens van virtuele machines met Microsoft Windows en Linux die worden gehost in Azure en uw datacenter of andere cloudproviders. De drie typen van de agents is beschikbaar voor het bewaken van een virtuele machine zijn:
@@ -77,5 +77,5 @@ Mogelijk moet u een combinatie van deze agenten voor het bewaken van uw virtuele
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [overzicht van de Log Analytics-agent](../../log-analytics/log-analytics-agent-overview.md) vereisten en ondersteunde methoden voor het implementeren van de agent op de machines die worden gehost in Azure, in uw datacenter of andere cloudomgeving te bekijken.
+- Zie [overzicht van de Log Analytics-agent](../../azure-monitor/platform/log-analytics-agent.md) vereisten en ondersteunde methoden voor het implementeren van de agent op de machines die worden gehost in Azure, in uw datacenter of andere cloudomgeving te bekijken.
 

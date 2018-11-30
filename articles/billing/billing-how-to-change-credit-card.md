@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 0db76d7133e28a0826d9ff07cefe02134cd95a47
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274472"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581439"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard of betaalpas nodig voor Azure
 
@@ -102,6 +102,6 @@ Helaas, Azure op dit moment biedt geen ondersteuning voor eenmalige betalingen v
 
 Als u wilt toevoegen of bijwerken van de btw-nummer, Ga naar [ **profiel** in Azure-Accountcentrum](https://account.azure.com/Profile)en selecteer vervolgens **btw-record**. Dit btw-nummer wordt gebruikt voor de berekening van btw-vrijstelling en wordt vermeld op uw factuur.
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

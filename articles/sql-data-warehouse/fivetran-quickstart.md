@@ -1,5 +1,5 @@
 ---
-title: Snel starten met Azure SQL Data Warehouse Fivetran | Microsoft Docs
+title: Snelstartgids voor Azure SQL Data Warehouse Fivetran | Microsoft Docs
 description: Snel aan de slag met Fivetran en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: hirokib
@@ -10,69 +10,75 @@ ms.component: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 8e738becfe356908af5baffc0ebf225916b2616e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 50f5f813444ddf38d15863d028b1f61bb9b0d55c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355440"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580525"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Snel aan de slag met Fivetran en SQL Data Warehouse
 
-In deze snelstartgids wordt ervan uitgegaan dat u al een bestaand exemplaar van SQL Data Warehouse.
+In deze Quick Start wordt beschreven hoe u een nieuwe Fivetran-gebruiker instellen voor gebruik met Azure SQL Data Warehouse. Het artikel wordt ervan uitgegaan dat u een bestaand exemplaar van SQL Data Warehouse hebt.
 
-## <a name="setup-connection"></a>Verbinding instellen
+## <a name="set-up-a-connection"></a>Een verbinding instellen
 
-1. Zoek de volledig gekwalificeerde servernaam en databasenaam voor de verbinding met Azure SQL Data Warehouse.
+1. De volledig gekwalificeerde servernaam en databasenaam die u gebruikt om verbinding met SQL Data Warehouse te vinden.
+    
+    Als u hulp bij het vinden van deze informatie nodig hebt, raadpleegt u [verbinding maken met Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
 
-   [Hoe kunt u zoeken naar servernaam en databasenaam in de portal?](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connect-overview)
+2. Kies in de wizard setup of u wilt verbinding maken met uw database rechtstreeks of via een SSH-tunnel.
 
-2. In de wizard setup bepalen als u wilt verbinding maken met uw database rechtstreeks of via een SSH-tunnel.
+   Als u rechtstreeks verbinding maken met uw database, moet u een firewallregel om toegang te verlenen. Dit is de eenvoudigste en veiligste methode.
 
-   Als u rechtstreeks verbinding maken met uw database besluit, moet u een firewallregel om toegang te verlenen. Dit is de eenvoudigste en veiligste methode.
+   Als u verbinding maken wilt met behulp van een SSH-tunnel, wordt Fivetran verbonden met een afzonderlijke server in uw netwerk. De server biedt een SSH-tunnel met uw database. U moet deze methode gebruiken als uw database zich in een niet-toegankelijke subnet in een virtueel netwerk.
 
-   Als u verbinden via een SSH-tunnel wilt, verbinding Fivetran met een afzonderlijke server in uw netwerk waarmee u een SSH-tunnel met uw database. Deze methode is nodig als uw database zich in een niet-toegankelijke subnet in een virtueel netwerk.
+3. Het IP-adres toevoegen **52.0.2.4** aan de firewall op serverniveau om binnenkomende verbindingen met uw SQL Data Warehouse-exemplaar van Fivetran.
 
-3. Voeg toe '52.0.2.4' IP-adres in de firewall van uw server om binnenkomende verbindingen naar uw Azure SQL Data Warehouse van Fivetran.
+   Zie voor meer informatie, [een firewallregel op serverniveau maken](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
-   [Het toevoegen van server-level firewall?](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal#create-a-server-level-firewall-rule)
+## <a name="set-up-user-credentials"></a>Instellen van de referenties van gebruiker
 
-## <a name="setup-user-credentials"></a>De referenties van gebruiker instellen
+1. Verbinding maken met uw Azure SQL Data Warehouse met behulp van SQL Server Management Studio of het hulpprogramma dat u de voorkeur geeft. Meld u aan als een beheerder van de server. Voer de volgende SQL-opdrachten voor het maken van een gebruiker voor Fivetran:
+    - In de database master: 
+    
+      ```
+      CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
+      ```
 
-Verbinding maken met uw Azure SQL Data Warehouse met behulp van SQL Server Management Studio of hulpprogramma naar keuze als gebruiker met beheerdersrechten en voer de volgende SQL-opdrachten voor het maken van een gebruiker voor Fivetran:
+    - In SQL Data Warehouse-database:
 
-In de database master: ` CREATE LOGIN fivetran WITH PASSWORD = '<password>'; `
+      ```
+      CREATE USER fivetran_user_without_login without login;
+      CREATE USER fivetran FOR LOGIN fivetran;
+      GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
+      ```
 
-In SQL Data Warehouse-database:
+2. Verleen de gebruiker Fivetran de volgende machtigingen voor uw datawarehouse:
 
-```
-CREATE USER fivetran_user_without_login without login;
-CREATE USER fivetran FOR LOGIN fivetran;
-GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
-```
+    ```
+    GRANT CONTROL to fivetran;
+    ```
 
-Als gebruiker fivetran is gemaakt, verlenen deze de volgende machtigingen voor uw datawarehouse:
+    Bevoegdheid is vereist voor het maken van database-scoped referenties die worden gebruikt wanneer een gebruiker bestanden uit Azure Blob storage geladen met behulp van PolyBase.
 
-```
-GRANT CONTROL to fivetran;
-```
+3. Een resourceklasse geschikt toevoegen aan de gebruiker Fivetran. De resourceklasse die u gebruikt, is afhankelijk van het geheugen dat is vereist voor het maken van een columnstore-index. Bijvoorbeeld, integratie met producten zoals Marketo en Salesforce een hogere resourceklasse vanwege het grote aantal kolommen en de grotere hoeveelheid gegevens vereist de producten gebruiken. Een hogere resourceklasse vereist meer geheugen voor het maken van columnstore-indexen.
 
-Een resourceklasse geschikt toevoegen aan de gebruiker, afhankelijk van de geheugenvereiste voor het maken van de columnstore-index. Integraties, zoals Marketo en Salesforce moeten bijvoorbeeld hogere resourceklasse vanwege het grote aantal kolommen / grotere hoeveelheid gegevens, waarvoor meer geheugen voor het maken van columnstore-indexen.
+    U wordt aangeraden dat u statische resourceklassen. U kunt beginnen met de `staticrc20` resourceklasse. De `staticrc20` resourceklasse toegewezen 200 MB voor elke gebruiker, ongeacht het prestatieniveau dat u gebruikt. Als op het niveau van de eerste resource klasse columnstore-indexering mislukt, verhoogt u de resourceklasse.
 
-Gebruik van statische resourceklassen wordt aanbevolen. U kunt beginnen met resourceklasse `staticrc20`, die kan worden toegewezen 200 MB voor de gebruiker, ongeacht het prestatieniveau dat u gebruikt. Als columnstore indexeren is mislukt met de huidige resourceklasse, hebben we de resourceklasse verhogen.
+    ```
+    EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
+    ```
 
-```
-EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
-```
+    Lees voor meer informatie over [limieten voor geheugen en gelijktijdigheid](memory-and-concurrency-limits.md) en [resourceklassen](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
-Bekijk voor meer informatie de documenten voor [limieten voor geheugen en gelijktijdigheid](https://docs.microsoft.com/azure/sql-data-warehouse/memory-and-concurrency-limits#data-warehouse-limits) en [resourceklassen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression#ways-to-allocate-more-memory)
 
-Bevoegdheid is vereist voor het maken van de referenties van de database binnen het bereik dat wordt gebruikt tijdens het laden van bestanden van Blob-opslag met behulp van PolyBase.
+## <a name="sign-in-to-fivetran"></a>Aanmelden bij Fivetran
 
-Voer de referenties voor toegang tot Azure SQL Data Warehouse
+Als u wilt aanmelden bij Fivetran, voert u de referenties die u gebruikt voor toegang tot SQL Data Warehouse: 
 
-1. Host (de naam van uw server)
-2. Poort
-3. Database
-4. Gebruiker (gebruikersnaam moet `fivetran@<server_name>` waar `<server_name>` maakt deel uit van de uri voor de azure-host: `<server_name>.database.windows.net`)
-5. Wachtwoord
+* Host (de naam van uw server).
+* Poort.
+* Database.
+* Gebruiker (de naam van de gebruiker moet **fivetran @_servernaam_**  waar *servernaam* maakt deel uit van uw Azure-host URI: ***server_name*.database.windows .net** ).
+* Het wachtwoord.

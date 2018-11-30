@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 7ce577901530856690754f3db18ba9f40bfb8a51
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019199"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Zelfstudie: Azure Active Directory-integratie met oneindige Campus
 
@@ -48,6 +48,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 
 - Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+- Ten minste moet u een Azure Active Directory-beheerder om de configuratie te voltooien.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -110,7 +111,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-5. Op de **SAML-basisconfiguratie** sectie, hebt u **Service Provider-bestand met metagegevens**, voer de volgende stappen uit:
+5. Op de **SAML-basisconfiguratie** sectie, hebt u **Service Provider-bestand met metagegevens** (stap **11.b**), voer de volgende stappen uit:
 
     a. Klik op **metagegevensbestand uploaden**.
 
@@ -124,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![image](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
 
-    d. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    d. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon (het domein kan verschillen met het Model die als host fungeert): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
     > U krijgt de **Service Provider-bestand met metagegevens** op de pagina oneindige Campus SSO-configuratie van serviceprovider die later in de zelfstudie wordt uitgelegd.
@@ -143,7 +144,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![De downloadkoppeling certificaat](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
 
-7. Op de **instellen op Infinite Campus** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
+7. Op de **instellen op Infinite Campus** sectie, gebruikt u de volgende waarden om te valideren bij uploaden of met behulp van de Azure metadata-bestand/URL.
 
     a. Aanmeldings-URL
 
@@ -169,7 +170,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. Selecteer **inschakelen SAML-eenmalige aanmelding**.
 
-    b. Klik op **metagegevens van de Service Provider** koppeling op te slaan de **Service Provider-bestand met metagegevens** op uw computer en upload dit in **SAML-basisconfiguratie** sectie automatisch polulate de **id** en **antwoord-URL** waarden in Azure portal.
+    b. Klik op **metagegevens van de Service Provider** koppeling op te slaan de **Service Provider-bestand met metagegevens** op uw computer en upload dit in **SAML-basisconfiguratie** sectie automatisch polulate de **id** en **antwoord-URL** waarden in Azure portal (Zie stap 5).
 
     c. Op de **een optie voor het ophalen van gegevens van de id-Provider (IDP)-server** sectie, selecteer **metagegevens-URL** en plak de **App-Url voor federatieve metagegevens** in het tekstvak en Klik vervolgens op **synchronisatie**.
 
@@ -179,7 +180,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is het maken van een _één_ testgebruiker in Azure portal Britta Simon genoemd.
 
 1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
 
@@ -234,8 +235,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel oneindige Campus in het toegangsvenster, u moet u automatisch aangemeld bij uw oneindige Campus-toepassing.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u op de tegel oneindige Campus in het toegangsvenster, u moet u automatisch aangemeld bij uw oneindige Campus-toepassing. Als u zich bij de toepassing oneindige Camnpus in de browser die u bij het beheer van Azure AD, controleert u of dat u bent aangemeld bij Azure AD als de testgebruiker. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

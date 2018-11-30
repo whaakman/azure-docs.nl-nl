@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b978adcdcc025c24746167ef5ab92aebe94aca8b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016230"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584176"
 ---
-# <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
+# <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen
 
-Meer informatie over het instellen van HBase-replicatie in een virtueel netwerk, of tussen twee virtuele netwerken in Azure.
+Meer informatie over het instellen van [Apache HBase](http://hbase.apache.org/) replicatie binnen een virtueel netwerk, of tussen twee virtuele netwerken in Azure.
 
 Replicatie in een cluster maakt gebruik van een bron-push-methode. Een HBase-cluster kan een bron of bestemming, of beide functies tegelijk kunnen worden verwerkt. Replicatie is asynchroon. Het doel van de replicatie is uiteindelijke consistentie. Wanneer de bron een bewerking een kolomfamilie ontvangt wanneer replicatie is ingeschakeld, wordt de bewerking wordt doorgegeven aan alle doelclusters. Wanneer gegevens worden gerepliceerd van het ene cluster naar een andere, zijn het broncluster en alle clusters die al voor de gegevens gebruikt hebben worden bijgehouden, om te voorkomen dat replicatie lussen.
 
@@ -46,16 +46,16 @@ Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [o
 
 Hebt u drie opties:
 
-- Twee HBase-clusters in een Azure-netwerk.
-- Twee HBase-clusters in twee verschillende virtuele netwerken in dezelfde regio.
-- Twee HBase-clusters in twee verschillende virtuele netwerken in twee verschillende regio's (geo-replicatie).
+- Twee clusters met Apache HBase in een Azure-netwerk.
+- Twee clusters met Apache HBase in twee verschillende virtuele netwerken in dezelfde regio.
+- Twee clusters met Apache HBase in twee verschillende virtuele netwerken in twee verschillende regio's (geo-replicatie).
 
 In dit artikel behandelt de geo-replicatie.
 
 Instellen om u te helpen de omgevingen, hebben we enkele gemaakt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md). Als u liever het instellen van de omgevingen met behulp van andere methoden, Zie:
 
-- [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-- [HBase-clusters maken in Azure Virtual Network](apache-hbase-provision-vnet.md)
+- [Apache Hadoop-clusters in HDInsight maken](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Apache HBase-clusters maken in Azure Virtual Network](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Instellen van twee virtuele netwerken in twee verschillende regio 's
 
@@ -256,9 +256,9 @@ Als u wilt testen van de DNS-configuratie, kunt u verbinding maken met de twee D
 sudo service bind9 status
 ```
 
-## <a name="create-hbase-clusters"></a>HBase-clusters maken
+## <a name="create-apache-hbase-clusters"></a>Apache HBase-clusters maken
 
-Maak een HBase-cluster in elk van de twee virtuele netwerken met de volgende configuratie:
+Maak een [Apache HBase](http://hbase.apache.org/) -cluster in elk van de twee virtuele netwerken met de volgende configuratie:
 
 - **De naam van resourcegroep**: naam van de dezelfde resourcegroep gebruiken als u de virtuele netwerken die zijn gemaakt.
 - **Clustertype**: HBase
@@ -274,7 +274,7 @@ Om te controleren of dat de omgeving goed is geconfigureerd, moet u de FQDN van 
 
 Wanneer u een cluster repliceert, moet u de tabellen die u wilt repliceren. In deze sectie kunt u enkele gegevens laden in het broncluster. In de volgende sectie schakelt u replicatie tussen de twee clusters.
 
-Maakt een **contactpersonen** tabel en voeg enkele gegeven in de tabel, volg de instructies op [HBase-zelfstudie: aan de slag met Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Maakt een **contactpersonen** tabel en voeg enkele gegeven in de tabel, volg de instructies op [Apache HBase-zelfstudie: aan de slag met Apache HBase in HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
@@ -293,7 +293,7 @@ De volgende stappen wordt beschreven hoe u het script van de actie script aanroe
   3.  **HEAD**: Zorg ervoor dat deze optie is geselecteerd. Schakel de andere typen.
   4. **Parameters**: het volgende voorbeeldparameters replicatie inschakelen voor alle bestaande tabellen en alle gegevens van het broncluster naar het doelcluster kopiëren:
 
-          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
     >[!note]
     >
@@ -317,7 +317,7 @@ Optionele argumenten:
 |-su,--src-ambari-gebruiker | Hiermee geeft u de beheerdersnaam voor de Ambari op de bron HBase-cluster. De standaardwaarde is **admin**. |
 |-database-eenheid,--dst-ambari-gebruiker | Hiermee geeft u de beheerdersnaam voor de Ambari op de bestemming HBase-cluster. De standaardwaarde is **admin**. |
 |-t-,--lijst van de tabel | Hiermee geeft u de tabellen worden gerepliceerd. Bijvoorbeeld:--lijst van de tabel = "table1, table2; Tabel3". Als u geen tabellen opgeeft, worden alle bestaande HBase-tabellen worden gerepliceerd.|
-|-m-,--computer | Hiermee geeft u het hoofdknooppunt waarop de scriptactie wordt uitgevoerd. De waarde is een **hn1** of **hn0**. Omdat de **hn0** hoofdknooppunt is meestal drukker, wordt u aangeraden **hn1**. Gebruik deze optie als u nu het script $0 worden uitgevoerd als een scriptactie van de HDInsight-portal of Azure PowerShell.|
+|-m-,--computer | Hiermee geeft u het hoofdknooppunt waarop de scriptactie wordt uitgevoerd. De waarde is een **hn0** of **hn1** en moet worden gekozen op basis van die het hoofdknooppunt van het actief is. Gebruik deze optie als u nu het script $0 worden uitgevoerd als een scriptactie van de HDInsight-portal of Azure PowerShell.|
 |-cp - copydata | Hiermee kunt de migratie van bestaande gegevens op de tabellen waarin de replicatie is ingeschakeld. |
 |-rpm, -replicatie-phoenix-metagegevens | Hiermee schakelt u replicatie voor Phoenix systeemtabellen. <br><br>*Gebruik deze optie Wees voorzichtig.* U wordt aangeraden Phoenix-tabellen op clusters van de replica opnieuw te maken voordat u dit script gebruiken. |
 |-h,--Help-informatie | Geeft informatie over het gebruik. |
@@ -332,19 +332,19 @@ De volgende lijst ziet u soms algemeen gebruik en de bijbehorende parameterinste
 
 - **Replicatie inschakelen voor alle tabellen tussen de twee clusters met**. In dit scenario vereist niet kopiëren of migreren van bestaande gegevens in de tabellen en maakt geen gebruik van Phoenix-tabellen. Gebruik de volgende parameters:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
 - **Replicatie inschakelen voor specifieke tabellen**. Inschakelen van replicatie op table1, table2 en Tabel3, gebruikt u de volgende parameters:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
 - **Replicatie inschakelen voor specifieke tabellen en kopieer de bestaande gegevens**. Inschakelen van replicatie op table1, table2 en Tabel3, gebruikt u de volgende parameters:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
 - **Replicatie inschakelen voor alle tabellen en Phoenix metagegevens repliceren van bron naar bestemming**. Phoenix metagegevens replicatie is niet ideaal. Gebruik deze voorzichtig. Gebruik de volgende parameters:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## <a name="copy-and-migrate-data"></a>Kopiëren en migreren van gegevens
 
@@ -379,7 +379,7 @@ De `print_usage()` sectie van de [script](https://github.com/Azure/hbase-utils/b
 
 U kunt replicatie uitschakelen met een ander script actie-script uit [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). U kunt dezelfde procedure die wordt beschreven in volgen [inschakelen replicatie](#enable-replication) voor het aanroepen van de scriptactie. Gebruik de volgende parameters:
 
-    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
 De `print_usage()` sectie van de [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) heeft een gedetailleerde beschrijving van parameters.
 
@@ -387,20 +387,20 @@ De `print_usage()` sectie van de [script](https://raw.githubusercontent.com/Azur
 
 - **Replicatie uitschakelen in alle tabellen**:
 
-        -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
+        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
   of
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
 - **Schakel de replicatie op de opgegeven tabellen (table1, table2 en Tabel3)**:
 
-        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over het instellen van HBase-replicatie in een virtueel netwerk, of tussen twee virtuele netwerken. Voor meer informatie over HDInsight en HBase, Zie de volgende artikelen:
+In deze zelfstudie hebt u geleerd hoe u Apache HBase-replicatie in een virtueel netwerk, of tussen twee virtuele netwerken kunt instellen. Voor meer informatie over HDInsight en Apache HBase, Zie de volgende artikelen:
 
 * [Aan de slag met Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Overzicht van HDInsight HBase](./apache-hbase-overview.md)
-* [HBase-clusters maken in Azure Virtual Network](./apache-hbase-provision-vnet.md)
+* [Overzicht van HDInsight Apache HBase](./apache-hbase-overview.md)
+* [Apache HBase-clusters maken in Azure Virtual Network](./apache-hbase-provision-vnet.md)
 

@@ -2,25 +2,21 @@
 title: Team Data Science Process voor data scientists | Microsoft Docs
 description: Biedt richtlijnen voor meer informatie over een analytics-workload met behulp van het Team Data Science Process en Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092488"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497574"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Team Data Science Process voor gegevensanalisten
 
@@ -65,7 +61,7 @@ U kunt de items in de volgende tabel gebruiken om uw eigen zelfstudies. Lees de 
 | Power BI gebruiken voor de resultaten te visualiseren                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Power BI is een hulpmiddel voor gegevensvisualisatie van Microsoft. Het is beschikbaar op meerdere platforms van Web op mobiele apparaten en pc's. In dit artikel leert u hoe u met de uitvoer van de oplossing die u hebt gemaakt door de toegang tot de resultaten van Azure storage en visualisaties kunt maken met behulp van Power BI werkt.                                                                                                                                                                                                                                                                                                                             | [Deze zelfstudie over Power BI voltooid.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) Vervolgens Power BI verbinden met de Blob-CSV gemaakt in een experiment uitvoeren.                                                                                                                                                                                                                                                                       |
 | Uw oplossing controleren                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | Er zijn verschillende hulpprogramma's die u gebruiken kunt voor het bewaken van uw end-oplossing. Azure Application Insights kunt gemakkelijk integreren met het ingebouwde controle in uw oplossing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Application Insights instellen voor het bewaken van een toepassing](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | Er is een andere methode voor het bewaken van uw toepassing om deze te integreren in uw DevOps-proces. Het systeem Azure Log Analytics biedt een uitgebreide set functies waarmee u uw analytische oplossingen bekijken nadat u ze implementeert.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Deze zelfstudie](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) over het gebruik van Azure Log Analytics.                                                                                                                                                                                                                                                                                                       |
-| Dit Leertraject voltooien                                                               | Extra projecten om te proberen                                                                                                                           | Gefeliciteerd! U kunt dit leertraject hebt voltooid. Er is veel meer te leren. Een meer geavanceerd voorbeeld is het bouwen van een klant verloop model in Azure Machine Learning-service. [Probeer het nu hier](../desktop-workbench/scenario-churn-prediction.md).                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| Dit Leertraject voltooien                                                               |                                                                                                                           | Gefeliciteerd! U kunt dit leertraject hebt voltooid. Er is veel meer te leren.                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Team Data Science Process voor Developer-bewerkingen](team-data-science-process-for-devops.md) in dit artikel gaat in op de Developer-bewerkingen (DevOps)-functies die specifiek voor een implementatie van de oplossing Advanced Analytics en Cognitive Services zijn. 

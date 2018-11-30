@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: caffa1f1a3684de3a7514e1ce1a4fe3014a7dbf8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706140"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582734"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -44,13 +44,13 @@ Zorg ervoor dat de volgende vereisten voldaan is.
 
 ### <a name="in-your-on-premises-environment"></a>In uw on-premises-omgeving
 
-1. Identificeer een server met Windows Server 2012 R2 of later om uit te voeren van Azure AD Connect. De server toevoegen aan hetzelfde Active Directory-forest als de gebruikers met wachtwoorden die u wilt valideren.
+1. Identificeer een server met Windows Server 2012 R2 of later om uit te voeren van Azure AD Connect. Als niet is ingeschakeld, [TLS 1.2 op de server inschakelen](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). De server toevoegen aan hetzelfde Active Directory-forest als de gebruikers met wachtwoorden die u wilt valideren.
 2. Installeer de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) op de server die is geïdentificeerd in de vorige stap. Als u al Azure AD Connect wordt uitgevoerd hebt, controleert u of de versie 1.1.750.0 of hoger.
 
     >[!NOTE]
     >Azure AD Connect-versies 1.1.557.0, 1.1.558.0 1.1.561.0 en 1.1.614.0 is een probleem met betrekking tot wachtwoord-hashsynchronisatie. Als u _niet_ wilt wachtwoord-hashsynchronisatie gebruiken in combinatie met Pass through-verificatie, lees de [opmerkingen bij de release van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Een of meer extra servers identificeren (met Windows Server 2012 R2 of hoger) waar u de zelfstandige verificatie-Agents kunt uitvoeren. Deze extra servers er nodig zijn om te controleren of de hoge beschikbaarheid van aanvragen voor het aanmelden. De servers toevoegen aan hetzelfde Active Directory-forest als de gebruikers met wachtwoorden die u wilt valideren.
+3. Een of meer extra servers identificeren (met Windows Server 2012 R2 of hoger, met TLS 1.2 ingeschakeld) waar u de zelfstandige verificatie-Agents kunt uitvoeren. Deze extra servers er nodig zijn om te controleren of de hoge beschikbaarheid van aanvragen voor het aanmelden. De servers toevoegen aan hetzelfde Active Directory-forest als de gebruikers met wachtwoorden die u wilt valideren.
 
     >[!IMPORTANT]
     >In een productieomgeving, wordt aangeraden dat u hebt een minimum van 3 verificatie-Agents die worden uitgevoerd op uw tenant. Er is een limiet van 12 verificatie-Agents per tenant. En als best practice, behandelt u alle servers met verificatie-Agents als laag 0-systemen (Zie [verwijzing](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -85,7 +85,7 @@ Als u Azure AD Connect al hebt geïnstalleerd met behulp van de [snelle installa
 ![Azure AD Connect: Aanmelden van gebruikers wijzigen](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->Pass through-verificatie is een functie op tenantniveau. Het inschakelen van is van invloed op de aanmelding voor gebruikers in _alle_ de beheerde domeinen in uw tenant. Als u van Active Directory Federation Services (AD FS) naar Pass-through-verificatie overstapt, moet u ten minste 12 uur vóór het afsluiten van de AD FS-infrastructuur wacht. Deze wachttijd is om ervoor te zorgen dat gebruikers houden bij Exchange ActiveSync tijdens de overgang aanmelden kunnen. Voor meer informatie over het migreren van AD FS naar Pass-through-verificatie, Bekijk onze gedetailleerde Implementatiehandleiding gepubliceerd [hier](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Pass through-verificatie is een functie op tenantniveau. Het inschakelen van is van invloed op de aanmelding voor gebruikers in _alle_ de beheerde domeinen in uw tenant. Als u van Active Directory Federation Services (AD FS) naar Pass-through-verificatie overstapt, moet u ten minste 12 uur vóór het afsluiten van de AD FS-infrastructuur wacht. Deze wachttijd is om ervoor te zorgen dat gebruikers houden bij Exchange ActiveSync tijdens de overgang aanmelden kunnen. Voor meer informatie over het migreren van AD FS naar Pass-through-verificatie, Bekijk onze gedetailleerde implementatieplan gepubliceerd [hier](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>Stap 3: De functie testen
 

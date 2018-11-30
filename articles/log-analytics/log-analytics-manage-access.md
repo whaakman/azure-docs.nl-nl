@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 14a33a6480cdb2dbc19b912d51eebda386c55d75
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d291a46eaac0f5e4023d343f700448d029765098
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713160"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634877"
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -52,7 +52,7 @@ Uit oogpunt van verbruik, wordt u aangeraden dat u werkruimten zo weinig mogelij
 * U bent aanbieder van beheerde services en moet de Log Analytics-gegevens voor elke klant geïsoleerd van de gegevens van andere klanten bewaren.
 * U beheert meerdere klanten en wilt dat elke klant / afdeling of bedrijfsgroep om te zien van hun eigen gegevens, maar niet de gegevens van anderen.
 
-Wanneer u Windows-agents gebruikt om gegevens te verzamelen, kunt u [elke agent configureren om te rapporteren aan een of meer werkruimten](log-analytics-agent-windows.md).
+Wanneer u Windows-agents gebruikt om gegevens te verzamelen, kunt u [elke agent configureren om te rapporteren aan een of meer werkruimten](../azure-monitor/platform/agent-windows.md).
 
 Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. U kunt Microsoft Monitoring Agent installeren op computers die worden beheerd door Operations Manager en de agent laten rapporteren over zowel Operations Manager als een andere Log Analytics-werkruimte.
 
@@ -239,7 +239,7 @@ Uw nieuwe data-abonnement wordt weergegeven in het lint van de OMS-portal boven 
 ![OMS-lint](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Log Analytics-agent overzicht](log-analytics-agent-overview.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.
+* Zie [Log Analytics-agent overzicht](../azure-monitor/platform/log-analytics-agent.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.
 * Zie [Gegevens verzamelen over Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) voor het configureren van het verzamelen van gegevens van Azure VM's.  
 * [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](../azure-monitor/insights/solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.
 

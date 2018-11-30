@@ -10,19 +10,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e553833f8b9a5daab5c454cea628acdda0320e76
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9ee5946d9748388cc1f606d89d4edeacb0b9c02
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257636"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498090"
 ---
-# <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Gebruik Spark MLlib een machine learning-toepassing bouwen en analyseren van een gegevensset
+# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib een machine learning-toepassing bouwen en analyseren van een gegevensset gebruiken
 
-Informatie over het gebruik van Spark [MLlib](https://spark.apache.org/mllib/) te maken van een machine learning-toepassing eenvoudig voorspellende analyse uitvoeren op een open-gegevensset. Van Spark van ingebouwde machine learning-bibliotheken, in dit voorbeeld wordt *classificatie* via logistieke regressie. 
+Informatie over het gebruik van Apache Spark [MLlib](https://spark.apache.org/mllib/) te maken van een machine learning-toepassing eenvoudig voorspellende analyse uitvoeren op een open-gegevensset. Van Spark van ingebouwde machine learning-bibliotheken, in dit voorbeeld wordt *classificatie* via logistieke regressie. 
 
 > [!TIP]
-> In dit voorbeeld is ook beschikbaar als een Jupyter-notebook in een Spark (Linux)-cluster die u in HDInsight maakt. De notebookervaring kunt u de Python-codefragmenten uitvoeren vanuit het notitieblok zelf. Volg de zelfstudie uit binnen een laptop, een Spark-cluster maken en starten van een Jupyter-notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Vervolgens voert u de notebook **Spark Machine Learning - voorspellende analyse van voedsel inspectie gegevens met behulp van MLlib.ipynb** onder de **Python** map.
+> In dit voorbeeld is ook beschikbaar als een [Jupyter-Notebook](https://jupyter.org/) op een Spark (Linux)-cluster die u in HDInsight maakt. De notebookervaring kunt u de Python-codefragmenten uitvoeren vanuit het notitieblok zelf. Volg de zelfstudie uit binnen een laptop, een Spark-cluster maken en starten van een Jupyter-notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Vervolgens voert u de notebook **Spark Machine Learning - voorspellende analyse van voedsel inspectie gegevens met behulp van MLlib.ipynb** onder de **Python** map.
 >
 >
 
@@ -47,7 +47,7 @@ In dit voorbeeld gebruikt u Spark voor sommige voorspellende analyses uitvoeren 
 
 In de onderstaande stappen kunt u een model om te zien wat die nodig is voor het doorgeven of mislukken van een controle food ontwikkelen.
 
-## <a name="create-a-spark-mllib-machine-learning-app"></a>Een MLlib Spark machine learning-app maken
+## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Een Apache Spark MLlib machine learning-app maken
 
 1. Maak een Jupyter-notebook met behulp van de PySpark-kernel. Zie [Een Jupyter-notebook maken](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook) voor de instructies.
 
@@ -178,7 +178,7 @@ Laten we beginnen aan een idee van wat de gegevensset bevat.
     SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
     ```
 
-    De `%%sql` magic gevolgd door `-o countResultsdf` zorgt ervoor dat de uitvoer van de query lokaal worden bewaard op de Jupyter-server (meestal het hoofdknooppunt van het cluster). De uitvoer wordt opgeslagen als een [Pandas](http://pandas.pydata.org/) gegevensframe met de opgegeven naam **countResultsdf**. Voor meer informatie over de `%%sql`-magic, en andere magics die voor de PySpark-kernel beschikbaar zijn, raadpleegt u [Beschikbare kernels op Jupyter-notebooks met HDInsight Spark-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    De `%%sql` magic gevolgd door `-o countResultsdf` zorgt ervoor dat de uitvoer van de query lokaal worden bewaard op de Jupyter-server (meestal het hoofdknooppunt van het cluster). De uitvoer wordt opgeslagen als een [Pandas](http://pandas.pydata.org/) gegevensframe met de opgegeven naam **countResultsdf**. Voor meer informatie over de `%%sql` magic, en andere magics die beschikbaar zijn met de PySpark-kernel, Zie [beschikbare Kernels op Jupyter-notebooks met Apache Spark HDInsight-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     De uitvoer is:
 
@@ -385,19 +385,19 @@ Wanneer u klaar bent met het uitvoeren van de toepassing, moet u het notitieblok
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenario's
-* [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
+* [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op afstand fouten in Spark Scala-toepassingen op te lossen](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Zeppelin-notebooks gebruiken met een Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
-* [Beschikbare kernels voor Jupyter-notebook in Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op te sporen Apache Spark-toepassingen op afstand](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Beschikbare kernels voor Jupyter-notebook in Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](apache-spark-jupyter-notebook-install-locally.md)
 

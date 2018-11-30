@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622666"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581796"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Zelfstudie: De gebruikersinterface van uw toepassingen in Azure Active Directory B2C aanpassen
 
@@ -64,7 +64,7 @@ Hoewel u kunt uw bestanden opslaan op veel manieren voor deze zelfstudie, u ze i
  Azure AD B2C-code in een browser gebruikmaakt van een moderne en standard-benadering aangepaste inhoud laden vanuit een URL die u in een beleid opgeeft. Cross-origin resource sharing (CORS) kunt beperkte resources op een webpagina moet worden gevraagd uit andere domeinen.
 
 1. Selecteer in het menu **CORS**.
-2. Voor **oorsprongen toegestaan**, voer `your-tenant-name.b2clogin.com`. Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant. Bijvoorbeeld `fabrikam.b2clogin.com`.
+2. Voor **oorsprongen toegestaan**, voer `https://your-tenant-name.b2clogin.com`. Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant. Bijvoorbeeld `https://fabrikam.b2clogin.com`. U moet alle kleine letters gebruiken bij het invoeren van de tenantnaam van uw.
 3. Voor **toegestaan methoden**, selecteert u beide `GET` en `OPTIONS`.
 4. Voor **toegestaan Headers**, geeft u een sterretje (*).
 5. Voor **blootgesteld Headers**, geeft u een sterretje (*).

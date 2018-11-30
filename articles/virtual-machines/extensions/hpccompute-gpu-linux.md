@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 8883111387bea4a78e81123f95201ed4826dcb1c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820338"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498874"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-stuurprogramma-extensie voor Linux
 
@@ -85,7 +85,7 @@ Alle instellingen zijn optioneel. Het standaardgedrag is het niet bijwerken de k
 | Naam | Beschrijving | Standaardwaarde | Geldige waarden | Gegevenstype |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Bijwerken van de kernel, zelfs als niet vereist voor de installatie van stuurprogramma | false | waar of ONWAAR | booleaans |
-| driverVersion | NV: RASTER stuurprogrammaversie<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | meest recente | GRID: "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | tekenreeks |
+| driverVersion | NV: RASTER stuurprogrammaversie<br> NC/ND: CUDA toolkit versie. De meest recente stuurprogramma's voor de gekozen CUDA worden automatisch geïnstalleerd. | meest recente | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | tekenreeks |
 | installCUDA | CUDA-toolkit installeren. Alleen relevant voor NC/ND-serie VM's. | true | waar of ONWAAR | booleaans |
 
 

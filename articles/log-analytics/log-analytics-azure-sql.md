@@ -2,25 +2,22 @@
 title: Azure SQL Analytics-oplossing in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics-oplossing helpt u bij het beheren van uw Azure SQL-databases
 services: log-analytics
-documentationcenter: ''
-author: danimir
-manager: carmonm
-ms.reviewer: carlrab
-ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+author: danimir
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 11/26/2018
 ms.author: v-daljep
-ms.component: ''
-ms.openlocfilehash: 84ccd411fd93004a4d3de50e8f4e844f77635421
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 57faa347b2733ebf65757b02ee9395f94776cf10
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284350"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635387"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -32,21 +29,20 @@ Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangep
 
 Zie de ingesloten video voor een praktische overzicht over het gebruik van Azure SQL Analytics-oplossing en voor typische gebruiksscenario's:
 
-[!VIDEO https://youtu.be/GK2Hl21aZqQ]
+>[!VIDEO https://youtu.be/j-NDkN4GIzg]
+>
 
 ## <a name="connected-sources"></a>Verbonden bronnen
 
-Azure SQL Analytics is een cloud die alleen bewaking oplossing ondersteunende streaming van diagnostische gegevens telemetrie voor Azure SQL Database Managed Instance-databases en elastische pools.
-
-Als de oplossing niet agents gebruikt voor het verbinding maken met de Log Analytics-service, de oplossing niet het bewaken van on-premises SQL Server die wordt gehost of in virtuele machines ondersteunen, Zie de onderstaande Compatibiliteitstabel.
+Azure SQL Analytics is een cloud alleen bewaking ondersteunende streaming-oplossing van diagnostische gegevens telemetrie voor Azure SQL-databases: één, gegroepeerde en beheerde exemplaar-databases. Als de oplossing niet agents gebruikt voor het verbinding maken met de Log Analytics-service, de oplossing niet het bewaken van on-premises SQL Server die wordt gehost of in virtuele machines ondersteunen, Zie de onderstaande Compatibiliteitstabel.
 
 | Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
-| **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
+| [Azure Diagnostics](log-analytics-azure-storage.md) | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |
-| [Windows-agents](log-analytics-agent-windows.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
+| [Windows-agents](../azure-monitor/platform/agent-windows.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
 | [Linux-agents](log-analytics-quick-collect-linux-computer.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
-| [SCOM-beheergroep](log-analytics-om-agents.md) | Nee | Een directe verbinding van de SCOM-agent naar Log Analytics wordt niet gebruikt door de oplossing. |
+| [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) | Nee | Een directe verbinding van de Operations Manager-agent naar Log Analytics wordt niet gebruikt door de oplossing. |
 
 ## <a name="configuration"></a>Configuratie
 
@@ -64,9 +60,9 @@ De volgende stappen uitvoeren om de Azure SQL Analytics-oplossing toevoegt aan u
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Azure SQL-Databases, elastische pools en beheerde instanties tot stream diagnostische gegevens telemetrie configureren
 
-Nadat u Azure SQL Analytics-oplossing in uw werkruimte hebt gemaakt, als u wilt bewaken van prestaties van Azure SQL-databases, -databases in de Managed Instance-databases en elastische pools, moet u **elk configureren** hiervan resources die u wilt bewaken om te streamen van de diagnostische gegevens telemetrie aan de oplossing. Volg de gedetailleerde instructies op deze pagina:
+Nadat u Azure SQL Analytics-oplossing in uw werkruimte hebt gemaakt, moet u **elk configureren** resources die u wenst te bewaken om te streamen van de diagnostische gegevens telemetrie aan de oplossing. Gedetailleerde instructies op deze pagina:
 
-- Azure Diagnostics inschakelt voor uw Azure SQL Database Managed Instance-databases en elastische pools voor [streamen van diagnostische gegevens telemetrie naar Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
+- Azure Diagnostics inschakelt voor uw Azure SQL-database om [streamen van diagnostische gegevens telemetrie naar Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 De bovenstaande pagina bevat ook instructies over het inschakelen van ondersteuning voor het bewaken van meerdere Azure-abonnementen van één Azure SQL Analytics-werkruimte als een enkel glazen.
 
@@ -84,11 +80,11 @@ Voor het dashboard van Azure SQL Analytics-controle voor Azure SQL-Databases en 
 
 Het dashboard bevat een overzicht van alle databases die via verschillende perspectieven worden bewaakt. Voor verschillende perspectieven te werken, moet u juiste metrische gegevens of Logboeken inschakelen voor uw SQL-resources kunnen worden gestreamd naar Azure Log Analytics-werkruimte.
 
-Houd er rekening mee dat als bepaalde metrische gegevens of Logboeken worden niet gestreamd naar Azure Log Analytics, de tegels in de oplossing niet worden ingevuld met de controlegegevens.
+Houd er rekening mee dat als bepaalde metrische gegevens of Logboeken worden niet gestreamd naar Azure Log Analytics, de tegels in de oplossing zijn niet gevuld met het bewaken van gegevens.
 
 ### <a name="azure-sql-database-and-elastic-pool-view"></a>Azure SQL-databases en elastische Pools weergeven
 
-Nadat de Azure SQL Analytics tegel voor Azure SQL Database en elastische pools is geselecteerd, wordt het controleprogramma dashboard wordt weergegeven.
+Nadat de tegel Azure SQL Analytics voor de database is geselecteerd, wordt het controleprogramma dashboard wordt weergegeven.
 
 ![Overzicht van Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -100,7 +96,7 @@ Elk perspectief in deze weergave biedt samenvattingen op abonnement, server, ela
 
 ### <a name="managed-instance-and-databases-in-managed-instance-view"></a>Voor het beheerde exemplaar en de databases in het beheerde exemplaar weergeven
 
-Nadat de Azure SQL Analytics tegel voor beheerde instanties en beheerd te zetten databases is geselecteerd, wordt het controleprogramma dashboard wordt weergegeven.
+Nadat de tegel Azure SQL Analytics voor de databases is geselecteerd, wordt het controleprogramma dashboard wordt weergegeven.
 
 ![Overzicht van Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview-mi.png)
 
@@ -116,7 +112,7 @@ De onderstaande tabel geeft een overzicht van perspectieven voor twee versies va
 
 | Perspectief | Beschrijving | Ondersteuning voor SQL-databases en elastische pools | Ondersteuning voor Instance beheerd |
 | --- | ------- | ----- | ----- |
-| Resource per type | Perspectief dat alle resources die worden bewaakt telt. | Ja | Ja | 
+| Resource per type | Perspectief dat alle resources die worden bewaakt telt. | Ja | Ja |
 | Inzichten | Hiërarchische inzoomen biedt naar intelligente inzichten in prestaties. | Ja | Ja |
 | Fouten | Biedt hiërarchische inzoomen in SQL-fouten die hebben plaatsgevonden voor de databases. | Ja | Ja |
 | Time-outs | Biedt hiërarchische inzoomen in SQL-outs die hebben plaatsgevonden voor de databases. | Ja | Nee |
@@ -127,7 +123,7 @@ De onderstaande tabel geeft een overzicht van perspectieven voor twee versies va
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights-rapport
 
-Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) kunt u weten wat er gebeurt met de prestaties van Azure SQL-Databases en Managed Instance-databases. Alle Intelligent Insights verzamelde kan worden gevisualiseerd en toegankelijk is via de Insights-perspectief.
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) kunt u weten wat er gebeurt met de prestaties van alle Azure SQL-databases. Alle Intelligent Insights verzamelde kan worden gevisualiseerd en toegankelijk is via de Insights-perspectief.
 
 ![Azure SQL Analytics-inzichten](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -147,13 +143,13 @@ Via de duur van de Query en de query wacht perspectieven, kunt u de prestaties v
 
 ## <a name="permissions"></a>Machtigingen
 
-Voor het gebruik van Azure SQL Analytics gebruikers worden op minimaal moet de rol van lezer in Azure worden verleend. Deze rol wordt echter niet toestaan dat gebruikers de querytekst wilt zien of een functie automatisch afstemmen van acties uitvoeren. Meer vrije rollen in Azure die ervoor zorgen dat de oplossing gebruikt de eisen voor zover zijn eigenaar, Inzender, ' SQL DB Contributor ' of Inzender voor SQL Server. U kunt ook rekening houden met het maken van een aangepaste rol in de portal met specifieke machtigingen vereist alleen voor het gebruik van Azure SQL Analytics, en geen toegang tot andere resources beheren.
+Gebruikers moeten een minimale machtigingen van de rol van lezer in Azure worden verleend voor het gebruik van Azure SQL Analytics. Deze rol echter niet toestaan dat gebruikers de querytekst wilt zien, of een functie automatisch afstemmen van acties uitvoeren. Ruimere rollen in Azure die met behulp van de oplossing aan de eisen voor zover is toegestaan zijn eigenaar, Inzender, ' SQL DB Contributor ' of Inzender voor SQL Server. U kunt ook rekening houden met het maken van een aangepaste rol in de portal met specifieke machtigingen vereist alleen voor het gebruik van Azure SQL Analytics, en geen toegang tot andere resources beheren.
 
 ### <a name="creating-a-custom-role-in-portal"></a>Het maken van een aangepaste rol in de portal
 
-Herkent dat sommige organisaties strikte machtiging besturingselementen in Azure afdwingen, vindt u de volgende PowerShell-script voor het inschakelen van het maken van een aangepaste rol 'SQL Analytics Toepassingsbewaking-Operator' in Azure portal met de minimale machtigingen lezen en schrijven Gebruik Azure SQL Analytics aan de eisen voor zover is vereist.
+De volgende PowerShell-script voor het inschakelen van het maken van een aangepaste rol 'SQL Analytics Toepassingsbewaking-Operator' in Azure portal met de minimale machtigingen lezen en schrijven vereist om te erkennen dat sommige organisaties strikte machtiging besturingselementen in Azure afdwingen, zoeken Gebruik Azure SQL Analytics aan de eisen voor zover is.
 
-Vervang de '{SubscriptionId}' het onderstaande script met de ID van uw Azure-abonnement, en voer het script dat is aangemeld als een eigenaar of de rol Inzender in Azure.
+Vervangen van de '{SubscriptionId}' in het onderstaande script met de ID van uw Azure-abonnement, en voer het script dat is aangemeld als een eigenaar of de rol Inzender in Azure.
 
    ```powershell
     Connect-AzureRmAccount
@@ -184,21 +180,21 @@ Zodra de nieuwe rol is gemaakt, moet u deze rol toewijzen aan elke gebruiker die
 
 ## <a name="analyze-data-and-create-alerts"></a>Gegevens analyseren en waarschuwingen te maken
 
-Analyse van gegevens in Azure SQL Analytics is gebaseerd op [Log Analytics-taal](./query-language/get-started-queries.md) voor uw aangepaste uitvoeren van query's en rapportage. Raadpleeg voor beschrijving van de beschikbare gegevens die worden verzameld van de databaseresource voor aangepaste query's [metrische gegevens en logboeken beschikbaar](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+Analyse van gegevens in Azure SQL Analytics is gebaseerd op [Log Analytics-taal](./query-language/get-started-queries.md) voor uw aangepaste uitvoeren van query's en rapportage. Zoeken naar beschrijving van de beschikbare gegevens die worden verzameld van de databaseresource voor aangepaste query's [metrische gegevens en logboeken beschikbaar](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
 
-Geautomatiseerde waarschuwingen in de oplossing is gebaseerd op een Log Analytics-query die een alarm van een voorwaarde wordt voldaan aan het schrijven. Vindt u hieronder verschillende voorbeelden gegeven van de Log Analytics-query's bij welke waarschuwingen kunnen worden ingesteld in de oplossing.
+Geautomatiseerde waarschuwingen in de oplossing is gebaseerd op een Log Analytics-query die een alarm van een voorwaarde wordt voldaan aan het schrijven. Vindt u hieronder verschillende voorbeelden gegeven van de Log Analytics-query's bij welke waarschuwingen kan worden ingesteld in de oplossing.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Het maken van waarschuwingen voor Azure SQL Database
 
 U kunt eenvoudig [waarschuwingen maken](../monitoring-and-diagnostics/alert-metric.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [zoeken in logboeken](log-analytics-queries.md) query's die u met een waarschuwing gebruiken kunt:
 
-*Hoge CPU-capaciteit op Azure SQL Database*
+#### <a name="high-cpu-on-azure-sql-database"></a>Hoge CPU-capaciteit op Azure SQL Database
 
 ```
-AzureMetrics 
+AzureMetrics
 | where ResourceProvider=="MICROSOFT.SQL"
 | where ResourceId contains "/DATABASES/"
-| where MetricName=="cpu_percent" 
+| where MetricName=="cpu_percent"
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
@@ -207,13 +203,13 @@ AzureMetrics
 > - Vooraf vereiste van het instellen van deze waarschuwing is die stream metrische gegevens gecontroleerde databases (optie 'Alle metrische gegevens') op de oplossing.
 > - Vervang de waarde MetricName cpu_percent door dtu_consumption_percent hoog DTU om resultaten te verkrijgen in plaats daarvan.
 
-*Hoge CPU-capaciteit op Azure SQL Database elastische pools*
+#### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Hoge CPU-capaciteit op Azure SQL Database elastische pools
 
 ```
-AzureMetrics 
+AzureMetrics
 | where ResourceProvider=="MICROSOFT.SQL"
 | where ResourceId contains "/ELASTICPOOLS/"
-| where MetricName=="cpu_percent" 
+| where MetricName=="cpu_percent"
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
@@ -222,7 +218,7 @@ AzureMetrics
 > - Vooraf vereiste van het instellen van deze waarschuwing is die stream metrische gegevens gecontroleerde databases (optie 'Alle metrische gegevens') op de oplossing.
 > - Vervang de waarde MetricName cpu_percent door dtu_consumption_percent hoog DTU om resultaten te verkrijgen in plaats daarvan.
 
-*Azure SQL Database-opslag in gemiddelde meer dan 95% in de afgelopen 1 uur*
+#### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Azure SQL Database-opslag in gemiddelde meer dan 95% in de afgelopen 1 uur
 
 ```
 let time_range = 1h;
@@ -240,13 +236,13 @@ AzureMetrics
 > - Deze query vereist een waarschuwingsregel om te worden ingesteld voor het starten een waarschuwing als er resultaten (> 0 resultaten) van de query, die aangeeft of de voorwaarde op sommige databases bestaat. De uitvoer is een lijst van databaseresources die zich boven de storage_threshold binnen de time_range gedefinieerd.
 > - De uitvoer is een lijst van databaseresources die zich boven de storage_threshold binnen de time_range gedefinieerd.
 
-*Waarschuwing bij Intelligent insights*
+#### <a name="alert-on-intelligent-insights"></a>Waarschuwing bij Intelligent insights
 
 ```
 let alert_run_interval = 1h;
 let insights_string = "hitting its CPU limits";
 AzureDiagnostics
-| where Category == "SQLInsights" and status_s == "Active" 
+| where Category == "SQLInsights" and status_s == "Active"
 | where TimeGenerated > ago(alert_run_interval)
 | where rootCauseAnalysis_s contains insights_string
 | distinct ResourceId
@@ -260,33 +256,48 @@ AzureDiagnostics
 
 ```
 AzureDiagnostics
-| where Category == "SQLInsights" and status_s == "Active" 
+| where Category == "SQLInsights" and status_s == "Active"
 | distinct rootCauseAnalysis_s
 ```
 
 ### <a name="creating-alerts-for-managed-instance"></a>Waarschuwingen maken voor beheerd exemplaar
 
-* Beheerde Instance storage hoger is dan 90%
+#### <a name="managed-instance-storage-is-above-90"></a>Managed Instance-opslag meer dan 90 is %
 
 ```
-let storage_percentage_treshold = 90;
+let storage_percentage_threshold = 90;
 AzureDiagnostics
 | where Category =="ResourceUsageStats"
 | summarize (TimeGenerated, calculated_storage_percentage) = arg_max(TimeGenerated, todouble(storage_space_used_mb_s) *100 / todouble (reserved_storage_mb_s))
    by ResourceId
-| where calculated_storage_percentage > storage_percentage_treshold
+| where calculated_storage_percentage > storage_percentage_threshold
 ```
 
 > [!NOTE]
 > - Vooraf vereiste van het instellen van deze waarschuwing is dat bewaakte beheerd exemplaar voor het streamen van ResourceUsageStats logboek is ingeschakeld op de oplossing.
 > - Deze query vereist een waarschuwingsregel om te worden ingesteld voor het uitschakelen van een waarschuwing wordt geactiveerd wanneer er resultaten (> 0 resultaten) van de query, die aangeeft of de voorwaarde op het beheerde exemplaar bestaat. De uitvoer is percentage het opslagverbruik van het beheerde exemplaar.
 
+#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Beheerde exemplaar gemiddelde processorgebruik hoger is dan 95% in de afgelopen 1 uur
+
+```
+let cpu_percentage_threshold = 95;
+let time_threshold = ago(1h);
+AzureDiagnostics
+| where Category == "ResourceUsageStats" and TimeGenerated > time_threshold
+| summarize avg_cpu = max(todouble(avg_cpu_percent_s)) by ResourceId
+| where avg_cpu > cpu_percentage_threshold
+```
+
+> [!NOTE]
+> - Vooraf vereiste van het instellen van deze waarschuwing is dat bewaakte beheerd exemplaar voor het streamen van ResourceUsageStats logboek is ingeschakeld op de oplossing.
+> - Deze query vereist een waarschuwingsregel om te worden ingesteld voor het uitschakelen van een waarschuwing wordt geactiveerd wanneer er resultaten (> 0 resultaten) van de query, die aangeeft of de voorwaarde op het beheerde exemplaar bestaat. De uitvoer is de gemiddelde CPU-gebruik percentage verbruik in gedefinieerde periode op het beheerde exemplaar.
+
 ### <a name="pricing"></a>Prijzen
 
-De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetrie boven de gratis eenheden van gegevensopname die elke maand toegewezen van toepassing is, Zie [Log Analytics-prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor). Gratis eenheden van de gegevensopname opgegeven gratis bewaking inschakelen van meerdere databases per maand. Houd er rekening mee dat meer actieve databases met zwaardere werkbelastingen zal worden gebruikt voor het opnemen van meer gegevens ten opzichte van niet-actieve databases. U kunt uw gegevensverbruik voor opname in de oplossing eenvoudig bewaken met OMS-werkruimte in het navigatiemenu van Azure SQL Analytics selecteren en vervolgens de optie gebruik en geschatte kosten.
+De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetrie boven de gratis eenheden van gegevensopname die elke maand toegewezen van toepassing is, Zie [Log Analytics-prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor). Gratis eenheden van de gegevensopname opgegeven gratis bewaking inschakelen van meerdere databases per maand. Houd er rekening mee dat meer actieve databases met een zwaardere werkbelasting meer gegevens ten opzichte van niet-actieve databases opnemen. U kunt uw gegevensverbruik voor opname in de oplossing eenvoudig bewaken met OMS-werkruimte in het navigatiemenu van Azure SQL Analytics selecteren en vervolgens de optie gebruik en geschatte kosten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Gebruik [zoekopdrachten](log-analytics-queries.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
-- [Maak uw eigen dashboards](log-analytics-dashboards.md) met Azure SQL-gegevens.
+- [Maak uw eigen dashboards](../azure-monitor/platform/dashboards.md) met Azure SQL-gegevens.
 - [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-alerts.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.

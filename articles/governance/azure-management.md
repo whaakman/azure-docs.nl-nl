@@ -1,5 +1,5 @@
 ---
-title: Azure-beheer
+title: Overzicht van Azure Management
 description: Overzicht van de gebieden van beheer voor Azure-toepassingen en bronnen met koppelingen naar inhoud op Azure-beheerhulpprogramma's.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978217"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582273"
 ---
 # <a name="management-in-azure"></a>Beheer in Azure
 
@@ -43,7 +43,7 @@ Governance in Azure wordt hoofdzakelijk geïmplementeerd via twee services. Met 
 
 ## <a name="secure"></a>Beveiligen
 
-Beveiliging van uw toepassingen, resources en gegevens beheren, moet u een combinatie van de beoordeling van bedreigingen, verzamelen en analyseren van beveiligingsgegevens en ervoor te zorgen dat uw toepassingen en resources zijn ontworpen en geconfigureerd op een veilige manier. Beveiligingsbewaking en bedreigingsanalyse worden door [Azure Security Center](../security-center/security-center-intro.md) geboden, dat ook geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbescherming voor verschillende hybride cloud-werkbelastingen mogelijk maakt. Raadpleeg ook [Inleiding tot Azure-beveiliging](../security/azure-security.md) voor uitgebreide informatie over beveiliging in Azure en richtlijnen voor het veilig configureren van Azure-resources.
+Beveiliging van uw toepassingen, resources en gegevens beheren, moet u een combinatie van de beoordeling van bedreigingen, verzamelen en analyseren van beveiligingsgegevens en ervoor te zorgen dat uw toepassingen en resources zijn ontworpen en geconfigureerd op een veilige manier. Beveiligingsanalyse beveiligingsbewaking en bedreigingsanalyse worden geleverd door Azure Security Center, waaronder geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor hybride cloudworkloads. Raadpleeg ook [Inleiding tot Azure-beveiliging](../security/azure-security.md) voor uitgebreide informatie over beveiliging in Azure en richtlijnen voor het veilig configureren van Azure-resources.
 
 ## <a name="protect"></a>Beschermen
 

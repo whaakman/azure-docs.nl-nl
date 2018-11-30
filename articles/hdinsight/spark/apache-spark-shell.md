@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 5aaf169418962c08f5f45413f53d4c92588a98bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041479"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581422"
 ---
-# <a name="run-spark-from-the-spark-shell"></a>Spark kan worden uitgevoerd vanuit de Spark-Shell
+# <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark kan worden uitgevoerd vanuit de Spark-Shell
 
-Een interactieve Spark-Shell biedt een REPL-omgeving (read-execute-print-loop) voor het uitvoeren van de Spark opdrachten één bewerking tegelijk en de resultaten. Dit proces is handig voor ontwikkeling en foutopsporing. Spark biedt een shell voor elk van de ondersteunde talen: Scala, Python en R.
+Een interactieve [Apache Spark](https://spark.apache.org/) Shell biedt een omgeving REPL (alleen-uitvoeren-print-loop) voor Spark opdrachten één bewerking tegelijk uitvoeren en de resultaten. Dit proces is handig voor ontwikkeling en foutopsporing. Spark biedt een shell voor elk van de ondersteunde talen: Scala, Python en R.
 
-## <a name="get-to-a-spark-shell-with-ssh"></a>Kennismaking met een Spark-Shell met SSH
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Kennismaking met een Apache Spark-Shell met SSH
 
-Toegang tot een Spark-Shell op HDInsight door verbinding te maken met het primaire hoofdknooppunt van het cluster via SSH:
+Toegang tot een Apache Spark-Shell op HDInsight door verbinding te maken met het primaire hoofdknooppunt van het cluster via SSH:
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
@@ -40,7 +40,7 @@ U kunt de volledige SSH-opdracht krijgen voor uw cluster vanuit Azure portal:
 
 Zie voor meer informatie over het gebruik van SSH verbinding maken met HDInsight [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run-a-spark-shell"></a>Een Spark-Shell uitvoeren
+## <a name="run-an-apache-spark-shell"></a>Een Apache Spark-Shell uitvoeren
 
 Spark biedt houders (spark-shell) Scala, Python (pyspark) en R (sparkR). Voer in de SSH-sessie op het hoofdknooppunt van het HDInsight-cluster in een van de volgende opdrachten:
 
@@ -69,7 +69,7 @@ De Spark-Shell-opdracht (`spark-shell`, `pyspark`, of `sparkR`) biedt ondersteun
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [Inleiding tot Spark in Azure HDInsight](apache-spark-overview.md) voor een overzicht.
+- Zie [Inleiding tot Apache Spark in Azure HDInsight](apache-spark-overview.md) voor een overzicht.
 - Zie [een Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) om te werken met Spark-clusters en SparkSQL.
-- Zie [wat is Spark Structured Streaming?](apache-spark-streaming-overview.md) toepassingen schrijft die met Spark-gegevensstromen verwerken.
+- Zie [wat is Apache Spark Structured Streaming?](apache-spark-streaming-overview.md) toepassingen schrijft die met Spark-gegevensstromen verwerken.
 

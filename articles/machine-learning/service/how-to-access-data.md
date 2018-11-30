@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 79e26d4d2cf5743abae6dc0f1fb58585e1b9b9db
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977903"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620197"
 ---
 # <a name="how-to-access-data-during-training"></a>Toegang krijgen tot gegevens tijdens de training
 Een gegevensarchief gebruiken voor toegang tot en interactie met uw gegevens in Azure Machine Learning-werkstromen.
@@ -76,7 +76,7 @@ U kunt ook alle datastores ophalen voor een werkruimte:
 ```Python
 datastores = ws.datastores()
 for name, ds in datastores.items(),
-    print(name, ds.datastore_type)"
+    print(name, ds.datastore_type)
 ```
 
 Voor het gemak, moet u een van uw geregistreerde gegevensopslag als de standaard gegevensopslag voor uw werkruimte instellen:

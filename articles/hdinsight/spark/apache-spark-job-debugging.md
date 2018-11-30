@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: hrasheed
-ms.openlocfilehash: c1589ab2662c3cfb4485afbd73f3d69d50e3cefd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6afb54caca572988c566ab7c6325d511e77fbd3e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013629"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582085"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Apache Spark-taken die worden uitgevoerd op Azure HDInsight
 
-In dit artikel leert u hoe u bij te houden en fouten opsporen in Spark-taken die worden uitgevoerd op HDInsight-clusters met behulp van de gebruikersinterface van YARN, Spark-gebruikersinterface en de Server van de geschiedenis van Spark. Starten van een Spark-taak met behulp van een laptop beschikbaar met het Spark-cluster **Machine learning: Predictive Analytics op food inspectie gegevens met behulp van MLLib**. U kunt de volgende stappen uit om bij te houden van een toepassing die u wilde verzenden met behulp van een andere benadering, bijvoorbeeld **spark-submit**.
+In dit artikel leert u hoe u traceren en foutopsporing kunt uitvoeren [Apache Spark](https://spark.apache.org/) taken die worden uitgevoerd op HDInsight-clusters met behulp van de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark-gebruikersinterface en de Server van de geschiedenis van Spark. Starten van een Spark-taak met behulp van een laptop beschikbaar met het Spark-cluster **Machine learning: Predictive Analytics op food inspectie gegevens met behulp van MLLib**. U kunt de volgende stappen uit om bij te houden van een toepassing die u wilde verzenden met behulp van een andere benadering, bijvoorbeeld **spark-submit**.
 
 ## <a name="prerequisites"></a>Vereisten
 U hebt het volgende:
@@ -102,24 +102,24 @@ Als een taak is voltooid, wordt de informatie over de taak behouden in de Server
 
 ## <a name="see-also"></a>Zie ook
 *  [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](apache-spark-resource-manager.md)
-*  [Fouten opsporen in Spark-taken met behulp van uitgebreide Spark geschiedenis-Server](apache-azure-spark-history-server.md)
+*  [Apache Spark-taken met behulp van uitgebreide Spark geschiedenis-Server](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>Voor gegevensanalisten
 
-* [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Analyse van Application Insights-telemetriegegevens met behulp van Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens gebruiken](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](apache-spark-machine-learning-mllib-ipython.md)
+* [Websitelogboekanalyse met Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Telemetrie analyse van Application Insights met Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Caffe gebruiken op Azure HDInsight Spark voor gedistribueerde deep learning](apache-spark-deep-learning-caffe.md)
 
 ### <a name="for-spark-developers"></a>Voor Spark-ontwikkelaars
 
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](apache-spark-livy-rest-interface.md)
+* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Apache Livy](apache-spark-livy-rest-interface.md)
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op afstand fouten in Spark Scala-toepassingen op te lossen](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Zeppelin-notebooks gebruiken met een Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
-* [Beschikbare kernels voor Jupyter-notebook in Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op te sporen Apache Spark-toepassingen op afstand](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Beschikbare kernels voor Jupyter-notebook in Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](apache-spark-jupyter-notebook-install-locally.md)
 

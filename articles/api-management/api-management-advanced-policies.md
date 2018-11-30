@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262332"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584873"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 -   **Beleid bereiken:** alle bereiken
 
 ##  <a name="LimitConcurrency"></a> Limiet voor gelijktijdigheid
- De `limit-concurrency` beleid voorkomt dat beleid voor ingesloten door meer dan het opgegeven aantal aanvragen wordt uitgevoerd op een bepaald moment. Bij meer dan dit aantal, mislukt nieuwe aanvragen onmiddellijk met de statuscode van 429 te veel aanvragen.
+ De `limit-concurrency` beleid voorkomt dat ingesloten beleid door meer dan het opgegeven aantal aanvragen op elk gewenst moment uitvoeren. Bij meer dan dit aantal, mislukt nieuwe aanvragen onmiddellijk met de statuscode van 429 te veel aanvragen.
 
 ###  <a name="LimitConcurrencyStatement"></a> Beleidsverklaring
 
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Kenmerk|Beschrijving|Vereist|Standaard|
 |---------------|-----------------|--------------|-------------|
 |modus = 'tekenreeks'|Bepaalt of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopie hoofdtekst van de aanvraag niet geïnitialiseerd.|Nee|Nieuw|
-|antwoord-variabele-name = 'tekenreeks'|De naam van de contextvariabele die een antwoordobject voor ontvangen. Als de variabele niet bestaat, wordt verleend na geslaagde uitvoering van het beleid wordt gemaakt en worden daardoor toegankelijk via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) verzameling.|Ja|N/A|
+|antwoord-variabele-name = 'tekenreeks'|De naam van de contextvariabele die een antwoordobject voor ontvangen. Als de variabele niet bestaat, deze na een geslaagde uitvoering van het beleid wordt gemaakt en worden daardoor toegankelijk via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) verzameling.|Ja|N/A|
 |timeout="integer"|De time-outinterval in seconden voordat de aanroep naar de URL is mislukt.|Nee|60|
 |fout negeren|Als true en de resultaten van de aanvraag in een fout opgetreden:<br /><br /> -Als antwoord-variabele-naam bevat een null-waarde is opgegeven.<br />-Als de naam van een reactie variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|false|
 |naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
@@ -876,7 +876,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

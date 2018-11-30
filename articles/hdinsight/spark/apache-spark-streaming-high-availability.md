@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 8f680b60a8f457e1a8619ac044798ff02df15694
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013646"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581898"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Hoge beschikbaarheid Spark Streaming taken met YARN maken
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Hoge beschikbaarheid Apache Spark Streaming taken met YARN maken
 
-Spark Streaming, kunt u voor het implementeren van schaalbare, hoge doorvoer, fouttolerante toepassingen voor verwerking van gegevensstromen. U kunt Spark Streaming-toepassingen op een HDInsight Spark-cluster verbinding maken met een verscheidenheid aan gegevensbronnen, zoals Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, onbewerkte TCP-sockets, of door de bewaking van het HDFS-bestandssysteem voor wijzigingen. Biedt ondersteuning voor Spark Streaming-fouttolerantie gebruikt met de garantie dat een bepaalde gebeurtenis exact één keer worden verwerkt, zelfs met een storing op een knooppunt.
+[Apache Spark](https://spark.apache.org/) Streaming kunt u voor het implementeren van schaalbare, hoge doorvoer, fouttolerante toepassingen voor verwerking van gegevensstromen. U kunt Spark Streaming-toepassingen op een HDInsight Spark-cluster verbinding maken met een verscheidenheid aan gegevensbronnen, zoals Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ ZeroMQ](http://zeromq.org/), onbewerkte TCP-sockets, of door de bewaking van de [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) bestandssysteem voor wijzigingen. Biedt ondersteuning voor Spark Streaming-fouttolerantie gebruikt met de garantie dat een bepaalde gebeurtenis exact één keer worden verwerkt, zelfs met een storing op een knooppunt.
 
 Hiermee maakt u Spark Streaming langdurige taken waarbij u zich kunt transformaties toepassen op de gegevens en wordt vervolgens de resultaten voor bestandssystemen, databases, dashboards en de-console. Spark Streaming micro-batches van de gegevens worden verwerkt door het eerste verzamelen van een batch van gebeurtenissen gedurende een opgegeven tijdsinterval. Vervolgens wordt die batch verzonden op voor de verwerking en uitvoer. Batch-tijdsintervallen worden gewoonlijk gedefinieerd in fracties van een seconde.
 
@@ -54,7 +54,7 @@ Rdd's hebben verschillende eigenschappen die hoge mate beschikbare en fouttolera
 
 Voor het maken van een toepassing waarmee elke gebeurtenis wordt verwerkt zodra (en slechts één keer), houd rekening met hoe alle system Point of failure start opnieuw op nadat er een probleem en hoe kunt u voorkomen dat gegevens verloren gaan. Precies-zodra semantiek vereisen dat er geen gegevens verloren gegaan op elk gewenst moment zijn en die verwerking van berichten kan opnieuw worden gestart, ongeacht waar de fout zich voordoet. Zie [maakt Spark Streaming taken met exact-eenmaal gebeurtenis verwerken](apache-spark-streaming-exactly-once.md).
 
-## <a name="spark-streaming-and-yarn"></a>Spark-Streaming en YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark-Streaming- en Apache Hadoop YARN
 
 In HDInsight, cluster werken, wordt gecoördineerd door *nog een andere Resource Negotiator* (YARN). Hoge beschikbaarheid ontwerpen voor Spark Streaming bestaat uit technieken voor het streamen van Spark en ook voor YARN-onderdelen.  Hieronder ziet u een van de voorbeeldconfiguratie met behulp van YARN. 
 
@@ -120,8 +120,8 @@ Om samen te vatten, met behulp van het plaatsen van controlepunten, WAL + betrou
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Spark-Streaming-overzicht](apache-spark-streaming-overview.md)
-* [Taken met Spark Streaming precies maken-eenmaal gebeurtenis verwerken](apache-spark-streaming-exactly-once.md)
-* [Langlopende Spark-Streamingtaken in YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Apache Spark-Streaming-overzicht](apache-spark-streaming-overview.md)
+* [Taken met Apache Spark Streaming precies maken-eenmaal gebeurtenis verwerken](apache-spark-streaming-exactly-once.md)
+* [Langlopende Apache Spark-Streamingtaken in YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Structured Streaming: Fout met betrekking tot fouttolerante semantiek](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Onderscheiden Streams: Een fouttolerantie Model voor de verwerking van schaalbare Stream](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

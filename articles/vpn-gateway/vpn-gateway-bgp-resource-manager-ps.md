@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 4eb62786522dd1ad7cbf1d5668a4c4493028733c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684332"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632582"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell
 In dit artikel leidt u door de stappen u BGP wilt inschakelen op een cross-premises Site-naar-Site (S2S) VPN-verbinding en een VNet-naar-VNet-verbinding met het Resource Manager-implementatiemodel en PowerShell.
@@ -167,7 +167,7 @@ $BGPPeerIP5 = "10.52.255.254"
 Een aantal aandachtspunten met betrekking tot het lokale netwerk gateway parameters:
 
 * De lokale netwerkgateway kan zich in dezelfde of een andere locatie en resourcegroep als de VPN-gateway. In dit voorbeeld laat zien dat ze in verschillende resourcegroepen bevinden in verschillende locaties.
-* Het minimale voorvoegsel dat u nodig hebt om aan te geven voor de lokale netwerkgateway is het hostadres van uw BGP-Peer-IP-adres op uw VPN-apparaat. In dit geval is het een/32 adverteren voorvoegsel van "10.52.255.254/32".
+* Het voorvoegsel dat u nodig hebt om aan te geven voor de lokale netwerkgateway is het hostadres van uw BGP-Peer-IP-adres op uw VPN-apparaat. In dit geval is het een/32 adverteren voorvoegsel van "10.52.255.254/32".
 * Als een herinnering, moet u andere BGP-ASN's tussen uw on-premises netwerken en Azure VNet. Als ze hetzelfde zijn, moet u uw VNet-ASN wijzigen als het ASN in uw on-premises VPN-apparaat al worden gebruikt om te koppelen aan andere BGP-neighbors.
 
 Controleer voordat u verdergaat of u nog bent verbonden met Abonnement 1.

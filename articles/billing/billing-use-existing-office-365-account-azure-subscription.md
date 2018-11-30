@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: f46d975c33d10688b04fca40b55c249b913fe5a1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f34bed915350b43f7964b4341d1375fb67a6f134
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394672"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584431"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Aanmelden voor een Azure-abonnement met uw Office 365-account
 Als u een Office 365-abonnement hebt, kunt u uw Office 365-account te maken van een Azure-abonnement. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met uw Office 365-gebruikersnaam en wachtwoord. Als u wilt instellen van virtuele machines of andere Azure-services gebruiken, moet u zich aanmelden voor een Azure-abonnement. U kunt uw Azure-abonnement met anderen kunt delen en [Role-Based Access Control gebruiken voor het beheren van toegang tot uw Azure-abonnement en resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -55,5 +55,6 @@ Office 365 en Azure kunt u de Azure AD-service gebruiken voor het beheren van ge
 
 Zie voor meer informatie, [hoe Azure-abonnementen zijn gekoppeld aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
-Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost. 
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
+
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

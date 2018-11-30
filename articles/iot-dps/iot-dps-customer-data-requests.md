@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666935"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584143"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Overzicht van de klant functies voor aanvraag
 
@@ -39,9 +39,9 @@ Zie voor meer informatie, [het apparaatregistraties beheren](how-to-manage-enrol
 
 Het is ook mogelijk delete-bewerkingen voor inschrijvingen en registratie-records met behulp van REST-API's uit te voeren:
 
-* Als u wilt verwijderen van registratie-informatie voor een enkel apparaat, kunt u [Apparaatinschrijving - verwijderen](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
-* Als u wilt verwijderen van registratie-informatie voor een groep apparaten, kunt u [inschrijving apparaatgroep - verwijderen](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
-* Als u wilt verwijderen van informatie over apparaten die zijn ingericht, kunt u [registratiestatus - status van de apparaatregistratie verwijderen](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
+* Als u wilt verwijderen van registratie-informatie voor een enkel apparaat, kunt u [Apparaatinschrijving - verwijderen](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
+* Als u wilt verwijderen van registratie-informatie voor een groep apparaten, kunt u [inschrijving apparaatgroep - verwijderen](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
+* Als u wilt verwijderen van informatie over apparaten die zijn ingericht, kunt u [registratiestatus - status van de apparaatregistratie verwijderen](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
 
 ## <a name="exporting-customer-data"></a>Exporteren van gegevens van de klant
 
@@ -53,9 +53,9 @@ Zie voor meer informatie over het beheren van inschrijvingen [het apparaatregist
 
 Het is ook mogelijk uitvoer-bewerkingen voor inschrijvingen en registratie-records met behulp van REST-API's uit te voeren:
 
-* Als u wilt exporteren inschrijvingsgegevens voor één apparaat, kunt u [Apparaatinschrijving - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
-* Als u wilt exporteren inschrijvingsgegevens voor een groep apparaten, kunt u [inschrijving apparaatgroep - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
-* Als u wilt exporteren informatie over apparaten die al zijn ingericht, kunt u [registratiestatus - Get-registratiestatus](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
+* Als u wilt exporteren inschrijvingsgegevens voor één apparaat, kunt u [Apparaatinschrijving - Get](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
+* Als u wilt exporteren inschrijvingsgegevens voor een groep apparaten, kunt u [inschrijving apparaatgroep - Get](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
+* Als u wilt exporteren informatie over apparaten die al zijn ingericht, kunt u [registratiestatus - Get-registratiestatus](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
 
 > [!NOTE]
 > Wanneer u van Microsoft enterprise-services gebruikt, genereert Microsoft bepaalde informatie bekend als het systeem gegenereerde logboeken. Sommige Device Provisioning Service systeem gegenereerde logboeken zijn niet toegankelijk of door tenantbeheerders kan worden geëxporteerd. Deze logboeken vormen feitelijke acties die zijn uitgevoerd binnen de service en diagnostische gegevens met betrekking tot afzonderlijke apparaten.

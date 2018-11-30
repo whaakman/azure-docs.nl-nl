@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038260"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499115"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Dataiku DDS voor gepubliceerde toepassing - installeren
 
-In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [Dataiku DDS](https://www.dataiku.com/) gepubliceerd Apache Hadoop-toepassing in Azure HDInsight. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
+In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [Dataiku DDS](https://www.dataiku.com/) gepubliceerd [Apache Hadoop](https://hadoop.apache.org/) toepassing voor Azure HDInsight. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>Over Dataiku DSS
 
@@ -26,9 +26,9 @@ De Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/conn
 
 U kunt DSS gebruiken voor het implementeren van een volledige analytische oplossing vanaf gegevensopname, voorbereiding en verwerken. Een DSS-oplossing kan ook training en die van toepassing machine learning-modellen, visualisatie en vervolgens tot het operationaliseren van bevatten.
 
-U kunt DSS installeren op HDInsight met Hadoop- of Spark-clusters. U kunt DSS installeren op bestaande actieve clusters, of bij het maken van nieuwe clusters. DSS biedt ook ondersteuning voor het gebruik van Azure Blob-opslag als een connector voor het lezen van gegevens.
+U kunt DSS installeren op HDInsight met behulp van [Apache Hadoop](https://hadoop.apache.org/) of [Apache Spark](https://spark.apache.org/) clusters. U kunt DSS installeren op bestaande actieve clusters, of bij het maken van nieuwe clusters. DSS biedt ook ondersteuning voor het gebruik van Azure Blob-opslag als een connector voor het lezen van gegevens.
 
-DSS kunt u bouwen van projecten, die vervolgens MapReduce of Spark-taken kunnen genereren. Deze taken worden uitgevoerd als er regelmatig MapReduce of Spark-taken in HDInsight, zodat u het cluster op aanvraag kunt schalen.
+U kunt DSS gebruiken voor het bouwen van projecten, die vervolgens kunnen genereren [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) of Spark-taken. Deze taken worden uitgevoerd als er regelmatig MapReduce of Spark-taken in HDInsight, zodat u het cluster op aanvraag kunt schalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,7 +40,7 @@ Als u wilt deze app installeren op een nieuw HDInsight-cluster of een bestaand c
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Gepubliceerde toepassing installeren de Dataiku DSS
 
-Lees voor stapsgewijze instructies over het installeren van deze en andere beschikbare ISV-toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md).
+Lees voor stapsgewijze instructies over het installeren van deze en andere beschikbare ISV-toepassingen [Apache Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-dataiku-dss"></a>Dataiku DSS starten
 

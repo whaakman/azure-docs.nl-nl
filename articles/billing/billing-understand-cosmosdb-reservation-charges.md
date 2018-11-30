@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353426"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582737"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB
 
@@ -62,8 +62,8 @@ De reserveringskorting wordt toegepast op Azure Cosmos DB doorvoer kosten op bas
 |Azure Cosmos DB - 100 RU/s/uur - CA-centraal|  CA - centraal       |   1.2       |
 |Azure Cosmos DB - 100 RU/s/uur - FR-centraal|   FR - centraal      |    1,25      |
 |Azure Cosmos DB - 100 RU/s/uur - Brazilië Zuid|  BR - zuid       |   1.5      |
-|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal|   Australië-centraal      |   1.5      |
-|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal 2| AU-centraal 2        |    1.5     |
+|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal|   AU - centraal      |   1.5      |
+|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal 2| AU - centraal 2        |    1.5     |
 |Azure Cosmos DB - 100 RU/s/uur - FR-Zuid|    FR - zuid     |    1.625     |
 
 ## <a name="scenarios-that-show-how-the-reservation-discount-is-applied"></a>Scenario's die laten zien hoe de reserveringskorting wordt toegepast
@@ -92,7 +92,7 @@ Bijvoorbeeld, wordt ervan uitgegaan dat u Azure Cosmos DB-implementaties in de r
 
 |Beschrijving van de meter | Regio |Verbruik van doorvoer (RU/s) |De reserveringskorting wordt toegepast op RU/s |
 |---------|---------|---------|---------|
-|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal 2  |  AU-centraal 2   |  50,000  |  50,000   |
+|Azure Cosmos DB - 100 RU/s/uur - Australië-centraal 2  |  AU - centraal 2   |  50,000  |  50,000   |
 |Azure Cosmos DB - 100 RU/s/uur - FR-Zuid  |  FR - zuid   |  50,000 |  15,384  |
 
 Een gebruik van 50.000 eenheden in de regio Australië centraal 2 komt overeen met 75.000 RU/s van factureerbare gebruik (of genormaliseerde gebruik). Deze waarde wordt berekend als: doorvoer verbruik * reservation_discount_ratio_for_that_region. De berekening is gelijk aan 75.000 RU/s van het gebruik van factureerbare of genormaliseerde van. Deze waarde wordt berekend als: 50.000 * 1.5 = 75.000 RU/s.
@@ -115,7 +115,7 @@ Zie voor meer informatie over Azure reserveringen, de volgende artikelen:
 * [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Informatie over het gebruik van de reservering voor CSP-abonnementen](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

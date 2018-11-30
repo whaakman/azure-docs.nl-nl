@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 627ef0123f05e768dd8a83c197b25da7f161a37c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852993"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582408"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -272,12 +272,26 @@ Gebruik de opdracht update voor het verplaatsen van een beheergroep met Azure CL
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>Beheergroepen controleren met behulp van activiteitenlogboeken
+
+Als u de activiteit van beheergroepen wilt bijhouden via een API, gebruikt u de [Tenant Activity Log-API](/rest/api/monitor/tenantactivitylogs). Het is momenteel niet mogelijk om de activiteit van beheergroepen bij te houden met PowerShell, de CLI of de Azure-portal.
+
+1. [Verhoog het toegangsniveau](../../role-based-access-control/elevate-access-global-admin.md) als tenantbeheerder van de Azure AD-tenant en wijs vervolgens de rol van Lezer toe aan de controlerende gebruiker voor het bereik `/providers/microsoft.insights/eventtypes/management`.
+1. Roep als controlerende gebruiker de [Tenant Activity Log-API](/rest/api/monitor/tenantactivitylogs) aan om de activiteit van beheergroepen weer te geven. Voor alle activiteit van beheergroepen moet u filteren op de resourceprovider **Microsoft.Management**.  Voorbeeld:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Probeer [ARMClient](https://github.com/projectkudu/ARMClient) om deze API eenvoudig aan te roepen vanaf de opdrachtregel.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de beheergroepen:
+Voor meer informatie over beheergroepen gaat u naar:
 
-- [Resources organiseren met beheergroepen voor Azure](overview.md)
 - [Beheergroepen maken om Azure-resources te ordenen](create.md)
-- [De Azure Powershell-module installeren](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [De REST API-specificaties bekijken](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [De Azure CLI-extensie installeren](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
+- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](https://aka.ms/mgPSdocs)
+- [Beheergroepen bekijken via de REST-API](https://aka.ms/mgAPIdocs)
+- [Beheergroepen bekijken via de Azure-CLI](https://aka.ms/mgclidoc)

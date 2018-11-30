@@ -2,19 +2,18 @@
 title: Het doel-Azure Functions runtime-versies
 description: Azure Functions ondersteunt meerdere versies van de runtime. Informatie over het opgeven van de runtimeversie van een functie-app die wordt gehost in Azure.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886804"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498402"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Het doel-Azure Functions runtime-versies
 
@@ -37,23 +36,13 @@ De waarden die u kunt instellen in de `FUNCTIONS_EXTENSION_VERSION` app-instelli
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Weergeven en bijwerken van de huidige runtimeversie
 
-Gebruik de volgende procedure om de runtimeversie die momenteel wordt gebruikt door een functie-app weer te geven.
+Kunt u de runtimeversie die wordt gebruikt door u functie-app. Vanwege het potentieel van belangrijke wijzigingen, moet u de runtimeversie alleen wijzigen voordat u alle functies in uw functie-app hebt gemaakt. Hoewel de runtimeversie wordt bepaald door de `FUNCTIONS_EXTENSION_VERSION` instelt, moet u deze wijziging aanbrengt in Azure portal en niet door de instelling wijzigen rechtstreeks. Dit is omdat de portal voor uw wijzigingen worden gevalideerd en andere gerelateerde wijzigingen aanbrengt, indien nodig.
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar uw functie-app.
+### <a name="from-the-azure-portal"></a>Vanuit Azure portal
 
-1. Onder **functies geconfigureerd**, kiest u **functie app-instellingen**.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![Instellingen voor functie-app selecteren](./media/set-runtime-version/add-update-app-setting.png)
-
-1. In de **functie app-instellingen** tabblad, Ga naar de **runtimeversie**. Houd er rekening mee de specifieke runtimeversie en de aangevraagde primaire versie. In het onderstaande voorbeeld de versie is ingesteld op `~2`.
-
-   ![Instellingen voor functie-app selecteren](./media/set-runtime-version/function-app-view-version.png)
-
-1. Als u wilt vastmaken aan de versie 1.x-runtime uw functie-app, kies **~ 1** onder **runtimeversie**. Deze schakeloptie is uitgeschakeld als er functies in uw app.
-
-1. Als u de runtimeversie is gewijzigd, gaat u terug naar de **overzicht** tabblad en kies **opnieuw** de app opnieuw te starten.  De functie-app wordt opnieuw opgestart die worden uitgevoerd op de versie 1.x-runtime en de sjablonen van versie 1.x worden gebruikt wanneer u functies maakt.
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Weergeven en bijwerken van de runtimeversie met behulp van Azure CLI
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Vanuit de Azure CLI
 
 U kunt ook bekijken en stel de `FUNCTIONS_EXTENSION_VERSION` vanuit de Azure CLI.
 

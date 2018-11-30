@@ -3,7 +3,7 @@ title: Beveiligingswaarschuwingen per type in Azure Security Center | Microsoft 
 description: In dit artikel worden de verschillende soorten beveiligingswaarschuwingen die beschikbaar zijn in Azure Security Center besproken.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262111"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633262"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen in Azure Security Center
 Dit artikel helpt u te begrijpen welke verschillende typen beveiligingswaarschuwingen en bijbehorende inzichten er beschikbaar zijn in Azure Security Center. Lees [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md) voor meer informatie over het beheren van waarschuwingen en incidenten.
 
-Als u geavanceerde detectie wilt instellen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de **prijscategorie** in het [beveiligingsbeleid](security-center-policies.md). Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
+Als u geavanceerde detectie wilt instellen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de **prijscategorie** in het [beveiligingsbeleid](security-center-azure-policy.md). Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
 
 > [!NOTE]
 > Security Center heeft een nieuwe set detecties vrijgegeven voor beperkte preview. Deze detecties maken gebruik van controlerecords, een gemeenschappelijk controleframework, voor het detecteren van de schadelijke gedragingen op Linux-machines. Stuur [ons](mailto:ASC_linuxdetections@microsoft.com) een e-mail met uw abonnement-id's als u wilt deelnemen aan de preview.
@@ -48,7 +48,7 @@ Azure Security Center kan gebruikmaken van gedragsanalyses om verdachte resource
 Security Center maakt gebruik van geavanceerde analyses om verdachte resources te identificeren op basis van de analyse van gebeurtenislogboeken van virtuele machines. Bijvoorbeeld procesgebeurtenissen en aanmeldgebeurtenissen. Er wordt ook gekeken naar andere signalen om te controleren op ondersteunend bewijs van een wijdverbreide aanval.
 
 * **Suspicious process execution detected**: Aanvallers proberen vaak zonder detectie schadelijke code uit te voeren door zich voor te doen als onschadelijke processen. Deze waarschuwingen geven aan dat de uitvoering van een proces overeenkomt met een van de volgende patronen:
-    * Er is een proces uitgevoerd dat wordt gebruikt voor schadelijke doeleinden. Terwijl afzonderlijke opdrachten goedaardig lijken te zijn, wordt de waarschuwing weergegeven op basis van de aggregatie van deze opdrachten.
+    * Er is een proces uitgevoerd dat wordt gebruikt voor schadelijke doeleinden. Terwijl afzonderlijke opdrachten goedaardig weergegeven mogelijk, wordt de waarschuwing beoordeeld op basis van een aggregatie van deze opdrachten.
     * Er is een proces uitgevoerd vanaf een ongewone locatie.
     * Er is een proces uitgevoerd vanaf een locatie die bekend staat vanwege verdachte bestanden.
     * Er is een proces uitgevoerd vanaf een verdacht pad.
@@ -57,7 +57,7 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
     * Er is een proces met een verdachte extensie uitgevoerd.
     * Er is een proces met een verdachte dubbele extensie uitgevoerd.
     * Er is een proces met een verdacht teken van rechts naar links (RLO) in de bestandsnaam uitgevoerd.
-    * Er is een proces uitgevoerd waarvan de naam lijkt op, maar niet hetzelfde is als die van een vaak uitgevoerd proces.
+    * Een proces waarvan de naam vergelijkbaar met, maar een andere uit een vaak uitgevoerd proces is er is uitgevoerd
     * Er is een proces uitgevoerd waarvan de naam overeenkomt met een bekend aanvalprogramma.
     * Er is een proces met een willekeurige naam uitgevoerd.
     * Er is een proces met een verdachte extensie uitgevoerd.
@@ -82,7 +82,7 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **Suspicious RDP resource activity**: Aanvallers richten zich met beveiligingsaanvallen vaak op open beheerpoorten als RDP. Deze waarschuwingen wijzen op verdachte aanmelding voor Extern bureaublad die het volgende aangeven:
     * Er is een poging tot aanmelding voor Extern bureaublad gedaan.
     * Er is een poging gedaan tot aanmelding voor Extern bureaublad met ongeldige accounts.
-    * Er zijn meerdere pogingen gedaan tot aanmelding voor Extern bureaublad, waarbij het aanmelden een aantal keren is gelukt.
+    * Aanmelding voor extern bureaublad zijn verzonden, waarvan sommige konden is Meld u aan bij de machine.
 * **Suspicious SSH resource activity**: Aanvallers richten zich met beveiligingsaanvallen vaak op open beheerpoorten als SSH. Deze waarschuwingen wijzen op verdachte aanmelding voor SSH die het volgende aangeven:
     * Er zijn mislukte SSH-aanmeldingspogingen gedaan.
     * Er zijn SSH-aanmeldingspogingen gedaan, waarvan een aantal pogingen is gelukt.
@@ -96,15 +96,15 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **All file shadow copies have been deleted**: deze waarschuwing geeft aan dat schaduwkopieën zijn verwijderd.
 * **Suspicious file cleanup commands**: deze waarschuwing geeft aan dat een combinatie van systeminfo-opdrachten is gebruikt om zelfopschonende activiteiten uit te voeren.  Hoewel *systeminfo.exe* een legitiem Windows-hulpprogramma is, is het niet gebruikelijk dat dit hulpprogramma tweemaal achter elkaar wordt uitgevoerd gevolgd door een wisopdracht, zoals in dit geval is gedaan.
 * **Suspicious account creation**: Deze waarschuwing geeft aan dat er een account is gemaakt dat veel overeenkomsten vertoont met een bestaand ingebouwd account met beheerdersbevoegdheden. Deze techniek kan door aanvallers worden gebruikt om een rogue-account te maken zonder te worden gedetecteerd.
-* **Suspicious volume shadow copy activity**: Deze waarschuwing geeft aan dat de schaduwkopie op de resource is verwijderd. Volume Shadow Copy (VSC) is een belangrijk artefact waarin momentopnamen van de gegevens worden opgeslagen. Deze activiteit wordt meestal veroorzaakt door ransomware, maar dit kan ook een legitieme activiteit zijn.
+* **Suspicious volume shadow copy activity**: Deze waarschuwing geeft aan dat de schaduwkopie op de resource is verwijderd. Volume Shadow Copy (VSC) is een belangrijk artefact waarin momentopnamen van de gegevens worden opgeslagen. Deze activiteit is gekoppeld aan Ransomware, maar dit kan ook worden legitieme.
 * **Windows registry persistence method**: Deze waarschuwing duidt op een poging om een uitvoerbaar bestand in het Windows-register te behouden. Deze techniek wordt vaak door malware gebruikt om een opstartsessie te overleven.
 * **Suspicious new firewall rule**: deze waarschuwing geeft aan dat een nieuwe firewallregel is toegevoegd via *netsh.exe* om verkeer van een uitvoerbaar bestand op een verdachte locatie mogelijk te maken.
-* **Suspicious XCOPY executions**: deze waarschuwing geeft een reeks XCOPY-uitvoeringen aan, wat erop kan duiden dat een van uw computers is geïnfecteerd en wordt gebruikt om malware te verspreiden.
-* **Suppression of legal notice displayed to users at logon**: Deze waarschuwing geeft een wijziging in de registersleutel aan die bepaalt of een juridische kennisgeving wordt weergegeven voor gebruikers wanneer ze zich aanmelden. Dit is een veelgebruikte activiteit van aanvallers nadat een host is geïnfecteerd.
+* **Suspicious XCOPY executions**: deze waarschuwing geeft aan dat een reeks XCOPY-uitvoeringen die duiden kan dat een van uw computers is geïnfecteerd en is gebruikt om malware te verspreiden.
+* **Onderdrukking van de juridische kennisgeving weergegeven voor gebruikers bij aanmelding**: deze waarschuwing geeft aan dat een wijziging in de registersleutel die bepaalt of een juridische kennisgeving wordt weergegeven aan gebruikers wanneer ze zich aanmelden. Dit is een veelgebruikte activiteit van aanvallers nadat een host is geïnfecteerd.
 * **Detected anomalous mix of upper and lower case characters in command line**: Deze waarschuwing geeft aan dat er zowel hoofdletters als kleine letters zijn gebruikt in de opdrachtregel. Dit is een techniek die vaak door aanvallers wordt gebruikt om de hoofdlettergevoelige of hash-gebaseerde machineregel te ontlopen.
 * **Obfuscated command line**: deze waarschuwing geeft aan dat er verborgen, verdachte indicatoren zijn gedetecteerd op de opdrachtregel.
 * **Multiple domain accounts queried**: Aanvallers voeren vaak een query uit op AD-domeinaccounts om gebruikers, domeinbeheeraccounts, domeincontrollers en vertrouwensrelaties te verkennen tussen domeinen. Deze waarschuwing geeft aan dat een ongebruikelijk aantal afzonderlijke domeinaccounts is opgevraagd binnen een korte periode.
-* **Possible local reconnaissance activity**: deze waarschuwing geeft aan dat een combinatie van systeminfo-opdrachten is gekoppeld aan verkenningsactiviteiten.  Hoewel *systeminfo.exe* een legitiem Windows-hulpprogramma is, is het niet gebruikelijk dat dit hulpprogramma tweemaal achter elkaar wordt uitgevoerd.
+* **Mogelijke lokale reconnaissance activiteit**: deze waarschuwing geeft aan dat een combinatie van systeminfo-opdrachten die zijn gekoppeld aan reconnaissance-activiteit is uitgevoerd.  Hoewel *systeminfo.exe* een legitiem Windows-hulpprogramma is, is het niet gebruikelijk dat dit hulpprogramma tweemaal achter elkaar wordt uitgevoerd.
 * **Possible execution of keygen executable**: Deze waarschuwing duidt op een proces dat is uitgevoerd waarvan de naam aangeeft dat een keygen-hulpprogramma is uitgevoerd. Deze hulpprogramma's worden meestal gebruikt om de softwarelicentiemechanismen uit te schakelen. Het downloaden hiervan gaat echter vaak gepaard met andere schadelijke software.
 * **Suspicious execution via rundll32.exe**: deze waarschuwing geeft aan dat rundll32.exe is gebruikt voor het uitvoeren van een proces met een ongebruikelijke naam, dat overeenkomt met het proces dat door aanvallers wordt gebruikt om een implantatie in de eerste fase te installeren op een geïnfecteerde host.
 * **Suspicious combination of HTA and PowerShell**: Deze waarschuwing geeft aan dat door een HTA (Microsoft HTML Application Host) PowerShell-opdrachten worden gestart. Dit is een techniek die aanvallers gebruiken om schadelijke PowerShell-scripts te starten.
@@ -113,7 +113,7 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **An account was created on multiple hosts within a 24-hour time period**: deze waarschuwing geeft aan dat er een poging is gedaan om dezelfde gebruikersaccount op meerdere hosts te maken, wat erop kan duiden dat een aanvaller zich lateraal verplaatst binnen het netwerk nadat een of meerdere netwerkentiteiten zijn geïnfecteerd.
 * **Suspicious use of CACLS to lower the security state of the system**: Deze waarschuwing geeft aan dat de CACLS (change access control list) is gewijzigd. Deze techniek wordt vaak gebruikt door aanvallers om volledige toegang te verlenen tot binaire systeembestanden zoals ftp.exe, net.exe wscript.exe, enzovoort.
 * **Suspected Kerberos Golden Ticket attack parameters**: Deze waarschuwing geeft aan dat opdrachtregelparameters zijn uitgevoerd die consistent zijn met een Kerberos Golden Ticket-aanval. Een verdachte krbtgt-sleutel kan door een aanvaller worden gebruikt om elke gewenste gebruiker te imiteren.
-* **Enabling of the WDigest UseLogonCredential registry key**: deze waarschuwing geeft aan dat de registersleutel is gewijzigd, waardoor aanmeldingsreferenties worden opgeslagen als leesbare tekst in het LSA-geheugen die vervolgens uit het geheugen kunnen worden verzameld.
+* **Inschakelen van de registersleutel WDigest UseLogonCredential**: deze waarschuwing geeft aan dat de registersleutel is gewijzigd zodat teken in de referenties op die moeten worden opgeslagen als leesbare tekst in LSA-geheugen, dat vervolgens kan worden verzameld uit het geheugen.
 * **Potentially suspicious use of Telegram tool**: deze waarschuwing geeft aan dat de installatie van Telegram, een gratis cloudgebaseerde instant messaging-service, wordt gebruikt door aanvallers om schadelijke binaire bestanden over te dragen naar een andere computer, telefoon of tablet.
 * **New ASEP creation**: deze waarschuwing geeft aan dat een nieuwe ASEP (Auto Start Extensibility Point) is gemaakt, waardoor de procesnaam die is geïdentificeerd op de opdrachtregel automatisch wordt gestart en door een aanvaller kan worden gebruikt voor persistentie.
 * **Suspicious Set-ExecutionPolicy and WinRM changes**: deze waarschuwing geeft aan dat er wijzigingen in de configuratie zijn uitgevoerd die zijn gekoppeld aan het gebruik van de schadelijke ChinaChopper-webshell.
@@ -134,7 +134,7 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **Suspicious command line arguments**: deze waarschuwing wijst op verdachte opdrachtregelargumenten die zijn gebruikt in combinatie met een omgekeerde shell die door activiteitengroep HYDROGEN wordt gebruikt.
 * **Suspicious document credentials**: deze waarschuwing wijst op een verdachte, vooraf berekende algemene wachtwoordhash die wordt gebruikt door malware om een bestand uit te voeren.
 * **Dynamic PS script construction**: Deze waarschuwing geeft aan dat een PowerShell-script dynamisch wordt samengesteld. Aanvallers gebruiken deze techniek om geleidelijk een script te maken om IDS-systemen te omzeilen.
-* **Metaploit indicators**: deze waarschuwing wijst op een activiteit die is gekoppeld aan het Metasploit-framework, dat een reeks mogelijkheden en hulpprogramma's voor aanvallers biedt.
+* **Metasploit indicatoren**: deze waarschuwing wijst op een activiteit die is gekoppeld aan het Metasploit-framework, waarmee u een scala aan mogelijkheden en hulpprogramma's.
 * **Suspicious account activity**: deze waarschuwing wijst op een poging om verbinding te maken met een computer door gebruik te maken van een account dat onlangs is aangetast.
 * **Account creation**: deze waarschuwing geeft aan dat een nieuw account op de computer is gemaakt.
 
@@ -146,7 +146,7 @@ De analyse van een crashdumpgeheugen is een methode voor het detecteren van geav
 
 Wanneer software vastloopt, bevat een crashdump een gedeelte van het geheugen ten tijde van de crash. De crash kan zijn veroorzaakt door malware, door gewoon gebruik of door systeemproblemen. Door het geheugen in de crashdump te analyseren, kan Security Center technieken detecteren die worden gebruikt om misbruik te maken van zwakke plekken in software, toegang te krijgen tot vertrouwelijke gegevens en ongemerkt aanwezig te blijven in een aangetaste machine. Een crashanalyse wordt uitgevoerd met minimale gevolgen voor de prestaties van hosts omdat deze wordt uitgevoerd door de back-end van Security Center.
 
-* **Code injection discovered**: Code-injectie is het invoegen van uitvoerbare modules in actieve processen of threads. Deze methode wordt gebruikt door schadelijke software om toegang krijgen tot gegevens, zich te verbergen of te voorkomen dat deze wordt verwijderd (bijvoorbeeld persistentie). Met deze waarschuwing wordt aangegeven dat de crashdump een geïnjecteerde module bevat. Legitieme softwareontwikkelaars voeren af en toe code-injectie uit voor niet-kwaadwillende redenen, bijvoorbeeld om een bestaande toepassing of een bestaand besturingssysteemonderdeel te wijzigen of uit te breiden. Om onderscheid te kunnen maken tussen schadelijke en niet-schadelijke geïnjecteerde modules, controleert Security Center of de geïnjecteerde module voldoet aan een profiel met verdacht gedrag. Het resultaat van deze controle wordt aangegeven door het veld "SIGNATURE" van de waarschuwing en is te zien aan de ernst van de waarschuwing, de omschrijving van de waarschuwing en herstelstappen voor de waarschuwing.
+* **Code injection discovered**: Code-injectie is het invoegen van uitvoerbare modules in actieve processen of threads. Deze techniek wordt gebruikt door malware om toegang tot gegevens, verbergen of te voorkomen dat deze wordt verwijderd (bijvoorbeeld persistentie). Met deze waarschuwing wordt aangegeven dat de crashdump een geïnjecteerde module bevat. Legitieme softwareontwikkelaars voeren af en toe code-injectie uit voor niet-kwaadwillende redenen, bijvoorbeeld om een bestaande toepassing of een bestaand besturingssysteemonderdeel te wijzigen of uit te breiden. Om onderscheid te kunnen maken tussen schadelijke en niet-schadelijke geïnjecteerde modules, controleert Security Center of de geïnjecteerde module voldoet aan een profiel met verdacht gedrag. Het resultaat van deze controle wordt aangegeven door het veld "SIGNATURE" van de waarschuwing en is te zien aan de ernst van de waarschuwing, de omschrijving van de waarschuwing en herstelstappen voor de waarschuwing.
 * **Suspicious code segment**: Deze waarschuwing geeft aan dat een codesegment is toegewezen met behulp van niet-standaardmethoden, zoals die worden gebruikt bij reflectieve injectie en procesuitholling. Aanvullende kenmerken van het codesegment worden verwerkt voor meer context over de mogelijkheden en het gedrag van het gerapporteerde codesegment.
 * **Shellcode discovered**: Shellcode is de nettolading die wordt uitgevoerd nadat de schadelijke software misbruik heeft gemaakt van een beveiligingslek in de software. Deze waarschuwing geeft aan dat de crashdumpanalyse uitvoerbare code heeft gedetecteerd dat gedrag vertoont dat gewoonlijk wordt uitgevoerd door schadelijke nettoladingen. Hoewel niet-schadelijke software dit gedrag kan vertonen, is het niet gebruikelijk voor normale softwareontwikkelingsprocedures.
 * **Module hijacking discovered**: Windows maakt gebruik van Dynamic Link Libraries (DLL's) om software toe te staan gebruik te maken van de algemene Windows-systeemfunctionaliteit. DLL-hijacking treedt op wanneer malware de DLL-laadvolgorde wijzigt om schadelijke nettoladingen in het geheugen te laden, waarbij willekeurige code kan worden uitgevoerd. Deze waarschuwing geeft aan dat de crashdumpanalyse een gelijknamige module heeft gedetecteerd die wordt geladen via twee verschillende paden. Een van de geladen paden is afkomstig van een algemene binaire locatie van het Windows-systeem. Van tijd tot tijd wijzigen legitieme softwareontwikkelaars de laadvolgorde van de DLL wegens niet-kwaadwillende redenen, zoals instrumentering, uitbreiding van het Windows-besturingssysteem of Windows-toepassingen. Om te helpen onderscheid te maken tussen kwaadwillende en mogelijk goedaardige wijzigingen in de laadvolgorde van het DLL-bestand controleert Security Center of een geladen module aan een verdacht profiel voldoet.
@@ -184,15 +184,15 @@ Een resourceanalyse door Security Center richt zich op PaaS-services (Platform a
 * **Brute Force SQL-referenties**: deze waarschuwing wordt geactiveerd wanneer er een abnormaal groot aantal mislukte aanmeldingen met andere referenties is. In sommige gevallen detecteert de waarschuwing het uitvoeren van testen om binnen te dringen. In andere gevallen detecteert de waarschuwing een Brute Force-aanval.
 
 ## <a name="contextual-information"></a>Contextuele informatie
-Tijdens een onderzoek hebben analisten extra context nodig om tot een eindoordeel te komen over de aard van de bedreiging en hoe deze kan worden tegengehouden.  Als er bijvoorbeeld een afwijkende situatie in het netwerk is gedetecteerd, maar er geen inzicht is in wat er verder gebeurt in het netwerk of met de betreffende resource, is het zeer lastig om te begrijpen welke vervolgacties nodig zijn. Om hierbij te helpen, kan een beveiligingsincident artefacten, gerelateerde gebeurtenissen en andere informatie bevatten die de onderzoeker meer context geven. De beschikbaarheid van extra informatie varieert afhankelijk van het type bedreiging dat is gedetecteerd en de configuratie van uw omgeving, en zal dus niet voor alle beveiligingsincidenten beschikbaar zijn.
+Tijdens een onderzoek hebben analisten extra context nodig om tot een eindoordeel te komen over de aard van de bedreiging en hoe deze kan worden tegengehouden.  Als er bijvoorbeeld een afwijkende situatie in het netwerk is gedetecteerd, maar er geen inzicht is in wat er verder gebeurt in het netwerk of met de betreffende resource, is het zeer lastig om te begrijpen welke vervolgacties nodig zijn. Om te helpen bij die, kan een beveiligingsincident artefacten, gerelateerde gebeurtenissen en informatie die nuttig de onderzoeker kan bevatten. De beschikbaarheid van extra informatie varieert afhankelijk van het type bedreiging dat is gedetecteerd en de configuratie van uw omgeving, en zal dus niet voor alle beveiligingsincidenten beschikbaar zijn.
 
 Als er extra informatie beschikbaar is, wordt deze weergegeven in het beveiligingsincident onder de lijst met waarschuwingen. Dit kan informatie zijn zoals:
 
 - Wissen van logboekgebeurtenissen
 - PNP-apparaat aangesloten vanaf onbekend apparaat
-- Waarschuwingen waarop geen actie kan worden uitgevoerd
+- Waarschuwingen die geen bruikbare
 - Het maken van nieuwe accounts
-- Bestand gedecodeerd met het hulpprogramma certutil 
+- Bestand gedecodeerd met het hulpprogramma certutil
 
 ![Waarschuwing over ongebruikelijke toegang](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

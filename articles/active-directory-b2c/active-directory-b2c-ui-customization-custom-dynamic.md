@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441648"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582884"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Het configureren van de gebruikersinterface met dynamische inhoud met behulp van aangepaste beleidsregels
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Met behulp van Azure Active Directory B2C (Azure AD B2C) aangepaste beleidsregels, kunt u een parameter in een queryreeks verzenden. Door de parameter wordt doorgegeven aan uw HTML-eindpunt, kunt u de pagina-inhoud dynamisch wijzigen. Bijvoorbeeld, kunt u de afbeelding op de Azure AD B2C registreren of aanmelden pagina, op basis van een parameter die u vanuit uw web- of mobiele toepassing doorgeven. 
+Met behulp van Azure Active Directory B2C (Azure AD B2C) aangepaste beleidsregels, kunt u een parameter in een queryreeks verzenden. Door de parameter door te geven aan uw HTML-eindpunt, kunt u de pagina-inhoud dynamisch wijzigen. U kunt bijvoorbeeld de achtergrondafbeelding op de registratie- of aanmeldingspagina van Azure AD B2C wijzigen, op basis van een parameter die u doorgeeft vanuit uw web- of mobiele toepassing. 
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel richt zich op het aanpassen van de gebruikersinterface van Azure AD B2C met *dynamische inhoud* met behulp van aangepast beleid. Als u wilt beginnen, Zie [in een aangepast beleid voor UI-aanpassing](active-directory-b2c-ui-customization-custom.md). 
@@ -178,7 +178,7 @@ Zoek de `<img>` -element waarin de `ID` waarde *background_background_image*, en
 
 3. In de **CORS** venster in de **oorsprongen toegestaan** een van de volgende handelingen uit:
 
-    * Voer de URL of URL's die u toestaan dat JavaScript-aanroepen afkomstig zijn wilt van.
+    * Voer de URL of URL's die u toestaan dat JavaScript-aanroepen afkomstig zijn wilt van. U moet alle kleine letters gebruiken in de URL's die u invoert.
     * Voer een sterretje (*) als u wilt opgeven dat alle domeinen worden geaccepteerd.
 
 4. Selecteer **Opslaan**.

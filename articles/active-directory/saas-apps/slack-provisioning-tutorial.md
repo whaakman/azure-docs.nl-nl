@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636540"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632922"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Zelfstudie: Slack configureren voor het automatisch inrichten van gebruikers
 
@@ -113,6 +113,14 @@ Dit resultaat in een groepsobjecten die zijn toegewezen aan Slack in de **gebrui
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
+## <a name="connector-limitations"></a>Connector-beperkingen
+
+  * Bij het configureren van Slack **displayName** kenmerk, houd rekening met het volgende gedrag: 
+  * Waarden zijn niet volledig uniek is (bijvoorbeeld 2 gebruikers kunnen hebben dezelfde weergavenaam)
+  * Biedt ondersteuning voor niet-Engelse tekens, spaties, kleine letters. 
+  * Leestekens toegestaan zijn punten, onderstrepingstekens, afbreekstreepjes, apostroffen, vierkante haken (bijvoorbeeld **([{}])**) en scheidingstekens (bijvoorbeeld **, /;**).
+  * Werkt alleen als deze twee instellingen zijn geconfigureerd in Slack van werkplek/organisatie - **profiel synchroniseren is ingeschakeld** en **gebruikers niet de weergavenaam wijzigen**.
+  * De Slack **gebruikersnaam** kenmerk heeft dan 21 tekens bevatten en een unieke waarde bevatten. 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

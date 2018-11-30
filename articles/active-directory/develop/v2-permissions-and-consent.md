@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960325"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620129"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 
@@ -64,13 +64,13 @@ Een app-aanvragen meestal deze machtigingen door de bereiken op te geven in aanv
 
 Microsoft identity-platform ondersteunt twee typen machtigingen: **overgedragen machtigingen** en **Toepassingsmachtigingen**.
 
-- **Gedelegeerde machtigingen** worden gebruikt door apps waarvoor een aangemelde gebruiker aanwezig zijn. Voor deze apps of de gebruiker of beheerder hiermee akkoord gaat met de machtigingen die de app-aanvragen en de app is overgedragen machtiging om te fungeren als de gebruiker is aangemeld bij het maken van aanroepen naar de doelresource. Sommige gedelegeerde machtigingen kunnen worden gegeven door gebruikers zonder beheerdersrechten, maar sommige machtigingen hogere bevoegdheden vereisen [administrator toestemming](v2-permissions-and-consent.md#admin-restricted-scopes).  
+* **Gedelegeerde machtigingen** worden gebruikt door apps waarvoor een aangemelde gebruiker aanwezig zijn. Voor deze apps of de gebruiker of beheerder hiermee akkoord gaat met de machtigingen die de app-aanvragen en de app is overgedragen machtiging om te fungeren als de gebruiker is aangemeld bij het maken van aanroepen naar de doelresource. Sommige gedelegeerde machtigingen kunnen worden gegeven door gebruikers zonder beheerdersrechten, maar sommige machtigingen hogere bevoegdheden vereisen [administrator toestemming](v2-permissions-and-consent.md#admin-restricted-scopes). Als u wilt weten welke beheerder rollen toestemming voor gedelegeerde machtigingen geven kunnen, Zie [rol beheerdersmachtigingen in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-- **Toepassingsmachtigingen** worden gebruikt door apps die worden uitgevoerd zonder een aangemelde gebruiker aanwezig zijn, bijvoorbeeld: apps die worden uitgevoerd als Achtergrondservices of daemons.  Machtigingen van de toepassing mag alleen bestaan uit [ingestemd door een beheerder](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+* **Toepassingsmachtigingen** worden gebruikt door apps die worden uitgevoerd zonder een aangemelde gebruiker aanwezig zijn, bijvoorbeeld: apps die worden uitgevoerd als Achtergrondservices of daemons.  Machtigingen van de toepassing mag alleen bestaan uit [ingestemd door een beheerder](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 _Effectieve machtigingen_ zijn de machtigingen die uw app heeft bij aanvragen voor de doelresource. Het is belangrijk om te begrijpen van het verschil tussen de gedelegeerde machtigingen van de toepassing die uw app is verleend en de effectieve machtigingen bij het maken van aanroepen naar de doelresource.
 
-- Voor gedelegeerde machtigingen, het _effectieve machtigingen_ van uw app is het laagst mogelijke snijpunt van de gedelegeerde machtigingen die de app heeft gekregen (via toestemming) en de bevoegdheden van de momenteel aangemelde gebruiker. Uw app kan nooit meer machtigingen hebben dan de aangemelde gebruiker. De machtigingen van de aangemelde gebruiker kunnen in organisaties worden bepaald door beleid of door lidmaatschap in een of meer beheerdersrollen. Zie voor meer informatie over beheerdersrollen [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+- Voor gedelegeerde machtigingen, het _effectieve machtigingen_ van uw app is het laagst mogelijke snijpunt van de gedelegeerde machtigingen die de app heeft gekregen (via toestemming) en de bevoegdheden van de momenteel aangemelde gebruiker. Uw app kan nooit meer machtigingen hebben dan de aangemelde gebruiker. De machtigingen van de aangemelde gebruiker kunnen in organisaties worden bepaald door beleid of door lidmaatschap in een of meer beheerdersrollen. Als u wilt weten welke beheerder rollen toestemming voor gedelegeerde machtigingen geven kunnen, Zie [rol beheerdersmachtigingen in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
   Bijvoorbeeld, wordt ervan uitgegaan dat uw app heeft gekregen de _User.ReadWrite.All_ overgedragen machtiging. Deze machtiging verleent uw app in feite machtigingen om het profiel van elke gebruiker in een organisatie te lezen en bij te werken. Als de aangemelde gebruiker een globale beheerder is, kan uw app het profiel van elke gebruiker in de organisatie bijwerken. Als de aangemelde gebruiker echter geen beheerdersrol heeft, zal uw app alleen het profiel van de aangemelde gebruiker kunnen bijwerken. De app kan geen profielen van andere gebruikers in de organisatie bijwerken omdat de gebruiker namens welke de app machtigingen heeft om te handelen niet over deze rechten beschikt.
   
 - Voor de machtigingen van de toepassing, de _effectieve machtigingen_ van uw app is het niveau van bevoegdheden impliciet door de machtiging Volledig. Bijvoorbeeld, een app met de _User.ReadWrite.All_ machtiging van de toepassing kan het profiel van elke gebruiker in de organisatie bijwerken. 
@@ -83,7 +83,7 @@ Het v2.0-implementatie van OpenID Connect is een aantal goed gedefinieerde berei
 
 Als een app aanmelden met behulp van uitvoert [OpenID Connect](active-directory-v2-protocols.md), deze moet aanvragen de `openid` bereik. De `openid` bereik ziet op de pagina werken account toestemming als de machtiging 'Aanmelden' en op de persoonlijke toestemming pagina van een Microsoft-account als de machtiging 'Uw profiel bekijken en verbinding maken met apps en services met uw Microsoft-account'. Met deze machtiging kan een app een unieke id voor de gebruiker kan ontvangen in de vorm van de `sub` claim. Het geeft ook de apptoegang tot het eindpunt van de gebruikersgegevens. De `openid` bereik kan worden gebruikt bij het token v2.0-eindpunt aan te schaffen ID-tokens, die kunnen worden gebruikt voor het beveiligen van HTTP-aanroepen tussen de verschillende onderdelen van een app.
 
-### <a name="email"></a>e-mailen
+### <a name="email"></a>e-mail
 
 De `email` bereik kan worden gebruikt met de `openid` bereik en voor eventuele andere. Geeft de apptoegang tot de primaire e-mailadres van de gebruiker in de vorm van de `email` claim. De `email` claim is opgenomen in een token alleen als een e-mailadres is gekoppeld aan het gebruikersaccount dat niet altijd het geval is is. Als deze gebruikt de `email` bereik, uw app moet worden voorbereid voor het afhandelen van een aanvraag waarin de `email` claim bestaat niet in het token.
 
@@ -93,7 +93,7 @@ De `profile` bereik kan worden gebruikt met de `openid` bereik en voor eventuele
 
 ### <a name="offlineaccess"></a>offline_access
 
-De [ `offline_access` bereik](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) biedt uw apptoegang tot resources namens de gebruiker voor een langere periode. Op de pagina werken account toestemming weergegeven dit bereik als de machtiging 'Toegang tot uw gegevens op elk gewenst moment'. Op de persoonlijke Microsoft-account instemmingspagina, wordt deze weergegeven als de machtiging 'Toegang tot je gegevens op elk gewenst moment'. Wanneer een gebruiker keurt de `offline_access` bereik, uw app kan vernieuwingstokens ontvangen van het token v2.0-eindpunt. Vernieuwen van tokens worden lange levensduur hebben. Uw app kan aan het nieuwe toegangstokens oudere zijn verlopen.
+De [ `offline_access` bereik](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) biedt uw apptoegang tot resources namens de gebruiker voor een langere periode. Op de pagina werken account toestemming weergegeven dit bereik als de machtiging 'Toegang tot uw gegevens op elk gewenst moment'. Op de persoonlijke Microsoft-account instemmingspagina, wordt deze weergegeven als de machtiging 'Toegang tot je gegevens op elk gewenst moment'. Wanneer een gebruiker keurt de `offline_access` bereik, uw app kan vernieuwingstokens ontvangen van het token v2.0-eindpunt. Vernieuwen van tokens worden lange levensduur hebben. Uw app kan aan het nieuwe toegangstokens oudere zijn verlopen.
 
 Als uw app geen heeft aangevraagd de `offline_access` bereik, het ontvangt geen vernieuwingstokens. Dit betekent dat wanneer u een autorisatiecode in inwisselt de [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols.md), ontvangt u alleen een toegangstoken van de `/token` eindpunt. Het toegangstoken is ongeldig voor een korte periode. Het toegangstoken is verlopen meestal binnen een uur. Op dat punt, uw app nodig heeft om te leiden van de gebruiker terug naar de `/authorize` eindpunt naar een nieuwe autorisatiecode ophalen. Tijdens deze omleiding, afhankelijk van het type app, moet de gebruiker mogelijk hun referenties opnieuw invoeren of opnieuw instemmen met machtigingen.
 

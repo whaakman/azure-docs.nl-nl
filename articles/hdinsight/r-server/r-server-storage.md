@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011201"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498141"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
@@ -26,7 +26,7 @@ ML-Services op HDInsight kunt u een verscheidenheid aan oplossingen voor opslag 
 
 U hebt ook de mogelijkheid om toegang tot meerdere Azure storage-accounts of containers met uw HDInsight-cluster. Azure File storage is een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt waarmee u een Azure Storage file share koppelen voor, bijvoorbeeld, het Linux-bestandssysteem. Maar Azure-bestandsshares kunnen worden gekoppeld en die worden gebruikt door een systeem met een ondersteund besturingssysteem, zoals Windows of Linux. 
 
-Wanneer u een Hadoop-cluster in HDInsight maakt, u opgeven of een **Azure storage** account of een **Data Lake store**. Een specifieke storage-container uit dat account bevat het bestandssysteem voor het cluster dat u (bijvoorbeeld, de Hadoop Distributed File System maakt). Zie voor meer informatie over en richtlijnen:
+Wanneer u een Apache Hadoop-cluster in HDInsight maakt, u opgeven of een **Azure storage** account of een **Data Lake store**. Een specifieke storage-container uit dat account bevat het bestandssysteem voor het cluster dat u (bijvoorbeeld, de Hadoop Distributed File System maakt). Zie voor meer informatie over en richtlijnen:
 
 - [Azure storage gebruiken met HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Gebruik Data Lake Store met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-store.md)
@@ -170,6 +170,6 @@ Een groot voordeel van Azure Files is dat de bestandsshares kunnen worden gekopp
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Overzicht van Services voor ML-cluster in HDInsight](r-server-overview.md)
-* [Aan de slag met ML-Services-cluster op Hadoop.](r-server-get-started.md)
+* [Aan de slag met ML-Services-cluster op Apache Hadoop](r-server-get-started.md)
 * [Opties voor compute-context voor ML Services-cluster in HDInsight](r-server-compute-contexts.md)
 

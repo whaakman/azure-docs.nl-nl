@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: d6cbd2992968a57cfba99117e9f1fc1ab9b5b5b3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2ece10c43f25ac637a29324f46a88e50d9655431
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711834"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620435"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IoT DevKit AZ3166 verbinden met Azure IoT Hub
 
@@ -119,12 +119,12 @@ Druk op de knop B voor het testen van de sensoren. Indrukken en loslaten van de 
 
 Het is raadzaam [Azure IoT Workbench](https://aka.ms/iot-workbench) -extensie voor Visual Studio Code ontwikkelen op de DevKit.
 
-Azure IoT-Workbench biedt een geïntegreerde ervaring voor het ontwikkelen van IoT-oplossingen. Zo kunt beide op apparaat en de cloud ontwikkelen met behulp van Azure IoT en andere services. U kunt deze Channel 9 video als u wilt dat een overzicht van wat het doet.
+Azure IoT-Workbench biedt een geïntegreerde ervaring voor het ontwikkelen van IoT-oplossingen. Zo kunt beide op apparaat en de cloud ontwikkelen met behulp van Azure IoT en andere services. U kunt controleren of dit [Channel 9-video](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code) hebben een overzicht van wat het doet.
 
 Volg deze stappen voor de ontwikkelomgeving voorbereiden voor DevKit:
 
 1. Download en installeer [Arduino IDE](https://www.arduino.cc/en/Main/Software). Het biedt de benodigde hulpprogrammaketen voor compileren en Arduino code uploaden.
-    * **Windows**: gebruik Windows Installer-versie.
+    * **Windows**: gebruik Windows Installer-versie. Niet installeert vanuit de appstore.
     * **macOS**: slepen en neerzetten het uitgepakte **Arduino.app** in `/Applications` map.
     * **Ubuntu**: zoals in de map uitpakken `$HOME/Downloads/arduino-1.8.5`
 
@@ -133,15 +133,15 @@ Volg deze stappen voor de ontwikkelomgeving voorbereiden voor DevKit:
 3. Zoek naar **Azure IoT Workbench** in de marketplace extensie en installeer deze.
     ![Installeer Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) samen met de IoT-Workbench, andere afhankelijke uitbreidingen worden geïnstalleerd.
 
-4. Open **bestand > Voorkeuren > instellingen** en voeg de volgende regels Arduino configureren.
-    * **Windows**:
-
+4. Arduino configureren
+    * **Windows**: op **Windows** Open **bestand > Voorkeuren > instellingen** klikt u op de **...**  en settings.json open vervolgens de volgende regels configureren Arduino toevoegen. 
+      
     ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-    * **macOS**:
+    * **macOS**: op **macOS** Open **Code > Voorkeuren > instellingen** klikt u op de **...**  en open settings.json en voeg de volgende regels voor het configureren van Arduino
 
     ```json
     "arduino.path": "/Applications",

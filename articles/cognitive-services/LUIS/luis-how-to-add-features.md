@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830987"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580947"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Gebruik woordgroep lijsten moeten worden boost signaal van de lijst met woorden
 
 U kunt functies toevoegen aan uw LUIS-app voor het verbeteren van de nauwkeurigheid. Functies LUIS u helpen met hints die bepaalde woorden en woordgroepen maken deel uit van een app-domein vocabulaire. 
+
+Een [woordgroepenlijst](luis-concept-feature.md) bevat een aantal waarden (woorden of zinsdelen) die deel uitmaken van dezelfde klasse en op dezelfde manier (bijvoorbeeld de namen van steden of producten) moet worden behandeld. LUIS leert over een van beide wordt automatisch toegepast op de andere. Deze lijst is niet een lijst met gesloten entiteit (exact overeenkomende tekst overeenkomt met) van de overeenkomende woorden.
+
+Een woordgroepenlijst wordt toegevoegd aan het vocabulaire van het domein van de app als een tweede signaal dat moet worden LUIS over deze woorden.
 
 ## <a name="add-phrase-list"></a>Woordgroepenlijst toevoegen
 
@@ -47,9 +51,6 @@ U kunt functies toevoegen aan uw LUIS-app voor het verbeteren van de nauwkeurigh
 
 > [!Note]
 > U kunt verwijderen of een woordgroepenlijst van de contextuele werkbalk deactiveren op de **lijsten woordgroep** pagina.
-
-## <a name="pattern-regular-expression-feature"></a>De patroonfunctie (reguliere expressie) 
-**Deze functie is afgeschaft**. Nieuwe functies van het patroon kunnen niet worden toegevoegd aan LUIS. Eventuele bestaande patroon-functies worden ondersteund tot mei 2018. Bijdragen aan de standaard LUIS reguliere expressie die overeenkomt met een pull-aanvraag naar de [kenmerken tekst Github-opslagplaats](https://github.com/Microsoft/Recognizers-Text). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

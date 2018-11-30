@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 1ae06fe9cc459d86bdd46d9b033a726339493dc5
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164764"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499263"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark-cluster gebruiken om te lezen en schrijven van gegevens naar Azure SQL-database
 
-Leer hoe u een Apache Spark-cluster in Azure HDInsight verbinden met een Azure SQL database en vervolgens lezen, schrijven en streamen van gegevens naar de SQL-database. Instructies in dit artikel wordt een Jupyter-notebook gebruikt om uit te voeren van de Scala-codefragmenten. U kunt echter een zelfstandige toepassing maken in Scala of Python en de dezelfde taken uitvoeren. 
+Leer hoe u een Apache Spark-cluster in Azure HDInsight verbinden met een Azure SQL database en vervolgens lezen, schrijven en streamen van gegevens naar de SQL-database. De instructies in dit artikel gebruiken een [Jupyter-Notebook](https://jupyter.org/) om uit te voeren van de Scala-codefragmenten. U kunt echter een zelfstandige toepassing maken in Scala of Python en de dezelfde taken uitvoeren. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,9 +32,9 @@ Leer hoe u een Apache Spark-cluster in Azure HDInsight verbinden met een Azure S
 
 * **SQL Server Management Studio**. Volg de instructies op [gebruik SSMS verbinding maken en gegevens op te vragen](../../sql-database/sql-database-connect-query-ssms.md).
 
-## <a name="create-a-jupyter-notebook"></a>Een Jupyter-notebook maken
+## <a name="create-a-jupyter-notebook"></a>Een Jupyter-Notebook maken 
 
-Beginnen met het maken van een Jupyter-notebook die zijn gekoppeld aan het Spark-cluster. Dit notitieblok kunt u de codefragmenten die wordt gebruikt in dit artikel worden uitgevoerd. 
+Maak eerst een [Jupyter-Notebook](https://jupyter.org/) die zijn gekoppeld aan het Spark-cluster. Dit notitieblok kunt u de codefragmenten die wordt gebruikt in dit artikel worden uitgevoerd. 
 
 1. Uit de [Azure-portal](https://portal.azure.com/), opent u het cluster.
 1. Selecteer **Jupyter-notebook** onder **Clusterdashboards** aan de rechterkant.  Als er geen **Clusterdashboards**, klikt u op **overzicht** in het menu links op de blade. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
@@ -237,4 +237,4 @@ In deze sectie we streamen van gegevens in de **hvactable** dat u al hebt gemaak
 
 * [HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Structured streaming gebeurtenissen verwerken met behulp van Event hub](apache-spark-eventhub-structured-streaming.md)
-* [Gebruik Spark Structured Streaming met Kafka in HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Apache Spark Structured Streaming met Apache Kafka in HDInsight gebruiken](../hdinsight-apache-kafka-spark-structured-streaming.md)
