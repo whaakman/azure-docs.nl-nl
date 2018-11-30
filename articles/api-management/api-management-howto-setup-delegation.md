@@ -1,6 +1,6 @@
 ---
-title: Het overdragen van de gebruiker de registratie- en productinformatie abonnement
-description: Informatie over het overdragen van de registratie en product gebruikerabonnement aan een derde partij in Azure API Management.
+title: Hoe u kunt gebruiker-gebruikersregistratie en productabonnement delegeren
+description: Informatie over het overdragen van gebruiker-gebruikersregistratie en productabonnement aan een derde partij in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,34 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: ab5d6c531b08a13d465811d68a07e07e9fb0167c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109457"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445392"
 ---
-# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Het overdragen van de gebruiker de registratie- en productinformatie abonnement
-Overdracht kunt u uw bestaande website te gebruiken voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website aan de eigenaar van de gebruikersgegevens en de validatie van de volgende stappen uitvoeren in een aangepaste manier.
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hoe u kunt gebruiker-gebruikersregistratie en productabonnement delegeren
+Overdracht kunt u uw bestaande website gebruiken voor het verwerken van ontwikkelaars sign-in/aanmelden-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website eigenaar zijn van de gebruikersgegevens en de validatie van de volgende stappen uit in een aangepaste manier uitvoeren.
 
-## <a name="delegate-signin-up"> </a>Developer-aanmelding in- en aanmelding delegeren
-Als u wilt delegeren developer aanmelden en aanmelden met uw bestaande website, moet u een speciale delegering-eindpunt op de site die als het toegangspunt voor het verzoek gestart vanuit de ontwikkelaarsportal API Management fungeert maken.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+## <a name="delegate-signin-up"> </a>Developer aanmelding/registratie delegeren
+Als u wilt delegeren developer aanmelden en meld u aan met uw bestaande website, moet u een speciaal delegatie-eindpunt maken op uw site die als het toegangspunt voor het verzoek afkomstig zijn van de API Management-portal voor ontwikkelaars fungeert.
 
 De laatste werkstroom zijn als volgt:
 
-1. Ontwikkelaars klikken op de koppeling aanmelden of registreren bij API Management-portal voor ontwikkelaars
-2. Browser wordt omgeleid naar het eindpunt voor overdracht
-3. Eindpunt van de overdracht wordt omgeleid naar in of geeft UI gebruiker wordt gevraagd om te ondertekenen in of registratie
+1. Developer-klikken op de koppeling aanmelding of meld u aan bij de API Management-portal voor ontwikkelaars
+2. Browser wordt omgeleid naar de delegatie-eindpunt
+3. Delegatie-eindpunt in ruil wordt verwezen, of geeft gebruikersinterface waarin gebruiker wordt gevraagd om te ondertekenen in of meld u aan
 4. Indien geslaagd kunt wordt de gebruiker omgeleid naar de API Management developer portal-pagina die ze vanaf gestart
 
-Om te beginnen, aanvragen laten we eerst set-up API Management te routeren via uw eindpunt overdracht. Klik in de publicatieportal van API Management op **beveiliging** en klik vervolgens op de **delegering** tabblad. Klik op het selectievakje in zodat de gemachtigde-in- en registratie.
+Om te beginnen, aanvragen gaan we eerste configuratie API Management voor het routeren van via de delegatie-eindpunt. Klik in de publicatieportal van API Management, op **Security** en klik vervolgens op de **delegering** tabblad. Klik op het selectievakje in om in te schakelen 'Aanmelding en inschrijving delegeren'.
 
-![Overdracht pagina][api-management-delegation-signin-up]
+![De delegatie-pagina][api-management-delegation-signin-up]
 
-* Bepalen wat de URL van uw eindpunt speciale delegering wordt en voer deze in de **delegering eindpunt-URL** veld. 
-* Voer een geheim dat wordt gebruikt voor het berekenen van een handtekening die u voor verificatie om ervoor te zorgen dat de aanvraag inderdaad afkomstig is van Azure API Management binnen de overdracht verificatie-sleutelveld. U kunt klikken op de **genereren** knop API Management willekeurig genereren van een sleutel voor u hebben.
+* Bepalen wat de URL van uw speciaal delegatie-eindpunt worden en geef deze op in de **delegatie-eindpunt-URL** veld. 
+* Voer in de verificatie sleutelveld van overdracht, een geheim dat wordt gebruikt voor het berekenen van een handtekening die u voor verificatie om ervoor te zorgen dat de aanvraag inderdaad afkomstig is van Azure API Management. U kunt klikken op de **genereren** knop API Management willekeurig genereren van een sleutel voor u hebben.
 
-Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
+Nu moet u maken de **delegatie-eindpunt**. Het heeft een aantal acties uitvoeren:
 
 1. Een aanvraag ontvangen in de volgende notatie:
    
@@ -49,26 +51,26 @@ Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
    > 
    > 
    
-    Queryparameters voor de aanmelding / geval aanmelden:
+    Queryparameters voor de aanmelding / geval registreren:
    
-   * **bewerking**: welk type overdracht aanvraag is - deze kan alleen worden identificeert **SignIn** in dit geval
-   * **returnUrl**: de URL van de pagina waar de gebruiker hebt geklikt op een koppeling aanmelden of registreren
-   * **Salt**: een speciale salt tekenreeks voor een hash beveiliging computing
-   * **SIG**: een hash van de berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
-2. Controleer of dat de aanvraag afkomstig is van Azure API Management (optioneel, maar sterk aanbevolen voor beveiliging)
+   * **bewerking**: wordt aangegeven welk type overdracht-aanvraag is - deze mag alleen bestaan uit **SignIn** in dit geval
+   * **returnUrl**: de URL van de pagina waar de gebruiker op de koppeling van een aanmelden of registreren klikt
+   * **Salt**: een speciale salt tekenreeks die wordt gebruikt voor een berekende hash van beveiliging
+   * **SIG**: een hash berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
+2. Controleer of dat de aanvraag afkomstig is van Azure API Management (optioneel maar ten zeerste aanbevolen voor beveiliging)
    
-   * COMPUTE een HMAC SHA512-hash van een tekenreeks op basis van de **returnUrl** en **salt** queryparameters ([voorbeeldcode hieronder]):
+   * Berekenen van een HMAC-SHA512-hash van een tekenreeks op basis van de **returnUrl** en **salt** queryparameters ([voorbeeldcode hieronder]):
      
      > HMAC (**salt** + '\n' + **returnUrl**)
      > 
      > 
-   * Vergelijk de bovenstaande berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders dat de aanvraag wordt geweigerd.
-3. Controleer of u een aanvraag voor sign-in/aanmelding-up worden ontvangen: de **bewerking** queryparameter wordt ingesteld op '**SignIn**'.
-4. Presenteren aan de gebruiker om te ondertekenen in of aanmelding met de gebruikersinterface
-5. Als de gebruiker de aanmelding is die u moet een bijbehorende account voor hen maken in API Management. [Maken van een gebruiker] met de REST-API van API Management. Wanneer doet, zorg ervoor dat u de gebruikers-ID ingesteld op hetzelfde is in uw archief van de gebruiker of een id die u kunt van bijhouden.
+   * Vergelijk de boven-berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders wordt de aanvraag weigeren.
+3. Controleer of dat u een aanvraag voor sign-in/aanmelding-up ontvangt: het **bewerking** queryparameter wordt ingesteld op '**aanmelding**'.
+4. De gebruiker met de gebruikersinterface presenteren aan aanmelden of registreren
+5. Als de gebruiker melden die u moet een bijbehorende account voor hen in API Management maken. [Maken van een gebruiker] met de API Management REST-API. Wanneer in dat geval, zorg ervoor dat u de gebruikers-ID ingesteld op hetzelfde is in het archief van de gebruiker of een id die u kunt bijhouden van.
 6. Wanneer de gebruiker is geverifieerd:
    
-   * [eenmalige aanmelding (SSO)-token van een aanvraag] via de API Management REST API
+   * [aanvraag voor een eenmalige aanmelding (SSO)-token] via de API Management REST-API
    * een queryparameter returnUrl toevoegen aan de SSO-URL die u hebt ontvangen van de API-aanroep hierboven:
      
      > Bijvoorbeeld: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
@@ -76,61 +78,61 @@ Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
      > 
    * de gebruiker omgeleid naar de URL van de bovenstaande geproduceerd
 
-Naast de **SignIn** bewerking, kunt u ook uitvoeren accountbeheer door de vorige stappen te volgen en het gebruik van een van de volgende bewerkingen:
+Naast de **SignIn** bewerking, u kunt ook uitvoeren accountbeheer door de vorige stappen te volgen en daarbij een van de volgende bewerkingen:
 
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
 
-U moet de volgende queryparameters voor accountbeheerbewerkingen doorgeven.
+U moet de volgende queryparameters accountbeheerbewerkingen doorgeven.
 
-* **bewerking**: identificeert welk type overdracht aanvraag (ChangePassword, ChangeProfile of CloseAccount)
-* **userId**: de gebruikers-id van het account voor het beheren van
-* **Salt**: een speciale salt tekenreeks voor een hash beveiliging computing
-* **SIG**: een hash van de berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
+* **bewerking**: Hiermee identificeert u welk type overdracht-aanvraag (ChangePassword, ChangeProfile of CloseAccount)
+* **gebruikers-id**: de gebruikers-id van het account voor het beheren van
+* **Salt**: een speciale salt tekenreeks die wordt gebruikt voor een berekende hash van beveiliging
+* **SIG**: een hash berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
 
-## <a name="delegate-product-subscription"> </a>Product abonnement overdragen
-Product abonnement delegeren werkt op dezelfde manier voor het delegeren van de gebruiker aanmelden /-up. De laatste werkstroom zou als volgt zijn:
+## <a name="delegate-product-subscription"> </a>Product-abonnement overdragen
+Product-abonnement overdragen werkt op dezelfde manier naar gebruiker aanmelden /-up overdragen. De laatste werkstroom zou als volgt zijn:
 
-1. Ontwikkelaar een product selecteert in de API Management-portal voor ontwikkelaars en klikt op de knop aanmelden
-2. Browser wordt omgeleid naar het eindpunt voor overdracht
-3. Overdracht eindpunt vereist product abonnement stappen worden uitgevoerd - deze bepaalt zelf en kan leiden tot omleiden naar een andere pagina om aan te vragen factureringsgegevens extra vragen, of het opslaan van de informatie en niet een gebruikersactie vereist
+1. Ontwikkelaar van een product selecteert in de API Management-portal voor ontwikkelaars en klikt op de knop aanmelden
+2. Browser wordt omgeleid naar de delegatie-eindpunt
+3. Delegatie-eindpunt vereist product abonnement stappen worden uitgevoerd - deze aan u is en kan leiden tot omleiden naar een andere pagina om aan te vragen van factureringsgegevens, extra vragen, of gewoon de informatie op te slaan en niet een gebruikersactie vereist
 
-Voor het inschakelen van de functionaliteit op de **delegering** pagina op **delegeren product abonnement**.
+Inschakelen van de functionaliteit voor de **delegering** pagina op **productabonnement delegeren**.
 
-Verzeker u ervan dat het eindpunt van de overdracht worden de volgende acties uitgevoerd:
+Controleer vervolgens of de delegatie-eindpunt voert de volgende handelingen uit:
 
 1. Een aanvraag ontvangen in de volgende notatie:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product abonneren op} & userId = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product abonneren op} & gebruikers-id = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
    > 
    > 
    
-    De queryparameters voor het product abonnement geval:
+    De parameters van de query voor het geval van product-abonnement:
    
-   * **bewerking**: identificeert welk type overdracht aanvraag is. Voor het product abonnement zijn aanvragen de geldige opties:
-     * 'Abonneren': een verzoek voor een abonnement van de gebruiker voor een bepaald product met opgegeven ID (Zie hieronder)
-     * 'Afmelden': een verzoek om te stoppen van een gebruiker vanuit een product
-     * 'Vernieuwen': een verzoek om een abonnement (bijvoorbeeld, die kan verlopen) te vernieuwen
-   * **productId**: de ID van het product dat de gebruiker gevraagd om u te abonneren op
-   * **userId**: de ID van de gebruiker voor wie de aanvraag wordt gedaan
-   * **Salt**: een speciale salt tekenreeks voor een hash beveiliging computing
-   * **SIG**: een hash van de berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
-2. Controleer of dat de aanvraag afkomstig is van Azure API Management (optioneel, maar sterk aanbevolen voor beveiliging)
+   * **bewerking**: wordt aangegeven welk type overdracht-aanvraag is. Voor het product abonnement zijn aanvragen de geldige opties:
+     * 'Abonnement': een aanvraag voor een abonnement van de gebruiker voor een bepaald product met opgegeven ID (Zie hieronder)
+     * "Afmelden": een aanvraag voor een gebruiker uit het product afmelden
+     * 'Vernieuwen': een verzoek om te vernieuwen van een abonnement (bijvoorbeeld, die kan verlopen)
+   * **product-id**: de ID van het product dat de gebruiker gevraagd om u te abonneren op
+   * **gebruikers-id**: de ID van de gebruiker voor wie de aanvraag wordt gedaan
+   * **Salt**: een speciale salt tekenreeks die wordt gebruikt voor een berekende hash van beveiliging
+   * **SIG**: een hash berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
+2. Controleer of dat de aanvraag afkomstig is van Azure API Management (optioneel maar ten zeerste aanbevolen voor beveiliging)
    
-   * COMPUTE een HMAC-SHA512 van een tekenreeks op basis van de **productId**, ** userId, en **salt** queryparameters:
+   * Berekenen van een HMAC-SHA512 gebruikt van een tekenreeks op basis van de **productId**, ** gebruikers-id, en **salt** queryparameters:
      
      > HMAC (**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
-   * Vergelijk de bovenstaande berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders dat de aanvraag wordt geweigerd.
-3. De verwerking van een abonnement die op basis van het type in de aangevraagde bewerking uitvoeren **bewerking** - bijvoorbeeld facturering, vragen, enzovoort.
-4. Abonneren op het abonnement is de gebruiker op het product aan uw kant, door de gebruiker het API Management-product door [de REST-API aanroepen voor het product abonnement].
+   * Vergelijk de boven-berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders wordt de aanvraag weigeren.
+3. Een product abonnement verwerken op basis van het type in de aangevraagde bewerking **bewerking** : bijvoorbeeld facturering, nog meer vragen hebt, enzovoort.
+4. Abonneren op het abonnement is de gebruiker aan het product zelf, de gebruiker naar de API Management-product door [aanroepen van de REST-API voor het product abonnement].
 
 ## <a name="delegate-example-code"> </a> Voorbeeldcode
-Deze codevoorbeelden laten zien hoe nemen de *delegering validatiesleutel*, die in het scherm van de overdracht van de publicatieportal is ingesteld voor het maken van een HMAC, die vervolgens wordt gebruikt om de handtekening te valideren, de geldigheid van de doorgegeven aan te tonen returnUrl. De dezelfde code werkt voor de product-id en gebruikers-id met kleine wijziging.
+Deze codevoorbeelden laten zien hoe u duren voordat de *delegatie van validatiesleutel*, die in het scherm van de overdracht van de publicatieportal is ingesteld op het maken van een HMAC, dit vervolgens gebruikt wordt om de handtekening te valideren, de geldigheid van de doorgegeven aan te tonen returnUrl. Dezelfde code werkt voor de gebruikers-id met kleine wijziging en de product-id.
 
-**C#-code voor het genereren van de hash van returnUrl**
+**C#code voor het genereren van de hash van returnUrl**
 
 ```csharp
 using System.Security.Cryptography;
@@ -147,7 +149,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-**Code genereren van de hash van returnUrl NodeJS**
+**NodeJS-code voor het genereren van de hash van returnUrl**
 
 ```
 var crypto = require('crypto');
@@ -165,7 +167,7 @@ var signature = digest.toString('base64');
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over delegering, de volgende video:
+Zie de volgende video voor meer informatie over overdracht:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
@@ -173,9 +175,9 @@ Zie voor meer informatie over delegering, de volgende video:
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[eenmalige aanmelding (SSO)-token van een aanvraag]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
+[aanvraag voor een eenmalige aanmelding (SSO)-token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Maken van een gebruiker]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[de REST-API aanroepen voor het product abonnement]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[aanroepen van de REST-API voor het product abonnement]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [voorbeeldcode hieronder]: #delegate-example-code
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 1bcdac43eea41a044e920c14310a9f3cd4df793b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285441"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618956"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Uitgaande SMTP-verbindingsproblemen in Azure oplossen
 
@@ -44,7 +44,7 @@ Wanneer u een abonnement met betalen per gebruik of Microsoft Partner Network is
 > Microsoft behoudt zich het recht om in te trekken van deze uitzondering als wordt vastgesteld dat een schending van de servicevoorwaarden heeft plaatsgevonden.
 
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, Azure Pass, Azure in Open, Education, BizSpark en gratis proefversie
-Als u een MSDN, Azure Pass, Azure in Open, Education, BizSpark of gratis proefversie van abonnement na 15 November 2017 hebt gemaakt hebt u technische beperkingen dat e-blok dat in deze abonnementen rechtstreeks naar e-providers van virtuele machines wordt verzonden. De beperkingen worden uitgevoerd om te voorkomen dat misbruik. Er zijn geen aanvragen voor het verwijderen van deze beperking wordt verleend.
+Als u een MSDN, Azure Pass, Azure in Open, Education, BizSpark, Azure Sponsorship, Azure Student, gratis proefversie of een Visual Studio-abonnement na 15 November 2017 hebt gemaakt hebt u technische beperkingen dat e-blok dat wordt verzonden door virtuele machines in deze abonnementen rechtstreeks naar e-providers. De beperkingen worden uitgevoerd om te voorkomen dat misbruik. Er zijn geen aanvragen voor het verwijderen van deze beperking wordt verleend.
 
 Als u deze abonnementstypen, bent u aangeraden om te gebruiken SMTP-relayservices, zoals eerder in dit artikel wordt beschreven.
 

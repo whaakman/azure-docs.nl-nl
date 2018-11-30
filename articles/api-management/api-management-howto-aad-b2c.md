@@ -13,22 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232916"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447126"
 ---
 > [!WARNING]
 > Integratie van Azure Active Directory B2C is beschikbaar in de [Developer, Standard en Premium](https://azure.microsoft.com/pricing/details/api-management/) alleen lagen.
 
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory B2C in Azure API Management
+
 ## <a name="overview"></a>Overzicht
 Azure Active Directory B2C is een cloudoplossing voor het beheer van identiteit voor consumentgerichte web- en mobiele toepassingen. U kunt deze gebruiken voor het beheren van toegang tot uw developer-portal. Deze handleiding geeft u de configuratie die vereist in uw API Management-service om te integreren met Azure Active Directory B2C. Zie voor meer informatie over het inschakelen van toegang tot de portal voor ontwikkelaars met behulp van de klassieke Azure Active Directory [hoe ontwikkelaarsaccounts authoriseren met Azure Active Directory].
 
 > [!NOTE]
 > Als u wilt de stappen in deze handleiding hebt voltooid, moet u eerst een Azure Active Directory B2C-tenant te maken van een toepassing in hebben. Bovendien moet u registreren en aanmelden met beleid gereed. Zie voor meer informatie, [overzicht van Azure Active Directory B2C].
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory B2C
 

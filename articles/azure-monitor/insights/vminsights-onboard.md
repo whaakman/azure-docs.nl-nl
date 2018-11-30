@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b6752196d3512ab3ede4f5e339d681948e732e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 93cbb9a891f83eed623f095f208319c9071e287e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853739"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635540"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines (Preview)
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor virtuele machines voor het bewaken van de status van het besturingssysteem van uw virtuele Azure-machines en schaalsets voor virtuele machines en virtuele machines in uw omgeving, met inbegrip van detectie en het toewijzen van afhankelijkheden voor toepassingen dat kan worden gehost op deze.  
@@ -151,8 +151,8 @@ De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor d
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
-| Windows-agents | Ja | Naast de [Log Analytics-agent voor Windows](../../log-analytics/log-analytics-agent-overview.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Naast de [Log Analytics-agent voor Linux](../../log-analytics/log-analytics-agent-overview.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Linux-agents | Ja | Naast de [Log Analytics-agent voor Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Nee | |  
 
 De agent voor afhankelijkheden kan worden gedownload vanaf de volgende locatie.
@@ -205,7 +205,7 @@ Samengevat, zijn de stappen die u uitvoeren om te vooraf configureren van uw Log
 Als u een Log Analytics-werkruimte hebt, raadpleegt u de beschikbare methoden voorgesteld onder de [vereisten](#log-analytics) sectie een te maken.  
 
 #### <a name="enable-performance-counters"></a>Inschakelen van prestatiemeteritems
-Als de Log Analytics-werkruimte waarnaar wordt verwezen door de oplossing niet is geconfigureerd voor het verzamelen van al de prestatiemeteritems die is vereist voor de oplossing, moet deze worden ingeschakeld. Dit zo beschreven handmatig kan worden bewerkstelligd [hier](../../log-analytics/log-analytics-data-sources-performance-counters.md), of door te downloaden en uitvoeren van een PowerShell-script beschikbaar is via [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Als de Log Analytics-werkruimte waarnaar wordt verwezen door de oplossing niet is geconfigureerd voor het verzamelen van al de prestatiemeteritems die is vereist voor de oplossing, moet deze worden ingeschakeld. Dit zo beschreven handmatig kan worden bewerkstelligd [hier](../../azure-monitor/platform/data-sources-performance-counters.md), of door te downloaden en uitvoeren van een PowerShell-script beschikbaar is via [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 #### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Installeer de ServiceMap en InfrastructureInsights oplossingen
 Deze methode bevat een JSON-sjabloon waarmee de configuratie voor het inschakelen van de onderdelen van de oplossing aan uw Log Analytics-werkruimte.  
@@ -531,9 +531,9 @@ Failed: (0)
 ## <a name="enable-for-hybrid-environment"></a>Inschakelen voor een hybride omgeving
 Deze sectie wordt uitgelegd hoe virtuele machines activeren of fysieke computers die worden gehost in uw datacenter of andere cloudomgeving voor het bewaken van Azure monitor voor virtuele machines.  
 
-De gegevens zelf wordt niet verzonden door de Azure-Monitor voor agent voor afhankelijkheden van virtuele machines toewijzen, en hoeven er geen wijzigingen in de firewalls en poorten. De kaartgegevens worden altijd verzonden door de Log Analytics-agent naar de service Azure Monitor, hetzij rechtstreeks of via de [OMS-Gateway](../../log-analytics/log-analytics-oms-gateway.md) als uw IT-beveiligingsbeleid niet toestaat computers op het netwerk verbinding maken met Internet.
+De gegevens zelf wordt niet verzonden door de Azure-Monitor voor agent voor afhankelijkheden van virtuele machines toewijzen, en hoeven er geen wijzigingen in de firewalls en poorten. De kaartgegevens worden altijd verzonden door de Log Analytics-agent naar de service Azure Monitor, hetzij rechtstreeks of via de [OMS-Gateway](../../azure-monitor/platform/gateway.md) als uw IT-beveiligingsbeleid niet toestaat computers op het netwerk verbinding maken met Internet.
 
-Bekijk de vereisten en methoden voor het implementeren van de [Log Analytics Linux en Windows-agent](../../log-analytics/log-analytics-agent-overview.md).  
+Bekijk de vereisten en methoden voor het implementeren van de [Log Analytics Linux en Windows-agent](../../azure-monitor/platform/log-analytics-agent.md).  
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -591,7 +591,7 @@ Bestanden voor de agent voor afhankelijkheden worden geplaatst in de volgende ma
 | Binaire opslagbestanden | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="enable-performance-counters"></a>Inschakelen van prestatiemeteritems
-Als de Log Analytics-werkruimte waarnaar wordt verwezen door de oplossing niet is geconfigureerd voor het verzamelen van al de prestatiemeteritems die is vereist voor de oplossing, moet deze worden ingeschakeld. Dit zo beschreven handmatig kan worden bewerkstelligd [hier](../../log-analytics/log-analytics-data-sources-performance-counters.md), of door te downloaden en uitvoeren van een PowerShell-script beschikbaar is via [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Als de Log Analytics-werkruimte waarnaar wordt verwezen door de oplossing niet is geconfigureerd voor het verzamelen van al de prestatiemeteritems die is vereist voor de oplossing, moet deze worden ingeschakeld. Dit zo beschreven handmatig kan worden bewerkstelligd [hier](../../azure-monitor/platform/data-sources-performance-counters.md), of door te downloaden en uitvoeren van een PowerShell-script beschikbaar is via [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 ### <a name="onboard-azure-monitor-for-vms"></a>Onboarding van Azure Monitor voor virtuele machines
 Deze methode bevat een JSON-sjabloon waarmee de configuratie voor het inschakelen van de onderdelen van de oplossing aan uw Log Analytics-werkruimte.  

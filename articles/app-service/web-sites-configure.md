@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115519"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443505"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
 
@@ -78,6 +78,8 @@ In deze sectie bevat de naam/waarde-paren die uw web-app wordt geladen op het st
 
 App-instellingen worden altijd versleuteld wanneer die zijn opgeslagen (versleuteld in rust).
 
+Appinstellingen kunnen worden omgezet vanuit Key Vault met [Key Vault verwijst naar](app-service-key-vault-references.md).
+
 ### <a name="connection-strings"></a>Verbindingsreeksen
 Verbindingsreeksen voor de gekoppelde resources. 
 
@@ -93,6 +95,8 @@ Voor PHP, Python, Java en knooppunt-toepassingen, worden deze instellingen zijn 
 Bijvoorbeeld, als een MySql-verbindingsreeks zijn met de naam `connectionstring1`, deze zou worden geopend via de omgevingsvariabele `MYSQLCONNSTR_connectionString1`.
 
 Verbindingsreeksen worden altijd versleuteld wanneer die zijn opgeslagen (versleuteld in rust).
+
+Tekenreeksen voor databaseverbindingen, kunnen worden opgelost vanuit Key Vault met [Key Vault verwijst naar](app-service-key-vault-references.md).
 
 ### <a name="default-documents"></a>Standaarddocumenten
 Het standaarddocument is de webpagina die wordt weergegeven op de basis-URL voor een website.  De eerste overeenkomende bestand in de lijst wordt gebruikt. 
