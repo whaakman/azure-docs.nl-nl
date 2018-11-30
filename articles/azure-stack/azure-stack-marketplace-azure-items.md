@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/28/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: c3c5e904d8e933c09754e13ccb22d6c16d0a37eb
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713466"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620690"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -53,7 +53,6 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 |  | Itemnaam | Beschrijving | Uitgever |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Geavanceerde oplossingen die eenvoudig te implementeren, kosteneffectieve, toepassingen en de gebruiker gericht. Deze installatiekopieën worden regelmatig bijgewerkt met de meest recente patches. **Belangrijke informatie: installatiekopieën gedownload voordat 18 januari 2018 moet worden verwijderd en door de meest recente versies vervangen.** | Microsoft |
-| ![Externe bureaubladservices](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Implementatie van extern bureaublad-Services (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Maak een eenvoudige implementatie van extern bureaublad-Services (RDS). **Download de meest recente Windows Server 2016 Datacenter-installatiekopie.** | Microsoft |
 | ![Evaluatieversie van SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013-evaluatieversie op Windows Server 2012 Datacenter en Visual Studio 2017 community edition. | Microsoft |
 | ![Evaluatieversie van SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Evaluatieversie van SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016-evaluatieversie op Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 in Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 servicepack 2. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
@@ -203,7 +202,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![RabbitMQ-Cluster](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ-Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ is een berichtbroker die toepassingen een gemeenschappelijk platform biedt voor het verzenden en ontvangen van berichten en een veilige plaats op live totdat ontvangen berichten. Deze oplossing maakt gebruik van meerdere virtuele machines voor het inrichten van meerdere knooppunten in een RabbitMQ Cluster om te vormen van een enkele logische broker. **Deze oplossingssjabloon vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![Re: streepje](media/azure-stack-marketplace-azure-items/redash.png) | [Re: streepje](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | Open-source gegevensvisualisatie en samenwerkingsplatform. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | Krachtige opensource-sleutel / waarde-archief. | Bitnami |
-| ![Redis hoge beschikbaarheid](media/azure-stack-marketplace-azure-items/redis.png) | [Redis hoge beschikbaarheid](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | Krachtige opensource-sleutel / waarde-archief. **Deze oplossingssjabloon uw Azure-Stack op 1807 of hoger vereist en vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
+| ![Redis hoge beschikbaarheid](media/azure-stack-marketplace-azure-items/redis.png) | [Redis hoge beschikbaarheid](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | Krachtige opensource-sleutel / waarde-archief. **Deze oplossingssjabloon uw Azure-Stack op 1807 of hoger vereist en vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | Krachtige project management web-app | Bitnami |
 | ![Redmine + flexibele](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Project management-toepassing vooraf is geconfigureerd met flexibele-invoegtoepassing. | Bitnami |
 | ![ReportServer-Community](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer-Community](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | Open-source business intelligence-platform. | Bitnami |
@@ -250,5 +249,5 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detecteert bekende en onbekende beveiligingsproblemen en aanvallen op web-apps voorkomen. **Beide PT Marketplace-items downloaden.** | Positieve technologieën |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure Stack-infrastructuur te automatiseren. **Beide Puppet Marketplace-items downloaden.** | Puppet |
 | ![Quest snel herstel](media/azure-stack-marketplace-azure-items/quest.png) | [Quest snel herstel Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snel herstel geavanceerde bescherming van gegevens verenigt de back-up, replicatie en herstel in één eenvoudig te gebruiken, softwareoplossing. | Quest Software |
-| ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Beheer van de best mogelijke open-source-infrastructuur. | SUSE |
+| ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Beheer van de best mogelijke open-source-infrastructuur. | SUSE |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Bedrijfscontinuïteit ZeroDown Software as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown®-Software-technologie biedt bedrijven met continue toegang tot hun bedrijfsgegevens via hun zakelijke continuïteit as a Service (BCaaS)™-architectuur, beveiligt toepassingen en transacties, als netwerkonderbrekingen die optreden normaal platleggen de onderneming. | ZeroDown Software |

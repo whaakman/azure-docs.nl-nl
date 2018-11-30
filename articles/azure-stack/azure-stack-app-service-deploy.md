@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614052"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635370"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -202,17 +202,17 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >Als u naar een bestaand virtueel netwerk implementeert en met behulp van een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen. Deze regel kunnen SMB-verkeer tussen het worker-subnet en de bestandsserver.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:<br>
-    >  - Bron:
-    >  - Poortbereik van bron: *
-    >  - Bestemming: IP-adressen
-    >  - Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
-    >  - Poortbereik van doel: 445
-    >  - Protocol: TCP
-    >  - Actie: toestaan
-    >  - Prioriteit: 700
-    >  - Naam: Outbound_Allow_SMB445
+    Als u naar een bestaand virtueel netwerk implementeert en met behulp van een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen. Deze regel kunnen SMB-verkeer tussen het worker-subnet en de bestandsserver.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
+
+    - Bron:
+    - Poortbereik van bron: *
+    - Bestemming: IP-adressen
+    - Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+    - Poortbereik van doel: 445
+    - Protocol: TCP
+    - Actie: toestaan
+    - Prioriteit: 700
+    - Naam: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Probeer de App Service in Azure Stack
 
