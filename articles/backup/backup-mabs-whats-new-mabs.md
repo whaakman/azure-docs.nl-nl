@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e963f675dfe2a57fc19f3169beeb1d7d4066af93
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625875"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315593"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Wat is er nieuw in Microsoft Azure Backup Server
 
@@ -60,6 +60,7 @@ Zoeken naar meer informatie over de installatie/upgrade stappen voor MABS [hier]
 ## <a name="next-steps"></a>Volgende stappen
 
 Informatie over het voorbereiden van de server of beginnen met een werkbelasting beveiligen:
+- [Bekende problemen in MABS V3](backup-mabs-release-notes-v3.md)
 - [Back-up-Server-workloads voorbereiden](backup-azure-microsoft-azure-backup.md)
 - [Backup Server gebruiken voor back-up van een VMware-server](backup-azure-backup-server-vmware.md)
 - [Backup Server gebruiken voor back-up van SQL Server](backup-azure-sql-mabs.md)

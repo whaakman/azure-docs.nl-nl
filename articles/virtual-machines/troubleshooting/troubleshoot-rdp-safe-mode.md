@@ -13,23 +13,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8dfe61430423298eea81510d3e92d49066217a05
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708733"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309862"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Niet van RDP-verbinding met een virtuele machine omdat de virtuele machine wordt opgestart in de veilige modus
 
-In dit artikel laat zien hoe het oplossen van een probleem waarbij u kunt geen extern bureaublad naar Azure Windows Virtual Machines (VM's) omdat de virtuele machine is geconfigureerd om op te starten in de veilige modus.
+In dit artikel laat zien hoe het oplossen van een probleem waarbij u geen verbinding naar Azure Windows Virtual Machines (VM's maken) omdat de virtuele machine is geconfigureerd om op te starten in de veilige modus.
 
 > [!NOTE] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel. 
 
 ## <a name="symptoms"></a>Symptomen 
 
-U kunt pas een RDP-verbinding en andere verbindingen (zoals HTTP) in een virtuele machine in Azure omdat de virtuele machine is geconfigureerd om op te starten in de veilige modus. Wanneer u de schermafbeelding controleren in de [diagnostische gegevens over opstarten](../troubleshooting/boot-diagnostics.md) in Azure portal, ziet u mogelijk de virtuele machine normaal worden opgestart, maar de netwerkinterface is niet beschikbaar:
+Kunt u niet een RDP-verbinding of andere verbindingen (zoals HTTP) aan een virtuele machine in Azure omdat de virtuele machine is geconfigureerd om op te starten in de veilige modus. Wanneer u de schermafbeelding controleren in de [diagnostische gegevens over opstarten](../troubleshooting/boot-diagnostics.md) in Azure portal, ziet u mogelijk dat de virtuele machine normaal worden opgestart, maar de netwerkinterface niet beschikbaar is:
 
 ![Afbeelding van netwerk inferce in de veilige modus](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
@@ -54,11 +54,11 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om te configure
 
     Als de virtuele machine is geconfigureerd om op te starten in de veilige modus, ziet u een extra vlag onder de **Windows-opstartlaadprogramma** sectie met de naam **veilig**. Als u niet ziet de **veilig** vlag, de virtuele machine is niet in de veilige modus. In dit artikel geldt niet voor uw scenario.
 
-    De vlag veilig kan worden weergegeven met de volgende waarden:
+    De **veilig** vlag kan worden weergegeven met de volgende waarden:
     - Minimaal
     - Netwerk
 
-    In een van deze twee modi, wordt RDP niet gestart. De oplossing blijft dus hetzelfde.
+    RDP wordt in een van deze twee modi, niet worden gestart. De oplossing blijft daarom ongewijzigd.
 
     ![Afbeelding van de markering voor de veilige modus](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
@@ -66,7 +66,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om te configure
 
         bcdedit /deletevalue {current} safeboot
         
-4. Controleer de opstartconfiguratiegegevens om ervoor te zorgen dat de vlag veilig worden verwijderd:
+4. Controleer de opstartconfiguratiegegevens om ervoor te zorgen dat de **veilig** markering wordt verwijderd:
 
         bcdedit /enum
 
@@ -120,14 +120,14 @@ Om in te schakelen dump logboek- en seriële Console, voer het volgende script.
         bcdedit /store F:\boot\bcd /enum
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” flag, this article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
 
     ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
 3. Remove the **safeboot** flag, so the VM will boot into normal mode:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the safeboot flag is removed:
+4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
         bcdedit /store F:\boot\bcd /enum
 5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.

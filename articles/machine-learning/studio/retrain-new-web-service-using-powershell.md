@@ -1,5 +1,5 @@
 ---
-title: Opnieuw trainen van een nieuwe Azure Machine Learning-webservice met PowerShell | Microsoft Docs
+title: Opnieuw trainen van een nieuwe Machine Learning Studio-webservice met PowerShell - Azure | Microsoft Docs
 description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning met behulp van de Machine Learning Management PowerShell-cmdlets.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 77ae0c9f8af82e238b58945d1427afd6a01173e3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 59d12ae91f8c75ab0fdd2058057cc8de158897e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263026"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314181"
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Opnieuw trainen van een nieuwe Resource Manager gebaseerde webservice met behulp van de Machine Learning Management PowerShell-cmdlets
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-studio-management-powershell-cmdlets"></a>Opnieuw trainen van een nieuwe Resource Manager gebaseerde webservice met behulp van de Machine Learning Studio Management PowerShell-cmdlets
 Wanneer u een nieuwe webservice opnieuw trainen, kunt u de definitie van de voorspellende webservice om te verwijzen naar het nieuwe getrainde model bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten

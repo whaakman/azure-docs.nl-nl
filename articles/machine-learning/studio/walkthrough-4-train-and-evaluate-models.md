@@ -1,5 +1,5 @@
 ---
-title: 'Stap 4: Trainen en evalueren van de voorspellende analysemodellen | Microsoft Docs'
+title: 'Stap 4: Trainen voorspellende analysemodellen - Azure Machine Learning Studio | Microsoft Docs'
 description: 'Stap 4 van het ontwikkelen van een overzicht van de voorspellende oplossing: Train, beoordelen en evalueren van meerdere modellen in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: d0277db665259d485c5a5a06f0013f3c0d6a177c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261782"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313466"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Kennismaken, stap 4: De voorspellende analysemodellen trainen en evalueren
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Kennismaken, stap 4: Trainen en evalueren van de voorspellende analysemodellen in Machine Learning Studio
 In dit onderwerp bevat de vierde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
 
-1. [Een Machine Learning-werkruimte maken](walkthrough-1-create-ml-workspace.md)
+1. [Een Machine Learning Studio-werkruimte maken](walkthrough-1-create-ml-workspace.md)
 2. [Bestaande gegevens uploaden](walkthrough-2-upload-data.md)
 3. [Een nieuw experiment maken](walkthrough-3-create-new-experiment.md)
 4. **De modellen trainen en evalueren**
@@ -41,7 +41,7 @@ In het experiment dat er in dit scenario wordt gewerkt, we twee verschillende so
 Er zijn verschillende modellen die we kunnen kiezen uit. Als u wilt zien van de beschikbare modellen, vouw de **Machine Learning** knooppunt in het modulepalet en vouw vervolgens **Initialize Model** en de knooppunten eronder. Voor de doeleinden van dit experiment, selecteren we de [Two-Class Support Vector Machine] [ two-class-support-vector-machine] (SVM) en de [Two-Class Boosted beslissingsstructuur] [ two-class-boosted-decision-tree] modules.    
 
 > [!TIP]
-> Als u informatie om te bepalen welke Machine Learning-algoritme beste tegemoetkomt aan het specifieke probleem dat u probeert om op te lossen, raadpleegt u [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md).
+> Als u informatie om te bepalen welke Machine Learning-algoritme beste tegemoetkomt aan het specifieke probleem dat u probeert om op te lossen, raadpleegt u [algoritmen kiezen voor Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 > 
 > 
 

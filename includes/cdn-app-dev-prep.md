@@ -1,3 +1,16 @@
+---
+author: zhangmanling
+ms.service: cdn
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: mazha
+ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330898"
+---
 ## <a name="prerequisites"></a>Vereisten
 Voordat het CDN management code schrijft, moet u de voorbereiding om in te schakelen van de code om te communiceren met de Azure Resource Manager doen. Als deze voorbereiding doet, moet u naar:
 

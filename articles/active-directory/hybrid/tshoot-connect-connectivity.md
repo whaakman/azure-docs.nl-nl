@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f34b0015a4a6d7b8c2c23f539cf21232adaec58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311099"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310664"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Verbindingsproblemen met Azure AD Connect oplossen
 In dit artikel wordt uitgelegd hoe connectiviteit tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn ondergebracht in een omgeving met een proxyserver worden weergegeven.
@@ -46,7 +46,7 @@ URL's is de volgende tabel het absolute minimum dat bare kunnen verbinding maken
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Voor het downloaden van de CRL-lijsten. |
 | \*.verisign.com |HTTP/80 |Voor het downloaden van de CRL-lijsten. |
-| \*.entrust.com |HTTP/80 |Voor het downloaden van een lijst met CRL's voor MFA. |
+| \*. entrust.net |HTTP/80 |Voor het downloaden van een lijst met CRL's voor MFA. |
 | \*.windows.net |HTTPS/443 |Gebruikt om aan te melden bij Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Gebruikt voor MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Gebruikt voor het configureren van uw Azure AD-directory en gegevens importeren/exporteren. |

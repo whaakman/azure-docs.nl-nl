@@ -1,6 +1,6 @@
 ---
-title: Modelprestaties evalueren in Machine Learning | Microsoft Docs
-description: Wordt uitgelegd hoe modelprestaties evalueren in Azure Machine Learning.
+title: Evalueren van modelprestaties - Azure Machine Learning Studio | Microsoft Docs
+description: In dit artikel ziet u hoe u de prestaties van een model in Azure Machine Learning Studio evalueren en bevat een korte uitleg van de beschikbare metrische gegevens voor deze taak.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 98704f00c6b086772d9e0440ace79c3ca713f13a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261597"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311490"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Modelprestaties evalueren in Azure Machine Learning
 In dit artikel ziet u hoe u de prestaties van een model in Azure Machine Learning Studio evalueren en bevat een korte uitleg van de beschikbare metrische gegevens voor deze taak. Drie gangbare scenario's met leren met supervisie worden weergegeven: 
@@ -39,7 +39,7 @@ Azure Machine Learning biedt ondersteuning voor de evaluatie model via twee van 
 ## <a name="evaluation-vs-cross-validation"></a>Evaluatie van Visual Studio. Kruisvalidatie
 Beoordeling en validatie van kruislings zijn standaard manieren voor het meten van de prestaties van uw model. Ze beide evaluatie metrische gegevens die u kunt controleren of vergelijken met die van andere modellen genereren.
 
-[Model evalueren] [ evaluate-model] wordt verwacht dat een beoordeelde gegevensset als invoer (of 2 in het geval dat u wilt vergelijken van de prestaties van 2 verschillende modellen). Dit betekent dat u moet met het trainen van uw model met de [Train Model] [ train-model] -module en het model voorspellingen over het gebruik van bepaalde gegevensset de [Score Model] [ score-model]-module, voordat u de resultaten kunt evalueren. De evaluatie is gebaseerd op de scored labels/kansen, samen met de waarde true labels, die die allemaal worden uitgevoerd door de [Score Model] [ score-model] module.
+[Model evalueren] [ evaluate-model] wordt verwacht dat een beoordeelde gegevensset als invoer (of 2 in het geval dat u wilt vergelijken van de prestaties van twee verschillende modellen). Dit betekent dat u moet met het trainen van uw model met de [Train Model] [ train-model] -module en het model voorspellingen over het gebruik van bepaalde gegevensset de [Score Model] [ score-model]-module, voordat u de resultaten kunt evalueren. De evaluatie is gebaseerd op de scored labels/kansen, samen met de waarde true labels, die die allemaal worden uitgevoerd door de [Score Model] [ score-model] module.
 
 U kunt ook kunt u cross-validatie uit te voeren van een getal van de trein score evalueren bewerkingen (10 vouwen) automatisch op verschillende subsets van de ingevoerde gegevens. De ingevoerde gegevens gesplitst in 10 delen, waarbij een is gereserveerd voor het testen, en de andere 9 voor training. Dit proces wordt herhaald 10 keer en het gemiddelde genomen van de evaluatie van metrische gegevens. Dit helpt bij het bepalen hoe goed een model zou generaliseren met nieuwe gegevenssets. De [Kruisvalidatie Model] [ cross-validate-model] module neemt een ongetrainde model en sommige gelabelde gegevensset en worden de evaluatieresultaten van elk van de 10 vouwen, naast de gemiddelde resultaten uitgevoerd.
 
@@ -66,7 +66,7 @@ Afbeelding 1. Evaluatie van een regressiemodel.
 ### <a name="inspecting-the-evaluation-results"></a>De resultaten van evaluatie van inspecteren
 Nadat het experiment is uitgevoerd, kunt u klikken op de uitvoerpoort van de [Evaluate Model] [ evaluate-model] -module en selecteer *Visualize* om te zien van de evaluatieresultaten. De evaluatie van metrische gegevens beschikbaar is voor regressiemodellen zijn: *Mean Absolute Error*, *Root Mean Absolute Error*, *Relative Absolute Error*,  *Fout in ten opzichte van het kwadraat*, en de *determinatiecoëfficiënt*.
 
-De term "error" hier is het verschil tussen de voorspelde waarde en de waarde true. De absolute waarde of het kwadraat van dit verschil worden gewoonlijk berekend om vast te leggen van de totale omvang van de fout voor alle instanties, zoals het verschil tussen de voorspelde waarde true en de waarde kan niet negatief zijn in sommige gevallen. De fout metrische gegevens over meten de voorspellende prestaties van een regressiemodel in termen van de gemiddelde afwijking van de voorspellingen op basis van de waarden waar. Lagere foutwaarden betekenen dat het model is nauwkeurigere voorspellingen maken. Een algemene fout metric 0 betekent dat het model de gegevens perfect past.
+De term "error" hier is het verschil tussen de voorspelde waarde en de waarde true. De absolute waarde of het kwadraat van dit verschil wordt gewoonlijk berekend om vast te leggen van de totale omvang van de fout voor alle instanties, zoals het verschil tussen de voorspelde waarde true en de waarde kan niet negatief zijn in sommige gevallen. De fout metrische gegevens over meten de voorspellende prestaties van een regressiemodel in termen van de gemiddelde afwijking van de voorspellingen op basis van de waarden waar. Lagere foutwaarden betekenen dat het model is nauwkeurigere voorspellingen maken. Een algemene fout metrische waarde gelijk is aan nul betekent dat het model de gegevens perfect past.
 
 De determinatiecoëfficiënt, ook wel bekend als R is in het kwadraat, zijn ook een standaardmethode voor het meten hoe goed het model past bij de gegevens. Dit kan worden geïnterpreteerd als het aandeel van de variant worden gedekt door het model. Een hogere deel is beter in dit geval, waarbij 1 geeft aan een perfecte maat.
 
@@ -75,7 +75,7 @@ De determinatiecoëfficiënt, ook wel bekend als R is in het kwadraat, zijn ook 
 Afbeelding 2. Lineaire regressie evaluatie metrische gegevens.
 
 ### <a name="using-cross-validation"></a>Met behulp van Cross-validatie
-Zoals eerder vermeld, kunt u uitvoeren herhaalde training, scores en evaluaties automatisch met behulp van de [Kruisvalidatie Model] [ cross-validate-model] module. U hoeft in dit geval is een gegevensset, een ongetrainde model en een [Kruisvalidatie Model] [ cross-validate-model] module (Zie afbeelding hieronder). Houd er rekening mee dat u de labelkolom instelt moet op *prijs* in de [Kruisvalidatie Model] [ cross-validate-model] eigenschappen van de module.
+Zoals eerder vermeld, kunt u uitvoeren herhaalde training, beoordeling en evaluaties automatisch met behulp van de [Kruisvalidatie Model] [ cross-validate-model] module. U hoeft in dit geval is een gegevensset, een ongetrainde model en een [Kruisvalidatie Model] [ cross-validate-model] module (Zie afbeelding hieronder). U moet de labelkolom instellen op *prijs* in de [Kruisvalidatie Model] [ cross-validate-model] eigenschappen van de module.
 
 ![Een regressiemodel cross-valideren](./media/evaluate-model-performance/3.png)
 
@@ -88,7 +88,7 @@ Nadat het experiment is uitgevoerd, kunt u de resultaten van evaluatie van contr
 Afbeelding 4. Kruisvalidatie resultaten van een regressiemodel.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Een binair classificeringsmodel evalueren
-In een scenario voor binaire classificatie, is de doelvariabele slechts twee mogelijke resultaten, bijvoorbeeld: {0, 1} of {false, true}, {negatieve, positieve}. Wordt ervan uitgegaan dat krijgt u een gegevensset van volwassenen werknemers met een aantal demografische en werkgelegenheid variabelen en u wordt gevraagd om te voorspellen van het niveau van inkomsten, een binaire variabele met de waarden {"< 50K =", "> 50K '}. Met andere woorden, de negatieve klasse vertegenwoordigt de werknemers die kleiner dan of gelijk aan 50K per jaar en de positieve klasse alle andere werknemers. Zoals in het scenario regressie zouden we een model te trainen, bepaalde gegevens te beoordelen en evalueren van de resultaten. Het belangrijkste verschil is hier is de keuze van de metrische gegevens over die Azure Machine Learning worden berekend en uitvoer. Ter illustratie van het scenario voor het niveau voorspelling van inkomsten, gebruiken we de [volwassenen](http://archive.ics.uci.edu/ml/datasets/Adult) gegevensset naar een Azure Machine Learning-experiment maken en de prestaties van een model voor logistieke regressie van twee klassen, een veelgebruikte binair bestand evalueren classificatie.
+In een scenario voor binaire classificatie, is de doelvariabele slechts twee mogelijke resultaten, bijvoorbeeld: {0, 1} of {false, true}, {negatieve, positieve}. Wordt ervan uitgegaan dat krijgt u een gegevensset van volwassenen werknemers met een aantal demografische en werkgelegenheid variabelen en u wordt gevraagd om te voorspellen van het niveau van inkomsten, een binaire variabele met de waarden {"< 50 K =", "> 50 K '}. Met andere woorden, de negatieve klasse vertegenwoordigt de werknemers die kleiner dan of gelijk aan 50 K per jaar en de positieve klasse alle andere werknemers. Zoals in het scenario regressie zouden we een model te trainen, bepaalde gegevens te beoordelen en evalueren van de resultaten. Het belangrijkste verschil is hier is de keuze van de metrische gegevens over die Azure Machine Learning worden berekend en uitvoer. Ter illustratie van het scenario voor het niveau voorspelling van inkomsten, gebruiken we de [volwassenen](http://archive.ics.uci.edu/ml/datasets/Adult) gegevensset naar een Azure Machine Learning-experiment maken en de prestaties van een model voor logistieke regressie van twee klassen, een veelgebruikte binair bestand evalueren classificatie.
 
 ### <a name="creating-the-experiment"></a>Het maken van het Experiment
 De volgende modules toevoegen aan uw werkruimte in Azure Machine Learning Studio:
@@ -116,7 +116,7 @@ Om die reden is het nuttig zijn voor het berekenen van aanvullende metrische geg
 
 Afbeelding 6. Binaire classificatie Verwarringsmatrix.
 
-Ga terug naar het probleem van de classificatie inkomsten, zou willen we vragen verschillende evaluatievragen die ons helpen inzicht in de prestaties van de classificatie die wordt gebruikt. Een zeer natuurlijke vraag is: ' buiten de personen die het model met het verdienen worden voorspeld > 50 K (TP + FP), hoeveel zijn correct ingedeeld (TP)? " Deze vraag kan worden beantwoord door te kijken de **precisie** van het model, dit is de verhouding van positieve items verhoogd die correct zijn geclassificeerd: TP/(TP+FP). Een andere veelgestelde vraag is ' buiten alle hoge verdienen werknemers met inkomsten > 50 k (TP + FN), hoeveel de classificatie classificeren correct (TP) '. Dit is eigenlijk de **intrekken**, of de waarde true-positief-ratio: TP/(TP+FN) van de classificatie. U ziet u mogelijk dat er een duidelijke balans tussen precisie en intrekken is. Bijvoorbeeld, een relatief met gelijke taakverdeling gegevensset worden gegeven, zou een classificatie waarbij voorspelt voornamelijk positieve exemplaren hebben een hoge intrekken, maar een relatief laag precisie als met de exemplaren van het negatieve zou worden verkeerd geclassificeerd leidt tot een groot aantal fout-positieven. U ziet een diagram van hoe deze twee metrische gegevens variëren, u kunt klikken op de curve precisie/INTREKKEN op de pagina evaluatie resultaat uitvoer (linksboven deel uit van de afbeelding 7).
+Ga terug naar het probleem van de classificatie inkomsten, zou willen we vragen verschillende evaluatievragen die ons helpen inzicht in de prestaties van de classificatie die wordt gebruikt. Een zeer natuurlijke vraag is: ' buiten de personen die het model met het verdienen worden voorspeld > 50 K (TP + FP), hoeveel zijn correct ingedeeld (TP)? " Deze vraag kan worden beantwoord door te kijken de **precisie** van het model, dit is de verhouding van positieve items verhoogd die correct zijn geclassificeerd: TP/(TP+FP). Een andere veelgestelde vraag is ' buiten alle hoge verdienen werknemers met inkomsten > 50 k (TP + FN), hoeveel de classificatie classificeren correct (TP) '. Dit is eigenlijk de **intrekken**, of de waarde true-positief-ratio: TP/(TP+FN) van de classificatie. U ziet u mogelijk dat er een duidelijke balans tussen precisie en intrekken is. Bijvoorbeeld, een relatief met gelijke taakverdeling gegevensset worden gegeven, zou een classificatie waarbij voorspelt voornamelijk positieve exemplaren hebben een hoge intrekken, maar een relatief laag precisie als met de exemplaren van het negatieve zou worden verkeerd geclassificeerd leidt tot een groot aantal fout-positieven. U ziet een diagram van hoe deze twee metrische gegevens verschillen, kunt u klikken op de **precisie/INTREKKEN** kromme op de pagina evaluatie resultaat uitvoer (linksboven onderdeel van de afbeelding 7).
 
 ![Resultaten van evaluatie van binaire classificatie](./media/evaluate-model-performance/7.png)
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: ff194ef7f5ae609eba5334eb5c66db02d660ab08
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049628"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308214"
 ---
-# <a name="phoenix-performance-best-practices"></a>Best practices voor Phoenix-prestatie
+# <a name="apache-phoenix-performance-best-practices"></a>Aanbevolen procedures voor prestaties van Apache Phoenix
 
-De belangrijkste aspecten van Phoenix prestaties is het optimaliseren van de onderliggende HBase. Phoenix maakt een relationeel gegevensmodel op HBase die SQL-query's in HBase-bewerkingen, zoals scans converteert. Het ontwerp van uw tabelschema, de selectie en volgorde van de velden in uw primaire sleutel en uw gebruik van alle indexen Phoenix prestaties beïnvloeden.
+De belangrijkste aspecten van [Apache Phoenix](https://phoenix.apache.org/) prestaties is het optimaliseren van de onderliggende [Apache HBase](http://hbase.apache.org/). Phoenix maakt een relationeel gegevensmodel op HBase die SQL-query's in HBase-bewerkingen, zoals scans converteert. Het ontwerp van uw tabelschema, de selectie en volgorde van de velden in uw primaire sleutel en uw gebruik van alle indexen Phoenix prestaties beïnvloeden.
 
 ## <a name="table-schema-design"></a>Schema tabelontwerp
 
@@ -229,5 +229,5 @@ Zie voor meer informatie over deze en andere opties [Phoenix grammatica](http://
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Phoenix Afstemmingshandleiding](https://phoenix.apache.org/tuning_guide.html)
+* [Apache Phoenix Tuning Guide](https://phoenix.apache.org/tuning_guide.html)
 * [Secundaire indexen](http://phoenix.apache.org/secondary_indexing.html)

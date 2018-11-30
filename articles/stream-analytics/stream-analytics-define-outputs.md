@@ -8,19 +8,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 1502277276489d1977540018f2a22681ad48d8a7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291467"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310034"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
 
 Bij het ontwerpen van uw Stream Analytics-query, verwijzen naar de naam van het gebruik van de uitvoer de [component INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). U kunt een enkele uitvoer per taak of meerdere uitvoer per streaming-taak als u nodig hebt door te geven meerdere INTO-componenten in de query.
 
-Maken, bewerken en testen van Stream Analytics-taak weergeeft, kunt u de [Azure-portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), en [Visual Studio](stream-analytics-quick-create-vs.md).
+Maken, bewerken en testen van Stream Analytics-taak weergeeft, kunt u de [Azure-portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), en [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Sommige typen ondersteuning voor uitvoer [partitioneren](#partitioning), en [uitvoer van de batch-grootten](#output-batch-size) variëren voor het optimaliseren van doorvoer.
 
@@ -46,11 +46,11 @@ Azure Data Lake Store-uitvoer van Stream Analytics is momenteel niet beschikbaar
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer aan dit Data Lake Store te regelen. | 
 | Accountnaam | De naam van het Data Lake Storage-account waar u de uitvoer verzendt. Krijgt u een vervolgkeuzelijst met Data Lake Store-accounts die beschikbaar in uw abonnement zijn. |
-| Voorvoegsel padpatroon | Het pad dat wordt gebruikt om uw bestanden in de opgegeven Data Lake Store-Account te schrijven. U kunt opgeven van een of meer exemplaren van de {date} en {time} variabelen.</br><ul><li>Voorbeeld 1: Map1/logboeken / {date} / {time}</li><li>Voorbeeld 2: Map1/logboeken / {date}</li></ul><br>De tijdstempel van de mapstructuur gemaakt volgt UTC en niet de lokale tijd.</br><br>Als het pad naar bestandspatroon geen een afsluitende bevat '/', de laatste patroon in het bestandspad wordt beschouwd als een voorvoegsel voor de bestandsnaam. </br></br>Nieuwe bestanden worden gemaakt in de volgende situaties:<ul><li>In de uitvoerschema wijzigen</li><li>Externe of interne opnieuw starten van een taak.</li></ul> |
+| Voorvoegsel van het padpatroon | Het pad dat wordt gebruikt om uw bestanden in de opgegeven Data Lake Store-Account te schrijven. U kunt opgeven van een of meer exemplaren van de {date} en {time} variabelen.</br><ul><li>Voorbeeld 1: Map1/logboeken / {date} / {time}</li><li>Voorbeeld 2: Map1/logboeken / {date}</li></ul><br>De tijdstempel van de mapstructuur gemaakt volgt UTC en niet de lokale tijd.</br><br>Als het pad naar bestandspatroon geen een afsluitende bevat '/', de laatste patroon in het bestandspad wordt beschouwd als een voorvoegsel voor de bestandsnaam. </br></br>Nieuwe bestanden worden gemaakt in de volgende situaties:<ul><li>In de uitvoerschema wijzigen</li><li>Externe of interne opnieuw starten van een taak.</li></ul> |
 | Datumnotatie | Optioneel. Als de datumtoken van de in het pad van het voorvoegsel wordt gebruikt, kunt u de datumnotatie waarin de bestanden zijn ingedeeld. Voorbeeld: Jjjj/MM/DD |
 |Tijdnotatie | Optioneel. Als de token van de tijd in het pad van het voorvoegsel wordt gebruikt, geeft u de indeling waarin de bestanden zijn ingedeeld. De enige ondersteunde waarde is momenteel HH. |
 | Serialisatie-indeling voor gebeurtenissen | Serialisatie-indeling voor de uitvoergegevens. JSON-, CSV- en Avro worden ondersteund.| 
-| Encoding | Als u CSV of JSON-indeling, moet een codering worden opgegeven. De enige ondersteunde coderingsindeling wordt UTF-8 op dit moment.|
+| Encoding | Als u CSV of JSON-indeling, moet een codering worden opgegeven. Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.|
 | Scheidingsteken | Alleen van toepassing voor de CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens voor het serialiseren van CSV-gegevens. Ondersteunde waarden zijn komma, puntkomma, spatie, tab en verticale balk.|
 | Indeling | Alleen van toepassing op JSON-serialisatie. Lijn gescheiden geeft aan dat de uitvoer is geformatteerd met elk JSON-object dat is gescheiden door een nieuwe regel. Matrix geeft aan dat de uitvoer wordt opgemaakt als een matrix met JSON-objecten. Deze matrix wordt gesloten wanneer de taak stopt of Stream Analytics is verplaatst op naar de volgende periode. In het algemeen is het beter gebruik van de regel gescheiden JSON, omdat er geen speciale verwerking niet vereist, terwijl het uitvoerbestand is nog steeds worden geschreven naar.|
 
@@ -92,7 +92,7 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Datumnotatie | Optioneel. Als de datumtoken van de in het pad van het voorvoegsel wordt gebruikt, kunt u de datumnotatie waarin de bestanden zijn ingedeeld. Voorbeeld: Jjjj/MM/DD |
 | Tijdnotatie | Optioneel. Als de token van de tijd in het pad van het voorvoegsel wordt gebruikt, geeft u de indeling waarin de bestanden zijn ingedeeld. De enige ondersteunde waarde is momenteel HH. |
 | Serialisatie-indeling voor gebeurtenissen | Serialisatie-indeling voor de uitvoergegevens.  JSON-, CSV- en Avro worden ondersteund. |
-| Encoding    | Als u CSV of JSON-indeling, moet een codering worden opgegeven. De enige ondersteunde coderingsindeling wordt UTF-8 op dit moment. |
+| Encoding    | Als u CSV of JSON-indeling, moet een codering worden opgegeven. Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund. |
 | Scheidingsteken   | Alleen van toepassing voor de CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens voor het serialiseren van CSV-gegevens. Ondersteunde waarden zijn met door komma's, door puntkomma's, spatie, tab en verticale balk. |
 | Indeling      | Alleen van toepassing op JSON-serialisatie. Lijn gescheiden geeft aan dat de uitvoer is geformatteerd met elk JSON-object dat is gescheiden door een nieuwe regel. Matrix geeft aan dat de uitvoer wordt opgemaakt als een matrix met JSON-objecten. Deze matrix wordt gesloten wanneer de taak stopt of Stream Analytics is verplaatst op naar de volgende periode. In het algemeen is het beter gebruik van de regel gescheiden JSON, omdat er geen speciale verwerking niet vereist, terwijl het uitvoerbestand is nog steeds worden geschreven naar. |
 
@@ -118,11 +118,11 @@ Er zijn een aantal parameters die nodig zijn voor de Event Hub-gegevensstromen c
 | Event hub-naamruimte |Een Event Hub-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, is ook een Event Hub-naamruimte gemaakt. |
 | Event Hub-naam | De naam van de Event Hub-uitvoer. |
 | Naam van het Event Hub-beleid | Het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad configureren van Event Hub. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. |
-| Beleidssleutel voor Event Hub | De gedeelde toegangssleutel gebruikt voor het verifiëren van toegang tot de Event Hub-naamruimte. |
+| Sleutel voor het Event Hub-beleid | De gedeelde toegangssleutel gebruikt voor het verifiëren van toegang tot de Event Hub-naamruimte. |
 | Partitiesleutelkolom (optioneel) | Deze kolom bevat de partitiesleutel voor Event Hub-uitvoer. |
 | Serialisatie-indeling voor gebeurtenissen | Serialisatie-indeling voor de uitvoergegevens.  JSON-, CSV- en Avro worden ondersteund. |
 | Encoding | Voor CSV en JSON is UTF-8 de enige ondersteunde coderingsindeling op dit moment. |
-| Scheidingsteken | Alleen van toepassing voor de CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in CSV-indeling. Ondersteunde waarden zijn met door komma's, door puntkomma's, spatie, tab en verticale balk. |
+| Scheidingsteken | Alleen van toepassing voor de CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in csv-indeling. Ondersteunde waarden zijn met door komma's, door puntkomma's, spatie, tab en verticale balk. |
 | Indeling | Alleen van toepassing op JSON-serialisatie. Lijn gescheiden geeft aan dat de uitvoer is geformatteerd met elk JSON-object dat is gescheiden door een nieuwe regel. Matrix geeft aan dat de uitvoer wordt opgemaakt als een matrix met JSON-objecten. Deze matrix wordt gesloten wanneer de taak stopt of Stream Analytics is verplaatst op naar de volgende periode. In het algemeen is het beter gebruik van de regel gescheiden JSON, omdat er geen speciale verwerking niet vereist, terwijl het uitvoerbestand is nog steeds worden geschreven naar. |
 
 ## <a name="power-bi"></a>Power BI

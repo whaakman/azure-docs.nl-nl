@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 65dd4b172c0913e11bb7f25909eb062e93a4a03a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e78f0d2012cf4f6152e69fff1bab04f827c0eef7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015227"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310885"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Apache Kafka op HDInsight voor het automatisch maken van onderwerpen configureren
 
-Kafka in HDInsight wordt standaard niet ingeschakeld automatisch onderwerp maken. U kunt automatisch onderwerp maken voor bestaande clusters met behulp van Ambari inschakelen. U kunt ook automatisch onderwerp maken inschakelen bij het maken van een nieuwe Kafka-cluster met behulp van een Azure Resource Manager-sjabloon.
+Standaard [Apache Kafka](https://kafka.apache.org/) op HDInsight automatisch onderwerp maken niet inschakelen. U kunt automatisch onderwerp maken voor bestaande clusters met behulp van inschakelen [Apache Ambari](https://ambari.apache.org/). U kunt ook automatisch onderwerp maken inschakelen bij het maken van een nieuwe Kafka-cluster met behulp van een Azure Resource Manager-sjabloon.
 
-## <a name="ambari-web-ui"></a>Ambari-Webgebruikersinterface
+## <a name="apache-ambari-web-ui"></a>Apache Ambari-Webgebruikersinterface
 
 Om in te schakelen automatisch onderwerp maken op een bestaand cluster via de Ambari-Webgebruikersinterface, gebruikt u de volgende stappen uit:
 
@@ -56,7 +56,7 @@ Om in te schakelen automatisch onderwerp maken op een bestaand cluster via de Am
     ![Afbeelding van opnieuw opstarten selecteren](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]
-> U kunt ook instellen Ambari waarden met de Ambari REST-API. Dit is meestal moeilijker, als er meerdere REST-aanroepen naar de huidige configuratie ophalen, wijzigt u het, enzovoort. Zie voor meer informatie de [beheren HDInsight-clusters met behulp van de Ambari REST-API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.
+> U kunt ook instellen Ambari waarden met de Ambari REST-API. Dit is meestal moeilijker, als er meerdere REST-aanroepen naar de huidige configuratie ophalen, wijzigt u het, enzovoort. Zie voor meer informatie de [beheren HDInsight-clusters met behulp van de Apache Ambari REST-API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.
 
 ## <a name="resource-manager-templates"></a>Resource Manager-sjablonen
 
@@ -79,7 +79,7 @@ Bij het maken van een Kafka-cluster met behulp van een Azure Resource Manager-sj
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe u voor het maken van automatische onderwerp voor Kafka in HDInsight. Zie de volgende koppelingen voor meer informatie over het werken met Kafka:
+In dit document hebt u geleerd hoe u voor het maken van automatische onderwerp voor Apache Kafka in HDInsight. Zie de volgende koppelingen voor meer informatie over het werken met Kafka:
 
-* [Kafka-logboekbestanden analyseren](apache-kafka-log-analytics-operations-management.md)
-* [Gegevens repliceren tussen Kafka-clusters](apache-kafka-mirroring.md)
+* [Apache Kafka-logboekbestanden analyseren](apache-kafka-log-analytics-operations-management.md)
+* [Gegevens repliceren tussen Apache Kafka-clusters](apache-kafka-mirroring.md)

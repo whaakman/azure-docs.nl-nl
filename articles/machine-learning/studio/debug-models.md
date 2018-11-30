@@ -1,6 +1,6 @@
 ---
-title: Fouten opsporen in uw Model in Azure Machine Learning | Microsoft Docs
-description: Klik hier voor meer informatie over het opsporen van fouten die worden geproduceerd door de modules Train Model en Score Model in Azure Machine Learning.
+title: Fouten opsporen in uw model in Azure Machine Learning Studio | Microsoft Docs
+description: Klik hier voor meer informatie over het opsporen van fouten die worden geproduceerd door de modules Train Model en Score Model in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: fd81ff0ade0267d052862beed9d84649a7721ee9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263686"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312592"
 ---
-# <a name="debug-your-model-in-azure-machine-learning"></a>Fouten opsporen in uw model in Azure Machine Learning
+# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Fouten opsporen in uw model in Azure Machine Learning Studio
 
 Dit artikel wordt uitgelegd dat de mogelijke redenen waarom een van de volgende twee fouten mogelijk worden aangetroffen bij het uitvoeren van een model:
 

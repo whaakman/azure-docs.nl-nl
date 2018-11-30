@@ -1,5 +1,5 @@
 ---
-title: Een Machine Learning-werkruimte beheren | Microsoft Docs
+title: Een Machine Learning-werkruimte - Azure Machine Learning Studio beheren | Microsoft Docs
 description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API-webservices
 services: machine-learning
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 80a9c92c80d82555c5bf8f75a615095647eb1dc9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264944"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314101"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte beheren
 

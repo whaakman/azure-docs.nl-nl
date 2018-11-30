@@ -1,5 +1,5 @@
 ---
-title: Meer informatie over het beheren van AzureML-webservices met API Management | Microsoft Docs
+title: Beheren van Machine Learning Studio-webservices met API Management - Azure | Microsoft Docs
 description: Een handleiding waarin wordt getoond hoe voor het beheren van AzureML-webservices met API Management.
 keywords: machine learning, api management
 services: machine-learning
@@ -17,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: bc0c8f40c8e2fb75e95e1745b53332aa8e4588ca
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265216"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308236"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Informatie over het beheren van AzureML-webservices met API Management
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Azure Machine Learning Studio-webservices met API Management beheren
 ## <a name="overview"></a>Overzicht
-Deze handleiding laat zien hoe u snel aan de slag met API Management voor het beheren van de AzureML-webservices.
+Deze handleiding laat zien hoe u snel aan de slag met API Management voor het beheren van uw Azure Machine Learning Studio-webservices.
 
 ## <a name="what-is-azure-api-management"></a>Wat is Azure API Management?
 Azure API Management is een Azure-service waarmee u uw REST API-eindpunten beheren met het definiëren van gebruikerstoegang, beperking en bewaking van dashboard. Klik op [hier](https://azure.microsoft.com/services/api-management/) voor meer informatie over Azure API Management. Klik op [hier](../../api-management/api-management-get-started.md) voor richtlijnen voor hoe u aan de slag met Azure API Management. Deze andere gids, die in deze handleiding is gebaseerd op, vindt u meer onderwerpen, waaronder melding configuraties, prijzen, antwoord verwerking, gebruikersverificatie, producten, developer-abonnementen en gebruik dashboarding maken.

@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282404"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312966"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versie 2](media-services-dynamic-manifest-overview.md)
+> * [Versie 3](../latest/filters-dynamic-manifest-overview.md)
+
 Media Services kunt vanaf 2,17 release, u filters voor uw assets definiëren. Deze filters zijn serverzijde regels die zorgen uw klanten om te kiezen dat ervoor voor handelingen zoals: alleen een gedeelte van een video (in plaats van de hele video afspelen) af te spelen, of alleen een subset van audio en video voorinstelling van uw klant apparaat aankan (opgeven in plaats van alle voorinstelling die zijn gekoppeld aan de asset). Deze filtering van uw activa wordt bereikt door **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter (s).
 
-In dit onderwerp worden algemene scenario's waarin zeer nuttig zijn voor uw klanten en koppelingen naar onderwerpen die laten zien hoe u filters maken via een programma met behulp van filters zou zijn.
+In dit onderwerp worden algemene scenario's waarin nuttig is om uw klanten en koppelingen naar onderwerpen die laten zien hoe u filters maken via een programma met behulp van filters zou zijn.
 
 ## <a name="overview"></a>Overzicht
 Wanneer uw inhoud levert aan klanten (streaming live gebeurtenissen of video on demand) is het doel een video van hoge kwaliteit te leveren op verschillende apparaten met verschillende netwerkomstandigheden. Voor dit doel het volgende te doen:
@@ -102,7 +107,7 @@ Er zijn twee typen asset filters:
 Globale en lokale filtertypen hebben exact de dezelfde eigenschappen. Het belangrijkste verschil tussen de twee is voor welke scenario's voor welk type een filer beter geschikt is. Algemene filters zijn in het algemeen geschikt voor apparaatprofielen (weergavefiltering) waar lokale filters kunnen worden gebruikt voor een specifieke asset trim.
 
 ## <a id="scenarios"></a>Algemene scenario 's
-Zoals is vermeld voordat wanneer uw inhoud levert aan klanten (streaming live gebeurtenissen of video on demand) het doel is een video van hoge kwaliteit te leveren op verschillende apparaten met verschillende netwerkomstandigheden. Daarnaast kunnen uw mogelijk andere vereisten die betrekking hebben op uw assets te filteren en het gebruik van **dynamische Manifest**s. De volgende secties geven een kort overzicht van verschillende scenario's voor filteren.
+Net als voordat wanneer uw inhoud levert aan klanten (streaming live gebeurtenissen of video on demand) het doel is een video van hoge kwaliteit te leveren op verschillende apparaten met verschillende netwerkomstandigheden werd genoemd. Bovendien kan er andere vereisten die betrekking hebben op uw assets te filteren en het gebruik van **dynamische Manifest**s. De volgende secties geven een kort overzicht van verschillende scenario's voor filteren.
 
 * Geef alleen een subset van audio en video voorinstelling die bepaalde apparaten kunnen verwerken (in plaats van alle voorinstelling die gekoppeld aan de asset zijn). 
 * Alleen een gedeelte van een video (in plaats van de hele video afspelen) afspelen.

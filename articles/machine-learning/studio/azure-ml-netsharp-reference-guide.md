@@ -1,6 +1,6 @@
 ---
-title: 'NET # Neurale netwerken specificatie taal voor: Azure Machine Learning | Microsoft Docs'
-description: 'De syntaxis voor de Net # neurale netwerken specificatietaal, samen met voorbeelden van het maken van een aangepaste neural network-model met Net #'
+title: 'NET # Neurale netwerken - Azure Machine Learning Studio | Microsoft Docs'
+description: 'De syntaxis voor de Net # neurale netwerken specificatietaal, samen met voorbeelden van hoe u een aangepaste neural network-model met Net # met Azure Machine Learning Studio maakt.'
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8adb3c78f97311085aec3a5c86a062ec14f53e61
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263669"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315304"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 
 NET # is een door Microsoft ontwikkelde taal die wordt gebruikt om netwerkarchitecturen voor neurale te definiëren. Net # definiëren met de structuur van een neural network, maakt het mogelijk voor het definiëren van complexe structuren zoals deep neural networks of convoluties van willekeurige dimensies, waarvan bekend is dat het leren van gegevens, zoals afbeeldingen, audio of video verbeteren.
 

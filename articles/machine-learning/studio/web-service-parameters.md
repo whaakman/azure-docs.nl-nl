@@ -1,5 +1,5 @@
 ---
-title: Gebruik Azure Machine Learning Webserviceparameters | Microsoft Docs
+title: Azure Machine Learning Studio webserviceparameters gebruiken | Microsoft Docs
 description: Het gebruik van Azure Machine Learning Web Service Parameters aan het gedrag van uw model wijzigen wanneer de web-service wordt geopend.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 34ae252ff2c37a6e4e9f90155c4fda79b81e29a2
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264332"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312007"
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>Parameters voor Azure Machine Learning-webservice
+# <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio webserviceparameters gebruiken
 Een Azure Machine Learning-webservice wordt gemaakt door het publiceren van een experiment met modules met configureerbare parameters. In sommige gevallen kunt u het gedrag van de module niet wijzigen terwijl de webservice wordt uitgevoerd. *Web-Parameters van de Service* zodat u deze taak. 
 
 Een veelvoorkomend voorbeeld is het instellen van de [importgegevens] [ reader] module zodat de gebruiker van de gepubliceerde webservice een andere gegevensbron opgeven kan wanneer de web-service wordt geopend. Of het configureren van de [gegevens exporteren] [ writer] module zodat een andere bestemming kan worden opgegeven. Enkele andere voorbeelden zijn wijzigen van het aantal bits voor de [hash-functies] [ feature-hashing] module of het aantal gewenste functies voor de [Functieselectie op basis van een Filter] [ filter-based-feature-selection] module. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007855"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313436"
 ---
 # <a name="permissions-in-azure-security-center"></a>Machtigingen in Azure Security Center
 
@@ -59,7 +59,7 @@ De volgende tabel geeft de rollen en toegestane acties in Security Center. Een X
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel wordt uitgelegd hoe Security Center maakt gebruik van RBAC machtigingen toewijzen aan gebruikers en de toegestane acties voor elke rol geïdentificeerd. Nu dat u bekend met de roltoewijzingen die nodig zijn bent voor het bewaken van de beveiligingsstatus van uw abonnement, beveiligingsbeleid, bewerken en toepassen van aanbevelingen, informatie over hoe u:
 
-- [Beveiligingsbeleid instellen in Security Center](security-center-policies.md)
+- [Beveiligingsbeleid instellen in Security Center](security-center-azure-policy.md)
 - [Aanbevelingen voor beveiliging in Security Center beheren](security-center-recommendations.md)
 - [De beveiligingsstatus van uw Azure-resources controleren](security-center-monitoring.md)
 - [Beveiligingswaarschuwingen beheren en erop reageren in Security Center](security-center-managing-and-responding-alerts.md)

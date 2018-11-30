@@ -1,5 +1,5 @@
 ---
-title: Meerdere modellen maken van een experiment | Microsoft Docs
+title: Meerdere modellen van één experiment - Azure Machine Learning Studio maken | Microsoft Docs
 description: PowerShell gebruiken voor het maken van meerdere Machine Learning-modellen en web-service-eindpunten met dezelfde algoritme, maar met verschillende trainingdatasets.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: c3ba87459c8c24a948683319f6b3ab54436c88e1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262365"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316562"
 ---
-# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Veel Machine Learning-modellen en webservice-eindpunten maken van een experiment met PowerShell
+# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: Gebruik PowerShell om u te veel modellen en web service-eindpunten maken vanuit één experiment
+
 Hier volgt een veelvoorkomend probleem voor machine learning: U wilt Maak veel modellen die dezelfde werkstroom training en gebruikmaken van dezelfde algoritme. Maar u wilt dat ze hebben verschillende trainingdatasets als invoer. In dit artikel laat zien u hoe u dit doet op schaal in Azure Machine Learning Studio met slechts één experiment.
 
 Stel dat u een globale fiets verhuur franchise bedrijf de eigenaar bent. U wilt maken van een regressiemodel om te voorspellen van de verhuur vraag op basis van historische gegevens. Hebt u 1000 verhuur locaties over de hele wereld en u een gegevensset voor elke locatie hebt verzameld. Ze bevatten belangrijke functies zoals datum, tijd, weer en verkeer die specifiek voor elke locatie zijn.

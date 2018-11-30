@@ -1,6 +1,6 @@
 ---
-title: Analyse van het traject van de klant met Machine Learning | Microsoft Docs
-description: Casestudy van het ontwikkelen van een geïntegreerde model voor het analyseren en scoren van klantverloop
+title: Analyseren van klantverloop met Azure Machine Learning Studio | Microsoft Docs
+description: Casestudy van het ontwikkelen van een geïntegreerde model voor het analyseren en scoring-klantverloop met behulp van Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7c55e35370e2aed67045333eaee7a42c3c69d318
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261170"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314981"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analyse van het traject van de klant met Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analyse van het traject van de klant met behulp van Azure Machine Learning Studio
 ## <a name="overview"></a>Overzicht
 In dit artikel geeft een referentie-implementatie van een klantverloop analysis-project dat is gebouwd met behulp van Azure Machine Learning. In dit artikel wordt besproken hoe gekoppelde algemene modellen voor het oplossen van het probleem van het verloop van industriële klanten zuinigste. We ook meet de nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning en richtlijnen voor de verdere ontwikkeling beoordelen.  
 

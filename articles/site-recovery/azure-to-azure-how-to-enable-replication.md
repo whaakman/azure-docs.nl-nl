@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 2f4721155610da3be3ff0db3608d7c1e163aa344
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e73659dca034c0333a73786788c8f342b57598da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211839"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314661"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Virtuele Azure-machines repliceren naar een andere Azure-regio
 
@@ -53,7 +53,15 @@ Replicatie inschakelen. Deze procedure wordt ervan uitgegaan dat de primaire Azu
     - **Doelopslagaccounts (als de bron-VM maakt geen gebruik van schijven beheerde)**: Site Recovery maakt standaard een nieuw doel-opslagaccount mimicking de opslagconfiguratie van de bron-VM. In het geval er bestaat al een storage-account, wordt dit opnieuw gebruikt.
     - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt nieuwe beheerde replicaschijven in de doelregio voor het spiegelen van beheerde schijven van de bron-VM met hetzelfde opslagtype (Standard of premium) als de bron-VM van schijf beheerde.
     - **Storage-accounts in de cache**: Site Recovery moet extra opslagaccount met de naam cacheopslag in de bronregio. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache-opslagaccount voor het repliceren van die naar de doellocatie.
-    - **Beschikbaarheidsset**: Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met de naam met achtervoegsel 'asr'. In het geval beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
+    - **Doelbeschikbaarheidssets**: Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met het achtervoegsel 'asr' voor de virtuele machines die deel uitmaken van een beschikbaarheidsset in de regio van de gegevensbron met de naam. In het geval beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
+    - **Doel van de beschikbaarheidszones**: standaard, Site Recovery de dezelfde zone-nummer als de regio van de gegevensbron in de doelregio toegewezen als de doelregio ondersteuning voor beschikbaarheidszones biedt.
+
+    Als de doelregio biedt geen ondersteuning voor beschikbaarheidszones, worden de doel-VM's standaard geconfigureerd als één instanties. Indien nodig, kunt u deze virtuele machines als onderdeel van beschikbaarheidssets in de doelregio door te klikken op 'Aanpassen' kunt configureren.
+
+    >[!NOTE]
+    >U kunt de beschikbaarheid-type - één exemplaar, instellen of beschikbaarheid beschikbaarheidszone, niet wijzigen nadat u replicatie inschakelt. U moet uitschakelen en inschakelen van replicatie om het type van de beschikbaarheid te wijzigen.
+    >
+    
     - **Beleid voor wachtwoordreplicatie**: Hiermee worden de instellingen voor recovery point bewaren geschiedenis en de app de momentopnamefrequentie gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van 24 uur voor de bewaarperiode voor herstelpunten en ' 60 minuten voor de frequentie voor app-consistente momentopname te maken.
 
     ![Replicatie inschakelen](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)

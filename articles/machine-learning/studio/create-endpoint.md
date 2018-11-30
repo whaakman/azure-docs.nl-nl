@@ -1,5 +1,5 @@
 ---
-title: Het maken van de webservice-eindpunten in Machine Learning | Microsoft Docs
+title: Het maken van de webservice-eindpunten in Machine Learning - Azure Machine Learning Studio | Microsoft Docs
 description: Het maken van de webservice-eindpunten in Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: f046db11bf3c04c9ea15e759b4e0080cab4f71d5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265063"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314010"
 ---
-# <a name="creating-endpoints"></a>Eindpunten maken
+# <a name="creating-endpoints"></a>Eindpunten maken 
 > [!NOTE]
 >  Dit onderwerp wordt beschreven technieken die van toepassing op een **klassieke** Machine Learning-webservice.
 > 
@@ -31,7 +31,7 @@ ms.locfileid: "52265063"
 
 Wanneer u Web-services die u vooruit aan uw klanten verkopen maakt, moet u voor getrainde modellen voor elke klant die nog steeds zijn gekoppeld aan het experiment van waaruit de Web-service is gemaakt. Bovendien moeten eventuele updates naar het experimentcanvas worden toegepast selectief op een eindpunt worden overschreven en dat de aanpassingen.
 
-U doet dit door kunt Azure Machine Learning u meerdere eindpunten voor een geïmplementeerde webservice maken. Elk eindpunt in de webservice is onafhankelijk van elkaar geadresseerd, beperkt en beheerd. Elk eindpunt is een unieke URL en de autorisatiesleutel die u aan uw klanten kunt distribueren.
+U doet dit door kunt Azure Machine Learning Studio u meerdere eindpunten voor een geïmplementeerde webservice maken. Elk eindpunt in de webservice is onafhankelijk van elkaar geadresseerd, beperkt en beheerd. Elk eindpunt is een unieke URL en de autorisatiesleutel die u aan uw klanten kunt distribueren.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

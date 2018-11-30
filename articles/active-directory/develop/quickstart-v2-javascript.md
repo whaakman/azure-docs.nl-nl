@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986285"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317344"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Snelstartgids: Meld u aan gebruikers en een toegangstoken van een JavaScript-toepassing te verkrijgen
 
@@ -36,24 +36,24 @@ In deze snelstartgids leert u hoe u een codevoorbeeld van die u laat hoe een Jav
 > #### <a name="step-1-register-your-application"></a>Stap 1: Uw toepassing registreren
 >
 > 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) om een toepassing te registreren.
-> 1. Als uw account u toegang tot meer dan één tenant hebt, selecteert u uw account in de rechterbovenhoek hoek en instellen van uw portal-sessie op de gewenste Azure AD-tenant.
-> 1. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer vervolgens **App-registraties (Preview) > nieuwe registratie**.
+> 1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
+> 1. Selecteer in het linkernavigatiedeelvenster de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview) > Nieuwe registratie**.
 > 1. Wanneer de **registreren van een toepassing** pagina wordt weergegeven, voer een naam in voor uw toepassing.
 > 1. Onder **ondersteund accounttypen**, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**.
 > 1. Selecteer de **Web** platform onder de **omleidings-URI** sectie en stel de waarde voor `http://localhost:30662/`.
-> 1. Wanneer u klaar bent, selecteert u **registreren**.  Op de app **overzicht** pagina, noteer de **(client) toepassings-ID** waarde.
+> 1. Selecteer **Registreren** wanneer u klaar bent.  Op de app **overzicht** pagina, noteer de **(client) toepassings-ID** waarde.
 > 1. Deze snelstartgids moet de [impliciet verlenen stroom](v2-oauth2-implicit-grant-flow.md) zijn ingeschakeld. Selecteer in het navigatiedeelvenster links van de geregistreerde toepassing, **verificatie**.
 > 1. In **geavanceerde instellingen**onder **impliciete**, schakel beide **ID-tokens** en **toegangstokens** selectievakjes. ID-tokens en toegangstokens zijn vereist, omdat deze app moet het aanmelden van gebruikers en aanroepen van een API.
 > 1. Selecteer **Opslaan**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Stap 1: Uw toepassing in Azure portal configureren
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Stap 1: uw toepassing configureren in de Azure-portal
 > Voor het codevoorbeeld voor deze Quick Start om te werken, moet u Voeg een omleidings-URI als `http://localhost:30662/` en in te schakelen **impliciete**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Deze wijzigingen aanbrengt voor mij]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Al geconfigureerd](media/quickstart-v2-javascript/green-check.png) uw toepassing is geconfigureerd met deze kenmerken.
+> > ![Al geconfigureerd](media/quickstart-v2-javascript/green-check.png) Uw toepassing is al geconfigureerd met deze kenmerken.
 
 #### <a name="step-2-download-the-project"></a>Stap 2: Het project downloaden
 
@@ -66,7 +66,7 @@ Pak het zip-bestand naar een lokale map, bijvoorbeeld **C:\Azure-Samples**.
 #### <a name="step-3-configure-your-javascript-app"></a>Stap 3: Uw JavaScript-app configureren
 
 > [!div renderon="docs"]
-> Bewerken `index.html` en vervang `Enter_the_Application_Id_here` onder `applicationConfig` met toepassings-ID van de app die u zojuist hebt geregistreerd.
+> Bewerken `index.html` en stel de `clientID` en `authority` waarden onder `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Bewerken `index.html` en vervang `applicationConfig` met:
@@ -74,13 +74,25 @@ Pak het zip-bestand naar een lokale map, bijvoorbeeld **C:\Azure-Samples**.
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Waar:
+> - `Enter_the_Application_Id_here`: is de **toepassings-id (client-id)** voor de toepassing die u hebt geregistreerd.
+> - `Enter_the_Tenant_Info_Here`: is ingesteld op een van de volgende opties:
+>   - Als uw toepassing **Alleen accounts in deze organisatiemap** ondersteunt, vervang deze waarde dan door de **Tenant-id** of **Tenantnaam** (bijvoorbeeld contoso.microsoft.com)
+>   - Als uw toepassing **Accounts in elke organisatiemap** ondersteunt, vervang deze waarde dan door `organizations`
+>   - Als uw toepassing **Accounts in elke organisatiemap en persoonlijke Microsoft-accounts** ondersteunt, vervang deze waarde dan door `common`
+>
+> > [!TIP]
+> > Om de waarden van **Toepassings-id (client-id)**, **Map-id (tenant-id)** en **Ondersteunde accounttypen** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal.
+
 > [!NOTE]
->Als u [Node.js](https://nodejs.org/en/download/), wordt de *server.js* bestand is geconfigureerd voor de server te luisteren op poort 30662 starten.
-> Als u [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), het codevoorbeeld *.csproj* bestand is geconfigureerd voor de server te luisteren op poort 30662 starten.
+> De server is geconfigureerd om te luisteren op poort 30662 in de *server.js* in het bestand [Node.js](https://nodejs.org/en/download/) project en de *.csproj* in het bestand [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)project.
 >
 
 #### <a name="step-4-run-the-project"></a>Stap 4: Voer het project
@@ -121,7 +133,7 @@ npm install msal
 De snelstartcode laat ook zien hoe initialiseren van de bibliotheek:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Waar  |  |

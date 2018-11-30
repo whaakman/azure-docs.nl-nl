@@ -1,5 +1,5 @@
 ---
-title: Uw experiment uitbreiden met R | Microsoft Docs
+title: Uw experiment uitbreiden met R - Azure Machine Learning Studio | Microsoft Docs
 description: Klik hier voor meer informatie over het uitbreiden van de functionaliteit van Azure Machine Learning Studio via de R-taal met behulp van de module R-Script uitvoeren.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 30ed2a71fcf00a511802afb5b126829b918615d6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263057"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311005"
 ---
-# <a name="extend-your-experiment-with-r"></a>Uw experiment uitbreiden met R
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: Uw experiment uitbreiden met R 
 U kunt de functionaliteit van Azure Machine Learning Studio via de R-taal uitbreiden met behulp van de [R-Script uitvoeren] [ execute-r-script] module.
 
 Deze module accepteert meerdere gegevenssets voor invoer en resulteert in een enkele gegevensset als uitvoer. Typt u een R-script in de **R-Script** parameter van de [R-Script uitvoeren] [ execute-r-script] module.
@@ -33,7 +33,7 @@ U toegang tot elke invoerpoort van de module met behulp van code die vergelijkba
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>Lijst van alle geïnstalleerde pakketten
-De lijst met geïnstalleerde pakketten kunt wijzigen. Een lijst met geïnstalleerde pakketten te vinden in [R-pakketten ondersteund door Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt741980.aspx).
+De lijst met geïnstalleerde pakketten kunt wijzigen. Een lijst met geïnstalleerde pakketten te vinden in [R-pakketten ondersteund door Azure Machine Learning Studio](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
 U kunt de volledige, actuele lijst met geïnstalleerde pakketten ook ophalen door in te voeren van de volgende code in de [R-Script uitvoeren] [ execute-r-script] module:
 

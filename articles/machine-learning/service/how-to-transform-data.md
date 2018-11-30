@@ -10,30 +10,30 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 76b417d1592671006d3d5cfa2363e306e4db48fd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263032"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309790"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
 
-De [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) biedt andere transformatie methoden om uw gegevens opruimen. Deze methoden kunnen u eenvoudig aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden.
+In dit artikel leert u verschillende methoden voor het laden van gegevens met de [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk). De SDK biedt functies kunnen u eenvoudig aan kolommen toevoegen, filteren ongewenste rijen of kolommen, en rekenen ontbrekende waarden.
 
-Momenteel zijn er methoden voor de volgende taken:
+Momenteel zijn er functies voor de volgende taken:
+
 - [Met behulp van een expressie kolom toevoegen](#column)
 - [Ontbrekende waarden worden toegerekend](#impute-missing-values)
 - [Kolom afleiden per voorbeeld](#derive-column-by-example)
 - [Filteren](#filtering)
 - [Aangepaste Python-transformaties](#custom-python-transforms)
 
-<a name=column>
 ## <a name="add-column-using-an-expression"></a>Met behulp van een expressie kolom toevoegen
 
-De Azure Machine Learning Data Prep SDK bevat `substring` expressies die u kunt gebruiken om een waarde uit bestaande kolommen te berekenen en vervolgens samengesteld die waarde in een nieuwe kolom. In dit voorbeeld we gegevens laden en probeer kolommen toevoegen aan die invoergegevens.
+De Azure Machine Learning Data Prep SDK bevat `substring` expressies die u kunt gebruiken om een waarde uit bestaande kolommen te berekenen en vervolgens samengesteld die waarde in een nieuwe kolom. In dit voorbeeld moet u gegevens laden en probeer kolommen toevoegen aan die invoergegevens.
 
-```
+```python
 import azureml.dataprep as dprep
 
 # loading data
@@ -48,10 +48,9 @@ dataflow.head(3)
 |2|10140270|HY329253|07-05-2015 23:20:00 UUR|121XX S FRONT AVE|0486|ACCU|EENVOUDIGE VAN BINNENLANDSE ACCU|ADRES|false|true|...|9|53|08B|||2015|07-12-2015 12:42:46 UUR|
 
 
+Gebruik de `substring(start, length)` expressie voor het extraheren van het voorvoegsel van de kolom aanvraag en die tekenreeks in een nieuwe kolom geplaatst `Case Category`. Doorgeven van de `substring_expression` variabele de `expression` parameter maakt u een nieuwe berekende kolom die de expressie op elke record wordt uitgevoerd.
 
-Gebruik de `substring(start, length)` expressie voor het extraheren van het voorvoegsel van de kolom aanvraag en die gegevens in een nieuwe kolom geplaatst: categorie Case.
-
-```
+```python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dataflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,8 +66,9 @@ case_category.head(3)
 
 
 
-Gebruik de `substring(start)` expressie voor het extraheren van alleen het nummer van de kolom aanvraag, en vervolgens converteren naar een numeriek gegevenstype en plaatst deze in een nieuwe kolom: aanvraag-id.
-```
+Gebruik de `substring(start)` expressie voor het extraheren van alleen het nummer van de kolom aanvraag en maak een nieuwe kolom. Converteren naar een numerieke gegevens met behulp van de `to_number()` functioneren en de naam van de kolom als een parameter doorgeven.
+
+```python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dataflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
@@ -85,9 +85,9 @@ case_id.head(3)
 
 ## <a name="impute-missing-values"></a>Ontbrekende waarden worden toegerekend
 
-De SDK van Azure Machine Learning Data Prep kunt rekenen ontbrekende waarden in de opgegeven kolommen. In dit voorbeeld wordt u waarden voor breedtegraad en lengtegraad laden en vervolgens probeert te rekenen ontbrekende waarden in de ingevoerde gegevens.
+De SDK kunt rekenen ontbrekende waarden in de opgegeven kolommen. In dit voorbeeld u waarden voor breedtegraad en lengtegraad laden en vervolgens probeert te rekenen ontbrekende waarden in de ingevoerde gegevens.
 
-```
+```python
 import azureml.dataprep as dprep
 
 # loading input data
@@ -105,10 +105,11 @@ df.head(5)
 |3|10139885|false|41.902152|-87.754883|
 |4|10140379|false|41.885610|-87.657009|
 
-De derde record ontbreken waarden voor breedtegraad en lengtegraad. Als u wilt deze ontbrekende waarden worden toegerekend, kunt u `ImputeMissingValuesBuilder` voor meer informatie over een vaste programma. Deze kolommen met een van beide een berekende kunt rekenen `MIN`, `MAX`, of `MEAN` waarde of een `CUSTOM` waarde. Wanneer `group_by_columns` is opgegeven, worden ontbrekende waarden worden toegeschreven per groep met `MIN`, `MAX`, en `MEAN` berekend per groep.
+De derde record ontbreken waarden voor breedtegraad en lengtegraad. Als u wilt deze ontbrekende waarden worden toegerekend, gebruikt u `ImputeMissingValuesBuilder` voor meer informatie over een vaste-expressie. Deze kolommen met een van beide een berekende kunt rekenen `MIN`, `MAX`, `MEAN` waarde, of een `CUSTOM` waarde. Wanneer `group_by_columns` is opgegeven, worden ontbrekende waarden worden toegeschreven per groep met `MIN`, `MAX`, en `MEAN` berekend per groep.
 
-Controleer in de eerste plaats snel de `MEAN` waarde van de breedtegraad-kolom.
-```
+Controleer de `MEAN` waarde van de breedtegraad kolom met behulp van de `summarize()` functie. Deze functie accepteert een matrix van kolommen in de `group_by_columns` parameter opgeven voor het aggregatieniveau van. De `summary_columns` parameter accepteert een `SummaryColumnsValue` aanroepen. Deze aanroep van de functie geeft de huidige kolomnaam, de nieuwe naam voor het berekende veld en de `SummaryFunction` om uit te voeren.
+
+```python
 df_mean = df.summarize(group_by_columns=['Arrest'],
                        summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
                                                                  summary_column_name='Latitude_MEAN',
@@ -121,10 +122,11 @@ df_mean.head(1)
 |-----|-----|----|
 |0|false|41.878961|
 
-De `MEAN` waarde van Latitude ziet er goed uit, zodat u deze gebruiken kunt voor het rekenen breedtegraad. Voor de ontbrekende Lengtegraadwaarde, zullen we het rekenen met 42 op basis van externe kennisbronnen.
+De `MEAN` waarde van Latitude nauwkeurige uiterlijk, gebruikt u de `ImputeColumnArguments` functie voor het rekenen. Deze functie accepteert een `column_id` tekenreeks, en een `ReplaceValueFunction` om op te geven van het type impute. Voor de ontbrekende Lengtegraadwaarde, moet u het rekenen met 42 op basis van externe kennis.
 
+Rekenen stappen kunnen een keten worden samengevoegd in een `ImputeMissingValuesBuilder` object met behulp van de functie builder `impute_missing_values()`. De `impute_columns` parameter accepteert een matrix van `ImputeColumnArguments` objecten. Roep de `learn()` functie voor het opslaan van de stappen impute, en vervolgens toepassen op een gegevensstroom object met `to_dataflow()`.
 
-```
+```python
 # impute with MEAN
 impute_mean = dprep.ImputeColumnArguments(column_id='Latitude',
                                           impute_function=dprep.ReplaceValueFunction.MEAN)
@@ -152,20 +154,22 @@ df_imputed.head(5)
 |4|10140379|false|41.885610|-87.657009|
 
 Zoals weergegeven in het bovenstaande resultaat, de ontbrekende breedtegraad is toegerekende met de `MEAN` waarde van `Arrest=='false'` groep. De ontbrekende lengtegraad is toegerekende met 42.
-```
+
+```python
 imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
 ## <a name="derive-column-by-example"></a>Kolom afleiden per voorbeeld
-Een van de meer geavanceerde hulpprogramma's in de SDK van Azure Machine Learning Data Prep is de mogelijkheid voor het afleiden van kolommen met behulp van voorbeelden van de gewenste resultaten. Hiermee kunt u de SDK een voorbeeld geven, zodat deze code voor het bereiken van de beoogde afleiding kunt genereren.
 
-```
+Een van de meer geavanceerde hulpprogramma's in de SDK van Azure Machine Learning Data Prep is de mogelijkheid voor het afleiden van kolommen met behulp van voorbeelden van de gewenste resultaten. Hiermee kunt u de SDK een voorbeeld geven, zodat deze code voor het bereiken van de gewenste transformatie kunt genereren.
+
+```python
 import azureml.dataprep as dprep
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
-df = dataflow.head(10)
-df
+dataflow.head(10)
 ```
+
 ||DATE|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
 |----|----|----|----|----|----|
 |0|1/1/2015 0:54|FM-15|22|50|10|
@@ -179,11 +183,9 @@ df
 |8|1/1/2015 6:54|FM-15|23|50|14|
 |9|1/1/2015 7:00 uur|FM-12|23|50|14|
 
-Zoals u ziet, is dit bestand is redelijk eenvoudig. Echter, wordt ervan uitgegaan dat u wilt deelnemen aan dit bestand met een gegevensset waarin datum en tijd in een indeling zijn ' 10 maart 2018 | 2 AM - 4 AM'.
+Wordt ervan uitgegaan dat u wilt deelnemen aan dit bestand met een gegevensset waarin datum en tijd in een indeling zijn ' 10 maart 2018 | 2 AM - 4 AM'.
 
-U kunt de gegevens transformeren in de vorm die u nodig hebt.
-
-```
+```python
 builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
 builder.add_example(source_data=df.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
 builder.preview() 
@@ -202,17 +204,14 @@ builder.preview()
 |8|1/1/2015 6:54|Vanaf 1 januari 2015 06: 00 - 8: 00 uur|
 |9|1/1/2015 7:00 uur|Vanaf 1 januari 2015 06: 00 - 8: 00 uur|
 
-De bovenstaande code maakt eerst een opbouwfunctie voor de afgeleide kolom. U hebt opgegeven een matrix van kolommen in de gegevensbron te houden (`DATE`) en een naam voor de nieuwe kolom die moet worden toegevoegd.
+De bovenstaande code maakt eerst een opbouwfunctie voor de afgeleide kolom. Bieden van een matrix van kolommen in de gegevensbron te houden (`DATE`), en een naam voor de nieuwe kolom die moet worden toegevoegd. Als het eerste voorbeeld doorgeven in de tweede rij (index 1) en geef een verwachte waarde voor de afgeleide kolom.
 
-Als het eerste voorbeeld krijgt u doorgegeven in de tweede rij (index 1) en heeft een verwachte waarde voor de afgeleide kolom.
-
-Ten slotte u met de naam `builder.preview()` en de afgeleide kolom naast de bronkolom kunt zien. De indeling lijkt prima, maar u ziet alleen waarden voor dezelfde datum "1 januari 2015".
+Roep ten slotte `builder.preview()` en de afgeleide kolom naast de bronkolom kunt zien. De indeling lijkt correct, maar u ziet alleen waarden voor dezelfde datum "1 januari 2015".
 
 Nu in het aantal rijen dat u wilt doorgeven `skip` vanaf de bovenkant om te zien van rijen verder omlaag.
 
 ```
-preview_df = builder.preview(skip=30)
-preview_df
+builder.preview(skip=30)
 ```
 
 ||DATE|date_timerange|
@@ -228,14 +227,11 @@ preview_df
 |38|2-11-2015 4:00 uur|Vanaf 1 februari 2015 4 AM - 6 AM|
 |39|2-11-2015 4:54|Vanaf 1 februari 2015 4 AM - 6 AM|
 
-Hier ziet u een probleem met de gegenereerde programma: uitsluitend zijn gebaseerd op de een voorbeeld dat u hierboven hebt opgegeven, het programma afleiden gekozen parseren van de datum als 'Dag/maand/jaar', die niet wat u wilt dat in dit geval is.
+Hier ziet u een probleem met de gegenereerde programma. Uitsluitend zijn gebaseerd op de een voorbeeld dat u hierboven hebt opgegeven, het programma afleiden hebt gekozen voor het parseren van de datum als 'Dag/maand/jaar', die niet wat u wilt dat in dit geval is. U kunt dit probleem oplossen, bieden met behulp van een ander voorbeeld de `add_example()` functioneren in de `builder` variabele.
 
-U kunt dit probleem oplossen, moet u een ander voorbeeld opgeven.
-
-```
+```python
 builder.add_example(source_data=preview_df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
-preview_df = builder.preview(skip=30, count=10)
-preview_df
+builder.preview(skip=30, count=10)
 ```
 
 ||DATE|date_timerange|
@@ -251,10 +247,9 @@ preview_df
 |38|1/2/2015 4:00 uur|2 januari 2015 4 AM - 6 AM|
 |39|1/2/2015 4:54|2 januari 2015 4 AM - 6 AM|
 
+Nu rijen goed verwerkt ' 1/2/2015' als 'Jan 2, 2015', maar als u verder te naar de afgeleide kolom zoeken ziet u dat de waarden aan het einde niets in afgeleide kolom hebben. Om op te lossen die, moet u een ander voorbeeld voor rij 66 opgeven.
 
-Nu rijen verwerkt goed ' 1/2/2015' als 'Jan 2, 2015', maar als u verder te naar de afgeleide kolom zoeken ziet u dat de waarden aan het einde niets in afgeleide kolom hebben. Om op te lossen die, moet u een ander voorbeeld voor rij 66 opgeven.
-
-```
+```python
 builder.add_example(source_data=preview_df.iloc[66], example_value='Jan 29, 2015 8PM-10PM')
 builder.preview(count=10)
 ```
@@ -272,14 +267,13 @@ builder.preview(count=10)
 |8|1/2/2015 4:00 uur|2 januari 2015 4 AM - 6 AM|
 |9|1/2/2015 4:54|2 januari 2015 4 AM - 6 AM|
 
-Alles er goed uitziet, maar u zult merken dat deze niet precies wat we wilden. U moet afzonderlijke datum en tijd met ' |' voor het genereren van de juiste indeling.
+Afzonderlijke datum en tijd met ' |', toevoegen van een ander voorbeeld. Deze tijd, in plaats van doorgeven in een rij van de Preview-versie, maken van een woordenlijst met de naam van de kolom op de waarde voor de `source_data` parameter.
 
-Als u wilt die verhelpen, kunt u een ander voorbeeld toevoegen. Deze tijd, in plaats van doorgeven in een rij van de Preview-versie, maken van een woordenlijst met de naam van de kolom op de waarde voor de `source_data` parameter.
-
-```
+```python
 builder.add_example(source_data={'DATE': '11/11/2015 0:54'}, example_value='Nov 11, 2015 | 12AM-2AM')
 builder.preview(count=10)
 ```
+
 ||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/1/2015 22:54|Geen|
@@ -293,12 +287,10 @@ builder.preview(count=10)
 |8|1/2/2015 4:00 uur|Geen|
 |9|1/2/2015 4:54|Geen|
 
-Dit was duidelijk negatieve gevolgen nu alleen rijen met waarden in afgeleide kolom de waarden die overeenkomen met precies met de voorbeelden die zijn er beschikbaar zijn.
+Dit was duidelijk negatieve gevolgen nu alleen rijen met waarden in afgeleide kolom de waarden die overeenkomen met precies met de voorbeelden die zijn er beschikbaar zijn. Bel `list_examples()` op het object opbouwfunctie voor een overzicht van het huidige voorbeeld afleidingen.
 
-Bekijk de voorbeelden:
-```
+```python
 examples = builder.list_examples()
-examples
 ```
 
 | |DATE|Voorbeeld|example_id|
@@ -308,11 +300,11 @@ examples
 |2|1/29/2015 20:54|29 januari 2015 8 PM - 10 PM|-3|
 |3|11/11/2015 0:54|11 november 2015 \| 12 AM - 2 AM|-4|
 
-U kunt zien dat we inconsistent voorbeelden hebt opgegeven. Los het probleem, moeten we de eerste drie voorbeelden vervangen door de juiste (met inbegrip van ' |' tussen de datum en tijd).
+In dit geval hebt inconsistent voorbeelden opgegeven. Los het probleem, vervangt u de eerste drie voorbeelden met de juiste (met inbegrip van ' |' tussen de datum en tijd).
 
-We doen dit door het verwijderen van voorbeelden die onjuist zijn (door een van beide `example_row` van de pandas DataFrame, of door te geven in `example_id` waarde) en vervolgens toe te voegen nieuwe voorbeelden terug gewijzigd.
+Inconsistente voorbeelden oplossen door het verwijderen van voorbeelden die onjuist zijn (door een van beide `example_row` van de pandas DataFrame, of door te geven in `example_id` waarde) en vervolgens toe te voegen nieuwe voorbeelden terug gewijzigd.
 
-```
+```python
 builder.delete_example(example_id=-1)
 builder.delete_example(example_row=examples.iloc[1])
 builder.delete_example(example_row=examples.iloc[2])
@@ -335,12 +327,11 @@ builder.preview()
 | 8 | 1/1/2015 6:54 | Vanaf 1 januari 2015 \| 06: 00 - 8: 00 uur|
 | 9 | 1/1/2015 7:00 uur | Vanaf 1 januari 2015 \| 06: 00 - 8: 00 uur|
 
-Nu de gegevens is gelukt en we ten slotte kunt aanroepen `to_dataflow()` op de opbouwfunctie voor, waarmee een gegevensstroom wordt geretourneerd met de gewenste afgeleide kolommen toegevoegd.
+Nu de gegevens is gelukt en u kunt aanroepen `to_dataflow()` op de opbouwfunctie voor, waarmee een gegevensstroom wordt geretourneerd met de gewenste afgeleide kolommen toegevoegd.
 
-```
+```python
 dataflow = builder.to_dataflow()
 df = dataflow.to_pandas_dataframe()
-df
 ```
 
 ## <a name="filtering"></a>Filteren
@@ -348,12 +339,14 @@ df
 De SDK bevat de methoden `Dataflow.drop_columns` en `Dataflow.filter` zodat u kolommen of rijen filteren.
 
 ### <a name="initial-setup"></a>Eerste installatie
-```
+
+```python
 import azureml.dataprep as dprep
 from datetime import datetime
 dataflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
@@ -370,10 +363,11 @@ Kolommen wilt filteren, gebruikt u `Dataflow.drop_columns`. Deze methode heeft e
 
 In dit voorbeeld `drop_columns` neemt een lijst met tekenreeksen. Elke tekenreeks moet exact overeenkomen met de gewenste kolom te verwijderen.
 
-``` 
+```python
 dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
@@ -383,12 +377,14 @@ dataflow.head(5)
 |4|2013-08-01-10:38:35|2013-08-01-10:38:51|0|0|0|0|1|.00|0|0|3.25|
 
 #### <a name="filtering-columns-with-regex"></a>Filteren van kolommen met een reguliere expressie
-U kunt ook kunt u de `ColumnSelector` expressie om te verwijderen van kolommen die overeenkomen met een bepaalde reguliere expressie. In dit voorbeeld verwijderen we de kolommen die overeenkomen met de expressie `Column*|.*longitude|.*latitude`.
 
-```
+U kunt ook de `ColumnSelector` expressie om te verwijderen van kolommen die overeenkomen met een bepaalde reguliere expressie. In dit voorbeeld u de kolommen die overeenkomen met de expressie neerzetten `Column*|.*longitude|.*latitude`.
+
+```python
 dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
@@ -403,18 +399,19 @@ Rijen filteren, gebruikt u `DataFlow.filter`. Deze methode een Azure Machine Lea
 
 ### <a name="filtering-rows-with-simple-expressions"></a>Rijen met eenvoudige expressies filteren
 
-De opbouwfunctie voor expressies gebruiken `col`, geef de naam van de kolom als een tekenreeksargument `col('column_name')` en, in combinatie met een van de volgende standaardoperators >, <>, =, < =, ==,! =, zoals een expressie opbouwen `col('Tip_amount') > 0`. Tot slot geven de samengestelde expressie in de `Dataflow.filter` functie.
+De opbouwfunctie voor expressies gebruiken `col`, geef de naam van de kolom als een tekenreeksargument `col('column_name')`. Deze expressie gebruiken in combinatie met een van de volgende standaardoperators >, <>, =, < =, ==,! = voor het bouwen van een expressie zoals `col('Tip_amount') > 0`. Tot slot geven de samengestelde expressie in de `Dataflow.filter` functie.
 
 In dit voorbeeld `dataflow.filter(col('Tip_amount') > 0)` retourneert een nieuwe gegevensstroom met de rijen waarin de waarde van `Tip_amount` is groter dan 0.
 
 > [!NOTE] 
 > `Tip_amount` eerst wordt geconverteerd naar een numerieke waarde, waarmee je een expressie die wordt vergeleken met andere numerieke waarden maken.
 
-```
+```python
 dataflow = dataflow.to_number(['Tip_amount'])
 dataflow = dataflow.filter(dprep.col('Tip_amount') > 0)
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-01 19:33:28|2013-08-01 19:35:21|5|.00|0,08|0|4,58|
@@ -429,11 +426,12 @@ Combineren om te filteren met behulp van complexe expressies, een of meer eenvou
 
 In dit voorbeeld `Dataflow.filter` retourneert een nieuwe gegevensstroom met de rijen waar `'Passenger_count'` is kleiner dan 5 en `'Tolls_amount'` is groter dan 0.
 
-```
+```python
 dataflow = dataflow.to_number(['Passenger_count', 'Tolls_amount'])
 dataflow = dataflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dataflow.head(5)
 ```
+
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-08-12:16:00 uur|2013-08-08-12:16:00 uur|1.0|.00|2.25|5,00|19.75|
@@ -447,7 +445,7 @@ Het is ook mogelijk om te filteren van rijen die meer dan één opbouwfunctie vo
 > [!NOTE]
 > `lpep_pickup_datetime` en `Lpep_dropoff_datetime` eerst worden geconverteerd naar datum/tijd, waarmee je een expressie die wordt vergeleken met andere datum / tijdwaarden maken.
 
-```
+```python
 dataflow = dataflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dataflow = dataflow.to_number(['Total_amount', 'Trip_distance'])
 mid_2013 = datetime(2013,7,1)
@@ -470,9 +468,9 @@ dataflow.head(5)
 |3|2013-08-25 16:46:51 + 00:00 uur|2013-08-25 17:13:55 + 00:00 uur|2.0|9.66|7.37|5.33|44.20|
 |4|2013-08-25 17:42:11 + 00:00 uur|2013-08-25 18:02:57 + 00:00 uur|1.0|9.60|6.87|5.33|41.20|
 
-## <a name="custom-python-transforms"></a>Aangepaste Python-transformaties 
+## <a name="custom-python-transforms"></a>Aangepaste Python-transformaties
 
-Er zijn scenario's wanneer het eenvoudigste wat voor u te doen is een Python-code te schrijven. De SDK biedt drie Extensiepunten die u kunt gebruiken.
+Er wordt altijd zijn scenario's wanneer de eenvoudigste manier voor het maken van een transformatie is uw eigen script schrijven. De SDK biedt drie Extensiepunten die u voor aangepaste Python-scripts gebruiken kunt.
 
 - Script van de nieuwe kolom
 - Nieuw script filter
@@ -484,13 +482,14 @@ Elk van de extensies wordt ondersteund in de runtime scale-up en scale-out. Een 
 
 Begin met het laden van gegevens uit Azure Blob.
 
-```
+```python
 import azureml.dataprep as dprep
 col = dprep.col
 
 df = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 df.head(5)
 ```
+
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158| |
@@ -501,12 +500,13 @@ df.head(5)
 
 Verwijder in de gegevensset en enkele algemene transformaties doen.
 
-```
+```python
 df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
 df = df.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 df = df.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 df.head(5)
 ```
+
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1.017100e + 10|Geen|
@@ -515,9 +515,9 @@ df.head(5)
 |3|ALABAMA|Hale County|1.017100e + 10|2|
 |4|ALABAMA|Hale County|1.017100e + 10|Geen|
 
-Zoek naar null-waarden met behulp van een filter. U vindt enkele, nu deze ontbrekende waarden invullen.
+Zoek naar null-waarden met behulp van de volgende filters.
 
-```
+```python
 df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 ```
 
@@ -531,17 +531,19 @@ df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 
 ### <a name="transform-partition"></a>Partitie transformeren
 
-Een handige pandas-functie kunt u alle null-waarden vervangen door een 0. Deze code wordt uitgevoerd door partitie, niet op alle van de gegevensset op een tijdstip. Dit betekent dat op een grote gegevensset met deze code kan parallel worden uitgevoerd als de runtime de gegevens, partitie door partitie verwerkt.
+Een functie pandas gebruiken alle null-waarden vervangen door een 0. Deze code wordt uitgevoerd door partitie, niet op in één keer de volledige gegevensset. Dit betekent dat op een grote gegevensset met deze code kan parallel worden uitgevoerd als de runtime de gegevens, partitie door partitie verwerkt.
 
-```
+Het Python-script moet een aangeroepen functie definiëren `transform()` die neemt twee argumenten, `df` en `index`. De `df` argument is een pandas dataframe dat de gegevens voor de partitie bevat en de `index` argument is een unieke id van de partitie. De omzetfunctie het doorgegeven gegevensframe volledig kunt bewerken, maar een dataframe moet retourneren. Alle bibliotheken die het Python-script importeert, moeten zich in de omgeving waar de gegevensstroom wordt uitgevoerd.
+
+```python
 df = df.transform_partition("""
 def transform(df, index):
     df['MAM_MTH00numvalid_1011'].fillna(0,inplace=True)
     return df
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
+
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1.017100e + 10|0.0|
@@ -554,14 +556,16 @@ h
 
 U kunt Python-code gebruiken om te maken van een nieuwe kolom met de naam van de regio en de Statusnaam en ook om de Statusnaam van de van hun bedrijfsactiviteiten. U doet dit door gebruik van de `new_script_column()` methode voor de gegevensstroom.
 
-```
+Het Python-script moet een aangeroepen functie definiëren `newvalue()` die een één argument `row`. De `row` argument is een dict (`key`: naam van kolom, `val`: huidige waarde) en voor elke rij in de gegevensset worden doorgegeven aan deze functie. Deze functie moet een waarde die moet worden gebruikt in de nieuwe kolom retourneren. Alle bibliotheken die het Python-script importeert, moeten zich in de omgeving waar de gegevensstroom wordt uitgevoerd.
+
+```python
 df = df.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
 def newvalue(row):
     return row['leanm10'] + ', ' + row['stnam'].title()
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
+
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|Hale regio, Alabama|1.017100e + 10|0.0|
@@ -569,18 +573,18 @@ h
 |2|ALABAMA|Hale County|Hale regio, Alabama|1.017100e + 10|0.0|
 |3|ALABAMA|Hale County|Hale regio, Alabama|1.017100e + 10|2.0|
 |4|ALABAMA|Hale County|Hale regio, Alabama|1.017100e + 10|0.0|
+
 ### <a name="new-script-filter"></a>Nieuw Script Filter
 
-Bouw nu een Python-expressie om te filteren van de gegevensset alleen rijen waar 'Hale' niet in de nieuwe is `county_state` kolom. De expressie retourneert `True` als we willen houden van de rij en `False` verwijderen van de rij.
+Bouw een Python-expressie om te filteren van de gegevens is ingesteld op alleen rijen waar 'Hale' niet in de nieuwe is `county_state` kolom. De expressie retourneert `True` als we willen houden van de rij en `False` verwijderen van de rij.
 
-```
+```python
 df = df.new_script_filter("""
 def includerow(row):
     val = row['county_state']
     return 'Hale' not in val
 """)
-h = df.head(5)
-h
+df.head(5)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|

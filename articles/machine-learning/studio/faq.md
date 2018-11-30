@@ -1,6 +1,6 @@
 ---
-title: Veelgestelde vragen over Azure Machine Learning | Microsoft Docs
-description: 'Inleiding Azure Machine Learning: veelgestelde vragen over facturering en de mogelijkheden en beperkingen van een cloudservice voor gestroomlijnde voorspellende modellen.'
+title: Machine Learning Studio Veelgestelde vragen - Azure | Microsoft Docs
+description: 'Azure Machine Learning Studio: Veelgestelde vragen over facturering, mogelijkheden en beperkingen van een cloudservice voor gestroomlijnde voorspellende modellen.'
 keywords: inleiding machine learning,voorspellende modellen,wat is machine learning
 services: machine-learning
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 9545c9a0cf77274b4ea68dea7a6640453a849093
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263423"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309137"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning: facturering, mogelijkheden, beperkingen en ondersteuning
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning Studio: facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
 
 **Hebt u een vraag die u hier niet kunt vinden?**
@@ -30,12 +30,6 @@ U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die be
 Azure Machine Learning heeft ook een forum op MSDN waar leden van de Data Science-community vragen kunnen stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure Machine Learning-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) om antwoorden te zoeken of een nieuwe vraag te posten.
 
 ## <a name="general-questions"></a>Algemene vragen
-**Wat is Azure Machine Learning?**
-
-Azure Machine Learning is een volledig beheerde service waarmee u voorspellende analytische oplossingen in de cloud kunt maken, testen, gebruiken en beheren. Via een browser kunt u zich eenvoudig aanmelden, gegevens uploaden en direct aan de slag gaan met Machine Learning-experimenten. U kunt voorspellende modellen, een groot palet modules en een bibliotheek van sjablonen slepen en neerzetten, zodat u algemene taken snel en eenvoudig kunt uitvoeren. Zie het [service-overzicht van Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) voor meer informatie. Zie [Inleiding op Azure Machine Learning](what-is-machine-learning.md) voor een introductie, waarin de belangrijkste termen en begrippen worden behandeld.
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **Wat is Machine Learning Studio?**
 
 Machine Learning Studio is een workbenchomgeving waartoe u via een webbrowser toegang hebt. Machine Learning Studio biedt een palet modules in een visuele compositie-interface waarmee u een end-to-end, wetenschappelijke werkstroom voor gegevens in de vorm van een experiment kunt maken.

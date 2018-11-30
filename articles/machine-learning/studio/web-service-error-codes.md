@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning REST API-foutcodes | Microsoft Docs
+title: Azure Machine Learning Studio REST API-foutcodes | Microsoft Docs
 description: Deze foutcodes kunnen worden geretourneerd door een bewerking op een Azure Machine Learning-webservice.
 keywords: ''
 services: machine-learning
@@ -17,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 92e85f123cc19d579a86d5cdedfaaf1df8c24e4c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 274fbced61318a6617b04ea3092e8e2f96a10940
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263229"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314898"
 ---
-# <a name="machine-learning-rest-api-error-codes"></a>Machine Learning-foutcodes REST-API
+# <a name="machine-learning-studio-rest-api-error-codes"></a>Machine Learning Studio REST API-foutcodes
  
-De volgende foutcodes kunnen worden geretourneerd door een bewerking op een Azure Machine Learning-webservice.
+De volgende foutcodes kunnen worden geretourneerd door een bewerking op een Azure Machine Learning Studio-webservice.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (HTTP-statuscode 400)
  

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615793"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312847"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Oplossen van problemen met de voortdurende replicatie van Azure naar Azure VM
 
@@ -29,7 +29,7 @@ FOUT-ID: 153007 </br>
 Azure Site Recovery repliceert gegevens van de bronregio naar de Dr-regio consistent en crash-consistent herstelpunt maakt om de 5 minuten. Als u Site Recovery kan maken van herstelpunten gedurende 60 minuten, waarschuwt gebruikers. Hieronder vindt u de oorzaken die tot deze fout leiden kunnen:
 
 **1 oorzaak: [hoge gegevenswijzigingssnelheid op de virtuele bronmachine](#high-data-change-rate-on-the-source-virtal-machine)**    
-**2 oorzaak: [connectiviteitsprobleem met het netwerk ](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**2 oorzaak: [connectiviteitsprobleem met het netwerk ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
 
@@ -77,5 +77,10 @@ Deze optie is alleen mogelijk als de gegevensverloop van bronschijf minder dan 1
 
 ### <a name="Network-connectivity-issue"></a>Probleem met de netwerkverbinding
 
+#### <a name="network-latency-to-cache-storage-account-"></a>De netwerklatentie voor Cache-opslagaccount:
+ Site Recovery gerepliceerde gegevens verzendt naar de cache-opslagaccount en het probleem kan optreden als het uploaden van de gegevens van virtuele machine naar het cacheopslagaccount trager is die 4 MB in 3 seconden. Om te controleren of er een probleem met betrekking tot latentie gebruik [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) voor het uploaden van gegevens van de virtuele machine naar de cache-opslagaccount.<br>
+Als de latentie hoog is, controleert u als u een virtuele netwerkapparaten gebruikt voor het beheren van uitgaande netwerkverkeer van virtuele machines. Het apparaat mogelijk te maken met beperkingen als het replicatieverkeer wordt doorgegeven via de NVA. Het wordt aangeraden om een service-eindpunt van het netwerk maken in uw virtuele netwerk voor 'Opslag', zodat het replicatieverkeer niet naar de NVA. Raadpleeg [netwerkconfiguratie virtueel apparaat](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+
+#### <a name="network-connectivity"></a>Verbinding met het netwerk
 Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde URL's of IP-bereiken zijn van de virtuele machine. Als uw VM zich achter een firewall bevindt of regels voor network security group (NSG) gebruikt voor het beheren van uitgaande connectiviteit, kunt u een van deze problemen kan tegenkomen.</br>
-Raadpleeg [uitgaande connectiviteit voor URL's van Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
+Raadpleeg [uitgaande connectiviteit voor URL's van Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) om te controleren of alle URL's zijn verbonden 

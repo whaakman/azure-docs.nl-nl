@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016043"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311803"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -76,6 +76,8 @@ Mogelijk hebt u maximaal 1000 e-mailacties in een actiegroep. Zie de [snelheidsb
 **ITSM** -mogelijk hebt u maximaal 10 ITSM-acties in een actie groep ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM-verbinding](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Logische App** -mogelijk hebt u maximaal 10 acties van logische App in een actiegroep
+
+**Functie-App** -de functietoetsen voor functie-Apps die zijn geconfigureerd als acties worden gelezen via de API-functies, die momenteel v2 functie-apps de app vereist-instelling 'AzureWebJobsSecretStorageType' naar 'bestanden' configureren, Zie [ Wijzigingen in de Key Management in functies V2]( https://aka.ms/funcsecrets) voor meer informatie.
 
 **Runbook** -mogelijk hebt u maximaal 10 Runbook-acties in een actie groep verwijst naar de [Servicelimieten van Azure-abonnement](../azure-subscription-service-limits.md) voor beperkingen met betrekking tot de Runbook-nettoladingen
 

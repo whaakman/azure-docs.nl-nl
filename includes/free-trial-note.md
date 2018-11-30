@@ -1,3 +1,16 @@
+---
+author: tdykstra
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tdykstra
+ms.openlocfilehash: 5964db5485503b6a318fc7d7d3f4d8f8b4fcb95e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310351"
+---
 > [!NOTE]
 > <a name="note"></a>U hebt een Azure-account nodig om deze zelfstudie te voltooien:
 > 

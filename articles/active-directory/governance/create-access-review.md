@@ -14,12 +14,12 @@ ms.component: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: c1ae6e8c67ab42207aea73932bb2e887db727f16
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5a68657a0aaedb389ccaaacebb890583ab6292ee
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263381"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307845"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Een toegangsbeoordeling van leden van beveiligingsgroep of toegang tot toepassingen maken met Azure AD
 
@@ -77,7 +77,7 @@ In dit artikel wordt beschreven hoe u een nieuwe toegangsbeoordeling maken voor 
 1. Gebruik de **moet revisor niet reageert** lijst om op te geven wat er gebeurt met gebruikers die niet zijn beoordeeld door de revisor binnen de controleperiode. Deze instelling heeft geen invloed op gebruikers die handmatig door de revisoren zijn gecontroleerd. Als de laatste revisor besluit weigeren, wordt de toegang van de gebruiker worden verwijderd.
 
     - **Er is geen wijziging** -gebruikerstoegang, ongewijzigd laten
-    - **Verwijderen van de optie** -van de gebruiker toegang verwijderen
+    - **Toegang verwijderen** -van de gebruiker toegang verwijderen
     - **Toegang goedkeuren** -van de gebruiker toegang goedkeuren
     - **Aanbevelingen ophalen** - nemen van het systeem de aanbeveling weigeren of goedkeuring van de gebruiker de blijvende toegang
 

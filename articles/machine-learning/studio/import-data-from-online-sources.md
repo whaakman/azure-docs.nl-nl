@@ -1,6 +1,6 @@
 ---
-title: Gegevens importeren in Machine Learning Studio uit online gegevensbronnen | Microsoft Docs
-description: Klik hier voor meer informatie over het importeren van uw trainingsgegevens Azure Machine Learning Studio van verschillende online gegevensbronnen.
+title: Gegevens importeren in Machine Learning Studio uit online-gegevensbronnen - Azure | Microsoft Docs
+description: Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig zijn voor het verplaatsen van gegevens uit deze bronnen in een Azure Machine Learning Studio-experiment.
 keywords: gegevens, de indeling, gegevenstypen, gegevensbronnen, trainingsgegevens importeren
 services: machine-learning
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 6412d431b0258d681d8d9bd8cb3a88798a0d81cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262890"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315019"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Gegevens importeren in Azure Machine Learning Studio van verschillende online gegevensbronnen met de module Gegevens importeren
-Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig is om gegevens te verplaatsen van deze bronnen in een Azure Machine Learning-experiment.
+Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig zijn voor het verplaatsen van gegevens uit deze bronnen in een Azure Machine Learning Studio-experiment.
 
 > [!NOTE]
 > In dit artikel bevat algemene informatie over de [importgegevens] [ import-data] module. Voor meer informatie over de typen gegevens die u kunt gedetailleerde, indelingen, parameters en antwoorden op veelgestelde vragen, Raadpleeg het naslagonderwerp voor de module voor de [importgegevens] [ import-data] module.

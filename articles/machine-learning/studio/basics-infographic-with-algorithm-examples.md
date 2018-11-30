@@ -1,5 +1,5 @@
 ---
-title: 'Infographic: Basisbeginselen van Machine learning - algoritmevoorbeelden | Microsoft Docs'
+title: 'Infographic: Basisbeginselen van Machine learning - algoritmevoorbeelden - Azure Machine Learning Studio | Microsoft Docs'
 description: Een overzicht eenvoudig te begrijpen van de basisprincipes van machine learning bevat algoritmevoorbeelden. De downloadbare infographic dekt de meeste machine learning-vragen.
 keywords: basisprincipes van machine learning, algoritmevoorbeelden, machine learning voor beginners, machine learning vragen, populaire algoritmen, algoritme infographic
 services: machine-learning
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: fcc85b62786cd776034e57d421262b82ecf54975
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265105"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307999"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: basisbeginselen van Machine Learning met algoritmevoorbeelden
 Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden. Algoritmevoorbeelden laten zien hoe de machine learning voor beginners te begrijpen welke algoritmen moet worden gebruikt en waarvoor ze gebruikt.

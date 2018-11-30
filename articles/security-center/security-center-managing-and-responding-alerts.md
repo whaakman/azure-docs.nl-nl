@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227787"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311225"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
 Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
 
 > [!NOTE]
-> Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](security-center-policies.md). Zie [Prijsinformatie over Azure Security Center](security-center-pricing.md) voor meer informatie.
+> Als u geavanceerde detectie wilt inschakelen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de prijscategorie in het [beveiligingsbeleid](security-center-azure-policy.md). Zie [Prijsinformatie over Azure Security Center](security-center-pricing.md) voor meer informatie.
 >
 >
 
@@ -63,6 +63,20 @@ Onder aan deze pagina ziet u de details voor elke waarschuwing. Als u wilt sorte
 > [!NOTE]
 > Beveiligingswaarschuwingen die door Security Center worden gegenereerd, worden ook weergegeven onder het Azure-activiteitenlogboek. Zie [Activiteitenlogboeken bekijken om de acties op resources te controleren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) voor meer informatie over toegang tot het Azure-activiteitenlogboek.
 >
+
+
+### <a name="alert-severity"></a>Ernst van waarschuwingen
+
+> [!NOTE]
+> Ernst van waarschuwing is anders weergegeven in de portal en de REST-API, worden de verschillen vermeld in de onderstaande lijst.
+
+-   **Hoge**: Er is een hoge kans dat de resource is aangetast. U ziet in het meteen. Security Center heeft een hoge betrouwbaarheid in zowel de kwade bedoelingen en in de bevindingen gebruikt voor het uitgeven van de waarschuwing. Bijvoorbeeld, een waarschuwing die wordt gedetecteerd tijdens de uitvoering van een bekende schadelijke hulpprogramma zoals Mimikatz, een veelgebruikt hulpprogramma gebruikt voor de diefstal van referenties. 
+-   **Gemiddeld (laag in de REST-API)**: dit is waarschijnlijk een verdachte activiteit die aangeven mogelijk dat een resource is aangetast.
+Vertrouwen in de analytische of zoeken van Security Center is normaal en het vertrouwen van de kwade bedoelingen gemiddeld in hoog is. Dit zijn meestal machine learning- of afwijkingen op basis van detecties. Bijvoorbeeld, een teken in poging vanaf een afwijkende locatie.
+-   **Laag (informatie in de REST-API)**: dit wordt mogelijk een goedaardig positief of een geblokkeerde-aanval. 
+    - Security Center is niet zeker genoeg dat de bedoeling schadelijke is en mogelijk is de activiteit onschuldig uitziet. Logboek wissen is bijvoorbeeld een actie die optreden kan als een aanvaller wil verbergen hun sporen te wissen, maar in veel gevallen is een routine-bewerking uitgevoerd door beheerders.
+    - Security Center niet meestal laat u weten wanneer aanvallen is geblokkeerd, tenzij het een interessante geval is dat we raden dat u kijken. 
+-   **Ter informatie (stil in de REST-API)**: informatieve waarschuwingen worden alleen worden weergegeven wanneer u op een beveiligingsincident Inzoomen of als u de REST-API met een specifieke gebruiken waarschuwing ID. Een incident is normaal gesproken bestaat uit een aantal waarschuwingen, waarvan sommige kunnen worden weergegeven op hun eigen worden alleen ter informatie, maar in de context van de andere waarschuwingen mogelijk daling van nader bekijken. 
 
 ### <a name="filtering-alerts"></a>Waarschuwingen filteren
 U kunt waarschuwingen filteren op basis van datum, status en ernst. Het filteren van waarschuwingen kan nuttig zijn wanneer u minder beveiligingswaarschuwingen wilt weergeven. U kunt u bijvoorbeeld concentreren op de beveiligingswaarschuwingen van de afgelopen 24 uur, omdat u een mogelijke inbreuk in het systeem onderzoekt.

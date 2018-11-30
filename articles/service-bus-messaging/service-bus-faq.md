@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279878"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313830"
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 
@@ -86,7 +86,7 @@ Service Bus messaging-services (wachtrijen en onderwerpen/abonnementen) toestaan
 Zie voor een lijst van mogelijke Service Bus-uitzonderingen, [uitzonderingen overzicht][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Wat is er een handtekening voor gedeelde toegang en welke talen ondersteuning voor het genereren van een handtekening?
-Shared Access Signatures zijn een verificatiemechanisme voor op basis van SHA-256 beveiligde hashes of URI's. Voor informatie over het genereren van uw eigen handtekeningen in Node, PHP, Java en C\#, Zie de [Shared Access Signatures] [ Shared Access Signatures] artikel.
+Shared Access Signatures zijn een verificatiemechanisme voor op basis van beveiligde SHA-256-hashes of URI's. Voor informatie over het genereren van uw eigen handtekeningen in Node.js, PHP, Java en C\#, Zie de [Shared Access Signatures] [ Shared Access Signatures] artikel.
 
 ## <a name="subscription-and-namespace-management"></a>Beheer van abonnementen en -naamruimte
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hoe Migreer ik een naamruimte met een andere Azure-abonnement?

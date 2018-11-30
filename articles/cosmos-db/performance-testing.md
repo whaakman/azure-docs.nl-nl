@@ -1,7 +1,7 @@
 ---
-title: Azure DB Cosmos schaal en prestaties testen | Microsoft Docs
-description: Meer informatie over het uitvoeren van de schaal en prestaties testen met Azure Cosmos-DB
-keywords: Prestaties testen
+title: Azure Cosmos DB-schaal en Prestatietesten | Microsoft Docs
+description: Meer informatie over het uitvoeren van de schaal en prestaties testen met Azure Cosmos DB
+keywords: Prestatietesten
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -11,46 +11,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: ce2c0ddcce3813990bf819477f7db425d70e3595
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612296"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308168"
 ---
-# <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos-DB
+# <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos DB
 
-Prestaties en schaal testen is een belangrijke stap in de ontwikkeling van toepassingen. Voor veel toepassingen heeft de databaselaag een aanzienlijke gevolgen voor de algehele prestaties en schaalbaarheid. Het is daarom een essentieel onderdeel van de prestatietests. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is speciaal hiervoor gemaakte voor elastisch schalen en voorspelbare prestaties. Deze mogelijkheden kunnen u een goede geschikt voor toepassingen die een krachtige databaselaag moeten. 
+Prestaties en schaal testen is een belangrijke stap in de ontwikkeling van toepassingen. Voor veel toepassingen heeft de databaselaag een aanzienlijke invloed op de algehele prestaties en schaalbaarheid. Daarom is het een essentieel onderdeel van de Prestatietesten. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is gebouwd om flexibele schaalmogelijkheden en voorspelbare prestaties. Deze mogelijkheden kunt uitstek geschikt voor toepassingen waarvoor een krachtige database-laag. 
 
-In dit artikel is een verwijzing voor ontwikkelaars prestaties testen van suites voor hun Azure DB die Cosmos-werkbelastingen te implementeren. Het kan ook worden gebruikt om te evalueren Azure Cosmos DB voor hoge prestaties toepassingsscenario's. Richt zich voornamelijk op de geïsoleerde prestaties testen van de database, maar bevat ook aanbevolen procedures voor productietoepassingen.
+In dit artikel is een verwijzing voor ontwikkelaars prestaties testsuites voor hun Azure Cosmos DB-workloads implementeren. Deze kan ook worden gebruikt om te evalueren van Azure Cosmos DB voor scenario's met hoogwaardige toepassingen. Richt zich voornamelijk op prestatietests geïsoleerd van de database, maar bevat ook aanbevolen procedures voor productie-Apps.
 
-Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden: 
+Na het lezen van dit artikel, zal het mogelijk om de volgende vragen te beantwoorden: 
 
-* Waar vind ik een voorbeeld .NET client-toepassing voor het testen van de prestaties van Azure DB die Cosmos 
-* Hoe ik hoge doorvoersnelheid niveaus met Azure Cosmos DB van mijn clienttoepassing bereikt?
+* Waar vind ik een voorbeeld van .NET-clienttoepassing voor het Prestatietesten van de van Azure Cosmos DB? 
+* Hoe kan ik een hoge doorvoerniveaus met Azure Cosmos DB van mijn clienttoepassing?
 
-Download het project uit om te beginnen met code [Azure DB die Cosmos-prestaties testen voorbeeld](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
-
-> [!NOTE]
-> Het doel van deze toepassing is te laten zien hoe u de beste prestaties vanuit Azure Cosmos DB met een beperkt aantal clientcomputers. Het doel van het voorbeeld is niet als u de maximale doorvoercapaciteit van Azure Cosmos-DB (die kunnen worden geschaald zonder beperkingen).
-> 
-> 
-
-Als u op zoek bent voor clientzijde configuratieopties Azure Cosmos DB prestaties te verbeteren, Zie [tips voor betere prestaties van Azure DB die Cosmos](performance-tips.md).
-
-## <a name="run-the-performance-testing-application"></a>De toepassing testen uitvoeren
-De snelste manier om te beginnen is compileren en uitvoeren van het .NET-voorbeeld, zoals beschreven in de volgende stappen. U kunt ook de broncode controleren en soortgelijke configuraties implementeren op uw eigen clienttoepassingen.
-
-**Stap 1:** downloaden van het project uit [Azure DB die Cosmos-prestaties testen voorbeeld](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), of de GitHub-opslagplaats vertakken.
-
-**Stap 2:** Wijzig de instellingen voor EndpointUrl, AuthorizationKey CollectionThroughput en DocumentTemplate App.config (optioneel).
+Als u wilt aan de slag met code, downloadt u het project uit [Azure Cosmos DB-voorbeeld voor Prestatietesten](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
-> Voordat u verzamelingen met hoge doorvoer inricht, verwijzen naar de [prijzen pagina](https://azure.microsoft.com/pricing/details/cosmos-db/) als indicatie van de kosten per verzameling. Azure DB Cosmos facturen opslag en doorvoer onafhankelijk op uurbasis. Door te verwijderen of te verlagen van de doorvoer van uw Azure Cosmos DB verzamelingen nadat u hebt getest, kunt u kosten besparen.
+> Het doel van deze toepassing is om te laten zien hoe u de beste prestaties opgehaald uit Azure Cosmos DB met een klein aantal clientcomputers. Het doel van het voorbeeld is niet aan het bereiken van de hoogste doorvoercapaciteit van Azure Cosmos DB (die kunnen worden geschaald zonder eventuele beperkingen).
 > 
 > 
 
-**Stap 3:** compileren en de console-app uitvoeren vanaf de opdrachtregel. Hier ziet u de volgende uitvoer:
+Als u naar client-side-configuratie-opties om Azure Cosmos DB-prestaties te verbeteren zoekt, Zie [tips voor betere prestaties van Azure Cosmos DB](performance-tips.md).
+
+## <a name="run-the-performance-testing-application"></a>De toepassing van de prestatietests uitvoeren
+De snelste manier om te beginnen is compileren en uitvoeren van de .NET-voorbeeld, zoals beschreven in de volgende stappen uit. U kunt ook de broncode analyseren en vergelijkbare configuraties implementeren op uw eigen clienttoepassingen.
+
+**Stap 1:** downloaden van het project uit [Azure Cosmos DB-voorbeeld voor Prestatietesten](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), of de GitHub-opslagplaats splitsen.
+
+**Stap 2:** de instellingen wijzigen voor EndpointUrl, AuthorizationKey, CollectionThroughput en DocumentTemplate (optioneel) in App.config.
+
+> [!NOTE]
+> Voordat u verzamelingen met hoge doorvoer inricht, verwijzen naar de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) om in te schatten van de kosten per verzameling. Azure Cosmos DB kosten opslag en doorvoer onafhankelijk van elkaar op uurbasis in rekening gebracht. U kunt kosten besparen door te verwijderen of de doorvoer van uw Azure Cosmos DB-verzamelingen na het testen van verlagen.
+> 
+> 
+
+**Stap 3:** compileren en uitvoeren van de console-app vanaf de opdrachtregel. Hier ziet u de volgende uitvoer:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -93,15 +93,15 @@ De snelste manier om te beginnen is compileren en uitvoeren van het .NET-voorbee
     Press any key to exit...
 
 
-**Stap 4 (indien nodig):** de doorvoer gerapporteerd (RU/s) uit het hulpprogramma moet gelijk zijn of hoger is dan de ingerichte doorvoer van de verzameling of een set van verzamelingen. Als dit niet het geval is, kan vergroot de DegreeOfParallelism in kleine stappen u helpen de limiet is bereikt. Als de doorvoer van uw clientapp plateaus, start u meerdere exemplaren van de app op extra computers. Als u hulp nodig hebt bij deze stap, e- askcosmosdb@microsoft.com of het bestand een ondersteuningsticket vanuit de [Azure-portal](https://portal.azure.com).
+**Stap 4 (indien nodig):** de gerapporteerde doorvoer (RU/s) van het hulpprogramma moet gelijk zijn of hoger is dan de ingerichte doorvoer van de verzameling of een set van verzamelingen. Als dat niet het geval is, de DegreeOfParallelism in kleine stapjes verhogen u kan helpen bij de limiet is bereikt. Als de doorvoer van uw client-app plateaus, start u meerdere exemplaren van de app op aanvullende virtuele machines. Als u hulp nodig hebt bij deze stap, e- askcosmosdb@microsoft.com of een ondersteuningsticket vanuit de [Azure-portal](https://portal.azure.com).
 
-Nadat u de app actief hebt, kunt u proberen andere [beleid indexeren](indexing-policies.md) en [consistentieniveaus](consistency-levels.md) om te begrijpen van de impact op de doorvoer en latentie. Ook kunt u de broncode controleren en soortgelijke configuraties voor uw eigen tests suites of productietoepassingen implementeren.
+Nadat u de app die wordt uitgevoerd hebt, kunt u proberen verschillende [indexeringsbeleid](index-policy.md) en [consistentieniveaus](consistency-levels.md) om te begrijpen van de invloed ervan op de doorvoer en latentie. U kunt ook de broncode analyseren en vergelijkbare configuraties die u kunt uw eigen testsuites of productie-Apps implementeren.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel, die we kijken hoe u de prestaties en schaal testen met Azure Cosmos DB met behulp van een .NET-console-app kunt uitvoeren. Raadpleeg voor meer informatie de volgende artikelen:
+In dit artikel hebben bekeken hoe u de prestaties en schaal testen met Azure Cosmos DB met behulp van een .NET-console-app kunt uitvoeren. Raadpleeg voor meer informatie de volgende artikelen:
 
-* [Azure DB Cosmos-prestaties testen voorbeeld](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
-* [Client-configuratieopties voor het verbeteren van Azure DB die Cosmos-prestaties](performance-tips.md)
-* [Serverzijde partitioneren in Azure Cosmos-DB](partition-data.md)
+* [Azure Cosmos DB-prestaties testen voorbeeld](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Client-configuratie-opties om Azure Cosmos DB-prestaties te verbeteren](performance-tips.md)
+* [Serverzijde partitionering in Azure Cosmos DB](partition-data.md)
 
 

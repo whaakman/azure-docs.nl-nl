@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: d1ccffab0e05787e362c7b1cc2bd534c7f9a8ada
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c43b718002267cd33135c130c6c41cabd8ee9c3b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160457"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310032"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 
@@ -53,7 +53,7 @@ Tijdens het schatten van het aantal RU/s om in te richten, is het belangrijk dat
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [inrichting doorvoer voor Azure Cosmos-containers en -databases](set-throughput.md)
-* Meer informatie over [Llogical partities](partition-data.md)
+* Meer informatie over [logische partities](partition-data.md)
 * Meer informatie over [wereldwijd schalen ingerichte doorvoer](scaling-throughput.md)
 * Informatie over [over het inrichten van doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md)
 * Informatie over [hoe u de doorvoer voor een Azure Cosmos-database inrichten](how-to-provision-database-throughput.md)

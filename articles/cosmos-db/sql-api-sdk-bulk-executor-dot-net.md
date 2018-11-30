@@ -1,22 +1,19 @@
 ---
 title: 'Azure Cosmos DB: Bulksgewijs Executor .NET API, SDK en resources | Microsoft Docs'
 description: Meer informatie over het bulksgewijs Executor .NET API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB bulksgewijs Executor .NET SDK.
-services: cosmos-db
 author: tknandu
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: ffd8f438429cd8769ac0dbff7f489327166e0000
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ae9560296e37ff5492c07e69e6ba0eb5539915c8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294455"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308492"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliotheek voor .NET bulksgewijs Executor: informatie downloaden 
 
@@ -36,7 +33,7 @@ ms.locfileid: "46294455"
 
 <table>
 
-<tr><td>**Beschrijving**</td><td>De bulksgewijs Executor-bibliotheek kan clienttoepassingen bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB-accounts. Bulksgewijs Executor-bibliotheek biedt BulkImport, BulkUpdate en bij bulkverwijdering naamruimten. De module kunt bulksgewijs BulkImport opnemen documenten in een geoptimaliseerde manier zodanig dat de ingerichte doorvoer voor een verzameling wordt gebruikt voor de maximale omvang. Bestaande gegevens in Azure Cosmos DB-containers de BulkUpdate module kunt bulksgewijs bijwerken als patches. De module bij bulkverwijdering bulksgewijs kunt verwijderen, documenten in een geoptimaliseerde manier zodanig dat de ingerichte doorvoer voor een verzameling wordt gebruikt voor de maximale omvang.</td></tr>
+<tr><td>**Beschrijving**</td><td>De bulksgewijs Executor-bibliotheek kan clienttoepassingen bulksgewijs bewerkingen op Azure Cosmos DB-accounts uit te voeren. Bulksgewijs Executor-bibliotheek biedt BulkImport BulkUpdate en bij bulkverwijdering naamruimten. De module kunt bulksgewijs BulkImport opnemen documenten in een geoptimaliseerde manier zodanig dat de ingerichte doorvoer voor een verzameling wordt gebruikt voor de maximale omvang. Bestaande gegevens in Azure Cosmos DB-containers de BulkUpdate module kunt bulksgewijs bijwerken als patches. De module bij bulkverwijdering bulksgewijs kunt verwijderen, documenten in een geoptimaliseerde manier zodanig dat de ingerichte doorvoer voor een verzameling wordt gebruikt voor de maximale omvang.</td></tr>
 
 <tr><td>**SDK downloaden**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
 
@@ -46,12 +43,36 @@ ms.locfileid: "46294455"
 
 <tr><td>**Aan de slag**</td><td>[Aan de slag met de bibliotheek bulksgewijs Executor .NET SDK](bulk-executor-dot-net.md)</td></tr>
 
-<tr><td>**Huidige ondersteunde framework**</td><td><ul><li>[Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)(versie > = 2.0.0)</li><li>
-[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)(versie > = 9.0.1)
-</li></ul></td></tr>
+<tr><td>**Huidige ondersteunde framework**</td><td>Microsoft .NET Framework 4.5.2, 4.6.1 en .NET Standard 2.0 </td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Met inbegrip van MongoBulkExecutor tot ondersteuning voor .NET Standard 2.0. Deze functie kunt u functioneel equivalent met 1.3.0 loslaat, met de toevoeging van ondersteuning van .NET Standard 2.0 als doelframework.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+
+* Toegevoegde .NET Standard 2.0 als een van de ondersteunde frameworks waarmee de BulkExecutor-bibliotheek werken met .NET Core-toepassingen.
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+
+* Een overbelasting van de bewerking bij bulkverwijdering voor SQL-API-accounts te accepteren van de partitiesleutel en document-id tuples verwijderen toegevoegd.
+* Toegevoegd een overbelasting van de bewerking bij bulkverwijdering voor SQL-API-accounts te accepteren RequestOptions met de partitiesleutel die de waarde van de partitiesleutel, naast het gebruik van deze als een filter in de invoer voor de query op te geven documenten te verwijderen.
+* Er is een probleem, wat de oorzaak van een opmaak probleem in de gebruikersagent die worden gebruikt door BulkExecutor opgelost.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+
+* Verbeteringen aangebracht in BulkExecutor import- en API's transparant om aan te passen elastisch schalen van Cosmos DB-container wanneer opslag huidige capaciteit overschrijdt zonder uitzonderingen.
+
+### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
+
+* Tegenaan van de afhankelijkheid van de DocumentDB .NET SDK versie 2.1.3.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+
+* Er is een probleem waardoor BulkExecutor inzetten JSRT fout terwijl verzamelingen importeren naar vaste opgelost.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
@@ -70,3 +91,9 @@ ms.locfileid: "46294455"
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
 * Er is ondersteuning toegevoegd voor BulkImport and BulkUpdate bewerkingen voor Azure Cosmos DB SQL API-accounts.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Zie voor meer informatie over het bulksgewijs Executor Java-bibliotheek, het volgende artikel:
+
+[Java bulksgewijs Executor-bibliotheek SDK en release-informatie](sql-api-sdk-bulk-executor-java.md)

@@ -1,6 +1,6 @@
 ---
-title: Optimaliseer uw algoritmen in Azure Machine Learning | Microsoft Docs
-description: Wordt uitgelegd hoe de optimale parameter is ingesteld voor een Azure Machine Learning-algoritme kiezen.
+title: Algoritmen optimaliseren voor Azure Machine Learning Studio | Microsoft Docs
+description: Wordt uitgelegd hoe u kiest de optimale parameter is ingesteld voor een algoritme in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: c5445833d9f0e003304af3a1f60fb82a372898bf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261816"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314709"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning Studio
+
 In dit onderwerp wordt beschreven hoe u de juiste hyperparameter instellen voor een Azure Machine Learning-algoritme kiezen. De meeste machine learning-algoritmen hebben parameters om in te stellen. Wanneer u een model te trainen, moet u waarden opgeven voor deze parameters. De effectiviteit van het getrainde model, is afhankelijk van de Modelparameters die u kiest. Het proces uit het vinden van de optimale set met parameters wordt ook wel *model selectie*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

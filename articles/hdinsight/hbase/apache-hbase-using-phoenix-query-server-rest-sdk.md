@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: f5be273401fa9fdfdc2c97296f5f2265dbb3c447
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f36d89fb01e7892ef10576b7f5f0b5fa86d8a21b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042374"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314248"
 ---
-# <a name="phoenix-query-server-rest-sdk"></a>Phoenix-queryserver REST SDK
+# <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix-queryserver REST SDK
 
-[Apache Phoenix](http://phoenix.apache.org/) is een open source, uiterst parallelle relationele databaselaag boven [HBase](apache-hbase-overview.md). Phoenix kunt u SQL-achtige query's gebruiken met HBase met de SSH-hulpprogramma's zoals [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix bevat ook een HTTP-server met de naam Phoenix Query Server (PQS), een thin client die ondersteuning biedt voor twee transportmechanismen voor clientcommunicatie: JSON en Protocol Buffers. Protocol Buffers is van het standaardmechanisme voor, en biedt meer efficiënte communicatie dan JSON.
+[Apache Phoenix](http://phoenix.apache.org/) is een open source, uiterst parallelle relationele databaselaag boven [Apache HBase](apache-hbase-overview.md). Phoenix kunt u SQL-achtige query's gebruiken met HBase met de SSH-hulpprogramma's zoals [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix bevat ook een HTTP-server met de naam Phoenix Query Server (PQS), een thin client die ondersteuning biedt voor twee transportmechanismen voor clientcommunicatie: JSON en Protocol Buffers. Protocol Buffers is van het standaardmechanisme voor, en biedt meer efficiënte communicatie dan JSON.
 
 In dit artikel wordt beschreven hoe u de PQS REST SDK gebruiken voor het maken van tabellen, upsert rijen afzonderlijk en bulksgewijs en selecteert u gegevens met behulp van SQL-instructies. De voorbeelden gebruiken de [Microsoft .NET-stuurprogramma voor Apache Phoenix-queryserver](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Deze SDK is gebaseerd op [van Apache calciet Avatica](https://calcite.apache.org/avatica/) API's, die uitsluitend gebruik van Protocol Buffers voor de serialisatie-indeling.
 
@@ -32,7 +32,7 @@ Microsoft .NET-stuurprogramma voor Apache Phoenix-queryserver wordt geleverd als
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Exemplaar maken van nieuwe PhoenixClient-object
 
-Om te beginnen met behulp van de bibliotheek, exemplaar maken van een nieuwe `PhoenixClient` -object doorgeven in een `ClusterCredentials` met de `Uri` aan uw cluster en de Hadoop-gebruikersnaam en wachtwoord van het cluster.
+Om te beginnen met behulp van de bibliotheek, exemplaar maken van een nieuwe `PhoenixClient` -object doorgeven in een `ClusterCredentials` met de `Uri` aan uw cluster en de Apache Hadoop-gebruikersnaam en wachtwoord van het cluster.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -540,5 +540,5 @@ FM: 5
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-* [Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
-* [Met behulp van de HBase REST SDK](apache-hbase-rest-sdk.md)
+* [Apache Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
+* [Met behulp van de Apache HBase REST SDK](apache-hbase-rest-sdk.md)

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283067"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307471"
 ---
-# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Kafka in HDInsight via een Azure-netwerk
+# <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Apache Kafka in HDInsight via een Azure-netwerk
 
-Leer hoe u rechtstreeks verbinding maken met Kafka in HDInsight via een Virtueelnetwerk van Azure. Dit document bevat informatie over verbinding maken met Kafka met behulp van de volgende configuraties:
+Leer hoe u rechtstreeks verbinding maken met Apache Kafka in HDInsight via een Virtueelnetwerk van Azure. Dit document bevat informatie over verbinding maken met Kafka met behulp van de volgende configuraties:
 
 * Van resources in een on-premises netwerk. Deze verbinding tot stand is gebracht via een VPN-apparaat (software of hardware) op uw lokale netwerk.
 * Vanaf een ontwikkelomgeving met behulp van een VPN-softwareclient.
@@ -37,7 +37,7 @@ HDInsight kan geen rechtstreekse verbinding met Kafka via het openbare internet.
     4. Doorsturen van tussen de DNS-server in elk netwerk configureren.
     5. Maken van een Kafka op HDInsight-cluster in het virtuele netwerk.
 
-    Zie voor meer informatie de [verbinding maken met Kafka via een on-premises netwerk](#on-premises) sectie. 
+    Zie voor meer informatie de [verbinding maken met Apache Kafka vanuit een on-premises netwerk](#on-premises) sectie. 
 
 * Afzonderlijke computers verbinden met het virtuele netwerk met behulp van een VPN-gateway en VPN-client. Als u wilt deze configuratie inschakelt, moet u de volgende taken uitvoeren:
 
@@ -47,7 +47,7 @@ HDInsight kan geen rechtstreekse verbinding met Kafka via het openbare internet.
     4. Kafka voor IP-reclame configureren. Deze configuratie kan de client verbinding maken met behulp van de broker IP-adressen in plaats van domeinnamen.
     5. Download en gebruik van de VPN-client op het ontwikkelingssysteem.
 
-    Zie voor meer informatie de [verbinding maken met Kafka met een VPN-client](#vpnclient) sectie.
+    Zie voor meer informatie de [verbinding maken met Apache Kafka met een VPN-client](#vpnclient) sectie.
 
     > [!WARNING]
     > Deze configuratie wordt alleen aanbevolen voor ontwikkelingsdoeleinden vanwege de volgende beperkingen:
@@ -57,7 +57,7 @@ HDInsight kan geen rechtstreekse verbinding met Kafka via het openbare internet.
 
 Zie voor meer informatie over het gebruik van HDInsight in een virtueel netwerk [HDInsight uitbreiden met behulp van Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a> Verbinding maken met Kafka vanuit een on-premises netwerk
+## <a id="on-premises"></a> Verbinding maken met Apache Kafka vanuit een on-premises netwerk
 
 Voor het maken van een Kafka-cluster die communiceert met uw on-premises netwerk, volg de stappen in de [HDInsight verbinden met uw on-premises netwerk](./../connect-on-premises-network.md) document.
 
@@ -73,7 +73,7 @@ Deze stappen maakt u de volgende configuratie:
 
 Als u wilt controleren of een Kafka-client kan verbinding met het cluster van on-premises, gebruikt u de stappen in de [voorbeeld: Python-client](#python-client) sectie.
 
-## <a id="vpnclient"></a> Verbinding maken met Kafka met een VPN-client
+## <a id="vpnclient"></a> Verbinding maken met Apache Kafka met een VPN-client
 
 Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
 
@@ -237,7 +237,7 @@ Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka configureren voor IP-advertenties
 
-Standaard retourneert Zookeeper de domeinnaam van het Kafka-brokers aan clients. Deze configuratie werkt niet met de VPN-softwareclient, zoals het naamomzetting niet voor entiteiten in het virtuele netwerk gebruiken. Gebruik de volgende stappen uit Kafka voor het adverteren van IP-adressen in plaats van domeinnaam configureren voor deze configuratie:
+Standaard retourneert Apache Zookeeper de domeinnaam van het Kafka-brokers aan clients. Deze configuratie werkt niet met de VPN-softwareclient, zoals het naamomzetting niet voor entiteiten in het virtuele netwerk gebruiken. Gebruik de volgende stappen uit Kafka voor het adverteren van IP-adressen in plaats van domeinnaam configureren voor deze configuratie:
 
 1. Met behulp van een webbrowser, gaat u naar https://CLUSTERNAME.azurehdinsight.net. Vervang __CLUSTERNAME__ met de naam van het Kafka in HDInsight-cluster.
 
@@ -371,7 +371,7 @@ Zie de volgende documenten voor meer informatie over het maken van een Azure-net
 
 * [Een punt-naar-Site-verbinding met Azure PowerShell configureren](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-Zie de volgende documenten voor meer informatie over het werken Kafka in HDInsight:
+Zie de volgende documenten voor meer informatie over het werken met Apache Kafka in HDInsight:
 
-* [Aan de slag met Kafka in HDInsight](apache-kafka-get-started.md)
-* [Spiegeling met Kafka in HDInsight gebruiken](apache-kafka-mirroring.md)
+* [Aan de slag met Apache Kafka in HDInsight](apache-kafka-get-started.md)
+* [Spiegeling met Apache Kafka in HDInsight gebruiken](apache-kafka-mirroring.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Security-gegevens exporteren naar SIEM - Pipeline Configuration [Preview] | Microsoft Docs
+title: Azure Security-gegevens exporteren naar SIEM - Pipeline Configuration | Microsoft Docs
 description: In dit artikel wordt het produceren van het ophalen van Azure security center-logboeken naar een SIEM
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 11/26/2018
 ms.author: barclayn
-ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4cc9478197b39198a94ace1cbefab81de3cdb32b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298230"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306723"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Azure Security-gegevens exporteren naar SIEM - Pipeline Configuration [Preview]
+# <a name="azure-security-data-export-to-siem-pipeline-configuration"></a>Azure Security-gegevens exporteren naar SIEM-Pipeline-configuratie
 
 In dit document worden de procedure voor het exporteren van Azure Security Center security gegevens naar een SIEM.
 
@@ -37,11 +37,11 @@ Overzicht
 
 ## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Wat zijn de gegevens van de Azure-beveiliging blootgesteld aan SIEM?
 
-In deze preview-versie stellen we de [beveiligingswaarschuwingen.](../security-center/security-center-managing-and-responding-alerts.md) In toekomstige versies zullen we de gegevensset met aanbevelingen voor beveiliging verrijken.
+In deze versie stellen we de [beveiligingswaarschuwingen.](../security-center/security-center-managing-and-responding-alerts.md) In toekomstige versies zullen we de gegevensset met aanbevelingen voor beveiliging verrijken.
 
-## <a name="how-to-setup-the-pipeline"></a>Het instellen van de pijplijn? 
+## <a name="how-to-setup-the-pipeline"></a>Het instellen van de pijplijn
 
-### <a name="create-an-event-hub"></a>Een Event Hub maken 
+### <a name="create-an-event-hub"></a>Een Event Hub maken
 
 Voordat u begint, moet u [maken van een Event Hubs-naamruimte](../event-hubs/event-hubs-create.md). Deze naamruimte en Event Hub is de bestemming voor al uw bewakingsgegevens.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125184"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316545"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Aanpassen van de SQL information protection-beleid in Azure Security Center (Preview)
  
@@ -38,7 +38,7 @@ Het Classificatiemechanisme voor is gebaseerd op twee primaire constructies die 
  
 Information Protection wordt geleverd met een ingebouwde groep labels en gegevenstypen, die standaard worden gebruikt. Voor het aanpassen van deze, kunt u de information protection-beleid in Azure Security Center.
  
-## <a name="customize-the-information-protection-policy"></a>Het information protection-beleid aanpassen
+## <a name="customize-the-information-protection-policy"></a>Het informatiebeschermingsbeleid aanpassen
 Voor het aanpassen van de information protection-beleid voor uw Azure-tenant, moet u beschikken over [administratorbevoegdheden voor de beheergroep van de tenant-hoofdmap](security-center-management-groups.md). 
  
 1. Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
@@ -54,7 +54,7 @@ Voor het aanpassen van de information protection-beleid voor uw Azure-tenant, mo
 2. In de **configureren gevoeligheid, label** scherm, u kunt maken of wijzigen van de labelnaam en de beschrijving. U kunt ook instellen of het label is niet actief of uitgeschakeld door het omschakelen van de **ingeschakeld** in of uit te schakelen. Ten slotte kunt u toevoegen of verwijderen van de gegevenstypen die zijn gekoppeld aan het label. Geen gegevens gevonden die overeenkomt met dat informatietype automatisch de bijbehorende gevoeligheid, label in de aanbevelingen voor classificatie bevat.
 3. Klik op **OK**.
  
-   ![Gevoeligheid, label configureren](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Gevoeligheidslabel configureren](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. Labels worden weergegeven in de volgorde van oplopende gevoeligheid. Als u wilt de volgorde tussen de labels wijzigen, sleept u de labels die u wilt de volgorde in de tabel, of gebruik de **omhoog** en **omlaag** knoppen om de volgorde te wijzigen. 
  
@@ -86,7 +86,7 @@ In dit artikel hebt u geleerd over het definiëren van een SQL Information Prote
 Zie de volgende artikelen voor meer informatie over beleidsregels voor veiligheid en beveiliging van gegevens in Azure Security Center:
  
 - [Overzicht van beveiligingsbeleid](security-center-policies-overview.md): krijg een overzicht van beveiligingsbeleid in Security Center
-- [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen
+- [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md): informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen
 - [Beveiliging van Azure Security Center gegevens](security-center-data-security.md): meer informatie over hoe Security Center beheert en beschermt gegevens
 
 

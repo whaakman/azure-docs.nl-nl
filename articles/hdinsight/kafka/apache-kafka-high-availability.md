@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e2cd03f28e4a3cd8176f6126817c61508697af94
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007787"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315831"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Hoge beschikbaarheid van uw gegevens met Apache Kafka in HDInsight
 
-Informatie over het configureren van partitiereplica's voor Kafka-onderwerpen om te profiteren van de onderliggende rek-configuratie van de hardware. Deze configuratie waarborgt de beschikbaarheid van gegevens die zijn opgeslagen in Apache Kafka op HDInsight.
+Informatie over het configureren van partitiereplica's voor Apache Kafka-onderwerpen om te profiteren van de onderliggende rek-configuratie van hardware. Deze configuratie waarborgt de beschikbaarheid van gegevens die zijn opgeslagen in Apache Kafka op HDInsight.
 
-## <a name="fault-and-update-domains-with-kafka"></a>Probleem- en updatedomeinen met Kafka
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Fout- en updatedomeinen met Apache Kafka
 
 Een foutdomein is een logische groepering van de onderliggende hardware in een Azure-datacenter. Elk foutdomein deelt een algemene voedingsbron en netwerkswitch. De virtuele machines en beheerde schijven die de knooppunten in een HDInsight-cluster implementeren zijn verdeeld over deze foutdomeinen. Deze architectuur beperkt de potentiële impact van problemen met de fysieke hardware.
 
@@ -44,15 +44,15 @@ Om de hoogst mogelijke beschikbaarheid van uw Kafka-gegevens te waarborgen, moet
 
 Als u een regio met slechts twee foutdomeinen moet gebruiken, gebruik dan een replicatiefactor van 4 om de replica's gelijkmatig te verdelen over de twee foutdomeinen.
 
-Zie het document [Aan de slag met Apache Kafka in HDInsight](apache-kafka-get-started.md) voor een voorbeeld van het maken van onderwerpen en instellen van de replicatiefactor.
+Zie voor een voorbeeld van het maken van onderwerpen en instellen van de replicatie van meerdere factoren, de [beginnen met Apache Kafka in HDInsight](apache-kafka-get-started.md) document.
 
 ## <a name="how-to-rebalance-partition-replicas"></a>Hoe partitiereplica 's opnieuw moeten worden ingedeeld
 
-Gebruik het [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) (hulpprogramma voor het opnieuw indelen van Kafka-partities) om de geselecteerde onderwerpen opnieuw in te delen. Dit hulpprogramma moet vanaf een SSH-sessie naar het hoofdknooppunt van het Kafka-cluster worden uitgevoerd.
+Gebruik de [partitieherverdelingsprogramma van Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) bepaalde onderwerpen opnieuw verdelen. Dit hulpprogramma moet vanaf een SSH-sessie naar het hoofdknooppunt van het Kafka-cluster worden uitgevoerd.
 
 Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over verbinding maken met HDInsight met behulp van SSH.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Schaalbaarheid van Kafka in HDInsight](apache-kafka-scalability.md)
-* [Spiegeling met Kafka in HDInsight](apache-kafka-mirroring.md)
+* [Schaalbaarheid van Apache Kafka in HDInsight](apache-kafka-scalability.md)
+* [Spiegeling met Apache Kafka in HDInsight](apache-kafka-mirroring.md)

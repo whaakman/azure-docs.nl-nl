@@ -8,14 +8,14 @@ ms.author: nitinver
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593896"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317225"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Problemen met HBase oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Apache HBase oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meest voorkomende problemen en hun oplossingen als u werkt met Apache HBase-nettoladingen in Apache Ambari.
 
@@ -30,7 +30,7 @@ Gaten kunnen zijn veroorzaakt door de offline-regio's, de toewijzingen dus eerst
 Om de niet-toegewezen gebieden terug naar een normale status, voert u de volgende stappen uit:
 
 1. Meld u aan het HDInsight-HBase-cluster met behulp van SSH.
-2. Uitvoeren om te verbinden met de ZooKeeper-shell, de `hbase zkcli` opdracht.
+2. Uitvoeren om te verbinden met de Apache ZooKeeper-shell, de `hbase zkcli` opdracht.
 3. Voer de `rmr /hbase/regions-in-transition` opdracht of het `rmr /hbase-unsecure/regions-in-transition` opdracht.
 4. Om af te sluiten van de `hbase zkcli` -shell, gebruikt u de `exit` opdracht.
 5. Open de Apache Ambari-gebruikersinterface en de actieve HBase Master-service vervolgens opnieuw te starten.
@@ -46,7 +46,7 @@ Een mogelijke oorzaak voor time-outproblemen wanneer u de `hbck` opdracht is mog
 ### <a name="resolution-steps"></a>Oplossingen
 
 1. Meld u aan het HDInsight-HBase-cluster met behulp van SSH.
-2. Uitvoeren om te verbinden met de ZooKeeper-shell, de `hbase zkcli` opdracht.
+2. Uitvoeren om te verbinden met de Apache ZooKeeper-shell, de `hbase zkcli` opdracht.
 3. Voer de `rmr /hbase/regions-in-transition` of de `rmr /hbase-unsecure/regions-in-transition` opdracht.
 4. Om af te sluiten de `hbase zkcli` -shell, gebruikt u de `exit` opdracht.
 5. In de Ambari-UI de actieve HBase Master-service opnieuw te starten.
@@ -56,7 +56,7 @@ Een mogelijke oorzaak voor time-outproblemen wanneer u de `hbck` opdracht is mog
 
 ### <a name="issue"></a>Probleem
 
-Het lokale Hadoop Distributed File System (HDFS) is vastgelopen in de veilige modus op het HDInsight-cluster.
+Het lokale Apache Hadoop Distributed File System (HDFS) is vastgelopen in de veilige modus op het HDInsight-cluster.
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
@@ -211,7 +211,7 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-Om te verbinden met Phoenix, moet u het IP-adres van een actieve ZooKeeper-knooppunt opgeven. Zorg ervoor dat de ZooKeeper-service die sqlline.py probeert verbinding te maken is actief en werkend.
+Om te verbinden met Apache Phoenix, moet u het IP-adres van een actief Apache ZooKeeper-knooppunt opgeven. Zorg ervoor dat de ZooKeeper-service die sqlline.py probeert verbinding te maken is actief en werkend.
 1. Meld u aan het HDInsight-cluster met behulp van SSH.
 2. Voer de volgende opdracht in:
                 
@@ -247,7 +247,7 @@ Om te verbinden met Phoenix, moet u het IP-adres van een actieve ZooKeeper-knoop
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. In de Ambari-UI, voert u de volgende stappen uit om de HMaster-service op alle ZooKeeper-knooppunten opnieuw te starten:
+6. Voer de volgende stappen uit om de HMaster-service op alle ZooKeeper-knooppunten opnieuw te starten in de Apache Ambari-gebruikersinterface:
 
     1. In de **samenvatting** sectie van HBase, Ga naar **HBase** > **actieve HBase Master**. 
     2. In de **onderdelen** sectie, de HBase Master-service opnieuw starten.
@@ -331,7 +331,7 @@ Dit is een bekend probleem met de HMaster-service. Algemene cluster opstarttaken
   
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Ga in de Ambari-UI naar **HBase** > **Peeringconfiguraties**. Voeg de volgende instelling in het bestand aangepaste hbase-site.xml: 
+1. In de Apache Ambari-Webgebruikersinterface, gaat u naar **HBase** > **Peeringconfiguraties**. Voeg de volgende instelling in het bestand aangepaste hbase-site.xml: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +344,9 @@ Dit is een bekend probleem met de HMaster-service. Algemene cluster opstarttaken
 
 ### <a name="issue"></a>Probleem
 
-Een fout opnieuw opstarten op een regioserver kan worden voorkomen door de volgende aanbevolen procedures. Het is raadzaam dat u zware werkbelasting activiteit onderbreken wanneer u van plan bent om opnieuw te starten van servers voor HBase-regio. Als een toepassing wordt voortgezet om te verbinden met regioservers wanneer shutdown bezig is, wordt regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee om eerst alle tabellen leeg te maken. Zie voor informatie over het leegmaken van tabellen [HDInsight HBase: over het verbeteren van het opstarten van de HBase-cluster door het verplaatsen van tabellen](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Een fout opnieuw opstarten op een regioserver kan worden voorkomen door de volgende aanbevolen procedures. Het is raadzaam dat u zware werkbelasting activiteit onderbreken wanneer u van plan bent om opnieuw te starten van servers voor HBase-regio. Als een toepassing wordt voortgezet om te verbinden met regioservers wanneer shutdown bezig is, wordt regio server opnieuw opstarten trager worden door enkele minuten. Het is ook een goed idee om eerst alle tabellen leeg te maken. Zie voor informatie over het leegmaken van tabellen [HDInsight HBase: over het verbeteren van de tijd van Apache HBase-cluster opnieuw starten door het verplaatsen van tabellen](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-Als u de opstartbewerking voor HBase-regioservers van de Ambari UI hebt gestart, ziet u meteen dat de regioservers werd afgesloten, maar ze niet meteen opnieuw. 
+Als u de opstartbewerking voor HBase-regioservers vanuit de Apache Ambari-gebruikersinterface hebt gestart, ziet u meteen dat de regioservers werd afgesloten, maar ze niet meteen opnieuw. 
 
 Dit is wat er gebeurt achter de schermen: 
 

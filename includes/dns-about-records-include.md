@@ -1,3 +1,16 @@
+---
+author: vhorne
+ms.service: dns
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: victorh
+ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330912"
+---
 ### <a name="record-names"></a>Recordnamen
 
 In Azure DNS worden records opgegeven met behulp van relatieve namen. Een FQDN-domeinnaam (*Fully Qualified Domain Name*) bevat de zonenaam, terwijl een *relatieve* naam deze niet bevat. De relatieve recordnaam 'www' in de zone 'contoso.com' geeft bijvoorbeeld de volledig gekwalificeerde naam van de record 'www.contoso.com'.

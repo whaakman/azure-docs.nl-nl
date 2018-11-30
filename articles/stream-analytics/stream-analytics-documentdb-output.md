@@ -4,17 +4,16 @@ description: In dit artikel wordt beschreven hoe u Azure Stream Analytics gebrui
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 11/21/2017
+ms.openlocfilehash: 9bdb012db2e7502d765fd342a636591bbbcb2c6c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957127"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311735"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-uitvoer naar Azure Cosmos DB  
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, gegevens archiveren en lage latentie-query's voor niet-gestructureerde JSON-gegevens. In dit document staan enkele aanbevolen procedures voor het implementeren van deze configuratie.
@@ -26,7 +25,10 @@ Voor gebruikers die niet bekend met Cosmos DB bent, kijk eens [leertraject voor 
 > Andere Azure Cosmos DB-API's zijn nog niet ondersteund. Als u punt Azure Stream Analytics met de Azure Cosmos DB-accounts die zijn gemaakt met andere API's, zijn de gegevens mogelijk niet juist opgeslagen. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Basisbeginselen van het Cosmos DB als een bestemming voor uitvoer
-De Azure Cosmos DB-uitvoer in Stream Analytics kunt u uw stream resultaten verwerken als JSON-uitvoer in uw Cosmos DB-verzameling(en) schrijven. Stream Analytics biedt geen verzamelingen maken in uw database in plaats daarvan vereist dat u deze vooraf te maken. Dit is zodat de factureringskosten van Cosmos DB-verzamelingen door u worden beheerd en zodat u kunt afstemmen de prestaties, consistentie en capaciteit van de verzamelingen die rechtstreeks met behulp van de [Cosmos DB-API's](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
+De Azure Cosmos DB-uitvoer in Stream Analytics kunt u uw stream resultaten verwerken als JSON-uitvoer in uw Cosmos DB-verzameling(en) schrijven. Stream Analytics biedt geen verzamelingen maken in uw database in plaats daarvan vereist dat u deze vooraf te maken. Dit is zodat de factureringskosten van Cosmos DB-verzamelingen door u worden beheerd en zodat u kunt afstemmen de prestaties, consistentie en capaciteit van de verzamelingen die rechtstreeks met behulp van de [Cosmos DB-API's](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+
+> [!Note]
+> U moet 0.0.0.0 toevoegen aan de lijst met toegestane IP-adressen van u Azure Cosmos DB-firewall.
 
 Enkele van de opties voor het verzamelen van Cosmos DB worden hieronder beschreven.
 

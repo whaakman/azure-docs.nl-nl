@@ -1,6 +1,6 @@
 ---
-title: On-premises SQL Server gebruiken in Azure Machine Learning | Microsoft Docs
-description: Gegevens uit een on-premises SQL Server-database gebruiken om geavanceerde analyses met Azure Machine Learning uitvoeren.
+title: On-premises SQL Server met Azure Machine Learning Studio | Microsoft Docs
+description: Gegevens uit een on-premises SQL Server-database gebruiken om geavanceerde analyses met Azure Machine Learning Studio uitvoeren.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 83ec812f18e7e47f30db79a6d665d60fae9e0e5d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263210"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310953"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Geavanceerde analyses uitvoeren met Azure Machine Learning met gegevens van een on-premises SQL Server-database
 
 Vaak ondernemingen die met on-premises gegevens werken wilt profiteren van de schaal en flexibiliteit van de cloud voor de machine learning-werkbelastingen uitvoeren. Maar ze niet willen hun huidige bedrijfsprocessen en werkstromen worden onderbroken door het verplaatsen van hun on-premises gegevens naar de cloud. Azure Machine Learning biedt nu ondersteuning voor lezen van uw gegevens vanuit een on-premises SQL Server-database en vervolgens training en scoren van een model met deze gegevens. U hebt niet meer handmatig kopiëren en synchroniseren van gegevens tussen de cloud en uw on-premises server. In plaats daarvan de **importgegevens** module in Azure Machine Learning Studio nu rechtstreeks vanuit uw on-premises SQL Server-database voor uw training en scoren van taken kan lezen.
 
-In dit artikel biedt een overzicht van hoe u inkomend verkeer on-premises SQL server-gegevens in Azure Machine Learning. Hierbij wordt ervan uitgegaan dat u bekend met Azure Machine Learning-concepten, zoals werkruimten, modules, gegevenssets, experimenten bent, *enzovoort*.
+In dit artikel biedt een overzicht van hoe u inkomend verkeer on-premises SQL server-gegevens in Azure Machine Learning Studio. Hierbij wordt ervan uitgegaan dat u bekend met Azure Machine Learning-concepten, zoals werkruimten, modules, gegevenssets, experimenten bent, *enzovoort*.
 
 > [!NOTE]
 > Deze functie is niet beschikbaar voor gratis werkruimten. Zie voor meer informatie over Machine Learning-prijzen en lagen [Azure Machine Learning-prijzen](https://azure.microsoft.com/pricing/details/machine-learning/).

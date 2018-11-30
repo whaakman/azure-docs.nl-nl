@@ -1,5 +1,5 @@
 ---
-title: Toegewezen capaciteit voor Machine Learning Batch Execution Service-taken | Microsoft Docs
+title: Toegewezen capaciteit voor machine learning batch execution service-taken - Azure Machine Learning Studio | Microsoft Docs
 description: Overzicht van Azure Batch-services voor Machine Learning-taken.
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: e3df8c105e70edcd4bacd2c21fdb9c79b931c9cf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265012"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308129"
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure Batch-service voor Machine Learning-taken
 

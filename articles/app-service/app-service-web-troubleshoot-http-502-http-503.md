@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1a64e40b13b05fc7f9fdb6f5aa99c8d8cc47c471
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d0d1efcdaab07e77d835319544fc70eb8687702f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251607"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316341"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>HTTP-fouten '502 Ongeldige gateway' en '503 service niet beschikbaar' in uw Azure-web-apps oplossen
 '502 Ongeldige gateway' en '503 service niet beschikbaar' zijn veelvoorkomende fouten in uw web-app die wordt gehost in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Dit artikel helpt bij het oplossen van deze fouten.
@@ -74,22 +74,10 @@ Zie voor meer informatie:
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Gegevens verzamelen
-#### <a name="use-the-azure-app-service-support-portal"></a>Gebruik de Portal van Azure App Service-ondersteuning
-Web Apps biedt u de mogelijkheid om het oplossen van problemen met betrekking tot uw web-app door te kijken HTTP-Logboeken, gebeurtenislogboeken, proces dumpbestanden voor foutopsporing en meer. U kunt toegang tot al deze gegevens met behulp van onze portal ondersteuning op **http://&lt;uw app-naam >.scm.azurewebsites.net/Support**
+#### <a name="use-the-diagnostics-tool"></a>Het hulpprogramma diagnostics gebruiken
+App Service biedt een intelligente en interactieve ervaring om u te helpen bij het oplossen van uw web-app zonder configuratie vereist. Als u problemen met uw web-app uitvoert, wordt het hulpprogramma diagnostics wijs wat er mis om u te helpen de juiste informatie snel en eenvoudig kunt oplossen en los het probleem is.
 
-De portal ondersteuning voor Azure App Service biedt drie verschillende tabbladen voor de ondersteuning van de drie stappen van een algemeen scenario voor het oplossen van problemen:
-
-1. Gedrag van het huidige observeren
-2. Analyseren te verzamelen van diagnostische gegevens en de ingebouwde analyzers uitgevoerd
-3. Oplossen
-
-Als het probleem op dit moment plaatsvinden is, klikt u op **analyseren** > **Diagnostics** > **nu Diagnose** een diagnostische sessie voor u te maken, die HTTP-Logboeken, Logboeken, geheugen dumpbestanden voor foutopsporing, PHP-foutenlogboeken en PHP-proces rapport verzamelt.
-
-Zodra de gegevens zijn verzameld, wordt ook een analyse uitvoeren op de gegevens en u voorzien van een HTML-rapport.
-
-Als u wilt voor het downloaden van de gegevens standaard, zou deze worden opgeslagen in de map D:\home\data\DaaS.
-
-Zie voor meer informatie over de ondersteuning van Azure App Service-portal, [nieuwe Updates voor de extensie voor Site ondersteuning voor Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+Voor toegang tot App Service-diagnostics, gaat u naar uw App Service-app of een App Service-omgeving in de [Azure-portal](https://portal.azure.com). Klik in het linkernavigatievenster op **vaststellen en oplossen van problemen met**.
 
 #### <a name="use-the-kudu-debug-console"></a>Gebruik de Kudu-Console voor foutopsporing
 Web Apps wordt geleverd met een console voor foutopsporing die u gebruiken kunt voor foutopsporing, verkennen, het uploaden van bestanden, evenals de JSON-eindpunten voor het ophalen van gegevens over uw omgeving. Dit heet de *Kudu-Console* of de *SCM-Dashboard* voor uw web-app.

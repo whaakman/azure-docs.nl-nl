@@ -9,28 +9,31 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: f8092c7a05935dcb2ca176bee2c5820b50f3c814
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 11/20/2018
+ms.openlocfilehash: 208d6958b56dafbfacc45ecb05a71c14ac024ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263550"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309870"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
-Gebruik de [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) laden van verschillende typen invoergegevens. 
+In dit artikel leert u verschillende methoden voor het laden van gegevens met de [SDK van Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk). De SDK biedt ondersteuning voor meerdere gegevensopname-functies, waaronder:
 
-Als u wilt uw gegevens laadt, geef het gegevenstype van het bestand en de bijbehorende parameters
+* Laden uit veel bestandstypen met het parseren van de parameter Deductie (codering, scheidingsteken, headers)
+* Type converteren met behulp van Deductie tijdens het laden van bestand
+* Ondersteuning voor MS SQL Server en Azure Data Lake Storage-verbindingen
 
-## <a name="use-text-line-data"></a>Gebruik de gegevens van de tekst 
-Een van de eenvoudigste manieren om gegevens te laden is te lezen als tekstregels.
+## <a name="load-text-line-data"></a>Laden van gegevens van de tekst 
 
-Hier volgt een voorbeeld van code:
+Als u wilt lezen eenvoudige tekst in een gegevensstroom, gebruikt u de `read_lines()` zonder optionele parameters op te geven.
+
 ```python
 dataflow = dprep.read_lines(path='./data/text_lines.txt')
 dataflow.head(5)
 ```
+
 ||Regel|
 |----|-----|
 |0|Datum \| \| Minimum temperatuur \| \| hoogste temperatuur|
@@ -39,33 +42,22 @@ dataflow.head(5)
 |3|2015-07-3 \| \| -7.0 \| \| 10,5|
 |4|2015-07-4 \| \| -5.5 \| \| 9.3|
 
-Nadat de gegevens worden opgenomen, kunt u een pandas DataFrame voor de volledige gegevensset ophalen.
+Nadat de gegevens worden opgenomen, voert u de volgende code om te converteren van de gegevensstroom-object in een Pandas dataframe.
 
-Hier volgt een voorbeeld van code:
 ```python
-df = dataflow.to_pandas_dataframe()
-df
+pandas_df = dataflow.to_pandas_dataframe()
 ```
-Voorbeelduitvoer:
-||Regel|
-|----|-----|
-|0|Datum\| \| Minimum temperatuur\| \| hoogste temperatuur|
-|1|1-07-2015\| \| 4.1\| \| 10.0|
-|2|2015-07-2\| \| 0,8\| \| 10.8|
-|3|2015-07-3\| \| 7.0\| \| 10,5|
-|4|2015-07-4\| \| 5.5\| \| 9.3|
 
-## <a name="use-csv-data"></a>Gebruik van CSV-gegevens
-Bij het lezen van bestanden met scheidingstekens, kunt u de onderliggende runtime afleiden van de parameters bij het parseren (zoals een scheidingsteken, codering, of u wilt gebruiken, kopteksten, enzovoort) in plaats van ze bieden. In dit voorbeeld probeert een bestand lezen door alleen de locatie op te geven. 
+## <a name="load-csv-data"></a>Laad CSV-gegevens
 
-Hier volgt een voorbeeld van code:
+Bij het lezen van bestanden met scheidingstekens afleiden de onderliggende runtime de parseren parameters (scheidingsteken, codering, of u wilt gebruiken, kopteksten, enzovoort). Voer de volgende code om te lezen van een CSV-bestand door alleen de locatie op te geven.
+
 ```python
 # SAS expires June 16th, 2019
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 dataflow.head(5)
 ```
 
-Voorbeelduitvoer:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -74,14 +66,14 @@ Voorbeelduitvoer:
 |3|ALABAMA|1|101710|Hale County|10171002156| |
 |4|ALABAMA|1|101710|Hale County|10171000588|2|
 
-Een van de parameters die u kunt opgeven is een aantal regels om over te slaan in de bestanden die u leest. Gebruik de volgende code uit de dubbele regel te filteren.
+Als u wilt uitsluiten lijnen tijdens het laden, bepalen de `skip_rows` parameter. Deze parameter wordt geladen rijen aflopend in het CSV-bestand (met behulp van een index op basis van een) overgeslagen.
+
 ```python
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
 dataflow.head(5)
 ```
 
-Voorbeelduitvoer:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158|29|
@@ -90,8 +82,8 @@ Voorbeelduitvoer:
 |3|ALABAMA|1|101710|Hale County|10171000588|2|
 |4|ALABAMA|1|101710|Hale County|10171000589|23 |
 
-Vervolgens kunt u de gegevenstypen van de kolommen bekijken.
-Hier volgt een voorbeeld van code:
+Voer de volgende code om de kolom-gegevenstypen weer te geven.
+
 ```python
 dataflow.head(1).dtypes
 
@@ -105,7 +97,7 @@ MAM_MTH00numvalid_1011    object
 dtype: object
 ```
 
-Helaas, alle van de kolommen zijn teruggekomen als tekenreeksen. Dit is omdat standaard de Azure Machine Learning Data Prep SDK niet de gegevens van het type wordt gewijzigd. We van lezen gegevensbron is een tekstbestand, zodat de SDK alle waarden als tekenreeksen worden gelezen. In dit voorbeeld, willen we numerieke kolommen as-nummers worden geparseerd. Om dit te doen, kunt u de parameter inference_arguments ingesteld op current_culture.
+Standaard wordt de Azure Machine Learning Data Prep SDK de gegevens van het type niet gewijzigd. De gegevensbron die u leest is een tekstbestand, zodat de SDK alle waarden als tekenreeksen worden gelezen. In dit voorbeeld moeten de numerieke kolommen as-nummers worden geanalyseerd. Stel de `inference_arguments` parameter `InferenceArguments.current_culture()` automatisch afleiden en de kolommen van het type converteren tijdens lezen van het bestand.
 
 ```
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
@@ -123,62 +115,32 @@ ALL_MTH00numvalid_1011    float64
 dtype: object
 ```
 
-Aantal van de kolommen goed as-nummers zijn gedetecteerd en hun type is ingesteld op float64. Met gegevensopname gedaan, kunt u een pandas DataFrame voor de volledige gegevensset ophalen.
-Hier volgt een voorbeeld van code:
-```python
-df = dataflow.to_pandas_dataframe()
-df
-```
-
-Voorbeelduitvoer:
-| |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|1.017100e + 10|49,0|
-|1|ALABAMA|Hale County|1.017100e + 10|40,0|
-|2|ALABAMA|Hale County|1.017100e + 10|43.0|
-|3|ALABAMA|Hale County|1.017100e + 10|2.0|
-|4|ALABAMA|Hale County|1.017100e + 10|23.0|
+Aantal van de kolommen goed zijn gedetecteerd als numerieke en hun type is ingesteld op `float64`.
 
 ## <a name="use-excel-data"></a>Excel-gegevens gebruiken
-De Azure Machine Learning Data Prep SDK bevat een `read_excel` functie voor het laden van Excel-bestanden. Hier volgt een voorbeeld van code:
-```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx')
-dataflow.head(5)
-```
 
-Voorbeelduitvoer:
-||Kolom1|Kolom2|Kolom3|Kolom4|Column5|Kolom6|Column7|Column8|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|HOBA|Ijzer, IVB|60000000.0|Gevonden|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
-|1|Cabo York|Ijzer, IIIAB|58200000.0|Gevonden|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
-|2|Campo del Cielo|Ijzer, IAB-MG|50000000.0|Gevonden|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
-|3|Canyon Diablo|Ijzer, IAB-MG|30000000.0|Gevonden|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
-|4|Armanty|Ijzer, IIIE|28000000.0|Gevonden|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
+De SDK bevat een `read_excel()` functie voor het laden van Excel-bestanden. De functie wordt standaard het eerste blad in de werkmap worden geladen. Voor het definiëren van een bepaald blad te laden, bepalen de `sheet_name` parameter met de tekenreekswaarde van de naam van het blad.
 
-U kunt het eerste blad van het Excel-bestand hebt geladen. U kunt hetzelfde resultaat bereiken door expliciet op te geven de naam van het spreadsheet dat u wilt laden. Als u het tweede blad in plaats daarvan worden geladen wilt, kunt u de naam opgeven als argument. Bijvoorbeeld:
 ```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dataflow.head(5)
 ```
 
-Voorbeelduitvoer:
 ||Kolom1|Kolom2|Kolom3|Kolom4|Column5|Kolom6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
 |0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
 |1|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
 |2|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
-|3|positie|Titel|Studio|Wereldwijd|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
+|3|positie|Titel|Studio|Over de hele wereld|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 
-Zoals u ziet, heeft de tabel in het tweede blad kopteksten en drie lege rijen. U moet de argumenten van de functie dienovereenkomstig wijzigen. Bijvoorbeeld:
+De uitvoer ziet u dat de gegevens in het tweede blad al drie lege rijen voordat u de headers. De `read_excel()` functie bevat de volgende optionele parameters voor het overslaan van rijen en met behulp van headers. Voer de volgende code om over te slaan van de eerste drie rijen uit en gebruik van de vierde rij als de headers.
+
 ```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
-df = dataflow.to_pandas_dataframe()
-df
 ```
 
-Voorbeelduitvoer:
-||positie|Titel|Studio|Wereldwijd|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
+||positie|Titel|Studio|Over de hele wereld|Binnenlandse / %|Kolom1|LGO / %|Kolom2|Jaar ^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|
 |1|2|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997 ^|
@@ -186,14 +148,15 @@ Voorbeelduitvoer:
 |3|4|Harry Potter en de Deathly Hallows deel 2|WB GELIJK GEMAAKT|1341.5|381|0.284|960.5|0.716|2011|
 |4|5|Geblokkeerd|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
-## <a name="use-fixed-width-data-files"></a>Bestanden met vaste breedte gebruiken
-U kunt een lijst met verschuivingen opgeven voor vaste breedte-bestanden. De eerste kolom wordt altijd om te beginnen bij offset 0 bijvoorbeeld uitgegaan:
+## <a name="load-fixed-width-data-files"></a>Laden van bestanden met vast breedte
+
+Naar loadfixed breedte-bestanden, moet u een lijst met verschuivingen teken opgeven. De eerste kolom wordt altijd uitgegaan om te beginnen bij verschuiving van nul.
+
 ```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
 dataflow.head(5)
 ```
 
-Voorbeelduitvoer:
 ||010000|99999|ONJUISTE NOORWEGEN|NO|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010003|99999|ONJUISTE NOORWEGEN|NO|NO|ENSO||||
@@ -202,18 +165,13 @@ Voorbeelduitvoer:
 |3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
 |4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
+Om te voorkomen van koptekst van detectie en de juiste gegevens parseren, doorgeven `PromoteHeadersMode.NONE` naar de `header` parameter.
 
-Als er geen kopteksten in de bestanden zijn, moet u de eerste rij als gegevens worden behandeld. Door door te geven `PromoteHeadersMode.NONE` aan het argument van het sleutelwoord header kunt u detectie van de koptekst te voorkomen en de juiste gegevens ophalen. Bijvoorbeeld:
 ```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
-
-df = dataflow.to_pandas_dataframe()
-df
 ```
-
-Voorbeelduitvoer:
 
 ||Kolom1|Kolom2|Kolom3|Kolom4|Column5|Kolom6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
@@ -224,28 +182,29 @@ Voorbeelduitvoer:
 |4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
 |5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
-## <a name="use-sql-data"></a>SQL-gegevens gebruiken
-De SDK van Azure Machine Learning Data Prep kan ook gegevens uit SQL-servers laden. Op dit moment wordt alleen Microsoft SQL Server ondersteund.
-Als u wilt lezen van gegevens uit een SQL-server maken object voor een gegevensbron die de verbindingsgegevens bevat. Bijvoorbeeld:
+## <a name="load-sql-data"></a>SQL-gegevens laden
+
+De SDK kunt u ook gegevens laden van een SQL-bron. Op dit moment wordt alleen Microsoft SQL Server ondersteund. Als u wilt lezen van gegevens uit een SQL-server maken een `MSSQLDataSource` object met de verbindingsparameters. De parameter password van `MSSQLDataSource` accepteert een `Secret` object. U kunt een geheim object op twee manieren maken:
+
+* Registreren en de waarde van het geheim met de engine voor het uitvoeren. 
+* Het geheim te maken met slechts een `id` (of de geheime waarde al is geregistreerd in de uitvoeringsomgeving) met behulp van `dprep.create_secret("[SECRET-ID]")`.
+
 ```python
-secret = dprep.register_secret("[SECRET-USERNAME]", "[SECRET-PASSWORD]")
+secret = dprep.register_secret(value="[SECRET-PASSWORD]", id="[SECRET-ID]")
 
 ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
                            database_name="[DATABASE-NAME]",
                            user_name="[DATABASE-USERNAME]",
-                           password=[DATABASE-PASSWORD])
+                           password=secret)
 ```
-Zoals u kunt zien, de parameter password van `MSSQLDataSource` accepteert een geheime-object. U kunt een geheim object krijgen op twee manieren:
--   Registreren en de waarde van het geheim met de engine voor het uitvoeren. 
--   Het geheim met alleen-ID (dit is handig als de geheime waarde is al geregistreerd in de uitvoeringsomgeving) maken.
 
-Nadat u een object voor een gegevensbron hebt gemaakt, kunt u doorgaan met het lezen van gegevens. Bijvoorbeeld:
+Nadat u een object voor een gegevensbron hebt gemaakt, kunt u doorgaan met het lezen van gegevens van de query-uitvoer.
+
 ```python
 dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dataflow.head(5)
 ```
 
-Voorbeelduitvoer:
 ||Product-id|Naam|ProductNumber|Kleur|StandardCost|ListPrice|Grootte|Gewicht|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|Thumbnailphoto wordt door|ThumbnailPhotoFileName|ROWGUID|ModifiedDate|
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 |0|680|HL-Fietsframe - zwart, 58|FR-R92B-58|Zwart|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00 uur|Geen|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461F-9069-55309d90ea7e|2008-03-11 |0:01:36.827000 + 00:00 uur|
@@ -254,74 +213,54 @@ Voorbeelduitvoer:
 |3|708|Sport-100-helm, zwart|HL-U509|Zwart|13.0863|34.99|Geen|Geen|35|33|2005-07-01 00:00:00 + 00:00 uur|Geen|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|a25a44fb-c2de-4268-958f-110b8d7621e2|2008-03-11 |10:01:36.827000 + 00:00 uur|
 |4|709|Mountainbikesokken, M|DERGELIJKE-B909-M|Wit|3.3963|9,50|M|Geen|27|18|2005-07-01 00:00:00 + 00:00 uur|2006-06-30 00:00:00 + 00:00 uur|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|18f95f47-1540-4e02-8f1f-cc1bcb6828d0|2008-03-11 |10:01:36.827000 + 00:00 uur|
 
-```python
-df = dataflow.to_pandas_dataframe()
-df.dtypes
-```
-
-Voorbeelduitvoer:
-```
-ProductID                                     int64
-Name                                         object
-ProductNumber                                object
-Color                                        object
-StandardCost                                float64
-ListPrice                                   float64
-Size                                         object
-Weight                                      float64
-ProductCategoryID                             int64
-ProductModelID                                int64
-SellStartDate             datetime64[ns, UTC+00:00]
-SellEndDate                                  object
-DiscontinuedDate                             object
-ThumbNailPhoto                               object
-ThumbnailPhotoFileName                       object
-rowguid                                      object
-ModifiedDate              datetime64[ns, UTC+00:00]
-dtype: object
-```
-
 ## <a name="use-azure-data-lake-storage"></a>Azure Data Lake-opslag gebruiken
+
 Er zijn twee manieren de SDK het OAuth-token nodig voor toegang tot Azure Data Lake-opslag kunt aanschaffen:
--   Het toegangstoken ophalen uit een recente aanmeldsessie van Azure CLI-aanmelding van de gebruiker
--   Een service-principal (SP) en een certificaat als geheim gebruiken
+
+* Het toegangstoken ophalen uit een recente sessie van Azure CLI-aanmelding van de gebruiker
+* Een service-principal (SP) en een certificaat als geheim gebruiken
 
 ### <a name="use-an-access-token-from-a-recent-azure-cli-session"></a>Een toegangstoken van een recente sessie van de Azure CLI gebruiken
-Voer de volgende opdracht op uw lokale computer:
 
-> [!NOTE] 
-> Als uw gebruikersaccount lid van meer dan één Azure-tenant is, moet u de tenant in de vorm van de hostnaam AAD-URL opgeven.
+Voer de volgende opdracht op uw lokale computer.
 
-
-Bijvoorbeeld:
 ```azurecli
 az login
 az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
+
+> [!NOTE] 
+> Als uw gebruikersaccount lid van meer dan één Azure-tenant is, moet u de tenant in de vorm van de hostnaam AAD-URL opgeven.
+
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Een service-principal maken met de Azure-CLI
-U kunt de Azure CLI een service-principal maken en het bijbehorende certificaat gebruiken. Deze specifieke service-principal is geconfigureerd als lezer, met het bereik dat is beperkt tot alleen de Azure Data Lake Storage-account 'dpreptestfiles'.  Bijvoorbeeld:
+
+De Azure CLI gebruiken om een service-principal en het bijbehorende certificaat te maken. Deze specifieke service-principal is geconfigureerd met de `reader` rol, met het bereik dat is beperkt tot alleen de Azure Data Lake Storage-account 'dpreptestfiles'.
+
 ```azurecli
 az account set --subscription "Data Wrangling development"
 az ad sp create-for-rbac -n "SP-ADLS-dpreptestfiles" --create-cert --role reader --scopes /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/dpreptestfiles/providers/Microsoft.DataLakeStore/accounts/dpreptestfiles
 ```
+
 Met deze opdracht verzendt de `appId` en het pad naar het certificaatbestand (meestal in de basismap). Het bestand .crt bevat zowel het openbare certificaat en de persoonlijke sleutel in de PEM-indeling.
 
-De vingerafdruk van het uit te pakken.
 ```
 openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint
 ```
 
-Gebruik de object-id van de gebruiker of voor dit voorbeeld wordt de service-principal voor het configureren van de ACL voor het Azure Data Lake Storage-bestandssysteem. Bijvoorbeeld:
+Gebruik de object-id van de gebruiker voor het configureren van de ACL voor het Azure Data Lake Storage-bestandssysteem. In dit voorbeeld wordt de service-principal gebruikt.
+
 ```azurecli
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Het configureren van `Read` en `Execute` toegang voor het bestandssysteem van Azure Data Lake Storage, moet u de ACL voor bestanden en mappen afzonderlijk configureren. Dit is vanwege het feit dat de onderliggende HDFS ACL-model biedt geen ondersteuning voor overname. Bijvoorbeeld:
+Het configureren van `Read` en `Execute` toegang voor het Azure Data Lake Storage file system, u de ACL voor bestanden en mappen afzonderlijk configureren. Dit is vanwege het feit dat de onderliggende HDFS ACL-model biedt geen ondersteuning voor overname. 
+
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r--" --path /farmers-markets.csv
 ```
+
 ```
 certThumbprint = 'C2:08:9D:9E:D1:74:FC:EB:E9:7E:63:96:37:1C:13:88:5E:B9:2C:84'
 certificate = ''
@@ -330,8 +269,10 @@ with open('./data/adls-dpreptestfiles.crt', 'rt', encoding='utf-8') as crtFile:
 
 servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 ```
+
 ### <a name="acquire-an-oauth-access-token"></a>Een OAuth-toegangstoken verkrijgen
-Gebruik de `adal` pakket (via: `pip install adal`) geen verificatiecontext op de MSFT-tenant maken en een OAuth-toegangstoken verkrijgen. ADLS, moet de resource in de aanvraag voor een toegangstoken voor 'https://datalake.azure.net', die verschilt van de meeste andere Azure-resources.
+
+Gebruik de `adal` pakket (`pip install adal`) geen verificatiecontext op de MSFT-tenant maken en een OAuth-toegangstoken verkrijgen. ADLS, moet de resource in de aanvraag voor een toegangstoken voor 'https://datalake.azure.net', die verschilt van de meeste andere Azure-resources.
 
 ```python
 import adal
@@ -343,10 +284,10 @@ dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.a
 dataflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Website|Adres|city|District|
+||FMID|MarketName|Website|Adres|city|Provincie|
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonië landbouwers markt Association - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonië|
 |1|1011871|Liefst in Stearns Homestead landbouwers ' markt|http://Stearnshomestead.com |6975 ridge weg|Parma|Cuyahoga|
 |2|1011878|100 mijl markt|http://www.pfcmarkets.com |507 Harrison St|Verweggistan|Verweggistan|
 |3|1009364|106 S. Main straat landbouwers markt|http://thetownofsixmile.wordpress.com/ |106 S. Main straat|Zes mijl|||
-|4|1010691|10th Steet Community landbouwers markt|http://agrimissouri.com/mo-grown/grodetail.php... |10e straat en populieren|Lamar|Barton|
+|4|1010691|10e straat Community landbouwers markt|http://agrimissouri.com/mo-grown/grodetail.php... |10e straat en populieren|Lamar|Barton|

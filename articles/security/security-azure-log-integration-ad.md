@@ -1,6 +1,6 @@
 ---
-title: Integratie met Azure Active Directory-auditlogboeken van Azure logboek | Microsoft Docs
-description: Informatie over het installeren van de integratie van Azure Log-service en het integreren van Logboeken van Azure controlelogboeken
+title: Azure-Logboekintegratie met Azure Active Directory-controlelogboeken | Microsoft Docs
+description: Meer informatie over het installeren van de service Azure-Logboekintegratie en logboeken van Azure-auditlogboeken integreren
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,20 +15,20 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235988"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313238"
 ---
-# <a name="integrate-azure-active-directory-audit-logs"></a>Integratie van Azure Active Directory-auditlogboeken
+# <a name="integrate-azure-active-directory-audit-logs"></a>Controlelogboeken van Azure Active Directory integreren
 
-Controlegebeurtenissen van Azure Active Directory (Azure AD) kunnen u bepalen bevoorrechte acties die is opgetreden in Azure Active Directory. U kunt zien welke typen gebeurtenissen die u bijhouden aan de hand van kunt [Azure Active Directory-controlerapportgebeurtenissen](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
+Controlegebeurtenissen van Azure Active Directory (Azure AD) kunnen u bevoegde acties die zijn opgetreden in Azure Active Directory identificeren. U kunt zien welke typen gebeurtenissen die u aan de hand kunt houden [Active Directory van Azure-controlegebeurtenissen rapport](../active-directory/reports-monitoring/concept-audit-logs.md).
 
 
 >[!IMPORTANT]
-> De functie van de integratie met Azure-logboekanalyse door 01-06/2019 afgeschaft. Door 27 Jun 2018 AzLog downloads uitgeschakeld. Voor hulp bij het wat te doen zwevend forward revisie van het bericht [gebruik Azure-monitor voor de integratie met SIEM's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads uitgeschakeld door 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stappen voor het integreren van Azure Active Directory-auditlogboeken
 
@@ -43,9 +43,9 @@ Controlegebeurtenissen van Azure Active Directory (Azure AD) kunnen u bepalen be
  
    ``azlog createazureid``
 
-   Met deze opdracht wordt u gevraagd om uw Azure-aanmelding. De opdracht maakt u een Azure Active Directory service-principal in de Azure AD-tenants die als host fungeren van de Azure-abonnementen waarin de aangemelde gebruiker een beheerder, CO-beheerder of een eigenaar is. De opdracht mislukt als de aangemelde gebruiker een gastgebruiker in de Azure AD-tenant. Verificatie in Azure wordt gedaan door Azure AD. Maken van een service-principal voor Azure Log integratie maakt de identiteit van de Azure AD die toegang krijgt tot het lezen van de Azure-abonnementen.
+   Met deze opdracht vraagt u om uw Azure-aanmelding. De opdracht maakt u een Azure Active Directory service-principal in de Azure AD-tenants die als host fungeren de waarin zich de aangemelde gebruiker een beheerder, CO-beheerder of eigenaar van een Azure-abonnementen. De opdracht mislukt als de gebruiker aangemeld alleen een gastgebruiker in de Azure AD-tenant is. Azure-verificatie wordt gedaan via Azure AD. Een service-principal voor Azure-Logboekintegratie maakt, wordt de Azure AD-identiteit die toegang krijgt tot het lezen van de Azure-abonnementen.
 
-3. Voer de volgende opdracht om uw tenant-ID. U moet lid zijn van de tenant-beheerdersrol de opdracht uit te voeren.
+3. Voer de volgende opdracht uit voor uw tenant-ID. U moet lid zijn van de rol van tenant-beheerder de opdracht uit te voeren.
 
    ``Azlog.exe authorizedirectoryreader tenantId``
 
@@ -53,27 +53,27 @@ Controlegebeurtenissen van Azure Active Directory (Azure AD) kunnen u bepalen be
 
    ``AZLOG.exe authorizedirectoryreader ba2c0000-d24b-4f4e-92b1-48c4469999``
 
-4. Controleer de volgende mappen om te bevestigen dat de Azure Active Directory audit log JSON-bestanden in deze zijn gemaakt:
+4. Controleer de volgende mappen om te bevestigen dat de Azure Active Directory audit log JSON-bestanden worden gemaakt in deze:
 
    * **C:\Users\azlog\AzureActiveDirectoryJson**
    * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
-De volgende video ziet u de stappen die in dit artikel:
+De volgende video ziet u de stappen in dit artikel besproken:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
 
 
 > [!NOTE]
-> Neem contact op met de leverancier van uw SIEM voor specifieke instructies op de informatie in de JSON-bestanden te brengen in uw security information en event management (SIEM)-systeem.
+> Neem contact op met de leverancier van uw SIEM voor specifieke instructies over hoe u de informatie in de JSON-bestanden in uw beveiligingsgegevens en event management (SIEM) system brengt.
 
-Hulp is beschikbaar via de [Azure Log integratie MSDN-Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Dit forum kunt mensen in de Azure Log integratie community ter ondersteuning van elkaar met vragen, antwoorden, tips en slagen. Bovendien het team van Azure Log integratie dit forum wordt bewaakt en helpt wanneer dat mogelijk is.
+Hulp is beschikbaar via de [integratie van MSDN-Forum van Azure Log](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Dit forum kunt mensen in de Azure-Logboekintegratie community ter ondersteuning van elkaar met vragen, antwoorden, tips en trucs. Bovendien het team van Azure-Logboekintegratie dit forum wordt bewaakt en helpt wanneer dat mogelijk is.
 
-U kunt ook openen een [ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer **logboek integratie** als de service waarvoor u ondersteuning aanvraagt.
+U kunt ook openen een [ondersteuningsaanvraag](../azure-supportability/how-to-create-azure-support-request.md). Selecteer **Logboekintegratie** als de service waarvoor u ondersteuning aanvraagt.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de integratie van Azure-logboek:
+Zie voor meer informatie over Azure-Logboekintegratie:
 
-* [Microsoft Azure Log-integratie voor Azure logboeken](https://www.microsoft.com/download/details.aspx?id=53324): deze Download Center-pagina geeft details, systeemvereisten en installatie-instructies voor de integratie van Azure-logboek.
-* [Inleiding tot Azure Log integratie](security-azure-log-integration-overview.md): in dit artikel bevat een inleiding tot Azure Log integratie, de belangrijkste mogelijkheden en hoe het werkt.
-* [Veelgestelde vragen over de Azure Log integratie](security-azure-log-integration-faq.md): in dit artikel antwoorden op vragen over Azure Log-integratie.
-* [Nieuwe functies voor Azure Diagnostics- en Azure controlelogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): dit blogbericht maakt u kennis met Azure controlelogboeken en andere functies waarmee u inzicht in de bewerkingen van uw Azure-resources.
+* [Microsoft Azure-Logboekintegratie voor Azure-logboeken](https://www.microsoft.com/download/details.aspx?id=53324): Downloadcentrum deze pagina geeft details, systeemvereisten en installatie-instructies voor Azure-Logboekintegratie.
+* [Inleiding tot Azure-Logboekintegratie](security-azure-log-integration-overview.md): in dit artikel bevat een inleiding tot Azure-Logboekintegratie, de belangrijkste mogelijkheden en hoe het werkt.
+* [Veelgestelde vragen over van Azure Log integratie](security-azure-log-integration-faq.md): in dit artikel vindt u antwoorden op vragen over Azure-Logboekintegratie.
+* [Nieuwe functies voor Azure Diagnostics en Azure-auditlogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): in dit blogbericht bevat een inleiding tot Azure-auditlogboeken en andere functies waarmee u inzicht in de bewerkingen van uw Azure-resources.

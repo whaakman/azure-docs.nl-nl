@@ -9,24 +9,24 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 973913e81157d2158074e50a61be0d73e5606ec3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006138"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308151"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana toegang in Azure HDInsight
 
 
-Grafana is een populaire, open source opbouwfunctie voor graph en dashboard. Grafana is functie uitgebreide; niet alleen kunt maken van aanpasbare gebruikers en deelbaar dashboards, biedt het ook sjablonen/script dashboards, LDAP-integratie, meerdere gegevensbronnen, en meer.
+[Grafana](https://grafana.com/) is een populaire, open source opbouwfunctie voor graph en dashboard. Grafana is functie uitgebreide; niet alleen kunt maken van aanpasbare gebruikers en deelbaar dashboards, biedt het ook sjablonen/script dashboards, LDAP-integratie, meerdere gegevensbronnen, en meer.
 
 Grafana is momenteel alleen ondersteuning voor door het type Interactive Query-cluster in Azure HDInsight.
 
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="create-a-hadoop-cluster"></a>Een Hadoop-cluster maken
+## <a name="create-an-apache-hadoop-cluster"></a>Een Apache Hadoop-cluster maken
 
 In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van een Azure Resource Manager-sjabloon. Het maken van een Azure Resource Manager-sjabloon is niet vereist voor dit artikel. 
 
@@ -51,11 +51,11 @@ In deze sectie maakt u een Interactive Query-cluster in HDInsight met behulp van
     |**Resourcegroep**     | Maak een resourcegroep of selecteer een bestaande resourcegroep.  Een resourcegroep is een container met Azure-onderdelen.  In dit geval bevat de resourcegroep het HDInsight-cluster en het afhankelijke Azure Storage-account. |
     |**Locatie**     | Selecteer een Azure-locatie waar u het cluster wilt maken.  Kies een locatie zo dicht mogelijk bij u in de buurt voor betere prestaties. |
     |**Clustertype**     | Selecteer **hadoop**. |
-    |**Clusternaam**     | Voer een naam in voor het Hadoop-cluster. Omdat alle clusters in HDInsight dezelfde DNS-naamruimte delen, moet deze naam uniek zijn. De naam mag bestaan uit maximaal 59 tekens, inclusief letters, cijfers en afbreekstreepjes. De eerste en laatste tekens van de naam mogen geen streepjes zijn. |
+    |**Clusternaam**     | Voer een naam voor het Apache Hadoop-cluster. Omdat alle clusters in HDInsight dezelfde DNS-naamruimte delen, moet deze naam uniek zijn. De naam mag bestaan uit maximaal 59 tekens, inclusief letters, cijfers en afbreekstreepjes. De eerste en laatste tekens van de naam mogen geen streepjes zijn. |
     |**Gebruikersnaam/Wachtwoord voor clusteraanmeldgegevens**     | De standaardaanmeldingsnaam is **admin**. Het wachtwoord moet uit minstens tien tekens bestaan en moet minstens één cijfer, één hoofdletter, één kleine letter en één niet-alfanumeriek teken bevatten (uitgezonderd ' " ` \). Zorg ervoor dat u **geen makkelijk te raden** wachtwoorden gebruikt, zoals 'Pass@word1'.|
     |**SSH-gebruikersnaam en SSH-wachtwoord**     | De standaardgebruikersnaam is **sshuser**.  U kunt de SSH-gebruikersnaam wijzigen.  Voor het SSH-gebruikerswachtwoord gelden dezelfde vereisten als voor het aanmeldingswachtwoord voor het cluster.|
        
-    Sommige eigenschappen zijn vastgelegd in de sjabloon.  U kunt deze waarden uit de sjabloon configureren. Raadpleeg voor meer uitleg over deze eigenschappen [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+    Sommige eigenschappen zijn vastgelegd in de sjabloon.  U kunt deze waarden uit de sjabloon configureren. Zie voor meer informatie over van deze eigenschappen, [Apache Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden** en **Vastmaken aan dashboard**, en selecteer vervolgens **Kopen**. U ziet een nieuwe tegel met de mededeling dat **de implementatie wordt verzonden**. Het duurt ongeveer 20 minuten om een cluster te maken.
 
@@ -106,7 +106,7 @@ Nadat u het artikel hebt voltooid, kunt u het cluster verwijderen. Met HDInsight
 3. Selecteer **Resourcegroep verwijderen** om de resourcegroep te verwijderen. De groep bevat zowel het cluster als het standaardopslagaccount. Als u de resourcegroep verwijdert, wordt ook het opslagaccount verwijderd. Als u het opslagaccount wilt behouden, verwijdert u alleen het cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u een HDInsight-cluster op basis van Linux maakt met behulp van een Resource Manager-sjabloon, en hoe u eenvoudige Hive-query's uitvoert. In het volgende artikel leert u hoe u een ETL-bewerking (Extraction, Transformation, Loading) uitvoert met behulp van Hadoop in HDInsight.
+In dit artikel hebt u geleerd hoe u een Linux gebaseerde HDInsight-cluster met behulp van Resource Manager-sjabloon maken en hoe u eenvoudige Apache Hive-query's uitvoert. In het volgende artikel leert u hoe u een ETL-bewerking (Extraction, Transformation, Loading) uitvoert met behulp van Hadoop in HDInsight.
 
 > [!div class="nextstepaction"]
 >[Gegevens uitpakken, transformeren en laden met Apache Hive in HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
@@ -118,9 +118,9 @@ Als u klaar bent om te gaan werken met uw eigen gegevens en meer wilt weten over
 
 Zie de volgende artikelen voor meer informatie over het analyseren van gegevens met HDInsight:
 
-* Zie [Hive gebruiken met HDInsight](../hdinsight-use-hive.md) voor meer informatie over het gebruik van Hive met HDInsight, waaronder over het uitvoeren van Hive-query's vanuit Visual Studio.
-* Zie [Pig gebruiken met HDInsight](../hdinsight-use-pig.md) voor meer informatie over Pig, een taal die wordt gebruikt voor het omzetten van gegevens.
-* Zie [MapReduce gebruiken met HDInsight](../hdinsight-use-mapreduce.md) voor meer informatie over MapReduce, een middel om programma's te schrijven die gegevens verwerken op Hadoop.
+* Zie voor meer informatie over het gebruik van Hive met HDInsight, waaronder over het uitvoeren van Hive-query's vanuit Visual Studio [Apache Hive gebruiken met HDInsight](../hdinsight-use-hive.md).
+* Zie voor meer informatie over Pig, een taal die wordt gebruikt om gegevens, te transformeren [Apache Pig gebruiken met HDInsight](../hdinsight-use-pig.md).
+* Zie voor meer informatie over Apache Hadoop MapReduce, een manier om programma's schrijven die gegevens op Hadoop verwerken, [gebruik Apache Hadoop MapReduce met HDInsight](../hdinsight-use-mapreduce.md).
 * Zie voor meer informatie over het gebruik van de HDInsight-hulpprogramma's voor Visual Studio om gegevens op HDInsight te analyseren [Aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 

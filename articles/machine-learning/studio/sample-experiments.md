@@ -1,6 +1,6 @@
 ---
-title: Experimenten maken van Machine Learning-voorbeelden - Azure | Microsoft Docs
-description: Leer hoe u voorbeeldexperimenten met Machine Learning gebruikt nieuwe experimenten te maken met Azure AI Gallery en Azure Machine Learning.
+title: Machine Learning Studio-experimenten maken van voorbeelden - Azure | Microsoft Docs
+description: Leer hoe u voorbeeldexperimenten voor machine learning gebruikt nieuwe experimenten te maken met Azure AI Gallery en Azure Machine Learning Studio gebruiken.
 keywords: machine learning-voorbeelden, voorbeeldexperiment, machine learning-voorbeeld, AI-voorbeelden
 services: machine-learning
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 7bb6f054b81b21783cecb15c3b5caa9bcf6f77cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264287"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306677"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Machine learning-experimenten maken van werkende voorbeelden in Azure AI Gallery
 

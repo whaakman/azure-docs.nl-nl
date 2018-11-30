@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van een Azure Machine Learning-webservice | Microsoft Docs
-description: Wanneer een machine learning-service is geïmplementeerd, kan de RESTFul-Web-service die beschikbaar wordt gesteld als realtime request response-service of als een batchuitvoeringsservice worden gebruikt.
+title: Het gebruik van een Azure Machine Learning Studio-webservice | Microsoft Docs
+description: Wanneer een machine learning-service van Azure Machine Learning Studio is geïmplementeerd, kan de RESTFul-Web-service worden gebruikt als realtime request response-service of als een batch-service kan worden uitgevoerd.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: 0f95ea1de572beb02cd1680864d3fee781e9abc1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262819"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309103"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Het gebruik van een Azure Machine Learning-webservice
+# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Het gebruik van een Azure Machine Learning Studio-webservice
 
 Wanneer u een Voorspellend model van Azure Machine Learning als een webservice implementeert, kunt u een REST-API gegevens verzenden en ophalen van voorspellingen. U kunt de gegevens verzenden in realtime of in de batchmodus.
 

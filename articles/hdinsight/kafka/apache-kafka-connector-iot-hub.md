@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8941a7332c19b1a9d5c04abb0e4b03ae83e98016
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260479"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315424"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Gebruik Apache Kafka in HDInsight met Azure IoT Hub
 
-Meer informatie over het gebruik van de [Kafka verbinding maken met Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) connector om gegevens te verplaatsen tussen Apache Kafka in HDInsight en Azure IoT Hub. In dit document leert u hoe u de IoT Hub-connector uitvoert vanuit een edge-knooppunt in het cluster.
+Meer informatie over het gebruik van de [Apache Kafka verbinding maken met Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) connector om gegevens te verplaatsen tussen Apache Kafka in HDInsight en Azure IoT Hub. In dit document leert u hoe u de IoT Hub-connector uitvoert vanuit een edge-knooppunt in het cluster.
 
-De verbinding maken met Kafka-API kunt u voor het implementeren van connectors die continu gegevens in Kafka ophalen of gegevens van Kafka naar een ander systeem te pushen. De [Kafka verbinding maken met Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) is een connector die gegevens uit Azure IoT Hub in Kafka ophaalt. Het kan ook gegevens van Kafka pushen naar de IoT Hub. 
+De verbinding maken met Kafka-API kunt u voor het implementeren van connectors die continu gegevens in Kafka ophalen of gegevens van Kafka naar een ander systeem te pushen. De [Apache Kafka verbinding maken met Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) is een connector die gegevens uit Azure IoT Hub in Kafka ophaalt. Het kan ook gegevens van Kafka pushen naar de IoT Hub. 
 
 Wanneer het binnenhalen van de IoT-Hub, gebruikt u een __bron__ connector. Bij het pushen van IoT-hub, gebruikt u een __sink__ connector. De IoT Hub-connector biedt zowel de bron en sink-connectors.
 
@@ -84,7 +84,7 @@ Zie voor meer informatie over de API verbinding [ https://kafka.apache.org/docum
 >
 >    Deze opdracht maakt u een bestand met de naam `kafka-connect-iothub-assembly_2.11-0.6.jar` in de `target/scala-2.11` Active directory voor het project.
 
-## <a name="configure-kafka"></a>Kafka configureren
+## <a name="configure-apache-kafka"></a>Apache Kafka configureren
 
 Gebruik de volgende stappen om te configureren van Kafka voor het uitvoeren van de connector in zelfstandige modus van een SSH-verbinding met het edge-knooppunt:
 
@@ -111,7 +111,7 @@ Gebruik de volgende stappen om te configureren van Kafka voor het uitvoeren van 
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. Haal het adres van de Zookeeper-knooppunten. Er zijn verschillende Zookeeper-knooppunten in het cluster, maar u hoeft alleen te verwijzen naar één of twee. Als u het adres van de twee Zookeeper-knooppunten, gebruikt u de volgende opdracht uit:
+4. Haal het adres van de Apache Zookeeper-knooppunten. Er zijn verschillende Zookeeper-knooppunten in het cluster, maar u hoeft alleen te verwijzen naar één of twee. Als u het adres van de twee Zookeeper-knooppunten, gebruikt u de volgende opdracht uit:
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -335,7 +335,7 @@ Voor het verzenden van berichten via de connector, gebruikt u de volgende stappe
     > [!WARNING]
     > Aangezien dit een nieuwe SSH-verbinding, het `$KAFKABROKERS` variabele geen gegevens bevat. Als u wilt instellen, moet u een van de volgende methoden gebruiken:
     >
-    > * Gebruik de eerste drie stappen in de [Kafka configureren](#configure-kafka) sectie.
+    > * Gebruik de eerste drie stappen in de [configureren van Apache Kafka](#configure-apache-kafka) sectie.
     > * Gebruik `echo $KAFKABROKERS` uit de vorige SSH-verbinding met de waarden ophaalt en vervang `$KAFKABROKERS` in de volgende opdracht uit met de werkelijke waarden.
 
     ```bash
@@ -367,7 +367,7 @@ Zie voor meer informatie over het gebruik van de sink-connector [ https://github
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe u de Kafka-API verbinden met starten van de IoT-Connector voor Kafka op HDInsight. Gebruik de volgende koppelingen voor het detecteren van andere manieren om te werken met Kafka:
+In dit document hebt u geleerd hoe u de Apache-API voor het verbinding maken van Kafka gebruikt om te starten van de IoT-Connector voor Kafka op HDInsight. Gebruik de volgende koppelingen voor het detecteren van andere manieren om te werken met Kafka:
 
-* [Apache Spark gebruiken met Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Apache Storm gebruiken met Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Apache Spark gebruiken met Apache Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Apache Storm gebruiken met Apache Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)

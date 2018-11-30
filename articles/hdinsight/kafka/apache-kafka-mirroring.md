@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 21fa41db2e205a7b17deae6d018308fe6e7ff213
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006767"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309035"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker gebruiken voor het Apache Kafka-onderwerpen repliceren met Kafka in HDInsight
 
@@ -25,11 +25,11 @@ In dit voorbeeld wordt spiegelen gebruikt voor het repliceren van onderwerpen tu
 > [!WARNING]
 > Spiegeling moet niet worden beschouwd als een manier om fouttolerantie. De verschuiving naar items in een onderwerp verschillen tussen de bron- en -clusters, zodat clients kunnen niet beide worden door elkaar gebruikt.
 >
-> Als u zich zorgen maken over-fouttolerantie gebruikt, moet u replicatie voor de onderwerpen in uw cluster instellen. Zie voor meer informatie, [aan de slag met Kafka in HDInsight](apache-kafka-get-started.md).
+> Als u zich zorgen maken over-fouttolerantie gebruikt, moet u replicatie voor de onderwerpen in uw cluster instellen. Zie voor meer informatie, [aan de slag met Apache Kafka in HDInsight](apache-kafka-get-started.md).
 
-## <a name="how-kafka-mirroring-works"></a>De werking van Kafka spiegelen
+## <a name="how-apache-kafka-mirroring-works"></a>Hoe Apache Kafka spiegelen werkt
 
-Werkt met het hulpprogramma MirrorMaker (onderdeel van Apache Kafka) te spiegelen records van de onderwerpen in de broncluster gebruiken en vervolgens maakt u een lokale kopie op het doelcluster. MirrorMaker maakt gebruik van een (of meer) *consumenten* die van het broncluster gelezen en een *producent* die worden geschreven naar het lokale (doel)-cluster.
+Spiegelen werkt met behulp van de [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) hulpprogramma (onderdeel van Apache Kafka) om te gebruiken van records van de onderwerpen in de broncluster en maak vervolgens een lokale kopie op de doelcluster. MirrorMaker maakt gebruik van een (of meer) *consumenten* die van het broncluster gelezen en een *producent* die worden geschreven naar het lokale (doel)-cluster.
 
 Het volgende diagram illustreert het proces spiegelen:
 
@@ -56,7 +56,7 @@ Als u spiegelen tussen Kafka-clusters in verschillende netwerken wilt, zijn er d
 
 Zie voor meer informatie over het verbinden van twee virtuele netwerken van Azure, [een VNet-naar-VNet-verbinding configureren](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## <a name="create-kafka-clusters"></a>Kafka-clusters maken
+## <a name="create-apache-kafka-clusters"></a>Apache Kafka-clusters maken
 
 Hoewel u een Azure virtual network maken kunt en Kafka-clusters handmatig, is het eenvoudiger te gebruiken van een Azure Resource Manager-sjabloon. Gebruik de volgende stappen voor het implementeren van een Azure-netwerk en twee Kafka-clusters naar uw Azure-abonnement.
 
@@ -106,7 +106,7 @@ Hoewel u een Azure virtual network maken kunt en Kafka-clusters handmatig, is he
 
     Zie [SSH-sleutels gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-2. Gebruik de volgende opdrachten de Zookeeper-hosts vinden voor de broncluster:
+2. Gebruik de volgende opdrachten de Apache Zookeeper om hosts te vinden voor de broncluster:
 
     ```bash
     # Install jq if it is not installed
@@ -295,10 +295,10 @@ Omdat de stappen in dit document worden beide clusters in de dezelfde Azure-reso
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe u MirrorMaker gebruiken voor het maken van een replica van een Kafka-cluster. Gebruik de volgende koppelingen voor het detecteren van andere manieren om te werken met Kafka:
+In dit document hebt u geleerd hoe u [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) te maken van een replica van een [Apache Kafka](https://kafka.apache.org/) cluster. Gebruik de volgende koppelingen voor het detecteren van andere manieren om te werken met Kafka:
 
 * [Documentatie voor Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) op cwiki.apache.org.
 * [Aan de slag met Apache Kafka in HDInsight](apache-kafka-get-started.md)
-* [Apache Spark gebruiken met Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Apache Storm gebruiken met Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Verbinding maken met Kafka via een Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Apache Spark gebruiken met Apache Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Apache Storm gebruiken met Apache Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Verbinding maken met Apache Kafka via een Azure-netwerk](apache-kafka-connect-vpn-gateway.md)

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231479"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308780"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -39,7 +39,10 @@ Azure AD Connect maakt gebruik van 3-accounts om te synchroniseren van gegevens 
 
 Naast deze drie accounts gebruikt voor het uitvoeren van Azure AD Connect, moet u ook de volgende extra accounts aan Azure AD Connect installeert.  Dit zijn:
 
-- **AD DS Enterprise-beheerdersaccount**: gebruikt voor het installeren van Azure AD Connect
+- **Lokale Administrator-account**: de beheerder die Azure AD Connect wordt geïnstalleerd en die lokale beheerdersmachtigingen heeft op de machine.
+
+- **AD DS Enterprise-beheerdersaccount**: (optioneel) gebruikt voor het maken van de "AD DS-Connector-account" hierboven.
+
 - **Account van Azure AD-hoofdbeheerder**: gebruikt voor het maken van de Azure AD-Connector-account en Azure AD configureren.
 
 - **SQL-SA-account (optioneel)**: gebruikt voor het maken van de ADSync-database bij het gebruik van de volledige versie van SQL Server.  Deze SQL-Server kan lokaal of extern zijn aan de Azure AD Connect-installatie zijn.  Dit account is mogelijk niet hetzelfde account als de Enterprise-beheerder.  Inrichten van de database kan nu worden uitgevoerd buiten-band door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten van de database.  Voor meer informatie over deze Zie [Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen](how-to-connect-install-sql-delegation.md)
@@ -142,7 +145,7 @@ Wanneer u een upgrade van één versie van Azure AD Connect naar een nieuwe vers
 >Beginnen met bouwen 1.1.484, Azure AD Connect een bug regressie waarvoor sysadmin-machtigingen voor het bijwerken van de SQL-database ingevoerd.  Deze fout is verholpen in build 1.1.647.  Als u een naar deze versie upgrade, moet u sysadmin-bevoegdheden.  Dbo-machtigingen zijn niet voldoende.  Als u probeert te Azure AD Connect upgraden zonder sysadmin-bevoegdheden, mislukt de upgrade en Azure AD Connect wordt niet meer correct werkt daarna.  Microsoft is hiervan op de hoogte en werkt om dit te corrigeren.
 
 
-| Hoofd | Machtigingen die vereist zijn | Gebruikt voor |
+| Principal | Machtigingen die vereist zijn | Gebruikt voor |
 | --- | --- | --- |
 | Gebruiker met de installatiewizard |Beheerder van de lokale server |Binaire bestanden worden bijgewerkt. |
 | Gebruiker met de installatiewizard |Lid van de ADSyncAdmins |Breng wijzigingen in synchronisatieregels en andere configuratie. |

@@ -1,6 +1,6 @@
 ---
 title: AMQP 1.0 gebruiken met de Java Service Bus-API | Microsoft Docs
-description: Het gebruik van de Java Message Service (JMS) met Azure Service Bus en Message Queuing-Protodol AMQP 1.0 (Advanced).
+description: Het gebruik van de Java Message Service (JMS) met Azure Service Bus- en Advanced Message Queuing Protocol (AMQP 1.0).
 services: service-bus-messaging
 documentationcenter: java
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018227"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308067"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>De Java Message Service (JMS) API gebruiken met Service Bus en AMQP 1.0
 Het Advanced Message Queuing Protocol (AMQP 1.0) is een efficiënte, betrouwbare, wire-level berichtenprotocol dat u gebruiken kunt om robuuste, platformonafhankelijke berichten toepassingen te bouwen.
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>JNDI context installeren en configureren van de ConnectionFactory
 
 De **ConnectionString** waarnaar wordt verwezen in de versie in de 'gedeeld toegangsbeleid' in de [Azure Portal](https://portal.azure.com) onder **Primary Connection String**
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 De vermelding die wordt gebruikt voor het definiëren van een bestemming in de Qpid eigenschappen bestand JNDI provider is de volgende indeling hebben:
 
 De doelwachtrij maken voor de producent- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 Wachtrijen maken voor de consument- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -297,7 +297,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>De toepassing uitvoeren
-Geeft de **Connection String** van het beleid voor gedeelde controleren zodat ze de toepassing uit te voeren.
+Geeft de **Connection String** van het beleid voor gedeelde toegang de toepassing uit te voeren.
 Hieronder volgt de uitvoer van het formulier door de toepassing wordt uitgevoerd:
 
 ```
@@ -351,7 +351,7 @@ De volgende beperkingen zijn bij het gebruik van JMS via AMQP 1.0 met Service Bu
 
 Bovendien Azure Service Bus splitst het besturingselement vlak van het gegevensvlak en daarom biedt geen ondersteuning voor diverse JMS van dynamische topologie functies:
 
-| Niet-ondersteunde methode          | vervangen                                                                             |
+| Niet-ondersteunde methode          | Vervangen door                                                                             |
 |-----------------------------|------------------------------------------------------------------------------------------|
 | createDurableSubscriber     | maken van een onderwerpabonnement overzetten van de bericht-kiezer                                 |
 | createDurableConsumer       | maken van een onderwerpabonnement overzetten van de bericht-kiezer                                 |

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988409"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330914"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 
@@ -32,18 +32,18 @@ Er zijn meerdere manieren om een toepassing te registreren. Selecteer de optie d
 1. Aanmelden bij de [Azure portal app-registratie (preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) om een toepassing te registreren.
 1. Op de **registreren van een toepassing** pagina, typ een naam voor uw toepassing.
 1. Onder **ondersteund accounttypen**, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**.
-1. Wanneer u klaar bent, selecteert u **registreren**.
+1. Selecteer **Registreren** wanneer u klaar bent.
 1. Volg de instructies van de Snelstartgids om te downloaden en uw nieuwe toepassing voor u het automatisch configureren in één klik.
 
 ### <a name="option-2-register-your-application-advanced-mode"></a>Optie 2: Registreer uw toepassing (geavanceerde modus)
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) om een toepassing te registreren.
-1. Als uw account u toegang tot meer dan één tenant hebt, selecteert u uw account in de rechterbovenhoek hoek en instellen van uw portal-sessie op de gewenste Azure AD-tenant.
-1. Selecteer in het navigatiedeelvenster links het **Azure Active Directory** service en selecteer vervolgens **App-registraties (Preview) > nieuwe registratie**.
+1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
+1. Selecteer in het linkernavigatiedeelvenster de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview) > Nieuwe registratie**.
 1. Wanneer de **registreren van een toepassing** pagina wordt weergegeven, voer een naam in voor uw toepassing.
 1. Onder **ondersteund accounttypen**, selecteer **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts**.
 1. Onder de **omleidings-URI** sectie, selecteer de **Web** platform en stel de waarde in de URL van de toepassing op basis van uw webserver. Zie de secties hieronder voor instructies over het instellen en ophalen van de omleidings-URL in Visual Studio en het knooppunt.
-1. Wanneer u klaar bent, selecteert u **registreren**.
+1. Selecteer **Registreren** wanneer u klaar bent.
 1. Op de app **overzicht** pagina, noteer de **(client) toepassings-ID** waarde.
 1. Deze snelstartgids moet de [impliciet verlenen stroom](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) zijn ingeschakeld. Selecteer in het navigatiedeelvenster links van de geregistreerde toepassing, **verificatie**.
 1. In **geavanceerde instellingen**onder **impliciete**, schakel beide **ID-tokens** en **toegangstokens** selectievakjes. ID-tokens en toegangstokens zijn vereist, omdat deze app moet het aanmelden van gebruikers en aanroepen van een API.
@@ -67,7 +67,8 @@ Er zijn meerdere manieren om een toepassing te registreren. Selecteer de optie d
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

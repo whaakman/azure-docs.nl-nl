@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7f553300ce87ad24042e4d75b2e6e3742125783b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284622"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309359"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Hoe: uw Azure AD join-implementatie plannen
 
@@ -62,7 +62,7 @@ Als u wilt uw hybride Azure AD-implementatie te plannen, moet u vertrouwd raken 
 Terwijl hybride Azure AD join is misschien voorkeur voor bepaalde scenario's kunt koppelen aan Azure AD u overstappen op een cloud-first-model met Windows. Als u van plan bent te moderniseren van uw apparaten beheren en IT-kosten met betrekking tot apparaat, biedt Azure AD join een goede basis voor het bereiken van deze doelstellingen.  
 
  
-U moet rekening houden met Azure AD join als uw doelstellingen zijn afgestemd op de volgende criteria:
+U moet rekening houden met de Azure AD join als uw doelstellingen zijn afgestemd op de volgende criteria:
 
 - U inzetten voor uw gebruikers Microsoft 365 als het pakket productiviteit.
 
@@ -95,12 +95,14 @@ Een federatieve omgeving moet een id-provider die ondersteuning biedt voor WS-Tr
 
 - **WS-Trust:** dit protocol is vereist om aan te melden bij een Azure AD gekoppelde apparaat. 
 
-Als uw identiteitsprovider geen ondersteuning biedt voor deze protocollen, werkt Azure AD join niet systeemeigen. Beginnen met Windows 10 1809, uw gebruikers kunnen zich aanmelden met een apparaat dat is toegevoegd aan Azure AD met een SAML gebaseerde id-provider via een [web-aanmelding op Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). 
+Als uw identiteitsprovider geen ondersteuning biedt voor deze protocollen, werkt Azure AD join niet systeemeigen. Beginnen met Windows 10 1809, uw gebruikers kunnen zich aanmelden met een apparaat dat is toegevoegd aan Azure AD met een op basis van SAML identiteitsprovider via [web-aanmelding op Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Op dit moment is webaanmelding een alleen-preview-functie.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smartcards en certificaten gebaseerde verificatie
 
 U kunt smartcards of certificaten gebaseerde verificatie niet gebruiken om apparaten aan Azure AD. Smartcards kan echter aanmelden bij Azure AD gekoppelde apparaten hebt u AD FS geconfigureerd worden gebruikt.
+
+**Aanbeveling:** implementeren Windows Hello voor bedrijven voor sterk, wachtwoord zonder verificatie van Windows 10-apparaten.
 
 
 ### <a name="user-configuration"></a>Gebruikersconfiguratie
@@ -209,7 +211,9 @@ Azure AD gekoppelde apparaten ondersteunen geen on-premises toepassingen die afh
 
 **Aanbeveling:** buiten gebruik stellen van deze toepassingen en verplaatst naar hun moderne alternatieven te overwegen.
 
+### <a name="remote-desktop-services"></a>Externe bureaubladservices
 
+Extern bureaublad verbinding met een Azure AD gekoppelde apparaten is vereist voor de hostmachine naar een Azure AD zijn toegevoegd of toegevoegd aan Hybrid Azure AD. Extern bureaublad van een verwijderd of niet-Windows-apparaat wordt niet ondersteund. Zie voor meer informatie, [verbinding maken met Azure AD externe pc die lid is](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Begrijp welke mogelijkheden u inrichting

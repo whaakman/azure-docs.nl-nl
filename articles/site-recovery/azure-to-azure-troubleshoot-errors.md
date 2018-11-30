@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945736"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308120"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -150,28 +150,36 @@ Omdat symlinks SuSE Linux gebruikt voor het onderhouden van een lijst van certif
 
 Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde URL's of IP-bereiken zijn van de virtuele machine. Als uw VM zich achter een firewall bevindt of regels voor network security group (NSG) gebruikt voor het beheren van uitgaande connectiviteit, kunt u een van deze problemen kan tegenkomen.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>1 probleem: Kan niet registreren van virtuele machine van Azure met Site Recovery (151037) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>1 probleem: Kan niet registreren van virtuele machine van Azure met Site Recovery (151195) </br>
 - **Mogelijke oorzaak** </br>
-  - U gebruikt NSG voor het beheren van uitgaande toegang op de virtuele machine en de vereiste IP-bereiken worden niet opgenomen in de whitelist voor uitgaande toegang.
-  - U hulpprogramma's voor externe firewall en de vereiste IP-bereiken/URL's zijn niet opgenomen in de whitelist.
+  - Kan geen verbinding maken met site recovery-eindpunten vanwege een probleem met de DNS-omzetting.
+  - Dit wordt vaker gezien tijdens opnieuw beveiliging wanneer u de virtuele machine failover, maar de DNS-server niet bereikbaar vanaf de DR-regio is.
+  
+- **Resolutie**
+   - Als u aangepaste DNS gebruikt, zorg ervoor dat is de DNS-server toegankelijk vanuit de regio voor herstel na noodgevallen. Om te controleren of u een aangepaste DNS-server gaat u naar de virtuele machine > herstel na noodgevallen netwerk > DNS-servers. Probeer toegang tot de DNS-server van de virtuele machine. Als deze niet toegankelijk is vervolgens toegankelijk maken door Failover-overschakeling uitvoeren van de DNS-server of het maken van de line-of-site tussen DR-netwerk en DNS.
+  
+    ![COM-fout](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Probleem 2: De configuratie van Site Recovery is mislukt (151196)
+- **Mogelijke oorzaak** </br>
+  - Verbinding kan niet worden gemaakt met Office 365-verificatie en identiteit IP4-eindpunten.
 
 - **Resolutie**
-   - Als u firewallproxy gebruikt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, zorg ervoor dat de vereiste URL's of IP-datacenterbereiken in de whitelist opgenomen. Zie voor meer informatie, [firewall-proxy richtlijnen](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](azure-to-azure-about-networking.md).
-   - Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](azure-to-azure-about-networking.md).
+  - Azure Site Recovery toegang tot Office 365-IP-adressen bereiken zijn vereist voor verificatie.
+    Als u van Azure Network security group (NSG) regels/firewall-proxy gebruikmaakt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, controleert u of dat u communicatie met O365-IP-bereiken toestaan. Maak een [Azure Active Directory (AAD)-servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor het toestaan van toegang tot alle IP-adressen die overeenkomen met AAD
+        - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Probleem 2: De configuratie van Site Recovery is mislukt (151072)
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Probleem 3: Configuratie van de Site Recovery is mislukt (151197)
 - **Mogelijke oorzaak** </br>
-  - Verbinding kan geen worden gemaakt met Site Recovery service-eindpunten
-
+  - Kan geen verbinding maken met Azure Site Recovery service-eindpunten.
 
 - **Resolutie**
-   - Als u firewallproxy gebruikt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, zorg ervoor dat de vereiste URL's of IP-datacenterbereiken in de whitelist opgenomen. Zie voor meer informatie, [firewall-proxy richtlijnen](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](https://aka.ms/a2a-nsg-guidance).
-   - Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
+  - Azure Site Recovery vereist toegang tot [Site Recovery-IP-adresbereiken](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) , afhankelijk van de regio. Zorg ervoor dat het ip-bereiken zijn toegankelijk is vanaf de virtuele machine vereist.
+    
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Probleem 3: A2A-replicatie is mislukt tijdens het netwerkverkeer via on-premises proxy-server (151072 verloopt)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Probleem met 4: A2A-replicatie is mislukt tijdens het netwerkverkeer via on-premises proxy-server (151072 verloopt)
  - **Mogelijke oorzaak** </br>
    - De aangepaste proxy-instellingen zijn ongeldig en ASR Mobility Service-agent heeft geen automatische detectie de proxy-instellingen van Internet Explorer
 

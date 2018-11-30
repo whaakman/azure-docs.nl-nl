@@ -1,5 +1,5 @@
 ---
-title: Een antwoord met een eenvoudige regressiemodel - Azure Machine Learning voorspellen | Microsoft Docs
+title: Een antwoord met een eenvoudige regressiemodel - Azure Machine Learning Studio voorspellen | Microsoft Docs
 description: Het maken van een eenvoudige regressiemodel om te voorspellen van een prijs in Gegevenswetenschap voor Beginners video 4. Bevat een lineaire regressie met doelgegevens.
 keywords: een model, eenvoudig model, voorspellen, eenvoudige regressiemodel maken
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 47c91f3d19296712c4dffbe90c4ef8ae12a98319
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261204"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309773"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Met een eenvoudig model een antwoord voorspellen
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Gegevenswetenschap voor Beginners-serie

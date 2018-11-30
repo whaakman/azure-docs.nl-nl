@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068328"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316987"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection met Azure Security Center
 
@@ -99,12 +99,12 @@ Voor het genereren van een goedaardig Windows Defender ATP-Testwaarschuwing:
 
 3. Als de opdracht geslaagd is, ziet u een nieuwe waarschuwing op het Azure Security Center-dashboard en de Windows Defender ATP-portal. Deze waarschuwing kan worden weergegeven in een paar minuten duren.
 
-4. Als u wilt controleren van de waarschuwing in Security Center, gaat u naar **beveiligingswaarschuwingen** >  **verdachte Powershell-opdrachtregel**.
+4. Als u wilt controleren van de waarschuwing in Security Center, gaat u naar **beveiligingswaarschuwingen** >  **verdachte Powershell-opdrachtregel**.
 
 5. Selecteer de koppeling om naar de Windows Defender ATP-portal te gaan in het venster onderzoek.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+- [Beveiligingsbeleid instellen in Azure Security Center](security-center-azure-policy.md): informatie over het configureren van beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 - [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
 - [Beveiligingsstatus controleren in Azure Security Center](security-center-monitoring.md): meer informatie over het controleren van de status van uw Azure-resources.

@@ -1,5 +1,5 @@
 ---
-title: Kan maken verbinding met extern bureaublad naar Azure Virtual Machines omdat de DHCP is uitgeschakeld. | Microsoft Docs
+title: Kan geen verbinding maken op afstand naar Azure Virtual Machines omdat de DHCP is uitgeschakeld. | Microsoft Docs
 description: Informatie over het oplossen van RDP probleem dat wordt veroorzaakt door DHCP client-service is uitgeschakeld in Microsoft Azure. | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: c1a6cf8972a745379098983614c6dd25bcd11cc6
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a469fe0d6057d865ec006d9eb14ad95f2d4b7005
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708727"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308436"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Niet van RDP-verbinding naar Azure Virtual Machines, omdat de DHCP Client-service is uitgeschakeld
 

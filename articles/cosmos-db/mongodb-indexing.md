@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055308"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312694"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexeren in de MongoDB-API van Azure Cosmos DB
 
@@ -99,5 +99,5 @@ Met de bovenstaande opdracht worden alle documenten in de verzameling ```db.coll
 Op dit moment kunnen alleen unieke indexen worden gemaakt wanneer de verzameling geen documenten bevat. Veelgebruikte MongoDB-migratieprogramma's proberen de unieke indexen te maken nadat de gegevens zijn geïmporteerd. Om dit probleem te voorkomen, is het nodig dat gebruikers handmatig de bijbehorende verzamelingen en unieke indexen maken, in plaats van dit te laten doen door het migratieprogramma (voor ```mongorestore``` kan dit worden gedaan door de vlag--noIndexRestore te gebruiken op de opdrachtregel).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Indexering van gegevens door Azure Cosmos DB](../cosmos-db/indexing-policies.md)
+* [Indexering van gegevens door Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Gegevens in Azure Cosmos DB-verzamelingen automatisch laten verlopen met TTL](../cosmos-db/time-to-live.md)

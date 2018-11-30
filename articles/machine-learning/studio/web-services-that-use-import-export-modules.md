@@ -1,5 +1,5 @@
 ---
-title: Met Import/Export-gegevens in Azure Machine Learning-webservices | Microsoft Docs
+title: Met Import/Export-gegevens in Azure Machine Learning Studio-webservices | Microsoft Docs
 description: Informatie over het gebruik van de modules importeren en exporteren van gegevens te verzenden en ontvangen van gegevens vanuit een webservice.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 3fa33572e60a43c66eca404e426232f9864a294e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264638"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306944"
 ---
-# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Azure ML-webservices implementeren die gebruikmaken van gegevensimport- en gegevensexportmodules
+# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Azure Machine Learning Studio-webservices die gebruikmaken van gegevens importeren en exporteren van gegevens modules implementeren
 
 Wanneer u een Voorspellend experiment maakt, toevoegen u gewoonlijk een web-invoer en uitvoer. Wanneer u het experiment implementeert, kunnen gebruikers verzonden en ontvangen van gegevens van de webservice via de invoer en uitvoer. Voor sommige toepassingen van een gebruiker gegevens uit een gegevensfeed beschikbaar of al bevinden zich in een externe gegevensbron, zoals Azure Blob-opslag. In dergelijke gevallen hoeven ze niet lezen en schrijven van gegevens met behulp van web service invoer en uitvoer. Ze kunnen in plaats daarvan de Batch Execution Service (BES) gebruiken om gegevens te lezen uit de gegevensbron met behulp van een module gegevens importeren en de scoring resultaten schrijven naar een andere locatie met behulp van een module gegevens exporteren.
 

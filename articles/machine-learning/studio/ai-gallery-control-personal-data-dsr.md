@@ -1,5 +1,5 @@
 ---
-title: Weergeven en verwijderen van uw gegevens uit Azure AI Gallery | Microsoft Docs
+title: Weergeven en verwijderen van uw gegevens uit Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
 description: U kunt exporteren en verwijderen van uw gebruikergegevens in het product uit Azure AI Gallery met behulp van de interface of de API van AI-galerie Catalog. In dit artikel ziet u hoe u.
 services: machine-learning
 author: ericlicoding
@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 472a27fb129f8ed9d4745610bde17fb2b69326c3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 6603428599a84a265566fb98da0b151ab4962f81
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264825"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314453"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Weergeven en verwijderen van gegevens in het product van gebruiker uit Azure AI Gallery
 

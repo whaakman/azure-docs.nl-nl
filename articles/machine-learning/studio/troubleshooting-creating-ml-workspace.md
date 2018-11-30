@@ -1,6 +1,6 @@
 ---
-title: 'Problemen oplossen: Maken en verbinding maken met een Machine Learning-werkruimte | Microsoft Docs'
-description: Oplossingen voor veelvoorkomende problemen bij het maken en verbinding te maken met een Azure Machine Learning-werkruimte
+title: 'Problemen oplossen: Maken, verbinding maken met een Machine Learning Studio-werkruimte - Azure | Microsoft Docs'
+description: Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning Studio-werkruimten.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: f86018c78de842717bf387c007fdd4c7cd048ef1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5e52abeeef7d40ac5594f4edfa2b80ef553081e4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265199"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312049"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Gids voor probleemoplossing: een Machine Learning-werkruimte maken en hiermee verbinding maken
-Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning-werkruimten.
+# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-studio-workspace"></a>Gids voor probleemoplossing: maken en verbinding maken met een Machine Learning Studio-werkruimte
+Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning Studio-werkruimten.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

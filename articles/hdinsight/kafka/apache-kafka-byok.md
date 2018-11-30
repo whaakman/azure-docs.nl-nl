@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041506"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314368"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Breng uw eigen sleutel voor Apache Kafka op Azure HDInsight (Preview)
 
@@ -83,7 +83,7 @@ U kunt de Azure portal of Azure CLI gebruiken veilig de om sleutels te rouleren 
 
    Tijdens het maken van een cluster, bieden u de volledige sleutel-URL, met inbegrip van de belangrijkste versie. Bijvoorbeeld `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. U moet ook de beheerde identiteit toewijzen aan het cluster en geef de sleutel-URI.
 
-## <a name="faq-for-byok-to-kafka"></a>Veelgestelde vragen over BYOK met Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>Veelgestelde vragen voor BYOK tot Apache Kafka
 
 **Hoe het Kafka-cluster toegang heeft tot mijn sleutelkluis?**
 

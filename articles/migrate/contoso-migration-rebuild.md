@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0c44e57f99ea8fea91fd8178400c648e8dcd982b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233579"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309807"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: opnieuw opbouwen van een on-premises app naar Azure
 
@@ -495,7 +495,7 @@ Nu configureren beheerders van Contoso de Web-App voor het gebruik van Contoso-r
 
     ![JSON-instellingen](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. Nadat het bestand is bijgewerkt, ze wijzigen **smarthotelsettingsurl**, en dit uploaden naar de blog van storage ze eerder hebt gemaakt.
+5. Nadat het bestand is bijgewerkt, ze wijzigen **smarthotelsettingsurl**, en dit uploaden naar de blob-opslag die ze eerder hebt gemaakt.
 
     ![Naam wijzigen en uploaden](./media/contoso-migration-rebuild/configure-webapp3.png)
 

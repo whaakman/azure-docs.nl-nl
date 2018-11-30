@@ -9,61 +9,62 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c1af99d64f9d9a7544d98ad34da5953fdda58222
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6086c03961294a18fbf6a106188593c79c88d663
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012874"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309994"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Interactive Query gebruiken met HDInsight
-Interactive Query (ook wel genoemd Hive LLAP of [met lage latentie analytische verwerking](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is een Azure HDInsight [clustertype](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactieve query's ondersteunt in-memory caching, waardoor Hive-query's sneller en nog veel meer interactieve.
+Interactive Query (ook wel genoemd Apache Hive LLAP of [met lage latentie analytische verwerking](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is een Azure HDInsight [clustertype](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactieve query's ondersteunt in-memory caching, waardoor Apache Hive-query's sneller en nog veel meer interactieve.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
-Een interactieve Query-cluster wijkt af van een Hadoop-cluster. Het bevat alleen de Hive-service. 
+Een interactieve Query-cluster wijkt af van een Apache Hadoop-cluster. Het bevat alleen de Hive-service. 
 
 > [!NOTE]
-> U kunt toegang tot de Hive-service in het interactieve Query-cluster alleen via Ambari Hive-weergave, Beeline en het stuurprogramma Microsoft Hive Open Database Connectivity (ODBC Hive). U geen toegang krijgt via de Hive-console, Templeton, de klassieke Azure-CLI of Azure PowerShell. 
+> U kunt toegang tot de Hive-service in het interactieve Query-cluster alleen via Apache Ambari Hive-weergave, Beeline en het stuurprogramma Microsoft Hive Open Database Connectivity (ODBC Hive). U geen toegang krijgt via de Hive-console, Templeton, de klassieke Azure-CLI of Azure PowerShell. 
 > 
 > 
 
 ## <a name="create-an-interactive-query-cluster"></a>Een interactieve Query-cluster maken
-Zie voor meer informatie over het maken van een HDInsight-cluster [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Kies het type Interactive Query-cluster.
+Zie voor meer informatie over het maken van een HDInsight-cluster [Apache Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Kies het type Interactive Query-cluster.
 
-## <a name="execute-hive-queries-from-interactive-query"></a>Hive-query's uitvoeren in Interactive Query
+## <a name="execute-apache-hive-queries-from-interactive-query"></a>Apache Hive-query's uitvoeren in Interactive Query
 Voor het uitvoeren van Hive-query's, hebt u de volgende opties:
 
 * Power BI gebruiken
 
-    Zie [gegevens met Power BI in Azure HDInsight Interactive Query Hive visualiseren](./apache-hadoop-connect-hive-power-bi-directquery.md) Zie [big-gegevens visualiseren met Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+    Zie [visualiseren interactieve Query Apache Hive-gegevens met Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) Zie [big-gegevens visualiseren met Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
  
-* Zeppelin gebruiken
+* Apache Zeppelin gebruiken
 
-    Zie [Zeppelin gebruik Hive-query's uitvoeren in Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
+    Zie [gebruik Apache Zeppelin Apache Hive-query's uitvoeren in Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
 
 * Visual Studio gebruiken
 
-    Zie [verbinding maken met Azure HDInsight en het uitvoeren Hive-query's met Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
+    Zie [verbinding maken met Azure HDInsight en voer Apache Hive-query's met Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 
 * Gebruik Visual Studio Code
 
-    Zie [Visual Studio-Code gebruiken voor Hive, LLAP of pySpark](../hdinsight-for-vscode.md).
-* Hive uitvoeren met behulp van de Ambari Hive-weergave.
+    Zie [Visual Studio-Code gebruiken voor Apache Hive, LLAP of pySpark](../hdinsight-for-vscode.md).
+* Voer de Apache Hive met behulp van Apache Ambari Hive-weergave.
   
-    Zie [Hive-weergave gebruiken met Hadoop in Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md).
-* Hive met behulp van Beeline uitvoeren.
+    Zie [Apache Hive-weergave gebruiken met Apache Hadoop in Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md).
+
+* Voer de Apache Hive met behulp van Beeline.
   
-    Zie [Hive gebruiken met Hadoop in HDInsight met Beeline](../hadoop/apache-hadoop-use-hive-beeline.md).
+    Zie [Apache Hive gebruiken met Apache Hadoop in HDInsight met Beeline](../hadoop/apache-hadoop-use-hive-beeline.md).
   
     U kunt Beeline gebruiken vanaf het hoofdknooppunt of vanaf een lege edge-knooppunt. We adviseren Beeline gebruiken vanuit een lege edge-knooppunt. Zie voor meer informatie over het maken van een HDInsight-cluster met behulp van een lege edge-knooppunt [lege edge-knooppunten gebruiken in HDInsight](../hdinsight-apps-use-edge-node.md).
-* Hive uitvoeren met behulp van Hive ODBC.
+* Voer de Apache Hive met behulp van Hive ODBC.
   
-    Zie [verbinding maken met Excel aan Hadoop met het Microsoft Hive ODBC-stuurprogramma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+    Zie [Excel verbinding maken met Apache Hadoop met het Microsoft Hive ODBC-stuurprogramma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 
 Zoek de verbindingsreeks Java Database Connectivity (JDBC):
 
-1. Aanmelden bij de Ambari met behulp van de volgende URL: https://\<clusternaam\>. AzureHDInsight.net.
+1. Aanmelden bij de Apache Ambari met behulp van de volgende URL: https://\<clusternaam\>. AzureHDInsight.net.
 2. Selecteer in het menu links **Hive**.
 3. Als de URL kopiëren, selecteert u het pictogram van het Klembord:
    
@@ -73,10 +74,10 @@ Zoek de verbindingsreeks Java Database Connectivity (JDBC):
 
 * Meer informatie over het [Interactive Query-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Meer informatie over het [big-gegevens visualiseren met Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Meer informatie over het [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
-* Meer informatie over het [uitvoeren van Hive-query's met Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
+* Meer informatie over het [Apache Zeppelin gebruiken voor het Apache Hive-query's uitvoeren in Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
+* Meer informatie over het [Apache Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 * Meer informatie over het [HDInsight-hulpprogramma's voor Visual Studio Code gebruiken](../hdinsight-for-vscode.md).
-* Meer informatie over het [Hive-weergave gebruiken met Hadoop in HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)
-* Meer informatie over het [Beeline gebruiken voor het indienen van Hive-query's in HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md).
-* Meer informatie over het [koppel Excel aan Hadoop met het Microsoft Hive ODBC-stuurprogramma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+* Meer informatie over het [Apache Hive-weergave gebruiken met Apache Hadoop in HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)
+* Meer informatie over het [Beeline gebruiken voor het indienen van Apache Hive-query's in HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md).
+* Meer informatie over het [Excel verbinden met Apache Hadoop met het Microsoft Hive ODBC-stuurprogramma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 
