@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087488"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722085"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Grootten van virtuele machines worden ondersteund in Azure Stack
 
@@ -28,7 +28,7 @@ In dit artikel geeft een lijst van de virtuele machine (VM)-grootten die beschik
 
 ## <a name="general-purpose"></a>Algemeen doel
 
-VM-grootten voor algemeen gebruik bieden een evenwichtige CPU-geheugenverhouding. Ze worden gebruikt voor testen en ontwikkelen, kleine tot middelgrote databases en met weinig of gemiddeld verkeer webservers.
+VM-grootten voor algemeen gebruik bieden een evenwichtige CPU-geheugenverhouding. Ze worden gebruikt voor testen en ontwikkelen, kleine tot middelgrote databases en met weinig of gemiddeld verkeer webservers. Elke gegevensschijf is 2300 IOP's voor de premium VM-grootten, met uitzondering van de Basic A-serie. Basic a is de grootte van de gegevensschijf 500 IOPS.
 
 ### <a name="basic-a"></a>Basic A
 

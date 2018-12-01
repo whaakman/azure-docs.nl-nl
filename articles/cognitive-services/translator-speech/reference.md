@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c7e14e2c2d6d38055304610c805a6bede10a6828
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340440"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679287"
 ---
 # <a name="translator-speech-api"></a>Translator Speech-API
 
@@ -89,6 +89,9 @@ U ziet dat de totale bestandsgrootte (byte 4-7) en de grootte van de "gegevens" 
 
 Na het verzenden van de header WAV (RIFF), verzendt de client segmenten van de gegevens. De client wordt meestal stream segmenten van verschillende vaste grootte voor een vaste duur (bijvoorbeeld stream 100 MS van audio op een tijdstip).
 
+### <a name="signal-the-end-of-the-utterance"></a>Het einde van de utterance
+De Translator Speech-API het transcript en de vertaling van de audio-stream geretourneerd als u bij het verzenden van de audio. De definitieve transcriptie, de laatste vertaling en de vertaalde audio wordt u alleen na het einde van de utterance worden geretourneerd. In sommige gevallen kunt u afdwingen dat het einde van de utterance. Stuur 2,5 seconden stilte om af te dwingen van het einde van de utterance. 
+
 ### <a name="final-result"></a>Laatste resultaat
 Een definitieve spraak herkenningsresultaat wordt aan het einde van een utterance gegenereerd. Een resultaat wordt van de service naar de client met behulp van een WebSocket-bericht van het type tekst verzonden. De inhoud van het bericht is de JSON-serialisatie van een object met de volgende eigenschappen:
 
@@ -149,7 +152,7 @@ Het uiteindelijke resultaat van een voorbeeld is als volgt:
 }
 ```
 
-### <a name="text-to-speech"></a>Tekst naar spraak
+### <a name="text-to-speech"></a>Tekst-naar-spraak
 Wanneer de Text to Speech-functie is ingeschakeld (Zie `features` parameter hieronder), een definitieve resultaat wordt gevolgd door de audio van de gesproken vertaalde tekst. Audiogegevens is gesegmenteerde overdrachtscodering en van de service verzonden naar de client als een reeks Websocket-berichten van het type Binary. Een client kan het einde van de stroom detecteren door het controleren van de bit FIN van elk bericht. Het laatste binaire bericht heeft de FIN bit is ingesteld op een aan het einde van de stroom. De indeling van de stroom, is afhankelijk van de waarde van de `format` parameter.
 
 ### <a name="closing-the-connection"></a>De verbinding wordt gesloten

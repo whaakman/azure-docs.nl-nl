@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8302a444f28e4fb330a1eedbac9a5da762979d6c
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853350"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681956"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -31,11 +31,22 @@ Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. H
 
 ## <a name="base-urls"></a>Basis-URL 's
 
-Tekst-API v3.0 is beschikbaar in de volgende cloud:
+Microsoft Translator is geleverd vanuit meerdere datacenter-locaties. Op dit moment ze bevinden zich op 6 [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions):
 
-| Beschrijving | Regio | Basis-URL                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Wereldwijd | API.cognitive.microsofttranslator.com           |
+* **Americas:** VS-West 2 en West-Centraal VS 
+* **Azië en Stille Oceaan:** Zuidoost-Azië en Korea-Zuid
+* **Europa:** Noord-Europa en West-Europa
+
+Aanvragen voor de Microsoft Translator Text-API zijn in de meeste gevallen door het datacenter die zich het dichtst bij de oorsprong van de aanvraag verwerkt. In het geval van een datacenter-fout optreedt, kan de aanvraag worden gerouteerd buiten de regio.
+
+Om af te dwingen de aanvraag moet worden verwerkt door een specifieke datacenter, wijzigt u de globaal eindpunt voor in de API-aanvraag naar de gewenste regionale eindpunt:
+
+|Beschrijving|Regio|Basis-URL|
+|:--|:--|:--|
+|Azure|Wereldwijd|  API.cognitive.microsofttranslator.com|
+|Azure|Noord-Amerika|   API-nam.cognitive.microsofttranslator.com|
+|Azure|Europa|  API-eur.cognitive.microsofttranslator.com|
+|Azure|Azië en Stille Oceaan|    API-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Verificatie

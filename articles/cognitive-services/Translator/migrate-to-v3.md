@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852840"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682588"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
@@ -105,11 +105,33 @@ Wereldwijd
 
 [Woordenlijst/voorbeeld](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>Aanpassing
+## <a name="compatibility-and-customization"></a>Compatibiliteit en aanpassen
 
-Microsoft Translator V3 maakt standaard gebruik van neurale machinevertalingen. Deze kunnen daarom niet worden gebruikt met de Microsoft Translator-Hub. De Translator-Hub biedt alleen ondersteuning voor verouderde statistische machinevertalingen. Aanpassing voor neurale vertalingen is nu beschikbaar met de aangepaste Translator. [Meer informatie over het aanpassen van neurale machinevertalingen](customization.md)
+Microsoft Translator V3 maakt standaard gebruik van neurale machinevertalingen. Deze kunnen daarom niet worden gebruikt met de Microsoft Translator-Hub. De Translator-Hub biedt alleen ondersteuning voor verouderde statistische machinevertalingen. Aanpassing voor neurale vertalingen is nu beschikbaar met de aangepaste Translator. [Meer informatie over het aanpassen van neurale machinevertalingen](custom-translator/overview.md)
 
 Neurale vertalingen met de tekst van V3 API biedt geen ondersteuning voor het gebruik van standard categorieën (SMT, spraak, tekst, generalnn).
+
+| |Eindpunt|    GDPR-naleving voor Processor|  Translator Hub gebruiken| Gebruik aangepaste Translator (Preview)|
+|:-----|:-----|:-----|:-----|:-----|
+|Translator Text-API versie 2| API.microsofttranslator.com|    Nee  |Ja    |Nee|
+|Translator Text-API versie 3| API.cognitive.microsofttranslator.com|  Ja|    Nee| Ja|
+
+**Translator Text-API versie 3**
+* Is algemeen beschikbaar en volledig wordt ondersteund.
+* Is compatibel als een processor AVG en voldoet aan alle vereisten voor ISO 20001 en 20018 evenals SOC 3-certificering. 
+* Kunt u de neural network vertalingssystemen die u hebt aangepast met aangepaste Translator (Preview), de nieuwe functie voor het aanpassen van de Translator NMT aanroepen. 
+* Biedt geen toegang tot aangepaste vertaalsystemen gemaakt met behulp van de Microsoft Translator-Hub.
+
+U gebruikt versie 3 van de Translator Text-API als u het eindpunt api.cognitive.microsofttranslator.com.
+
+**Translator Text-API versie 2**
+* Is afgeschaft. Het wordt buiten gebruik gesteld op 30 April 2019. 
+* Voldoet niet aan alle 20001,20018 ISO en SOC 3-vereisten voor certificering. 
+* Kunt u geen om aan te roepen van het neurale netwerk automatische vertalingssystemen die u met de functie voor het aanpassen van Translator hebt aangepast.
+* Biedt toegang tot aangepaste vertaalsystemen gemaakt met behulp van de Microsoft Translator-Hub.
+* U gebruikt versie 2 van de Translator Text-API als u het eindpunt api.microsofttranslator.com.
+
+Er is geen versie van de API van Translator maakt een record van uw vertalingen. De vertalingen zijn nooit met niemand gedeeld. Meer informatie over de [Translator niet traceren](http://www.aka.ms/NoTrace) webpagina.
 
 
 ## <a name="links"></a>Koppelingen
