@@ -1,5 +1,5 @@
 ---
-title: Periodieke back-up en herstel in Azure Service Fabric (Preview) | Microsoft Docs
+title: Periodieke back-up en herstel in Azure Service Fabric | Microsoft Docs
 description: Gebruik van Service Fabric periodieke back-up en herstellen van de functie voor het inschakelen van periodieke gegevens back-up van uw toepassingsgegevens.
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2018
+ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: ef92212b84496802dc2464498a0b6789f79a729b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 57848a7a4d8e627e952a9f46d438b073c73d833a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246698"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725859"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Periodieke back-up en herstel in Azure Service Fabric (Preview)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodieke back-up en herstel in Azure Service Fabric 
 > [!div class="op_single_selector"]
 > * [Clusters op Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Zelfstandige Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -31,20 +31,17 @@ Service Fabric is een platform voor gedistribueerde systemen waarmee u eenvoudig
 
 Service Fabric worden gerepliceerd van de status over meerdere knooppunten om ervoor te zorgen dat de service maximaal beschikbaar is. Zelfs als één knooppunt in het cluster is mislukt, wordt de service blijft beschikbaar. In bepaalde gevallen, het is echter nog steeds wenselijk dat de servicegegevens tegen fouten in de bredere betrouwbaar.
  
-Service wilt bijvoorbeeld back-up van de gegevens om u te beschermen tegen de volgende scenario's:
+Service wilt bijvoorbeeld een back-up van de gegevens om u te beschermen tegen de volgende scenario's:
 - In het geval van het permanente verlies van gegevens van een hele Service Fabric-cluster.
 - Permanent verlies van een meerderheid van de replica's van de servicepartitie van een
 - Administratieve fouten waarbij de status per ongeluk wordt verwijderd of beschadigd. Een beheerder met voldoende bevoegdheden verwijdert bijvoorbeeld per ongeluk de service.
 - Fouten in de service die leiden gegevensbeschadiging tot. Dit kan bijvoorbeeld gebeuren wanneer een upgrade van de code service begint beschadigde gegevens schrijven naar een betrouwbare verzameling. In dat geval, zowel de code en de gegevens mogelijk teruggezet naar een eerdere toestand.
 - Offline gegevens verwerken. Het is mogelijk handig zijn als offline verwerking van gegevens voor business intelligence die plaatsvindt afzonderlijk van de service die de gegevens worden gegenereerd.
 
-Service Fabric biedt een ingebouwde API voor het naar een bepaald tijdstip [back-up en herstellen](service-fabric-reliable-services-backup-restore.md). Ontwikkelaars van toepassingen kunnen deze API's gebruiken om regelmatig een back-up van de status van de service. Bovendien, als servicebeheerders wilt voor het activeren van een back-up van buiten de service op een bepaald tijdstip, moeten zoals vóór de upgrade van de toepassing ontwikkelaars beschikbaar maken van back-up (en terugzetten) als een API van de service. Onderhoud van de back-ups is er gelden aanvullende kosten boven dit. U wilt bijvoorbeeld 5 incrementele back-ups elk half uur duren, gevolgd door een volledige back-up. Nadat de volledige back-up, kunt u de eerdere incrementele back-ups verwijderen. Deze aanpak vereist aanvullende code leidt tot extra kosten tijdens de ontwikkeling van toepassingen.
+Service Fabric biedt een ingebouwde API voor het naar een bepaald tijdstip [back-up en herstellen](service-fabric-reliable-services-backup-restore.md). Ontwikkelaars van toepassingen kunnen deze API's gebruiken om regelmatig een back-up van de status van de service. Bovendien, als servicebeheerders wilt voor het activeren van een back-up van buiten de service op een bepaald tijdstip, moeten zoals vóór de upgrade van de toepassing ontwikkelaars beschikbaar maken van back-up (en terugzetten) als een API van de service. Onderhoud van de back-ups is er gelden aanvullende kosten boven dit. U wilt bijvoorbeeld vijf incrementele back-ups elk half uur duren, gevolgd door een volledige back-up. Nadat de volledige back-up, kunt u de eerdere incrementele back-ups verwijderen. Deze aanpak vereist aanvullende code leidt tot extra kosten tijdens de ontwikkeling van toepassingen.
 
-Back-up van de toepassingsgegevens op periodieke basis is een eenvoudige nodig voor het beheren van een gedistribueerde toepassing en te beveiligen tegen verlies van gegevens of langdurige verlies van beschikbaarheid van de service. Service Fabric biedt een optionele back-up en herstellen-service, zodat u kunt periodieke back-up van stateful Reliable Services (inclusief Actorservices) configureren zonder extra code te schrijven. Het vereenvoudigt ook eerder gemaakt back-ups herstellen. 
+De back-up en herstel-service in Service Fabric kunt eenvoudig en automatisch back-up van gegevens die zijn opgeslagen in een stateful services. Back-ups van toepassingsgegevens op periodieke basis is van cruciaal belang voor het beveiligen tegen gegevens beschermd tegen verlies en -service niet beschikbaar zijn. Service Fabric biedt een optionele back-up en herstellen-service, zodat u kunt periodieke back-up van stateful Reliable Services (inclusief Actorservices) configureren zonder extra code te schrijven. Het vereenvoudigt ook eerder gemaakt back-ups herstellen. 
 
-> [!NOTE]
-> Periodieke back-up en herstel-functie is momenteel in **Preview** en niet ondersteund voor productieworkloads. 
->
 
 Service Fabric biedt een set API's voor het bereiken van de volgende functionaliteit betrekking hebben op periodieke back-up en herstellen van de functie:
 
@@ -58,7 +55,7 @@ Service Fabric biedt een set API's voor het bereiken van de volgende functionali
 - Retentie-beheer van back-ups (toekomstige)
 
 ## <a name="prerequisites"></a>Vereisten
-* Service Fabric-cluster met Fabric versie 6.2 en hoger. Het cluster moet worden ingesteld op Windows Server. Raadpleeg [artikel](service-fabric-cluster-creation-via-arm.md) voor stappen voor het maken van Service Fabric-cluster met behulp van Azure-resource-sjabloon.
+* Service Fabric-cluster met Fabric versie 6.2 en hoger. Het cluster moet worden ingesteld op Windows Server. Verwijzen naar dit [artikel](service-fabric-cluster-creation-via-arm.md) voor stappen voor het maken van Service Fabric-cluster met behulp van Azure-resource-sjabloon.
 * X.509-certificaat voor het versleutelen van geheimen die nodig zijn voor het verbinding maken met opslag voor het opslaan van back-ups. Raadpleeg [artikel](service-fabric-cluster-creation-via-arm.md) wilt weten hoe ophalen of maken van een X.509-certificaat.
 * Betrouwbare Stateful van service Fabric-toepassing die is gebouwd met behulp van Service Fabric SDK versie 3.0 of hoger. Voor toepassingen die gericht is op .net Core 2.0, toepassing moet worden gemaakt met behulp van Service Fabric SDK versie 3.1 of hoger.
 * Azure Storage-account voor het opslaan van back-ups van de toepassing maken.
@@ -116,7 +113,7 @@ We nemen stappen voor het inschakelen van periodieke back-up voor betrouwbare St
 
 ### <a name="create-backup-policy"></a>Back-upbeleid maken
 
-Eerste stap is het maken van back-upbeleid met een beschrijving van back-upschema, doel-opslagaccount voor back-upgegevens, de naam van beleid en maximale incrementele back-ups worden toegestaan voordat het activeren van de volledige back-up. 
+Eerste stap is het maken van back-upbeleid met een beschrijving van back-upschema, gericht op opslag voor back-upgegevens, de naam van beleid, maximale incrementele back-ups worden toegestaan voordat het activeren van de volledige back-up- en bewaarbeleid voor back-upopslag. 
 
 Gebruik de Azure Storage-account hierboven gemaakt voor back-upopslag. Container `backup-container` is geconfigureerd voor het opslaan van back-ups. Een container met deze naam wordt gemaakt, als deze nog niet, tijdens het back-up uploaden bestaat. Vullen `ConnectionString` met een geldige verbindingsreeks voor de Azure Storage-account, vervangen `account-name` met de naam van uw opslagaccount, en `account-key` met sleutel van uw opslagaccount.
 
@@ -134,15 +131,21 @@ $ScheduleInfo = @{
     ScheduleKind = 'FrequencyBased'
 }
 
+$RetentionPolicy = @{ 
+    RetentionPolicyType = 'Basic'
+    RetentionDuration =  'P10D'
+}
+
 $BackupPolicy = @{
     Name = 'BackupPolicy1'
     MaxIncrementalBackups = 20
     Schedule = $ScheduleInfo
     Storage = $StorageInfo
+    RetentionPolicy = $RetentionPolicy
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
@@ -158,7 +161,7 @@ $BackupPolicyReference = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicyReference)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
@@ -176,7 +179,7 @@ Back-ups die zijn gekoppeld aan alle partities die behoren tot een betrouwbare S
 Voer de volgende PowerShell-script voor het aanroepen van de HTTP-API voor het inventariseren van de back-ups gemaakt voor alle partities in de `SampleApp` toepassing.
 
 ```powershell
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 
@@ -223,10 +226,9 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Preview-beperking / voorbehouden
+## <a name="limitation-caveats"></a>Beperking / voorbehouden
 - Er is geen Service-Fabric gebouwd in PowerShell-cmdlets.
 - Er is geen ondersteuning voor Service Fabric-CLI.
-- Geen ondersteuning voor het opschonen van geautomatiseerde back-up. [Back-up bewaren script](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) instellen op basis van script externe automatisering voor het verwijderen van back-ups kunnen worden aangeduid.
 - Er is geen ondersteuning voor Service Fabric-clusters op Linux.
 
 ## <a name="next-steps"></a>Volgende stappen

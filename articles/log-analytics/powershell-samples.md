@@ -9,27 +9,26 @@ editor: tysonn
 tags: ''
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 934ecb54a795d9248dae89d7b6fe19b5979a1fad
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a2681990f43266e35a6aede61baad1f6f2946fbe
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131572"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721915"
 ---
-# <a name="azure-log-analytics-powershell-samples"></a>Azure Log Analytics PowerShell-voorbeelden
+# <a name="azure-log-analytics-powershell-samples"></a>Voorbeelden van Azure Log Analytics-PowerShell
 
-De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts naar diverse functies uitvoeren in logboekanalyse.
+De volgende tabel bevat koppelingen naar voorbeelden van PowerShell-scripts voor het uitvoeren van verschillende functies in Log Analytics.
 
 | | |
 |---|---|
 |**Werkruimte maken**||
-| [Een Log Analytics-werkruimte maken](scripts/log-analytics-powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Maakt een werkruimte in logboekanalyse.|
+| [Een Log Analytics-werkruimte maken](scripts/log-analytics-powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een werkruimte in Log Analytics.|
 | | |
 

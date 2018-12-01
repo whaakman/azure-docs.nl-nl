@@ -10,17 +10,16 @@ ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4c31831aedefabc285c92861e9010b242cacf0d7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 85742575b696625d5dbbfbf34a0213f77a15e171
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635778"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725451"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.

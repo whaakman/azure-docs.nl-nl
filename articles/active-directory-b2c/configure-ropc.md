@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978822"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726284"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
@@ -35,14 +35,17 @@ De volgende stromen worden niet ondersteund:
 - **Server-naar-server**: het identity protection-systeem moet een betrouwbare IP-adres van de beller (de systeemeigen client) verzameld als onderdeel van de interactie. In een server-side-API-aanroep, zijn alleen van de server-IP-adres wordt gebruikt. Als een dynamische drempel voor mislukte verificaties wordt overschreden, kan het identity protection systeem een herhaalde IP-adres worden geïdentificeerd als een aanvaller.
 - **Vertrouwelijke clientstroom**: de client-ID van de toepassing is gevalideerd, maar het toepassingsgeheim is niet gevalideerd.
 
-##  <a name="create-a-resource-owner-policy"></a>Maak een beleid voor resource-eigenaar
+##  <a name="create-a-resource-owner-user-flow"></a>De gebruikersstroom van een resource-eigenaar maken
 
-1. Meld u aan de Azure-portal als globale beheerder van uw Azure AD B2C-tenant.
-2. Als u wilt overschakelen naar de Azure AD B2C-tenant, selecteert u de B2C-map in de rechterbovenhoek van de portal.
-3. Onder **beleid**, selecteer **Resource-eigenaar beleid**.
-4. Geef een naam voor het beleid, zoals *ROPC_Auth*, en selecteer vervolgens **toepassingsclaims**.
-5. Selecteer de toepassingsclaims die u nodig hebt voor uw toepassing, zoals *weergavenaam*, *e-mailadres*, en *id-Provider*.
-6. Selecteer **OK**, en selecteer vervolgens **Maken**.
+1.  Meld u aan de Azure-portal als globale beheerder van uw Azure AD B2C-tenant.
+2.  Als u wilt overschakelen naar de Azure AD B2C-tenant, selecteert u de B2C-map in de rechterbovenhoek van de portal.
+3.  Klik op **gebruikersstromen**, en selecteer **nieuwe gebruikersstroom**.
+4.  Klik op de **alle** tabblad en selecteer **Resource-eigenaar**.
+5.  Geef een naam voor de gebruikersstroom zoals *ROPC_Auth*.
+6.  Onder **toepassingsclaims**, klikt u op **meer weergeven**.
+7.  Selecteer de toepassingsclaims die u nodig hebt voor uw toepassing, zoals naam, e-mailadres en id-Provider.
+8.  Selecteer **OK**, en selecteer vervolgens **Maken**.
+9.  Klik op **gebruikersstroom uitvoeren**.
 
    Vervolgens ziet u een eindpunt, zoals in dit voorbeeld:
 
@@ -57,7 +60,7 @@ De volgende stromen worden niet ondersteund:
 4. Alle andere waarden laten zoals ze zijn, en selecteer vervolgens **maken**.
 5. Selecteer de nieuwe toepassing en noteer de toepassings-ID voor later gebruik.
 
-## <a name="test-the-policy"></a>Het beleid testen
+## <a name="test-the-user-flow"></a>De gebruikersstroom testen
 
 Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-aanroep en bekijk de reactie voor foutopsporing van uw beleid. Bouw een aanroep als volgt met de informatie in de volgende tabel als de hoofdtekst van de POST-aanvraag:
 - Vervang  *\<yourtenant.onmicrosoft.com >* met de naam van uw B2C-tenant.

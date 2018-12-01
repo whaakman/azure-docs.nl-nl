@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583518"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680120"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Informatie over Azure-bestedingslimiet en hoe u deze kunt verwijderen
 
@@ -29,7 +29,7 @@ Bestedingslimiet in Azure bestaat om te voorkomen dat uitgaven gedurende het cre
 
 Wanneer uw gebruik leidt tot kosten in rekening gebracht die wanneer de maandelijkse hoeveelheden die zijn opgenomen in uw abonnement, worden de services die u hebt geïmplementeerd zijn uitgeschakeld voor de rest van de factureringsperiode. 
 
-Bijvoorbeeld, wanneer u besteden aan alle tegoed bij uw abonnement, Cloud-Services die u hebt geïmplementeerd, worden verwijderd uit de productie en uw Azure virtual machines zijn gestopt en toewijzing ongedaan gemaakt. De gegevens in uw opslagaccounts en databases zijn beschikbaar in een alleen-lezen wijze.
+Bijvoorbeeld, wanneer u besteden aan alle tegoed bij uw abonnement, Cloud-Services die u hebt geïmplementeerd, worden verwijderd uit de productie en uw Azure virtual machines zijn gestopt en toewijzing ongedaan gemaakt. De gegevens in uw storage-accounts zijn beschikbaar in een alleen-lezen wijze.
 
 Aan het begin van de volgende factureringsperiode, als uw aanbieding verspreid over meerdere maanden tegoeden wordt uw abonnement opnieuw automatisch ingeschakeld. Vervolgens kunt u uw Cloud-Services implementeren en volledige toegang tot uw opslagaccounts en databases hebben.
 

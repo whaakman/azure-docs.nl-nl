@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2e93a8340699d1fcf68c53baa87990e799bc933d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3283e7b0e0b7e20d4b8522f08ab2460504fa355f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447577"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723428"
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: een .NET-web-API maken
 
@@ -39,17 +39,17 @@ Vervolgens maakt u een web-API-app in uw B2C-directory. Hiermee geeft u informat
 * Voer een app-id **URI voor de app-id** in. Kopieer de volledige **URI voor de app-id**. U hebt deze later nodig.
 * Voeg machtigingen toe via het menu **Gepubliceerde scopes**.
 
-## <a name="create-your-policies"></a>Het beleid maken
+## <a name="create-your-user-flows"></a>Uw gebruikersstromen maken
 
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). U moet een beleid maken om te communiceren met Azure AD B2C. U doet er verstandig aan het gecombineerde beleid 'Aanmelden/registreren' te gebruiken, zoals beschreven in het [artikel met referenties naar beleid](active-directory-b2c-reference-policies.md). Wanneer u het beleid maakt, vergeet dan niet het volgende:
+In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md). U moet maken van een beleid om te communiceren met Azure AD B2C. Wordt u aangeraden de gecombineerde aanmelden-up-to-date/aanmelden gebruikersstroom, zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md). Wanneer u uw beleid maakt, moet u naar:
 
-* Kies een **Weergavenaam** en andere registratiekenmerken in uw beleid.
-* Kiest u **Weergavenaam**- en **Object-id**-claims als toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
-* Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. U hebt de beleidsnaam later nodig.
+* Kies **weergavenaam** en andere registratiekenmerken in uw beleid.
+* Kies **weergavenaam** en **Object-ID** claims als toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
+* Kopieer de **naam** van elk beleid nadat u dit hebt gemaakt. U moet de flow-naam van de gebruiker later opnieuw.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Nadat u het beleid hebt gemaakt, kunt u uw app maken.
+Nadat u het beleid hebt gemaakt, bent u klaar om uw app te bouwen.
 
 ## <a name="download-the-code"></a>De code downloaden
 
@@ -63,20 +63,20 @@ Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Stud
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>De Azure AD B2C-configuratie bijwerken
 
-Ons voorbeeld is geconfigureerd voor gebruik van het beleid en de client-id van onze demo-tenant. Als u uw eigen tenant wilt gebruiken, moet u het volgende doen:
+Ons voorbeeld is geconfigureerd voor het gebruik van de gebruikersstromen en client-ID van onze demo-tenant. Als u uw eigen tenant wilt gebruiken, moet u het volgende doen:
 
 1. Open `web.config` in het `TaskService`-project en vervang de waarden voor
     * `ida:Tenant` door de naam van uw tenant
     * `ida:ClientId` door de id van uw web-API-toepassing
-    * `ida:SignUpSignInPolicyId` door de naam van uw 'Aanmelden/registreren'-beleid
+    * `ida:SignUpSignInPolicyId` met uw 'Meld u aan of aanmelden' userjourney-naam
 
 2. Open `web.config` in het `TaskWebApp`-project en vervang de waarden voor
     * `ida:Tenant` door de naam van uw tenant
     * `ida:ClientId` door de id van uw web-app-toepassing
     * `ida:ClientSecret` door de geheime sleutel voor uw web-app
-    * `ida:SignUpSignInPolicyId` door de naam van uw 'Aanmelden/registreren'-beleid
-    * `ida:EditProfilePolicyId` door de naam van uw 'Profiel bewerken'-beleid
-    * `ida:ResetPasswordPolicyId` door de naam van uw 'Wachtwoord opnieuw instellen'-beleid
+    * `ida:SignUpSignInPolicyId` met uw 'Meld u aan of aanmelden' userjourney-naam
+    * `ida:EditProfilePolicyId` met de naam van uw 'Profiel bewerken' gebruiker stroom
+    * `ida:ResetPasswordPolicyId` met de naam van uw 'Wachtwoord opnieuw instellen' gebruiker stroom
     * `api:ApiIdentifier` door de URI voor de app-id
 
 
@@ -169,7 +169,7 @@ public class TasksController : ApiController
 
 ### <a name="get-user-information-from-the-token"></a>Gebruikersgegevens ophalen uit het token
 
-`TasksController` slaat taken in een database op waarin elke taak een gekoppelde gebruiker heeft die 'eigenaar' is van de taak. De eigenaar wordt geïdentificeerd met de **object-id** van de gebruiker. (Daarom moet u de object-id toevoegen als toepassingsclaim in al uw beleidsregels.)
+`TasksController` slaat taken in een database op waarin elke taak een gekoppelde gebruiker heeft die 'eigenaar' is van de taak. De eigenaar wordt geïdentificeerd met de **object-id** van de gebruiker. (Dit is de reden waarom u die nodig zijn om toe te voegen van de object-ID als een toepassing toepassingsclaim in al uw gebruikersstromen.)
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -204,6 +204,6 @@ public IEnumerable<Models.Task> Get()
 
 Bouw ten slotte `TaskWebApp` en `TaskService` en voer deze uit. Maak een paar taken in de takenlijst van de gebruiker en bekijk hoe deze zelfs bewaard blijven in de API nadat u de client hebt gestopt en opnieuw hebt gestart.
 
-## <a name="edit-your-policies"></a>Het beleid bewerken
+## <a name="edit-your-user-flows"></a>Uw gebruikersstromen bewerken
 
-Nadat u een API hebt beveiligd met behulp van Azure AD B2C, kunt u experimenteren met het beleid 'Registreren/aanmelden' voor de app en de effecten hiervan (of het gebrek daaraan) op de API bekijken. U kunt de toepassingsclaims in het beleid bewerken en de beschikbare gebruikersgegevens in de web-API wijzigen. Claims die u toevoegt, zijn beschikbaar in uw .NET MVC-web-API in het `ClaimsPrincipal`-object, zoals eerder in dit artikel is beschreven.
+Nadat u een API hebt beveiligd met behulp van Azure AD B2C, kunt u experimenteren met uw Sign-in/aanmelden-van beleid en de effecten weergeven (of gebrek daaraan) op de API. U kunt de toepassingsclaims in de gebruikersstromen bewerken en de gebruikersgegevens die beschikbaar is in de web-API wijzigen. Claims die u toevoegt, zijn beschikbaar in uw .NET MVC-web-API in het `ClaimsPrincipal`-object, zoals eerder in dit artikel is beschreven.

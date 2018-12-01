@@ -9,15 +9,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 806d68370921a7658066a9bad770b36b4e8e59bf
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232457"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680035"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>De infrastructuur voor back-ups van virtuele Azure-machines plannen
-In dit artikel biedt prestaties en suggesties voor het plannen van uw VM-back-upinfrastructuur resource. Het definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn plannen van capaciteit en planning. Als u hebt [bereid uw omgeving](backup-azure-arm-vms-prepare.md), planning van de volgende stap is voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over Azure virtual machines, Zie de [documentatie voor virtuele Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+In dit artikel biedt prestaties en suggesties voor het plannen van uw VM-back-upinfrastructuur resource. Het definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn plannen van capaciteit en planning. Als u hebt [bereid uw omgeving](backup-azure-arm-vms-prepare.md), planning van de volgende stap is voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over Azure virtual machines, Zie de [documentatie voor virtuele Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 > [!NOTE]
 > Dit artikel is bedoeld voor gebruik met beheerde en onbeheerde schijven. Als u niet-beheerde schijven gebruikt, zijn er aanbevelingen voor opslagaccount. Als u [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), u hoeft te breken over problemen met prestaties of resource-gebruik. Azure wordt geoptimaliseerd gebruik van de opslag voor u.
@@ -96,7 +96,19 @@ Totaal aantal back-uptijd van minder dan 24 uur geldig is voor incrementele back
 
 ### <a name="why-are-backup-times-longer-than-12-hours"></a>Waarom zijn back-uptijden langer is dan 12 uur?
 
-Back-up bestaat uit twee fasen: maken van momentopnamen en het overdragen van de momentopnamen naar de kluis. De Backup-service wordt geoptimaliseerd voor opslag. Bij de overdracht van de momentopname van de gegevens naar een kluis, draagt de service alleen incrementele wijzigingen van de vorige momentopname.  Om te bepalen de incrementele wijzigingen, berekent de service de controlesom van de blokken. Als een blok is gewijzigd, wordt het blok wordt aangeduid als een blok moet worden verzonden naar de kluis. Klik verder de oefeningen van de service in elk van de geïdentificeerde blokken, zoeken naar mogelijkheden om zo min mogelijk de gegevens over te dragen. Nadat u alle gewijzigde blokken, de service de wijzigingen coalesces en stuurt deze naar de kluis. Kleine, gefragmenteerde schrijfbewerkingen zijn niet optimaal voor opslag in enkele oudere toepassingen. Als de momentopname veel kleine, gefragmenteerde schrijfbewerkingen bevat, in de service de taakwachtrij doorbrengt extra tijd die is geschreven door de toepassingen die gegevens verwerkt. Voor toepassingen die binnen de virtuele machine wordt uitgevoerd, is het aanbevolen schrijfbewerkingen van toepassingen blok minimaal 8 KB. Als uw toepassing gebruikmaakt van een blok van minder dan 8 KB, wordt back-upprestaties heeft. Zie voor hulp bij het afstemmen van uw toepassing om back-prestaties te verbeteren, [afstemmen van toepassingen voor optimale prestaties met Azure storage](../virtual-machines/windows/premium-storage-performance.md). Hoewel het artikel op back-upprestaties maakt gebruik van Premium storage-voorbeelden, is de richtlijnen van toepassing op Standard-opslagschijven.
+Back-up bestaat uit twee fasen: maken van momentopnamen en het overdragen van de momentopnamen naar de kluis. De Backup-service wordt geoptimaliseerd voor opslag. Bij de overdracht van de momentopname van de gegevens naar een kluis, draagt de service alleen incrementele wijzigingen van de vorige momentopname.  Om te bepalen de incrementele wijzigingen, berekent de service de controlesom van de blokken. Als een blok is gewijzigd, wordt het blok wordt aangeduid als een blok moet worden verzonden naar de kluis. Klik verder de oefeningen van de service in elk van de geïdentificeerde blokken, zoeken naar mogelijkheden om zo min mogelijk de gegevens over te dragen. Nadat u alle gewijzigde blokken, de service de wijzigingen coalesces en stuurt deze naar de kluis. Kleine, gefragmenteerde schrijfbewerkingen zijn niet optimaal voor opslag in enkele oudere toepassingen. Als de momentopname veel kleine, gefragmenteerde schrijfbewerkingen bevat, in de service de taakwachtrij doorbrengt extra tijd die is geschreven door de toepassingen die gegevens verwerkt. Voor toepassingen die binnen de virtuele machine wordt uitgevoerd, is het aanbevolen schrijfbewerkingen van toepassingen blok minimaal 8 KB. Als uw toepassing gebruikmaakt van een blok van minder dan 8 KB, wordt back-upprestaties heeft. Zie voor hulp bij het afstemmen van uw toepassing om back-prestaties te verbeteren, [afstemmen van toepassingen voor optimale prestaties met Azure storage](../virtual-machines/windows/premium-storage-performance.md). Hoewel het artikel op back-upprestaties maakt gebruik van Premium storage-voorbeelden, is de richtlijnen van toepassing op Standard-opslagschijven.<br>
+Er zijn verschillende redenen voor de lange back-uptijd:
+  1. **Eerste back-up voor een nieuw toegevoegde schijf aan een al beveiligde virtuele machine** <br>
+    Als een virtuele machine al is mogelijk een incrementele back-up, wanneer een nieuwe schijf of schijven vervolgens de back-up wordt toegevoegd 1 dag SLA, afhankelijk van de grootte van de nieuwe schijf ontbreken.
+  2. **Fragmentatie** <br>
+    Als de Klanttoepassing is niet goed geconfigureerd die kleine gefragmenteerde schrijfbewerkingen.<br>
+  3. **Klantopslagaccount is overbelast** <br>
+      a. Als de back-up is gepland tijdens productie toepassing de tijd van de klant.  
+      b. Als meer dan 5 tot 10-schijven worden gehost in hetzelfde opslagaccount.<br>
+  4. **Consistentie Check(CC) modus** <br>
+      > 1 TB schijven, als de back-up in de CC-modus vanwege de redenen gebeurt vermeld hieronder:<br>
+        a. De beheerde schijf wordt verplaatst als onderdeel van de klant virtuele machine opnieuw opstarten.<br>
+        b. Klant bevordert momentopname naar base blob.<br>
 
 ## <a name="total-restore-time"></a>Totaal aantal hersteltijd
 

@@ -9,17 +9,16 @@ ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 358d17f29960983af1834e87f502331141fcff46
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303741"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726114"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Releaseopmerkingen voor Developer Analytics Tools
 
@@ -229,7 +228,7 @@ Als u al een van deze frameworks voor logboekregistratie geconfigureerd hebt, ge
 
 Wanneer u de registratie-adapter die is geïnstalleerd hebt, Voer uw toepassing uit en zorg ervoor dat u de gegevens op het tabblad Diagnostische hulpprogramma's als volgt bekijken:
 
-![Traces](./media/app-insights-release-notes-vsix/Traces.png)
+![traceringen](./media/app-insights-release-notes-vsix/Traces.png)
 
 ### <a name="jump-to-or-find-the-code-where-the-telemetry-event-property-is-emitted"></a>Ga naar of de code niet vinden waarbij de eigenschap van de gebeurtenis telemetrie wordt verzonden
 Met de nieuwe release gebruiker kan klikken op een waarde in de gebeurtenis details en dit wordt gezocht naar een overeenkomende tekenreeks in de huidige open oplossing. Resultaten worden weergegeven in Visual Studio 'Resultaten vinden' bestaan uit zoals hieronder wordt weergegeven:
@@ -257,7 +256,7 @@ Deze release wordt geleverd met een aantal nieuwe functies en updates. U moet Up
 ### <a name="jump-from-an-exception-to-method-in-source-code"></a>Gaat u naar de methode in de broncode van een uitzondering
 Nu, als u uitzonderingen van uw productie-app in het venster Application Insights-zoekopdracht weergeeft, kunt u gaan aan de methode in uw code waar de uitzondering optreedt. U hoeft alleen het juiste project is geladen en Application Insights zorgt voor de rest. (Zie de releaseopmerkingen voor versie 4.0 in de volgende secties voor meer informatie over het zoekvenster van Application Insights.)
 
-Hoe werkt dit? U kunt toepassingen Insights-zoekopdracht gebruiken, zelfs wanneer een oplossing niet geopend is. De stack-trace-gebied een informatiebericht wordt weergegeven, en veel van de items in de stack-trace zijn niet beschikbaar.
+Hoe werkt het? U kunt toepassingen Insights-zoekopdracht gebruiken, zelfs wanneer een oplossing niet geopend is. De stack-trace-gebied een informatiebericht wordt weergegeven, en veel van de items in de stack-trace zijn niet beschikbaar.
 
 Als informatie beschikbaar is, sommige items mogelijk koppelingen, maar de oplossing informatie-item wordt weergegeven.
 

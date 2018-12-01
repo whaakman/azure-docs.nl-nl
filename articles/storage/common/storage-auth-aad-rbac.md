@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428875"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726386"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Blob- en wachtrijgegevens met RBAC (Preview)
 
@@ -61,15 +61,16 @@ De volgende secties laten zien hoe een rol binnen het bereik van de storage-acco
 Een ingebouwde rol verlenen van toegang tot alle containers of wachtrijen in het opslagaccount in Azure portal toewijzen:
 
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw storage-account.
-2. Selecteer uw storage-account en selecteer vervolgens **Access Control (IAM)** om instellingen voor toegangsbeheer voor het account weer te geven. Klik op de **toevoegen** knop een nieuwe rol toe te voegen.
+1. Selecteer uw storage-account en selecteer vervolgens **toegangsbeheer (IAM)** om instellingen voor toegangsbeheer voor het account weer te geven. Selecteer de **roltoewijzingen** tabblad om te bekijken van de lijst van roltoewijzingen.
 
     ![Schermopname van de instellingen voor toegangsbeheer opslag](media/storage-auth-aad-rbac/portal-access-control.png)
 
-3. In de **machtigingen toevoegen** venster, selecteer de rol wilt toewijzen aan een Azure AD-identiteit. Vervolgens kunt u zoeken om te zoeken van de identiteit aan wie u wilt toewijzen die rol. Bijvoorbeeld, de volgende afbeelding toont de **gegevenslezer voor Opslagblob (Preview)** rol die is toegewezen aan een gebruiker.
+1. Klik op de **roltoewijzing toevoegen** knop een nieuwe rol toe te voegen.
+1. In de **roltoewijzing toevoegen** venster, selecteer de rol wilt toewijzen aan een Azure AD-identiteit. Vervolgens kunt u zoeken om te zoeken van de identiteit aan wie u wilt toewijzen die rol. Bijvoorbeeld, de volgende afbeelding toont de **gegevenslezer voor Opslagblob (Preview)** rol die is toegewezen aan een gebruiker.
 
     ![Schermopname waarin een RBAC-rol toewijzen](media/storage-auth-aad-rbac/add-rbac-role.png)
 
-4. Klik op **Opslaan**. De identiteit aan wie u de rol is toegewezen, wordt weergegeven onder die rol. De volgende afbeelding ziet u bijvoorbeeld dat de gebruikers die zijn toegevoegd nu heeft voor alle blob-gegevens in de storage-account leesmachtigingen.
+1. Klik op **Opslaan**. De identiteit aan wie u de rol is toegewezen, wordt weergegeven onder die rol. De volgende afbeelding ziet u bijvoorbeeld dat de gebruiker is toegevoegd nu heeft voor alle blob-gegevens in de storage-account leesmachtigingen.
 
     ![Schermopname met een lijst van gebruikers die zijn toegewezen aan een rol](media/storage-auth-aad-rbac/account-scoped-role.png)
 
@@ -78,17 +79,20 @@ Een ingebouwde rol verlenen van toegang tot alle containers of wachtrijen in het
 De stappen voor het toewijzen van een ingebouwde rol binnen het bereik van een container of een wachtrij zijn vergelijkbaar. De procedure hieronder wijst een rol binnen het bereik van een container, maar u kunt dezelfde stappen als u wilt toewijzen van een rol binnen het bereik van een wachtrij: 
 
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw storage-account en weergeven van de **overzicht** voor het account.
-2. Selecteer onder de Blob-Service, **door Blobs Bladeren**. 
-3. Zoek naar de container die u wilt een rol toewijzen en weergeven van de instellingen van de container. 
-4. Selecteer **Access Control (IAM)** om instellingen voor toegangsbeheer voor de container weer te geven.
-5. In de **machtigingen toevoegen** venster, selecteer de rol die u wilt toewijzen aan een Azure AD-identiteit. Vervolgens zoekt u naar de identiteit die u wilt toewijzen die rol.
-6. Klik op **Opslaan**. De identiteit aan wie u de rol is toegewezen, wordt weergegeven onder die rol. Bijvoorbeeld, de volgende afbeelding ziet u dat de gebruiker is toegevoegd nu heeft tot gegevens in de container met de naam leesmachtigingen *voorbeeldcontainer*.
+1. Selecteer onder Services **Blobs**. 
+1. Zoek naar de container die u wilt een rol toewijzen en weergeven van de instellingen van de container. 
+1. Selecteer **toegangsbeheer (IAM)** om instellingen voor toegangsbeheer voor de container weer te geven. Selecteer de **roltoewijzingen** tabblad om te bekijken van de lijst van roltoewijzingen.
+
+    ![Instellingen voor toegangsbeheer container schermopname van het scherm](media/storage-auth-aad-rbac/portal-access-control-container.png)
+1. Klik op de **roltoewijzing toevoegen** knop een nieuwe rol toe te voegen.
+1. In de **roltoewijzing toevoegen** venster, selecteer de rol die u wilt toewijzen aan een Azure AD-identiteit. Vervolgens zoekt u naar de identiteit die u wilt toewijzen die rol.
+1. Klik op **Opslaan**. De identiteit aan wie u de rol is toegewezen, wordt weergegeven onder die rol. Bijvoorbeeld, de volgende afbeelding ziet u dat de gebruiker is toegevoegd nu heeft tot gegevens in de container met de naam leesmachtigingen *voorbeeldcontainer*.
 
     ![Schermopname met een lijst van gebruikers die zijn toegewezen aan een rol](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over RBAC [aan de slag met toegangsbeheer op basis van rollen](../../role-based-access-control/overview.md).
+- Zie voor meer informatie over RBAC [wat is op rollen gebaseerd toegangsbeheer (RBAC)?](../../role-based-access-control/overview.md).
 - Voor informatie over het toewijzen en beheren van RBAC-roltoewijzingen met Azure PowerShell, Azure CLI of de REST-API, Zie de volgende artikelen:
     - [Op rollen gebaseerd toegangsbeheer (RBAC met Azure PowerShell) beheren](../../role-based-access-control/role-assignments-powershell.md)
     - [Op rollen gebaseerd toegangsbeheer (RBAC met Azure CLI) beheren](../../role-based-access-control/role-assignments-cli.md)

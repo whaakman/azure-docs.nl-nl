@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229636"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725145"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot bronnen met beheerde identiteiten in Azure Logic Apps
 
@@ -59,7 +59,7 @@ Inschakelen om in te schakelen op een systeem toegewezen beheerde identiteit voo
       | Eigenschap | Waarde | Beschrijving | 
       |----------|-------|-------------| 
       | **Principal-ID** | <*Principal-ID*> | Een Globally Unique Identifier (GUID) die aangeeft van de logische app in een Azure AD-tenant | 
-      | **Tenant-ID** | <*Azure-AD-tenant-ID*> | Een Globally Unique Identifier (GUID) die aangeeft van de Azure AD-tenant waar uw logische app nu lid is. In de Azure AD-tenant is de service-principal dezelfde naam als het logische app-exemplaar. | 
+      | **Tenant ID** | <*Azure-AD-tenant-ID*> | Een Globally Unique Identifier (GUID) die aangeeft van de Azure AD-tenant waar uw logische app nu lid is. In de Azure AD-tenant is de service-principal dezelfde naam als het logische app-exemplaar. | 
       ||| 
 
 ### <a name="deployment-template"></a>Sjabloon voor de implementatie
@@ -128,13 +128,13 @@ Om toegang te verlenen aan een andere Azure-resource voor beheerde identiteit va
 
 1. Ga naar de Azure-resource waar u toegang wilt toewijzen voor uw beheerde identiteit in de Azure-portal. 
 
-1. Selecteer in het resourcemenu **toegangsbeheer (IAM)**, en kies **toevoegen**. 
+1. Selecteer in het resourcemenu **toegangsbeheer (IAM)**, en kies **roltoewijzing toevoegen**. 
 
-   ![Machtigingen toevoegen](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Roltoewijzing toevoegen](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Onder **machtigingen toevoegen**, selecteer de **rol** u wilt gebruiken voor de identiteit. 
+1. Onder **roltoewijzing toevoegen**, selecteer de **rol** u wilt gebruiken voor de identiteit. 
 
-1. In de **toegang toewijzen aan** eigenschap, selecteer **Azure AD-gebruiker, groep of toepassing**, als u nog niet is geselecteerd.
+1. In de **toegang toewijzen aan** eigenschap, selecteer **Azure AD-gebruiker, groep of service-principal**, als u nog niet is geselecteerd.
 
 1. In de **Selecteer** , beginnen met het eerste teken in naam van uw logische app, voer de naam van uw logische app. Wanneer uw logische app wordt weergegeven, selecteert u de logische app.
 

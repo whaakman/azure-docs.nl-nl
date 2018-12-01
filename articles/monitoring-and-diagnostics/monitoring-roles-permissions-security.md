@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 367ecd4534a2221e996e706f8b4426ea6f70f213
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614563"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680494"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
@@ -86,7 +86,7 @@ Als de bovenstaande ingebouwde rollen niet voldoen aan de exacte behoeften van u
 | Microsoft.Insights/MetricDefinitions/Read |Metrische definities (lijst met beschikbare metrische gegevens typen voor een resource) lezen. |
 | Microsoft.Insights/Metrics/Read |De metrische gegevens voor een resource lezen. |
 | Microsoft.Insights/Register/Action |Registreer de resourceprovider van Azure Monitor. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboekwaarschuwingen voor Application Insights. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboekwaarschuwingen in Azure Monitor. |
 
 
 
@@ -154,7 +154,7 @@ New-AzureRmRoleDefinition -Role $role
 > 
 
 ### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Beperken van toegang tot de bewaking met betrekking tot eventhubs
-Een vergelijkbaar patroon kan worden gevolgd met eventhubs, maar u moet eerst een toegewezen Listen-autorisatieregel. Als u toegang verlenen tot een toepassing die alleen nodig heeft om te luisteren naar bewaking-gerelateerde eventhubs wilt, het volgende doen:
+Een vergelijkbaar patroon kan worden gevolgd met eventhubs, maar u moet eerst een toegewezen Listen-autorisatieregel. Als u wilt verlenen, toegang tot een toepassing die alleen nodig heeft om te luisteren naar bewaking-gerelateerde eventhubs, het volgende doen:
 
 1. Maak een beleid voor gedeelde toegang op de event hub die zijn gemaakt voor het streamen van gegevens met alleen Listen-claims. Dit kan worden gedaan in de portal. Bijvoorbeeld, kunt u deze aanroepen "monitoringReadOnly." U wilt, indien mogelijk, geven deze sleutel rechtstreeks naar de gebruiker en de volgende stap overslaan.
 2. Als de consument kunnen om op te halen van de belangrijkste ad-hoc moet, verleent u de gebruiker de actie ListKeys voor die event hub. Dit is ook nodig zijn voor gebruikers die willen kunnen een diagnostische instelling instellen of logboekprofiel te streamen naar eventhubs. U kunt bijvoorbeeld een regel voor RBAC maken:

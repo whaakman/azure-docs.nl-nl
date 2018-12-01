@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 66b2930e06cef1a31602df3d358c78f42c8cd2cf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f7d1b5774e41761c7c332b0b38371979ca9d30cd
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406361"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679678"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
 
@@ -158,7 +158,7 @@ Aanval risicobeperking rapporten maakt gebruik van de gegevens voor het protocol
 
     - **Archiveren naar een opslagaccount**: gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream naar een event hub**: kan de ontvanger van een logboek om op te halen met behulp van een Azure Event Hub Logboeken. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Verzenden naar Log Analytics**: schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Verzenden naar Log Analytics**: schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Zowel de incrementele en na aanval risicobeperking-rapporten bevatten de volgende velden
 - Aanvalsvectoren
@@ -180,7 +180,7 @@ Aanval risicobeperking Flow Logboeken kunt u bekijken van het verwijderde verkee
 
     - **Archiveren naar een opslagaccount**: gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream naar een event hub**: kan de ontvanger van een logboek om op te halen met behulp van een Azure Event Hub Logboeken. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Verzenden naar Log Analytics**: schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Verzenden naar Log Analytics**: schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Als u wilt de gegevens van de logboeken stroom bekijken in Azure analytics-dashboard, kunt u het voorbeelddashboard van importeren https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Logboeken van de stroom heeft de volgende velden: 

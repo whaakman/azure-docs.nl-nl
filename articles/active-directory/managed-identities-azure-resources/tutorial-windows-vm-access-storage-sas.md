@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2091fb75e07b9ed01394621af2d82c02f5598430
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625484"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721320"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Een Windows VM door het systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage via SAS-referenties
 
@@ -68,7 +68,7 @@ Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  
 
 1. Navigeer terug naar het zojuist gemaakte opslagaccount.   
 2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  
-3. Klik op **+ Toevoegen** boven aan de pagina om een nieuwe roltoewijzing voor de virtuele machine toe te voegen
+3. Klik op **+ roltoewijzing toevoegen** boven op de pagina om een nieuwe roltoewijzing voor de virtuele machine
 4. Stel **Rol** in op 'Inzender voor opslagaccounts', aan de rechterkant van de pagina.  
 5. Stel in de volgende vervolgkeuzelijst **Toegang toewijzen aan** de resource in op Virtuele machine.  
 6. Controleer vervolgens of het juiste abonnement wordt weergegeven in de vervolgkeuzelijst **Abonnement**, en stel **Resourcegroep** in op Alle resourcegroepen.  

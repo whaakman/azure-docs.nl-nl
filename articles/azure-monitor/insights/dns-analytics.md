@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e7fd5649f1cd08713b066a20887b36b9a3c38e7c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 510fe187661534c4c82ae7ec62904de51eb4b221
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633075"
+ms.locfileid: "52682726"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -47,7 +47,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Ja | De oplossing verzamelt DNS-gegevens van Windows-agents. |
 | [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
 | [System Center Operations Manager-beheergroep](../../log-analytics/log-analytics-om-agents.md) | Ja | De oplossing verzamelt DNS-gegevens van agents in een verbonden beheergroep van Operations Manager. Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
-| [Azure Storage-account](../../log-analytics/log-analytics-azure-storage.md) | Nee | Azure storage wordt niet gebruikt door de oplossing. |
+| [Azure Storage-account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Azure storage wordt niet gebruikt door de oplossing. |
 
 ### <a name="data-collection-details"></a>Details van de verzameling gegevens
 

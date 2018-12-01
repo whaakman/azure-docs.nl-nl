@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 9d0cb566ffb8fbec4b99b0f0eeca79b21d1b0dde
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335126"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725400"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-apps
 
@@ -202,7 +201,7 @@ Eigenaars van abonnementen toe te kennen de `Application Insights Snapshot Debug
 
 1. Navigeer naar de Application Insights-resource in Azure portal.
 1. Klik op **toegangsbeheer (IAM)**.
-1. Klik op de **+ toevoegen** knop.
+1. Klik op de **+ roltoewijzing toevoegen** knop.
 1. Selecteer **Application Insights Snapshot Debugger** uit de **rollen** vervolgkeuzelijst.
 1. Zoek en voer een naam voor de gebruiker toe te voegen.
 1. Klik op de **opslaan** om toe te voegen van de gebruiker aan de rol.

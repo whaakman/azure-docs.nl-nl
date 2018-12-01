@@ -9,16 +9,15 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 59052a2f0f2fbaa898502073f27b23185026e45e
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344627"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724414"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights een dashboard
 
@@ -38,7 +37,7 @@ Selectie van het tijdsbereik is vereenvoudigd naar een eenvoudige interface met 
 
 Algehele zijn prestaties aanzienlijk toegenomen. U hebt één klik toegang tot populaire functies zoals **zoeken** en **Analytics**. Elke dynamisch bijwerken van de KPI-tegel standaard biedt inzicht in de bijbehorende Application Insights-functies. Kunnen geen aanvragen selecteren voor meer informatie over **fouten** onder de **onderzoeken** header:
 
-![Fouten](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Mislukte pogingen](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Toepassingsdashboard
 

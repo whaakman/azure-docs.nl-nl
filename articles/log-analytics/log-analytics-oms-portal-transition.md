@@ -9,17 +9,16 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5010426db97a9cd404d265d1ea9b319877eda1de
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634792"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723955"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portal naar Azure verplaatsen
 
@@ -92,7 +91,7 @@ De gegevens die zijn verzameld door de oplossing van waarschuwingen te beheren (
 De mobiele OMS-app worden sunsetted samen met de OMS-portal. In plaats van de mobiele OMS-app voor toegang tot informatie over uw IT-infrastructuur, dashboards en opgeslagen query's, kunt u de Azure-portal rechtstreeks openen vanuit uw browser in uw mobiele apparaat. Als u waarschuwingen, moet u configureren [Azure-actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md) voor het ontvangen van meldingen in de vorm van SMS- of een telefoongesprek
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights-Connector en oplossing
-[Application Insights-Connector](log-analytics-app-insights-connector.md) biedt een manier om Application Insights-gegevens in een Log Analytics-werkruimte. De duplicatie van deze gegevens is vereist voor het inschakelen van zichtbaarheid in de infrastructuur-en toepassingsgegevens.
+[Application Insights-Connector](../azure-monitor/platform/app-insights-connector.md) biedt een manier om Application Insights-gegevens in een Log Analytics-werkruimte. De duplicatie van deze gegevens is vereist voor het inschakelen van zichtbaarheid in de infrastructuur-en toepassingsgegevens.
 
 Met de ondersteuning van [query's voor meerdere bronnen](log-analytics-cross-workspace-search.md), er is niet langer in deze behoefte te dupliceren van gegevens. De bestaande Application Insights-oplossing wordt als zodanig worden afgeschaft. Vanaf oktober kunt pas u weer nieuwe Application Insights-resources koppelen aan Log Analytics-werkruimten. Bestaande koppelingen en dashboards blijft functioneren tot en met 15 januari 2019.
 

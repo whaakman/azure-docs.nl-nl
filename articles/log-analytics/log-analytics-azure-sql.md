@@ -5,19 +5,18 @@ services: log-analytics
 ms.service: log-analytics
 ms.subservice: performance
 ms.custom: ''
-ms.devlang: na
 ms.topic: conceptual
 author: danimir
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: 57faa347b2733ebf65757b02ee9395f94776cf10
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b2c8ed30e26f5408123fe77606ddfec67479bcad
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635387"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726148"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -29,7 +28,7 @@ Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangep
 
 Zie de ingesloten video voor een praktische overzicht over het gebruik van Azure SQL Analytics-oplossing en voor typische gebruiksscenario's:
 
->[!VIDEO https://youtu.be/j-NDkN4GIzg]
+>[!VIDEO https://www.youtube.com/embed/j-NDkN4GIzg]
 >
 
 ## <a name="connected-sources"></a>Verbonden bronnen
@@ -38,8 +37,8 @@ Azure SQL Analytics is een cloud alleen bewaking ondersteunende streaming-oploss
 
 | Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
-| [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |
+| [Azure Diagnostics](../azure-monitor/platform/collect-azure-metrics-logs.md) | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
+| [Azure Storage-account](../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |
 | [Windows-agents](../azure-monitor/platform/agent-windows.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
 | [Linux-agents](log-analytics-quick-collect-linux-computer.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
 | [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) | Nee | Een directe verbinding van de Operations Manager-agent naar Log Analytics wordt niet gebruikt door de oplossing. |

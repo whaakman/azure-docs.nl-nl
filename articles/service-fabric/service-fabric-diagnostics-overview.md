@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291110"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720589"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Bewaking en diagnose voor Azure Service Fabric
 
@@ -40,9 +40,10 @@ We hebben ook een zelfstudie met het [Stel deze optie voor .NET-toepassingen](se
 ## <a name="platform-cluster-monitoring"></a>Bewaking van platform (Cluster)
 Een gebruiker is controle over welke telemetrie afkomstig is van de toepassing omdat een gebruiker de code zelf, maar wat over de diagnostische gegevens van de Service Fabric-platform schrijft? Een van de doelstellingen van Service Fabric is om toepassingen te houden tegen hardwarefouten. Dit doel wordt bereikt door middel van het platform systeemservices mogelijkheid voor het detecteren van problemen met infrastructuur en snel failover-workloads naar andere knooppunten in het cluster. Maar in dit geval, wat gebeurt er als de systeemservices zelf problemen? Of als bij een poging om te implementeren of verplaatsen van een werkbelasting, regels voor de plaatsing van services zijn geschonden? Service Fabric biedt diagnostische gegevens voor deze en nog veel meer om te controleren of dat u worden geïnformeerd over de activiteiten die plaatsvinden in uw cluster. Enkele eenvoudige voorbeeldscenario's voor bewaking van het cluster zijn onder andere:
 
-* Is de Service Fabric werkt zoals verwacht, wat betreft de plaatsen van uw toepassingen en netwerktaakverdeling omzeilen of het cluster? 
-* Acties van de gebruiker gaat in uw cluster bevestigd en op worden uitgevoerd zoals verwacht? Bijvoorbeeld Schalen, Failover, implementaties
-* Service Fabric het bijhouden van welke knooppunten maken deel uit van het cluster en het informeren van mij is wanneer er een probleem in een?
+Service Fabric biedt een uitgebreide set met gebeurtenissen uit het vak. Deze [Service Fabric-gebeurtenissen](service-fabric-diagnostics-events.md) is toegankelijk via de EventStore of het operationele kanaal (event kanaal die worden weergegeven door het platform). 
+* EventStore - de EventStore is een functie die wordt aangeboden door het platform waarmee u Service Fabric-platformgebeurtenissen beschikbaar in de Service Fabric Explorer en via REST-API. Hier ziet u een momentopname van wat in uw cluster voor elke entiteit bijvoorbeeld gebeurt er knooppunt, service, toepassing en query's op basis van de tijd van de gebeurtenis. U kunt ook meer informatie over de EventStore op de [overzicht van EventStore](service-fabric-diagnostics-eventstore.md).    
+
+* Service Fabric event kanalen - op Windows Service Fabric-gebeurtenissen zijn beschikbaar vanuit één ETW-provider met een set van relevante `logLevelKeywordFilters` gebruikt om te kiezen tussen de operationele gegevens & Messaging en kanalen - dit is de manier waarop we uitgaande onderscheiden Service Fabric-gebeurtenissen worden gefilterd op die nodig zijn. Op Linux Service Fabric-gebeurtenissen binnenkomen via LTTng en van waar ze kunnen worden gefilterd zo nodig in een opslagtabel, zijn geplaatst. Deze kanalen bevatten samengestelde, gestructureerde gebeurtenissen die kunnen worden gebruikt voor meer informatie over de status van uw cluster. Diagnostische gegevens zijn standaard ingeschakeld op het moment van het maken van het cluster, die het maken van een Azure Storage-tabel waar de gebeurtenissen van deze kanalen kunt u query's uitvoeren in de toekomst worden verzonden. 
 
 De diagnostische gegevens over het opgegeven zijn in de vorm van een uitgebreide set met gebeurtenissen uit het vak. Deze [Service Fabric-gebeurtenissen](service-fabric-diagnostics-events.md) laten zien van acties die worden uitgevoerd door het platform op verschillende entiteiten zoals knooppunten, toepassingen, Services, partities enzovoort. In het bovenstaande laatste scenario als een knooppunt uitvallen, het platform zou verzenden een `NodeDown` gebeurtenis en u het kan onmiddellijk worden gemeld door het hulpprogramma voor bewaking van keuze. Andere algemene voorbeelden zijn `ApplicationUpgradeRollbackStarted` of `PartitionReconfigured` tijdens een failover. **Dezelfde gebeurtenissen zijn beschikbaar op zowel Windows als Linux-clusters.**
 

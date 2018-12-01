@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958156"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726165"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -358,11 +358,11 @@ Ga als volgt te werk om het certificaat te vernieuwen:
 
 Als u wilt beheren die zijn gericht op van automation voor resources in Azure Automation, krijgt de uitvoeren als-account standaard Inzender-rechten in het abonnement. Als u nodig hebt om te beperken wat de RunAs-service-principal kunt doen, kunt u het account verwijderen uit de inzendersrol aan het abonnement en dit toevoegen als een bijdrager aan de resourcegroepen die u wilt opgeven.
 
-Selecteer in de Azure portal, **abonnementen** en kies het abonnement van uw Automation-Account. Selecteer **toegangsbeheer (IAM)** en zoek naar de service-principal voor uw Automation-Account (het ziet eruit als \<AutomationAccountName\>_unique-id). Selecteer het account en klikt u op **verwijderen** te verwijderen uit het abonnement.
+Selecteer in de Azure portal, **abonnementen** en kies het abonnement van uw Automation-Account. Selecteer **toegangsbeheer (IAM)** en selecteer vervolgens de **roltoewijzingen** tabblad. Zoek naar de service-principal voor uw Automation-Account (het ziet eruit als \<AutomationAccountName\>_unique-id). Selecteer het account en klikt u op **verwijderen** te verwijderen uit het abonnement.
 
 ![Abonnement inzenders](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)**. Selecteer **toevoegen**, Hiermee opent u de **machtigingen toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Deze stappen voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
+Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)**. Selecteer **roltoewijzing toevoegen**, Hiermee opent u de **roltoewijzing toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Deze stappen voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
 
 ## <a name="misconfiguration"></a>Onjuiste configuratie
 

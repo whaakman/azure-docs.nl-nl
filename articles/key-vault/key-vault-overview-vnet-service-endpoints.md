@@ -1,7 +1,7 @@
 ---
 ms.assetid: ''
-title: VNET-Service-eindpunten voor Azure Key Vault | Microsoft Docs
-description: Overzicht van Virtual Network-Service-eindpunten voor Key Vault
+title: Virtual network-service-eindpunten voor Azure Key Vault | Microsoft Docs
+description: Overzicht van virtual network-service-eindpunten voor Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
@@ -10,71 +10,74 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246651"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681514"
 ---
-# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Virtual Network-Service-eindpunten voor Azure Key Vault
+# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Virtual network-service-eindpunten voor Azure Key Vault
 
-De virtual Network-Service-eindpunten voor Key Vault kunt u de toegang beperken op de opgegeven Virtueelnetwerk en/of om een lijst met IPv4 (Internet Protocol versie 4)-adresbereiken. Een aanroeper verbinding te maken met uw key vault vanuit buiten deze bronnen wordt de toegang geweigerd. Als klant heeft gekozen in om toe te staan 'Vertrouwde Microsoft-services', zoals Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, enz. back-up van Azure, worden verbindingen van deze services kunt via de firewall. Natuurlijk dergelijke aanroepers nog steeds nodig om weer te geven van een geldige AAD-token en moet beschikken over machtigingen (geconfigureerd als toegangsbeleid) voor het uitvoeren van de aangevraagde bewerking. Lees meer technische informatie over [Virtual Network-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md).
+De service-eindpunten voor virtueel netwerk voor Azure Key Vault kunnen u toegang tot een opgegeven virtuele netwerk te beperken. De eindpunten kunt u toegang tot een lijst met IPv4 (internet protocolversie 4)-adresbereiken beperken. Elke gebruiker die verbinding maken met uw key vault vanuit buiten deze bronnen is toegang geweigerd.
+
+Er is één belangrijk uitzondering op deze beperking. Als een gebruiker heeft ervoor hebt gekozen, worden opgenomen in om toe te staan van vertrouwde Microsoft-services worden verbindingen van deze services kunt via de firewall. Bijvoorbeeld, deze services Office 365 Exchange Online opnemen, Office 365 SharePoint Online, Azure compute, Azure Resource Manager en Azure Backup. Dergelijke gebruikers nog steeds nodig hebt voor een geldig Azure Active Directory-token en moet beschikken over machtigingen (geconfigureerd als toegangsbeleid) voor het uitvoeren van de aangevraagde bewerking. Zie voor meer informatie, [service-eindpunten voor virtuele netwerken](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Gebruiksscenario's
 
-U kunt configureren [Key Vault-firewalls en virtuele netwerken](key-vault-network-security.md) voor het weigeren van toegang tot verkeer via alle netwerken (met inbegrip van het internetverkeer) standaard. Toegang kan worden verleend aan het verkeer van specifieke Azure-netwerken en/of het openbare internet-IP-adres bereiken, zodat u kunt een beveiligde netwerkgrens voor uw toepassingen te bouwen.
+U kunt configureren [Key Vault-firewalls en virtuele netwerken](key-vault-network-security.md) voor het weigeren van toegang tot verkeer via alle netwerken (met inbegrip van internetverkeer) standaard. U kunt toegang verlenen op verkeer van specifieke Azure-netwerken en het openbare internet-IP-adres-adresbereiken, zodat u kunt een beveiligde netwerkgrens voor uw toepassingen te bouwen.
 
 > [!NOTE]
-> Key Vault-firewalls en virtuele netwerkregels alleen van toepassing op sleutelkluis [gegevenslaag](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control). Bewerkingen voor Key Vault de controlelaag (zoals een sleutelkluis maken, verwijderen, wijzigen van bewerkingen, instellen van toegangsbeleid, firewalls en virtuele netwerkregels in te stellen) worden niet beïnvloed door firewalls en virtual network-regels.
+> Key Vault-firewalls en virtuele netwerkregels alleen van toepassing op de [gegevenslaag](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) van Key Vault. Key Vault bewerkingen voor de controlelaag (zoals maken, verwijderen en aanpassen van bewerkingen, instellen van toegangsbeleid, instelling firewalls en virtuele netwerkregels) worden niet beïnvloed door firewalls en virtual network-regels.
 
-Bijvoorbeeld:
-* Als u Key Vault gebruikt voor het opslaan van versleutelingssleutels, toepassingsgeheimen, certificaten, en u wilt blokkeren van toegang tot uw key vault via openbaar internet.
-* U kunt toegang tot uw key vault vergrendelen zodat alleen uw toepassing of een korte lijst van bepaalde hosts verbinding met uw key vault maken kan
-* U hebt een toepassing die wordt uitgevoerd in uw Azure-netwerk (VNET) en dit VNET is vergrendeld voor alle binnenkomend en uitgaand verkeer. Uw toepassing moet nog steeds verbinding maken met key vault wilt ophalen van geheimen of certificaten of cryptografische sleutels wilt gebruiken.
+Hier volgen enkele voorbeelden van hoe u service-eindpunten kunt gebruiken:
+* U Key Vault gebruikt voor het opslaan van versleutelingssleutels en toepassingsgeheimen certificaten, en u wilt blokkeren van toegang tot uw key vault via het openbare internet.
+* U kunt toegang tot uw key vault vergrendelen zodat alleen uw toepassing of een korte lijst van bepaalde hosts verbinding met uw key vault maken kunt.
+* U hebt een toepassing die wordt uitgevoerd in uw Azure-netwerk en dit virtuele netwerk is vergrendeld voor alle binnenkomend en uitgaand verkeer. Uw toepassing moet nog steeds verbinding maken met Key Vault voor het ophalen van geheimen of certificaten en cryptografische sleutels te gebruiken.
 
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Key Vault-firewalls en virtuele netwerken configureren
 
-Hier volgen de stappen die vereist voor het configureren van firewalls en virtuele netwerken. Deze stappen blijven hetzelfde, ongeacht welke interface (PowerShell, CLI, Azure portal) wordt gebruikt voor het instellen van de firewall en regels voor virtueel netwerk.
-1. Optioneel maar ten zeerste aanbevolen: inschakelen [logboekregistratie van key vault](key-vault-logging.md) gedetailleerde toegang Logboeken. Dit helpt u bij het diagnostische gegevens over wanneer firewalls en virtuele netwerkregels te voorkomen toegang tot een key vault dat.
-2. Service-eindpunten voor key vault voor de doel-virtuele netwerken en subnetten inschakelen
-3. Firewalls en virtuele-netwerkregels voor een key vault toegang te beperken die key vault van specifieke virtuele netwerken, subnetten en IPv4-adresbereiken instellen.
-4. Als deze sleutelkluis toegankelijk zijn via een vertrouwde Microsoft-services moet, moet u de optie 'vertrouwde Azure-Services toestaan ' verbinding maken met key vault.
+Hier volgen de stappen die vereist voor het configureren van firewalls en virtuele netwerken. Deze stappen zijn van toepassing of u met PowerShell, de Azure CLI of Azure portal.
+1. Schakel [logboekregistratie van Key Vault](key-vault-logging.md) gedetailleerde toegang Logboeken. Dit helpt bij diagnostische gegevens, wanneer u firewalls en virtuele netwerkregels te voorkomen toegang tot een key vault dat. (Deze stap is optioneel maar ten zeerste aanbevolen.)
+2. Schakel **service-eindpunten voor key vault** voor virtuele netwerken en subnetten.
+3. Firewalls en virtuele-netwerkregels voor een key vault toegang te beperken die key vault vanuit een specifieke virtuele netwerken, subnetten en IPv4-adresbereiken instellen.
+4. Als deze sleutelkluis toegankelijk zijn via een vertrouwde Microsoft-services moet, schakelt u de optie om toe te staan **vertrouwde Azure-Services** verbinding maken met Key Vault.
 
-Raadpleeg [configureren van Azure Key Vault Firewalls en virtuele netwerken](key-vault-network-security.md) voor gedetailleerde stapsgewijze instructies.
+Zie voor meer informatie, [Azure Key Vault configureren van firewalls en virtuele netwerken](key-vault-network-security.md).
 
 > [!IMPORTANT]
-> Wanneer de firewall-regels zijn in feite alle Key Vault [gegevenslaag](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) bewerkingen kunnen alleen worden uitgevoerd wanneer de oproepende functie aanvragen afkomstig zijn uit de toegestane virtuele netwerken of een IPV4-adresbereik. (Voor meer informatie over management vlak vs gegevenslaag Lees [dit](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control) dit geldt ook voor toegang tot key vault vanuit Azure portal. Wanneer een gebruiker kan de browser tot een key vault vanuit Azure portal, ze niet mogelijk aan de lijst met sleutels/geheimen/certificaten als hun clientmachine zich niet in de lijst met toegestane. Dit ook van invloed op de 'Key Vault kiezer' door andere Azure-services. Gebruikers mogelijk om te bekijken van de lijst met sleutelkluizen maar sleutels, niet wordt vermeld als de firewall-regels te voorkomen dat de client-computer.
+> Nadat de firewall-regels zijn van kracht, gebruikers alleen Key Vault kunnen uitvoeren [gegevenslaag](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) operations wanneer hun aanvragen afkomstig uit de zijn toegestane virtuele netwerken of een IPv4-adresbereik. Dit geldt ook voor toegang tot Key Vault vanuit Azure portal. Hoewel gebruikers naar een key vault vanuit Azure portal bladeren kunnen, ze niet mogelijk een lijst met sleutels, geheimen of certificaten als hun clientmachine zich niet in de lijst met toegestane. Dit ook van invloed op de kiezer voor Key Vault met andere Azure-services. Gebruikers mogelijk overzicht van sleutelkluizen, maar niet sleutels, weergeven als de firewall-regels te voorkomen dat de client-computer.
 
 
 > [!NOTE]
-> * Een maximaal 127 VNET-regels en 127 IPv4-regels zijn toegestaan. 
-> * Kleine adresbereiken met behulp van '/ 31' of '/ 32' voorvoegsel grootten worden niet ondersteund. Deze bereiken moeten worden geconfigureerd met behulp van afzonderlijke regels voor IP-adres.
-> * IP-netwerkregels zijn alleen toegestaan voor openbare IP-adressen. IP-adresbereiken is gereserveerd voor particuliere netwerken (zoals gedefinieerd in RFC 1918) zijn niet toegestaan in IP-regels. Particuliere netwerken bevatten adressen die met beginnen *10.*\*, *172.16.*\*, en *192.168.*\*. 
+> Houd rekening met de volgende configuratie-beperkingen:
+> * Maximaal 127 virtueel netwerk en 127 IPv4-regels zijn toegestaan. 
+> * Kleine-adresbereiken die gebruikmaken van de '/ 31' of '/ 32' voorvoegsel grootten worden niet ondersteund. Configureer in plaats daarvan deze bereiken met behulp van afzonderlijke regels voor IP-adres.
+> * IP-netwerkregels zijn alleen toegestaan voor openbare IP-adressen. IP-adresbereiken is gereserveerd voor particuliere netwerken (zoals gedefinieerd in RFC 1918) zijn niet toegestaan in IP-regels. Particuliere netwerken bevatten adressen die met beginnen **10.**, **172.16.**, en **192.168.**. 
 > * Alleen IPv4-adressen worden ondersteund op dit moment.
 
 ## <a name="trusted-services"></a>Betrouwbare services
-Hier volgt een lijst met vertrouwde-services die zijn toegestaan voor toegang tot een key vault als de optie 'Vertrouwde services toestaan' is ingeschakeld.
+Hier volgt een lijst van vertrouwde services die zijn toegestaan voor toegang tot een key vault als de **vertrouwde-services toestaan** optie is ingeschakeld.
 
 |Vertrouwde service|Gebruiksscenario's|
 | --- | --- |
-|Service voor implementatie van Azure Virtual Machines|[Certificaten implementeren op virtuele machines uit de klant beheerde Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)|
-|Service voor implementatie Azure Resource Manager-sjablonen|[Beveiligde waarden doorgeven tijdens implementatie](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
-|Service voor versleuteling voor volumes van Azure Disk Encryption|Toegang tot BitLocker Key (Windows-VM) of DM wachtwoordzin (Linux-VM) en Key-versleutelingssleutel toestaan tijdens de implementatie van de virtuele machine om in te schakelen [Azure Disk Encryption](../security/azure-security-disk-encryption.md)|
-|Azure Backup|Toestaan dat back-up en herstel van de relevante sleutels en geheimen tijdens back-up van virtuele machine van Azure, met behulp van [Azure Backup](../backup/backup-introduction-to-azure-backup.md)|
-|Exchange Online en SharePoint Online|Toegang tot de klantsleutel toestaan voor Service-versleuteling met [Klantsleutel](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Service voor implementatie van Azure Virtual Machines|[Certificaten implementeren op virtuele machines uit de Sleutelkluis door de klant beheerde](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Service voor implementatie Azure Resource Manager-sjablonen|[Beveiligde waarden doorgeven tijdens implementatie](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
+|Service voor versleuteling voor volumes van Azure Disk Encryption|Toegang tot BitLocker Key (Windows-VM) of DM wachtwoordzin (Linux-VM) en Key-versleutelingssleutel, tijdens de implementatie van de virtuele machine toestaan. Hierdoor kunnen [Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
+|Azure Backup|Toestaan dat back-up en herstel van de relevante sleutels en geheimen tijdens back-up van virtuele Machines van Azure, met behulp van [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
+|Exchange Online en SharePoint Online|Toegang tot de klantsleutel toestaan voor Azure Storage-Serviceversleuteling met [Klantsleutel](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Toegang tot de tenantsleutel voor [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|App-services|[Azure Web App Certificate via Key Vault implementeren](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
-|Azure SQL|[De Transparent Data Encryption met Bring Your Own Key-ondersteuning voor Azure SQL Database en Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|
-|Azure Storage|[Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md)|
-|Azure Data Lake Store|[Versleuteling van gegevens in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) met de klant beheerde sleutel|
+|Azure App Service|[Azure Web App Certificate via Key Vault implementeren](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure SQL Database|[De Transparent Data Encryption met Bring Your Own Key-ondersteuning voor Azure SQL Database en Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure Storage|[Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Azure Data Lake Store|[Versleuteling van gegevens in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) met een door de klant beheerde sleutel.|
 
 
 
 > [!NOTE]
-> Het toegangsbeleid van de relevante sleutelkluis moeten worden ingesteld om de bijbehorende services om toegang tot key vault te krijgen.
+> U moet de relevante toegangsbeleid van Key Vault instellen waarmee de bijbehorende services toegang krijgen tot Key Vault.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Uw Key Vault beveiligen](key-vault-secure-your-key-vault.md)
-* [Azure Key Vault-Firewalls en virtuele netwerken configureren](key-vault-network-security.md)
+* [Azure Key Vault-firewalls en virtuele netwerken configureren](key-vault-network-security.md)

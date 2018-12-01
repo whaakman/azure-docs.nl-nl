@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: ddfcb90090d82d8fe947292737163a81c715b32d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 39d6b586158ce292f3697af0f7241a3858842374
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972824"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722221"
 ---
 # <a name="local-forwarder"></a>Lokale doorstuurserver
 
@@ -30,7 +29,7 @@ Lokale doorstuurserver is een [open-SourceProject op GitHub](https://github.com/
 
 ### <a name="windows"></a>Windows
 
-#### <a name="windows-service"></a>Windows-Service
+#### <a name="windows-service"></a>Windows-service
 
 De eenvoudigste manier om lokale doorstuurserver die wordt uitgevoerd onder Windows is door het te installeren als een Windows-Service. De versie wordt geleverd met een Windows-Service kan worden uitgevoerd (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) die eenvoudig kunnen worden geregistreerd met het besturingssysteem.
 

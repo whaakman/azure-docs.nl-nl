@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031302"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724499"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Maken en uitvoeren van een taak in uw Azure IoT Central-toepassing
 
@@ -56,8 +56,13 @@ Deze sectie leest u hoe u maken en een taak uitvoert. Elke stap verloopt via een
 
 Als u stoppen van een taak die momenteel wordt uitgevoerd wilt, klikt u op de naam van de actieve taak die u wilt stoppen. Kies de **stoppen** knop in het deelvenster. U ziet dat de status van de taak is gewijzigd om aan te geven dat de taak is gestopt.
 
-> [!NOTE]
-> Wanneer een taak is gestopt, kan niet opnieuw opgestart. U moet een andere taak maken met de gewenste operations en apparaten.
+   ![Taak stoppen](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Een gestopte taak uitvoeren
+
+Als u uitvoeren van een taak die momenteel gestopt wilt is, klikt u op de naam van de gestopte taak die u wilt uitvoeren. Kies de **uitvoeren** knop in het deelvenster. U ziet dat de taak de status is gewijzigd om aan te geven dat de taak is nu nogmaals uit te voeren.
+
+   ![Taak hervatten](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>Status van de taak weergeven
 

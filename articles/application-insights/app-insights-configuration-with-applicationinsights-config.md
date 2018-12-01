@@ -9,17 +9,16 @@ ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: b8e9a5591c33368698172d996d5c8ac699ad4602
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 885482d8baa305695e2b5a6d4247783c5a89b278
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335194"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680868"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>De Application Insights-SDK configureren met ApplicationInsights.config of ApplicationInsights.xml
 De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. De [core-pakket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt de API voor het verzenden van telemetrie naar de Application Insights. [Extra pakketten](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie *modules* en *initializers* voor het automatisch bijhouden van telemetrie van uw toepassing en de context. Door het configuratiebestand aanpassen, kunt u inschakelen of uitschakelen telemetrie-modules en initializers, en parameters voor sommige hiervan zijn ingesteld.

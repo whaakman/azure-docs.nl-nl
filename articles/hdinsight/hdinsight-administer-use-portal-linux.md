@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499385"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725179"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -64,7 +64,7 @@ Wanneer u een HDInsight-cluster maakt, moet u een Azure-abonnement opgeven. Het 
     1. Meld u aan bij [Azure Portal](https://portal.azure.com).
     2. Klik op **resourcegroepen** in het menu links om de resourcegroepen weer te geven.
     3. Klik op de resourcegroep die u gebruiken wilt voor het maken van uw HDInsight-cluster.
-    4. Klik op **toegangsbeheer (IAM)**, en controleer u (of een groep die u deel uitmaakt) hebben ten minste de Inzender-toegang tot de resourcegroep.
+    4. Klik op **toegangsbeheer (IAM)** en **roltoewijzingen**, en controleer u (of een groep die u deel uitmaakt) hebben ten minste de Inzender-toegang tot de resourcegroep.
 
 Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistration ontvangt, raadpleegt u [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -106,7 +106,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
 * **Diagnose-instellingen**: instellingen op waar om op te slaan van de metrische gegevens van diagnose **ondersteuning en probleemoplossing**
     * **Resourcestatus**: Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).
     * **Nieuwe ondersteuningsaanvraag**: kunt u een ondersteuningsticket maken met Microsoft ondersteuning.
-
+    
 6. Klik op **eigenschappen**:
 
     De eigenschappen zijn:

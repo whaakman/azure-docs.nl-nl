@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e18b670b94962c0e7aa469402228fd4ed95d846b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 9b9789979f6fa3beb606007ca252827c7a1599e0
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287248"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682279"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
 
@@ -126,36 +126,9 @@ Deze secties ziet u hoe u PowerShell-opdrachten maken, weergeven en beheren van 
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. U kunt de `Add-AlertRule` cmdlet voor het maken, bijwerken of een waarschuwingsregel uitschakelen. U kunt maken e-mail en webhook-eigenschappen met behulp van `New-AzureRmAlertRuleEmail` en `New-AzureRmAlertRuleWebhook`, respectievelijk. In de waarschuwingsregel-cmdlet kunt u deze eigenschappen toewijzen als acties aan de **acties** eigenschap van de waarschuwingsregel. De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor het maken van een waarschuwing met behulp van een metrische waarde.
-
-    | Parameter | waarde |
-    | --- | --- |
-    | Naam |simpletestdiskwrite |
-    | Locatie van deze waarschuwingsregel |US - oost |
-    | ResourceGroup |montest |
-    | TargetResourceId |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
-    | MetricName van de waarschuwing die is gemaakt |\Disk \PhysicalDisk (_Totaal) per seconde. Zie de `Get-MetricDefinitions` cmdlet over het ophalen van de exacte metrische namen |
-    | Operator |GreaterThan |
-    | De waarde voor drempel (aantal per seconde in voor deze metrische gegevens) |1 |
-    | Venstergrootte (uu: mm: indeling) |00:05:00 |
-    | aggregator (statistiek op van de metrische gegevens, die in dit geval maakt gebruik van gemiddeld aantal) |Gemiddeld |
-    | aangepaste e-mailberichten (string-matrix) |'foo@example.com','bar@example.com' |
-    | e-mail sturen naar eigenaars, medewerkers en lezers |-SendToServiceOwners |
-
-9. Maken van een e-mailactie
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-    ```
-
-10. De webhookactie van een maken
-
-    ```PowerShell
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-    ```
+8. Regels voor klassieke waarschuwingen kunnen niet meer worden gemaakt via PowerShell. Het maken van een waarschuwingsregel die u wilt gebruikmaken van de nieuwe ['Add-AzureRmMetricAlertRule'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Een klassieke metrische waarschuwing maken met een Resource Manager-sjabloon](monitoring-enable-alerts-using-template.md).
 - [Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook](insights-webhooks-alerts.md).
-

@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002524"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680851"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen2 (Preview) met Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (Preview)](../storage/data-lake-storage/introduction.md) wordt een protocol met hiërarchische naamruimte en beveiliging functies toegevoegd aan Azure Blob Storage, zodat u eenvoudig kunt analytics frameworks verbinden met een laag duurzame opslag. In Data Lake Storage Gen2 (Preview), de eigenschappen van de opslag van objecten blijven tijdens het toevoegen van de voordelen van een interface file system.
+Azure Data Lake Storage Gen2 Preview is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). Hiermee kunt u samenwerken met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
 
 Azure Data Factory is een volledig beheerde cloud-gebaseerde service voor gegevensintegratie. U kunt de service gebruiken voor het vullen van de lake met gegevens uit een grote verscheidenheid aan on-premises en cloud-gebaseerde gegevens worden opgeslagen en bespaar tijd bij het bouwen van uw analyseoplossingen. Voor een gedetailleerde lijst met ondersteunde connectors, Zie de tabel met [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -76,14 +76,14 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
     ![Pagina brongegevensarchief s3](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
 4. In de **opgeven Amazon S3 verbinding** pagina, de volgende stappen uit:
-   1. Geef de **toegangssleutel-ID** waarde.
-   2. Geef de **geheime toegangssleutel** waarde.
-   3. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
+
+    1. Geef de **toegangssleutel-ID** waarde.
+    2. Geef de **geheime toegangssleutel** waarde.
+    3. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
+    4. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
    
-   ![Amazon S3-account opgeven](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   
-   4. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
-   
+    ![Amazon S3-account opgeven](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      
 5. In de **invoerbestand of invoermap kiezen** pagina, blader naar de map en elk bestand dat u wilt dat moeten worden gekopieerd. Selecteer de map/bestand, selecteer **kiezen**:
 
     ![Het invoerbestand of de invoermap kiezen](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
@@ -99,7 +99,7 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
 8. In de **opgeven Azure Data Lake Storage verbinding** pagina, de volgende stappen uit:
 
    1. Selecteer uw Data Lake Storage Gen2 geschikt account van de "naam van het Opslagaccount" vervolgkeuzelijst.
-   2. Selecteer **Volgende**.
+   2. Selecteer **voltooien** om de verbinding te maken. Selecteer vervolgens **Volgende**.
    
    ![Azure Data Lake Storage Gen2 account opgeven](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6170b69d213470b1f5b7e75c9b102e5e07c09209
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035467"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682869"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taakstromen van Automation doorsturen naar Log Analytics
 
@@ -182,4 +182,4 @@ Log Analytics biedt tevens grotere operationele zichtbaarheid aan uw Automation-
 * Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de Automation-taaklogboeken met Log Analytics, [zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * Zie voor meer informatie over het maken en ophalen van de uitvoer en foutberichten van runbooks, [Runbook-uitvoer en berichten](automation-runbook-output-and-messages.md).
 * Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.
-* Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../log-analytics/log-analytics-azure-storage.md).
+* Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md).

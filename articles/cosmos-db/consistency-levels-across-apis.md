@@ -9,45 +9,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 22ddfbf86dacdd5d7f80d1fa7826d6ae11c4de45
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50956380"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680392"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API 's
 
-De vijf consistentiemodellen aangeboden door Azure Cosmos DB worden ondersteund door de Cosmos DB SQL API, die de standaard-API is bij het gebruik van Cosmos DB. Naast de SQL-API biedt Cosmos DB ook systeemeigen ondersteuning voor wire-protocol compatibele API's voor populaire databases, zoals MongoDB, Apache Cassandra, Gremlin en Azure-tabellen. Deze databases geen van beide nauwkeurig bieden gedefinieerd consistentiemodellen, noch de SLA's gesteunde garanties voor de consistentieniveaus. Deze databases bevatten doorgaans slechts een subset van de vijf consistentiemodellen aangeboden door Cosmos DB. Voor SQL-API, Gremlin-API en Table-API, wordt het standaardconsistentieniveau die u op de Cosmos-account configureert gebruikt.
+Vijf consistentiemodellen aangeboden door Azure Cosmos DB worden ondersteund door de Azure Cosmos DB SQL API. Wanneer u Azure Cosmos DB gebruikt, is de SQL-API de standaardinstelling. 
 
-De volgende secties ziet u de toewijzing tussen de gegevensconsistentie aangevraagd door een OSS-client-stuurprogramma voor Apache Cassandra 4.x en MongoDB 3.4 bij het gebruik van Cassandra-API en MongoDB-API, respectievelijk en de bijbehorende Cosmos DB-consistentieniveaus.
+Azure Cosmos DB biedt ook ingebouwde ondersteuning voor wire-protocol-compatibele API's voor populaire-databases. Databases omvatten MongoDB, Apache Cassandra, Gremlin en Azure Table storage. Deze databases bieden niet nauwkeurig omschreven consistentiemodellen of SLA's gesteunde garanties voor consistentieniveaus. Ze bieden doorgaans slechts een subset van de vijf consistentiemodellen aangeboden door Azure Cosmos DB. Voor de SQL-API, Gremlin-API en Table-API, wordt het standaardconsistentieniveau geconfigureerd op het Azure Cosmos DB-account gebruikt. 
 
-## <a id="cassandra-mapping"></a>Toewijzing tussen Apache Cassandra en Cosmos DB-consistentieniveaus
+De volgende secties ziet u de toewijzing tussen de consistentie van de gegevens aangevraagd door een OSS-client-stuurprogramma voor Apache Cassandra 4.x en MongoDB 3.4. Dit document bevat ook de bijbehorende Azure Cosmos DB-consistentieniveaus voor Apache Cassandra en MongoDB.
 
-De volgende tabel bevat de toewijzing "lezen van consistentie" tussen Apache Cassandra 4.x-client en het standaardconsistentieniveau in Cosmos DB voor zowel meerdere regio's als één regio implementaties.
+## <a id="cassandra-mapping"></a>Toewijzing tussen Apache Cassandra en Azure Cosmos DB-consistentieniveaus
 
-| **Apache Cassandra 4.x** | **Cosmos DB (meerdere regio's)** | **Cosmos DB (één regio)** |
+Deze tabel bevat de toewijzing 'lezen consistentie' tussen de Apache Cassandra 4.x-client en het standaardconsistentieniveau in Azure Cosmos DB. De tabel ziet u implementaties in meerdere regio's en één regio.
+
+| **Apache Cassandra 4.x** | **Azure Cosmos DB (meerdere regio's)** | **Azure Cosmos DB (één regio)** |
 | - | - | - |
-| EEN TWEE DRIE | Consistent prefix | Consistent prefix |
-| LOCAL_ONE | Consistent prefix | Consistent prefix |
-| QUORUM, ALLE, SERIENUMMER | Gebonden veroudering (standaard) of sterk (in private preview) | Sterk |
+| EEN TWEE DRIE | Consistent voorvoegsel | Consistent voorvoegsel |
+| LOCAL_ONE | Consistent voorvoegsel | Consistent voorvoegsel |
+| QUORUM, ALLE, SERIENUMMER | Gebonden veroudering is de standaardinstelling. Er is een sterke in private preview. | Sterk |
 | LOCAL_QUORUM | Gebonden veroudering | Sterk |
 | LOCAL_SERIAL | Gebonden veroudering | Sterk |
 
-## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB 3.4 en Cosmos DB-consistentieniveaus
+## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB 3.4 en Azure Cosmos DB-consistentieniveaus
 
-De volgende tabel bevat de toewijzing 'lezen problemen' tussen MongoDB 3.4 en het standaardconsistentieniveau in Cosmos DB voor zowel meerdere regio's als één regio implementaties.
+De volgende tabel ziet u de toewijzing 'lezen problemen' tussen MongoDB 3.4 en het standaardconsistentieniveau in Azure Cosmos DB. De tabel ziet u implementaties in meerdere regio's en één regio.
 
-| **MongoDB 3.4** | **Cosmos DB (meerdere regio's)** | **Cosmos DB (één regio)** |
+| **MongoDB 3.4** | **Azure Cosmos DB (meerdere regio's)** | **Azure Cosmos DB (één regio)** |
 | - | - | - |
 | Linearizable | Sterk | Sterk |
 | Meerderheid | Gebonden veroudering | Sterk |
-| Lokaal | Consistent prefix | Consistent prefix |
+| Lokaal | Consistent voorvoegsel | Consistent voorvoegsel |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees meer informatie over consistentieniveaus en compatibiliteit tussen Cosmos DB-API's met de open-source-API's in de volgende artikelen:
+Meer informatie over consistentieniveaus en compatibiliteit tussen Azure Cosmos DB-API's met de open-source-API's. Zie de volgende artikelen:
 
 * [Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus](consistency-levels-tradeoffs.md)
-* [MongoDB-functies worden ondersteund door Cosmos DB MongoDB-API](mongodb-feature-support.md)
-* [Apache Cassandra-functies worden ondersteund door Cosmos DB Cassandra-API](cassandra-support.md)
+* [MongoDB-functies worden ondersteund door de Azure Cosmos DB MongoDB-API](mongodb-feature-support.md)
+* [Apache Cassandra-functies worden ondersteund door de Cassandra-API van Azure Cosmos DB](cassandra-support.md)

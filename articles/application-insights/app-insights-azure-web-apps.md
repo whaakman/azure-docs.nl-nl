@@ -9,16 +9,15 @@ ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17a0b36fffb14f423aba3dd02b5b42d44933309c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f5179730223609def5ddb0e45317c2f986584139
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165387"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680477"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Prestaties van Azure-web-apps controleren
 In de [Azure Portal](https://portal.azure.com) kunt u instellen dat de prestaties van uw [Azure-web-apps](../app-service/app-service-web-overview.md) worden gecontroleerd. Met [Azure Application Insights](app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.

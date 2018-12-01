@@ -10,16 +10,15 @@ keywords: Azure Backup-server; bescherming van workloads; back-up van workloads
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 14379d82b4b60c0ea555388ac61c9c7b8fbe9e4f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576694"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721427"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Backup Server installeren op Azure Stack
 
@@ -325,7 +324,7 @@ Op hetzelfde moment moet de Azure-abonnement in een foutloze toestand bevindt. O
 
 Zodra u weet de status van de Azure-connectiviteit en van het Azure-abonnement dat, kunt u de onderstaande tabel om de impact op de functionaliteit van back-up/herstel erachter te komen.
 
-| Status connectiviteit | Azure-abonnement | Back-up naar Azure | Back-up naar schijf | Herstellen van Azure | Terugzetten vanaf schijf |
+| Status connectiviteit | Azure-abonnement | Back-up naar Azure | Back-up naar schijf | Herstellen van Azure | Herstellen uit een schijf |
 | --- | --- | --- | --- | --- | --- |
 | Verbonden |Actief |Toegestaan |Toegestaan |Toegestaan |Toegestaan |
 | Verbonden |Vervallen |Gestopt |Gestopt |Toegestaan |Toegestaan |

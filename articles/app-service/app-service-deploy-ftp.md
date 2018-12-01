@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819998"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679389"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uw app implementeren in Azure App Service met behulp van FTP/S
 
@@ -31,7 +31,7 @@ Het eindpunt FTP/S voor uw app is al actief. Er is geen configuratie nodig om in
 
 In de [Azure-portal](https://portal.azure.com), opent u van uw app [resourcepagina](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-De FTP-dashboard, klikt u op **continue levering (Preview)** > **FTP** > **Dashboard**.
+De FTP-dashboard, klikt u op **Implementatiecentrum** > **FTP** > **Dashboard**.
 
 ![FTP-dashboard openen](./media/app-service-deploy-ftp/open-dashboard.png)
 

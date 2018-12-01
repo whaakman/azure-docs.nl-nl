@@ -9,16 +9,15 @@ ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 70086cdff3ed313d2b6851139ca8c8a937426aab
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: daeb2a08e29c71465581e3c51a92cb238a77417e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716788"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681837"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Exporteren naar SQL van Application Insights met behulp van Stream Analytics
 Dit artikel wordt beschreven hoe u uw telemetriegegevens van verplaatst [Azure Application Insights] [ start] in een Azure SQL-database met behulp van [continue Export] [ export] en [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 

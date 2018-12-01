@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptal
+ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c041437b610c56fd34667d9b8f3fe67080b3aafc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e02b2591e145933979b5c69f9a6c0cf6f9b57b82
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419347"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719875"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Een Log Analytics-werkruimte maken in Azure portal
 Dit is een unieke Log Analytics-omgeving met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen in Azure portal die kunt u een Log Analytics-werkruimte instellen.  De stappen in dit artikel zijn vereist als u van plan bent voor het verzamelen van gegevens uit de volgende bronnen:
@@ -63,7 +62,7 @@ Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u d
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u een werkruimte beschikbaar hebt, kunt u verzamelen van telemetrie bewaking configureren, uitvoeren van zoekopdrachten in Logboeken om die gegevens te analyseren en toevoegen van een oplossing om aanvullende gegevens en analytische informatie te bieden. 
 
-* Zie voor het inschakelen van verzamelen van gegevens uit Azure-resources met Azure Diagnostics of Azure storage [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](log-analytics-azure-storage.md).  
+* Zie voor het inschakelen van verzamelen van gegevens uit Azure-resources met Azure Diagnostics of Azure storage [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * [System Center Operations Manager als een gegevensbron toevoegen](log-analytics-om-agents.md) voor het verzamelen van gegevens van agents die rapporteren van uw Operations Manager-beheergroep en sla deze op in uw Log Analytics-werkruimte. 
 * Verbinding maken met [Configuration Manager](log-analytics-sccm.md) voor het importeren van computers die lid van verzamelingen in de hiërarchie zijn.  
 * Controleer de [beheeroplossingen](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) beschikbaar en hoe u kunt toevoegen of verwijderen van een oplossing uit uw werkruimte.

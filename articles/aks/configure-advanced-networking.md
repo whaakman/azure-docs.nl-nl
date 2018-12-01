@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 289aa893a0ffa598d5b9fae67a81e9bf0c9782f7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a46989ea197166065b4ca482200a0d30e1def7c9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014394"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723088"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Geavanceerde netwerken configureren in Azure Kubernetes Service (AKS)
 
@@ -49,9 +49,9 @@ Het IP-adres-plan voor een AKS-cluster bestaat uit een virtueel netwerk, ten min
 | Adresbereik / Azure resource | Limieten en grootte |
 | --------- | ------------- |
 | Virtueel netwerk | Het Azure-netwerk zo groot is als/8 die kan worden, maar is beperkt tot 65.536 geconfigureerde IP-adressen. |
-| Subnet | Moet groot genoeg is voor de knooppunten, schillen en alle Kubernetes en Azure-resources die kunnen worden ingericht in het cluster. Als u een interne Load Balancer in Azure implementeert, kunt u voor de front-end-IP-adressen, worden toegewezen uit het subnet van het cluster, geen openbare IP-adressen. De grootte van het gatewaysubnet moet ook rekening upgrade accountbewerkingen of toekomstige behoeften voor vergroten/verkleinen.<p />Voor het berekenen van de *minimale* subnetgrootte, met inbegrip van een extra knooppunt voor upgrade bewerkingen: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Voorbeeld voor een cluster met 50 knooppunten: `(51) + (51  * 30 (default)) = 1,581` (/ 21 of hoger)<p/>Voorbeeld voor een cluster met 50 knooppunten die ook inrichten een aanvullende 10 knooppunten kan worden uitgebreid: `(61) + (61 * 30 (default)) = 2,440` (/ 20 of groter)<p>Als u geen een maximum aantal schillen per knooppunt opgeeft wanneer u uw cluster maakt, het maximum aantal schillen per knooppunt is ingesteld op *30*. Het minimale aantal vereiste IP-adressen is gebaseerd op die waarde. Als u de minimale vereisten van IP-adres op een andere maximale waarde berekenen, Zie [het configureren van het maximum aantal schillen per knooppunt](#configure-maximum---new-clusters) kunt u deze waarde instellen wanneer u uw cluster implementeert. |
+| Subnet | Moet groot genoeg is voor de knooppunten, schillen en alle Kubernetes en Azure-resources die kunnen worden ingericht in het cluster. Als u een interne Load Balancer in Azure implementeert, kunt u voor de front-end-IP-adressen, worden toegewezen uit het subnet van het cluster, geen openbare IP-adressen. De grootte van het gatewaysubnet moet ook rekening upgrade accountbewerkingen of toekomstige behoeften voor vergroten/verkleinen.<p />Voor het berekenen van de *minimale* subnetgrootte, met inbegrip van een extra knooppunt voor upgrade bewerkingen: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Voorbeeld voor een cluster met 50 knooppunten: `(51) + (51  * 30 (default)) = 1,581` (/ 21 of hoger)<p/>Voorbeeld voor een cluster met 50 knooppunten die ook inrichten een aanvullende 10 knooppunten kan worden uitgebreid: `(61) + (61 * 30 (default)) = 1,891` (/ 21 of hoger)<p>Als u geen een maximum aantal schillen per knooppunt opgeeft wanneer u uw cluster maakt, het maximum aantal schillen per knooppunt is ingesteld op *30*. Het minimale aantal vereiste IP-adressen is gebaseerd op die waarde. Als u de minimale vereisten van IP-adres op een andere maximale waarde berekenen, Zie [het configureren van het maximum aantal schillen per knooppunt](#configure-maximum---new-clusters) kunt u deze waarde instellen wanneer u uw cluster implementeert. |
 | Adresbereik van Kubernetes service | Dit bereik moet niet worden gebruikt door elk netwerkelement op of verbonden met dit virtuele netwerk. Adres van service CIDR moet kleiner zijn dan /12. |
-| IP-adres van Kubernetes DNS-service | IP-adres binnen het Kubernetes-service-adresbereik dat wordt gebruikt door clusterservicedetectie (kube-dns). |
+| IP-adres van Kubernetes DNS-service | IP-adres binnen het Kubernetes-service-adresbereik dat wordt gebruikt door clusterservicedetectie (kube-dns). Gebruik niet het eerste IP-adres in het adresbereik, bijvoorbeeld.1. Het eerste adres in het subnetbereik van uw wordt gebruikt voor de *kubernetes.default.svc.cluster.local* adres. |
 | Docker bridge-adres | IP-adres (in CIDR-notatie) gebruikt als de Docker bridge-IP-adres op knooppunten. De standaardwaarde van 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Maximale schillen per knooppunt
@@ -93,7 +93,7 @@ Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigur
 
 Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde virtuele netwerk als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services] [ services] in het Kubernetes-documentatie.
 
-**IP-adres van Kubernetes DNS-service**: het IP-adres van het cluster DNS-service. Dit adres moet zich binnen de *Kubernetes service-adresbereik*.
+**IP-adres van Kubernetes DNS-service**: het IP-adres van het cluster DNS-service. Dit adres moet zich binnen de *Kubernetes service-adresbereik*. Gebruik niet het eerste IP-adres in het adresbereik, bijvoorbeeld.1. Het eerste adres in het subnetbereik van uw wordt gebruikt voor de *kubernetes.default.svc.cluster.local* adres.
 
 **Docker Bridge-adres**: het IP-adres en netmasker om toe te wijzen aan de brug Docker. Dit IP-adres moet niet binnen het virtuele netwerk IP-adresbereik van het cluster.
 

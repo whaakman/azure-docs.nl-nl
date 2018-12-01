@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387630"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722374"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informatie over periodieke back-upconfiguratie in Azure Service Fabric
 
@@ -110,6 +110,7 @@ Een back-upbeleid bestaat uit de volgende configuraties:
             ```
 
         2. _Beveiliging-bestandsshare met behulp van de gebruikersnaam en wachtwoord_, waar de toegang tot de bestandsshare is opgegeven voor specifieke gebruikers. File share storage specificatie biedt tevens de mogelijkheid om op te geven van de secundaire gebruikersnaam en het secundaire wachtwoord voor fall-back-referenties als verificatie is mislukt met de primaire gebruikersnaam en het primaire wachtwoord. In dit geval, stelt de volgende velden configureren _bestandsshare_ op basis van de back-upopslag.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ Een back-upbeleid bestaat uit de volgende configuraties:
 > [!NOTE]
 > Zorg ervoor dat de betrouwbaarheid van de opslag voldoet aan of vereisten van de betrouwbaarheid van back-upgegevens overschrijdt.
 >
+
+* **Bewaarbeleid**: Hiermee geeft u het beleid voor het bewaren van back-ups in de geconfigureerde opslag. Alleen eenvoudige bewaarbeleid wordt ondersteund.
+    1. **Basic bewaarbeleid**: deze bewaarbeleid kunt om te controleren of gebruik van de optimale opslag door het verwijderen van back-upbestanden die u niet meer nodig. `RetentionDuration` om in te stellen de tijdsspanne waarvoor back-ups zijn vereist om te worden bewaard in de opslag kan worden opgegeven. `MinimumNumberOfBackups` is een optionele parameter die kan worden opgegeven om ervoor te zorgen dat het opgegeven aantal back-ups blijft altijd ongeacht behouden de `RetentionDuration`. Onderstaande voorbeeld ziet u de configuratie voor het bewaren van back-ups voor _10_ dagen en staat niet toe dat het aantal back-ups onder _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>Periodieke back-up inschakelen
 Na het definiëren van back-upbeleid om te voldoen aan vereisten voor back-up van gegevens, het back-upbeleid moet worden op de juiste wijze gekoppeld ofwel met een _toepassing_, of _service_, of een _partitie_.
@@ -178,6 +190,13 @@ Back-upbeleid kunnen worden uitgeschakeld als er geen moeten back-upgegevens. Ba
 * Uitschakelen van back-upbeleid voor een _service_ stopt alle gegevens op periodieke back-ups gebeurt als gevolg van dit back-upbeleid worden doorgegeven aan de partities van de _service_.
 
 * Uitschakelen van back-upbeleid voor een _partitie_ stopt alle gegevens op periodieke back-up gebeurt vanwege het back-upbeleid op de partitie.
+
+* Bij het uitschakelen van back-up voor een entity(application/service/partition) `CleanBackup` kan worden ingesteld op _waar_ verwijderen van alle de back-ups in de geconfigureerde opslag.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
 
 ## <a name="suspend--resume-backup"></a>Onderbreken en hervatten van back-up
 Bepaalde situatie kan tijdelijke onderbreking van periodieke back-up van gegevens van de vraag. In deze situatie, afhankelijk van het vereiste onderbreken back-up API kan worden gebruikt bij een _toepassing_, _Service_, of _partitie_. Periodieke back-up onderbreking kan worden overgedragen via een substructuur van de hiërarchie van de toepassing vanaf het punt dat deze wordt toegepast. 

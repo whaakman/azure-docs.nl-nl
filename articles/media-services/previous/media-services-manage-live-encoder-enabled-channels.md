@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262615"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682653"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -214,18 +214,17 @@ Hiermee geeft u de vooraf gedefinieerde instellingen kunnen worden gebruikt door
 
 Houd er rekening mee dat als u aangepaste voorinstellingen wilt, moet u contact opnemen amslived@microsoft.com.
 
-**Default720p** wordt de video coderen in de volgende 7 lagen.
+**Default720p** wordt de video coderen in de volgende 6 lagen.
 
 #### <a name="output-video-stream"></a>Uitvoer Video Stream
 | BitRate | Breedte | Hoogte | MaxFPS | Profiel | Naam van de uitvoer-Stream |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hoog |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Algemeen |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Algemeen |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Algemeen |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Algemeen |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Basislijn |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Basislijn |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Hoog |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Hoog |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Hoog |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Hoog |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Hoog |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Uitvoer Audio Stream
 

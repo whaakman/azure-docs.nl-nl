@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6175ca26412dccf7ff6dfbce02df738ea8b6eb1a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298775"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721541"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Tenant-brede inzicht voor Azure Security Center
 Dit artikel helpt u aan de slag met het uitvoeren van verschillende acties die de Azure Security Center biedt voordelen maximaliseren. Deze acties worden uitgevoerd, kunt u inzicht op alle Azure-abonnementen die zijn gekoppeld aan uw Azure Active Directory-tenant en effectief beheren van de beveiligingsstatus van uw organisatie op schaal door het toepassen van beveiligingsbeleid voor meerdere krijgen abonnementen op een aggregative manier.
@@ -93,13 +93,16 @@ Voor meer zichtbaarheid voor alle abonnementen, moeten tenantbeheerders de juist
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>RBAC-rollen toewijzen aan gebruikers via de Azure-portal: 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
-2. Als u beheergroepen, selecteer **alle services** onder het Azure-hoofdmenu Selecteer **beheergroepen**.
-3.  Selecteer een beheergroep en klik op **details**.
+1. Als u beheergroepen, selecteer **alle services** onder het Azure-hoofdmenu Selecteer **beheergroepen**.
+1.  Selecteer een beheergroep en klik op **details**.
 
     ![Beheer van groepen details-schermafbeelding](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Klik op **toegangsbeheer (IAM)** vervolgens **toevoegen**.
-5. Selecteer de rol om toe te wijzen en de gebruiker en klik vervolgens op **opslaan**.  
+1. Klik op **toegangsbeheer (IAM)** vervolgens **roltoewijzingen**.
+
+1. Klik op **roltoewijzing toevoegen**.
+
+1. Selecteer de rol om toe te wijzen en de gebruiker en klik vervolgens op **opslaan**.  
    
    ![Schermafbeelding van de rol van Beveiligingslezer toevoegen](./media/security-center-management-groups/asc-security-reader.png)
 

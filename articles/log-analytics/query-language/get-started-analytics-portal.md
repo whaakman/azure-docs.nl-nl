@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9d045fefaccc9bc155f80e7b40c340d6531a7dda
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978196"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52683044"
 ---
 # <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Aan de slag met Log Analytics in Azure portal
 
@@ -71,7 +69,7 @@ Een query uitvoeren door te klikken op de **uitvoeren** knop of te drukken **Shi
 - Tijdsbereik - een tijdsbereik van _afgelopen 24 uur_ is standaard ingesteld. Voor het gebruik van een ander bereik, de tijdkiezer gebruiken of een expliciete tijd toevoegen bereikfilter aan uw query.
 
 
-## <a name="understand-the-schema"></a>Inzicht in het schema
+## <a name="understand-the-schema"></a>Informatie over het schema
 Het schema is een verzameling van tabellen visueel worden gegroepeerd in een logische categorie. Aantal van de categorieën zijn van oplossingen voor bewaking. De _LogManagement_ categorie bevat algemene gegevens, zoals Windows en Syslog-gebeurtenissen, prestatiegegevens en heartbeats van de client.
 
 ![Schema](media/get-started-analytics-portal/schema.png)

@@ -9,17 +9,16 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8a73ad7c17710ab3e6e4ed41eced643ce9eb86dc
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8fdf1bed0b75111abef4579565698f0c48b5d843
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042475"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724142"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Weergeven en analyseren van gegevens in Log Analytics
 Er zijn twee opties beschikbaar zijn in de Azure-portal voor het analyseren van gegevens die zijn opgeslagen in Log analytics en voor het maken van query's voor ad-hoc-analyse. De query's die u maakt gebruik van deze portals kunnen worden gebruikt voor andere onderdelen, zoals waarschuwingen en dashboards.

@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249329"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679355"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 (Preview) met Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (Preview)](../storage/data-lake-storage/introduction.md) wordt een protocol met hiërarchische naamruimte en beveiliging functies toegevoegd aan Azure Blob Storage, zodat u eenvoudig kunt analytics frameworks verbinden met een laag duurzame opslag. In Data Lake Storage Gen2 (Preview), de eigenschappen van de opslag van objecten blijven tijdens het toevoegen van de voordelen van een interface file system.
+Azure Data Lake Storage Gen2 Preview is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). Hiermee kunt u samenwerken met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
 
 Als u momenteel van Azure Data Lake Storage Gen1 gebruikmaakt, kunt u de nieuwe functie Gen2 evalueren door te kopiëren van gegevens van Data Lake Storage Gen1 naar Gen2 met Azure Data Factory.
 
@@ -75,17 +75,15 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
     ![Azure Data Lake Storage Gen1 pagina van brongegevensarchief](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 4. In de **opgeven Azure Data Lake Storage Gen1 verbinding** pagina, de volgende stappen uit:
-   1. Selecteer uw Data Lake Storage Gen1 voor de accountnaam.
-   2. Geef op of valideren de **Tenant**, en selecteer voltooien.
-   3. Selecteer **Volgende**.
+   1. Selecteer uw Data Lake Storage Gen1 voor de accountnaam, en geef aan of het valideren van de **Tenant**.
+   2. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
+   3. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
    
    > [!IMPORTANT]
-   > In dit scenario maakt u een beheerde identiteit voor Azure-resources gebruikt voor verificatie van uw Data Lake Storage Gen1e. Zorg ervoor dat u het MSI-bestand de juiste machtigingen in Azure Data Lake Storage Gen1 verlenen door [deze instructies](connector-azure-data-lake-store.md#managed-identity).
+   > In dit scenario maakt u een beheerde identiteit voor Azure-resources gebruikt voor verificatie van uw Data Lake Storage Gen1. Zorg ervoor dat u het MSI-bestand de juiste machtigingen in Azure Data Lake Storage Gen1 verlenen door [deze instructies](connector-azure-data-lake-store.md#managed-identity).
    
    ![Gen1 van Azure Data Lake Storage-account opgeven](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
-   
-   4. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
-   
+      
 5. In de **invoerbestand of invoermap kiezen** pagina, blader naar de map en elk bestand dat u wilt dat moeten worden gekopieerd. Selecteer de map/bestand, selecteer **kiezen**:
 
     ![Het invoerbestand of de invoermap kiezen](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
@@ -101,7 +99,7 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
 8. In de **opgeven Azure Data Lake Storage Gen2 verbinding** pagina, de volgende stappen uit:
 
    1. Selecteer uw Data Lake Storage Gen2 geschikt account van de "naam van het Opslagaccount" vervolgkeuzelijst.
-   2. Selecteer **Volgende**.
+   2. Selecteer **voltooien** om de verbinding te maken. Selecteer vervolgens **Volgende**.
    
    ![Azure Data Lake Storage Gen2 account opgeven](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

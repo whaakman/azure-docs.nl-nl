@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300452"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720130"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Maken, weergeven, verwijderen of een rol toewijzen aan een gebruiker toegewezen beheerde identiteit met Azure portal
 
@@ -69,18 +69,18 @@ Als u wilt verwijderen van een gebruiker toegewezen beheerde identiteit, uw acco
 
 ![Verwijderen van de gebruiker toegewezen beheerde identiteit](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit 
 
 Als u wilt een rol toewijzen aan een gebruiker toegewezen beheerde identiteit, uw account moet de [Administrator voor gebruikerstoegang](/azure/role-based-access-control/built-in-roles#user-access-administrator) roltoewijzing.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een account dat is gekoppeld aan het Azure-abonnement om de beheerde gebruiker toegewezen identiteiten weer te geven.
 2. Typ in het zoekvak *beheerde identiteiten*, en klik onder Services op **beheerde identiteiten**.
 3. Een lijst van de gebruiker toegewezen beheerde identiteit voor uw abonnement wordt geretourneerd.  Selecteer de op de gebruiker toegewezen beheerde identiteit die u wilt een rol toe te wijzen.
-4. Selecteer **toegangsbeheer (IAM)** en selecteer vervolgens **toevoegen**.
+4. Selecteer **toegangsbeheer (IAM)** en selecteer vervolgens **roltoewijzing toevoegen**.
 
    ![Begin van de gebruiker toegewezen beheerde identiteit](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. Configureer de volgende waarden op de blade van de machtigingen toevoegen en klik vervolgens op **opslaan**:
+5. Configureer de volgende waarden in het tabblad toevoegen rol toewijzing en klik vervolgens op **opslaan**:
    - **Rol** -de rol toewijzen
    - **Toegang toewijzen aan** -beheerde identiteit van de resource toe aan de gebruiker toegewezen toewijzen
    - **Selecteer** -het lid om toegang te verlenen

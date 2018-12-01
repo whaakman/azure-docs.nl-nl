@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e81efb0a7977bbd50c63834f676b7cc75201dc68
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445758"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680682"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Toegang tot gegevenssets met Python met behulp van de clientbibliotheek van Azure Machine Learning Python
 De Preview-versie van Microsoft Azure Machine Learning Python-clientbibliotheek kunt inschakelen van beveiligde toegang tot uw Azure Machine Learning-gegevenssets van een lokale Python-omgeving en kunt het maken en beheren van gegevenssets in een werkruimte.
@@ -61,7 +61,7 @@ Als u git op uw computer geïnstalleerd hebt, kunt u pip gebruiken om rechtstree
 ## <a name="datasetAccess"></a>Codefragmenten Studio gebruiken voor toegang tot gegevenssets
 De Python-clientbibliotheek biedt u programmatische toegang tot uw bestaande gegevenssets van experimenten die zijn uitgevoerd.
 
-In de Studio webinterface, kunt u codefragmenten die bevatten alle benodigde informatie om te downloaden en te deserialiseren van gegevenssets als pandas DataFrame objecten op uw computer locatie genereren.
+In de Studio webinterface, kunt u codefragmenten die bevatten alle benodigde informatie om te downloaden en te deserialiseren van gegevenssets als pandas DataFrame objecten op uw lokale computer genereren.
 
 ### <a name="security"></a>Beveiliging voor toegang tot gegevens
 De codefragmenten die is geleverd door de Studio voor gebruik met de Python-clientbibliotheek uw werkruimte-id en -autorisatie bevat-token. Deze bieden volledige toegang tot uw werkruimte en moeten worden beveiligd, zoals een wachtwoord.

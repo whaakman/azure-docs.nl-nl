@@ -9,16 +9,15 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: d1b7b5baeba88ec0209abff60e9327031afa8b66
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5ef451da3eae696c3506f25ee9458b3ad3286b07
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633772"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721179"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -137,7 +136,7 @@ Vaak hebt u de vereiste Azure Monitor worden geïntegreerd met andere systemen e
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) is een service waarmee u kunt het automatiseren van taken en bedrijfsprocessen met behulp van werkstromen die kunnen worden geïntegreerd met andere systemen en services. Activiteiten zijn beschikbaar die lezen en schrijven van metrische gegevens en Logboeken in Azure Monitor, zodat u kunt het bouwen van werkstromen met tal van andere systemen integreren.
 
-![Logische apps](../log-analytics/media/log-analytics-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+![Logische apps](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Meerdere API's zijn beschikbaar voor lezen en schrijven logboeken en metrische gegevens naar en van Azure Monitor naast de toegang tot gegenereerde waarschuwingen. U kunt ook configureren en waarschuwingen worden opgehaald. Dit biedt u in feite onbeperkte mogelijkheden om aangepaste oplossingen die kunnen worden geïntegreerd met Azure Monitor te maken.

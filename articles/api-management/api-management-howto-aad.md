@@ -13,26 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 33a5b6e894c9c2b74f4c85ee96d59c0313a4bbe2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: adbe33bedf23e37c2d3fd485965dea86edbd269a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446973"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681463"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory in Azure API Management
 
 Dit artikel leest u hoe de developer-Portal voor gebruikers om toegang te krijgen van Azure Active Directory (Azure AD). Deze handleiding leest u ook hoe voor het beheren van groepen van Azure AD-gebruikers door externe groepen met de gebruikers toe te voegen.
-
-> [!NOTE]
-> Azure AD-integratie is beschikbaar in de [Developer, Standard en Premium](https://azure.microsoft.com/pricing/details/api-management/) alleen lagen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 - Importeren en publiceren van een Azure API Management-exemplaar. Zie voor meer informatie, [importeren en publiceren](import-and-publish.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Ontwikkelaarsaccounts authoriseren met behulp van Azure AD
 

@@ -8,16 +8,15 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c53016c6e8760f2fef15c73f460886c46ac8a58c
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256422"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679202"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Azure Application Insights processen automatiseren met de connector voor Microsoft Flow
 
@@ -35,7 +34,7 @@ In deze zelfstudie leert u hoe u een stroom die gebruikmaakt van het algoritme A
 
 ### <a name="step-1-create-a-flow"></a>Stap 1: Een stroom maken
 1. Aanmelden bij [Microsoft Flow](https://flow.microsoft.com), en selecteer vervolgens **mijn stromen**.
-1. Klik op **een stroom maken met een lege App**.
+2. Klik op **een stroom maken met een lege App**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Stap 2: Een trigger voor uw stroom maken
 1. Selecteer **planning**, en selecteer vervolgens **planning - terugkeerpatroon**.

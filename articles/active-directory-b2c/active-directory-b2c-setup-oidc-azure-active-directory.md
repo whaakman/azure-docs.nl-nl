@@ -1,28 +1,28 @@
 ---
-title: Aanmelding bij Azure Active Directory-accounts instellen met een ingebouwde beleid in Azure Active Directory B2C | Microsoft Docs
-description: Aanmelding bij Azure Active Directory-accounts instellen een ingebouwd beleid in Azure Active Directory B2C.
+title: Instellen van aanmelden voor een Azure Active Directory-organisatie in Azure Active Directory B2C | Microsoft Docs
+description: Instellen van de aanmelding voor een specifieke Azure Active Directory-organisatie in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312779"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719909"
 ---
-# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Aanmelding bij Azure Active Directory-accounts instellen met een ingebouwde beleid in Azure Active Directory B2C
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Aanmelden voor een specifieke Azure Active Directory-organisatie in Azure Active Directory B2C instellen
 
 >[!NOTE]
 > Deze functie is beschikbaar als openbare preview. Gebruik de functie niet in een productieomgeving.
 
-Dit artikel ziet u hoe u aanmelding voor gebruikers van een specifieke Azure Active Directory (Azure AD)-organisatie met behulp van een ingebouwde beleid in Azure Active Directory (Azure AD) B2C inschakelen.
+Dit artikel ziet u hoe u aanmelding voor gebruikers van een specifieke Azure Active Directory (Azure AD)-organisatie met behulp van een beleid in Azure Active Directory (Azure AD) B2C inschakelen.
 
 ## <a name="create-an-azure-ad-app"></a>Een Azure AD-app maken
 

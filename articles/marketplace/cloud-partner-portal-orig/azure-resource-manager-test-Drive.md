@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 85e6dc8d72588ff64c0119a6c1944755ce5686f4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025256"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720929"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
 =================================
@@ -382,15 +382,13 @@ Klik op Opslaan. De laatste stap is om te halen van de toepassings-ID voor deze 
 Krijgen we de toepassing gebruiken om te implementeren voor het abonnement, moet de toepassing toevoegen als Inzender van het abonnement. De instructies voor deze zijn als hieronder:
 
 1. Navigeer naar de blade abonnementen en selecteer het juiste abonnement dat u voor de Test Drive gebruikt.
-2. Klik op de Access Control (IAM).
-3. Klik op + toevoegen in de nieuwe blade.
-4. De rol Inzender ingesteld.
-5. Typ de naam van de AAD-toepassing en selecteert u de AAD-toepassing aan de rol toe te wijzen.
-6. Klik op opslaan.
-
-![Een nieuwe Access Control-principal toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![De machtigingen toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op de **roltoewijzingen** tabblad.  ![Een nieuwe Access Control-principal toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Klik op **roltoewijzing toevoegen**.
+1. Instellen van de rol als **Inzender**.
+1. Typ de naam van de Azure AD-toepassing en selecteer de toepassing aan de rol toe te wijzen.
+    ![De machtigingen toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Klik op **Opslaan**.
 
 **Azure AD App Key -** *vereist* het laatste veld voor het genereren van een verificatiesleutel nodig is. Onder sleutels, een beschrijving van de sleutel, toevoegen de duur instellen op nooit verlopen, klikt u vervolgens selecteert u opslaan. Het is **belangrijk** om te voorkomen dat een verlopen sleutels, die wordt verbroken uw test drive in productie. Deze waarde kopiëren en plak deze in uw vereist Test Drive-veld.
 

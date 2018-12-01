@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 5ea9790695b8afe7bd42b98b071869756b301350
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 61f0cff661c79f994a5b3c20646996f617a31b7e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447503"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52683061"
 ---
 # <a name="splunk-to-log-analytics"></a>Splunk naar Log Analytics
 
@@ -39,7 +37,7 @@ De volgende tabel vergelijkt de concepten en gegevensstructuren tussen Splunk en
  | Gegevensrecord | gebeurtenis | rij |  Terminologie wijzigen. |
  | Kenmerk van de record gegevens | Veld |  Kolom |  In Log Analytics, is dit een vooraf gedefinieerd als onderdeel van de structuur van de tabel. In Splunk heeft elke gebeurtenis een eigen set velden. |
  | Typen | gegevenstype |  gegevenstype |  Log Analytics-gegevenstypen zijn meer expliciete zoals ze zijn ingesteld op de kolommen. Hebben de mogelijkheid om te werken dynamisch met gegevenstypen en ruwweg set gegevenstypen, inclusief ondersteuning voor JSON. |
- | Query's en zoeken  | zoeken | query |  Concepten zijn in wezen hetzelfde voor de Log Analytics- en Splunk. |
+ | Query's en zoeken  | Zoeken | query |  Concepten zijn in wezen hetzelfde voor de Log Analytics- en Splunk. |
  | Tijd van de gebeurtenis opname | Wanneer het systeem | ingestion_time() |  Elke gebeurtenis wordt in Splunk, de tijdstempel van een systeem van de tijd die de gebeurtenis is geïndexeerd. U kunt in Log Analytics, een beleid met de naam ingestion_time waarmee wordt aangegeven dat een systeemkolom die kan worden verwezen door de functie ingestion_time() definiëren. |
 
 ## <a name="functions"></a>Functions
@@ -57,11 +55,11 @@ De volgende tabel worden de functies in Log Analytics die gelijk aan Splunk func
 | substr | substring() | (1)<br>Houd er ook rekening mee dat Splunk maakt gebruik van indexen op basis van een. Log Analytics opmerkingen bij de op nul gebaseerde index. |
 | tolower |  tolower() | (1) |
 | ToUpper | ToUpper() | (1) |
-| overeenkomst | komt overeen met reguliere expressie |  (2)  |
+| Overeenkomst | komt overeen met reguliere expressie |  (2)  |
 | reguliere expressie | komt overeen met reguliere expressie | In Splunk, `regex` een operator. In Log Analytics is een relationele operator. |
 | searchmatch | == | In Splunk, `searchmatch` kunt u zoeken naar de exacte tekenreeks.
 | willekeurig | ASELECT()<br>rand(n) | Splunk van functie retourneert een getal van 0 tot 2<sup>31</sup>-1. Log Analytics retourneert een getal tussen 0,0 en 1,0, of als een parameter die is opgegeven, tussen 0 en n-1.
-| nu | nu() | (1)
+| nu | now() | (1)
 | relative_time | ToTimeSpan() | (1)<br>In Log Analytics is het equivalent van Splunk van relative_time (datetimeVal, offsetVal) datetimeVal + totimespan(offsetVal).<br>Bijvoorbeeld, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> wordt <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1) in Splunk, de functie is aangeroepen met de `eval` operator. In Log Analytics, deze wordt gebruikt als onderdeel van `extend` of `project`.<br>(2) in Splunk, de functie is aangeroepen met de `eval` operator. In Log Analytics, kan deze worden gebruikt met de `where` operator.
@@ -80,7 +78,7 @@ In Splunk, kunt u weglaten de `search` sleutelwoord en geef een tekenreeks op zo
 | |  | |
 |:---|:---|:---|
 | Splunk | **Zoeken** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| Log Analytics | **Zoeken** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| Log Analytics | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### <a name="filter"></a>Filteren

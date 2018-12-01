@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: d650e0d8b76af8d6bdef5aeadf821e3d8f6d1c79
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fd62e216f70c416cb152971d27d6a6e542d3a936
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680222"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database versus SQL Server 
 
@@ -43,8 +43,8 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Automatisch afstemmen (plan forceren)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| [Ja](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Automatisch afstemmen (indexen)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| Nee |
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Ja | Ja |
-| [BACPAC-bestand (exporteren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja, Zie [SQL-Database exporteren](sql-database-export.md) | Nee |
-| [BACPAC-bestand (importeren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja, Zie [SQL-Database importeren](sql-database-import.md) | Nee |
+| [BACPAC-bestand (exporteren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja, Zie [SQL-Database exporteren](sql-database-export.md) | Ja |
+| [BACPAC-bestand (importeren)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja, Zie [SQL-Database importeren](sql-database-import.md) | Ja |
 | [Back-opdracht](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Nee, alleen systeem gestarte automatische back-ups - Zie [geautomatiseerde back-ups](sql-database-automated-backups.md) | Systeem gestarte automatische back-ups en de gebruiker geïnitieerd kopie-alleen back-ups - Zie [back-up van verschillen](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Ingebouwde functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Gegevensregistratie wijzigen](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nee | Ja |

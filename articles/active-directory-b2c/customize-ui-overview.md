@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633915"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722595"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Over aanpassingen van de gebruikersinterface in Azure Active Directory B2C
 
@@ -23,13 +23,13 @@ De mogelijkheid om te voorzien en de gebruikersinterface (UI) die Azure Active D
 
 Afhankelijk van uw behoeften als het gaat om deze ervaringen, aanpassen u de gebruikersinterface van uw toepassing op verschillende manieren. Bijvoorbeeld:
 
-- Als u [ingebouwde beleidsregels](active-directory-b2c-reference-policies.md) om u te registreren of aanmelden, wachtwoord opnieuw instellen of bewerken van profielen ervaringen in uw toepassing opgeven, gebruikt u de [Azure portal om aan te passen van de gebruikersinterface](tutorial-customize-ui.md).
+- Als u [gebruikersstromen](active-directory-b2c-reference-policies.md) om u te registreren of aanmelden, wachtwoord opnieuw instellen of bewerken van profielen ervaringen in uw toepassing opgeven, gebruikt u de [Azure portal om aan te passen van de gebruikersinterface](tutorial-customize-ui.md).
 - Als u alleen aanmelding bieden en verificatie e-mails, u dezelfde stappen aanpassen die worden gebruikt voor het bijbehorende wachtwoord opnieuw instellen van pagina een [Azure AD-aanmeldingspagina](../active-directory/fundamentals/customize-branding.md).
 - Als klanten hun profiel te bewerken voordat ze zich aanmelden, worden ze omgeleid naar een pagina die u met behulp van de stappen die worden gebruikt voor het aanpassen van de Azure AD-aanmeldingspagina aanpassen.
 - Als u [aangepast beleid](active-directory-b2c-overview-custom.md) opnieuw registreren of aanmelden,-wachtwoord op te geven, of profiel bewerken in uw toepassing, u [beleidsbestanden om aan te passen van de gebruikersinterface](active-directory-b2c-ui-customization-custom.md).
 - Als u nodig hebt voor dynamische inhoud op basis van de beslissing van de klant, u [aangepaste beleidsregels die u kunnen wijzigen pagina-inhoud](active-directory-b2c-ui-customization-custom-dynamic.md) , afhankelijk van een parameter die wordt verzonden in een queryreeks. Bijvoorbeeld, wordt de afbeelding op de Azure AD B2C-pagina voor registreren of aanmelden gewijzigd, op basis van een parameter die u vanuit uw web- of mobiele toepassing doorgeven.
 
-Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Inhoud is geladen op het moment van uitvoering, vanuit een URL die u in een beleid opgeeft. U opgeven verschillende URL's voor verschillende pagina's. Na het laden van inhoud van de URL van uw, moeten ze worden samengevoegd met een HTML-fragment ingevoegd vanuit Azure AD B2C en vervolgens naar de klant worden weergegeven.
+Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Inhoud is geladen op het moment van uitvoering, vanuit een URL die u in een beleid of Groepsbeleid opgeeft. U opgeven verschillende URL's voor verschillende pagina's. Na het laden van inhoud van de URL van uw, moeten ze worden samengevoegd met een HTML-fragment ingevoegd vanuit Azure AD B2C en vervolgens naar de klant worden weergegeven.
 
 Voordat u begint, controleert u de volgende richtlijnen:
 
@@ -118,6 +118,6 @@ Voor voorbeelden van aanpassingen, downloaden en bekijk deze [sjabloon voorbeeld
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u ingebouwde beleidsregels, kunt u beginnen uw gebruikersinterface met de zelfstudie aanpassen: [aanpassen van de gebruikersinterface van uw toepassingen in Azure Active Directory B2C](tutorial-customize-ui.md).
+- Als u gebruikersstromen gebruikt, kunt u beginnen uw gebruikersinterface met de zelfstudie aanpassen: [aanpassen van de gebruikersinterface van uw toepassingen in Azure Active Directory B2C](tutorial-customize-ui.md).
 - Als u aangepaste beleidsregels, kunt u aanpassen van de gebruikersinterface met het artikel te starten: [aanpassen van de gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

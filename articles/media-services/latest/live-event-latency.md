@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: a74f2e53127b506f42ff49018c3df2985396646d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b167d3424d520cf8be515eec9d495164dd9785ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619810"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682092"
 ---
 # <a name="liveevent-latency-in-media-services"></a>LiveEvent latentie in Media Services
 
@@ -43,7 +43,7 @@ LiveEvent liveEvent = new LiveEvent(
             streamOptions: new List<StreamOptionsFlag?>()
             {
                 // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second GOP size instead of 2 seconds.
+                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
                 StreamOptionsFlag.LowLatency
             }
         );
@@ -51,14 +51,23 @@ LiveEvent liveEvent = new LiveEvent(
 
 Zie het volledige voorbeeld: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="pass-through-liveevents-latency"></a>Pass Through-LiveEvents latentie
+## <a name="liveevents-latency"></a>LiveEvents latentie
 
-De volgende tabel toont gebruikelijke resultaten voor latentie (wanneer de LowLatency-vlag is ingeschakeld) in Media Services, gemeten vanaf het moment dat de bijdrage-feed wordt bereikt wanneer een speler afspelen van kan aanvragen van de service.
+De volgende tabellen weergeven typische resultaten voor latentie (wanneer de LowLatency-vlag is ingeschakeld) in Media Services, gemeten vanaf het moment dat de service wanneer een viewer voor het afspelen op de speler ziet de bijdrage-feed is bereikt. Als u wilt gebruiken met lage latentie optimaal, moet u de instellingen van uw encoder omlaag naar 'Groep van foto's ' (GOP) de lengte van 1 seconde afstemmen. Wanneer u een hogere GOP lengte, kunt u gebruik van netwerkbandbreedte te minimaliseren en bitrate onder dezelfde framesnelheid verminderen. Het is vooral nuttig in video's met minder beweging.
+
+### <a name="pass-through"></a>Pass-through 
 
 ||2s GOP lage latentie ingeschakeld|1s GOP lage latentie ingeschakeld|
 |---|---|---|
 |STREEPJES in AMP|per 10|8s versie|
 |HLS op systeemeigen iOS-speler|14s|per 10|
+
+### <a name="live-encoding"></a>Live Encoding
+
+||2s GOP lage latentie ingeschakeld|1s GOP lage latentie ingeschakeld|
+|---|---|---|
+|STREEPJES in AMP|14s|per 10|
+|HLS op systeemeigen iOS-speler|18s|13s|
 
 > [!NOTE]
 > De end-to-end-latentie kan variëren, afhankelijk van het lokale netwerk of door de introductie van een CDN caching-laag. De exacte configuraties, moet u testen.

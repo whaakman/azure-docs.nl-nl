@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340763"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725570"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C:-Verificatieprotocollen
 Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee protocollen volgens de industrienorm: OpenID Connect en OAuth 2.0. De service is compatibel met de standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
@@ -50,12 +50,12 @@ In bijna alle OAuth en OpenID Connect-stromen zijn de vier partijen die betrokke
 
 * De **bronserver** is waarin de resource of de gegevens zich bevindt. Deze vertrouwt de autorisatieserver veilig verifiëren en autoriseren van de OAuth-client. Access-bearer-tokens worden ook gebruikt om ervoor te zorgen dat toegang tot een resource kan worden verleend.
 
-## <a name="policies"></a>Beleidsregels
+## <a name="policies-and-user-flows"></a>Beleid en de gebruiker stromen
 Azure AD B2C-beleid zijn weliswaar, de belangrijkste functies van de service. Azure AD B2C breidt de standaardprotocollen OAuth 2.0 en OpenID Connect door de introductie van beleid. Azure AD B2C om uit te voeren veel meer dan een eenvoudige verificatie en autorisatie kunt. 
 
-Beleid volledig consumentervaringen van identiteit, met inbegrip van gebruikersregistratie, aanmelding, beschrijven en profiel bewerken. Beleidsregels kunnen worden gedefinieerd in een gebruikersinterface met beheerdersrechten. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie. 
+Instellen om u te helpen de meest algemene taken voor identiteit, bevat vooraf gedefinieerde, configureerbare beleidsregels met de naam van de Azure AD B2C-portal **gebruikersstromen**. Gebruikersstromen beschrijven consumentervaringen van identiteit, met inbegrip van gebruikersregistratie, aanmelding, volledig en profiel bewerken. Gebruikersstromen kunnen worden gedefinieerd in een gebruikersinterface met beheerdersrechten. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie. 
 
-Beleidsregels kunnen niet standard-functies van OAuth 2.0 en OpenID Connect, dus moet u rekening houden met de tijd om te begrijpen. Zie voor meer informatie de [Naslaggids voor Azure AD B2C-beleid](active-directory-b2c-reference-policies.md).
+Beleid en de gebruikersstromen kunnen niet standard-functies van OAuth 2.0 en OpenID Connect, dus moet u rekening houden met de tijd om te begrijpen. Zie voor meer informatie de [Naslaggids voor Azure AD B2C gebruiker stroom](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Tokens
 De Azure AD B2C-implementatie van OAuth 2.0 en OpenID Connect maakt uitgebreid gebruik van bearer-tokens, met inbegrip van bearer-tokens die worden weergegeven als JSON-webtokens (JWTs). Een bearer-token is een lichtgewicht beveiligingstoken die de "bearer" toegang tot een beveiligde bron verleent.

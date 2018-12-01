@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632786"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720181"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
@@ -113,9 +113,9 @@ Wanneer de schema-export-functionaliteit beschikbaar is voor de beheerde identit
 
 Als de VM-configuratie-blade op de virtuele machine niet wordt weergegeven, klikt u vervolgens beheerde identiteiten voor Azure-resources niet is ingeschakeld in de portal in uw regio nog.  Probeer het later opnieuw.  U kunt ook beheerde identiteiten voor Azure-resources inschakelen voor uw virtuele machine met [PowerShell](qs-configure-powershell-windows-vm.md) of de [Azure CLI](qs-configure-cli-windows-vm.md).
 
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Kan geen toegang toewijzen aan virtuele machines in de blade van de Access Control (IAM)
+### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Kan geen toegang toewijzen aan virtuele machines in de blade toegangsbeheer (IAM)
 
-Als **virtuele Machine** wordt niet weergegeven in de Azure-portal als een keuze voor **toegang toewijzen aan** in **Access Control (IAM)** > **toevoegen machtigingen**, en vervolgens de beheerde identiteiten voor Azure-resources is nog niet ingeschakeld in de portal in uw regio. Probeer het later opnieuw.  U kunt nog steeds de identiteit voor de virtuele machine voor de roltoewijzing selecteren door te zoeken naar de beheerde identiteit voor Azure-resources Service-Principal.  Voer de naam van de virtuele machine in de **Selecteer** veld en de Service-Principal wordt weergegeven in de zoekresultaten.
+Als **virtuele Machine** wordt niet weergegeven in de Azure-portal als een keuze voor **toegang toewijzen aan** in **toegangsbeheer (IAM)** > **functie toevoegen toewijzing**, en vervolgens de beheerde identiteiten voor Azure-resources is nog niet ingeschakeld in de portal in uw regio. Probeer het later opnieuw.  U kunt nog steeds de identiteit voor de virtuele machine voor de roltoewijzing selecteren door te zoeken naar de beheerde identiteit voor Azure-resources Service-Principal.  Voer de naam van de virtuele machine in de **Selecteer** veld en de Service-Principal wordt weergegeven in de zoekresultaten.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>Virtuele machine niet kan worden gestart na worden verplaatst van resourcegroep of abonnement
 

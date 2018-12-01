@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 25ee061f489df0a666d59871661478f987b28e3f
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d579a9b628ac515877c1977f700940547e96f0c0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344804"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726607"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Micrometer gebruiken met Azure Application Insights-SDK voor Java
 Micrometer bewaking metingen metrische toepassingsgegevens voor JVM-gebaseerde toepassing code en kunt u de gegevens exporteren naar uw favoriete bewakingssystemen. In dit artikel leert u hoe u Micrometer met Application Insights voor zowel Spring Boot en Spring Boot-toepassingen.

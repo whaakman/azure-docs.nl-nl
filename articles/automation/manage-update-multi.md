@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620214"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679520"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -128,7 +128,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 - **Naam**: Voer een unieke naam voor het identificeren van de update-implementatie.
 - **Besturingssysteem**: Selecteer **Windows** of **Linux**.
 - **Groepen om bij te werken (preview)**: definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
-- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
+- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
 
   ![Deelvenster met nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
 

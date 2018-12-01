@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 892fa32f73cec86e5d10a0d67da3d80bedd539aa
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 67fc3d733062867086cb4c208f2997d3490452bb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619858"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681922"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-service-identiteit
 
@@ -45,7 +45,7 @@ Als u uw data factory beschikt niet over een service-identiteit die is gekoppeld
 
 - [Genereren van service-identiteit met behulp van PowerShell](#generate-service-identity-using-powershell)
 - [Genereren met behulp van REST-API voor service-identiteit](#generate-service-identity-using-rest-api)
-- [Genereren van service-identiteit met een Azure Resource Manager-sjabloon](#generate-service-identity-using-resource-management-template)
+- [Genereren van service-identiteit met een Azure Resource Manager-sjabloon](#generate-service-identity-using-azure-resource-manager-template)
 - [Service-identiteit met behulp van SDK genereren](#generate-service-identity-using-sdk)
 
 >[!NOTE]

@@ -9,16 +9,15 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499504"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720402"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
 [Power BI](http://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](app-insights-overview.md).
@@ -52,18 +51,18 @@ Installeer [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
     ![Schermafbeelding van de Power BI Desktop, met de geavanceerde Editor gemarkeerd](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Mogelijk moet u referenties opgeven zodat Power BI toegang tot Azure. Gebruik **organisatieaccount** zich aanmelden met uw Microsoft-account.
+5. Mogelijk moet u referenties opgeven zodat Power BI toegang tot Azure. Gebruik **organisatieaccount** zich aanmelden met uw Microsoft-account.
    
     ![Dialoogvenster Screenshot van Power BI Query-instellingen](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     Als u controleren of de referenties wilt, gebruikt u de **Gegevensbroninstellingen** opdracht in de query-editor. Zorg dat u opgeeft de referenties die u gebruiken voor Azure, dit van uw referenties voor Power BI afwijken kan.
-2. Kiest u een visualisatie voor uw query en selecteer de velden voor de x-as, y-as en segmenteren dimensie.
+6. Kiest u een visualisatie voor uw query en selecteer de velden voor de x-as, y-as en segmenteren dimensie.
    
     ![Schermafbeelding van de Power BI Desktop visualisatie-opties](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Uw rapport publiceren naar uw Power BI-cloud-werkruimte. Van daaruit kunt u een gesynchroniseerde versie insluiten in een andere webpagina's.
+7. Uw rapport publiceren naar uw Power BI-cloud-werkruimte. Van daaruit kunt u een gesynchroniseerde versie insluiten in een andere webpagina's.
    
     ![Schermafbeelding van de Power BI Desktop, met de knop publiceren gemarkeerd](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Het rapport handmatig vernieuwen met intervallen of een geplande vernieuwing op de optiepagina instellen.
+8. Het rapport handmatig vernieuwen met intervallen of een geplande vernieuwing op de optiepagina instellen.
 
 ### <a name="export-a-funnel"></a>Een trechter exporteren
 1. [Controleer uw trechter](usage-funnels.md).

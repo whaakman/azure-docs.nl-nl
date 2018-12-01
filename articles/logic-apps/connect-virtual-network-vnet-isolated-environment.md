@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps via een integratie van service-omgeving (ISE)
-description: Maken van een integratie van service-omgeving (ISE) zodat logic apps en integratieaccounts toegang krijgen virtuele netwerken van Azure tot, behoud privé- en geïsoleerd van openbare of 'global' Azure
+description: Maken van een integratie van service-omgeving (ISE) zodat logic apps en integratieaccounts toegang krijgen tot Azure-netwerken (VNETs), behoud van persoonlijke en gescheiden van openbare of 'global' Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/25/2018
-ms.openlocfilehash: d9a849fb5556332fab39467c270360c09c774cc9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/29/2018
+ms.openlocfilehash: 798b50887bcfdf5b4298c37beb1b9eea8f9abdda
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682194"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps via een integratie van service-omgeving (ISE)
 
 > [!NOTE]
 > Deze mogelijkheid is in *privépreview*. Om te vragen tot, [maken van uw aanvraag voor deelname aan hier](https://aka.ms/iseprivatepreview).
 
-Voor integratie van scenario's waar uw logic apps en de integratieaccounts toegang hebben tot moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maak een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), dit is een privé- en geïsoleerde omgeving die gebruikmaakt van opslagruimte en andere resources geïsoleerd van de openbare of *globale* Logic Apps-service. Dankzij deze scheiding vermindert ook eventuele gevolgen die andere Azure-tenants op de prestaties van uw apps hebben kunnen. U kunt deze ISE koppelen aan uw Azure-netwerk, die vervolgens wordt de Logic Apps-service geïmplementeerd in uw virtuele netwerk. Wanneer u een logische app of integratie-account maakt, selecteert u deze ISE als hun locatie. Uw logische app of integratie-account kan vervolgens rechtstreeks toegang tot resources, zoals virtuele machines (VM's), servers, systemen en services in uw virtuele netwerk. 
+Voor scenario's waar uw logic apps en de integratieaccounts toegang hebben tot moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maak een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Een ISE is een privé- en geïsoleerde omgeving die gebruikmaakt van opslagruimte en andere resources bewaard scheiden van de openbare of *globale* Logic Apps-service. Dankzij deze scheiding vermindert ook eventuele gevolgen die andere Azure-tenants op de prestaties van uw apps hebben kunnen. Is voor uw ISE *geïnjecteerd* in met uw Azure-netwerk, die vervolgens implementeert u de Logic Apps-service in uw virtuele netwerk. Wanneer u een logische app of integratie-account maakt, selecteert u deze ISE als hun locatie. Uw logische app of integratie-account kan vervolgens rechtstreeks toegang tot resources, zoals virtuele machines (VM's), servers, systemen en services in uw virtuele netwerk. 
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -35,16 +35,13 @@ In dit artikel laat zien hoe deze taken uit te voeren:
 
 * Maak een integratieaccount voor uw logische apps in uw ISE.
 
-Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot resources van Azure Virtual Network van geïsoleerde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot resources van Azure Virtual Network van Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
-* Als u niet een virtueel Azure-netwerk hebt, krijgt u informatie over het [maken van een Azure virtual network](../virtual-network/quick-create-portal.md). 
-
-  > [!IMPORTANT]
-  > Als u niet een virtueel Azure-netwerk nodig hebt voor het maken van uw omgeving, kunt u *alleen* een virtueel netwerk selecteert als peer van uw omgeving, wanneer u die omgeving maakt. 
+* Een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u een virtueel netwerk hebt, krijgt u informatie over het [maken van een Azure virtual network](../virtual-network/quick-create-portal.md). 
 
 * Uw logische apps direct toegang geven tot uw Azure-netwerk, [instellen van machtigingen voor toegangsbeheer op basis van rollen (RBAC)](#vnet-access) , zodat de Logic Apps-service beschikt over de machtigingen voor toegang tot uw virtuele netwerk. 
 
@@ -54,19 +51,19 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 
 ## <a name="set-virtual-network-permissions"></a>Virtueel netwerkmachtigingen instellen
 
-Wanneer u de integratie van service-omgeving maakt, kunt u een Azure-netwerk als een *peer* voor uw omgeving. Echter, kunt u alleen in deze stap uitvoeren of *peering*, bij het maken van uw omgeving. Deze relatie kiest, kan de Logic Apps-service die rechtstreeks verbinding maken met resources in dit virtuele netwerk en uw omgeving toegang tot deze bronnen. 
-
-Voordat u het virtuele netwerk selecteren kunt, moet u machtigingen voor toegangsbeheer op basis van rollen (RBAC) instellen in uw virtuele netwerk. Als u wilt deze taak hebt voltooid, moet u specifieke rollen toewijzen aan de service Azure Logic Apps.
+Wanneer u een integratie van service-omgeving (ISE) maakt, u een Azure-netwerk selecteren in waar u *invoeren* uw omgeving. Echter, voordat u een virtueel netwerk voor het injecteren van uw omgeving selecteren kunt, moet u instellen machtigingen voor toegangsbeheer op basis van rollen (RBAC) in uw virtuele netwerk. Als u machtigingen instelt, wijst u deze specifieke rollen toe aan de service Azure Logic Apps:
 
 1. In de [Azure-portal](https://portal.azure.com), zoek en selecteer het virtuele netwerk. 
 
 1. Selecteer in het menu van het virtuele netwerk **toegangsbeheer (IAM)**. 
 
-1. Onder **Access Control**, selecteer **roltoewijzing** als nog niet is geselecteerd. Op de **roltoewijzing** werkbalk, kiest u **toevoegen**. 
+1. Onder **Access Control (IAM)**, kiest u **toevoegen**. 
 
-   ![Roltoewijzingen toevoegen](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
+   ![Functies toevoegen](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
 
-1. Op de **machtigingen toevoegen** deelvenster, instellen van elke rol in deze tabel voor de service Azure Logic Apps. Zorg ervoor dat u kiest **opslaan** nadat u klaar bent met elke rol:
+1. Op de **roltoewijzing toevoegen** deelvenster, instellen van elke rol voor de service Azure Logic Apps, zoals is beschreven in de tabel in deze stap. Zorg ervoor dat u kiest **opslaan** nadat u klaar bent met elke rol.
+
+   ![Roltoewijzing toevoegen](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
 
    | Rol | Toegang toewijzen aan | Selecteer | 
    |------|------------------|--------|
@@ -74,55 +71,7 @@ Voordat u het virtuele netwerk selecteren kunt, moet u machtigingen voor toegang
    | **Inzender voor klassieke** | **Azure AD-gebruiker, groep of toepassing** | Voer **Azure Logic Apps**. Nadat de ledenlijst wordt weergegeven, selecteert u dezelfde waarde. <p>**Tip**: als u deze service niet vinden, voert u de app-ID van de Logic Apps-service: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` | 
    |||| 
 
-   Bijvoorbeeld:
-
-   ![Machtigingen toevoegen](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-   Zie voor meer informatie over de rolmachtigingen die vereist zijn voor de peering, de [machtigingen sectie in maken, wijzigen of verwijderen van een peering op virtueel netwerk](../virtual-network/virtual-network-manage-peering.md#permissions). 
-
-Als uw virtuele netwerk is verbonden via Azure ExpressRoute, Azure Point-to-Site VPN of Azure Site-naar-Site VPN, doorgaan met de volgende sectie, zodat u de vereiste gatewaysubnet kunt toevoegen. Anders gaat u door met [maken van uw omgeving](#create-environment).
-
-<a name="add-gateway-subnet"></a>
-
-## <a name="add-gateway-subnet-for-virtual-networks-with-expressroute-or-vpns"></a>Gatewaysubnet voor virtuele netwerken met ExpressRoute of VPN-verbindingen toevoegen
-
-Nadat u de vorige stappen hebt voltooid, zodat de integratie van service-omgeving (ISE) toegang tot een Azure-netwerk dat is verbonden via [Azure ExpressRoute](../expressroute/expressroute-introduction.md), [Azure punt-naar-Site VPN](../vpn-gateway/point-to-site-about.md), of [Azure Site-naar-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), moet u ook toevoegen een [ *gatewaysubnet* ](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) met het virtuele netwerk:
-
-1. In de [Azure-portal](https://portal.azure.com), zoek en selecteer het virtuele netwerk. Selecteer in het menu van het virtuele netwerk **subnetten**, en kies vervolgens **gatewaysubnet** > **OK**.
-
-   ![Gatewaysubnet toevoegen](./media/connect-virtual-network-vnet-isolated-environment/add-gateway-subnet.png)
-
-1. Maak nu een [ *routetabel*](../virtual-network/manage-route-table.md), die u moet koppelen aan het gatewaysubnet dat u eerder hebt gemaakt.
-
-   1. Selecteer in het hoofdmenu van Azure **een resource maken** > 
-    **netwerken** > **routetabel**.
-
-      ![Routetabel maken](./media/connect-virtual-network-vnet-isolated-environment/create-route-table.png)
-
-   1. Informatie over de routetabel, zoals de naam van uw Azure-abonnement te gebruiken, Azure-resourcegroep en locatie opgeven. Zorg ervoor dat de **doorgifte van BGP-route** eigenschap is ingesteld op **ingeschakeld**, en kies vervolgens **maken**.
-
-      ![Geef details van de route-table](./media/connect-virtual-network-vnet-isolated-environment/enter-route-table-information.png)
-
-   1. Selecteer in het menu van de tabel route **subnetten**, en kies vervolgens **koppelen**. 
-
-      ![Routetabel verbinden met subnet](./media/connect-virtual-network-vnet-isolated-environment/associate-route-table.png)
-
-   1. Selecteer **virtueel netwerk**, en selecteer vervolgens het virtuele netwerk.
-   
-   1. Selecteer **Subnet**, en selecteer vervolgens het eerder gemaakte gatewaysubnet.
-
-   1. Wanneer u klaar bent, kiest u **OK**.
-
-1. Als u een punt-naar-site-VPN hebt, deze stappen te voltooien:
-
-   1. In Azure, zoek en selecteer een resource van uw virtuele netwerkgateway.
-
-   1. Selecteer in het menu van de gateway **punt-naar-site-configuratie**. 
-   en kies vervolgens **VPN-client downloaden** zodat u beschikt over de configuratie van de meest recente VPN-client.
-
-      ![Laatste VPN-client downloaden](./media/connect-virtual-network-vnet-isolated-environment/download-vpn-client.png)
-
-U bent nu klaar met het instellen van een gateway-subnet voor virtuele netwerken die gebruikmaken van ExpressRoute, punt-naar-site VPN-verbindingen of site-naar-site VPN-verbindingen. Volg de volgende stappen uit om door te gaan met het maken van de integratie van service-omgeving.
+Zie voor meer informatie, [machtigingen voor toegang tot het virtuele netwerk](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 <a name="create-environment"></a>
 
@@ -141,22 +90,24 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    ![Kies 'Maken'](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
-1. Geef de volgende gegevens voor uw omgeving:
+1. Geef de volgende gegevens voor uw omgeving, en kies vervolgens **revisie + maken**, bijvoorbeeld:
 
    ![Geef details van de omgeving](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
    | Eigenschap | Vereist | Waarde | Beschrijving |
    |----------|----------|-------|-------------|
-   | **Naam** | Ja | <*naam van omgeving*> | De naam te geven van uw omgeving | 
    | **Abonnement** | Ja | <*Azure-subscription-name*> | Het Azure-abonnement moet worden gebruikt voor uw omgeving | 
    | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De Azure-resourcegroep waar u om uw omgeving te maken |
-   | **Locatie** | Ja | <*Azure-datacenter-regio*> | De Azure-datacenter-regio waar u informatie over uw omgeving op te slaan |
-   | **Gelijkwaardige VNET** | Nee | <*Azure-VNET-naam*> | Het Azure-netwerk om te koppelen aan uw omgeving bevinden als een *peer* , zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Voordat u deze relatie maken kunt, zorg ervoor dat u al [instellen van op rollen gebaseerd toegangsbeheer in uw virtuele netwerk voor Azure Logic Apps](#vnet-access). <p>**Belangrijke**: hoewel een virtueel netwerk is niet vereist, kunt u een virtueel netwerk selecteren *alleen* bij het maken van uw omgeving. | 
-   | **De naam van de peering** | Ja, met een geselecteerde virtuele netwerk | <*peering-naam*> | De naam te geven van de peer-relatie | 
-   | **VNET-IP-bereik** | Ja, met een geselecteerde virtuele netwerk | <*IP-adresbereik*> | Het IP-adresbereik moet worden gebruikt voor het maken van resources in uw omgeving. Dit bereik moet gebruiken de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), bijvoorbeeld 10.0.0.1/16, en vereist een klasse B-adresruimte. Het bereik mag niet bestaan in de adresruimte voor het virtuele netwerk is geselecteerd in de **gelijkwaardige VNET** eigenschap, noch binnen een andere persoonlijke IP-adressen wanneer de peernetwerk is verbonden, via peering of gateways. <p><p>**Belangrijke**: U *kan niet worden gewijzigd* dit adresbereik nadat u uw omgeving hebt gemaakt. |
+   | **Naam van integratieserviceomgeving** | Ja | <*naam van omgeving*> | De naam te geven van uw omgeving | 
+   | **Locatie** | Ja | <*Azure-datacenter-regio*> | De Azure-datacenter-regio waar u om uw omgeving te implementeren | 
+   | **Capaciteit** | Ja | 0, 1, 2, 3 | Het aantal verwerkingseenheden moet worden gebruikt voor deze resource ISE | 
+   | **Virtueel netwerk** | Ja | <*Azure--naam-virtueel netwerk*> | De Azure-netwerk waarin u invoeren van uw omgeving wilt, zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Als u een netwerk hebt, kunt u een maken hier. <p>**Belangrijke**: U kunt *alleen* deze injectie uitvoeren bij het maken van uw ISE. Echter, voordat u deze relatie maken kunt, zorg ervoor dat u al [instellen van op rollen gebaseerd toegangsbeheer in uw virtuele netwerk voor Azure Logic Apps](#vnet-access). | 
+   | **Subnets** | Ja | <*IP-adresbereik*> | Een ISE vereist is vier *leeg* subnetten, dit hoeft geen delegering voor elke service en worden gebruikt voor het maken van resources in uw omgeving. Elk subnet moet voldoen aan deze criteria voldoen: <p>-Hiermee wordt de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Een klasse B-adresruimte vereist. <br>-Heeft een naam die niet met een getal of een afbreekstreepje begint. <br>-Bevat een `/27`, bijvoorbeeld elk subnet hier Hiermee geeft u een 32-bits-adresbereik: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, en `10.0.0.96/27`. <br>-Mag niet bestaan in hetzelfde adresbereik voor het geselecteerde virtuele netwerk en eventuele andere privé IP-adressen waarin het virtuele netwerk is verbonden. <br>-Moet niet leeg zijn. <p><p>**Belangrijke**: U *kan niet worden gewijzigd* deze IP-bereiken nadat u uw omgeving hebt gemaakt. |
    |||||
-   
-1. Wanneer u klaar bent, kiest u **Maken**. 
+
+1. Nadat Azure uw ISE-gegevens met succes worden gevalideerd, kiest u **maken**, bijvoorbeeld:
+
+   ![Nadat de validatie is geslaagd, kiest u 'Maken'](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
    Azure begint met het implementeren van uw omgeving, maar dit proces kan duren *maximaal twee uur* voordat u klaar bent. 
    Om te controleren of de implementatiestatus op de werkbalk van Azure, kies het meldingspictogram opent u het deelvenster meldingen.
@@ -173,25 +124,23 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
 ## <a name="create-logic-app---ise"></a>Logische app - ISE maken
 
-Voor het maken van logische apps die de integratie van service-omgeving (ISE) gebruiken, gaat u als volgt de gebruikelijke stappen in [over het maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) , maar met deze verschillen en overwegingen: 
+Voor het maken van logische apps die de integratie van service-omgeving (ISE) gebruiken, volgt u de stappen in [over het maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) maar met deze verschillen: 
 
-* Wanneer u uw logische app, maakt de **locatie** eigenschappenlijsten uw ISEs onder **integratieserviceomgevingen** samen met beschikbare regio's. Selecteer uw ISE, in plaats van een regio, bijvoorbeeld:
+* Wanneer u uw logische app maakt, selecteer uw ISE, in plaats van een Azure-regio in de **locatie** lijst uit de **integratieserviceomgevingen** sectie, bijvoorbeeld:
 
   ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* U kunt de dezelfde dient te worden, zoals de HTTP-trigger of actie, die worden uitgevoerd in de ISE hetzelfde als de bovenliggende logische app gebruiken. Connectors met de **ISE** labelen ook uitvoeren in de ISE hetzelfde als de bovenliggende logische app. Connectors zonder de **ISE** label uitgevoerd in de globale Logic Apps-service.
+* U kunt de dezelfde ingebouwde triggers en acties, zoals HTTP, die worden uitgevoerd in de dezelfde ISE als uw logische app gebruiken. Connectors met de **ISE** labelen ook uitvoeren in de dezelfde ISE als uw logische app. Connectors zonder de **ISE** label uitgevoerd in de globale Logic Apps-service.
 
   ![ISE-connectors selecteren](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 
-* Als u uw ISE met een Azure-netwerk als een peer hebt ingesteld, kunnen de logische apps in uw ISE rechtstreeks toegang tot resources in dit virtuele netwerk. Voor on-premises systemen in een virtueel netwerk dat gekoppeld aan een ISE, logische apps rechtstreeks toegang tot deze systemen met behulp van deze items: 
+* Nadat u uw ISE in een Azure-netwerk invoeren, kunnen de logische apps in uw ISE rechtstreeks toegang tot resources in dit virtuele netwerk. Voor on-premises systemen in een virtueel netwerk dat gekoppeld aan een ISE, logische apps rechtstreeks toegang tot deze systemen met behulp van deze items: 
 
   * ISE-connector voor dat systeem, bijvoorbeeld SQL Server
-
   * HTTP-actie 
-
   * Aangepaste connector
 
-  Voor on-premises systemen die zich niet in een virtueel netwerk of geen ISE connectors, kunt u nog steeds verbinding maken nadat u [instellen en gebruiken van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
+  Voor on-premises systemen die zich niet in een virtueel netwerk of geen ISE-connectors, eerst [instellen en gebruiken van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
 
 <a name="create-integration-account-environment"></a>
 

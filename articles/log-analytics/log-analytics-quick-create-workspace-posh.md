@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptal
+ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1df88e18a6065f9d3917f1f59e0743f71bee71e5
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: bfff98a282622cfa5e847910530c2db4ddf9e2e0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710747"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722782"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Een Log Analytics-werkruimte maken met Azure PowerShell
 
@@ -128,7 +127,7 @@ De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een beri
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u een werkruimte beschikbaar hebt, kunt u verzamelen van telemetrie bewaking configureren, uitvoeren van zoekopdrachten in Logboeken om die gegevens te analyseren en toevoegen van een oplossing om aanvullende gegevens en analytische informatie te bieden.  
 
-* Zie voor het inschakelen van verzamelen van gegevens uit Azure-resources met Azure Diagnostics of Azure storage [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](log-analytics-azure-storage.md).  
+* Zie voor het inschakelen van verzamelen van gegevens uit Azure-resources met Azure Diagnostics of Azure storage [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * Voeg [System Center Operations Manager als een gegevensbron](log-analytics-om-agents.md) voor het verzamelen van gegevens van agents die rapporteren van uw Operations Manager-beheergroep en sla deze op in uw Log Analytics-werkruimte.  
 * Verbinding maken met [Configuration Manager](log-analytics-sccm.md) voor het importeren van computers die lid van verzamelingen in de hiërarchie zijn.  
 * Controleer de [beheeroplossingen](../azure-monitor/insights/solutions.md) beschikbaar en hoe u kunt toevoegen of verwijderen van een oplossing uit uw werkruimte.

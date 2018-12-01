@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006191"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721966"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
@@ -26,7 +26,7 @@ Elke toepassing die gebruikmaakt van Azure AD B2C moet zijn geregistreerd in uw 
 * Een **toepassings-ID** die uniek voor uw toepassing.
 * Een **antwoord-URL** die kunnen worden gebruikt om te leiden reacties terug naar uw toepassing.
 
-Elk verzoek dat naar Azure AD B2C wordt verzonden, geeft een **beleid** op. Een beleid regelt het gedrag van Azure AD. U kunt deze eindpunten ook gebruiken om een uiterst aanpasbare verzameling gebruikerservaringen te maken. Algemene beleidsregels zijn beleidsregels voor registratie, aanmelding en het bewerken van profielen. Als u niet bekend bent met beleidsregels, lees dan over het [uitbreidbaar beleidsframework](active-directory-b2c-reference-policies.md) van Azure AD B2C voordat u verder gaat.
+Hiermee geeft u op elke aanvraag die wordt verzonden naar Azure AD B2C een **gebruikersstroom**, dit is een beleid dat het gedrag van Azure AD bepaalt. U kunt deze eindpunten ook gebruiken om een uiterst aanpasbare verzameling gebruikerservaringen te maken. Wij bieden een set gebruikersstromen voor het instellen van algemene beleidsregels, met inbegrip van gebruikersregistratie, aanmelding en bewerken van een profiel-beleid. Maar u kunt ook uw eigen aangepaste beleidsregels maken. Als u niet bekend bent met beleidsregels, lees dan over het [uitbreidbaar beleidsframework](active-directory-b2c-reference-policies.md) van Azure AD B2C voordat u verder gaat.
 
 De interactie van elke toepassing volgt in grote lijnen hetzelfde patroon:
 

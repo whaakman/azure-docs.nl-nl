@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824265"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679593"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Architectuurkeuzes voor externe bewaking
 
@@ -25,7 +25,7 @@ Azure IoT Remote Monitoring solution accelerator is een open-source, in licentie
 
 De oplossing voor externe controle volgt de aanbevolen [Azure IoT-referentiearchitectuur](https://aka.ms/iotrefarchitecture).
 
-In dit artikel beschrijft de gemaakte keuzes van architecturale en technische en de alternatieven beschouwd in elk van de subsystemen voor externe controle. De technische Microsoft gemaakt in de oplossing voor externe controle-opties zijn echter niet de enige manier om het implementeren van een externe controle IoT-oplossing. U moet de technische implementatie beschouwen als een basislijn voor het bouwen van een geslaagde toepassing en u moet deze te wijzigen:
+Dit artikel beschrijft de belangrijkste architecturale en technische keuzen in elk van de subsystemen voor externe controle hebt gemaakt. De technische Microsoft gemaakt in de oplossing voor externe controle-opties zijn echter niet de enige manier om het implementeren van een externe controle IoT-oplossing. U moet de technische implementatie beschouwen als een basislijn voor het bouwen van een geslaagde toepassing en u moet deze te wijzigen:
 
 - Aanpassen aan de beschikbare vaardigheden en ervaring in uw organisatie.
 - Aan de behoeften van uw verticale toepassing.
@@ -52,7 +52,8 @@ Azure IoT Hub wordt gebruikt als de cloudgateway oplossing voor externe controle
 Voor de connectiviteit van IoT-apparaten, kunt u het volgende gebruiken:
 
 - De [IoT Hub apparaat-SDK's](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) voor het implementeren van een systeemeigen clienttoepassing voor uw apparaat. De SDK's bieden dan geen wrappers rondom de IoT Hub REST-API en scenario's, zoals nieuwe pogingen.
-- De integratie met Azure IoT Edge in de oplossingsversnellers implementeren en beheren van aangepaste modules in containers worden uitgevoerd op uw apparaten.
+- De integratie met Azure IoT Edge implementeren en beheren van aangepaste modules in containers worden uitgevoerd op uw apparaten.
+- De integratie met automatische Apparaatbeheer in IoT Hub om verbonden apparaten bulksgewijs te beheren.
 
 ### <a name="stream-processing"></a>Streamverwerking
 
@@ -62,7 +63,7 @@ De oplossing voor externe controle wordt voor de verwerking, Azure Stream Analyt
 
 Voor opslag gebruikt de oplossingsverbetering voor externe controle zowel Azure Time Series Insights en Azure Cosmos DB. Azure Time Series Insights slaat de berichten van uw verbonden apparaten via IoT Hub. De oplossingsversnellers maakt gebruik van Azure Cosmos DB voor alle andere opslag zoals koude opslag, definities van regels, waarschuwingen en configuratie-instellingen.
 
-Azure Cosmos DB is de aanbevolen instellingen voor de opslag voor algemeen gebruik warm-oplossing voor IoT-toepassingen al oplossingen zoals Azure Time Series Insights en Azure Data Lake geschikt voor veel van use cases zijn. Met Azure Time Series Insights krijgt u meer inzicht in uw time series-sensorgegevens door herkennen trends en afwijkingen. Deze functie kunt u oorzaak-gevolganalyses uitvoeren en kostbare stilstand te vermijden.
+Azure Cosmos DB is de aanbevolen instellingen voor de opslag voor algemeen gebruik warm-oplossing voor IoT-toepassingen. Oplossingen zoals Azure Time Series Insights en Azure Data Lake zijn geschikt voor veel gevallen wordt gebruikt. Met Azure Time Series Insights krijgt u meer inzicht in uw time series-sensorgegevens door herkennen trends en afwijkingen. Deze functie kunt u oorzaak-gevolganalyses uitvoeren en kostbare stilstand te vermijden.
 
 > [!NOTE]
 > Time Series Insights is momenteel niet beschikbaar in de Azure China-cloud. Nieuwe Remote Monitoring solution accelerator implementaties in de cloud met Azure China Cosmos DB gebruiken voor alle opslag.

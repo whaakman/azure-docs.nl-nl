@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: ffceb8fd6f1afcd054bfc4c4035fb2b8b93ed390
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635554"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720538"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Met b2clogin.com biedt extra voordelen, zoals:
 Houd rekening met deze instellingen die nodig hebt mogelijk bij het gebruik van b2clogin.com wijzigen:
 
 - Instellen van de omleidings-URL's in uw toepassingen identity provider b2clogin.com gebruiken. 
-- Uw Azure AD B2C-toepassing met b2clogin.com voor beleid verwijst naar en token-eindpunten instellen. 
+- Uw Azure AD B2C-toepassing met b2clogin.com voor gebruiker stroom-verwijzingen en token-eindpunten instellen. 
 - Als u MSAL gebruikt, moet u instellen de **ValidateAuthority** eigenschap `false`.
 - Zorg ervoor dat u een wijzigen **oorsprongen toegestaan** die u hebt gedefinieerd in de CORS-instellingen voor [aanpassingen van de gebruiker-gebruikersinterface](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
@@ -56,7 +56,7 @@ U kunt configuratie-informatie voor id-providers vinden in de volgende artikelen
 
 ## <a name="update-your-application"></a>Uw toepassing bijwerken
 
-Uw Azure AD B2C-toepassing waarschijnlijk verwijst naar `login.microsoftonline.com` op verschillende plaatsen, zoals uw beleid verwijst naar en token-eindpunten.  Zorg ervoor dat de autorisatie-eindpunt, token-eindpunt en uitgever zijn bijgewerkt voor het gebruik van `your-tenant-name.b2clogin.com`.  
+Uw Azure AD B2C-toepassing waarschijnlijk verwijst naar `login.microsoftonline.com` op verschillende plaatsen, zoals uw gebruiker stroom-verwijzingen en token-eindpunten.  Zorg ervoor dat de autorisatie-eindpunt, token-eindpunt en uitgever zijn bijgewerkt voor het gebruik van `your-tenant-name.b2clogin.com`.  
 
 ## <a name="set-the-validateauthority-property"></a>Stel de eigenschap ValidateAuthority
 

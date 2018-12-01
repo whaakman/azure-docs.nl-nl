@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138653"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678437"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtueel apparaat netwerkproblemen in Azure
 
 Mogelijk is uw virtuele machine of problemen met VPN-connectiviteit en fouten bij het gebruik van een derde partij Network Virtual Appliance (NVA) in Microsoft Azure. In dit artikel biedt eenvoudige stappen om te kunnen valideren basisvereisten voor Azure-Platform voor de NVA-configuraties.
 
-Technische ondersteuning voor NVA's van derden en de integratie met de Azure-platform wordt geleverd door de leverancier van de NVA. Als u een verbinding of een routeringsprobleem dat betrekking heeft op een NVA hebt, moet u [Neem contact op met de leverancier van de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) rechtstreeks.
+Technische ondersteuning voor NVA's van derden en de integratie met de Azure-platform wordt geleverd door de leverancier van de NVA. 
+
+> [!NOTE]
+> Als u een verbinding of een routeringsprobleem dat betrekking heeft op een NVA hebt, moet u [Neem contact op met de leverancier van de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) rechtstreeks.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,6 +40,7 @@ Technische ondersteuning voor NVA's van derden en de integratie met de Azure-pla
 - Udr's op subnetten van het virtuele netwerk dat verkeer van de NVA leiden
 - Routering tabellen en regels binnen het NVA (bijvoorbeeld van NIC1 naar NIC2)
 - Tracering op NVA-NIC's om te controleren of ontvangen en verzenden van netwerkverkeer
+- Wanneer u een standaard-SKU en openbare IP-moet er een NSG die is gemaakt en een expliciete regel het verkeer toe te staan om te worden gerouteerd naar de NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Basisstappen voor het oplossen van problemen
 
@@ -73,6 +77,8 @@ PowerShell gebruiken
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**Controleer voor NSG bij het gebruik van standaard SKU Pubilc IP** bij gebruik van een standaard-SKU en openbare IP-moet er een NSG die is gemaakt en een expliciete regel het verkeer naar de NVA toe te staan.
 
 **Controleer of het verkeer kan worden gerouteerd naar de NVA**
 

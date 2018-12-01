@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960355"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721082"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Hoe: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources
 
@@ -65,9 +65,9 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
    Als u het abonnement dat u zoekt niet ziet, selecteert u **filter globale abonnementen**. Zorg ervoor dat het gewenste abonnement is geselecteerd voor de portal. 
 
 1. Selecteer **toegangsbeheer (IAM)**.
-1. Selecteer **Toevoegen**.
+1. Selecteer **roltoewijzing toevoegen**.
 
-   ![Selecteer toevoegen](./media/howto-create-service-principal-portal/select-add.png)
+   ![Selecteer de roltoewijzing toevoegen](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Selecteer de rol die u wilt toewijzen aan de toepassing. Om toe te staan van de toepassing voor het uitvoeren van acties zoals **opnieuw opstarten**, **start** en **stoppen** instanties, selecteer de **Inzender** rol. Azure AD-toepassingen worden niet standaard weergegeven in de beschikbare opties. Als u uw toepassing zoekt, zoeken naar de naam en selecteer deze.
 

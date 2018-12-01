@@ -12,12 +12,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249608"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724941"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Azure AD-directory-rollen in PIM toewijzen
 
@@ -125,13 +125,15 @@ Volg deze stappen voor de rol Administrator voor gebruikerstoegang toewijzen aan
 
 1. Kies uw abonnement.
 
-1. Kies **Toegangsbeheer (IAM)** om de huidige lijst met roltoewijzingen voor het abonnement te zien.
+1. Kies **Toegangsbeheer (IAM)**.
+
+1. Kies **roltoewijzingen** om te zien van de huidige lijst van roltoewijzingen weergegeven bij het abonnementsbereik.
 
    ![Blade toegangsbeheer (IAM) voor een abonnement](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. Controleer of de **MS-PIM** service-principal is toegewezen de **Administrator voor gebruikerstoegang** rol.
 
-1. Als dit niet het geval is, kiest u **toevoegen** openen de **machtigingen toevoegen** deelvenster.
+1. Als dit niet het geval is, kiest u **roltoewijzing toevoegen** openen de **roltoewijzing toevoegen** deelvenster.
 
 1. In de **rol** vervolgkeuzelijst, selecteer de **Administrator voor gebruikerstoegang** rol.
 

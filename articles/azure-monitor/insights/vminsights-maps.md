@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0226e5dc03c3f10b951a4e4cc1d97a999c952f3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715301"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678869"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Met behulp van Azure Monitor voor de toewijzing van virtuele machines (Preview) om te begrijpen van toepassingsonderdelen
 De gedetecteerde toepassingsonderdelen weergeven op Windows en Linux-machines uitvoeren in uw omgeving kan worden waargenomen op twee manieren met Azure Monitor voor virtuele machines van een virtuele machine rechtstreeks of via groepen virtuele machines van Azure Monitor Azure. 
@@ -107,7 +107,7 @@ Van Azure Monitor biedt de functie van de kaart een algemeen overzicht van uw vi
 
 ![Overzicht van Azure Monitor multi-VM-kaart](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Uit de **werkruimte** kiezer boven aan de pagina, hebt u meer dan één Log Analytics-werkruimte, kies de werkruimte die met de oplossing is ingeschakeld en virtuele machines die rapporteren aan. De **groep** selector abonnementen, resourcegroepen, retourneert [computergroepen](../../log-analytics/log-analytics-computer-groups.md), en VM scale sets van computers met betrekking tot de geselecteerde werkruimte. Uw selectie wordt alleen toegepast op de kaart-functie en wordt niet meegenomen naar de prestaties of de kaart.
+Uit de **werkruimte** kiezer boven aan de pagina, hebt u meer dan één Log Analytics-werkruimte, kies de werkruimte die met de oplossing is ingeschakeld en virtuele machines die rapporteren aan. De **groep** selector abonnementen, resourcegroepen, retourneert [computergroepen](../../azure-monitor/platform/computer-groups.md), en VM scale sets van computers met betrekking tot de geselecteerde werkruimte. Uw selectie wordt alleen toegepast op de kaart-functie en wordt niet meegenomen naar de prestaties of de kaart.
 
 Standaard ziet u de kaart de laatste 30 minuten. Met behulp van de **TimeRange** selector, kunt u zoeken naar historische tijdsbereik van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld tijdens een incident, of voordat er een wijziging is opgetreden).   
 

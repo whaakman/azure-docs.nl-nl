@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: 56a121e8b8f7f929b16a0c3507d45402ff586b96
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161459"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682670"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Beheren en het verlenen van toegang tot de database met SQL Database en SQL Data Warehouse
 
@@ -28,7 +28,7 @@ Na de configuratie van firewall-regels, kunt u verbinding met Azure [SQL-Databas
 >  In dit onderwerp is van toepassing op Azure SQL-server en SQL-Database en SQL Data Warehouse-databases op de Azure SQL-server gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. 
 
 > [!TIP]
-> Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](sql-database-security-tutorial.md).
+> Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](sql-database-security-tutorial.md). In deze zelfstudie geldt niet voor **Azure SQL Database Managed Instance**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Onbeperkte beheerdersaccounts
 Er zijn twee beheerdersaccounts (**serverbeheerder** en **Active Directory-beheerder**) die als beheerder fungeren. Als u deze beheerdersaccounts voor uw SQL-server wilt identificeren, opent u Azure Portal en gaat u naar de eigenschappen van de SQL-server.
@@ -68,6 +68,10 @@ Zie [Aan de slag met Azure SQL Database-servers, databases en firewallregels met
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Aanvullende beheerdersrollen op serverniveau
+
+>[!IMPORTANT]
+>In deze sectie geldt niet voor **Azure SQL Database Managed Instance** als deze rollen zijn specifiek voor **Azure SQL Database**.
+
 Naast de beheerdersrollen op serverniveau die eerder zijn besproken, biedt SQL Database ook twee beperkte beheerdersrollen in de hoofddatabase waaraan gebruikersaccounts kunnen worden toegevoegd. Deze twee beheerdersrollen verlenen machtigingen voor het maken van databases of voor het beheren van aanmeldingen.
 
 ### <a name="database-creators"></a>Databasemakers

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 926fc46a4afd4e434e9769802ac096347b4ce4f0
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620078"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678046"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Vergelijking van AppSource en de Azure Marketplace
 Storefronts in de [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Microsoft AppSource](https://appsource.microsoft.com) unieke klantvereisten fungeren. Gebruik storefronts doel klanten door de rol. U kunt de juiste oplossing of de service op basis van uw klant kunt aanbieden.
@@ -29,7 +29,7 @@ Als u een webwinkel, begint u met het vaststellen van de doelgroep voor uw aanbi
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
-| IT-Professionals en ontwikkelaars | Besluitvormers |
+| IT-Professionals en ontwikkelaars | Zakelijke gebruikers en besluitvormers |
  
 De volgende tabel beschrijft de voordelen van het gebruik van een webwinkel:
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c6202ff6f00412a779fb62b7a3bcc3f30ecbb25a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635812"
+ms.locfileid: "52682315"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -52,7 +52,7 @@ De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron waar
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* niet zijn opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates zijn opgenomen in het implementatiebereik. 
 
-De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en instellen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd.
+De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../azure-monitor/platform/computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en instellen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd.
 
 Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent om de vereiste updates te installeren.
 
@@ -192,7 +192,7 @@ Als u wilt een logboekzoekopdracht die informatie over de machine retourneert ui
 
 ## <a name="install-updates"></a>Updates installeren
 
-Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over computergroepen.
+Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over computergroepen.
 
  Wanneer u in uw update-implementatie computergroepen, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep worden niet weergegeven. Om op te halen om deze [dynamische groepen](#using-dynamic-groups), deze groepen worden omgezet tijdens de implementatie en zijn gedefinieerd door een query.
 
@@ -210,7 +210,7 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | Naam |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
 | Groepen om bij te werken (preview)|Definieer een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie. Zie voor meer informatie, [dynamische groepen](automation-update-management.md#using-dynamic-groups)|
-| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
+| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
 |Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior) |
 |Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|

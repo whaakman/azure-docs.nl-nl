@@ -9,16 +9,15 @@ ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 262d2511879047d1723d3b15c4c107b80ba1c297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b9110222d52a6b4e14faf28d55ae9d10fa067949
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250336"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725774"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Application Insights-resources maken met PowerShell
 Dit artikel leest u hoe u voor het automatiseren van het maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)Stel [waarschuwingen](app-insights-alerts.md), stel de [prijzen schema](app-insights-pricing.md), en andere Azure-resources maken .

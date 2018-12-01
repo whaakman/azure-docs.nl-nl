@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fe564e9809a3621ca04e4dad75488fb255f7dc0e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311072"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682942"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -40,7 +40,7 @@ Hier volgen enkele dingen die u met Logboeken met diagnostische gegevens doen ku
 
 * Opslaan naar een [ **Opslagaccount** ](monitoring-archive-diagnostic-logs.md) voor controle of handmatige controle. U kunt opgeven de bewaartermijn (in dagen) via **instellingen voor resourcediagnose**.
 * [Stream ze **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
-* Analyseren met [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Analyseren met [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
 
 U kunt een opslagaccount of Event Hubs-naamruimte die zich niet in hetzelfde abonnement bevinden als het abonnement dat Logboeken verzendt. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
 
@@ -235,4 +235,4 @@ Een diagnostische instelling toe te voegen, wordt de diagnostische instellingen 
 
 * [Diagnostische logboeken van de resource naar Stream **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Diagnostische instellingen voor resources met behulp van de REST-API van Azure Monitor wijzigt](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Logboeken van Azure storage met Log Analytics analyseren](../log-analytics/log-analytics-azure-storage.md)
+* [Logboeken van Azure storage met Log Analytics analyseren](../azure-monitor/platform/collect-azure-metrics-logs.md)

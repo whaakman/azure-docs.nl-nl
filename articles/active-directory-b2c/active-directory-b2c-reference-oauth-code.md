@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f39efcbc051bf57ab350357b020039eddd0f7c18
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282642"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720775"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
 U kunt de OAuth 2.0-autorisatiecode verlenen in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, kunt u registratie, aanmelding toevoegen en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een open source-bibliotheken.
@@ -27,15 +27,15 @@ In dit artikel is gericht op de **openbare clients** OAuth 2.0-autorisatiecodest
 > [!NOTE]
 > Identiteitsbeheer toevoegen aan een web-app met behulp van Azure AD B2C, gebruikt u [OpenID Connect](active-directory-b2c-reference-oidc.md) in plaats van OAuth 2.0.
 
-Azure AD B2C breidt de standaard die OAuth 2.0 stromen hiervoor meer dan een eenvoudige verificatie en autorisatie. Het geeft de [Beleidsparameter](active-directory-b2c-reference-policies.md). Met ingebouwde beleidsregels, kunt u OAuth 2.0 gebruiken om toe te voegen van gebruikerservaringen voor uw toepassing, zoals registratie, aanmelding en Profielbeheer. In dit artikel laten we zien u het gebruik van OAuth 2.0 en het beleid voor het implementeren van elk van deze ervaringen in uw systeemeigen toepassingen. We laten ook zien u hoe u aan de toegangstokens voor toegang tot web-API's.
+Azure AD B2C breidt de standaard die OAuth 2.0 stromen hiervoor meer dan een eenvoudige verificatie en autorisatie. Het geeft de [gebruiker stroom parameter](active-directory-b2c-reference-policies.md). Met gebruikersstromen, kunt u OAuth 2.0 gebruiken om toe te voegen van gebruikerservaringen voor uw toepassing, zoals registratie, aanmelding en Profielbeheer. In dit artikel laten we zien u het gebruik van OAuth 2.0 en gebruiker stromen voor het implementeren van elk van deze ervaringen in uw systeemeigen toepassingen. We laten ook zien u hoe u aan de toegangstokens voor toegang tot web-API's.
 
-In het voorbeeld van de HTTP-aanvragen in dit artikel gebruiken we ons voorbeeld van Azure AD B2C-directory **fabrikamb2c.onmicrosoft.com**. We gebruiken ook onze voorbeeldtoepassing en het beleid. U kunt ook zelf de aanvragen proberen met behulp van deze waarden, of kunt u deze vervangen door uw eigen waarden.
-Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory, toepassing en beleidsregels](#use-your-own-azure-ad-b2c-directory).
+In het voorbeeld van de HTTP-aanvragen in dit artikel gebruiken we ons voorbeeld van Azure AD B2C-directory **fabrikamb2c.onmicrosoft.com**. We gebruiken ook onze voorbeeld-toepassingen en -stromen. U kunt ook zelf de aanvragen proberen met behulp van deze waarden, of kunt u deze vervangen door uw eigen waarden.
+Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory-, toepassings- en gebruiker stromen](#use-your-own-azure-ad-b2c-directory).
 
 ## <a name="1-get-an-authorization-code"></a>1. Een autorisatiecode ophalen
-De autorisatiecodestroom begint met de client zodat de gebruiker de `/authorize` eindpunt. Dit is de interactieve deel van de stroom, waarbij de gebruiker actie onderneemt. In deze aanvraag, de client geeft aan dat de `scope` parameter de machtigingen die nodig is om te verkrijgen van de gebruiker. In de `p` parameter, betekent dit het beleid om uit te voeren. De volgende drie voorbeelden (met regeleinden voor de leesbaarheid) elke gebruiken een ander beleid.
+De autorisatiecodestroom begint met de client zodat de gebruiker de `/authorize` eindpunt. Dit is de interactieve deel van de stroom, waarbij de gebruiker actie onderneemt. In deze aanvraag, de client geeft aan dat de `scope` parameter de machtigingen die nodig is om te verkrijgen van de gebruiker. In de `p` parameter, dit geeft aan dat de gebruikersstroom om uit te voeren. De volgende drie voorbeelden (met regeleinden voor de leesbaarheid) elke gebruikmaken van een andere gebruiker-stroom.
 
-### <a name="use-a-sign-in-policy"></a>Een beleid voor aanmelden
+### <a name="use-a-sign-in-user-flow"></a>Een gebruikersstroom aanmelden gebruiken
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -47,7 +47,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Een registratiebeleid gebruiken
+### <a name="use-a-sign-up-user-flow"></a>Gebruik een proefaccount gebruikersstroom
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>Profiel bewerken-beleid gebruiken
+### <a name="use-an-edit-profile-user-flow"></a>Gebruik een gebruikersstroom profiel bewerken
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -78,13 +78,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Vereist |De omleidings-URI van uw app, waarbij verificatiereacties worden verzonden en ontvangen door uw app. Het moet een van de omleidings-URI's die u hebt geregistreerd in de portal exact overeenkomen, behalve dat het moet URL gecodeerd. |
 | scope |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde één scope geeft u aan Azure Active Directory (Azure AD) beide van de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken dat kan worden gebruikt voor uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen moet. Ook kunt u de `openid` bereik om aan te vragen van een ID-token van Azure AD B2C. |
 | response_mode |Aanbevolen |De methode die u gebruikt voor het verzenden van de resulterende autorisatiecode terug naar de app. Kan het zijn `query`, `form_post`, of `fragment`. |
-| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die kan bestaan uit een tekenreeks van de inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt voor cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden. Bijvoorbeeld, de pagina die de gebruiker was op, of het beleid dat werd uitgevoerd. |
-| p |Vereist |Het beleid dat wordt uitgevoerd. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-directory. De beleidswaarde voor de naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie over het beleid, [ingebouwde beleidsregels van Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die kan bestaan uit een tekenreeks van de inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt voor cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden. Bijvoorbeeld, de pagina die de gebruiker was op of de gebruikersstroom die werd uitgevoerd. |
+| p |Vereist |De gebruikersstroom die wordt uitgevoerd. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-directory. De waarde voor de stroom gebruikersnaam moet beginnen met **b2c\_1\_**. Zie voor meer informatie over gebruikersstromen [Azure AD B2C-gebruikersstromen](active-directory-b2c-reference-policies.md). |
 | prompt |Optioneel |Het type van de interactie van de gebruiker die is vereist. Op dit moment de enige geldige waarde is `login`, waardoor de gebruiker zijn referenties invoeren voor deze aanvraag. Eenmalige aanmelding wordt pas van kracht. |
 
-Op dit moment wordt de gebruiker gevraagd om de werkstroom van het beleid te voltooien. Dit kan betrekking hebben op de voeren hun gebruikersnaam en wachtwoord, gebruiker zich aanmeldt met een sociale ID aanmelden voor de map of een andere aantal stappen. Acties van de gebruiker, is afhankelijk van hoe het beleid is gedefinieerd.
+Op dit moment wordt de gebruiker gevraagd om de werkstroom van de gebruikersstroom te voltooien. Dit kan betrekking hebben op de voeren hun gebruikersnaam en wachtwoord, gebruiker zich aanmeldt met een sociale ID aanmelden voor de map of een andere aantal stappen. Acties van de gebruiker, is afhankelijk van hoe de gebruikersstroom wordt gedefinieerd.
 
-Nadat de gebruiker het beleid voltooit, Azure AD retourneert een antwoord aan uw app op de waarde die u hebt gebruikt voor `redirect_uri`. Gebruikt de methode die is opgegeven in de `response_mode` parameter. Het antwoord is precies hetzelfde voor elk van de gebruiker actie scenario's, onafhankelijk van het beleid dat is uitgevoerd.
+Nadat de gebruiker is voltooid de gebruikersstroom, Azure AD retourneert een antwoord aan uw app op de waarde die u hebt gebruikt voor `redirect_uri`. Gebruikt de methode die is opgegeven in de `response_mode` parameter. Het antwoord is precies hetzelfde voor elk van de gebruiker actie scenario's, onafhankelijk van de gebruikersstroom die is uitgevoerd.
 
 Een geslaagde respons die gebruikmaakt van `response_mode=query` ziet er als volgt:
 
@@ -128,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parameter | Vereist? | Beschrijving |
 | --- | --- | --- |
-| p |Vereist |Het beleid dat is gebruikt voor het verkrijgen van de autorisatiecode. U kunt een ander beleid niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter toevoegen de *querytekenreeks*, dus niet in de hoofdtekst van het bericht. |
+| p |Vereist |De gebruikersstroom die is gebruikt voor het verkrijgen van de autorisatiecode. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter toevoegen de *querytekenreeks*, dus niet in de hoofdtekst van het bericht. |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | grant_type |Vereist |Het type verlenen. Voor de autorisatiecodestroom het machtigingstype moet `authorization_code`. |
 | scope |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken dat kan worden gebruikt voor uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen moet.  Ook kunt u de `openid` bereik om aan te vragen van een ID-token van Azure AD B2C. |
@@ -192,7 +192,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 | Parameter | Vereist? | Beschrijving |
 | --- | --- | --- |
-| p |Vereist |Het beleid dat is gebruikt om de oorspronkelijke vernieuwingstoken te verkrijgen. U kunt een ander beleid niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter toevoegen de *querytekenreeks*, dus niet in de hoofdtekst van het bericht. |
+| p |Vereist |De gebruikersstroom die is gebruikt om de oorspronkelijke vernieuwingstoken te verkrijgen. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter toevoegen de *querytekenreeks*, dus niet in de hoofdtekst van het bericht. |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | client_secret |Vereist |De waarde voor client_secret die is gekoppeld aan uw client_id in de [Azure-portal](https://portal.azure.com). |
 | grant_type |Vereist |Het type verlenen. Voor deze kant van de autorisatiecodestroom, het machtigingstype moet `refresh_token`. |
@@ -240,5 +240,5 @@ Als u wilt proberen deze aanvragen zelf, moet u de volgende stappen uitvoeren. V
 
 1. [Een Azure AD B2C-directory maken](active-directory-b2c-get-started.md). Gebruik de naam van uw directory in de aanvragen.
 2. [Maken van een toepassing](active-directory-b2c-app-registration.md) verkrijgen van een toepassings-ID en een omleidings-URI. Een systeemeigen client opnemen in uw app.
-3. [Maken van uw beleid](active-directory-b2c-reference-policies.md) om op te halen van de beleidsnamen van uw.
+3. [Maken van uw gebruikersstromen](active-directory-b2c-reference-policies.md) om op te halen van de gebruiker namen van de stroom.
 

@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c04cc601152001dabc0cf152918c8d0ec884c7ed
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8502912efe9f07464c36df190221afcaa00e79d4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041133"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726420"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Een Azure Log Analytics-werkruimte met de Azure-portal verwijderen
 Dit artikel leest hoe u de Azure portal gebruiken voor het verwijderen van een Log Analytics-werkruimte die u mogelijk niet meer nodig hebt. 

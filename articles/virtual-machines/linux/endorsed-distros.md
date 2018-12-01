@@ -1,5 +1,5 @@
 ---
-title: Distributies van Linux | Microsoft Docs
+title: Linux-distributies die zijn goedgekeurd op Azure | Microsoft Docs
 description: Meer informatie over Linux op door Azure onderschreven distributies, met inbegrip van richtlijnen voor Ubuntu, CentOS, Oracle en SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: b39ae6b5546e9504b9f37504c486c941ab034399
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3c904dadcb01dc889b159dff9ce1b9114db8103e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249996"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681803"
 ---
-# <a name="linux-on-distributions-endorsed-by-azure"></a>Linux op door Azure onderschreven distributies
+# <a name="linux-distributions-endorsed-on-azure"></a>Linux-distributies die zijn goedgekeurd op Azure
 -Partners bieden Linux-installatiekopieën in de Azure Marketplace. We werken met verschillende Linux-community's nog meer varianten toevoegen aan de lijst met distributiepunten die zijn goedgekeurd. In de tussentijd voor distributies die niet beschikbaar zijn vanuit de Marketplace, u kunt altijd brengt uw eigen Linux door de richtlijnen op [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## <a name="supported-distributions-and-versions"></a>Ondersteunde distributies en versies

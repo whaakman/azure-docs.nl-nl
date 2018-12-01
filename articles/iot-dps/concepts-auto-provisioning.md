@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 10648551728e4f3cb41b82433e4cd0d442f9daeb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054653"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679253"
 ---
 # <a name="auto-provisioning-concepts"></a>Concepten voor automatische inrichting
 
@@ -64,6 +64,33 @@ Het volgende diagram geeft een overzicht van de functies en de volgorde van bewe
 > [!NOTE]
 > (Optioneel) de fabrikant kan ook de bewerking niet uitvoeren "voor registratie apparaat-id' met Device Provisioning Service API's (in plaats van via de Operator). Zie voor een gedetailleerde beschrijving van deze sequentiëren en nog veel meer, de [nul touch-apparaatregistratie met Azure IoT-video](https://youtu.be/cSbDRNg72cU?t=2460) (vanaf markering 41:00)
 
+## <a name="roles-and-azure-accounts"></a>Functies en Azure-accounts
+
+Hoe elke rol is toegewezen aan een Azure-account is afhankelijk van het scenario en er zijn een groot aantal scenario's die kunnen worden uitgevoerd. De onderstaande algemene patronen kunnen helpen met het bieden van een algemeen begrip met betrekking tot hoe rollen in het algemeen zijn toegewezen aan een Azure-account.
+
+#### <a name="chip-manufacturer-provides-security-services"></a>-Chipfabrikant biedt security-services
+
+In dit scenario beheert de fabrikant van de beveiliging voor niveau 1-klanten. In dit scenario kan worden voorkeur van deze klanten niveau één als ze geen hebben voor het beheren van uitgebreide beveiliging. 
+
+De fabrikant introduceert beveiliging in Hardware Security Modules (HSM's). Deze beveiliging kan de fabrikant van het verkrijgen van sleutels, certificaten, enzovoort van potentiële klanten die al DPS-exemplaren en inschrijving groepen instellingen hebben bevatten. De fabrikant kan deze beveiligingsgegevens voor de klanten ook genereren.
+
+In dit scenario kunnen er twee Azure-accounts die zijn betrokken:
+
+- **Account #1**: waarschijnlijk door de operator en ontwikkelaars functies tot op zekere hoogte worden gedeeld. Deze partij kan de HSM-chips aanschaffen van de fabrikant. Deze chips zijn waarnaar wordt verwezen naar de DPS-exemplaren die zijn gekoppeld aan het Account #1. Met DPS-registraties, kan deze partij apparaten aan meerdere niveau twee klanten lease door de instellingen voor de inschrijving van apparaten in DPS opnieuw in te. Deze partij mogelijk ook IoT-hubs die zijn toegewezen voor eindgebruikers back-endsystemen aan voor toegang tot telemetrie van apparaten enzovoort. In het laatste geval, is een tweede account mogelijk niet nodig.
+
+- **Account #2**: eindgebruikers, niveau van twee klanten kunnen hun eigen IoT-hubs hebben. De partij die zijn gekoppeld aan Account #1 alleen punten in lease gegeven apparaten naar de juiste hub in dit account. Deze configuratie moet het koppelen van DPS en IoT-hubs in Azure-accounts, die kunnen worden uitgevoerd met Azure Resource Manager-sjablonen.
+
+#### <a name="all-in-one-oem"></a>Alles-in-een door OEM
+
+De fabrikant kan worden "All-in-one OEM" waar slechts één fabrikant-account nodig zou zijn. De fabrikant verwerkt beveiligings- en end-to-end wordt ingericht.
+
+De fabrikant kan een cloud-gebaseerde toepassing naar klanten die apparaten kopen bieden. Deze toepassing zou een interface met de IoT-Hub die is toegewezen door de fabrikant.
+
+Verkoopautomaten of geautomatiseerde koffiezetmachines staan voorbeelden voor dit scenario.
+
+
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Wellicht vindt u het handig om als verwijzing, maak een bladwijzer voor dit artikel als u uw eigen manier via de bijbehorende snelstartgidsen voor automatische inrichting werkt. 
@@ -71,7 +98,7 @@ Wellicht vindt u het handig om als verwijzing, maak een bladwijzer voor dit arti
 Beginnen met het voltooien van een 'Automatische inrichting instellen'-snelstartgids die het beste bij uw voorkeur voor het hulpprogramma van management, die u bij de "Service" configuratiefase helpt:
 
 - [Instellen van automatische inrichting met behulp van Azure CLI](quick-setup-auto-provision-cli.md)
-- [Instellen van automatische inrichting met behulp van de Azure-Portal](quick-setup-auto-provision.md)
+- [Instellen van automatische inrichting met behulp van de Azure portal](quick-setup-auto-provision.md)
 - [Automatische inrichting met behulp van Resource Manager-sjabloon instellen](quick-setup-auto-provision-rm.md)
 
 Ga vervolgens door met een 'Automatisch inrichten een gesimuleerd apparaat' Quick Start dat aansluit op uw apparaat attestation-mechanisme en SDK/Taalvoorkeur van Device Provisioning Service. In deze snelstartgids hebt doorlopen u de fasen van de 'Apparaatinschrijving' en 'Device Registration service en -configuratie': 

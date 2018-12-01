@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 350c009f77bc37ae2201b1d5c3b701e89301b7aa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958335"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721694"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren
 
@@ -73,7 +72,7 @@ Beoordeling [Log Analytics-gebruik en geraamde kosten](log-analytics-usage.md) v
 ### <a name="manage-the-maximum-daily-data-volume"></a>Het maximale dagelijkse gegevensvolume beheren 
 De volgende stappen wordt beschreven hoe u een limiet voor het beheren van de hoeveelheid gegevens die Log Analytics wordt per dag opnemen configureren.  
 
-1. Selecteer in uw werkruimte **gebruik en geraamde kosten** in het linkerdeelvenster.
+1. Selecteer in de werkruimte in het linkerdeelvenster **Gebruik en geschatte kosten**.
 2. Op de **gebruik en geraamde kosten** pagina voor de geselecteerde werkruimte, klikt u op **gegevensvolumebeheer** vanaf de bovenkant van de pagina. 
 5. Dagelijkse limiet is **OFF** standaard – klikt u op **ON** wilt inschakelen, en stelt de limiet voor het volume van gegevens in GB per dag.<br><br> ![Log Analytics configureren gegevenslimiet](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -99,8 +98,8 @@ Zodra de waarschuwing is gedefinieerd en de limiet is bereikt, wordt een waarsch
 ## <a name="change-the-data-retention-period"></a>Wijzigen van de bewaartermijn voor gegevens 
 De volgende stappen wordt beschreven hoe u configureren hoe lang logboek gegevens worden bewaard door in uw werkruimte.
  
-1. Selecteer in uw werkruimte **gebruik en geraamde kosten** in het linkerdeelvenster.
-2. Op de **gebruik en geraamde kosten** pagina, klikt u op **gegevensvolumebeheer** vanaf de bovenkant van de pagina.
+1. Selecteer in de werkruimte in het linkerdeelvenster **Gebruik en geschatte kosten**.
+2. Klik op bovenaan de pagina **Gebruik en geschatte kosten** op **Gegevensvolumebeheer**.
 5. Verplaats de schuifregelaar om te vergroten of verkleinen het aantal dagen en klik vervolgens op in het deelvenster **OK**.  Als u van gebruikmaakt de *gratis* laag, kunt u zich niet wijzigen van de bewaartermijn voor gegevens en moet u upgraden naar de prijscategorie betaald als u wilt beheren met deze instelling.<br><br> ![Werkruimte behoud instelling wijzigen](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Problemen oplossen

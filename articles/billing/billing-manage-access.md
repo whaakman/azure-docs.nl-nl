@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 00b29ddf29ae334154d41eedd0bf9e66556e09ad
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582612"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720116"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Beheer de toegang tot factureringsgegevens voor Azure
 
@@ -72,9 +72,10 @@ De functie factureren voor lezer is in preview en biedt niet-globale clouds nog 
 
 1. Selecteer **toegangsbeheer (IAM)**.
 1. Selecteer **roltoewijzingen** om de roltoewijzingen voor dit abonnement weer te geven.
-1. Selecteer **toevoegen** > **roltoewijzing toevoegen**.
+1. Selecteer **roltoewijzing toevoegen**.
 1. In de **rol** vervolgkeuzelijst Kies **factureren voor lezer**.
 1. In de **Selecteer** tekstvak, typ de naam of e-voor de gebruiker die u wilt toevoegen.
+1. Selecteer de gebruiker.
 1. Selecteer **Opslaan**.
 1. Na enkele ogenblikken wordt de gebruiker de rol van lezer facturering op het abonnementsbereik toegewezen.
 1. Het factureren voor lezer ontvangt een e-mailbericht met een koppeling aan te melden.

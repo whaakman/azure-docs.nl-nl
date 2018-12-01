@@ -9,16 +9,15 @@ ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6db98332fc7d896613a3318421e9a96bbb50cd15
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e389ff0d664403704f120f5ff424b3d5d19baa8a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159139"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682211"
 ---
 # <a name="analytics-in-application-insights"></a>Analyses in Application Insights
 Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is. Als u Application Insights al hebt geconfigureerd voor een van uw apps vervolgens u de gegevens van uw app analyseren kunt door te Analytics openen vanuit uw app [overzichtsblade](app-insights-dashboards.md).

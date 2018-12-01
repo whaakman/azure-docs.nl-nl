@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0fd4efe7fc6f8f217d889b5f87c133b5e250b54
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 938472edf0c82da6f3e1fdaf4e6b052ac178bd8a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809989"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722969"
 ---
 <a name="logic-app-test-drive"></a>Logische App Test Drive
 ====================
@@ -48,7 +48,7 @@ De volgende sectie om in te vullen is dat de informatie over uw Test Drive biedt
 
 ![Stuurprogrammagegevens testen](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Beschrijving -** *[vereist veld]* dit is waar u de beschrijving van de belangrijkste schrijven over wat er op uw Test Drive. De klant komt hier om te lezen welke scenario's voor uw Test Drive die betrekking over het product hebben wordt. 
+**Beschrijving -** *[vereist veld]* dit is waar u de beschrijving van de belangrijkste schrijven over wat er op uw Test Drive. De klant komt hier om te lezen welke scenario's voor uw Test Drive die betrekking over het product hebben wordt. 
 
 **Gebruikershandleiding -** *[vereist veld]* dit is de uitgebreide overzicht van uw Test Drive-ervaring. De klant dit wordt geopend en precies wat u wilt laten doen tijdens de proefrit kunt doorlopen. Het is belangrijk dat deze inhoud eenvoudig is te begrijpen en te volgen. (Dit moet een PDF-bestand zijn)
 
@@ -121,20 +121,18 @@ Anders maakt u een nieuwe Tenant in Azure Active Directory.
 
 Klik op Opslaan. De laatste stap is om te halen van de toepassings-ID voor deze geregistreerde app en plak deze in het veld van Test Drive hier.
 
-![Azure Active Directory-toepassings-ID](./media/azure-resource-manager-test-drive/subdetails7.png)
+![Azure Active Directory-toepassings-id](./media/azure-resource-manager-test-drive/subdetails7.png)
 
 Krijgen we de toepassing gebruiken om te implementeren voor het abonnement, moet de toepassing toevoegen als Inzender van het abonnement. De instructies voor deze zijn als hieronder:
 
 1. Navigeer naar de blade abonnementen en selecteer het juiste abonnement dat u voor de Test Drive gebruikt.
-2. Klik op de Access Control (IAM).
-3. Klik op + toevoegen in de nieuwe blade.
-4. De rol Inzender ingesteld.
-5. Typ de naam van de AAD-toepassing en selecteert u de AAD-toepassing aan de rol toe te wijzen.
-6. Klik op opslaan.
-
-![Azure Active Directory, een nieuwe Access Control-principal toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Azure Active Directory-machtigingen](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op de **roltoewijzingen** tabblad.  ![Azure Active Directory, een nieuwe Access Control-principal toevoegen](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Klik op **roltoewijzing toevoegen**.
+1. Instellen van de rol als **Inzender**.
+1. Typ de naam van de Azure AD-toepassing en selecteer de toepassing aan de rol toe te wijzen.
+    ![Azure Active Directory-machtigingen](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Klik op **Opslaan**.
 
 **Azure AD App Key -** *[vereist veld]* het laatste veld voor het genereren van een verificatiesleutel nodig is. Onder sleutels, een beschrijving van de sleutel, toevoegen de duur instellen op nooit verlopen, klikt u vervolgens selecteert u opslaan. Het is **belangrijk** om te voorkomen dat een verlopen sleutels, die wordt verbroken uw test drive in productie. Deze waarde kopiëren en plak deze in uw vereist Test Drive-veld.
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014717"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724431"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Vereisten voor wachtwoordcomplexiteit voor wachtwoorden configureren
 
@@ -26,22 +26,21 @@ Azure Active Directory B2C (Azure AD B2C) biedt ondersteuning voor de complexite
 
 ## <a name="when-password-rules-are-enforced"></a>Wanneer de wachtwoordregels worden afgedwongen
 
-Tijdens het aanmelden of het wachtwoord opnieuw instellen, een eindgebruiker dient een wachtwoord dat voldoet aan de regels voor wachtwoordcomplexiteit.  Regels voor wachtwoordcomplexiteit worden per beleid afgedwongen.  Het is mogelijk dat één beleid vereisen dat een pincode van vier cijfers tijdens registratie terwijl een ander beleid een tekenreeks van acht tekens vereist tijdens de registratie.  Bijvoorbeeld, kunt u een beleid met verschillende wachtwoordcomplexiteit voor volwassenen dan voor kinderen.
+Tijdens het aanmelden of het wachtwoord opnieuw instellen, een eindgebruiker dient een wachtwoord dat voldoet aan de regels voor wachtwoordcomplexiteit.  Regels voor wachtwoordcomplexiteit worden per beleid afgedwongen.  Het is mogelijk dat één beleid vereisen dat een pincode van vier cijfers tijdens aanmelden terwijl een andere gebruikersstroom een tekenreeks van acht tekens vereist tijdens de registratie.  Bijvoorbeeld, kunt u een beleid met verschillende wachtwoordcomplexiteit voor volwassenen dan voor kinderen.
 
 Wachtwoordcomplexiteit wordt nooit tijdens het aanmelden afgedwongen.  Gebruikers hun wachtwoord wijzigen, omdat het niet voldoet aan de vereiste voor het huidige complexiteit nooit gevraagd tijdens het aanmelden.
 
-Hier zijn de soorten beleid waar wachtwoordcomplexiteit kan worden geconfigureerd:
+Dit zijn de typen gebruikersstromen waar wachtwoordcomplexiteit kan worden geconfigureerd:
 
-* Beleid voor registreren of aanmelden
-* Beleid voor wachtwoord opnieuw instellen
+* Meld u aan of aanmelden gebruikersstroom
+* Wachtwoord opnieuw instellen van beleid
 * Aangepast beleid ([wachtwoordcomplexiteit configureren in het aangepaste beleid](active-directory-b2c-reference-password-complexity-custom.md))
 
 ## <a name="how-to-configure-password-complexity"></a>Wachtwoordcomplexiteit configureren
 
-1. Open **registreren of aanmelden beleidsregels**.
-2. Selecteer een beleid en klikt u op **bewerken**.
-3. Open **wachtwoordcomplexiteit**.
-4. Wijzigen van de wachtwoordcomplexiteit voor dit beleid **eenvoudige**, **sterke**, of **aangepaste**.
+1. Open **gebruikersstromen**.
+2. Selecteer de gebruikersstroom van een en klikt u op **eigenschappen**.
+3. Onder **wachtwoordcomplexiteit**, de wachtwoordcomplexiteit voor deze gebruikersstroom te wijzigen **eenvoudige**, **sterke**, of **aangepaste**.
 
 ### <a name="comparison-chart"></a>Vergelijkingstabel
 

@@ -10,17 +10,16 @@ ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e20d787bef4da518765d1eeeb33237ddd612606
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633143"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721218"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager koppelen aan Log Analytics
 U kunt uw System Center Configuration Manager-omgeving koppelen aan Azure Log Analytics apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -38,7 +37,7 @@ De volgende stappen geven een overzicht van de stappen voor het configureren van
 4. In Configuration Manager [bijwerken van de verbindingseigenschappen](#update-oms-connection-properties) als de geheime sleutel van het wachtwoord of de client ooit is verlopen of verloren gegaan is.
 5. [Download en installeer de Microsoft Monitoring Agent](#download-and-install-the-agent) op de computer waarop de Configuration Manager service connection point sitesysteemrol. De agent verzendt de Configuration Manager-gegevens naar de Log Analytics-werkruimte.
 6. In Log Analytics, [verzamelingen importeren uit Configuration Manager](#import-collections) als computergroepen.
-7. Weergeven in Log Analytics, gegevens uit Configuration Manager als [computergroepen](log-analytics-computer-groups.md).
+7. Weergeven in Log Analytics, gegevens uit Configuration Manager als [computergroepen](../azure-monitor/platform/computer-groups.md).
 
 U kunt meer lezen over het verbinden van Configuration Manager met logboekanalyse op [synchroniseren van gegevens uit Configuration Manager met de Microsoft Log Analytics](https://technet.microsoft.com/library/mt757374.aspx).
 
@@ -51,9 +50,9 @@ In de volgende procedure, verleent u de *Inzender* rol in uw Log Analytics-werkr
 
 1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. In de lijst met Log Analytics-werkruimten, selecteer de werkruimte te wijzigen.
-3. Selecteer in het linkerdeelvenster **Access Control (IAM)**.
-4. In de Access Control-pagina, klikt u op **toevoegen** en de **machtigingen toevoegen** deelvenster wordt weergegeven.
-5. In de **machtigingen toevoegen** deelvenster onder de **rol** vervolgkeuzelijst, selecteer de **Inzender** rol.  
+3. Selecteer in het linkerdeelvenster **toegangsbeheer (IAM)**.
+4. Klik in de Access control (IAM)-pagina op **roltoewijzing toevoegen** en de **roltoewijzing toevoegen** deelvenster wordt weergegeven.
+5. In de **roltoewijzing toevoegen** deelvenster onder de **rol** vervolgkeuzelijst, selecteer de **Inzender** rol.  
 6. Onder de **toegang toewijzen aan** vervolgkeuzelijst, selecteer de Configuration Manager-toepassing eerder hebt gemaakt in AD, en klik vervolgens op **OK**.  
 
 ## <a name="download-and-install-the-agent"></a>De agent downloaden en installeren
@@ -107,7 +106,7 @@ Nadat u de eerste configuratie voor het apparaatverzamelingen importeren uit uw 
    ![Computergroepen - SCCM-tabblad](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Gegevens weergeven uit Configuration Manager
-Nadat u hebt toegevoegd een Log Analytics-verbinding naar Configuration Manager en de agent op de computer met de Configuration Manager service connection point sitesysteemrol hebt geïnstalleerd, worden gegevens van de agent wordt verzonden naar Log Analytics. In Log Analytics, uw Configuration Manager-verzamelingen worden weergegeven als [computergroepen](log-analytics-computer-groups.md). U vindt de groepen van de **Configuration Manager** pagina onder **Settings\Computer groepen**.
+Nadat u hebt toegevoegd een Log Analytics-verbinding naar Configuration Manager en de agent op de computer met de Configuration Manager service connection point sitesysteemrol hebt geïnstalleerd, worden gegevens van de agent wordt verzonden naar Log Analytics. In Log Analytics, uw Configuration Manager-verzamelingen worden weergegeven als [computergroepen](../azure-monitor/platform/computer-groups.md). U vindt de groepen van de **Configuration Manager** pagina onder **Settings\Computer groepen**.
 
 Nadat de verzamelingen die zijn geïmporteerd, kunt u zien hoeveel computers met verzamelingslidmaatschappen gedetecteerd. U ziet ook het aantal verzamelingen die zijn geïmporteerd.
 

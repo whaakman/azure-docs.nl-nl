@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 899adc8d4fb26ac64cd3fbd7096a8b8387900517
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498328"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722289"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Een niet-interactieve verificatie HDInsight .NET-toepassing maken
 U kunt uw Microsoft .NET-Azure HDInsight-toepassing onder de identiteit van de toepassing (niet-interactieve) of onder de identiteit van de aangemelde gebruiker van de toepassing (interactief) uitvoeren. Dit artikel laat u het maken van een niet-interactieve verificatie .NET-toepassing verbinding maakt met Azure en beheren van HDInsight. Zie voor een voorbeeld van een interactieve toepassing [verbinding maken met Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -34,11 +34,12 @@ Toewijzen van uw Azure AD-toepassing een [rol](../role-based-access-control/buil
 **De rol van eigenaar toevoegen aan de Azure AD-toepassing**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu links **resourcegroep**.
+2. Selecteer **Resourcegroepen** in het linkermenu.
 3. Selecteer de resourcegroep waaraan de HDInsight-cluster op waarop u uw Hive-query verderop in deze zelfstudie wordt uitgevoerd. Als u een groot aantal resourcegroepen hebt, kunt u het filter om te zoeken die u wilt.
 4. Selecteer op het menu resourcegroep **toegangsbeheer (IAM)**.
-5. Onder **gebruikers**, selecteer **toevoegen**.
-6. Volg de instructies voor de rol van eigenaar toevoegen aan uw Azure AD-toepassing. Nadat u de functie is toegevoegd, de toepassing wordt vermeld onder **gebruikers**, met de rol van eigenaar. 
+5. Selecteer de **roltoewijzingen** tabblad om te bekijken van de huidige roltoewijzingen.
+6. Aan de bovenkant van de pagina, selecteer **roltoewijzing toevoegen**.
+7. Volg de instructies voor de rol van eigenaar toevoegen aan uw Azure AD-toepassing. Nadat u de functie is toegevoegd, wordt de toepassing wordt vermeld onder de rol van eigenaar. 
 
 ## <a name="develop-an-hdinsight-client-application"></a>Een HDInsight-client-toepassing ontwikkelen
 

@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: db177c3356d378317c41e0c91c10865db5e05992
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8009a2ef3f89a359bc645485dd75b80cc5d0b868
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286976"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722833"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Gebeurtenissen ontvangen van Event Hubs met behulp van Python
 
@@ -30,11 +30,9 @@ Code in deze zelfstudie is afkomstig uit [deze GitHub-voorbeelden](https://githu
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
+- Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 - Python 3.4 of hoger.
 - Een bestaande Event Hubs-naamruimte en event hub. U kunt deze entiteiten maken door de instructies in [in dit artikel](event-hubs-create.md). 
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
 
 ## <a name="install-python-package"></a>Python-pakket installeren
 

@@ -4,16 +4,16 @@ description: Een Azure IoT Edge-apparaat gebruiken als een transparante gateway 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 55968393ff64d9eed1f5b384094a77d0d169dc5d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568468"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681191"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren
 
@@ -258,7 +258,11 @@ U kunt controleren welke modules worden uitgevoerd op een apparaat met de opdrac
 6. In de **sjabloon controleren** weergeeft, schakelt **indienen**.
 
 ## <a name="route-messages-from-downstream-devices"></a>Routeren van berichten van downstream-apparaten
-IoT Edge-runtime kunt versturen berichten worden verzonden van downstream apparaten net als bij berichten die worden verzonden door modules. Hiermee kunt u analyses uitvoeren in een module die wordt uitgevoerd op de gateway voor het verzenden van gegevens naar de cloud. De onderstaande route moet worden gebruikt voor het verzenden van berichten van een downstream-apparaat met de naam `sensor` op de naam van een module `ai_insights`.
+IoT Edge-runtime kunt versturen berichten worden verzonden van downstream apparaten net als bij berichten die worden verzonden door modules. Hiermee kunt u analyses uitvoeren in een module die wordt uitgevoerd op de gateway voor het verzenden van gegevens naar de cloud. 
+
+Op dit moment is de manier waarop u berichten die worden verzonden door downstream-apparaten versturen door ze verschillen van berichten die worden verzonden door modules. Berichten van alle modules bevatten een systeemeigenschap, genaamd **connectionModuleId** maar niet voor berichten die worden verzonden door downstream-apparaten. De WHERE-component van de route kunt u alle berichten met die systeemeigenschap uitsluiten. 
+
+De onderstaande route moet worden gebruikt om berichten te verzenden vanaf elk apparaat downstream op naam van een module `ai_insights`.
 
 ```json
 {
@@ -269,7 +273,7 @@ IoT Edge-runtime kunt versturen berichten worden verzonden van downstream appara
 }
 ```
 
-Zie voor meer informatie over het routeren van berichten, [modulesamenstelling](./module-composition.md).
+Zie voor meer informatie over het routeren van berichten, [implementeren modules en routes tot stand brengen](./module-composition.md#declare-routes).
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

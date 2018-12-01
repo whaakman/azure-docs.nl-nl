@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 62389edabb6d510fa1294affeb8e874efd18fc06
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978332"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678420"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Activiteitenlogboeken bekijken om wijzigingen van RBAC
 
@@ -119,9 +119,9 @@ Hier volgen de basisstappen om te beginnen:
 
 1. [Een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. [De oplossing Activity Log Analytics configureren](../log-analytics/log-analytics-activity.md#configuration) voor uw werkruimte.
+1. [De oplossing Activity Log Analytics configureren](../azure-monitor/platform/collect-activity-logs.md#configuration) voor uw werkruimte.
 
-1. [Bekijk de activiteitenlogboeken](../log-analytics/log-analytics-activity.md#using-the-solution). Een snelle manier om te navigeren naar de pagina overzicht voor analyse van activiteit is om op de **Log Analytics** optie.
+1. [Bekijk de activiteitenlogboeken](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Een snelle manier om te navigeren naar de pagina overzicht voor analyse van activiteit is om op de **Log Analytics** optie.
 
    ![Log Analytics-optie in de portal](./media/change-history-report/azure-log-analytics-option.png)
 

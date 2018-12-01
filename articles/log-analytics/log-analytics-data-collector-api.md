@@ -10,17 +10,16 @@ ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 497b5b9d33ab2dea37e1017fa2d5bf2d0db66a5f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 881188e7dab0e50b5bc62258c87cb546020c8410
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007668"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723581"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview-versie)
 Dit artikel ziet u hoe u de API HTTP Data Collector gebruikt om gegevens te verzenden naar Log Analytics van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Log Analytics.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -472,4 +471,4 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="next-steps"></a>Volgende stappen
 - Gebruik de [Log Search API](log-analytics-queries.md) gegevens ophalen uit de opslagplaats van Log Analytics.
 
-- Meer informatie over hoe u [een pijplijn maken met de API van Data Collector](log-analytics-create-pipeline-datacollector-api.md) met behulp van de werkstroom voor Logic Apps naar Log Analytics.
+- Meer informatie over hoe u [een pijplijn maken met de API van Data Collector](../azure-monitor/platform/create-pipeline-datacollector-api.md) met behulp van de werkstroom voor Logic Apps naar Log Analytics.

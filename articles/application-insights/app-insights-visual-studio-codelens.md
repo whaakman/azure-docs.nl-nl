@@ -10,18 +10,17 @@ ms.service: application-insights
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 70b0f66fcbcd54b5eb2f3dc938b005090a08c62f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 298fb7350ad8bb5029414b63797f62ef292a315e
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137256"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721626"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry in Visual Studio CodeLens
 De methoden in de code van uw webtoepassing kunnen worden voorzien van aantekeningen met telemetrie over runtime-uitzonderingen en reactietijden voor aanvragen. Als u [Azure Application Insights](app-insights-overview.md) installeert in uw toepassing, wordt de telemetrie weergegeven in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx): het opmerkingengedeelte boven aan elke functie, waar u doorgaans handige informatie ziet, zoals vanaf hoeveel plaatsen er wordt verwezen naar de functie en wie de toepassing voor het laatst heeft bewerkt.

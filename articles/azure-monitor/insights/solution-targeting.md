@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 53f28d29b9667bb885a5c3d0da8d926f756f3427
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715297"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682063"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Die gericht is op de beheeroplossingen in Azure (Preview)
 Wanneer u een oplossing voor uw abonnement toevoegt, wordt deze automatisch geïmplementeerd standaard voor alle Windows en Linux-agents die zijn verbonden met uw Log Analytics-werkruimte.  Mogelijk wilt uw kosten beheren en beperken van de hoeveelheid gegevens die worden verzameld voor een oplossing door deze te beperken tot een bepaalde set van agents.  In dit artikel wordt beschreven hoe u **Oplossingstargeting** dit is een functie waarmee u een bereik toepassen op uw oplossingen.
@@ -29,7 +29,7 @@ Er zijn drie stappen voor het die gericht is op een oplossing zoals beschreven i
 
 
 ### <a name="1-create-a-computer-group"></a>1. Een computergroep maken
-U opgeven dat de computers die u opnemen in een bereik wilt met het maken van een [computergroep](../../log-analytics/log-analytics-computer-groups.md) in Log Analytics.  De computergroep kan op basis van een zoeken in Logboeken of geïmporteerd uit andere bronnen, zoals Active Directory of WSUS-groepen. Als [die hieronder worden beschreven](#solutions-and-agents-that-cant-be-targeted), alleen de computers die rechtstreeks zijn verbonden met Log Analytics worden opgenomen in het bereik.
+U opgeven dat de computers die u opnemen in een bereik wilt met het maken van een [computergroep](../../azure-monitor/platform/computer-groups.md) in Log Analytics.  De computergroep kan op basis van een zoeken in Logboeken of geïmporteerd uit andere bronnen, zoals Active Directory of WSUS-groepen. Als [die hieronder worden beschreven](#solutions-and-agents-that-cant-be-targeted), alleen de computers die rechtstreeks zijn verbonden met Log Analytics worden opgenomen in het bereik.
 
 U hebt één keer groep op de computer in uw werkruimte hebt gemaakt en u zult deze opnemen in de configuratie van een scope die kan worden toegepast op een of meer oplossingen.
  
@@ -75,4 +75,4 @@ Oplossingstargeting kan niet worden gebruikt met de volgende oplossingen zelfs a
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over oplossingen voor beheer, inclusief de oplossingen die kunnen worden geïnstalleerd in uw omgeving op [oplossingen voor Azure Log Analytics toevoegen aan uw werkruimte](solutions.md).
-- Meer informatie over het maken van computergroepen op [computergroepen in Log Analytics-zoekopdrachten](../../log-analytics/log-analytics-computer-groups.md).
+- Meer informatie over het maken van computergroepen op [computergroepen in Log Analytics-zoekopdrachten](../../azure-monitor/platform/computer-groups.md).

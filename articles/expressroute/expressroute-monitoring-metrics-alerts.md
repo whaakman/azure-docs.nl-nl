@@ -5,22 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377794"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725949"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Bewaking, metrische gegevens en waarschuwingen voor ExpressRoute
 
- Dit artikel helpt u inzicht in de ExpressRoute-controle, metrische gegevens en waarschuwingen. Azure Monitor is een centrale locatie voor alle metrische gegevens, waarschuwingen, diagnostische logboeken in heel Azure.
+Dit artikel helpt u inzicht in de ExpressRoute-controle, metrische gegevens en waarschuwingen. Azure Monitor is een centrale locatie voor alle metrische gegevens, waarschuwingen, diagnostische logboeken in heel Azure.
+ 
+>[!NOTE]
+>Met behulp van **klassieke metrische gegevens** wordt niet aanbevolen. 
+>
 
 ## <a name="circuit-metrics"></a>Circuit metrische gegevens
 
-Om te navigeren naar **metrische gegevens**, klikt u op het ExpressRoute-pagina voor het circuit die u wilt bewaken. Onder **bewaking** vindt u de **metrische gegevens**. Selecteer BitsInPerSecond of BitsOutPerSecond en de aggregatie. U kunt eventueel toepassen splitsen die de metrische gegevens per peeringtype wordt weergegeven.
+Om te navigeren naar **metrische gegevens**, klikt u op het ExpressRoute-pagina voor het circuit die u wilt bewaken. Onder **bewaking**, vindt u de **metrische gegevens**. Selecteer BitsInPerSecond of BitsOutPerSecond en de aggregatie. (Optioneel) kunt u toepassen splitsen, die de metrische gegevens per peeringtype wordt weergegeven.
 
 ![Circuit metrische gegevens](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -42,11 +46,10 @@ Hier vindt u metrische gegevens voor persoonlijke, openbare en Microsoft-peering
 
 2. Klik op **+ doel selecteren** en selecteer de verbindingsresource van de ExpressRoute-gateway.
 
-  ![doel]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+  ![Doel]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definieer de details van de waarschuwing.
 
   ![Actiegroep](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
-
 
 4. Definiëren en toevoegen van de actiegroep.
 
@@ -61,9 +64,10 @@ Hier vindt u metrische gegevens voor persoonlijke, openbare en Microsoft-peering
 In de **waarschuwingscriteria**, kunt u **activiteitenlogboek** signaaltype en selecteer het signaal.
 
   ![een andere](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## <a name="next-steps"></a>Volgende stappen
-* Configureer uw ExpressRoute-verbinding.
+
+Configureer uw ExpressRoute-verbinding.
   
   * [Een circuit maken en wijzigen](expressroute-howto-circuit-arm.md)
   * [Een peeringconfiguratie maken en wijzigen](expressroute-howto-routing-arm.md)

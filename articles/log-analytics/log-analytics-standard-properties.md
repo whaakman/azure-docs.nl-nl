@@ -9,17 +9,16 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c43f8acf7f9278ca412bee9ad15f2d51541cd27b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 64b4ab95d4972848c6c0cf7130ec97c2be41ead0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044328"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722905"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standaardeigenschappen in Log Analytics-records
 Gegevens in [Log Analytics](../log-analytics/log-analytics-queries.md) wordt opgeslagen als een set records, elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.

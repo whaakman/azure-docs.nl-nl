@@ -5,19 +5,19 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5781112d4e45d29f8d623e3175fa5eb8e82444f9
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613193"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682296"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
-Azure Monitor is nu geworden am geïntegreerde volledige stack controleservice die biedt nu ondersteuning voor één metrische gegevens en 'Een waarschuwingen' voor resources. Zie voor meer informatie onze [blogbericht over nieuwe Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). De nieuwe Azure bewaking en waarschuwingen platforms is gemaakt om te worden sneller, slimmer en uitbreidbare: keeping hoog tempo aan de groeiende expanse van cloud computing en in-regel met de intelligente Cloud Microsoft filosofie. 
+Azure Monitor is nu een uniforme volledige stack monitoring-service, die nu ondersteuning biedt voor één metrische gegevens en 'Een waarschuwingen' voor resources; geworden. Zie voor meer informatie onze [blogbericht over nieuwe Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). De nieuwe Azure bewaking en waarschuwingen platforms is gemaakt om te worden sneller, slimmer en uitbreidbare: keeping hoog tempo aan de groeiende expanse van cloud computing en in-regel met de intelligente Cloud Microsoft filosofie. 
 
 Met de nieuwe Azure-bewaking en waarschuwingen platform op locatie zijn ingesteld, we zullen worden buiten gebruik stellen van het "klassieke" bewaking en waarschuwingen platform, die worden gehost in *klassieke waarschuwingen weergeven* sectie van de Azure-waarschuwingen worden afgeschaft door juni 2019.
 
@@ -53,9 +53,13 @@ Oudere klassiek bewaking en waarschuwingen wordt buiten gebruik gesteld op 30 ju
 - Oudere (klassiek) platform en aangepaste metrische gegevens voor Application Insights, evenals waarschuwingen op deze als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal en toegankelijk als [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Oudere (klassiek) Foutafwijkingen waarschuwing momenteel beschikbaar als [Slimme detectie in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) in de Azure-portal; met waarschuwingen geconfigureerd wordt weergegeven in [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure Portal
 
-Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portal-pagina, en [Resourcesjabloon](monitoring-enable-alerts-using-template.md) bruikbaar blijven tot juni 2019. Na deze datum is klassieke bewaking en waarschuwingen service buiten gebruik is gesteld en niet meer beschikbaar voor gebruik; Wanneer een waarschuwing van regels die blijven bestaan in waarschuwingen (klassiek) buiten juni 2019 blijft uitvoeren, maar niet meer beschikbaar voor de wijziging.
+Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portal-pagina](alert-metric-classic.md), en [ Resource-sjabloon](monitoring-enable-alerts-using-template.md) bruikbaar blijven tot het einde van juni 2019. 
 
-Alle waarschuwingen die nog in de klassieke bewaking en waarschuwingen van platform naast 2019 juni, worden automatisch gemigreerd door Microsoft aan het equivalent hiervan in het nieuwe platform van Azure monitor in juli 2019. Het proces wordt naadloos zonder uitvaltijd en zorg ervoor dat klanten hebben geen invloed op de dekking voor bewaking.
+Aan het einde van juni 2019, in Azure Monitor:
+
+- Klassieke service voor bewaking en waarschuwingen worden buiten gebruik is gesteld en niet meer beschikbaar zijn voor het maken van nieuwe regels voor waarschuwingen
+- Geen waarschuwingsregels die blijven bestaan in waarschuwingen (klassiek) buiten juni 2019 blijven uitvoeren en meldingen worden geactiveerd, maar niet meer beschikbaar voor de wijziging.
+- Vanaf juli 2019, worden geen waarschuwingsregels in klassieke bewaking en waarschuwingen automatisch gemigreerd door Microsoft aan het equivalent hiervan in het nieuwe Azure monitor-platform. Het proces wordt naadloze zonder uitvaltijd en klanten hebben geen invloed op de bewaking van de dekking.
 
 Hulpprogramma's kunt u uw waarschuwingen van vrijwillig migratie zal binnenkort worden geboden [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure-portal naar de nieuwe Azure-waarschuwingen. Alle regels die zijn geconfigureerd in waarschuwingen (klassiek) die worden gemigreerd naar nieuwe Azure Monitor, gratis blijven en niet in rekening gebracht. Gemigreerde regels voor klassieke waarschuwingen worden kosten in rekening gebracht voor het pushen van meldingen via e-mail, webhook of LogicApp ook niet voorzien. Gebruik van de nieuwere melding of actie typen (zoals SMS, Spraakoproep, ITSM-integratie, enzovoort) is gebracht of toegevoegd aan een gemigreerde of een nieuwe waarschuwing. Zie voor meer informatie, [prijzen voor Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 

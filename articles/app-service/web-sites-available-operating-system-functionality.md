@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 7cf7078353de27c35a607fa8ef1921d6ed4b54b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247344"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678675"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>De functionaliteit van het besturingssysteem op Azure App Service
 In dit artikel beschrijft de functionaliteit van algemene basislijn besturingssysteem dat beschikbaar is voor alle Windows-apps die worden uitgevoerd op [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit bevat de bestands-, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -60,7 +60,12 @@ App Service is in de kern, een service die wordt uitgevoerd boven op de infrastr
 - Een toepassing station waarop Azure cspkg pakketbestanden gebruikt uitsluitend door App Service (en niet toegankelijk is voor klanten)
 - De schijf van een 'gebruiker' (het station C:\), waarvan de grootte, afhankelijk van de grootte van de virtuele machine varieert. 
 
-Het is belangrijk voor het bewaken van uw schijfgebruik wanneer uw toepassing groeit. Als de schijf is bereikt, kan dit negatieve gevolgen heeft voor uw toepassing hebben.
+Het is belangrijk voor het bewaken van uw schijfgebruik wanneer uw toepassing groeit. Als de schijf is bereikt, kan dit negatieve gevolgen heeft voor uw toepassing hebben. Bijvoorbeeld: 
+
+- De app mogelijk een foutbericht dat aangeeft niet genoeg ruimte op de schijf genereert.
+- Mogelijk ziet u schijffouten optreden bij het bladeren naar de Kudu-console.
+- Implementatie van VSTS of Visual Studio kan mislukken met `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Trage prestaties kan worden beïnvloed door uw app.
 
 <a id="NetworkDrives"></a>
 

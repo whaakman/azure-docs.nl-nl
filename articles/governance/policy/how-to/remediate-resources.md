@@ -8,12 +8,12 @@ ms.date: 09/25/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b503c1a96d0c0a5ce3d14e98622040116873045
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392687"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724652"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Herstellen van niet-compatibele resources met Azure Policy
 
@@ -123,7 +123,7 @@ Een rol toevoegen aan de beheerde identiteit van de toewijzing, de volgende stap
 
 1. Navigeer naar de resource of de resources bovenliggende container (resourcegroep, abonnement, beheergroep) waarvoor de roldefinitie die handmatig zijn toegevoegd.
 
-1. Klik op de **toegangsbeheer (IAM)** op de pagina resources koppelen en klik op **+ toevoegen** aan de bovenkant van de pagina voor het beheer van toegang.
+1. Klik op de **toegangsbeheer (IAM)** op de pagina resources koppelen en klik op **+ roltoewijzing toevoegen** aan de bovenkant van de pagina voor het beheer van toegang.
 
 1. Selecteer de juiste rol die overeenkomt met een **roleDefinitionIds** van de beleidsdefinitie. Laat **toegang toewijzen aan** ingesteld op de standaardwaarde van 'Azure AD gebruiker, groep of toepassing'. In de **Selecteer** vak, plakt of typt u het gedeelte van de resource-ID van toewijzing zich eerder hebt. Wanneer de zoekopdracht is voltooid, klikt u op het object met dezelfde naam-id selecteren en op **opslaan**.
 

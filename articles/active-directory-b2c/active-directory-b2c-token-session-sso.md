@@ -7,34 +7,32 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 456e32e2f5194417f004f80feef1852dd3d0befd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636897"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723275"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token-, sessie en configuratie voor eenmalige aanmelding in Azure Active Directory B2C
 
-Hiermee kunt u heel nauwkeurig bepalen, op een [per beleid basis](active-directory-b2c-reference-policies.md), van:
+Hiermee kunt u heel nauwkeurig bepalen, op een [stroom gebruikersbasis](active-directory-b2c-reference-policies.md), van:
 
 - Levensduur van beveiligingstokens die door Azure Active Directory (Azure AD) B2C wordt verzonden.
 - Levensduur van web application sessies worden beheerd door Azure AD B2C.
 - De indelingen van belangrijke claims in de beveiligingstokens die door Azure AD B2C wordt verzonden.
-- Eenmalige aanmelding (SSO) het gedrag voor meerdere apps en beleidsregels in uw Azure AD B2C-tenant.
+- Eenmalige aanmelding (SSO) gedrag voor meerdere apps en gebruikersstromen in uw Azure AD B2C-tenant.
 
-U kunt deze functie op elk gewenst beleidstype, maar in dit voorbeeld laten zien hoe u de functie met een beleid voor registreren of aanmelden. Voor de ingebouwde beleidsregels, kunt u deze functie in uw Azure AD B2C-directory als volgt:
+U kunt deze functie op elk gewenst beleidstype, maar in dit voorbeeld laten zien hoe u de functie met een gebruikersstroom registreren of aanmelden. Voor gebruikersstromen, kunt u deze functie in uw Azure AD B2C-directory als volgt:
 
-1. Klik op **beleid voor registreren of aanmelden**.
-2. Open een beleid door erop te klikken. Bijvoorbeeld, klikt u op **B2C_1_SiUpIn**.
-3. Klik op **bewerken** aan de bovenkant van het menu.
-4. Klik op **Token-, sessie- en configuratie voor eenmalige aanmelding**.
-5. Breng de gewenste wijzigingen. Meer informatie over de beschikbare eigenschappen in de volgende secties.
-6. Klik op **OK**.
-7. Klik op **opslaan** boven aan het menu.
+1. Klik op **gebruikersstromen**.
+2. Open een gebruikersstroom door erop te klikken. Bijvoorbeeld, klikt u op **B2C_1_SiUpIn**.
+3. Klik op **Eigenschappen**.
+4. Onder **Token compatibiliteitsinstellingen**, breng de gewenste wijzigingen aan. Meer informatie over de beschikbare eigenschappen in de volgende secties.
+5. Klik op **opslaan** boven aan het menu.
 
 ## <a name="token-lifetimes-configuration"></a>Configuratie van de levensduur van tokens
 
@@ -57,10 +55,10 @@ De volgende eigenschappen worden gebruikt voor het beheren van de levensduur van
 
 De volgende gevallen gebruik worden ingeschakeld met behulp van deze eigenschappen:
 
-- Toestaan dat een gebruiker aangemeld bij een mobiele toepassing blijven voor onbepaalde tijd, zolang de gebruiker op de toepassing voortdurend actief is. U kunt instellen **Refresh token levensduur van sliding window (dagen)** naar **Unbounded** in uw beleid voor aanmelden.
+- Toestaan dat een gebruiker aangemeld bij een mobiele toepassing blijven voor onbepaalde tijd, zolang de gebruiker op de toepassing voortdurend actief is. U kunt instellen **Refresh token levensduur van sliding window (dagen)** naar **Unbounded** in uw gebruikersstroom aanmelden.
 - Voldoen aan uw toonaangevende beveiligings- en nalevingsvereisten door in te stellen van de levensduur van de juiste toegang-tokens.
 
-Deze instellingen zijn niet beschikbaar voor wachtwoord opnieuw instellen van beleidsregels. 
+Deze instellingen zijn niet beschikbaar voor wachtwoord opnieuw instellen van gebruikersstromen. 
 
 ## <a name="token-compatibility-settings"></a>Instellingen voor tokencompatibiliteit
 
@@ -68,7 +66,7 @@ De volgende eigenschappen kunnen klanten opt-in indien nodig:
 
 - **Claim van verlener (iss)** -deze eigenschap geeft u de Azure AD B2C-tenant die het token is uitgegeven.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` -Dit is de standaardwaarde.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Deze waarde bevat de id's voor zowel de B2C-tenant en het beleid dat wordt gebruikt in het token aan te vragen. Als uw app of de tapewisselaar moet Azure AD B2C om te voldoen aan de [OpenID Connect Discovery 1.0-specificatie](http://openid.net/specs/openid-connect-discovery-1_0.html), gebruikt deze waarde.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Deze waarde bevat de id's voor zowel de B2C-tenant en de gebruikersstroom gebruikt in het token aan te vragen. Als uw app of de tapewisselaar moet Azure AD B2C om te voldoen aan de [OpenID Connect Discovery 1.0-specificatie](http://openid.net/specs/openid-connect-discovery-1_0.html), gebruikt deze waarde.
 - **Onderwerp (sub) claim** -deze eigenschap geeft u de entiteit die het token worden bevestigd met informatie.
     - **Object-id** -deze eigenschap is de standaardwaarde. Het wordt gevuld met de object-ID van de gebruiker in de map in de `sub` claim in het token.
     - **Niet ondersteund** : deze eigenschap wordt alleen aangeboden voor achterwaartse compatibiliteit en het is raadzaam dat u naar overschakelt **ObjectID** zodra u zich kunt.
@@ -91,16 +89,16 @@ De volgende gevallen gebruik worden ingeschakeld met behulp van deze eigenschapp
 - Voldoen aan de beveiligings- en vereisten van uw branche door in te stellen van de juiste toepassing websessie levensduur.
 - De verificatie van de Force na een bepaalde tijd instellen tijdens een gebruikersinteractie met hoogwaardige beveiliging onderdeel van uw webtoepassing. 
 
-Deze instellingen zijn niet beschikbaar voor wachtwoord opnieuw instellen van beleidsregels.
+Deze instellingen zijn niet beschikbaar voor wachtwoord opnieuw instellen van gebruikersstromen.
 
 ## <a name="single-sign-on-sso-configuration"></a>Configuratie van eenmalige aanmelding (SSO)
 
-Als u meerdere toepassingen en het beleid in uw B2C-tenant hebt, kunt u de interactie van gebruikers beheren binnen deze met behulp van de **configuratie voor eenmalige aanmelding** eigenschap. U kunt de eigenschap instellen op een van de volgende instellingen:
+Als u meerdere toepassingen en gebruikersstromen in uw B2C-tenant hebt, kunt u de interactie van gebruikers beheren binnen deze met behulp van de **configuratie voor eenmalige aanmelding** eigenschap. U kunt de eigenschap instellen op een van de volgende instellingen:
 
-- **Tenant** -dit is de standaardinstelling. Met deze instelling kan meerdere toepassingen en het beleid in uw B2C-tenant voor het delen van dezelfde sessie van de gebruiker. Bijvoorbeeld, wanneer een gebruiker zich in een toepassing, de gebruiker kan ook naadloos zich aanmelden bij een andere ene, Contoso geneesmiddelen, bij toegang tot het.
+- **Tenant** -dit is de standaardinstelling. Met deze instelling kan meerdere toepassingen en gebruiker stromen in uw B2C-tenant voor het delen van dezelfde sessie van de gebruiker. Bijvoorbeeld, wanneer een gebruiker zich in een toepassing, de gebruiker kan ook naadloos zich aanmelden bij een andere ene, Contoso geneesmiddelen, bij toegang tot het.
 - **Toepassing** -deze instelling kunt u een gebruikerssessie uitsluitend bedoeld voor een toepassing, onafhankelijk van andere toepassingen te onderhouden. Bijvoorbeeld, als u wilt dat de gebruiker zich aanmeldt bij Contoso geneesmiddelen (met dezelfde referenties), zelfs als de gebruiker is al aangemeld bij Contoso winkelen, een andere toepassing op dezelfde B2C-tenant. 
-- **Beleid** -deze instelling kunt u een gebruikerssessie uitsluitend bedoeld voor een beleid, onafhankelijk van de toepassingen te onderhouden. Bijvoorbeeld, als de gebruiker is al aangemeld en een multi-factor authentication (MFA) stap voltooid, kan de gebruiker toegang krijgen tot delen van betere beveiliging van meerdere toepassingen, zolang de sessie die is gekoppeld aan het beleid niet verloopt.
-- **Uitgeschakelde** : met deze instelling orces de gebruiker uit te voeren via de gehele gebruikersbeleving op elke uitvoering van het beleid. Bijvoorbeeld: Hierdoor kunnen meerdere gebruikers voor het aanmelden bij uw toepassing (in een gedeelde bureaublad scenario), zelfs bij een enkele gebruiker blijft aangemeld gedurende de hele tijd.
+- **Beleid** -deze instelling kunt u een gebruikerssessie uitsluitend bedoeld voor een gebruikersstroom, onafhankelijk van de toepassingen te onderhouden. Bijvoorbeeld, als de gebruiker is al aangemeld en een multi-factor authentication (MFA) stap voltooid, kan de gebruiker toegang krijgen tot delen van betere beveiliging van meerdere toepassingen, zolang de sessie die is gekoppeld aan de gebruikersstroom niet verloopt.
+- **Uitgeschakelde** -deze instelling zorgt ervoor dat de gebruiker uit te voeren via de gehele gebruikersstroom op elke uitvoering van het beleid. Bijvoorbeeld: Hierdoor kunnen meerdere gebruikers voor het aanmelden bij uw toepassing (in een gedeelde bureaublad scenario), zelfs bij een enkele gebruiker blijft aangemeld gedurende de hele tijd.
 
-Deze instellingen zijn niet beschikbaar voor wachtwoord opnieuw instellen van beleidsregels. 
+Deze instellingen zijn niet beschikbaar voor wachtwoord opnieuw instellen van gebruikersstromen. 
 

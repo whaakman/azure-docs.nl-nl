@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a664ec3643100f4bf477fbc58070ae966088d3af
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 086bddb34017d41e3e7efe86531e3c849ccd80ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426047"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679933"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -354,4 +354,4 @@ Als u niet behouden van de onderdelen van Azure Automation-account wilt, kunt u 
 
 - Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de Automation-taaklogboeken met Log Analytics, [zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 - Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.
-- Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../log-analytics/log-analytics-azure-storage.md).
+- Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md).

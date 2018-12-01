@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699495"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725060"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Aangepaste beleidsregels in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure Active Directory (Azure AD) B2C-tenant definiëren. Ingebouwde beleidsregels zijn vooraf gedefinieerd in de Azure AD B2C-portal voor de meest algemene taken voor de identiteit. Aangepaste beleidsregels kunnen volledig worden bewerkt door een identiteitsontwikkelaar om veel verschillende taken te voltooien.
+Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure Active Directory (Azure AD) B2C-tenant definiëren. Gebruikersstromen zijn vooraf gedefinieerd in de Azure AD B2C-portal voor de meest algemene taken voor de identiteit. Aangepaste beleidsregels kunnen volledig worden bewerkt door een identiteitsontwikkelaar om veel verschillende taken te voltooien.
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>Vergelijking van de ingebouwde en aangepaste beleid
+## <a name="comparing-user-flows-and-custom-policies"></a>Vergelijking van de gebruikersstromen en aangepaste beleidsregels
 
-| | Ingebouwd beleid | Aangepast beleid |
+| | Gebruikersstromen | Aangepast beleid |
 |-|-------------------|-----------------|
 | Doelgebruikers | Alle ontwikkelaars van toepassingen met of zonder kennis van de identiteit. | Identiteitsprofessionals, systeemintegrators, adviseurs en interne identiteit teams. Ze vertrouwd bent met OpenIDConnect stromen en informatie over id-providers en verificatie op basis van claims. |
 | Configuratiemethode | Azure-portal met een gebruiksvriendelijke-gebruikersinterface (UI). | XML-bestanden rechtstreeks te bewerken en vervolgens geüpload naar Azure portal. |
@@ -33,7 +33,7 @@ Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure 
 | Aanpassing van kenmerk | Standaardentiteiten en aangepaste kenmerken. | Dezelfde |
 | Token-en-sessie | Aangepaste token en meerdere sessie-opties. | Dezelfde |
 | Id-providers | Vooraf gedefinieerde lokale of sociale-provider. | OIDC-standaarden gebaseerde, OAUTH en SAML. |
-| Identity-taken | Meld u aan of aanmelden met lokaal of veel sociale accounts.<br><br>Self-service voor wachtwoord opnieuw instellen.<br><br>Profiel bewerken.<br><br>Meervoudige verificatie.<br><br>Tokens en sessies aanpassen.<br><br>Toegang tot het token van de stromen. | Voer de dezelfde taken uit als ingebouwde beleidsregels met behulp van aangepaste id-providers of gebruik van aangepaste bereiken.<br><br>Een gebruikersaccount inrichten in een ander systeem op het moment van inschrijving.<br><br>Verzendt een welkomstbericht per e-mail via uw eigen e-provider.<br><br>Gebruik een archief van de gebruiker buiten Azure AD B2C.<br><br>Valideren van de gebruiker opgegeven gegevens met een vertrouwde systeem met behulp van een API. |
+| Identity-taken | Meld u aan of aanmelden met lokaal of veel sociale accounts.<br><br>Self-service voor wachtwoord opnieuw instellen.<br><br>Profiel bewerken.<br><br>Meervoudige verificatie.<br><br>Tokens en sessies aanpassen.<br><br>Toegang tot het token van de stromen. | Voer de dezelfde taken uit als gebruikersstromen met behulp van aangepaste id-providers of gebruik van aangepaste bereiken.<br><br>Een gebruikersaccount inrichten in een ander systeem op het moment van inschrijving.<br><br>Verzendt een welkomstbericht per e-mail via uw eigen e-provider.<br><br>Gebruik een archief van de gebruiker buiten Azure AD B2C.<br><br>Valideren van de gebruiker opgegeven gegevens met een vertrouwde systeem met behulp van een API. |
 
 ## <a name="policy-files"></a>Beleidsbestanden
 
@@ -43,7 +43,7 @@ Deze drie soorten beleidsbestanden worden gebruikt:
 - **Extensiebestand** -bevat de unieke configuratiewijzigingen voor uw tenant.
 - **Relying Party (RP) bestand** -één taak gerichte bestand die wordt opgeroepen rechtstreeks door de toepassing of service (ook bekend als een Relying Party). Elke unieke taak vereist een eigen RP en, afhankelijk van de huisstijl van uw vereisten, het aantal mogelijk "totaal van de toepassingen x totale aantal use cases."
 
-Ingebouwde beleidsregels in Azure AD B2C volgt u de drie bestandspatroon hierboven afgebeelde, maar de ontwikkelaar ziet alleen de RP-bestand, terwijl de Azure-portal wijzigingen op de achtergrond in het extensiebestand aanbrengt.
+Gebruikersstromen in Azure AD B2C volgt u de drie bestandspatroon hierboven afgebeelde, maar de ontwikkelaar ziet alleen de RP-bestand, terwijl de Azure-portal wijzigingen op de achtergrond in het extensiebestand aanbrengt.
 
 ## <a name="custom-policy-core-concepts"></a>Aangepast beleid belangrijkste concepten
 

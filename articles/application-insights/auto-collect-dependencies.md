@@ -8,19 +8,18 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: f20963f030c9040b696f7d6a33b25bcee2dc517f
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f38c4a03a0d9b67b6ec8b20e489a6e4926d511c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40130289"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720218"
 ---
-# <a name="dependency-auto-collection"></a>Afhankelijkheid automatisch verzamelen
+# <a name="dependency-auto-collection"></a>Afhankelijkheden automatisch verzamelen
 
 Hieronder volgt de momenteel ondersteunde lijst met afhankelijkheidsaanroepen die automatisch worden gedetecteerd als afhankelijkheden zonder aanvullende wijzigingen in de code van uw toepassing. Dit proces bestaat uit uitgaande oproepen naar databasecommunicatiebibliotheken, opslagclients, logboekregistratie en metrische gegevens bibliotheken, evenals de inkomende aanroepen in App-frameworks en -servers. Deze afhankelijkheden worden weergegeven in de Application Insights [toepassingsoverzicht](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) en [diagnostische gegevens voor transacties](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) weergaven. Als uw afhankelijkheid bevindt zich niet op de onderstaande lijst, kunt u nog steeds volgen deze handmatig aan een [afhankelijkheidsaanroep bijhouden](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 

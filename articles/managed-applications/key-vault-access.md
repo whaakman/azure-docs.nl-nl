@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: f091ba44a3170dcc4141829f2f4105d6e7993cdf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035286"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725009"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Toegang tot Key Vault-geheim bij het implementeren van Azure Managed Applications
 
@@ -29,7 +29,7 @@ Als u een veilige waarde (zoals een wachtwoord) als een parameter doorgeven tijd
 
    ![Toegangsbeleid selecteren](./media/key-vault-access/select-access-policies.png)
 
-1. Selecteer **Klik hierop om geavanceerde Toegangsbeleidsregels**.
+1. Selecteer **Klik hierop om geavanceerde beleidsregels weer te geven**.
 
    ![Geavanceerde beleidsregels weergeven](./media/key-vault-access/advanced.png)
 
@@ -43,7 +43,7 @@ Als u een veilige waarde (zoals een wachtwoord) als een parameter doorgeven tijd
 
    ![Selecteer toegangsbeheer](./media/key-vault-access/access-control.png)
 
-1. Selecteer **Toevoegen**.
+1. Selecteer **roltoewijzing toevoegen**.
 
    ![Selecteer toevoegen](./media/key-vault-access/add-access-control.png)
 

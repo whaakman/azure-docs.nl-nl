@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669927"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725757"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Overzicht van gebruikersaccounts in Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ De volgende typen accounts zijn beschikbaar:
 
 - **Werkaccount** : een work-account toegang heeft tot resources in een tenant, en met een administrator-rol, tenants kunt beheren.
 - **Gast-account** -een Gast-account kan alleen bestaan uit een Microsoft-account of een Azure Active Directory-gebruiker die kan worden gebruikt voor toegang tot toepassingen of tenants beheren. 
-- **Klantaccount** -een klantaccount is gemaakt door zich via een registratiebeleid in een Azure AD B2C-toepassing of met behulp van Azure AD Graph API, en wordt gebruikt door gebruikers van de toepassingen die zijn geregistreerd bij Azure AD B2C. 
+- **Klantaccount** -een klantaccount is gemaakt door te gaan via een gebruikersstroom Meld u aan in een Azure AD B2C-toepassing of met behulp van Azure AD Graph API, en wordt gebruikt door gebruikers van de toepassingen die zijn geregistreerd bij Azure AD B2C. 
 
 ## <a name="work-account"></a>Werkaccount
 
@@ -73,7 +73,7 @@ U kunt ook de [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/
 
 ## <a name="consumer-user"></a>Consumenten-gebruiker
 
-De gebruiker consumenten kan zich aanmelden bij toepassingen die zijn beveiligd door Azure AD B2C, maar geen toegang tot Azure-resources, zoals de Azure-portal.  De consument-gebruiker kunt gebruiken voor een lokaal account of federatieve accounts, zoals Facebook of Twitter. Een consumentenaccount is gemaakt met behulp van een [beleid voor registreren of aanmelden](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+De gebruiker consumenten kan zich aanmelden bij toepassingen die zijn beveiligd door Azure AD B2C, maar geen toegang tot Azure-resources, zoals de Azure-portal.  De consument-gebruiker kunt gebruiken voor een lokaal account of federatieve accounts, zoals Facebook of Twitter. Een consumentenaccount is gemaakt met behulp van een [registreren of aanmelden gebruikersstroom](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 U kunt de gegevens die worden verzameld als een consument-gebruikersaccount is gemaakt met behulp van aangepaste kenmerken opgeven. Zie voor meer informatie, [aangepaste kenmerken definiëren in Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

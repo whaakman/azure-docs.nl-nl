@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3cf2b703760debb368e26d629ee73f56ce93d39
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3097e6fcfcd219f73927131106e1f35ff54210b0
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441248"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679423"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in Python-modules voor Azure IoT Edge
 
@@ -108,7 +108,7 @@ In elke modulemap zijn er verschillende Docker-bestanden voor andere containerty
     ptvsd.break_into_debugger()
     ```
 
-   Bijvoorbeeld, als u fouten wilt opsporen `receive_message_callback` methode. U kunt de één regel code, zoals hieronder insecten.
+   Bijvoorbeeld, als u fouten wilt opsporen `receive_message_callback` methode. U kunt de één regel code, zoals hieronder invoegen.
 
     ```python
     def receive_message_callback(message, hubManager):

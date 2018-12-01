@@ -9,16 +9,15 @@ ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 075358ad559806c375d44b6a125e8d2839b6632f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245695"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726301"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -251,7 +250,7 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 | [JavaScript SDK toevoegen aan webpagina][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Standaard-eigenschappen definiëren][apiproperties] |**Eigenschappen van** op alle standaardentiteiten en aangepaste gebeurtenissen |
 | [TrackMetric aanroepen][api] |Numerieke waarden<br/>**Eigenschappen** |
-| [Aanroep bijhouden *][api] |Gebeurtenisnaam<br/>**Eigenschappen** |
+| [Aanroep bijhouden *][api] |De naam van gebeurtenis<br/>**Eigenschappen** |
 | [TrackException aanroepen][api] |**Uitzonderingen**<br/>Stackdump<br/>**Eigenschappen** |
 | SDK kan geen gegevens verzamelen. Bijvoorbeeld: <br/> -geen toegang tot de prestatiemeteritems<br/> -uitzondering in telemetrische initializer |Diagnostische gegevens van SDK |
 

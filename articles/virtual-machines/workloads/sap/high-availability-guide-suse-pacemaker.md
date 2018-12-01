@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 34a72bb38c87902648ad92261a70d6545f10d0fa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685392"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723683"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 
@@ -527,10 +527,10 @@ De aangepaste rol 'Linux omheining Agent rol' die is gemaakt in het vorige hoofd
 1. Open de blade alle resources
 1. Selecteer de virtuele machine van het eerste clusterknooppunt
 1. Klik op de Access control (IAM)
-1. Klik op Add.
+1. Klik op de roltoewijzing toevoegen
 1. Selecteer de rol 'Linux omheining Agent rol'
 1. Voer de naam van de toepassing die u hierboven hebt gemaakt
-1. Klik op OK
+1. Op Opslaan klikken
 
 Herhaal de bovenstaande stappen voor het tweede clusterknooppunt.
 

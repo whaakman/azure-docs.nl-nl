@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ece5700965018a8a9a98e16a1577309a909b7b7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: cfee8295fc344b1210010a463612fe7d10de280d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334990"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682908"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hoe u op de prestaties van de grafiek met Azure Monitor voor virtuele machines (Preview)
 Azure Monitor voor virtuele machines bevat een set van prestatiegrafieken weergegeven die zijn gericht verschillende prestatie-indicatoren (KPI's) om te bepalen hoe goed een virtuele machine wordt uitgevoerd. De grafieken weergegeven Resourcegebruik gedurende een bepaalde periode, zodat u kunt identificeren van knelpunten, afwijkingen, of schakel over naar een perspectief aanbieding elke machine om gebruik van resources op basis van de geselecteerde meetwaarde weer te geven. Er zijn talrijke elementen bij het omgaan met prestaties, wordt Azure Monitor voor virtuele machines is gericht op het besturingssysteem als gemanifesteerd via de processor, geheugen, netwerkadapters en schijven. Prestaties is een aanvulling op de functie voor health monitoring en helpt u problemen die wijzen op een onderdeel systeemfouten, ondersteuning voor afstemmen en optimalisatie voor het bereiken van efficiëntie blootstellen of ondersteuning voor capaciteitsplanning.  
@@ -33,7 +33,7 @@ Azure monitor biedt de functie voor prestaties een weergave met meerdere virtuel
 
 ![VM insights prestaties Top N-lijstweergave](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-Op de **Top N grafieken** tabblad, hebt u meer dan één Log Analytics-werkruimte, kiest u de werkruimte ingeschakeld met de oplossing uit de **werkruimte** kiezer boven aan de pagina. De **groep** selector abonnementen, resourcegroepen, retourneert [computergroepen](../../log-analytics/log-analytics-computer-groups.md), en virtual machine scale sets van computers met betrekking tot de geselecteerde werkruimte die u gebruiken kunt voor het verder filteren de resultaten weergegeven in de grafieken op deze pagina en alle andere pagina's. Uw selectie wordt alleen toegepast op de functie voor prestaties en wordt niet meegenomen naar de status of de kaart.  
+Op de **Top N grafieken** tabblad, hebt u meer dan één Log Analytics-werkruimte, kiest u de werkruimte ingeschakeld met de oplossing uit de **werkruimte** kiezer boven aan de pagina. De **groep** selector abonnementen, resourcegroepen, retourneert [computergroepen](../../azure-monitor/platform/computer-groups.md), en virtual machine scale sets van computers met betrekking tot de geselecteerde werkruimte die u gebruiken kunt voor het verder filteren de resultaten weergegeven in de grafieken op deze pagina en alle andere pagina's. Uw selectie wordt alleen toegepast op de functie voor prestaties en wordt niet meegenomen naar de status of de kaart.  
 
 Standaard wordt de grafieken de afgelopen 24 uur weergegeven. Met behulp van de **TimeRange** selector, kunt u zoeken naar historische tijdsbereik van maximaal 30 dagen om weer te geven hoe de prestaties in het verleden hebt bekeken.   
 

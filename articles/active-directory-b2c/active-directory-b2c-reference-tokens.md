@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 10de56ac8945be4bb0920f95774b469d283f575b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339974"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721371"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
 
@@ -66,14 +66,14 @@ Wanneer uw API een toegangstoken ontvangt, moet het [valideert de handtekening](
 
 ### <a name="claims-in-id-and-access-tokens"></a>Claims in het ID- en toegangstokens
 
-Wanneer u Azure AD B2C gebruikt, hebt u heel nauwkeurig bepalen de inhoud van uw tokens. U kunt configureren [beleid](active-directory-b2c-reference-policies.md) voor het verzenden van bepaalde verzamelingen van gebruikersgegevens in de claims die uw app nodig voor de bewerkingen heeft. Deze claims standaardeigenschappen zoals van de gebruiker kunnen bevatten `displayName` en `emailAddress`. Ze kunnen ook bevatten [aangepaste gebruikerskenmerken](active-directory-b2c-reference-custom-attr.md) die u kunt definiëren in uw B2C-directory. Elke-ID en access token die u ontvangt een bepaalde set claims met betrekking tot beveiliging bevat. Uw toepassingen kunnen deze claims gebruiken om veilige verificatie van gebruikers en aanvragen.
+Wanneer u Azure AD B2C gebruikt, hebt u heel nauwkeurig bepalen de inhoud van uw tokens. U kunt configureren [gebruikersstromen](active-directory-b2c-reference-policies.md) en aangepaste beleidsregels voor het verzenden van bepaalde verzamelingen van gebruikersgegevens in de claims die uw app nodig voor de bewerkingen heeft. Deze claims standaardeigenschappen zoals van de gebruiker kunnen bevatten `displayName` en `emailAddress`. Ze kunnen ook bevatten [aangepaste gebruikerskenmerken](active-directory-b2c-reference-custom-attr.md) die u kunt definiëren in uw B2C-directory. Elke-ID en access token die u ontvangt een bepaalde set claims met betrekking tot beveiliging bevat. Uw toepassingen kunnen deze claims gebruiken om veilige verificatie van gebruikers en aanvragen.
 
 Houd er rekening mee dat de claims in het ID-tokens worden niet geretourneerd in een bepaalde volgorde. Bovendien kunnen u nieuwe claims geïntroduceerd in de ID-tokens op elk gewenst moment. Uw app moet niet verbroken als nieuwe claims worden geïntroduceerd. Hier volgen de claims die u verwacht te bestaan in het ID- en toegangstokens dat is uitgegeven door Azure AD B2C. Aanvullende claims worden bepaald door het beleid. Probeer te inspecteren van de claims in het voorbeeld-ID-token door te plakken in oefening [jwt.ms](https://jwt.ms). Meer informatie vindt u de [OpenID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html).
 
 | Naam | Claim | Voorbeeldwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | Doelgroep |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Een claim doelgroep identificeert de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep van uw app toepassings-ID, zoals toegewezen aan uw app in de portal voor app-registratie. Uw app moet deze waarde te valideren en het token af te wijzen als komt niet overeen met. Doelgroep is gelijk aan de resource. |
-| Certificaatverlener |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. Het identificeert ook de Azure AD-directory waarin de gebruiker is geverifieerd. Uw app moet de claim van verlener om ervoor te zorgen dat het token afkomstig van het Azure Active Directory v2.0-eindpunt is te valideren. |
+| Verlener |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. Het identificeert ook de Azure AD-directory waarin de gebruiker is geverifieerd. Uw app moet de claim van verlener om ervoor te zorgen dat het token afkomstig van het Azure Active Directory v2.0-eindpunt is te valideren. |
 | Uitgegeven op |`iat` |`1438535543` |Deze claim is de tijd waarop het token is uitgegeven, in epoche-tijd weergegeven. |
 | Vervaltijd |`exp` |`1438539443` |Verlooptijd van de claim is de tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | Niet voor |`nbf` |`1438535543` |Deze claim wordt de tijd waarop het token geldig, in epoche-tijd weergegeven wordt. Dit is meestal hetzelfde als de tijd die het token is uitgegeven. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |

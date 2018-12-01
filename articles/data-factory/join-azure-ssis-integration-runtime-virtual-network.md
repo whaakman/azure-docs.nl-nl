@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094592"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723139"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -198,19 +198,21 @@ U moet een virtueel netwerk configureren voordat u een Azure-SSIS IR aan deze to
 
 1. Deelnemen aan **MicrosoftAzureBatch** naar de **Inzender voor klassieke virtuele machines** rol voor het virtuele netwerk. 
 
-    a. Selecteer **toegangsbeheer (IAM)** op het menu aan de linkerkant en selecteer **toevoegen** op de werkbalk. 
+    a. Selecteer **toegangsbeheer (IAM)** op het menu aan de linkerkant en selecteer de **roltoewijzingen** tabblad. 
 
     !['Toegangsbeheer' en 'Toevoegen' knoppen](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Op de **machtigingen toevoegen** weergeeft, schakelt **Inzender voor klassieke virtuele machines** voor **rol**. Plakken **ddbf3205-c6bd-46ae-8127-60eb93363864** in de **Selecteer** vak en selecteer vervolgens **Microsoft Azure Batch** uit de lijst met zoekresultaten. 
+    b. Selecteer **roltoewijzing toevoegen**.
 
-    ![Doorzoek resultaten op pagina 'Machtigingen toevoegen'](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    c. Op de **roltoewijzing toevoegen** weergeeft, schakelt **Inzender voor klassieke virtuele machines** voor **rol**. Plakken **ddbf3205-c6bd-46ae-8127-60eb93363864** in de **Selecteer** vak en selecteer vervolgens **Microsoft Azure Batch** uit de lijst met zoekresultaten. 
 
-    c. Selecteer **opslaan** de instellingen op te slaan en te sluiten van de pagina. 
+    ![Doorzoek resultaten op pagina 'Roltoewijzing toevoegen'](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. Selecteer **opslaan** de instellingen op te slaan en te sluiten van de pagina. 
 
     ![Opslaan van instellingen voor toegang](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. Controleer of **Microsoft Azure Batch** in de lijst met inzenders. 
+    e. Controleer of **Microsoft Azure Batch** in de lijst met inzenders. 
 
     ![Azure Batch toegang bevestigen](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

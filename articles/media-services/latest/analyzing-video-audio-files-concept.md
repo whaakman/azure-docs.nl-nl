@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6d2e87c50eba293df7c5130ea6bf192ed7f83277
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427415"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679814"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
@@ -33,7 +33,8 @@ Media Services ondersteunt momenteel de volgende ingebouwde analyzer voorinstell
 
 |**Vooraf ingestelde naam**|**Scenario**|**Details**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack.<br/>U kunt de taal voor de nettolading van de audio opgeven in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' (bijvoorbeeld ' en-US'). De lijst met ondersteunde talen is 'en-US', "en-GB", "es-ES", 'es-MX', 'fr-FR', it-IT, ja-JP, pt-BR, zh-CN. Als de taal niet is opgegeven of is ingesteld op Null, wordt automatische taaldetectie worden gebruikt. De functie voor automatische taalherkenning ondersteunt momenteel het Engels, Chinees, Frans, Duits, Italiaans, Japans, Spaans, Russisch en Portugees.|
+|**AudioAnalyzerPreset**|Audio analyseren|De definitie van een vooraf gedefinieerde set op basis van AI analysis-bewerkingen, met inbegrip van spraaktranscriptie toepassing. De vooraf ingestelde ondersteunt momenteel de verwerking van inhoud met een één audiotrack.<br/>U kunt de taal voor de nettolading van de audio opgeven in de invoer met behulp van de BCP-47-indeling van 'taal tag-regio' (bijvoorbeeld ' en-US'). 'en-US', "en-GB", "es-ES", 'es-MX'
+fr-FR, it-IT, ja-JP, pt-BR, zh-CN, 'nl-nl', 'ar-bijvoorbeeld', ru-RU, 'Hallo-IN'. Als de taal niet is opgegeven of is ingesteld op Null, wordt automatische taaldetectie worden gebruikt. De functie voor automatische taalherkenning ondersteunt momenteel het Engels, Chinees, Frans, Duits, Italiaans, Japans, Spaans, Russisch en Portugees. De functie voor automatische taalherkenning werkt het beste met audio-opnamen met duidelijk aanmerkelijke spraak. Als automatische taaldetectie niet vinden van de taal, wordt de transcriptie teruggegaan naar het Engels.|
 |**VideoAnalyzerPreset**|Analyse van audio en video|Inzichten (uitgebreide metagegevens) wordt geëxtraheerd uit de audio en video en voert een bestand met JSON-indeling. U kunt opgeven of u alleen audio inzicht wilt bij het verwerken van een videobestand. Zie voor meer informatie, [analyseren video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

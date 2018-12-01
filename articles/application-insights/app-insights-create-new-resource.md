@@ -1,6 +1,6 @@
 ---
 title: Maak een nieuwe Azure Application Insights-resource | Microsoft Docs
-description: Stel handmatig bewaking van de Application Insights voor een nieuwe live-toepassing.
+description: Handmatig instellen van Application Insights-bewaking voor een nieuwe live-toepassing.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,26 +9,25 @@ ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5b6afe4856e7e2c643a636f070937e81a2add2dd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294714"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724227"
 ---
 # <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
-Azure Application Insights gegevens over uw toepassing worden weergegeven in een Microsoft Azure *resource*. Een nieuwe resource daarom deel uitmaakt van [Application Insights instellen voor het bewaken van een nieuwe toepassing][start]. In veel gevallen kan maken van een resource automatisch worden gedaan door de IDE. Maar in sommige gevallen u Maak handmatig een resource - bijvoorbeeld, als u wilt dat afzonderlijke resources voor ontwikkeling en productie builds van uw toepassing.
+Azure Application Insights geeft gegevens over uw toepassing in een Microsoft Azure *resource*. Het maken van een nieuwe resource maakt daarom deel uit van [Application Insights instellen voor het bewaken van een nieuwe toepassing][start]. In veel gevallen, kan het maken van een resource automatisch worden uitgevoerd door de IDE. Maar in sommige gevallen, maakt u een resource handmatig - bijvoorbeeld als afzonderlijke resources voor de ontwikkeling en productie builds van uw toepassing.
 
-Nadat u de resource hebt gemaakt, kunt u de instrumentatiesleutel ophalen en gebruiken die voor het configureren van de SDK in de toepassing. De bronsleutel koppelingen de telemetrie naar de resource.
+Nadat u de resource hebt gemaakt, kunt u de instrumentatiesleutel ophalen en gebruiken die voor het configureren van de SDK in de toepassing. De resource-sleutel wordt de telemetrie gekoppeld aan de resource.
 
-## <a name="sign-up-to-microsoft-azure"></a>Meld u aan Microsoft Azure
-Als u dit nog niet hebt verkregen een [Microsoft-account, nu](http://live.com). (Als u gebruikmaakt van services zoals Outlook.com, OneDrive, Windows Phone of XBox Live, u hebt al een Microsoft-account.)
+## <a name="sign-up-to-microsoft-azure"></a>Aanmelden voor Microsoft Azure
+Als u nog niet hebt u een [Microsoft account, nu](http://live.com). (Als u gebruikmaakt van services zoals Outlook.com, OneDrive, Windows Phone of XBox Live, u hebt al een Microsoft-account.)
 
-U moet ook een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement heeft, de eigenaar kunt u toevoegen, met behulp van uw Windows Live ID. U bent alleen kosten in rekening gebracht voor wat u gebruikt. Het basic standaardplan kunt u een bepaalde hoeveelheid experimenteel gebruik gratis.
+U moet ook een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement, de eigenaar kunt u toevoegen, met behulp van uw Windows Live ID. U betaalt alleen voor wat u gebruikt. Het standaard basic-abonnement kunt u een bepaalde hoeveelheid experimentele gratis gebruiken.
 
 Wanneer u toegang tot een abonnement hebt, meld u aan bij Application Insights op [ http://portal.azure.com ](https://portal.azure.com), en gebruik van uw Live-ID om aan te melden.
 
@@ -37,37 +36,37 @@ In de [portal.azure.com](https://portal.azure.com), een Application Insights-res
 
 ![Klik op Nieuw > Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
-* **Toepassingstype** is van invloed op wat er op de overzichtsblade en de eigenschappen die beschikbaar zijn in [metrische explorer][metrics]. Als u uw app-type niet ziet, kiest u algemene.
-* **Abonnement** is uw betaling-account in Azure.
-* **Resourcegroep** is nuttig voor het beheren van eigenschappen zoals toegangsbeheer. Als u andere Azure-resources al hebt gemaakt, kunt u deze nieuwe bron plaatsen in dezelfde groep.
-* **Locatie** is waar we uw gegevens wilt bewaren.
-* **Vastmaken aan dashboard** plaatst u een snelle toegang tegel voor uw resource op de startpagina van Azure. Aanbevolen.
+* **Toepassingstype** is van invloed op wat u ziet op de overzichtsblade en de eigenschappen die beschikbaar zijn in [metric explorer][metrics]. Als u het type van de app niet ziet, kiest u algemene.
+* **Abonnement** is uw account betaling in Azure.
+* **Resourcegroep** is nuttig voor het beheren van eigenschappen zoals toegangsbeheer. Als u andere Azure-resources al hebt gemaakt, kunt u deze nieuwe resource in dezelfde groep geplaatst.
+* **Locatie** is waar we uw gegevens bewaren.
+* **Vastmaken aan dashboard** hebt u een snelle toegang tegel voor uw resource op de startpagina van Azure. Aanbevolen.
 
-Wanneer uw app is gemaakt, wordt er een nieuwe blade geopend. Deze blade is waar u prestatie- en gebruiksgegevens over uw app bekijken. 
+Wanneer uw app is gemaakt, wordt er een nieuwe blade geopend. Deze blade is ziet u prestatie- en gebruiksgegevens over uw app. 
 
-U kunt teruggaan naar het volgende keer dat u zich bij Azure aanmelden, zoekt u naar uw app snel starten-tegel in de start board (startscherm). Of klik op Bladeren om te zoeken.
+Als u wilt teruggaan naar het volgende keer dat u zich aanmeldt bij Azure, zoek naar Snel starten-tegel van uw app op het prikbord van start (startscherm). Of klik op Bladeren om te zoeken.
 
 ## <a name="copy-the-instrumentation-key"></a>De instrumentatiesleutel kopiëren
-De instrumentatiesleutel identificeert de resource die u hebt gemaakt. U moet deze aan de SDK.
+De instrumentatiesleutel identificeert de bron die u hebt gemaakt. U hebt deze om te geven tot de SDK nodig.
 
 ![Klik op Essentials, klik op de Instrumentatiesleutel, CTRL + C](./media/app-insights-create-new-resource/02-props.png)
 
 ## <a name="install-the-sdk-in-your-app"></a>De SDK installeren in uw app
-De Application Insights-SDK installeren in uw app. Deze stap is sterk afhankelijk van het type van uw toepassing. 
+Installeer de Application Insights-SDK in uw app. Deze stap, hangt sterk af van het type van uw toepassing. 
 
-De instrumentatiesleutel gebruiken voor het configureren van [de SDK die u in uw toepassing installeert][start].
+Gebruik de instrumentatiesleutel configureren [de SDK die u in uw toepassing installeert][start].
 
-De SDK bevat standaard modules weer die het verzenden van telemetrie zonder dat u code hoeft te schrijven. Voor het bijhouden van acties van de gebruiker of het analyseren van problemen in meer detail [gebruikmaken van de API] [ api] uw eigen telemetrie verzenden.
+De SDK bevat standaard modules die telemetrievolume verzenden zonder dat u hoeft code te schrijven. Acties van de gebruiker bijhouden of problemen in meer detail [gebruikmaken van de API] [ api] om uw eigen telemetrie te verzenden.
 
-## <a name="monitor"></a>Zie telemetriegegevens
-Sluit de blade snel starten om terug te keren naar de blade van uw toepassing in de Azure portal.
+## <a name="monitor"></a>Zie telemetrische gegevens
+Sluit de blade snel starten om terug te keren naar uw toepassingsblade in Azure portal.
 
 Klik op de tegel Search om te zien [diagnostische gegevens doorzoeken][diagnostic], waarbij de eerste gebeurtenissen worden weergegeven. 
 
-Als u meer gegevens verwacht, klikt u op **vernieuwen** na enkele seconden.
+Als u meer gegevens verwacht, klikt u op **vernieuwen** na een paar seconden.
 
 ## <a name="creating-a-resource-automatically"></a>Het automatisch maken van een resource
-U kunt schrijven een [PowerShell-script](app-insights-powershell.md) automatisch maken van een resource.
+U kunt schrijven een [PowerShell-script](app-insights-powershell.md) voor het automatisch maken van een resource.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een dashboard maken](app-insights-dashboards.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 743fedd35bc45618f728ba71056f5dabc2fc1ed9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e4eb26ab91261d1888d3c756d611db1b31801e8f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300639"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720223"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Ondersteuning voor de implementatie van docker Compose in Azure Service Fabric (Preview)
 
@@ -64,6 +64,12 @@ Voor het starten van een upgrade van de implementatie opstellen via PowerShell, 
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
+Ongedaan maken van de implementatie voor opstellen bijwerken via PowerShell, gebruikt u de volgende opdracht uit:
+
+```powershell
+Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
+```
+
 Nadat de upgrade is geaccepteerd, kan voortgang van de upgrade worden bijgehouden met de volgende opdracht:
 
 ```powershell
@@ -94,6 +100,12 @@ Voor het starten van een upgrade van de implementatie opstellen, gebruik de volg
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+Upgrade te draaien, maar de implementatie voor opstellen, gebruik de volgende opdracht:
+
+```azurecli
+sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Nadat de upgrade is geaccepteerd, kan voortgang van de upgrade worden bijgehouden met de volgende opdracht:

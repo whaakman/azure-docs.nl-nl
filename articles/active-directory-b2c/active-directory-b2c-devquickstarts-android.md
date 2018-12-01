@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4a4b9863d8f74592a8d9a700c3dbc850cd867331
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344123"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725553"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Meld u aan met een Android-toepassing
 
@@ -40,17 +40,17 @@ Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door 
 * U de **toepassings-id** kopieert die is toegewezen aan uw app. U moet dit later opnieuw.
 * Instellen van een systeemeigen client **omleidings-URI** (bijvoorbeeld com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Deze hebt u ook later nodig.
 
-## <a name="create-your-policies"></a>Het beleid maken
+## <a name="create-your-user-flows"></a>Uw gebruikersstromen maken
 
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat één identity-ervaring: een gecombineerde aanmelding en om te registreren. U moet deze beleidsregel maken zoals beschreven in de [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u het beleid maakt:
+In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md), dit is een set beleidsregels die de werking van Azure AD beheren. Deze app bevat één identity-ervaring: een stroom gecombineerde aanmelden en meld u aan de gebruiker. U moet deze gebruikersstroom maken zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u de gebruikersstroom maakt, moet u naar:
 
-* Kies de **weergavenaam** als een kenmerk Meld u aan in uw beleid.
-* Kiest u **Weergavenaam**- en **Object-id**-toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
-* Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten.  U hebt de beleidsnaam later nodig.
+* Kies de **weergavenaam** als een aanmelding kenmerk in de gebruikersstroom.
+* Kies de **weergavenaam** en **Object-ID** toepassingsclaims in de gebruikersstroom van elke. U kunt ook andere claims kiezen.
+* Kopieer de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten.  U moet de flow-naam van de gebruiker later opnieuw.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Nadat u beleidsregels hebt gemaakt, kunt u de app maken.
+Nadat u uw gebruikersstromen hebt gemaakt, bent u klaar om uw app te bouwen.
 
 ## <a name="download-the-sample-code"></a>Download de voorbeeldcode
 
@@ -69,7 +69,7 @@ Het voorbeeld is een wijziging van het voorbeeld dat is opgegeven door [AppAuth]
 U kunt de communicatie met Azure AD B2C configureren door een van beide op te geven de detectie URI of door de autorisatie-eindpunt en de token eindpunt-URI's op te geven. In beide gevallen moet u de volgende informatie:
 
 * Tenant-ID (bijvoorbeeld contoso.onmicrosoft.com)
-* De naam van beleid (bijvoorbeeld B2C\_1\_SignUpIn)
+* Userjourney-naam (bijvoorbeeld B2C\_1\_SignUpIn)
 
 Als u ervoor kiest voor het automatisch detecteren van de autorisatie en token-eindpunt URI's, moet u voor het ophalen van gegevens uit de URI van de detectie. De detectie URI worden gegenereerd door het vervangen van de Tenant\_-ID en het beleid\_naam in de volgende URL:
 

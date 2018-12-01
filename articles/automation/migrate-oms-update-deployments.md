@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d2e99abfbc89d96f1dc5ca3c59789e13dd157a10
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054659"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678947"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Uw OMS-Update-implementaties te migreren naar Azure
 
@@ -43,7 +43,7 @@ In de toekomst gaat u rechtstreeks naar de Azure-portal onder **alle services**,
 
 ## <a name="recreate-existing-deployments"></a>Bestaande implementaties opnieuw maken
 
-Alle implementaties van updates die zijn gemaakt in de OMS-portal hebben een [opgeslagen zoekopdracht](../log-analytics/log-analytics-computer-groups.md) ook wel bekend als een computergroep, met dezelfde naam als de update-implementatie bestaat. De opgeslagen zoekopdracht bevat de lijst met computers die in de update-implementatie zijn gepland.
+Alle implementaties van updates die zijn gemaakt in de OMS-portal hebben een [opgeslagen zoekopdracht](../azure-monitor/platform/computer-groups.md) ook wel bekend als een computergroep, met dezelfde naam als de update-implementatie bestaat. De opgeslagen zoekopdracht bevat de lijst met computers die in de update-implementatie zijn gepland.
 
 ![Updatebeheer](media/migrate-oms-update-deployments/oms-deployment.png)
 
@@ -61,12 +61,12 @@ Voor de Machines wilt bijwerken, selecteert u de opgeslagen zoekopdracht die wor
 | --- | --- |
 |Naam |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Selecteer **Linux** of **Windows**.|
-|Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u ervoor kiest **Machines**, de gereedheid van de machine wordt weergegeven in de **gereedheid voor UPDATE-AGENT** kolom.</br> Zie voor meer informatie over de verschillende methoden voor het maken van computergroepen in Log Analytics, [computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt. CentOS ondersteunt dit niet buiten het vak.|
 |Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voor Windows, voert u het KB-artikel zonder de **KB** voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
 |Planningsinstellingen|Selecteer de tijd om te gaan en selecteer vervolgens **eenmaal** of **periodiek** voor het terugkeerpatroon.|| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde mag niet kleiner dan 30 minuten of meer dan 6 uur. |
 | Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde kan niet worden zijn minder dan 30 minuten en niet meer dan 6 uur |
-| Opnieuw opstarten van besturingselement| Detemines hoe opnieuw wordt opgestart moeten worden verwerkt.</br>De beschikbare opties zijn:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates kan niet worden geïnstalleerd.|
+| Opnieuw opstarten van besturingselement| Detemines hoe opnieuw wordt opgestart moeten worden verwerkt.</br>De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
 
 Klik op **geplande update-implementaties** om de status van de zojuist gemaakte update-implementatie weer te geven.
 

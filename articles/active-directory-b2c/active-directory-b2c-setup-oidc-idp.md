@@ -7,26 +7,26 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 49f3f80832597b231aec812a4c1613da9897f72a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180345"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722442"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met OpenID verbinding maken met behulp van Azure Active Directory B2C
 
 >[!NOTE]
 > Deze functie is beschikbaar als openbare preview. Gebruik de functie niet in een productieomgeving.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol, zoals [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), worden ondersteund in Azure AD B2C. In dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect id-providers in de ingebouwde beleidsregels kunt toevoegen.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol, zoals [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), worden ondersteund in Azure AD B2C. In dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect id-providers in uw gebruikersstromen kunt toevoegen.
 
 ## <a name="add-the-identity-provider"></a>De id-provider toevoegen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
+1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-Providers**, en klik vervolgens op **toevoegen**.
