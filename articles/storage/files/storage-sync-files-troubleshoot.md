@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0787d023676c707a987b4b69cb5601394db4bd3b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014275"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728375"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -22,7 +22,7 @@ In dit artikel is ontworpen om u te helpen u problemen op te lossen die met uw A
 
 1. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure-bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft Ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
+3. Microsoft ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enz.). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -96,8 +96,9 @@ De volgende ingebouwde rollen hebben de vereiste machtigingen voor Microsoft Aut
 Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft:  
 1. Selecteer in de Azure portal, **resourcegroepen**.
 2. Selecteer de resourcegroep waar het opslagaccount zich bevindt, en selecteer vervolgens **toegangsbeheer (IAM)**.
-3. Selecteer de **rol** (bijvoorbeeld, de eigenaar of Inzender) voor uw gebruikersaccount.
-4. In de **Resourceprovider** in de lijst met **Microsoft Authorization**. 
+3. Selecteer de **roltoewijzingen** tabblad.
+4. Selecteer de **rol** (bijvoorbeeld, de eigenaar of Inzender) voor uw gebruikersaccount.
+5. In de **Resourceprovider** in de lijst met **Microsoft Authorization**. 
     * **Roltoewijzing** moet **lezen** en **schrijven** machtigingen.
     * **Roldefinitie** moet **lezen** en **schrijven** machtigingen.
 
@@ -248,7 +249,7 @@ Als u wilt zien deze fouten, voer de **FileSyncErrorsReport.ps1** PowerShell-scr
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. Azure File Sync maakt een tijdelijke VSS-momentopname eenmaal per dag op de server om bestanden te synchroniseren met open ingangen. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Wijziging van een bestand of directory kan niet nog worden gesynchroniseerd omdat een afhankelijke map nog niet is gesynchroniseerd. Dit item wordt gesynchroniseerd nadat de afhankelijke wijzigingen zijn gesynchroniseerd. | Er is geen actie vereist. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie; dit bestand moet daarom opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie, dus hij moet opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
 
 #### <a name="handling-unsupported-characters"></a>Verwerking van niet-ondersteunde tekens
 Als de **FileSyncErrorsReport.ps1** PowerShell-script bevat fouten vanwege niet-ondersteunde tekens (0x7b-foutcodes en 0x8007007b), moet u Verwijder of wijzig de naam van de tekens op fouten van de respectieve bestandsnamen. PowerShell wordt deze tekens als vraagtekens of lege rechthoeken waarschijnlijk afdrukken, omdat de meeste van deze tekens geen standaard visuele codering hebben. De [evaluatieprogramma](storage-sync-files-planning.md#evaluation-tool) kan worden gebruikt voor het identificeren van de tekens die niet worden ondersteund.
@@ -447,7 +448,7 @@ Deze fout kan optreden als uw organisatie van een afsluitende SSL-proxy gebruikm
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Als u deze registerwaarde instelt, accepteert de Azure File Sync-agent elk lokaal vertrouwd SSL-certificaat tijdens de gegevensoverdracht tussen de server en de cloudservice.
+Door in te stellen deze registerwaarde, accepteert de Azure File Sync-agent van een lokaal vertrouwd SSL-certificaat bij de overdracht van gegevens tussen de server en de cloudservice.
 
 <a id="-2147012894"></a>**Een verbinding met de service kan niet worden gemaakt.**  
 | | |
@@ -540,7 +541,7 @@ In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesess
 | **Fouttekenreeks** | ECS_E_SYNC_INVALID_PATH |
 | **Herstel is vereist** | Ja |
 
-Controleer of het pad bestaat, op een lokaal NTFS-volume staat en geen reparsepunt of bestaand servereindpunt is.
+Zorg ervoor dat het pad bestaat, is op een lokaal NTFS-volume en is niet een reparsepunt of een bestaande servereindpunt.
 
 <a id="-2134376373"></a>**De service is momenteel niet beschikbaar.**  
 | | |
@@ -705,8 +706,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount.**  
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-1. Klik op **toegangsbeheer (IAM)** op de linker inhoudsopgave om te navigeren naar de lijst met gebruikers en toepassingen (*service-principals*) die toegang tot uw storage-account hebben.
-2. Controleer of **hybride File Sync-Service** wordt weergegeven in de lijst met de **Reader en gegevenstoegang** rol. 
+1. Klik op **toegangsbeheer (IAM)** op de linker inhoudsopgave.
+1. Klik op de **roltoewijzingen** tabblad aan de lijst met de gebruikers en toepassingen (*service-principals*) die toegang hebben tot uw storage-account.
+1. Controleer of **hybride File Sync-Service** wordt weergegeven in de lijst met de **Reader en gegevenstoegang** rol. 
 
     ![Een schermafbeelding van de service-principal voor hybride File Sync-Service in het tabblad voor het beheer van toegang van de storage-account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

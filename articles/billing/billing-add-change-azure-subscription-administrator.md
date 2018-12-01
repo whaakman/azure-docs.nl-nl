@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 2380cd3712c47ca08e9b9b3597f09f4119238af3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581610"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727865"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
@@ -42,10 +42,10 @@ Als u iemand wilt toevoegen als een beheerder voor een Azure-abonnement, geeft u
 1. Ga naar [ **abonnementen** in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selecteer het abonnement waarvoor u toegang wilt verlenen.
 3. Selecteer **Toegangsbeheer (IAM)** in de lijst.
-4. Selecteer **Toevoegen**.
-   (Als de knop Toevoegen ontbreekt, bent u niet gemachtigd om machtigingen toe te voegen.)
+4. Selecteer **roltoewijzing toevoegen**.
+   (Als de knop toevoegen rol toewijzing ontbreekt, wordt u bent niet gemachtigd om toe te voegen van machtigingen.)
 5. Selecteer **Eigenaar** in de lijst **Rol**. 
-6. Selecteer **Azure AD-gebruiker, -groep of -toepassing** in de lijst **Toegang toewijzen aan**. 
+6. In de **toegang toewijzen aan** Schakel **Azure AD-gebruiker, groep of service-principal**. 
 7. Typ in het vak **Selecteer** het e-mailadres van de gebruiker die u als eigenaar wilt toevoegen. Selecteer de gebruiker en selecteer vervolgens **Opslaan**.
 
     ![Schermafbeelding van de rol van eigenaar geselecteerd](./media/billing-add-change-azure-subscription-administrator/add-role.png)

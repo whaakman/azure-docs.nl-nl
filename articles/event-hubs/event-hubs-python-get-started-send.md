@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 05feab0227633ab52f0865fa7c19a310b612eb1c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: adf223d1cd775aac2a73bade5d09eac503ac8249
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286891"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52741838"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Gebeurtenissen verzenden naar Event Hubs met behulp van Python
 
@@ -29,6 +29,7 @@ Deze zelfstudie wordt beschreven hoe u gebeurtenissen naar een event hub verzend
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
+- Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 - Python 3.4 of hoger.
 
 

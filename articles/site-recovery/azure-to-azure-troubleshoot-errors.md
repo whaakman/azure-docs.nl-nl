@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84875a47df1830a7f5aa439a17df233d8c93ba1c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308120"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728239"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -61,37 +60,37 @@ Omdat symlinks SuSE Linux gebruikt voor het onderhouden van een lijst van certif
 
       ``# cd /etc/ssl/certs``
 
-3. Controleer of de basis-CA-certificaat van Symantec aanwezig is.
+1. Controleer of de basis-CA-certificaat van Symantec aanwezig is.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Als de basis-CA-certificaat van Symantec niet wordt gevonden, voer de volgende opdracht om het bestand te downloaden. Controleer of er fouten en voer de aanbevolen actie voor netwerkfouten.
+2. Als de basis-CA-certificaat van Symantec niet wordt gevonden, voer de volgende opdracht om het bestand te downloaden. Controleer of er fouten en voer de aanbevolen actie voor netwerkfouten.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Controleer of het CA-certificaat van het Baltimore-basiscertificaat aanwezig is.
+3. Controleer of het CA-certificaat van het Baltimore-basiscertificaat aanwezig is.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Als het Baltimore basis-CA-certificaat niet wordt gevonden, downloadt u het certificaat.  
+4. Als het Baltimore basis-CA-certificaat niet wordt gevonden, downloadt u het certificaat.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Controleer of het certificaat DigiCert_Global_Root_CA aanwezig is.
+5. Controleer of het certificaat DigiCert_Global_Root_CA aanwezig is.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. Als de DigiCert_Global_Root_CA niet wordt gevonden, voer de volgende opdrachten om het certificaat te downloaden.
+6. Als de DigiCert_Global_Root_CA niet wordt gevonden, voer de volgende opdrachten om het certificaat te downloaden.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Voer rehash script voor het bijwerken van het certificaat onderwerp-hashes voor de zojuist gedownloade certificaten.
+7. Voer rehash script voor het bijwerken van het certificaat onderwerp-hashes voor de zojuist gedownloade certificaten.
 
     ``# c_rehash``
 
-10. Controleer als onderwerp van de hashes als symlinks voor de certificaten die zijn gemaakt.
+8.  Controleer als onderwerp van de hashes als symlinks voor de certificaten die zijn gemaakt.
 
     - Opdracht
 
@@ -120,11 +119,11 @@ Omdat symlinks SuSE Linux gebruikt voor het onderhouden van een lijst van certif
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Maak een kopie van het bestand VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem met filename b204d74a.0
+9.  Maak een kopie van het bestand VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem met filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Maak een kopie van het bestand Baltimore_CyberTrust_Root.pem met filename 653b494a.0
+10. Maak een kopie van het bestand Baltimore_CyberTrust_Root.pem met filename 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 

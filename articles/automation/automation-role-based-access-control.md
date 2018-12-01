@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094214"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727899"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
@@ -274,12 +274,13 @@ In de volgende sectie ziet u hoe u RBAC configureren voor uw Automation-Account 
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/) en open uw Automation-account via de pagina Automation-accounts.
 2. Klik op de **toegangsbeheer (IAM)** besturingselement in de linkerbovenhoek. Hiermee opent u de **toegangsbeheer (IAM)** pagina waar u nieuwe gebruikers, groepen, kunt toevoegen en toepassingen voor het beheren van uw Automation-account en bestaande rollen die kunnen worden geconfigureerd voor het Automation-account kunt weergeven.
+3. Klik op de **roltoewijzingen** tabblad.
 
    ![De knop Toegang](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Een nieuwe gebruiker toevoegen en een rol toewijzen
 
-1. Uit de **toegangsbeheer (IAM)** pagina, klikt u op **+ toevoegen** openen de **machtigingen toevoegen** pagina waar u kunt een gebruiker, groep of toepassing toevoegen, en hieraan een rol kunt toewijzen.
+1. Uit de **toegangsbeheer (IAM)** pagina, klikt u op **+ roltoewijzing toevoegen** openen de **roltoewijzing toevoegen** pagina waar u kunt een gebruiker, groep of toepassing toevoegen en een rol toewijzen naar deze.
 
 2. Selecteer een rol in de lijst met beschikbare rollen. U kunt een van de beschikbare ingebouwde rollen die ondersteuning biedt voor een Automation-account of een aangepaste rol die u hebt gedefinieerd.
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bccbf5462668913f6f3025e8d2274c115d49457f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010640"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727236"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina vindt u antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -34,7 +34,7 @@ In een Azure AD-tenant, de gebruikers die deel uitmaken van de tenant-aanmelding
 
 In een Azure AD B2C-tenant, de meeste apps wilt dat de gebruiker om aan te melden met een willekeurige e-mailadres (bijvoorbeeld joe@comcast.net, bob@gmail.com, sarah@contoso.com, of jim@live.com). Dit type account is een lokaal account.  We ondersteunen ook willekeurige gebruikersnamen als lokale accounts (bijvoorbeeld: Jan, bob, sarah of jim). U kunt een van deze twee typen van de lokale account bij het configureren van id-providers voor Azure AD B2C in Azure portal. In uw Azure AD B2C-tenant, klikt u op **id-providers** en selecteer vervolgens **gebruikersnaam** onder lokale accounts. 
 
-Gebruikersaccounts voor toepassingen moeten altijd worden gemaakt via een registratiebeleid, meld u aan of het teken-in het beleid of met behulp van de Azure AD Graph API. Gebruikersaccounts die zijn gemaakt in Azure portal worden alleen gebruikt voor het beheren van de tenant.
+Gebruikersaccounts voor toepassingen moeten altijd worden gemaakt via een aanmelding gebruikersstroom, meld u aan of aanmelden gebruikersstroom, of met behulp van de Azure AD Graph API. Gebruikersaccounts die zijn gemaakt in Azure portal worden alleen gebruikt voor het beheren van de tenant.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Welke sociale id-providers bieden u nu ondersteuning? Welke wilt u in de toekomst ondersteunen?
 We ondersteunen momenteel Facebook, Google +, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview) en q (Preview). Ondersteuning voor andere populaire sociale id-providers op basis van vraag van klanten, zullen we toevoegen.
@@ -79,8 +79,8 @@ Er is momenteel geen manier om te wijzigen de ' uit: ' op het e-mailbericht.
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hoe Migreer ik mijn bestaande gebruikersnamen, wachtwoorden en -profielen van mijn database naar Azure AD B2C?
 De Azure AD Graph API kunt u het hulpprogramma voor migratie van schrijven. Zie de [gebruikershandleiding voor de migratie](active-directory-b2c-user-migration.md) voor meer informatie.
 
-### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Welke wachtwoordbeleid wordt gebruikt voor lokale accounts in Azure AD B2C?
-Het wachtwoordbeleid van Azure AD B2C voor lokale accounts is gebaseerd op het beleid voor Azure AD. Azure AD B2C de gebruikersregistratie, meld u aan of aanmelden en het wachtwoord opnieuw instellen van beleidsregels gebruikt de sterkte 'sterk' wachtwoord en de wachtwoorden niet verloopt. Lees de [Azure AD-wachtwoordbeleid](https://msdn.microsoft.com/library/azure/jj943764.aspx) voor meer informatie. Zie voor meer informatie over accountvergrendelingen en wachtwoorden [bedreigingen voor resources en -gegevens in Azure Active Directory B2C beheert](active-directory-b2c-reference-threat-management.md).
+### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Welke gebruikersstroom wachtwoord wordt gebruikt voor lokale accounts in Azure AD B2C?
+De gebruikersstroom van de Azure AD B2C-wachtwoord voor lokale accounts is gebaseerd op het beleid voor Azure AD. Azure AD B2C de gebruikersregistratie, aanmelding bij of gebruikersstromen aanmelden en het wachtwoord opnieuw instellen van de sterkte 'sterk' wachtwoord gebruiken en verlopen wachtwoorden niet. Lees de [Azure AD-wachtwoordbeleid](https://msdn.microsoft.com/library/azure/jj943764.aspx) voor meer informatie. Zie voor meer informatie over accountvergrendelingen en wachtwoorden [bedreigingen voor resources en -gegevens in Azure Active Directory B2C beheert](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan ik Azure AD Connect gebruiken voor het migreren van consumentidentiteiten uit die zijn opgeslagen op mijn on-premises Active Directory naar Azure AD B2C?
 Nee, Azure AD Connect is niet ontworpen om te werken met Azure AD B2C. Overweeg het gebruik van de [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) voor gebruikersmigratie.  Zie de [gebruikershandleiding voor de migratie](active-directory-b2c-user-migration.md) voor meer informatie.

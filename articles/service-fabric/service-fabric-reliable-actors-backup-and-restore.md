@@ -1,5 +1,5 @@
 ---
-title: Back-up en herstellen van Azure Service Fabric actoren | Microsoft Docs
+title: Back-up en herstellen van Azure Service Fabric-actoren | Microsoft Docs
 description: Informatie over het implementeren van de back-up en herstel in uw Azure Service Fabric-actoren.
 services: service-fabric
 documentationcenter: .net
@@ -12,17 +12,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: c72aea9d104264243ef0654aea01e0a41f33ed6f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206863"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726930"
 ---
-# <a name="implement-reliable-actors-backup-and-restore"></a>Implementeer Reliable Actors back-up en herstel
-In het volgende voorbeeld wordt een aangepaste actor-service beschrijft een methode voor het back-ups actor door gebruik te maken van de listener voor externe toegang die al aanwezig in `ActorService`:
+# <a name="implement-reliable-actors-backup-and-restore"></a>Implementeren van Reliable Actors back-up en herstellen
+
+> [!NOTE]
+> Microsoft raadt aan om te gebruiken [periodieke back-up en herstel](service-fabric-backuprestoreservice-quickstart-azurecluster.md) voor het configureren van gegevensback-up van betrouwbare Stateful services en Reliable Actors. 
+> 
+
+In het volgende voorbeeld wordt een aangepaste actor-service beschrijft een methode voor gegevensback-ups actor door te profiteren van de listener voor externe toegang die al aanwezig in `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -98,7 +103,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-In dit voorbeeld `IMyActorService` is een contract voor externe toegang die implementeert `IService` (C#) en `Service` (Java) en vervolgens wordt geïmplementeerd door `MyActorService`. Door dit contract remoting, methoden toe te voegen op `IMyActorService` zijn nu ook beschikbaar voor een client door het maken van een proxy voor externe toegang via `ActorServiceProxy`:
+In dit voorbeeld `IMyActorService` is een contract voor externe toegang die implementeert `IService` (C#) en `Service` (Java), en vervolgens is geïmplementeerd door `MyActorService`. Door het toevoegen van deze methoden van het contract voor externe toegang op `IMyActorService` nu ook beschikbaar zijn voor een client met het maken van een proxy voor externe toegang via `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -113,12 +118,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Voor meer informatie over Reliable Actors Lees het volgende:
+Lees de volgende artikelen voor meer informatie over Reliable Actors:
 * [Statusbeheer actor](service-fabric-reliable-actors-state-management.md)
-* [Acteur lifecycle en garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [API-naslagdocumentatie actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Voorbeeldcode voor .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Voorbeeldcode voor Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Actor-levenscyclus en garbagecollection verzameling](service-fabric-reliable-actors-lifecycle.md)
+* [Actoren API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [.NET-voorbeeldcode](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-voorbeeldcode](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

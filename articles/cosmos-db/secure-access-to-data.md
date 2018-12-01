@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0d5243a1dd2a7c9244860da15d39f407b281e1e3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621442"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726794"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Toegang tot Azure Cosmos DB-gegevens beveiligen
 In dit artikel biedt een overzicht van het beveiligen van toegang tot gegevens die zijn opgeslagen in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -180,8 +180,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 Toegang tot de lezer van de Azure Cosmos DB-account toevoegen aan uw gebruikersaccount, hebt u de eigenaar van een abonnement op de volgende stappen uitvoeren in Azure portal.
 
 1. Open de Azure-portal en selecteer uw Azure Cosmos DB-account.
-2. Klik op de **toegangsbeheer (IAM)** tabblad en klik vervolgens op **+ toevoegen**.
-3. In de **machtigingen toevoegen** deelvenster in de **rol** Schakel **Cosmos DB Account Reader-rol**.
+2. Klik op de **toegangsbeheer (IAM)** tabblad en klik vervolgens op **+ roltoewijzing toevoegen**.
+3. In de **roltoewijzing toevoegen** deelvenster in de **rol** Schakel **Cosmos DB Account Reader-rol**.
 4. In de **toegang toewijzen tot vak**, selecteer **Azure AD-gebruiker, groep of toepassing**.
 5. Selecteer de gebruiker, groep of toepassing in de map waarnaar u wilt om toegang te verlenen.  U kunt zoeken naar de map met de naam, e-mailadres of object-id's.
     De geselecteerde gebruiker, groep of toepassing wordt weergegeven in de lijst met geselecteerde leden.

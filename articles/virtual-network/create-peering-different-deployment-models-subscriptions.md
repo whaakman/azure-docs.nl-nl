@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311242"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728162"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel-netwerkpeering - verschillende implementatiemodellen en -abonnementen
 
@@ -56,8 +56,8 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
     - **Locatie**: *VS-Oost*
 4. In de **zoeken naar resources** vak aan de bovenkant van de portal, type *myVnetA*. Klik op **myVnetA** wanneer deze wordt weergegeven in de lijst met zoekresultaten. Een blade wordt weergegeven voor de **myVnetA** virtueel netwerk.
 5. In de **myVnetA** blade die wordt weergegeven, klikt u op **toegangsbeheer (IAM)** uit de verticale lijst met opties aan de linkerkant van de blade.
-6. In de **myVnetA - toegangsbeheer (IAM)** blade die wordt weergegeven, klikt u op **+ toevoegen**.
-7. In de **machtigingen toevoegen** blade die wordt weergegeven, selecteer **Inzender voor netwerken** in de **rol** vak.
+6. In de **myVnetA - toegangsbeheer (IAM)** blade die wordt weergegeven, klikt u op **+ roltoewijzing toevoegen**.
+7. In de **roltoewijzing toevoegen** blade die wordt weergegeven, selecteer **Inzender voor netwerken** in de **rol** vak.
 8. In de **Selecteer** selecteert gebruiker b, of typ de e-mailadres van gebruiker b om te zoeken naar deze. De lijst met gebruikers wordt weergegeven is van dezelfde Azure Active Directory-tenant als het instellen van de peering voor virtuele-netwerk. Klik op gebruiker b wanneer deze wordt weergegeven in de lijst.
 9. Klik op **Opslaan**.
 10. Meld u af bij de portal aan als UserA en meld u aan als UserB.

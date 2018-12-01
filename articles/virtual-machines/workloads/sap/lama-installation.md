@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2f3b8371357403071e70dd2e351cd75dbd34f746
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006385"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728222"
 ---
 # <a name="sap-lama-connector-for-azure"></a>LaMa SAP-connector voor Azure
 
@@ -87,13 +87,13 @@ De Azure-connector is verzonden vanaf SAP LaMa 3.0 SP05. Het is raadzaam om alti
 De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. U moet de Service-Principal machtigingen voor toegang tot deze.
 
 1. Ga naar https://portal.azure.com
-1. Open de blade met resourcegroepen
+1. Open de resourceblade van de groepen
 1. Selecteer de resourcegroep die u wilt gebruiken
 1. Klik op de Access control (IAM)
-1. Klik op toevoegen
+1. Klik op de roltoewijzing toevoegen
 1. Selecteer de rol Inzender
 1. Voer de naam van de toepassing die u hierboven hebt gemaakt
-1. Klik op OK
+1. Op Opslaan klikken
 1. Herhaal stap 3 tot en met 8 voor alle resourcegroepen die u wilt gebruiken in de SAP-LaMa
 
 Open de website die SAP LaMa en navigeer naar de infrastructuur. Ga naar het tabblad Cloud-Managers en klik op toevoegen. Selecteer de Microsoft Azure Cloud-Adapter en klik op volgende. Voer de volgende informatie in:

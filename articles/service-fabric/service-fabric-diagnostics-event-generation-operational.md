@@ -12,92 +12,97 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: 03dac03405588ba00a0f8ca5b127956c40853e36
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868510"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727337"
 ---
 # <a name="list-of-service-fabric-events"></a>Lijst met Service Fabric-gebeurtenissen 
 
-Service Fabric wordt aangegeven dat een primaire set Clustergebeurtenissen om te informeren over de status van het cluster als [Service Fabric-gebeurtenissen](service-fabric-diagnostics-events.md). Deze zijn gebaseerd op acties die door Service Fabric wordt uitgevoerd op uw knooppunten als uw cluster of management beslissingen door een cluster eigenaar/operator. Deze gebeurtenissen kunnen worden geopend door het opvragen van de [EventStore](service-fabric-diagnostics-eventstore.md) in uw cluster, of via het operationele kanaal. Op Windows-machines, is het operationele kanaal ook gekoppeld aan het gebeurtenislogboek - zodat u de Service Fabric-gebeurtenissen in Logboeken kunt zien. 
+Service Fabric wordt aangegeven dat een primaire set Clustergebeurtenissen om te informeren over de status van het cluster als [Service Fabric-gebeurtenissen](service-fabric-diagnostics-events.md). Deze zijn gebaseerd op acties die door Service Fabric wordt uitgevoerd op uw knooppunten als uw cluster of management beslissingen door een cluster eigenaar/operator. Deze gebeurtenissen kunnen worden geopend door te configureren op een aantal manieren, inclusief het configureren van [Log Analytics met uw cluster](service-fabric-diagnostics-oms-setup.md), of het uitvoeren van query's de [EventStore](service-fabric-diagnostics-eventstore.md). Deze gebeurtenissen zijn opgenomen in het gebeurtenislogboek - op Windows-machines, zodat u Service Fabric-gebeurtenissen in Logboeken ziet. 
 
->[!NOTE]
->Raadpleeg de volgende sectie voor een lijst met Service Fabric-gebeurtenissen voor clusters in versies < 6.2. 
+Hier volgen enkele kenmerken van deze gebeurtenissen
+* Elke gebeurtenis is gekoppeld aan een bepaalde entiteit in het cluster bijvoorbeeld toepassing, Service, knooppunt, Replica.
+* Elke gebeurtenis een set algemene velden bevat: EventInstanceId EventName en categorie.
+* Elke gebeurtenis bevat de velden die de gebeurtenis terug naar de entiteit die is gekoppeld. De gebeurtenis ApplicationCreated hoeft bijvoorbeeld velden die de naam van de toepassing gemaakt.
+* Gebeurtenissen zijn gestructureerd zodanig dat ze kunnen worden gebruikt in een aantal hulpprogramma's om u te doen verdere analyse. Bovendien zijn relevante details van een gebeurtenis gedefinieerd als afzonderlijke eigenschappen in plaats van een lange tekenreeks. 
+* Gebeurtenissen worden geschreven door verschillende subsystemen weer in Service Fabric worden aangeduid met Source(Task) hieronder. Meer informatie vindt u op deze subsystemen in [Service Fabric-architectuur](service-fabric-architecture.md) en [technische overzicht van Service Fabric](service-fabric-technical-overview.md).
 
-Hier volgt een lijst van alle gebeurtenissen beschikbaar in het platform, gesorteerd op basis van de entiteit die deze worden toegewezen aan.
+Hier volgt een lijst van deze Service Fabric-gebeurtenissen geordend op entiteit.
 
 ## <a name="cluster-events"></a>Clustergebeurtenissen
 
 **Upgrade Clustergebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
-| --- | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStarted | Een clusterupgrade van een is gestart | CM | Informatief | 1 |
-| 29628 | ClusterUpgradeCompleted | Een clusterupgrade is voltooid| CM | Informatief | 1 |
-| 29629 | ClusterUpgradeRollbackStarted | Een clusterupgrade van een is begonnen met het ongedaan maken | CM | Informatief | 1 |
-| 29630 | ClusterUpgradeRollbackCompleted | Een clusterupgrade van een is voltooid, terug te draaien | CM | Informatief | 1 |
-| 29631 | ClusterUpgradeDomainCompleted | De upgrade van een domein is tijdens de upgrade van een cluster voltooid | CM | Informatief | 1 |
+Meer informatie over het upgraden van clusters kunnen worden gevonden [hier](service-fabric-cluster-upgrade-windows-server.md).
+
+| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| --- | --- | --- | --- | --- | --- | 
+| 29627 | ClusterUpgradeStarted | Upgraden | Een clusterupgrade van een is gestart | CM | Informatief |
+| 29628 | ClusterUpgradeCompleted | Upgraden | Een clusterupgrade is voltooid | CM | Informatief | 
+| 29629 | ClusterUpgradeRollbackStarted | Upgraden | Een clusterupgrade van een is begonnen met het ongedaan maken  | CM | Waarschuwing | 
+| 29630 | ClusterUpgradeRollbackCompleted | Upgraden | Een clusterupgrade van een is voltooid, terug te draaien | CM | Waarschuwing | 
+| 29631 | ClusterUpgradeDomainCompleted | Upgraden | Een upgradedomein is voltooid tijdens de upgrade van een cluster upgraden | CM | Informatief | 
 
 ## <a name="node-events"></a>Knooppunt-gebeurtenissen
 
 **Levenscyclusgebeurtenissen voor het knooppunt** 
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
-| --- | --- | ---| --- | --- | --- |
-| 18602 | NodeDeactivateCompleted | Deactivering van een knooppunt is voltooid | FM | Informatief | 1 |
-| 18603 | NodeUp | Het cluster is gedetecteerd op dat een knooppunt is gestart | FM | Informatief | 1 |
-| 18604 | NodeDown | Het cluster is gedetecteerd op dat een knooppunt is afgesloten |  FM | Informatief | 1 |
-| 18605 | NodeAddedToCluster | Een nieuw knooppunt is aan het cluster toegevoegd | FM | Informatief | 1 |
-| 18606 | NodeRemovedFromCluster | Een knooppunt is uit het cluster verwijderd | FM | Informatief | 1 |
-| 18607 | NodeDeactivateStarted | Deactivering van een knooppunt is gestart | FM | Informatief | 1 |
-| 25620 | NodeOpening | Een knooppunt wordt gestart. Eerste fase van de levenscyclus van het knooppunt | FabricNode | Informatief | 1 |
-| 25621 | NodeOpenSucceeded | Een knooppunt is gestart | FabricNode | Informatief | 1 |
-| 25622 | NodeOpenFailed | Een knooppunt kan niet worden gestart | FabricNode | Informatief | 1 |
-| 25623 | NodeClosing | Een knooppunt wordt afgesloten. Begin van de laatste fase van de levenscyclus van knooppunt | FabricNode | Informatief | 1 |
-| 25624 | NodeClosed | Een knooppunt is afgesloten | FabricNode | Informatief | 1 |
-| 25625 | NodeAborting | Een knooppunt wordt gestart om ungracefully af te sluiten | FabricNode | Informatief | 1 |
-| 25626 | NodeAborted | Een knooppunt is ungracefully afgesloten | FabricNode | Informatief | 1 |
+| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau |
+| --- | --- | ---| --- | --- | --- | 
+| 18602 | NodeDeactivateCompleted | StateTransition | Deactivering van een knooppunt is voltooid | FM | Informatief | 
+| 18603 | NodeUp | StateTransition | Het cluster is gedetecteerd op dat een knooppunt is gestart | FM | Informatief | 
+| 18604 | NodeDown | StateTransition | Het cluster heeft gedetecteerd dat een knooppunt is afgesloten. Tijdens een knooppunt opnieuw wordt opgestart ziet u een gebeurtenis NodeDown, gevolgd door een gebeurtenis NodeUp |  FM | Fout | 
+| 18605 | NodeAddedToCluster | StateTransition |  Een nieuw knooppunt is toegevoegd aan het cluster en Service Fabric kunt toepassingen implementeren op dit knooppunt | FM | Informatief | 
+| 18606 | NodeRemovedFromCluster | StateTransition |  Een knooppunt is verwijderd uit het cluster. Service Fabric wordt niet meer toepassingen implementeren op dit knooppunt | FM | Informatief | 
+| 18607 | NodeDeactivateStarted | StateTransition |  Deactivering van een knooppunt is gestart | FM | Informatief | 
+| 25621 | NodeOpenSucceeded | StateTransition |  Een knooppunt is gestart | FabricNode | Informatief | 
+| 25622 | NodeOpenFailed | StateTransition |  Een knooppunt kan niet starten en deelnemen aan de ring | FabricNode | Fout | 
+| 25624 | NodeClosed | StateTransition |  Een knooppunt is afgesloten | FabricNode | Informatief | 
+| 25626 | NodeAborted | StateTransition |  Een knooppunt is ungracefully afgesloten | FabricNode | Fout | 
 
 ## <a name="application-events"></a>Toepassingsgebeurtenissen
 
 **Levenscyclus van toepassingsgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
-| --- | --- | ---| --- | --- | --- |
-| 29620 | ApplicationCreated | Een nieuwe toepassing is gemaakt | CM | Informatief | 1 |
-| 29625 | ApplicationDeleted | Een bestaande toepassing is verwijderd | CM | Informatief | 1 |
-| 23083 | ApplicationProcessExited | Een proces in een toepassing is afgesloten | Die als host fungeert | Informatief | 1 |
+| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| --- | --- | --- | --- | --- | --- | 
+| 29620 | ApplicationCreated | Levenscyclus | Een nieuwe toepassing is gemaakt | CM | Informatief | 
+| 29625 | ApplicationDeleted | Levenscyclus | Een bestaande toepassing is verwijderd | CM | Informatief | 
+| 23083 | ApplicationProcessExited | Levenscyclus | Een proces in een toepassing is afgesloten | Die als host fungeert | Informatief | 
 
 **Upgrade van toepassingsgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
-| --- | --- | ---| --- | --- | --- |
-| 29621 | ApplicationUpgradeStarted | Een upgrade van de toepassing is gestart | CM | Informatief | 1 |
-| 29622 | ApplicationUpgradeCompleted | Een upgrade van de toepassing is voltooid | CM | Informatief | 1 |
-| 29623 | ApplicationUpgradeRollbackStarted | Een upgrade van de toepassing is begonnen met het ongedaan maken |CM | Informatief | 1 |
-| 29624 | ApplicationUpgradeRollbackCompleted | Een upgrade van de toepassing is voltooid, terug te draaien | CM | Informatief | 1 |
-| 29626 | ApplicationUpgradeDomainCompleted | De upgrade van een domein is tijdens een upgrade van de toepassing voltooid | CM | Informatief | 1 |
+Meer informatie over upgrades van toepassingen vindt [hier](service-fabric-application-upgrade.md).
+
+| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| --- | --- | ---| --- | --- | --- | 
+| 29621 | ApplicationUpgradeStarted | Upgraden | Een upgrade van de toepassing is gestart | CM | Informatief | 
+| 29622 | ApplicationUpgradeCompleted | Upgraden | Een upgrade van de toepassing is voltooid | CM | Informatief | 
+| 29623 | ApplicationUpgradeRollbackStarted | Upgraden | Een upgrade van de toepassing is begonnen met het ongedaan maken |CM | Waarschuwing | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Upgraden | Een upgrade van de toepassing is voltooid, terug te draaien | CM | Waarschuwing | 
+| 29626 | ApplicationUpgradeDomainCompleted | Upgraden | Een upgradedomein is voltooid tijdens de upgrade van een toepassing upgraden | CM | Informatief | 
 
 ## <a name="service-events"></a>Gebeurtenissen van de service
 
 **Gebeurtenissen van de levenscyclus van service**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | Een nieuwe service is gemaakt | FM | Informatief | 1 |
-| 18658 | ServiceDeleted | Een bestaande service is verwijderd | FM | Informatief | 1 |
+| 18657 | ServiceCreated | Levenscyclus | Een nieuwe service is gemaakt | FM | Informatief | 
+| 18658 | ServiceDeleted | Levenscyclus | Een bestaande service is verwijderd | FM | Informatief | 
 
 ## <a name="partition-events"></a>Partitie-gebeurtenissen
 
 **Partitie verplaatsen gebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | Een herconfiguratie van de partitie is voltooid | RA | Informatief | 1 |
+| 18940 | PartitionReconfigured | Levenscyclus | Een herconfiguratie van de partitie is voltooid | RA | Informatief | 
 
 ## <a name="container-events"></a>Containergebeurtenissen
 
@@ -110,6 +115,12 @@ Hier volgt een lijst van alle gebeurtenissen beschikbaar in het platform, gesort
 | 23082 | ContainerExited | Een container is afgesloten: Controleer de vlag UnexpectedTermination | Die als host fungeert | Informatief | 1 |
 
 ## <a name="health-reports"></a>Statusrapporten
+
+De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een uitgebreide, flexibele en uitbreidbare evalueren en rapportage. Starten van Service Fabric versie 6.2 worden health-gegevens geschreven als Platform-gebeurtenissen voor historische records van de gezondheid van. Om te voorkomen dat het volume van de health-gebeurtenissen lage, schrijven we alleen de volgende Service Fabric-gebeurtenissen:
+
+* Alle `Error` of `Warning` statusrapporten
+* `Ok` statusrapporten tijdens overgangen
+* Wanneer een `Error` of `Warning` statusgebeurtenis is verlopen. Dit kan worden gebruikt om te bepalen hoe lang een entiteit is niet in orde
 
 **Cluster-rapport statusgebeurtenissen**
 
@@ -238,6 +249,7 @@ Hier volgt een uitgebreide lijst van gebeurtenissen die worden geleverd door de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over algemene [gebeurtenisgeneratie op het niveau van het platform](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
+* Bekijk een overzicht van [diagnostische gegevens in Service Fabric](service-fabric-diagnostics-overview.md)
+* Meer informatie over de EventStore in [Eventstore-overzicht van Service Fabric](service-fabric-diagnostics-eventstore.md)
 * Wijzigen van uw [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) configuratie om meer logboeken te verzamelen
 * [Instellen van Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) om te zien van uw operationele kanaal-Logboeken

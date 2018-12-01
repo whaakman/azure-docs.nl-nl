@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997893"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727474"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Maak een virtueel-netwerkpeering - Resource Manager, verschillende abonnementen
 
@@ -58,7 +58,7 @@ De volgende stappen uit verschillende accounts gebruiken voor elk abonnement. Al
     - **Locatie**: *VS-Oost*
 4. In de **zoeken naar resources** vak aan de bovenkant van de portal, type *myVnetA*. Selecteer **myVnetA** wanneer deze wordt weergegeven in de lijst met zoekresultaten. 
 5. Selecteer **toegangsbeheer (IAM)** uit de verticale lijst met opties aan de linkerkant.
-6. Onder **myVnetA - toegangsbeheer (IAM)**, selecteer **+ toevoegen**.
+6. Onder **myVnetA - toegangsbeheer (IAM)**, selecteer **+ roltoewijzing toevoegen**.
 7. Selecteer **Inzender voor netwerken** in de **rol** vak.
 8. In de **Selecteer** Selecteer *UserB*, of typ de e-mailadres van gebruiker b om te zoeken naar deze.
 9. Selecteer **Opslaan**.

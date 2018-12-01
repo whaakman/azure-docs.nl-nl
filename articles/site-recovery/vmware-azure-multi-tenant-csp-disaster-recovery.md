@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4eac6a2a0b4b9414fdf110c599ff557cabeede5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208898"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727100"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Herstel van VMware na noodgevallen in een omgeving met meerdere tenants met het programma Cloud Solution Provider (CSP) instellen
 
@@ -72,9 +72,13 @@ U kunt nu uitvoeren en beheren van alle Site Recovery-bewerkingen voor de tenant
 
       ![Pagina voor CSP-abonnement van de tenant](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      (b) nu een nieuwe gebruiker maken door te voeren van de relevante gegevens en machtigingen selecteren of door de lijst met gebruikers in een CSV-bestand uploaden.
+    (b) nu een nieuwe gebruiker maken door te voeren van de relevante gegevens en machtigingen selecteren of door de lijst met gebruikers in een CSV-bestand uploaden.
+    
     c) nadat u een nieuwe gebruiker hebt gemaakt, Ga terug naar de Azure-portal. In de **abonnement** pagina, selecteert u het desbetreffende abonnement.
-    d) Selecteer **Access Control (IAM)**, en klik vervolgens op **toevoegen**, een gebruiker met de relevante toegangsniveau toe te voegen. De gebruikers die zijn gemaakt via de portal CSP worden automatisch weergegeven op de pagina die wordt geopend nadat u op een niveau van toegang.
+
+    d) Selecteer **toegangsbeheer (IAM)**, en klik vervolgens op **roltoewijzingen**.
+
+    e) Klik op **roltoewijzing toevoegen** een gebruiker met de relevante toegangsniveau toe te voegen. De gebruikers die zijn gemaakt via de CSP-portal worden weergegeven op het tabblad rol toewijzingen.
 
       ![Een gebruiker toevoegen](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 

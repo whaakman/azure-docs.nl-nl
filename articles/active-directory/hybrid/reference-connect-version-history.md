@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b42dc0f86a70feb06b32a20c7cbdd513920f65d6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 816992fa05613bc8904cfaf4b34345a02c9b3ba2
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263518"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728290"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -36,6 +36,17 @@ Stappen voor het upgraden van Azure AD Connect | Verschillende methoden voor [ee
 Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update toepast, [accounts en machtigingen](reference-connect-accounts-permissions.md#upgrade).
 
 Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12680"></a>1.2.68.0
+
+### <a name="release-status"></a>Releasestatus 
+
+11/30/2018: die zijn uitgebracht voor downloaden
+
+### <a name="fixed-issues"></a>Problemen opgelost
+
+Deze hotfix-versie wordt een conflict opgelost waarbij een verificatiefout fout kan optreden als de onafhankelijke aanwezigheid van de module MSOnline PowerShell Gallery op de server voor de synchronisatie.
+
 
 
 ## <a name="12670"></a>1.2.67.0

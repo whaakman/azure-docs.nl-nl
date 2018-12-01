@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 20d1e39a2f2cda66f3b490000f48dd6c5fb72915
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344808"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727326"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page-app aanmelden met behulp van OAuth 2.0-impliciete stroom
 
@@ -27,10 +27,10 @@ Veel moderne apps hebben een app met één pagina front-end die voornamelijk in 
 
 Ter ondersteuning van deze toepassingen, Azure Active Directory B2C (Azure AD B2C) maakt gebruik van de impliciete OAuth 2.0-stroom. De impliciete toekenning van OAuth 2.0 autorisatiestroom wordt beschreven in [sectie 4.2 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). In de impliciete stroom, ontvangt de app tokens rechtstreeks vanuit de Azure Active Directory (Azure AD)-eindpunt, zonder een exchange server-naar-server te autoriseren. Alle verificatielogica en sessie duurt verwerken plaatsen volledig uit in de JavaScript-client, zonder extra paginaomleidingen.
 
-Azure AD B2C breidt de standaard OAuth 2.0-impliciete stroom op meer dan een eenvoudige verificatie en autorisatie. Azure AD B2C introduceert de [Beleidsparameter](active-directory-b2c-reference-policies.md). Met de parameter van het beleid, kunt u OAuth 2.0 gebruikerservaringen toevoegen aan uw app, zoals registratie, aanmelding en Profielbeheer. In dit artikel laten we zien u hoe u kunt de impliciete stroom en de Azure AD gebruiken voor het implementeren van elk van deze ervaringen in uw toepassingen met één pagina. Als u aan de slag wilt, Bekijk onze [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) en [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) voorbeelden.
+Azure AD B2C breidt de standaard OAuth 2.0-impliciete stroom op meer dan een eenvoudige verificatie en autorisatie. Azure AD B2C introduceert de [Beleidsparameter](active-directory-b2c-reference-policies.md). Met de parameter van het beleid, kunt u OAuth 2.0 beleid toevoegen aan uw app, zoals gebruikersregistratie, aanmelding, en de gebruikersstromen management-profiel. In dit artikel laten we zien u hoe u kunt de impliciete stroom en de Azure AD gebruiken voor het implementeren van elk van deze ervaringen in uw toepassingen met één pagina. Als u aan de slag wilt, Bekijk onze [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) en [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) voorbeelden.
 
-In het voorbeeld van de HTTP-aanvragen in dit artikel gebruiken we ons voorbeeld van Azure AD B2C-directory **fabrikamb2c.onmicrosoft.com**. We gebruiken ook onze eigen voorbeeld van een toepassing en het beleid. U kunt ook zelf de aanvragen proberen met behulp van deze waarden, of kunt u deze vervangen door uw eigen waarden.
-Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory, toepassing en beleidsregels](#use-your-own-b2c-tenant).
+In het voorbeeld van de HTTP-aanvragen in dit artikel gebruiken we ons voorbeeld van Azure AD B2C-directory **fabrikamb2c.onmicrosoft.com**. We gebruiken ook onze eigen voorbeeld toepassingen en -stromen. U kunt ook zelf de aanvragen proberen met behulp van deze waarden, of kunt u deze vervangen door uw eigen waarden.
+Meer informatie over het [ophalen van uw eigen Azure AD B2C-directory-, toepassings- en gebruiker stromen](#use-your-own-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
@@ -40,11 +40,11 @@ De impliciete stroom aanmelden uitziet als in de volgende afbeelding. Elke stap 
 ![OpenID Connect-banen](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Verzenden van aanvragen voor authenticatie
-Wanneer uw web-app moet de gebruiker verifiëren en uitvoeren van een beleid, het zorgt ervoor dat de gebruiker de `/authorize` eindpunt. Dit is de interactieve gedeelte van de stroom, waarbij de gebruiker optreden, afhankelijk van het beleid maakt. De gebruiker krijgt een ID-token van het eindpunt van de Azure AD.
+Wanneer uw web-app moet de gebruiker verifiëren en uitvoeren van een beleid, het zorgt ervoor dat de gebruiker de `/authorize` eindpunt. Dit is de interactieve gedeelte van de stroom, waarbij de gebruiker optreden, afhankelijk van de gebruikersstroom maakt. De gebruiker krijgt een ID-token van het eindpunt van de Azure AD.
 
-In deze aanvraag, de client geeft aan dat de `scope` parameter de machtigingen die nodig is om te verkrijgen van de gebruiker. In de `p` parameter, betekent dit het beleid om uit te voeren. De volgende drie voorbeelden (met regeleinden voor de leesbaarheid) elke gebruiken een ander beleid. Ophalen van een idee van hoe elke aanvraag werkt, probeer de aanvraag in een browser plakken en uitvoeren.
+In deze aanvraag, de client geeft aan dat de `scope` parameter de machtigingen die nodig is om te verkrijgen van de gebruiker. In de `p` parameter, dit geeft aan dat de gebruikersstroom om uit te voeren. De volgende drie voorbeelden (met regeleinden voor de leesbaarheid) elke gebruikmaken van een andere gebruiker-stroom. Ophalen van een idee van hoe elke aanvraag werkt, probeer de aanvraag in een browser plakken en uitvoeren.
 
-### <a name="use-a-sign-in-policy"></a>Een beleid voor aanmelden
+### <a name="use-a-sign-in-user-flow"></a>Een gebruikersstroom aanmelden gebruiken
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -57,7 +57,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Een registratiebeleid gebruiken
+### <a name="use-a-sign-up-user-flow"></a>Gebruik een proefaccount gebruikersstroom
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -70,7 +70,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>Profiel bewerken-beleid gebruiken
+### <a name="use-an-edit-profile-user-flow"></a>Gebruik een gebruikersstroom profiel bewerken
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -92,12 +92,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging om te melden bij de gebruiker en gegevens over de gebruiker in de vorm van ID-tokens ophalen. (Bespreken we deze later meer in het artikel.) De `offline_access` bereik is optioneel voor web-apps. Hiermee wordt aangegeven dat uw app nodig heeft voor een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Kan het zijn een reeks van inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt voor cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag (gegenereerd door de app) die is opgenomen in de resulterende ID-token als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| p |Vereist |Het beleid om uit te voeren. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-tenant. De beleidswaarde voor de naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie, [ingebouwde beleidsregels van Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| p |Vereist |Het beleid om uit te voeren. Dit is de naam van een beleid (beleid) dat is gemaakt in uw Azure AD B2C-tenant. De beleidswaarde voor de naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie, [Azure AD B2C-gebruikersstromen](active-directory-b2c-reference-policies.md). |
 | prompt |Optioneel |Het type van de interactie van de gebruiker die is vereist. Op dit moment de enige geldige waarde is `login`. Dit zorgt ervoor dat de gebruiker zijn referenties invoeren voor deze aanvraag. Eenmalige aanmelding wordt pas van kracht. |
 
-Op dit moment wordt de gebruiker gevraagd om de werkstroom van het beleid te voltooien. Dit kan betrekking hebben op de voeren hun gebruikersnaam en wachtwoord, gebruiker zich aanmeldt met een sociale ID aanmelden voor de map of een andere aantal stappen. Acties van de gebruiker, is afhankelijk van hoe het beleid is gedefinieerd.
+Op dit moment wordt de gebruiker gevraagd om de werkstroom van het beleid te voltooien. Dit kan betrekking hebben op de voeren hun gebruikersnaam en wachtwoord, gebruiker zich aanmeldt met een sociale ID aanmelden voor de map of een andere aantal stappen. Acties van de gebruiker, is afhankelijk van hoe de gebruikersstroom wordt gedefinieerd.
 
-Nadat de gebruiker het beleid voltooit, Azure AD retourneert een antwoord aan uw app op de waarde die u hebt gebruikt voor `redirect_uri`. Gebruikt de methode die is opgegeven in de `response_mode` parameter. Het antwoord is precies hetzelfde voor elk van de gebruiker actie scenario's, onafhankelijk van het beleid dat is uitgevoerd.
+Nadat de gebruiker is voltooid de gebruikersstroom, Azure AD retourneert een antwoord aan uw app op de waarde die u hebt gebruikt voor `redirect_uri`. Gebruikt de methode die is opgegeven in de `response_mode` parameter. Het antwoord is precies hetzelfde voor elk van de gebruiker actie scenario's, onafhankelijk van de gebruikersstroom die is uitgevoerd.
 
 ### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde respons die gebruikmaakt van `response_mode=fragment` en `response_type=id_token+token` er als volgt met regeleinden voor een betere leesbaarheid:
@@ -142,15 +142,15 @@ Ontvangen van een ID-token is niet voldoende om de gebruiker te verifiëren. U m
 
 Aantal open source-bibliotheken zijn beschikbaar voor het valideren van JWTs, afhankelijk van de taal die u wilt gebruiken. Houd rekening met verkennen beschikbaar open source-bibliotheken in plaats van uw eigen validatielogica implementeren. U kunt de informatie in dit artikel voor meer informatie over het correct gebruik van deze bibliotheken.
 
-Azure AD B2C is een eindpunt van de metagegevens OpenID Connect. Een app kan het eindpunt gebruiken voor het ophalen van informatie over Azure AD B2C tijdens runtime. Deze informatie omvat eindpunten, de inhoud van tokens en voor token-ondertekening van sleutels. Er is een JSON-metagegevensdocument voor elk beleid in uw Azure AD B2C-tenant. Bijvoorbeeld, zich het document met metagegevens voor het beleid b2c_1_sign_in in de tenant fabrikamb2c.onmicrosoft.com bevindt hier:
+Azure AD B2C is een eindpunt van de metagegevens OpenID Connect. Een app kan het eindpunt gebruiken voor het ophalen van informatie over Azure AD B2C tijdens runtime. Deze informatie omvat eindpunten, de inhoud van tokens en voor token-ondertekening van sleutels. Er is een document met de JSON-metagegevens voor elke gebruikersstroom in uw Azure AD B2C-tenant. Bijvoorbeeld, bevindt het document met metagegevens voor de gebruikersstroom b2c_1_sign_in in de tenant fabrikamb2c.onmicrosoft.com zich op:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-Een van de eigenschappen van dit configuratiedocument is de `jwks_uri`. De waarde voor hetzelfde beleid zou worden:
+Een van de eigenschappen van dit configuratiedocument is de `jwks_uri`. De waarde voor dezelfde gebruikersstroom zou zijn:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
-Om te bepalen welk beleid is gebruikt voor het ondertekenen van een ID-token (en waar om op te halen de metagegevens van), hebt u twee opties. Ten eerste de naam van het beleid is opgenomen in de `acr` claim in `id_token`. Zie voor meer informatie over het parseren van de claims van een ID-token dat de [naslaginformatie over Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md). De andere mogelijkheid is het coderen van het beleid in de waarde van de `state` parameter wanneer u de aanvraag. Vervolgens worden gedecodeerd de `state` parameter om te bepalen welk beleid is gebruikt. Een van beide methoden is geldig.
+Om te bepalen welke gebruikersstroom is gebruikt voor het ondertekenen van een ID-token (en waar om op te halen de metagegevens van), hebt u twee opties. Eerst, de gebruikersnaam van de stroom is opgenomen in de `acr` claim in `id_token`. Zie voor meer informatie over het parseren van de claims van een ID-token dat de [naslaginformatie over Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md). De andere mogelijkheid is het coderen van de gebruikersstroom in de waarde van de `state` parameter wanneer u de aanvraag. Vervolgens worden gedecodeerd de `state` parameter om te bepalen welke gebruikersstroom is gebruikt. Een van beide methoden is geldig.
 
 Nadat het document met metagegevens van het eindpunt van de OpenID Connect metagegevens die u hebt gekocht, kunt u de openbare RSA-256-sleutels (te vinden op dit eindpunt) gebruiken voor het valideren van de handtekening van de ID-token. Er zijn mogelijk meerdere sleutels die worden vermeld op dit eindpunt op een bepaald moment, elk geïdentificeerd door een `kid`. De koptekst van `id_token` bevat ook een `kid` claim. Hiermee wordt aangegeven welke van deze sleutels is gebruikt voor het ondertekenen van de ID-token. Voor meer informatie, waaronder informatie over [valideren van tokens](active-directory-b2c-reference-tokens.md#token-validation), Zie de [naslaginformatie over Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
@@ -172,7 +172,7 @@ Zie voor meer informatie over de claims in een ID-token, de [naslaginformatie ov
 Nadat u hebt de ID-token volledig gevalideerd, kunt u een sessie begint met de gebruiker. In uw app, gebruikt u de claims in het ID-token verkrijgen van informatie over de gebruiker. Deze informatie kan worden gebruikt voor het weergeven, records en autorisatie.
 
 ## <a name="get-access-tokens"></a>Toegangstokens ophalen
-Als het enige wat uw web-apps moet doen, beleid worden uitgevoerd is, kunt u de volgende gedeelten overslaan. De informatie in de volgende secties zijn alleen van toepassing op web-apps die u geverifieerde aanroepen naar een web-API wilt maken, en die worden beveiligd door Azure AD B2C.
+Als het enige wat uw web-apps moet doen gebruikersstromen uitvoeren is, kunt u de volgende gedeelten overslaan. De informatie in de volgende secties zijn alleen van toepassing op web-apps die u geverifieerde aanroepen naar een web-API wilt maken, en die worden beveiligd door Azure AD B2C.
 
 Nu dat u hebt de gebruiker aangemeld bij uw app met één pagina, krijgt u toegang tot tokens voor het aanroepen van web-API's die zijn beveiligd door Azure AD. Zelfs als u al een token hebt ontvangen met behulp van de `token` antwoordtype, kunt u deze methode gebruiken om te verkrijgen van tokens voor aanvullende bronnen zonder het omleiden van de gebruiker zich opnieuw aanmelden.
 
@@ -274,7 +274,7 @@ Als u wilt proberen deze aanvragen zelf, de volgende drie stappen te voltooien. 
 
 1. [Een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md). Gebruik de naam van uw tenant in de aanvragen.
 2. [Maken van een toepassing](active-directory-b2c-app-registration.md) verkrijgen van een toepassings-ID en een `redirect_uri` waarde. Een web-app of web-API opnemen in uw app. U kunt eventueel een toepassingsgeheim maken.
-3. [Maken van uw beleid](active-directory-b2c-reference-policies.md) om op te halen van de beleidsnamen van uw.
+3. [Maken van uw gebruikersstromen](active-directory-b2c-reference-policies.md) om op te halen van de gebruiker namen van de stroom.
 
 ## <a name="samples"></a>Voorbeelden
 

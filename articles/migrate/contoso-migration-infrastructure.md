@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092968"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726981"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - een migratie-infrastructuur implementeren
 
@@ -256,8 +256,8 @@ Azure [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-b
 
 Rollen Contoso beheerders nu toegewezen aan de AD-beveiligingsgroepen waartoe deze gesynchroniseerd van on-premises.
 
-1. In de **ControlCobRG** resourcegroep, klikken ze op **toegangsbeheer (IAM)** > **toevoegen**.
-2. In **machtigingen toevoegen** > **rol**, > **Inzender**, selecteren ze de **ContosoCobRG** AD-groep in de lijst. De groep wordt vervolgens weergegeven in de **geselecteerde leden** lijst. 
+1. In de **ControlCobRG** resourcegroep, klikken ze op **toegangsbeheer (IAM)** > **roltoewijzing toevoegen**.
+2. In **roltoewijzing toevoegen** > **rol**, > **Inzender**, selecteren ze de **ContosoCobRG** AD-groep in de lijst. De groep wordt vervolgens weergegeven in de **geselecteerde leden** lijst. 
 3. Ze Herhaal deze stap met dezelfde machtigingen voor de andere resourcegroepen (met uitzondering van **ContosoAzureAdmins**), door de Inzender-rechten toe te voegen aan de AD-account dat overeenkomt met de resourcegroep.
 4. Voor de **ContosoAzureAdmins** AD-groep, ze wijzen de **eigenaar** rol.
 

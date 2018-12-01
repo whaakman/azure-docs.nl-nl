@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/28/2018
+ms.date: 11/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 80b331d32fe1e7bb4eb331bd981106968bc73bed
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e4540076b29cf3cd51f03239a1868e18a41781d9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163206"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726522"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Service Fabric-clusters maken in Windows Server of Linux
 Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een clusterknooppunt genoemd. Clusters kunnen worden geschaald naar duizenden knooppunten. Als u nieuwe knooppunten aan het cluster toevoegt, rebalances Service Fabric de partitiereplica's service en de exemplaren in het grotere aantal knooppunten. Algemene verbetert de prestaties van toepassingen en conflicten voor toegang tot het geheugen vermindert. Als de knooppunten in het cluster niet efficiënt worden gebruikt, kunt u het aantal knooppunten in het cluster verminderen. Service Fabric rebalances opnieuw de partitiereplica's en exemplaren voor het kleinere aantal knooppunten om beter gebruik van de hardware op elk knooppunt.
@@ -35,7 +35,9 @@ Kunt u clusters maken in virtuele machines die deze besturingssystemen wordt uit
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 1709
+* WindowsServer 1803
 * Linux Ubuntu 16.04
+* Red Hat Enterprise Linux 7.4 (ondersteuning voor Preview-versie)
 
 > [!NOTE]
 > Als u besluit het implementeren van Service Fabric in Windows Server 1709, houd er rekening mee dat (1) het is niet een van long term servicing branch, zodat u wellicht versies in de toekomst te verplaatsen, en (2) als u containers implementeert, containers die zijn gebouwd op Windows Server 2016 niet geschikt voor Windows Server  1709, en vice versa (u moet ze voor het implementeren van deze opnieuw maken).
