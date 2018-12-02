@@ -2,50 +2,52 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132959"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742310"
 ---
-Als u inschakelen met het bewerken van profielen van uw toepassing wilt, gebruikt u een **bewerken van profielen** beleid. Dit beleid wordt de ervaring van klanten tijdens het bewerken van profielen en de inhoud van tokens die de toepassing bewerking is voltooid ontvangt loopt, via beschreven.
+Als u inschakelen met het bewerken van profielen van uw toepassing wilt, gebruikt u een **profielbewerking** gebruikersstroom. Deze gebruikersstroom beschrijft de ervaring van klanten doorlopen tijdens het bewerken van profielen en de inhoud van tokens die de toepassing bewerking is voltooid ontvangt.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Selecteer bij instellingen in de sectie Beleid de optie **Beleid voor profielbewerking** en klik op **+Toevoegen**.
+Onder **beheren**, selecteer **gebruikersstromen** en klik op +**nieuwe gebruikersstroom**.
 
-![Selecteer Beleid voor profielbewerking en klik op de knop Toevoegen](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-policy.png)
+![Nieuwe gebruikersstroom selecteren](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
-Geef een **naam** op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SiPe` op.
+Op de **aanbevolen** tabblad **profielbewerking**.
 
-Selecteer **Id-providers** en schakel **Aanmelden met lokaal account** in. U kunt er ook voor kiezen om sociale id-providers te selecteren als dit al is geconfigureerd. Klik op **OK**.
+Voer een gebruikersstroom **naam** voor uw toepassing om te verwijzen. Geef bijvoorbeeld `SiPe` op.
 
-![Selecteer Aanmelden met lokaal account als id-provider en klik op de knop OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
+Onder **id-providers**, Controleer **aanmelden met lokaal Account**. U kunt er ook voor kiezen om sociale id-providers te selecteren als dit al is geconfigureerd.
 
-Selecteer **Profielkenmerken**. Kies kenmerken die de consument kan bekijken, en bewerk dit in het bijbehorende profiel. Schakel bijvoorbeeld **Land/regio**, **Weergavenaam** en **Postcode** in. Klik op **OK**.
+![Selecteer Aanmelden met lokaal account als id-provider en klik op de knop OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
-![Selecteer enkele kenmerken en klik op de knop OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
+Onder **gebruikerskenmerken**, klikt u op **meer weergeven**. In de **verzamelen kenmerk** kolom, kies kenmerken de consument kan bekijken en bewerken in het bijbehorende profiel. Schakel bijvoorbeeld **Land/regio**, **Weergavenaam** en **Postcode** in.
 
-Selecteer **Toepassingsclaims**. Kies de claims die u wilt laten retourneren in de autorisatietokens die, na een geslaagde profielbewerking, terug worden gestuurd naar de toepassing. Selecteer bijvoorbeeld **Weergavenaam**, **Postcode**.
+In de **geretourneerde claim** kolom, kies de claims die u wilt laten retourneren in de autorisatietokens die is verzonden naar de toepassing na een geslaagde profielbewerking. Selecteer bijvoorbeeld **Weergavenaam**, **Postcode**.
 
-![Selecteer enkele toepassingsclaims en klik op de knop OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-application-claims.png)
+Klik op **OK**.
 
-Klik op **Maken** om het beleid toe te voegen. Het beleid wordt vermeld als **B2C_1_SiPe**. Het voorvoegsel **B2C_1_** wordt toegevoegd aan de naam.
+![Selecteer enkele toepassingsclaims en klik op de knop OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
-Open het beleid door **B2C_1_SiPe** te selecteren. Controleer de instellingen die zijn opgegeven in de tabel en klik vervolgens op **Nu uitvoeren**.
+Klik op **maken** om toe te voegen van de gebruikersstroom. De gebruikersstroom wordt vermeld als **B2C_1_SiPe**. Het voorvoegsel **B2C_1_** wordt toegevoegd aan de naam.
 
-![Selecteer het beleid en voer dit uit](media/active-directory-b2c-create-profile-editing-policy/run-b2c-editing-policy.png)
+Selecteer **gebruikersstroom uitvoeren**. Controleer of de instellingen die zijn opgegeven in de tabel en klik vervolgens op **gebruikersstroom uitvoeren**.
+
+![Gebruikersstroom selecteren en de App uitvoeren](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Instelling      | Waarde  |
 | ------------ | ------ |
-| **Toepassingen** | Contoso B2C-app |
-| **Antwoord-URL selecteren** | `https://localhost:44316/` |
+| **Toepassing** | Contoso B2C-app |
+| **Antwoord-URL** | `https://localhost:44316/` |
 
 Er wordt een nieuw browsertabblad geopend. Hier kunt u controleren of het bewerken van profielen voor consumenten werkt zoals geconfigureerd.
 
 > [!NOTE]
-> Het duurt maximaal één minuut voordat het gemaakte beleid en de updates van kracht worden.
+> Het duurt maximaal één minuut gebruiker stromen maken en updates van kracht.
 >

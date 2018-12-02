@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/05/2018
-ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 11/30/2018
+ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585683"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742558"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties
 
@@ -32,7 +32,6 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
 
 - De reserveringskorting is niet van toepassing voor de volgende virtuele machines:
   - Klassieke virtuele machines en Cloudservices
-  - Beperkte vCPU-grootten
   - VM-Series: A-serie, Av2-serie of uit de G-serie
   - Virtuele machines in de Preview-versie: een VM-reeks of de grootte die in de Preview-versie
 - Clouds: Reserveringen niet verkrijgbaar in Duitsland en China-regio's.
