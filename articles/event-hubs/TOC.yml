@@ -67,15 +67,15 @@ items:
     maintainContext: true
   - name: Event Hubs voor Apache Kafka
     items:
-    - name: Een Kafka-broker spiegelen in een event hub waar Apache Kafka is ingeschakeld
+    - name: Een Kafka-broker spiegelen in een Event Hub waar Apache Kafka is ingeschakeld
       href: event-hubs-kafka-mirror-maker-tutorial.md
     - name: Apache Spark verbinden met een event hub waar Apache Kafka is ingeschakeld
       href: event-hubs-kafka-spark-tutorial.md
-    - name: Apache Flink verbinden met een event hub waar Apache Kafka is ingeschakeld
+    - name: Apache Flink verbinden met een Event Hub waar Apache Kafka is ingeschakeld
       href: event-hubs-kafka-flink-tutorial.md
     - name: Apache Kafka Connect integreren met een event hub waar Kafka is ingeschakeld (preview)
       href: event-hubs-kafka-connect-tutorial.md
-    - name: Akka Streams verbinden met een event hub waar Apache Kafka is ingeschakeld
+    - name: Akka Streams verbinden met een Event Hub waar Apache Kafka is ingeschakeld
       href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Voorbeelden
   href: event-hubs-samples.md
@@ -104,6 +104,8 @@ items:
     maintainContext: true
 - name: Handleidingen
   items:
+  - name: Gebeurtenissen verzenden, ontvangen en vastleggen met behulp van Python
+    href: event-hubs-python.md
   - name: Diagnostische logboeken instellen
     href: event-hubs-diagnostic-logs.md
   - name: Event Hubs voor Apache Kafka
@@ -184,9 +186,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 28260650a8859f76aa6d8bd6ff9333d57c65e55a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d6fb88ed6bfcf48cb35da068e50b670f4b1b685c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281453"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726964"
