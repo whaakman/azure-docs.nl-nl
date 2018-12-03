@@ -1,6 +1,7 @@
 # Overzicht
 ## [Over SQL Server-VM's in Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Releaseopmerkingen](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Snelstartgidsen
 ## [Een virtuele SQL-machine maken - Portal](quickstart-sql-vm-create-portal.md)
 ## [Een virtuele SQL-machine maken - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -40,6 +41,7 @@
 #### [Meerdere regio's](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Failover-clusterexemplaar
 #### [Configureren](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [Licentiemodel voor virtuele SQL-machine wijzigen](virtual-machines-windows-sql-ahb.md)
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)

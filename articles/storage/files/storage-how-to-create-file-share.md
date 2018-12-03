@@ -8,30 +8,30 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955806"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309188"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Een bestandsshare maken in Azure Files
-U kunt Azure-bestandsshares maken met [Azure Portal](https://portal.azure.com/), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST-API van Azure Storage. In deze zelfstudie leert u het volgende:
+U kunt Azure-bestandsshares maken met de  [Azure-portal](https://portal.azure.com/), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST API van Azure Storage. In deze zelfstudie leert u het volgende:
 * [Een Azure-bestandsshare maken met Azure Portal](#create-file-share-through-the-azure-portal)
 * [Een Azure-bestandsshare maken met Powershell](#create-file-share-through-powershell)
-* [Een Azure-bestandsshare maken met CLI](#create-file-share-through-command-line-interface-cli)
+* [Een Azure-bestandsshare maken met de CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het maken van een Azure-bestandsshare kunt u een opslagaccount gebruiken dat al bestaat of [een nieuw Azure Storage-account maken](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u een Azure-bestandsshare wilt maken met PowerShell, hebt u de sleutel en de naam van uw opslagaccount nodig. U hebt de sleutel van het opslagaccount nodig als u van plan bent Powershell of de CLI te gebruiken.
+Voor het maken van een Azure-bestandsshare kunt u een opslagaccount gebruiken dat al bestaat of [een nieuw Azure Storage-account maken](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u een Azure-bestandsshare wilt maken met PowerShell, hebt u de sleutel en de naam van uw opslagaccount nodig. U hebt een Azure Storage-accountsleutel nodig als u van plan bent Powershell of de CLI te gebruiken.
 
-## <a name="create-file-share-through-the-azure-portal"></a>Een bestandsshare via de Azure Portal maken
-1. **Ga naar de blade Opslagaccount in de Azure Portal**:    
+## <a name="create-a-file-share-through-the-azure-portal"></a>Een bestandsshare maken via de Azure-portal
+1. **Ga in de Azure-portal naar de blade Opslagaccount**:    
     ![Blade Opslagaccount](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **Klik op de knop Bestandsshare toevoegen**:    
     ![Klik op de knop Bestandsshare toevoegen](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Geef de naam en een quotum op. Het quotum heeft momenteel een maximum van 5 TiB**:    
+3. **Geef de naam en een quotum op. Op dit moment is de maximale waarde van het quotum van 5 TiB**:    
     ![Geef een naam en een gewenst quotum op voor de nieuwe bestandsshare](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **Bekijk uw nieuwe bestandsshare**: ![Bekijk uw nieuwe bestandsshare](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
@@ -42,12 +42,12 @@ Voor het maken van een Azure-bestandsshare kunt u een opslagaccount gebruiken da
 
 
 ## <a name="create-file-share-through-powershell"></a>Een bestandsshare via de PowerShell maken
-U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te downloaden en te installeren. Zie [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) (Azure PowerShell installeren en configureren) voor het installatiepunt en de installatie-instructies.
+U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te downloaden en te installeren. Zie  [Azure PowerShell installeren en configureren](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) voor het installatiepunt en de installatie-instructies.
 
 > [!Note]  
 > Het wordt aanbevolen om de meest recente Azure PowerShell-module te downloaden en te installeren, of hiernaar te upgraden.
 
-1. **Een context maken voor uw opslagaccount en sleutel** De context bevat de naam van het opslagaccount en de accountsleutel. Voor instructies voor het kopiëren van de accountsleutel uit de [Azure-portal](https://portal.azure.com/) raadpleegt u [Opslagtoegangssleutels voor opslagaccounts](../common/storage-account-manage.md#access-keys).
+1. **Een context maken voor uw opslagaccount en sleutel** De context bevat de naam van het opslagaccount en de accountsleutel. Zie  [Storage account access keys](../common/storage-account-manage.md#access-keys) (Toegangssleutels voor Azure Storage-accounts) voor instructies voor het kopiëren van de accountsleutel uit de  [Azure-portal](https://portal.azure.com/).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -60,14 +60,14 @@ U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te do
     ```
 
 > [!Note]  
-> De naam van de bestandsshare mag alleen uit kleine letters bestaan. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
+> De naam van de bestandsshare mag alleen uit kleine letters bestaan. Zie  [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Een bestandsshare via de opdrachtregelinterface (CLI) maken
 1. **Download en installeer de Azure CLI als voorbereiding op het gebruiken van een opdrachtregelinterface (CLI).**  
-    Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) en [Aan de slag met de Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+    Zie  [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) en [Aan de slag met de Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Maak een verbindingsreeks naar het opslagaccount op de locatie waar u de share wilt maken.**  
-    Vervang ```<storage-account>``` en ```<resource_group>``` in het volgende voorbeeld door de naam en resourcegroep van uw opslagaccount:
+    Vervang  ```<storage-account>``` en ```<resource_group>``` in het volgende voorbeeld door de naam en resourcegroep van uw opslagaccount:
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
@@ -77,7 +77,7 @@ U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te do
     fi
     ```
 
-3. **Bestandsshare maken**
+3. **De bestandsshare maken**
     ```azurecli
     az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
     ```

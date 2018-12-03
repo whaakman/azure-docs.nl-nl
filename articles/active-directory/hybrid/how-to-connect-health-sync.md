@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277134"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499071"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>De Azure AD Connect synchronisatie met Azure AD Connect Health bewaken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -62,7 +62,7 @@ Deze functie biedt een grafisch weergegeven trend van het aantal wijzigingen dat
 
 ![Synchronisatielatentie](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>Synchronisatiefoutenrapport op objectniveau (Preview)
+## <a name="object-level-synchronization-error-report"></a>Synchronisatiefoutenrapport op objectniveau
 Deze functie genereert een rapport over synchronisatiefouten die zich voordoen wanneer identiteitsgegevens worden gesynchroniseerd tussen Windows Server AD en Azure AD met Azure AD Connect.
 
 * Het rapport bevat informatie over fouten die zijn vastgelegd door de synchronisatieclient (Azure AD Connect versie 1.1.281.0 of later)
@@ -74,7 +74,7 @@ Deze functie genereert een rapport over synchronisatiefouten die zich voordoen w
   * Lijst van objecten met fouten per categorie
   * Alle gegevens over de fouten op één plek
   * Vergelijking naast elkaar van objecten die fouten hebben vanwege een conflict
-  * De mogelijkheid om het foutenrapport te downloaden als een CSV (binnenkort)
+  * Het foutenrapport downloaden als een CSV
 
 ### <a name="categorization-of-errors"></a>Classificatie van fouten
 In het rapport worden de bestaande synchronisatiefouten in de volgende categorieën onderverdeeld:

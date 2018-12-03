@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 935241d5574a59edfa256b74db3a0aeab2f7bf91
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458102"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445681"
 ---
 # <a name="quickstart-bing-visual-search-sdk-python"></a>Snelstartgids: Bing Visual Search SDK Python
 
@@ -30,7 +30,16 @@ Documentatie van codescenario's vindt u onder de volgende koppen:
 * [Tags, acties en actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
-* Er is een sleutel van de Cognitive Services API vereist voor het verifiëren van SDK-aanroepen. Meld u aan voor een [gratis sleutel](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De sleutel is gedurende zeven dagen geldig, met één aanroep per seconde. Voor productiescenario's kunt u [een toegangssleutel kopen](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Bekijk ook de [prijsgegevens](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Voor deze quickstart moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
+ 
 * Als u Python nog niet hebt, moet u dit eerst installeren. De SDK is compatibel met Python 2.7, 3.3, 3.4, 3.5 en 3.6.
 * De algemene aanbeveling voor het ontwikkelen met Python is om een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html) te gebruiken. Installeer en initialiseer de virtuele omgeving met de [venv-module](https://pypi.python.org/pypi/virtualenv). Installeer virtualenv voor Python 2.7.
 ```

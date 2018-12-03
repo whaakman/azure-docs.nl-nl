@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 62780500d29c891182d3869bf0ba3ccdc5e2f715
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386431"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441058"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Zelfstudie: ImageInsightsToken en resultaten van Bing Visual Search SDK
 De Visual Search SDK bevat een optie om online afbeeldingen te zoeken van een eerdere zoekopdracht die een `ImageInsightsToken` retourneert.  In dit voorbeeld wordt een `ImageInsightsToken` opgehaald en wordt het token gebruikt in een volgende zoekopdracht.  De code verzendt de `ImageInsightsToken` naar Bing en retourneert resultaten met Bing Search-URL's en URL's van vergelijkbare online gevonden afbeeldingen.
@@ -24,6 +24,16 @@ De Visual Search SDK bevat een optie om online afbeeldingen te zoeken van een ee
 Visual Studio 2017. Indien nodig kunt u hier de gratis communityversie downloaden: https://www.visualstudio.com/vs/community/.
 Er is een Cognitive Services API-sleutel vereist voor het verifiëren van SDK-aanroepen. Meld u aan voor een gratis proefsleutel. De proefsleutel is goed voor zeven dagen met één aanroep per seconde. Koop een toegangssleutel voor productiescenario's. Bekijk ook de prijsgegevens.
 De mogelijkheid om .NET core SDK-, .net core 1.1-apps uit te voeren. U kunt CORE, Framework en Runtime hier downloaden: https://www.microsoft.com/net/download/.
+
+Voor deze zelfstudie moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 Als u een consoletoepassing wilt instellen met behulp van de Bing Web Search SDK, gaat u naar de optie NuGet-pakketten beheren van Solution Explorer in Visual Studio. Voeg toe:

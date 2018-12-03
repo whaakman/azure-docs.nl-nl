@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f94e3b5a6070da5ef9510216abd3f52a958030c5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684117"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311378"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>Snelstart: Bing Entiteiten zoeken-SDK met Node
 
@@ -23,6 +23,7 @@ De Bing Entiteiten zoeken-SDK bevat de functionaliteit van de REST API voor enti
 
 De [broncode voor voorbeelden van de Bing Entiteiten zoeken-SDK voor C#](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) is beschikbaar op GitHub.
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder **Zoeken**.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Stel een consoletoepassing in met de Bing Entity Search SDK:
 * Voer `npm install ms-rest-azure` uit in uw ontwikkelomgeving.

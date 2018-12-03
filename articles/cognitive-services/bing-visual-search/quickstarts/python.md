@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 16d3d0ddf77e37e32cc50961a3870b820ac2748e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3a0d92e42eed097e244118a60ec0a4223c9cedf5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884238"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52440938"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Snelstart: Uw eerste Bing Visual Search-query in Python
 
@@ -27,7 +27,7 @@ Als u een lokale afbeelding uploadt, toont het volgende de formuliergegevens die
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -38,7 +38,15 @@ Dit artikel bevat een eenvoudige consoletoepassing die een Bing Visual Search-AP
 
 U hebt [Python 3](https://www.python.org/) nodig om deze code uit te voeren.
 
-In deze snelstart kunt u een code van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of van een betaald abonnement gebruiken.
+Voor deze quickstart moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
 
 ## <a name="running-the-walkthrough"></a>De voorbeeldtoepassing uitvoeren
 

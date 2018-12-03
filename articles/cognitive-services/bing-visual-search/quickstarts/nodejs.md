@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3490f7722ca0c1331ccea26cd18398cff1317aee
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 553d068d70f7e722f3c8e4de3978f3583b941963
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887409"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442523"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Quickstart: Uw eerste Bing Visual Search-query in JavaScript
 
@@ -27,7 +27,7 @@ Als u een lokale afbeelding uploadt, toont het volgende de formuliergegevens die
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -35,10 +35,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Dit artikel bevat een eenvoudige consoletoepassing waarmee een Bing Visual Search-API-aanvraag wordt verzonden en de JSON-zoekresultaten worden weergegeven. Hoewel deze toepassing is geschreven in JavaScript, is de API een RESTful-webservice die compatibel is met elke programmeertaal waarmee HTTP-aanvragen kunnen worden ingediend en JSON kan worden geparseerd. 
 
 ## <a name="prerequisites"></a>Vereisten
+Voor deze quickstart moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
 
 U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te voeren.
-
-In deze snelstartgids kunt u een code van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of van een betaald abonnement gebruiken.
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888336"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443454"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Zelfstudie: uploaden naar Bing Visual Search analyseren
 
@@ -23,6 +23,15 @@ In deze zelfstudie wordt het proces van het uploaden van een afbeelding naar Bin
 
 Deze zelfstudie is bedoeld voor de ontwikkelaar die de inhoud van het antwoord van Bing Visual Search wil verkennen. Er wordt niet voldaan aan alle gebruiks- en weergavevereisten (er wordt bijvoorbeeld geen koppeling naar het privacybeleid van Microsoft gemaakt). Zie [Bing Use and Display Requirements](./use-and-display-requirements.md) (vereisten voor gebruik en weergave) voor alle gebruiksvereisten.
 
+Voor deze zelfstudie moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
 
 ## <a name="where-to-start"></a>Waar beginnen?
 

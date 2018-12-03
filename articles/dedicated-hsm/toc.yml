@@ -1,0 +1,39 @@
+items:
+- name: Documentatie voor toegewezen HSM
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Overzicht toegewezen HSM
+    href: overview.md
+- name: Zelfstudies
+  items:
+  - name: HSM's implementeren in een bestaand virtueel netwerk met behulp van CLI
+    href: tutorial-deploy-hsm-cli.md
+  - name: HSM's implementeren in een bestaand virtueel netwerk met behulp van PowerShell
+    href: tutorial-deploy-hsm-powershell.md
+- name: Concepten
+  items:
+  - name: Hoge beschikbaarheid
+    href: high-availability.md
+  - name: Bewaking
+    href: monitoring.md
+  - name: Netwerken
+    href: Networking.md
+  - name: Fysieke beveiliging
+    href: physical-security.md
+  - name: Ondersteuning
+    href: supportability.md
+- name: Handleidingen
+  items:
+  - name: Een implementatie-architectuur kiezen
+    href: deployment-architecture.md
+- name: Resources
+  items:
+  - name: Veelgestelde vragen
+    href: faq.md
+ms.openlocfilehash: f0efd79e23aef90f54a38602694a8636e0789804
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317973"

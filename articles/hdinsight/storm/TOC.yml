@@ -1,7 +1,7 @@
 items:
 - name: Documentatie voor Azure HDInsight
   href: /azure/hdinsight
-- name: Storm op HDInsight
+- name: Apache Storm in HDInsight
   items:
   - name: Overzicht
     href: apache-storm-overview.md
@@ -13,7 +13,7 @@ items:
     maintainContext: true
 - name: Aan de slag
   items:
-  - name: Een Storm-cluster maken
+  - name: Een Apache Storm-cluster maken
     href: apache-storm-tutorial-get-started-linux.md
   - name: HDInsight-apps installeren
     href: ../hdinsight-apps-install-applications.md
@@ -23,7 +23,7 @@ items:
     maintainContext: true
 - name: Procedures
   items:
-  - name: Storm-topologieën ontwikkelen
+  - name: Apache Storm-topologieën ontwikkelen
     items:
     - name: Topologieën ontwikkelen met Java
       href: apache-storm-develop-java-topology.md
@@ -33,22 +33,22 @@ items:
       href: apache-storm-develop-csharp-visual-studio-topology.md
     - name: SCP.NET-programmeergids
       href: apache-storm-scp-programming-guide.md
-    - name: Storm-voorbeelden
+    - name: Apache Storm-voorbeelden
       href: apache-storm-example-topology.md
   - name: Topologieën implementeren en bewaken
     href: apache-storm-deploy-monitor-topology-linux.md
   - name: Streaming-pijplijnen maken
     items:
-    - name: Kafka en Storm (Java)
+    - name: Apache Kafka en Apache Storm (Java)
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
     - name: Event Hub, Storage en Data Lake Store (Java)
       href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
-    - name: Event Hub en Storm (C# en Java)
+    - name: Event Hub en Apache Storm (C# en Java)
       href: apache-storm-develop-csharp-event-hub-topology.md
     - name: Azure Storage/Data Lake Store (Java)
       href: apache-storm-write-data-lake-store.md
-    - name: Event Hub, HBase (Java)
+    - name: Event Hub, Apache HBase (Java)
       href: apache-storm-sensor-data-analysis.md
   - name: Clusters uitbreiden
     items:
@@ -124,7 +124,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: Hadoop-clusters beheren
+    - name: Apache Hadoop-clusters beheren
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: .NET SDK gebruiken
@@ -137,13 +137,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Clusters beheren met Ambari-webinterface
+    - name: Clusters beheren met de Apache Ambari-webinterface
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Clusters optimaliseren met de Ambari-webinterface
+      - name: Clusters optimaliseren met de Apache Ambari-webinterface
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Ambari REST-API gebruiken
+      - name: Apache Ambari REST API gebruiken
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -153,13 +153,13 @@ items:
     - name: Opslagaccounts toevoegen
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Gegevens uploaden voor Hadoop-taken
+    - name: Gegevens uploaden voor Apache Hadoop-taken
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Meerdere HDInsight-clusters met Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Gegevens importeren en exporteren met Sqoop
+    - name: Gegevens importeren en exporteren met Apache Sqoop
       href: ../hdinsight-use-sqoop.md
       items:
       - name: Verbinding maken met SSH
@@ -175,10 +175,10 @@ items:
         href: ../hdinsight-hadoop-use-sqoop-powershell.md
         maintainContext: true
       maintainContext: true
-    - name: Oozie gebruiken voor werkstromen
+    - name: Apache Oozie gebruiken voor werkstromen
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Op tijd gebaseerde Oozie-coördinatoren gebruiken
+    - name: Op tijd gebaseerde Apache Oozie-coördinatoren gebruiken
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Cluster en servicepoorten en URI's
@@ -202,12 +202,12 @@ items:
     - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: Problemen met HDFS oplossen
+    - name: Problemen met Apache Hadoop HDFS oplossen
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Problemen met STORM oplossen
+    - name: Problemen met Apache STORM oplossen
       href: apache-troubleshoot-storm.md
-    - name: Problemen met YARN oplossen
+    - name: Problemen met Apache Hadoop YARN oplossen
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Resources
@@ -215,13 +215,13 @@ items:
       - name: Informatie over het gebruik van HDInsight in Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop-geheugen en -prestaties
+      - name: Apache Hadoop-geheugen en -prestaties
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
       - name: Toegang tot Hadoop YARN-toepassingslogboeken in Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Heapdumps voor Hadoop-services inschakelen
+      - name: Heapdumps voor Apache Hadoop-services inschakelen
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
     maintainContext: true
@@ -263,13 +263,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go-SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Verwant
   items:
@@ -281,15 +281,15 @@ items:
     - name: .NET-oplossingen migreren naar Linux-clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Storm-topologieën implementeren en beheren
+    - name: Apache Storm-topologieën implementeren en beheren
       href: apache-storm-deploy-monitor-topology.md
-    - name: Maven gebruiken om Java-toepassingen te maken
+    - name: Apache Maven gebruiken om Java-toepassingen te ontwikkelen
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
     - name: Aanpassingen aanbrengen met Script Action
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: Toegang tot YARN-toepassingslogboeken
+    - name: Toegang tot Apache Hadoop YARN-toepassingslogboeken
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Scriptacties ontwikkelen
@@ -298,7 +298,7 @@ items:
     - name: Clusters beheren met Azure-portal
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: Clusters controleren met Ambari-API
+    - name: Clusters controleren met de Apache Ambari-API
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Resources
@@ -316,9 +316,9 @@ items:
   - name: Windows-hulpprogramma's voor HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 056413070b6b268db215a119dd216d8ad711ffb7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 2d3a2999c69833f759cbaab0241136609e068bf2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365472"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496231"

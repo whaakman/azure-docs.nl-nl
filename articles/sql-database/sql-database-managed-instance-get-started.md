@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 3eadc2d233fd1716716c323f4c7087ee8363c67c
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/28/2018
+ms.openlocfilehash: b7a3fc6e5dafb59d6981ff4302d4b060b0c73d6b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912319"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499239"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snelstart: Een beheerd exemplaar van een Azure SQL-database maken
 
 In deze snelstartgids leert u hoe u een [beheerd exemplaar](sql-database-managed-instance.md) van een Azure SQL-database maakt in de Azure-portal. 
 
-Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -33,13 +33,13 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
 
-1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
+1. Kies in de linkerbovenhoek van Azure Portal **Een resource maken**.
 2. Zoek naar **Managed Instance** en selecteer vervolgens **Azure SQL Managed Instance**.
-3. Klik op **Create**.
+3. Selecteer **Maken**.
 
    ![Beheerd exemplaar maken](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Vul het formulier voor het beheerde exemplaar in met behulp van de gegevens in onderstaande tabel:
+4. Vul het formulier voor het **beheerde exemplaar** in met behulp van de gegevens in onderstaande tabel:
 
    | Instelling| Voorgestelde waarde | Beschrijving |
    | ------ | --------------- | ----------- |
@@ -47,21 +47,21 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
    |**Naam van het beheerde exemplaar**|Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
    |**Beheerdersaanmeldgegevens voor het beheerde exemplaar**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.| 
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 16 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Resourcegroep**|Een nieuwe of bestaande resourcegroep|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen.|
    |**Locatie**|De locatie waarop u het beheerde exemplaar wilt maken|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
-   |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een virtueel netwerk dat u eerder hebt gemaakt in de resourcegroep die u eerder hebt opgegeven op dit formulier| Als u een virtueel netwerk voor een beheerd exemplaar wilt configureren met aangepaste instellingen, leest u [SQL Managed Instance Virtual Network Environment](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) in Github. Zie [Een VNet configureren voor een beheerd exemplaar van Azure SQL Database](sql-database-managed-instance-vnet-configuration.md) voor informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar. |
+   |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een virtueel netwerk dat u eerder hebt gemaakt in de resourcegroep die u eerder hebt opgegeven op dit formulier.| Als u een virtueel netwerk voor een beheerd exemplaar wilt configureren met aangepaste instellingen, leest u [SQL Managed Instance Virtual Network Environment](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) in Github. Zie [Een VNet configureren voor een beheerd exemplaar van Azure SQL Database](sql-database-managed-instance-vnet-configuration.md) voor informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar. |
+   |**Resourcegroep**|Een nieuwe of bestaande resourcegroep|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen.|
 
    ![formulier voor beheerd exemplaar](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Klik op **Prijscategorie** om reken- en opslagresources toe te wijzen en de opties voor prijscategorieën te bekijken. De prijscategorie voor algemeen gebruik met 32 GB geheugen en 16 vCores is de standaardwaarde.
+5. Selecteer **Prijscategorie** om reken- en opslagresources toe te wijzen en de opties voor prijscategorieën te bekijken. De prijscategorie voor algemeen gebruik met 32 GB geheugen en 16 vCores is de standaardwaarde.
 6. Gebruik de schuifregelaars of tekstvakken om de hoeveelheid opslagruimte en het aantal virtuele kernen op te geven. 
-7. Wanneer u klaar bent, klikt u op **Toepassen** om uw selectie op te slaan.  
-8. Klik op **Maken** om het beheerde exemplaar te implementeren.
-9. Klik op het pictogram voor **Meldingen** om de status van de implementatie te bekijken.
+7. Wanneer u klaar bent, kiest u **Toepassen** om uw selectie op te slaan.  
+8. Selecteer **Maken** om het beheerde exemplaar te implementeren.
+9. Selecteer het pictogram voor **Meldingen** om de status van de implementatie te bekijken.
 
     ![implementatievoortgang van beheerd exemplaar](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-10. Klik op **Implementatie wordt uitgevoerd** om het venster Beheerd exemplaar te openen. Hier kunt u details van de voortgang van de implementatie controleren. 
+10. Selecteer **Implementatie wordt uitgevoerd** om het venster Beheerd exemplaar te openen. Hier kunt u details van de voortgang van de implementatie controleren. 
 
 > [!IMPORTANT]
 > Het eerste exemplaar in een subnet kent doorgaans een veel langere implementatietijd dan volgende exemplaren. Annuleer de implementatiebewerking niet omdat deze langer duurt dan verwacht. Het maken van het tweede beheerde exemplaar in het subnet duurt maar een paar minuten.
@@ -70,17 +70,18 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
 
 Als de implementatie is voltooid, controleert u de resources die zijn gemaakt en haalt u de volledig gekwalificeerde servernaam op voor gebruik in latere snelstartgidsen.
 
-1. Open de resourcegroep voor uw beheerde exemplaar opent en bekijk de resources die voor u zijn gemaakt in de snelstartgids [Een Azure SQL Managed Instance maken](sql-database-managed-instance-get-started.md).
+1. Open de resourcegroep voor uw beheerde exemplaar opent en bekijk de resources die voor u zijn gemaakt in de snelstartgids [Een Azure SQL Managed Instance maken](#create-a-managed-instance).
 
-   ![Resources van beheerd exemplaar](./media/sql-database-managed-instance-get-started/resources.png)Open de resource van uw beheerd exemplaar in de Azure-portal.
+2. Selecteer uw beheerd exemplaar.
 
-2. Klik op uw beheerd exemplaar.
+   ![Resources van beheerd exemplaar](./media/sql-database-managed-instance-get-started/resources.png)
+
 3. Zoek op het tabblad **Overzicht** de eigenschap **Host** en kopieer het volledig gekwalificeerde hostadres voor het beheerde exemplaar.
 
 
    ![Resources van beheerd exemplaar](./media/sql-database-managed-instance-get-started/host-name.png)
 
-   De naam heeft deze notatie: **naam_van_uw_machine.neu15011648751ff.database.windows.net**.
+   De naam ziet er als volgt uit: **naam_van_uw_machine.a1b2c3d4e5f6.database.windows.net**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

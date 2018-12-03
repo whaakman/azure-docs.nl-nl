@@ -72,7 +72,7 @@ sections:
       html: <p>Ingebouwde hoge beschikbaarheid, automatische back-ups en geo-replicatie zorgen ervoor dat onderhoudsbewerkingen of fouten in de infrastructuur of hardware uw bedrijf niet platleggen.</p>
       image:
         src: media/index/gear.svg
-      title: Platform as a Service
+      title: Platform als een Service
     - href: /azure/sql-database/sql-database-security-index
       html: <p>Beveilig uw database met Azure AD-verificatie, virtuele netwerken, firewalls en Always Encrypted-verbindingen. Identificeer bedreigingen en beveiligingsproblemen dankzij ingebouwde beveiliging.</p>
       image:

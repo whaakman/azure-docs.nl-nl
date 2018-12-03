@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 01/29/2018
 ms.author: rosh
-ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bf8eece4b5afe34635d80a57cc12c26a8ed157d6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219937"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314129"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-c"></a>Snelstart: Bing Video Search SDK met C# 
 
@@ -24,6 +24,7 @@ De Bing Video Search SDK bevat de functionaliteit van de REST API voor webaanvra
 De [broncode voor voorbeelden van de Bing Video Search SDK voor C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) is beschikbaar op Git Hub.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder **Zoeken**.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Als u een consoletoepassing wilt instellen met behulp van de Bing Video Search SDK, gaat u naar de optie `Manage NuGet Packages` van Solution Explorer in Visual Studio.  Voeg het pakket `Microsoft.Azure.CognitiveServices.Search.VideoSearch` toe.
 
@@ -34,7 +35,7 @@ Wanneer u het [[NuGet Video Search SDK-pakket]](https://www.nuget.org/packages/M
 
 
 ## <a name="video-search-client"></a>Video Search-client
-Als u een exemplaar van de client `VideoSearchAPI` wilt maken, voegt u dit toe met behulp van deze instructies:
+Als u een exemplaar van de client `VideoSearchAPI` wilt maken, voegt u using-instructies toe:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;

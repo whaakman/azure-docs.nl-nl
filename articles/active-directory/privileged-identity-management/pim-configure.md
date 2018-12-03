@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 6720294fe9a3e166d0d6ef8f141e53212ef4b194
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465857"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496806"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
@@ -73,7 +73,7 @@ Privileged Identity Management ondersteunt de volgende scenario's:
 
 - Goedkeuringen in behandeling (aanvragen) bekijken
 - Aanvragen voor rolverhoging goedkeuren of afwijzen (afzonderlijk en/of bulksgewijs)
-- De reden voor de goedkeuring/afwijzing opgeven 
+- De reden voor de goedkeuring/afwijzing opgeven 
 
 **Als een in aanmerking komende rolgebruiker kunt u:**
 
@@ -81,22 +81,13 @@ Privileged Identity Management ondersteunt de volgende scenario's:
 - De status van uw aanvraag voor activeren bekijken
 - Uw taak voltooien in Azure AD als de activering is goedgekeurd
 
-## <a name="enable-privileged-identity-management-for-your-directory"></a>Privileged Identity Management inschakelen voor uw adreslijst
+## <a name="who-can-do-what-in-pim"></a>Wie kan wat doen in PIM
 
-Ga naar [Azure Portal](https://portal.azure.com/) om aan de slag te gaan met Azure AD Privileged Identity Management.
+Als u de eerste persoon bent PIM gebruikt, krijgt u automatisch de rol van [Beveiligingsbeheerder](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) en [Beheerder met bevoorrechte rol](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) toegewezen in de map.
 
-> [!NOTE]
-> U moet een globale beheerder met een organisatieaccount (bijvoorbeeld @yourdomain.com) zijn, niet een Microsoft-account (bijvoorbeeld @outlook.com), om Azure AD Privileged Identity Management te kunnen inschakelen voor een adreslijst.
+Voor Azure AD-rollen geldt dat alleen een gebruiker met de rol Beheerder met bevoorrechte rol toewijzingen voor andere beheerders in PIM kan beheren. U kunt [andere beheerders toegang verlenen voor het beheren van PIM](pim-how-to-give-access-to-pim.md). Globale beheerders, beveiligingsbeheerders en beveiligingslezers kunnen toewijzingen aan Azure AD-rollen in PIM weergeven.
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van uw directory.
-2. Als uw organisatie meerdere directory's heeft, selecteert u uw gebruikersnaam rechtsboven in de Azure Portal. Selecteer de adreslijst waarvoor u Azure AD Privileged Identity Management wilt gebruiken.
-3. Selecteer **Alle services** en gebruik het tekstvak Filteren om te zoeken naar **Azure AD Privileged Identity Management**.
-4. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
-
-Als u de eerste persoon bent die Azure AD Privileged Identity Management in uw adreslijst gebruikt en u naar de adreslijstrollen van Azure AD navigeert, wordt u via de [wizard Beveiliging](pim-security-wizard.md) stapsgewijs begeleid bij de eerste toewijzing. Hierna wordt u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de adreslijst.
-
-Voor Azure AD-rollen geldt dat alleen een gebruiker met de rol Beheerder met bevoorrechte rol toewijzingen voor andere beheerders in Azure AD PIM kan beheren. U kunt [andere gebruikers de mogelijkheid geven om adreslijstrollen te beheren in PIM](pim-how-to-give-access-to-pim.md). Globale beheerders, beveiligingsbeheerders en beveiligingslezers kunnen toewijzingen aan Azure AD-rollen in Azure AD PIM weergeven.
-Voor Azure RBAC-rollen geldt dat alleen een abonnementsbeheerder, een resource-eigenaar of een beheerder voor gebruikerstoegang tot resources toewijzingen voor andere beheerders in Azure AD PIM kan beheren.  Gebruikers met de rol Beheerder met bevoorrechte rol, Beveiligingsbeheerder of Beveiligingslezer hebben standaard geen bevoegdheid om toewijzingen aan Azure RBAC-rollen in Azure AD PIM weer te geven.
+Voor rollen voor Azure-resources geldt dat alleen een abonnementsbeheerder, een resource-eigenaar of een beheerder voor gebruikerstoegang tot resources toewijzingen voor andere beheerders in PIM kan beheren. Gebruikers met de rol Beheerder met bevoorrechte rol, Beveiligingsbeheerder of Beveiligingslezer hebben standaard geen bevoegdheid om toewijzingen aan rollen voor Azure-resources in PIM weer te geven.
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Overzicht van Privileged Identity Management (toegangspunt)
 
@@ -186,6 +177,6 @@ Als in uw organisatie het abonnement op Azure AD Premium P2 niet is verlengd of 
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- [Beginnen met PIM](pim-getting-started.md)
 - [Abonnementsvereisten voor het gebruik van PIM](subscription-requirements.md)
-- [Azure AD-directoryrollen die u kunt beheren in PIM](pim-roles.md)
 - [Bevoegde toegang beveiligen voor hybride implementaties en cloudimplementaties in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cff6d38867ef8ecaf1435fd4c4cc22fe63d70575
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 586e60316ba8bf4f485a151e77015fa3ed104df7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283243"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317412"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio
 
@@ -131,7 +131,7 @@ Site Recovery haalt een lijst op van de VM’s die zijn gekoppeld aan het abonne
 Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio. U kunt de instellingen wijzigen zoals vereist.
 
 1. Klik op **Instellingen** om de doel- en replicatie-instellingen te bekijken.
-2. Klik op **Aanpassen** naast **Resourcegroep, netwerk, opslag en beschikbaarheidssets** als u de standaarddoelinstellingen wilt overschrijven.
+2. Klik op **Aanpassen** naast **Resourcegroep, netwerk, opslag en beschikbaarheid** als u de standaarddoelinstellingen wilt overschrijven.
 
   ![Instellingen configureren](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
@@ -154,7 +154,14 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
       >
 
     - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt standaard replicaschijven in de doelregio om de beheerde schijven van de bron-VM's te spiegelen met hetzelfde opslagtype (Standard of Premium) als de beheerde schijf van de bron-VM's.
-    - **Doelbeschikbaarheidssets**: Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met het achtervoegsel 'asr'. U kunt alleen beschikbaarheidssets toevoegen als VM’s deel uitmaken van een set in de bronregio.
+    - **Doelbeschikbaarheidssets**: in Azure Site Recovery wordt standaard een nieuwe beschikbaarheidsset gemaakt in de doelregio, met een naam die eindigt op 'asr' voor het VM-gedeelte van een beschikbaarheidsset in de bronregio. Als de beschikbaarheidsset die wordt gemaakt met Azure Site Recovery, al bestaat, wordt deze opnieuw gebruikt.
+    - **Doelbeschikbaarheidszones**: in Site Recovery wordt standaard hetzelfde zonenummer toegewezen als de bronregio in de doelregio, als de doelregio ondersteuning biedt voor beschikbaarheidszones. 
+
+    Als de doelregio geen ondersteuning biedt voor beschikbaarheidszones, worden de doel-VM's standaard geconfigureerd als enkele exemplaren. Indien vereist, kunt u dergelijke VM's configureren als onderdeel van beschikbaarheidssets in de doelregio door op Aanpassen te klikken.
+
+    >[!NOTE]
+    >Nadat u replicatie hebt ingeschakeld, kunt u het type beschikbaarheid - enkel exemplaar, beschikbaarheidsset of beschikbaarheidszone - niet meer wijzigen. Als u het type beschikbaarheid wilt wijzigen, moet u replicatie uitschakelen en opnieuw inschakelen.
+    >
 
 4. Klik naast **Replicatiebeleid** op **Aanpassen** en pas de volgende instellingen aan, zoals is vereist, om de instellingen voor het replicatiebeleid aan te passen:
 

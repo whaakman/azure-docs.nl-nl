@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 291a307d4fd7c0fa723b8b17c13b3ef13cdeb8de
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814488"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316817"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-java"></a>Snelstartgids: Bing Entity Search SDK met Java
 
@@ -24,7 +24,9 @@ De Bing Entity Search SDK biedt de functionaliteit van de REST-API voor query's 
 De [broncode voor voorbeelden van Java Bing Entity Search SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) is beschikbaar op Git Hub. 
 
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
-Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder **Zoeken**. Installeer de afhankelijkheden van Bing Entity Search SDK met Maven, Gradle of een ander systeem voor afhankelijkheidsbeheer. Het Maven-POM-bestand vereist de declaratie:
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder **Zoeken**.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+Installeer de afhankelijkheden van Bing Entity Search SDK met Maven, Gradle of een ander systeem voor afhankelijkheidsbeheer. Het Maven-POM-bestand vereist de declaratie:
 ```
   <dependencies>
     <dependency>

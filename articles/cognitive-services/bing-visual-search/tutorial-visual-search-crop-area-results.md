@@ -9,12 +9,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 27141c014c9ccdf9d62c9bde5c96bd31abfc025e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226907"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447092"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Zelfstudie: gebied voor bijsnijden afbeelding en resultaten van de Bing Visual Search-SDK
 De Visual Search-SDK bevat een optie voor het selecteren van een gebied van een afbeelding en het online zoeken van afbeeldingen die lijken op het bijsnijdgebied van de grotere afbeelding.  In dit voorbeeld wordt een bijsnijdgebied getoond met één persoon, afkomstig uit een afbeelding met meerdere personen.  De code verzendt het bijsnijdgebied en de URL van de grotere afbeelding en retourneert resultaten met Bing Search-URL's en URL's van vergelijkbare online gevonden afbeeldingen.
@@ -23,7 +23,15 @@ De Visual Search-SDK bevat een optie voor het selecteren van een gebied van een 
 
 U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om de code in Windows te kunnen uitvoeren. (De gratis Community-editie volstaat.)
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing Zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
+Voor deze zelfstudie moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 Als u een consoletoepassing wilt instellen met behulp van de Bing Web Search SDK, gaat u naar de optie NuGet-pakketten beheren van Solution Explorer in Visual Studio. Voeg het pakket Microsoft.Azure.CognitiveServices.Search.VisualSearch toe.

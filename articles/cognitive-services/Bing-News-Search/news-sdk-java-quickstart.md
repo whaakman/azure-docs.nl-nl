@@ -10,16 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802474"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316868"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-java"></a>Snelstartgids: Bing News Search SDK met Java
 
-De Bing News Search SDK biedt de functionaliteit van de REST-API voor nieuwsaanvragen en het parseren van resultaten. 
+De Bing News Search SDK biedt de functionaliteit van de REST-API voor nieuwsaanvragen en het parseren van resultaten.  Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder **Zoeken**.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 De [broncode voor voorbeelden van Java Bing News Search SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) is beschikbaar op GitHub.
 

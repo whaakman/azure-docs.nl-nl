@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415610"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445732"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -24,9 +24,9 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 
 | Windows-versie        | SMB-versie | Koppelbaar in Azure-VM | Koppelbaar on-premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (preview)<sup>1</sup> | SMB 3.0 | Ja | Ja |
-| Windows 10<sup>2</sup> | SMB 3.0 | Ja | Ja |
-| Windows Server Semi-Annual-kanaal<sup>3</sup> | SMB 3.0 | Ja | Ja |
+| Windows Server 2019    | SMB 3.0 | Ja | Ja |
+| Windows 10<sup>1</sup> | SMB 3.0 | Ja | Ja |
+| Windows Server Semi-Annual-kanaal<sup>2</sup> | SMB 3.0 | Ja | Ja |
 | Windows Server 2016    | SMB 3.0     | Ja                   | Ja                  |
 | Windows 8.1            | SMB 3.0     | Ja                   | Ja                  |
 | Windows Server 2012 R2 | SMB 3.0     | Ja                   | Ja                  |
@@ -34,9 +34,8 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 | Windows 7              | SMB 2.1     | Ja                   | Nee                   |
 | Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nee                   |
 
-<sup>1</sup>Windows Server 2019 is beschikbaar als preview-versie via het [Windows Server Insiders-programma](https://insider.windows.com/for-business-getting-started-server/). Hoewel Windows Server 2019 nog niet voor productiegebruiken wordt ondersteund, kunt u het ons laten weten als u problemen ondervindt bij het verbinding maken met Azure-bestandsshares en dit niet in de [probleemoplossingsgids voor Windows](storage-troubleshoot-windows-file-connection-problems.md) wordt behandeld.  
-<sup>2</sup>Windows 10-versies 1507, 1607, 1703, 1709 en 1803.  
-<sup>3</sup>Windows Server-versies 1709 en 1803.
+<sup>1</sup>Windows 10, versie 1507, 1607, 1703, 1709, 1803 en 1809.  
+<sup>2</sup>Windows Server, versie 1709 en 1803.
 
 > [!Note]  
 > We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.

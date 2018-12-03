@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: b493f65e47f5e4c932ed1229e4c00ee1af3cd5ab
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161851"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443887"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Zelfstudie: Visual Search-web-app met één pagina
 
 Bing Visual Search-API biedt een ervaring die lijkt op de afbeeldingsdetails die worden getoond op Bing.com/images. Met Visual Search kunt u een afbeelding opgeven en inzichten over de afbeelding terugkrijgen, zoals visueel vergelijkbare afbeeldingen, winkelbronnen, webpagina's met de afbeelding en meer. 
+
+Voor deze zelfstudie moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
 
 Deze zelfstudie breidt de web-app met één pagina van de Bing Image Search-zelfstudie uit (zie [Web-app met één pagina](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Zie [Web-app met één pagina (broncode)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md) voor de volledige broncode om deze zelfstudie te starten. Zie [Visual Search-web-app met één pagina](tutorial-bing-visual-search-single-page-app-source.md) voor de uiteindelijke broncode van deze zelfstudie.
 

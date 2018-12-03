@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278698"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495132"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Zelfstudie: Streams-API van Apache Kafka
 
-Leer hoe u een toepassing maakt die gebruikmaakt van de Streams-API van Kafka en hoe u deze uitvoert met Kafka in HDInsight. 
+Leer hoe u een toepassing maakt die gebruikmaakt van de Streams-API van Apache Kafka en hoe u deze uitvoert met Kafka in HDInsight. 
 
 De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een app voor het tellen van woorden die via een stream worden aangeboden. Eerst worden er tekstgegevens gelezen uit een onderwerp van Kafka, vervolgens worden afzonderlijke woorden uitgepakt en ten slotte worden de woorden en het aantal woorden opgeslagen in een ander Kafka-onderwerp.
 
 > [!NOTE]
-> De verwerking van Kafka-gegevensstromen gebeurt vaak met Apache Spark of Storm. De Streams-API is geïntroduceerd in Kafka versie 0.10.0 (in HDInsight 3.5 en 3.6). Met deze API kunt u gegevensstromen transformeren tussen invoer- en uitvoeronderwerpen. In sommige gevallen kan dit een alternatief zijn voor het maken van een streamingoplossing op basis van Spark of Storm. 
+> De verwerking van Kafka-gegevensstromen gebeurt vaak met Apache Spark of Apache Storm. De Streams-API is geïntroduceerd in Kafka versie 0.10.0 (in HDInsight 3.5 en 3.6). Met deze API kunt u gegevensstromen transformeren tussen invoer- en uitvoeronderwerpen. In sommige gevallen kan dit een alternatief zijn voor het maken van een streamingoplossing op basis van Spark of Storm. 
 >
 > Meer informatie over de Streams-API van Kafka vindt u in het Engelstalige artikel [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) op Apache.org.
 
@@ -38,9 +38,9 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Kafka in HDInsight 3.6-cluster. Zie [Aan de slag met Kafka in HDInsight](apache-kafka-get-started.md) voor informatie over het maken van een Kafka-cluster in HDInsight.
+* Een Kafka in HDInsight 3.6-cluster. Zie [Aan de slag met Apache Kafka in HDInsight](apache-kafka-get-started.md) voor informatie over het maken van een Kafka-cluster in HDInsight.
 
-* Voer de stappen in het document [Consumer- en Producer-API's van Kafka](apache-kafka-producer-consumer-api.md) uit. In de stappen in dit document worden de voorbeeldtoepassing en onderwerpen gebruikt die in deze zelfstudie zijn gemaakt.
+* Voer de stappen in het document [Consumer- en Producer-API's van Apache Kafka](apache-kafka-producer-consumer-api.md) uit. In de stappen in dit document worden de voorbeeldtoepassing en onderwerpen gebruikt die in deze zelfstudie zijn gemaakt.
 
 ## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
 
@@ -158,7 +158,7 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
    
     Vervang `sshuser` door de SSH-gebruiker voor uw cluster en `clustername` door de naam van het cluster. Voer het wachtwoord voor het SSH-gebruikersaccount in wanneer hierom wordt gevraagd. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van `scp` met HDInsight.
 
-## <a name="create-kafka-topics"></a>Kafka-onderwerpen maken
+## <a name="create-apache-kafka-topics"></a>Apache Kafka-onderwerpen maken
 
 1. Gebruik de volgende opdracht om een SSH-verbinding met het cluster op te zetten:
 
@@ -175,7 +175,7 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Gebruik de volgende opdrachten als u de Kafka-brokerhosts en de Zookeeper-hosts wilt opvragen. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin). U wordt tweemaal om uw wachtwoord gevraagd.
+3. Gebruik de volgende opdrachten als u de Kafka-brokerhosts en de Apache Zookeeper-hosts wilt opvragen. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin). U wordt tweemaal om uw wachtwoord gevraagd.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -255,7 +255,7 @@ Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe u de Streams-API van Kafka gebruikt met Kafka in HDInsight. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
+In dit document hebt u geleerd hoe u de Streams-API van Apache Kafka gebruikt met Kafka in HDInsight. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
 
-* [Kafka-logboekbestanden analyseren](apache-kafka-log-analytics-operations-management.md)
-* [Gegevens repliceren tussen Kafka-clusters](apache-kafka-mirroring.md)
+* [Apache Kafka-logboeken analyseren](apache-kafka-log-analytics-operations-management.md)
+* [Gegevens repliceren tussen Apache Kafka-clusters](apache-kafka-mirroring.md)

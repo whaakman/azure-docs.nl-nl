@@ -1,6 +1,6 @@
 ---
 title: Een containertoepassing met CI/CD implementeren in een Azure Service Fabric-cluster
-description: In deze zelfstudie leert u continue integratie en implementatie in te stellen voor een Azure Service Fabric-containertoepassing met behulp van Visual Studio-teamservices (VSTS).
+description: In deze zelfstudie leert u continue integratie en implementatie in te stellen voor een Azure Service Fabric-containertoepassing met behulp van Visual Studio Azure DevOps.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -15,23 +15,23 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: a7cb139da2cdbfb187a62eeadc707f7206de8a34
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300183"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443488"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Zelfstudie: Een containertoepassing met CI/CD implementeren in een Service Fabric-cluster
 
-Deze zelfstudie is deel twee van een reeks en beschrijft het instellen van continue integratie en implementatie voor een Azure Service Fabric-containertoepassing met behulp van Visual Studio Team Services.  Er is een bestaande Service Fabric-toepassing nodig. De toepassing die is gemaakt in [Een .NET-toepassing implementeren in een Windows-container in Azure Service Fabric](service-fabric-host-app-in-a-container.md) wordt als voorbeeld gebruikt.
+Deze zelfstudie is deel twee van een reeks en beschrijft het instellen van continue integratie en implementatie voor een Azure Service Fabric-containertoepassing met behulp van Visual Studio Team Services en Azure DevOps.  Er is een bestaande Service Fabric-toepassing nodig. De toepassing die is gemaakt in [Een .NET-toepassing implementeren in een Windows-container in Azure Service Fabric](service-fabric-host-app-in-a-container.md) wordt als voorbeeld gebruikt.
 
 In deel twee van de serie leert u het volgende:
 
 > [!div class="checklist"]
 > * Broncodebeheer aan uw project toevoegen
-> * Een build-definitie in Team Services maken
-> * Een release-definitie in Team Services maken
+> * Een build-definitie maken in Visual Studio Team Explorer
+> * Een release-definitie maken in Visual Studio Team Explorer
 > * Automatisch een upgrade en een toepassing implementeren
 
 ## <a name="prerequisites"></a>Vereisten
@@ -43,23 +43,23 @@ Voor u met deze zelfstudie begint:
 
 ## <a name="prepare-a-publish-profile"></a>Een publicatieprofiel voorbereiden
 
-Nu u een [containertoepassing hebt geïmplementeerd](service-fabric-host-app-in-a-container.md), bent u klaar om continue integratie in te stellen.  Bereid eerst een publicatieprofiel binnen uw toepassing voor, dat kan worden gebruikt door het implementatieproces dat in Team Services wordt uitgevoerd.  Het publicatieprofiel moet worden geconfigureerd zodat het cluster dat u eerder hebt gemaakt als doel kan dienen.  Start Visual Studio en open een bestaand Service Fabric-toepassingsproject.  Klik in **Solution Explorer** met de rechtermuisknop op de toepassing en selecteer **Publish...**.
+Nu u een [containertoepassing hebt geïmplementeerd](service-fabric-host-app-in-a-container.md), bent u klaar om continue integratie in te stellen.  Bereid eerst een publicatieprofiel binnen uw toepassing voor, dat kan worden gebruikt door het implementatieproces dat in Azure DevOps wordt uitgevoerd.  Het publicatieprofiel moet worden geconfigureerd zodat het cluster dat u eerder hebt gemaakt als doel kan dienen.  Start Visual Studio en open een bestaand Service Fabric-toepassingsproject.  Klik in **Solution Explorer** met de rechtermuisknop op de toepassing en selecteer **Publish...**.
 
-Kies een doelprofiel in het toepassingsproject, dat voor de werkstroom voor continue integratie kan worden gebruikt, bijvoorbeeld Cloud.  Geef het eindpunt voor de clusterverbinding op.  Schakel het selectievakje bij **Upgrade the Application** in, zodat voor elke implementatie in Team Services een upgrade voor de toepassing wordt uitgevoerd.  Klik op de hyperlink **Save** om de instellingen op te slaan in het publicatieprofiel. Klik vervolgens op **Cancel** om het dialoogvenster te sluiten.
+Kies een doelprofiel in het toepassingsproject, dat voor de werkstroom voor continue integratie kan worden gebruikt, bijvoorbeeld Cloud.  Geef het eindpunt voor de clusterverbinding op.  Schakel het selectievakje bij **Upgrade the Application** in, zodat voor elke implementatie in Azure DevOps een upgrade voor de toepassing wordt uitgevoerd.  Klik op de hyperlink **Save** om de instellingen op te slaan in het publicatieprofiel. Klik vervolgens op **Cancel** om het dialoogvenster te sluiten.
 
 ![Push-profiel][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Uw Visual Studio-oplossing delen met een nieuwe Git-opslagplaats van Team Services
+## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Uw Visual Studio-oplossing delen met een nieuwe Git-opslagplaats van Azure DevOps
 
-Deel de bronbestanden van uw toepassing met een teamproject in Team Services zodat u builds kunt genereren.
+Deel de bronbestanden van uw toepassing met een teamproject in Azure DevOps zodat u builds kunt genereren.
 
 Maak een nieuwe Git-opslagplaats voor uw project door op de statusbalk in de linkeronderhoek van Visual Studio **Add to Source Control** -> **Git** te selecteren.
 
-Ga naar de **Push**-weergave in **Team Explorer** en selecteer onder **Push to Visual Studio Team Services** de knop **Publish Git Repo**.
+Ga naar de **Push**-weergave in **Team Explorer** en selecteer onder **Push to Azure DevOps** de knop **Publish Git Repo**.
 
 ![Git-opslagplaats pushen][push-git-repo]
 
-Controleer uw e-mail en selecteer uw account in de vervolgkeuzelijst **Team Services Domain**. Voer de naam van de opslagplaats in en selecteer **Publish repository**.
+Controleer uw e-mail en selecteer uw organisatie in de vervolgkeuzelijst **Account**. U moet mogelijk een organisatie instellen als u er nog geen hebt. Voer de naam van de opslagplaats in en selecteer **Publish repository**.
 
 ![Git-opslagplaats pushen][publish-code]
 
@@ -67,22 +67,22 @@ Als u de opslagplaats publiceert, wordt er een nieuw teamproject voor uw account
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Continue levering configureren met VSTS
 
-Een definitie van een Team Services-build beschrijft een werkstroom die bestaat uit een reeks build-stappen die achtereenvolgens worden uitgevoerd. Maak een definitie van een build die een Service Fabric-toepassingspakket maakt en andere artefacten, om deze in een Service Fabric-cluster te implementeren. Meer informatie over [Definities van Team Services-builds](https://www.visualstudio.com/docs/build/define/create). 
+De definitie van Azure DevOps-build beschrijft een werkstroom die bestaat uit een reeks build-stappen die achtereenvolgens worden uitgevoerd. Maak een definitie van een build die een Service Fabric-toepassingspakket maakt en andere artefacten, om deze in een Service Fabric-cluster te implementeren. Meer informatie over [build-definities van Azure DevOps](https://www.visualstudio.com/docs/build/define/create). 
 
-Een definitie van een Team Services-release beschrijft een werkstroom waarmee een toepassingspakket in een cluster wordt geïmplementeerd. Als de definities van de build en de release samen worden gebruikt, wordt hiermee de hele werkstroom uitgevoerd, te beginnen met bronbestanden en te eindigen met het uitvoeren van een toepassing in uw cluster. Meer informatie over [release-definities ](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) van Team Services.
+De definitie van een Azure DevOps-release beschrijft een werkstroom waarmee een toepassingspakket in een cluster wordt geïmplementeerd. Als de definities van de build en de release samen worden gebruikt, wordt hiermee de hele werkstroom uitgevoerd, te beginnen met bronbestanden en te eindigen met het uitvoeren van een toepassing in uw cluster. Meer informatie over [release-definities](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) van Azure DevOps.
 
 ### <a name="create-a-build-definition"></a>Een build-definitie maken
 
-Open een webbrowser en ga naar uw nieuwe teamproject op: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
+Open uw nieuwe teamproject door in een web browser te navigeren naar https://dev.azure.com en uw organisatie selecteren, gevolgd door het nieuwe project. 
 
-Selecteer het tabblad **Build and release**, vervolgens **Builds** en klik daarna op **New Pipeline**.
+Selecteer in het linkerdeelvenster de optie **Pipelines** en klik op **New Pipeline**.
 
 >[!NOTE]
 >Als u de sjabloon voor de builddefinitie niet ziet, controleert u of de functie **New YAML pipeline creation experience** is uitgeschakeld. Deze functie wordt geconfigureerd in de sectie **Preview-functies** van uw DevOps-account.
 
 ![Nieuwe pijplijn][new-pipeline]
 
-Selecteer **VSTS Git** als de bron, **Voting** Team project, **Voting** Repository en **master**Standaardvertakking of handmatige en geplande builds.  Klik vervolgens op **Doorgaan**.
+Selecteer **Azure Repos Git** als bron, de naam van uw Team-project, de opslagplaats van het project en de standaardbranch **master** of handmatige en geplande builds.  Klik vervolgens op **Doorgaan**.
 
 Selecteer in **Select a template** de sjabloon **Azure Service Fabric Application met with Docker support** en klik op **Apply**.
 
@@ -104,7 +104,7 @@ In **Container Registry Type** selecteert u **Azure Container Registry**. Select
 
 ![Docker Push-installatiekopieën selecteren][select-push-images]
 
-Schakel onder **Triggers** continue integratie in door **Enable continuous integration** in te schakelen. Binnen **Vertakkingsfilters** klikt u op **+ Toevoegen**, en de **Vertakkingsspecificatie** wordt standaard op **master** ingesteld.
+Schakel op het tabblad **Triggers** continue integratie in door **Enable continuous integration** in te schakelen. Binnen **Vertakkingsfilters** klikt u op **+ Toevoegen**, en de **Vertakkingsspecificatie** wordt standaard op **master** ingesteld.
 
 Klik in het dialoogvenster **Save build pipeline and queue** op **Save & queue** om handmatig een build te starten.
 
@@ -114,7 +114,7 @@ Hiermee worden ook triggers gebouwd na pushen of inchecken. Als u de voortgang v
 
 ### <a name="create-a-release-definition"></a>Release-definitie maken
 
-Selecteer het tabblad **Build & Release**, vervolgens **Releases** en **+ New pipeline**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Deployment** in de lijst en vervolgens **Apply**.
+Selecteer in het linkerdeelvenster de optie **Pipelines**, daarna **Releases** en vervolgens **+ New Pipeline**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Deployment** in de lijst en vervolgens **Apply**.
 
 ![Release-sjabloon kiezen][select-release-template]
 
@@ -151,7 +151,7 @@ Controleer of de implementatie is gelukt en de toepassing in het cluster wordt u
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Wijzigingen doorvoeren en pushen, een release activeren
 
-Als u wilt controleren of de pijplijn voor continue integratie functioneert, checkt u enkele codewijzigingen aan Team Services in.
+Controleer of de pijplijn voor continue integratie correct functioneert door enkele codewijzigingen aan te brengen in Azure DevOps.
 
 Terwijl u de code schrijft, worden de wijzigingen automatisch in Visual Studio bijgehouden. Voer wijzigingen door in de lokale Git-opslagplaats door het pictogram voor wijzigingen in behandeling (![In behandeling][pending]) te selecteren op de statusbalk rechtsonder.
 
@@ -159,11 +159,11 @@ Voeg aan de weergave **Changes** in Team Explorer een bericht toe waarin u de up
 
 ![Alles doorvoeren][changes]
 
-Selecteer het pictogram voor de statusbalk met niet-gepubliceerde wijzigingen (![Unpublished changes][unpublished-changes]) of de synchronisatieweergave in Team Explorer. Selecteer **Push** om de code bij te werken in Team Services/TFS.
+Selecteer het pictogram voor de statusbalk met niet-gepubliceerde wijzigingen (![Unpublished changes][unpublished-changes]) of de synchronisatieweergave in Team Explorer. Selecteer **Push** om de code bij te werken in Azure DevOps.
 
 ![Wijzigingen pushen][push]
 
-Als u de wijzigingen naar Team Services pusht, wordt er automatisch een build geactiveerd.  Als de build-definitie wordt voltooid, wordt er automatisch een release gemaakt en wordt de toepassing in het cluster bijgewerkt.
+Als u de wijzigingen naar Azure DevOps pusht, wordt er automatisch een build geactiveerd.  Als de build-definitie wordt voltooid, wordt er automatisch een release gemaakt en wordt de toepassing in het cluster bijgewerkt.
 
 Als u de voortgang van de build wilt controleren, schakelt u over naar het tabblad **Builds** in **Team Explorer** in Visual Studio.  Als u hebt gecontroleerd dat de build correct wordt uitgevoerd, definieert u een release-definitie waarmee uw toepassing in een cluster wordt geïmplementeerd.
 

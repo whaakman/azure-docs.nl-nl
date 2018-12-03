@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457983"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442843"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>Snelstart: Bing Visual Search SDK voor C#
 
@@ -33,7 +33,16 @@ Documentatie van codescenario's vindt u onder de volgende koppen:
 ## <a name="prerequisites"></a>Vereisten
 
 * Visual Studio 2017. Indien nodig kunt u hier de gratis communityversie downloaden: https://www.visualstudio.com/vs/community/.
-* Er is een code van de Cognitive Services API vereist voor het verifiëren van SDK-aanroepen. Meld u aan voor een [gratis proefcode](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De proefcode is gedurende zeven dagen geldig, met één aanroep per seconde. Voor productiescenario's kunt u [een toegangscode kopen](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Bekijk ook de [prijsgegevens](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Voor deze quickstart moet u een abonnement in de prijscategorie S9 starten, zoals wordt weergegeven in [Prijsinformatie Cognitive Services Bing Zoeken-API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Zo start u een abonnement in de Azure-portal:
+1. Typ 'BingSearchV7' in het tekstvak bovenin de Azure-portal waar `Search resources, services, and docs` wordt weergegeven.  
+2. Selecteer `Bing Search v7` in de vervolgkeuzelijst onder Marketplace.
+3. Voer `Name` in voor de nieuwe resource.
+4. Selecteer `Pay-As-You-Go`-abonnement.
+5. Selecteer prijscategorie `S9`.
+6. Klik op `Enable` om het abonnement te starten.
+
 * De mogelijkheid om .NET core SDK-, .net core 1.1-apps uit te voeren. U kunt CORE, Framework en Runtime hier downloaden: https://www.microsoft.com/net/download/.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
@@ -280,7 +289,7 @@ public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
 
 ## <a name="knowledgerequest-parameter"></a>KnowledgeRequest-parameter
 
-De volgende code verzendt een afbeeldings-URL in de parameter `knowledgeRequest`, samen met een filter \"site:pinterest.com\".  Vervolgens worden het `imageInsightsToken`, het aantal tags, het aantal acties en het eerste actionType weergegeven.
+Met de volgende code wordt een afbeeldings-URL verzonden in de parameter `knowledgeRequest`, samen met een filter \"site:pinterest.com\".  Vervolgens worden het `imageInsightsToken`, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 
 ```csharp
 public static void VisualSearchUrlWithFilters(string subscriptionKey)

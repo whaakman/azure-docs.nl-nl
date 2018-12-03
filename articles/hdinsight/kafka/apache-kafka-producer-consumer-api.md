@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277729"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313812"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Zelfstudie: Werken met de Producer- en Consumer-API's van Apache Kafka
 
-Leer hoe u de Producer- en Consumer-API's van Kafka gebruikt met Kafka in HDInsight.
+Leer hoe u de Producer- en Consumer-API's van Apache Kafka gebruikt met Kafka in HDInsight.
 
 Met de Producer-API van Kafka kunnen toepassingen gegevensstromen naar het Kafka-cluster verzenden. Met de Consumer-API van Kafka kunnen toepassingen gegevensstromen uit het cluster lezen.
 
@@ -56,7 +56,7 @@ U kunt de volgende omgevingsvariabelen instellen wanneer u Java en de JDK instal
 
 ## <a name="set-up-your-deployment-environment"></a>De implementatieomgeving instellen
 
-Deze zelfstudie vereist Apache Kafka in HDInsight 3.6. Zie [Aan de slag met Kafka in HDInsight](apache-kafka-get-started.md) voor informatie over het maken van een Kafka-cluster in HDInsight.
+Deze zelfstudie vereist Apache Kafka in HDInsight 3.6. Zie [Aan de slag met Apache Kafka in HDInsight](apache-kafka-get-started.md) voor informatie over het maken van een Kafka-cluster in HDInsight.
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
@@ -171,7 +171,7 @@ Het bestand [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. Gebruik de volgende opdrachten als u de Kafka-brokerhosts en de Zookeeper-hosts wilt opvragen. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
+    2. Gebruik de volgende opdrachten als u de Kafka-brokerhosts en de Apache Zookeeper-hosts wilt opvragen. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -227,8 +227,8 @@ Records worden in Kafka opgeslagen in de volgorde waarin deze worden ontvangen b
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe u de Producer- en Consumer-API's van Kafka gebruikt met Kafka in HDInsight. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
+In dit document hebt u geleerd hoe u de Producer- en Consumer-API's van Apache Kafka gebruikt met Kafka in HDInsight. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
 
-* [Kafka-logboekbestanden analyseren](apache-kafka-log-analytics-operations-management.md)
-* [Gegevens repliceren tussen Kafka-clusters](apache-kafka-mirroring.md)
-* [Streams API van Kafka met HDInsight](apache-kafka-streams-api.md)
+* [Apache Kafka-logboeken analyseren](apache-kafka-log-analytics-operations-management.md)
+* [Gegevens repliceren tussen Apache Kafka-clusters](apache-kafka-mirroring.md)
+* [Apache Kafka Streams-API met HDInsight](apache-kafka-streams-api.md)

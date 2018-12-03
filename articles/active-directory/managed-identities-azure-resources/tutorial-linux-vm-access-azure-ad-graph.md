@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623092"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427451"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Zelfstudie: Een door het Linux-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure AD Graph-API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Deze zelfstudie laat zien hoe u toegang krijgt tot de Azure Active Directory Graph API met een door het systeem toegewezen beheerde identiteit voor een virtuele Linux-machine (VM) om de groepslidmaatschappen te kunnen ophalen. Beheerde entiteiten voor Azure-resources worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Microsoft Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen.  
 
@@ -155,7 +155,7 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
    }
    ```
 
-4. Met de object-id van de service-principal van uw VM (de waarde die u in eerdere stappen hebt opgehaald) kunt u een query uitvoeren met de Azure AD Graph-API om de groepslidmaatschappen op te halen. Vervang `<OBJECT-ID>` door de object-id van de service-principal van uw VM en `<ACCESS-TOKEN>` door het eerder verkregen token:
+4. Met de object-id van de service-principal van uw VM (de waarde die u in eerdere stappen hebt opgehaald) kunt u een query uitvoeren met de Azure AD Graph-API om de groepslidmaatschappen op te halen. Vervang `<OBJECT-ID>` door de object-id van de service-principal van uw VM en `<ACCESS-TOKEN>` door het eerder verkregen toegangstoken:
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"

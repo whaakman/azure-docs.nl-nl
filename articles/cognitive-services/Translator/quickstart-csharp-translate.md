@@ -8,94 +8,152 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: ffd46969bd7333d2422654c8683f66ff313706c2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 06e294187247636c552dfd4a7d02167eb55be19a
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648459"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334700"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Snelstart: Tekst vertalen met de Translator Text REST API (C#)
 
-In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
+In deze quickstart leert u hoe u een tekenreeks van het Engels naar het Italiaans en Duits vertaalt met .NET Core en de Translator Text REST API.
+
+Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code op Windows uit te voeren. (De gratis Community-editie volstaat.)
+* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [Json.NET NuGet-pakket](https://www.nuget.org/packages/Newtonsoft.Json/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
+* Een Azure-abonnementssleutel voor de Speech Service
 
-Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
+## <a name="create-a-net-core-project"></a>Een .NET Core-project maken
 
-## <a name="translate-request"></a>Translate-aanvraag
+Open een nieuwe opdrachtprompt (of een terminalsessie) en voer deze opdrachten uit:
 
-> [!TIP]
-> Haal de laatste nieuwe code op uit [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+```console
+dotnet new console -o translate-sample
+cd translate-sample
+```
 
-Met de volgende code wordt brontekst vertaald vanuit één taal naar een andere taal met de methode [Translate](./reference/v3-0-translate.md).
+De eerste opdracht doet twee dingen. Hiermee wordt een nieuwe .NET-consoletoepassing gemaakt en een map met de naam `translate-sample`. Met de tweede opdracht gaat u naar de map voor het project.
 
-1. Maak een nieuw C#-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+Daarna moet u Json.Net installeren. Voer vanuit de map van het project het volgende uit:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
+## <a name="add-required-namespaces-to-your-project"></a>Vereiste naamruimten toevoegen aan het project
+
+Met de opdracht `dotnet new console` die u eerder hebt uitgevoerd, is een project gemaakt, met daarin `Program.cs`. In dit bestand plaatst u de toepassingscode. Open `Program.cs` en vervang de bestaande using-instructies. Deze instructies zorgen ervoor dat u toegang hebt tot alle typen die zijn vereist voor het bouwen en uitvoeren van de voorbeeld-app.
 
 ```csharp
 using System;
 using System.Net.Http;
 using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
 using Newtonsoft.Json;
+```
 
-namespace TranslatorTextQuickStart
+## <a name="create-a-function-to-translate-text"></a>Een functie maken om tekst te vertalen
+
+Maak in de klasse `Program` een functie met de naam `TranslateText`. Deze klasse bevat de code die wordt gebruikt om de resource Vertalen aan te roepen en het resultaat weer te geven op de console.
+
+```csharp
+static void TranslateText()
 {
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/translate?api-version=3.0";
-        // Translate to German and Italian.
-        static string params_ = "&to=de&to=it";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "Hello world!";
-
-        async static void Translate()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Translate();
-            Console.ReadLine();
-        }
-    }
+  /*
+   * The code for your call to the translation service will be added to this
+   * function in the next few sections.
+   */
 }
 ```
 
-## <a name="translate-response"></a>Translate-antwoord
+## <a name="set-the-subscription-key-host-name-and-path"></a>Abonnementssleutel, hostnaam en pad instellen
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het volgende voorbeeld kunt zien:
+Voeg deze regels toe aan de functie `TranslateText`. U ziet dat er naast de `api-version` twee extra parameters zijn toegevoegd aan de `route`. Deze parameters worden gebruikt om de uitvoer van de vertaling in te stellen. In dit voorbeeld is dit ingesteld op Duits (`de`) en Italiaans (`it`). Zorg dat u de waarde van de abonnementssleutel bijwerkt.
+
+```csharp
+string host = "https://api.cognitive.microsofttranslator.com";
+string route = "/translate?api-version=3.0&to=de&to=it";
+string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+```
+
+Vervolgens moet u het JSON-object maken en serialiseren dat de tekst bevat die u wilt vertalen. Onthoud dat u meerdere objecten kunt doorgeven in de matrix `body`.
+
+```csharp
+System.Object[] body = new System.Object[] { new { Text = @"Hello world!" } };
+var requestBody = JsonConvert.SerializeObject(body);
+```
+
+## <a name="instantiate-the-client-and-make-a-request"></a>De client instantiëren en een aanvraag indienen
+
+Met deze regels instantieert u een exemplaar van `HttpClient` en `HttpRequestMessage`:
+
+```csharp
+using (var client = new HttpClient())
+using (var request = new HttpRequestMessage())
+{
+  // In the next few sections you'll add code to construct the request.
+}
+```
+
+## <a name="construct-the-request-and-print-the-response"></a>De aanvraag maken en het antwoord afdrukken
+
+In `HttpRequestMessage` doet u het volgende:
+
+* De HTTP-methode declareren
+* De aanvraag-URI samenstellen
+* De aanvraagbody (geserialiseerd JSON-object) invoegen
+* Vereiste headers toevoegen
+* Een asynchrone aanvraag maken
+* Het antwoord weergeven
+
+Voeg deze code toe aan `HttpRequestMessage`:
+
+```csharp
+// Set the method to POST
+request.Method = HttpMethod.Post;
+
+// Construct the full URI
+request.RequestUri = new Uri(host + route);
+
+// Add the serialized JSON object to your request
+request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+
+// Add the authorization header
+request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+// Send request, get response
+var response = client.SendAsync(request).Result;
+var jsonResponse = response.Content.ReadAsStringAsync().Result;
+
+// Print the response
+Console.WriteLine(jsonResponse);
+Console.WriteLine("Press any key to continue.");
+```
+
+## <a name="put-it-all-together"></a>Alles samenvoegen
+
+In de laatste stap roept u `TranslateText()` aan in de functie `Main`. Zoek `static void Main(string[] args)` en voeg deze regels toe:
+
+```csharp
+TranslateText();
+Console.ReadLine();
+```
+
+## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
+
+Nu kunt u de voorbeeld-app gaan uitvoeren. Ga vanaf de opdrachtregel (of terminalsessie) naar de projectmap en voer het volgende uit:
+
+```console
+dotnet run
+```
+
+## <a name="sample-response"></a>Voorbeeldantwoord
 
 ```json
 [
@@ -118,9 +176,21 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 ]
 ```
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels, verwijdert uit de broncode van de voorbeeld-app.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
-> [C#-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [C#-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+
+## <a name="see-also"></a>Zie ook
+
+* [Tekst transcriberen](quickstart-csharp-transliterate.md)
+* [Een taal identificeren op basis van de invoer](quickstart-csharp-detect.md)
+* [Alternatieve vertalingen verkrijgen](quickstart-csharp-dictionary.md)
+* [Een lijst ophalen van ondersteunde talen](quickstart-csharp-languages.md)
+* [De zinlengte in invoer bepalen](quickstart-csharp-sentences.md)

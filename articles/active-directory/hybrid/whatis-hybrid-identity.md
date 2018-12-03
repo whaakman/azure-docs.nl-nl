@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979468"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311531"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Hybride identiteit en identiteitsoplossingen van Microsoft
 Met hybride identiteitsoplossingen van [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) kunt u on-premises Directory-objecten synchroniseren met Azure AD terwijl u uw gebruikers on-premises kunt blijven beheren. De eerste beslissing die u dient te nemen als u uw on-premises Windows Server Active Directory wilt synchroniseren met Azure AD, is of u beheerde identiteiten of gefedereerde identiteit wilt gebruiken. 
 
-- **Beheerde identiteiten** - gebruikersaccounts en groepen die worden gesynchroniseerd vanuit een on-premises Active Directory en waarvan de gebruikersverificatie wordt beheerd door Azure.   
+- **Beheerde identiteiten**: gebruikersaccounts en groepen die worden gesynchroniseerd vanuit een on-premises Active Directory en waarvan de gebruikersverificatie wordt beheerd door Azure.   
 - Met **gefedereerde identiteiten** heeft u meer controle over gebruikers door de gebruikersverificatie van Azure te scheiden en de verificatie over te dragen aan een vertrouwde, on-premises identiteitsprovider. 
 
 Voor het configureren van hybride identiteit zijn er diverse opties beschikbaar. Terwijl u overweegt welk identiteitsmodel het beste bij uw organisatie past, moet u ook nadenken over tijd, bestaande infrastructuur, complexiteit en kosten. Deze factoren zijn voor elke organisatie verschillend en kunnen in de loop der tijd veranderen. Als uw vereisten inderdaad veranderen, bent u flexibel genoeg om op een ander identiteitsmodel over te stappen.
@@ -42,7 +42,7 @@ Hoewel beheerde identiteit de makkelijkste en snelste methode is, moeten uw gebr
 Voor de meeste organisaties waarvoor geldt dat ze hun gebruikers moeten laten aanmelden bij Office 365, SaaS-toepassingen en andere Azure-resources, wordt de standaardoptie voor wachtwoordhashsynchronisatie aanbevolen. Als dat niet geschikt is, dient u te kiezen tussen Pass-through-verificatie en AD FS.
 
 > [!TIP]
-> Gebruikerswachtwoorden worden opgeslagen in on-premises Windows Server Active Directory en wel in de vorm van een hash waarde die het feitelijke gebruikerswachtwoord voorstelt. Een hash-waarde is het resultaat vaan een eenzijdige wiskundige functie (het hash-algoritme). Er bestaat geen methode het resultaat van een eenzijdige functie terug te draaien naar de versie in tekst zonder opmaak van een wachtwoord. U kunt een wachtwoord-hash niet gebruiken om u aan te melden bij uw on-premises netwerk. Als u ervoor kiest wachtwoorden te synchroniseren, extraheert Azure AD Connect wachtwoord-hashes uit de on-premises Active Directory en past extra beveiligingsverwerking op de wachtwoord-hash toe voordat deze met Azure AD wordt gesynchroniseerd. Wachtwoordhashsynchronisatie kan ook in combinatie met terugschrijven van wachtwoord worden gebruikt om self-service voor wachtwoord opnieuw instellen in te schakelen. Daarnaast kunt u eenmalige aanmelding inschakelen voor gebruikers op computers die zijn toegevoegd aan een domein en verbonden met het bedrijfsnetwerk. Met eenmalige aanmelding hoeven gebruikers die hiervan gebruikmaken, alleen een gebruikersnaam in te voeren voor veilige toegang tot cloudresources. 
+> Gebruikerswachtwoorden worden opgeslagen in on-premises Windows Server Active Directory en wel in de vorm van een hash waarde die het feitelijke gebruikerswachtwoord voorstelt. Een hash-waarde is het resultaat vaan een eenzijdige wiskundige functie (het hash-algoritme). Er bestaat geen methode het resultaat van een eenzijdige functie terug te draaien naar de versie in tekst zonder opmaak van een wachtwoord. U kunt een wachtwoord-hash niet gebruiken om u aan te melden bij uw on-premises netwerk. Als u ervoor kiest wachtwoordhashes te synchroniseren, extraheert Azure AD Connect wachtwoord-hashes uit de on-premises Active Directory en wordt extra beveiligingsverwerking op de wachtwoord-hash toegepast voordat deze met Azure AD wordt gesynchroniseerd. Wachtwoordhashsynchronisatie kan ook in combinatie met terugschrijven van wachtwoord worden gebruikt om self-service voor wachtwoord opnieuw instellen in te schakelen. Daarnaast kunt u eenmalige aanmelding inschakelen voor gebruikers op computers die zijn toegevoegd aan een domein en verbonden met het bedrijfsnetwerk. Met eenmalige aanmelding hoeven gebruikers die hiervan gebruikmaken, alleen een gebruikersnaam in te voeren voor veilige toegang tot cloudresources. 
 >
 
 ## <a name="pass-through-authentication"></a>Pass-through-verificatie

@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239556"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580556"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Zelfstudie: Een Spark-toepassing voor machine learning bouwen in HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Zelfstudie: Een Apache Spark-toepassing voor Machine Learning bouwen in HDInsight 
 
-In deze zelfstudie leert u hoe u het Jupyter-notebook gebruikt voor het bouwen van een Apache Spark-toepassing voor machine learning voor Azure HDInsight. 
+In deze zelfstudie leert u hoe u het [Jupyter-notebook](https://jupyter.org/) gebruikt voor het bouwen van een [Apache Spark](https://spark.apache.org/)-toepassing voor Machine Learning voor Azure HDInsight. 
 
 [MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) is de schaalbare bibliotheek voor machine learning van Spark die bestaat uit veelgebruikte leeralgoritmen en hulpprogramma's, zoals voor classificatie, regressie, clustering, gezamenlijke filterfuncties, dimensionaliteitsvermindering, evenals onderliggende optimalisatieprimitieven.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> * Een Spark-toepassing voor machine learning ontwikkelen
+> * Een Apache Spark-toepassing voor Machine Learning ontwikkelen
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -190,7 +190,7 @@ Apache Spark-clusters in HDInsight bevatten Anaconda-bibliotheken, waaronder de 
 
 In deze zelfstudie heeft u het volgende geleerd:
 
-* Een Spark-toepassing voor machine learning ontwikkelen
+* Een Apache Spark-toepassing voor Machine Learning ontwikkelen
 
 Ga naar de volgende zelfstudie voor meer informatie over het gebruik van IntelliJ IDEA voor Spark-taken. 
 

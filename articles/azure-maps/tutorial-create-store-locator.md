@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820265"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317905"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Een winkelzoeker maken met behulp van Azure Maps
 
@@ -81,7 +81,7 @@ Als we de schermopname van de gegevens bekijken, zien we het volgende:
 * Enkele extra kolommen bevatten metagegevens met betrekking tot de koffiebars: een telefoonnummer, booleaanse kolommen voor Wi-Fi-hotspot en rolstoeltoegankelijkheid en winkelopenings- en sluitingstijden in 24-uurs notatie. U kunt uw eigen kolommen maken met metagegevens die relevanter zijn voor uw locatiegegevens.
 
 > [!Note]
-> Azure Maps maakt gebruik van een bolvormige Mercator-projectie (EPSG:3857).
+> In Azure Maps worden gegevens weergegeven in de sferische Mercator-projectie EPSG:3857, maar worden de gegevens gelezen in EPSG:4325 dat gebruikmaakt van de datum WGS84. 
 
 Er zijn veel manieren om de gegevensset in de toepassing beschikbaar te maken. Eén aanpak is om de gegevens in een database te laden en een webservice beschikbaar te maken die de gegevens opvraagt ​​en de resultaten naar de browser van de gebruiker verzendt. Deze optie is ideaal voor grote gegevenssets of voor gegevenssets die regelmatig worden bijgewerkt. Deze optie vereist echter aanzienlijk meer ontwikkelingswerk en heeft hogere kosten. 
 

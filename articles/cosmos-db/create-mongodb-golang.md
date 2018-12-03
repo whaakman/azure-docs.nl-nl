@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7c5f718836fbad2fb0df6ae00bcb1535e6ae9c5f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706463"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423776"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Golang en Azure Portal
 
@@ -42,7 +42,7 @@ Met andere woorden, uw Golang-toepassing weet alleen dat deze wordt verbonden me
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) en basiskennis van de [Go](https://golang.org/)-taal.
-- Een IDE: [Goland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft, of [Atom](https://atom.io/). In deze zelfstudie wordt Goglang gebruikt.
+- Een IDE: [Goland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft, of [Atom](https://atom.io/). In deze zelfstudie wordt GoLand gebruikt.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Een databaseaccount maken

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615752"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334207"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie
 
@@ -93,7 +93,7 @@ Een sleutelkluis maken:
     * **Naam voor Key Vault**: wijs een unieke naam toe. 
     * **Tenant-id**: met de sjabloonfunctie wordt uw tenant-id automatisch opgehaald.  Wijzig de standaardwaarde niet
     * **AD-gebruikers-id**: voer de gebruikersobject-id voor Azure AD in die u hebt opgehaald tijdens de laatste procedure.
-    * **Geheime naam**: de standaardnaam is **mAdminPassword**. Als u de naam van het geheim hier wijzigt, moet u de naam van het geheim bijwerken wanneer u de virtuele machine implementeert.
+    * **Geheime naam**: de standaardnaam is **vmAdminPassword**. Als u de naam van het geheim hier wijzigt, moet u de naam van het geheim bijwerken wanneer u de virtuele machine implementeert.
     * **Geheime waarde**: voer uw geheim in.  Het geheim is het wachtwoord dat u gebruikt om zich aan te melden bij de virtuele machine. Het wordt aanbevolen om het wachtwoord dat tijdens de afgelopen procedure is gemaakt, te gebruiken.
     * **Ik ga akkoord met de bovenstaande voorwaarden**: selecteer dit.
 3. Selecteer **Parameters bewerken** bovenin om de sjabloon te bekijken.

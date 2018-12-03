@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345569"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425000"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (beperkte preview)
 
@@ -41,6 +41,8 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De nieuwere versie implementeren
 > * Resources opschonen
 
+De Azure Deployment Manager REST API-verwijzing vindt u [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -50,12 +52,12 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 * Enige ervaring met het ontwikkelen van [Azure Resource Manager-sjablonen](./resource-group-overview.md).
 * Azure Deployment Manager bevindt zich in beperkte preview. Als u zich wilt aanmelden met behulp van Azure Deployment Manager, vult u het [aanmeldingsformulier](https://aka.ms/admsignup) in. 
 * Azure PowerShell. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
-* Deployment Manager-cmdlets. Als u deze prerelease-cmdlets wilt installeren, hebt u de nieuwste versie van PowerShellGet nodig. Zie [PowerShellGet installeren](/powershell/gallery/installing-psget) voor informatie over het ophalen van de nieuwste versie. Nadat u PowerShellGet hebt geïnstalleerd, sluit u het PowerShell-venster. Open een nieuw PowerShell-venster en gebruik de volgende opdracht:
+* Deployment Manager-cmdlets. Als u deze prerelease-cmdlets wilt installeren, hebt u de nieuwste versie van PowerShellGet nodig. Zie [PowerShellGet installeren](/powershell/gallery/installing-psget) voor informatie over het ophalen van de nieuwste versie. Nadat u PowerShellGet hebt geïnstalleerd, sluit u het PowerShell-venster. Open een nieuw PowerShell-venster met verhoogde bevoegdheden en gebruik de volgende opdracht:
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Azure Storage Explorer is niet vereist, maar maakt het wat gemakkelijker.
+* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer is niet vereist, maar maakt het wat gemakkelijker.
 
 ## <a name="understand-the-scenario"></a>Inzicht in het scenario
 
@@ -145,10 +147,10 @@ Later in de zelfstudie voert u een implementatie uit. Een door de gebruiker toeg
 U moet een door de gebruiker toegewezen beheerde identiteit maken en toegangsbeheer voor uw abonnement configureren.
 
 > [!IMPORTANT]
-> De door de gebruiker toegewezen beheerde identiteit moet zich op dezelfde locatie als de [implementatie](#create-the-rollout-template) bevinden. Momenteel kunnen de Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in VS-midden of VS-oost 2.
+> De door de gebruiker toegewezen beheerde identiteit moet zich op dezelfde locatie als de [implementatie](#create-the-rollout-template) bevinden. Momenteel kunnen de Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in VS-midden of VS-oost 2. Dit geldt echter alleen voor de Deployment Manager-resources (zoals de servicetopologie, services, service-eenheden, implementatie en stappen). De doelresources kunnen worden geïmplementeerd in elke ondersteunde Azure-regio. In deze zelfstudie worden de Deployment Manager-resources bijvoorbeeld geïmplementeerd in US - centraal, maar worden de services geïmplementeerd in US - oost en US - west. Deze beperking wordt in de toekomst opgeheven.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Maak een [door de gebruiker toegewezen beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md).
+2. Maak een [door de gebruiker toegewezen beheerde identiteit](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Selecteer in de portal **Abonnementen** in het linkermenu en selecteer vervolgens uw abonnement.
 4. Selecteer **Toegangsbeheer (IAM)** en selecteer vervolgens **Toevoegen**
 5. Typ of selecteer de volgende waarden:
@@ -200,6 +202,9 @@ Op de volgende schermafbeelding ziet u alleen bepaalde onderdelen van de definit
 - **dependsOn**: alle servicetopologieresources zijn afhankelijk van de artefactbron.
 - **artefacten** verwijzen naar de sjabloonartefacten.  Hier worden relatieve paden gebruikt. Het volledige pad wordt samengesteld door het samenvoegen van artifactSourceSASLocation (gedefinieerd in de artefactbron), artifactRoot (gedefinieerd in de artefactbron) en templateArtifactSourceRelativePath (of parametersArtifactSourceRelativePath).
 
+> [!NOTE]
+> De namen van de service-eenheden mogen maximaal 31 tekens bevatten. 
+
 ### <a name="topology-parameters-file"></a>Topologieparameterbestand
 
 U maakt een parameterbestand dat wordt gebruikt in combinatie met de topologiesjabloon.
@@ -211,7 +216,7 @@ U maakt een parameterbestand dat wordt gebruikt in combinatie met de topologiesj
     - **azureResourceLocation**: als u niet bekend bent met Azure-locaties, gebruikt u in deze zelfstudie **centralus**.
     - **artifactSourceSASLocation**: voer de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie in.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
     - **templateArtifactRoot**: gebruik in deze zelfstudie **templates/1.0.0.0**, tenzij u de mapstructuur van de artefacten wijzigt.
-    - **tragetScriptionID**: voer uw Azure-abonnements-id in.
+    - **targetScriptionID**: voer uw Azure-abonnements-id in.
 
 > [!IMPORTANT]
 > De topologiesjabloon en de implementatiesjabloon delen enkele algemene parameters. Deze parameters moeten dezelfde waarden hebben. Deze parameters zijn: **namePrefix**, **azureResourceLocation** en **artifactSourceSASLocation** (beide artefactbronnen delen hetzelfde opslagaccount in deze zelfstudie).
@@ -242,7 +247,7 @@ In de sectie met variabelen worden de namen van de resources gedefinieerd. Zorg 
 
 Op het hoogste niveau zijn er drie resources gedefinieerd: een bronartefact, een stap en een implementatie.
 
-De definitie van de artefactbron is identiek aan die in de topologiesjabloon is gedefinieerd.  Zie [De servicetopologietopologiesjabloon maken](#create-the-service-topology-tempate) voor meer informatie.
+De definitie van de artefactbron is identiek aan die in de topologiesjabloon is gedefinieerd.  Zie [De servicetopologietopologiesjabloon maken](#create-the-service-topology-template) voor meer informatie.
 
 Op de volgende schermafbeeldingen wordt de definitie van de wachtstap weergegeven:
 
@@ -310,7 +315,7 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 
     **Verborgen typen weergeven** moet worden geselecteerd om de resources weer te geven.
 
-3. De implementatiesjabloon implementeren:
+3. <a id="deploy-the-rollout-template"></a>De implementatiesjabloon implementeren:
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +330,7 @@ Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +370,7 @@ Wanneer u een nieuwe versie (1.0.0.1) voor de webtoepassing hebt. Kunt u de volg
 
 1. Open CreateADMRollout.Parameters.json.
 2. Werk **binaryArtifactRoot** naar **binaries/1.0.0.1** bij.
-3. Voer de implementatie opnieuw uit volgens de instructies in [De sjablonen implementeren](#deploy-the-templates).
+3. Voer de implementatie opnieuw uit volgens de instructies in [De sjablonen implementeren](#deploy-the-rollout-template).
 4. Controleer de implementatie volgens de instructies in [De implementatie controleren](#verify-the-deployment). Op de webpagina wordt de versie 1.0.0.1 weergegeven.
 
 ## <a name="clean-up-resources"></a>Resources opschonen

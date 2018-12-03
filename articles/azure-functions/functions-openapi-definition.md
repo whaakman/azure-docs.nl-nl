@@ -8,18 +8,19 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 12/15/2017
+ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 62c04e5893eaefcc5eb7272eb9a99cf932086205
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086860"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496032"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>De OpenAPI-definitie maken voor een functie
+
 REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](http://swagger.io/)-bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd.
 
 In deze zelfstudie maakt u een functie waarmee wordt bepaald of een noodherstelproces op een windturbine rendabel is. Vervolgens maakt u een OpenAPI-definitie voor de functie-app zodat de functie kan worden aangeroepen vanuit andere apps en services.
@@ -33,7 +34,7 @@ In deze zelfstudie leert u het volgende:
 > * De definitie testen door het aanroepen van de functie
 
 > [!IMPORTANT]
-> De OpenAPI-preview-functie is alleen vandaag beschikbaar in de runtime 1.x. Meer informatie over het maken van een 1.x-functie-app [vindt u hier](./functions-versions.md#creating-1x-apps).
+> De OpenAPI-functie is momenteel in preview en is alleen beschikbaar voor versie 1.x van de Azure Functions-runtime.
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
@@ -41,6 +42,11 @@ U moet een functie-app hebben die als host fungeert voor de uitvoering van uw fu
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+## <a name="set-the-functions-runtime-version"></a>De runtime-versie van Functions instellen
+
+De functie-app die u maakt, gebruikt standaard versie 2.x van de runtime. U moet de runtime-versie terugzetten op 1.x voordat u uw functie maakt.
+
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 ## <a name="create-the-function"></a>De functie maken
 
@@ -50,34 +56,27 @@ Deze zelfstudie maakt gebruik van een HTTP-geactiveerde functie waarvoor twee pa
 
     ![De Quick Start-pagina van Functions in Azure Portal](media/functions-openapi-definition/add-first-function.png)
 
-2. Typ `http` in het zoekveld en kies vervolgens**C#** voor het HTTP-activatiesjabloon. 
- 
+1. Typ `http` in het zoekveld en kies vervolgens**C#** voor het HTTP-activatiesjabloon. 
+
     ![Kies de HTTP-trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. Type `TurbineRepair` voor de functie **Naam**, kies `Function` bij  **[Verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens **Maken**.  
+1. Type `TurbineRepair` voor de functie **Naam**, kies `Function` bij  **[Verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens **Maken**.  
 
     ![De door HTTP geactiveerde functie maken](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Vervang de inhoud van het bestand run.csx door de volgende code en klik vervolgens op **Opslaan**:
 
     ```csharp
-    #r "Newtonsoft.Json"
-
     using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
 
-    const double revenuePerkW = 0.12; 
-    const double technicianCost = 250; 
+    const double revenuePerkW = 0.12;
+    const double technicianCost = 250;
     const double turbineCost = 100;
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {   
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
         //Get request body
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        dynamic data = await req.Content.ReadAsAsync<object>();
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -93,13 +92,14 @@ Deze zelfstudie maakt gebruik van een HTTP-geactiveerde functie waarvoor twee pa
             repairTurbine = "No";
         }
 
-        return (ActionResult) new OkObjectResult(new{
+        return req.CreateResponse(HttpStatusCode.OK, new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
-            costToFix = "$"+ costToFix         
-        }); 
+            costToFix = "$"+ costToFix
+        });
     }
     ```
+
     Deze functiecode retourneert een bericht van `Yes` of `No` om aan te geven of een noodherstelproces rendabel is, evenals de kans op omzet die de turbine vertegenwoordigt en de kosten om de turbine te repareren. 
 
 1. Om de functie te testen, klikt u op **Testen** helemaal rechts op het tabblad om de testresultaten uit te breiden. Voer de volgende waarde in voor de **Aanvraagtekst**, en klik vervolgens op **Uitvoeren**.
@@ -132,7 +132,7 @@ U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebrui
     1. In **Geselecteerde HTTP-methoden** schakelt u elke optie uit behalve **POST**, vervolgens klikt u op **Opslaan**.
 
         ![Geselecteerde HTTP-methoden](media/functions-openapi-definition/selected-http-methods.png)
-        
+
 1. Klik op uw de naam van uw functie app (zoals **function-demo-energy**) > **Platformfuncties** > **API-definitie**.
 
     ![API-definitie](media/functions-openapi-definition/api-definition.png)
@@ -185,7 +185,8 @@ U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebrui
     Deze definitie wordt beschreven als een _sjabloon_ omdat hiervoor meer metagegevens voor de definitie van een volledige OpenAPI nodig zijn. U gaat de definitie in de volgende stap wijzigen.
 
 ## <a name="modify-the-openapi-definition"></a>De OpenAPI-definitie bewerken
-Nu dat u een sjabloondefinitie hebt, wijzigt u het om de aanvullende metagegevens over de bewerkingen van de API en de gegevensstructuren te leveren. In **API-definitie** verwijdert u de gegenereerde definitie uit `post` naar de onderkant van de definitie. Plak onderstaande content en klik op **Opslaan**.
+
+Nu u een sjabloondefinitie hebt, wijzigt u deze om de aanvullende metagegevens over de API-bewerkingen en gegevensstructuren te leveren. In **API-definitie** verwijdert u de gegenereerde definitie uit `post` naar de onderkant van de definitie. Plak onderstaande content en klik op **Opslaan**.
 
 ```yaml
     post:
@@ -249,15 +250,15 @@ securityDefinitions:
 
 In dit geval kunt u alleen bijgewerkte metagegevens plakken, maar het is belangrijk om de soorten wijzigingen te begrijpen die we in het standaardsjabloon hebben gemaakt:
 
-+ Opgegeven dat de API gegevens produceert en consumeert in een JSON-indeling.
+* Opgegeven dat de API gegevens produceert en consumeert in een JSON-indeling.
 
-+ De vereiste parameters opgegeven met hun namen en gegevenstypen.
+* De vereiste parameters opgegeven met hun namen en gegevenstypen.
 
-+ De retourwaarden opgeven voor een geslaagde respons met hun namen en gegevenstypen.
+* De retourwaarden opgeven voor een geslaagde respons met hun namen en gegevenstypen.
 
-+ Beschrijvende samenvattingen en beschrijvingen geleverd voor de API en zijn bewerkingen en parameters. Dit is belangrijk voor mensen die deze functie zullen gebruiken.
+* Beschrijvende samenvattingen en beschrijvingen geleverd voor de API en zijn bewerkingen en parameters. Dit is belangrijk voor mensen die deze functie zullen gebruiken.
 
-+ x-ms-summary en x-ms-visibility toegevoegd, die worden gebruikt in de gebruikersinterface voor Microsoft Flow en Logic Apps. Zie voor meer informatie [OpenAPI-extensies voor aangepaste API's in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
+* x-ms-summary en x-ms-visibility toegevoegd, die worden gebruikt in de gebruikersinterface voor Microsoft Flow en Logic Apps. Zie voor meer informatie [OpenAPI-extensies voor aangepaste API's in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
 
 > [!NOTE]
 > We hebben de definitie van de beveiliging laten staan met de standaardmethode voor verificatie van de API-sleutel. U moet deze sectie van de definitie wijzigen als u een ander type verificatie gebruikt.
@@ -265,6 +266,7 @@ In dit geval kunt u alleen bijgewerkte metagegevens plakken, maar het is belangr
 Zie voor meer informatie over het definiëren van de API-bewerkingen de [Open API-specificatie](https://swagger.io/specification/#operationObject).
 
 ## <a name="test-the-openapi-definition"></a>De OpenAPI-definitie testen
+
 Voordat u de API-definitie gebruikt, is het een goed idee om deze te testen in de gebruikersinterface van Azure Functions.
 
 1. Kopieer in het tabblad **Beheren** van de functie onder **Hostsleutels** de **standaard**-sleutel.
@@ -305,5 +307,6 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * De definitie testen door het aanroepen van de functie
 
 Ga naar het volgende onderwerp voor informatie over het maken van een PowerApps-app die gebruikmaakt van de definitie van de OpenAPI die u hebt gemaakt.
+
 > [!div class="nextstepaction"]
 > [Een functie van PowerApps aanroepen](functions-powerapps-scenario.md)

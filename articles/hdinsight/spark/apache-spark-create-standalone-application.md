@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 529dc37187f6709ecfa93bf3a6d71f053ba49103
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008960"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499311"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Zelfstudie: Een Scala Maven-toepassing maken voor Spark in HDInsight met behulp van IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Zelfstudie: Een Scala Maven-toepassing maken voor Apache Spark in HDInsight met behulp van IntelliJ
 
-In deze zelfstudie leert u hoe u met behulp van Maven met IntelliJ IDEA een Spark-toepassing maakt die is geschreven in Scala. In dit artikel wordt Apache Maven gebruikt als het buildsysteem en er is een bestaand Maven-archetype voor Scala beschikbaar geleverd door IntelliJ IDEA.  Het maken van een Scala-toepassing in IntelliJ IDEA omvat de volgende stappen:
+In deze zelfstudie leert u hoe u met behulp van [Apache Maven](https://maven.apache.org/) met IntelliJ IDEA een [Apache Spark](https://spark.apache.org/)-toepassing maakt die is geschreven in [Scala](https://www.scala-lang.org/). In dit artikel wordt Apache Maven gebruikt als het buildsysteem en er is een bestaand Maven-archetype voor Scala beschikbaar geleverd door IntelliJ IDEA.  Het maken van een Scala-toepassing in IntelliJ IDEA omvat de volgende stappen:
 
 * Maven gebruiken als het buildsysteem.
 * POM-bestand (Project Object Model) bijwerken om afhankelijkheden van Spark-module om te zetten.
@@ -27,7 +27,7 @@ In deze zelfstudie leert u hoe u met behulp van Maven met IntelliJ IDEA een Spar
 * De toepassing uitvoeren in een Spark-cluster met behulp van Livy.
 
 > [!NOTE]
-> HDInsight biedt ook een invoegtoepassing voor IntelliJ IDEA om het proces van het maken en verzenden van toepassingen naar een HDInsight Spark-cluster in Linux te vereenvoudigen. Zie [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md) voor meer informatie.
+> HDInsight biedt ook een invoegtoepassing voor IntelliJ IDEA om het proces van het maken en verzenden van toepassingen naar een HDInsight Spark-cluster in Linux te vereenvoudigen. Zie [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Apache Spark-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md) voor meer informatie.
 > 
 
 In deze zelfstudie leert u het volgende:
@@ -183,16 +183,16 @@ Gebruik de volgende stappen om de Scala-invoegtoepassing te installeren:
        
         ![JAR maken](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>De toepassing uitvoeren in het Spark-cluster
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>De toepassing uitvoeren in het Apache Spark-cluster
 U kunt de volgende methoden gebruiken om de toepassing uit te voeren in het cluster:
 
-* **Kopieer het JAR-bestand van de toepassing naar de Azure-opslagblob** die aan het cluster is gekoppeld. Dit kan met [**AzCopy**](../../storage/common/storage-use-azcopy.md), een opdrachtregelprogramma. Er zijn echter een heleboel clients die u kunt gebruiken om gegevens te uploaden. Meer informatie hierover vindt u in [Gegevens voor Hadoop-taken uploaden in HDInsight](../hdinsight-upload-data.md).
-* **Gebruik Livy om een toepassingstaak op afstand te versturen** naar het Spark-cluster. Spark-clusters in HDInsight ondersteunen Livy voor het aanbieden van REST-eindpunten waarmee Spark-taken op afstand kunnen worden verzonden. Zie [Spark-taken op afstand verzenden met behulp van Livy met Spark-clusters in HDInsight](apache-spark-livy-rest-interface.md) voor meer informatie.
+* **Kopieer het JAR-bestand van de toepassing naar de Azure-opslagblob** die aan het cluster is gekoppeld. Dit kan met [**AzCopy**](../../storage/common/storage-use-azcopy.md), een opdrachtregelprogramma. Er zijn echter een heleboel clients die u kunt gebruiken om gegevens te uploaden. Meer informatie hierover vindt u in [Gegevens voor Apache Hadoop-taken uploaden in HDInsight](../hdinsight-upload-data.md).
+* **Gebruik Apache Livy om een toepassingstaak op afstand te versturen** naar het Spark-cluster. Spark-clusters in HDInsight ondersteunen Livy voor het aanbieden van REST-eindpunten waarmee Spark-taken op afstand kunnen worden verzonden. Zie [Apache Livy met Spark-clusters in HDInsight gebruiken om Apache Spark-taken op afstand te verzenden](apache-spark-livy-rest-interface.md) voor meer informatie.
 
 ## <a name="next-step"></a>Volgende stap
 
-In dit artikel hebt u geleerd hoe u een Spark Scala-toepassing maakt. Ga naar het volgende artikel om te leren hoe u deze toepassing uitvoert in een HDInsight Spark-cluster met behulp van Livy.
+In dit artikel hebt u geleerd hoe u een Apache Spark Scala-toepassing maakt. Ga naar het volgende artikel om te leren hoe u deze toepassing uitvoert in een HDInsight Spark-cluster met behulp van Livy.
 
 > [!div class="nextstepaction"]
->[Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](./apache-spark-livy-rest-interface.md)
+>[Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](./apache-spark-livy-rest-interface.md)
 

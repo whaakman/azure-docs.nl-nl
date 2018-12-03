@@ -16,38 +16,40 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: ba2bd2b185c395e54f2f085317a424a2aa1b4421
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 211284f4eff112b9aebec7fa1a031f292a4a92f4
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
-ms.locfileid: "27713413"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290736"
 ---
 # <a name="azure-powershell-samples"></a>Voorbeelden van Azure PowerShell
 
-De volgende tabel bevat koppelingen naar de PowerShell-scripts die zijn gebouwd met behulp van Azure PowerShell.
+De volgende tabel bevat koppelingen naar PowerShell-scripts die zijn gemaakt met behulp van Azure PowerShell.
 
 | | |
 |-|-|
 |**App maken**||
-| [Een web-app maken met de implementatie van GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app die code vanuit GitHub haalt. |
-| [Een web-app maken met doorlopende implementatie vanuit GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app die continu code vanuit GitHub implementeert. |
-| [Een web-app maken en implementeren van code met FTP](./scripts/app-service-powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Maakt een Azure-web-app en het uploaden van bestanden van een lokale map met FTP. |
-| [Een web-app maken en code implementeren vanuit een lokale Git-opslagplaats](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een Azure-web-app maakt en configureert u code push van een lokale Git-opslagplaats. |
-| [Een web-app maken en code implementeren in een faseringsomgeving](./scripts/app-service-powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een Azure-web-app maakt met een implementatiesleuf voor het Faseren van codewijzigingen. |
+| [Een app maken met implementatie vanuit GitHub](./scripts/app-service-powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app die code ophaalt uit GitHub. |
+| [Een app maken met continue implementatie vanuit GitHub](./scripts/app-service-powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app die code implementeert vanuit GitHub. |
+| [Een app maken en code implementeren via FTP](./scripts/app-service-powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een Azure-web-app en uploadt u bestanden uit een lokale map met behulp van FTP. |
+| [Een app maken en code implementeren vanuit een lokale Git-opslagplaats](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een Azure-web-app en configureert u het pushen van code vanuit een lokale Git-opslagplaats. |
+| [Een app maken en code implementeren in een faseringsomgeving](./scripts/app-service-powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een Azure-web-app met een implementatiesite voor het faseren van codewijzigingen. |
 |**App configureren**||
-| [Een aangepast domein aan een web-app toewijzen](./scripts/app-service-powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Een Azure-web-app maakt en wijst een aangepaste domeinnaam aan. |
-| [Een aangepaste SSL-certificaat binden aan een web-app](./scripts/app-service-powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Een Azure-web-app maakt en koppelt het SSL-certificaat van een aangepaste domeinnaam aan deze. |
-|**Scale-app**||
-| [Een web-app handmatig schalen](./scripts/app-service-powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een Azure-web-app maakt en over 2 exemplaren op schaal. |
-| [Een web-app wereldwijd schalen met een architectuur voor hoge beschikbaarheid](./scripts/app-service-powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Maakt twee Azure-web-apps in twee verschillende geografische regio's en maakt u ze beschikbaar zijn via één eindpunt met behulp van Azure Traffic Manager. |
+| [Een aangepast domein toewijzen aan een app](./scripts/app-service-powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app en wijst u er een aangepaste domeinnaam aan toe. |
+| [Een aangepast SSL-certificaat verbinden met een app](./scripts/app-service-powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app en verbindt u het SSL-certificaat van een aangepaste domeinnaam met de app. |
+|**App schalen**||
+| [Een app handmatig schalen](./scripts/app-service-powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een Azure-web-app en schaalt u deze over 2 exemplaren. |
+| [Een app wereldwijd schalen met een architectuur voor hoge beschikbaarheid](./scripts/app-service-powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u twee Azure-web-apps in twee verschillende geografische regio's en maakt u ze met behulp van Azure Traffic Manager beschikbaar via één eindpunt. |
 |**App verbinden met resources**||
-| [Een WebApp verbinden met een SQL-Database](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app en een SQL-database en vervolgens wordt de databaseverbindingsreeks toegevoegd aan de app-instellingen. |
-| [Een web-app verbinden met een opslagaccount](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app en een opslagaccount en vervolgens voegt u de verbindingsreeks voor opslag toe aan de app-instellingen. |
-|**Back-up en herstellen van app**||
-| [Back-up van een web-app](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een Azure-web-app maakt en maakt een eenmalige back-up voor. |
-| [Een geplande back-up voor een web-app maken](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een Azure-web-app maakt en maakt een geplande back-up voor. |
-| [Een back-up voor een web-app verwijderen](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee verwijdert u een bestaande back-up voor een web-app. |
+| [Een app verbinden met een SQL-database](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app en een SQL-database, waarna u de verbindingsreeks van de database toevoegt aan de app-instellingen. |
+| [Een app verbinden met een opslagaccount](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hiermee maakt u een Azure-web-app en een opslagaccount, waarna u de verbindingsreeks van de opslag toevoegt aan de app-instellingen. |
+|**Back-up van app maken en terugzetten**||
+| [Een back-up maken van een app](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een Azure-web-app en maakt u er een eenmalige back-up van. |
+| [Een geplande back-up maken voor een app](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een Azure-web-app en maakt u er een geplande back-up van. |
+| [Een back-up van een app verwijderen](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee verwijdert u een bestaande back-up voor een app. |
+| [Een app terugzetten vanuit de back-up](./scripts/app-service-powershell-backup-restore.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee zet u een app terug vanuit een eerder voltooide back-up. |
+| [Een back-up terugzetten binnen abonnementen](./scripts/app-service-powershell-backup-restore-diff-sub.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee zet u een web-app terug vanuit een back-up in een ander abonnement. |
 |**App controleren**||
-| [Een web-app bewaken met webserverlogboeken](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een Azure-web-app maakt, schakelt logboekregistratie voor het en downloadt de logboeken naar uw lokale computer. |
+| [Een app bewaken met webserverlogboeken](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een Azure-web-app, schakelt u logboekregistratie voor de app in en downloadt u de logboeken naar uw lokale computer. |
 | | |

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712412"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583275"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Zelfstudie: Gegevens van Apache Spark analyseren met Power BI in HDInsight 
 
-Leer hoe u Microsoft Power BI kunt gebruiken om gegevens in een Apache Spark-cluster te analyseren in Azure HDInsight.
+Meer informatie over hoe u [Microsoft Power BI](https://powerbi.microsoft.com/) kunt gebruiken om gegevens te visualiseren in een [Apache Spark](https://spark.apache.org/)-cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="verify-the-data"></a>De gegevens controleren
 
-Het Jupyter-notebook dat u hebt gemaakt in de [vorige zelfstudie](apache-spark-load-data-run-query.md) bevat code voor het maken van een `hvac`-tabel. Deze tabel is gebaseerd op het CSV-bestand dat voor alle HDInsight Spark-clusters beschikbaar is op **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Gebruik de volgende procedure om de gegevens te controleren.
+Het [Jupyter Notebook](https://jupyter.org/) dat u hebt gemaakt in de [vorige zelfstudie](apache-spark-load-data-run-query.md) bevat code voor het maken van een `hvac`-tabel. Deze tabel is gebaseerd op het CSV-bestand dat voor alle HDInsight Spark-clusters beschikbaar is op **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Gebruik de volgende procedure om de gegevens te controleren.
 
 1. Plak de volgende code uit het Jupyter-notebook en druk vervolgens op **Shift+Enter**. Deze code controleert of de tabellen bestaan.
 
@@ -164,7 +164,7 @@ Met behulp van de Power BI-service kunt u rapporten en dashboards delen binnen u
 
 10. Klik in het rapport op **Naar dashboard**. 
 
-De visualisatie wordt vastgemaakt aan het dashboard. U kunt andere visualisaties toevoegen aan het rapport en deze aan hetzelfde dashboard vastmaken. Zie [Rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)en [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/) voor meer informatie over rapporten en dashboards.
+De visualisatie wordt vastgemaakt aan het dashboard. U kunt andere visualisaties toevoegen aan het rapport en deze aan hetzelfde dashboard vastmaken. Zie [Rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) en [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/) voor meer informatie over rapporten en dashboards.
 
 <!--
 ## <a name="tableau"></a>Use Tableau Desktop 
@@ -214,9 +214,9 @@ De visualisatie wordt vastgemaakt aan het dashboard. U kunt andere visualisaties
 
 In deze zelfstudie heeft u het volgende geleerd:
 
-- Spark-gegevens visualiseren met behulp van Power BI.
+- Apache Spark-gegevens visualiseren met behulp van Power BI.
 
 Ga naar het volgende artikel om te zien hoe de gegevens die u hebt geregistreerd in Spark kunnen worden overgebracht naar een BI-hulpprogramma voor analyse zoals Power BI. 
 > [!div class="nextstepaction"]
-> [Een Spark-streamingtaak uitvoeren](apache-spark-eventhub-streaming.md)
+> [Een Apache Spark-streamingtaak uitvoeren](apache-spark-eventhub-streaming.md)
 

@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 994c864f04980dc963f9e7c4eb99b33382ad17e4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614902"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583258"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Zelfstudie: Meldingen ontvangen uit uw Azure Digital Twins-ruimten met behulp van Logic Apps
 
@@ -43,7 +43,7 @@ In deze sectie stelt u een [Event Grid](../event-grid/overview.md) in voor het v
 ### <a name="create-an-event-grid-topic"></a>Een Event Grid-onderwerp maken
 [Event Grid-onderwerpen](../event-grid/concepts.md#topics) bieden een interface voor het routeren van de gebeurtenissen die worden gegenereerd door de functie die door de gebruiker is gedefinieerd. 
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 1. Selecteer **Een resource maken** in het linkerdeelvenster. 
 
@@ -126,7 +126,7 @@ Met de [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-service kunt u g
 
 1. In het venster **Kies een actie**:
     
-   a. Zoek de woordgroep **JSON parseren** en selecteer de actie **JSON parseren**.
+   a. Zoekt u de woordgroep **JSON parseren** en selecteert u de actie **JSON parseren**.
 
    b. Selecteer in het veld **Inhoud** de optie **Hoofdtekst** in de lijst **Dynamische inhoud**.
 
@@ -194,6 +194,10 @@ Als u wilt stoppen met het ontvangen van deze e-mailberichten, gaat u naar uw re
 Als u Azure Digital Twins niet verder wilt verkennen, kunt u de resources die in deze zelfstudie zijn gemaakt, gerust verwijderen:
 
 1. Klik in het linkermenu in de [Azure-portal](http://portal.azure.com) op **Alle resources**, selecteer de Digital Twins-resourcegroep en selecteer **Verwijderen**.
+
+    > [!TIP]
+    > Als u problemen hebt bij het verwijderen van uw Digital Twins-exemplaar, is er een service-update met de oplossing hiervoor beschikbaar. Probeer opnieuw of u het exemplaar kunt verwijderen.
+
 2. Verwijder zo nodig de voorbeeldtoepassingen van uw werkcomputer. 
 
 
