@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4a1be3b948ca5571972179e08ba8b85657b0bb8d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634486"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725162"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -52,6 +52,23 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Ondersteuning voor meerdere regio's schrijven toegevoegd voor de directe modus.
+* Er is ondersteuning toegevoegd voor het verwerken van IOExceptions gegenereerd als ServiceUnavailable uitzonderingen, van een proxy.
+* Beleid voor opnieuw proberen van eindpunt detectie, een bug vast.
+* Een opgelost om ervoor te zorgen null-aanwijzer uitzonderingen worden niet in BaseDatabaseAccountConfigurationProvider veroorzaakt.
+* Een opgelost om ervoor te zorgen dat query Iterator geen null-waarden geretourneerd.
+* Een probleem opgelost om ervoor te zorgen dat grote PartitionKey is toegestaan
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Ondersteuning voor meerdere regio's schrijven toegevoegd voor de gateway-modus.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Vaste een bug in lezen partitie sleutel bereiken voor een query.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Een opgelost bij het instellen van voortzetting van token header-grootte in de modus DirectHttps.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Toegevoegde streaming failover-ondersteuning.
@@ -205,6 +222,10 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |21 november 2018 |--- |
+| [2.0.0](#2.0.0) |21 september 2018 |--- |
+| [1.16.4](#1.16.4) |10 september 2018 |--- |
+| [1.16.3](#1.16.3) |09 september 2018 |--- |
 | [1.16.2](#1.16.2) |29 juni 2018 |--- |
 | [1.16.1](#1.16.1) |16 mei 2018 |--- |
 | [1.16.0](#1.16.0) |15 maart 2018 |--- |
