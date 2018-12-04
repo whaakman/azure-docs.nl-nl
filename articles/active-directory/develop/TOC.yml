@@ -7,7 +7,7 @@ items:
   items:
   - name: Overzicht
     href: v1-overview.md
-  - name: Quickstarts
+  - name: Snelstartgidsen
     items:
     - name: Een ontwikkelaarsomgeving instellen
       href: quickstart-create-new-tenant.md
@@ -236,7 +236,7 @@ items:
   items:
   - name: Overzicht
     href: v2-overview.md
-  - name: Quickstarts
+  - name: Snelstartgidsen
     items:
     - name: Een ontwikkelaarsomgeving instellen
       href: quickstart-create-new-tenant.md
@@ -286,6 +286,8 @@ items:
         href: quickstart-v2-uwp.md
       - name: .NET voor Windows Desktop
         href: quickstart-v2-windows-desktop.md
+      - name: .NET Core-console (deamon)
+        href: quickstart-v2-netcore-daemon.md
     - name: Service naar service
       items:
       - name: ASP.NET
@@ -436,9 +438,9 @@ items:
     href: developer-support-help-options.md
   - name: Beheerde identiteiten voor Azure-resources
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 1f5e8259aeaae162d424ec7e66d47ff71e3471d1
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 25d3d8591837606bd470d1881012080c2567bd0a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680443"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833037"
