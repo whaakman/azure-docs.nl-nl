@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582884"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834218"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Het configureren van de gebruikersinterface met dynamische inhoud met behulp van aangepaste beleidsregels
 
@@ -193,7 +193,7 @@ De sjabloon HTML5 is klaar voor gebruik. Het is echter niet beschikbaar in de `C
 * Uw server voor webinhoud is ingeschakeld voor CORS.
 
     >[!NOTE]
-    >Om te controleren dat de site waar u de inhoud van uw host CORS is ingeschakeld en CORS-aanvragen kunt testen, gaat u naar de [test cors.org](http://test-cors.org/) website. 
+    >Om te controleren dat de site waar u de inhoud van uw host CORS is ingeschakeld en CORS-aanvragen kunt testen, gaat u naar de [test cors.org](https://test-cors.org/) website. 
 
 * Uw aangeboden inhoud wordt beveiligd via **HTTPS**.
 * U gebruikt *absolute URL's*, zoals *https://yourdomain/content*, voor alle koppelingen, CSS-inhoud en afbeeldingen.

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 559c737c4e8309527d588b59759b93750da33a9e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636268"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837712"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in problemen met de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -25,7 +25,7 @@ Weten hoe u eventuele problemen die in uw exemplaar van Azure digitale dubbels o
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Log analytics voor uw exemplaar inschakelen
 
-Logboeken en metrische gegevens voor uw exemplaar van Azure digitale dubbels worden weergegeven via Azure Monitor. De volgende documentatie wordt ervan uitgegaan dat u hebt gemaakt een [Azure Log Analytics](../log-analytics/log-analytics-queries.md) werkruimte via de [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), tot en met [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), of via [ PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
+Logboeken en metrische gegevens voor uw exemplaar van Azure digitale dubbels worden weergegeven via Azure Monitor. De volgende documentatie wordt ervan uitgegaan dat u hebt gemaakt een [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) werkruimte via de [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), tot en met [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), of via [ PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
 
 > [!NOTE]
 > Een vertraging van 5 minuten kunnen optreden bij het verzenden van gebeurtenissen naar **Log Analytics** voor de eerste keer.
