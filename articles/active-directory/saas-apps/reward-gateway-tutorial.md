@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d5cda8830b480e9ef9dff18cb3d7b99e1db55590
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442792"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Zelfstudie: Azure Active Directory-integratie met derden Gateway
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van derden Gateway in Azure AD, moet u b
 
 **Als u wilt toevoegen beloning Gateway uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -129,7 +129,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Als u start deze waarden instellen van een integratie op de beloning Manager Portal. Meer informatie vindt u op http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Als u start deze waarden instellen van een integratie op de beloning Manager Portal. Meer informatie vindt u op https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -139,7 +139,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Het configureren van eenmalige aanmelding op **beloning Gateway** zijde, instellen van een integratie starten op de beloning Manager Portal. Gebruik de metagegevens van de gedownloade verkrijgen van uw certificaat voor ondertekening en uploaden die tijdens de configuratie. Meer informatie vindt u op http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Het configureren van eenmalige aanmelding op **beloning Gateway** zijde, instellen van een integratie starten op de beloning Manager Portal. Gebruik de metagegevens van de gedownloade verkrijgen van uw certificaat voor ondertekening en uploaden die tijdens de configuratie. Meer informatie vindt u op https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

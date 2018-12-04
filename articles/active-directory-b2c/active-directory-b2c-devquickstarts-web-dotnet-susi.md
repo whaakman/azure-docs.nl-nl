@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/17/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1db805efe7eaec77fcafeb169b3d99098b57f582
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 88cc884489c29f964d68908dd394f23b5b21790f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978975"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839395"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Een ASP.NET-web-app maken met Azure Active Directory B2C gebruikersregistratie, aanmelding, profiel bewerken en wachtwoord opnieuw instellen
 
@@ -51,27 +51,27 @@ Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en s
 
 Wanneer u klaar bent, hebt u zowel een API en een systeemeigen toepassing in de toepassingsinstellingen van uw.
 
-## <a name="create-policies-on-your-b2c-tenant"></a>Beleid op uw B2C-tenant maken
+## <a name="create-user-flows-on-your-b2c-tenant"></a>Gebruikersstromen op uw B2C-tenant maken
 
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Dit codevoorbeeld bevat drie identiteitservaringen: **en antwoorden over registreren aanmelden**, **profiel bewerken**, en **wachtwoordherstel**.  U moet één beleidsregel maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md). Voor elk beleid, moet het naamkenmerk weergeven of de claim te selecteren, en noteer de naam van uw beleid voor later gebruik.
+In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md). Gebruikersstromen zijn vooraf gedefinieerd beleid die beschikbaar zijn in de Azure AD B2C-portal om u te helpen bij het instellen van de meest voorkomende identiteitservaringen. Dit codevoorbeeld bevat drie identiteitservaringen: **en antwoorden over registreren aanmelden**, **profiel bewerken**, en **wachtwoordherstel**.  U wilt maken van een beleid voor elk type, zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md). Voor elke gebruikersstroom moet het naamkenmerk weergeven of de claim te selecteren, en noteer de naam van uw beleid voor later gebruik.
 
 ### <a name="add-your-identity-providers"></a>De id-providers toevoegen
 
 Selecteer in de instellingen voor **id-Providers** en kies registratie van de gebruikersnaam of e-mailregistratie.
 
-### <a name="create-a-sign-up-and-sign-in-policy"></a>Maak een beleid voor registratie en aanmelding
+### <a name="create-a-sign-up-and-sign-in-user-flow"></a>Een zich kunnen registreren en aanmelden gebruikersstroom maken
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>Een beleid voor profielbewerking maken
+### <a name="create-a-profile-editing-user-flow"></a>Een beleid voor profielbewerking maken
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### <a name="create-a-password-reset-policy"></a>Een beleid voor het opnieuw instellen van het wachtwoord maken
+### <a name="create-a-password-reset-user-flow"></a>Maken van een wachtwoord opnieuw instellen van beleid
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-Nadat u uw beleid maakt, bent u klaar om uw app te bouwen.
+Nadat u uw gebruikersstromen hebt gemaakt, bent u klaar om uw app te bouwen.
 
 ## <a name="download-the-sample-code"></a>Download de voorbeeldcode
 
@@ -83,16 +83,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. Het oplossingsbestand bevat twee projecten: `TaskWebApp` en `TaskService`. `TaskWebApp` is de MVC-webtoepassing waarmee de gebruiker werkt. `TaskService` is de web-API voor de back-end van de app waarin elke takenlijst van de gebruiker wordt opgeslagen. In dit artikel wordt alleen de `TaskWebApp`-toepassing beschreven. Voor meer informatie over het bouwen van `TaskService` met behulp van Azure AD B2C, Zie [onze zelfstudie voor .NET web api](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="update-code-to-use-your-tenant-and-policies"></a>Code voor het gebruik van uw tenant en het beleid bijwerken
+## <a name="update-code-to-use-your-tenant-and-user-flows"></a>Code voor het gebruik van uw tenant en gebruiker stromen bijwerken
 
-Ons voorbeeld is geconfigureerd voor gebruik van het beleid en de client-id van onze demo-tenant. Als u wilt verbinden met uw eigen tenant, moet u openen `web.config` in de `TaskWebApp` project en vervang de volgende waarden:
+Ons voorbeeld is geconfigureerd voor het gebruik van de gebruikersstromen en client-ID van onze demo-tenant. Als u wilt verbinden met uw eigen tenant, moet u openen `web.config` in de `TaskWebApp` project en vervang de volgende waarden:
 
 * `ida:Tenant` door de naam van uw tenant
 * `ida:ClientId` door de id van uw web-app-toepassing
 * `ida:ClientSecret` door de geheime sleutel voor uw web-app
-* `ida:SignUpSignInPolicyId` door de naam van uw 'Aanmelden/registreren'-beleid
-* `ida:EditProfilePolicyId` door de naam van uw 'Profiel bewerken'-beleid
-* `ida:ResetPasswordPolicyId` door de naam van uw 'Wachtwoord opnieuw instellen'-beleid
+* `ida:SignUpSignInPolicyId` met uw 'Meld u aan of aanmelden' userjourney-naam
+* `ida:EditProfilePolicyId` met de naam van uw 'Profiel bewerken' gebruiker stroom
+* `ida:ResetPasswordPolicyId` met de naam van uw 'Wachtwoord opnieuw instellen' gebruiker stroom
 
 ## <a name="launch-the-app"></a>Start de app
 Start de app in Visual Studio uit. Ga naar het tabblad To-Do-lijst, en noteer de URl is: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
@@ -110,16 +110,16 @@ Sociale id-providers toevoegen aan uw app, u eerst de gedetailleerde instructies
 * [Amazon instellen als een id-provider](active-directory-b2c-setup-amzn-app.md)
 * [LinkedIn instellen als een id-provider](active-directory-b2c-setup-li-app.md)
 
-Nadat u de id-providers aan uw B2C-directory toevoegen, bewerk elk van de drie beleidsregels om op te nemen van de nieuwe id-providers, zoals beschreven de [naslagartikel voor beleid](active-directory-b2c-reference-policies.md). Nadat u uw beleid hebt opgeslagen, voer de app opnieuw uit.  Ziet u de nieuwe id-providers toegevoegd als aanmelden en meld u aan opties voor elk van uw identiteit ervaringen.
+Nadat u de id-providers aan uw B2C-directory toevoegen, bewerk elk van de drie gebruikersstromen om op te nemen van de nieuwe id-providers, zoals beschreven de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md). Nadat u uw gebruikersstromen opslaat, de app opnieuw uitvoeren.  Ziet u de nieuwe id-providers toegevoegd als aanmelden en meld u aan opties voor elk van uw identiteit ervaringen.
 
-U kunt experimenteren met uw beleid en bekijk wat de gevolgen zijn voor uw voorbeeld-app. Toevoegen of verwijderen van de id-providers, toepassingsclaims bewerken of registratiekenmerken wijzigen. Experiment totdat u kunt zien hoe beleidsregels, aanvragen voor authenticatie en OWIN met elkaar verbinden.
+U kunt experimenteren met uw gebruikersstromen en bekijk wat de gevolgen zijn voor uw voorbeeld-app. Toevoegen of verwijderen van de id-providers, toepassingsclaims bewerken of registratiekenmerken wijzigen. Experiment totdat u kunt zien hoe gebruikersstromen aanvragen voor authenticatie en OWIN met elkaar verbinden.
 
 ## <a name="sample-code-walkthrough"></a>Walkthrough voor voorbeeld-code
 De volgende secties ziet u hoe de voorbeeldcode van de toepassing is geconfigureerd. U kunt dit gebruiken als richtlijn in de toekomstige ontwikkeling.
 
 ### <a name="add-authentication-support"></a>Verificatie-ondersteuning toevoegen
 
-U kunt nu uw app voor het gebruik van Azure AD B2C configureren. Uw app communiceert met Azure AD B2C door te sturen van verificatieaanvragen OpenID Connect. De aanvragen bepalen de ervaring van de gebruiker wil dat uw app uit te voeren door het beleid op te geven. OWIN-bibliotheek van Microsoft kunt u deze aanvragen verzenden, beleid uitvoeren, beheren van gebruikerssessies en nog veel meer.
+U kunt nu uw app voor het gebruik van Azure AD B2C configureren. Uw app communiceert met Azure AD B2C door te sturen van verificatieaanvragen OpenID Connect. De aanvragen bepalen de ervaring van de gebruiker wil dat uw app uit te voeren door de gebruikersstroom op te geven. OWIN-bibliotheek van Microsoft kunt u deze aanvragen verzenden, gebruikersstromen uitvoeren, beheren van gebruikerssessies en nog veel meer.
 
 #### <a name="install-owin"></a>OWIN installeren
 
@@ -207,11 +207,11 @@ public partial class Startup
 
 In `OpenIdConnectAuthenticationOptions` , definiëren we een reeks callback-functies voor specifieke meldingen die worden ontvangen door de middleware OpenID Connect. Deze problemen zijn gedefinieerd met behulp van een `OpenIdConnectAuthenticationNotifications` object en die zijn opgeslagen in de `Notifications` variabele. In ons voorbeeld definiëren we drie verschillende callbacks, afhankelijk van de gebeurtenis.
 
-### <a name="using-different-policies"></a>Met behulp van verschillende soorten beleid
+### <a name="using-different-user-flows"></a>Stromen met behulp van andere gebruiker
 
-De `RedirectToIdentityProvider` melding wordt geactiveerd wanneer er een aanvraag wordt gedaan bij Azure AD B2C. In de callbackfunctie `OnRedirectToIdentityProvider`, we controleren in de uitgaande oproep als we willen dat u een ander beleid. Om te kunnen doen van een wachtwoord opnieuw instellen of een profiel te bewerken, moet u gebruikmaken van het bijbehorende beleid, zoals het wachtwoord opnieuw instellen van beleid in plaats van het standaardbeleid voor 'Registreren of aanmelden'.
+De `RedirectToIdentityProvider` melding wordt geactiveerd wanneer er een aanvraag wordt gedaan bij Azure AD B2C. In de callbackfunctie `OnRedirectToIdentityProvider`, we controleren in de uitgaande oproep als we willen dat u de stroom van een andere gebruiker wilt gebruiken. Wilt doen van een wachtwoord opnieuw instellen of een profiel te bewerken, moet u de bijbehorende gebruikersstroom gebruiken, zoals de gebruikersstroom in plaats van de standaard 'Meld u aan of aanmelden' beleid voor wachtwoordherstel.
 
-In ons voorbeeld, wanneer een gebruiker wil het wachtwoord opnieuw instellen of bewerken van het profiel toevoegen we het beleid dat we de voorkeur geeft aan in de OWIN-context. Dat kan worden gedaan door het volgende te doen:
+In ons voorbeeld, wanneer een gebruiker wil het wachtwoord opnieuw instellen of bewerken van het profiel toevoegen we de gebruikersstroom die we de voorkeur geeft aan in de OWIN-context. Dat kan worden gedaan door het volgende te doen:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
@@ -246,7 +246,7 @@ De `AuthorizationCodeReceived` melding wordt geactiveerd wanneer een autorisatie
 
 ### <a name="handling-errors"></a>Fouten afhandelen
 
-De `AuthenticationFailed` melding wordt geactiveerd wanneer de verificatie is mislukt. In de callback-methode, kunt u de fouten afhandelen als u wilt. U moet echter een controle voor de foutcode toevoegen `AADB2C90118`. Tijdens het uitvoeren van het beleid 'Registreren of aanmelden', de gebruiker de mogelijkheid om te selecteren is een **wachtwoord vergeten?** koppeling. In dit geval verzendt Azure AD B2C uw app die fout code die aangeeft dat uw app moet worden gebruikt voor het maken van een aanvraag met behulp van het wachtwoordherstelbeleid dat in plaats daarvan.
+De `AuthenticationFailed` melding wordt geactiveerd wanneer de verificatie is mislukt. In de callback-methode, kunt u de fouten afhandelen als u wilt. U moet echter een controle voor de foutcode toevoegen `AADB2C90118`. Tijdens het uitvoeren van het beleid 'Registreren of aanmelden', de gebruiker de mogelijkheid om te selecteren is een **wachtwoord vergeten?** koppeling. In dit geval verzendt Azure AD B2C uw app die fout code die aangeeft dat uw app moet worden gebruikt voor het maken van een aanvraag met behulp van de gebruikersstroom voor wachtwoord opnieuw instellen in plaats daarvan.
 
 ```CSharp
 /*
@@ -357,7 +357,7 @@ public void SignOut()
 }
 ```
 
-Naast het expliciet aanroepen van een beleid, kunt u een `[Authorize]` tag op in uw domeincontrollers die een beleid wordt uitgevoerd als de gebruiker niet is aangemeld. Open `Controllers\HomeController.cs` en voeg de `[Authorize]` code aan de claims-controller.  OWIN selecteert het laatste beleid geconfigureerd wanneer de `[Authorize]` tag is bereikt.
+Naast het expliciet aanroepen van de gebruikersstroom van een, kunt u een `[Authorize]` tag op in uw domeincontrollers die een gebruikersstroom wordt uitgevoerd als de gebruiker niet is aangemeld. Open `Controllers\HomeController.cs` en voeg de `[Authorize]` code aan de claims-controller.  OWIN selecteert het laatste beleid geconfigureerd wanneer de `[Authorize]` tag is bereikt.
 
 ```CSharp
 // Controllers\HomeController.cs

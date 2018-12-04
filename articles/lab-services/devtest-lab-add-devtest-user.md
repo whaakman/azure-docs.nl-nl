@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243706"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834125"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Eigenaars en gebruikers toevoegen in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ De volgende stappen begeleiden u bij het proces van het toevoegen van een gebrui
 3. Selecteer de gewenste lab in de lijst met labs.
 4. Selecteer op de blade van de testomgeving **configuratie en het beleid**. 
 5. Op de **configuratie en het beleid** weergeeft, schakelt **toegangsbeheer (IAM)** in het menu aan de linkerkant. 
-6. Selecteer **toevoegen** op de werkbalk om een gebruiker toevoegen aan een rol.
-
-    ![Gebruiker toevoegen](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Selecteer **roltoewijzing toevoegen** op de werkbalk om een gebruiker toevoegen aan een rol.
 1. In de **machtigingen toevoegen** venster de volgende acties uitvoeren: 
     1. Selecteer een rol (bijvoorbeeld: DevTest Labs-gebruiker). De sectie [acties die kunnen worden uitgevoerd in elke rol](#actions-that-can-be-performed-in-each-role) geeft een lijst van de verschillende acties die kunnen worden uitgevoerd door gebruikers in de rollen eigenaar, DevTest-gebruiker en Inzender.
     2. Selecteer de gebruiker moet worden toegevoegd aan de rol. 
     3. Selecteer **Opslaan**. 
-
-        ![Gebruiker toevoegen aan de rol](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Als u terugkeert naar de **gebruikers** blade, de gebruiker is toegevoegd.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Een externe gebruiker toevoegen aan een lab met behulp van PowerShell

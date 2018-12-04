@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 64daab1c5c6c372dc7b8808e2c5d3da75d0fffe6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be3fb5ab58afd4287bd572842e19dd9e41e8b13b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428723"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839293"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -251,7 +251,7 @@ De topologie die wordt weergegeven in de kaart is laag-3-topologie en bevat geen
 
 ## <a name="log-analytics-search"></a>Analytics voor zoeken in Logboeken 
 
-Alle gegevens die wordt blootgesteld grafisch weergegeven via het dashboard Network Performance Monitor en inzoomen op pagina's zijn ook beschikbaar in [zoeken in Log Analytics](../../log-analytics/log-analytics-queries.md). U kunt het uitvoeren van interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI, of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele handige query's die u als startpunt gebruiken kunt om te maken van uw eigen query's en rapporten. 
+Alle gegevens die wordt blootgesteld grafisch weergegeven via het dashboard Network Performance Monitor en inzoomen op pagina's zijn ook beschikbaar in [zoeken in Log Analytics](../../azure-monitor/log-query/log-query-overview.md). U kunt het uitvoeren van interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI, of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele handige query's die u als startpunt gebruiken kunt om te maken van uw eigen query's en rapporten. 
 
 ## <a name="alerts"></a>Waarschuwingen
 

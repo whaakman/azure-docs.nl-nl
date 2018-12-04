@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a2fed45e4ec51fac7d4d04e50616a7e3748d71c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233477"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834397"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Virtual Kubelet gebruiken met Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ Azure Container Instances (ACI) bieden een omgeving voor het uitvoeren van conta
 Wanneer u de Virtual Kubelet-provider voor Azure Container Instances, kunnen zowel Windows als Linux-containers worden gepland op een containerinstantie alsof het een standaard Kubernetes-knooppunt. Deze configuratie kunt u profiteren van de mogelijkheden van Kubernetes en het beheer van waarde en de kosten voordeel van containerinstanties.
 
 > [!NOTE]
+> Nu heeft ingebouwde ondersteuning voor het plannen van containers in ACI, met de naam AKS *virtuele knooppunten*. Deze virtuele knooppunten ondersteuning momenteel voor Linux-container instances. Als u nodig hebt voor het plannen van exemplaren van Windows-container, kunt u blijven Virtual Kubelet gebruiken. Anders moet u virtuele-knooppunten gebruiken in plaats van de handmatige Virtual Kubelet-instructies in dit artikel hebt genoteerd. U kunt aan de slag met virtuele knooppunten met behulp van de [Azure CLI] [ virtual-nodes-cli] of [Azure-portal][virtual-nodes-portal].
+>
 > Virtual Kubelet is een experimenteel open-source-project en als zodanig moet worden gebruikt. Als u wilt bijdragen, problemen met bestanden, en lees meer over de virtual kubelet, Zie de [Virtual Kubelet GitHub-project][vk-github].
-
-Deze document informatie over het configureren van de Virtual Kubelet voor container instances voor een AKS.
 
 ## <a name="prerequisite"></a>Vereiste
 
@@ -235,6 +235,8 @@ Meer informatie over de Virtual Kubelet op de [Virtual Kubelet Github-project][v
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

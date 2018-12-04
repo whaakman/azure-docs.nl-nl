@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346386"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840347"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Zelfstudie: G Suite configureren voor het automatisch inrichten van gebruikers
 
@@ -28,7 +28,7 @@ Er is het doel van deze zelfstudie leert u hoe u automatisch inrichten en de inr
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met G Suite, moet u de volgende items:
 
@@ -67,7 +67,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 > [!NOTE]
 > Een andere beschikbare optie voor het automatiseren van gebruikersinrichting met G Suite, is met [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS voorziet uw on-premises Active Directory-identiteiten met G Suite. De oplossing in deze zelfstudie richt daarentegen uw Azure Active Directory (cloud): gebruikers en groepen e-mail kunnen ontvangen met G Suite. 
 
-1. Aanmelden bij de [Google Apps-beheerconsole](http://admin.google.com/) met uw administrator-account en selecteer vervolgens **Security**. Als u de koppeling niet ziet, is deze mogelijk verborgen onder de **meer besturingselementen** menu aan de onderkant van het scherm.
+1. Aanmelden bij de [Google Apps-beheerconsole](https://admin.google.com/) met uw administrator-account en selecteer vervolgens **Security**. Als u de koppeling niet ziet, is deze mogelijk verborgen onder de **meer besturingselementen** menu aan de onderkant van het scherm.
    
     ![Schakel de beveiliging.][10]
 
@@ -88,7 +88,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
     b. Selecteer **domeinnaam** in het navigatiedeelvenster links in en selecteer vervolgens **toevoegen**.
      
-     ![Domein](./media/google-apps-provisioning-tutorial/domain_1.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
 
      ![Domein toevoegen](./media/google-apps-provisioning-tutorial/domain_2.png)
 
@@ -100,7 +100,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
     
     Zie voor meer uitgebreide instructies voor het controleren van domeinnamen met Azure AD [uw eigen domeinnaam toevoegen aan Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![Domein](./media/google-apps-provisioning-tutorial/domain_4.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Herhaal de voorgaande stappen voor alle domeinen die u van plan bent om toe te voegen aan uw directory.
 
@@ -110,7 +110,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
 1. Nu dat u hebt gecontroleerd dat alle domeinen met Azure AD, moet u ze opnieuw verifiëren met Google Apps. Voor elk domein dat al is niet geregistreerd bij Google, voert u de volgende stappen uit:
    
-    a. In de [Google Apps-beheerconsole](http://admin.google.com/), selecteer **domeinen**.
+    a. In de [Google Apps-beheerconsole](https://admin.google.com/), selecteer **domeinen**.
      
      ![Domeinen selecteren][20]
 
@@ -129,7 +129,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
      > [!WARNING]
      > Als u het primaire domein te voor uw G Suite-tenant wijzigen, en als u al hebt geconfigureerd eenmalige aanmelding met Azure AD, wordt er herhaalt u stap #3 onder [stap 2: eenmalige aanmelding inschakelen](#step-two-enable-single-sign-on).
        
-1. In de [Google Apps-beheerconsole](http://admin.google.com/), selecteer **-beheerdersrollen**.
+1. In de [Google Apps-beheerconsole](https://admin.google.com/), selecteer **-beheerdersrollen**.
    
      ![Google Apps selecteren][26]
 
@@ -148,11 +148,11 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
 1. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-     ![Inrichting](./media/google-apps-provisioning-tutorial/provisioning.png)
+     ![Inrichten](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Onder de **beheerdersreferenties** sectie, selecteer **autoriseren**. Er wordt een dialoogvenster voor autorisatie van Google geopend in een nieuw browservenster.
 
-1. Bevestig dat u wilt machtigen voor Azure Active Directory wijzigingen aanbrengen in uw G Suite-tenant. Selecteer **accepteren**.
+1. Bevestig dat u wilt machtigen voor Azure Active Directory wijzigingen aanbrengen in uw G Suite-tenant. Selecteer **Accepteren**.
     
      ![Controleer of u machtigingen.][28]
 
@@ -174,7 +174,7 @@ Dit proces wordt gestart voor de initiële synchronisatie van gebruikers of groe
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

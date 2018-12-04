@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 881188e7dab0e50b5bc62258c87cb546020c8410
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8f12649a126cd618991dce0c98b3472a77acbb8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723581"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841316"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview-versie)
 Dit artikel ziet u hoe u de API HTTP Data Collector gebruikt om gegevens te verzenden naar Log Analytics van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Log Analytics.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -200,7 +200,7 @@ Deze tabel bevat de volledige reeks statuscodes die de service kan worden gereto
 Query uitvoeren op gegevens verzonden door de Log Analytics HTTP Data Collector-API, zoeken naar records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, met het achtervoegsel **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records geretourneerd **Type = MyCustomLog_CL**.
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](log-analytics-queries.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+> Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](../azure-monitor/log-query/log-query-overview.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
 
 > `MyCustomLog_CL`
 
@@ -469,6 +469,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Gebruik de [Log Search API](log-analytics-queries.md) gegevens ophalen uit de opslagplaats van Log Analytics.
+- Gebruik de [Log Search API](../azure-monitor/log-query/log-query-overview.md) gegevens ophalen uit de opslagplaats van Log Analytics.
 
 - Meer informatie over hoe u [een pijplijn maken met de API van Data Collector](../azure-monitor/platform/create-pipeline-datacollector-api.md) met behulp van de werkstroom voor Logic Apps naar Log Analytics.

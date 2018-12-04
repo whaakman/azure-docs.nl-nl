@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215205"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838987"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack-VM's repliceren naar Azure
 
@@ -207,8 +207,8 @@ Selecteer en controleer doelbronnen.
 ### <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
 1. Klik op **infrastructuur voorbereiden** > **replicatie-instellingen**.
-2. In **replicatiebeleid maken**, een beleidsnaam opgeven.
-3. In **RPO-drempelwaarde**, de objective (RPO) herstelpuntlimiet opgeven.
+2. Geef in **Replicatiebeleid maken** een beleidsnaam op.
+3. Geef in **RPO-drempelwaarde** de limiet van de Recovery Point Objective (RPO) op.
     - Herstelpunten voor gerepliceerde gegevens worden gemaakt in overeenstemming met de tijd instellen.
     - Deze instelling heeft geen invloed op replicatie, continue is. Het gewoon problemen met een waarschuwing als de drempelwaarde is bereikt zonder dat een herstelpunt wordt gemaakt.
 4. In **bewaarperiode voor herstelpunten**, opgeven hoe lang elk herstelpunt wordt bewaard. Gerepliceerde VM's kunnen worden hersteld naar een willekeurig punt in de opgegeven periode.

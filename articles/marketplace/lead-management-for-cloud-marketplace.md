@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258541"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840160"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Beheer voor cloud-marketplace leiden
 
@@ -39,15 +39,15 @@ Als u wilt beginnen met het ophalen van leads, is leiden Management-connector in
 
 Hier vindt u stapsgewijze instructies voor het verbinding maken met elk van de mogelijke lead bestemmingen:
 
-**Dynamics CRM Online** - [Klik hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) om op te halen van de instructies voor het configureren van Dynamics CRM Online voor het ophalen van leads.
+**Dynamics CRM Online** - [Klik hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) om op te halen van de instructies voor het configureren van Dynamics CRM Online voor het ophalen van leads.
 
-**Marketo** - [Klik hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo) om op te halen van de instructies voor het instellen van de configuratie van Marketo leiden om op te halen van leads.
+**Marketo** - [Klik hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) om op te halen van de instructies voor het instellen van de configuratie van Marketo leiden om op te halen van leads.
 
-**SalesForce** - [Klik hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce) voor instructies voor het instellen van uw Salesforce-exemplaar om op te halen van leads.
+**SalesForce** - [Klik hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) voor instructies voor het instellen van uw Salesforce-exemplaar om op te halen van leads.
 
-**Azure-tabel** – [Klik hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table) om op te halen van de instructies voor het instellen van uw Azure storage-account voor het ophalen van leads in een Azure-tabel.
+**Azure-tabel** – [Klik hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) om op te halen van de instructies voor het instellen van uw Azure storage-account voor het ophalen van leads in een Azure-tabel.
 
-**HTTPS-eindpunt** – [Klik hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-https) om op te halen van de instructies voor het instellen van uw Https-eindpunt om op te halen van leads.
+**HTTPS-eindpunt** – [Klik hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) om op te halen van de instructies voor het instellen van uw Https-eindpunt om op te halen van leads.
 
 Nadat u de bestemming lead correct is geconfigureerd en publiceren van uw aanbieding hebt bereikt, wordt er valideren van de verbinding en ontvangt u een lead test. Wanneer u de aanbieding bekijken voordat u live gaan, kunt u ook de potentiële klant verbinding testen door bij het ophalen van de aanbieding zelf in de preview-omgeving. Het is belangrijk om ervoor te zorgen dat uw recente lead instellingen blijven zodat u toch nog de leads, dus zorg ervoor dat u deze verbindingen bijwerken wanneer er iets is gewijzigd op uw eindgebruikers.
 
@@ -62,32 +62,32 @@ Zodra de technische instellen ingesteld is, moet u deze leads opnemen in uw huid
 
 **Kan de lead aan Dynamics CRM niet opslaan. Controleer de instellingen van Dynamics CRM-account. LastCRMError: Kan niet aanmelden bij Dynamics CRM, LastCRMException:** 
 
-> Als de O365-verificatie is geselecteerd, controleert u of de gebruikersaccount en het wachtwoord geldig is. Als AAD is geselecteerd, controleert u als de tenant-ID, toepassings-ID en toepassing geheime sleutel overeenkomt met wat is ingesteld op AAD. Volg de instructies [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Als het account van de gebruikersnaam en wachtwoord geldig is, Controleer of er toegang tot Dynamics 365 en heeft een licentie toegewezen (stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office). 
+> Als de O365-verificatie is geselecteerd, controleert u of de gebruikersaccount en het wachtwoord geldig is. Als AAD is geselecteerd, controleert u als de tenant-ID, toepassings-ID en toepassing geheime sleutel overeenkomt met wat is ingesteld op AAD. Volg de instructies [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Als het account van de gebruikersnaam en wachtwoord geldig is, Controleer of er toegang tot Dynamics 365 en heeft een licentie toegewezen (stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office). 
 
  
 **Kan de lead aan Dynamics CRM niet opslaan. Gebruikers hebben maakt geen machtigingen voor het kenmerk leadsourcecode in de entiteit lead** 
 
-> De toepassing/gebruiker, security-rollen zijn naar Microsoft Marketplace lead writer ontbreekt. Volg de stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
+> De toepassing/gebruiker, security-rollen zijn naar Microsoft Marketplace lead writer ontbreekt. Volg de stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).
 
 **Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Tenant is niet gevonden. Dit exemplaar kan gebeuren als er geen actieve abonnementen voor de tenant zijn.**  
 
-> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
+> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
 **Kan de lead aan Dynamics CRM niet opslaan. LastCRMError: SecLib::RetrievePrivilegeForUser is mislukt: Er zijn geen rollen zijn toegewezen aan gebruiker.**  
 
-> Oplossing: Beveiligingsrol toewijzen aan de Microsoft Marketplace lead schrijver. Volg de instructies [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) onder beveiligingsinstellingen 
+> Oplossing: Beveiligingsrol toewijzen aan de Microsoft Marketplace lead schrijver. Volg de instructies [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) onder beveiligingsinstellingen 
 
 **Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Toepassing met de id is niet gevonden in de map** 
 
-> De toepassings-Id opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 8 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> De toepassings-Id opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 8 (onder Azure Active Directory, uit [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Aangevraagde tenant-id is niet geldig en is niet geldig voor externe domein-indeling** 
 
-> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering:: Valideren van referenties.-fout: ongeldige clientgeheim is opgegeven.** 
 
-> Oplossing: Meld u aan bij Azure Portal, controleert u of de sleutel van de toepassing overeenkomt met wat is er in de Cloud Partner-Portal. Genereer een wachtwoord op basis van de instructie bij stap 10 (onder Azure Active Directory), van [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> Oplossing: Meld u aan bij Azure Portal, controleert u of de sleutel van de toepassing overeenkomt met wat is er in de Cloud Partner-Portal. Genereer een wachtwoord op basis van de instructie bij stap 10 (onder Azure Active Directory), van [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Kan de lead aan Dynamics CRM niet opslaan. LastCRMError: De aanvraagkanaal er is een time-out opgetreden tijdens het wachten op een antwoord op een na 00:02:00 uur. Verhoog de time-outwaarde doorgegeven aan het gesprek op aanvraag of vergroot de waarde voor SendTimeout voor de Binding. De tijd die voor deze bewerking wordt toegewezen mogelijk is een deel van een langere time-out.**  
 
@@ -102,7 +102,7 @@ Leads zijn klanten die uw producten uit de Marketplace implementeert. Of het pro
 
 **Waar vind ik help bij het instellen van mijn lead bestemming?** 
 
-U vindt hier documentatie: https://cloudpartner.azure.com/#documentation/get-customer-leads of verzend een ondersteuningsticket via aka.ms/marketplacepublishersupport selecteert het aanbiedingtype en management leiden. 
+U vindt hier documentatie: [leads klant ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) of verzend een ondersteuningsticket via aka.ms/marketplacepublishersupport selecteert het aanbiedingtype en management leiden. 
 
 
 
@@ -199,7 +199,7 @@ Elke lead gegevens die worden doorgegeven in de velden in de geselecteerde lead 
 
     } 
 
-Meer informatie onder [leiden Info](https://cloudpartner.azure.com/#documentation/get-customer-leads). 
+Meer informatie onder [leiden Info](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). 
 
 
 **Kan ik Azure BLOB hebt geconfigureerd als de bestemming van mijn lead, waarom zie ik niet de potentiële klant?** 
@@ -219,7 +219,7 @@ U kunt toegang krijgen tot de blob of table vanuit Azure Portal of u kunt downlo
 
 **Kan ik Azure Table als mijn lead doel hebt geconfigureerd, kan ik blijf op de hoogte wanneer er een nieuwe lead is verzonden door de Marketplace?** 
 
-Ja, volg de instructies om in te stellen Azure Table + functie omhoog in de documentatie [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table). 
+Ja, volg de instructies om in te stellen Azure Table + functie omhoog in de documentatie [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table). 
 
 
 

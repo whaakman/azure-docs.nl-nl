@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: dd7f76e20e43e24c31f5afd8c8d9eb97db04255f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828346"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843220"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
@@ -147,7 +147,7 @@ Bepaalde processen bepaalde functies op machines bedienen: web-servers, toepassi
 |:--|:--|
 | ![Webserver](media/service-map/role-web-server.png) | Webserver |
 | ![App-server](media/service-map/role-application-server.png) | Toepassingsserver |
-| ![Databaseserver](media/service-map/role-database.png) | Databaseserver |
+| ![Database-server](media/service-map/role-database.png) | Database-server |
 | ![LDAP-server](media/service-map/role-ldap.png) | LDAP-server |
 | ![SMB-server](media/service-map/role-smb.png) | SMB-server |
 
@@ -277,7 +277,7 @@ De **Updates voor virtuele machines** deelvenster worden gegevens uit de updateb
 ![Machine bijhouden deelvenster](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
-Serviceoverzicht computer- en inventarisgegevens is beschikbaar voor [zoeken](../../log-analytics/log-analytics-queries.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
+Serviceoverzicht computer- en inventarisgegevens is beschikbaar voor [zoeken](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
 
 Een record wordt gegenereerd per uur voor elke unieke computernaam en het proces, naast de records die worden gegenereerd wanneer een proces of de computer wordt gestart of toegevoegd aan Service-kaart is. Deze records hebben de eigenschappen in de volgende tabellen. De velden en waarden in de ServiceMapComputer_CL-gebeurtenissen toewijzen aan velden van de bron van de Machine in de ServiceMap Azure Resource Manager-API. De velden en waarden in de gebeurtenissen ServiceMapProcess_CL worden toegewezen aan de velden van de proces-resource in de ServiceMap Azure Resource Manager-API. Het veld ResourceName_s komt overeen met het naamveld in de overeenkomende Resource Manager-resource. 
 
@@ -353,7 +353,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 |RemoteLatitude |De breedtegraad geolocatie.  Bijvoorbeeld, *47.68* |
 |RemoteLongitude |De lengtegraad geolocatie.  Bijvoorbeeld, *-122.12* |
 
-#### <a name="malicious-ip"></a>Schadelijk IP
+#### <a name="malicious-ip"></a>Schadelijk IP-adres
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
 | Eigenschap | Beschrijving |
@@ -497,14 +497,14 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ## <a name="rest-api"></a>REST-API
 Alle de gegevens verwerken, server en afhankelijkheid in Serviceoverzicht beschikbaar via is de [REST-API voor Service-kaart](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostische en gebruiksgegevens
+## <a name="diagnostic-and-usage-data"></a>Diagnostische gegevens en gebruiksgegevens
 Microsoft verzamelt automatisch gebruiks- en prestatiegegevens gegevens via uw gebruik van de Service Map-service. Microsoft gebruikt deze gegevens te bieden en de kwaliteit, beveiliging en integriteit van de Service Map-service te verbeteren. De gegevens omvatten informatie over de configuratie van uw software, zoals het besturingssysteem en versie, IP-adres, DNS-naam en Werkstationnaam om nauwkeurige en efficiënte mogelijkheden voor probleemoplossing. Microsoft verzamelt geen namen, adressen of andere contactgegevens.
 
 Zie voor meer informatie over het verzamelen van gegevens en het gebruik, de [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over [zoekopdrachten](../../log-analytics/log-analytics-queries.md) in Log Analytics om gegevens die worden verzameld door Serviceoverzicht te halen.
+Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics om gegevens die worden verzameld door Serviceoverzicht te halen.
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen

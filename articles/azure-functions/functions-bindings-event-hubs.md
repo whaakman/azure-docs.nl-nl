@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: 3f1a9535037f099cdfe7bf4ec41a337fdf6a434d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 94716f428a7f3135a5b784ab82cfd9e89ee715e3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248775"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838460"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -59,9 +59,9 @@ Wanneer uw functie is ingeschakeld, is er slechts één exemplaar van de functie
 
 * **Nieuwe instanties van de functie niet nodig zijn**: `Function_0` kan alle 1000 gebeurtenissen voordat de logica voor vergroten/verkleinen begint in Functions te verwerken. In dit geval alle 1000 berichten worden verwerkt door `Function_0`.
 
-* **Een extra functie-exemplaar wordt toegevoegd**: de functies schalen logische bepaalt dat `Function_0` heeft meer berichten dan deze kan verwerken. In dit geval een nieuwe functie app-exemplaar (`Function_1`) is gemaakt, samen met een nieuwe [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaar. Eventhubs detecteert dat een nieuwe instantie van de host wordt geprobeerd berichten lezen. De partities in Event Hubs-verdeelt het de hostexemplaren. Bijvoorbeeld, 0-4-partities kunnen worden toegewezen aan `Function_0` en 5-9 voor partities `Function_1`. 
+* **Een extra functie-exemplaar wordt toegevoegd**: de functies schalen logische bepaalt dat `Function_0` heeft meer berichten dan deze kan verwerken. In dit geval een nieuwe functie app-exemplaar (`Function_1`) is gemaakt, samen met een nieuwe [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaar. Eventhubs detecteert dat een nieuwe instantie van de host wordt geprobeerd berichten lezen. De partities in Event Hubs-verdeelt het de hostexemplaren. Bijvoorbeeld, 0-4-partities kunnen worden toegewezen aan `Function_0` en 5-9 voor partities `Function_1`.
 
-* **N meer functie-exemplaren worden toegevoegd**: de functies schalen logische bepaalt dat beide `Function_0` en `Function_1` er meer berichten dan ze kunnen verwerken. Nieuwe functie-app-instanties `Function_2`... `Functions_N` zijn gemaakt, waarbij `N` groter is dan het aantal event hub-partities. In ons voorbeeld nogmaals Event Hubs verdeelt de belasting van de partities in dit geval over de exemplaren `Function_0`... `Functions_9`. 
+* **N meer functie-exemplaren worden toegevoegd**: de functies schalen logische bepaalt dat beide `Function_0` en `Function_1` er meer berichten dan ze kunnen verwerken. Nieuwe functie-app-instanties `Function_2`... `Functions_N` zijn gemaakt, waarbij `N` groter is dan het aantal event hub-partities. In ons voorbeeld nogmaals Event Hubs verdeelt de belasting van de partities in dit geval over de exemplaren `Function_0`... `Functions_9`.
 
 Houd er rekening mee dat wanneer functies kan worden geschaald naar `N` instanties, wat een getal groter dan het aantal event hub-partities. Dit wordt gedaan om ervoor te zorgen dat er altijd zijn [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaren beschikbaar zijn voor het verkrijgen van vergrendelingen op partities zodra deze beschikbaar zijn van andere exemplaren. U betaalt alleen voor de resources die worden gebruikt wanneer het exemplaar van de functie wordt uitgevoerd; u betaalt geen voor deze capaciteit in te richten.
 
@@ -74,8 +74,9 @@ Zie het voorbeeld taalspecifieke:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Trigger - voorbeeld met C#
 
@@ -94,8 +95,8 @@ Toegang krijgen tot [gebeurtenis metagegevens](#trigger---event-metadata) in fun
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run(
-    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
-    DateTime enqueuedTimeUtc, 
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
     string offset,
     ILogger log)
@@ -133,8 +134,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie registreert de hoofdtekst van de event hub-trigger.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand.
 
+#### <a name="version-2x"></a>Versie 2.x
 
 ```json
 {
@@ -145,6 +147,9 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>Versie 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -177,7 +182,7 @@ using Microsoft.ServiceBus.Messaging;
 using Microsoft.Azure.EventHubs;
 
 public static void Run(EventData myEventHubMessage,
-    DateTime enqueuedTimeUtc, 
+    DateTime enqueuedTimeUtc,
     Int64 sequenceNumber,
     string offset,
     TraceWriter log)
@@ -206,12 +211,13 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-### <a name="trigger---f-example"></a>Trigger - F #-voorbeeld
+### <a name="trigger---f-example"></a>Trigger - F# voorbeeld
 
-Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie registreert de hoofdtekst van de event hub-trigger.
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [ F# functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie registreert de hoofdtekst van de event hub-trigger.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. 
 
+#### <a name="version-2x"></a>Versie 2.x
 
 ```json
 {
@@ -222,6 +228,9 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>Versie 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -232,7 +241,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
 }
 ```
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
 let Run(myEventHubMessage: string, log: TraceWriter) =
@@ -243,8 +252,9 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie leest [gebeurtenis metagegevens](#trigger---event-metadata) en registreert het bericht.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand.
 
+#### <a name="version-2x"></a>Versie 2.x
 
 ```json
 {
@@ -255,6 +265,9 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>Versie 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -273,12 +286,14 @@ module.exports = function (context, eventHubMessage) {
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);
     context.log('Offset =', context.bindingData.offset);
-     
+
     context.done();
 };
 ```
 
-Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `many` in de *function.json* -bestand, zoals wordt weergegeven in de volgende voorbeelden. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
+Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `many` in de *function.json* -bestand, zoals wordt weergegeven in de volgende voorbeelden.
+
+#### <a name="version-2x"></a>Versie 2.x
 
 ```json
 {
@@ -290,6 +305,9 @@ Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `man
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+
+#### <a name="version-1x"></a>Versie 1.x
+
 ```json
 {
   "type": "eventHubTrigger",
@@ -306,7 +324,7 @@ Dit is de JavaScript-code:
 ```javascript
 module.exports = function (context, eventHubMessages) {
     context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
-    
+
     eventHubMessages.forEach((message, index) => {
         context.log(`Processed message ${message}`);
         context.log(`EnqueuedTimeUtc = ${context.bindingData.enqueuedTimeUtcArray[index]}`);
@@ -316,6 +334,35 @@ module.exports = function (context, eventHubMessages) {
 
     context.done();
 };
+```
+
+### <a name="trigger---python-example"></a>Trigger - Python-voorbeeld
+
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [funkce Pythonu](functions-reference-python.md) die gebruikmaakt van de binding. De functie leest [gebeurtenis metagegevens](#trigger---event-metadata) en registreert het bericht.
+
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand.
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "event",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+Hier volgt de Python-code:
+
+```python
+import logging
+import azure.functions as func
+
+def main(event: func.EventHubEvent):
+    logging.info('Event Hubs trigger function processed message: ', event.get_body())
+    logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
+    logging.info('  SequenceNumber =', event.sequence_number)
+    logging.info('  Offset =', event.offset)
 ```
 
 ### <a name="trigger---java-example"></a>Trigger - Java-voorbeeld
@@ -338,13 +385,13 @@ public void eventHubProcessor(
   @EventHubTrigger(name = "msg",
                   eventHubName = "myeventhubname",
                   connection = "myconnvarname") String message,
-       final ExecutionContext context ) 
+       final ExecutionContext context )
        {
           context.getLogger().info(message);
  }
  ```
 
- In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `EventHubTrigger` aantekening op parameters waarvan de waarde afkomstig van de Event Hub zijn kan. Parameters met deze aantekeningen ertoe leiden dat de functie moet worden uitgevoerd wanneer een gebeurtenis wordt ontvangen.  Deze aantekening kan worden gebruikt met systeemeigen Java-typen, pojo's of null-waarden met behulp van optioneel<T>. 
+ In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `EventHubTrigger` aantekening op parameters waarvan de waarde afkomstig van de Event Hub zijn kan. Parameters met deze aantekeningen ertoe leiden dat de functie moet worden uitgevoerd wanneer een gebeurtenis wordt ontvangen.  Deze aantekening kan worden gebruikt met systeemeigen Java-typen, pojo's of null-waarden met behulp van optioneel<T>.
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
@@ -370,11 +417,11 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `eventHubTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
-|**De naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode aan te geven. | 
-|**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. | 
+|**De naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode aan te geven. |
+|**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
 |**eventHubName** |**EventHubName** | 2.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
-|**consumerGroup** |**consumerGroup** | Een optionele eigenschap die Hiermee stelt u de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
-|**de kardinaliteit** | N.v.t. | Voor Javascript. Ingesteld op `many` om in te schakelen via batchverwerking uitvoeren.  Als weggelaten of ingesteld op `one`, één bericht dat wordt doorgegeven aan functie. | 
+|**consumerGroup** |**consumerGroup** | Een optionele eigenschap die Hiermee stelt u de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. |
+|**de kardinaliteit** | N.v.t. | Voor Javascript. Ingesteld op `many` om in te schakelen via batchverwerking uitvoeren.  Als weggelaten of ingesteld op `one`, één bericht dat wordt doorgegeven aan functie. |
 |**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen heeft voor de trigger wordt geactiveerd.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -405,7 +452,7 @@ De [host.json](functions-host-json.md#eventhub) bestand bevat instellingen die h
 
 Gebruik de Event Hubs-Uitvoerbinding gebeurtenissen schrijven naar een gebeurtenisstroom. U moet gemachtigd verzenden naar een event hub gebeurtenissen schrijven naar het.
 
-Zorg ervoor dat de referenties vereist pakket wordt voldaan: [functies 1.x](#packages---functions-1.x) of [2.x-functies](#packages---functions-2.x) 
+Zorg ervoor dat de referenties vereist pakket wordt voldaan: [functies 1.x](#packages---functions-1.x) of [2.x-functies](#packages---functions-2.x)
 
 ## <a name="output---example"></a>Uitvoer - voorbeeld
 
@@ -414,8 +461,9 @@ Zie het voorbeeld taalspecifieke:
 * [C#](#output---c-example)
 * [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
-* [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Uitvoer - voorbeeld met C#
 
@@ -446,6 +494,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
     "direction": "out"
 }
 ```
+
 ```json
 {
     "type": "eventHub",
@@ -482,9 +531,9 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-### <a name="output---f-example"></a>Uitvoer - F #-voorbeeld
+### <a name="output---f-example"></a>Uitvoer - F# voorbeeld
 
-Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie een bericht wordt geschreven naar een event hub.
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [ F# functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie een bericht wordt geschreven naar een event hub.
 
 De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
 
@@ -507,7 +556,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
 }
 ```
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
 let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) =
@@ -531,6 +580,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
     "direction": "out"
 }
 ```
+
 ```json
 {
     "type": "eventHub",
@@ -567,6 +617,35 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="output---python-example"></a>Uitvoer - Python-voorbeeld
+
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [funkce Pythonu](functions-reference-python.md) die gebruikmaakt van de binding. De functie een bericht wordt geschreven naar een event hub.
+
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand.
+
+```json
+{
+    "type": "eventHub",
+    "name": "$return",
+    "eventHubName": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+
+Hier volgen enkele redenen Python-code dat een enkel bericht verzendt:
+
+```python
+import datetime
+import logging
+import azure.functions as func
+
+def main(timer: func.TimerRequest) -> str:
+    timestamp = datetime.datetime.utcnow()
+    logging.info('Event Hub message created at: %s', timestamp);   
+    return 'Event Hub message created at: {}'.format(timestamp)
+```
+
 ### <a name="output---java-example"></a>Uitvoer - Java-voorbeeld
 
 Het volgende voorbeeld ziet een Java-functie die de huidige tijd van een bericht vastgezet naar een Event Hub schrijft.
@@ -580,7 +659,7 @@ public String sendTime(
  }
  ```
 
-In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruiken de `@EventHubOutput` aantekening op parameters waarvan de waarde poublished naar Event Hub is.  De parameter moet van het type `OutputBinding<T>` , waarbij T een POJO of een systeemeigen Java-type. 
+In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruiken de `@EventHubOutput` aantekening op parameters waarvan de waarde poublished naar Event Hub is.  De parameter moet van het type `OutputBinding<T>` , waarbij T een POJO of een systeemeigen Java-type.
 
 ## <a name="output---attributes"></a>Uitvoer - kenmerken
 
@@ -607,8 +686,8 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op 'eventHub'. |
 |**direction** | N.v.t. | Moet worden ingesteld op 'out'. Deze parameter wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |
-|**De naam** | N.v.t. | De naam van de variabele die wordt gebruikt in de functiecode waarmee de gebeurtenis. | 
-|**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. | 
+|**De naam** | N.v.t. | De naam van de variabele die wordt gebruikt in de functiecode waarmee de gebeurtenis. |
+|**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
 |**eventHubName** |**EventHubName** | 2.x alleen functies. De naam van de event hub. Wanneer de naam van de event hub ook aanwezig in de connection string is, overschrijft deze waarde deze eigenschap tijdens runtime. |
 |**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet machtigingen voor verzenden zijn het bericht te verzenden naar de gebeurtenisstroom.|
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430505"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Zelfstudie: Azure Active Directory-integratie met RedBrick Health
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van RedBrick Health in Azure AD, moet u 
 
 **Als u wilt toevoegen RedBrick status uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -110,7 +110,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![RedBrick Health domein en URL's eenmalige aanmelding informatie](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. In de **id** tekstvak, een URL typen: `http://www.redbrickhealth.com`
+    a. In de **id** tekstvak, een URL typen: `https://www.redbrickhealth.com`
     
     b. In de **antwoord-URL** tekstvak, een URL typen: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -205,7 +205,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
   
 ### <a name="create-a-redbrick-health-test-user"></a>Maak een testgebruiker RedBrick Health
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in RedBrick Health. Werken met [RedBrick Health ondersteuningsteam](https://home.redbrickhealth.com/contact/) om toe te voegen de gebruikers in het RedBrick Health-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in RedBrick Health. Werken met [RedBrick Health ondersteuningsteam](https://home.redbrickhealth.com/contact/) om toe te voegen de gebruikers in het RedBrick Health-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

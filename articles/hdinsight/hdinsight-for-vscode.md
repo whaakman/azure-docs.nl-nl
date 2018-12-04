@@ -10,16 +10,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 9603751db01eaffdf9fbe26164aed53017c5e23c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499527"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840202"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
-Meer informatie over het gebruik van de [Azure HDInsight Tools voor Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) (VS Code) maken en verzenden [Apache Hive](https://hive.apache.org/) batchtaken, interactieve Apache Hive-query's en PySpark-scripts. De hulpprogramma's voor Azure HDInsight kan worden geïnstalleerd op de platforms die worden ondersteund door VS Code. Zoals onder andere Windows, Linux en macOS. Hier vindt u de vereisten voor verschillende platforms.
+Informatie over het gebruik van de Azure HDInsight Tools voor Visual Studio Code (VS-Code) maken en verzenden van Apache Hive-batchtaken, interactieve Hive-query's en PySpark-scripts voor Apache Spark. Eerst wordt wordt beschreven hoe u de HDInsight-hulpprogramma's in VS Code installeren en vervolgens behandelen we hoe u Hive-en Spark-taken verzenden. 
+
+De hulpprogramma's voor Azure HDInsight kan worden geïnstalleerd op de platforms die worden ondersteund door Visual Studio Code, waaronder Windows, Linux en macOS. Hieronder vindt u de vereisten voor verschillende platforms.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -411,7 +413,7 @@ HDInsight voor Visual Studio Code ondersteunt de volgende functies:
 
 ### <a name="create-and-running-applications"></a>Maken en uitvoeren van toepassingen
 * [Een zelfstandige toepassing maken met behulp van Scala](spark/apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](spark/apache-spark-livy-rest-interface.md)
 
 ### <a name="manage-resources"></a>Resources beheren
 * [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](spark/apache-spark-resource-manager.md)

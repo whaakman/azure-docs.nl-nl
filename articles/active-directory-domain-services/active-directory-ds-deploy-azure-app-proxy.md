@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155538"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840296"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD-toepassingsproxy in een Azure AD Domain Services beheerde domein implementeren
 Azure Active Directory (AD)-toepassingsproxy helpt u externe werknemers te ondersteunen door het publiceren van on-premises toepassingen kunnen worden benaderd via internet. Met Azure AD Domain Services kunt u nu lift-and-shift oudere toepassingen die on-premises uitgevoerd met Azure Infrastructure Services. Vervolgens kunt u deze toepassingen met behulp van de Azure AD Application Proxy voor veilige externe toegang voor gebruikers in uw organisatie.
@@ -42,7 +42,7 @@ Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Taak 1: toepassingsproxy van Azure AD inschakelen voor uw Azure AD-directory
 Voer de volgende stappen uit om in te schakelen van de Azure AD-toepassingsproxy voor Azure Active directory.
 
-1. Meld u aan als beheerder aan in de [Azure-portal](http://portal.azure.com).
+1. Meld u aan als beheerder aan in de [Azure-portal](https://portal.azure.com).
 
 2. Klik op **Azure Active Directory** om een overzicht van de directory. Klik op **bedrijfstoepassingen**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met ScaleX Enterprise
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van ScaleX Enterprise in Azure AD, moet 
 
 **Als u wilt toevoegen ScaleX Enterprise uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -123,7 +123,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak typt u de waarde met behulp van het volgende patroon: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Dit zijn niet de werkelijke waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL of aanmeldings-URL. Neem contact op met [ScaleX Enterprise Client-ondersteuningsteam](http://info.rescale.com/contact_sales) om deze waarden te verkrijgen. 
+    > Dit zijn niet de werkelijke waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL of aanmeldings-URL. Neem contact op met [ScaleX Enterprise Client-ondersteuningsteam](https://info.rescale.com/contact_sales) om deze waarden te verkrijgen. 
 
 1. Uw toepassing ScaleX wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u het aangepaste kenmerktoewijzingen aan de configuratie van de SAML-token kenmerken wijzigen. Klik op **weergeven en bewerk alle andere gebruikerskenmerken** selectievakje in om te openen van de aangepaste kenmerken van instellingen.
 

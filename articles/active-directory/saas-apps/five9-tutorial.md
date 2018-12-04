@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ee04008b62867c8eba68b1525cf50edec881cbc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c8d3364f9de298d19df35846af5f421978fea960
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432630"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Zelfstudie: Azure Active Directory-integratie met Five9 Plus-Adapter (CTI, neem contact op met Center-Agents)
 
@@ -59,7 +59,7 @@ Als u wilt de integratie van Five9 Plus Adapter (CTI, neem contact op met Center
 
 **Als u wilt toevoegen Five9 Plus Adapter (CTI, neem contact op met Center-Agents) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -142,11 +142,11 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
 1. Het configureren van eenmalige aanmelding op **Five9 Plus Adapter (CTI, neem contact op met Center-Agents)** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64), de URL van de afmelding, SAML entiteit-ID en Single Sign-On Service URL voor SAML-** naar [Five9 Plus (CTI, neem contact op met Center-Agents) ondersteuning adapterteam](https://www.five9.com/about/contact). Bovendien ook voor het configureren van eenmalige aanmelding verder Volg de onderstaande stappen op basis van de adapter:
 
-    a. 'Five9 Plus -Adapter voor bureaublad Toolkit Agent' beheerdershandleiding voor de: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
+    a. 'Five9 Plus -Adapter voor bureaublad Toolkit Agent' beheerdershandleiding voor de: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
-    b. 'Five9 Plus -Adapter voor Microsoft Dynamics CRM' beheerdershandleiding voor de: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
+    b. 'Five9 Plus -Adapter voor Microsoft Dynamics CRM' beheerdershandleiding voor de: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
     
-    c. "Five9 Plus -Adapter voor Zendesk" beheerdershandleiding voor de: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
+    c. "Five9 Plus -Adapter voor Zendesk" beheerdershandleiding voor de: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 
 
 > [!TIP]
@@ -186,7 +186,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="creating-a-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Het maken van een testgebruiker Five9 Plus Adapter (CTI, neem contact op met Center-Agents)
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon Five9 Plus adapter (CTI, neem contact op met Center-Agents). Werken met [Five9 Plus (CTI, neem contact op met Center-Agents) ondersteuning adapterteam](https://www.five9.com/about/contact) om toe te voegen de gebruikers in het platform Five9 Plus Adapter (CTI, neem contact op met Center-Agents). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon Five9 Plus adapter (CTI, neem contact op met Center-Agents). Werken met [Five9 Plus (CTI, neem contact op met Center-Agents) ondersteuning adapterteam](https://www.five9.com/about/contact) om toe te voegen de gebruikers in het platform Five9 Plus Adapter (CTI, neem contact op met Center-Agents). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

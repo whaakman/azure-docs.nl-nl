@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 20412efac553458f3028f873bcc6d918a673f261
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707126"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838806"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Lab-accounts in Azure Lab Services beheren 
 Een lab-account is in Azure Lab-Services, een container voor beheerde labs zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
@@ -47,12 +47,8 @@ Een lab-account is in Azure Lab-Services, een container voor beheerde labs zoals
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Een gebruiker toevoegen aan de rol Labmaker
 Om een leslokaallab in een labaccount in te kunnen stellen, moet de gebruiker lid zijn van de rol **Labmaker** in het labaccount. Het account dat u hebt gebruikt voor het maken van het lab-account wordt automatisch toegevoegd aan deze rol. Als u van plan bent een leslokaallab te maken met hetzelfde gebruikersaccount, kunt u deze stap overslaan. Als u een ander gebruikersaccount wilt gebruiken om een leslokaallab te maken, voert u de volgende stappen uit: 
 
-1. Selecteer op de pagina **lab-account** de optie **Toegangsbeheer (IAM)** en klik op **+ Toevoegen** in de werkbalk. 
-
-    ![Pagina lab-account](../media/tutorial-setup-lab-account/access-control.png)
-2. Selecteer op de pagina **Machtigingen toevoegen** de optie **Labmaker** als **rol**. Selecteer de gebruiker die u wilt toevoegen aan de rol Labmaker en selecteer **Opslaan**. 
-
-    ![Gebruiker toevoegen aan de rol Labmaker](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+1. Op de **Lab-Account** weergeeft, schakelt **toegangsbeheer (IAM)**, en klikt u op **+ roltoewijzing toevoegen** op de werkbalk. 
+2. Selecteer op de pagina **Machtigingen toevoegen** de optie **Labmaker** als **rol**. Selecteer de gebruiker die u wilt toevoegen aan de rol Labmaker en selecteer **Opslaan**.
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Microsoft Azure Marketplace-installatiekopieën die beschikbaar zijn voor eigenaars van een lab opgeven
 Als eigenaar van een labaccount kunt u de Marketplace-installatiekopieën opgeven die labmakers kunnen gebruiken in het labaccount. 
@@ -116,7 +112,7 @@ Volg de instructies in de vorige sectie voor een overzicht van de labs in het la
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:
 
-- [Als de eigenaar van een lab maken en beheren van labs](how-to-manage-classroom-labs.md)
-- [Als de eigenaar van een lab instellen en sjablonen publiceren](how-to-create-manage-template.md)
-- [Als de eigenaar van een lab configureren en beheren van het gebruik van een lab](how-to-configure-student-usage.md)
+- [Labs maken en beheren als labeigenaar](how-to-manage-classroom-labs.md)
+- [Sjablonen instellen en publiceren als labeigenaar](how-to-create-manage-template.md)
+- [Het gebruik van een lab configureren en beheren als labeigenaar](how-to-configure-student-usage.md)
 - [Als een lab-gebruiker toegang krijgen tot leslokaallabs](how-to-use-classroom-lab.md)

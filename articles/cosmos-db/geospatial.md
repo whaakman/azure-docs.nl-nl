@@ -1,20 +1,18 @@
 ---
-title: Werken met georuimtelijke gegevens in Azure Cosmos DB SQL API-account | Microsoft Docs
+title: Werken met georuimtelijke gegevens in Azure Cosmos DB SQL API-account
 description: Informatie over het maken, indexeren en query uitvoeren op ruimtelijke objecten met Azure Cosmos DB en de SQL-API.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 947a39a3660e0755efbf99b74b66d2c16e331e07
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284486"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837049"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Georuimtelijke en GeoJSON locatiegegevens gebruiken met Azure Cosmos DB SQL API-account
 
@@ -160,27 +158,27 @@ Azure Cosmos DB ondersteunt de volgende Open georuimtelijke Consortium (OGC) ing
 </tr>
 <tr>
   <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
-  <td>Geeft de afstand tussen de twee GeoJSON-punt, Polygon of LineString expressies.</td>
+  <td>Retourneert de afstand tussen de twee GeoJSON Point-, Polygon- of LineString-expressies.</td>
 </tr>
 <tr>
   <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
-  <td>Retourneert een Booleaanse expressie die aangeeft of het eerste GeoJSON-object (punt, Polygon of LineString) in het tweede GeoJSON-object (punt, Polygon of LineString).</td>
+  <td>Retourneert een Booleaanse expressie die aangeeft of het eerste GeoJSON-object (Point, Polygon of LineString) zich bevindt in het tweede GeoJSON-object (punt, Polygon of LineString).</td>
 </tr>
 <tr>
   <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Retourneert een Booleaanse expressie waarmee wordt aangegeven of de twee opgegeven GeoJSON-objecten (punt, Polygon of LineString) elkaar overlappen.</td>
+  <td>Retourneert een Booleaanse expressie die aangeeft of de twee opgegeven GeoJSON-objecten (Point, Polygon of LineString) elkaar snijden.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of de opgegeven expressie voor de GeoJSON-punt, Polygon of LineString ongeldig is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of de opgegeven GeoJSON Point-, Polygon- of LineString-expressie geldig is.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Retourneert een JSON-waarde met een Booleaanse waarde als de opgegeven expressie voor de GeoJSON-punt, Polygon of LineString geldig is en als ongeldig, ook de reden als een string-waarde.</td>
+  <td>Retourneert een JSON-waarde met een Booleaanse waarde die aangeeft of de opgegeven GeoJSON Point-, Polygon- of LineString-expressie geldig is. Als de expressie ongeldig is, worden ook de reden daarvoor en een tekenreekswaarde geretourneerd.</td>
 </tr>
 </table>
 
-Ruimtelijke functies kunnen worden gebruikt om uit te voeren van de service-query's op ruimtelijke gegevens. Bijvoorbeeld, als volgt een query waarmee alle familie documenten die binnen 30 kilometer van de opgegeven locatie met behulp van de ingebouwde functie ST_DISTANCE retourneert. 
+Ruimtelijke functies kunnen worden gebruikt om nabijheidsquery's uit te voeren op ruimtelijke gegevens. Bijvoorbeeld, als volgt een query waarmee alle familie documenten die binnen 30 kilometer van de opgegeven locatie met behulp van de ingebouwde functie ST_DISTANCE retourneert. 
 
 **Query**
 

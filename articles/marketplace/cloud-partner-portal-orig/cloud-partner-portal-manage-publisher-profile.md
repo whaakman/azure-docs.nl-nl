@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 16e3e73e00af1cc6c2c531575345f12c288f1b69
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853690"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832680"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>'Azure Marketplace' en 'AppSource' uitgeverprofiel beheren
 
@@ -27,7 +27,7 @@ Dit document is een stapsgewijze instructies voor het weergeven en beheren van g
 
 Op dit moment zijn opgelost, kunt u de stappen om te worden van een uitgever Azure Marketplace en AppSource hebt voltooid. Het uitgeverprofiel is geregistreerd op de **[Cloud Partner-Portal](https://cloudpartner.azure.com/)** goedkeuring van uw partner-aanvraag te volgen. Uw uitgeverprofiel van toepassing op alle aanbiedingen en SKU's van het account dat wordt gebruikt tijdens de registratie van de partner gepubliceerd.
 
-Als u uw bedrijf nog niet hebt geregistreerd als een cloudpartner, Zie [aan de slag met de cloud partner-portal](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal).
+Als u uw bedrijf nog niet hebt geregistreerd als een cloudpartner, Zie [aan de slag met de cloud partner-portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
 **Uitgeverprofiel**: uw uitgeverprofiel onderscheidt van uw bedrijf op de Azure Marketplace en AppSource. Deze bestaat uit uw uitgevers-ID, de weergavenaam en de eigenaar email(s). Een goed beheerde profiel wordt uw zichtbaarheid verbeteren en kunnen gebruikers marketplace eenvoudig identificeren en selecteren van een juiste aanbieding.
 

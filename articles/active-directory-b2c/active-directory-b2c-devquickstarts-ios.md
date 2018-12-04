@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9f475c7bc373afd8a109873908bb583bc07708f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722544"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842269"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Meld u aan met een iOS-toepassing
 
@@ -39,7 +39,7 @@ Vervolgens maakt u een app in uw B2C-directory. De app-registratie biedt Azure A
 * Instellen van een **omleidings-URI** met een aangepast schema (bijvoorbeeld com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). U hebt deze URI later nodig.
 
 ## <a name="create-your-user-flows"></a>Uw gebruikersstromen maken
-In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md). Deze app bevat één identity-ervaring: een gecombineerde aanmelding en om te registreren. Deze gebruikersstroom maken zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u de gebruikersstroom maakt, moet u naar:
+In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md). Deze app bevat één identity-ervaring: een gecombineerde aanmelding en om te registreren. Deze gebruikersstroom maken zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Wanneer u de gebruikersstroom maakt, moet u naar:
 
 * Onder **registratiekenmerken**, selecteert u het kenmerk **weergavenaam**.  U kunt ook andere kenmerken selecteren.
 * Onder **toepassingsclaims**, selecteert u de claims **weergavenaam** en **Object-ID van gebruiker**. U kunt ook andere claims kiezen.

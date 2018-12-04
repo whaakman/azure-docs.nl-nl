@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c29d054f2e4e9ff4b57785a57e5c6ea512623a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448169"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Zelfstudie: Azure Active Directory-integratie met perceptie Verenigde Staten (niet-UltiPro)
 
@@ -60,7 +60,7 @@ Als u wilt de integratie van perceptie Verenigde Staten (niet-UltiPro) in Azure 
 
 **Als u wilt toevoegen perceptie Verenigde Staten (niet-UltiPro) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -209,7 +209,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Maak een testgebruiker perceptie Verenigde Staten (niet-UltiPro)
 
-In deze sectie maakt u een gebruiker met de naam Britta Simon in perceptie Verenigde Staten (niet-UltiPro). Werken met [perceptie Verenigde Staten (niet-UltiPro)-ondersteuningsteam](http://www.ultimatesoftware.com/Contact/ContactUs) om toe te voegen de gebruikers in het platform, Perception Verenigde Staten (niet-UltiPro).
+In deze sectie maakt u een gebruiker met de naam Britta Simon in perceptie Verenigde Staten (niet-UltiPro). Werken met [perceptie Verenigde Staten (niet-UltiPro)-ondersteuningsteam](https://www.ultimatesoftware.com/Contact/ContactUs) om toe te voegen de gebruikers in het platform, Perception Verenigde Staten (niet-UltiPro).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

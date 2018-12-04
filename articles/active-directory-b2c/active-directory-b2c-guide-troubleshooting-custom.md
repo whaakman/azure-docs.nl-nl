@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024582"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842591"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Problemen oplossen met Azure AD B2C aangepaste beleidsregels en Identity-Ervaringsframework
 
@@ -60,7 +60,7 @@ Fout-fragment: `Reason: User is currently logged as a user of 'yourtenant.onmicr
     * Web-App/Web-API: Nee
     * Systeemeigen client: Nee
 
-* Als u wilt traceren de uitwisseling van berichten tussen de clientbrowser en de Azure AD B2C, gebruikt u [Fiddler](http://www.telerik.com/fiddler). U kunt een indicatie van waar de gebruikersbeleving is mislukt in uw indelingsstappen ophalen.
+* Als u wilt traceren de uitwisseling van berichten tussen de clientbrowser en de Azure AD B2C, gebruikt u [Fiddler](https://www.telerik.com/fiddler). U kunt een indicatie van waar de gebruikersbeleving is mislukt in uw indelingsstappen ophalen.
 
 * In **Ontwikkelingsmodus**, gebruikt u **Application Insights** traceren van de activiteit van de gebruikersbeleving Identiteitservaring-Framework. In **Ontwikkelingsmodus**, ziet u de uitwisseling van claims tussen de Identiteitservaring-Framework en de verschillende claimproviders die zijn gedefinieerd door technische profielen, zoals id-providers, op basis van API-services, de Azure AD B2C-map voor gebruiker, en andere services, zoals Azure meerdere meervoudige verificatie.  
 

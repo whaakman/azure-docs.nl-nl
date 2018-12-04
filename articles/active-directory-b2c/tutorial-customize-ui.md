@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581796"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842676"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Zelfstudie: De gebruikersinterface van uw toepassingen in Azure Active Directory B2C aanpassen
 
-Voor meer algemene gebruikerservaringen, zoals registratie, aanmelding en profielbewerking, kunt u [ingebouwde beleidsregels](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. De informatie in deze zelfstudie helpt u om te leren hoe u [aanpassen van de gebruikersinterface (UI)](customize-ui-overview.md) van deze ervaringen met behulp van uw eigen HTML en CSS-bestanden.
+Voor meer algemene gebruikerservaringen, zoals registratie, aanmelding en profielbewerking, kunt u [gebruikersstromen](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. De informatie in deze zelfstudie helpt u om te leren hoe u [aanpassen van de gebruikersinterface (UI)](customize-ui-overview.md) van deze ervaringen met behulp van uw eigen HTML en CSS-bestanden.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * UI-aanpassing-bestanden maken
-> * Meld u aan en meld u beleid maken dat gebruikmaakt van de bestanden
+> * Een zich kunnen registreren en aanmelden gebruikersstroom die gebruikmaakt van de bestanden maken
 > * De aangepaste gebruikersinterface testen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
@@ -61,7 +61,7 @@ Hoewel u kunt uw bestanden opslaan op veel manieren voor deze zelfstudie, u ze i
 
 ### <a name="enable-cors"></a>CORS inschakelen
 
- Azure AD B2C-code in een browser gebruikmaakt van een moderne en standard-benadering aangepaste inhoud laden vanuit een URL die u in een beleid opgeeft. Cross-origin resource sharing (CORS) kunt beperkte resources op een webpagina moet worden gevraagd uit andere domeinen.
+ Azure AD B2C-code in een browser gebruikmaakt van een moderne en standard-benadering aangepaste inhoud laden vanuit een URL die u in de gebruikersstroom van een opgeeft. Cross-origin resource sharing (CORS) kunt beperkte resources op een webpagina moet worden gevraagd uit andere domeinen.
 
 1. Selecteer in het menu **CORS**.
 2. Voor **oorsprongen toegestaan**, voer `https://your-tenant-name.b2clogin.com`. Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant. Bijvoorbeeld `https://fabrikam.b2clogin.com`. U moet alle kleine letters gebruiken bij het invoeren van de tenantnaam van uw.
@@ -137,9 +137,9 @@ In deze zelfstudie slaat u de bestanden die u in de storage-account hebt gemaakt
 4. Kopieer de URL voor het bestand dat u hebt geüpload voor het gebruik van later in de zelfstudie.
 5. Herhaal stap 3 en 4 voor de *style.css* bestand.
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>Maak een beleid voor registratie en aanmelding
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Een zich kunnen registreren en aanmelden gebruikersstroom maken
 
-Als u wilt de stappen in deze zelfstudie hebt voltooid, moet u een testtoepassing en een beleid voor registreren of aanmelden maken in Azure AD B2C. U kunt de beginselen beschreven in deze zelfstudie aan de andere gebruikerservaringen, zoals het bewerken van profielen toepassen.
+Als u wilt de stappen in deze zelfstudie hebt voltooid, moet u een stroom van de toepassing en meld u aan of aanmelden gebruiker test maken in Azure AD B2C. U kunt de beginselen beschreven in deze zelfstudie aan de andere gebruikerservaringen, zoals het bewerken van profielen toepassen.
 
 ### <a name="create-an-azure-ad-b2c-application"></a>Een Azure AD B2C-toepassing maken
 
@@ -153,29 +153,34 @@ Communicatie met Azure AD B2C vindt plaats via een toepassing die u in uw tenant
 6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
 7. Klik op **Create**.
 
-### <a name="create-the-policy"></a>Het beleid maken
+### <a name="create-the-user-flow"></a>De gebruikersstroom maken
 
-Als u wilt testen van uw aanpassingsbestanden, maakt u een ingebouwde beleid registreren of aanmelden, die gebruikmaakt van de toepassing die u eerder hebt gemaakt.
+Als u wilt testen van uw aanpassingsbestanden, maakt u een ingebouwde registreren of aanmelden gebruiker-stroom die gebruikmaakt van de toepassing die u eerder hebt gemaakt.
 
-1. Selecteer in uw Azure AD B2C-tenant, **beleid voor registreren of aanmelden**, en klik vervolgens op **toevoegen**.
-2. Voer een naam voor het beleid. Bijvoorbeeld, *signup_signin*. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam als het beleid is gemaakt.
-3. Selecteer **id-providers**, stel **registratie via E-mail** voor een lokale account, en klik vervolgens op **OK**.
-4. Selecteer **registratiekenmerken**, kiest u de kenmerken die u wenst te verzamelen van de klant tijdens de registratie. Bijvoorbeeld, stel **land/regio**, **weergavenaam**, en **postcode**, en klik vervolgens op **OK**.
-5. Selecteer **toepassingsclaims**, kies de claims die u laten retourneren in de autorisatietokens die is verzonden naar de toepassing na een geslaagde registratie- of aanmelden wilt. Selecteer bijvoorbeeld **weergavenaam**, **id-Provider**, **postcode**, **gebruiker is nieuw** en **Object-ID van gebruiker** , en klik vervolgens op **OK**.
-6. Selecteer **Page UI-aanpassing**, selecteer **Unified registreren of aanmelden pagina**, en klik op **Ja** voor **gebruik aangepaste pagina**.
-7. In **aangepaste pagina URI**, voert u de URL voor de *aangepaste ui.html* -bestand dat u eerder hebt genoteerd en klik vervolgens op **OK**.
-8. Klik op **Create**.
+1. Selecteer in uw Azure AD B2C-tenant, **gebruikersstromen**, en klik vervolgens op **nieuwe gebruikersstroom**.
+2. Op de **aanbevolen** tabblad **aanmelden en aanmelden**.
+3. Voer een naam voor de gebruikersstroom. Bijvoorbeeld, *signup_signin*. Het voorvoegsel *B2C_1* wordt automatisch toegevoegd aan de naam van de wanneer de gebruikersstroom wordt gemaakt.
+4. Onder **id-providers**, selecteer **registratie via E-mail**.
+5. Onder **gebruikerskenmerken en claims**, klikt u op **meer weergeven**.
+6. In de **verzamelen kenmerk** kolom, kiest u de kenmerken die u wenst te verzamelen van de klant tijdens de registratie. Bijvoorbeeld, stel **land/regio**, **weergavenaam**, en **postcode**.
+7. In de **geretourneerde claim** kolom, kies de claims die u laten retourneren in de autorisatietokens die is verzonden naar de toepassing na een geslaagde registratie- of aanmelden wilt. Selecteer bijvoorbeeld **Weergavenaam**, **Id-provider**, **Postcode**, **Gebruiker is nieuw** en **Object-id van gebruiker**.
+8. Klik op **OK**.
+9. Klik op **Create**.
+10. Onder **aanpassen**, selecteer **pagina-indelingen**. Selecteer **Unified registreren of aanmelden pagina**, en klik op **Ja** voor **aangepaste pagina-inhoud gebruiken**.
+11. In **aangepaste pagina URI**, voert u de URL voor de *aangepaste ui.html* -bestand dat u eerder hebt genoteerd.
+12. Aan de bovenkant van de pagina, klikt u op **opslaan**.
 
-## <a name="test-the-policy"></a>Het beleid testen
+## <a name="test-the-user-flow"></a>De gebruikersstroom testen
 
-1. Selecteer in uw Azure AD B2C-tenant, **beleid voor registreren of aanmelden**, en selecteer vervolgens het beleid dat u hebt gemaakt. Bijvoorbeeld, *B2C_1_signup_signin*.
-2. Zorg ervoor dat de toepassing die u hebt gemaakt is geselecteerd **toepassing selecteren**, en klik vervolgens op **nu uitvoeren**.
+1. Selecteer in uw Azure AD B2C-tenant, **gebruikersstromen** en selecteert u de gebruikersstroom die u hebt gemaakt. Bijvoorbeeld, *B2C_1_signup_signin*.
+2. Aan de bovenkant van de pagina, klikt u op **gebruikersstroom uitvoeren**.
+3. Klik op de **gebruikersstroom uitvoeren** knop.
 
-    ![Uitvoeren van het beleid voor registreren of aanmelden](./media/tutorial-customize-ui/signup-signin.png)
+    ![De gebruikersstroom registreren of aanmelden uitvoeren](./media/tutorial-customize-ui/run-user-flow.png)
 
     U ziet een pagina zoals in het volgende voorbeeld met de elementen die zijn gericht op basis van het CSS-bestand dat u hebt gemaakt:
 
-    ![Resultaten van Groepsbeleid](./media/tutorial-customize-ui/run-now.png) 
+    ![Gebruiker stroom resultaten](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -183,7 +188,7 @@ In dit artikel hebt u geleerd hoe u:
 
 > [!div class="checklist"]
 > * UI-aanpassing-bestanden maken
-> * Meld u aan en meld u beleid maken dat gebruikmaakt van de bestanden
+> * Een zich kunnen registreren en aanmelden gebruikersstroom die gebruikmaakt van de bestanden maken
 > * De aangepaste gebruikersinterface testen
 
 > [!div class="nextstepaction"]

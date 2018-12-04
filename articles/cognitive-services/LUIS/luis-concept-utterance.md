@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 1f86631d75ceec5fc013c21f74f03b9157c78b4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638068"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836454"
 ---
 # <a name="utterances-in-luis"></a>Uitingen in LUIS
 
@@ -55,6 +55,10 @@ In elke herhaling van het model, Voeg een grote hoeveelheid uitingen niet. Utter
 LUIS bouwt effectieve modellen met uitingen die goed zijn geselecteerd. Te veel uitingen toevoegen is geen waardevolle omdat het verwarring leidt.  
 
 Het is beter om te beginnen met een paar uitingen vervolgens [eindpunt uitingen bekijken](luis-how-to-review-endoint-utt.md) voor het juiste intentie voorspelling en entiteit ophalen.
+
+## <a name="punctuation-marks"></a>Leestekens
+
+LUIS negeren niet leestekens, standaard, omdat sommige clienttoepassingen betekenis op deze markeringen kunnen plaatsen. Zorg ervoor dat uw voorbeeld-uitingen gebruikt zowel interpunctie en geen interpunctie in volgorde voor beide stijlen naar de dezelfde relatieve scores. Als er interpunctie is geen specifieke betekenis in uw clienttoepassing, kunt u overwegen [wordt genegeerd interpunctie](#ignoring-words-and-punctuation) met behulp van patronen. 
 
 ## <a name="ignoring-words-and-punctuation"></a>Woorden en leestekens worden genegeerd
 Als u wilt dat specifieke woorden of de interpunctieteken in het voorbeeld utterance negeren, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de _negeren_ syntaxis. 

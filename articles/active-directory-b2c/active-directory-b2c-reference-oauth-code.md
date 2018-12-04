@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f39efcbc051bf57ab350357b020039eddd0f7c18
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c6d976869f2a068c393a643bb97cae2f7ac1a470
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720775"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843186"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
 U kunt de OAuth 2.0-autorisatiecode verlenen in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, kunt u registratie, aanmelding toevoegen en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een open source-bibliotheken.
 
-De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). U kunt deze gebruiken voor verificatie en autorisatie in de meeste [toepassingstypen](active-directory-b2c-apps.md), met inbegrip van webtoepassingen en systeemeigen geïnstalleerde toepassingen. U kunt de OAuth 2.0-autorisatiecodestroom veilig toegangstokens verkrijgen en vernieuwen van tokens voor uw toepassingen, die kunnen worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md).  Het vernieuwingstoken dat kan de client en nieuwe toegang verkrijgen (vernieuwen) tokens wanneer het toegangstoken is verlopen, doorgaans na een uur.
+De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749). U kunt deze gebruiken voor verificatie en autorisatie in de meeste [toepassingstypen](active-directory-b2c-apps.md), met inbegrip van webtoepassingen en systeemeigen geïnstalleerde toepassingen. U kunt de OAuth 2.0-autorisatiecodestroom veilig toegangstokens verkrijgen en vernieuwen van tokens voor uw toepassingen, die kunnen worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md).  Het vernieuwingstoken dat kan de client en nieuwe toegang verkrijgen (vernieuwen) tokens wanneer het toegangstoken is verlopen, doorgaans na een uur.
 
 In dit artikel is gericht op de **openbare clients** OAuth 2.0-autorisatiecodestroom. Een openbare client is elke clienttoepassing die niet kan vertrouwd worden voor de integriteit van een wachtwoord voor het toepassingsgeheim veilig te houden. Dit omvat mobiele apps, bureaubladtoepassingen en in wezen elke toepassing die wordt uitgevoerd op een apparaat en moet toegangstokens te verkrijgen. 
 

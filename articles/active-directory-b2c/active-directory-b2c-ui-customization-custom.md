@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583446"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833938"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -31,7 +31,7 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels](active-directory-b
 
 U kunt het uiterlijk van een aangepast beleid aanpassen met behulp van de pagina-functie voor het aanpassen van de gebruikersinterface. U kunt er ook voor zorgen dat er visuele en merkconsistentie is tussen uw toepassing en Azure AD B2C.
 
-Hoe het werkt als volgt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en geeft vervolgens de pagina weer aan de klant.
+Hoe het werkt als volgt: Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). U kunt eerst een URL opgeven in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C combineert elementen van de gebruikersinterface met de HTML-inhoud die vanaf de URL wordt geladen en geeft vervolgens de pagina weer aan de klant.
 
 ## <a name="create-your-html5-content"></a>Uw HTML5 inhoud maken
 
@@ -111,7 +111,7 @@ Blob-opslag configureren voor het delen van Cross-Origin-Resource door het volge
 
 Valideren dat u klaar bent, door het volgende te doen:
 
-1. Ga naar de [www.test-cors.org](http://www.test-cors.org/) website, en plak de URL in de **externe URL** vak.
+1. Ga naar de [www.test-cors.org](https://www.test-cors.org/) website, en plak de URL in de **externe URL** vak.
 2. Klik op **aanvraag verzenden**.  
     Als u een foutbericht ontvangt, controleert u of uw [CORS-instellingen](#configure-cors) juist zijn. Mogelijk moet u ook uw browsercache wissen of een InPrivate-browsersessie openen door op Ctrl + Shift + P te drukken.
 

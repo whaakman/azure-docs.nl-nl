@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628991"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834635"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indexeren in Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Projectie van items in een container als JSON-documenten en vertegenwoordigen al
 
 Een pseudo-hoofdknooppunt wordt gemaakt als de werkelijke knooppunten die overeenkomen met de labels in het document onder een bovenliggend element. De geneste gegevensstructuren station de hiërarchie in de structuur. Tussenliggende kunstmatige knooppunten met het label met numerieke waarden (bijvoorbeeld 0, 1,...) worden gebruikt voor de vertegenwoordiging van opsommingen en matrix van indexen.
 
-## <a name="index-paths"></a>Index paden
+## <a name="index-paths"></a>Indexpaden
 
 Azure Cosmos DB-projecten items als JSON-documenten en index als structuren. Vervolgens kunt u aan het beleid voor paden in de structuur afstemmen. U kunt opnemen in of paden uitsluiten van het indexeren. Dit kan bieden verbeterde schrijfprestaties en verlaag de indexopslag voor scenario's waarbij de querypatronen vooruit bekend. Zie voor meer informatie, [Index paden](index-paths.md).
 
@@ -59,6 +59,6 @@ Voor een bereikquery is GermanTax een door de gebruiker gedefinieerde functie ui
 Meer informatie over het indexeren in de volgende artikelen:
 
 - [Indexeringsbeleid](index-policy.md)
-- [Index-typen](index-types.md)
-- [Index paden](index-paths.md)
+- [Indextypen](index-types.md)
+- [Indexpaden](index-paths.md)
 - [Indexeringsbeleid beheren](how-to-manage-indexing-policy.md)

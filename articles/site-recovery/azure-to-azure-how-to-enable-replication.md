@@ -6,14 +6,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e73659dca034c0333a73786788c8f342b57598da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 797cef2d3a0e2cfeb28411c30a7da8a5b6f2d953
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314661"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834516"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Virtuele Azure-machines repliceren naar een andere Azure-regio
 
@@ -53,13 +53,13 @@ Replicatie inschakelen. Deze procedure wordt ervan uitgegaan dat de primaire Azu
     - **Doelopslagaccounts (als de bron-VM maakt geen gebruik van schijven beheerde)**: Site Recovery maakt standaard een nieuw doel-opslagaccount mimicking de opslagconfiguratie van de bron-VM. In het geval er bestaat al een storage-account, wordt dit opnieuw gebruikt.
     - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt nieuwe beheerde replicaschijven in de doelregio voor het spiegelen van beheerde schijven van de bron-VM met hetzelfde opslagtype (Standard of premium) als de bron-VM van schijf beheerde.
     - **Storage-accounts in de cache**: Site Recovery moet extra opslagaccount met de naam cacheopslag in de bronregio. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache-opslagaccount voor het repliceren van die naar de doellocatie.
-    - **Doelbeschikbaarheidssets**: Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met het achtervoegsel 'asr' voor de virtuele machines die deel uitmaken van een beschikbaarheidsset in de regio van de gegevensbron met de naam. In het geval beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
-    - **Doel van de beschikbaarheidszones**: standaard, Site Recovery de dezelfde zone-nummer als de regio van de gegevensbron in de doelregio toegewezen als de doelregio ondersteuning voor beschikbaarheidszones biedt.
+    - **Doelbeschikbaarheidssets**: in Azure Site Recovery wordt standaard een nieuwe beschikbaarheidsset gemaakt in de doelregio, met een naam die eindigt op 'asr' voor het VM-gedeelte van een beschikbaarheidsset in de bronregio. Als de beschikbaarheidsset die wordt gemaakt met Azure Site Recovery, al bestaat, wordt deze opnieuw gebruikt.
+    - **Doelbeschikbaarheidszones**: in Site Recovery wordt standaard hetzelfde zonenummer toegewezen als de bronregio in de doelregio, als de doelregio ondersteuning biedt voor beschikbaarheidszones.
 
-    Als de doelregio biedt geen ondersteuning voor beschikbaarheidszones, worden de doel-VM's standaard geconfigureerd als één instanties. Indien nodig, kunt u deze virtuele machines als onderdeel van beschikbaarheidssets in de doelregio door te klikken op 'Aanpassen' kunt configureren.
+    Als de doelregio geen ondersteuning biedt voor beschikbaarheidszones, worden de doel-VM's standaard geconfigureerd als enkele exemplaren. Indien vereist, kunt u dergelijke VM's configureren als onderdeel van beschikbaarheidssets in de doelregio door op Aanpassen te klikken.
 
     >[!NOTE]
-    >U kunt de beschikbaarheid-type - één exemplaar, instellen of beschikbaarheid beschikbaarheidszone, niet wijzigen nadat u replicatie inschakelt. U moet uitschakelen en inschakelen van replicatie om het type van de beschikbaarheid te wijzigen.
+    >Nadat u replicatie hebt ingeschakeld, kunt u het type beschikbaarheid - enkel exemplaar, beschikbaarheidsset of beschikbaarheidszone - niet meer wijzigen. Als u het type beschikbaarheid wilt wijzigen, moet u replicatie uitschakelen en opnieuw inschakelen.
     >
     
     - **Beleid voor wachtwoordreplicatie**: Hiermee worden de instellingen voor recovery point bewaren geschiedenis en de app de momentopnamefrequentie gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van 24 uur voor de bewaarperiode voor herstelpunten en ' 60 minuten voor de frequentie voor app-consistente momentopname te maken.

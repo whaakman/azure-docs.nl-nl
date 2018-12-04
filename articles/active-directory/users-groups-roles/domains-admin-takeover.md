@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250730"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837168"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
 Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
@@ -108,7 +108,11 @@ Voor [RMS voor personen](/azure/information-protection/rms-for-individuals), wan
 
 De sleutel en -sjablonen zijn niet verplaatst via wanneer het niet-beheerde tenant bevindt zich in een andere regio. De niet-beheerde tenant is bijvoorbeeld in Europa en de tenant die van jou is in Noord-Amerika. 
 
-Hoewel RMS voor personen is ontworpen ter ondersteuning van Azure AD-verificatie om te openen van beveiligde inhoud, niet te voorkomen dat gebruikers inhoud ook beveiligen. Als gebruikers inhoud met de RMS voor personen-abonnement beveiligen en de sleutel en -sjablonen niet via verplaatst zijn, wordt die inhoud niet toegankelijk nadat de domeinovername.    
+Hoewel RMS voor personen is ontworpen ter ondersteuning van Azure AD-verificatie om te openen van beveiligde inhoud, niet te voorkomen dat gebruikers inhoud ook beveiligen. Als gebruikers inhoud met de RMS voor personen-abonnement beveiligen en de sleutel en -sjablonen niet via verplaatst zijn, wordt die inhoud niet toegankelijk nadat de domeinovername.
+
+#### <a name="more-information-about-power-bi"></a>Meer informatie over Power BI
+
+Wanneer het uitvoeren van een externe, openbaar, Power BI-inhoud is die is gemaakt voordat de overname wordt geplaatst een [Power BI gearchiveerde werkruimte](/power-bi/service-admin-power-bi-archived-workspace). U moet alle inhoud die u wilt gebruiken in de nieuwe tenant handmatig migreren.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdlets voor de ForceTakeover-optie
 U ziet deze cmdlets gebruikt in [PowerShell-voorbeeld](#powershell-example).

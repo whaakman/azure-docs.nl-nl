@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bbf38d17f2f411fde240a67f6666953b275fb788
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: af2ecad79bef0889ca0d1e47171ebaf9777418ca
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642471"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833394"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de Weergaveontwerper in Log Analytics
-Met behulp van de Weergaveontwerper in [Azure Log Analytics](../../log-analytics/log-analytics-queries.md), kunt u tal van aangepaste weergaven maken in Azure portal kunt u visualiseren van gegevens in uw Log Analytics-werkruimte. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
+Met behulp van de Weergaveontwerper in [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), kunt u tal van aangepaste weergaven maken in Azure portal kunt u visualiseren van gegevens in uw Log Analytics-werkruimte. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
 
 Zie voor meer informatie over Designer bekijken:
 
@@ -42,7 +42,7 @@ De weergaven die u met de Weergaveontwerper maakt bevatten de elementen die word
 |:--- |:--- |
 | Tegels | Worden weergegeven in uw Log Analytics-werkruimte **overzicht** pagina. Elke tegel geeft een visueel overzicht van de aangepaste weergave vertegenwoordigt. Elk tegeltype biedt een andere visualisatie van uw records. U selecteert een tegel om een aangepaste weergave weer te geven. |
 | Aangepaste weergave | Weergegeven wanneer u een tegel selecteert. Elke weergave bevat een of meer onderdelen van de visualisatie. |
-| Visualisatie delen | Een visualisatie van gegevens in de Log Analytics-werkruimte op basis van een of meer presenteren [zoekopdrachten](../../log-analytics/log-analytics-queries.md). De meeste onderdelen zijn een koptekst, waarmee u een visualisatie op hoog niveau, en een lijst waarin de belangrijkste resultaten worden weergegeven. Elk onderdeeltype biedt een andere visualisatie van de records in de Log Analytics-werkruimte. U selecteren elementen in het gedeelte om uit te voeren van een logboekzoekopdracht die gedetailleerde records bevat. |
+| Visualisatie delen | Een visualisatie van gegevens in de Log Analytics-werkruimte op basis van een of meer presenteren [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md). De meeste onderdelen zijn een koptekst, waarmee u een visualisatie op hoog niveau, en een lijst waarin de belangrijkste resultaten worden weergegeven. Elk onderdeeltype biedt een andere visualisatie van de records in de Log Analytics-werkruimte. U selecteren elementen in het gedeelte om uit te voeren van een logboekzoekopdracht die gedetailleerde records bevat. |
 
 
 ## <a name="work-with-an-existing-view"></a>Werken met een bestaande weergave

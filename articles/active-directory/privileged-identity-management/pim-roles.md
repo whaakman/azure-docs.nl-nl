@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 531d19925d24930b6a2bd642a8ff0ec55bd6d16f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466044"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841571"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-maprollen die kunt u in PIM beheren
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -75,7 +75,7 @@ Toegang tot Microsoft Online Services mogelijk de gebruiker ook een licentie wor
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Een licentie toewijzen aan een gebruiker in Azure AD
 
-1. Aanmelden bij de [Azure-portal](http://portal.azure.com) met een rol globale beheerder of eigenaar.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een rol globale beheerder of eigenaar.
 
 1. Selecteer de Azure AD-directory die u wilt werken en die licenties die zijn gekoppeld aan deze heeft.
 
@@ -108,6 +108,6 @@ Toegang tot Microsoft Online Services mogelijk de gebruiker ook een licentie wor
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 
-- [PIM gebruiken](pim-getting-started.md)
+- [Beginnen met PIM](pim-getting-started.md)
 - [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
 

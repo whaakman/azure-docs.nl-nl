@@ -4,15 +4,15 @@ description: Bevat informatie over upgrades voor het Azure Migrate Collector-app
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/29/2018
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: cd48b824845a0195fc78814a88dd449507c99394
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241460"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836641"
 ---
 # <a name="collector-update-release-history"></a>Releasegeschiedenis van collector bijwerken
 
@@ -20,12 +20,18 @@ In dit artikel bevat een overzicht van de upgrade-informatie voor de Collector-a
 
 De Azure Migrate Collector is een lichtgewicht apparaat dat wordt gebruikt voor het detecteren van een on-premises vCenter-omgeving voor evaluatiedoeleinden vóór de migratie naar Azure. [Meer informatie](concepts-collector.md).
 
+## <a name="continuous-discovery-upgrade-versions"></a>Continue detectie: versies upgraden
 
-## <a name="one-time-discovery-upgrade-versions"></a>Eenmalige detectie: versies upgraden
+Geen upgrade voor het apparaat continue detectie is nog beschikbaar.
+
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Eenmalige discovery (nu afgeschaft): vorige versies van de upgrade
+
+> [!NOTE]
+> Het apparaat voor eenmalige detectie is beëindigd als deze methode op vCenter-statistieken-instellingen van de Server voor prestaties punt van beschikbaarheid van gegevens vertrouwen en die worden verzameld gemiddelde prestatiemeteritems, wat leidde tot te voorzichtige schalen van VM's voor migratie naar Azure.
 
 ### <a name="version-10916-released-on-10292018"></a>Versie 1.0.9.16 (uitgebracht op 29-10-2018)
 
-Bevat oplossingen voor problemen bij het instellen van het toestel PowerCLI. 
+Bevat oplossingen voor problemen bij het instellen van het toestel PowerCLI.
 
 Hash-waarden voor de upgrade [1.0.9.16 pakket](https://aka.ms/migrate/col/upgrade_9_16)
 
@@ -55,29 +61,6 @@ MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
-### <a name="version-10911"></a>Versie 1.0.9.11
-
-Hash-waarden voor de upgrade [1.0.9.11 pakket](https://aka.ms/migrate/col/upgrade_9_11)
-
-**Algoritme** | **Hash-waarde**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
-
-### <a name="version-1097"></a>Versie 1.0.9.7
-
-Hash-waarden voor de upgrade [pakket 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
-
-**Algoritme** | **Hash-waarde**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-## <a name="continuous-discovery-upgrade-versions"></a>Continue detectie: versies upgraden
-
-Geen upgrade voor het apparaat continue detectie is nog beschikbaar.
 
 ## <a name="run-an-upgrade"></a>Een upgrade uitvoert
 

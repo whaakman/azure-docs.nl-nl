@@ -4,15 +4,15 @@ description: Meer informatie over het instellen van replicatie en failover naar 
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 4e0ee7eca3c843df46ad1f4e92757c9bcc3755ff
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685732"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840196"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Herstel na noodgevallen van virtuele VMware-machines naar Azure met PowerShell instellen
 
@@ -94,7 +94,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Gebruik de gedownloade kluisregistratiesleutel en volg de stappen in de artikelen die onder aan de volledige installatie en registratie van de configuratieserver.
-   - [Uw beveiligingsdoelstellingen kiezen](vmware-azure-set-up-source.md#choose-protection-goals)
+   - [Uw beveiligingsdoelstellingen kiezen](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [De bronomgeving instellen](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>De kluiscontext instellen

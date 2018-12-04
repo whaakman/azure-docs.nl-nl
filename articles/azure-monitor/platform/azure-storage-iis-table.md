@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 78ce4a2bc61d5ab343710bae9f567e6d2b15b7db
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: df5c52de14368896f77e48ebfd4ba7e4b4f38b67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684976"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837676"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Azure blob storage gebruiken voor IIS en Azure table storage voor gebeurtenissen met Log Analytics
 
@@ -195,4 +195,4 @@ Controleer het volgende voorbeeldscript, kopieert u het zo nodig wijzigen, het v
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van Logboeken en metrische gegevens voor Azure-services](collect-azure-metrics-logs.md) voor ondersteunde Azure-services.
 * [Oplossingen inschakelen](../../azure-monitor/insights/solutions.md) om inzicht in de gegevens te bieden.
-* [Gebruik van zoekquery's](../../log-analytics/log-analytics-queries.md) om de gegevens te analyseren.
+* [Gebruik van zoekquery's](../../azure-monitor/log-query/log-query-overview.md) om de gegevens te analyseren.

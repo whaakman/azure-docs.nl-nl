@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2b811029e2cadcb89238375e8fe50160a58b0c62
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 7575d55f65598d39a8ffe0c3802cf11fa7470180
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52685011"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837780"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Computergroepen in Log Analytics-zoekopdrachten
 
-Computergroepen in Log Analytics kunnen u aan het bereik [zoekopdrachten](../../log-analytics/log-analytics-queries.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een zoeken in Logboeken, zijn de resultaten beperkt tot de records die voldoen aan de computers in de groep.
+Computergroepen in Log Analytics kunnen u aan het bereik [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een zoeken in Logboeken, zijn de resultaten beperkt tot de records die voldoen aan de computers in de groep.
 
 ## <a name="creating-a-computer-group"></a>Het maken van een computergroep
 U kunt een computergroep maken in Log Analytics met behulp van een van de methoden in de volgende tabel.  In de onderstaande secties vindt u meer informatie over elke methode. 
@@ -70,7 +70,7 @@ Configureren van Log Analytics voor het importeren van Active Directory-beveilig
 
 Wanneer groepen zijn geïmporteerd, wordt het menu geeft het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
 
-### <a name="windows-server-update-service"></a>Windows Server updateservice
+### <a name="windows-server-update-service"></a>Windows Server Update Service
 Als u Log Analytics configureren om WSUS-groepslidmaatschappen importeren, wordt het lidmaatschap van de toewijzing van alle computers met de Log Analytics-agent geanalyseerd.  Als u van client-side gebruikmaakt heeft doelen, elke computer die is verbonden met Log Analytics en maakt deel uit van een WSUS het groepslidmaatschap geïmporteerd naar Log Analytics die gericht is op groepen. Als u van server-side gebruikmaakt moet doelen, de Log Analytics agent worden geïnstalleerd op de WSUS-server om de gegevens van het groepslidmaatschap naar Log Analytics worden geïmporteerd.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur. 
 
 Configureren van Log Analytics voor het importeren van WSUS-groepen van Log Analytics **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen**, **WSUS**, en vervolgens **importeren WSUS-groepslidmaatschappen**.  Er is geen verdere configuratie nodig.
@@ -136,5 +136,5 @@ Een record wordt gemaakt in de werkruimte voor logboekanalyse voor elke computer
 | TimeGenerated |Datum en tijd groep op de computer is gemaakt of bijgewerkt. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 

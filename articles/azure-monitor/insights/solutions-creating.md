@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2c842efd6c66fd70bbac3969090b71c42c725545
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632463"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839633"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Ontwerpen en bouwen van een oplossing in Azure (Preview)
 > [!NOTE]
@@ -49,7 +49,7 @@ Er zijn een aantal manieren om gegevensbronnen die kunnen worden verzameld in de
 Als u gegevens die niet toegankelijk zijn via een van de beschikbare gegevensbronnen nodig hebt, dan kunt u de [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) waarmee u gegevens schrijven naar de Log Analytics-opslagplaats van een willekeurige client die een REST-API kunt aanroepen.  Aangepaste gegevensverzameling in een oplossing voor de meest voorkomende manier is het maken van een [runbook in Azure Automation](../../automation/automation-runbook-types.md) die de vereiste gegevens verzamelt van Azure of externe resources en de Collector-API gebruikt om te schrijven naar de opslagplaats.  
 
 ### <a name="log-searches"></a>Zoekopdrachten in Logboeken
-[Zoekopdrachten](../../log-analytics/log-analytics-queries.md) worden gebruikt om te extraheren en analyseren van gegevens in de Log Analytics-opslagplaats.  Ze worden gebruikt door weergaven en waarschuwingen naast de mogelijkheid van de gebruiker voor het uitvoeren van ad hoc-analyse van gegevens in de opslagplaats.  
+[Zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) worden gebruikt om te extraheren en analyseren van gegevens in de Log Analytics-opslagplaats.  Ze worden gebruikt door weergaven en waarschuwingen naast de mogelijkheid van de gebruiker voor het uitvoeren van ad hoc-analyse van gegevens in de opslagplaats.  
 
 U moet alle query's waarvan u denkt is handig om de gebruiker dat, zelfs als ze niet worden gebruikt door alle weergaven of waarschuwingen definiëren.  Deze worden weergegeven die voor hen beschikbaar als opgeslagen zoekopdrachten in de portal en u kunt ook opnemen in een [lijstquery's visualisatie onderdeel](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) in uw aangepaste weergave.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139506"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841622"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruikersbeleving met aangepast beleid aanpassen
 
@@ -31,7 +31,7 @@ Een naadloze gebruikerservaring is essentieel voor elke business-to-consumer-opl
 
 Azure AD B2C kunt u het uiterlijk-en-de werking van de gebruikerservaring (UX) op de verschillende pagina's die worden geleverd en worden weergegeven door Azure AD B2C aanpassen met behulp van uw aangepaste beleidsregels.
 
-Om die reden wordt Azure AD B2C wordt uitgevoerd de code in de browser van uw consumenten en maakt gebruik van de benadering van moderne en standard [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) aangepaste inhoud laden uit een specifieke URL die u in een aangepast beleid om te verwijzen opgeeft naar uw HTML5/CSS-sjablonen. CORS is een mechanisme waarmee beperkte resources, zoals lettertypen, op een webpagina worden aangevraagd vanuit een ander domein buiten het domein waaruit de bron afkomstig is.
+Om die reden wordt Azure AD B2C wordt uitgevoerd de code in de browser van uw consumenten en maakt gebruik van de benadering van moderne en standard [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) aangepaste inhoud laden uit een specifieke URL die u in een aangepast beleid om te verwijzen opgeeft naar uw HTML5/CSS-sjablonen. CORS is een mechanisme waarmee beperkte resources, zoals lettertypen, op een webpagina worden aangevraagd vanuit een ander domein buiten het domein waaruit de bron afkomstig is.
 
 In vergelijking met de oude traditionele methode, waarbij sjabloon pagina's zijn eigendom van de oplossing waar u beperkte tekst en afbeeldingen hebt opgegeven, waarbij beperkte beheermogelijkheden van indeling en u is aangeboden leiden tot meer dan problemen bij het realiseren van een naadloze ervaring, de CORS-manier biedt ondersteuning voor HTML5- en CSS- en kunt u naar:
 
@@ -69,10 +69,10 @@ Om ervoor te zorgen dat alles werkt zoals verwacht, moet u:
 - Gebruik de absolute URL's, zoals https://yourdomain/content voor alle koppelingen en CSS-inhoud.
 
 > [!TIP]
-> Controleer of de site die u bij het hosten van uw inhoud op heeft CORS is ingeschakeld en testen van CORS-aanvragen, kunt u de site http://test-cors.org/. Dankzij deze site, kunt u de CORS-aanvraag verzenden naar een externe server (om te testen, als u CORS wordt ondersteund) of de CORS-aanvraag verzenden naar een testserver (voor bepaalde functies van CORS verkennen).
+> Controleer of de site die u bij het hosten van uw inhoud op heeft CORS is ingeschakeld en testen van CORS-aanvragen, kunt u de site https://test-cors.org/. Dankzij deze site, kunt u de CORS-aanvraag verzenden naar een externe server (om te testen, als u CORS wordt ondersteund) of de CORS-aanvraag verzenden naar een testserver (voor bepaalde functies van CORS verkennen).
 
 > [!TIP]
-> De site http://enable-cors.org/ ook vormt een meer dan nuttige informatiebronnen voor CORS.
+> De site https://enable-cors.org/ ook vormt een meer dan nuttige informatiebronnen voor CORS.
 
 Dankzij deze benadering CORS op basis van de eindgebruikers beschikken over consistente ervaring tussen uw toepassing en de pagina's bediend door Azure AD B2C.
 
@@ -120,7 +120,7 @@ CORS (Cross-Origin Resource Sharing) moet zijn ingeschakeld op uw eindpunt voor 
 Om te controleren of de opslag die u bij het hosten van uw inhoud op CORS ingeschakeld heeft, gaat u verder met de volgende stappen uit:
 
 1. Open een browsersessie en navigeer naar de pagina *unified.html* met behulp van de volledige URL van de locatie in uw opslagaccount `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Bijvoorbeeld https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Navigeer naar http://test-cors.org. Deze site kunt u controleren of de pagina die u met CORS ingeschakeld heeft.  
+2. Navigeer naar https://test-cors.org. Deze site kunt u controleren of de pagina die u met CORS ingeschakeld heeft.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

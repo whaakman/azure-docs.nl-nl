@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/28/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5a542ae23bf500125fd08338b2efd30dd42d9a8d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241188"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840908"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -20,38 +20,28 @@ ms.locfileid: "50241188"
 
 De Azure Migrate Collector is een lichtgewicht apparaat die kan worden gebruikt voor het detecteren van een on-premises vCenter-omgeving voor evaluatiedoeleinden met de [Azure Migrate](migrate-overview.md) service vóór de migratie naar Azure.  
 
-## <a name="discovery-methods"></a>Detectiemethoden
+## <a name="discovery-method"></a>Detectiemethode
 
-Er zijn twee opties voor de Collector-apparaat, eenmalige detectie of continue detectie.
+Eerder waren er twee opties voor de collector-apparaat, detectie van eenmalige en continue detectie. Het model eenmalige detectie is beëindigd omdat het vertrouwen op de vCenter-Server-instellingen voor statistieken voor verzameling van prestatiegegevens (vereist statistieken instellingen moet worden ingesteld op niveau 3) en ook verzameld gemiddelde items (in plaats van piekuren), wat leidde tot te voorzichtige grootte. Het model continue detectie zorgt ervoor dat het verzamelen van gedetailleerde gegevens en resulteert in een nauwkeurige schaling vanwege verzameling piek-items. Hieronder ziet u hoe het werkt:
 
-### <a name="one-time-discovery"></a>Eenmalige detectie
+Het collector-apparaat continu is verbonden met het Azure Migrate-project en continu verzamelt prestatiegegevens van virtuele machines.
 
-Het Collector-apparaat communiceert via een eenmalig met vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Met behulp van deze methode:
-
-- Het apparaat is niet altijd verbonden zijn aan het project Azure Migrate.
-- Wijzigingen in de on-premises-omgeving worden niet weergegeven in Azure Migrate wanneer de detectie is voltooid. Als gevolg van eventuele wijzigingen, moet u dezelfde omgeving in hetzelfde project opnieuw te detecteren.
-- Het apparaat tijdens het verzamelen van prestatiegegevens voor een virtuele machine, zijn afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server. Geschiedenis van geheugenprestaties worden verzameld voor de afgelopen maand.
-- Voor de verzameling van historische prestatiegegevens moet u de instellingen voor statistieken in vCenter-Server op niveau 3 ingesteld. Na het instellen van het niveau van de drie, moet u wachten op ten minste een dag voor vCenter voor het verzamelen van prestatiemeteritems. Daarom aangeraden de detectie uit te voeren na ten minste een dag. Als u beoordelen van de omgeving op basis van prestatiegegevens van 1 week of één maand wilt, moet u wachten dienovereenkomstig.
-- In deze detectiemethode, Azure Migrate gemiddelde tellers voor elke metrische gegevens (in plaats piektellers) die leiden te voorzichtige sizing tot kunnen verzamelt. U wordt aangeraden dat u de continue detectieoptie gebruiken om op te halen meer nauwkeurige resultaten formaat.
-
-### <a name="continuous-discovery"></a>Continue detectie
-
-Het Collector-apparaat continu is verbonden met het Azure Migrate-project en continu verzamelt prestatiegegevens van virtuele machines.
-
-- De Collector profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime elke 20 seconden.
+- De collector profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime elke 20 seconden.
 - Het toestel totaliseert de voorbeelden 20 seconden en maakt u één gegevenspunt om de 15 minuten.
 - Punt het apparaat de hoogste waarde selecteert in de voorbeelden 20 seconden en verzendt dit naar Azure te maken van de gegevens.
 - Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
 - U kunt stoppen continue profilering op elk gewenst moment van de Collector.
 
-Houd er rekening mee dat het apparaat alleen continu prestatiegegevens verzamelt, het detecteert niet elke configuratiewijziging in de on-premises omgeving (dat wil zeggen het toevoegen/verwijderen van VM’s, toevoegen van schijven, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
+**Direct resultaat:** met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat de verzameling van prestatiegegevens wordt gestart wanneer u detectie, een vliegende start als u direct resultaat zoekt, moet u het criterium voor het instellen in de evaluatie als *zoals on-premises*. Voor beoordelingen op basis van prestaties, is het raadzaam om te wachten op ten minste een dag na de detectie voor betrouwbare aanbevolen groottes begon.
+
+Alleen verzamelt prestatiegegevens continu het toestel, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
 - Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
 - Verwijderen van VM’s: vanwege de manier waarop het apparaat is ontworpen, wordt het verwijderen van VM’s niet doorgevoerd, zelfs niet als u de detectie stopt en opnieuw start. Dit komt doordat gegevens uit volgende detecties worden toegevoegd aan de oudere detecties en niet worden overschreven. In dit geval kunt u eenvoudigweg de VM in de portal negeren door deze uit uw groep te verwijderen en de evaluatie opnieuw te berekenen.
 
 > [!NOTE]
-> De functionaliteit van continue detectie is in preview. We raden u aan deze methode te gebruiken, aangezien met deze methode gedetailleerde prestatiegegevens worden verzameld, wat leidt tot een precieze groottebepaling.
+> Het apparaat voor eenmalige detectie is beëindigd als deze methode op vCenter-statistieken-instellingen van de Server voor prestaties punt van beschikbaarheid van gegevens vertrouwen en die worden verzameld gemiddelde prestatiemeteritems, wat leidde tot te voorzichtige schalen van VM's voor migratie naar Azure.
 
 ## <a name="deploying-the-collector"></a>Implementatie van de Collector
 
@@ -211,7 +201,7 @@ Nadat het apparaat is ingesteld, kunt u de detectie kunt uitvoeren. Dit is hoe h
 
 ### <a name="collected-metadata"></a>Verzamelde metagegevens
 
-Het collector-apparaat detecteert de metagegevens van de volgende statische voor virtuele machines:
+Het collector-apparaat wordt de volgende metagegevens van de configuratie voor elke virtuele machine gedetecteerd. De configuratiegegevens voor de virtuele machines zijn beschikbaar een uur nadat u de detectie begint.
 
 - Naam van de virtuele machine weergegeven (op de vCenter-Server)
 - Pad van de inventaris van de virtuele machine (de host/map op de vCenter-Server)
@@ -224,26 +214,18 @@ Het collector-apparaat detecteert de metagegevens van de volgende statische voor
 
 #### <a name="performance-counters"></a>Prestatiemeteritems
 
-- **Eenmalige detectie**: als de prestatiemeteritems die worden verzameld voor de detectie van een eenmalige, Let op het volgende:
+ Het collector-apparaat verzamelt de volgende prestatiemeteritems voor elke virtuele machine van de ESXi-host met een interval van 20 seconden. Deze items zijn prestatiemeteritems van vCenter en hoewel de terminologie aangeeft dat deze gemiddelde, de voorbeelden 20 seconden real-time-prestatiemeteritems zijn. De prestatiegegevens voor de virtuele machines wordt gestart steeds beschikbaar in de portal twee uur nadat u de detectie hebt gestart. Het is raadzaam om te wachten op ten minste een dag voor het maken van beoordelingen op basis van prestaties om nauwkeurige juiste formaat aanbevelingen te krijgen. Als u direct resultaat zoekt, kunt u evaluaties maken met het criterium voor het instellen als *zoals on-premises* die wordt geen rekening gehouden met de prestatiegegevens voor de juiste grootte.
 
-    - Het kan tot 15 minuten voor het verzamelen en verzenden van metagegevens van de configuratie aan het project op te nemen.
-    - Nadat gegevens zijn verzameld, dit kan een uur duren voor prestatiegegevens worden weergegeven in de portal.
-    - Nadat de metagegevens beschikbaar in de portal zijn, de lijst met virtuele machines wordt weergegeven en u kunt beginnen met het maken van groepen voor evaluatie.
-- **Continue detectie**: voor de detectie van continue, Let op het volgende:
-    - Configuratiegegevens voor de virtuele machine kan een uur nadat u detectie starten
-    - Prestatiegegevens begint wordt beschikbaar na twee uur.
-    - Nadat u een detectie gestart, wacht u ten minste een dag voor het apparaat aan het profiel van de omgeving, voordat u een evaluatie maken.
-
-**Teller** | **Niveau** | **Het niveau van per apparaat** | **Gevolgen voor de evaluatie**
---- | --- | --- | ---
-CPU.Usage.Average | 1 | N.v.t. | Aanbevolen VM-grootte en kosten  
-Mem.Usage.Average | 1 | N.v.t. | Aanbevolen VM-grootte en kosten  
-virtualDisk.read.average | 2 | 2 | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-virtualDisk.write.average | 2 | 2  | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-NET.Received.Average | 2 | 3 |  Berekent de VM-grootte                          |
-NET.transmitted.Average | 2 | 3 | Berekent de VM-grootte     
+**Teller** |  **Gevolgen voor de evaluatie**
+--- | ---
+CPU.Usage.Average | Aanbevolen VM-grootte en kosten  
+Mem.Usage.Average | Aanbevolen VM-grootte en kosten  
+virtualDisk.read.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+virtualDisk.write.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+virtualDisk.numberReadAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+virtualDisk.numberWriteAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+NET.Received.Average | Berekent de VM-grootte                          
+NET.transmitted.Average | Berekent de VM-grootte     
 
 ## <a name="next-steps"></a>Volgende stappen
 

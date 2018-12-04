@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 411ffd9479c3f686495de21b60ef0a811915c260
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624145"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834567"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 
@@ -58,9 +58,9 @@ Toegang krijgen tot de **gebruikers die zijn gemarkeerd voor risico's** rapporte
 
 Onderneem de volgende acties om de betreffende accounts te herstellen en uw omgeving te beveiligen:
 
-1.  [Valideren van de juiste gegevens](http://aka.ms/MFAValid) voor multi-factor authentication en Self-service voor wachtwoord opnieuw instellen. 
-2.  [Multi-factor authentication inschakelen](http://aka.ms/MFAuth) voor alle gebruikers. 
-3.  Gebruik deze [herstelscript](http://aka.ms/remediate) voor elk betrokken account automatisch de volgende stappen uitvoeren: 
+1.  [Valideren van de juiste gegevens](https://aka.ms/MFAValid) voor multi-factor authentication en Self-service voor wachtwoord opnieuw instellen. 
+2.  [Multi-factor authentication inschakelen](https://aka.ms/MFAuth) voor alle gebruikers. 
+3.  Gebruik deze [herstelscript](https://aka.ms/remediate) voor elk betrokken account automatisch de volgende stappen uitvoeren: 
 
     a. Wachtwoord opnieuw instellen om het account, beveiligen en actieve sessies beëindigen.
 
@@ -84,10 +84,10 @@ Onderneem de volgende acties om de betreffende accounts te herstellen en uw omge
 
 Daarnaast dient u:
 
-- Lees- en dit implementeren [richtlijnen over ongebruikelijke activiteiten](http://aka.ms/fixaccount). 
-- [Inschakelen van de pijplijn audit](http://aka.ms/improvesecurity) u helpen bij het analyseren van de activiteit in uw tenant. Als u klaar bent, wordt het auditarchief gevuld met activiteitenlogboeken. Op dit moment kunt u ook gebruikmaken van de [beveiligings- en Compliancecentrum van zoek- en onderzoeksfuncties resource](http://aka.ms/sccsearch). 
-- Gebruik deze [script voor het inschakelen van Postvakcontrole voor](http://aka.ms/mailboxaudit1) voor al uw accounts. 
-- Bekijk voor alle postvakken de machtigingen voor gemachtigden en de regels voor het doorsturen van e-mail. U kunt dit [PowerShell-script](http://aka.ms/delegateforwardrules) gebruiken om deze taak uit te voeren. 
+- Lees- en dit implementeren [richtlijnen over ongebruikelijke activiteiten](https://aka.ms/fixaccount). 
+- [Inschakelen van de pijplijn audit](https://aka.ms/improvesecurity) u helpen bij het analyseren van de activiteit in uw tenant. Als u klaar bent, wordt het auditarchief gevuld met activiteitenlogboeken. Op dit moment kunt u ook gebruikmaken van de [beveiligings- en Compliancecentrum van zoek- en onderzoeksfuncties resource](https://aka.ms/sccsearch). 
+- Gebruik deze [script voor het inschakelen van Postvakcontrole voor](https://aka.ms/mailboxaudit1) voor al uw accounts. 
+- Bekijk voor alle postvakken de machtigingen voor gemachtigden en de regels voor het doorsturen van e-mail. U kunt dit [PowerShell-script](https://aka.ms/delegateforwardrules) gebruiken om deze taak uit te voeren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

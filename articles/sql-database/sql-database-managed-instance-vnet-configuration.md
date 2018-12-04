@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fcceecbd933980d0ab751fd5e377bbf810b9502e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181161"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837627"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor het beheerde exemplaar van Azure SQL Database
 
@@ -66,6 +66,9 @@ Voor het maken van een beheerd exemplaar, maakt u een toegewezen subnet (de Mana
 |beheer  |80, 443, 12000|TCP     |Alle              |Alle        |Toestaan |
 |mi_subnet   |Alle           |Alle     |Alle              |MI-SUBNET  |Toestaan |
 
+  > [!Note]
+  > Hoewel de verplichte beveiligingsregels voor binnenkomend verkeer toestaan verkeer van _eventuele_ bron op poorten 9000, 9003, 1438, 1440, 1452 deze poorten worden beveiligd door ingebouwde firewall. Dit [artikel](sql-database-managed-instance-management-endpoint.md) laat zien hoe u IP-adres voor beheer-eindpunt detecteren en controleer of de firewall-regels. 
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>De grootte van het subnet voor beheerde instanties bepalen
 
 Wanneer u een beheerd exemplaar maakt, wijst Azure een aantal virtuele machines, afhankelijk van de laag die u hebt geselecteerd tijdens het inrichten. Omdat deze virtuele machines gekoppeld aan het subnet zijn, ze hebben IP-adressen nodig. Voor hoge beschikbaarheid tijdens normale bewerkingen en onderhoud van de service, kan Azure extra virtuele machines toewijzen. Als gevolg hiervan is het aantal vereiste IP-adressen in een subnet groter is dan het aantal beheerde exemplaren in dat subnet. 
@@ -73,7 +76,7 @@ Wanneer u een beheerd exemplaar maakt, wijst Azure een aantal virtuele machines,
 Standaard is een beheerd exemplaar moet minimaal 16 IP-adressen in een subnet, en mag maximaal 256 IP-adressen gebruiken. Als gevolg hiervan kunt u subnetmaskers /28-/24 bij het definiëren van uw subnet IP-adresbereiken. 
 
 > [!IMPORTANT]
-> Grootte van het gatewaysubnet met 16 IP-adressen is de minimumwaarde met beperkte mogelijkheden voor het verder beheerd exemplaar voor scale-out. Kiezen subnet met het voorvoegsel /27 of lager wordt sterk aanbevolen. 
+> Grootte van het gatewaysubnet met 16 IP-adressen is de minimumwaarde met beperkte mogelijkheden voor het verder beheerd exemplaar voor scale-out. Kiezen subnet met het voorvoegsel /27 of lager wordt sterk aanbevolen. 
 
 Als u van plan bent te implementeren van meerdere beheerde exemplaren binnen het subnet en wilt optimaliseren op de grootte van het gatewaysubnet, moet u deze parameters gebruiken om te vormen een berekening: 
 
@@ -84,7 +87,7 @@ Als u van plan bent te implementeren van meerdere beheerde exemplaren binnen het
 **Voorbeeld**: U van plan bent de drie algemene en twee bedrijven essentiële beheerde instanties. Dat betekent dat u moet 5 + 3 * 2 + 2 * 4 = 19 IP-adressen. Als het IP-adresbereiken zijn gedefinieerd in de macht van 2, moet u het IP-adresbereik van 32 (2 ^ 5) IP-adressen. Daarom moet u het subnet met het subnetmasker/27 reserveren. 
 
 > [!IMPORTANT]
-> Berekening die wordt weergegeven boven zijn verouderd met verdere verbeteringen. 
+> Berekening die wordt weergegeven boven zijn verouderd met verdere verbeteringen. 
 
 ## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Een nieuw virtueel netwerk maken voor een beheerd exemplaar
 

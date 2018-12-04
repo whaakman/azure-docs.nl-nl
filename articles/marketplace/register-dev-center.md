@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cc4e128cab3cad235462e29e65fa58002a103bcd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855898"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834822"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
@@ -171,7 +171,7 @@ De bank en btw-informatie is vereist voor alle commerciële aanbiedingen met beh
 > Ga naar 'Uw programma's ' (https://developer.microsoft.com/dashboard/Account/Programs) en meld u aan bij de Dev Center-account. Als u niet Azure als een geregistreerde programma ziet, kijk onder 'Aanbevolen programma's voor u' en zoek naar Azure om te selecteren "Aan de slag."
 
 *   **Hoe kan ik mijn Dev Center-account koppelen aan Mijn profiel van de uitgever Cloud Partner-Portal?**
-> De laatste stap voordat de publicatie is uw Dev Center-account koppelen aan uw Cloud Partner-Portal [profiel](https://cloudpartner.azure.com/#profile). Als uw Dev Center-account verschilt van uw account op [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers), uw Dev Center-account toevoegen als een nieuwe [gebruiker](https://cloudpartner.azure.com/#documentation/manage-users) in de Cloud Partner-Portal. Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers) met uw Dev Center-Account. Selecteer uitgeverprofiel in het menu zich in de rechterbovenhoek van uw webbrowser. Selecteer koppeling Dev Center-Account.
+> De laatste stap voordat de publicatie is uw Dev Center-account koppelen aan uw Cloud Partner-Portal [profiel](https://cloudpartner.azure.com/#profile). Als uw Dev Center-account verschilt van uw account op [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers), uw Dev Center-account toevoegen als een nieuwe [gebruiker](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) in de Cloud Partner-Portal. Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers) met uw Dev Center-Account. Selecteer uitgeverprofiel in het menu zich in de rechterbovenhoek van uw webbrowser. Selecteer koppeling Dev Center-Account.
 
 *   **Waarom wordt mijn Dev Center-toepassing geweigerd**
 > Het vetting bedrijf van derden (Duns & Bradstreet) kon geen contact met u opnemen via het telefoonnummer dat u hebt opgegeven. Neem contact op met ondersteuning van op [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) het controleproces opnieuw te starten

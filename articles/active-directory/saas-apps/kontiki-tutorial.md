@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: e5f29a12de5f82fa13c0c61462db00b2906fdca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5733547aa9b8b8d0c5aa0ce033d00f8c94b3d21
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444450"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Zelfstudie: Azure Active Directory-integratie met Kontiki
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Kontiki in Azure AD, moet u Kontiki 
 
 **Als u wilt toevoegen Kontiki uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
      In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.mc.eval.kontiki.com`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Kontiki Client ondersteuningsteam](http://customersupport.kontiki.com/enterprise/contactsupport.html) om de waarde. 
+    > Deze waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Kontiki Client ondersteuningsteam](https://customersupport.kontiki.com/enterprise/contactsupport.html) om de waarde. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -125,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/kontiki-tutorial/tutorial_general_400.png) 
 
-1. Het configureren van eenmalige aanmelding op **Kontiki** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Kontiki ondersteuningsteam](http://customersupport.kontiki.com/enterprise/contactsupport.html). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Kontiki** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Kontiki ondersteuningsteam](https://customersupport.kontiki.com/enterprise/contactsupport.html). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

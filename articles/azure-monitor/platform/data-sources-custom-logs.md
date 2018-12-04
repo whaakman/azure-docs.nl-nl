@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 494d4f39965849ebef7dfbbacc7114dd95f48641
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 099fe053f354f2773dfec1d3085c03d83671ed2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336839"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833853"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra de verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met behulp van parseren de [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) functie van Log Analytics.
@@ -182,4 +182,4 @@ We aangepaste velden gebruiken voor het definiëren van de *EventTime*, *Code*, 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) parseren van de vermeldingen in de aangepaste aanmelding bij afzonderlijke velden.
-* Meer informatie over [zoekopdrachten](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
+* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237894"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837338"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack 
 
@@ -87,7 +87,7 @@ De storage-account en blob-container wordt alle oorspronkelijke gegevens die wor
 
     c.  Soort account: **Storage (algemeen gebruik V1)**
 
-    d.  Locatie: **VS-West**
+    d.  Locatie: **US - west**
 
     e.  Replicatie: **lokaal redundante opslag (LRS)**
 
@@ -133,7 +133,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
     | Instelling | Voorgestelde waarde | Beschrijving |
     | ---- | ---- | ---- |
-    | App-naam | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a` - `z`, `0``-9`, en `-`. |
+    | Naam van app | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a` - `z`, `0``-9`, en `-`. |
     | Abonnement | Uw abonnement | Het abonnement waarmee deze nieuwe functie-app is gemaakt. |
     | **Resourcegroep** |  |  |
     | myResourceGroup | Naam voor de nieuwe resourcegroep waarin uw functie-app moet worden gemaakt. |  |
@@ -252,7 +252,7 @@ Gebruik de stappen en de instellingen die hierboven worden beschreven om te make
 
 ## <a name="test-the-queue-triggered-function"></a>Test de wachtrij geactiveerde functie
 
-1.  Blader naar de functie in de Azure-portal. Vouw de **logboeken** aan de onderkant van de pagina en zorg ervoor dat logboekstreaming niet is onderbroken.
+1.  In de Azure Stack-portal, blader naar de functie. Vouw de **logboeken** aan de onderkant van de pagina en zorg ervoor dat logboekstreaming niet is onderbroken.
 
 2.  Open Opslagverkenner en verbinding maken met het opslagaccount dat aan het begin van deze sectie is gemaakt.
 

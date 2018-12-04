@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 40922080857563b86d538586b90513381edb5d89
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381335"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842404"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch OpenId Connect-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) protocol-id-provider. OpenID Connect 1.0 definieert een identiteitslaag bovenop OAuth 2.0 en vertegenwoordigt de status van de techniek in moderne-verificatieprotocollen.  Technisch profiel dat u met een OpenId Connect kan federeren met OpenId Connect op basis van id-provider, zoals Azure AD, zodat u kunt gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
+Azure Active Directory (Azure AD) B2C biedt ondersteuning voor de [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol-id-provider. OpenID Connect 1.0 definieert een identiteitslaag bovenop OAuth 2.0 en vertegenwoordigt de status van de techniek in moderne-verificatieprotocollen.  Technisch profiel dat u met een OpenId Connect kan federeren met OpenId Connect op basis van id-provider, zoals Azure AD, zodat u kunt gebruikers om aan te melden met hun bestaande sociale of ondernemings-id's.
 
 ## <a name="protocol"></a>Protocol
 

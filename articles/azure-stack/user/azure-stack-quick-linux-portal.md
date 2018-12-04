@@ -7,22 +7,22 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025407"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836743"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snelstartgids: een virtuele Linux-server-machine maken met de Azure Stack-portal
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt een Ubuntu Server 16.04 LTS virtuele machine maken met behulp van de Azure Stack-portal. Volg de stappen in dit artikel te maken en gebruiken van een virtuele machine. Dit artikel vindt u ook de stappen voor het:
+U kunt een Ubuntu Server 16.04 LTS-machine maken met behulp van de Azure Stack-portal. Volg de stappen in dit artikel te maken en gebruiken van een virtuele machine. Dit artikel vindt u ook de stappen voor het:
 
 * Verbinding maken met de virtuele machine met een externe client.
 * Een NGINX-webserver installeren.
@@ -36,7 +36,7 @@ U kunt een Ubuntu Server 16.04 LTS virtuele machine maken met behulp van de Azur
 
 * **Een installatiekopie van Linux in Azure Stack marketplace**
 
-   De Azure Stack marketplace bevat geen standaard een installatiekopie van Linux. Voordat u een virtuele Linux-server-machine maken kunt, moet u controleren dat de Azure Stack-operator levert de **Ubuntu Server 16.04 LTS** installatiekopie u nodig hebt. De operator kan gebruiken de stappen in de [marketplace-items van Azure naar Azure Stack downloaden](../azure-stack-download-azure-marketplace-item.md) artikel.
+   De Azure Stack marketplace beschikt niet over van een installatiekopie van Linux standaard. Controleer of u hebt de Azure Stack operator biedt de **Ubuntu Server 16.04 LTS** installatiekopie in de marketplace. De operator kan gebruiken de stappen in de [marketplace-items van Azure naar Azure Stack downloaden](../azure-stack-download-azure-marketplace-item.md) artikel.
 
 * **Toegang tot een SSH-client**
 
@@ -97,11 +97,11 @@ Aanmelden bij de Azure Stack-portal. Het adres van de Azure Stack-portal, is afh
 
 ## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
 
-1. Klik op **Connect** op de pagina van de virtuele machine. U ziet nu een SSH-verbindingsreeks die u moet verbinding maken met de virtuele machine. 
+1. Klik op **Connect** op de pagina van de virtuele machine. U kunt de SSH-verbindingsreeks die u nodig hebt om verbinding met de virtuele machine te vinden. 
 
 2. Open PuTTY.
 
-3. Op de **PuTTY-configuratie** scherm u gebruikt de **categorie** venster omhoog of omlaag te schuiven. Schuif omlaag naar **SSH**, vouw **SSH**, en klik vervolgens op **Auth**. Klik op **Bladeren** en kies het bestand met persoonlijke sleutel die u hebt opgeslagen.
+3. In het Configuratiescherm van PuTTY, gebruikt u de **categorie** venster omhoog of omlaag te schuiven. Schuif omlaag naar **SSH**, vouw **SSH**, en klik vervolgens op **Auth**. Klik op **Bladeren** en kies het bestand met persoonlijke sleutel die u hebt opgeslagen.
    ![Verbinding maken met virtuele machine](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Blader omhoog de **categorie** venster en klik vervolgens op **sessie**.
@@ -154,4 +154,4 @@ Schoon de resources die u niet meer nodig. Als u wilt verwijderen van de virtuel
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quick start hebt u een eenvoudige virtuele machine van een Linux-server met een webserver geïmplementeerd. Voor meer informatie over virtuele machines van Azure Stack, blijven [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).
+In deze quickstart maakt u een eenvoudige virtuele machine van een Linux-server met een webserver geïmplementeerd. Voor meer informatie over virtuele machines van Azure Stack, blijven [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).

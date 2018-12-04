@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 19f3318c8bcaf634447285cab2951a89abf13a67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725570"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837474"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C:-Verificatieprotocollen
 Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee protocollen volgens de industrienorm: OpenID Connect en OAuth 2.0. De service is compatibel met de standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
@@ -66,7 +66,7 @@ Sommige beveiligingstokens ingebouwde mechanismen die voorkomen dat onbevoegden 
 
 Als een bearer-token buiten een beveiligd kanaal wordt verzonden, kunnen een schadelijke partij een man-in-the-middle-aanval kunt gebruiken om de token verkrijgen en gebruiken om ongeoorloofde toegang verlenen tot een beveiligde bron. Dezelfde beveiligingsprincipes van toepassing wanneer bearer-tokens worden opgeslagen of in de cache voor later gebruik opgeslagen. Altijd voor zorgen dat uw app worden verzonden en bearer-tokens worden opgeslagen op een veilige manier.
 
-Zie voor aanvullende bearer token beveiligingsoverwegingen [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
+Zie voor aanvullende bearer token beveiligingsoverwegingen [RFC 6750 sectie 5](https://tools.ietf.org/html/rfc6750).
 
 Meer informatie over de verschillende typen tokens die worden gebruikt in Azure AD B2C zijn beschikbaar in [de naslaginformatie over voor Azure AD-tokens](active-directory-b2c-reference-tokens.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ecfe50170f35420d3cf5dc5531b0fe1046889d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433847"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Zelfstudie: Azure Active Directory-integratie met CS sterren
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van CS sterren in Azure AD, moet u CS st
 
 **Als u wilt toevoegen CS sterren in de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [CS sterren Client ondersteuningsteam](http://www.marshclearsight.com/support/) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [CS sterren Client ondersteuningsteam](https://www.marshclearsight.com/support/) om deze waarden te verkrijgen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -127,7 +127,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. Het configureren van eenmalige aanmelding op **CS sterren** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [CS sterren ondersteuningsteam](http://www.marshclearsight.com/support/). 
+1. Het configureren van eenmalige aanmelding op **CS sterren** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [CS sterren ondersteuningsteam](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
@@ -169,7 +169,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in CS sterren.
 
-Als u een gebruiker in CS sterren hebt gemaakt, moet u contact opnemen met uw [CS sterren ondersteuningsteam](http://www.marshclearsight.com/support/).
+Als u een gebruiker in CS sterren hebt gemaakt, moet u contact opnemen met uw [CS sterren ondersteuningsteam](https://www.marshclearsight.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

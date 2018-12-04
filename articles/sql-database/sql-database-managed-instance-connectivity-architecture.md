@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 08/16/2018
-ms.openlocfilehash: 312425d3ea02d15a992b9a694f09cb2be73b6221
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d0747e9e54a48ecccb7051ad4fe9998d86599ffe
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161587"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840729"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Connectiviteitsarchitectuur 
 
@@ -66,7 +66,7 @@ Clients verbinding maken met beheerd exemplaar met behulp van de naam van de hos
 
 Dit privé IP-adres behoort aan het beheerde exemplaar van interne Load Balancer (ILB) die verkeer naar het beheerd exemplaar Gateway (GW) stuurt. Als meerdere beheerde exemplaren kan mogelijk worden uitgevoerd in hetzelfde cluster, GW maakt gebruik van Managed Instance-hostnaam verkeer omleiden naar de juiste SQL-Engine-service. 
 
-Beheer en de implementatie van services verbinden met beheerd exemplaar met behulp van openbare eindpunt dat is toegewezen aan de externe load balancer. Verkeer wordt doorgestuurd naar de knooppunten alleen als ontvangen op vooraf gedefinieerde een set van poorten die uitsluitend door beheerde exemplaar van de onderdelen worden gebruikt. Alle communicatie tussen de onderdelen en de beheerlaag is sluiten elkaar wederzijds geverifieerd certificaat. 
+Beheer en de implementatie services verbinding maken met behulp van Managed Instance [beheereindpunt](sql-database-managed-instance-management-endpoint.md) die wordt toegewezen aan de externe load balancer. Verkeer wordt doorgestuurd naar de knooppunten alleen als ontvangen op een vooraf gedefinieerde set van poorten die uitsluitend door beheerde exemplaar van de onderdelen worden gebruikt. Ingebouwde firewall op de knooppunten is geconfigureerd, zodat alleen verkeer van specifieke IP-adresbereiken van Microsoft. Alle communicatie tussen de onderdelen en de beheerlaag is sluiten elkaar wederzijds geverifieerd certificaat. 
 
 ## <a name="next-steps"></a>Volgende stappen 
 

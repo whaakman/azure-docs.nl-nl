@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: jeedes
-ms.openlocfilehash: b8f6e69169cd146ec9dd20d8dad43b74ddb59228
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcea7848c7331ecd326f0ccb6ab9f543ce972205
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726879"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -154,8 +154,8 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [G Suite-Client-ondersteuningsteam](https://www.google.com/contact/) om deze waarden te verkrijgen.
@@ -190,7 +190,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Configuratie van de G-Suite](common/configuresection.png)
 
-9. Open een nieuw tabblad in uw browser en meld u aan bij de [G Suite-beheerconsole](http://admin.google.com/) met uw administrator-account.
+9. Open een nieuw tabblad in uw browser en meld u aan bij de [G Suite-beheerconsole](https://admin.google.com/) met uw administrator-account.
 
 10. Klik op **Security**. Als u de koppeling niet ziet, kan deze worden verborgen in de **meer besturingselementen** menu aan de onderkant van het scherm.
 

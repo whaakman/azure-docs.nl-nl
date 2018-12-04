@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957309"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835417"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Ondersteunde talen in Azure Functions
 
@@ -37,11 +37,9 @@ Er zijn drie niveaus van ondersteuning:
 
 ### <a name="experimental-languages"></a>Experimentele talen
 
-De experimentele talen in versie 1.x niet goed worden geschaald en bieden geen ondersteuning voor alle bindingen. Bijvoorbeeld, 1.x Python is traag, omdat de Functions-runtime wordt uitgevoerd *python.exe* bij elke functieaanroep. En hoewel Python HTTP-bindingen ondersteunt, heeft geen toegang tot het request-object.
+De experimentele talen in versie 1.x niet goed worden geschaald en bieden geen ondersteuning voor alle bindingen. Experimentele ondersteuning voor PowerShell in 1.x is bijvoorbeeld beperkt tot versie 5.1, omdat dat is wat wordt standaard geïnstalleerd op de virtuele machines op welke functie-apps worden uitgevoerd. Als u uitvoeren van PowerShell-scripts wilt, kunt u overwegen [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-Experimentele ondersteuning voor PowerShell in 1.x is beperkt tot versie 5.1, omdat dat is wat wordt standaard geïnstalleerd op de virtuele machines op welke functie-apps worden uitgevoerd. Als u uitvoeren van PowerShell-scripts wilt, kunt u overwegen [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-Gebruik geen experimentele talen voor alles wat u afhankelijk zijn, omdat er geen officiële ondersteuning voor hen is. Kwesties moeten niet worden geopend voor problemen met experimentele talen. 
+Gebruik geen experimentele functies voor alles wat u afhankelijk zijn, omdat er geen officiële ondersteuning voor hen is. Kwesties moeten niet worden geopend voor problemen met experimentele talen. 
 
 De runtime versie 2.x biedt geen ondersteuning voor experimentele talen. Ondersteuning voor nieuwe talen wordt toegevoegd wanneer de taal kan worden ondersteund in de productieomgeving. 
 
@@ -64,3 +62,6 @@ Voor meer informatie over hoe u een van de algemene beschikbaarheid of preview t
 
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](functions-reference-python.md)

@@ -1,18 +1,18 @@
 ---
 title: Een Dr-herstelanalyse van Hyper-V-machines worden uitgevoerd naar een secundaire site met Azure Site Recovery | Microsoft Docs
 description: Leer hoe u een DR-oefening voor Hyper-V-machines in VMM-clouds worden uitgevoerd naar een secundaire on-premises datacenter met Azure Site Recovery.
-author: ponatara
-manager: abhemraj
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ponatara
-ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211346"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834754"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Een DR-oefening uitvoeren van Hyper-V-machines naar een secundaire site
 
@@ -125,7 +125,7 @@ Deze procedure wordt beschreven hoe u een testfailover uitvoeren voor een herste
 4. Nadat failover voltooid is, controleert u of de virtuele machines is gestart.
 5. Wanneer u klaar bent, klikt u op **failovertest** op het herstelplan te gaan. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op. Deze stap worden verwijderd voor alle VM's en netwerken die zijn gemaakt door Site Recovery tijdens de testfailover. 
 
-![Test-failover](./media/hyper-v-vmm-test-failover/TestFailover.png)
+![Testfailover](./media/hyper-v-vmm-test-failover/TestFailover.png)
  
 
 

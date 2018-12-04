@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038989"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835162"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Azure AD directory rolinstellingen in PIM configureren
 
@@ -50,7 +50,15 @@ Gebruik de **activeringen** schuifregelaar om in te stellen de maximale tijd in 
 
 ## <a name="notifications"></a>Meldingen
 
-Gebruik de **meldingen** switch om op te geven of het systeem e-mailberichten worden verzonden naar beheerders die bevestigen dat ze een rol hebt geactiveerd. Dit kan nuttig zijn voor het detecteren van niet-geautoriseerde of illegale activeringen zijn.
+Gebruik de **meldingen** switch om op te geven of beheerders e-mailmeldingen ontvangen wanneer functies worden geactiveerd. Dit kan nuttig zijn voor het detecteren van niet-geautoriseerde of illegale activeringen zijn.
+
+Als de waarde **inschakelen**, meldingen worden verzonden naar:
+
+- Beheerder met bevoorrechte rol
+- Beveiligingsbeheerder
+- Globale beheerder
+
+Zie voor meer informatie, [e-mailmeldingen in PIM](pim-email-notifications.md).
 
 ## <a name="incidentrequest-ticket"></a>Incident-/aanvraagticket
 
@@ -65,7 +73,7 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
   
   * Factureringsbeheerder
   * Beheerder van de cloudtoepassing
-  * Compliancebeheerder
+  * Beheerder voor naleving
   * Voorwaardelijke toegang beheerder
   * CRM-servicebeheerder
   * Toegangsfiatteur voor Klanten-lockbox

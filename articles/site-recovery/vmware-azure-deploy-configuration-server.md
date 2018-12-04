@@ -1,20 +1,21 @@
 ---
 title: De configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een configuratieserver voor VMware-noodherstel implementeren in Azure met Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+description: In dit artikel wordt beschreven hoe u een configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren
+services: site-recovery
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 5d6510c1e069abe1fc295f2fccd9f2c0a9aad5bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233154"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837560"
 ---
-# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Een configuratieserver voor VMware-noodherstel implementeren in Azure
+# <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
 U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratie van server coördinaten communicatie tussen on-premises VMware en Azure. Deze beheert de gegevensreplicatie. In dit artikel begeleidt u bij de stappen die nodig zijn voor de configuratieserver implementeren wanneer u virtuele VMware-machines naar Azure repliceert. [In dit artikel volgen](physical-azure-set-up-source.md) als u nodig hebt voor het instellen van een configuratieserver voor replicatie van fysieke server.
 

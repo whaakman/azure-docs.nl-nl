@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 486e485a78f767c4d75461558d06068a2e1c4525
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682806"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835791"
 ---
 # <a name="log-analytics-query-examples"></a>Meld u voorbeelden van Analytics
-In dit artikel bevat verschillende voorbeelden van [query's](../log-analytics-queries.md) met behulp van de [Kusto-taal](https://docs.microsoft.com/azure/kusto/query/) om op te halen van verschillende typen gegevens van Log Analytics. Verschillende methoden worden gebruikt om te consolideren en analyseren van gegevens, zodat u deze voorbeelden gebruiken om verschillende strategieën die u voor uw eigen vereisten gebruiken kunt te identificeren.  
+In dit artikel bevat verschillende voorbeelden van [query's](../../azure-monitor/log-query/log-query-overview.md) met behulp van de [Kusto-taal](https://docs.microsoft.com/azure/kusto/query/) om op te halen van verschillende typen gegevens van Log Analytics. Verschillende methoden worden gebruikt om te consolideren en analyseren van gegevens, zodat u deze voorbeelden gebruiken om verschillende strategieën die u voor uw eigen vereisten gebruiken kunt te identificeren.  
 
 Zie de [Kusto-Naslaggids](https://docs.microsoft.com/azure/kusto/query/) voor meer informatie over de verschillende trefwoorden die in deze voorbeelden worden gebruikt. Doorloop een [les over het maken van query's](get-started-queries.md) als u geen ervaring met Log Analytics.
 

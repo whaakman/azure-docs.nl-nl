@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 17d1419501b4833d0abc3b5670827d57dfd7a286
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 53837573daef56bad12f627400f7db1ccd1c26cf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643346"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836964"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor tegels in Log Analytics-ontwerper
 Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
@@ -35,7 +35,7 @@ De beschikbare Weergaveontwerper-tegels worden in de volgende tabel beschreven:
 
 | Tegel | Beschrijving |
 |:--- |:--- |
-| [Aantal](#number-tile) |Het aantal records uit een query. |
+| [Number](#number-tile) |Het aantal records uit een query. |
 | [Twee getallen](#two-numbers-tile) |Het aantal records uit twee verschillende query's. |
 | [ringdiagram](#donut-tile) | Een grafiek die gebaseerd op een query, met een totale waarde in het midden. |
 | [Lijndiagram en bijschrift](#line-chart-amp-callout-tile) | Een lijndiagram dat gebaseerd op een query en een toelichting bij een totale waarde. |
@@ -179,5 +179,5 @@ De **twee tijdlijnen** tegel toont de resultaten van de twee logboeken-query's n
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../log-analytics/log-analytics-queries.md) ter ondersteuning van de query's in tegels.
+* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) ter ondersteuning van de query's in tegels.
 * Voeg [visualisatie delen](view-designer-parts.md) aan uw aangepaste weergave.

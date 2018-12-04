@@ -4,19 +4,18 @@ description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010317"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841962"
 ---
 # <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
 De [Azure Migrate](migrate-overview.md) beoordeelt groepen van on-premises computers voor migratie naar Azure. U kunt de functie voor visualisatie van afhankelijkheden in Azure Migrate gebruiken om groepen te maken. In dit artikel bevat informatie over deze functie.
-
 
 ## <a name="overview"></a>Overzicht
 
@@ -31,7 +30,13 @@ Azure Migrate gebruikt de [Serviceoverzicht](../operations-management-suite/oper
 
     ![Log Analytics-werkruimte koppelen](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Wanneer u een nieuwe werkruimte maakt, moet u een naam opgeven voor de werkruimte. De werkruimte wordt vervolgens gemaakt in een regio in dezelfde [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) als het migratieproject.
+- Tijdens het koppelen van een werkruimte, ontvangt u de optie voor een nieuwe werkruimte maken of een bestaande werkruimte koppelen:
+      - Wanneer u een nieuwe werkruimte maakt, moet u een naam opgeven voor de werkruimte. De werkruimte wordt vervolgens gemaakt in een regio in dezelfde [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) als het migratieproject.
+      - Wanneer u een bestaande werkruimte koppelen, kunt u kiezen uit alle werkruimten die beschikbaar is in hetzelfde abonnement als de migration-project. Houd er rekening mee dat alleen deze werkruimten worden weergegeven die zijn gemaakt in een regio waar [Serviceoverzicht wordt ondersteund](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Als u een werkruimte te koppelen, zorg ervoor dat u 'Lezer' toegang tot de werkruimte hebben.
+
+  > [!NOTE]
+  > Nadat u hebt een werkruimte gekoppeld aan een project, kunt u deze later niet meer wijzigen.
+
 - De gekoppelde werkruimte met de sleutel is gecodeerd **migratieproject**, en de waarde **projectnaam**, die u kunt gebruiken om te zoeken in Azure portal.
 - Ga naar de werkruimte die is gekoppeld aan het project, gaat u naar **Essentials** sectie van het project **overzicht** pagina en toegang tot de werkruimte
 

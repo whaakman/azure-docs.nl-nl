@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.date: 12/03/2018
+ms.openlocfilehash: 939c008dbfdb996c84132d5aa0b5ed625e0a68ec
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422507"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837899"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -33,8 +33,8 @@ U kunt deze back-ups te gebruiken:
 
 - Een database herstellen naar een punt-in-time binnen de bewaarperiode liggen. Met deze bewerking wordt een nieuwe database maken in dezelfde server als de oorspronkelijke database.
 - Een verwijderde database herstellen naar de tijd die is verwijderd of elk gewenst moment binnen de bewaarperiode liggen. De verwijderde database kan alleen worden hersteld op dezelfde server waar de oorspronkelijke database is gemaakt.
-- Een database herstellen naar een andere geografische regio. Hiermee kunt u om te herstellen na een noodgeval geografische wanneer u geen toegang uw server en database tot. Het maakt een nieuwe database in een bestaande server overal ter wereld.
-- Een database van een specifieke langetermijnback-up herstellen als de database is geconfigureerd met een beleid met een langetermijnbewaarperiode (LTR). Hiermee kunt u een oude versie van de database om te voldoen aan een aanvraag voor naleving of uit te voeren van een oude versie van de toepassing herstellen. Zie [langetermijnretentie](sql-database-long-term-retention.md).
+- Een database herstellen naar een andere geografische regio. Geo-restore kunt u herstellen na een noodgeval geografische wanneer u geen toegang uw server en database tot. Het maakt een nieuwe database in een bestaande server overal ter wereld.
+- Een database van een specifieke langetermijnback-up herstellen als de database is geconfigureerd met een beleid met een langetermijnbewaarperiode (LTR). LTR kunt u een oude versie van de database om te voldoen aan een aanvraag voor naleving of uit te voeren van een oude versie van de toepassing herstellen. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 - Als u wilt een herstelbewerking uitvoert, Zie [-database herstellen vanuit back-ups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -42,16 +42,16 @@ U kunt deze back-ups te gebruiken:
 
 ## <a name="how-long-are-backups-kept"></a>Hoe lang worden back-ups opgeslagen
 
-Elke SQL-Database heeft een back-up bewaartermijn tussen 7 en 35 dagen die afhankelijk zijn van de [aankoopmodel en servicelaag](#pitr-retention-period). U kunt de bewaarperiode voor back-up voor een database op logische Azure-Server (deze functie wordt binnenkort ingeschakeld in het beheerde exemplaar) bijwerken. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
+Elke SQL-Database heeft een back-up bewaartermijn tussen 7 en 35 dagen die afhankelijk zijn van de [aankoopmodel en servicelaag](#pitr-retention-period). U kunt de bewaarperiode voor back-up voor een logische Azure-Server-database bijwerken. Zie voor meer informatie, [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period).
 
 Als u een database verwijdert, blijven SQL-Database de back-ups op dezelfde manier als zou voor een online-database. Als u een Basic-database met een bewaarperiode van zeven dagen verwijdert, wordt bijvoorbeeld een back-up die vier dagen oud is drie dagen opgeslagen.
 
-Als u de back-ups langer dan de maximale bewaarperiode van PITR houden wilt, kunt u de back-eigenschappen voor het toevoegen van een of meer langdurige bewaarperioden met uw database wijzigen. Zie [langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+Als u de back-ups langer dan de maximale bewaarperiode houden wilt, kunt u de back-eigenschappen voor het toevoegen van een of meer langdurige bewaarperioden met uw database wijzigen. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
 > [!IMPORTANT]
 > Als u de Azure SQL-server die als host fungeert voor SQL-databases verwijdert, worden alle elastische pools en databases die deel uitmaken van de server worden ook verwijderd en kunnen niet worden hersteld. U kunt een server verwijderd niet herstellen. Maar als u met een langetermijnbewaarperiode hebt geconfigureerd, wordt de back-ups voor de databases met LTR worden niet verwijderd en wordt deze databases kunnen worden hersteld.
 
-### <a name="pitr-retention-period"></a>De bewaarperiode PITR
+### <a name="default-backup-retention-period"></a>Bewaartermijn voor back-up
 
 #### <a name="dtu-based-purchasing-model"></a>DTU gebaseerde aankoopmodel
 
@@ -63,12 +63,10 @@ De bewaartermijn voor een database gemaakt met behulp van het op DTU gebaseerde 
 
 #### <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
 
-Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), de bewaartermijn voor back-up is 7 dagen (zowel op logische Servers en beheerde instanties).
+Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), de bewaartermijn voor back-up is 7 dagen (voor één, gegroepeerde en beheerde exemplaar databases). Voor alle Azure SQL-databases (single, gegroepeerd, en Managed Instance-databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-the-pitr-backup-retention-period).
 
-- Voor één en gepoolde databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-backup-retention-period).
-- Wijzigen van de bewaarperiode voor back-up is niet beschikbaar in het beheerde exemplaar.
-
-Als u de huidige bewaarperiode verkorten, zijn alle bestaande back-ups ouder is dan de nieuwe bewaarperiode periode niet meer beschikbaar zijn. Als u de huidige retentietermijn verhoogt, wordt SQL Database de bestaande back-ups behouden totdat de langere bewaarperiode is bereikt.
+> [!WARNING]
+> Als u de huidige bewaarperiode verkorten, zijn alle bestaande back-ups ouder is dan de nieuwe bewaarperiode periode niet meer beschikbaar zijn. Als u de huidige retentietermijn verhoogt, wordt SQL Database de bestaande back-ups behouden totdat de langere bewaarperiode is bereikt.
 
 ## <a name="how-often-do-backups-happen"></a>Hoe vaak gebeurt er back-ups
 
@@ -96,21 +94,24 @@ Als uw database is versleuteld met TDE, wordt de back-ups worden automatisch ver
 
 Regelmatig test het technische team van Azure SQL Database automatisch het terugzetten van geautomatiseerde databaseback-ups van databases in de service. Bij het herstellen, databases, ontvangen ook integriteitscontroles met DBCC CHECKDB. Problemen met gevonden tijdens de integriteitscontrole resulteert in een waarschuwing aan het technische team. Zie voor meer informatie over de integriteit van gegevens in Azure SQL Database, [integriteit van gegevens in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>Hoe geautomatiseerde back-ups van invloed zijn op mijn naleving
+## <a name="how-do-automated-backups-impact-compliance"></a>Hoe geautomatiseerde back-ups van invloed zijn op naleving
 
-Wanneer u uw database van een servicelaag op basis van DTU, met de standaard PITR bewaarperiode van 35 dagen, naar een laag vCore-gebaseerde service migreert, wordt de bewaarperiode PITR behouden om ervoor te zorgen dat beleid voor gegevensherstel van uw toepassing niet worden gecompromitteerd. Als de bewaarperiode standaard niet voldoet aan uw vereisten voor naleving, kunt u de bewaarperiode voor PITR met PowerShell of REST-API wijzigen. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-backup-retention-period) voor meer informatie.
+Wanneer u uw database van een servicelaag op basis van DTU, met de standaard PITR bewaarperiode van 35 dagen, naar een laag vCore-gebaseerde service migreert, wordt de bewaarperiode PITR behouden om ervoor te zorgen dat beleid voor gegevensherstel van uw toepassing niet worden gecompromitteerd. Als de bewaarperiode standaard niet voldoet aan uw vereisten voor naleving, kunt u de bewaarperiode voor PITR met PowerShell of REST-API wijzigen. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period) voor meer informatie.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>Het wijzigen van de bewaarperiode voor back-up
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>Het wijzigen van de periode van de back-upretentie PITR
 
-> [!Note]
-> Back-up bewaartermijn (7 dagen) kan niet worden gewijzigd in het beheerde exemplaar.
-
-U kunt de standaard-bewaarperiode met REST API of PowerShell wijzigen. De ondersteunde waarden zijn: 7, 14, 21, 28 of 35 dagen. De volgende voorbeelden laten zien hoe u PITR retentie wijzigen op 28 dagen.
+U kunt de PITR back-up standaardbewaartermijn met behulp van de Azure-Portal, PowerShell of de REST-API wijzigen. De ondersteunde waarden zijn: 7, 14, 21, 28 of 35 dagen. De volgende voorbeelden laten zien hoe u PITR retentie wijzigen op 28 dagen.
 
 > [!NOTE]
-> Thes APIs is alleen van invloed op de bewaarperiode PITR. Als u LTR voor uw database hebt geconfigureerd, zullen niet worden beïnvloed. Zie [langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie over het wijzigen van de LTR retentie-periode.
+> Thes APIs is alleen van invloed op de bewaarperiode PITR. Als u LTR voor uw database hebt geconfigureerd, zullen niet worden beïnvloed. Zie voor meer informatie over het wijzigen van de periode van de bewaarperiode LTR [langetermijnretentie](sql-database-long-term-retention.md).
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Back-up bewaarperiode PITR met behulp van de Azure-portal wijzigen
+
+Als u wilt wijzigen van de periode van PITR back-upretentie met behulp van de Azure portal, Ga naar de database waarvan de bewaarperiode liggen die u wilt wijzigen en klik vervolgens op **overzicht**.
+
+![Wijziging PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Wijzigen van de back-up bewaarperiode PITR met behulp van PowerShell
 
@@ -154,7 +155,7 @@ Statuscode: 200
 }
 ```
 
-Zie [back-up bewaren REST-API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) voor meer informatie.
+Zie voor meer informatie, [back-up bewaren REST-API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 6e0b9d205bf16c92443aadc69a1186b99c6d8cc5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 838e839aeb0b6d227d9350c4b5cd1f3f1a8cad8e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446490"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Zelfstudie: Azure Active Directory-integratie met Halosys
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Halosys in Azure AD, moet u Halosys 
 
 **Als u wilt toevoegen Halosys uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -115,7 +115,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Halosys ondersteuningsteam](http://halosys.com/halosys#contact) om deze waarden te verkrijgen.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Halosys ondersteuningsteam](https://halosys.com/halosys#contact) om deze waarden te verkrijgen.
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -129,7 +129,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Halosys configuratie](./media/halosys-tutorial/tutorial_halosys_configure.png) 
 
-1. Het configureren van eenmalige aanmelding op **Halosys** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** en **Single Sign-On Service URL voor SAML** naar [Halosys ondersteunen team](http://halosys.com/halosys#contact). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Halosys** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** en **Single Sign-On Service URL voor SAML** naar [Halosys ondersteunen team](https://halosys.com/halosys#contact). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
   
 ### <a name="create-a-halosys-test-user"></a>Maak een testgebruiker Halosys
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Halosys. Werken met [Halosys ondersteuningsteam](http://halosys.com/halosys#contact) om toe te voegen de gebruikers in het Halosys-platform. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Halosys. Werken met [Halosys ondersteuningsteam](https://halosys.com/halosys#contact) om toe te voegen de gebruikers in het Halosys-platform. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

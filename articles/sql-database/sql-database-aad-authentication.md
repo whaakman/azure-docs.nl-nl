@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244068"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838613"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Azure Active Directory-verificatie gebruiken voor verificatie met behulp van SQL
 
-Azure Active Directory-verificatie is een mechanisme van verbinding maken met Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). 
+Azure Active Directory-verificatie is een mechanisme van verbinding maken met Azure [SQL-Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
@@ -84,15 +84,7 @@ De volgende leden van Azure AD kunnen worden ingericht in Azure SQL-server of SQ
 - Geïmporteerde leden van andere Azure AD die leden van een systeemeigen of federatieve domein zijn.
 - Active Directory-groepen gemaakt als beveiligingsgroepen.
 
-Azure AD-beperkingen met betrekking tot het beheerde exemplaar:
-
-- Alleen Azure AD-beheerder van databases maken kunt, Azure AD-gebruikers zijn gericht op een enkele database en bent niet gemachtigd deze
-- Database-eigenaar:
-  - Azure AD-principal kan geen eigendom van de database (AUTORISATIE van DATABASE wijzigen) en kan niet worden ingesteld als eigenaar.
-  - Voor databases die zijn gemaakt door Azure AD-beheerder geen eigenaar is ingesteld (0x1 owner_sid veld in sys.sysdatabases is).
-- SQL Agent kan niet worden beheerd wanneer u bent aangemeld bij het gebruik van Azure AD-principals.
-- Azure AD-beheerder kan niet worden geïmiteerd met behulp van EXECUTE AS
-- DAC-verbinding wordt niet ondersteund met Azure AD-principals.
+Azure AD-aanmeldingen en gebruikers worden ondersteund als een preview-functie voor [beheerde instanties](sql-database-managed-instance.md)
 
 Deze systeemfuncties retourneren NULL-waarden bij uitvoering onder Azure AD-principals:
 

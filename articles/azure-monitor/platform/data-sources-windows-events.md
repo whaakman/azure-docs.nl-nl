@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 036378c5ed595ffbaeefad9407fba8519945cf5c
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4275b734a30310c896c397a5ef9cc1b218d89476
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336879"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842540"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-gebeurtenislogboek gegevensbronnen in Log Analytics
 Windows-gebeurtenislogboeken zijn een van de meest voorkomende [gegevensbronnen](agent-data-sources.md) voor het verzamelen van gegevens met behulp van Windows-agents, omdat veel toepassingen naar het Windows-gebeurtenislogboek schrijven.  U kunt gebeurtenissen verzamelen van standard logboeken zoals systeem- en naast het opgeven van een aangepaste logboeken die zijn gemaakt door toepassingen die u nodig hebt om te controleren.
@@ -76,6 +76,6 @@ De volgende tabel bevat voorbeelden van zoekopdrachten die Windows-gebeurtenis l
 
 ## <a name="next-steps"></a>Volgende stappen
 * Log Analytics voor het verzamelen van andere configureren [gegevensbronnen](agent-data-sources.md) voor analyse.
-* Meer informatie over [zoekopdrachten](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 * Gebruik [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) parseren van de gebeurtenis legt vast in afzonderlijke velden.
 * Configureer [verzamelen van prestatiemeteritems](data-sources-performance-counters.md) van uw Windows-agents.

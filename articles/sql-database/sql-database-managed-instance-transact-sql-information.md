@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712140"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843203"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -145,7 +145,7 @@ Beheerd exemplaar heeft geen toegang tot bestanden, zodat de cryptografische pro
 
 ### <a name="collation"></a>Sortering
 
-Server-sortering wordt `SQL_Latin1_General_CP1_CI_AS` en kan niet worden gewijzigd. Zie [sorteringen](https://docs.microsoft.com/sql/t-sql/statements/collations).
+De standaardsortering voor de instantie is `SQL_Latin1_General_CP1_CI_AS` en kunnen worden opgegeven als een parameter maken. Zie [sorteringen](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Opties voor de database
 
@@ -277,7 +277,8 @@ Bewerkingen
 ### <a name="logins--users"></a>Aanmeldingen / gebruikers
 
 - SQL-aanmeldingen die zijn gemaakt `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, en `FROM SID` worden ondersteund. Zie [maken aanmelding](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Windows-aanmeldingen die zijn gemaakt met `CREATE LOGIN ... FROM WINDOWS` syntaxis worden niet ondersteund.
+- Azure Active Directory (AAD)-aanmeldingen die zijn gemaakt met [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntaxis of de [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntaxis worden ondersteund (**preview-versie**).
+- Windows-aanmeldingen die zijn gemaakt met `CREATE LOGIN ... FROM WINDOWS` syntaxis worden niet ondersteund. Gebruik Azure Active Directory-aanmeldingen en gebruikers.
 - Azure Active Directory (Azure AD)-gebruiker die heeft gemaakt van het exemplaar heeft [onbeperkte beheerdersbevoegdheden](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Niet-Azure Active Directory (Azure AD) op databaseniveau beheerders kunnen worden gemaakt met `CREATE USER ... FROM EXTERNAL PROVIDER` syntaxis. Zie [gebruiker maken... VAN DE EXTERNE PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Zie voor meer informatie over de Restore-instructies [herstellen instructies](ht
 Cross-exemplaar van service broker wordt niet ondersteund:
 
 - `sys.routes` -Voorwaarde: adres selecteren in sys.routes. Adres moet lokaal op elke route. Zie [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` -u kunt geen `CREATE ROUTE` met `ADDRESS` dan `LOCAL`. Zie [maken ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` -u kunt geen gebruiken `CREATE ROUTE` met `ADDRESS` dan `LOCAL`. Zie [maken ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` kan geen `ALTER ROUTE` met `ADDRESS` dan `LOCAL`. Zie [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>De hoofdsleutel van sleutels en service-service
@@ -427,12 +428,12 @@ De volgende variabelen, taken en weergaven kunt u verschillende resultaten retou
 
 Elk beheerd exemplaar met maximaal 35 TB opslag is gereserveerd voor Azure Premium-schijfruimte en elk databasebestand wordt geplaatst op een afzonderlijke fysieke schijf. Schijfgrootten is 128 GB, 256 GB, 512 GB, 1 TB of 4 TB. Ongebruikte ruimte op schijf is niet in rekening gebracht, maar de totale som van Azure Premium Disk-groottes mag niet meer dan 35 TB. In sommige gevallen een beheerd exemplaar dat niet 8 TB in totaal hoeft kan groter zijn dan de 35 TB Azure de limiet voor opslaggrootte, vanwege een interne fragmentatie.
 
-Voor een beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wordt geplaatst op een schijf van 4 TB en 248 bestanden elke 1 GB groot die op afzonderlijke 128 GB schijven worden geplaatst. In dit voorbeeld:
+Voor een beheerd exemplaar kan bijvoorbeeld een bestand 1,2 TB in grootte dat wordt geplaatst op een schijf met 4 TB en 248 bestanden (elke 1 GB groot) die op afzonderlijke 128 GB schijven worden geplaatst. In dit voorbeeld:
 
-- de grootte van de totale schijfruimte is 1 x 4 TB + 248 x 128 GB = 35 TB.
+- De grootte van de totale toegewezen schijfruimte is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - de totale gereserveerde ruimte voor databases op het exemplaar is 1 x-1,2 TB + 248 x 1 GB = 1,4 TB.
 
-Dit ziet u dat onder bepaalde omstandigheden, vanwege een zeer specifieke distributie van bestanden, een beheerd exemplaar de 35 TB gereserveerd voor de gekoppelde Azure Premium-schijf wanneer u niet verwacht het dat mogelijk mogelijk bereikt.
+Dit wordt dit duidelijk gemaakt onder bepaalde omstandigheden, vanwege een specifieke distributie van bestanden, een beheerd exemplaar de 35 TB gereserveerd voor de gekoppelde Azure Premium-schijf wanneer u niet verwacht het dat mogelijk mogelijk bereikt.
 
 In dit voorbeeld bestaande databases blijven werken en zonder problemen kan groeien zolang er nieuwe bestanden worden niet toegevoegd. Echter nieuwe databases kunnen niet worden gemaakt of hersteld omdat er niet voldoende ruimte voor nieuwe schijfstations, zelfs als de totale grootte van alle databases niet aan de grootte van het exemplaar komt. De fout die wordt geretourneerd is in dat geval niet wissen.
 
@@ -443,7 +444,10 @@ Zorg ervoor dat u de voorloopspaties verwijderen `?` van de SAS-sleutel die word
 
 ### <a name="tooling"></a>Hulpprogramma 's
 
-SQL Server Management Studio en SQL Server Data Tools mogelijk enkele problemen bij het openen van Managed Instance. Alle hulpprogramma's problemen verholpen voordat deze algemeen beschikbaar.
+SQL Server Management Studio (SSMS) en SQL Server Data Tools (SSDT) mogelijk enkele problemen bij het openen van Managed Instance.
+
+- Met behulp van Azure AD-aanmeldingen en gebruikers (**preview-versie**) met SSDT wordt momenteel niet ondersteund.
+- Scripts uitvoeren voor Azure AD-aanmeldingen en gebruikers (**preview-versie**) worden niet ondersteund in SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Onjuiste databasenamen in bepaalde weergaven, logboeken en berichten
 
@@ -451,7 +455,7 @@ Verschillende systeemweergaven, prestatiemeteritems, foutberichten, XEvents en f
 
 ### <a name="database-mail-profile"></a>Database-e-mailprofiel
 
-Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile`. Dit is een tijdelijke beperking die wordt binnenkort verwijderd.
+Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Foutenlogboeken zijn niet-persistente
 
@@ -496,7 +500,7 @@ Hoewel deze code met gegevens in dezelfde instantie werkt vereist het MSDTC.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR-modules en gekoppelde servers enige tijd kunnen niet verwijzen naar een lokaal IP-adres
 
-De IP-adres van het lokale exemplaar kunnen niet worden omgezet in CLR-modules geplaatst in de Managed Instance en gekoppelde servers/gedistribueerde query's die verwijzen naar huidige instantie enige tijd opnieuw uit. Dit is een tijdelijke fout.
+De IP-adres van het lokale exemplaar kunnen niet worden omgezet in CLR-modules geplaatst in de Managed Instance en gekoppelde servers/gedistribueerde query's die verwijzen naar huidige instantie enige tijd opnieuw uit. Deze fout is een tijdelijk probleem.
 
 **Tijdelijke oplossing**: context-verbindingen indien mogelijk in CLR-module gebruiken.
 

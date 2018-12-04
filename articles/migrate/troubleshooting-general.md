@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9303f20d84547dee62e7012e0dca50f47ad54083
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413330"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839582"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -19,9 +19,9 @@ ms.locfileid: "50413330"
 
 [Azure Migrate](migrate-overview.md) beoordeelt on-premises werkbelastingen voor migratie naar Azure. Gebruik dit artikel voor het oplossen van problemen bij het implementeren en met behulp van Azure Migrate.
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik ben met behulp van de continue detectie OVA, maar virtuele machines die zijn verwijderd in mijn on-premises-omgeving worden nog steeds wordt weergegeven in de portal.
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Ik gebruik het ova-bestand die continu detecteert mijn on-premises-omgeving, maar de virtuele machines die zijn verwijderd in mijn on-premises-omgeving worden nog steeds wordt weergegeven in de portal.
 
-Het apparaat voor continue detectie toestel verzamelt alleen prestatiegegevens continu, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
+Alleen verzamelt prestatiegegevens continu het toestel continue detectie, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
 - Toevoegen van items (virtuele machines, schijven, kernen enz.): om deze wijzigingen in de Azure-portal door te voeren, kunt u de detectie vanaf het apparaat stoppen en opnieuw starten. Dit zorgt ervoor dat de wijzigingen worden bijgewerkt in het Azure Migrate-project.
 
@@ -35,15 +35,36 @@ Dit probleem kan optreden voor gebruikers die geen toegang tot de tenant Azure A
 
 Zodra de uitnodiging per e-mail wordt ontvangen, moet u het e-mailbericht openen en klik op de koppeling in de e-mail de uitnodiging te accepteren. Zodra deze actie is uitgevoerd, moet u afmelden bij Azure portal en aanmelden, de browser te vernieuwen werkt niet. Vervolgens kunt u proberen het migratieproject maken.
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>Ik kan geen Exporteer het evaluatierapport
+
+Als u zich niet aan het evaluatierapport exporteren vanuit de portal, kunt u met de onderstaande REST-API voor het ophalen van een download-URL voor het evaluatierapport.
+
+1. Installeer *armclient* op uw computer (als deze nog niet al geïnstalleerd):
+
+a. Voer de volgende opdracht in een beheerder opdrachtprompt-venster:  *@powershell - NoProfile - ExecutionPolicy Bypass - opdracht 'iex ((New-Object System.Net.WebClient). DownloadString('https://chocolatey.org/install.ps1')) "& & ingesteld"PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"*
+
+b.In een beheerder Windows PowerShell-venster de volgende opdracht uitvoeren: *choco armclient installeren*
+
+2.  De download-URL ophalen voor het evaluatierapport met behulp van REST-API van Azure migreren
+
+a.  Voer de volgende opdracht in een beheerder Windows PowerShell-venster: *armclient aanmelding* Hiermee opent u de Azure-aanmelding pop-upvenster waarin u wilt aanmelden bij Azure.
+
+b.  Voer in het dezelfde PowerShell-venster de volgende opdracht uit om op te halen van de download-URL voor het evaluatierapport (Vervang de URI-parameters met de juiste waarden, voorbeeld-API-hieronder aanvragen)
+
+       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+
+Voorbeeld van een aanvraag en de uitvoer:
+
+PS C:\WINDOWS\system32 > armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2 018_12_16_21/downloadUrl? api-versie 2018-02-02 = {" assessmentReportUrl":"https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r","expirationTime":" 2018-11-20T22:09:30.5681954 + 05:30 "
+
+3. Kopieer de URL uit het antwoord en open het in een browser voor het downloaden van het evaluatierapport.
+4. Nadat u het rapport hebt gedownload, kunt u Excel gebruiken om te bladeren naar de map gedownload en open het bestand in Excel om dit te bekijken.
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Prestatiegegevens voor schijven en netwerken adapters wordt weergegeven als nullen
 
 Dit kan gebeuren als het niveau van de instelling voor statistieken voor de vCenter-server is ingesteld op minder dan drie. Niveau 3 of hoger, slaat vCenter prestatiegeschiedenis van de virtuele machine voor berekening, opslag en netwerk. VCenter opslaan niet opslag en gegevens van het netwerk, maar alleen de gegevens CPU en geheugen voor minder dan niveau 3. In dit scenario, prestaties van gegevens wordt weergegeven als nul in Azure Migrate en Azure Migrate biedt de aanbeveling voor grootte voor schijven en netwerken op basis van de metagegevens van de on-premises machines verzameld.
 
 Om het verzamelen van prestatiegegevens voor schijven en het netwerk mogelijk, wijzigt u het niveau van de instellingen voor statistieken tot drie. Vervolgens wacht ten minste een dag voor uw omgeving detecteren en evalueren deze.
-
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Ik agents zijn geïnstalleerd en de visualisatie van afhankelijkheden gebruikt voor het maken van groepen. Nu na een failover, de machines actie "Agent installeren" in plaats van 'Afhankelijkheden bij weergave' weergeven
-* Post geplande of niet-geplande failover, on-premises machines zijn uitgeschakeld en gelijkwaardige machines in Azure hebben zijn ingeschakeld. Deze machines een ander MAC-adres hebt aanschaft. Ze kunnen een ander IP-adres dat is gebaseerd op of de gebruiker heeft ervoor gekozen op het lokale IP-adres behouden of niet verkrijgen. Als zowel MAC als IP-adressen verschillen, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
-* Test-failover, plaatsen de on-premises machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines hebben ingeschakeld in Azure ander MAC-adres verkrijgen en kunnen verschillende IP-adres hebt aanschaft. Tenzij de gebruiker wordt geblokkeerd uitgaand verkeer van Log Analytics van deze machines, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ik heb een Azure-Geografie hebt opgegeven tijdens het maken van een migratieproject hoe vind ik uit de exacte Azure-regio waar de metagegevens van de gedetecteerde zou worden opgeslagen?
 
@@ -55,8 +76,8 @@ Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voo
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementatie van Azure Migrate Collector is mislukt met de fout: het opgegeven manifestbestand is ongeldig: ongeldig OVF manifest vermelding.
 
-1. Controleer of als Azure Migrate Collector OVA-bestand correct is gedownload door het controleren van de hash-waarde. Raadpleeg de [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om te controleren of de hash-waarde. Als de hash-waarde niet overeen komt, het OVA-bestand opnieuw te downloaden en de implementatie opnieuw probeert.
-2. Als deze nog steeds mislukt en als u VMware vSphere-Client gebruikt voor het implementeren van de OVF, moet u proberen deze is geïmplementeerd via vSphere-webclient. Als het nog steeds mislukt, probeer het met andere webbrowser.
+1. Controleer of als Azure Migrate Collector OVA-bestand correct is gedownload door het controleren van de hash-waarde. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om de hash-waarde te controleren. Als de hash-waarde niet overeen komt, het OVA-bestand opnieuw te downloaden en de implementatie opnieuw probeert.
+2. Als deze nog steeds mislukt en u VMware vSphere Client gebruikt om de OVF te implementeren, kunt u proberen deze te implementeren via de vSphere Web Client. Als het nog steeds mislukt, probeer het met andere webbrowser.
 3. Als u met behulp van vSphere-webclient en probeert te implementeren op de vCenter Server 6.5, probeert het ova-bestand rechtstreeks op de ESXi-host implementeren door de onderstaande stappen te volgen:
   - Verbinding maken met de ESXi-host rechtstreeks (in plaats van vCenter-Server) met behulp van de webclient (https:// <*host IP-adres*> /ui)
   - Ga naar de introductiepagina van > inventaris
@@ -128,7 +149,7 @@ Als het probleem wordt nog steeds in de meest recente versie gebeurt, kan het zi
 3. Bepaal het juiste poortnummer om verbinding te maken met de vCenter-server.
 4. Controleer tot slot of de vCenter-server actief is.
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>Oplossen van problemen met visualisatie van afhankelijkheden
+## <a name="dependency-visualization-issues"></a>Problemen met visualisatie van afhankelijkheden
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Kan ik de Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden op mijn on-premises VM's geïnstalleerd, maar de afhankelijkheden worden nu weergegeven in de Azure Migrate-portal.
 
@@ -159,7 +180,11 @@ Azure Migrate kunt u visualiseren afhankelijkheden voor maximaal één uur duurt
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Ik kan geen visualiseren afhankelijkheden voor groepen met meer dan 10 virtuele machines?
 U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) dat hebben van 10 virtuele machines, hebt u een groep met meer dan 10 virtuele machines, we raden u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.
 
-## <a name="troubleshoot-readiness-issues"></a>Problemen met gereedheid
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Ik agents zijn geïnstalleerd en de visualisatie van afhankelijkheden gebruikt voor het maken van groepen. Nu na een failover, de machines actie "Agent installeren" in plaats van 'Afhankelijkheden bij weergave' weergeven
+* Post geplande of niet-geplande failover, on-premises machines zijn uitgeschakeld en gelijkwaardige machines in Azure hebben zijn ingeschakeld. Deze machines een ander MAC-adres hebt aanschaft. Ze kunnen een ander IP-adres dat is gebaseerd op of de gebruiker heeft ervoor gekozen op het lokale IP-adres behouden of niet verkrijgen. Als zowel MAC als IP-adressen verschillen, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
+* Test-failover, plaatsen de on-premises machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines hebben ingeschakeld in Azure ander MAC-adres verkrijgen en kunnen verschillende IP-adres hebt aanschaft. Tenzij de gebruiker wordt geblokkeerd uitgaand verkeer van Log Analytics van deze machines, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Problemen met Azure-gereedheid
 
 **Probleem** | **Fix**
 --- | ---
@@ -173,7 +198,6 @@ Niet-ondersteunde hoeveelheid bits van besturingssysteem | Virtuele machines met
 Visual Studio-abonnement vereist. | De machines is een Windows-client-besturingssysteem uitgevoerd dat wordt alleen ondersteund in Visual Studio-abonnement.
 Geen VM gevonden voor de vereiste opslagprestaties. | De prestaties van opslagruimte (IOPS/doorvoer) vereist voor de machine is groter dan ondersteuning voor Azure-VM. Verminderen de opslagvereisten voor de machine vóór de migratie.
 Geen VM gevonden voor de vereiste netwerkprestaties. | De netwerkprestaties (in/uit) dat is vereist voor de machine is groter dan ondersteuning voor Azure-VM. Verminder de netwerkvereisten voor de machine.
-De VM is niet gevonden in de opgegeven prijscategorie. | Als de prijscategorie is ingesteld op standaard, kunt u overwegen de virtuele machine verkleinen alvorens te voordat u migreert naar Azure. Als de grootte laag Basic is, kunt u overwegen de prijscategorie van de evaluatie van de standaard.
 De VM is niet gevonden in de opgegeven locatie. | Gebruik een andere doellocatie voor de migratie.
 Een of meer ongeschikte schijven. | Een of meer schijven die zijn gekoppeld aan de virtuele machine niet voldoen aan de vereisten voor Azure. Voor elke schijf die is gekoppeld aan de virtuele machine, zorg ervoor dat de grootte van de schijf < 4 TB, zo niet, de grootte van de schijf te verkleinen voordat u migreert naar Azure. Zorg ervoor dat de prestaties (IOPS/doorvoer) die nodig zijn voor elke schijf wordt ondersteund door Azure [beheerde schijven van virtuele machines](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
 Een of meer ongeschikte netwerkadapters. | Verwijder niet-gebruikte netwerkadapters van de machine vóór de migratie.

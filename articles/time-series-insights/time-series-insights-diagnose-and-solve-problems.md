@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ef06e7b1abd66a2204ef982943fe24354bd7f122
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367119"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837440"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Vaststellen en oplossen van problemen in uw Time Series Insights-omgeving
 
@@ -31,7 +31,7 @@ Dit artikel worden enkele problemen die kunnen worden weergegeven in uw Time Ser
 Er zijn enkele veelvoorkomende redenen waarom u ziet mogelijk niet de gegevens in de [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com):
 
 ### <a name="possible-cause-a-event-source-data-is-not-in-json-format"></a>Mogelijke oorzaak A: gebeurtenis brongegevens bevinden zich niet in JSON-indeling
-Azure Time Series Insights ondersteunt alleen JSON-gegevens. Zie voor voorbeelden van JSON, [ondersteund JSON-vormen](time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights ondersteunt alleen JSON-gegevens. Zie voor voorbeelden van JSON, [ondersteund JSON-vormen](./how-to-shape-query-json.md).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Mogelijke oorzaak B: gebeurtenis bronsleutel ontbreekt een vereiste machtiging
 * Voor een IoT-Hub, moet u de sleutel die is opgeven **service verbinding maken met** machtiging.
@@ -70,7 +70,7 @@ Bijvoorbeeld, wordt ervan uitgegaan dat berichten van een event hub kan in deze 
 
 Zoals wordt weergegeven in het diagram, wordt de dagelijks tarief dat inkomend ~ 67,000 berichten. Dit tarief wordt omgezet in ongeveer 46 berichten per minuut. Als elk event hub-bericht is samengevoegd tot één Time Series Insights-gebeurtenis, wordt in deze omgeving ziet er geen beperking. Als de event hub-bericht is samengevoegd tot 100 Time Series Insights-gebeurtenissen, moeten klikt u vervolgens 4,600 gebeurtenissen worden opgenomen elke minuut. Een S1 SKU-omgeving met een capaciteit van 3 kan alleen 2100 ingangsgebeurtenissen per minuut (1 miljoen gebeurtenissen per dag = 700 gebeurtenissen per minuut op 3 eenheden = 2100 gebeurtenissen per minuut). Daarom ziet u een vertraging vanwege een beperking. 
 
-Zie voor een grondig inzicht in hoe logische afvlakken werkt, [ondersteund JSON-vormen](time-series-insights-send-events.md#supported-json-shapes).
+Zie voor een grondig inzicht in hoe logische afvlakken werkt, [ondersteund JSON-vormen](./how-to-shape-query-json.md).
 
 ### <a name="recommended-resolution-steps-for-excessive-throttling"></a>Aanbevolen stappen voor overmatige beperking
 Om op te lossen de vertraging, vergroot u de SKU-capaciteit van uw omgeving. Zie voor meer informatie, [uw Time Series Insights-omgeving schalen](time-series-insights-how-to-scale-your-environment.md).

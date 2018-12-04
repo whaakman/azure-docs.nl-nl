@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4a4b9863d8f74592a8d9a700c3dbc850cd867331
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725553"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833921"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Meld u aan met een Android-toepassing
 
@@ -42,7 +42,7 @@ Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door 
 
 ## <a name="create-your-user-flows"></a>Uw gebruikersstromen maken
 
-In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md), dit is een set beleidsregels die de werking van Azure AD beheren. Deze app bevat één identity-ervaring: een stroom gecombineerde aanmelden en meld u aan de gebruiker. U moet deze gebruikersstroom maken zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u de gebruikersstroom maakt, moet u naar:
+In Azure AD B2C, wordt elke gebruikerservaring gedefinieerd door een [gebruikersstroom](active-directory-b2c-reference-policies.md), dit is een set beleidsregels die de werking van Azure AD beheren. Deze app bevat één identity-ervaring: een stroom gecombineerde aanmelden en meld u aan de gebruiker. U moet deze gebruikersstroom maken zoals beschreven in de [naslagartikel voor gebruiker stroom](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Wanneer u de gebruikersstroom maakt, moet u naar:
 
 * Kies de **weergavenaam** als een aanmelding kenmerk in de gebruikersstroom.
 * Kies de **weergavenaam** en **Object-ID** toepassingsclaims in de gebruikersstroom van elke. U kunt ook andere claims kiezen.

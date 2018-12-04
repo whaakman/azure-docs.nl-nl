@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: b2011003306e72ac9fb243b640e388e6f3d5e7d3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e537795c9dec5f909810a37d4f13d5664bec05a2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722204"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839973"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van gegevens die zijn opgeslagen in Azure Monitor. Dit omvat [metrische gegevens in de metrische gegevens van Azure store](../azure-monitor/platform/data-collection.md#metrics) en [gegevens vastleggen in Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
@@ -32,7 +32,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 ### <a name="advantages"></a>Voordelen
 - Diepe integratie in Azure. Visualisaties kunnen worden vastgemaakt aan dashboards vanuit meerdere Azure pagina's, met inbegrip van Metrics explorer, Log Analytics en Application Insights.
 - Biedt ondersteuning voor metrische gegevens en Logboeken.
-- Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics-query's](../log-analytics/log-analytics-queries.md), en [toegewezen](../application-insights/app-insights-app-map.md) en [beschikbaarheid]()in Application Insights.
+- Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics-query's](../azure-monitor/log-query/log-query-overview.md), en [toegewezen](../application-insights/app-insights-app-map.md) en [beschikbaarheid]()in Application Insights.
 - De optie voor persoonlijke of gedeelde dashboards. Geïntegreerd met Azure [verificatie op basis van rollen (RBAC)](../role-based-access-control/overview.md).
 - Automatische vernieuwing. Metrische gegevens over Gegevensvernieuwing is afhankelijk van tijdsbereik met ten minste vijf minuten. Logboeken vernieuwen op één minuut.
 - Constructorreeks mag metrische gegevens over dashboards met tijdstempel en aangepaste parameters.

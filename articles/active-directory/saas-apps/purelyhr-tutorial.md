@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c02dc274c5d22c16b2bda6d7896ee64c41d6e2ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438991"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Zelfstudie: Azure Active Directory-integratie met PurelyHR
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van PurelyHR in Azure AD, moet u PurelyH
 
 **Als u wilt toevoegen PurelyHR uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -121,7 +121,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak typt u de waarde met behulp van het volgende patroon: `https://<companyID>.purelyhr.com/sso-initiate`
      
     > [!NOTE]
-    > Deze waarden zijn niet de werkelijke. Werk deze waarden met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [PurelyHR Client ondersteuningsteam](http://support.purelyhr.com/) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet de werkelijke. Werk deze waarden met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [PurelyHR Client ondersteuningsteam](https://support.purelyhr.com/) om deze waarden te verkrijgen. 
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 

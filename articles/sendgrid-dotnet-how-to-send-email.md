@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634965"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840262"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Over het verzenden van E-mail via SendGrid met Azure
 ## <a name="overview"></a>Overzicht
@@ -43,7 +43,7 @@ Ga voor meer informatie naar [ https://sendgrid.com ](https://sendgrid.com) of v
 De [SendGrid NuGet-pakket](https://www.nuget.org/packages/Sendgrid) is de eenvoudigste manier om de SendGrid-API en uw toepassing configureren met alle afhankelijkheden. NuGet is een Visual Studio-uitbreiding die is opgenomen in Microsoft Visual Studio 2015 en hoger die kunt u eenvoudig installeren en bijwerken van bibliotheken en hulpprogramma's.
 
 > [!NOTE]
-> Als u wilt NuGet installeren als u een eerdere versie van Visual Studio dan Visual Studio 2015, gaat u naar [ http://www.nuget.org ](http://www.nuget.org), en klik op de **NuGet installeren** knop.
+> Als u wilt NuGet installeren als u een eerdere versie van Visual Studio dan Visual Studio 2015, gaat u naar [ https://www.nuget.org ](https://www.nuget.org), en klik op de **NuGet installeren** knop.
 >
 >
 

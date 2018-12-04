@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1069b7f9bdc0301f840e796f49fdb4031d297cf2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a44812ccb89606416b2161a133adf2c781e81bd0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436237"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Zelfstudie: Azure Active Directory-integratie met Predictix assortiment plannen
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van de Planning van Predictix assortimen
 
 **Als u wilt toevoegen Predictix assortiment plannen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -123,7 +123,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Predictix assortiment Planning Client ondersteuningsteam](http://www.infor.com/support) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Predictix assortiment Planning Client ondersteuningsteam](https://www.infor.com/support) om deze waarden te verkrijgen. 
  
 
 
@@ -139,7 +139,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Predictix assortiment Planning configureren](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. Het configureren van eenmalige aanmelding op **Predictix assortimentplanning** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)**, **SAML entiteit-ID**, **SAML Single Sign-On Service-URL**, en **afmelding URL** naar [ondersteuningsteam Predictix assortimentplanning](http://www.infor.com/support). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Predictix assortimentplanning** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)**, **SAML entiteit-ID**, **SAML Single Sign-On Service-URL**, en **afmelding URL** naar [ondersteuningsteam Predictix assortimentplanning](https://www.infor.com/support). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +179,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Maak een testgebruiker Predictix assortiment plannen
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon bij het plannen van Predictix assortiment. Neem contact op met [ondersteuningsteam Predictix assortimentplanning](http://www.infor.com/contact/) om toe te voegen de gebruikers in het platform Predictix assortiment plannen.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon bij het plannen van Predictix assortiment. Neem contact op met [ondersteuningsteam Predictix assortimentplanning](https://www.infor.com/contact/) om toe te voegen de gebruikers in het platform Predictix assortiment plannen.
  > [!NOTE]
  > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
 

@@ -5,14 +5,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211822"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832953"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Herstel na noodgevallen instellen voor een meerdere lagen op basis van een IIS-webtoepassing
 
@@ -52,13 +52,13 @@ Een-op basis van een IIS-webfarm met ARR, een IIS-server, een toepassingsserver 
 
 ![Diagram van een-op basis van een IIS-webfarm met vier lagen](./media/site-recovery-iis/deployment-pattern2.png)
 
-## <a name="site-recovery-support"></a>Ondersteuning voor site Recovery
+## <a name="site-recovery-support"></a>Ondersteuning voor Site Recovery
 
 Voor de voorbeelden in dit artikel gebruiken we virtuele VMware-machines met IIS 7.5 op Windows Server 2012 R2 Enterprise. Omdat de Site Recovery-replicatie niet toepassingsspecifieke, worden de aanbevelingen in dit artikel om toe te passen in de scenario's die worden vermeld in de volgende tabel, en voor verschillende versies van IIS verwacht.
 
 ### <a name="source-and-target"></a>Bron en doel
 
-Scenario | Naar een secundaire site | Naar Azure
+Scenario | Op een secundaire site | In Azure
 --- | --- | ---
 Hyper-V | Ja | Ja
 VMware | Ja | Ja
@@ -142,7 +142,7 @@ Als u een toepassingsspecifieke afhankelijkheid die gebaseerd op het IP-adres va
 
 1. Selecteer uw Recovery Services-kluis in de Azure-portal.
 2. Selecteer het herstelplan te gaan die u hebt gemaakt voor de IIS-webfarm.
-3. Selecteer **Testfailover**.
+3. Selecteer **Failover testen**.
 4. Selecteer het herstelpunt en de Azure-netwerk voor het starten van de test-failover-proces.
 5. Wanneer de secundaire-omgeving is, kunt u controles uitvoeren.
 6. Wanneer de controles zijn voltooid, schoon de testfailoveromgeving selecteren **voltooien van validaties**.

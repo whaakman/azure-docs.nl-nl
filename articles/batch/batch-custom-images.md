@@ -2,18 +2,18 @@
 title: Azure Batch-pool van een aangepaste installatiekopie inrichten | Microsoft Docs
 description: Maak een Batch pool van een aangepaste installatiekopie voor het inrichten van rekenknooppunten die de software en gegevens die u nodig hebt voor uw toepassing bevatten. Aangepaste installatiekopieën zijn een efficiënte manier voor het configureren van rekenknooppunten voor het uitvoeren van uw Batch-workloads.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885203"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840364"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Een aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken 
 
@@ -50,7 +50,13 @@ U kunt een beheerde installatiekopie van momentopnamen van een Azure-VM-besturin
 
 ### <a name="prepare-a-vm"></a>Een virtuele machine voorbereiden 
 
-Als u een nieuwe virtuele machine voor de installatiekopie maakt, gebruikt u de installatiekopie van een Azure Marketplace ondersteund door de Batch als de basisinstallatiekopie voor uw beheerde installatiekopie en vervolgens aan te passen.  Als u een lijst met verwijzingen naar afbeeldingen Azure Marketplace wordt ondersteund door Azure Batch, raadpleegt u de [knooppuntagent-SKU's lijst](/rest/api/batchservice/account/listnodeagentskus) bewerking. U kunt een installatiekopie van derden niet gebruiken als uw basisinstallatiekopie.
+Als u een nieuwe virtuele machine voor de installatiekopie maakt, gebruikt u de installatiekopie van een Azure Marketplace ondersteund door de Batch als de basisinstallatiekopie voor uw beheerde installatiekopie en vervolgens aan te passen.  Als u een lijst met verwijzingen naar afbeeldingen Azure Marketplace wordt ondersteund door Azure Batch, raadpleegt u de [knooppuntagent-SKU's lijst](/rest/api/batchservice/account/listnodeagentskus) bewerking. 
+
+> [!NOTE]
+> U kunt een installatiekopie van derden waarvoor extra licentie en de Aankoopvoorwaarden als uw basisinstallatiekopie niet gebruiken. Zie voor informatie over deze Marketplace-installatiekopieën, de richtlijnen voor [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) of [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) VM's.
+
 
 * Zorg ervoor dat de virtuele machine wordt gemaakt met een beheerde schijf. Dit is de standaardinstelling voor de opslag bij het maken van een virtuele machine.
 * Moet de Azure-extensies, zoals de Custom Script-extensie niet installeren op de virtuele machine. Als de installatiekopie een vooraf geïnstalleerde extensie bevat, kan Azure problemen optreden bij het implementeren van de Batch-pool.

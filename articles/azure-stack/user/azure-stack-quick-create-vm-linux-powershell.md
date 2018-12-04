@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a2dea792db39c753d0ea720c8e610a399401315f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377501"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840568"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: Een virtuele Linux-server-machine maken met behulp van PowerShell in Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt een Ubuntu Server 16.04 LTS virtuele machine maken met behulp van PowerShell voor Azure Stack. Volg de stappen in dit artikel te maken en gebruiken van een virtuele machine.  Dit artikel vindt u ook de stappen voor het:
+U kunt een Ubuntu Server 16.04 LTS-machine maken met behulp van PowerShell voor Azure Stack. Volg de stappen in dit artikel te maken en gebruiken van een virtuele machine.  Dit artikel vindt u ook de stappen voor het:
 
 * Verbinding maken met de virtuele machine met een externe client.
 * De NGINX-webserver installeren en de standaard-startpagina weergeven.
@@ -47,7 +47,7 @@ U kunt een Ubuntu Server 16.04 LTS virtuele machine maken met behulp van PowerSh
 
 Een resourcegroep is een logische container waarin u kunt implementeren en beheren van Azure Stack-resources. Vanuit uw development kit of de geïntegreerde Azure Stack-systeem, voer het volgende codeblok om een resourcegroep te maken. Waarden voor de variabelen in dit document worden toegewezen, kunt u deze waarden gebruiken of nieuwe waarden toewijzen.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 Maak een opslagaccount en maak vervolgens een opslagcontainer voor de Ubuntu Server 16.04 LTS-installatiekopie.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +395,7 @@ Gebruik de volgende opdracht om verbinding met de virtuele machine te maken vana
 ssh <Public IP Address>
 ```
 
-Wanneer u hierom wordt gevraagd, voert u azureuser als de aangemelde gebruiker. Als u een wachtwoordzin gebruikt wanneer u de SSH-sleutels gemaakt, hebt u de wachtwoordzin opgeven.
+Wanneer u hierom wordt gevraagd, meldt u zich als **azureuser**. Als u een wachtwoordzin gebruikt wanneer u de SSH-sleutels gemaakt, hebt u de wachtwoordzin opgeven.
 
 ## <a name="install-the-nginx-web-server"></a>De NGINX-webserver installeren
 

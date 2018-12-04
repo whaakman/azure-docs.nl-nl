@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 10/29/2018
-ms.openlocfilehash: a9738f95ce8a0de750ffa348e167bce3b0e659f6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.date: 11/27/2018
+ms.openlocfilehash: b3e2beb0245fa790dc60cf742d6ad8938de187f4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821392"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832578"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
@@ -102,7 +102,7 @@ Installatie van de VSS is een onderdeel van de installatie van de Mobility-agent
 
 Dit probleem is voornamelijk gezien als een antivirusprogramma wordt geblokkeerd door de bewerkingen van Azure Site Recovery-services. Dit, oplossen
 
-1. Alle mappen die worden vermeld uitsluiten [hier](vmware-azure-set-up-source.md#exclude-antivirus-on-the-configuration-server).
+1. Alle mappen die worden vermeld uitsluiten [hier](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Volg de richtlijnen gepubliceerd door uw provider antivirusprogramma's blokkering opheffen van de registratie van DLL-bestand in Windows.
 
 ### <a name="vss-error-7-0x7---exit-code-511"></a>VSS-fout 7 [0x7] - afsluitcode 511

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8d84801aacfc60bb11aac4c9046a433378a59b79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2b1dc0ad28a6608e3a46087d31a3d077e9291a3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314470"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841673"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -44,7 +44,7 @@ Infrastructuur voor service-certificaten voor extern gerichte-services die worde
 
    <sup>*</sup> Alleen van toepassing als id-provider van de omgeving Active Directory Federated Services (AD FS is).
 
-> [!NOTE]
+> [!NOTE]  
 > Alle andere beveiligde sleutels en tekenreeksen, met inbegrip van de BMC en schakelt u over wachtwoorden, gebruikers en beheerders wachtwoorden worden nog steeds handmatig bijgewerkt door de beheerder. 
 
 Operators moeten de integriteit van de Azure Stack-infrastructuur te behouden, de mogelijkheid om te roteren periodiek de geheimen van de infrastructuur bij frequenties die consistent met de beveiligingsvereisten van hun organisatie zijn.

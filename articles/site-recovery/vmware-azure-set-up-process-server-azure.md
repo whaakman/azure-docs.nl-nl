@@ -2,18 +2,18 @@
 title: Een processerver in Azure instellen voor VMware-VM en fysieke server failbacks met Azure Site Recovery | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u een processerver in Azure, naar Azure-VM's naar VMware-failback instellen.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
-ms.author: raynew
-ms.openlocfilehash: a54fe3099854e6e5200a50ec6ef5db1401a223bf
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077609"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842319"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Een processerver in Azure voor failback instellen
 
@@ -24,6 +24,7 @@ Nadat u een failover VMware-machines of fysieke servers naar Azure met [sitehers
 Meer informatie over de [opnieuw beveiligen](vmware-azure-reprotect.md) en [failback](vmware-azure-failback.md) proces.
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+
 
 ## <a name="deploy-a-process-server-in-azure"></a>Een processerver in Azure implementeren
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 801dddd3379d3c9c375ab883e98f346c69068033
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634282"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834414"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Over het gebruik van beheerde identiteiten voor App Service en Azure Functions
 
@@ -210,7 +210,10 @@ Een web-app kan er bijvoorbeeld als volgt uitzien:
     "name": "[variables('appName')]",
     "location": "[resourceGroup().location]",
     "identity": {
-        "type": "UserAssigned"
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
+        }
     },
     "properties": {
         "name": "[variables('appName')]",
@@ -220,7 +223,8 @@ Een web-app kan er bijvoorbeeld als volgt uitzien:
         "alwaysOn": true
     },
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
     ]
 }
 ```
@@ -254,9 +258,9 @@ Er is een eenvoudige REST-protocol voor het verkrijgen van een token in App Serv
 
 Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met een beheerde identiteit via de Microsoft.Azure.Services.AppAuthentication-pakket. Deze bibliotheek wordt u ook de mogelijkheid voor het testen van uw code lokaal op uw ontwikkelcomputer, met behulp van uw gebruikersaccount vanuit Visual Studio, de [Azure CLI](/cli/azure), of geïntegreerde verificatie van Active Directory. Zie voor meer informatie over opties voor lokale ontwikkeling met deze bibliotheek, de [Microsoft.Azure.Services.AppAuthentication verwijzing]. Deze sectie leest u hoe u aan de slag met de bibliotheek in uw code.
 
-1. Voeg verwijzingen toe aan de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-pakketten aan uw toepassing.
+1. Voeg verwijzingen toe aan de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en andere benodigde NuGet-pakketten aan uw toepassing. Het onderstaande voorbeeld gebruikt u ook [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Voeg de volgende code toe aan uw toepassing:
+2.  Voeg de volgende code aan uw toepassing, wijzigt u de juiste doelresource. In dit voorbeeld ziet u twee manieren om te werken met Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -281,7 +285,7 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 > [!div class="mx-tdBreakAll"]
 > |Parameternaam|In|Beschrijving|
 > |-----|-----|-----|
-> |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald.|
+> |Bron|Query’s uitvoeren|De AAD-resource-URI van de resource voor een token moet worden opgehaald. Dit wordt mogelijk een van de [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) of een andere resource-URI.|
 > |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie die wordt ondersteund.|
 > |geheim|Header|De waarde van de omgevingsvariabele MSI_SECRET.|
 > |clientid|Query’s uitvoeren|(Optioneel) De ID van de gebruiker toegewezen identiteit moet worden gebruikt. Als u dit weglaat, wordt het systeem toegewezen identiteit wordt gebruikt.|

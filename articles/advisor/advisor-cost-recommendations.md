@@ -3,26 +3,25 @@ title: Azure Advisor kosten aanbevelingen | Microsoft Docs
 description: Met Azure Advisor kunt verlagen de kosten van uw Azure-implementaties.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.author: kasparks
+ms.openlocfilehash: a4de50e3dc17d9c9543bf1ec8cabb04c5d60070b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060570"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832884"
 ---
 # <a name="advisor-cost-recommendations"></a>Aanbevelingen van Advisor-kosten
 
-Advisor helpt u te optimaliseren en uw totale Azure verminderen besteden door niet-actieve en onderbenutte resources te identificeren. U kunt u kosten aanbevelingen van de **kosten** tabblad op de Advisor-dashboard.
+Advisor helpt u te optimaliseren en uw totale Azure verminderen besteden door niet-actieve en onderbenutte resources te identificeren. U kunt u kosten aanbevelingen van de **kosten** tabblad op de Advisor-dashboard.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimaliseer virtuele machine uitgaven per vergroten of verkleinen of weinig gebruikte exemplaren afsluiten 
 Hoewel bepaalde toepassingsscenario's in laag gebruik standaard resulteren kunnen, kunt u vaak geld besparen door het beheer van de grootte en het nummer van uw virtuele machines. Advisor bewaakt uw gebruik van virtuele machines gedurende 14 dagen en vervolgens laag gebruik virtuele machines identificeert. Virtuele machines waarvan CPU-gebruik 5 is % of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.

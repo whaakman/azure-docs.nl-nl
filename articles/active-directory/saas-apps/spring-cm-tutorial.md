@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 034d7b61d4a02ac899c7215a042d47bc7938176d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 777586bc24c0962ec1f0ba3913397bfe26d0d0d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438144"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Zelfstudie: Azure Active Directory-integratie met SpringCM
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van SpringCM in Azure AD, moet u SpringC
 
 **Als u wilt toevoegen SpringCM uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -189,7 +189,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 Als u wilt dat Azure Active Directory-gebruikers zich aanmelden bij SpringCM, moeten ze worden ingericht voor SpringCM. In het geval van SpringCM is inrichten een handmatige taak.
 
 >[!NOTE]
->Zie voor meer informatie, [maken en bewerken van een gebruiker SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+>Zie voor meer informatie, [maken en bewerken van een gebruiker SpringCM](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **Voor het inrichten van een gebruikersaccount SpringCM, moet u de volgende stappen uitvoeren:**
 
@@ -248,7 +248,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
- 
+ 
 Wanneer u op de tegel SpringCM in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing SpringCM.
 
 Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 

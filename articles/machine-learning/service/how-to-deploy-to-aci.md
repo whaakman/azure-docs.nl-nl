@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 3c07f39a6c6c4ce244ba49a26617b3e645c57acb
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 31a905e1fb16997eb80e47af3b790f431f28e49b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710371"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842863"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Webservices implementeren in Azure Container Instances 
 
@@ -252,6 +252,23 @@ prediction = service.run(input_data = test_samples)
 print(prediction)
 ```
 
+## <a name="update-the-web-service"></a>Bijwerken van de webservice
+
+Voor het bijwerken van de webservice, gebruikt u de `update` methode. De volgende code ziet u hoe u de webservice voor het gebruik van een nieuwe installatiekopie bijwerken:
+
+```python
+from azureml.core.webservice import Webservice
+
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+# Update the image used by the service
+service.update(image = new-image)
+print(service.state)
+```
+
+> [!NOTE]
+> Wanneer u een installatiekopie van een bijwerkt, wordt de webservice niet automatisch bijgewerkt. Elke service die u wilt gebruiken van de nieuwe installatiekopie moet u handmatig bijwerken.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

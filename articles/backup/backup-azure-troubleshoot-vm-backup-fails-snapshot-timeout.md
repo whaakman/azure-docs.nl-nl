@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure back-up. VM-agent; Verbinding met het netwerk;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977111"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833870"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: problemen met de agent of de extensie
 
@@ -156,11 +156,11 @@ Als uw subnet niet beschikt over een route voor uitgaand verkeer van internet, m
 #### <a name="solution"></a>Oplossing
 De VM-agent is beschadigd of de service is gestopt. De VM-agent opnieuw te installeren, kunt de meest recente versie. Het helpt ook bij communicatie met de service opnieuw.
 
-1. Bepalen of de Windows Guest Agent-service wordt uitgevoerd in de VM-services (services.msc). Probeer het opnieuw opstarten van de Windows Guest Agent-service en start de back-up.    
-2. Als de Windows Guest Agent-service niet worden weergegeven in de services in het Configuratiescherm, gaat u naar **programma's en onderdelen** om te bepalen of de Windows Guest Agent-service is geïnstalleerd.
-4. Als de Windows Guest-Agent wordt weergegeven in **programma's en onderdelen**, verwijdert u de Windows Guest Agent.
+1. Bepalen of de Windows Azure Guest Agent-service wordt uitgevoerd in de VM-services (services.msc). Probeer het opnieuw opstarten van de Windows Azure Guest Agent-service en start de back-up.    
+2. Als de Windows Azure Guest Agent-service niet worden weergegeven in de services in het Configuratiescherm, gaat u naar **programma's en onderdelen** om te bepalen of de Windows Azure Guest Agent-service is geïnstalleerd.
+4. Als de Windows Azure Guest-Agent wordt weergegeven in **programma's en onderdelen**, de Windows Azure Guest-Agent verwijderen.
 5. Download en installeer de [meest recente versie van de agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersrechten om de installatie te voltooien.
-6. Controleer of dat de Windows Guest Agent-services worden weergegeven in de services.
+6. Controleer of dat de Windows Azure Guest Agent-services worden weergegeven in de services.
 7. Een on-demand back-up uitvoeren:
     * Selecteer in de portal **nu back-up**.
 

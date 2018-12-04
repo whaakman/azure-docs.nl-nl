@@ -10,19 +10,21 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49f3f80832597b231aec812a4c1613da9897f72a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722442"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842761"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met OpenID verbinding maken met behulp van Azure Active Directory B2C
 
 >[!NOTE]
 > Deze functie is beschikbaar als openbare preview. Gebruik de functie niet in een productieomgeving.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol, zoals [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), worden ondersteund in Azure AD B2C. In dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect id-providers in uw gebruikersstromen kunt toevoegen.
+
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol, zoals [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), worden ondersteund in Azure AD B2C. In dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect id-providers in uw gebruikersstromen kunt toevoegen.
+
 
 ## <a name="add-the-identity-provider"></a>De id-provider toevoegen
 
@@ -39,13 +41,13 @@ Elke OpenID Connect id-providers beschrijft een document met metagegevens die de
 Als u wilt toestaan dat gebruikers zich aanmelden, moet de id-provider ontwikkelaars het registreren van een toepassing in hun service. Deze toepassing heeft een ID die wordt aangeduid als de **client-ID** en een **clientgeheim**. Kopieer deze waarden van de id-provider en de bijbehorende velden aangaan.
 
 > [!NOTE]
-> Het clientgeheim is optioneel. U moet echter een clientgeheim invoeren als u wilt gebruiken de [autorisatiecodestroom](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), waarbij de geheime sleutel wordt gebruikt voor het uitwisselen van de code voor het token.
+> Het clientgeheim is optioneel. U moet echter een clientgeheim invoeren als u wilt gebruiken de [autorisatiecodestroom](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), waarbij de geheime sleutel wordt gebruikt voor het uitwisselen van de code voor het token.
 
 Bereik definieert de informatie en de machtigingen die u wilt verzamelen van uw aangepaste id-provider. OpenID Connect-aanvragen mag de `openid` waarde scope om te kunnen ontvangen van de ID-token van de id-provider. Zonder de ID-token, dat gebruikers zich niet aanmelden bij Azure AD B2C met behulp van de aangepaste id-provider. Andere bereiken kunnen worden toegevoegd aan de gescheiden door een spatie. Raadpleeg de documentatie van de aangepaste id-provider om te zien wat andere scopes mogelijk beschikbaar.
 
 Het reactietype wordt beschreven wat voor soort informatie wordt verzonden in de eerste aanroep naar de `authorization_endpoint` van de aangepaste id-provider. De volgende antwoordtypen kunnen worden gebruikt:
 
-- `code`: Volgens het [autorisatiecodestroom](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), een code naar Azure AD B2C wordt geretourneerd. Azure AD B2C wordt voortgezet om aan te roepen de `token_endpoint` voor het uitwisselen van de code voor het token.
+- `code`: Volgens het [autorisatiecodestroom](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), een code naar Azure AD B2C wordt geretourneerd. Azure AD B2C wordt voortgezet om aan te roepen de `token_endpoint` voor het uitwisselen van de code voor het token.
 - `token`: Een toegangstoken wordt geretourneerd naar Azure AD B2C vanaf de aangepaste id-provider.
 - `id_token`: Een ID-token dat wordt geretourneerd naar Azure AD B2C vanaf de aangepaste id-provider.
 

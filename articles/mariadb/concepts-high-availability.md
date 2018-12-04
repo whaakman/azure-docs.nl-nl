@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956520"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833836"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Concepten van hoge beschikbaarheid in Azure Database voor MariaDB
-De Azure Database voor MariaDB-service biedt een gegarandeerde hoge mate van beschikbaarheid. De met financiële garantie service level agreement (SLA) is 99,99% bij algemene beschikbaarheid. De SLA is niet van toepassing op preview-versie. Er is bijna geen toepassing uitvaltijd wanneer u deze service.
+De Azure Database voor MariaDB-service biedt een gegarandeerde hoge mate van beschikbaarheid. De met financiële garantie service level agreement (SLA) is 99,99% bij algemene beschikbaarheid. Er is bijna geen toepassing uitvaltijd wanneer u deze service.
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
 Het model met hoge beschikbaarheid (HA) is gebaseerd op ingebouwde mechanismen voor failover als een knooppunt op serverniveau onderbreking optreedt. Een onderbreking knooppunt op serverniveau kan zich voordoen vanwege een hardwarestoring optreedt of als reactie op een service-implementatie.
@@ -34,4 +34,4 @@ Net als bij de HA-model, wanneer een Azure Database voor MariaDB omhoog of omlaa
 Tijdens de schaalbewerking is een onderbreking van de databaseverbindingen vindt plaats. De clienttoepassingen die niet zijn verbonden en open niet-doorgevoerde transacties worden geannuleerd. Nadat u de clienttoepassing probeert opnieuw verbinding of een nieuwe verbinding maakt, is de gateway zorgt ervoor dat de verbinding met de nieuwe grootte-exemplaar.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor een overzicht van de service, [Azure Database voor MariaDB-overzicht](overview.md)
+- Zie voor een overzicht van de service, [Azure Database voor MariaDB-overzicht](overview.md)

@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210819"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838137"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Herstel na noodgevallen voor een met meerdere lagen Dynamics AX-toepassing instellen 
 
@@ -37,7 +37,7 @@ Herstel na noodgevallen voor Dynamics AX-toepassing implementeren met behulp van
 
 • Als Azure uw herstelsite, voer het hulpprogramma Azure Virtual Machine Readiness Assessment op de virtuele machines. Moeten compatibel zijn met de Azure Virtual Machines en Site Recovery-services.
 
-## <a name="site-recovery-support"></a>Ondersteuning voor site Recovery
+## <a name="site-recovery-support"></a>Ondersteuning voor Site Recovery
 
 Ten behoeve van het maken van dit artikel, hebben we virtuele VMware-machines gebruikt met Dynamics AX 2012 R3 op Windows Server 2012 R2 Enterprise. Omdat replicatie van site recovery neutraal van toepassing is, maar we verwachten dat de aanbevelingen die hier beschikbaar zijn voor het opslaan van de volgende scenario's.
 
@@ -139,7 +139,7 @@ Zie voor meer informatie over SQL server tijdens de testfailover, [toepassingen 
 
 2. Selecteer het plan voor herstel gemaakt voor Dynamics AX.
 
-3. Selecteer **Testfailover**.
+3. Selecteer **Failover testen**.
 
 4. Selecteer het virtuele netwerk om de test-failover-proces te starten.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 456e32e2f5194417f004f80feef1852dd3d0befd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c93bc018aea92a63adac4889d9496356543c1e52
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723275"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842727"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token-, sessie en configuratie voor eenmalige aanmelding in Azure Active Directory B2C
 
@@ -66,7 +66,7 @@ De volgende eigenschappen kunnen klanten opt-in indien nodig:
 
 - **Claim van verlener (iss)** -deze eigenschap geeft u de Azure AD B2C-tenant die het token is uitgegeven.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` -Dit is de standaardwaarde.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Deze waarde bevat de id's voor zowel de B2C-tenant en de gebruikersstroom gebruikt in het token aan te vragen. Als uw app of de tapewisselaar moet Azure AD B2C om te voldoen aan de [OpenID Connect Discovery 1.0-specificatie](http://openid.net/specs/openid-connect-discovery-1_0.html), gebruikt deze waarde.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Deze waarde bevat de id's voor zowel de B2C-tenant en de gebruikersstroom gebruikt in het token aan te vragen. Als uw app of de tapewisselaar moet Azure AD B2C om te voldoen aan de [OpenID Connect Discovery 1.0-specificatie](https://openid.net/specs/openid-connect-discovery-1_0.html), gebruikt deze waarde.
 - **Onderwerp (sub) claim** -deze eigenschap geeft u de entiteit die het token worden bevestigd met informatie.
     - **Object-id** -deze eigenschap is de standaardwaarde. Het wordt gevuld met de object-ID van de gebruiker in de map in de `sub` claim in het token.
     - **Niet ondersteund** : deze eigenschap wordt alleen aangeboden voor achterwaartse compatibiliteit en het is raadzaam dat u naar overschakelt **ObjectID** zodra u zich kunt.

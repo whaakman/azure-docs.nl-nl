@@ -1,20 +1,18 @@
 ---
-title: Bulksgewijs importeren en bijwerken van gegevens in Azure Cosmos DB met behulp van de bulksgewijs executor-bibliotheek | Microsoft Docs
+title: Bulksgewijs importeren en bijwerken van gegevens in Azure Cosmos DB met behulp van de bulksgewijs executor-bibliotheek
 description: Bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB via bulkimport en bulksgewijs bijwerken API's die worden aangeboden door de bulksgewijs executor-bibliotheek.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e3b77ce28e5c3a236abcd9a22e643428b53ed0a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363537"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834805"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB bulksgewijs executor-bibliotheek-overzicht
  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dbf21c7c22a9b3273a65f7e186a2ac02ccae6ba2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436204"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Zelfstudie: Azure Active Directory-integratie met Symantec Web Security Service (WSS)
 
@@ -63,7 +63,7 @@ Voor het configureren van de integratie van Symantec Web Security Service (WSS) 
 
 **Als u wilt toevoegen Symantec Web Security Service (WSS) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -170,7 +170,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 In deze sectie maakt u een gebruiker met de naam Britta Simon in Symantec Web Security Service (WSS). De bijbehorende end-gebruikersnaam kan handmatig worden gemaakt in de WSS-portal of u kunt wachten op de gebruikers/groepen ingericht in de Azure AD worden gesynchroniseerd met de portal WSS na een paar minuten (ongeveer 15 minuten). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. Het openbare IP-adres van de eindgebruiker-machine die wordt gebruikt om te bladeren websites moet ook worden ingericht in de portal voor Symantec Web Security Service (WSS).
 
 > [!NOTE]
-> Neem [Klik hier](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) om op te halen van de computer het openbare IP-adres.
+> Neem [Klik hier](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) om op te halen van de computer het openbare IP-adres.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

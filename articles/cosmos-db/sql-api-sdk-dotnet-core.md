@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8243d1e297fa778d4fa27f8365d9bb0a935d21e5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5a0fb429c36005edca579cbdb7b379e6b04be60b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387990"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840840"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ ms.locfileid: "49387990"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente versie van de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
+* Preview-versie 1 van [versie 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) van de .NET-SDK voor de openbare preview.
+* Doel .NET Standard, die ondersteuning biedt voor 4.6.1+ van .NET framework en .NET Core 2.0 +
+* Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen. 
+* Ondersteuning voor stromen. 
+* Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd. 
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -189,12 +196,12 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Er is ondersteuning toegevoegd voor aggregatie-query's (aantal, MIN, MAX, som en gemiddelde). Zie [ondersteuning voor aggregatie](sql-api-sql-query.md#Aggregates).
+* Er is ondersteuning toegevoegd voor aggregatie-query's (aantal, MIN, MAX, som en gemiddelde). Zie [ondersteuning voor aggregatie](how-to-sql-query.md#Aggregates).
 * Het minimale doorvoer op gepartitioneerde verzamelingen van 10,100 RU/s 2500 RU/s verlaagd.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-De Azure Cosmos DB .NET Core SDK kunt u bouwen snelle, platformoverschrijdende [ASP.NET Core](https://www.asp.net/core) en [.NET Core](https://www.microsoft.com/net/core#windows) apps uit te voeren op Windows, Mac en Linux. De nieuwste versie van de Azure Cosmos DB .NET Core-SDK is volledig [Xamarin](https://www.xamarin.com) compatibel en worden gebruikt voor het bouwen van toepassingen die zijn gericht op iOS, Android en Mono (Linux).  
+De Azure Cosmos DB .NET Core SDK kunt u bouwen snelle, platformoverschrijdende [ASP.NET Core](https://www.asp.net/core) en [.NET Core](https://www.microsoft.com/net/core#windows) apps uit te voeren op Windows, Mac en Linux. De nieuwste versie van de Azure Cosmos DB .NET Core-SDK is volledig [Xamarin](https://www.xamarin.com) compatibel en worden gebruikt voor het bouwen van toepassingen die zijn gericht op iOS, Android en Mono (Linux).  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
 

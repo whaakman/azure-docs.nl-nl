@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d0156ccc3caea2f47296740d57422ccc706f84f1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: be519dd2a6e6948bedeedd4166c7adf466dbb365
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634231"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836369"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Status van de Active Directory-replicatie met Log Analytics controleren
 
@@ -110,7 +110,7 @@ Wanneer u een item in een van de lijsten op klikt, ziet u aanvullende informatie
 
 ![AD-status replicatiefouten opgetreden in de zoekresultaten](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Hier kunt kunt u verder filteren, wijzigen van de zoekopdracht, enzovoort. Zie voor meer informatie over het gebruik van zoeken in logboeken [zoekopdrachten](../../log-analytics/log-analytics-queries.md).
+Hier kunt kunt u verder filteren, wijzigen van de zoekopdracht, enzovoort. Zie voor meer informatie over het gebruik van zoeken in logboeken [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md).
 
 De **HelpLink** veld ziet u de URL van een TechNet-pagina met aanvullende informatie over de specifieke fout. U kunt kopiëren en plakken van deze koppeling in het browservenster om informatie over het oplossen van problemen en het verhelpen van de fout te bekijken.
 
@@ -154,4 +154,4 @@ Als u hulp bij het verbinden van een van uw domeincontrollers, vindt u de docume
 Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks Log Analytics of met System Center Operations Manager, raadpleegt u [om in te schakelen van een niet-domeincontroller AD-gegevens te verzenden naar Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten in Logboeken in Log Analytics](../../log-analytics/log-analytics-queries.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.
+* Gebruik [zoekopdrachten in Logboeken in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde gegevens van Active Directory-replicatie de status weer te geven.

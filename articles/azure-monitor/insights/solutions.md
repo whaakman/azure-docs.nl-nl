@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: f056e30850168ec8a9179e1e11686f7221f6fded
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a498c9251c305b4845cc911fc9a21fbdafda72fe
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715340"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832255"
 ---
 # <a name="management-solutions-in-azure"></a>Management-oplossingen in Azure
 Beheeroplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. In dit artikel geeft een kort overzicht van oplossingen in Azure en meer informatie over het gebruiken en ze te installeren.
@@ -104,5 +104,5 @@ Als u wilt verwijderen van een oplossing voor is geïnstalleerd, zoekt u deze in
 
 ## <a name="next-steps"></a>Volgende stappen
 * Krijgen een [lijst met oplossingen van Microsoft](solutions-inventory.md).
-* Meer informatie over het [query's maken](../../log-analytics/log-analytics-queries.md) voor het analyseren van gegevens die zijn verzameld door oplossingen voor beheer.
+* Meer informatie over het [query's maken](../../azure-monitor/log-query/log-query-overview.md) voor het analyseren van gegevens die zijn verzameld door oplossingen voor beheer.
 
