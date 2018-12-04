@@ -42,7 +42,7 @@ Kies vervolgens de organisatie waarin u de extensie installeren.
 
 Nu de extensie is geïnstalleerd, meldt u zich aan bij uw Azure DevOps-account en vindt u uw project vanuit het projectendashboard. U kunt een [build-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) aan uw project toevoegen of een bestaande build-pipeline wijzigen. Als u al een build-pipeline hebt, kunt u verdergaan met[Build-taak van de emulator toevoegen aan een build-definitie](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Om een nieuwe build-definitie te maken, gaat u naar het tabblad **Builds** in Azure DevOps. Selecteer **+New.** > **Nieuwe build-pipeline**
+1. Om een nieuwe build-definitie te maken, gaat u naar het tabblad **Builds** in Azure DevOps. Selecteer **+New.** >  **Nieuwe build-pipeline**
 
    ![Een nieuwe build-pipeline maken](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
