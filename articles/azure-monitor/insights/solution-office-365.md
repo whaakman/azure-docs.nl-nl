@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 80a5b49d27ffc2b75cc9a1092a4d9f17e09bef24
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633194"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848864"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -30,7 +30,7 @@ De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Offic
 - Activiteiten van beheerder voor het bijhouden van wijzigingen in de configuratie of hoge bevoegdheid bewerkingen bewaken.
 - Detecteren en onderzoeken van ongewenste gebruikersgedrag, die kan worden aangepast aan de behoeften van uw organisatie.
 - Illustratie van controle en naleving. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, die u met het proces voor controle en naleving helpen kunnen controleren.
-- Uitvoeren van operationele problemen oplossen met behulp van [zoekopdrachten](../../log-analytics/log-analytics-queries.md) boven op Office 365-activiteitsgegevens van uw organisatie.
+- Uitvoeren van operationele problemen oplossen met behulp van [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) boven op Office 365-activiteitsgegevens van uw organisatie.
 
 ## <a name="prerequisites"></a>Vereisten
 Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfigureerd.
@@ -709,6 +709,6 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik Logboekzoekopdrachten in [Log Analytics](../../log-analytics/log-analytics-queries.md) om gedetailleerde updategegevens weer te geven.
+* Gebruik Logboekzoekopdrachten in [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde updategegevens weer te geven.
 * [Maak uw eigen dashboards](../../azure-monitor/platform/dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
 * [Waarschuwingen maken](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  

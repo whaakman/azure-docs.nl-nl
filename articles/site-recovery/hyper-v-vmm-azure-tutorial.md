@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f57dd806e345cad80b8c60424e12211fc74814d6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213216"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846421"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Instellen van herstel na noodgevallen van on-premises Hyper-V-machines in VMM-clouds naar Azure
 
@@ -55,7 +55,7 @@ Voordat u begint, is het handig om [de architectuur te bekijken](concepts-hyper-
 Bij het instellen van de bronomgeving, moet u de Azure Site Recovery Provider en de Azure Recovery Services-agent installeren en on-premises servers in de kluis registreren. 
 
 1. Klik in **Infrastructuur voorbereiden** op **Bron**.
-2. Klik in **Bron voorbereiden** op **+ VMM** om een VMM-server toe te voegen. In **-Server toevoegen**, controleert u of **System Center VMM-server** wordt weergegeven in **servertype**.
+2. Klik in **Bron voorbereiden** op **+ VMM** om een VMM-server toe te voegen. Controleer in **Server toevoegen**of **System Center VMM-server** wordt weergegeven bij **Servertype**.
 3. Download het installatieprogramma voor de Microsoft Azure Site Recovery Provider.
 4. Download de registratiesleutel voor de kluis. U hebt deze nodig wanneer u de Provider-installatie uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
 5. De Recovery Services-agent downloaden.
@@ -125,7 +125,7 @@ Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -
 4. Selecteer de **contosovmsacct1910171607** storage-account en de **ContosoASRnet** Azure-netwerk.
 5. Selecteer in **Virtuele machines** > **Selecteren** de VM's die u wilt repliceren. Klik vervolgens op **OK**.
 
- U kunt de voortgang van de actie **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Na de **beveiliging voltooien** taak is voltooid, de initiële replicatie is voltooid en de virtuele machine is gereed voor failover.
+ U kunt de voortgang van de actie **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Wanneer de taak **De beveiliging voltooien** is voltooid, is de initiële replicatie voltooid en is de virtuele machine klaar voor failover.
 
 
 ## <a name="next-steps"></a>Volgende stappen

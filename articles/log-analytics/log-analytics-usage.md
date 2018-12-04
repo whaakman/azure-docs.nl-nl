@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 03c1afb45ddde994ba79838fc73eb3c16e8510f2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 843271901b8d58c2c5a6c4cf495997498b8278b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723972"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848847"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -209,7 +209,7 @@ Maak een nieuwe [Actiegroep](../monitoring-and-diagnostics/monitoring-action-gro
 Wanneer u een waarschuwing ontvangt, gebruikt u de stappen in de volgende sectie om te bepalen waarom het-gebruik is hoger dan verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-queries.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
+* Zie [Zoekopdrachten in logboeken in Log Analytics](../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
 * Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../monitoring-and-diagnostics/alert-metric.md) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan.
 * Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 * Lees [Filterbeleid van Azure Security Center](../security-center/security-center-enable-data-collection.md) om een effectief beleid voor het verzamelen van beveiligingsgebeurtenissen te configureren.

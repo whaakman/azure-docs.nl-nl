@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356633"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849561"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fout op de pagina na de aanmelding van een toepassing
 
@@ -30,7 +30,7 @@ Er zijn enkele mogelijke redenen waarom de toepassing de reactie van Azure AD ni
 
 -   Als de toepassing de Azure AD-galerie is, controleert u of u alle stappen in het artikel hebt gevolgd [fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Gebruik een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) SAML-aanvraag, SAML-antwoord en SAML-token vast te leggen.
+-   Gebruik een hulpprogramma zoals [Fiddler](https://www.telerik.com/fiddler) SAML-aanvraag, SAML-antwoord en SAML-token vast te leggen.
 
 -   De SAML-reactie delen met de leverancier van de toepassing om te weten wat ontbreekt.
 
@@ -62,7 +62,7 @@ Als u wilt toevoegen een kenmerk in de Azure AD-configuratie in het antwoord van
 
    * Klik op **opslaan.** U kunt het nieuwe kenmerk in de tabel zien.
 
-9.  De configuratie op te slaan.
+9.  Sla de configuratie op.
 
 Volgende keer dat de gebruiker zich aanmeldt bij de toepassing Azure AD verzenden het nieuwe kenmerk in het SAML-antwoord.
 

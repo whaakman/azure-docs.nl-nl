@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: c38c751701b323bf1c985a4127d0e9deac2c8eaa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c72ed655166dc1fe8045f5b9fdc7221cdf24d567
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446018"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Zelfstudie: Azure Active Directory-integratie met EthicsPoint Incident Management (EPIM)
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van EthicsPoint Incident Management (EPI
 
 **Als u wilt toevoegen EthicsPoint Incident Management (EPIM) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -123,7 +123,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<servername>.navexglobal.com/adfs/ls/`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke antwoord-URL, id en aanmeldings-URL. Neem contact op met [EthicsPoint Incident Management (EPIM) Client-ondersteuningsteam](http://www.navexglobal.com/company/contact-us) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke antwoord-URL, id en aanmeldings-URL. Neem contact op met [EthicsPoint Incident Management (EPIM) Client-ondersteuningsteam](https://www.navexglobal.com/company/contact-us) om deze waarden te verkrijgen. 
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -133,7 +133,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/ethicspoint-incident-management-tutorial/tutorial_general_400.png)
     
-1. Het configureren van eenmalige aanmelding op **EthicsPoint Incident Management (EPIM)** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [ondersteuningsteam EthicsPoint Incident Management (EPIM) ](http://www.navexglobal.com/company/contact-us).
+1. Het configureren van eenmalige aanmelding op **EthicsPoint Incident Management (EPIM)** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [ondersteuningsteam EthicsPoint Incident Management (EPIM) ](https://www.navexglobal.com/company/contact-us).
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="creating-a-ethicspoint-incident-management-epim-test-user"></a>Het maken van een testgebruiker EthicsPoint Incident Management (EPIM)
 
-In deze sectie maakt u een gebruiker met de naam Britta Simon in EthicsPoint Incident Management (EPIM). Neem contact op met [EthicsPoint Incident Management (EPIM)-ondersteuningsteam](http://www.navexglobal.com/company/contact-us) om toe te voegen de gebruikers van het EthicsPoint Incident Management (EPIM)-platform.
+In deze sectie maakt u een gebruiker met de naam Britta Simon in EthicsPoint Incident Management (EPIM). Neem contact op met [EthicsPoint Incident Management (EPIM)-ondersteuningsteam](https://www.navexglobal.com/company/contact-us) om toe te voegen de gebruikers van het EthicsPoint Incident Management (EPIM)-platform.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

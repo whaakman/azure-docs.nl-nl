@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c496bd6f7ccec4cc08ca5eead02cb06ff3efde09
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 74987d09a9b8979d3c3596c87764f8f3bd4b5795
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715327"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846662"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -27,7 +27,7 @@ ms.locfileid: "51715327"
 > Dit is een voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. Er is geen schema die hieronder worden beschreven kan worden gewijzigd.   
 
 
-[Beheeroplossingen](solutions.md) omvatten [opgeslagen zoekopdrachten](../../log-analytics/log-analytics-queries.md) in Log Analytics voor het analyseren van gegevens die zijn verzameld door de oplossing.  Ze kunnen ook definiëren [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) aan de gebruiker waarschuwen of automatisch een actie uitvoeren in reactie op een belangrijk probleem.  In dit artikel wordt beschreven hoe u voor het definiëren van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in een [Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) , zodat ze kunnen worden opgenomen [beheeroplossingen](solutions-creating.md).
+[Beheeroplossingen](solutions.md) omvatten [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics voor het analyseren van gegevens die zijn verzameld door de oplossing.  Ze kunnen ook definiëren [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) aan de gebruiker waarschuwen of automatisch een actie uitvoeren in reactie op een belangrijk probleem.  In dit artikel wordt beschreven hoe u voor het definiëren van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in een [Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) , zodat ze kunnen worden opgenomen [beheeroplossingen](solutions-creating.md).
 
 > [!NOTE]
 > De voorbeelden in dit artikel Gebruik parameters en variabelen die zijn vereist of gemeenschappelijke beheeroplossingen en wordt beschreven in [ontwerpen en bouwen van een oplossing in Azure](solutions-creating.md)  
@@ -54,9 +54,9 @@ De volgende tabel bevat de API-versie voor de resource die in dit voorbeeld word
 
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
-Opnemen [opgeslagen zoekopdrachten](../../log-analytics/log-analytics-queries.md) in een oplossing waarmee gebruikers query uitvoeren op gegevens die door uw oplossing worden verzameld.  Opgeslagen zoekopdrachten worden weergegeven onder **opgeslagen zoekopdrachten** in Azure portal.  Een opgeslagen zoekopdracht is ook vereist voor elke waarschuwing.   
+Opnemen [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in een oplossing waarmee gebruikers query uitvoeren op gegevens die door uw oplossing worden verzameld.  Opgeslagen zoekopdrachten worden weergegeven onder **opgeslagen zoekopdrachten** in Azure portal.  Een opgeslagen zoekopdracht is ook vereist voor elke waarschuwing.   
 
-[Log Analytics opgeslagen zoekopdracht](../../log-analytics/log-analytics-queries.md) resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches` en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
+[Log Analytics opgeslagen zoekopdracht](../../azure-monitor/log-query/log-query-overview.md) resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches` en hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

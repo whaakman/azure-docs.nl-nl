@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ca42d6c8ca1333f2ffba77b79584b7092b26f03e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5c86186cd6ee02d83800c6483a2e35d8f1fb3c7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438593"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Zelfstudie: Azure Active Directory-integratie met eDigitalResearch
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van eDigitalResearch in Azure AD, moet u
 
 **Als u wilt toevoegen eDigitalResearch uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -115,7 +115,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [eDigitalResearch ondersteuningsteam](http://www.maruedr.com/contact) om deze waarden te verkrijgen.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [eDigitalResearch ondersteuningsteam](https://www.maruedr.com/contact) om deze waarden te verkrijgen.
  
 
 
@@ -131,7 +131,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![eDigitalResearch configuratie](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-1. Het configureren van eenmalige aanmelding op **eDigitalResearch** zijde, moet u voor het verzenden van de gedownloade **-bestand voor certificaat (Base64)**, **SAML entiteit-ID**, en **afmelden URL** naar [eDigitalResearch ondersteuningsteam](http://www.maruedr.com/contact). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **eDigitalResearch** zijde, moet u voor het verzenden van de gedownloade **-bestand voor certificaat (Base64)**, **SAML entiteit-ID**, en **afmelden URL** naar [eDigitalResearch ondersteuningsteam](https://www.maruedr.com/contact). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in eDigitalResearch. 
 
-Werken met de [eDigitalResearch ondersteuningsteam](http://www.maruedr.com/contact) om op te halen van gebruikers die zijn gemaakt.     
+Werken met de [eDigitalResearch ondersteuningsteam](https://www.maruedr.com/contact) om op te halen van gebruikers die zijn gemaakt.        
     
  > [!NOTE]
  > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.

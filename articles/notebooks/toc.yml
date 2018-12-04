@@ -1,0 +1,55 @@
+items:
+- name: Documentatie voor Azure Notebooks
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is Azure Notebooks?
+    href: azure-notebooks-overview.md
+- name: Quickstarts
+  items:
+  - name: Aanmelden en een gebruikers-id instellen
+    href: quickstart-sign-in-azure-notebooks.md
+  - name: Een notebook maken en delen
+    href: quickstart-create-share-jupyter-notebook.md
+  - name: Een notebook klonen
+    href: quickstart-clone-jupyter-notebook.md
+  - name: Een lokaal Jupyter-notebook migreren
+    href: quickstart-migrate-local-jupyter-notebook.md
+  - name: Een aangepaste omgeving gebruiken
+    href: quickstart-create-jupyter-notebook-project-environment.md
+- name: Zelfstudies
+  items:
+  - name: Een notebook maken en uitvoeren
+    href: tutorial-create-run-jupyter-notebook.md
+- name: Voorbeelden
+  items:
+  - name: Voorbeelden van notebooks
+    href: azure-notebooks-samples.md
+- name: Concepten
+  items:
+  - name: Accounts
+    href: azure-notebooks-user-account.md
+  - name: Profielen
+    href: azure-notebooks-user-profile.md
+- name: Handleidingen
+  items:
+  - name: Projecten maken en klonen
+    href: create-clone-jupyter-notebooks.md
+  - name: Projecten beheren en configureren
+    href: configure-manage-azure-notebooks-projects.md
+  - name: Pakketten in een notebook installeren
+    href: install-packages-jupyter-notebook.md
+  - name: Een diavoorstelling presenteren
+    href: present-jupyter-notebooks-slideshow.md
+  - name: Werken met gegevensbestanden
+    href: work-with-project-data-files.md
+  - name: Toegang tot gegevensresources
+    href: access-data-resources-jupyter-notebooks.md
+  - name: Azure Machine Learning Services gebruiken
+    href: use-machine-learning-services-jupyter-notebooks.md
+ms.openlocfilehash: 95122e9ec45fb606e07a29e474e411d6e49278c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52852393"

@@ -7,7 +7,7 @@ items:
   items:
   - name: Wat is Azure Maps?
     href: about-azure-maps.md
-- name: Snelstartgidsen
+- name: Quickstarts
   items:
   - name: Een kaart-app maken
     href: quick-demo-map-app.md
@@ -25,6 +25,8 @@ items:
   items:
   - name: Zoomniveaus en tegelraster
     href: zoom-levels-and-tile-grid.md
+  - name: De juiste prijscategorie kiezen
+    href: choose-pricing-tier.md
   - name: Dekking
     items:
     - name: Dekking voor geocodering
@@ -45,6 +47,8 @@ items:
     items:
     - name: Accounts en sleutels beheren
       href: how-to-manage-account-keys.md
+    - name: Prijscategorie beheren
+      href: how-to-manage-pricing-tier.md
     - name: Metrische gegevens over het gebruik weergeven
       href: how-to-view-api-usage.md
   - name: Kaartgegevens van REST-API's ophalen
@@ -163,9 +167,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video's
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: e69f28012fcceb7aa741c1ba29c9f21537450089
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d59d9b758ce7748dc20a48682d3e5f75ea87c037
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706242"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845736"

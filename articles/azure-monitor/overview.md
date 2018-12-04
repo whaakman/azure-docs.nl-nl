@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5ef451da3eae696c3506f25ee9458b3ad3286b07
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721179"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847385"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -39,7 +39,7 @@ Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rech
 
 ![Metrische gegevens](media/overview/metrics.png)
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../log-analytics/log-analytics-queries.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../log-analytics/log-analytics-log-search-portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../azure-monitor/log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../log-analytics/log-analytics-log-search-portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 De querytaal van Log Analytics is geschikt voor eenvoudige logboeken-query's, maar bevat ook geavanceerde functies zoals aggregaties, joins en slimme analyse. U kunt snel leren over de query-taal met [meerdere lessen](../log-analytics/query-language/get-started-queries.md) die beschikbaar zijn.  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](../log-analytics/query-language/sql-cheatsheet.md) en [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
 
@@ -85,7 +85,7 @@ Azure Monitor VM insights bewaakt uw Azure virtual machines (VM) op schaal door 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Bewakingsoplossingen
-[Bewakingsoplossingen](../azure-monitor/insights/solutions.md) zijn verpakt sets met logica die inzicht voor een bepaalde toepassing of service geven in Azure Monitor. Deze gegevens verzamelen in Log Analytics, samen met andere gegevens, met behulp van [query's](../log-analytics/log-analytics-queries.md) voor analyse en [weergaven](../azure-monitor/platform/view-designer.md) voor visualisatie. Bewakingsoplossingen zijn [verkrijgbaar bij Microsoft](../azure-monitor/insights/solutions-inventory.md) en partners om te voorzien in bewaking voor verschillende Azure-services en andere toepassingen.
+[Bewakingsoplossingen](../azure-monitor/insights/solutions.md) zijn verpakt sets met logica die inzicht voor een bepaalde toepassing of service geven in Azure Monitor. Deze gegevens verzamelen in Log Analytics, samen met andere gegevens, met behulp van [query's](../azure-monitor/log-query/log-query-overview.md) voor analyse en [weergaven](../azure-monitor/platform/view-designer.md) voor visualisatie. Bewakingsoplossingen zijn [verkrijgbaar bij Microsoft](../azure-monitor/insights/solutions-inventory.md) en partners om te voorzien in bewaking voor verschillende Azure-services en andere toepassingen.
 
 ![Bewakingsoplossingen](media/overview/solutions-overview.png)
 
@@ -146,4 +146,4 @@ Meer informatie over:
 
 * [Metrische gegevens en logboeken](../azure-monitor/platform/data-collection.md) voor de gegevens die door Azure Monitor worden verzameld.
 * [Gegevensbronnen](../azure-monitor/platform/data-sources.md) voor het verzenden van telemetrie in de verschillende onderdelen van uw toepassing.
-* [Log Analytics](../log-analytics/log-analytics-queries.md) voor het analyseren van verzamelde gegevens.
+* [Log Analytics](../azure-monitor/log-query/log-query-overview.md) voor het analyseren van verzamelde gegevens.

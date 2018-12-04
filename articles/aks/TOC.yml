@@ -5,7 +5,7 @@ items:
   items:
   - name: Meer informatie over AKS
     href: intro-kubernetes.md
-- name: Snelstartgidsen
+- name: Quickstarts
   items:
   - name: Een AKS-cluster maken - CLI
     href: kubernetes-walkthrough.md
@@ -69,6 +69,8 @@ items:
         href: operator-best-practices-advanced-scheduler.md
       - name: Verificatie en autorisatie
         href: operator-best-practices-identity.md
+      - name: Bedrijfscontinuïteit en herstel na noodgevallen
+        href: operator-best-practices-multi-region.md
     - name: Voor app-ontwikkelaars
       items:
       - name: Resourcebeheer
@@ -97,6 +99,12 @@ items:
       maintainContext: true
     - name: AKS met Azure AD-ondersteuning
       href: aad-integration.md
+    - name: Virtuele knooppunten maken (preview)
+      items:
+      - name: Azure-CLI
+        href: virtual-nodes-cli.md
+      - name: Azure Portal
+        href: virtual-nodes-portal.md
     - name: Virtual Kubelet gebruiken
       href: virtual-kubelet.md
     - name: Cluster Autoscaler gebruiken
@@ -260,14 +268,14 @@ items:
   - name: Productfeedback geven
     href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: Veelgestelde vragen
     href: faq.md
-ms.openlocfilehash: fc7f58330bf5ca0819cf0da494e521324fd2a6ea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4bc03d2a50f384527bdfd3612d684cff6a6310e2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441669"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847334"

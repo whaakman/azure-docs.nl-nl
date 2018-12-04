@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ddf9c5e30a27a829a74ccf0985dce30a68f9bbb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256643"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846246"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
@@ -118,7 +118,8 @@ Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste rege
   - **Afdwingen**: in deze modus worden de regels wel afgedwongen door de oplossing voor toepassingsbeheer. Ook worden toepassingen die niet mogen worden uitgevoerd, geblokkeerd.
 
    > [!NOTE]
-   > Zoals eerder vermeld, wordt een nieuw beleid voor toepassingsbeheer altijd standaard geconfigureerd in de modus *Controle*. 
+   > -  **Afdwingen** beveiligingsmodus is uitgeschakeld tot nader order van kracht.
+   > - Zoals eerder vermeld, wordt een nieuw beleid voor toepassingsbeheer altijd standaard geconfigureerd in de modus *Controle*. 
    >
 
 4. Onder **beleidsuitbreiding**, kunt u een pad naar toepassing die u wilt toestaan dat toevoegen. Nadat u deze paden hebt toegevoegd, kan Security Center werkt het beleid voor het whielisting van toepassing op de virtuele machines in de geselecteerde groep van virtuele machines en maakt de juiste regels voor deze toepassingen, naast de regels die al aanwezig.

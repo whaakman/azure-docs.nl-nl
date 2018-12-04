@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e66f74edf93688a2793b3f24516f8b14328a8bb9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5afb8e03dedbe09c2c95495fb6ff18333f4c648d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634945"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847589"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalisatie van uw SQL-omgeving met de oplossing statuscontrole van SQL Server in Log Analytics
 
@@ -184,7 +184,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](../../log-analytics/log-analytics-queries.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](../../azure-monitor/log-query/log-query-overview.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
     ```
 
     >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](../../log-analytics/log-analytics-queries.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
+    > Als uw werkruimte is bijgewerkt naar de [nieuwe met Log Analytics-querytaal](../../azure-monitor/log-query/log-query-overview.md), en vervolgens de bovenstaande query's gewijzigd in het volgende.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand dat door Lo
 * Ja, Zie [aanbevelingen negeren](#ignore-recommendations) hierboven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zoeken in logboeken](../../log-analytics/log-analytics-queries.md) voor meer informatie over het analyseren van gedetailleerde gegevens van de SQL-statuscontrole en aanbevelingen.
+* [Zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het analyseren van gedetailleerde gegevens van de SQL-statuscontrole en aanbevelingen.

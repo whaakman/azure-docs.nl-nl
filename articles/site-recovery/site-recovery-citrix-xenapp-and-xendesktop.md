@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4df7975d4d52e00cce7b57c6f207eb6cb9ea3be3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210309"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847895"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>instellen van herstel na noodgevallen voor een meerlagige Citrix XenApp en XenDesktop-implementaties
 
@@ -48,7 +48,7 @@ Citrix XenApp en XenDesktop-implementaties met AD DNS-server, SQL database-serve
 ![Implementatie-patroon 1](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-deployment.png)
 
 
-## <a name="site-recovery-support"></a>Ondersteuning voor site Recovery
+## <a name="site-recovery-support"></a>Ondersteuning voor Site Recovery
 
 In dit artikel, Citrix-implementaties op virtuele VMware-machines worden beheerd door vSphere 6.0 / System Center VMM 2012 R2 werden gebruikt voor het instellen van herstel na Noodgevallen.
 

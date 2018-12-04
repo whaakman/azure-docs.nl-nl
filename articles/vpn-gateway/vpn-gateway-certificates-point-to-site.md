@@ -5,15 +5,15 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300933"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850955"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Genereren en exporteren van certificaten voor punt-naar-Site met behulp van PowerShell
 
@@ -27,7 +27,7 @@ Als u geen toegang tot een computer met Windows 10 of Windows Server 2016, kunt 
 
 Gebruik de cmdlet New-SelfSignedCertificate om een zelfondertekend basiscertificaat te maken. Zie voor informatie over de extra parameters, [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Vanaf een computer met Windows 10 of Windows Server 2016, opent u een Windows PowerShell-console met verhoogde bevoegdheden.
+1. Vanaf een computer met Windows 10 of Windows Server 2016, opent u een Windows PowerShell-console met verhoogde bevoegdheden. Deze voorbeelden werken niet in de Azure Cloud Shell 'Nu uitproberen'. U moet deze voorbeelden lokaal uitvoeren.
 2. Gebruik het volgende voorbeeld om het zelfondertekend basiscertificaat te maken. Het volgende voorbeeld wordt een zelfondertekend basiscertificaat 'P2SRootCert', die automatisch wordt geïnstalleerd in 'Certificaten-Huidige gebruiker\Persoonlijk\Certificaten' met de naam. U kunt het certificaat weergeven door het openen van *certmgr.msc*, of *Gebruikerscertificaten beheren*.
 
   ```powershell
@@ -104,7 +104,7 @@ Als u het maken van aanvullende clientcertificaten of niet dezelfde PowerShell-s
 
 ### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exporteer het zelfondertekende basiscertificaat en de persoonlijke sleutel om op te slaan (optioneel)
 
-Kunt u het zelfondertekend basiscertificaat exporteren en bewaar veilig als back-up. Als moet worden, kunt u later kunt installeren op een andere computer en meer client certifiates genereren. Als u wilt het zelfondertekend basiscertificaat exporteren als een pfx-bestand, selecteer het basiscertificaat en gebruik dezelfde stappen zoals beschreven in [een clientcertificaat exporteren](#clientexport).
+Kunt u het zelfondertekend basiscertificaat exporteren en bewaar veilig als back-up. Als moet worden, kunt u later kunt installeren op een andere computer en meer clientcertificaten genereren. Als u wilt het zelfondertekend basiscertificaat exporteren als een pfx-bestand, selecteer het basiscertificaat en gebruik dezelfde stappen zoals beschreven in [een clientcertificaat exporteren](#clientexport).
 
 ## <a name="clientexport"></a>4. Het clientcertificaat exporteren
 

@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 385d2969e65647ab0b5c5e21c07b127104587e7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263559"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848456"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Problemen oplossen met gedeelde bronnen
 
@@ -25,11 +25,11 @@ Dit artikel worden oplossingen voor het oplossen van problemen die worden uitgev
 
 #### <a name="issue"></a>Probleem
 
-Wanneer u importeren of bijwerken van de modules in Azure automation, vindt u een module die is vastgelopen in de **importeren** staat.
+Een module is vastgelopen de **importeren** status wanneer u importeren of uw in Azure automation-modules bijwerken.
 
-#### <a name="error"></a>Fout
+#### <a name="cause"></a>Oorzaak
 
-PowerShell-modules importeren, is een complex proces met meerdere stappen. Dit proces introduceert de mogelijkheid van een module importeren niet correct. Als dit gebeurt, kan de module die u wilt importeren in een tijdelijke situatie die zijn vastgelopen. Zie voor meer informatie over dit proces, [importeren van een PowerShell-Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+PowerShell-modules importeren, is een complex proces met meerdere stappen. Dit proces introduceert de mogelijkheid van een module importeren niet correct. Als dit probleem optreedt, kan de module die u wilt importeren in een tijdelijke situatie die zijn vastgelopen. Zie voor meer informatie over dit proces, [importeren van een PowerShell-Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Oplossing
 
@@ -38,6 +38,28 @@ U lost dit probleem, moet u de module die is vastgelopen in de **importeren** st
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+## <a name="run-as-accounts"></a>Run As-accounts
+
+### <a name="unable-create-update"></a>Scenario: U bent maken of bijwerken van een uitvoeren als-account
+
+#### <a name="issue"></a>Probleem
+
+Als u probeert te maken of bijwerken van een uitvoeren als-account, krijgt u een fout die vergelijkbaar is met de volgende strekking weergegeven:
+
+```error
+You do not have permissions to create…
+```
+
+#### <a name="cause"></a>Oorzaak
+
+U hebt de machtigingen die u wilt maken of bijwerken van uitvoeren als-account of de resource is vergrendeld op het niveau van een resource.
+
+#### <a name="resolution"></a>Oplossing
+
+Als u wilt maken of bijwerken van een uitvoeren als-account, moet u toegangsmachtigingen voor de verschillende bronnen die worden gebruikt door het uitvoeren als-account hebben. Zie voor meer informatie over de machtigingen die nodig zijn voor het maken of bijwerken van een uitvoeren als-account, [uitvoeren als-accountmachtigingen](../manage-runas-account.md#permissions).
+
+Als het probleem vanwege een vergrendeling is, Controleer of de vergrendeling te verwijderen en gaat u naar de resource is vergrendeld, met de rechtermuisknop op de vergrendeling en kiest u **verwijderen** de vergrendeling te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

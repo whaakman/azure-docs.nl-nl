@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/29/2018
-ms.openlocfilehash: 798b50887bcfdf5b4298c37beb1b9eea8f9abdda
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.date: 12/03/2018
+ms.openlocfilehash: 8ad4c356c5826532b94721bc4d9071179e8bd93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682194"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846682"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps via een integratie van service-omgeving (ISE)
 
@@ -57,19 +57,28 @@ Wanneer u een integratie van service-omgeving (ISE) maakt, u een Azure-netwerk s
 
 1. Selecteer in het menu van het virtuele netwerk **toegangsbeheer (IAM)**. 
 
-1. Onder **Access Control (IAM)**, kiest u **toevoegen**. 
+1. Onder **toegangsbeheer (IAM)**, kiest u **roltoewijzing toevoegen**. 
 
    ![Functies toevoegen](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
 
-1. Op de **roltoewijzing toevoegen** deelvenster, instellen van elke rol voor de service Azure Logic Apps, zoals is beschreven in de tabel in deze stap. Zorg ervoor dat u kiest **opslaan** nadat u klaar bent met elke rol.
+1. Op de **roltoewijzing toevoegen** in het deelvenster de benodigde rol toevoegen aan de service Azure Logic Apps, zoals wordt beschreven. 
+
+   1. Onder **rol**, selecteer **Inzender voor netwerken**. 
+   
+   1. Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of toepassing**.
+
+   1. Onder **Selecteer**, voer **Azure Logic Apps**. 
+
+   1. Nadat de ledenlijst wordt weergegeven, selecteert u **Azure Logic Apps**. 
+
+      > [!TIP]
+      > Als u deze service niet vinden, voert u de app-ID van de Logic Apps-service: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` 
+   
+   1. Als u bent klaar, kiest u **Opslaan**.
+
+   Bijvoorbeeld:
 
    ![Roltoewijzing toevoegen](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-   | Rol | Toegang toewijzen aan | Selecteer | 
-   |------|------------------|--------|
-   | **Inzender voor netwerken** | **Azure AD-gebruiker, groep of toepassing** | Voer **Azure Logic Apps**. Nadat de ledenlijst wordt weergegeven, selecteert u dezelfde waarde. <p>**Tip**: als u deze service niet vinden, voert u de app-ID van de Logic Apps-service: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` | 
-   | **Inzender voor klassieke** | **Azure AD-gebruiker, groep of toepassing** | Voer **Azure Logic Apps**. Nadat de ledenlijst wordt weergegeven, selecteert u dezelfde waarde. <p>**Tip**: als u deze service niet vinden, voert u de app-ID van de Logic Apps-service: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` | 
-   |||| 
 
 Zie voor meer informatie, [machtigingen voor toegang tot het virtuele netwerk](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -102,8 +111,31 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
    | **Locatie** | Ja | <*Azure-datacenter-regio*> | De Azure-datacenter-regio waar u om uw omgeving te implementeren | 
    | **Capaciteit** | Ja | 0, 1, 2, 3 | Het aantal verwerkingseenheden moet worden gebruikt voor deze resource ISE | 
    | **Virtueel netwerk** | Ja | <*Azure--naam-virtueel netwerk*> | De Azure-netwerk waarin u invoeren van uw omgeving wilt, zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Als u een netwerk hebt, kunt u een maken hier. <p>**Belangrijke**: U kunt *alleen* deze injectie uitvoeren bij het maken van uw ISE. Echter, voordat u deze relatie maken kunt, zorg ervoor dat u al [instellen van op rollen gebaseerd toegangsbeheer in uw virtuele netwerk voor Azure Logic Apps](#vnet-access). | 
-   | **Subnets** | Ja | <*IP-adresbereik*> | Een ISE vereist is vier *leeg* subnetten, dit hoeft geen delegering voor elke service en worden gebruikt voor het maken van resources in uw omgeving. Elk subnet moet voldoen aan deze criteria voldoen: <p>-Hiermee wordt de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Een klasse B-adresruimte vereist. <br>-Heeft een naam die niet met een getal of een afbreekstreepje begint. <br>-Bevat een `/27`, bijvoorbeeld elk subnet hier Hiermee geeft u een 32-bits-adresbereik: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, en `10.0.0.96/27`. <br>-Mag niet bestaan in hetzelfde adresbereik voor het geselecteerde virtuele netwerk en eventuele andere privé IP-adressen waarin het virtuele netwerk is verbonden. <br>-Moet niet leeg zijn. <p><p>**Belangrijke**: U *kan niet worden gewijzigd* deze IP-bereiken nadat u uw omgeving hebt gemaakt. |
+   | **Subnets** | Ja | <*IP-adresbereik*> | Een ISE vereist is vier *leeg* subnetten. Deze subnetten undelegated voor elke service en worden gebruikt voor het maken van resources in uw omgeving. U *kan niet worden gewijzigd* deze IP-bereiken nadat u uw omgeving hebt gemaakt. <p><p>Elk subnet maken [Volg de stappen onder deze tabel](#create-subnet). Elk subnet moet voldoen aan deze criteria voldoen: <p>-Mag niet bestaan in hetzelfde adresbereik voor het geselecteerde virtuele netwerk en eventuele andere privé IP-adressen waarin het virtuele netwerk is verbonden. <br>-Maakt gebruik van een naam die niet met een getal of een afbreekstreepje begint. <br>-Hiermee wordt de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Een klasse B-adresruimte vereist. <br>-Bevat een `/27`. Elk subnet Hier geeft bijvoorbeeld aan een 32-bits-adresbereik: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, en `10.0.0.96/27`. <br>-Moet niet leeg zijn. |
    |||||
+
+   <a name="create-subnet"></a>
+
+   **Subnet maken**
+
+   1. Onder de **subnetten** Kies **beheren subnetconfiguratie**.
+
+      ![Subnetconfiguratie beheren](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+
+   1. Op de **subnetten** deelvenster Kies **Subnet**.
+
+      ![Subnet toevoegen](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+
+   1. Op de **subnet toevoegen** deelvenster deze informatie verstrekken.
+
+      * **Naam**: de naam voor uw subnet
+      * **Adresbereik (CIDR-blok)**: bereik van uw subnet in het virtuele netwerk en in CIDR-indeling
+
+      ![Subnetgegevens van het toevoegen](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
+
+   1. Als u klaar bent, kiest u **Done**.
+
+   1. Herhaal deze stappen voor drie meer subnetten.
 
 1. Nadat Azure uw ISE-gegevens met succes worden gevalideerd, kiest u **maken**, bijvoorbeeld:
 
@@ -126,7 +158,7 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
 Voor het maken van logische apps die de integratie van service-omgeving (ISE) gebruiken, volgt u de stappen in [over het maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) maar met deze verschillen: 
 
-* Wanneer u uw logische app maakt, selecteer uw ISE, in plaats van een Azure-regio in de **locatie** lijst uit de **integratieserviceomgevingen** sectie, bijvoorbeeld:
+* Bij het maken van uw logische app, onder de **locatie** eigenschap, selecteert u uw ISE uit de **integratieserviceomgevingen** sectie, bijvoorbeeld:
 
   ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
@@ -134,13 +166,15 @@ Voor het maken van logische apps die de integratie van service-omgeving (ISE) ge
 
   ![ISE-connectors selecteren](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 
-* Nadat u uw ISE in een Azure-netwerk invoeren, kunnen de logische apps in uw ISE rechtstreeks toegang tot resources in dit virtuele netwerk. Voor on-premises systemen in een virtueel netwerk dat gekoppeld aan een ISE, logische apps rechtstreeks toegang tot deze systemen met behulp van deze items: 
+* Nadat u uw ISE in een Azure-netwerk invoeren, kunnen de logische apps in uw ISE rechtstreeks toegang tot resources in dit virtuele netwerk. Injecteer een ISE voor on-premises systemen die zijn verbonden met een virtueel netwerk, in dat netwerk, zodat uw logische apps rechtstreeks toegang deze systemen tot met behulp van deze items: 
 
   * ISE-connector voor dat systeem, bijvoorbeeld SQL Server
+  
   * HTTP-actie 
+  
   * Aangepaste connector
 
-  Voor on-premises systemen die zich niet in een virtueel netwerk of geen ISE-connectors, eerst [instellen en gebruiken van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
+  Voor on-premises systemen die zich niet in een virtueel netwerk of geen ISE-connectors, eerst [instellen van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
 
 <a name="create-integration-account-environment"></a>
 
@@ -148,7 +182,7 @@ Voor het maken van logische apps die de integratie van service-omgeving (ISE) ge
 
 Voor het gebruik van een integratieaccount met logic apps in een integratieserviceomgeving (ISE), dat integratieaccount moet gebruiken de *dezelfde omgeving* als de logic apps. Logische apps in een ISE kunnen verwijzen naar alleen integratieaccounts in dezelfde ISE. 
 
-Voor het maken van een integratieaccount dat gebruikmaakt van een ISE, gaat u als volgt de gebruikelijke stappen in [over het maken van integratieaccounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , behalve voor de **locatie** eigenschap, die nu een lijst met uw ISEs onder  **Integratieserviceomgevingen** samen met beschikbare regio's. Selecteer uw ISE, in plaats van een regio, bijvoorbeeld:
+Volg de stappen in voor het maken van een integratieaccount dat gebruikmaakt van een ISE, [over het maken van integratieaccounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , behalve voor de **locatie** eigenschap waar de **integratieserviceomgevingen**  sectie wordt nu weergegeven. In plaats daarvan selecteert u uw ISE, in plaats van een regio, bijvoorbeeld:
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

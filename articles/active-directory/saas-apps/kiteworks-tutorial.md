@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88531ee1a98eefdf3ee85b4308150f10417858d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 986640c6af07c5a7ad85cfe8ca1f3d5b8a8aae84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420220"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Zelfstudie: Azure Active Directory-integratie met kiteworks hebben
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Kiteworks in Azure AD, moet u Kitewo
 
 **Als u wilt toevoegen Kiteworks uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Kiteworks Client ondersteuningsteam](http://accellion.com/support) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Kiteworks Client ondersteuningsteam](https://accellion.com/support) om deze waarden te verkrijgen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -201,7 +201,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 Kiteworks biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Kitewors als deze nog niet bestaat.
 
 >[!NOTE]
->Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Kiteworks ondersteuningsteam](http://accellion.com/support).
+>Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Kiteworks ondersteuningsteam](https://accellion.com/support).
  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD

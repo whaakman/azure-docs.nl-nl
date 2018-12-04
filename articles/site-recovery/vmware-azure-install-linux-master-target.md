@@ -4,14 +4,14 @@ description: Meer informatie over het instellen van een Linux-hoofddoelserver vo
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212366"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833309"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -259,7 +259,7 @@ Gebruik de volgende stappen uit om te maken van een bewaarschijf:
     
     Selecteer **invoegen** om te beginnen met het bestand te bewerken. Maak een nieuwe regel en voeg vervolgens de volgende tekst. Bewerk de schijf multipath-ID op basis van de gemarkeerde multipath-ID van de vorige opdracht.
 
-    **/dev/mapper/ <Retention disks multipath id> /mnt/retentie ext4 rw 0 0**
+     **/dev/mapper/ <Retention disks multipath id> /mnt/retentie ext4 rw 0 0**
 
     Selecteer **Esc**, en typ vervolgens **: wq** (schrijven en afsluiten) om de editorvenster te sluiten.
 

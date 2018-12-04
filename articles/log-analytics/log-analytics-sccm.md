@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4e20d787bef4da518765d1eeeb33237ddd612606
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8e30b1ba093e38f81c9a09a0b9107e5a3b2eb768
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847368"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager koppelen aan Log Analytics
 U kunt uw System Center Configuration Manager-omgeving koppelen aan Azure Log Analytics apparaat verzameling om gegevens te synchroniseren en verwijzen naar deze verzamelingen in Log Analytics en Azure Automation.  
@@ -112,7 +112,7 @@ Nadat de verzamelingen die zijn geïmporteerd, kunt u zien hoeveel computers met
 
 ![Computergroepen - SCCM-tabblad](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Wanneer u op een klikt, zoeken wordt geopend, ofwel alle van de geïmporteerde groepen of alle computers die deel uitmaken van elke groep. Met behulp van [zoeken in logboeken](log-analytics-queries.md), kun u gedetailleerde analyse van Configuration Manager-gegevens.
+Wanneer u op een klikt, zoeken wordt geopend, ofwel alle van de geïmporteerde groepen of alle computers die deel uitmaken van elke groep. Met behulp van [zoeken in logboeken](../azure-monitor/log-query/log-query-overview.md), kun u gedetailleerde analyse van Configuration Manager-gegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoeken in logboeken](log-analytics-queries.md) om gedetailleerde informatie over uw Configuration Manager-gegevens weer te geven.
+* Gebruik [zoeken in logboeken](../azure-monitor/log-query/log-query-overview.md) om gedetailleerde informatie over uw Configuration Manager-gegevens weer te geven.

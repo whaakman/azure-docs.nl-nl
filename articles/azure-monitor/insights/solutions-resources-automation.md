@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814646902a88c7170da66397709ff3a8c7b081fd
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 57fda5ea9fdafffd0267f749016ed97b8fc06e15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715328"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847113"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Azure Automation-resources toe te voegen aan een oplossing voor beheer (Preview)
 > [!NOTE]
@@ -317,8 +317,8 @@ Het runbook moet afhankelijk van de module-resource om ervoor te zorgen dat deze
 ### <a name="updating-modules"></a>Modules bijwerken
 Als u een oplossing met een runbook die gebruikmaakt van een schema voor updatebeheer en de nieuwe versie van uw oplossing een nieuwe module die worden gebruikt door dat runbook heeft, kan het runbook de oude versie van de module gebruiken.  U moet de volgende runbooks opnemen in uw oplossing en een taak maken voor ze worden uitgevoerd vóór alle andere runbooks.  Dit zorgt ervoor dat alle modules worden bijgewerkt als vereist voordat de runbooks worden geladen.
 
-* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) zorgt ervoor dat alle modules die worden gebruikt door runbooks in uw oplossing de meest recente versie zijn.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) alle resources plannen om ervoor te zorgen dat de runbooks gekoppeld aan deze met gebruik de meest recente modules opnieuw registreren.
+* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) zorgt ervoor dat alle modules die worden gebruikt door runbooks in uw oplossing de meest recente versie zijn.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) alle resources plannen om ervoor te zorgen dat de runbooks gekoppeld aan deze met gebruik de meest recente modules opnieuw registreren.
 
 
 

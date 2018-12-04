@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 12ab224481c519db36ae21dd11916649ff0bfbe3
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3284202ffaa6767a8dd4a6a5050dbdc928075237
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269031"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Zelfstudie: Azure Active Directory-integratie met ArcGIS Online
 
@@ -126,7 +126,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![image](./media/arcgis-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [ArcGIS Online Client ondersteuningsteam](http://support.esri.com/en/) om deze waarden te verkrijgen.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [ArcGIS Online Client ondersteuningsteam](https://support.esri.com/en/) om deze waarden te verkrijgen.
 
 6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op op **downloaden** downloaden **federatieve metagegevens-XML** en sla het xml-bestand op uw computer.
 

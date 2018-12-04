@@ -1,19 +1,19 @@
 ---
 title: Over het beheren van uw Azure kaarten-account en sleutels | Microsoft Docs
 description: U kunt de Azure-portal gebruiken voor het beheren van uw Azure kaarten-account en beheren van de toegangssleutels van uw.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/02/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 2678b9d9adeddd7599680b6fc3f6e54cecd61a26
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541616"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848099"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Uw Azure kaarten-account en sleutels beheren
 
@@ -53,5 +53,10 @@ Vervolgens ziet u een bevestigingspagina. U kunt het verwijderen van uw account 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Informatie over het gebruik van Azure Maps Zoek-API's op [zoeken naar een adres](./how-to-search-for-address.md).
-* Informatie over het gebruik van Azure maps [kaartbesturingselement in JavaScript](./how-to-use-map-control.md).
+Informatie over het beheren van de prijscategorie van Azure kaarten-account:
+> [!div class="nextstepaction"]
+> [Prijscategorie beheren](./how-to-manage-pricing-tier.md)
+
+Meer informatie over om te zien van de metrische gegevens over gebruik API voor uw Azure kaarten-account:
+> [!div class="nextstepaction"]
+> [Metrische gegevens weergeven](./how-to-view-api-usage.md)

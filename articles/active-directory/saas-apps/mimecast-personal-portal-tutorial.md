@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421835"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Zelfstudie: Azure Active Directory-integratie met persoonlijke Mimecast-Portal
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Mimecast persoonlijke Portal in Azur
 
 **Als u wilt toevoegen Mimecast persoonlijke Portal vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -139,7 +139,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | Offshore        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
-    > De id-waarde is niet echt. Werk de waarde bij met de werkelijke-id. Neem contact op met [Mimecast persoonlijke Portal Client ondersteuningsteam](http://www.mimecast.com/customer-success/technical-support/) om de waarde. 
+    > De id-waarde is niet echt. Werk de waarde bij met de werkelijke-id. Neem contact op met [Mimecast persoonlijke Portal Client ondersteuningsteam](https://www.mimecast.com/customer-success/technical-support/) om de waarde. 
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 

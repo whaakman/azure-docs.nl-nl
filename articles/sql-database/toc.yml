@@ -7,7 +7,7 @@ items:
     href: sql-database-technical-overview.md
   - name: Een versie van Azure SQL kiezen
     href: sql-database-paas-vs-sql-server-iaas.md
-- name: Snelstartgidsen
+- name: Quickstarts
   items:
   - name: Maken
     items:
@@ -143,8 +143,10 @@ items:
     items:
     - name: Beheerde exemplaren
       href: sql-database-managed-instance-index.yml
-    - name: Overzicht
+    - name: Overzicht beheerd exemplaar
       href: sql-database-managed-instance.md
+    - name: Maken en beheren
+      href: sql-database-managed-instance-create-manage.md
     - name: Bronlimieten
       href: sql-database-managed-instance-resource-limits.md
     - name: VNet-integratie
@@ -157,15 +159,17 @@ items:
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: Connectiviteitsarchitectuur
         href: sql-database-managed-instance-connectivity-architecture.md
+      - name: Eindpunten voor beheer
+        href: sql-database-managed-instance-management-endpoint.md
       - name: Toepassingen koppelen
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL-verschillen
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactionele replicatie
       href: replication-with-sql-database-managed-instance.md
-  - name: Platform as a Service
+  - name: Platform als een Service
     items:
-    - name: Platform as a Service
+    - name: Platform als een Service
       href: sql-database-paas.yml
     - name: Bedrijfscontinuïteit
       href: sql-database-business-continuity.md
@@ -211,7 +215,7 @@ items:
     items:
     - name: Beveiliging
       href: sql-database-security-index.yml
-    - name: Overzicht
+    - name: Beveiligingsoverzicht
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
@@ -652,9 +656,9 @@ items:
     href: /azure/architecture/
   - name: Verhalen van klanten
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 12add5f8ee32ce3c5207a604ef7cad821d5e5a4e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2cc5240aa7302d687f0b7a2fad2af29105e86de0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165258"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840415"

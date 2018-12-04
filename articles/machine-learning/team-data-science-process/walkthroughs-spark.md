@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a7697d2be1a43af93109bb7bbdab50828275f5aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b7089a034b352366ee6a67e8da3d85c61e9039b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446395"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846263"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark datatechnologische rondleidingen met PySpark en Scala op Azure
 
@@ -40,7 +40,7 @@ Zie [geavanceerde met Spark gegevens verkennen en modelleren](spark-advanced-dat
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Met behulp van Scala op Azure Spark taxiritjes voorspellen
 
-De [Scala gebruiken met Spark op Azure](scala-walkthrough.md) scenario worden gegevens uit de New York taxi's gebruikt om te voorspellen of een tip wordt betaald en het bereik van de bedragen te betalen verwacht. Deze ziet u hoe u Scala voor beheerde machine learning-taken met de Spark machine learning-bibliotheek (MLlib) en SparkML pakketten op een Azure HDInsight Spark-cluster. Dit helpt u bij de taken die deel uitmaken van de [Data Science Process](https://aka.ms/datascienceprocess): gegevensopname en verkennen, visualisatie, feature-engineering, modellen en model verbruik. De gebouwde modellen zijn logistieke en lineaire regressie, willekeurige forests en kleurovergang boosted structuren.
+De [Scala gebruiken met Spark op Azure](scala-walkthrough.md) scenario worden gegevens uit de New York taxi's gebruikt om te voorspellen of een tip wordt betaald en het bereik van de bedragen te betalen verwacht. Deze ziet u hoe u Scala voor beheerde machine learning-taken met de Spark machine learning-bibliotheek (MLlib) en SparkML pakketten op een Azure HDInsight Spark-cluster. Dit helpt u bij de taken die deel uitmaken van de [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): gegevensopname en verkennen, visualisatie, feature-engineering, modellen en model verbruik. De gebouwde modellen zijn logistieke en lineaire regressie, willekeurige forests en kleurovergang boosted structuren.
 
 
 ## <a name="next-steps"></a>Volgende stappen

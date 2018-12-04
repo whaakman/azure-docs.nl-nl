@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 19206163a07964b564300bbed1fed45973c8fc74
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: c84c15e1e0edcf65f956ed1ed4fd148d1206b65b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311062"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848575"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registratie
 U kunt de installatie van de Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en het instellen van rapportage terug naar Microsoft commercegegevens. Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Registratie wordt aanbevolen omdat hiermee u voor het testen van belangrijke Azure Stack-functionaliteit, zoals marketplace-syndicatie en rapportage over het gebruik kunt. Nadat u Azure Stack hebt geregistreerd, wordt gebruik gerapporteerd aan Azure commerce. U kunt het zien onder het abonnement dat u voor de registratie gebruikt. Echter ASDK gebruikers niet in rekening gebracht voor het gebruik die ze rapporteren.
@@ -50,32 +50,158 @@ Volg deze stappen voor het registreren van de ASDK met Azure.
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
-    Add-AzureRmAccount -EnvironmentName "AzureCloud"
+    Add-AzureRmAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
-    #Import the registration module that was downloaded with the GitHub tools
+    # Import the registration module that was downloaded with the GitHub tools
     Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-    #Register Azure Stack
+    # Register Azure Stack
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
-    $UsageReporting = $true # Set to $false if using the Capacity Billing model
     Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName $RegistrationName `
-    -UsageReportingEnabled:$UsageReporting
+    -UsageReportingEnabled:$true
     ```
 3. Wanneer het script is voltooid, ziet u dit bericht: **uw omgeving is nu geregistreerd en worden geactiveerd met behulp van de opgegeven parameters.**
 
     ![Uw omgeving is nu geregistreerd](media/asdk-register/1.PNG)
 
+
+## <a name="register-in-disconnected-environments"></a>Registreren in niet-verbonden omgevingen
+Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met internet) registreert, moet u een registratie-token ophalen uit de Azure Stack-omgeving en dat token vervolgens gebruiken op een computer die verbinding kan maken met Azure om te registreren en maken van een activering resource voor uw omgeving ASDK.
+ 
+ > [!IMPORTANT]
+ > Voordat u deze instructies voor het registreren van Azure Stack, zorg ervoor dat u hebt PowerShell voor Azure Stack is geïnstalleerd en de hulpprogramma's voor Azure Stack downloaden, zoals beschreven in de [post-implementatieconfiguratie](asdk-post-deploy.md) artikel op zowel de ASDK-host computer en de computer met internettoegang waarmee verbinding wordt gemaakt naar Azure en registreren.
+
+### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Registratie van een toegangstoken ophalen uit de Azure Stack-omgeving
+Op de hostcomputer ASDK start PowerShell als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u de hulpprogramma's voor Azure Stack hebt gedownload. Gebruik de volgende PowerShell-opdrachten voor het importeren van de **RegisterWithAzure.psm1** -module en gebruik vervolgens de **Get-AzsRegistrationToken** cmdlet voor het ophalen van het registratietoken:  
+
+   ```PowerShell  
+   # Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+   # Create registration token
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+   # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
+   -UsageReportingEnabled:$false `
+   -PrivilegedEndpoint AzS-ERCS01 `
+   -BillingModel Development `
+   -MarketplaceSyndicationEnabled:$false `
+   -TokenOutputFilePath $FilePathForRegistrationToken
+   ```
+
+Sla dit registratietoken voor gebruik op de computer met internetverbinding. U kunt het bestand of de tekst van het bestand dat is gemaakt door de parameter $FilePathForRegistrationToken kopiëren.
+
+### <a name="connect-to-azure-and-register"></a>Verbinding maken met Azure en registreren
+Op internet verbonden computer de volgende PowerShell-opdrachten gebruiken voor het importeren van de **RegisterWithAzure.psm1** module en gebruik vervolgens de **registreren AzsEnvironment** cmdlet om te registreren met het gebruik van Azure de registratietoken dat u zojuist hebt gemaakt en een unieke registratie-naam:  
+
+  ```PowerShell  
+  # Add the Azure cloud subscription environment name. 
+  # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+  Add-AzureRmAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+
+  # Register the Azure Stack resource provider in your Azure subscription
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+  # Register with Azure
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
+  $RegistrationName = "<unique-registration-name>"
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+U kunt ook kunt u de **Get-inhoud** cmdlet om te verwijzen naar een bestand met uw registratietoken:
+
+  ```PowerShell  
+  # Add the Azure cloud subscription environment name. 
+  # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+  Add-AzureRmAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+
+  # Register the Azure Stack resource provider in your Azure subscription
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+  # Register with Azure 
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+Wanneer de registratie is voltooid, ziet u een bericht dat lijkt op **uw Azure Stack-omgeving is nu geregistreerd bij Azure.**
+
+> [!IMPORTANT]
+> Sluit het PowerShell-venster niet. 
+
+Sla de registratietoken en registratie-resourcenaam voor toekomstig gebruik.
+
+### <a name="retrieve-an-activation-key-from-the-azure-registration-resource"></a>Haal een activeringscode van de registratie van Azure-resource
+
+Nog steeds met behulp van de computer met internetverbinding **en de dezelfde PowerShell-consolevenster**, een activeringscode ophalen van de registratie-resource gemaakt wanneer u met Azure hebt geregistreerd.
+
+Als u de activeringscode, voer de volgende PowerShell-opdrachten, gebruikt u dezelfde unieke registratie-naam van waarde die u hebt opgegeven bij het registreren met Azure in de vorige stap:  
+
+  ```Powershell
+  $RegistrationResourceName = "<unique-registration-name>"
+  # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
+  $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
+  $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
+  -KeyOutputFilePath $KeyOutputFilePath
+  ```
+### <a name="create-an-activation-resource-in-azure-stack"></a>Een activering-Resource maken in Azure Stack
+
+Ga terug naar de Azure Stack-omgeving met het bestand of de tekst van de activeringscode gemaakt op basis van **Get-AzsActivationKey**. Voer de volgende PowerShell-opdrachten om te maken van een activering-resource in Azure Stack met deze activeringssleutel:   
+
+  ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $ActivationKey = "<activation key>"
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+U kunt ook kunt u de **Get-inhoud** cmdlet om te verwijzen naar een bestand met uw registratietoken:
+
+  ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  # This example uses the C:\ActivationKey.txt file.
+  $ActivationKey = Get-Content -Path "$env:SystemDrive\Activationkey.txt"
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+Wanneer de activering is voltooid, ziet u een bericht dat lijkt op **uw omgeving het proces voor registratie en -activering is voltooid.**
+
 ## <a name="verify-the-registration-was-successful"></a>Controleer of dat de registratie is geslaagd
-Volg deze stappen om te controleren of de ASDK registratie bij Azure geslaagd is.
+Volg deze stappen om te controleren of de ASDK registratie bij Azure **in verbonden omgevingen** is geslaagd.
 
 1. Aanmelden bij de [Azure Stack-beheerportal](https://adminportal.local.azurestack.external).
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 33f04f9deced7c4bc1c27cea5e8c431d4cd5512a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446786"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849323"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -42,7 +42,7 @@ De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http]
 
 ## <a name="trigger"></a>Trigger
 
-De HTTP-trigger kunt u een functie met een HTTP-aanvraag aanroepen. U kunt een HTTP-trigger gebruiken om te bouwen serverloze API's en webhooks reageren. 
+De HTTP-trigger kunt u een functie met een HTTP-aanvraag aanroepen. U kunt een HTTP-trigger gebruiken om te bouwen serverloze API's en webhooks reageren.
 
 Standaard retourneert een HTTP-trigger HTTP 200 OK met een lege hoofdtekst in functies 1.x of HTTP 204 geen inhoud met een lege hoofdtekst in functies 2.x. Configureren voor het wijzigen van het antwoord een [HTTP-Uitvoerbinding](#output).
 
@@ -53,8 +53,9 @@ Zie het voorbeeld taalspecifieke:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Trigger - voorbeeld met C#
 
@@ -276,6 +277,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Trigger - Python-voorbeeld
+
+Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [funkce Pythonu](functions-reference-python.md) die gebruikmaakt van de binding. De functie zoekt naar een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
+
+Hier volgt de *function.json* bestand:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+De [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
+
+Hier volgt de Python-code:
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### <a name="trigger---java-example"></a>Trigger - Java-voorbeeld
 
 Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [Java functie](functions-reference-java.md) die gebruikmaakt van de binding. De functie retourneert een HTTP-status code 200-antwoord met een aanvraagtekst die de hoofdtekst van de activerende aanvraag met een "Hallo," prefixen begroeting.
@@ -307,7 +363,7 @@ Dit is de Java-code:
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -352,12 +408,11 @@ Voor C# en F# functies, kunt u het type van de invoer voor een trigger declarere
 
 De Functions-runtime biedt voor JavaScript-functies, de hoofdtekst van de aanvraag in plaats van het request-object. Zie voor meer informatie de [JavaScript trigger voorbeeld](#trigger---javascript-example).
 
-
 ### <a name="customize-the-http-endpoint"></a>Aanpassen van het HTTP-eindpunt
 
 Wanneer u een functie voor een HTTP-trigger, maakt is de functie standaard beschikbaar met een route van het formulier:
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 U kunt deze route met de optionele `route` eigenschap van de HTTP-trigger invoer van de binding. Als u bijvoorbeeld de volgende *function.json* -bestand definieert een `route` eigenschap voor een HTTP-trigger:
 
@@ -389,7 +444,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 Hiermee wordt de functiecode voor de ondersteuning van twee parameters in het adres _categorie_ en _id_. U kunt een [Web API Route beperking](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) met de parameters. De volgende C#-functiecode maakt gebruik van beide parameters.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -421,7 +476,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 Standaard alle functie-routes worden voorafgegaan door *api*. U kunt ook aanpassen of verwijderen van het voorvoegsel via de `http.routePrefix` eigenschap in uw [host.json](functions-host-json.md) bestand. Het volgende voorbeeld verwijdert u de *api* route voorvoegsel met behulp van een lege tekenreeks voor het voorvoegsel in de *host.json* bestand.
@@ -533,17 +588,15 @@ Wanneer u een van deze functie op app-niveau beveiligingsmethoden, moet u de ver
 ### <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
-> Webhook-modus is alleen beschikbaar voor versie 1.x van de Functions-runtime.
+> Webhook-modus is alleen beschikbaar voor versie 1.x van de Functions-runtime. Deze wijziging is doorgevoerd ter verbetering van de prestaties van HTTP-triggers in versie 2.x.
 
-Webhook-modus biedt aanvullende validatie voor de webhook-nettoladingen. In versie 2.x, de basis HTTP-trigger nog werkt en is de aanbevolen aanpak voor webhooks.
+In versie 1.x, webhook sjablonen bieden aanvullende validatie voor de webhook-nettoladingen. In versie 2.x, de basis HTTP-trigger nog werkt en is de aanbevolen aanpak voor webhooks. 
 
 #### <a name="github-webhooks"></a>GitHub webhooks
 
 Om te reageren op GitHub webhooks, eerst uw functie maken met een HTTP-Trigger en stel de **webHookType** eigenschap `github`. Kopieer de URL en API-sleutel in de **webhook toevoegen** pagina van uw GitHub-opslagplaats. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Zie [Een functie maken die wordt geactiveerd door een GitHub-webhook](functions-create-github-webhook-triggered-function.md) voor een voorbeeld.
 
 #### <a name="slack-webhooks"></a>Slack-webhooks
 
@@ -560,7 +613,7 @@ Autorisatie van de Webhook wordt verwerkt door het onderdeel van de ontvanger we
 
 De lengte van de HTTP-aanvraag is beperkt tot 100 MB (104,857,600 bytes) en de URL-lengte is beperkt tot 4 KB (4096 bytes). Deze limieten zijn opgegeven door de `httpRuntime` element van de runtime van [Web.config-bestand](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-Als een functie die wordt gebruikt niet de HTTP-trigger binnen ongeveer 2,5 minuten, de time-out van gateway wordt voltooid en retourneert een HTTP 502-fout. De functie blijft actief, maar kan niet naar een HTTP-antwoord retourneren. Voor langlopende functies, wordt aangeraden dat u gaat u als volgt de asynchrone patronen en retourneert een locatie waar u de status van de aanvraag kunt pingen. Zie voor informatie over hoe lang een functie kunt uitvoeren, [schaal en hosting - verbruiksabonnement](functions-scale.md#consumption-plan). 
+Als een functie die wordt gebruikt niet de HTTP-trigger binnen ongeveer 2,5 minuten, de time-out van gateway wordt voltooid en retourneert een HTTP 502-fout. De functie blijft actief, maar kan niet naar een HTTP-antwoord retourneren. Voor langlopende functies, wordt aangeraden dat u gaat u als volgt de asynchrone patronen en retourneert een locatie waar u de status van de aanvraag kunt pingen. Zie voor informatie over hoe lang een functie kunt uitvoeren, [schaal en hosting - verbruiksabonnement](functions-scale.md#consumption-plan).
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen voor host.json
 
@@ -574,7 +627,7 @@ Gebruik de HTTP-Uitvoerbinding om te reageren op de afzender van HTTP-aanvraag. 
 
 ## <a name="output---configuration"></a>Uitvoer - configuratie
 
-De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand. Voor C#-klassebibliotheken, zijn er geen kenmerkeigenschappen die overeenkomen met deze *function.json* eigenschappen. 
+De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand. Voor C#-klassebibliotheken, zijn er geen kenmerkeigenschappen die overeenkomen met deze *function.json* eigenschappen.
 
 |Eigenschap  |Beschrijving  |
 |---------|---------|

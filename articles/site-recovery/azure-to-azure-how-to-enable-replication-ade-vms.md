@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300571"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851011"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk encryption (ADE) ingeschakeld virtuele machines repliceren naar een andere Azure-regio
 
@@ -90,7 +90,7 @@ Deze procedure wordt ervan uitgegaan dat de primaire Azure-regio Oost-Azië is e
     - **Doelopslagaccounts (als de bron-VM maakt geen gebruik van schijven beheerde)**: Site Recovery maakt standaard een nieuw doel-opslagaccount mimicking de opslagconfiguratie van de bron-VM. In het geval er bestaat al een storage-account, wordt dit opnieuw gebruikt.
     - **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt nieuwe beheerde replicaschijven in de doelregio voor het spiegelen van beheerde schijven van de bron-VM met hetzelfde opslagtype (Standard of premium) als de bron-VM van schijf beheerde.
     - **Storage-accounts in de cache**: Site Recovery moet extra opslagaccount met de naam cacheopslag in de bronregio. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache-opslagaccount voor het repliceren van die naar de doellocatie.
-    - **Beschikbaarheidsset**: Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met de naam met achtervoegsel 'asr'. In het geval beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
+    - **Beschikbaarheidsset**: Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met de naam met achtervoegsel 'asr'. Als de beschikbaarheidsset die wordt gemaakt met Azure Site Recovery, al bestaat, wordt deze opnieuw gebruikt.
     - **Sleutelkluizen voor schijfversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-schijf. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
     - **Sleutelkluizen voor sleutelversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-sleutel. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
     - **Beleid voor wachtwoordreplicatie**: Hiermee worden de instellingen voor recovery point bewaren geschiedenis en de app de momentopnamefrequentie gedefinieerd. Azure Site Recovery maakt standaard een nieuw replicatiebeleid met de standaardinstellingen van 24 uur voor de bewaarperiode voor herstelpunten en ' 60 minuten voor de frequentie voor app-consistente momentopname te maken.

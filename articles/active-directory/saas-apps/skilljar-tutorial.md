@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 6a0463640f9a7194632a65cdb10653a520fcc0c9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a997de5530bf8ed475031147369b591b2d44d227
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435227"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Zelfstudie: Azure Active Directory-integratie met Skilljar
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Skilljar in Azure AD, moet u Skillja
 
 **Als u wilt toevoegen Skilljar uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.skilljar.com/`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Skilljar Client ondersteuningsteam](http://support.skilljar.com/hc/) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Skilljar Client ondersteuningsteam](https://support.skilljar.com/hc/) om deze waarden te verkrijgen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -127,7 +127,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/skilljar-tutorial/tutorial_general_400.png)
 
-1. Het configureren van eenmalige aanmelding op **Skilljar** zijde, moet u voor het verzenden van de gedownloade **Metadata XML**, en **Indelingswaarde naam - id: urn: oasis: namen: tc: SAML:1.1:nameid-indeling: emailAddress** naar [Skilljar ondersteuningsteam](http://support.skilljar.com/hc/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Skilljar** zijde, moet u voor het verzenden van de gedownloade **Metadata XML**, en **Indelingswaarde naam - id: urn: oasis: namen: tc: SAML:1.1:nameid-indeling: emailAddress** naar [Skilljar ondersteuningsteam](https://support.skilljar.com/hc/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -171,7 +171,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Skilljar als deze nog niet bestaat. 
 
 >[!NOTE]
->Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Skilljar ondersteuningsteam](http://support.skilljar.com/hc/). 
+>Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Skilljar ondersteuningsteam](https://support.skilljar.com/hc/). 
 > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD

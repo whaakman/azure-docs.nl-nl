@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: cca15447587fcec7253b449d93fc2f644fe6c249
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635353"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851040"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor  
 
@@ -57,7 +57,7 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
    > [!NOTE]
 
-   > Waarschuwingen lijsten kunnen importeren analytics-query als signaaltype - **logboek (opgeslagen Query)**, zoals weergegeven in bovenstaande afbeelding. Gebruikers kunnen verbeteren van de query in Analytics en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen: meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met zoeken in Logboeken in log analytics](../log-analytics/log-analytics-queries.md) of [gedeelde query in application insights Analytics](../log-analytics/log-analytics-queries.md). 
+   > Waarschuwingen lijsten kunnen importeren analytics-query als signaaltype - **logboek (opgeslagen Query)**, zoals weergegeven in bovenstaande afbeelding. Gebruikers kunnen verbeteren van de query in Analytics en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen: meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met zoeken in Logboeken in log analytics](../azure-monitor/log-query/log-query-overview.md) of [gedeelde query in application insights Analytics](../azure-monitor/log-query/log-query-overview.md). 
 
 1.  *Waarschuwingen voor activiteitenlogboeken*: eenmaal hebt geselecteerd, query voor waarschuwingen kan worden vermeld in de **zoekquery** veld; als de query-syntaxis is onjuist fout wordt in het veld in het rood weergegeven. Als de querysyntaxis juist - ter referentie wordt historische gegevens van de opgegeven query weergegeven als een grafiek met de optie voor het aanpassen van het tijdvenster van afgelopen zes uur voor de afgelopen week.
 
@@ -246,5 +246,5 @@ Op de goede werking 201 te maken van waarschuwingsregel nieuwe status wordt gere
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](monitor-alerts-unified-log.md)
 * Inzicht in [webhookacties voor logboekwaarschuwingen](monitor-alerts-unified-log-webhook.md)
 * Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
-* Meer informatie over [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Meer informatie over [Log Analytics](../azure-monitor/log-query/log-query-overview.md). 
 

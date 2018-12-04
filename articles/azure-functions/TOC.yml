@@ -9,18 +9,20 @@ items:
     href: durable/durable-functions-overview.md
   - name: Serverloze vergelijking
     href: functions-compare-logic-apps-ms-flow-webjobs.md
-- name: Snelstartgidsen
+- name: Quickstarts
   items:
-  - name: Functie maken - portal
-    href: functions-create-first-azure-function.md
   - name: Functie maken - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: Functie maken - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: Functie maken - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Functie maken - Python
+    href: functions-create-first-function-python.md
   - name: Functie maken - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: Functie maken - portal
+    href: functions-create-first-azure-function.md
   - name: Functie maken - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
@@ -86,6 +88,8 @@ items:
       href: functions-reference-node.md
     - name: Java
       href: functions-reference-java.md
+    - name: Python
+      href: functions-reference-python.md
   - name: Diagnostiek
     href: ../app-service/app-service-diagnostics.md
   - name: Prestatieoverwegingen
@@ -114,6 +118,8 @@ items:
       href: functions-create-maven-intellij.md
     - name: Ontwikkelen in Eclipse
       href: functions-create-maven-eclipse.md
+    - name: Een Linux-functie-app maken
+      href: create-function-app-linux-app-service-plan.md
     - name: Verbindingen beheren
       href: manage-connections.md
     - name: Foutafhandeling
@@ -188,6 +194,14 @@ items:
       href: functions-recover-storage-account.md
 - name: Naslaginformatie
   items:
+  - name: API-referenties
+    items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
+  - name: Naslaginformatie voor app-instellingen
+    href: functions-app-settings.md
   - name: Bindingen
     items:
     - name: Blob Storage
@@ -229,13 +243,12 @@ items:
     - name: Twilio
       href: functions-bindings-twilio.md
   - name: Naslaginformatie voor host.json
+    href: functions-host-json.md
     items:
     - name: Functions 2.x
       href: functions-host-json.md
     - name: Functions 1.x
       href: functions-host-json-v1.md
-  - name: Naslaginformatie voor app-instellingen
-    href: functions-app-settings.md
   - name: Naslaginformatie voor OpenAPI
     href: functions-api-definition.md
 - name: Resources
@@ -264,9 +277,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Service-updates
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: facc469c576bf1de905441bb5b56a00bd745e924
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: bd85d1f3afa9e6ebc580f252782756bff278b9d8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632293"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850638"

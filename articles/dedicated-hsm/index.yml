@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9eaed5c8d30d902700af25319d91b77aab645dbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9fac565922a6dd36608455456c66ff2fe940557a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318007"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680409"
 documentType: LandingData
 title: Documentatie voor toegewezen HSM in Azure
 metadata:
@@ -33,13 +33,13 @@ sections:
     - href: /azure/dedicated-hsm/overview
       html: <p>Ontdek wat toegewezen HSM in Azure precies inhoudt.</p>
       image:
-        src: media/index/i_article.svg
-      title: Overzicht toegewezen HSM
+        src: media/index/hsm.svg
+      title: Overzicht toegewezen HSM in Azure
     - href: /azure/dedicated-hsm/faq
-      html: <p>Veelgestelde vragen</p>
+      html: <p>Ontwerpoverwegingen bij het gebruik van toegewezen HSM</p>
       image:
         src: media/index/guide.svg
-      title: Veelgestelde vragen
+      title: Een implementatie-architectuur kiezen
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -62,4 +62,4 @@ sections:
     className: cardsD
     items:
     - title: Veelgestelde vragen
-      html: <p><a href="/dedicated-hsm/faq/">Veelgestelde vragen</a></p>
+      html: <p><a href="/azure/dedicated-hsm/faq/">Veelgestelde vragen</a></p>

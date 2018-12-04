@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 034cf8b8b822b1baf45f091b4f6154de4f80b6a3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 532cc506af2bf710fb58d2e7214686455e65981b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313136"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851108"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -32,7 +32,7 @@ Fysieke servers | Replicatie van on-premises Windows/Linux-fysieke servers naar 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0 of 5.5 of vSphere 6.7, 6.5, 6.0 of 5.5 | U wordt aangeraden dat u een vCenter-server.<br/><br/> Het is raadzaam dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevinden als de processerver. Wordt standaard de serveronderdelen proces uitgevoerd op de configuratieserver, dus dit is het netwerk waarin u de configuratieserver hebt ingesteld, tenzij u een speciaal toegewezen proces-server instellen.
-Fysieke | N/A
+Fysiek | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery-configuratieserver
 

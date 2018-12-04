@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 470805b2bb77e367887767b95e0f1e04d79c8f9d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5b7baffea8e718810a91ea9687a007d36c806aab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830732"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Zelfstudie: Azure Active Directory-integratie met ServiceNow
 
@@ -34,14 +34,14 @@ ServiceNow integreren met Azure AD biedt u de volgende voordelen:
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voor het Azure AD-integratie configureren met ServiceNow, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Voor ServiceNow, een exemplaar of een tenant van ServiceNow, Calgary versie of hoger
 - Voor snelle ServiceNow, een exemplaar van ServiceNow Express, Helsinki versie of hoger
-- De ServiceNow-tenant moet beschikken over de [meerdere Provider eenmalige aanmelding op invoegtoepassing](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) ingeschakeld. Dit kan worden gedaan door [indienen van een serviceaanvraag](https://hi.service-now.com).
+- De ServiceNow-tenant moet beschikken over de [meerdere Provider eenmalige aanmelding op invoegtoepassing](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) ingeschakeld. Dit kan worden gedaan door [indienen van een serviceaanvraag](https://hi.service-now.com).
 - Schakel de invoegtoepassing multi-provider voor ServiceNow voor automatische configuratie.
 
 > [!NOTE]
@@ -483,7 +483,7 @@ In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met 
 Wanneer u op de ServiceNow-tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw ServiceNow-toepassing.
 Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

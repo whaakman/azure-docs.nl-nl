@@ -1,34 +1,33 @@
 ---
-title: Groep machines-evaluatie met Azure migreren | Microsoft Docs
-description: Beschrijft hoe u een groep machines voordat u een evaluatie met de service Azure migreren.
+title: Groep machines voor evaluatie met Azure Migrate | Microsoft Docs
+description: Beschrijft hoe u aan de groep machines voordat u een evaluatie met de service Azure Migrate uitvoert.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: ccab88c0195a7ca459c8579b7870d121dfd0fe1d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3f90fbb4ae30f8cc7730385730c39321974a94c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231403"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850700"
 ---
-# <a name="group-machines-for-assessment"></a>Groep machines-evaluatie
+# <a name="group-machines-for-assessment"></a>Groepeer machines voor evaluatie
 
-In dit artikel wordt beschreven hoe u een groep machines voor beoordeling door [Azure migreren](migrate-overview.md). Azure migreren beoordeelt machines in de groep om te controleren of ze geschikt is voor migratie naar Azure, en biedt sizing en kosten schattingen voor het uitvoeren van de machine in Azure.
+In dit artikel wordt beschreven hoe u een groep machines voor evaluatie van [Azure Migrate](migrate-overview.md). Azure Migrate beoordeelt de machines in de groep om te controleren of ze geschikt voor migratie naar Azure, en biedt formaat- en kostenramingen voor het uitvoeren van de machine in Azure. Als u de machines die samen moeten worden gemigreerd, kunt u de groep handmatig maken in Azure migreren met behulp van de volgende methode. Als u niet zeker weet over de computers die moeten worden gegroepeerd, kunt u de functie voor visualisatie van afhankelijkheden in Azure Migrate gebruiken om groepen te maken. [Meer informatie.](how-to-create-group-machine-dependencies.md)
 
+## <a name="create-a-group"></a>Een groep maken
 
-## <a name="create-a-group"></a>Groep maken
+1. In de **overzicht** van de Azure Migrate-project, onder beheren, klikt u op **groepen** > **+ groep**, en geef een groepsnaam op.
+2. Een of meer computers toevoegen aan de groep en klikt u op **maken**.
+3. U kunt eventueel selecteren om uit te voeren van een nieuwe beoordeling van de groep.
 
-1. In de **overzicht** van het migreren van de Azure-project, onder beheren, klikt u op **groepen** > **+ groep**, en geef een groepsnaam.
-2. Een of meer machines toevoegen aan de groep en klik op **maken**. 
-3. Desgewenst kunt u instellen dat het uitvoeren van een nieuwe beoordeling van de groep. 
+    ![Een groep maken](./media/how-to-create-a-group/create-group.png)
 
-    ![Groep maken](./media/how-to-create-a-group/create-group.png)
-
-Nadat de groep is gemaakt, kunt u het wijzigen door de groep op de **groepen** pagina, en bij het toevoegen of verwijderen van computers.
+Nadat de groep is gemaakt, kunt u deze wijzigen door het selecteren van de groep op de **groepen** pagina, en vervolgens toevoegen of verwijderen van computers.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Informatie over het gebruik [machine afhankelijkheid toewijzing](how-to-create-group-machine-dependencies.md) hoge betrouwbaarheid groepen maken.
+- Meer informatie over het gebruik van [machine afhankelijkheidstoewijzing](how-to-create-group-machine-dependencies.md) te maken van groepen met hoge betrouwbaarheid.
 - [Meer informatie](concepts-assessment-calculation.md) over hoe evaluaties worden berekend.

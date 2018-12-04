@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 439ae934484649a5bddb821e6a4cf47f7e77a772
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6373c5c3b613bcc7e01a8c86ad5f9c1af7101f53
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722511"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849306"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -603,7 +603,7 @@ Zoeken in Logboeken met de informatie over de status van uw containers wordt geo
 
 ![Zoeken in Logboeken voor containers](./media/log-analytics-containers/containers-log-search.png)
 
-Hier kunt kunt u de zoekopdracht om te wijzigen om de gewenste informatie vindt dat u geïnteresseerd bent in bewerken. Zie voor meer informatie over zoekopdrachten in Logboeken, [zoekopdrachten in Logboeken in Log Analytics](log-analytics-queries.md).
+Hier kunt kunt u de zoekopdracht om te wijzigen om de gewenste informatie vindt dat u geïnteresseerd bent in bewerken. Zie voor meer informatie over zoekopdrachten in Logboeken, [zoekopdrachten in Logboeken in Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Problemen oplossen met het vinden van een mislukte container
 
@@ -671,4 +671,4 @@ Opgeslagen query's is een standaardfunctie in Log Analytics. Door deze zijn opge
 Nadat u een query die u maakt, deze door te klikken op Opslaan **Favorieten** aan de bovenkant van de pagina voor zoeken in Logboeken. En vervolgens u gemakkelijk toegankelijk is vanuit de **mijn Dashboard** pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zoeken in logboeken](log-analytics-queries.md) om gedetailleerde container gegevensrecords weer te geven.
+* [Zoeken in logboeken](../azure-monitor/log-query/log-query-overview.md) om gedetailleerde container gegevensrecords weer te geven.

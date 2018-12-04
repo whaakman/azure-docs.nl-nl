@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics op IoT Edge (preview)
-description: Edge-taken maken in Azure Stream Analytics en deze implementeren naar apparaten gestart Azure IoT Edge.
+description: Edge-taken maken in Azure Stream Analytics en deze implementeren op apparaten met Azure IoT Edge.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
-ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 11/30/2018
+ms.openlocfilehash: 6d3060545946f1f003058932f1ffc50c2a64586f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687432"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846229"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT Edge (preview)
 
@@ -197,7 +196,7 @@ Een taak maakt met referentiegegevens voor edge-apparaten:
 
 3. Een bestand met referentiegegevens gereed op het apparaat hebben. Voor een Windows-container, plaats het bestand met referentiegegevens op de lokale schijf en delen van de lokale schijf met de Docker-container. Voor een Linux-container, maak een Docker-volume en vul in het gegevensbestand aan het volume.
 
-4. Stel het bestandspad. Gebruik het absolute pad voor een windows-apparaat. Voor een Linux-apparaat, het pad in het volume te gebruiken.
+4. Stel het bestandspad. Gebruik het absolute pad voor Windows Host OS en Windows-container: `E:\<PathToFile>\v1.csv`. Voor een Windows-Host OS en Linux-container of een Linux-besturingssysteem en de Linux-container, gebruikt u het pad in het volume: `<VolumeName>/file1.txt`.
 
 ![Nieuwe gegevens van referentie-invoer voor Azure Stream Analytics-taak voor Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
@@ -206,7 +205,6 @@ De referentiegegevens op IoT Edge-update wordt geactiveerd door een implementati
 Er zijn twee manieren om bij te werken van de referentiegegevens:
 * Gegevenspad van update-verwijzing in de ASA-taak in Azure portal.
 * Bijwerken van de IoT Edge-implementatie.
-
 
 ## <a name="license-and-third-party-notices"></a>Licentie en kennisgevingen van derden
 * [Azure Stream Analytics op IoT Edge preview licentie](https://go.microsoft.com/fwlink/?linkid=862827). 

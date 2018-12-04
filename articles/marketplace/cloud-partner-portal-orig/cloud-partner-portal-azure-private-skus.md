@@ -1,5 +1,5 @@
 ---
-title: Privé-SKU's | Microsoft Docs
+title: Privé-SKU's en -abonnementen | Microsoft Docs
 description: Het gebruik van privé-SKU's voor het beheren van de beschikbaarheid van aanbiedingen.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230237"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849204"
 ---
-<a name="private-skus"></a>Privé-SKU 's
+<a name="private-skus-and-plans"></a>Privé-SKU's en abonnementen
 ============
 
 Privé-SKU's kunt u de beschikbaarheid van SKU's beperken tot bepaalde klanten. Wanneer een SKU is gemarkeerd privé zijn, is het niet beschikbaar in alle openbare catalogus met inbegrip van [Azure Marketplace](https://azuremarketplace.microsoft.com) en de [Azure-portal](http://portal.azure.com). In de Azure-portal, kunnen alleen klanten die toegang hebben tot de SKU deze zien. Bovendien wordt deze ook gevraagd dat ze toegang tot persoonlijke aanbiedingen hebben.
@@ -37,7 +37,7 @@ U kunt persoonlijke SKU's gebruiken voor het afhandelen van de volgende scenario
 
 Als u wilt dat alleen de prijswijziging, kunt u de schijven van een andere SKU in de dezelfde aanbieding opnieuw te gebruiken. Met persoonlijke SKU's hebt u geen opnieuw indienen schijven voor SKU's.
 
-<a name="mark-a-sku-private"></a>Een persoonlijke SKU is ingeschakeld
+<a name="mark-a-sku-private"></a>Een SKU persoonlijke markeren
 ---------------------
 
 Als u een SKU als privégegevens, de optie gevraagd als de SKU privé is in-/ uitschakelen:
@@ -91,7 +91,12 @@ Voorbeelden CSV-bestand voor inhoud:
 
 Wanneer u overschakelt van handmatige invoer naar CSV uploaden weergave of vanuit CSV-bestand naar de handmatige invoer, is de oude lijst van de abonnement-id's met toegang tot de SKU niet behouden. Een waarschuwing wordt weergegeven en de lijst alleen bij het opslaan van de aanbieding wordt overschreven.
 
-<a name="previewing-private-offers"></a>Persoonlijke aanbiedingen bekijken
+<a name="sync-private-subscriptions"></a>Synchronisatie van persoonlijke abonnementen
+-------------------------
+
+Als u abonnementen toevoegt in een gepubliceerde aanbieding met een persoonlijke SKU of van Plan zijn, hoeft u niet opnieuw publiceren van de aanbieding voor het toevoegen van informatie van de doelgroep. Een Azure-abonnement-ID (abonnementen en -SKU's) of een Tenant-ID (alleen voor abonnementen) gewoon gebruiken om toe te voegen van de doelgroep.
+
+<a name="previewing-private-offers"></a>Beschikbaar als Private Preview biedt
 -------------------------
 
 Tijdens de Preview-versie/fasering stap, alleen de aanbieding op preview-abonnementen kunnen toegang krijgen tot de SKU. Dit is de test fase op dat moment u wat de aanbieding controleren kunt zijbalken eruit zouden voor de betreffende klanten en is standaard voor alle typen van de publicatie.

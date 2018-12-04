@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5fe7c11bd21e9c2f432f443a6a8dd5880646a1a2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7dbd5f932f2d090a3f9fa8f917d12869a94dc553
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444185"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847079"
 ---
 # <a name="heading"></a>Voorbeeldgegevens in Azure blob-opslag
 
@@ -25,7 +25,7 @@ In dit artikel bevat informatie over steekproef nemen voor gegevens die zijn opg
 **Waarom sample van uw gegevens?**
 Als de gegevensset die u van plan bent om te analyseren groot is, is het doorgaans een goed idee om down-sampling van de gegevens om deze aan de grootte van een kleiner, maar representatieve en gemakkelijker. Dit vereenvoudigt het begrijpen van gegevens, verkennen en feature-engineering. De rol in het Cortana Analytics-proces is om in te schakelen, snel ontwikkelen van prototypen van de functies voor het verwerken van gegevens en machine learning-modellen.
 
-Deze taak steekproeven is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Deze taak steekproeven is een stap in de [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Download en down-sampling van gegevens
 1. De gegevens uit Azure blob-opslag met behulp van de blobservice van de volgende voorbeeldcode voor Python downloaden: 

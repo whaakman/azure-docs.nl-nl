@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 89236575a73325d650f1357ff03abb53bbc7b00c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346419"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848940"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -37,16 +37,6 @@ Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
 [Azure Functions Core Tools] omvat een versie van de dezelfde runtime die wordt gebruikt door Azure Functions-runtime die u op uw lokale ontwikkelcomputer uitvoeren kunt. Het biedt ook opdrachten voor het maken van functies, verbinding maken met Azure, en functie projecten kunt implementeren.
-
-### <a name="v1"></a>Versie 1.x
-
-De Functions-runtime 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie .NET Framework (4.7) wordt gebruikt en wordt alleen ondersteund op Windows-computers. Voordat u de versie 1.x-hulpprogramma's installeert, moet u [NodeJS installeren](https://docs.npmjs.com/getting-started/installing-node), waaronder npm.
-
-Gebruik de volgende opdracht voor het installeren van de versie 1.x-hulpprogramma's:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ### <a name="v2"></a>Versie 2.x
 
@@ -155,7 +145,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Initialiseren van het project, zelfs wanneer er bestaande bestanden in het project zijn. Deze instelling overschrijft bestaande bestanden met dezelfde naam. Andere bestanden in de projectmap, worden niet beïnvloed. |
 | **`--no-source-control -n`** | Hiermee voorkomt u dat het standaard-maken van een Git-opslagplaats in versie 1.x. In versie 2.x, de git-opslagplaats die standaard is niet gemaakt. |
 | **`--source-control`** | Hiermee bepaalt u of een git-opslagplaats wordt gemaakt. Standaard wordt een opslagplaats is niet gemaakt. Wanneer `true`, een opslagplaats wordt gemaakt. |
-| **`--worker-runtime`** | Hiermee stelt u de taal voor het project. Ondersteunde waarden zijn `dotnet`, `node` (JavaScript), en `java`. Als niet is ingesteld, wordt u gevraagd uw runtime kiezen tijdens de initialisatie. |
+| **`--worker-runtime`** | Hiermee stelt u de taal voor het project. Ondersteunde waarden zijn `dotnet`, `node` (JavaScript), `java`, en `python`. Als niet is ingesteld, wordt u gevraagd uw runtime kiezen tijdens de initialisatie. |
 
 > [!IMPORTANT]
 > Standaard versie 2.x van de essentiële hulpprogramma maakt de functie app-projecten voor de .NET runtime als [projecten van C#-klasse](functions-dotnet-class-library.md) (.csproj). Deze C# projecten, die kunnen worden gebruikt met Visual Studio of Visual Studio Code, worden gecompileerd tijdens het testen en bij het publiceren naar Azure. Als u in plaats daarvan wilt maken en werken met de dezelfde C#-script (.csx)-bestanden gemaakt in versie 1.x en in de portal, moet u de `--csx` parameter bij het maken en implementeren van functions.
@@ -420,11 +410,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core-hulpprogramma's ondersteunt twee typen implementatie, functie project-bestanden rechtstreeks naar uw functie-app implementeren en implementeren van een aangepaste Linux-container, dit wordt alleen ondersteund in versie 2.x. U moet al hebben [een functie-app gemaakt in uw Azure-abonnement](functions-cli-samples.md#create).
 
-In versie 2.x gebruikt, hebt u [geregistreerd uw extensies](#register-extensions) in uw project voordat u publiceert. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd.
+In versie 2.x gebruikt, hebt u [geregistreerd uw extensies](#register-extensions) in uw project voordat u publiceert. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd. 
 
 ### <a name="project-file-deployment"></a>Bestand implementeren  
 
-De meest voorkomende implementatiemethode omvat het gebruik van Core-hulpprogramma's kunnen worden verpakt uw functie-app-project en het pakket implementeren op uw functie-app. U kunt eventueel [uitvoeren van uw functies direct vanuit het implementatiepakket](run-functions-from-deployment-package.md).
+De meest voorkomende implementatiemethode omvat het gebruik van Core-hulpprogramma's kunnen worden verpakt uw functie-app-project, binaire bestanden en afhankelijkheden en het pakket implementeren op uw functie-app. U kunt eventueel [uitvoeren van uw functies direct vanuit het implementatiepakket](run-functions-from-deployment-package.md).
 
 Als u wilt publiceren een Functions-project aan een functie-app in Azure, gebruikt u de `publish` opdracht:
 
@@ -440,14 +430,14 @@ De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als 
 > Wanneer u een functie-app in Azure portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).  
 > U kunt de runtimeversie voor een functie-app met bestaande functies niet wijzigen.
 
-U kunt de volgende opties publiceren, die voor zowel versies, 1.x en 2.x gelden gebruiken:
+Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van toepassing:
 
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | De prompt dat appinstellingen worden overschreven wanneer `--publish-local-settings -i` wordt gebruikt.|
 
-De volgende opties publiceren, worden alleen ondersteund in versie 2.x:
+Opties voor het volgende project publiceren worden alleen ondersteund in versie 2.x:
 
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
@@ -455,6 +445,8 @@ De volgende opties publiceren, worden alleen ondersteund in versie 2.x:
 |**`--list-ignored-files`** | Geeft een lijst van bestanden die worden genegeerd tijdens het publiceren, die is gebaseerd op het bestand .funcignore. |
 | **`--list-included-files`** | Geeft een lijst van bestanden die zijn gepubliceerd, die is gebaseerd op het bestand .funcignore. |
 | **`--zip`** | Publiceren in uitvoeren vanuit Zip-pakket. Vereist dat de app hebt AzureWebJobsStorage instelling die is gedefinieerd. |
+| **`--build-native-deps`** | Slaat het genereren van .wheels map bij het publiceren van python functie-apps. |
+| **`--additional-packages`** | Lijst met pakketten te installeren bij het bouwen van systeemeigen afhankelijkheden. Bijvoorbeeld: `python3-dev libevent-dev`. |
 | **`--force`** | Negeren vooraf publishing verificatie in bepaalde scenario's. |
 | **`--csx`** | Een C#-script (.csx)-project kunt publiceren. |
 | **`--no-build`** | Overslaan dotnet functies bouwen. |

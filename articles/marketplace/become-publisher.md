@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394830"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846467"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -78,7 +78,7 @@ U wordt gevraagd om op te nemen van de volgende informatie:
 Onze Marketplace Voorbereidingsteam valideert de registratiegegevens van de marketplace vindt u in stap 3. Zodra goedgekeurd, ontvangt u een welkomstbericht met accountreferenties en hulp bij het aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com).
 
 U gebruikt de [Cloud Partner-Portal](https://cloudpartner.azure.com) wilt maken, publiceren en beheren van marketplace-aanbiedingen. Nadat u het welkomstbericht goedkeuring ontvangen, kunt u direct aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com) met uw Microsoft-account voor toegang tot aanvullende technische informatie over het publiceren op marketplace en het maken van uw aanbieding. 
-*   Voor meer informatie over het gebruik van Cloud Partner-Portal, [Ga naar het artikel aan de slag in de sectie meer](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). U moet zijn aangemeld op de Cloud Partner-Portal voor toegang tot deze gegevens.
+*   Voor meer informatie over het gebruik van Cloud Partner-Portal, [Ga naar het artikel aan de slag in de sectie meer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). U moet zijn aangemeld op de Cloud Partner-Portal voor toegang tot deze gegevens.
 *   Als u vragen hebt of wilt, zoals plannen voor een aanroep van onboarding-overzicht, andere artikelen in deze handleiding Publisher bekijken of een ondersteuningsaanvraag onder probleemtype > Marketplace Onboarding uit in de Cloud Partner-Portal.
 *   Als u het welkomstbericht hebt ontvangen, controleert u de map Ongewenste e-mail voor een e-mailbericht met de onderwerpregel "Welkom bij de Microsoft Marketplace!." Als er is geen e-mailadres in de map Ongewenste e-mail, [contact op met Microsoft ondersteuning](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Selecteer op de ondersteuningspagina: probleemtype > Marketplace Onboarding.  Onze Marketplace Publisher Onboarding-Team is met u kunnen helpen bij uw vragen. 
 

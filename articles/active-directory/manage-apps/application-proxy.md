@@ -15,16 +15,16 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365259"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846161"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Het bieden van veilige externe toegang tot on-premises toepassingen
 
-Werknemers willen vandaag nog om productief te zijn op elke locatie op elk gewenst moment en vanaf elk apparaat. Ze willen werken op hun eigen apparaten, ongeacht of ze tablets of telefoons laptops. En ze verwachten dat ze toegang krijgen tot al hun toepassingen, zowel SaaS-apps in de cloud en zakelijke apps on-premises. Toegang bieden tot on-premises toepassingen hebben doorgaans we virtuele particuliere netwerken (VPN's) of gedemilitariseerde zones (DMZ's). Niet alleen deze oplossingen zijn complex en moeilijk te beveiligen, maar ze zijn kostbaar zijn om te definiëren en te beheren.
+De huidige werknemer wil overal, op elke plek en op elk apparaat productief kunnen zijn. Ze willen werken op hun eigen apparaten, ongeacht of ze tablets of telefoons laptops. En ze verwachten dat ze toegang krijgen tot al hun toepassingen, zowel SaaS-apps in de cloud en zakelijke apps on-premises. Voorheen was bij het toegang bieden tot on-premises toepassingen een VPN (Virtual Private Network) of een DMZ (gedemilitariseerde zone) nodig. Dit is niet alleen ingewikkeld en moeilijk te beveiligen, maar het instellen en beheren ervan is duur.
 
 Er is een betere manier.
 
@@ -100,5 +100,5 @@ Nadat u uw eerste app publiceert, is er veel meer u met Application Proxy doen k
 * [Werken met bestaande on-premises Proxy-servers](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Een aangepaste startpagina instellen](application-proxy-configure-custom-home-page.md)
 
-Ga naar het [blog over toepassingsproxy](http://blogs.technet.com/b/applicationproxyblog/) voor nieuws en updates.
+Ga naar het [blog over toepassingsproxy](https://blogs.technet.com/b/applicationproxyblog/) voor nieuws en updates.
 

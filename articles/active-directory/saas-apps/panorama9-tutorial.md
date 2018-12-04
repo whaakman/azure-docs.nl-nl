@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad2a9dba54df3ae7a3e2604437c8a65c88dcca94
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448343"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Zelfstudie: Azure Active Directory-integratie met Panorama9
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Panorama9 in Azure AD, moet u Panora
 
 **Als u wilt toevoegen Panorama9 uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. In de **aanmeldings-URL** tekstvak, een URL als: `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `http://www.panorama9.com/saml20/<tenant-name>`
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Panorama9 Client ondersteuningsteam](https://support.panorama9.com) om deze waarden te verkrijgen. 

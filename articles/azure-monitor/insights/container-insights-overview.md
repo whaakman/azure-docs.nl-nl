@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 084b79d0738cdad2b95499a9004e89b15d052b42
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0854361b262b1177d72a4ab9718698daff3c47fd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715307"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850054"
 ---
 # <a name="azure-monitor-for-containers-preview-overview"></a>Azure Monitor voor een overzicht van containers (Preview)
 
 Azure Monitor voor containers is een functie die is ontworpen voor het bewaken van de prestaties van containerworkloads die zijn geïmplementeerd op beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS). Controle van uw containers is kritiek, met name wanneer u een productiecluster op schaal, met meerdere toepassingen uitvoert.
 
-Azure Monitor voor containers biedt u de zichtbaarheid van de prestaties door verzamelen geheugen en processors metrische gegevens van domeincontrollers, knooppunten en containers die beschikbaar in Kubernetes via de API voor metrische gegevens zijn. Er worden ook containerlogboeken verzameld.  Nadat u de bewaking van Kubernetes-clusters hebt ingeschakeld, deze metrische gegevens en logboeken worden automatisch verzameld voor u via een beperkte versie van de Log Analytics-agent voor Linux en opgeslagen in uw [Log Analytics](../../log-analytics/log-analytics-queries.md) werkruimte. 
+Azure Monitor voor containers biedt u de zichtbaarheid van de prestaties door verzamelen geheugen en processors metrische gegevens van domeincontrollers, knooppunten en containers die beschikbaar in Kubernetes via de API voor metrische gegevens zijn. Er worden ook containerlogboeken verzameld.  Nadat u de bewaking van Kubernetes-clusters hebt ingeschakeld, deze metrische gegevens en logboeken worden automatisch verzameld voor u via een beperkte versie van de Log Analytics-agent voor Linux en opgeslagen in uw [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) werkruimte. 
  
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>Wat kost Azure Monitor voor containers bieden?
 

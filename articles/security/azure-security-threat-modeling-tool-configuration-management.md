@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249350"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849758"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Beveiliging-Frame: Configuratiebeheer | Oplossingen 
 | Product/Service | Artikel |
@@ -507,7 +507,7 @@ Als u wilt uitschakelen CORS voor een domeincontroller of een actie, door het ke
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Inschakelen van beveiligd opstarten en BitLocker Apparaatversleuteling op Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/win10/sb_bl) |
+| **Verwijzingen**              | [Inschakelen van beveiligd opstarten en BitLocker Apparaatversleuteling op Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Stappen** | Beveiligd opstarten van UEFI Hiermee beperkt u het systeem om toe te staan alleen uitvoering van de binaire bestanden ondertekend door een opgegeven instantie. Deze functie voorkomt dat onbekende code wordt uitgevoerd op het platform en de beveiligingsstatus van deze mogelijk verzwakken. UEFI beveiligd opstarten inschakelen en beperken van de lijst met certificeringsinstanties die worden vertrouwd voor het ondertekenen van code. Meld u aan alle code die is geïmplementeerd op het apparaat met een van de vertrouwde basiscertificeringsinstanties. |
 
 ## <a id="partition-iot"></a>OS- en extra partities van IoT-apparaat met BitLocker versleutelen

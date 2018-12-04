@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/30/2018
-ms.openlocfilehash: e89245a946848e46f3c7c502b6cd0e8017327e07
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 12/03/2018
+ms.openlocfilehash: f3e40f9d10ce3d0515d466e9bbdde324458e624d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419891"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834108"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL Database Managed Instance met virtuele netwerken en in de buurt van 100% compatibiliteit gebruiken
 
@@ -45,9 +45,9 @@ Azure SQL Database Managed Instance combineert het beste functies die beschikbaa
 
 | **Voordelen van PaaS** | **Bedrijfscontinuïteit** |
 | --- | --- |
-|Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode (vast tot zeven dagen duren in openbare preview-versie) <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
+|Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
 |**Beveiliging en naleving** | **Management**|
-|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-vnet-configuration.md), één service, speciale berekenings- en tenant) <br>[Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
+|Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-vnet-configuration.md), één service, speciale berekenings- en tenant) <br>[Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-aanmeldingen</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
 
 De belangrijkste functies van Managed Instance worden in de volgende tabel weergegeven:
 
@@ -84,12 +84,9 @@ Meer informatie over het verschil tussen hardwaregeneraties in [Managed Instance
 Managed Instance is beschikbaar in twee Servicelagen:
 
 - **Algemeen gebruik**: ontworpen voor toepassingen met normale prestaties en i/o-latentie is vereist.
-- **Bedrijfskritiek (preview)**: ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
+- **Bedrijfskritiek**: ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
 
 Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhankelijk opslaggrootte selecteren en de rekencapaciteit. Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van Azure SQL Database, [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
-
-> [!IMPORTANT]
-> Het wijzigen van de servicelaag van algemeen naar bedrijfskritiek of vice versa wordt niet ondersteund in openbare Preview. Als u uw databases migreren naar een exemplaar in verschillende servicelaag wilt, kunt u maken van nieuwe instantie, databases met een punt in tijd herstel herstellen uit het oorspronkelijke exemplaar en zet vervolgens neer oorspronkelijk exemplaar als het is niet meer nodig. U kunt echter het aantal vCores en opslag omhoog of omlaag in een servicelaag zonder uitvaltijd schalen.
 
 ### <a name="general-purpose-service-tier"></a>Categorie van de service Algemeen gebruik
 
@@ -103,7 +100,7 @@ Zie voor meer informatie, [opslag laag in het algemeen doel laag](https://medium
 
 Meer informatie over het verschil tussen service-lagen in [Managed Instance-bronlimieten](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-### <a name="business-critical-service-tier-preview"></a>Zakelijke kritieke-laag (preview)
+### <a name="business-critical-service-tier"></a>Kritieke-bedrijfslaag
 
 Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het biedt de hoogste herstelmogelijkheden bij fouten met behulp van verschillende geïsoleerde replica's.
 
@@ -114,9 +111,6 @@ De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag
 - Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) op basis van [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Ingebouwde extra [alleen-lezen databasereplica](sql-database-read-scale-out.md) die kan worden gebruikt voor rapportage- en andere werkbelastingen alleen-lezen
 - [In-Memory OLTP](sql-database-in-memory.md) die kunnen worden gebruikt voor de werkbelasting aan de vereisten voor hoge prestaties  
-
-> [!IMPORTANT]
-> De **bedrijfskritiek** servicelaag is beschikbaar als preview.
 
 Meer informatie over het verschil tussen service-lagen in [Managed Instance-bronlimieten](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
@@ -150,13 +144,15 @@ Azure SQL Database biedt een set geavanceerde beveiligingsfuncties die kunnen wo
 - [Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) vormt een aanvulling op [Managed Instance controle](sql-database-managed-instance-auditing.md) door te geven van een extra beveiligingslaag die is ingebouwd in de service die ongebruikelijke en potentieel schadelijke detecteert intelligence wil toegang tot of misbruik te maken databases. U wordt gewaarschuwd bij verdachte activiteiten, potentiële kwetsbaarheden, en SQL-injectie aanvallen, en afwijkende patronen voor databasetoegang. Waarschuwingen van Threat Detection kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van verdachte activiteiten en geven aanbevelingen voor het onderzoeken en tegenhouden.  
 - [Dynamische gegevensmaskering](/sql/relational-databases/security/dynamic-data-masking) blootstelling van gevoelige gegevens door deze te maskeren voor niet-gemachtigde gebruikers. Dynamische gegevensmaskering helpt onbevoegde toegang tot gevoelige gegevens voorkomen doordat u aangeven hoeveel van de gevoelige gegevens worden vrijgegeven, met minimale impact op de toepassingslaag. Dit is een beveiligingsfunctie op basis van beleid. De gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden worden verborgen, terwijl de gegevens in de database niet worden gewijzigd.
 - [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) kunt u om te bepalen de toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld door het groepslidmaatschap of uitvoeringscontext context groep). Beveiliging op rijniveau (RLS) vereenvoudigt het ontwerp en de code van de beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. Bijvoorbeeld, ervoor te zorgen dat werknemers alleen de rijen met gegevens die relevant voor hun afdeling zijn, of een gegevenstoegang beperken tot alleen de relevante gegevens.
-- [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Azure SQL Database Managed Instance-gegevensbestanden, bekend als het versleutelen van gegevens in rust worden versleuteld. TDE voert realtime i/o-versleuteling en ontsleuteling van de gegevens en logboekbestanden. De versleuteling gebruikt een databaseversleutelingssleutel (DEK), dat is opgeslagen in de database-bootrecord voor beschikbaarheid tijdens het herstel. U kunt alle databases in het beheerde exemplaar met transparante gegevensversleuteling beveiligen. TDE is een beproefde technologie voor versleuteling van inactieve gegevens, die verplicht is volgens veel nalevingsstandaarden voor de bescherming tegen diefstal van opslagmedia. Tijdens de openbare preview, wordt de automatische Sleutelbeheer-model ondersteund (uitgevoerd door de PaaS-platform).
+- [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Azure SQL Database Managed Instance-gegevensbestanden, bekend als het versleutelen van gegevens in rust worden versleuteld. TDE voert realtime i/o-versleuteling en ontsleuteling van de gegevens en logboekbestanden. De versleuteling gebruikt een databaseversleutelingssleutel (DEK), dat is opgeslagen in de database-bootrecord voor beschikbaarheid tijdens het herstel. U kunt alle databases in het beheerde exemplaar met transparante gegevensversleuteling beveiligen. TDE is van de SQL Server beproefde versleuteling-at-rest-technologie die is volgens veel nalevingsstandaarden vereist voor bescherming tegen diefstal van opslagmedia.
 
 Migratie van een versleutelde database naar SQL Managed Instance wordt via de Azure Database Migration Service (DMS) of systeemeigen terugzetten ondersteund. Als u van plan bent voor het migreren van versleutelde database met behulp van systeemeigen restore, is de migratie van het bestaande TDE-certificaat van de SQL Server on-premises of SQL Server-VM aan het beheerde exemplaar is een vereiste stap. Zie voor meer informatie over opties voor de migratie, [SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Integratie van Azure Active Directory
 
-Azure SQL Database Managed Instance biedt ondersteuning voor traditionele SQL server Database engine-aanmeldingen en aanmeldingen die zijn geïntegreerd met Azure Active Directory (AAD). AAD-aanmeldingen zijn Azure-cloud-versie van Windows-database-aanmeldingen die u in uw on-premises omgeving gebruikt.
+Azure SQL Database Managed Instance biedt ondersteuning voor traditionele SQL server Database engine-aanmeldingen en aanmeldingen die zijn geïntegreerd met Azure Active Directory (AAD). AAD-aanmeldingen (**preview-versie**) zijn Azure-cloud-versie van on-premises Databaseaanmeldingen die u in uw on-premises omgeving gebruikt. AAD-aanmeldingen kunt u gebruikers en groepen uit uw Azure Active Directory-tenant opgeven als waar binnen het bereik van exemplaar-principals, geschikt voor een bewerking op exemplaarniveau, met inbegrip van query's tussen meerdere databases binnen de dezelfde Managed Instance.
+
+Een nieuwe syntaxis is geïntroduceerd voor het maken van AAD-aanmeldingen (**openbare preview**), **van externe PROVIDER**. Zie voor meer informatie over de syntaxis van de <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, en bekijk de [inrichten van een Azure Active Directory-beheerder voor uw beheerde exemplaar](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artikel.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integratie en meervoudige verificatie
 
@@ -181,7 +177,7 @@ Autorisatie verwijst naar wat een gebruiker kan doen binnen een Azure SQL Databa
 
 Beheerd exemplaar doelen gebruikersscenario's met grote databasemigratie vanuit on-premises of IaaS-database-implementaties. Beheerd exemplaar ondersteunt verschillende opties voor de migratie van database:
 
-### <a name="backup-and-restore"></a>Back-ups en herstellen  
+### <a name="back-up-and-restore"></a>Back-up en herstel  
 
 De migratie maakt gebruik van SQL-back-ups naar Azure blob-opslag. Back-ups die zijn opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar beheerd exemplaar met behulp van de [T-SQL terugzetten opdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -193,7 +189,7 @@ De migratie maakt gebruik van SQL-back-ups naar Azure blob-opslag. Back-ups die 
 
 ### <a name="data-migration-service"></a>Data migratieservice
 
-Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatieopties zijn onder andere Azure SQL Database Managed Instance en SQL Server in virtuele Azure-machine in openbare Preview. Zie [uw on-premises database migreren naar Managed Instance met behulp van DMS](https://aka.ms/migratetoMIusingDMS).
+Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure SQL Database (individuele database, elastische pools en beheerd exemplaar) en SQL Server in virtuele Azure-machine. Zie [uw on-premises database migreren naar Managed Instance met behulp van DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>SQL-functies die worden ondersteund
 
@@ -232,7 +228,7 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Deze waarde wordt aangeduid Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`.database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`. database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -241,5 +237,5 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 - Lees [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md) (VNet-configuratie voor beheerd exemplaar) voor meer informatie over VNet-configuratie.
 - Zie voor een snelstartgids die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand, [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).
 - Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS).
-- Voor geavanceerde bewaking van prestaties van de database Managed Instance met ingebouwde intelligentie voor het oplossen van problemen, Zie [Monitor Azure SQL Database met behulp van Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md) 
+- Voor geavanceerde bewaking van prestaties van de database Managed Instance met ingebouwde intelligentie voor het oplossen van problemen, Zie [Monitor Azure SQL Database met behulp van Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md)
 - Zie voor informatie over de prijzen [prijzen van SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

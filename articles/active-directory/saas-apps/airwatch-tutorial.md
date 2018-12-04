@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: f3bbcbb70759e7a995797cf89ad75a2a39314927
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf95b949d6fee4057f67d1e44ded36f363aa5e2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048477"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Zelfstudie: Azure Active Directory-integratie met AirWatch
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van AirWatch in Azure AD, moet u AirWatc
 
 **Als u wilt toevoegen AirWatch uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -118,7 +118,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **id** tekstvak typt u de waarde als `AirWatch`
 
     > [!NOTE] 
-    > Deze waarde is niet de werkelijke. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [AirWatch Client ondersteuningsteam](http://www.air-watch.com/company/contact-us/) deze waarde op te halen. 
+    > Deze waarde is niet de werkelijke. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [AirWatch Client ondersteuningsteam](https://www.air-watch.com/company/contact-us/) deze waarde op te halen. 
  
 4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
@@ -292,7 +292,7 @@ Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toe
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

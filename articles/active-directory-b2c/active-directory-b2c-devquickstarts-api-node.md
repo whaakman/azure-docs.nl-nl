@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442420"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847657"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Een web-API ontwikkelen met behulp van Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -47,7 +47,7 @@ Vervolgens moet u in de B2C-directory een app maken die Azure AD de informatie g
 * U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt deze gegevens later nodig.
 
 ## <a name="create-your-policies"></a>Het beleid maken
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat twee identiteitservaringen: registreren en aanmelden. U moet één beleidsregel maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Wanneer u uw drie beleidsregels maakt:
+In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat twee identiteitservaringen: registreren en aanmelden. U moet één beleidsregel maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Wanneer u uw drie beleidsregels maakt:
 
 * Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
 * Kiest u **Weergavenaam**- en **Object-id**-toepassingsclaims voor elk beleid.  U kunt ook andere claims kiezen.
@@ -71,12 +71,12 @@ De voltooide app is ook [beschikbaar als zip-bestand](https://github.com/AzureAD
 ## <a name="download-nodejs-for-your-platform"></a>Node.js voor uw platform downloaden
 U moet een werkende installatie van Node.js hebben om dit voorbeeld te kunnen gebruiken.
 
-Installeer Node.js vanuit [nodejs.org](http://nodejs.org).
+Installeer Node.js vanuit [nodejs.org](https://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>MongoDB installeren voor uw platform
 U moet een werkende installatie van MongoDB hebben om dit voorbeeld te kunnen gebruiken. U gebruikt MongoDB om uw REST-API permanent te maken in alle serverexemplaren.
 
-Installeer MongoDB vanuit [mongodb.org](http://www.mongodb.org).
+Installeer MongoDB vanuit [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > In deze procedure wordt ervan uitgegaan dat u gebruikmaakt van de standaardinstallatie- en -servereindpunten voor MongoDB. Op het moment waarop dit artikel is geschreven, zijn dat `mongodb://localhost`.

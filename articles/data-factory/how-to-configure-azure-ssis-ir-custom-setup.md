@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037036"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850173"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
 
@@ -131,7 +131,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
     c. Selecteer de verbonden openbare Preview-container en dubbelklikt u op de `CustomSetupScript` map. In deze map zijn de volgende items:
 
-       1. Een `Sample` map een aangepaste instellingen bevat voor het installeren van een eenvoudige taak op elk knooppunt van uw Azure-SSIS-IR. De taak wordt niets gewijzigd maar slaapstand voor een paar seconden. De map bevat ook een `gacutil` map `gacutil.exe`. Bovendien `main.cmd` bevat opmerkingen om referenties voor toegang voor bestandsshares persistent te maken.
+       1. Een `Sample` map een aangepaste instellingen bevat voor het installeren van een eenvoudige taak op elk knooppunt van uw Azure-SSIS-IR. De taak wordt niets gewijzigd maar slaapstand voor een paar seconden. De map bevat ook een `gacutil` , de volledige inhoud van die map (`gacutil.exe`, `gacutil.exe.config`, en `1033\gacutlrc.dll`) kunnen worden gekopieerd omdat in de container. Bovendien `main.cmd` bevat opmerkingen om referenties voor toegang voor bestandsshares persistent te maken.
 
        1. Een `UserScenarios` map, waarin verschillende aangepaste instellingen voor real-user-scenario's.
 
@@ -146,8 +146,6 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
        1. Een `BCP` map een aangepaste instellingen bevat voor het installeren van opdrachtregelprogramma's van SQL Server (`MsSqlCmdLnUtils.msi`), met inbegrip van het programma voor bulksgewijs kopiëren (`bcp`), op elk knooppunt van uw Azure-SSIS-IR.
 
        1. Een `EXCEL` map een aangepaste instellingen bevat voor het installeren van open-source-assembly's (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, en `ExcelDataReader.dll`) op elk knooppunt van uw Azure-SSIS-IR.
-
-       1. Een `MSDTC` map een aangepaste instellingen bevat voor het wijzigen van de netwerk- en configuraties voor de service Microsoft Distributed Transaction Coordinator (MSDTC) op elk knooppunt van uw Azure-SSIS-IR. Om ervoor te zorgen dat de MSDTC is gestart, proces-taak uitvoeren wordt toegevoegd aan het begin van de controlestroom in de pakketten voor uitvoering van de volgende opdracht uit: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        1. Een `ORACLE ENTERPRISE` map, waarin een aangepaste setup-script (`main.cmd`) en config-bestand voor installatie op de achtergrond (`client.rsp`) voor het installeren van de Oracle-connectors en OCI stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle Connection Manager, de bron en bestemming gebruiken. Download eerst Microsoft-Connectors 5.0 voor Oracle (`AttunitySSISOraAdaptersSetup.msi` en `AttunitySSISOraAdaptersSetup64.msi`) van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) en de meest recente Oracle-client - bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), upload vervolgens ze allemaal samen met `main.cmd` en `client.rsp` in de container. Als u verbinding maken met Oracle TNS, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze kan worden gekopieerd naar de installatiemap van Oracle tijdens de installatie.
 

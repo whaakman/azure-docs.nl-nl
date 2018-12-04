@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 8b4ed19ede70c3c9b768cfd368e22b0df3e71212
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0dc0df8c766fd1e44158ae79d81d5fd8cc0657f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428947"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847504"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Network Performance Monitor-oplossing: prestatiebewaking
 
@@ -137,4 +137,4 @@ In de volgende afbeelding is de hoofdoorzaak van het probleemgebieden naar het s
 ![Topologiekaart weer met de eigenschappen van het knooppunt geselecteerd](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Zoeken in logboeken](../../log-analytics/log-analytics-queries.md) om gedetailleerde gegevens prestatierecords weer te geven.
+[Zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde gegevens prestatierecords weer te geven.

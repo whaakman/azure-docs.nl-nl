@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 9986e7984f24e065886f6d0a8b2d06968f778702
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582714"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Server
 
@@ -175,7 +175,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
    
     >[!NOTE] 
     >Klant hebben om een certificaat in de Tableau Server SAML SSO-configuratie te uploaden en deze in de stroom SSO ophalen genegeerd.
-    >Als u nodig hebt helpen SAML op Tableau Server configureren, Raadpleeg dit artikel [configureren SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Als u nodig hebt helpen SAML op Tableau Server configureren, Raadpleeg dit artikel [configureren SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 

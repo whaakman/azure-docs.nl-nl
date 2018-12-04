@@ -5,19 +5,21 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99444e6b7ab71a531a95245b8e5056127446dbeb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311803"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847759"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
-Een actiegroep is een verzameling van voorkeuren voor meldingen gedefinieerd door de gebruiker. Waarschuwingen van Azure Monitor en de status van de Service zijn geconfigureerd voor gebruik van de groep van een specifieke actie wanneer de waarschuwing wordt geactiveerd. Verschillende waarschuwingen kunnen gebruiken voor de actiegroep dezelfde of verschillende actiegroepen, afhankelijk van de vereisten van de gebruiker.
+Een actiegroep is een verzameling van voorkeuren voor meldingen gedefinieerd door de eigenaar van een Azure-abonnement. Waarschuwingen van Azure Monitor en de servicestatus actiegroepen gebruiken om gebruikers te waarschuwen dat een waarschuwing is geactiveerd. Verschillende waarschuwingen kunnen gebruiken voor de actiegroep dezelfde of verschillende actiegroepen, afhankelijk van de vereisten van de gebruiker.
+
+Wanneer een actie is geconfigureerd voor het verwittigen van een persoon via e-mail of SMS de persoon ontvangt een bevestiging die aangeeft dat hij / zij is toegevoegd aan de actiegroep.
 
 In dit artikel wordt beschreven hoe u maken en beheren van actiegroepen in Azure portal.
 

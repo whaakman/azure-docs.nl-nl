@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 12/03/2018
 ms.author: glenga
-ms.openlocfilehash: a92a4183962f71005577478bf27df9b5fb945acf
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634359"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849476"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adressen in Azure Functions
 
@@ -88,13 +88,13 @@ Dit is bijvoorbeeld, wat de West-Europa JSON-fragment als volgt uitzien:
 
 ## <a name="inbound-ip-address-changes"></a>Inkomende IP-adres verandert
 
- De inkomende IP-adres **mogelijk** wijzigen wanneer u:
+De inkomende IP-adres **mogelijk** wijzigen wanneer u:
 
 - Een functie-app verwijderen en opnieuw maken in een andere resourcegroep.
 - De laatste functie-app in een combinatie van groep en de regio resource verwijderen en opnieuw maken.
 - Een SSL-binding verwijderen zoals tijdens [verlenging van het certificaat](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-De inkomende IP-adres kan ook veranderen wanneer u dit nog niet hebt maatregelen genomen, zoals die worden vermeld.
+Wanneer uw functie-app wordt uitgevoerd een [verbruiksabonnement](functions-scale.md#consumption-plan), het inkomende IP-adres kan ook worden gewijzigd wanneer u dit nog niet hebt maatregelen genomen, zoals die worden vermeld.
 
 ## <a name="outbound-ip-address-changes"></a>Uitgaande IP-adres verandert
 
@@ -103,7 +103,7 @@ De set beschikbare uitgaande IP-adressen voor een functie-app wanneer veranderen
 * Enkele actie ondernemen die het inkomende IP-adres kunt wijzigen.
 * Uw App Service-plan prijscategorie wijzigen. De lijst met alle mogelijke uitgaande IP-adressen uw app voor alle Prijscategorieën gebruiken kunt is in de `possibleOutboundIPAddresses` eigenschap. Zie [uitgaande IP-adressen vinden](#find-outbound-ip-addresses).
 
-De inkomende IP-adres kan ook veranderen wanneer u dit nog niet hebt maatregelen genomen, zoals die worden vermeld.
+Wanneer uw functie-app wordt uitgevoerd een [verbruiksabonnement](functions-scale.md#consumption-plan), de uitgaande IP-adres kan ook worden gewijzigd wanneer u dit nog niet hebt maatregelen genomen, zoals die worden vermeld.
 
 Om af te dwingen opzettelijk een uitgaande IP-adres is gewijzigd:
 
