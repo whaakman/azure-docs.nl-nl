@@ -12,22 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: fb0e503eedf62a7d72bd58fbf94cba3faac524e9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 922e0afb77a9f1e42f014770ccc51d2a356d112b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632905"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843730"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Detectiemogelijkheden van Azure Security Center
-In dit document worden de geavanceerde detectiemogelijkheden van Azure Security Center besproken, waarmee actieve bedreigingen die gericht zijn op uw Microsoft Azure-resources kunnen worden geïdentificeerd en waarmee u de inzichten krijgt die nodig zijn om snel te kunnen reageren.
+Dit document bespreekt geavanceerde detectiemogelijkheden van Azure Security Center, die helpt bij het identificeren van actieve bedreigingen die gericht is op uw Microsoft Azure-resources - zowel Windows als Linux - en biedt u de inzichten die nodig zijn voor het snel reageren.
 
-Geavanceerde detecties zijn beschikbaar in de Standard-laag van Azure Security Center. Er is een gratis proefversie voor 60 dagen beschikbaar. U kunt uw versie opwaarderen door Prijscategorie te selecteren in het gedeelte [Beveiligingsbeleid](security-center-azure-policy.md). Ga naar de [Security Center-pagina](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie over tarieven.
+Geavanceerde detecties zijn beschikbaar in de Standard-laag van Azure Security Center. Er is een gratis proefversie beschikbaar. U kunt uw versie opwaarderen door Prijscategorie te selecteren in het gedeelte [Beveiligingsbeleid](security-center-azure-policy.md). Ga naar de [Security Center-pagina](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie over tarieven.
 
-> [!NOTE]
-> Security Center is vrijgegeven voor beperkte Preview-versie van een nieuwe set detecties die gebruikmaken van de gecontroleerde records, een gemeenschappelijk controle framework voor het detecteren van schadelijke gedragingen op Linux-machines. [Stuur ons een e-mail](mailto:ASC_linuxdetections@microsoft.com) met uw abonnement-id's om deel te nemen aan de preview.
 
 ## <a name="responding-to-todays-threats"></a>Reageren op actuele bedreigingen
 De bedreigingen zijn de afgelopen 20 jaar aanzienlijk veranderd. In het verleden moesten bedrijven zich meestal alleen zorgen maken over beschadiging van de website door afzonderlijke kwaadwillende gebruikers die voornamelijk wilden zien 'waartoe ze in staat waren'. Vandaag de dag gaan aanvallers veel genuanceerder te werk en zijn ze beter georganiseerd. Ze hebben vaak specifieke financiële en strategische doelstellingen. Ook hebben ze meer middelen beschikbaar, omdat ze mogelijk worden gefinancierd door staten of de georganiseerde misdaad.

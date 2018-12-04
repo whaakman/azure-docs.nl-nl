@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/29/2018
-ms.openlocfilehash: eb296a436f6c09a4f592ba3a26ee1c3a0f8e18bb
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.date: 12/03/2018
+ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678829"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845192"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
 
@@ -64,13 +64,15 @@ Het verschil tussen ISE en niet-ISE-connectors is op de locaties waar de trigger
 
 Wanneer u een integratie van service-omgeving (ISE) maakt, u een Azure-netwerk selecteren in waar u *invoeren* uw omgeving. Injectie implementeert een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk. Deze actie resulteert in een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources. Bij het maken van selecteren uw logische apps uw ISE als locatie voor uw apps. Deze logic apps kunnen vervolgens rechtstreeks toegang hebben tot uw virtuele netwerk en verbinding maken met bronnen in dat netwerk. 
 
-Voor on-premises systemen in een virtueel netwerk dat gekoppeld aan een ISE, logische apps rechtstreeks toegang tot deze systemen met behulp van deze items: 
+Voor systemen die zijn verbonden met een virtueel netwerk, kunt u een ISE invoeren in dit virtuele netwerk, zodat uw logische apps rechtstreeks toegang deze systemen tot met behulp van deze items: 
 
 * ISE-connector voor dat systeem, bijvoorbeeld SQL Server
+
 * HTTP-actie 
+
 * Aangepaste connector
 
-Voor on-premises systemen die zich niet in een virtueel netwerk of geen ISE connectors, kunt u deze systemen verbinden na [instellen en gebruiken van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
+Voor on-premises systemen die niet zijn verbonden met een virtueel netwerk of geen ISE connectors, kunt u deze systemen door [instellen en gebruiken van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
 
 Voordat u een Azure-netwerk voor het injecteren van uw omgeving selecteren kunt, moet u machtigingen voor toegangsbeheer op basis van rollen (RBAC) instellen in uw virtuele netwerk voor de service Azure Logic Apps. Deze taak is vereist dat u toewijst de **Inzender voor netwerken** en **Inzender voor klassieke** rollen naar de service Azure Logic Apps.
 Als u deze machtigingen instelt, Zie [verbinding maken met virtuele netwerken van Azure vanuit logische apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)

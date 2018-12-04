@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: 9b2539d94c645f71b596e53429e6e0d8cc46b9ad
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b071bfe83ba9ef653db2d6d1debad4e3dfa02580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016740"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845923"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -231,6 +231,7 @@ Zie het gebruik van de geretourneerde waarde van taalspecifieke-voorbeeld:
 * [C# script (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C#-voorbeeld
 
@@ -291,7 +292,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>F #-voorbeeld
+### <a name="f-example"></a>F#voorbeeld
 
 Hier volgt de Uitvoerbinding de *function.json* bestand:
 
@@ -304,7 +305,7 @@ Hier volgt de Uitvoerbinding de *function.json* bestand:
 }
 ```
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
 let Run(input: WorkItem, log: ILogger) =
@@ -334,6 +335,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### <a name="python-example"></a>Python-voorbeeld
+
+Hier volgt de Uitvoerbinding de *function.json* bestand:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+Hier volgt de Python-code:
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## <a name="binding-datatype-property"></a>De eigenschap dataType binding
@@ -476,7 +500,7 @@ U kunt ook expressies voor het delen van de bestandsnaam, zoals de extensie make
  
 ### <a name="binding-expressions---trigger-metadata"></a>Binding expressies - trigger metagegevens
 
-Naast de nettolading van de gegevens die is geleverd door een trigger (zoals de inhoud van het wachtrijbericht dat een functie geactiveerd), bieden veel triggers waarden van aanvullende metagegevens. Deze waarden kunnen worden gebruikt als invoerparameters die zijn opgegeven in C# en F # of eigenschappen op de `context.bindings` -object in JavaScript. 
+Naast de nettolading van de gegevens die is geleverd door een trigger (zoals de inhoud van het wachtrijbericht dat een functie geactiveerd), bieden veel triggers waarden van aanvullende metagegevens. Deze waarden kunnen worden gebruikt als invoerparameters die zijn opgegeven in C# en F# of de eigenschappen van de `context.bindings` -object in JavaScript. 
 
 Een trigger voor Azure Queue storage ondersteunt bijvoorbeeld de volgende eigenschappen:
 
@@ -541,7 +565,7 @@ Het volgende voorbeeld wordt de *function.json* -bestand voor een webhook-functi
 }
 ```
 
-Om dit te werken in C# en F #, moet u een klasse die de velden die moeten worden gedeserialiseerd, zoals in het volgende voorbeeld definieert:
+Dit werkt C# en F#, moet u een klasse die de velden die moeten worden gedeserialiseerd, zoals in het volgende voorbeeld definieert:
 
 ```csharp
 using System.Net;

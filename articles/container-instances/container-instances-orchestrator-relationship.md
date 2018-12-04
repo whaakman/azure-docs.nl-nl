@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803508"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845798"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances en container-orchestrators
 
@@ -40,9 +40,9 @@ Azure Container Instances kunt u een gelaagde benadering voor orchestration, bie
 
 Omdat de onderliggende infrastructuur voor container instances wordt beheerd door Azure, hoeft een orchestrator-platform niet naar zichzelf betrekking hebben op een geschikte host virtuele machine op voor het uitvoeren van een enkele container te zoeken. De flexibiliteit van de cloud zorgt ervoor dat een altijd beschikbaar is. In plaats daarvan kunt de orchestrator concentreren op de taken die de ontwikkeling van meerdere containers architecturen, met inbegrip van schalen en gecoördineerde upgrades te vereenvoudigen.
 
-## <a name="potential-scenarios"></a>Mogelijke scenario 's
+## <a name="scenarios"></a>Scenario's
 
-Orchestrator-integratie met Azure Container Instances is nog steeds ontstane, verwachten we dat een paar verschillende omgevingen kunnen voortvloeien:
+Orchestrator-integratie met Azure Container Instances is nog steeds ontstane, verwachten we dat er een paar verschillende omgevingen ontstaan:
 
 ### <a name="orchestration-of-container-instances-exclusively"></a>Indeling van de container uitsluitend-exemplaren
 
@@ -54,13 +54,15 @@ Voor langlopende, stabiele workloads is het doorgaans goedkoper dan de dezelfde 
 
 In plaats van het aantal virtuele machines in uw cluster schalen, en vervolgens extra containers op deze machines implementeren, de orchestrator kunt gewoon de meer containers in Azure Container Instances plannen en te verwijderen wanneer ze niet meer zijn nodig.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Voorbeeldimplementatie: Virtual Kubelet voor Kubernetes
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Voorbeeldimplementatie: virtuele knooppunten voor Azure Kubernetes Service (AKS)
 
-De [Virtual Kubelet] [ aci-connector-k8s] project laat zien hoe de orchestration-containerplatforms kunnen integreren met Azure Container Instances.
+Snel schalen werkbelastingen van toepassingen in een [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS)-cluster, kunt u *virtuele knooppunten* dynamisch gemaakt in Azure Container Instances. Virtuele knooppunten inschakelen momenteel in preview, netwerkcommunicatie tussen pods in ACI met en het AKS-cluster. 
 
-Virtual Kubelet imiteert de Kubernetes [kubelet] [ kubelet-doc] door te registreren als een knooppunt met onbeperkte capaciteit en het verzenden van het maken van [schillen] [ pod-doc] als containergroepen in Azure Container Instances.
+Virtuele knooppunten ondersteuning momenteel voor Linux-container instances. Aan de slag met virtuele knooppunten met behulp van de [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) of [Azure-portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Connectors voor andere orchestrators kunnen die op dezelfde manier worden geïntegreerd met platform primitieven combineren de kracht van de orchestrator-API met de snelheid en eenvoud van het beheer van containers in Azure Container Instances worden gebouwd.
+Virtuele knooppunten maken gebruik van de open-source [Virtual Kubelet] [ aci-connector-k8s] om na te bootsen de Kubernetes [kubelet] [ kubelet-doc] door te registreren als een knooppunt met onbeperkte de capaciteit. De Virtual Kubelet verzendt het maken van [schillen] [ pod-doc] als containergroepen in Azure Container Instances.
+
+Zie de [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) project voor meer voorbeelden van de Kubernetes-API uit te breiden naar serverloze containerplatforms.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -5,17 +5,15 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: b3b6d7a64873d77336b2fcf14e22f4d6ae33e3a2
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: d0180a32f2a4258cb728869e2cb9f2abd57cc545
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845957"
 ---
-MS.Author: ramamill
-
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>De Mobility-service handmatig installeren op virtuele VMware-machines en fysieke servers
 
 Wanneer u herstel na noodgevallen voor VMware-VM's en fysieke servers met behulp van instellen [Azure Site Recovery](site-recovery-overview.md), u installeert de [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) op elke on-premises virtuele VMware-machine en de fysieke server.  De Mobility-service worden vastgelegd schrijven van gegevens op de machine, en ze doorstuurt naar de processerver van Site Recovery.

@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.date: 12/03/2018
+ms.openlocfilehash: c8a100577ba4bc67d12c7376b5897f397d010d4d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394859"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844920"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
-In dit artikel biedt een overzicht van de resourcelimieten voor Azure SQL Database Managed Instance en bevat informatie over het maken van de aanvraag om regionale abonnement standaardlimieten te verhogen. 
+In dit artikel biedt een overzicht van de resourcelimieten voor Azure SQL Database Managed Instance en bevat informatie over het maken van de aanvraag om regionale abonnement standaardlimieten te verhogen.
 
 > [!NOTE]
 > Zie voor andere beperkingen in de Managed Instance [vCore gebaseerde aankoopmodel](sql-database-managed-instance.md#vcore-based-purchasing-model) en [Managed Instance-Servicelagen](sql-database-managed-instance.md#managed-instance-service-tiers). Zie voor verschillen in ondersteunde functies en T-SQL statements [Functieverschillen](sql-database-features.md) en [ondersteuning voor T-SQL-instructie](sql-database-managed-instance-transact-sql-information.md).
@@ -43,9 +43,9 @@ Azure SQL Database Managed Instance kunnen worden geïmplementeerd op twee hardw
 
 ### <a name="service-tier-characteristics"></a>Service tier kenmerken
 
-Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en Business-kritische (openbare Preview). Deze versies bieden verschillende mogelijkheden, zoals beschreven in de onderstaande tabel:
+Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. Deze versies bieden verschillende mogelijkheden, zoals beschreven in de onderstaande tabel:
 
-| **Functie** | **Algemeen gebruik** | **Bedrijfskritiek (preview)** |
+| **Functie** | **Algemeen gebruik** | **Bedrijfskritiek** |
 | --- | --- | --- |
 | Het aantal vCores\* | Gen4: 8, 16, 24 uur per dag<br/>Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 | Gen4: 8, 16, 24 uur per dag, 32 <br/> Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 |
 | Geheugen | Gen4: 56GB - 156GB<br/>Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores | Gen4: 56GB - 156GB <br/> Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores |
@@ -53,7 +53,7 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en Business-kritisch
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
 | Maximum aantal bestanden per exemplaar | Maximaal 280 | Onbeperkt |
-| Verwachte maximumopslag IOPS | 500-5000 ([is afhankelijk van de gegevensbestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Afhankelijk van de snelheid van de onderliggende SSD. |
+| I/o-doorvoer (bij benadering) | 5000 IOP's per kern met 200.000 maximale IOPS |
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
@@ -98,12 +98,12 @@ Deze limieten kunnen worden verhoogd door het maken van speciale [verzoek tot on
 
 [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) abonnementen kunnen hebben combinaties van BC- en GP-instanties. Er zijn echter enkele beperkingen met betrekking tot de plaatsing van de exemplaren in de subnetten.
 
-> [!Note] 
+> [!Note]
 > [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) en [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) abonnementstypen kunnen hebben beide één bedrijfskritiek of omhoog naar 4 exemplaren voor algemeen gebruik.
 
 De volgende voorbeelden betrekking op implementatie gevallen met niet-lege subnetten en GP- en BC gemengde service-lagen.
 
-|Aantal subnetten|subnet 1|Subnet 2|Subnet 3|
+|Aantal subnetten|Subnet 1|Subnet 2|Subnet 3|
 |:---|:---|:---|:---|
 |1|BC 1 en maximaal 8 GP<br>BC 2 en maximaal 4 GP|N/A| N/A|
 |2|0 BC, tot 4 GP|1 BC, tot 4 GP<br>2 BC, 0 GP|N/A|
@@ -114,9 +114,10 @@ De volgende voorbeelden betrekking op implementatie gevallen met niet-lege subne
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor beheerd exemplaar van SQL
 
-Als u meer beheerde instanties in uw huidige regio's, kunt u de ondersteuningsaanvraag om uit te breiden het quotum met behulp van Azure portal verzenden. Het proces voor het verkrijgen van een grotere quotum initiëren:
+Als u meer beheerde instanties in uw huidige regio's, kunt u de ondersteuningsaanvraag om uit te breiden het quotum met behulp van Azure portal verzenden.
+Het proces voor het verkrijgen van een grotere quotum initiëren:
 
-1. Open **Help en ondersteuning**, en klikt u op **nieuwe ondersteuningsaanvraag**. 
+1. Open **Help en ondersteuning**, en klikt u op **nieuwe ondersteuningsaanvraag**.
 
    ![Help en ondersteuning](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Op het tabblad basisbeginselen voor het nieuwe ondersteuningsaanvraag:
@@ -140,13 +141,13 @@ Als u meer beheerde instanties in uw huidige regio's, kunt u de ondersteuningsaa
      > - Regio in welk abonnement u limiet moet worden verhoogd
      > - Vereiste aantal exemplaren per servicelaag in bestaande subnetten na het quotum (als een van de bestaande subnetten moet worden uitgebreid verhogen
      > - Aantal nieuwe subnetten en totaal aantal exemplaren per servicelaag in de nieuwe subnetten vereist (als u implementeren van beheerde exemplaren in de nieuwe subnetten wilt).
-     
+
 5. Klik op **Volgende**.
 6. Voer op het tabblad contact opnemen met informatie voor de nieuwe ondersteuningsaanvraag contactwijze (bijvoorbeeld e-mail of telefoon) en de gegevens van de contactpersoon.
 7. Klik op **Create**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over Managed Instance [wat is een beheerd exemplaar?](sql-database-managed-instance.md). 
+- Zie voor meer informatie over Managed Instance [wat is een beheerd exemplaar?](sql-database-managed-instance.md).
 - Zie voor informatie over de prijzen [prijzen van SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - Zie voor meer informatie over het maken van uw eerste Managed Instance, [snelstartgids](sql-database-managed-instance-get-started.md).

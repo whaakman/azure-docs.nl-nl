@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.openlocfilehash: 4ef1e302a305f683155139063891b838d8144008
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 493c48fe87158ee357d98eb0b0d1bd2a4fad5b2f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680460"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843781"
 ---
 # <a name="log-analytics-query-language"></a>Meld u Analytics-querytaal
 Log Analytics biedt log verzamelen en analyseren voor Azure Monitor. Het gebouwd op Azure Data Explorer en gebruikt een versie van dezelfde querytaal. De [query language-documentatie Azure Data Explorer](/azure/kusto/query) heeft alle van de details voor de taal en moet de primaire bron voor het schrijven van Log Analytics-query's. Deze pagina bevat koppelingen naar andere bronnen voor het leren over het schrijven van query's en over de verschillen met de Log Analytics-implementatie van de taal.
@@ -29,7 +29,7 @@ Log Analytics biedt log verzamelen en analyseren voor Azure Monitor. Het gebouwd
 -  [Aan de slag met query's in Log Analytics](get-started-queries.md) is een les voor het schrijven van query's met behulp van Log Analytics-gegevens.
 
 ## <a name="concepts"></a>Concepten
-- [Analyseren van Log Analytics-gegevens in Azure Monitor](../log-analytics-queries.md) geeft een kort overzicht van het logboek een query uitgevoerd en wordt beschreven hoe u Log Analytics-gegevens is opgebouwd.
+- [Analyseren van Log Analytics-gegevens in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) geeft een kort overzicht van het logboek een query uitgevoerd en wordt beschreven hoe u Log Analytics-gegevens is opgebouwd.
 - [Weergeven en analyseren van gegevens in Log Analytics](../log-analytics-log-search-portals.md) wordt uitgelegd van de portals waar u maakt en Log Analytics-query's uitvoeren.
 
 ## <a name="reference"></a>Referentie

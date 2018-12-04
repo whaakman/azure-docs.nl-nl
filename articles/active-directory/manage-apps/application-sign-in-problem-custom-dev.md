@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8ae8fa823b919ec4a67832e7c42088c994bd2d97
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2dade35b05a07b649282ae00bb6fee354adcd195
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356489"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845473"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemen met aanmelden bij een aangepaste toepassing
 
@@ -32,7 +32,7 @@ Er zijn meerdere fouten die kunnen worden veroorzaakt door u pas weer aan te mel
 
 * Vergelijk de resource die u bij het aanvragen van toegang tot in de code met de geconfigureerde machtigingen in de **vereiste Resources** tabblad om ervoor te zorgen dat u resources die u hebt geconfigureerd voor het alleen aanvragen.
 
-* Zie [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) voor vergelijkbare fouten of problemen.
+* Zie [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) voor vergelijkbare fouten of problemen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -42,4 +42,4 @@ Er zijn meerdere fouten die kunnen worden veroorzaakt door u pas weer aan te mel
 
 [De toestemming en rollen voor Azure AD v2.0 geconvergeerde Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD-StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD-StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

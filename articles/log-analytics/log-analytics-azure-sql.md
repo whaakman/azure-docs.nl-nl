@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: b2c8ed30e26f5408123fe77606ddfec67479bcad
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 84b5665f434bcf7cdb0ac58a74727244d4155835
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726148"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844546"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -185,7 +185,7 @@ Geautomatiseerde waarschuwingen in de oplossing is gebaseerd op een Log Analytic
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Het maken van waarschuwingen voor Azure SQL Database
 
-U kunt eenvoudig [waarschuwingen maken](../monitoring-and-diagnostics/alert-metric.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [zoeken in logboeken](log-analytics-queries.md) query's die u met een waarschuwing gebruiken kunt:
+U kunt eenvoudig [waarschuwingen maken](../monitoring-and-diagnostics/alert-metric.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [zoeken in logboeken](../azure-monitor/log-query/log-query-overview.md) query's die u met een waarschuwing gebruiken kunt:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Hoge CPU-capaciteit op Azure SQL Database
 
@@ -297,6 +297,6 @@ De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gebruik [zoekopdrachten](log-analytics-queries.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
+- Gebruik [zoekopdrachten](../azure-monitor/log-query/log-query-overview.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
 - [Maak uw eigen dashboards](../azure-monitor/platform/dashboards.md) met Azure SQL-gegevens.
 - [Waarschuwingen maken](../monitoring-and-diagnostics/monitoring-overview-alerts.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.

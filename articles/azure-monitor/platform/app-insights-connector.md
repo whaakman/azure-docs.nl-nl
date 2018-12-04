@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75120cef7f3da037eb59e05a2ff2f26d6c599f4a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c704639ce696672a87485a36d43a282d04a47a7e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684668"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845165"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
@@ -267,4 +267,4 @@ Deze oplossing beschikt niet over een aantal voorbeelden van zoekopdrachten op h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gebruik [zoeken in logboeken](../../log-analytics/log-analytics-queries.md) om gedetailleerde informatie voor uw Application Insights-apps weer te geven.
+- Gebruik [zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde informatie voor uw Application Insights-apps weer te geven.

@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2a6744bdec48e59b820605bb4d1cc01d32702bcf
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2ee9f750ff52b8afe4be54233f1374f523a789f4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867754"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845160"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverlogboeken in Azure Database for PostgreSQL 
 Azure Database voor PostgreSQL-query en de fout genereert logboeken. Query's en fout-logboeken kunnen worden gebruikt om te bepalen, oplossen en herstellen van fouten in de configuratie en optimale prestaties. (Toegang tot transactielogboeken is niet opgenomen). 
@@ -26,11 +26,11 @@ U kunt de logboekregistratie configureren op de server met behulp van de serverp
 Zie voor meer informatie over deze parameters van de PostgreSQL [foutrapportage en de logboekregistratie](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) documentatie. Zie voor meer informatie over het configureren van Azure Database voor PostgreSQL-parameters, de [portaldocumentatie](howto-configure-server-parameters-using-portal.md) of de [CLI-documentatie](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>Serverlogboeken openen via de portal of de CLI
-Als u de logboeken hebt ingeschakeld, kunt u deze kunt openen vanaf de Azure Database for PostgreSQL log-opslag met behulp de [Azure-portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md), en Azure REST API's. De logboekbestanden van elke 1 uur of de grootte van 100MB draaien, afhankelijk van wat het eerste komt. U kunt instellen dat de bewaarperiode voor deze log opslag met behulp van de **log\_retentie\_periode** parameter die is gekoppeld aan uw server. De standaardwaarde is 3 dagen; de maximumwaarde is 7 dagen. De server moet voldoende opslagruimte voor het opslaan van de logboekbestanden toegewezen. (Deze retentie-parameter heeft geen betrekking op diagnostische logboeken van Azure.)
+Als u de logboeken hebt ingeschakeld, kunt u deze kunt openen vanaf de Azure Database for PostgreSQL log-opslag met behulp de [Azure-portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md), en Azure REST API's. De logboekbestanden van elke 1 uur of de grootte van 100MB draaien, afhankelijk van wat het eerste komt. U kunt instellen dat de bewaarperiode voor deze log opslag met behulp van de **log\_retentie\_periode** parameter die is gekoppeld aan uw server. De standaardwaarde is 3 dagen; de maximumwaarde is 7 dagen. De server moet voldoende opslagruimte voor het opslaan van de logboekbestanden toegewezen. (Deze retentie-parameter heeft geen betrekking op diagnostische logboeken van Azure.)
 
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
-Azure Database voor PostgreSQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken hebt ingeschakeld op uw PostgreSQL-server, kunt u deze verzonden naar [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs of Azure Storage. Voor meer informatie over het inschakelen van diagnostische logboeken, Zie de sectie van de procedures van de [diagnostische logboeken documentatie](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
+Azure Database voor PostgreSQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken hebt ingeschakeld op uw PostgreSQL-server, kunt u deze verzonden naar [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs of Azure Storage. Voor meer informatie over het inschakelen van diagnostische logboeken, Zie de sectie van de procedures van de [diagnostische logboeken documentatie](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
 
 
 De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van het uitvoereindpunt dat u kiest, de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen variëren. 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e689f93150d225d5b8c9ee9d5cfc422a1154c45a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 41f6027378e48b525345e29e1d1e08dd2c48aaa5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724550"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843747"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Web-aanmelding met OpenID Connect
 OpenID Connect is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om veilig gebruikers zich aanmelden voor webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden gebruikersregistratie, aanmelding en andere identiteitsbeheer in uw web-apps aan Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit niet doet, op een taalonafhankelijke manier. Dit wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder onze open source-bibliotheken.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol voor gebruik als een *verificatie* protocol. Hiermee kunt u om uit te voeren eenmalige aanmelding via OAuth. Dit introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client de identiteit van de gebruiker en basisprofielgegevens informatie over de gebruiker te verkrijgen.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol voor gebruik als een *verificatie* protocol. Hiermee kunt u om uit te voeren eenmalige aanmelding via OAuth. Dit introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client de identiteit van de gebruiker en basisprofielgegevens informatie over de gebruiker te verkrijgen.
 
 Omdat deze kunt u OAuth 2.0 uitbreiden, kunt deze ook apps aan te schaffen veilig *toegangstokens*. U kunt access_tokens voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md#the-basics). We raden aan OpenID verbinding maken als u een webtoepassing die wordt gehost op een server en toegankelijk is via een browser. Als u toevoegen van identiteitsbeheer aan uw mobiele of bureaubladtoepassingen toepassingen wilt met behulp van Azure AD B2C, moet u [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) in plaats van de OpenID Connect.
 
@@ -120,7 +120,7 @@ error=access_denied
 | state |Zie de volledige beschrijving van de eerste tabel in deze sectie. Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of de `state` waarden in de aanvraag en respons identiek zijn. |
 
 ## <a name="validate-the-id-token"></a>De ID-token te valideren
-Zojuist hebt ontvangen van een ID-token is niet voldoende om de gebruiker te verifiëren. U moet de ID-token handtekening valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van Azure AD B2C [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
+Zojuist hebt ontvangen van een ID-token is niet voldoende om de gebruiker te verifiëren. U moet de ID-token handtekening valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van Azure AD B2C [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
 Er zijn veel open source-bibliotheken die beschikbaar zijn voor het valideren van JWTs, afhankelijk van de taal van voorkeur. U wordt aangeraden deze opties verkennen in plaats van uw eigen validatielogica implementeren. De informatie hier is nuttig bij het bepalen van het correct gebruik van deze bibliotheken.
 
@@ -143,7 +143,7 @@ Nadat u de handtekening van de ID-token hebt gevalideerd, zijn er verschillende 
 * U moet controleren of de `aud` claim om ervoor te zorgen dat de ID-token dat is uitgegeven voor uw app. De waarde moet de toepassings-ID van uw app.
 * U moet controleren of de `iat` en `exp` claims om ervoor te zorgen dat de ID-token niet is verlopen.
 
-Er zijn ook verschillende meer validaties die moeten worden uitgevoerd. Deze worden beschreven in de [OpenID verbinding maken met Core Spec](http://openid.net/specs/openid-connect-core-1_0.html).  U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
+Er zijn ook verschillende meer validaties die moeten worden uitgevoerd. Deze worden beschreven in de [OpenID verbinding maken met Core Spec](https://openid.net/specs/openid-connect-core-1_0.html).  U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
 
 * Ervoor zorgen dat de gebruiker/organisatie zich heeft aangemeld voor de app.
 * Ervoor zorgen dat de gebruiker juiste autorisatie/bevoegdheden heeft.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 5f7c82143ab11787f5ce186623c1ed4903891c18
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3ea446a726634ead520b902bd00a54cd8ae32b70
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680348"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844121"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../../azure-monitor/overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -161,7 +161,7 @@ Taken die u met Logboeken uitvoeren kunt omvatten het volgende:
 - Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) of [REST-API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Logboekgegevens weergeven
-Alle gegevens van Log Analytics is opgehaald met een [logboekquery](../../log-analytics/log-analytics-queries.md) die een bepaalde set gegevens bevat. Query's zijn geschreven met behulp van de [querytaal van Log Analytics](../../log-analytics/query-language/get-started-queries.md) is een uitgebreide querytaal snel ophalen, samenvoegen en analyseren van verzamelde gegevens. Gebruik de [Log Analytics-pagina](../../log-analytics/log-analytics-log-search-portals.md) in Azure portal voor het rechtstreeks analyseren van de gegevens in uw metrische gegevens opslaan en de waarden van meerdere metrische gegevens gedurende een periode van grafiek. U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook metrische gegevens ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Alle gegevens van Log Analytics is opgehaald met een [logboekquery](../../azure-monitor/log-query/log-query-overview.md) die een bepaalde set gegevens bevat. Query's zijn geschreven met behulp van de [querytaal van Log Analytics](../../log-analytics/query-language/get-started-queries.md) is een uitgebreide querytaal snel ophalen, samenvoegen en analyseren van verzamelde gegevens. Gebruik de [Log Analytics-pagina](../../log-analytics/log-analytics-log-search-portals.md) in Azure portal voor het rechtstreeks analyseren van de gegevens in uw metrische gegevens opslaan en de waarden van meerdere metrische gegevens gedurende een periode van grafiek. U kunt de grafieken interactief weergeven of vastmaken aan een dashboard om deze met andere visualisaties weer te geven. U kunt ook metrische gegevens ophalen met behulp van de [Azure REST-API bewaken](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Logboeken](media/data-collection/logs.png)
 

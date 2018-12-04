@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e7e594619c3b7c1ebd34c802d53b3897046a9cd7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 722a5b90b9ca17197cb0a0d117e58a01108d0a9c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426833"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Zelfstudie: Azure Active Directory-integratie met EmpCenter
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van EmpCenter in Azure AD, moet u EmpCen
 
 **Als u wilt toevoegen EmpCenter uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -119,7 +119,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<subdomain>.workforcehosting.com/<instancename>` |
 
     > [!NOTE] 
-    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [EmpCenter Client ondersteuningsteam](http://www.workforcesoftware.com/services/customer-support/) om de waarde. 
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [EmpCenter Client ondersteuningsteam](https://www.workforcesoftware.com/services/customer-support/) om de waarde. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -129,7 +129,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/empcenter-tutorial/tutorial_general_400.png)
 
-1. Het configureren van eenmalige aanmelding op **EmpCenter** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [EmpCenter ondersteuningsteam](http://www.workforcesoftware.com/services/customer-support/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **EmpCenter** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [EmpCenter ondersteuningsteam](https://www.workforcesoftware.com/services/customer-support/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="creating-an-empcenter-test-user"></a>Het maken van een testgebruiker EmpCenter
 
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij EmpCenter, moeten ze worden ingericht voor EmpCenter. In het geval van EmpCenter, de gebruikersaccounts moeten worden gemaakt door uw [EmpCenter ondersteuningsteam](http://www.workforcesoftware.com/services/customer-support/).
+Als u wilt dat Azure AD-gebruikers zich aanmelden bij EmpCenter, moeten ze worden ingericht voor EmpCenter. In het geval van EmpCenter, de gebruikersaccounts moeten worden gemaakt door uw [EmpCenter ondersteuningsteam](https://www.workforcesoftware.com/services/customer-support/).
 
 > [!NOTE]
 > U kunt elke andere EmpCenter gebruiker account hulpmiddelen voor het maken of API's geleverd door EmpCenter voor het inrichten van Azure Active Directory-gebruikersaccounts.

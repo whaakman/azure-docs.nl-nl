@@ -18,12 +18,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687347"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845474"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Hoe: de Azure AD Graph API gebruiken
 
@@ -82,7 +82,7 @@ Houd rekening met de volgende functies en beperkingen van de Azure AD Graph Expl
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Met behulp van Fiddler in de map schrijven
 
-Voor de toepassing van deze QuickStart, kunt u het foutopsporingsprogramma Fiddler Web oefenen met het uitvoeren van bewerkingen op uw Azure AD-directory schrijven. U kunt bijvoorbeeld verkrijgen en uploaden van een gebruiker profielfoto (dit is niet mogelijk is met Azure AD Graph Explorer). Zie voor meer informatie en voor het installeren van Fiddler [ http://www.telerik.com/fiddler ](http://www.telerik.com/fiddler).
+Voor de toepassing van deze QuickStart, kunt u het foutopsporingsprogramma Fiddler Web oefenen met het uitvoeren van bewerkingen op uw Azure AD-directory schrijven. U kunt bijvoorbeeld verkrijgen en uploaden van een gebruiker profielfoto (dit is niet mogelijk is met Azure AD Graph Explorer). Zie voor meer informatie en voor het installeren van Fiddler [ https://www.telerik.com/fiddler ](https://www.telerik.com/fiddler).
 
 In het onderstaande voorbeeld gebruikt u Fiddler Web foutopsporingsprogramma 'MyTestGroup' van een nieuwe beveiligingsgroep maken in uw Azure AD-directory.
 

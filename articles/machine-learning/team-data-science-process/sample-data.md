@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b7b233532a526879e886950c3a0d8cfe169251a7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 679d812c239e0f626d2872d29bc9de7848399bc6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441499"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844597"
 ---
 # <a name="heading"></a>Voorbeeldgegevens in Azure blob-containers, SQL Server en Hive-tabellen
 
@@ -26,7 +26,7 @@ De volgende artikelen wordt beschreven hoe u voorbeeldgegevens die zijn opgeslag
 * [**SQL Server-gegevens** ](sample-data-sql-server.md) verzameld met behulp van zowel SQL als de taal voor het programmeren van Python. 
 * [**Hive-tabelgegevens** ](sample-data-hive.md) verzameld met behulp van Hive-query's.
 
-Deze taak steekproeven is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Deze taak steekproeven is een stap in de [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 **Waarom sample van gegevens?**
 

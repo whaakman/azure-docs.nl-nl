@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: f242176ef77f2fd419f9e2e52354c73f74f74557
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5b673af317189da1876328c0cad0fa8f510aae4f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681548"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844049"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Bronnen van de gegevens in Azure Monitor
 Dit artikel beschrijft de bronnen van de gegevens die zijn verzameld door Azure Monitor voor het bewaken van de status en prestaties van uw resources en de toepassingen die daarop worden uitgevoerd. Deze resources mogelijk in Azure, in een andere cloud of on-premises.  Zie [gegevens verzameld door Azure Monitor](data-collection.md) voor meer informatie over hoe deze gegevens worden opgeslagen en hoe u deze kunt bekijken.
@@ -66,7 +66,7 @@ Terwijl het activiteitenlogboek informatie over de bewerkingen die worden uitgev
 U kunt rechtstreeks logboeken met diagnostische gegevens niet weergeven in Azure portal, maar u kunt [ze verzenden naar Azure storage voor het archiveren van](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) en ze te exporteren [Event Hub](../../event-hubs/event-hubs-about.md) voor omleiding naar andere services, of [in logboek Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) voor analyse. Sommige resources rechtstreeks naar Log Analytics kunnen schrijven terwijl anderen naar een opslagaccount voordat u schrijven [geïmporteerd in Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Bewakingsoplossingen
- [Bewakingsoplossingen](../../azure-monitor/insights/solutions.md) verzamelen van gegevens voor meer inzicht in de werking van een bepaalde service of toepassing. Verzamelen van gegevens in Log Analytics waar deze kan worden geanalyseerd op basis van de [querytaal](../../log-analytics/log-analytics-queries.md) of [weergaven](../../azure-monitor/platform/view-designer.md) die gewoonlijk zijn opgenomen in de oplossing.
+ [Bewakingsoplossingen](../../azure-monitor/insights/solutions.md) verzamelen van gegevens voor meer inzicht in de werking van een bepaalde service of toepassing. Verzamelen van gegevens in Log Analytics waar deze kan worden geanalyseerd op basis van de [querytaal](../../azure-monitor/log-query/log-query-overview.md) of [weergaven](../../azure-monitor/platform/view-designer.md) die gewoonlijk zijn opgenomen in de oplossing.
 
 ## <a name="guest-operating-system"></a>Gast-besturingssysteem
 COMPUTE-resources in Azure, in andere clouds en on-premises hebben een gast-besturingssysteem om te controleren. U kunt met de installatie van een of meer agents, telemetrie verzamelen van de Gast in de dezelfde controleprogramma's als de Azure-services zelf.

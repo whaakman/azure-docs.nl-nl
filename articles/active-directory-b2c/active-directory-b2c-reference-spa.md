@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 20d1e39a2f2cda66f3b490000f48dd6c5fb72915
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9e72eafc49167848996328774f7d18198667aa3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727326"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845243"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page-app aanmelden met behulp van OAuth 2.0-impliciete stroom
 
@@ -25,7 +25,7 @@ Veel moderne apps hebben een app met één pagina front-end die voornamelijk in 
 * Veel autorisatieservers en id-providers bieden geen ondersteuning voor cross-origin resource sharing (CORS) aanvragen.
 * Volledige pagina browser omleidingen weg van de app kunnen worden aanzienlijk Invasief tot de gebruikerservaring.
 
-Ter ondersteuning van deze toepassingen, Azure Active Directory B2C (Azure AD B2C) maakt gebruik van de impliciete OAuth 2.0-stroom. De impliciete toekenning van OAuth 2.0 autorisatiestroom wordt beschreven in [sectie 4.2 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). In de impliciete stroom, ontvangt de app tokens rechtstreeks vanuit de Azure Active Directory (Azure AD)-eindpunt, zonder een exchange server-naar-server te autoriseren. Alle verificatielogica en sessie duurt verwerken plaatsen volledig uit in de JavaScript-client, zonder extra paginaomleidingen.
+Ter ondersteuning van deze toepassingen, Azure Active Directory B2C (Azure AD B2C) maakt gebruik van de impliciete OAuth 2.0-stroom. De impliciete toekenning van OAuth 2.0 autorisatiestroom wordt beschreven in [sectie 4.2 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749). In de impliciete stroom, ontvangt de app tokens rechtstreeks vanuit de Azure Active Directory (Azure AD)-eindpunt, zonder een exchange server-naar-server te autoriseren. Alle verificatielogica en sessie duurt verwerken plaatsen volledig uit in de JavaScript-client, zonder extra paginaomleidingen.
 
 Azure AD B2C breidt de standaard OAuth 2.0-impliciete stroom op meer dan een eenvoudige verificatie en autorisatie. Azure AD B2C introduceert de [Beleidsparameter](active-directory-b2c-reference-policies.md). Met de parameter van het beleid, kunt u OAuth 2.0 beleid toevoegen aan uw app, zoals gebruikersregistratie, aanmelding, en de gebruikersstromen management-profiel. In dit artikel laten we zien u hoe u kunt de impliciete stroom en de Azure AD gebruiken voor het implementeren van elk van deze ervaringen in uw toepassingen met één pagina. Als u aan de slag wilt, Bekijk onze [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) en [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) voorbeelden.
 
@@ -138,7 +138,7 @@ error=access_denied
 | state |Zie de beschrijving van het volledige in de voorgaande tabel. Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of de `state` waarden in de aanvraag en respons identiek zijn.|
 
 ## <a name="validate-the-id-token"></a>De ID-token te valideren
-Ontvangen van een ID-token is niet voldoende om de gebruiker te verifiëren. U moet de ID-token handtekening valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van Azure AD B2C [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
+Ontvangen van een ID-token is niet voldoende om de gebruiker te verifiëren. U moet de ID-token handtekening valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van Azure AD B2C [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
 Aantal open source-bibliotheken zijn beschikbaar voor het valideren van JWTs, afhankelijk van de taal die u wilt gebruiken. Houd rekening met verkennen beschikbaar open source-bibliotheken in plaats van uw eigen validatielogica implementeren. U kunt de informatie in dit artikel voor meer informatie over het correct gebruik van deze bibliotheken.
 
@@ -161,7 +161,7 @@ Nadat u de handtekening van de ID-token valideert, vereisen meerdere claims veri
 * Valideer de `aud` claim om ervoor te zorgen dat de ID-token dat is uitgegeven voor uw app. De waarde moet de toepassings-ID van uw app.
 * Valideer de `iat` en `exp` claims om ervoor te zorgen dat de ID-token niet is verlopen.
 
-Verschillende meer validaties die moeten worden uitgevoerd zijn beschreven in de [OpenID verbinding maken met Core Spec](http://openid.net/specs/openid-connect-core-1_0.html). U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
+Verschillende meer validaties die moeten worden uitgevoerd zijn beschreven in de [OpenID verbinding maken met Core Spec](https://openid.net/specs/openid-connect-core-1_0.html). U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
 
 * Ervoor zorgen dat de gebruiker of de organisatie heeft aangemeld voor de app.
 * Ervoor zorgen dat de gebruiker juiste verificatie en bevoegdheden heeft.

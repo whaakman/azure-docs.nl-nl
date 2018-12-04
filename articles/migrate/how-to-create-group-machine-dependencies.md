@@ -4,14 +4,14 @@ description: Beschrijft hoe u een evaluatie met behulp van machineafhankelijkhed
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 2755cc4e8e0e5a1b2a0e491b00fc73530dd9b958
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e83ec29c5ff06e80c09b9328a7bfe545f3a0f6f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635676"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844818"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -28,8 +28,9 @@ Als u wilt gebruikmaken van de visualisatie van afhankelijkheden, moet u een Log
 
     ![Log Analytics-werkruimte koppelen](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Wanneer u een nieuwe werkruimte maakt, moet u een naam opgeven voor de werkruimte. De werkruimte wordt vervolgens gemaakt in hetzelfde abonnement als de migration-project en in een regio in dezelfde [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) als het migratieproject.
-- De **gebruik bestaande** optie een lijst met alleen deze werkruimten die zijn gemaakt in regio's waar Serviceoverzicht beschikbaar is. Hebt u een werkruimte in een regio waar Serviceoverzicht niet beschikbaar is, wordt deze niet weergegeven in de vervolgkeuzelijst.
+- Tijdens het koppelen van een werkruimte, ontvangt u de optie voor een nieuwe werkruimte maken of een bestaande werkruimte koppelen:
+  - Wanneer u een nieuwe werkruimte maakt, moet u een naam opgeven voor de werkruimte. De werkruimte wordt vervolgens gemaakt in een regio in dezelfde [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) als het migratieproject.
+  - Wanneer u een bestaande werkruimte koppelen, kunt u kiezen uit alle werkruimten die beschikbaar is in hetzelfde abonnement als de migration-project. Houd er rekening mee dat alleen deze werkruimten worden weergegeven die zijn gemaakt in een regio waar [Serviceoverzicht wordt ondersteund](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Als u een werkruimte te koppelen, zorg ervoor dat u 'Lezer' toegang tot de werkruimte hebben.
 
 > [!NOTE]
 > U kunt de werkruimte die is gekoppeld aan een migratieproject niet wijzigen.

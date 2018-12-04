@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3807dcf9ea4625db72b0579e0609641e3aedb088
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635761"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845719"
 ---
 # <a name="views-in-management-solutions-preview"></a>Weergaven in oplossingen voor beheer (Preview)
 > [!NOTE]
@@ -90,7 +90,7 @@ Houd er rekening mee dat u de volledige weergave-resource uit het bestand met ge
 * Variabelen moeten worden gedefinieerd in de oplossing en gebruikt in de gewenste eigenschappen.
 
 ### <a name="log-analytics-api-version"></a>Log Analytics-API-versie
-Alle Log Analytics-resources in een Resource Manager-sjabloon gedefinieerd hebben een eigenschap **apiVersion** die de versie van de API moet worden gebruikt door de resource definieert.  Deze versie is verschillend voor weergaven met query's die gebruikmaken van de [verouderde systemen en de bijgewerkte querytaal](../../log-analytics/log-analytics-queries.md).  
+Alle Log Analytics-resources in een Resource Manager-sjabloon gedefinieerd hebben een eigenschap **apiVersion** die de versie van de API moet worden gebruikt door de resource definieert.  Deze versie is verschillend voor weergaven met query's die gebruikmaken van de [verouderde systemen en de bijgewerkte querytaal](../../azure-monitor/log-query/log-query-overview.md).  
 
  De volgende tabel worden de Log Analytics-API-versies voor weergaven in de verouderde en bijgewerkte werkruimten: 
 

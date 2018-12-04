@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306142"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844648"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Beveiliging-Frame: Cryptografie | Oplossingen 
 | Product/Service | Artikel |
@@ -172,8 +172,8 @@ ms.locfileid: "43306142"
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | Besturingssysteem van het apparaat - Windows IoT Core, verbindingsmogelijkheden voor apparaten - Azure IoT device-SDK 's |
-| **Verwijzingen**              | [TPM op Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [instellen van de TPM op Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Stappen** | Symmetric of persoonlijke sleutels veilig op in een hardware-beveiligde opslag zoals TPM of een smartcard-chips. Windows 10 IoT Core biedt ondersteuning voor de gebruiker van een TPM en er zijn verschillende compatibele TPM's die kunnen worden gebruikt: https://developer.microsoft.com/windows/iot/win10/tpm. Het verdient aanbeveling om een Firmware of Discrete TPM te gebruiken. Een TPM Software moet alleen worden gebruikt voor ontwikkeling en tests. Zodra een TPM beschikbaar is en de sleutels in deze zijn ingericht, moet de code waarmee het token wordt gegenereerd zonder code gevoelige informatie in deze worden geschreven. | 
+| **Verwijzingen**              | [TPM op Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [instellen van de TPM op Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Stappen** | Symmetric of persoonlijke sleutels veilig op in een hardware-beveiligde opslag zoals TPM of een smartcard-chips. Windows 10 IoT Core biedt ondersteuning voor de gebruiker van een TPM en er zijn verschillende compatibele TPM's die kunnen worden gebruikt: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Het verdient aanbeveling om een Firmware of Discrete TPM te gebruiken. Een TPM Software moet alleen worden gebruikt voor ontwikkeling en tests. Zodra een TPM beschikbaar is en de sleutels in deze zijn ingericht, moet de code waarmee het token wordt gegenereerd zonder code gevoelige informatie in deze worden geschreven. | 
 
 ### <a name="example"></a>Voorbeeld
 ```

@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035081"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843679"
 ---
 # <a name="monitor-and-tune"></a>Controleren en afstemmen
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende controle-opties te bieden inzicht in het gedrag van uw server.
@@ -42,7 +42,7 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 |backup_storage_used|Back-upopslag gebruikt|Bytes|De hoeveelheid back-upopslag gebruikt.|
 
 ## <a name="server-logs"></a>Serverlogboeken
-U kunt logboekregistratie op uw server inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
+U kunt logboekregistratie op uw server inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
 
 ## <a name="query-store"></a>Query Store
 [Query Store](concepts-query-store.md) is een openbare preview-functie die boekrecords bijhoudt query prestaties gedurende een bepaalde tijd met inbegrip van runtime-statistieken opvragen en wacht gebeurtenissen. De functie zich blijft voordoen querygegevens over de runtimeprestaties in een systeemdatabase met de naam **azure_sys** onder het query_store-schema. U kunt de verzameling en opslag van gegevens via verschillende configuratie-knoppen beheren.

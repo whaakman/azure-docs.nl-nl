@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f2347601a775c0069c36d8ca453f677f6d0e1568
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 292def9303cf74142a55e1101fe6371476f9f09d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336858"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845209"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-gegevensbronnen in Log Analytics
 Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux.  Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden.  Wanneer de OMS-Agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt het bericht vervolgens naar Log Analytics waar een record wordt gemaakt in de OMS-opslagplaats.  
@@ -207,6 +207,6 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die Syslog-records oph
 | Syslog &#124; summarize AggregatedValue = count() by faciliteit |Telling van Syslog-records door de faciliteit. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../log-analytics/log-analytics-queries.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
+* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
 * Gebruik [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.
 * [Linux-agents configureren](../../log-analytics/log-analytics-quick-collect-linux-computer.md) voor het verzamelen van andere typen gegevens.

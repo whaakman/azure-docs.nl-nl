@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 27228904dab0726a1d84e58751a3315f3ff03447
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.date: 12/03/2018
+ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515373"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845787"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Logische servers en individuele databases in Azure SQL Database maken en beheren
 
-U kunt maken en beheren van logische Azure SQL database-servers en één met de Azure portal, PowerShell, Azure CLI, REST-API en Transact-SQL-databases.
+U kunt maken en beheren van logische Azure SQL Database-servers en één met de Azure portal, PowerShell, Azure CLI, REST-API en Transact-SQL-databases.
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure-portal: logische servers en databases beheren
 
@@ -57,10 +57,10 @@ Voor het beheren van een bestaande database, gaat u naar de **SQL-databases** pa
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: Logische servers en databases beheren
 
-Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Als u wilt maken en beheren van logische Azure SQL-servers, één en gepoolde databases en firewalls van de logische server met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 > [!TIP]
-> Zie voor PowerShell-voorbeeldscripts, [PowerShell gebruiken om te maken van een individuele Azure SQL-database en een firewallregel configureren](scripts/sql-database-create-and-configure-database-powershell.md) en [bewaken en schalen van een enkele SQL-database met behulp van PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Zie voor PowerShell-voorbeeldscripts, [PowerShell gebruiken om te maken van een individuele Azure SQL-database en configureren van een logische server firewall-regel](scripts/sql-database-create-and-configure-database-powershell.md) en [bewaken en schalen van een enkele SQL-database met behulp van PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Cmdlet | Beschrijving |
 | --- | --- |
@@ -120,9 +120,8 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Tra
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[DATABASE (Azure SQL Database) maken](/sql/t-sql/statements/create-database-azure-sql-database)|Hiermee maakt u een nieuwe database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Hiermee wijzigt u een Azure SQL database. |
-|[ALTER DATABASE (Azure SQL datawarehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Hiermee wijzigt u een Azure SQL datawarehouse.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Hiermee maakt u een nieuwe database. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
+| [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Hiermee wijzigt u een Azure SQL database. |
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retourneert de edition (servicelaag), de servicedoelstelling (prijscategorie) en de naam van de elastische groep, indien aanwezig, voor een Azure SQL-database of een Azure SQL Data Warehouse. Als u aangemeld bent op de database master in Azure SQL Database-server, retourneert de informatie voor alle databases. Voor Azure SQL Data Warehouse, moet u zijn verbonden met de hoofddatabase.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourneert verbruik van CPU, IO en geheugen voor een Azure SQL Database-database. Er bestaat één rij voor elke 15 seconden, zelfs als er geen activiteit in de database.|
@@ -145,7 +144,7 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebrui
 |[Servers - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Hiermee of een nieuwe server bijgewerkt.|
 |[Servers - verwijderen](https://docs.microsoft.com/rest/api/sql/servers/delete)|Hiermee verwijdert u een SQL-server.|
 |[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Hiermee haalt u een server.|
-|[Servers - lijst](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourneert een lijst met servers.|
+|[Servers - lijst](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourneert een lijst met servers in een abonnement.|
 |[Servers - lijst per groep](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retourneert een lijst met servers in een resourcegroep.|
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Een bestaande server worden bijgewerkt.|
 |[Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|

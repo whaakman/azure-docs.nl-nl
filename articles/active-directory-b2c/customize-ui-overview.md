@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722595"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844954"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Over aanpassingen van de gebruikersinterface in Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Afhankelijk van uw behoeften als het gaat om deze ervaringen, aanpassen u de geb
 - Als u [aangepast beleid](active-directory-b2c-overview-custom.md) opnieuw registreren of aanmelden,-wachtwoord op te geven, of profiel bewerken in uw toepassing, u [beleidsbestanden om aan te passen van de gebruikersinterface](active-directory-b2c-ui-customization-custom.md).
 - Als u nodig hebt voor dynamische inhoud op basis van de beslissing van de klant, u [aangepaste beleidsregels die u kunnen wijzigen pagina-inhoud](active-directory-b2c-ui-customization-custom-dynamic.md) , afhankelijk van een parameter die wordt verzonden in een queryreeks. Bijvoorbeeld, wordt de afbeelding op de Azure AD B2C-pagina voor registreren of aanmelden gewijzigd, op basis van een parameter die u vanuit uw web- of mobiele toepassing doorgeven.
 
-Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Inhoud is geladen op het moment van uitvoering, vanuit een URL die u in een beleid of Groepsbeleid opgeeft. U opgeven verschillende URL's voor verschillende pagina's. Na het laden van inhoud van de URL van uw, moeten ze worden samengevoegd met een HTML-fragment ingevoegd vanuit Azure AD B2C en vervolgens naar de klant worden weergegeven.
+Azure AD B2C wordt uitgevoerd de code in de browser van uw klant en maakt gebruik van een moderne manier met de naam [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Inhoud is geladen op het moment van uitvoering, vanuit een URL die u in een beleid of Groepsbeleid opgeeft. U opgeven verschillende URL's voor verschillende pagina's. Na het laden van inhoud van de URL van uw, moeten ze worden samengevoegd met een HTML-fragment ingevoegd vanuit Azure AD B2C en vervolgens naar de klant worden weergegeven.
 
 Voordat u begint, controleert u de volgende richtlijnen:
 

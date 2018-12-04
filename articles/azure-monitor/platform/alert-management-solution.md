@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1ac4ec13ad404263e2821c2b89b5db299f36005e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76c2c7c7e99f10f48464d85030fea64bb7925cd7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642366"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845702"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwingenbeheeroplossing in Azure Log Analytics
 
@@ -74,7 +74,7 @@ Klik op de **Waarschuwingsbeheer** tegel om te openen de **Waarschuwingsbeheer**
 | Actieve SCOM-waarschuwingen |Alle waarschuwingen die zijn verzameld uit Operations Manager met een staat met andere dan *gesloten* gegroepeerd op de bron die de waarschuwing heeft gegenereerd. |
 | Alle actieve waarschuwingen |Alle waarschuwingen met een gegroepeerd op de naam van waarschuwing ernst. Bevat alleen de Operations Manager-waarschuwingen met een staat met andere dan *gesloten*. |
 
-Als u naar rechts schuift, het dashboard hier worden enkele algemene query's die u klikken kunt op om uit te voeren een [zoeken in logboeken](../../log-analytics/log-analytics-queries.md) voor waarschuwingsgegevens.
+Als u naar rechts schuift, het dashboard hier worden enkele algemene query's die u klikken kunt op om uit te voeren een [zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) voor waarschuwingsgegevens.
 
 ![Beheer van een waarschuwingendashboard](media/alert-management-solution/dashboard.png)
 

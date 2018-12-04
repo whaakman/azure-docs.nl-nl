@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 13279771306fabd497acdf0d019a8cce2f70a93f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495894"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844104"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Scenario's voor het uitvoeren van het Team Data Science Process
 
@@ -42,5 +42,5 @@ Zie voor een bespreking van de belangrijkste onderdelen die deel uitmaken van he
 
 Zie voor een bespreking van de levenscyclus van het Team Data Science Process die u gebruiken kunt voor uw data science-projecten structureren, [Team Data Science Process lifecycle](lifecycle.md). De levenscyclus van geeft een overzicht van de stappen van begin tot eind, projecten gewoonlijk volgen wanneer ze worden uitgevoerd. 
 
-Zie voor een overzicht van onderwerpen waarin wordt uitgelegd dat u de taken die deel uitmaken van het data science process in Azure, [Data Science Process](https://aka.ms/datascienceprocess). 
+Zie voor een overzicht van onderwerpen waarin wordt uitgelegd dat u de taken die deel uitmaken van het data science process in Azure, [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

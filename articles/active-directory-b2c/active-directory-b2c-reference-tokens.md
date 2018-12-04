@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10de56ac8945be4bb0920f95774b469d283f575b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721371"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843866"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
 
@@ -30,9 +30,9 @@ Een bearer-token is een lichtgewicht beveiligingstoken die de "bearer" toegang t
 
 Als een bearer-token buiten een beveiligd kanaal wordt verzonden, kunnen een schadelijke partij een man-in-the-middle-aanval kunt gebruiken om de token verkrijgen en gebruiken om ongeoorloofde toegang verlenen tot een beveiligde bron. Dezelfde beveiligingsprincipes van toepassing wanneer bearer-tokens worden opgeslagen of in de cache voor later gebruik opgeslagen. Altijd voor zorgen dat uw app worden verzonden en bearer-tokens worden opgeslagen op een veilige manier.
 
-Zie voor aanvullende beveiligingsoverwegingen op bearer-tokens [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
+Zie voor aanvullende beveiligingsoverwegingen op bearer-tokens [RFC 6750 sectie 5](https://tools.ietf.org/html/rfc6750).
 
-Veel van de tokens die problemen met Azure AD B2C worden geïmplementeerd als JSON-webtokens (JWTs). Een JWT is een compacte, URL-veilige manier van het overbrengen van gegevens tussen twee partijen. JWTs bevatten informatie bekend als claims. Dit zijn asserties van informatie over het bearer- en het onderwerp van het token. De claims in JWTs zijn JSON-objecten die zijn gecodeerd en voor de overdracht is geserialiseerd. Omdat de JWTs dat is uitgegeven door Azure AD B2C zijn ondertekend, maar niet versleuteld, kunt u eenvoudig controleren op de inhoud van een JWT voor foutopsporing kunt uitvoeren. Er zijn verschillende hulpprogramma's beschikbaar die kan dit doet, met inbegrip van [jwt.ms](https://jwt.ms). Raadpleeg voor meer informatie over JWTs [JWT-specificaties](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Veel van de tokens die problemen met Azure AD B2C worden geïmplementeerd als JSON-webtokens (JWTs). Een JWT is een compacte, URL-veilige manier van het overbrengen van gegevens tussen twee partijen. JWTs bevatten informatie bekend als claims. Dit zijn asserties van informatie over het bearer- en het onderwerp van het token. De claims in JWTs zijn JSON-objecten die zijn gecodeerd en voor de overdracht is geserialiseerd. Omdat de JWTs dat is uitgegeven door Azure AD B2C zijn ondertekend, maar niet versleuteld, kunt u eenvoudig controleren op de inhoud van een JWT voor foutopsporing kunt uitvoeren. Er zijn verschillende hulpprogramma's beschikbaar die kan dit doet, met inbegrip van [jwt.ms](https://jwt.ms). Raadpleeg voor meer informatie over JWTs [JWT-specificaties](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Id-tokens
 
@@ -68,7 +68,7 @@ Wanneer uw API een toegangstoken ontvangt, moet het [valideert de handtekening](
 
 Wanneer u Azure AD B2C gebruikt, hebt u heel nauwkeurig bepalen de inhoud van uw tokens. U kunt configureren [gebruikersstromen](active-directory-b2c-reference-policies.md) en aangepaste beleidsregels voor het verzenden van bepaalde verzamelingen van gebruikersgegevens in de claims die uw app nodig voor de bewerkingen heeft. Deze claims standaardeigenschappen zoals van de gebruiker kunnen bevatten `displayName` en `emailAddress`. Ze kunnen ook bevatten [aangepaste gebruikerskenmerken](active-directory-b2c-reference-custom-attr.md) die u kunt definiëren in uw B2C-directory. Elke-ID en access token die u ontvangt een bepaalde set claims met betrekking tot beveiliging bevat. Uw toepassingen kunnen deze claims gebruiken om veilige verificatie van gebruikers en aanvragen.
 
-Houd er rekening mee dat de claims in het ID-tokens worden niet geretourneerd in een bepaalde volgorde. Bovendien kunnen u nieuwe claims geïntroduceerd in de ID-tokens op elk gewenst moment. Uw app moet niet verbroken als nieuwe claims worden geïntroduceerd. Hier volgen de claims die u verwacht te bestaan in het ID- en toegangstokens dat is uitgegeven door Azure AD B2C. Aanvullende claims worden bepaald door het beleid. Probeer te inspecteren van de claims in het voorbeeld-ID-token door te plakken in oefening [jwt.ms](https://jwt.ms). Meer informatie vindt u de [OpenID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html).
+Houd er rekening mee dat de claims in het ID-tokens worden niet geretourneerd in een bepaalde volgorde. Bovendien kunnen u nieuwe claims geïntroduceerd in de ID-tokens op elk gewenst moment. Uw app moet niet verbroken als nieuwe claims worden geïntroduceerd. Hier volgen de claims die u verwacht te bestaan in het ID- en toegangstokens dat is uitgegeven door Azure AD B2C. Aanvullende claims worden bepaald door het beleid. Probeer te inspecteren van de claims in het voorbeeld-ID-token door te plakken in oefening [jwt.ms](https://jwt.ms). Meer informatie vindt u de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html).
 
 | Naam | Claim | Voorbeeldwaarde | Beschrijving |
 | --- | --- | --- | --- |
@@ -78,8 +78,8 @@ Houd er rekening mee dat de claims in het ID-tokens worden niet geretourneerd in
 | Vervaltijd |`exp` |`1438539443` |Verlooptijd van de claim is de tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | Niet voor |`nbf` |`1438535543` |Deze claim wordt de tijd waarop het token geldig, in epoche-tijd weergegeven wordt. Dit is meestal hetzelfde als de tijd die het token is uitgegeven. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | Versie |`ver` |`1.0` |Dit is de versie van de ID-token, zoals gedefinieerd door Azure AD. |
-| Code-hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Een hash van de code is opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-autorisatiecode. Een code-hash kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html).  |
-| Access token-hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Een access token-hash is opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-toegangstoken. Een access token-hash kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html)  |
+| Code-hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Een hash van de code is opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-autorisatiecode. Een code-hash kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Access token-hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Een access token-hash is opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-toegangstoken. Een access token-hash kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce |`nonce` |`12345` |Een nonce is een strategie gebruikt voor het beperken van token opnieuw afspelen aanvallen. Uw app een nonce kunt opgeven in een autorisatieaanvraag met behulp van de `nonce` queryparameter. De waarde die u in de aanvraag opgeeft wordt verzonden wijzigen de `nonce` claimen van een ID-token dat alleen. Dit kan uw app om te controleren of de waarde op basis van de waarde die deze in de aanvraag, waarmee de sessie van de app aan een bepaalde ID-token dat koppelt is opgegeven. Deze validatie tijdens de validatie van tokens proces-ID moet worden uitgevoerd in uw app. |
 | Onderwerp |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Dit is de principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het kan worden gebruikt voor autorisatie controles veilig uitvoeren, zoals wanneer het token wordt gebruikt voor toegang tot een resource. Standaard wordt de claim onderwerp gevuld met de object-ID van de gebruiker in de map. Zie voor meer informatie, [Azure Active Directory B2C: Token-, sessie en configuratie voor eenmalige aanmelding](active-directory-b2c-token-session-sso.md). |
 | Authentication context class reference |`acr` |Niet van toepassing |Momenteel niet gebruikt, behalve in het geval van oudere beleid. Zie voor meer informatie, [Azure Active Directory B2C: Token-, sessie en configuratie voor eenmalige aanmelding](active-directory-b2c-token-session-sso.md). |
