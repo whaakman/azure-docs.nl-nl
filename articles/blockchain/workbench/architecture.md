@@ -19,101 +19,100 @@ ms.locfileid: "48242492"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench-architectuur
 
-Azure Blockchain Workbench vereenvoudigt de ontwikkeling van blockchain-toepassingen door op te geven van een oplossing met behulp van verschillende Azure-onderdelen. Blockchain Workbench kan worden geïmplementeerd met behulp van een oplossingssjabloon in de Azure Marketplace. De sjabloon kunt u kiezen modules en -onderdelen implementeren met inbegrip van blockchain-stack, type van de clienttoepassing, en ondersteuning bieden voor IoT-integratie. Zodra geïmplementeerd, biedt Blockchain Workbench toegang tot een web-app, iOS-app, en Android-app.
+Azure Blockchain Workbench vereenvoudigt de ontwikkeling van blockchain-toepassingen door het aanbieden van een oplossing die gebruikmaakt van verschillende Azure-onderdelen. Blockchain Workbench kan worden geïmplementeerd met behulp van een oplossingssjabloon in de Azure Marketplace. De sjabloon stelt u in staat te kiezen voor modules en -onderdelen om te implementeren met inbegrip van een blockchain-stack, type van de clienttoepassing, en ondersteuning voor IoT-integratie. Eenmaal geïmplementeerd biedt Blockchain Workbench toegang tot een web-app, iOS-app, en Android-app.
 
 ![Blockchain Workbench-architectuur](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identiteit en verificatie
 
-Blockchain Workbench gebruiken, kan een consortium hun ondernemings-id's met behulp van Azure Active Directory (Azure AD) federeren. Workbench genereert nieuwe gebruikersaccounts voor identiteiten in de chain met de ondernemings-id's die zijn opgeslagen in Azure AD. De Identiteitstoewijzing kunt u geverifieerde Meld u aan bij de client-API's en toepassingen en maakt gebruik van het verificatiebeleid van organisaties. Workbench biedt ook de mogelijkheid om te koppelen aan specifieke rollen binnen een bepaalde opdracht slimme ondernemings-id's. Bovendien Workbench biedt ook een mechanisme voor het identificeren van de acties die deze rollen kunt nemen en op welk tijdstip.
+Via Blockchain Workbench kan een consortium haar ondernemings-id's met behulp van Azure Active Directory (Azure AD) federeren. Workbench genereert nieuwe gebruikersaccounts voor identiteiten in de chain met de ondernemings-id's die zijn opgeslagen in Azure AD. De mapping van identiteiten zorgt voor geverifieerde aanmelding bij client-API's en -toepassingen en maakt gebruik van het verificatiebeleid van organisaties. Workbench biedt ook de mogelijkheid om bedrijfsidentiteiten te koppelen aan specifieke rollen binnen een smart contract. Workbench biedt bovendien een mechanisme om de acties te identificeren die deze rollen kunnen uitvoeren en op welk moment.
 
-Nadat Blockchain Workbench is geïmplementeerd, wordt gebruikers met Blockchain Workbench via de clienttoepassingen, de client op basis van REST-API of de API voor Apparaatmessaging werken. In alle gevallen moeten interacties worden geverifieerd, via Azure Active Directory (Azure AD) of een apparaat-specifieke referenties.
+Nadat Blockchain Workbench is geïmplementeerd, werken gebruikers met Blockchain Workbench via de clienttoepassingen, een REST-gebaseerde client API of een Messaging API. In alle gevallen moeten interacties worden geverifieerd, via Azure Active Directory (Azure AD) of apparaatspecifieke referenties.
 
-Gebruikers wordt de identiteit aan een consortium Azure AD federeren door te sturen een e-mailuitnodiging voor deelnemers aan het e-mailadres. Wanneer u zich aanmeldt, kan deze gebruikers worden geverifieerd met de naam, wachtwoord en het beleid. Bijvoorbeeld: verificatie met twee factoren van hun organisatie.
+Gebruikers koppelen hun identiteit met Azure AD in een consortium door een e-mailuitnodiging naar deelnemers te sturen op hun e-mailadres. Bij het inloggen worden deze gebruikers geverifieerd met behulp van de naam, het wachtwoord en het toepasselijke beleid. Twee-factor authenticatie van hun organisatie bijvoorbeeld.
 
-Azure AD wordt gebruikt voor het beheren van alle gebruikers die toegang tot Blockchain Workbench hebben. Elk apparaat verbinding maakt met een slimme contract is ook gekoppeld aan Azure AD.
+Azure AD wordt gebruikt om alle gebruikers te beheren die toegang hebben tot Blockchain Workbench. Elk apparaat dat verbinding maakt met een smart contract, is ook gekoppeld aan Azure AD.
 
-Azure AD wordt ook gebruikt om gebruikers toewijzen aan een groep speciale beheerdersmachtigingen. Gebruikers die zijn gekoppeld aan de groep Administrators krijgen toegang tot de rechten en acties binnen Blockchain Workbench, met inbegrip van de implementatie van contracten en machtigingen verlenen aan een gebruiker voor toegang tot een contract. Gebruikers buiten deze groep geen toegang tot beheerdersacties.
+Azure AD wordt ook gebruikt om gebruikers toe te wijzen aan een speciale beheerdersgroep. Gebruikers die aan de beheerdersgroep zijn gekoppeld krijgen toegang tot rechten en acties binnen Blockchain Workbench, waaronder het implementeren van contracten en het verlenen van rechten aan een gebruiker voor toegang tot een contract. Gebruikers buiten deze groep hebben geen toegang tot beheerdersacties.
 
 ## <a name="client-applications"></a>Client-toepassingen
 
-Workbench biedt toepassingen voor web en mobiel (iOS, Android), die kan worden gebruikt om te valideren, testen en weergeven van blockchain-toepassingen automatisch gegenereerde client. De toepassingsinterface wordt dynamisch gegenereerd op basis van slimme contract metagegevens en kan worden aangepast aan elk use-casescenario. De clienttoepassingen leveren een gebruikersgerichte front-end voor de volledige blockchaintoepassingen die worden gegenereerd door Blockchain Workbench. Clienttoepassingen gebruikers via Azure Active Directory (Azure AD) worden gebruikt en een ervaring die zijn afgestemd op de zakelijke context van de slimme contract. De gebruikerservaring wordt het maken van nieuwe slimme contract instanties door gemachtigde personen en vervolgens wordt de mogelijkheid om uit te voeren op de juiste plaatsen van bepaalde transactietypen in het bedrijfsproces dat Hiermee geeft u de slimme contract.
+Workbench biedt automatisch gegenereerde clienttoepassingen voor web en mobiel (iOS, Android), die kunnen worden gebruikt voor het valideren, testen en bekijken van blockchain-applicaties. De toepassingsinterface wordt dynamisch gegenereerd op basis van metadata van een smart contract en is geschikt voor elk gebruik. De clienttoepassingen leveren een gebruikersgericht frontend aan alle blockchain-applicaties die door Blockchain Workbench worden gegenereerd. Clienttoepassingen verifiëren gebruikers via Azure Active Directory (Azure AD) en presenteren vervolgens een gebruikerservaring die is afgestemd op de zakelijke context van het smart contract. De gebruikerservaring maakt het mogelijk nieuwe instanties van een smart contract aan te maken door geautoriseerde personen en biedt vervolgens de mogelijkheid om bepaalde soorten transacties uit te voeren op geschikte punten in het bedrijfsproces dat het smart contract vertegenwoordigt.
 
-In de webtoepassing gemachtigde gebruikers toegang krijgen tot de Administrator-Console. De console is beschikbaar voor gebruikers in de groep Administrators in Azure AD en biedt toegang tot de volgende functionaliteit:
+In de webtoepassing hebben bevoegde gebruikers toegang tot de beheerdersconsole. Deze console is beschikbaar voor gebruikers in de beheerdersgroep in Azure AD en biedt toegang tot de volgende functionaliteit:
 
-* Slimme contracten van Microsoft voor populaire scenario's implementeren. Bijvoorbeeld: een asset overdracht scenario.
-* Uploaden en implementeren van hun eigen slimme contracten.
-* Een gebruikerstoegang tot de slimme overeenkomst in de context van een specifieke rol toewijzen.
+* Implementeer door Microsoft verstrekte smarts contracts voor populaire scenario's. Bijvoorbeeld een scenario voor activaoverdracht.
+* Upload en implementeer eigen smart contracts.
+* Wijs gebruikerstoegang toe aan het smart contract in de context van een specifieke rol.
 
-## <a name="gateway-service-api"></a>Service-API voor gateway
+## <a name="gateway-service-api"></a>Gateway service API
 
-Blockchain Workbench bevat een gateway op basis van REST-API. Bij het schrijven naar een blockchain, wordt de API genereert en levert berichten aan een gebeurtenis-broker. Wanneer gegevens worden aangevraagd door de API, worden query's verzonden naar de buiten de chain SQL-database. De SQL-database bevat een replica van gegevens in de chain en metagegevens die context en de configuratie-informatie over ondersteunde slimme contracten. De vereiste gegevens-query's retourneren van de replica buiten de chain in een indeling die door de metagegevens voor de opdracht geïnformeerd.
+Blockchain Workbench bevat een op REST gebaseerde Gateway service API. Bij het schrijven naar een blockchain genereert en levert de API berichten aan een event broker. Wanneer gegevens worden opgevraagd door de API, worden query's verzonden naar de off-chain SQL-database. De SQL-database bevat een replica van on-chain gegevens en metagegevens die context- en configuratie-informatie bieden voor ondersteunde smart contracts. Query's retourneren de vereiste gegevens uit de off-chainreplica in een indeling die is gebaseerd op de metagegevens voor het contract.
 
-Ontwikkelaars hebben toegang tot de service-API voor gateway als u wilt maken of integreren van blockchain-oplossingen zonder afhankelijkheid van Blockchain Workbench client-apps.
+Ontwikkelaars hebben toegang tot de Gateway service API om blockchain-oplossingen te bouwen of te integreren zonder verplicht gebruik van Blockchain Workbench-client-apps.
 
 > [!NOTE]
-> Twee clienttoepassingen zijn voor geverifieerde toegang tot de API, geregistreerd in Azure Active Directory. Azure Active Directory vereist verschillende toepassingsregistraties elk toepassingstype (systeemeigen en web). 
+> Om geverifieerde toegang tot de API in te schakelen, worden twee clienttoepassingen geregistreerd in Azure Active Directory. Azure Active Directory vereist verschillende toepassingsregistraties voor elk type toepassing (native en web).
 
 ## <a name="message-broker-for-incoming-messages"></a>Berichtenbroker voor inkomende berichten
 
-Ontwikkelaars die willen verzenden van berichten rechtstreeks naar Blockchain Workbench kunnen versturen berichten rechtstreeks aan Service Bus. Berichten-API kan bijvoorbeeld worden gebruikt voor de integratie van systeem of IoT-apparaten.
+Ontwikkelaars die berichten rechtstreeks naar Blockchain Workbench willen verzenden, kunnen berichten rechtstreeks naar Service Bus verzenden. De berichten-API kan bijvoorbeeld worden gebruikt voor systeem-naar-systeemintegratie of IoT-apparaten.
 
 ## <a name="message-broker-for-downstream-consumers"></a>Berichtenbroker voor downstream consumenten
 
-Tijdens de levenscyclus van de toepassing zich gebeurtenissen voordoen. Gebeurtenissen kunnen worden geactiveerd door de API-Gateway of op het grootboek. Meldingen van gebeurtenissen kunnen downstream code op basis van de gebeurtenis te starten.
+Tijdens de levenscyclus van de toepassing vinden gebeurtenissen plaats. Gebeurtenissen kunnen worden geactiveerd door de Gateway API of in het grootboek. Eventmeldingen kunnen de downstream-code initiëren op basis van de gebeurtenis.
 
-Blockchain Workbench implementeert automatisch twee soorten consumenten van gebeurtenissen. Een consument wordt geactiveerd door gebeurtenissen voor het vullen van de SQL-archief van buiten de chain blockchain. Een andere consument zich om vast te leggen van de metagegevens voor gebeurtenissen die worden gegenereerd door de API met betrekking tot het uploaden en opslaan van documenten.
+Blockchain Workbench maakt automatisch gebruik van twee soorten gebruikers van gebeurtenissen. Eén consument wordt getriggerd door blockchain-gebeurtenissen om de off-chain SQL-opslag te vullen. De andere consument moet metagegevens vastleggen voor gebeurtenissen die door de API worden gegenereerd met betrekking tot het uploaden en opslaan van documenten.
 
-## <a name="message-consumers"></a>Gebruikers van berichten
+## <a name="message-consumers"></a>Afnemers van berichten
 
- Gebruikers van berichten worden berichten van Service Bus. Het onderliggende model eventing voor gebruikers van berichten kan voor uitbreidingen van aanvullende services en systemen. Bijvoorbeeld, kan u ondersteuning voor het vullen CosmosDB of berichten met behulp van Azure stream Analytics evalueren toevoegen. De volgende secties beschrijven de gebruikers van berichten in Blockchain Workbench opgenomen.
+Afnemers van berichten halen berichten op uit Service Bus. Het onderliggende eventing-model voor berichtgebruikers maakt uitbreidingen van extra diensten en systemen mogelijk. U kunt bijvoorbeeld ondersteuning toevoegen om CosmosDB te vullen of berichten te evalueren met Azure Streaming Analytics. In de volgende secties worden de berichtgebruikers die deel uitmaken van Blockchain Workbench beschreven.
 
-### <a name="distributed-ledger-consumer"></a>De consument gedistribueerd grootboek
+### <a name="distributed-ledger-consumer"></a>De consument van een gedistribueerd grootboek
 
-Gedistribueerd grootboek-technologie (DLT) berichten bevatten de metagegevens voor transacties die moeten worden geschreven naar de blockchain. De consument de berichten opgehaald en de gegevens naar een transactie builder, ondertekend door en router gepusht.
+Berichten in Distributed ledger technology (DLT) bevatten de metagegevens voor transacties die naar de blockchain moeten worden geschreven. De consument haalt de berichten op en pusht de gegevens naar een transactiebuilder, ondertekenaar en router.
 
-### <a name="database-consumer"></a>Database-consument
+### <a name="database-consumer"></a>Databaseconsument
 
-De consument database gebruikt berichten van Service Bus en de gegevens naar een gekoppelde database, zoals SQL-database worden gepusht.
+De databaseconsument neemt berichten van de servicebus en pusht de gegevens naar een gekoppelde database, zoals een SQL-database.
 
-### <a name="storage-consumer"></a>Opslag-consument
+### <a name="storage-consumer"></a>Opslagconsument
 
-De consument opslag gebruikt berichten van Service Bus en gegevens naar een gekoppelde storage wordt gepusht. Bijvoorbeeld, opslaan hash documenten in Azure Storage.
+De opslagconsument neemt berichten van de Service Bus en pusht gegevens naar een aangesloten opslag. U kunt gehashte documenten bijvoorbeeld opslaan in Azure Storage.
 
-## <a name="transaction-builder-and-signer"></a>Transactie builder en ondertekend door
+## <a name="transaction-builder-and-signer"></a>Transactiebuilder en ondertekenaar
 
-Als een bericht op het binnenkomende berichtenbroker worden geschreven naar de blockchain moet, wordt deze door de gebruiker DLT worden verwerkt. De gebruiker DLT is een service, die haalt het bericht met metagegevens voor een gewenste transactie om uit te voeren en stuurt de gegevens naar de *transactie builder en ondertekend door*. De *transactie builder en ondertekend door* ophaalprotocol een blockchain-transactie op basis van de gegevens en de gewenste blockchain-bestemming. Nadat u samengesteld, wordt de transactie is ondertekend. Persoonlijke sleutels worden opgeslagen in Azure Key Vault.
+Als een bericht op de inbound-berichtenmakelaar naar de blockchain moet worden geschreven, wordt dit door de DLT-consument verwerkt. De DLT-consument is een service die het bericht met metagegevens voor een gewenste transactie ophaalt en vervolgens de informatie naar de transactiebuilder en ondertekenaar verzendt. De transactiebuilder en ondertekenaar assembleert een blockchain-transactie op basis van de gegevens en de gewenste blockchainbestemming. Eenmaal geassembleerd, is de transactie ondertekend. Privésleutels worden opgeslagen in Azure Key Vault.
 
- Blockchain Workbench haalt de juiste persoonlijke sleutel uit Key Vault en de transactie buiten Key Vault zich. Eenmaal is ondertekend, wordt de transactie wordt verzonden naar transactie routers en grootboeken.
+Blockchain Workbench haalt de juiste persoonlijke sleutel uit Key Vault en ondertekent de transactie buiten Key Vault. Na ondertekening wordt de transactie verzonden naar transactierouters en grootboeken.
 
 ## <a name="transaction-routers-and-ledgers"></a>Transactie-routers en grootboeken
 
-Transactie-routers en grootboeken ondertekende transacties nemen en deze doorsturen naar de juiste blockchain. Op dit moment ondersteunt Blockchain Workbench Ethereum als de doel-blockchain.
+Transactierouters en grootboeken nemen ondertekende transacties en leiden ze naar de juiste blockchain. Momenteel ondersteunt Blockchain Workbench Ethereum als doel-blockchain.
 
 ## <a name="dlt-watcher"></a>DLT watcher
 
-Een watcher van de technologie (DLT) gedistribueerd grootboek bewaakt gebeurtenissen plaatsvinden op blok-ketens die is gekoppeld aan Blockchain Workbench.
-Gebeurtenissen zijn de informatie die relevant is voor personen en systemen. Bijvoorbeeld, het maken van nieuwe instanties van het contract, uitvoeren van transacties en wijzigingen van status. De gebeurtenissen worden vastgelegd en verzonden naar de broker uitgaand multicastverkeer voor message zodat ze kunnen worden gebruikt door de downstream consumenten.
+Een DLT-watcher (distributed ledger technology) bewaakt gebeurtenissen die zich voordoen op blokketens die zijn verbonden aan Blockchain Workbench. Gebeurtenissen weerspiegelen informatie die relevant is voor individuen en systemen. Bijvoorbeeld het creëren van nieuwe contractinstanties, uitvoering van transacties en statuswijzigingen. De gebeurtenissen worden vastgelegd en verzonden naar de uitgaande berichtenmakelaar, zodat ze kunnen worden gebruikt door downstream-gebruikers.
 
-Bijvoorbeeld, de SQL-consument gebeurtenissen bewaakt, verbruikt ze en vult de SQL-database met de opgenomen waarden. De kopie kunt opnieuw kunt maken van een replica van de gegevens in de chain in een archief buiten de chain.
+De SQL-consument bewaakt bijvoorbeeld gebeurtenissen, gebruikt deze en vult de SQL-database met de ingesloten waarden. De kopie maakt het opnieuw maken van een replica van on-chain data in een off-chain opslag mogelijk.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-De Azure SQL-database die is gekoppeld aan Blockchain Workbench contract definities, metagegevens van de configuratie en een SQL-toegankelijk replica van gegevens die zijn opgeslagen in de blockchain opgeslagen. Deze gegevens kan eenvoudig worden opgevraagd, gevisualiseerd of geanalyseerd door rechtstreeks toegang tot de database. Ontwikkelaars en andere gebruikers kunnen u de database gebruiken voor rapportage, analyse, of andere gegevensgerichte integraties. Gebruikers kunnen bijvoorbeeld transactiegegevens met behulp van Power BI visualiseren.
+De Azure SQL-database die is gekoppeld aan Blockchain Workbench slaat contractdefinities, metadata van de configuratie en een SQL-toegankelijke replica van gegevens die zijn opgeslagen in de blockchain op. Deze gegevens kunnen eenvoudig worden opgevraagd, gevisualiseerd of geanalyseerd door rechtstreeks toegang te krijgen tot de database. Ontwikkelaars en andere gebruikers kunnen de database gebruiken voor rapportage, analyses of andere gegevensgerichte integraties. Gebruikers kunnen bijvoorbeeld transactiegegevens visualiseren met Power BI.
 
-Deze buiten de chain-opslag biedt de mogelijkheid voor organisaties om gegevens te doorzoeken in SQL in plaats van een grootboek blockchain enterprise. Ook op een standard-schema dat staat los van blockchain-technologie-stacks standaardiseert, kan de opslag buiten de chain het hergebruik van rapporten en andere artefacten in projecten, scenario's en organisaties.
+Deze off-chain opslag biedt bedrijven de mogelijkheid om gegevens in SQL op te vragen in plaats van in een blockchain-grootboek. Door de standaardisatie van een standaardschema dat agnostisch is voor stacks van blockchaintechnologie, maakt de off-chainopslag het ook mogelijk om rapporten en andere artefacten te hergebruiken in projecten, scenario's en organisaties.
 
 ## <a name="azure-storage"></a>Azure Storage
 
 Azure Storage wordt gebruikt voor het opslaan van contracten en metagegevens die zijn gekoppeld aan contracten.
 
-Van inkooporders en vrachtbrieven, naar afbeeldingen die worden gebruikt in het nieuws en de medische beeldmateriaal naar de video die afkomstig zijn van een geheel worden beschouwd, waaronder politie hoofdtekst van de camera's en grote beweging afbeeldingen, spelen documenten een rol in veel blockchain gerichte scenario's. Documenten zijn niet geschikt om rechtstreeks op de blockchain te plaatsen.
+Van inkooporders en vrachtbrieven tot afbeeldingen in het nieuws en medische beelden, tot video afkomstig uit diverse bronnen, inclusief camera's van de politie en bioscoopfilms, spelen documenten een rol in veel blockchain-gerichte scenario's. Documenten zijn niet geschikt om direct op de blockchain te plaatsen.
 
-Blockchain Workbench ondersteunt de mogelijkheid documenten of andere media-inhoud met blockchain-bedrijfslogica toe te voegen. Een hash van het document of media-inhoud is opgeslagen in de blockchain en de werkelijke document of media-inhoud is opgeslagen in Azure Storage. De bijbehorende transactie-informatie is geleverd aan het binnenkomende berichtenbroker, verpakt, ondertekend en doorgestuurd naar de blockchain. Dit proces wordt geactiveerd voor gebeurtenissen die worden gedeeld via de uitgaande berichtenbroker. De SQL-database gebruikt deze informatie en verzendt dit naar de database voor het later opnieuw uitvoeren van query's. Downstream-systemen kunnen ook gebruiken voor deze gebeurtenissen om te fungeren, indien van toepassing.
+Blockchain Workbench ondersteunt de mogelijkheid om documenten of andere media-inhoud toe te voegen aan blockchain-bedrijfslogica. Een hash van het document of de media-inhoud wordt opgeslagen in de blockchain en de daadwerkelijke document- of media-inhoud wordt opgeslagen in Azure Storage. De bijbehorende transactie-informatie wordt aan de inkomende berichtbroker bezorgd, verpakt, ondertekend en naar de blockchain gerouteerd. Dit proces activeert gebeurtenissen die worden gedeeld via de uitgaande berichtenmakelaar. De SQL DB gebruikt deze informatie en verzendt deze naar de database voor later gebruik. Downstream-systemen kunnen deze gebeurtenissen ook consumeren om zo gepast te handelen.
 
 ## <a name="monitoring"></a>Bewaking
 
-Workbench biedt logboekregistratie van toepassingen met behulp van Application Insights en Azure Monitor. Application Insights wordt gebruikt voor het opslaan van alle geregistreerde gegevens van Blockchain Workbench en fouten, waarschuwingen en voltooide bewerkingen bevat. Application Insights kunnen worden gebruikt door ontwikkelaars om problemen met Blockchain Workbench kunt verhelpen. 
+Workbench biedt logging voor toepassingen met behulp van Application Insights en Azure Monitor. Application Insights wordt gebruikt om alle geregistreerde informatie van Blockchain Workbench op te slaan en bevat foutmeldingen, waarschuwingen en succesvolle bewerkingen. Application Insights kunnen door ontwikkelaars worden gebruikt om problemen met de Blockchain Workbench op te lossen.
 
 Azure Monitor biedt informatie over de status van de blockchain-netwerk. 
 
