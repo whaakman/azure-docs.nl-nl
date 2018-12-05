@@ -212,7 +212,7 @@ Definieert de functies die kunnen worden uitgevoerd in de werkstroom.
 | Name | De unieke naam van de functie. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de desbetreffende functie. | Ja |
 | DisplayName | Beschrijvende weergavenaam van de functie. | Ja |
 | Description | Beschrijving van de functie | Nee |
-| Parameters | Verzameling van [id's](#identifiers) de overeenkomen met de parameters van de functie. | Ja |
+| Parameters | Verzameling van [id's](#identifiers) die overeenkomen met de parameters van de functie. | Ja |
 
 ### <a name="functions-example"></a>Voorbeeld van de functies
 
@@ -327,7 +327,7 @@ Beschikbare acties voor de volgende status. Een of meer gebruikersrollen kunnen 
 | Veld | Beschrijving | Vereist |
 |-------|-------------|:--------:|
 | AllowedRoles | Lijst met toepassingensrollen die een overgang mogen starten. Alle gebruikers van de opgegeven rol kunnen  actie uitvoeren. | Nee |
-| AllowedInstanceRoles | Lijst met deelnemende of opgegevens gebruikersrollen in het smart contract die een overgang mogen starten. Rolinstanties zijn gedefinieerd in de **eigenschappen** in werkstromen. AllowedInstanceRoles vertegenwoordigen een gebruiker die deel uitmaakt van een instantie van een smart contract. AllowedInstanceRoles bieden u de mogelijkheid om de uitvoering van een actie te beperken tot een gebruikersrol in een instantie van het contract. U kunt bijvoorbeeld alleen de gebruiker die het contract gemaakt heeft (InstanceOwner) deze laten beëindigen in plaats van alle gebruikers in roltype (Owner) als u deze rol opgeeft in AllowedRoles. | Nee |
+| AllowedInstanceRoles | Lijst met deelnemende of opgegeven gebruikersrollen in het smart contract die een overgang mogen starten. Rolinstanties zijn gedefinieerd in de **eigenschappen** in werkstromen. AllowedInstanceRoles vertegenwoordigen een gebruiker die deel uitmaakt van een instantie van een smart contract. AllowedInstanceRoles bieden u de mogelijkheid om de uitvoering van een actie te beperken tot een gebruikersrol in een instantie van het contract. U kunt bijvoorbeeld alleen de gebruiker die het contract gemaakt heeft (InstanceOwner) deze laten beëindigen in plaats van alle gebruikers in roltype (Owner) als u deze rol opgeeft in AllowedRoles. | Nee |
 | DisplayName | Beschrijvende weergavenaam van de overgang. | Ja |
 | Description | Beschrijving van de overgang. | Nee |
 | Function | De naam van de functie voor het starten van de overgang. | Ja |
