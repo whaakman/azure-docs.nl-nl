@@ -3,18 +3,18 @@ title: Back-ups op schaal maken van virtuele Azure-machines
 description: Tegelijkertijd een back-up van meerdere virtuele machines naar Azure maken
 services: backup
 keywords: back-up van virtuele machine; virtuele machine back-up; back-up van vm; back-up vm; back-up Azure vm; back-up en herstel na noodgevallen
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: dfe561e7a7231c8e7f9465819a01cd4b0a35f47c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1d9daf5bdccb24db80eaf41597daa15a08ce1bd4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878278"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal gebruiken voor het maken van een back-up van meerdere virtuele machines
 

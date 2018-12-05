@@ -2,7 +2,7 @@
 title: Back-up op schaal maken van Azure-VM's
 description: In deze zelfstudie wordt uitgebreid ingegaan op het maken van back-ups van virtuele machines van Azure voor een Recovery Services-kluis.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: back-up van virtuele machine; back-up maken van virtuele machine; back-up en herstel na noodgeval
 ms.service: backup
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk
 ms.custom: mvc
-ms.openlocfilehash: 863960e012a8e345434459ad16526c8971f00b6b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2b83963f7af52101ed298e85b6c7fd64fc99a07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607001"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875583"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Back-up op schaal maken van virtuele machines van Azure
 

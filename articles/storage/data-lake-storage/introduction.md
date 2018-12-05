@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c86609ae5b993328beced468b74c7f2a1b65def4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4fba15a98757e06aa167fbc18a9606fd042a08dc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283611"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874529"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Inleiding tot Azure Data Lake Storage Gen2 Preview
 
@@ -47,7 +47,7 @@ In het verleden had cloudanalyses te boeten op het gebied van prestaties, beheer
 
 - **Een hoofdverzameling van POSIX-machtigingen**: het beveiligingsmodel voor Data Lake Gen2 biedt ondersteuning voor ACL en POSIX-machtigingen, samen met enkele extra granulariteit die specifiek zijn voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via de beheerhulpprogramma's of frameworks, zoals Hive- en Spark.
 
-- **Voordelige**: Data Lake Storage Gen2 biedt de opslagcapaciteit van de lage kosten en transacties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](../common/storage-lifecycle-managment-concepts.md).
+- **Voordelige**: Data Lake Storage Gen2 biedt de opslagcapaciteit van de lage kosten en transacties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](../common/storage-lifecycle-management-concepts.md).
 
 - **Werkt met Blob storage-hulpprogramma's, frameworks en -apps**: Data Lake Storage Gen2 blijft gewoon werken met een breed scala aan hulpprogramma's, frameworks en -toepassingen die vandaag beschikbaar zijn voor Blob-opslag.
 

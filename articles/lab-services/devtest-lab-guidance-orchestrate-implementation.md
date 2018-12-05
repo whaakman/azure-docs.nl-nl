@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 62c89861d784931b2a13297abac578010e0fea5f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251037"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867466"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Indelen van de implementatie van Azure DevTest Labs
 In dit artikel biedt een aanbevolen aanpak voor snelle implementatie en de implementatie van Azure DevTest Labs. De volgende afbeelding ligt de nadruk op het algehele proces als richtlijnen terwijl u flexibiliteit voor het ondersteunen verschillende industriële eisen en scenario's.
@@ -46,7 +46,7 @@ Zodra de netwerktopologie ingesteld is, het eerste/test lab kan worden gemaakt d
 2. Toegestane VM-installatiekopieën en grootten voor gebruik met lab bepalen. Bepaal of aangepaste installatiekopieën kunnen worden geüpload naar Azure voor gebruik met DevTest Labs.
 3. Beveiligde toegang tot de testomgeving door het maken van de initiële Role Base Access besturingselementen (RBAC) voor de testomgeving (lab eigenaars en gebruikers van de testomgeving). U wordt aangeraden de gesynchroniseerde active directory-accounts te gebruiken met Azure Active Directory voor de identiteit met DevTest Labs.
 4. DevTest Labs voor gebruik van beleid, zoals schema's, kosten beheer, claimbare virtuele machines, aangepaste installatiekopieën of formules configureren.
-5. Stel een onlineopslagplaats zoals VSTS Git /.
+5. Stel een online, zoals Azure opslagplaatsen/Git-opslagplaats.
 6. Besluiten over het gebruik van openbare of particuliere opslagplaatsen of combinatie van beide. JSON-sjablonen indelen voor implementaties en op lange termijn sustainment.
 7. Indien nodig, kunt u aangepaste artefacten maken. Deze stap is optioneel. 
 

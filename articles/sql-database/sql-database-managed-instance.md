@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: f3e40f9d10ce3d0515d466e9bbdde324458e624d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e94b9e6d39a8a2694658a4231c54a027523af10c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834108"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889239"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL Database Managed Instance met virtuele netwerken en in de buurt van 100% compatibiliteit gebruiken
 
@@ -214,7 +214,7 @@ Beheerd exemplaar voordelen wordt altijd-up-to-date in de cloud, betekent dat so
 
 ### <a name="managed-instance-administration-features"></a>Beheerfuncties voor beheerd exemplaar
 
-Beheerd exemplaar inschakelen systeembeheerder om zich te richten op wat belangrijk het meest voor bedrijven is. Veel beheerder/DBA systeemactiviteiten zijn niet vereist, of ze zijn eenvoudig. Bijvoorbeeld, OS / RDBMS-installatie en patching uit handen, dynamische exemplaar vergroten of verkleinen en de configuratie, back-ups, [databasereplicatie](replication-with-sql-database-managed-instance.md) (met inbegrip van systeemdatabases), configuratie voor hoge beschikbaarheid en de configuratie van de gezondheid en [prestatiebewaking](../log-analytics/log-analytics-azure-sql.md) gegevensstromen.
+Beheerd exemplaar inschakelen systeembeheerder om zich te richten op wat belangrijk het meest voor bedrijven is. Veel beheerder/DBA systeemactiviteiten zijn niet vereist, of ze zijn eenvoudig. Bijvoorbeeld, OS / RDBMS-installatie en patching uit handen, dynamische exemplaar vergroten of verkleinen en de configuratie, back-ups, [databasereplicatie](replication-with-sql-database-managed-instance.md) (met inbegrip van systeemdatabases), configuratie voor hoge beschikbaarheid en de configuratie van de gezondheid en [prestatiebewaking](../azure-monitor/insights/azure-sql.md) gegevensstromen.
 
 > [!IMPORTANT]
 > Zie voor een lijst met ondersteunde, gedeeltelijk ondersteunde en niet-ondersteunde functies [SQL Database-functies](sql-database-features.md). Zie voor een lijst van T-SQL-verschillen in beheerde instanties ten opzichte van SQL Server, [exemplaar T-SQL-verschillen beheerd met SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -228,7 +228,7 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Deze waarde wordt aangeduid Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`. database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:`<instanceName>`.`<dnsPrefix>`.database.Windows.NET, waar `<instanceName>` is geleverd door de klant, terwijl `<dnsPrefix>` automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -237,5 +237,5 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 - Lees [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md) (VNet-configuratie voor beheerd exemplaar) voor meer informatie over VNet-configuratie.
 - Zie voor een snelstartgids die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand, [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).
 - Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS).
-- Voor geavanceerde bewaking van prestaties van de database Managed Instance met ingebouwde intelligentie voor het oplossen van problemen, Zie [Monitor Azure SQL Database met behulp van Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md)
+- Voor geavanceerde bewaking van prestaties van de database Managed Instance met ingebouwde intelligentie voor het oplossen van problemen, Zie [Monitor Azure SQL Database met behulp van Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
 - Zie voor informatie over de prijzen [prijzen van SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

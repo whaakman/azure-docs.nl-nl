@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 85436fedacc765dcdf6a8005cf96f3d63312504c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365567"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868800"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Wat is Azure Time Series Insights?
 
@@ -34,7 +34,7 @@ Als u een toepassing bouwt, hetzij voor intern gebruik of voor gebruik door exte
 
 Als u niet zeker weet of uw gegevens een tijdreeks vormen, kunt u aan de hand van de volgende beschrijving vaststellen of het wel of geen tijdreeksgegevens betreft.  Tijdreeksgegevens tonen aan hoe een asset of proces verandert in de loop der tijd.  De gegevens zijn uniek doordat ze een tijdstempel hebben en tijd wordt het meest zinvol uitgedrukt als een as.  Tijdreeksgegevens komen meestal binnen in volgorde van tijd en worden doorgaans behandeld als een invoeging in plaats van een update van de database.  Omdat Time Series Insights elke nieuwe gebeurtenis vastlegt en opslaat als een rij, worden wijzigingen gemeten in de loop van de tijd, zodat u terug kunt kijken en toekomstige wijzigingen kunt voorspellen.  In grote volumes kan het opslaan, indexeren, uitvoeren van query's, analyseren en visualiseren van tijdreeksgegevens lastig zijn.  
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
 ### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>In deze video krijgt u een overzicht van Time Series Insights, een cloud-gebaseerd IoT analytics-platform.</br>
 

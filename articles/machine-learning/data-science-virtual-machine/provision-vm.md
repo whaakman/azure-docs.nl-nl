@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c6314b4f53969b32040713df4834e5706d31be3a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240882"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865349"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van de Windows Data Science Virtual Machine van Azure
 De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Windows Azure virtuele machine (VM). Het is vooraf geïnstalleerd en geconfigureerd met verschillende hulpprogramma's die worden gebruikt voor gegevensanalyse en machine learning. De volgende hulpprogramma's zijn opgenomen:
@@ -77,7 +77,7 @@ Volg deze stappen voor het maken van een exemplaar van de Microsoft Data Science
 
     i. **Naam**. De naam van de data science-server die u maakt.  
 
-    II. **VM-schijftype**. Kies **SSD** of **HDD**. Kies voor een NC_v1 GPU-exemplaar, zoals NVidia Tesla R80 op basis van **HDD** als het schijftype.   
+    ii. **VM-schijftype**. Kies **SSD** of **HDD**. Kies voor een NC_v1 GPU-exemplaar, zoals NVidia Tesla R80 op basis van **HDD** als het schijftype.   
 
     III. **Gebruikersnaam**. De admin-account-ID aan te melden.   
 
@@ -95,7 +95,7 @@ Volg deze stappen voor het maken van een exemplaar van de Microsoft Data Science
 
     i. **Beheerde schijven gebruiken**. Kies **beheerde** als u wilt dat Azure voor het beheren van de schijven voor de virtuele machine. Als dat niet het geval is, moet u een nieuwe of bestaande storage-account opgeven.  
 
-    II. **Andere parameters**. U kunt de standaardwaarden gebruiken. Als u gebruiken niet-waarden wilt, Beweeg de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.  
+    ii. **Andere parameters**. U kunt de standaardwaarden gebruiken. Als u gebruiken niet-waarden wilt, Beweeg de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.  
 
   d. **Samenvatting**. Controleer of alle informatie die u hebt ingevoerd juist is. Selecteer **Maken**. 
 
@@ -150,7 +150,7 @@ Open Visual Studio door te dubbelklikken op het pictogram op het bureaublad of d
 * Azure HDInsight Hadoop en Spark
 * Azure Data Lake 
 
-Er is ook een invoegtoepassing met de naam ```Visual Studio Tools for AI``` die naadloos kan worden geïntegreerd met Azure Machine Learning en helpt u snel build AI-toepassingen. 
+Er is ook een invoegtoepassing met de naam ```Azure Machine Learning for Visual Studio Code``` die naadloos kan worden geïntegreerd met Azure Machine Learning en helpt u snel build AI-toepassingen. 
 
 > [!NOTE]
 > Mogelijk is, krijgt u een bericht dat uw evaluatieperiode is verlopen. Voer de referenties van uw Microsoft-account. Of maak een nieuwe gratis account voor toegang tot Visual Studio Community. 

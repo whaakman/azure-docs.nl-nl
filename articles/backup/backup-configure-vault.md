@@ -2,19 +2,19 @@
 title: Gebruik Azure backup-agent op de back-up van bestanden en mappen
 description: Gebruik de Microsoft Azure backup-agent naar de back-up van Windows-bestanden en mappen naar Azure. Maak een Recovery Services-kluis, de backup-agent installeren en de back-upbeleid definiëren de eerste back-up uitgevoerd op de bestanden en mappen.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: back-upkluis; back-up van een Windows-server. back-upvensters;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
-ms.author: markgal
-ms.openlocfilehash: 8107af53a78960d29f506c77f8ba9697c7a49d1c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252901"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874002"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Een back-up van een Windows-server of -client maken op Azure met behulp van het Resource Manager-implementatiemodel
 In dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-client) bestanden en mappen in Azure met Azure Backup met behulp van de Resource Manager-implementatiemodel.

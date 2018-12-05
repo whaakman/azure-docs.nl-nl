@@ -4,7 +4,7 @@ description: Met behulp van Visual Studio op een Azure-machine.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: PhilLee-MSFT
-manager: sacalla
+manager: cathys
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 1922475056fa79aafbf72c75c09eff19cea2b54b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 610b3111b8b84f42327f39ac17285ba7fef0d719
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978436"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869208"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-installatiekopieën in Azure
 Met behulp van Visual Studio in een vooraf geconfigureerde Azure-machine (VM) is een snelle en eenvoudige manier naar een up-en-die wordt uitgevoerd development environment van nul. Installatiekopieën met verschillende configuraties van Visual Studio zijn beschikbaar in de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -32,13 +32,13 @@ Bent u nog niet bekend met Azure? [Maak een gratis Azure-account](https://azure.
 ## <a name="what-configurations-and-versions-are-available"></a>Welke configuraties en -versies zijn beschikbaar?
 Installatiekopieën voor de meest recente primaire versies, Visual Studio 2017 en Visual Studio 2015, vindt u in de Azure Marketplace. Voor elke primaire versie ziet u de oorspronkelijke versie (RTW) en de meest recente bijgewerkte versies. Elk van deze versies biedt de Visual Studio Enterprise en de Visual Studio Community-edities. Deze installatiekopieën zijn ten minste maandelijks bijgewerkt met de meest recente updates voor Visual Studio en Windows. Terwijl de namen van de installatiekopieën hetzelfde zijn, wordt de beschrijving van elke afbeelding bevat de versie van het geïnstalleerde product en 'op' datum van de installatiekopie.
 
-| Release-versie                                              | Edities                     |     Productversie     |
-|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Laatste (versie 15,8)                    |    Enterprise, Community     |      Versie 15.8.7     |
-| Visual Studio 2017: Nieuwste Preview (versie 15,9 inch, Preview-versie 5) |    Enterprise, Community     |      Versie 15.9.0     |
-|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versie 15.0.18    |
-|   Visual Studio 2015: Laatste (Update 3)                      |    Enterprise, Community     |  Versie 14.0.25431.01  |
-|         Visual Studio 2015: RTW                              |             Geen             | (Verlopen voor onderhoud) |
+| Release-versie                                              | Edities                     |     Productversie      |
+|:------------------------------------------------------------:|:----------------------------:|:------------------------:|
+|   Visual Studio 2019: Preview-versie (Preview-versie 1)                   |           Enterprise         | Versie 16.0.0 Preview 1 |
+| Visual Studio 2017: Laatste (versie 15,9 inch)                    |    Enterprise, Community     |       Versie 15.9.0     |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versie 15.0.18     |
+|   Visual Studio 2015: Laatste (Update 3)                      |    Enterprise, Community     |  Versie 14.0.25431.01   |
+|         Visual Studio 2015: RTW                              |             Geen             | (Verlopen voor onderhoud)  |
 
 > [!NOTE]
 > De oorspronkelijk (RTW) versie van Visual Studio 2015 is in overeenstemming met de Microsoft servicebeleid, verlopen voor onderhoud. Visual Studio 2015 Update 3 is de enige resterende versie aangeboden voor de regel voor het product van Visual Studio 2015.
@@ -50,7 +50,7 @@ Elke afbeelding bevat de aanbevolen functieset voor deze versie van Visual Studi
 
 * Alle beschikbare werklasten, met inbegrip van de workload aanbevolen optionele onderdelen
 * .NET 4.6.2 en .NET 4.7 SDK's, doelitems Packs en hulpprogramma's voor ontwikkelaars
-* Visual F #
+* VisualF#
 * GitHub-extensie voor Visual Studio
 * LINQ to SQL-hulpprogramma 's
 

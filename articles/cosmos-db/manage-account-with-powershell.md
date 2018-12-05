@@ -1,22 +1,19 @@
 ---
-title: Azure Cosmos DB-Automation - beheer met Powershell | Microsoft Docs
+title: Azure Cosmos DB-Automation - beheer met Powershell
 description: Gebruik Azure Powershell beheren uw Azure Cosmos DB-accounts.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: sngun
-ms.openlocfilehash: b115058353d14a3bd7c774197e06de088030ffff
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89c8fd169322f08681547cc7ae33f1d894e26781
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741348"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873017"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Maak een Azure Cosmos DB-account met behulp van PowerShell
 

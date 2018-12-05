@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/15/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f366413ae5f758601dfebc2a29ff848feb756083
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9b72ca2a166e805d960eab47835f449e0f5b991e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960427"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889511"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>Zelfstudie: Een toepassing en resources verwijderen
 
@@ -34,7 +34,7 @@ In deel vier van de serie leert u het volgende:
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * [Een toepassing met behulp van een sjabloon implementeren in Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Een toepassing implementeren in Service Fabric Mesh met behulp van een sjabloon](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * [Een toepassing schalen die wordt uitgevoerd in Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
 > * [Een toepassing upgraden die wordt uitgevoerd in Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * Een toepassing verwijderen
@@ -47,7 +47,7 @@ Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, kunt u een [gratis account maken](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
-* Open [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md) of [installeer de Azure CLI en Azure Service Fabric Mesh CLI lokaal](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* Open [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md) of [installeer de Azure CLI en Azure Service Fabric Mesh CLI lokaal](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="delete-the-resource-group-and-all-the-resources"></a>De resourcegroep en alle resources verwijderen
 

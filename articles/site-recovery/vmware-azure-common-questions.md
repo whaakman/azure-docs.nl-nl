@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 99e108da5fc9c13d0a9ec65a485055d1b990f8b7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 83216091c950593b16f158ea3d8df5a194ecee02
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838224"
+ms.locfileid: "52869820"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -74,7 +74,7 @@ U kunt elke app of de werkbelasting wordt uitgevoerd op een VMware-VM die aan de
 Site Recovery repliceert gegevens van on-premises naar Azure storage via een openbaar eindpunt of met behulp van openbare ExpressRoute-peering. Replicatie via een site-naar-site VPN-netwerk wordt niet ondersteund.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan ik repliceren naar Azure met ExpressRoute?
-Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Site Recovery worden gegevens gerepliceerd naar een Azure Storage-Account via een openbaar eindpunt en moet u voor het instellen van [openbare peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) voor Site Recovery-replicatie. Nadat de virtuele machines een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Site Recovery worden gegevens gerepliceerd naar een Azure Storage-Account via een openbaar eindpunt en moet u voor het instellen van [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) voor Site Recovery-replicatie. Nadat de virtuele machines een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?

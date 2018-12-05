@@ -1,22 +1,20 @@
 ---
-title: 'Inleiding tot Azure Cosmos DB: MongoDB-API | Microsoft Docs'
+title: 'Inleiding tot Azure Cosmos DB: MongoDB-API'
 description: Leer hoe u Azure Cosmos DB kunt gebruiken om grote aantallen JSON-documenten met lage latentie op te slaan en te doorzoeken met behulp van populaire OSS MongoDB-API’s.
 keywords: Wat is MongoDB?
 services: cosmos-db
 author: SnehaGunda
-manager: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: 1f21065414fec6bbe943014e954ecb45af2bb6b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9acad93382a7a88b7af7c72a7308e64dc428cef5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227872"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863989"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Inleiding tot Azure Cosmos DB: MongoDB-API
 

@@ -2,18 +2,18 @@
 title: Veelgestelde vragen over het maken van een back-up van Azure-bestanden
 description: Dit artikel bevat informatie over het beveiligen van uw Azure-bestandsshares.
 services: backup
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434833"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874543"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Vragen over het maken back-ups van Azure-bestanden
 In dit artikel vindt u antwoorden op veelgestelde vragen over het maken back-ups van Azure-bestanden. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -44,26 +44,26 @@ Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase 
 - Brazilië - zuid (BRS)
 - Canada centraal (CNC)
 -   Canada - oost (CE)
--   VS - centraal (CUS)
--   Oost-Azië (EA)
--   VS - oost (EUS)
--   VS - oost 2 (EUS2)
+-   US - centraal (CUS)
+-   Azië - oost (EA)
+-   US - oost (EUS)
+-   US - oost 2 (EUS2)
 - Japan - oost (JPE)
 - Japan - west (JPW)
 -   India - centraal (INC) 
 - India - zuid (INS)
 - Korea - centraal (KRC)
 - Korea - zuid (KRS)
--   VS - noord centraal (NCUS) 
--   Noord-Europa (NE) 
--   VS - zuid-centraal (SCUS) 
--   Zuidoost-Azië (SEA)
+-   US - noord-centraal (NCUS) 
+-   Europa - noord (NE) 
+-   US - zuid-centraal (SCUS) 
+-   Azië - zuidoost (SEA)
 -   Verenigd Koninkrijk zuid (UKS) 
 -   Verenigd Koninkrijk west (UKW) 
--   West-Europa (WE) 
--   VS - west (WUS)
--   VS - west-centraal (WCUS)
--   VS - west 2 (WUS 2)
+-   Europa - west (WE) 
+-   US - west (WUS)
+-   US - west-centraal (WCUS)
+-   US - west 2 (WUS 2)
 
 Schrijf naar [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) als u deze functie wilt gebruiken in een specifiek geografisch gebied dat hierboven niet wordt vermeld.
 

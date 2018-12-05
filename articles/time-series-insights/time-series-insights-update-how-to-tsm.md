@@ -8,19 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: 926d1a35cb10d50ddeacbed5476e2dcf14d0999d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/03/2018
+ms.openlocfilehash: dc6244b6e263d3fb963d40b2f0c626cdfa9ecff8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856158"
+ms.locfileid: "52873458"
 ---
 # <a name="data-modeling-in-azure-time-series-insights"></a>Gegevens modelleren in Azure Time Series Insights
 
-Dit document wordt beschreven hoe u werkt met **Time Series modellen** Azure Time Series Insights (preview) te volgen. Deze details over verschillende algemene scenario's met gegevens.
+Dit document wordt beschreven hoe u werkt met **Time Series modellen** Azure Time Series Insights (Preview) te volgen. Deze details over verschillende algemene scenario's met gegevens.
 
-Lees de [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md) artikel voor meer informatie over de Private Preview te navigeren.
+Lees de [(Preview) van Azure TSI-Verkenner](./time-series-insights-update-explorer.md) artikel voor meer informatie over de update te navigeren.
 
 ## <a name="types"></a>Typen
 
@@ -130,9 +130,11 @@ Lees de [Azure TSI (preview) Explorer](./time-series-insights-update-explorer.md
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lezen [Time Series modellen](./time-series-insights-update-tsm.md) voor meer informatie over **Time Series modellen**.
+Meer informatie over [gegevensmodellering](./time-series-insights-update-tsm.md) voor meer informatie over **Time Series modellen**.
 
-De Azure TSI (preview) Explorer weergeven [artikel](./time-series-insights-update-explorer.md) voor meer informatie over de Preview-versie.
+De Azure TSI (Preview)-Verkenner weergeven [artikel](./time-series-insights-update-explorer.md) voor meer informatie over de Preview-versie.
+
+Meer informatie over ondersteunde JSON-vormen door te lezen [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

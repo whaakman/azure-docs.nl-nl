@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 611cd0878e88d2e1c0a988f73b57e391c5a8551d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a9455e891208aab8885d6a868bb3f42252f131ab
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975904"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865604"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
@@ -141,7 +141,7 @@ Deze tabel vergelijkt de functies tussen Microsoft Translator-Hub en aangepaste 
 
 |   | Hub | Custom Translator |
 |:-----|:----:|:----:|
-|Functiestatus aanpassen   | Algemene beschikbaarheid  | Preview |
+|Functiestatus aanpassen   | Algemene beschikbaarheid  | Algemene beschikbaarheid |
 | Tekst-API-versie  | V2    | V3  |
 | SMT aanpassen | Ja   | Nee |
 | NMT aanpassen | Nee    | Ja |

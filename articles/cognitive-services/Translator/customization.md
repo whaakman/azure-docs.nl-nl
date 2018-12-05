@@ -10,20 +10,20 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229676"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877969"
 ---
 # <a name="customize-your-text-translations"></a>Pas uw tekstomzettingen
 
-De preview van Microsoft aangepaste Translator is een functie van de service Microsoft Translator, waarmee gebruikers van Microsoft Translator geavanceerde neurale automatische vertalingen aanpassen tijdens het vertalen van tekst met behulp van de Translator Text-API (alleen versie 3).
+De aangepaste Microsoft Translator is een functie van de service Microsoft Translator, waarmee gebruikers van Microsoft Translator geavanceerde neurale automatische vertalingen aanpassen tijdens het vertalen van tekst met behulp van de Translator Text-API (alleen versie 3).
 
-De functie kan ook worden gebruikt om aan te passen spraakomzetting gebruikt in combinatie met [Cognitive Services Speech preview](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+De functie kan ook worden gebruikt om aan te passen spraakomzetting gebruikt in combinatie met [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
-## <a name="custom-translator"></a>Aangepaste Translator
+## <a name="custom-translator"></a>Custom Translator
 
 U kunt met aangepaste Translator, neurale vertalingssystemen die inzicht in de terminologie die wordt gebruikt in uw eigen zakelijke en branche bouwen. De aangepaste vertaalsysteem wordt vervolgens integreren in bestaande toepassingen, werkstromen en websites.
 
@@ -48,7 +48,7 @@ De verouderde Microsoft Translator-Hub kan worden gebruikt voor de statistische 
 
 |   | **Hub** | **Aangepaste Translator**|
 |:-----|:----:|:----:|
-|Functiestatus aanpassen   | Algemene beschikbaarheid  | Preview |
+|Functiestatus aanpassen   | Algemene beschikbaarheid  | Algemene beschikbaarheid |
 | Tekst-API-versie  | Alleen v2   | Alleen v3 |
 | SMT aanpassen | Ja   | Nee |
 | NMT aanpassen | Nee    | Ja |

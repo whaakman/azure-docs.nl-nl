@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs te integreren in uw VSTS continue integratie en levering pijplijn | Microsoft Docs
-description: Leer hoe u Azure DevTest Labs te integreren in uw VSTS continue integratie en van leveringspijplijn
+title: Azure DevTest Labs te integreren in uw Azure-pijplijnen continue integratie en levering pijplijn | Microsoft Docs
+description: Meer informatie over het integreren van Azure DevTest Labs in uw Azure pijplijnen continue integratie en leveringspijplijn
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 28327a650bad529595ec843ed73f00a9dfcfa58a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301205"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874223"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs integreren in uw Azure DevOps, continue integratie en van leveringspijplijn
 U kunt de *Azure DevTest Labs-taken* -extensie die geïnstalleerd in Azure DevOps tot eenvoudig uw CI/CD-build-en release-pijplijn integreren met Azure DevTest Labs. De extensie installeert drie taken: 

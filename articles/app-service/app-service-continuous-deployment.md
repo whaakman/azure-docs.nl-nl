@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 9dead2c8801340a736b6f67010a85f3dd34fbe85
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5f52dfb4547cfac991387d333c3f5684544d691f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820253"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877507"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie in Azure App Service
 Dit artikel leest u hoe u continue implementatie voor [Azure App Service](app-service-web-overview.md). App Service kunt u continue implementatie vanuit BitBucket, GitHub, en [Azure DevOps Services](https://www.visualstudio.com/team-services/) door te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
@@ -47,7 +47,7 @@ In de **Build-provider** pagina, kies de build-provider en klikt u op > **doorga
 
 In de **configureren** pagina, selecteert u de organisatie, de opslagplaats en het vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **Doorgaan**.
 
-### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Optie 2: gebruik continue levering van Azure DevOps-Services
+### <a name="option-2-use-azure-pipelines-preview"></a>Optie 2: gebruik van Azure-pijplijnen (preview)
 
 > [!NOTE]
 > Voor App Service voor het maken van de benodigde Azure-pijplijnen in uw organisatie Azure DevOps-Services, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
@@ -90,15 +90,18 @@ In de **Samenvatting** pagina, controleer uw opties en klik op **Voltooien**.
 
 Wanneer de configuratie is voltooid, worden voortdurend nieuwe doorvoeringen in de geselecteerde opslagplaats geïmplementeerd in uw App Service-app.
 
-## <a name="deploy-continuously-from-azure-devops-services"></a>Doorlopend implementeren van Azure DevOps-Services
+## <a name="deploy-continuously-from-azure-repos-devops-services"></a>Continu implementeren vanuit Azure-opslagplaatsen (DevOps-Services)
 
-Om in te schakelen doorlopende implementatie met Azure DevOps-Services, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
+Inschakelen van continue implementatie met vanuit [Azure opslagplaatsen](https://docs.microsoft.com/azure/devops/repos/index), gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
-Klik in het menu links op **Implementatiecentrum** > **Azure DevOps Services** > **doorgaan**. 
+Klik in het menu links op **Implementatiecentrum** > **Azure opslagplaatsen** > **doorgaan**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
 In de **Build-provider** pagina, kies de build-provider en klikt u op > **doorgaan**.
+
+> [!NOTE]
+> Als u gebruiken van een bestaande organisatie van Azure DevOps-Services die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Optie 1: gebruik die App Service Kudu server maken
 
@@ -111,9 +114,6 @@ In de **configureren** pagina, selecteert u de organisatie van Azure DevOps-Serv
 >
 
 In de **configureren** pagina, in de **Code** sectie, selecteer de organisatie van Azure DevOps-Services, project-opslagplaats en vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **Doorgaan**.
-
-> [!NOTE]
-> Als u gebruiken van een bestaande organisatie van Azure DevOps-Services die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 In de **configureren** pagina, in de **bouwen** sectie, geeft u het taalframework die Azure DevOps-Services gebruiken moeten voor het uitvoeren van de build-taken voor de geselecteerde opslagplaats. Wanneer u klaar bent, klikt u op **Doorgaan**.
 
@@ -146,11 +146,11 @@ Klik in het menu links op **Implementatiecentrum** > **GitHub** of **Azure DevOp
 * [Gebruik Azure voor het automatisch genereren van een CI/CD-pijplijn voor het implementeren van een ASP.NET 4-app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure portal]: https://portal.azure.com
-[VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
+[Azure DevOps portal]: https://azure.microsoft.com/services/devops/
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [PowerShell voor Azure gebruiken]: /powershell/azureps-cmdlets-docs
 [Git-documentatie]: http://git-scm.com/documentation
 
 [Een repo maken (GitHub)]: https://help.github.com/articles/create-a-repo
 [Een repo maken (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
-[Aan de slag met Azure DevOps-Services]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Aan de slag met Azure DevOps-Services]: https://docs.microsoft.com/azure/devops/user-guide/devops-alm-overview

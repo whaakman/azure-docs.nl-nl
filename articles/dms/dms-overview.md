@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/19/2018
-ms.openlocfilehash: 2003b90f95c8c139bf5b3526ed8d3994ee08efd9
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.date: 12/04/2018
+ms.openlocfilehash: ce13607e795710ebc7b0020a0025bd207327f1d2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444474"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878751"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Wat is de Azure Database Migration Service?
 Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure data platforms met minimale downtime (online migratie).
@@ -24,7 +24,7 @@ Azure Database Migration Service is een volledig beheerde service die is ontworp
 Azure Database Migration Service kan worden geïntegreerd enkele van de functionaliteit van onze bestaande hulpprogramma's en services. Daardoor kunnen klanten met een uitgebreide en zeer beschikbare oplossing. De service wordt gebruikt de [Data Migration Assistant](https://aka.ms/dma) voor het genereren van evaluatierapporten die aanbevelingen te doen om u te begeleiden bij de wijzigingen die zijn vereist voordat u een migratie uitvoert. Het is aan u om uit te voeren van een herstel is vereist. Wanneer u klaar bent om met het migratieproces te beginnen, voert de Azure Database Migration Service alle vereiste stappen uit. U kunt worden geactiveerd en vergeten uw migratieprojecten met een hart, te weten dat gebruikgemaakt van best practices wordt, zoals wordt bepaald door Microsoft.
 
 > [!NOTE]
-> Met behulp van de Azure Database Migration Service om uit te voeren van een online migratie vereist het maken van een exemplaar op basis van de bedrijfskritieke (Preview) prijscategorie.
+> Met behulp van de Azure Database Migration Service om uit te voeren van een online migratie vereist het maken van een exemplaar op basis van de prijscategorie Premium (Preview).
 
 ## <a name="regional-availability"></a>Regionale beschikbaarheid
 

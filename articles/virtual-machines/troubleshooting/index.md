@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-description: Informatie over hoe u fouten met implementaties van virtuele machines oplost.
+description: Informatie over hoe u problemen met implementaties van virtuele machines oplost.
 title: Documentatie voor probleemoplossing van Azure Virtual Machines | Microsoft Docs
 services: virtual-machines
 author: genlin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: fadff0e3cab98f7b0aa69a6fe29c3d9ace31face
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 493c8053af1648e415fc774dd0031e18554e0458
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465488"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877427"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Problemen met virtuele Azure-machines oplossen
 

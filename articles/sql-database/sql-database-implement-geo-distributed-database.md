@@ -3,7 +3,7 @@ title: Een geografisch gedistribueerde Azure SQL Database-oplossing implementere
 description: Informatie over het configureren van de Azure SQL-database en toepassing voor failover naar een gerepliceerde database, en failover testen.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 2508d43e876a7e463d68eed1b1ca93ddf0d1e9d1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e067f158acfc830cc6a82b7d5555528103714017
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872549"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Zelfstudie: Een geografisch gedistribueerde database implementeren
 

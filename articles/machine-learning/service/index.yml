@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 96efb64ce7d77da567d587857e4a25ae334a3ffc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 1add464c85d30622bf0940bf20a483ae22d07ea6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707109"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865315"
 documentType: LandingData
-title: Documentatie over Azure Machine Learning-service (preview)
+title: Documentatie over Azure Machine Learning-service
 metadata:
-  title: Documentatie over Azure Machine Learning (preview) - zelfstudies, API-verwijzing | Microsoft Docs
+  title: Documentatie voor Azure Machine Learning – zelfstudies, API-verwijzing | Microsoft Docs
   meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
@@ -41,6 +41,7 @@ sections:
     style: unordered
     items:
     - html: <a href="quickstart-get-started.md">Aan de slag in de Azure-portal </a>
+    - html: <a href="quickstart-create-workspace-with-python.md">Aan de slag met behulp van Python</a>
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -48,9 +49,10 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Uw eigen Machine Learning-model trainen</a>
-    - html: <a href="tutorial-auto-train-models">Laat ons automatisch een model voor u genereren en afstemmen</a>
-    - html: <a href="tutorial-deploy-models-with-aml">Een model implementeren als webservice</a>
+    - html: Afbeeldingsclassificatie (deel 1)&#58; <a href="tutorial-train-models-with-aml">Uw eigen machine learning-model trainen</a>
+    - html: Afbeeldingsclassificatie (deel 2)&#58; <a href="tutorial-deploy-models-with-aml">Dat model implementeren</a></br>&nbsp;
+    - html: Regressie (deel 1)&#58; <a href="tutorial-data-prep"> De gegevens over taxi's in NYC voorbereiden voor modellering</a>
+    - html: Regressie (deel 2)&#58; <a href="tutorial-auto-train-models">Een model genereren met behulp van geautomatiseerde machine learning</a>
   - type: paragraph
     text: '<b>Voorbeeldnotebooks</b>: verken Azure Machine Learning met <a href="https://aka.ms/aml-notebooks">deze Jupyter Notebooks</a>, beschikbaar op GitHub.'
 - title: Naslaginformatie

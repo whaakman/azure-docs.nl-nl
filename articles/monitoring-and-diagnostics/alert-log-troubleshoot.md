@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0612a7798d3cc2e43efc296bd2b749735e74f765
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94c03c9aa6e361167b396af5218b308e6cacfafe
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720844"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879805"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
 ## <a name="overview"></a>Overzicht
@@ -30,7 +30,7 @@ De term **Logboekwaarschuwingen** beschrijving van waarschuwingen die worden ges
 Hier zijn enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](alert-log.md) staat geen weergegeven [als *geactiveerd* wanneer verwacht](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Gegevens opnemen tijd voor logboeken
-Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). Omdat de Log Analytics verwerkt vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld, is de service is vatbaar voor verschillende vertraging. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). Omdat de Log Analytics verwerkt vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld, is de service is vatbaar voor verschillende vertraging. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 Als u wilt beperken gegevensopname vertraging, het systeem moet wachten en probeert de Waarschuwingsquery meerdere keren opnieuw als er dat nog niet de benodigde gegevens worden opgenomen. Het systeem heeft een exponentieel toenemende wachttijd instellen. Het logboek waarschuwing alleen triggers nadat de gegevens beschikbaar zijn, zodat ze vertraging kunnen worden veroorzaakt door trage logboekgegevens opnemen. 
 
@@ -56,17 +56,17 @@ Stel bijvoorbeeld dat een waarschuwingsregel meting van metrische gegevens is ge
 - waarschuwingslogica van drie achtereenvolgende schendingen
 - Cumulatieve bij gekozen als $table
 
-Omdat de opdracht bevat *... samenvatten op* en twee variabelen (timestamp & $table), het systeem kiest $table naar 'Cumulatieve na'. Sorteert de resultaattabel in het veld *$table* zoals hieronder wordt weergegeven en wordt gecontroleerd op de meerdere AggregatedValue voor elk tabeltype (zoals availabilityResults) als er achtereenvolgende schendingen van 3 of meer is.
+Omdat de opdracht bevat *samenvatten op* en twee variabelen (timestamp & $table), het systeem kiest $table naar statistische bij. Sorteert de resultaattabel in het veld *$table* zoals hieronder wordt weergegeven en wordt gecontroleerd op de meerdere AggregatedValue voor elk tabeltype (zoals availabilityResults) als er achtereenvolgende schendingen van 3 of meer is.
 
 ![Metrische meting queryuitvoering met meerdere waarden](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Als ' totale "$table is: de gegevens gesorteerd op kolom $table (zoals in rood); we groep en zoek naar "Cumulatieve bij" veld typen (dat wil zeggen) $table – bijvoorbeeld: waarden voor de availabilityResults worden beschouwd als een diagram/entiteit (zoals gemarkeerd in oranje). In deze entiteit/waarde plot: waarschuwing service controleert op drie achtereenvolgende schendingen optreden (zoals weergegeven in groen) voor die waarschuwing wordt ophalen geactiveerd voor de tabelwaarde 'availabilityResults'. Op dezelfde manier als voor een andere waarde voor $table als zijn zichtbaar voor drie opeenvolgende inbreuken op - worden een andere waarschuwingsmeldingen geactiveerd voor hetzelfde; met waarschuwing service automatisch de waarden in één diagram/entiteit (zoals in oranje) op tijd te sorteren.
+Omdat cumulatieve bij $table die de gegevens gesorteerd op kolom $table (zoals in rood); en we groep en zoek naar typen cumulatieve bij veld (dat wil zeggen) $table bijvoorbeeld: waarden voor de availabilityResults worden beschouwd als een diagram/entiteit (zoals gemarkeerd in oranje). In deze waarde plot/entiteit waarschuwing service controleert op drie achtereenvolgende schendingen optreden (zoals weergegeven in groen) voor die waarschuwing wordt ophalen geactiveerd voor de tabelwaarde 'availabilityResults'. Op dezelfde manier als voor een andere waarde voor $table als zijn zichtbaar voor drie opeenvolgende inbreuken op - worden een andere waarschuwingsmeldingen geactiveerd voor hetzelfde; met waarschuwing service automatisch de waarden in één diagram/entiteit (zoals in oranje) op tijd te sorteren.
 
-Stel meting van metrische gegevens waarschuwingsregel is gewijzigd en de query is `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` met de rest van de configuratie van de resterende hetzelfde als voordat waarschuwingslogica voor drie opeenvolgende schendingen. De optie 'Samenvoegen op' in dit geval zal worden standaard: timestamp. Omdat er slechts één waarde is opgegeven in de query voor samenvatten... op de timestamp (dat wil zeggen); vergelijkbaar met het vorige voorbeeld, aan het einde van de uitvoering van de uitvoer zou zijn zoals hieronder weergegeven. 
+Stel meting van metrische gegevens waarschuwingsregel is gewijzigd en de query is `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` met de rest van de configuratie van de resterende hetzelfde als voordat waarschuwingslogica voor drie opeenvolgende schendingen. De optie 'Samenvoegen op' in dit geval zal worden standaard: timestamp. Omdat er slechts één waarde is opgegeven in de query voor samenvatten op de timestamp (dat wil zeggen); vergelijkbaar met het vorige voorbeeld, aan het einde van de uitvoering van de uitvoer zou zijn zoals hieronder weergegeven. 
 
    ![Metrische meting queryuitvoering met enkelvoudige waarde](./media/monitor-alerts-unified/LogMMtimestamp.png)
 
-Als ' totale "tijdstempel is: de gegevens gesorteerd op timestamp-kolom (zoals in rood); en we op timestamp groeperen –: waarden voor `2018-10-17T06:00:00Z` worden beschouwd als een diagram/entiteit (zoals gemarkeerd in oranje). In deze entiteit/waarde kaartverbeteringen – vindt alert-service geen achtereenvolgende schendingen voorkomende (zoals elke waarde timestamp slechts één vermelding heeft) en kan daarom waarschuwing wordt nooit ophalen geactiveerd. Daarom in een dergelijk geval moet gebruiker een van:
+Omdat cumulatieve bij de gegevens gesorteerd op timestamp-kolom (zoals in rood); tijdstempel en we op timestamp groeperen: waarden voor `2018-10-17T06:00:00Z` worden beschouwd als een diagram/entiteit (zoals gemarkeerd in oranje). In deze waarde plot/entiteit vindt alert-service er geen achtereenvolgende schendingen voorkomende (zoals elke waarde timestamp slechts één vermelding heeft) en kan daarom waarschuwing wordt nooit ophalen geactiveerd. Daarom in een dergelijk geval moet gebruiker een van:
 - Een dummy-variabele of een bestaande variabele (zoals $table) toevoegen aan het correct sorteren gedaan met behulp van "Cumulatieve bij" veld geconfigureerd
 - (Of) opnieuw configureren van de waarschuwingsregel voor het gebruik van waarschuwingslogica op basis van *totaal inbreuk* in plaats daarvan op de juiste wijze
  
@@ -74,7 +74,7 @@ Als ' totale "tijdstempel is: de gegevens gesorteerd op timestamp-kolom (zoals i
 Gedetailleerde volgende worden enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwingsregel in Azure Monitor](alert-log.md) kan worden geactiveerd wanneer deze wordt bekeken [Azure-waarschuwingen](monitoring-alerts-managing-alert-states.md), wanneer u niet verwacht dat het worden geactiveerd.
 
 ### <a name="alert-triggered-by-partial-data"></a>Waarschuwing geactiveerd door gegevens gedeeltelijk
-Levert het vermogen voor Log Analytics en Application Insights Analytics zijn afhankelijk van vertragingen van gegevensopname en -verwerking; vanwege die op het moment wanneer opgegeven logboekwaarschuwingsquery wordt uitgevoerd - mogelijk zijn er een aanvraag van geen gegevens beschikbaar worden gesteld of alleen bepaalde gegevens beschikbaar worden gesteld. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Levert het vermogen voor Log Analytics en Application Insights Analytics zijn afhankelijk van vertragingen van gegevensopname en -verwerking; vanwege die op het moment wanneer opgegeven logboekwaarschuwingsquery wordt uitgevoerd - mogelijk zijn er een aanvraag van geen gegevens beschikbaar worden gesteld of alleen bepaalde gegevens beschikbaar worden gesteld. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 Afhankelijk van hoe de waarschuwingsregel is geconfigureerd, kunnen er verkeerd firing als er geen of gedeeltelijke gegevens in Logboeken op het moment van uitvoering van de waarschuwing. In dergelijke gevallen adviseren we u om de Waarschuwingsquery of de configuratie te wijzigen. 
 
@@ -83,7 +83,7 @@ Bijvoorbeeld, als de waarschuwingsregel is geconfigureerd om te activeren wannee
 ### <a name="alert-query-output-misunderstood"></a>Waarschuwing query-uitvoer verkeerd begrepen
 U opgeven de logica voor logboekwaarschuwingen in een analytics-query. De analytics-query mag gebruiken verschillende wiskundige functies en big data.  De waarschuwingen service voert de query met intervallen opgegeven met de gegevens voor de opgegeven tijdsperiode. De waarschuwingen service maakt subtiele wijzigingen in de opgegeven query op basis van het Waarschuwingstype dat is gekozen. Dit is te zien in de sectie 'Een Query om te worden uitgevoerd' in *signaallogica configureren* scherm, zoals hieronder wordt weergegeven: ![Query moet worden uitgevoerd](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-Wat wordt weergegeven in de **query moet worden uitgevoerd** vak is wat de waarschuwing log-service wordt uitgevoerd. U kunt uitvoeren met de opgegeven query, evenals de timespan via [analyseportal](../log-analytics/log-analytics-log-search-portals.md) of de [Tekstanalyse-API](https://docs.microsoft.com/rest/api/loganalytics/) als u weten wat de Waarschuwingsquery uitvoer mag zijn wilt voordat u daadwerkelijk de waarschuwing hebt gemaakt.
+Wat wordt weergegeven in de **query moet worden uitgevoerd** vak is wat de waarschuwing log-service wordt uitgevoerd. U kunt uitvoeren met de opgegeven query, evenals de timespan via [analyseportal](../azure-monitor/log-query/portals.md) of de [Tekstanalyse-API](https://docs.microsoft.com/rest/api/loganalytics/) als u weten wat de Waarschuwingsquery uitvoer mag zijn wilt voordat u daadwerkelijk de waarschuwing hebt gemaakt.
  
 ## <a name="next-steps"></a>Volgende stappen
 

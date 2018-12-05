@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505379"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867423"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Beheren van Batch-accounts en -quota met de Batch Management-clientbibliotheek voor .NET
 
@@ -153,7 +153,7 @@ De Batch Management .NET-bibliotheek is een Azure-resource provider-client en wo
 
 ## <a name="sample-project-on-github"></a>Voorbeeldproject op GitHub
 
-Als u wilt zien Batch Management .NET in actie, bekijk de [AccountManagment] [ acct_mgmt_sample] voorbeeldproject op GitHub. De voorbeeldtoepassing AccountManagment ziet u de volgende bewerkingen:
+Als u wilt zien Batch Management .NET in actie, bekijk de [AccountManagement] [ acct_mgmt_sample] voorbeeldproject op GitHub. De voorbeeldtoepassing AccountManagement ziet u de volgende bewerkingen:
 
 1. Verkrijgen van een beveiligingstoken van Azure AD met behulp van [ADAL][aad_adal]. Als de gebruiker is niet al aangemeld, wordt ze gevraagd om hun Azure-referenties.
 2. Met het beveiligingstoken dat is verkregen via Azure AD, maakt u een [SubscriptionClient] [ resman_subclient] op Azure-query voor een lijst met abonnementen die zijn gekoppeld aan het account. De gebruiker kan een abonnement selecteren in de lijst bevat meer dan één abonnement.

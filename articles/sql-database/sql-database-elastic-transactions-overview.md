@@ -3,7 +3,7 @@ title: Over clouddatabases gedistribueerde transacties
 description: Overzicht van transacties met Azure SQL Database Elastic Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257466"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877181"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Over clouddatabases gedistribueerde transacties
 Elastische transacties voor Azure SQL Database (SQL database) kunnen u uitvoeren van transacties met betrekking meerdere databases in SQL-database tot. Elastische transacties voor SQL-database zijn beschikbaar voor .NET-toepassingen met behulp van ADO .NET en integreren met de vertrouwde programmering ervaring met de [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) klassen. Als u de bibliotheek, Zie [.NET Framework 4.6.1 (webinstallatieprogramma)](https://www.microsoft.com/download/details.aspx?id=49981).

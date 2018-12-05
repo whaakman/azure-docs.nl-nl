@@ -3,7 +3,7 @@ title: Een service voor splitsen en samenvoegen implementeren | Microsoft Docs
 description: De splitsen en samenvoegen ook gebruiken om gegevens te verplaatsen tussen de shard-databases.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 253a50f50e94888a5d764e51a4ff49cc0c1424c6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d44ce52e923c8f5b8ad8b873992163dca56ae0af
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875192"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Een service voor het verplaatsen van gegevens tussen de shard-databases voor splitsen en samenvoegen implementeren
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 80a5b49d27ffc2b75cc9a1092a4d9f17e09bef24
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1e819f819561c5fac722ca6954a10d80a482b5cd
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848864"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889358"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -41,7 +41,7 @@ Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfi
  
 
 ## <a name="management-packs"></a>Management packs
-Deze oplossing wordt niet geïnstalleerd voor alle management packs in [verbonden beheergroepen](../../log-analytics/log-analytics-om-agents.md).
+Deze oplossing wordt niet geïnstalleerd voor alle management packs in [verbonden beheergroepen](../../azure-monitor/platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installeren en configureren
 Begin met het toevoegen van de [Office 365-oplossing voor uw abonnement](solutions.md#install-a-management-solution). Wanneer deze toegevoegd, moet u de configuratiestappen uitvoeren in deze sectie om deze toegang geven tot uw Office 365-abonnement.

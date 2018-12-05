@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cc255d69a9a8b63ee65fb5dfcfe3879e68844a01
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 68a2f11692a4a1bc0ccf62012dda4d2e57c9894f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679559"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868630"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -140,7 +140,7 @@ FIX:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In de [home Microsoft Azure-dashboard](https://portal.azure.com), bekijk de servicestatus-kaart. Als er enkele waarschuwingen indicaties zijn, wacht u totdat ze weer terug bent op OK en vervolgens sluiten en uw Application Insights-toepassing-blade opnieuw open.
-* Controleer ook [onze blog status](https://blogs.msdn.com/b/applicationinsights-status/).
+* Controleer ook [onze blog status](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Hebt u een code te schrijven voor de [server-side SDK](app-insights-api-custom-events-metrics.md) die veranderen de instrumentatiesleutel in `TelemetryClient` exemplaren of in `TelemetryContext`? Of hebt u schrijft een [filter of steekproeven](app-insights-api-filtering-sampling.md) die kan worden gefilterd te veel?
 * Als u ApplicationInsights.config hebt bewerkt, zorgvuldig controleert u de configuratie van [TelemetryInitializers en TelemetryProcessors](app-insights-api-filtering-sampling.md). Een verkeerde naam type of de parameter kan leiden tot de SDK om geen gegevens te verzenden.
 

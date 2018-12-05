@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 09/24/2018
-ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.openlocfilehash: 3ab348ce3a6d45c2ac4d2d14978781e57a8b5d17
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713415"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872836"
 ---
 # <a name="use-the-azure-machine-learning-cli-extension"></a>De Azure Machine Learning CLI-extensie gebruiken
 
@@ -50,7 +50,7 @@ De CLI is geen vervanging voor de SDK van Azure Machine Learning. Het is een aan
 Gebruik de volgende opdracht voor het installeren van de Machine Learning CLI-extensie:
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 Wanneer u hierom wordt gevraagd, selecteert u `y` voor het installeren van de extensie.
@@ -79,22 +79,33 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
 
 + Maak een Azure Machine Learning-service-werkruimte:
 
-   ```azurecli-interactive
-   az ml workspace create -n myworkspace -g myresourcegroup
-   ```
+    ```azurecli-interactive
+    az ml workspace create -n myworkspace -g myresourcegroup
+    ```
 
 + Stel een standaardwerkruimte:
 
-   ```azurecli-interactive
-   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-   ```
+    ```azurecli-interactive
+    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+    ```
 
-+ Maak een DSVM (data science VM). U kunt ook maken BatchAI clusters voor een gedistribueerde training of AKS-clusters voor implementatie.
++ Maak een beheerde compute-doel voor gedistribueerde training:
 
+    ```azurecli-interactive
+    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
+    ```
 
-  ```azurecli-interactive
-  az ml computetarget setup dsvm -n mydsvm
-  ```
+* Een beheerde compute-doel bijwerken:
+
+    ```azurecli-interactive
+    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
+    ```
+
+* Koppelen van een niet-beheerde compute-doel voor het trainen of implementeren:
+
+    ```azurecli-interactive
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    ```
 
 ## <a name="experiments"></a>Experimenten
 

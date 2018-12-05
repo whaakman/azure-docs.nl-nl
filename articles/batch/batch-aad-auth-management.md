@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b2ab2ad1c31337e006b613ad7f17b4ad22495893
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816783"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870416"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Verifiëren van Batch Management-oplossingen met Active Directory
 
@@ -28,7 +28,7 @@ Toepassingen die aanroepen van de Azure Batch Management-service verifiëren met
 
 De Batch Management .NET-bibliotheek wordt aangegeven dat typen voor het werken met de Batch-accounts, sleutels, toepassingen en toepassingspakketten. De Batch Management .NET-bibliotheek is een Azure-resource provider-client en wordt gebruikt in combinatie met [Azure Resource Manager] [ resman_overview] deze resources op programmatische wijze beheren. Azure AD is vereist voor het verifiëren van aanvragen via een Azure-resource provider client, met inbegrip van de Batch Management .NET-bibliotheek en [Azure Resource Manager][resman_overview].
 
-In dit artikel wordt toegelicht met behulp van Azure AD om te verifiëren van toepassingen die gebruikmaken van de Batch Management .NET-bibliotheek. Laten we zien hoe u Azure AD gebruiken voor het verifiëren van een abonnementsbeheerder of CO-beheerder, via geïntegreerde verificatie. We gebruiken de [AccountManagment] [ acct_mgmt_sample] voorbeeldproject, beschikbaar op GitHub, om te zien hoe u Azure AD met de Batch Management .NET-bibliotheek.
+In dit artikel wordt toegelicht met behulp van Azure AD om te verifiëren van toepassingen die gebruikmaken van de Batch Management .NET-bibliotheek. Laten we zien hoe u Azure AD gebruiken voor het verifiëren van een abonnementsbeheerder of CO-beheerder, via geïntegreerde verificatie. We gebruiken de [AccountManagement] [ acct_mgmt_sample] voorbeeldproject, beschikbaar op GitHub, om te zien hoe u Azure AD met de Batch Management .NET-bibliotheek.
 
 Zie voor meer informatie over het gebruik van de Batch Management .NET-bibliotheek en het voorbeeld AccountManagement [beheren van Batch-accounts en -quota met de Batch Management-clientbibliotheek voor .NET](batch-management-dotnet.md).
 

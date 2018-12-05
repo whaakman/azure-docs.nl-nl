@@ -3,7 +3,7 @@ title: Azure SQL Database-back-ups voor maximaal 10 jaar Store | Microsoft Docs
 description: Informatie over hoe opslag volledige databaseback-ups in Azure SQL Database biedt ondersteuning voor maximaal 10 jaar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7225c90d0d85b2a7fe53f9d2d3b13f68a45d0471
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026174"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868205"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database-back-ups voor maximaal 10 jaar Store
 
 Veel toepassingen hebben regelgeving, naleving, of andere zakelijke doeleinden waarvoor u databaseback-ups langer dan de 7-35 dagen geleverd door Azure SQL Database behouden [automatische back-ups](sql-database-automated-backups.md). Met behulp van de functie voor lange bewaarperiode (LTR), kunt u opslaan opgegeven SQL-database volledige back-ups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob-opslag voor maximaal 10 jaar. Vervolgens kunt u een back-up herstellen als een nieuwe database.
 
 > [!NOTE]
-> LTR kan worden ingeschakeld op de databases die worden gehost in Azure SQL Database-logische Servers. Het is nog niet beschikbaar voor databases die worden gehost in beheerde instanties.
+> LTR kan worden ingeschakeld op de databases die worden gehost in Azure SQL Database-logische Servers. Het is nog niet beschikbaar voor databases die worden gehost in beheerde instanties. U kunt SQL Agent-taken gebruiken om te plannen [kopie-alleen back-ups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) als alternatief voor LTR langer dan 35 dagen.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>De werking van de SQL-Database met een langetermijnbewaarperiode

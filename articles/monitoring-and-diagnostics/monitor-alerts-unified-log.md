@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: c4279002f599b26ac0333e442bbca7afaebefebe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b8d482342d0f8af9f6aebc4aa2b84731532a9c8a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837605"
+ms.locfileid: "52875226"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Waarschuwingen in Azure Monitor
 Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de [Azure-waarschuwingen](monitoring-overview-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
@@ -29,7 +29,7 @@ Waarschuwing bestaat uit regels voor zoeken in logboeken die zijn gemaakt voor [
 Er worden door Azure Alerts regels gemaakt voor het zoeken in logboeken om met regelmatige intervallen automatisch opgegeven logboekzoekopdrachten uit te voeren.  Als de resultaten van de logboekzoekopdracht aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt. De regel kan vervolgens automatisch een of meer acties uitvoeren met behulp van [actiegroepen](monitoring-action-groups.md). 
 
 Log search regels zijn gedefinieerd door de volgende gegevens:
-- **Meld u Query**.  De query die wordt uitgevoerd telkens als de waarschuwingsregel wordt geactiveerd.  De records die zijn geretourneerd door deze query worden gebruikt om te bepalen of een waarschuwing wordt gemaakt. Analytics-query kan ook bevatten [verschillende toepassingen aanroepen](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [cross-aanroepen van de werkruimte, en [cross-bronaanroepen](../log-analytics/log-analytics-cross-workspace-search.md) mits de gebruiker toegangsrechten voor de externe toepassingen heeft. 
+- **Meld u Query**.  De query die wordt uitgevoerd telkens als de waarschuwingsregel wordt geactiveerd.  De records die zijn geretourneerd door deze query worden gebruikt om te bepalen of een waarschuwing wordt gemaakt. Analytics-query kan ook bevatten [verschillende toepassingen aanroepen](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [cross-aanroepen van de werkruimte, en [cross-bronaanroepen](../azure-monitor/log-query/cross-workspace-query.md) mits de gebruiker toegangsrechten voor de externe toepassingen heeft. 
 
     > [!IMPORTANT]
     > Gebruiker moet beschikken over [Azure Monitoring Inzender](monitoring-roles-permissions-security.md) rollen voor het maken, wijzigen en het bijwerken van waarschuwingen voor activiteitenlogboeken in Azure Monitor; samen met de toegang en uitvoering van de rechten voor de analytics-doelen in waarschuwingsregel of Waarschuwingsquery query. Als het maken van de gebruiker heeft geen toegang tot alle analytics doelen in waarschuwingsregel of Waarschuwingsquery - maken van de regel kan mislukken of de waarschuwingsregel wordt uitgevoerd met gedeeltelijke resultaten.

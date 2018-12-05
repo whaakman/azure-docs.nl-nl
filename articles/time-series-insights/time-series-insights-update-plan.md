@@ -1,6 +1,6 @@
 ---
-title: Plannen van uw omgeving Azure Time Series Insights (preview) | Microsoft Docs
-description: Uw omgeving Azure Time Series Insights (preview) plannen
+title: Plannen van uw omgeving Azure Time Series Insights (Preview) | Microsoft Docs
+description: Uw omgeving Azure Time Series Insights (Preview) plannen
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,33 +8,38 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.openlocfilehash: 438d71997d2c92e377cd068615d274af6b8b5edb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/03/2018
+ms.openlocfilehash: c385d10aac01c844f1d4b390c0bb3d064b9befa3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856108"
+ms.locfileid: "52878700"
 ---
-# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Uw omgeving Azure Time Series Insights (preview) plannen
+# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Uw omgeving Azure Time Series Insights (Preview) plannen
 
-Dit artikel wordt beschreven aanbevolen procedures voor het plannen en gaan snel met behulp van de Azure Time Series Insights (preview).
+Dit artikel wordt beschreven aanbevolen procedures voor het plannen en gaan snel met behulp van de Azure Time Series Insights (Preview).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Aanbevolen procedures voor het plannen en voorbereiden
 
-Het is raadzaam te beschikken over de volgende items gereed is voordat u aan de slag:
+Om te beginnen met Time Series Insights (TSI), is het beste als u het volgende weten:
 
-* U hebt geïdentificeerd uw **Time Series-id's**
-* U hebt uw **Timestamp** eigenschap gereed
-* U hebt gebouwd uw **Time Series-Model**
-* U begrijpt hoe voor het verzenden van gebeurtenissen die efficiënt gedenormaliseerde in JSON zijn
+* Wat u ontvangt wanneer u een omgeving met TSI (Preview) inricht.
+* Wat uw **-id's van Time Series** en **Timestamp** eigenschappen zijn.
+* Wat de nieuwe **Tijdreeksmodel** is en over het bouwen van uw eigen.
+* Klik hier voor meer informatie over het verzenden van gebeurtenissen efficiënt in JSON.  
+* TSI business opties voor noodherstel.
 
-Deze items gereed helpt om te plannen en voorbereiden vereenvoudigen hebben. Bovendien is het verstandig plan vooruit en bepalen uw business-noodherstel (BCDR) moet voordat u uw exemplaar maakt (en niet daarna). In dat geval tevoren helpt om te controleren of dat uw exemplaar bewaartemperatuur wordt voorbereid.
+De Time Series Insights-update implementeert een model voor betalen per gebruik business.  Zie voor meer informatie over de kosten in rekening gebracht en capaciteit [Time Series Insights prijzen](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-> [!TIP]
-> Uw omgeving aan uw BCDR-behoeften voor en niet na het maken van uw instantie configureren.
+## <a name="the-time-series-insights-preview-environment"></a>De omgeving Time Series Insights (Preview)
 
-De Azure TSI (preview) maakt gebruik van een model voor betalen per gebruik business. Zie voor meer informatie over de kosten in rekening gebracht en capaciteit [Time Series Insights prijzen](https://azure.microsoft.com/pricing/details/time-series-insights).
+Als u een omgeving met TSI (Preview) inricht, kunt u twee Azure-resources maken:
+
+* TSI (Preview)-omgeving
+* Azure storage-account voor algemeen gebruik V1
+
+Aan de slag wilt, moet u drie extra items.  De eerste is een [Tijdreeksmodel](./time-series-insights-update-tsm.md), de tweede is een [bron van gebeurtenis die is verbonden met Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md), en de derde is [gebeurtenissen die worden doorgestuurd naar de gebeurtenisbron](./time-series-insights-send-events.md) die geen van beide toegewezen aan het model en geldige JSON-indeling hebben.  
 
 ## <a name="configure-your-time-series-ids-and-timestamp-properties"></a>De eigenschappen van de Time Series-id en tijdstempel configureren
 
@@ -43,9 +48,9 @@ Voor het maken van een nieuwe TSI-omgeving, selecteer een **Time Series-ID**. Hi
 > [!IMPORTANT]
 > **Time Series-id's** zijn **onveranderbare** en **kan later worden gewijzigd**. Controleer voordat u de selectie van de laatste en eerste gebruik.
 
-U kunt maximaal selecteren **drie** (3) sleutels aan een unieke onderscheid maken tussen uw resources. Lees de [aanbevolen procedures voor het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md) artikel voor meer informatie.
+U kunt maximaal selecteren **drie** (3) sleutels aan een unieke onderscheid maken tussen uw resources. Lees de [aanbevolen procedures voor het kiezen van een Time Series-ID](./time-series-insights-update-how-to-id.md) en [opslag- en uitgangsclaims](./time-series-insights-update-storage-ingress.md) artikelen voor meer informatie.
 
-De bron van elke gebeurtenis is een optionele **Timestamp** eigenschap die wordt gebruikt voor het bijhouden gebeurtenisbronnen na verloop van tijd. **Tijdstempel** waarden zijn hoofdlettergevoelig en moet worden geformatteerd met de afzonderlijke specificatie van de bron van elke gebeurtenis.
+De **Timestamp** eigenschap is ook heel belangrijk. U kunt deze eigenschap opgeven bij het toevoegen van bronnen van gebeurtenissen. De bron van elke gebeurtenis is een optionele **Timestamp** eigenschap die wordt gebruikt voor het bijhouden gebeurtenisbronnen na verloop van tijd. **Tijdstempel** waarden zijn hoofdlettergevoelig en moet worden geformatteerd met de afzonderlijke specificatie van de bron van elke gebeurtenis.
 
 > [!TIP]
 > Controleer of de vereisten voor de bronnen van gebeurtenissen opmaak en parseren.
@@ -56,9 +61,9 @@ Wanneer dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaats
 
 U kunt nu uw TSI-omgeving configureren **Tijdreeksmodel**. Het nieuwe model maakt het gemakkelijk te vinden en IoT-gegevens te analyseren. Het door het inschakelen van de curatie, onderhoud en verrijking van time series-gegevens en helpt bij het voorbereiden van het gegevenssets gereed is voor consumenten. Het model gebruikt **-id's van Time Series**, die worden toegewezen aan een exemplaar van de unieke resource koppelen aan variabelen (ook wel typen) en hiërarchieën. Meer informatie over de nieuwe [Tijdreeksmodel](./time-series-insights-update-tsm.md).
 
-Het model is dynamisch, zodat deze op elk gewenst moment kunt gebouwd. Echter, u zult kunnen snel aan de slag meer als deze is gemaakt en geüpload voordat u begint met het pushen van gegevens naar TSI. Voor het bouwen van uw model, Controleer de [Tijdreeksmodel](./time-series-insights-update-tsm.md) artikel.
+Het model is dynamisch, zodat deze op elk gewenst moment kunt gebouwd. Echter, u zult kunnen snel aan de slag meer als deze is gemaakt en geüpload voordat u begint met het pushen van gegevens naar TSI. Voor het bouwen van uw model, Controleer de [over het gebruik van TSM](./time-series-insights-update-how-to-tsm.md) artikel.
 
-Voor veel klanten we verwachten dat de **Tijdreeksmodel** om toe te wijzen aan een bestaande asset model of ERP-systeem al op locatie. Voor klanten die nog geen een bestaand model, een vooraf gemaakte gebruikerservaring is [opgegeven](https://github.com/Microsoft/tsiclient) snel actief en werkend.
+Voor veel klanten we verwachten dat de **Tijdreeksmodel** om toe te wijzen aan een bestaande asset model of ERP-systeem al op locatie. Voor klanten die nog geen een bestaand model, een vooraf gemaakte gebruikerservaring is [opgegeven](https://github.com/Microsoft/tsiclient) snel actief en werkend. U kunt combineren hoe een model kan u helpen hand onze [voorbeeld demo-omgeving](https://insights.timeseries.azure.com/preview/demo).  
 
 ## <a name="shaping-your-events"></a>Uw gebeurtenissen vormgeven
 
@@ -71,7 +76,7 @@ Een goede vuistregel:
   * **Time Series-ID**
   * **Timestamp**
 
-Controleer de [hoe vorm gebeurtenissen](./time-series-insights-update-how-to-shape-events.md) artikel voor meer details.
+Controleer de [hoe vorm gebeurtenissen](./time-series-insights-send-events.md#json) artikel voor meer details.
 
 ## <a name="business-disaster-recovery"></a>Noodherstel voor bedrijven
 
@@ -93,7 +98,7 @@ De specifieke stappen om dit te bereiken zijn als volgt:
 
 1. Maak een omgeving in een tweede regio. Meer informatie over [TSI omgevingen](./time-series-insights-get-started.md).
 1. Maken van een tweede speciale klantengroep voor uw gebeurtenisbron en de bron van die gebeurtenis verbinden met de nieuwe omgeving. Zorg ervoor dat de tweede, toegewezen consumergroep aanwijzen. Meer informatie uit de [IoT Hub-documentatie](./time-series-insights-how-to-add-an-event-source-iothub.md) of de [Event Hub-documentatie](./time-series-insights-data-access.md).
-1. Als uw primaire regio bij een incident na noodgevallen betrokken zijn, omleiden bewerkingen aan de back-up TSI-omgeving.
+1. Als uw primaire regio wordt beïnvloed tijdens een incident na noodgevallen, omleiden bewerkingen aan de back-up TSI-omgeving.
 
 > [!IMPORTANT]
 > * Houd er rekening mee dat een vertraging in het geval van een failover kan worden ervaren.
@@ -102,6 +107,6 @@ De specifieke stappen om dit te bereiken zijn als volgt:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees de [Azure TSI (preview) Storage en binnenkomende](./time-series-insights-update-storage-ingress.md).
+Lees de [opslag van Azure TSI (Preview) en ingress](./time-series-insights-update-storage-ingress.md).
 
-Meer informatie over de nieuwe [Tijdreeksmodel](./time-series-insights-update-tsm.md).
+Meer informatie over [gegevensmodellering](./time-series-insights-update-tsm.md).

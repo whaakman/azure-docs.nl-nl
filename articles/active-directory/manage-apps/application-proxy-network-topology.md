@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 28837436ee4336dd7fa2b3e66402257d1e1263b9
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367086"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889783"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Netwerk-topologie overwegingen bij het gebruik van Azure Active Directory-toepassingsproxy
 
@@ -40,7 +40,7 @@ Wanneer een toepassing wordt gepubliceerd via Azure AD-toepassingsproxy, wordt v
 
 Wanneer u zich aanmeldt voor een Azure AD-tenant, worden de regio van uw tenant wordt bepaald door het land dat u opgeeft. Wanneer u toepassingsproxy hebt ingeschakeld, worden de exemplaren van de toepassingsproxy voor uw tenant gekozen of gemaakt in dezelfde regio als uw Azure AD-tenant, of de dichtstbijzijnde regio.
 
-Bijvoorbeeld, als de regio van uw Azure AD-tenant is de Europese Unie (EU), gebruiken alle uw Application Proxy connectors service-exemplaren in Azure-datacenters in de EU. Wanneer uw gebruikers toegang tot toepassingen gepubliceerde, hun verkeer wordt gerouteerd via de Application Proxy-service-exemplaren in deze locatie.
+Bijvoorbeeld, als het land of regio van uw Azure AD-tenant het Verenigd Koninkrijk is, gebruiken alle uw Application Proxy connectors service-exemplaren in EU-datacenters. Wanneer uw gebruikers toegang tot toepassingen gepubliceerde, hun verkeer wordt gerouteerd via de Application Proxy-service-exemplaren in deze locatie.
 
 ## <a name="considerations-for-reducing-latency"></a>Overwegingen voor de latentie wordt verminderd
 

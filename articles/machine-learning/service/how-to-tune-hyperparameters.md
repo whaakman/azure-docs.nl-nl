@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 12/04/2018
+ms.openlocfilehash: b722af6fd5dd29a5b7cef8581d27d421825fb323
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140803"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868154"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Afstemmen van hyperparameters voor uw model
 
@@ -36,8 +36,6 @@ In uitgebreide machineleren / machine learning-scenario's modelprestaties is afh
 
 Azure Machine Learning kunt u hyperparameter verkennen automatiseren op een efficiënte manier, waardoor u veel tijd en resources. U het bereik van waarden hyperparameter opgeven en een maximum aantal training wordt uitgevoerd. Het systeem vervolgens automatisch meerdere gelijktijdige uitvoeringen met verschillende configuraties worden gestart en de configuratie die in de beste prestaties resulteert, gemeten door de metrische gegevens die u zoekt. Trainingsuitvoeringen van slecht presterende zijn automatisch vroege beëindigd, verspilling van compute-resources beperken. Deze resources worden in plaats daarvan gebruikt om andere configuraties hyperparameter verkennen.
 
->[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK versie 0.168 
 
 ## <a name="define-search-space"></a>Search ruimte definiëren
 
@@ -311,7 +309,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 De SDK van Azure Machine Learning biedt een laptop-widget die de voortgang van uw training visualiseert wordt uitgevoerd. Het volgende codefragment worden gevisualiseerd met alle uw hyperparameter wordt uitgevoerd op één locatie in een Jupyter-notebook afstemmen:
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -348,10 +346,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Voorbeeld-notebook
-Raadpleeg 
-* [training/03.Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) voor een zelfstudie over het afstemmen van hyperparameters voor een Tensorflow-model. 
-
-Dit notitieblok ophalen:
+Raadpleeg deze laptops:
+* [How-to-use-azureml/training-with-deep-Learning/Train-hyperparameter-Tune-Deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [How-to-use-azureml/training-with-deep-Learning/Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 249e286b16b78643c33b567f705a4c92991f5553
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404865"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889190"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Een Kubernetes-cluster bewaken met Log Analytics
 
@@ -143,7 +143,7 @@ Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat de geg
 
 ## <a name="access-monitoring-data"></a>Toegang tot bewakingsgegevens
 
-Bekijk en analyseer met de [Container-oplossing](../../log-analytics/log-analytics-containers.md) de bewakingsgegevens van de container. U kunt dit doen in de Log Analytics-portal of de Azure-portal.
+Bekijk en analyseer met de [Container-oplossing](../../azure-monitor/insights/containers.md) de bewakingsgegevens van de container. U kunt dit doen in de Log Analytics-portal of de Azure-portal.
 
 Als u de Container-oplossing wilt installeren via de [Log Analytics-portal](https://mms.microsoft.com), gaat u naar **Oplossingengalerie**. Voeg vervolgens **Container-oplossing** toe. U kunt de Containers-oplossing ook toevoegen vanaf [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
@@ -153,7 +153,7 @@ Zoek in de Log Analytics-portal naar de overzichtstegel **Containers** in het da
 
 Op dezelfde wijze gaat u in Azure Portal naar **Log Analytics** en selecteert u de naam van uw werkruimte. Klik voor de overzichtstegel **Containers** op **Oplossingen** > **Containers**. Klik voor details op de tegel.
 
-Zie de [Azure Log Analytics-documentatie](../../log-analytics/log-analytics-queries.md) voor gedetailleerde hulp bij het uitvoeren van query's en het analyseren van bewakingsgegevens.
+Zie de [Azure Log Analytics-documentatie](../../azure-monitor/log-query/log-query-overview.md) voor gedetailleerde hulp bij het uitvoeren van query's en het analyseren van bewakingsgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 

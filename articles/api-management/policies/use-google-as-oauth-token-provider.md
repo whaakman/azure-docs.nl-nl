@@ -1,6 +1,6 @@
 ---
-title: 'Azure API management-beleid steekproef: machtig toegang met behulp van Google-OAuth-token | Microsoft Docs'
-description: Azure API management-beleid-voorbeeld - demonstreert hoe u toegang verlenen aan uw eindpunten voor Google als een provider van OAuth-token.
+title: 'Azure API management-beleid voorbeeld: toestaan toegang met behulp van Google OAuth-token | Microsoft Docs'
+description: Azure API management-beleid-voorbeeld - ziet u hoe u toegang verlenen aan uw eindpunten met behulp van Google als een provider van OAuth-token.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 22aed976ef69288aa0e49215a739174786843527
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 430f9e57df163ad345f0740e5bd5beca6e892a4c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284583"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869295"
 ---
-# <a name="authorize-access-using-google-oauth-token"></a>Toestaan van toegang met behulp van Google-OAuth-token
+# <a name="authorize-access-using-google-oauth-token"></a>Toestaan van toegang met behulp van Google OAuth-token
 
-Dit artikel ziet een Azure API management-beleid-voorbeeldtoepassing die u laat zien hoe u toegang verlenen aan uw eindpunten voor Google als een provider van OAuth-token. Volg de stappen in wilt instellen of bewerken van een beleid code, [instellen of bewerken van een beleid](../set-edit-policies.md). Zie voor andere voorbeelden [beleid voorbeelden](../policy-samples.md).
+In dit artikel wordt een Azure API management-beleid voorbeeld die laat zien hoe u toegang verlenen aan uw eindpunten met behulp van Google als een provider van OAuth-token. Als u wilt instellen of bewerken van een beleid voor code, volg de stappen [instellen of bewerken van een beleid](../set-edit-policies.md). Zie voor meer voorbeelden [beleid voorbeelden](../policy-samples.md).
 
 ## <a name="policy"></a>Beleid
 
-Plak de code in de **inkomende** blok.
+Plak de code in de **inkomende** blokkeren.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Simple Google OAuth validate-jwt.policy.xml)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over APIM beleid:
+Meer informatie over de APIM-beleid:
 
 + [Transformatiebeleid](../api-management-transformation-policies.md)
 + [Voorbeelden van beleid](../policy-samples.md)

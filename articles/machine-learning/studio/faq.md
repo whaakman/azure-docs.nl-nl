@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d4e6a47b35d3cb98e4425c11628625818642fa0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309137"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867848"
 ---
 # <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning Studio: facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
@@ -32,7 +32,7 @@ Azure Machine Learning heeft ook een forum op MSDN waar leden van de Data Scienc
 ## <a name="general-questions"></a>Algemene vragen
 **Wat is Machine Learning Studio?**
 
-Machine Learning Studio is een workbenchomgeving waartoe u via een webbrowser toegang hebt. Machine Learning Studio biedt een palet modules in een visuele compositie-interface waarmee u een end-to-end, wetenschappelijke werkstroom voor gegevens in de vorm van een experiment kunt maken.
+Machine Learning Studio is een slepen-en-neerzettencanvas omgeving waartoe u toegang hebt via een webbrowser. Machine Learning Studio biedt een palet modules in een visuele compositie-interface waarmee u een end-to-end, wetenschappelijke werkstroom voor gegevens in de vorm van een experiment kunt maken.
 
 Zie [Wat is Machine Learning Studio?](what-is-ml-studio.md) voor meer informatie over Machine Learning Studio.
 

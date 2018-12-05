@@ -1,22 +1,20 @@
 ---
-title: SQL-query metrische gegevens voor Azure Cosmos DB SQL API | Microsoft Docs
+title: SQL-query metrische gegevens voor Azure Cosmos DB SQL API
 description: Meer informatie over het instrumenteren en fouten opsporen in de prestaties van de SQL-query's van Azure Cosmos DB-aanvragen.
 keywords: SQL-syntaxis, sql-query, sql-query's, querytaal voor json, database-concepten en sql-query's, statistische functies
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 02f5cf7159847d6f67ee3d8e92805f785a58e959
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425136"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866253"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Afstemming van prestaties van query's met Azure Cosmos DB
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616381"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876146"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -44,6 +44,9 @@ Hieronder volgt een voorbeeld van een implementatie gemaakt in **myblockchain** 
 
 De kosten van Blockchain Workbench is een optelling van de kosten van de onderliggende Azure-services. Informatie over de prijzen voor Azure-services kunnen worden berekend met behulp van de [prijscalculator](https://azure.microsoft.com/pricing/calculator/).
 
+> [!IMPORTANT]
+> Als u van een abonnement met lage Servicelimieten, zoals een gratis laag van Azure-abonnement gebruikmaakt, wordt de implementatie mislukken vanwege onvoldoende quotum van VM-kernen. Voorafgaand aan de implementatie, Controleer uw quotum aanvragen met behulp van de richtlijnen van de [virtuele machine vCPU-quota](../../virtual-machines/windows/quotas.md) artikel. De standaardselectie voor de virtuele machine moet 6 VM-kernen. Wijzigen in een kleinere virtuele machine zoals *Standard DS1 versie 2* vermindert het aantal kernen tot en met 4.
+
 ## <a name="prerequisites"></a>Vereisten
 
 Azure Blockchain Workbench vereist Azure AD-configuratie en toepassing registraties. U kunt de Azure AD [configuraties handmatig](#azure-ad-configuration) vóór implementatie of een script uitvoeren na de implementatie. Als u opnieuw wilt Blockchain Workbench implementeren, Zie [Azure AD-configuratie](#azure-ad-configuration) om te controleren of de configuratie van uw Azure AD.
@@ -59,7 +62,7 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer uw account in de rechterbovenhoek hoek en schakel over naar de gewenste Azure AD-tenant waar u wilt implementeren, Azure Blockchain Workbench.
-3. Selecteer in het linkerdeelvenster **een resource maken**. Zoek naar `Azure Blockchain Workbench` in de **Marketplace doorzoeken** zoekbalk. 
+3. Selecteer **Een resource maken** in het linkerdeelvenster. Zoek naar `Azure Blockchain Workbench` in de **Marketplace doorzoeken** zoekbalk. 
 
     ![Zoekbalk Marketplace](media/deploy/marketplace-search-bar.png)
 
@@ -99,7 +102,7 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
     |---------|--------------|
     | Bewaking | Kies of u Azure Monitor wilt inschakelen om uw blockchain-netwerk te controleren |
     | Azure Active Directory-instellingen | Kies **Later toevoegen**.</br>Opmerking: Als u ervoor kiest [vooraf configureren van Azure AD](#azure-ad-configuration) of opnieuw wilt implementeren, wilt *nu toevoegen*. |
-    | Selectie van de virtuele machine | Kies de gewenste VM-grootte voor uw blockchain-netwerk. |
+    | Selectie van de virtuele machine | Kies de gewenste VM-grootte voor uw blockchain-netwerk. Kies een kleinere virtuele machine zoals *Standard DS1 versie 2* als u van een abonnement met lage Servicelimieten, zoals de gratis laag van Azure gebruikmaakt. |
 
     Voor **gebruik bestaande**:
 

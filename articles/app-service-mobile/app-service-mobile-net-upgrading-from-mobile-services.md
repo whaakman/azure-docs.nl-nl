@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 2d346739cd2e80546aee921317e278c1cff32b34
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918255"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873135"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uw bestaande .NET Azure Mobile Service upgraden naar App Service
 App Service Mobile is een nieuwe manier voor het bouwen van mobiele toepassingen met Microsoft Azure. Zie voor meer informatie, [Wat zijn mobiele apps?].
@@ -68,7 +68,7 @@ De eerste stap bij het bijwerken is het maken van de mobiele App-resource die al
 
 Maak vervolgens de tweede toepassingsinstantie door de [.NET-back-end maken instructies](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Wanneer u wordt gevraagd om te selecteren dat u kiezen App Service-Plan of 'hostingabonnement' van het abonnement van uw gemigreerde toepassing.
 
-U zult waarschijnlijk de dezelfde database en de Notification Hub gebruiken net als bij Mobile Services. U kunt deze waarden kopiëren door het openen van [Azure Portal] en te navigeren naar de oorspronkelijke toepassing, klikt u vervolgens op **instellingen** > **toepassingsinstellingen**. Onder **verbindingsreeksen**, kopie `MS_NotificationHubConnectionString` en `MS_TableConnectionString`. Navigeer naar uw nieuwe upgraden van site en plak deze in bestaande waarden overschreven. Herhaal dit proces voor alle andere toepassingsinstellingen behoeften voor uw app. Als een gemigreerde service niet gebruikt, kunt u lezen en verbindingsreeksen en appinstellingen van de **configureren** tabblad van de Mobile Services-sectie van de [Klassieke Azure Portal].
+U zult waarschijnlijk de dezelfde database en de Notification Hub gebruiken net als bij Mobile Services. U kunt deze waarden kopiëren door het openen van [Azure Portal] en te navigeren naar de oorspronkelijke toepassing, klikt u vervolgens op **instellingen** > **toepassingsinstellingen**. Onder **verbindingsreeksen**, kopie `MS_NotificationHubConnectionString` en `MS_TableConnectionString`. Navigeer naar uw nieuwe upgraden van site en plak deze in bestaande waarden overschreven. Herhaal dit proces voor alle andere toepassingsinstellingen behoeften voor uw app. Als een gemigreerde service niet gebruikt, kunt u lezen en verbindingsreeksen en appinstellingen van de **configureren** tabblad van de Mobile Services-sectie van de [klassieke Azure-portal].
 
 Maak een kopie van de ASP.NET-project voor uw toepassing en deze publiceren naar de nieuwe site. Met behulp van een kopie van uw clienttoepassing bijgewerkt met de nieuwe URL, valideren dat alles werkt zoals verwacht.
 
@@ -84,18 +84,23 @@ Er is een groot aantal compilatiefouten die voortvloeien uit de verschillen tuss
 ### <a name="base-configuration"></a>Basisconfiguratie
 Klik in WebApiConfig.cs, u het volgende vervangen kunt:
 
-        // Use this class to set configuration options for your mobile service
-        ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
-        // Use this class to set WebAPI configuration options
-        HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+// Use this class to set WebAPI configuration options
+HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+```
 
 met
 
-        HttpConfiguration config = new HttpConfiguration();
-        new MobileAppConfiguration()
-            .UseDefaultConfiguration()
-        .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
+```
 
 > [!NOTE]
 > Als u meer informatie over de nieuwe server .NET-SDK en hoe u functies van uw app toevoegen wilt/verwijderen, raadpleegt u de [Het gebruik van de server .NET-SDK] onderwerp.
@@ -110,8 +115,10 @@ Als uw app maakt gebruik van de verificatiefuncties voor, moet u ook een OWIN-mi
 
 Zorg ervoor dat de `Configuration()` methode eindigt op:
 
-        app.UseWebApi(config)
-        app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
+```
 
 Er zijn aanvullende wijzigingen met betrekking tot verificatie die in de volledige verificatie hieronder worden besproken.
 
@@ -120,7 +127,9 @@ In Mobile Services, wordt de naam van de mobiele app behandeld als de naam van h
 
 Om ervoor te zorgen dat u hetzelfde schema wordt verwezen als voorheen, gebruik het volgende om in te stellen van het schema in de DbContext voor uw toepassing:
 
-        string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```
 
 Zorg ervoor dat u hebt ingesteld als u de bovenstaande MS_MobileServiceName. Als uw toepassing eerder dit aangepast, kunt u de naam van een ander schema opgeven.
 
@@ -154,8 +163,8 @@ Op iOS-, moet u het schema van de belangrijkste gegevens voor uw gegevensentitei
 | Kenmerk | Type | Opmerking |
 | --- | --- | --- |
 | id |Tekenreeks, gemarkeerd als vereist |primaire sleutel in de externe opslag |
-| createdAt |Datum |(optioneel) is toegewezen aan createdAt systeemeigenschap |
-| updatedAt |Datum |(optioneel) is toegewezen aan updatedAt systeemeigenschap |
+| createdAt |Date |(optioneel) is toegewezen aan createdAt systeemeigenschap |
+| updatedAt |Date |(optioneel) is toegewezen aan updatedAt systeemeigenschap |
 | versie |Reeks |(optioneel) gebruikt voor het detecteren van conflicten, toegewezen aan versie |
 
 #### <a name="querying-system-properties"></a>Eigenschappen van het uitvoeren van query 's
@@ -167,28 +176,30 @@ De eenvoudigste manier om het probleem te verhelpen is aan de Leeskant wijzigen 
 
 Bijvoorbeeld, het volgende wordt gedefinieerd `TodoItem` zonder system-eigenschappen:
 
-    using System.ComponentModel.DataAnnotations.Schema;
+```csharp
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TodoItem : ITableData
-    {
-        public string Text { get; set; }
+public class TodoItem : ITableData
+{
+    public string Text { get; set; }
 
-        public bool Complete { get; set; }
+    public bool Complete { get; set; }
 
-        public string Id { get; set; }
+    public string Id { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? CreatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? CreatedAt { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? UpdatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? UpdatedAt { get; set; }
 
-        [NotMapped]
-        public bool Deleted { get; set; }
+    [NotMapped]
+    public bool Deleted { get; set; }
 
-        [NotMapped]
-        public byte[] Version { get; set; }
-    }
+    [NotMapped]
+    public byte[] Version { get; set; }
+}
+```
 
 Opmerking: als er fouten optreden op `NotMapped`, Voeg een verwijzing naar de assembly `System.ComponentModel.DataAnnotations`.
 
@@ -208,12 +219,16 @@ Alle ApiControllers die worden gebruikt door een mobiele client moet nu de `[Mob
 
 De `ApiServices` object is niet langer deel uit van de SDK. Voor toegang tot de instellingen voor mobiele App, kunt u het volgende gebruiken:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```csharp
+MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```
 
 Logboekregistratie wordt op dezelfde manier nu bereikt met behulp van de standaard ASP.NET-tracering schrijven:
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+```csharp
+ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
+traceWriter.Info("Hello, World");  
+```
 
 ## <a name="authentication"></a>Overwegingen voor verificatie
 De verificatieonderdelen van Mobile Services zijn nu in de functie App Service-verificatie/autorisatie verplaatst. U kunt meer informatie over dit inschakelen voor uw site door te lezen de [verificatie toevoegen aan uw mobiele app](app-service-mobile-ios-get-started-users.md) onderwerp.
@@ -227,11 +242,15 @@ Als u een van de andere AuthorizeLevel opties, zoals Admin of toepassing, houd e
 ### <a name="getting-additional-user-information"></a>Het ophalen van aanvullende gegevens
 U krijgt aanvullende informatie, met inbegrip van tokens voor toegang tot en met de `GetAppServiceIdentityAsync()` methode:
 
-        FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```csharp
+FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```
 
 Bovendien, als uw toepassing afhankelijkheden op gebruikers-id's, heeft zoals opslaat in een database, is het belangrijk te weten dat de gebruikers-id's tussen Mobile Services en App Service Mobile Apps verschillend zijn. U kunt echter nog steeds de Mobile Services gebruikers-ID ophalen. Alle van de subklassen ProviderCredentials hebben een gebruikers-id-eigenschap. Dus voortgezet uit het voorbeeld voor:
 
-        string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```
 
 Als uw app eventuele afhankelijkheden op gebruikers-id's neemt, is het belangrijk dat u gebruikmaken van dezelfde registratie met een id-provider indien mogelijk. Gebruikers-id's zijn doorgaans gericht op de registratie van de toepassing die is gebruikt, dus maak kennis met de registratie van een nieuwe problemen met overeenkomende gebruikers tot hun gegevens kan maken.
 
@@ -243,9 +262,11 @@ Zodra u een operationele backend voor mobiele apps hebt, kunt u werken op een ni
 
 Een van de belangrijkste wijzigingen tussen de versies is dat de constructors niet langer vereist voor de sleutel van een toepassing. U nu doorgeven gewoon in de URL van uw mobiele App. Bijvoorbeeld: op de .NET-clients de `MobileServiceClient` constructor is nu:
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
-        );
+```csharp
+public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://contoso.azurewebsites.net", // URL of the Mobile App
+);
+```
 
 U kunt lezen over het installeren van de nieuwe SDK's en met behulp van de nieuwe structuur via de onderstaande koppelingen:
 
@@ -259,17 +280,12 @@ Wanneer u de nieuwe clientversie gereed, probeer het op basis van uw project bij
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com/
-[Klassieke Azure Portal]: https://manage.windowsazure.com/
+[klassieke Azure-portal]: https://manage.windowsazure.com/
 [Wat zijn mobiele apps?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobiele App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [Het gebruik van de server .NET-SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [prijzen van App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Overzicht van de .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

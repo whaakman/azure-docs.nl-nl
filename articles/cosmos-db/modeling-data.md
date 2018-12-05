@@ -1,21 +1,19 @@
 ---
-title: Modellering van documentgegevens van het voor een NoSQL-database | Microsoft Docs
+title: Documentgegevens modelleren voor een NoSQL-database
 description: Meer informatie over het modelleren van gegevens voor NoSQL-databases
 keywords: gegevens modelleren
 services: cosmos-db
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2016
 ms.author: andrl
-ms.openlocfilehash: c577c9734490e3aacc148153f550162371ae482e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 37b5f116652f30c0f708d91f6e251bab143e9df0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057503"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870806"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modellering van documentgegevens van het voor NoSQL-databases
 Terwijl databases zonder schema, zoals Azure Cosmos DB, u kunnen heel eenvoudig om te spelen op wijzigingen in uw gegevensmodel moet nog steeds besteedt u bepaalde tijd na te denken over uw gegevens. 

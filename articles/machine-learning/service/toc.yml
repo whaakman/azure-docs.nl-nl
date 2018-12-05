@@ -1,5 +1,5 @@
 items:
-- name: Documentatie voor Azure Machine Learning (preview)
+- name: Documentatie voor Machine Learning
   href: index.yml
 - name: Overzicht
   items:
@@ -16,7 +16,7 @@ items:
     displayName: what's new
     href: azure-machine-learning-release-notes.md
   expanded: true
-- name: Quickstarts
+- name: Snelstartgidsen
   items:
   - name: Aan de slag - portal
     href: quickstart-get-started.md
@@ -25,18 +25,22 @@ items:
     href: quickstart-create-workspace-with-python.md
 - name: Zelfstudies
   items:
-  - name: Modellen trainen, deel 1
-    href: tutorial-train-models-with-aml.md
-  - name: Modellen implementeren, deel 2
-    href: tutorial-deploy-models-with-aml.md
-  - name: Geautomatiseerde machine learning-modellen trainen
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Afbeeldingsclassificatie (MNIST-gegevens)
+    items:
+    - name: 1. Een model trainen
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Een model implementeren
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regressie (gegevens over taxi's NYC)
+    items:
+    - name: 1. Gegevens voorbereiden voor modellering
+      href: tutorial-data-prep.md
+    - name: 2. Een ML-model automatisch trainen
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Voorbeelden
-  items:
-  - name: Jupyter Notebooks (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Concepten
   items:
   - name: Modelbeheer
@@ -52,11 +56,11 @@ items:
     href: how-to-manage-workspace.md
   - name: De ontwikkelomgeving instellen 
     items:
-    - name: Een omgeving configureren
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+    - name: Uw ontwikkelaarsomgeving configureren
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: VS Code-hulpprogramma's voor AI
-      displayName: Visual Studio Code, vscode
+    - name: Visual Studio Code-extensie
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Aan de slag
         href: how-to-vscode-tools.md
@@ -75,7 +79,7 @@ items:
   - name: Modellen trainen
     items:
     - name: Een trainingsomgeving instellen
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Toegang tot gegevens tijdens training
       href: how-to-access-data.md
@@ -127,12 +131,16 @@ items:
     - name: In realtime gebruiken
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
+    - name: Batch-voorspellingen uitvoeren
+      href: how-to-run-batch-predictions.md
   - name: Webservices bewaken
     items:
     - name: Modelgegevens verzamelen en evalueren
       href: how-to-enable-data-collection.md
     - name: Controleren met behulp van Application Insights
       href: how-to-enable-app-insights.md
+  - name: Uw eerste pijplijn maken
+    href: how-to-create-your-first-pipeline.md
   - name: Resourcequota beheren
     displayName: limits
     href: how-to-manage-quotas.md
@@ -172,7 +180,7 @@ items:
       href: how-to-migrate.md
     - name: Accountgegevens exporteren of verwijderen (afgeschaft)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
-    - name: Quickstart voor Workbench (afgeschaft)
+    - name: Snelstart voor Workbench (afgeschaft)
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Zelfstudie 1: Gegevens voorbereiden'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
@@ -368,9 +376,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Oudere problemen
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 308c767eb4a4bd332037093e23a1cb53a9fd1dc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 67bf0dfb2939cfd561f4558f9003c36883dcef93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845056"
+ms.locfileid: "52864822"
