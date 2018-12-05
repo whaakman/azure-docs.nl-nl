@@ -10,18 +10,17 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 8ab6107279fe546205605b24da53073f49c7a204
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f4d46b7b8ba245c4a7e3eddbe0615c47a1e99096
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014445"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870433"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Dashboards van Log Analytics-gegevens maken en delen
 
@@ -56,7 +55,7 @@ U wordt gevraagd een abonnement en resourcegroep te kiezen waarnaar uw dashboard
 
 Vanuit de portal Zoeken in logboeken van Azure Portal kunt u eenvoudige query's van één regel maken. U kunt de portal Zoeken in logboeken gebruiken zonder een externe portal te starten. Vanuit deze portal kunt u tal van functies met logboekzoekopdrachten uitvoeren. Zo kunt u waarschuwingsregels en computergroepen maken en de resultaten van de query exporteren. 
 
-De [Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md)-portal is een speciale portal die geavanceerde functionaliteit biedt die niet beschikbaar is in de portal Zoeken in logboeken. Voorbeelden van functies zijn de mogelijkheid om een query van meerdere regels te bewerken, code selectief uit te voeren, contextafhankelijke Intellisense en slimme analyse. In de portal Advanced Analytics maakt u een grafische prestatieweergave en slaat u deze op voor een toekomstige zoekopdracht. U maakt de weergave vast aan het gedeelde dashboard dat u eerder hebt gemaakt.   
+De [Log Analytics](../azure-monitor/log-query/get-started-portal.md)-portal is een speciale portal die geavanceerde functionaliteit biedt die niet beschikbaar is in de portal Zoeken in logboeken. Voorbeelden van functies zijn de mogelijkheid om een query van meerdere regels te bewerken, code selectief uit te voeren, contextafhankelijke Intellisense en slimme analyse. In de portal Advanced Analytics maakt u een grafische prestatieweergave en slaat u deze op voor een toekomstige zoekopdracht. U maakt de weergave vast aan het gedeelde dashboard dat u eerder hebt gemaakt.   
 
 U start de portal Advanced Analytics via een koppeling in de portal Zoeken in logboeken.<br> ![De portal Advanced Analytics starten](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

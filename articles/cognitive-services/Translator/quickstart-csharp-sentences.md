@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: abdd87b9a86ed2482d5b53c10260fe28821b34ce
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9d8a820b9b4c0c11d6e73728f8e62cc47eb4ab34
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333271"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680052"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Snelstart: Zinlengtes ophalen met de Translator Text REST API (C#)
 
@@ -28,7 +28,7 @@ Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.micro
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet-pakket](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
-* Een Azure-abonnementssleutel voor de Speech Service
+* Een Azure-abonnementssleutel voor Translator Text
 
 ## <a name="create-a-net-core-project"></a>Een .NET Core-project maken
 

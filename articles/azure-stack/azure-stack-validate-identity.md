@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984193"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888372"
 ---
 # <a name="validate-azure-identity"></a>Valideren van de Azure-identiteit 
 Gebruik het hulpprogramma Azure Stack gereedheid van de Registercontrole (AzsReadinessChecker) om te valideren dat uw Azure Active Directory (Azure AD) klaar is voor gebruik met Azure Stack. Uw Azure identity-oplossing te valideren voordat u begint met een Azure Stack-implementatie.  
@@ -48,7 +48,7 @@ De volgende vereisten moeten worden voldaan.
 **Azure Active Directory-omgeving:**
  - Identificeer de Azure AD-account u wilt gebruiken voor Azure Stack en zorg ervoor dat het een Azure Active Directory globale beheerder is.
  - Geef de naam van uw Azure AD-Tenant. Naam van de tenant moet de *primaire* domeinnaam voor uw Azure Active Directory. Bijvoorbeeld, *contoso.onmicrosoft.com*. 
- - Identificeren van de AzureEnvironement die u wilt gebruiken: *AzureCloud*, *AzureGermanCloud*, of *AzureChinaCloud*.
+ - Identificeer de AzureEnvironement die u wilt gebruiken. Ondersteunde waarden voor de parameter voor de omgeving zijn AzureCloud, AzureChinaCloud of AzureUSGovernment, afhankelijk van welke Azure-abonnement u gebruikt.
 
 ## <a name="validate-azure-identity"></a>Valideren van de Azure-identiteit 
 1. Open een PowerShell-prompt met beheerdersrechten op een computer die voldoet aan de vereisten, en voer de volgende opdracht voor het installeren van de AzsReadinessChecker:  
@@ -59,10 +59,10 @@ De volgende vereisten moeten worden voldaan.
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. Voer de volgende voor het starten van de validatie van uw Azure AD vanuit de PowerShell-prompt. 
-   - Geef de waarde voor Azure-omgeving als *AzureCloud*, *AzureGermanCloud*, of *AzureChinaCloud*.  
+   - Geef de waarde van de omgeving voor Azure-omgeving. Ondersteunde waarden voor de parameter voor de omgeving zijn AzureCloud, AzureChinaCloud of AzureUSGovernment, afhankelijk van welke Azure-abonnement u gebruikt.  
    - Geef uw Azure Active Directory-Tenantnaam vervangen *contoso.onmicrosoft.com*. 
 
-   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. Nadat het hulpprogramma wordt uitgevoerd, Controleer de uitvoer. Controleer of de status **OK** voor installatie-eisen. Een succesvolle validatie wordt weergegeven zoals in de volgende afbeelding: 
  
 ````PowerShell

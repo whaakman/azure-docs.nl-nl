@@ -9,18 +9,17 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 46bc932011a3699dbaced8316bc0e1b514c9a385
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f953d13de78702328aef2b75d121e775c5f58f44
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043053"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876783"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Gegevens weergeven of analyseren die zijn verzameld met Zoeken in logboeken van Log Analytics
 
@@ -32,7 +31,7 @@ In Log Analytics kunt u logboekzoekopdrachten gebruiken door query's samen te st
 
 Om het voorbeeld in deze zelfstudie uit te voeren, moet u een bestaande virtuele machine [hebben verbonden met de Log Analytics-werkruimte](log-analytics-quick-collect-azurevm.md).  
 
-Het maken en bewerken van query's kan, naast interactief werken met de geretourneerde gegevens, op twee manieren worden uitgevoerd.  Voor basisquery's gebruikt u de pagina Zoeken in logboeken in Azure Portal en voor geavanceerde query's kunt u de portal Geavanceerde analyse gebruiken. Zie voor meer informatie over het verschil in functionaliteit tussen de twee portals het onderwerp [Portals voor het maken en bewerken van logboekquery's in Azure Log Analytics](log-analytics-log-search-portals.md)
+Het maken en bewerken van query's kan, naast interactief werken met de geretourneerde gegevens, op twee manieren worden uitgevoerd.  Voor basisquery's gebruikt u de pagina Zoeken in logboeken in Azure Portal en voor geavanceerde query's kunt u de portal Geavanceerde analyse gebruiken. Zie voor meer informatie over het verschil in functionaliteit tussen de twee portals het onderwerp [Portals voor het maken en bewerken van logboekquery's in Azure Log Analytics](../azure-monitor/log-query/portals.md)
 
 In deze zelfstudie werken we met Zoeken in logboeken in Azure Portal. 
 

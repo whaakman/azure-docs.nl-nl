@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353558"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888508"
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
 
@@ -38,7 +38,8 @@ Naast de lokale Git, worden de volgende resourcebeheerproviders ondersteund:
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Implementatie van bronnen weergeven in App Service-beheer
 
 1. Aanmelden bij de Azure Stack-beheerportal (https://adminportal.local.azurestack.external) als de service-beheerder.
-2. Blader naar **Resourceproviders** en selecteer de **beheer van App Service Resource Provider**.  ![App Service Resource Provider Admin][1]
+2. Blader naar **alle Services** en selecteer de **App Service**.
+    ![App Service Resource Provider Admin][1]
 3. Klik op **bronbeheerconfiguratie**. Hier ziet u de lijst met alle geconfigureerde implementatiebronnen.
     ![App Service Resource Provider Admin Bronbeheerconfiguratie][2]
 

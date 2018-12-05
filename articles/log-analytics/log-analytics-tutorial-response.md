@@ -10,17 +10,16 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2fbf3c902416935f0b1fff0bc423a2535f3ba077
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 90faa1d3a24a77743beb5109373b1b6ba0bb4156
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012993"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722102"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Reageren op gebeurtenissen met Azure Monitor-waarschuwingen
 Waarschuwingen in Azure Monitor kunnen belangrijke informatie in uw Log Analytics-opslagplaats aangeven. Ze worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren. Als de resultaten van de logboekzoekactie aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt en kan deze worden geconfigureerd voor het uitvoeren van een automatische reactie.  Deze zelfstudie is een vervolg van de zelfstudie [Dashboards van Log Analytics-gegevens maken en delen](log-analytics-tutorial-dashboards.md).   

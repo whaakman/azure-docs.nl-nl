@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061322"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871197"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Downloaden en uitpakken van de Azure Stack Development Kit (ASDK)
 Nadat u hebt gecontroleerd of uw development kit host-computer voldoet aan de basisvereisten voor het installeren van de ASDK, wordt de volgende stap is het downloaden en uitpakken van het implementatiepakket ASDK om op te halen van de Cloudbuilder.vhdx.
@@ -29,7 +29,7 @@ Nadat u hebt gecontroleerd of uw development kit host-computer voldoet aan de ba
 1. Voordat u het downloaden begint, zorg dat uw computer voldoet aan de volgende vereisten:
 
   - De computer moet ten minste 60 GB aan schijfruimte beschikbaar op vier afzonderlijke, identieke logische vasteschijfstations verder naar de schijf met besturingssysteem hebben.
-  - [.NET framework 4.6 (of een nieuwere versie)](https://aka.ms/r6mkiy) moet worden geïnstalleerd.
+  - [.NET framework 4.6 (of een nieuwere versie)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) moet worden geïnstalleerd.
 
 2. [Ga naar de pagina aan de slag](https://azure.microsoft.com/overview/azure-stack/try/?v=try) waar u kunt downloaden van de Azure Stack Development Kit, vindt u de informatie en klik vervolgens op **indienen**.
 3. Downloaden en uitvoeren van de [Implementatiechecker voor Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) vereistencontrole script. Met dit script zelfstandige verloopt via de vereiste controles uitgevoerd door het installatieprogramma voor Azure Stack Development Kit. Het biedt een om te bevestigen dat u voldoet aan de hardware- en softwarevereisten voor het downloaden van het pakket met grotere voor Azure Stack Development Kit.

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085782"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872183"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Met behulp van de beheerdersportal in Azure Stack
 
@@ -86,6 +86,10 @@ Als u Selecteer het pictogram Help en ondersteuning (vraagteken) in de rechterbo
 
 - Als u een geïntegreerd systeem, opent deze actie u een site waar u rechtstreeks een ondersteuningsticket met van Microsoft ondersteuning voor Services (CSS openen kunt). Raadpleeg [waar u ondersteuning krijgen](azure-stack-manage-basics.md#where-to-get-support) om te begrijpen wanneer u via Microsoft ondersteuning of via het ondersteuningsteam van het oorspronkelijke leveranciers (OEM) hardware leverancier moet gaan.
 - Als u de development kit, deze actie opent u de Azure Stack-forums-site rechtstreeks. Deze forums worden regelmatig gecontroleerd. Omdat de development kit een evaluatieomgeving is, is er geen officiële ondersteuning aangeboden via Microsoft CSS.
+
+### <a name="quick-access-to-the-azure-roadmap"></a>Snelle toegang tot de Azure-roadmap
+
+Als u selecteert **Help en ondersteuning** (het vraagteken) in de rechterbovenhoek van de beheerder portal en selecteer vervolgens **Azure-roadmap**, een nieuw browsertabblad geopend en gaat u naar de Azure-roadmap. Door te typen **Azure Stack** in de **producten** zoekvak typt, ziet u alle schema-updates voor Azure Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
 

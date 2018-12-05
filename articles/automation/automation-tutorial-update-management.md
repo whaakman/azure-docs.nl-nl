@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987304"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679899"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Windows-updates beheren met behulp van Azure Automation
 
@@ -114,7 +114,7 @@ Voer onder **Waarschuwingslogica** voor **Drempelwaarde** in: **1**. Wanneer u k
 
 ![Signaallogica configureren](./media/automation-tutorial-update-management/signal-logic.png)
 
-#### <a name="runbook-alert"></a>Runbook-waarschuwing
+#### <a name="runbook-alert"></a>Runbook-melding
 
 Voor mislukte implementaties moet u een waarschuwing maken over de fout van het master-runbook.
 Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**.
@@ -161,7 +161,7 @@ Geef onder **Nieuwe update-implementatie** de volgende informatie op:
 
 * **Groepen om bij te werken (preview)**: definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
 
-* **Bij te werken computers**: selecteer een opgeslagen zoekopdracht, geïmporteerde groep of kies een computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
+* **Bij te werken computers**: selecteer een opgeslagen zoekopdracht, geïmporteerde groep of kies een computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
 
 * **Updateclassificatie**: selecteer de typen software die de update-implementatie moet opnemen in de implementatie. Voor deze zelfstudie laat u alle typen geselecteerd.
 

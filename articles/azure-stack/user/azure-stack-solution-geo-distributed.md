@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961532"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877663"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
@@ -81,7 +81,7 @@ In dit gedeelte maakt u een web-app.
 
 > [!div class="checklist"]
 > - Web-apps maken en publiceren
-> - Voeg Code toe aan VSTS-Project
+> - Voeg Code toe aan Azure-opslagplaatsen
 > - De app-build verwijzen naar meerdere doelen van de cloud.
 > - Beheren en configureren van het CD-proces
 
@@ -108,9 +108,9 @@ Hybride CI/CD naar Web-App implementeren in Azure en Azure Stack en breng wijzig
 > [!Note]  
 > Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" sectie voor Azure Stack-operators.
 
-#### <a name="add-code-to-vsts-project"></a>Voeg Code toe aan VSTS-Project
+#### <a name="add-code-to-azure-repos"></a>Voeg Code toe aan Azure-opslagplaatsen
 
-1. Aanmelden bij Visual Studio met een **account waaraan rechten voor het maken van project** op VSTS.
+1. Aanmelden bij Visual Studio met een **account waaraan rechten voor het maken van project** op Azure-opslagplaatsen.
 
     Hybride continue integratie/continue levering (CI/CD) kunt toepassen op zowel de toepassingscode als de infrastructuurcode. Gebruik [Azure Resource Manager-sjablonen](https://azure.microsoft.com/resources/templates/) voor beide particuliere en gehoste cloudontwikkeling.
 
@@ -126,13 +126,13 @@ Hybride CI/CD naar Web-App implementeren in Azure en Azure Stack en breng wijzig
 
     ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  **Controleer in de code voor het VSTS** met Team Explorer.
+1.  **Controleer in de code voor het Azure-opslagplaatsen** met Team Explorer.
 
-2.  Bevestig dat de **toepassingscode** in Visual Studio Team Services is gecontroleerd.
+2.  Bevestig dat de **toepassingscode** is gecontroleerd in Azure-opslagplaatsen.
 
 ### <a name="create-the-build-definition"></a>De build-definitie maken
 
-1. **Meld u aan bij VSTS** om te bevestigen builddefinities kan maken.
+1. **Meld u aan bij Azure pijplijnen** om te bevestigen builddefinities kan maken.
 
 2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .net Core.
 
@@ -142,11 +142,11 @@ Hybride CI/CD naar Web-App implementeren in Azure en Azure Stack en breng wijzig
 
 **Met behulp van een Azure gehoste Agent**
 
-Met behulp van een gehoste agent in VSTS is een handige optie om te bouwen en implementeren van web-apps. Automatisch worden onderhoud en upgrades uitgevoerd door Microsoft Azure, waardoor continu en ononderbroken ontwikkelen, testen en implementeren.
+Met behulp van een gehoste agent in pijplijnen van Azure is een handige manier om te bouwen en implementeren van web-apps. Automatisch worden onderhoud en upgrades uitgevoerd door Microsoft Azure, waardoor continu en ononderbroken ontwikkelen, testen en implementeren.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Beheren en configureren van het CD-proces
 
-Visual Studio Team Services (VSTS) en Team Foundation Server (TFS) bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, QA- en productieomgevingen; waaronder het verplichte gebruik goedkeuringen op specifieke tijdstippen.
+Azure DevOps en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, QA- en productieomgevingen; waaronder het verplichte gebruik goedkeuringen op specifieke tijdstippen.
 
 #### <a name="create-release-definition"></a>Release-definitie maken
 

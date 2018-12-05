@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427247"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869956"
 ---
 # <a name="asdk-release-notes"></a>Opmerkingen bij de release van ASDK  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit (ASDK). Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,32 +46,11 @@ Zie voor meer informatie, [Azure Stack syslog doorsturen](../azure-stack-integra
 <!-- TBD - IS ASDK --> 
 - Er is een probleem waarin u virtuele machines gemaakt op de gebruikersportal van Azure Stack en de portal weergegeven een onjuist aantal gegevensschijven die aan een virtuele machine uit de DS-serie kunt koppelen opgelost. DS-serie VM's kan zo veel gegevensschijven bevatten als de Azure-configuratie.
 
-- De volgende beheerde schijf problemen zijn opgelost in 1809 en ook zijn opgelost in de 1808 [Azure Stack-Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
-
-   <!--  2966665 – IS, ASDK --> 
-   - Het probleem opgelost in welke koppelen SSD-gegevensschijven aan premium-grootte beheerde schijf virtuele machines (DS, DSv2, Fs, Fs_V2) is mislukt met een fout opgetreden: *schijven voor de virtuele machine 'vmname' Fout bij het bijwerken is mislukt: gevraagde bewerking kan niet worden uitgevoerd omdat opslagaccounttype 'Premium_LRS' wordt niet ondersteund voor VM-grootte ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
-   
-   - Het maken van een beheerde schijf-VM met behulp van **createOption**: **Attach** mislukt met de volgende fout: *langdurige bewerking is mislukt met de status 'Mislukt'. Aanvullende informatie:' interne uitvoering is een fout opgetreden.'*
-   ErrorCode: InternalExecutionError ErrorMessage: Er is een interne uitvoeringsfout opgetreden.
-   
-   Dit probleem is opgelost.
-
 - <!-- 2702741 -  IS, ASDK --> Probleem opgelost in welke openbare IP-adressen die zijn geïmplementeerd met behulp van de dynamische toewijzing methode zijn niet gegarandeerd te behouden nadat een Stop-toewijzing is uitgegeven. Ze blijven nu behouden.
 
 - <!-- 3078022 - IS, ASDK --> Als een virtuele machine stop-deallocated voordat u 1808 is kan deze niet worden opnieuw worden toegewezen na de 1808 update.  Dit probleem is opgelost in 1809. Exemplaren die in deze status zijn en kunnen niet worden gestart kunnen worden gestart in 1809 met deze oplossing. Het probleem voorkomt ook dat dit probleem opnieuw optreedt.
 
-<!-- 3090289 – IS, ASDK --> 
-- Een probleem opgelost waarbij na het toepassen van de update 1808, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
-
-   1. Als het abonnement is gemaakt vóór de update 1808 implementeren van virtuele machine met Managed Disks mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
-      1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
-      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
-   2. Als u een omgeving met meerdere tenants hebt geconfigureerd, mislukken virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map met een interne fout. U kunt de fout oplossen door de volgende stappen uit:
-      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4471992).
-      2. Volg de stappen in [in dit artikel](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
-
 - **Verschillende oplossingen** voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door Azure Stack
-
 
 ### <a name="changes"></a>Wijzigingen
 

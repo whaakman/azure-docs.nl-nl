@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2018
+ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975106"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679916"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snelstartgids: Uw eerste Azure Batch-taak uitvoeren met .NET API
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Ga naar de map met het Visual Studio-oplossingsbestand `BatchDotNetQuickstart.sln`.
 
-Open het oplossingsbestand in Visual Studio en werk de referentietekenreeksen in `program.cs` bij met de waarden die u hebt verkregen voor uw accounts. Bijvoorbeeld:
+Open het oplossingsbestand in Visual Studio en werk de referentietekenreeksen in `Program.cs` bij met de waarden die u hebt verkregen voor uw accounts. Bijvoorbeeld:
 
 ```csharp
 // Batch account credentials
@@ -143,7 +143,7 @@ De app maakt een [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)-ob
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
 
 using (BatchClient batchClient = BatchClient.Open(cred))
-...    
+...
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Een pool van rekenknooppunten maken
@@ -155,33 +155,42 @@ Het aantal knooppunten (`PoolNodeCount`) en de VM-grootte (`PoolVMSize`) zijn ge
 Met de [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit)-methode wordt de pool naar de Batch-service verzonden.
 
 ```csharp
-ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-smalldisk",
-    version: "latest");
 
-VirtualMachineConfiguration virtualMachineConfiguration =
-new VirtualMachineConfiguration(
-   imageReference: imageReference,
-   nodeAgentSkuId: "batch.node.windows amd64");
-
-try
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
 {
-    CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: PoolId,
-    targetDedicatedComputeNodes: PoolNodeCount,
-    virtualMachineSize: PoolVMSize,
-    virtualMachineConfiguration: virtualMachineConfiguration);
-
-    pool.Commit();
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
 }
+
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        publisher: "MicrosoftWindowsServer",
+        offer: "WindowsServer",
+        sku: "2016-datacenter-smalldisk",
+        version: "latest");
+}
+
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
 ...
 
 ```
+
 ### <a name="create-a-batch-job"></a>Een Batch-taak maken
 
-Een Batch-taak is een logische groep met een of meer taken. Een Batch-taak omvat instellingen die gemeenschappelijk zijn voor de taken, zoals prioriteit en de pool waarop taken moeten worden uitgevoerd. De app gebruikt de [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob)-methode om een Batch-taak te maken in de pool. 
+Een Batch-taak is een logische groep met een of meer taken. Een Batch-taak omvat instellingen die gemeenschappelijk zijn voor de taken, zoals prioriteit en de pool waarop taken moeten worden uitgevoerd. De app gebruikt de [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob)-methode om een Batch-taak te maken in de pool.
 
 Met de [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit)-methode wordt de taak naar de Batch-service verzonden. De Batch-taak heeft in eerste instantie geen taken.
 
@@ -192,15 +201,16 @@ try
     job.Id = JobId;
     job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-    job.Commit(); 
+    job.Commit();
 }
 ...
 ```
 
 ### <a name="create-tasks"></a>Taken maken
+
 De app maakt een lijst met [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask)-objecten. Met elke taak wordt een `ResourceFile`-invoerobject verwerkt met behulp van een eigenschap [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). In het voorbeeld wordt met de opdrachtregel de opdracht `type` voor Windows uitgevoerd om het invoerbestand weer te geven. Deze opdracht is een eenvoudig voorbeeld voor demonstratiedoeleinden. Wanneer u Batch gebruikt, geeft u uw app of script op de opdrachtregel op. Batch biedt een aantal manieren om apps en scripts te implementeren op rekenknooppunten.
 
-Vervolgens worden met de app taken toegevoegd aan de Batch-taak met behulp van de [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask)-methode. Deze methode plaatst de taken in een wachtrij voor uitvoering op de rekenknooppunten. 
+Vervolgens worden met de app taken toegevoegd aan de Batch-taak met behulp van de [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask)-methode. Deze methode plaatst de taken in een wachtrij voor uitvoering op de rekenknooppunten.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -216,7 +226,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
- 
+
 ### <a name="view-task-output"></a>Taakuitvoer weergeven
 
 De app maakt een [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) om te controleren of de taken worden voltooid. Vervolgens gebruikt de app de eigenschap [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) om het `stdout.txt`-bestand weer te geven dat wordt gegenereerd na elke voltooide taak. Wanneer de taak is voltooid, wordt de uitvoer van de taakopdracht geschreven naar `stdout.txt`:

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 8f98c4cbca87fd77e3c09c1028bfcb3181907412
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 89aedb33a88a7fb5f0a4e0abed172ba4e1cd091e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335693"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682062"
 ---
 # <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>Quickstart: de REST API van Translator Text gebruiken om teksttaal te detecteren met (C#)
 
@@ -28,7 +28,7 @@ Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.micro
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet-pakket](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
-* Een Azure-abonnementssleutel voor de Speech Service
+* Een Azure-abonnementssleutel voor Translator Text
 
 ## <a name="create-a-net-core-project"></a>Een .NET Core-project maken
 

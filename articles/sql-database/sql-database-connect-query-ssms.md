@@ -4,7 +4,7 @@ description: Ontdek hoe u verbinding maakt met SQL Database in Azure met behulp 
 keywords: verbinding maken met SQL-database,Sql Server Management Studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 2e7ac70f0e59c50a87e59c8c50db2a0805f20095
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: f8d153ef415bcab85720f6733d4e01e9b44c9e50
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911775"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870993"
 ---
 # <a name="quickstart-azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Snelstart: Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 

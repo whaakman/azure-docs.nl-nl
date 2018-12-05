@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6ff8bccc7037782b2709340312f0602b4cd7ab1f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834329"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Uitvinden welke software is geïnstalleerd op uw Azure- en niet-Azure-computers
 
@@ -70,7 +70,7 @@ Selecteer **+ Azure-VM toevoegen**. Hierdoor wordt de pagina **Virtuele machines
 
 ## <a name="onboard-a-non-azure-machine"></a>Onboarding van een niet-Azure-machine
 
-Als u niet-Azure-machines wilt toevoegen, installeert u de agent voor [Windows](../log-analytics/log-analytics-agent-windows.md) of [ Linux](automation-linux-hrw-install.md), afhankelijk van uw besturingssysteem. Nadat de agent is geïnstalleerd, navigeert u naar uw Automation-account en gaat u naar **Inventaris** onder **CONFIGURATIEBEHEER**. Wanneer u op **Machines beheren** klikt, ziet u een lijst van de computers die rapporteren aan uw Log Analytics-werkruimte en waarvoor de oplossing niet is ingeschakeld. Selecteer de gewenste optie voor uw omgeving.
+Als u niet-Azure-machines wilt toevoegen, installeert u de agent voor [Windows](../azure-monitor/platform/agent-windows.md) of [ Linux](automation-linux-hrw-install.md), afhankelijk van uw besturingssysteem. Nadat de agent is geïnstalleerd, navigeert u naar uw Automation-account en gaat u naar **Inventaris** onder **CONFIGURATIEBEHEER**. Wanneer u op **Machines beheren** klikt, ziet u een lijst van de computers die rapporteren aan uw Log Analytics-werkruimte en waarvoor de oplossing niet is ingeschakeld. Selecteer de gewenste optie voor uw omgeving.
 
 * **Inschakelen op alle beschikbare machines** - met deze optie schakelt u de oplossing in op alle computers die momenteel aan uw Log Analytics-werkruimte rapporteren.
 * **Inschakelen op alle beschikbare machines en toekomstige machines** -met deze optie schakelt u de oplossing in op alle computers die momenteel aan uw Log Analytics-werkruimte rapporteren en op alle toekomstige computers die aan de werkruimte worden toegevoegd.
@@ -113,7 +113,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Zie [Azure Log Analytics](../log-analytics/log-analytics-queries.md) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Log Analytics.
+Zie [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Log Analytics.
 
 ### <a name="single-machine-inventory"></a>Inventaris van één computer
 

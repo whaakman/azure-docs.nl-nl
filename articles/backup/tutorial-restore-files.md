@@ -2,20 +2,20 @@
 title: Bestanden herstellen naar een VM met Azure Backup
 description: Informatie over hoe u herstelacties op bestandsniveau uitvoert op een Azure-VM met Backup en Recovery Services.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2bd5e3e022c0e780b1efede6facb8924fa6cde4f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a8f9fd5a81f8e95d9787d9800be9962484e8436a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998182"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871844"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Bestanden herstellen naar een virtuele machine in Azure
 Azure Backup maakt herstelpunten die worden opgeslagen in geografisch redundante Recovery Services-kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele VM of afzonderlijke bestanden herstellen. In dit artikel wordt uitgelegd hoe u afzonderlijke bestanden kunt herstellen. In deze zelfstudie leert u het volgende:

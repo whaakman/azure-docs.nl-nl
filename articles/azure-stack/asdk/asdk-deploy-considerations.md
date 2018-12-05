@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238623"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864975"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack-implementatie planningsoverwegingen
 Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw development kit host-computer voldoet aan de vereisten die worden beschreven in dit artikel.
@@ -121,7 +121,7 @@ Alleen IPv4 wordt ondersteund. U kunt geen IPv6-netwerken maken.
 Zorg ervoor dat er een DHCP-server beschikbaar is op het netwerk waarmee de NIC verbinding maakt. Als er geen DHCP beschikbaar is, moet u een extra statisch IPv4-netwerk voorbereiden naast het netwerk dat de host gebruikt. U moet dat IP-adres en die gateway opgeven als een implementatieparameter.
 
 ### <a name="internet-access"></a>Toegang tot het internet
-Azure Stack is toegang tot het Internet, rechtstreeks of via een transparante proxy vereist. Azure Stack biedt geen ondersteuning voor de configuratie van een webproxy waarmee toegang tot Internet. Zowel het host-IP-adres en het nieuwe IP-adres toegewezen aan de MAS-BGPNAT01 (door DHCP of een statisch IP-adres) moet toegang hebben tot Internet. Poorten 80 en 443 worden gebruikt in de domeinen graph.windows.net en login.microsoftonline.com domeinen.
+Azure Stack is toegang tot het Internet, rechtstreeks of via een transparante proxy vereist. Azure Stack biedt geen ondersteuning voor de configuratie van een webproxy waarmee toegang tot Internet. Zowel het host-IP-adres en het nieuwe IP-adres toegewezen aan de AzS-BGPNAT01 (door DHCP of een statisch IP-adres) moet toegang hebben tot Internet. Poorten 80 en 443 worden gebruikt in de domeinen graph.windows.net en login.microsoftonline.com domeinen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
