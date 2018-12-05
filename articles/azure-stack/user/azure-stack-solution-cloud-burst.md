@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334887"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890990"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Zelfstudie: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
 
@@ -60,7 +60,7 @@ In deze zelfstudie bouwt u een Voorbeeldomgeving:
 
 -   Een Web-App binnen de tenantabonnement maken. Noteer de URL van de nieuwe Web-App voor later gebruik.
 
--   VSTS virtuele Machine implementeren in de tenantabonnement.
+-   Implementeer pijplijnen virtuele Azure-Machine binnen de tenantabonnement.
 
 -   Windows Server 2016-VM met .NET 3.5 is vereist. Deze virtuele machine worden in de tenantabonnement op Azure Stack als de agent van de privéversie samengesteld.
 
@@ -99,9 +99,11 @@ Hybride continue integratie en continue implementatie (CI/CD) instellen voor Web
 > [!Note]  
 > Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](../azure-stack-app-service-before-you-get-started.md)" sectie voor Azure Stack-operators.
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>Voeg Code toe aan Visual Studio Team Services-Project
+### <a name="add-code-to-azure-repos"></a>Voeg Code toe aan Azure-opslagplaatsen
 
-1. Meld u aan Visual Studio Team Services (VSTS) met een account met rechten voor het project maken in VSTS.
+Azure Repos
+
+1. Meld u aan Azure-opslagplaatsen met een account met rechten voor het project maken op Azure-opslagplaatsen.
 
     Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurcode. Gebruik [Azure Resource Manager-sjablonen](https://azure.microsoft.com/resources/templates/) voor beide particuliere en gehoste cloudontwikkeling.
 
@@ -117,13 +119,13 @@ Hybride continue integratie en continue implementatie (CI/CD) instellen voor Web
 
     ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image3.png)
 
-2.  Controleer in de code voor het VSTS met behulp van Team Explorer.
+2.  Controleer in de code voor het Azure-opslagplaatsen met Team Explorer.
 
-3.  Bevestig dat de code van de toepassing in Visual Studio Team Services is gecontroleerd.
+3.  Bevestig dat de code van de toepassing is gecontroleerd in Azure-opslagplaatsen.
 
 ## <a name="create-the-build-definition"></a>De build-definitie maken
 
-1. Meld u aan bij VSTS om te bevestigen builddefinities kan maken.
+1. Meld u aan bij Azure pijplijnen om te bevestigen van de mogelijkheid om te maken, bouwen definities.
 
 2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .net Core.
 
@@ -133,11 +135,11 @@ Hybride continue integratie en continue implementatie (CI/CD) instellen voor Web
 
 ## <a name="use-an-azure-hosted-agent"></a>Gebruik een Azure gehost agent
 
-Gebruik een gehoste-agent in VSTS is een handige optie voor het bouwen en implementeren van web-apps. Automatisch worden onderhoud en upgrades uitgevoerd door Microsoft Azure, waardoor continu en ononderbroken ontwikkelen, testen en implementeren.
+Gebruik een gehoste-agent in pijplijnen van Azure is een handige optie voor het bouwen en implementeren van web-apps. Automatisch worden onderhoud en upgrades uitgevoerd door Microsoft Azure, waardoor continu en ononderbroken ontwikkelen, testen en implementeren.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Beheren en configureren van het CD-proces
 
-Visual Studio Team Services en Team Foundation Server (TFS) bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, QA- en productieomgevingen; waaronder het verplichte gebruik goedkeuringen op specifieke tijdstippen.
+Azure pijplijnen en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, QA- en productieomgevingen; waaronder het verplichte gebruik goedkeuringen op specifieke tijdstippen.
 
 ## <a name="create-release-definition"></a>Release-definitie maken
 
@@ -228,11 +230,11 @@ Visual Studio Team Services en Team Foundation Server (TFS) bieden een pijplijn 
 21. Sla alle wijzigingen op.
 
 > [!Note]  
-> Sommige instellingen voor de taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bij het maken van een release-definitie van een sjabloon. Deze instellingen kunnen niet worden gewijzigd in de taakinstellingen. in plaats daarvan moet het hoofdartikel voor de omgeving worden geselecteerd om deze instellingen te bewerken
+> Sommige instellingen voor de taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) bij het maken van een release-definitie van een sjabloon. Deze instellingen kunnen niet worden gewijzigd in de taakinstellingen. in plaats daarvan moet het hoofdartikel voor de omgeving worden geselecteerd om deze instellingen te bewerken
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>Publiceren naar Azure Stack via Visual Studio
 
-Met het maken van eindpunten, implementeren een build van het Visual Studio Online (VSTO) Azure Service-apps met Azure Stack. VSTS verbindt met de build-agent, die verbinding met Azure Stack maakt.
+Met het maken van eindpunten, implementeren een build van het Visual Studio Online (VSTO) Azure Service-apps met Azure Stack. Azure pijplijnen verbindt met de build-agent, die verbinding maakt met Azure Stack.
 
 1.  Aanmelden bij VSTO en navigeer naar de pagina app-instellingen.
 
@@ -254,18 +256,18 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 
 10. Selecteer **wijzigingen opslaan**.
 
-Nu informatie over het eindpunt bestaat, de VSTS aan Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van VSTS en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
+Nu informatie over het eindpunt bestaat, de Azure-pijplijnen op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van Azure-pijplijnen en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
 
 ## <a name="develop-the-application-build"></a>De build toepassing ontwikkelen
 
 > [!Note]  
 > Azure Stack met de juiste installatiekopieën publiceren naar uitvoeren (Windows Server en SQL) en App Service-implementatie zijn vereist. Raadpleeg de documentatie van App Service "[voordat u aan de slag met App Service in Azure Stack](../azure-stack-app-service-before-you-get-started.md)" sectie voor Azure Stack-operators.
 
-Gebruik [Azure Resource Manager-sjablonen, zoals web](https://azure.microsoft.com/resources/templates/) app-code van VSTS om te implementeren voor beide clouds.
+Gebruik [Azure Resource Manager-sjablonen, zoals web](https://azure.microsoft.com/resources/templates/) app-code uit Azure-opslagplaatsen om te implementeren voor beide clouds.
 
-### <a name="add-code-to-a-vsts-project"></a>Voeg code toe aan een VSTS-project
+### <a name="add-code-to-a-azure-repos-project"></a>Voeg code toe aan een Azure-opslagplaatsen-project
 
-1.  Meld u aan VSTS is gerelateerd aan met een account met rechten voor het project maken in Azure Stack. De volgende schermopname ziet hoe u verbinding maken met de HybridCICD-project.
+1.  Meld u aan Azure-opslagplaatsen met een account met rechten voor het project maken in Azure Stack. De volgende schermopname ziet hoe u verbinding maken met de HybridCICD-project.
 
 2.  **Kloon de opslagplaats** door het maken en de standaard web-app te openen.
 
@@ -273,13 +275,13 @@ Gebruik [Azure Resource Manager-sjablonen, zoals web](https://azure.microsoft.co
 
 1.  Bewerk de **WebApplication.csproj** bestand: Selecteer **Runtimeidentifier** en voeg deze win10 x64. Zie voor meer informatie, [onafhankelijke implementatie](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentatie.
 
-2.  Team Explorer gebruiken om te controleren of de code in VSTS.
+2.  Team Explorer gebruiken om te controleren of de code in Azure-opslagplaatsen.
 
-3.  Bevestig dat de code van de toepassing in Visual Studio Team Services is ingeschakeld.
+3.  Bevestig dat de code van de toepassing is ingeschakeld in de Azure-opslagplaatsen.
 
 ### <a name="create-the-build-definition"></a>De build-definitie maken
 
-1.  Meld u aan VSTS is gerelateerd aan met een account dat een build-definitie kunt maken.
+1.  Meld u aan Azure-pijplijnen met een account dat een build-definitie kunt maken.
 
 2.  Navigeer naar de **webtoepassing bouwen** pagina voor het project.
 
@@ -289,17 +291,17 @@ Gebruik [Azure Resource Manager-sjablonen, zoals web](https://azure.microsoft.co
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Gebruik een Azure gehost bouwagent
 
-Met behulp van de agent van een gehoste build in VSTS is een handige optie voor het bouwen en implementeren van web-apps. Automatisch worden onderhouden van de agent en upgrades uitgevoerd door Microsoft Azure, waarmee een doorlopende en ononderbroken ontwikkelingscyclus.
+Met behulp van een gehoste bouwagent in pijplijnen van Azure is een handige optie voor het bouwen en implementeren van web-apps. Automatisch worden onderhouden van de agent en upgrades uitgevoerd door Microsoft Azure, waarmee een doorlopende en ononderbroken ontwikkelingscyclus.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Het continue implementatie (CD) configureren
 
-Visual Studio Team Services (VSTS) en Team Foundation Server (TFS) bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, kwaliteit te waarborgen (QA) en productie. Dit proces kunt opnemen goedkeuringen vereisen specifieke stadia van de levenscyclus van toepassingen.
+Pijplijnen en Azure DevOps-Server van Azure bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, kwaliteit te waarborgen (QA) en productie. Dit proces kunt opnemen goedkeuringen vereisen specifieke stadia van de levenscyclus van toepassingen.
 
 #### <a name="create-release-definition"></a>Release-definitie maken
 
 Het maken van een release-definitie is het bouwproces voor de laatste stap in de toepassing. Deze release-definitie wordt gebruikt om een releaserecord maken en implementeren van een build.
 
-1.  Aanmelden bij VSTS en navigeer naar **Build and Release** voor het project.
+1.  Meld u aan Azure-pijplijnen en navigeer naar **Build and Release** voor het project.
 
 2.  Op de **Releases** tabblad **[+]** en kies dan **release-definitie maken**.
 
@@ -346,7 +348,7 @@ Het maken van een release-definitie is het bouwproces voor de laatste stap in de
 23. Sla alle wijzigingen op.
 
 > [!Note]  
-> Sommige instellingen voor release taken automatisch worden gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bij het maken van een release-definitie van een sjabloon. Deze instellingen in de taakinstellingen van de kunnen niet worden gewijzigd, maar kunnen worden gewijzigd in de omgeving bovenliggende items.
+> Sommige instellingen voor release taken automatisch worden gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) bij het maken van een release-definitie van een sjabloon. Deze instellingen in de taakinstellingen van de kunnen niet worden gewijzigd, maar kunnen worden gewijzigd in de omgeving bovenliggende items.
 
 ## <a name="create-a-release"></a>Een releaserecord maken
 

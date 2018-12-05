@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288234"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890548"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -121,8 +121,8 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
 
 2. Het Azure-account die u gebruikt voor het registreren van Azure Stack toevoegen. Als u wilt het account toevoegt, worden uitgevoerd de **Add-AzureRmAccount** cmdlet. U wordt gevraagd de referenties van uw Azure-account in te voeren en mogelijk moet u gebruikmaken van 2-factor-verificatie op basis van de configuratie van uw account.
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | Beschrijving |  
@@ -147,11 +147,15 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Vervolgens, in dezelfde PowerShell-sessie, zorg ervoor dat u bent aangemeld bij de juiste Context van Azure PowerShell. Dit is het azure-account dat is gebruikt om de bovenstaande Azure Stack resourceprovider te registreren. Als u PowerShell om uit te voeren:
+6. Vervolgens, in dezelfde PowerShell-sessie, zorg ervoor dat u bent aangemeld bij de juiste Context van Azure PowerShell. Dit is het Azure-account dat is gebruikt om de bovenstaande Azure Stack resourceprovider te registreren. Als u PowerShell om uit te voeren:
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | Parameter | Beschrijving |  
+   |-----|-----|
+   | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
 7. Voer in dezelfde PowerShell-sessie, het **Set AzsRegistration** cmdlet. Als u PowerShell om uit te voeren:  
 
@@ -182,7 +186,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
 2. Het Azure-account die u gebruikt voor het registreren van Azure Stack toevoegen. Als u wilt het account toevoegt, worden uitgevoerd de **Add-AzureRmAccount** cmdlet. U wordt gevraagd de referenties van uw Azure-account in te voeren en mogelijk moet u gebruikmaken van 2-factor-verificatie op basis van de configuratie van uw account.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | Beschrijving |  
@@ -298,7 +302,7 @@ U kunt de cmdlet Get-inhoud (optioneel) gebruiken om te verwijzen naar een besta
 
 Volg deze stappen om te controleren of Azure Stack is geregistreerd met Azure.
 
-1. Meld u aan met de Azure Stack [beheerdersportal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;regio >. &lt;FQDN-naam >*.
+1. Meld u aan met de Azure Stack [beheerportal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;regio >. &lt;FQDN-naam >*.
 2. Selecteer **alle Services**, en klik vervolgens onder de **beheer** categorie, selecteer **Marketplace management** > **uit Azuretoevoegen**.
 
 Als u ziet een lijst met items die beschikbaar zijn in Azure (zoals WordPress), wordt de activering is voltooid. Echter, in niet-verbonden omgevingen niet ziet u Azure marketplace-items in de Azure Stack marketplace.
@@ -431,7 +435,7 @@ Als u wilt de cmdlet uitvoert, hebt u het volgende nodig:
 | ResourceGroupName | Reeks |  |
 | ResourceGroupLocation | Reeks |  |
 | BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: capaciteit, PayAsYouUse en ontwikkeling. |
-| MarketplaceSyndicationEnabled |  |  |
+| MarketplaceSyndicationEnabled | Waar/onwaar | Hiermee bepaalt u of de marketplace-management-functie beschikbaar in de portal is. Ingesteld op true als registreren met een internetverbinding. Ingesteld op ONWAAR als registreren in niet-omgeving verbonden. Voor niet-verbonden registraties de [offline syndication hulpprogramma](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) kan worden gebruikt voor het downloaden van items voor de marketplace. |
 | UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: True, False. |
 | AgreementNumber | Reeks |  |
 | registrationName | Reeks | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, het script mislukken. |
