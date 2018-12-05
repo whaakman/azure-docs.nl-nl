@@ -24,8 +24,8 @@ De volgende utterances zijn voorbeelden van belangrijke informatie:
 
 |Utterance|Waarden voor KeyPhrase|
 |--|--|
-|Is there a new medical plan with a lower deductible offered next year?|"lower deductible"<br>"new medical plan"<br>"year"|
-|Is vision therapy covered in the high deductible medical plan?|"high deductible medical plan"<br>"vision therapy"|
+|Is er een nieuwe medische abonnement met lagere zelf moet betalen volgend jaar aangeboden?|"lagere zelf moet betalen"<br>"nieuw medische plan"<br>“year“|
+|Vision behandeling valt het hoge aftrek medische plan?|"hoge aftrek ziektekostenverzekering"<br>"vision behandeling"|
 
 Uw clienttoepassing kan deze waarden gebruiken, samen met andere geëxtraheerde entiteiten, om zo te bepalen wat de volgende stap in de conversatie is.
 
