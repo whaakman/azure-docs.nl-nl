@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379584"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972024"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI-certificaten voorbereiden voor implementatie
 De certificaatbestanden [verkregen van uw Certificeringsinstantie keuze](azure-stack-get-pki-certs.md) moet worden geïmporteerd en geëxporteerd met eigenschappen die overeenkomen met de Azure Stack-certificaatvereisten.
@@ -38,15 +38,15 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
 
 1. In de **Wizard Certificaat importeren**, selecteer **lokale Machine** als importlocatie voor de. Selecteer **Volgende**. Klik op het volgende scherm op vervolgens opnieuw.
 
-    ![Locatie van de lokale machine importeren](.\media\prepare-pki-certs\1.png)
+    ![Locatie van de lokale machine importeren](./media/prepare-pki-certs/1.png)
 
 1.  Kies **alle certificaten in het onderstaande archief opslaan** en selecteer vervolgens **ondernemingsvertrouwen** als de locatie. Klik op **OK** te sluiten van het dialoogvenster Certificaat store selecteren en vervolgens **volgende**.
 
-    ![Het certificaatarchief configureren](.\media\prepare-pki-certs\3.png)
+    ![Het certificaatarchief configureren](./media/prepare-pki-certs/3.png)
 
     a. Als u een PFX importeert, u krijgt een dialoogvenster met een extra. Op de **beveiliging met persoonlijke sleutel** pagina, typ het wachtwoord voor de certificaatbestanden van uw en schakel vervolgens de **deze sleutel als exporteerbaar markeren. Hiermee kunt u een back-up maken of ze uw sleutels op een later tijdstip** optie. Selecteer **Volgende**.
 
-    ![Sleutel als exporteerbaar markeren](.\media\prepare-pki-certs\2.png)
+    ![Sleutel als exporteerbaar markeren](./media/prepare-pki-certs/2.png)
 
 1. Klik op Voltooien om het importeren te voltooien.
 
@@ -58,11 +58,11 @@ Open MMC Certificate Manager-console en maak verbinding met het certificaatarchi
 
 1. Klik op bestand, klik op toevoegen module toevoegen/verwijderen en selecteer certificaten.
 
-    ![Module Certificaten toevoegen](.\media\prepare-pki-certs\mmc-2.png)
+    ![Module Certificaten toevoegen](./media/prepare-pki-certs/mmc-2.png)
  
 1. Computeraccount selecteren, klikt u op volgende en vervolgens selecteert u lokale computer en voltooien. Klik op ok om de pagina module toevoegen/verwijderen te sluiten.
 
-    ![Module Certificaten toevoegen](.\media\prepare-pki-certs\mmc-3.png)
+    ![Module Certificaten toevoegen](./media/prepare-pki-certs/mmc-3.png)
 
 1. Blader naar certificaten > ondernemingsvertrouwen > locatie van het certificaat. Controleer of dat u het certificaat aan de rechterkant ziet.
 

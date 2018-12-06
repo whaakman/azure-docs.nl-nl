@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b43ef81385f1d185fdd63d2a33453c75684fd21
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246647"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969921"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management-beleid voor meerdere domeinen
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -38,7 +38,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 ```xml  
 <cross-domain>  
    <!-Policy configuration is in the Adobe cross-domain policy file format,   
-      see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
+      see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
   
@@ -56,7 +56,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
-|meerdere domeinen|Root-element. Onderliggende elementen moeten voldoen aan de [Adobe tussen domeinen beleidsspecificatie bestand](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|  
+|meerdere domeinen|Root-element. Onderliggende elementen moeten voldoen aan de [Adobe tussen domeinen beleidsspecificatie bestand](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

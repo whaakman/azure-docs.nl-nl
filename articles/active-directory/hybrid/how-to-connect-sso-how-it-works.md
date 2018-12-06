@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 236a9dac64fa98b9db68a610de097c1deba3e7ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687398"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970418"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: technische details
 
@@ -29,6 +29,7 @@ Dit artikel vindt u technische gegevens in de werking van de functie Azure Activ
 ## <a name="how-does-seamless-sso-work"></a>Hoe werkt de naadloze eenmalige aanmelding?
 
 Dit gedeelte bevat drie onderdelen:
+
 1. De installatie van de functie voor naadloze eenmalige aanmelding.
 2. Hoe werkt een enkele gebruiker aanmelden transactie via een webbrowser met naadloze eenmalige aanmelding.
 3. Hoe een enkele gebruiker aanmelden transactie op een systeemeigen client werkt met naadloze eenmalige aanmelding.
@@ -36,6 +37,7 @@ Dit gedeelte bevat drie onderdelen:
 ### <a name="how-does-set-up-work"></a>Hoe werken instellen?
 
 Naadloze eenmalige aanmelding is ingeschakeld met behulp van Azure AD Connect, zoals [hier](how-to-connect-sso-quick-start.md). Tijdens het inschakelen van de functie, gebeuren de volgende stappen uit:
+
 - Een account met de naam `AZUREADSSOACC` (die vertegenwoordigt Azure AD) is gemaakt in uw on-premises Active Directory (AD) in elk AD-forest.
 - Het computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD. Als er meerdere AD-forests, hebben elk een eigen ontsleutelingssleutel Kerberos.
 - Bovendien zijn twee Kerberos-SPN-namen (SPN's) gemaakt voor twee URL's die worden gebruikt tijdens de aanmelding bij Azure AD.

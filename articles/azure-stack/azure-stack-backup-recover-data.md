@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034334"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968729"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Herstel na onherstelbare gegevensverlies
 
@@ -40,11 +40,11 @@ In dit scenario adressen herstellen van de volledige installatie in het geval va
 
 De reis van het beveiligen van Azure starten begint met het afzonderlijk back-ups van de infrastructuur en -app/tenant-gegevens. In dit document bevat informatie over het beveiligen van de infrastructuur. 
 
-![Eerste implementatie van Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Eerste implementatie van Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 In slechtste geval scenario's waarin alle gegevens verloren gaan, is herstellen van Azure Stack het proces van het terugzetten van de infrastructuur van de unieke gegevens naar deze implementatie van Azure Stack en alle gebruikersgegevens. 
 
-![Azure Stack opnieuw implementeren](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Azure Stack opnieuw implementeren](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Herstellen
 

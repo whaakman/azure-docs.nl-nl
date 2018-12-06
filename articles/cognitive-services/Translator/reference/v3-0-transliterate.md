@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018618"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967330"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: transliteratie
 
@@ -42,15 +42,15 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>language</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de tekst die moet worden geconverteerd van een script naar een andere. Mogelijke talen worden vermeld in de `transliteration` bereik verkregen door het opvragen van de service voor de [ondersteunde talen](.\v3-0-languages.md).</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de tekst die moet worden geconverteerd van een script naar een andere. Mogelijke talen worden vermeld in de `transliteration` bereik verkregen door het opvragen van de service voor de [ondersteunde talen](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u het script dat wordt gebruikt door de invoertekst. Opzoeken [ondersteunde talen](.\v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken invoer scripts beschikbaar voor de geselecteerde taal.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u het script dat wordt gebruikt door de invoertekst. Opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken invoer scripts beschikbaar voor de geselecteerde taal.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u het uitvoerscript. Opzoeken [ondersteunde talen](.\v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken naar uitvoer-scripts die beschikbaar zijn voor de geselecteerde combinatie van taal- en invoer-script.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u het uitvoerscript. Opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken naar uitvoer-scripts die beschikbaar zijn voor de geselecteerde combinatie van taal- en invoer-script.</td>
   </tr>
 </table> 
 
@@ -77,7 +77,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`, die staat voor de tekenreeks moet worden geconverteerd.
 

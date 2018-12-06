@@ -1,5 +1,5 @@
 ---
-title: Configureren van containers
+title: Containers configureren
 titlesuffix: Text Analytics - Cognitive Services - Azure
 description: Configuratie-instellingen voor de Text Analytics-containers.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 0f6b8fa27d2db45be2c677a52c53cff5847acf4a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 61f435c55d7925554facd9bbaa63767023a779d4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634991"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965016"
 ---
-# <a name="configure-containers"></a>Configureren van containers
+# <a name="configure-containers"></a>Containers configureren
 
 Text Analytics biedt elke container met een gemeenschappelijk framework van de configuratie, zodat u eenvoudig kunt configureren en beheren van instellingen voor opslag, logboekregistratie en Telemetrie en beveiliging voor uw containers.
 
@@ -92,7 +92,7 @@ De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund 
 
 ## <a name="billing-configuration-setting"></a>Facturering van configuratie-instelling
 
-De `Billing` configuratie-instelling geeft aan welk eindpunt-URI van de Text Analytics-resource in Azure wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een Text Analytics-resource in Azure.
+De `Billing` configuratie-instelling geeft aan welk eindpunt-URI van de Text Analytics-resource in Azure wordt gebruikt om te meten factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een Text Analytics-resource in Azure.
 
 > [!IMPORTANT]
 > De [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), en [ `Eula` ](#eula-configuration-setting) configuratie-instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie Deze; anders start uw container niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](how-tos/text-analytics-how-to-install-containers.md#billing).
@@ -103,6 +103,8 @@ De `Eula` configuratie-instelling geeft aan dat u de licentie voor de container 
 
 > [!IMPORTANT]
 > De [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), en [ `Eula` ](#eula-configuration-setting) configuratie-instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie Deze; anders start uw container niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](how-tos/text-analytics-how-to-install-containers.md#billing).
+
+Cognitive Services-containers zijn in licentie gegeven onder uw overeenkomst voor uw gebruik van Azure. Als u een bestaande overeenkomst voor uw gebruik van Azure hebt, gaat u ermee akkoord dat uw overeenkomst voor gebruik van Azure de Microsoft Online Subscription overeenkomst is (dit omvat de voorwaarden voor onlineservices). Voor Preview-versies, gaat u ook akkoord met de aanvullende gebruiksvoorwaarden voor Microsoft Azure-Previews. Met behulp van de container gaat u akkoord met deze voorwaarden.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd configuratie-instellingen
 

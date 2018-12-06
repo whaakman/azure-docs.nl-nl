@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: fd22677c2acc9e61abc082b3515a817c01c163cb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855963"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969104"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Een container klassiek register upgraden
 
@@ -123,10 +123,10 @@ Wanneer de migratie voltooid is, de **Inrichtingsstatus** geeft aan dat *geslaag
 Wanneer u een klassiek register naar Basic, Standard of Premium hebt bijgewerkt, gebruikt Azure niet meer de storage-account dat een back-Classic-register oorspronkelijk gemaakt. Als u wilt kosten reduceren, houd rekening met het verwijderen van het storage-account of de Blob-container binnen het account dat uw oude containerinstallatiekopieën bevat.
 
 <!-- IMAGES -->
-[update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png
-[update-classic-02-confirm]: ./media/container-registry-upgrade\update-classic-02-confirm.png
-[update-classic-03-updating]: ./media/container-registry-upgrade\update-classic-03-updating.png
-[update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
+[update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png
+[update-classic-02-confirm]: ./media/container-registry-upgrade/update-classic-02-confirm.png
+[update-classic-03-updating]: ./media/container-registry-upgrade/update-classic-03-updating.png
+[update-classic-04-updated]: ./media/container-registry-upgrade/update-classic-04-updated.png
 
 <!-- LINKS - internal -->
 [az-acr-update]: /cli/azure/acr#az-acr-update

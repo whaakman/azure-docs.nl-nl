@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: a5f3b206b83beb15ee3b29d5d5b9e389e85a91fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466984"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971790"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Gebruik en facturering in Azure Stack
 
@@ -35,9 +35,9 @@ Elke resourceprovider in Azure Stack berichten gebruiksgegevens per gebruik. De 
 
 Als u hebt [uw Azure Stack-instantie geregistreerd bij Azure](azure-stack-register.md), Azure Stack is geconfigureerd voor de gebruiksgegevens verzenden naar Azure Commerce. Nadat de gegevens wordt geüpload naar Azure, kunt u deze openen via de portal voor facturering of met behulp van Azure-Resourcegebruik API's. Zie voor meer informatie meer gegevens over welke informatie wordt gerapporteerd aan Azure, [gegevens gebruiksrapportage](azure-stack-usage-reporting.md).  
 
-De volgende afbeelding toont de belangrijke onderdelen in de pijplijn gebruik: 
+De volgende afbeelding toont de belangrijke onderdelen in de pijplijn gebruik:
 
-![Gebruik pijplijn](media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![Gebruik pijplijn](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Welke informatie over het gebruik kan ik vinden, en hoe?
 

@@ -13,18 +13,18 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fb04a3410291e52f4ea0d02e625bdbf02f64f8c7
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721039"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970617"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights cohorten
 
 Een cohort is een set van gebruikers, sessies, gebeurtenissen of bewerkingen die iets met elkaar gemeen hebben. In Azure Application Insights worden cohorten gedefinieerd door een analytics-query. In gevallen waar u hebt voor het analyseren van een specifieke set van gebruikers of gebeurtenissen optreden, cohorten kunnen biedt u meer flexibiliteit om exact de set die u geïnteresseerd bent in.
 
-![Deelvenster cohorten](.\media\app-insights-usage-cohorts\001.png)
+![Deelvenster cohorten](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>Cohorten versus basisfilters
 
@@ -52,14 +52,14 @@ Uw team definieert een betrokken gebruiker als iedereen die gebruikmaakt van uw 
 
 4. Wijziging **UsedAtLeastCustom** naar **5 + dagen**, en laat **periode** op de standaardwaarde van 28 dagen.
 
-    ![Betrokken gebruikers](.\media\app-insights-usage-cohorts\003.png)
+    ![Betrokken gebruikers](./media/app-insights-usage-cohorts/003.png)
 
     Nu deze cohort alle gebruikers-id's verzonden met een aangepaste gebeurtenis of pagina weergave op 5 vertegenwoordigt scheiden dagen in de afgelopen 28.
 
 5. Selecteer **Opslaan**.
 
    > [!TIP]
-   >  Geef uw cohort een naam, zoals ' Engaged gebruikers (5 + dagen). " Sla het op 'Mijn rapporten' of 'gedeelde rapporten,", afhankelijk van of u wilt dat anderen die toegang hebben tot deze Application Insights-resource om te zien deze cohort.
+   > Geef uw cohort een naam, zoals ' Engaged gebruikers (5 + dagen). " Sla het op 'Mijn rapporten' of 'gedeelde rapporten,", afhankelijk van of u wilt dat anderen die toegang hebben tot deze Application Insights-resource om te zien deze cohort.
 
 6. Selecteer **terug naar de galerie**.
 
@@ -69,9 +69,10 @@ Open het hulpprogramma voor gebruikers. In de **weergeven** vervolgkeuzelijst ki
 
 Het hulpprogramma gebruikers wordt nu gefilterd op deze cohort van gebruikers:
 
-![Gebruikers deelvenster gefilterd op een bepaalde cohort](.\media\app-insights-usage-cohorts\004.png)
+![Gebruikers deelvenster gefilterd op een bepaalde cohort](./media/app-insights-usage-cohorts/004.png)
 
 Enkele belangrijke dingen die opvallen:
+
 * U kunt geen deze set maken via normale filters. De datum-logica wordt meer geavanceerde.
 * U kunt deze cohort verder filteren met behulp van de normale filters in het hulpprogramma gebruikers. Hoewel het cohort is gedefinieerd in 28 dagen windows, kunt u dus nog steeds het tijdsbereik in het hulpprogramma gebruikers worden 30 en 60 en 90 dagen aanpassen.
 
@@ -87,7 +88,7 @@ Ook kunt u cohorten van gebeurtenissen. In deze sectie definieert u een cohort v
 
 3. Selecteer **gebeurtenissen kiezen**.
 
-    ![Schermafbeelding van gebeurtenissen kiezen](.\media\app-insights-usage-cohorts\006.png)
+    ![Schermafbeelding van gebeurtenissen kiezen](./media/app-insights-usage-cohorts/006.png)
 
 4. In de **activiteiten** vervolgkeuzelijst vak, selecteert u de gebeurtenissen die u wilt worden in de cohort.
 
@@ -97,11 +98,11 @@ Ook kunt u cohorten van gebeurtenissen. In deze sectie definieert u een cohort v
 
 De vorige twee cohorten zijn gedefinieerd met behulp van de vervolgkeuzelijsten. Maar u kunt ook cohorten definiëren met behulp van analytics-query's voor totale flexibiliteit. Om te zien hoe een cohort van gebruikers te maken van het Verenigd Koninkrijk.
 
-![Gebruik van het programma cohorten hek animatie](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Gebruik van het programma cohorten hek animatie](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Open het hulpprogramma cohorten, selecteer de **sjabloongalerie** tabblad, en selecteer **leeg gebruikerscohort**.
 
-    ![Leeg gebruikerscohort](.\media\app-insights-usage-cohorts\001.png)
+    ![Leeg gebruikerscohort](./media/app-insights-usage-cohorts/001.png)
 
     Er zijn drie secties:
     * Een Markdown tekstsectie, waar u het cohort in meer detail voor anderen in uw team beschreven.
@@ -136,7 +137,8 @@ Cohorten en filters zijn verschillend. Stel dat u een cohort van gebruikers uit 
 * De versie van de filters worden alleen gebeurtenissen uit het Verenigd Koninkrijk weergegeven. Maar als u op land of regio splitsen, ziet u alleen het Verenigd Koninkrijk.
 
 ## <a name="learn-more"></a>Meer informatie
-- [Querytaal voor analytische gegevens](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
-- [Gebruikersstromen](app-insights-usage-flows.md)
-- [Gebruiksoverzicht](app-insights-usage-overview.md)
+
+* [Querytaal voor analytische gegevens](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
+* [Gebruikersstromen](app-insights-usage-flows.md)
+* [Gebruiksoverzicht](app-insights-usage-overview.md)

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: c8a100577ba4bc67d12c7376b5897f397d010d4d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1512098c29c8916a0486ed66b438654ba29f0601
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844920"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968225"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -52,8 +52,12 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. 
 | Maximumgrootte van opslag | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>-1 TB voor 8, 16 vcores uitvoert<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
-| Maximum aantal bestanden per exemplaar | Maximaal 280 | Onbeperkt |
-| I/o-doorvoer (bij benadering) | 5000 IOP's per kern met 200.000 maximale IOPS |
+| Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
+| IOPS (bij benadering) | 500-7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
+| Maximumgrootte van tempDB | 192 1920 GB (24 GB per vCore) | Bepaald door de maximale opslagruimte per exemplaar |
+
+- Gebruikers- en systeemdatabases zijn opgenomen in de grootte van de instantie die wordt vergeleken met de maximale grootte opslaglimiet. Gebruik <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> door het systeemweergave om te bepalen het totale aantal gebruikte ruimte door databases. Foutenlogboeken zijn niet permanent en worden niet opgenomen in de grootte. Back-ups zijn niet opgenomen in de opslagruimte.
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 

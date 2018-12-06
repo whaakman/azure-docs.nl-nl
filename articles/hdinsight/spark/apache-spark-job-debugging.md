@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6afb54caca572988c566ab7c6325d511e77fbd3e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582085"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970674"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Apache Spark-taken die worden uitgevoerd op Azure HDInsight
 
@@ -28,12 +28,12 @@ U hebt het volgende:
 * U moet zijn gestart voor het uitvoeren van de notebook  **[Machine learning: Predictive Analytics op food inspectie gegevens met behulp van MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Volg de koppeling voor instructies over het uitvoeren van dit notitieblok.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Bijhouden van een toepassing in de gebruikersinterface van YARN
-1. Start de gebruikersinterface van YARN. Klik op **Clusterdashboard**, en klik vervolgens op **YARN**.
+1. Start de gebruikersinterface van YARN. Klik op **Yarn** onder **Clusterdashboards**.
    
     ![Gebruikersinterface van YARN starten](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > U kunt ook kunt u ook de YARN-gebruikersinterface van de Ambari UI starten. Als u wilt de UI Ambari starten, klikt u op **Clusterdashboard**, en klik vervolgens op **HDInsight-Clusterdashboard**. Klik op de UI Ambari **YARN**, klikt u op **snelkoppelingen**, klikt u op de actieve Resource Manager en klik vervolgens op **Resource Manager UI**.    
+   > U kunt ook kunt u ook de YARN-gebruikersinterface van de Ambari UI starten. Als u wilt de UI Ambari starten, klikt u op **Ambari home** onder **Clusterdashboards**. Klik op de UI Ambari **YARN**, klikt u op **snelkoppelingen**, klikt u op de actieve Resource Manager en klik vervolgens op **Resource Manager UI**.    
    > 
    > 
 2. Omdat u de Spark-taak met behulp van Jupyter notebooks eerst, de toepassing heeft de naam van de **remotesparkmagics** (dit is de naam op voor alle toepassingen die worden gestart vanuit de notitieblokken). Klik op de toepassings-ID op basis van de naam van de toepassing voor meer informatie over de taak. Hiermee wordt de toepassingsweergave gestart.
@@ -88,12 +88,12 @@ In de Spark-gebruikersinterface kunt u inzoomen op de Spark-taken die zijn geïn
 ## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Meer informatie over voltooide taken met behulp van de Server van de geschiedenis van Spark
 Als een taak is voltooid, wordt de informatie over de taak behouden in de Server van de geschiedenis van Spark.
 
-1. Klik om te starten van de Server van de Spark geschiedenis van de cluster-blade op **Clusterdashboard**, en klik vervolgens op **Spark geschiedenis Server**.
+1. Om te starten van de Spark-geschiedenis-Server, op de blade overzicht klikt u op **Spark geschiedenis server** onder **Clusterdashboards**.
    
     ![Spark geschiedenis Server starten](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > U kunt ook kunt u ook de Spark-geschiedenis Server gebruikersinterface van de Ambari UI starten. Klik om te starten van de UI Ambari van de cluster-blade op **Clusterdashboard**, en klik vervolgens op **HDInsight-Clusterdashboard**. Klik op de UI Ambari **Spark**, klikt u op **snelkoppelingen**, en klik vervolgens op **Spark geschiedenis Server gebruikersinterface**.
+   > U kunt ook kunt u ook de Spark-geschiedenis Server gebruikersinterface van de Ambari UI starten. Als u wilt starten, de UI Ambari, op de blade overzicht klikt u op **Ambari home** onder **Clusterdashboards**. Klik op de UI Ambari **Spark**, klikt u op **snelkoppelingen**, en klik vervolgens op **Spark geschiedenis Server gebruikersinterface**.
    > 
    > 
 2. U ziet de voltooide toepassingen die worden vermeld. Klik op een toepassings-ID Inzoomen op een toepassing voor meer informatie.
@@ -115,12 +115,10 @@ Als een taak is voltooid, wordt de informatie over de taak behouden in de Server
 ### <a name="for-spark-developers"></a>Voor Spark-ontwikkelaars
 
 * [Een zelfstandige toepassing maken met behulp van Scala](apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren op een Apache Spark-cluster met behulp van Apache Livy](apache-spark-livy-rest-interface.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](apache-spark-intellij-tool-plugin.md)
 * [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op te sporen Apache Spark-toepassingen op afstand](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](apache-spark-jupyter-notebook-install-locally.md)
-
-

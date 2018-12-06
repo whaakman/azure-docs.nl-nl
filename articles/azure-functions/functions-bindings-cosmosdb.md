@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b7ae066bd8dc2de3227f441fd05b6c7a412b6074
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276207"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965356"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindingen voor Azure Functions 1.x
 
@@ -24,7 +24,7 @@ ms.locfileid: "52276207"
 > * [Versie 1:](functions-bindings-cosmosdb.md)
 > * [Versie 2](functions-bindings-cosmosdb-v2.md)
 
-Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindingen in Azure Functions. Azure Functions ondersteunt activeren, invoeren en uitvoerbindingen voor Azure Cosmos DB.
+Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindingen in Azure Functions. Azure Functions ondersteunt activeren, invoeren en uitvoerbindingen voor Azure Cosmos DB.
 
 > [!NOTE]
 > In dit artikel is bedoeld voor Azure Functions 1.x.  Voor informatie over het gebruik van deze bindingen in functies 2.x gebruikt, Zie [Azure Cosmos DB-bindingen voor Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
@@ -1606,7 +1606,7 @@ Wanneer u naar de output-parameter in de functie schrijft wordt een document sta
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over serverloze computing met Cosmos DB-database](..\cosmos-db\serverless-computing-database.md)
+* [Meer informatie over serverloze computing met Cosmos DB-database](../cosmos-db/serverless-computing-database.md)
 * [Meer informatie over Azure functions-triggers en bindingen](functions-triggers-bindings.md)
 
 <!---

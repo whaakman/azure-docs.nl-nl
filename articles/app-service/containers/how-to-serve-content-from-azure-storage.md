@@ -8,12 +8,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: msangapu
-ms.openlocfilehash: 8d4444aac7f84753f55c434d0a3f5ef0edcfb1c4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f28a07d775071a92e6183587add1ceabc48ef416
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979724"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968900"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Inhoud leveren vanuit Azure Storage in App Service onder Linux
 
@@ -67,7 +67,7 @@ U moet dit doen voor alle andere mappen die u wilt dat moet worden gekoppeld aan
 Nadat een opslagcontainer is gekoppeld aan een web-app, kunt u dit controleren door de volgende opdracht uit:
 
 ```azurecli
-az webapp conf storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <group_name> --name <app_name>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

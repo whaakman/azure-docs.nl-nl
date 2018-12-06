@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01a02296354ebe3d60f0e1fda6a6da8554a265fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c5a4dfcdde91d1bd0c2728ff9d071d4c2f73f0e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239063"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969767"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK voor .NET 2.7 en .NET 2.7.1 opmerkingen bij de Release
 ## <a name="overview"></a>Overzicht
@@ -40,7 +40,7 @@ Opgenomen in de Azure SDK 2.7 verbeteringen zijn alleen beschikbaar in Visual St
 Bijgewerkt **Mobile Apps** sjablonen in overeenstemming met nieuwste [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) en -instellingen te openen.
 
 ### <a name="service-bus"></a>Service Bus
-Algemene fouten opgelost en verbeteringen. Raadpleeg voor informatie over updates en functies, de opmerkingen bij de release van de meest recente [Service Bus NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+Algemene fouten opgelost en verbeteringen. Raadpleeg voor informatie over updates en functies, de opmerkingen bij de release van de meest recente [Service Bus NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### <a name="hdinsight-tools"></a>HDInsight-hulpprogramma 's
 In deze release zijn de volgende updates zijn aangebracht. Deze updates zijn in preview. Zie voor meer informatie, [deze blog](https://go.microsoft.com/fwlink/?LinkId=619108).

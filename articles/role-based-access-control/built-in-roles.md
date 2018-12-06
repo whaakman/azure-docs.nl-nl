@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d082ba8550925d12d3a60d71111c72d561c083c5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499658"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969057"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -114,6 +114,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor opslagaccounts](#storage-account-contributor) | Hiermee kunt u opslagaccounts beheren, maar niet de toegang. |
 | [Storage-Account servicerol Sleuteloperator](#storage-account-key-operator-service-role) | Sleuteloperators voor opslagaccounts kunnen een lijst met sleutels voor opslagaccounts maken en de sleutels opnieuw genereren |
 | [Gegevensbijdrager voor Blob (Preview)](#storage-blob-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
+| [Storage Blob de eigenaar van gegevens (Preview)](#storage-blob-data-owner-preview) | Kunt u lezen, schrijven, verwijderen en POSIX beheerder toegang tot Azure Storage-blobcontainers en -gegevens |
 | [Gegevenslezer voor Opslagblob (Preview)](#storage-blob-data-reader-preview) | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
 | [Gegevensbijdrager voor wachtrij (Preview)](#storage-queue-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
 | [Gegevenslezer voor Opslagwachtrij (Preview)](#storage-queue-data-reader-preview) | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
@@ -1687,6 +1688,21 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | --- | --- |
 > | **Beschrijving** | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Acties** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Hiermee wordt het resultaat van het verwijderen van een container geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Hiermee wordt een container of een lijst containers geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Hiermee wordt het resultaat van het plaatsen of in lease geven van de blobcontainer geretourneerd |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Hiermee wordt het resultaat van het verwijderen van een blob geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Hiermee wordt het resultaat van het schrijven van een blob geretourneerd |
+
+## <a name="storage-blob-data-owner-preview"></a>Storage Blob de eigenaar van gegevens (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u lezen, schrijven, verwijderen en POSIX beheerder toegang tot Azure Storage-blobcontainers en -gegevens |
+> | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Acties** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Hiermee wordt het resultaat van het verwijderen van een container geretourneerd |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Hiermee wordt een container of een lijst containers geretourneerd |

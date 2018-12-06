@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984669"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966905"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreren van de PostgreSQL-database met behulp van dumpen en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) om op te halen van een PostgreSQL-database naar een dumpbestand en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen vanuit een archiefbestand die zijn gemaakt door pg_dump.
@@ -71,7 +71,7 @@ Een manier om uw bestaande PostgreSQL-database migreren naar Azure Database for 
     ```
 
 ### <a name="for-the-restore"></a>Voor het herstellen
-- Het is raadzaam dat u de back-upbestand naar een Azure-VM in dezelfde regio als de Azure Database for PostgreSQL-server u migreert verplaatsen naar en voer de pg_restore van die VM te verminderen van de netwerklatentie. We raden u ook aan dat de virtuele machine wordt gemaakt met [versnelde netwerken](..\virtual-network\create-vm-accelerated-networking-powershell.md) ingeschakeld.
+- Het is raadzaam dat u de back-upbestand naar een Azure-VM in dezelfde regio als de Azure Database for PostgreSQL-server u migreert verplaatsen naar en voer de pg_restore van die VM te verminderen van de netwerklatentie. We raden u ook aan dat de virtuele machine wordt gemaakt met [versnelde netwerken](../virtual-network/create-vm-accelerated-networking-powershell.md) ingeschakeld.
 - Het standaard moet worden gedaan, maar het dumpbestand om te controleren dat de instructies van de index maken na het invoegen van de gegevens zijn geopend. Als dit niet het geval is, verplaatst u de instructies van de index maken nadat de gegevens worden ingevoegd.
 - Herstellen met de schakelopties -Fc- en -j *#* naar parallel het terugzetten. *#* is het aantal kernen op de doelserver. U kunt ook proberen met *#* ingesteld op twee keer het aantal kernen van de doelserver om te zien van de impact. Bijvoorbeeld:
 

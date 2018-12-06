@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284826"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969478"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ Wanneer u gegevens verplaatsen tussen on-premises en de cloud, de activiteit maa
 
 Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappen voor het kopiëren van met een zelf-hostende IR:
 
-![Overzicht](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Overzicht](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. De ontwikkelaar van gegevens maakt een zelf-hostende integratieruntime binnen een Azure data factory met behulp van een PowerShell-cmdlet. De Azure-portal biedt momenteel geen ondersteuning voor deze functie.
 2. Een gekoppelde service voor een on-premises gegevensarchief maakt de ontwikkelaar van gegevens door het exemplaar van de zelf-hostende integration runtime die moet worden gebruikt verbinding maken met de opgeslagen gegevens op te geven. De ontwikkelaar van de gegevens gebruikt als onderdeel van het instellen van de gekoppelde service, de toepassing Referentiebeheer (momenteel niet ondersteund) voor het instellen van verificatietypen en -referenties. De toepassing Referentiebeheer communiceert met het gegevensarchief om de verbinding en de zelf-hostende integratieruntime voor het opslaan van referenties te testen.
@@ -131,7 +131,7 @@ Wanneer het beschikbare geheugen op de zelf-hostende IR laag is en het CPU-gebru
 
 Als het beschikbare geheugen en CPU niet goed worden gebruikt, maar de uitvoering van gelijktijdige taken de limiet is bereikt, moet u omhoog schalen door het aantal gelijktijdige taken die kunnen worden uitgevoerd op een knooppunt. U kunt ook omhoog schalen wanneer activiteiten zijn time-outs opgetreden omdat de zelf-hostende IR is overbelast. Zoals weergegeven in de volgende afbeelding, kunt u de maximale capaciteit voor een knooppunt verhogen:  
 
-![Steeds meer gelijktijdige taken die kunnen worden uitgevoerd op een knooppunt](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Steeds meer gelijktijdige taken die kunnen worden uitgevoerd op een knooppunt](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Vereisten voor TLS/SSL-certificaat
 
@@ -162,33 +162,33 @@ Bekijk de volgende video voor een 12 minuten durende inleiding en demonstratie v
 
 1. In de zelf-hostende IR moet worden gedeeld, toekennen aan de data factory waarin u wilt maken van de gekoppelde IR. 
 
-   ![Knop voor het verlenen van machtiging op het tabblad delen](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Knop voor het verlenen van machtiging op het tabblad delen](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Selecties voor het toewijzen van machtigingen](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Selecties voor het toewijzen van machtigingen](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Houd er rekening mee de resource-ID van de zelf-hostende IR moet worden gedeeld.
 
-   ![Locatie van de resource-ID](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Locatie van de resource-ID](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. In de data factory waaraan de machtigingen zijn verleend, maken van een nieuwe zelf-hostende IR (gekoppeld) en voer de resource-ID.
 
-   ![Knop voor het maken van een gekoppelde zelf-hostende integratieruntime](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Knop voor het maken van een gekoppelde zelf-hostende integratieruntime](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Selectievakjes voor de naam en resourcegroep-ID](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Selectievakjes voor de naam en resourcegroep-ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>Bewaking 
 
 - **Gedeelde IR**
 
-  ![Selecties voor het zoeken naar een gedeelde integratieruntime](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Selecties voor het zoeken naar een gedeelde integratieruntime](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Tabblad voor het controleren](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Tabblad voor het controleren](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **Gekoppelde IR**
 
-  ![Selecties voor het vinden van een gekoppelde integratieruntime](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Selecties voor het vinden van een gekoppelde integratieruntime](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Tabblad voor het controleren](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Tabblad voor het controleren](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Bekende beperkingen van het delen van zelf-hostende IR
 
@@ -211,12 +211,12 @@ Bekijk de volgende video voor een 12 minuten durende inleiding en demonstratie v
 
 Als u de cursor boven het pictogram of het bericht in het systeemvak klikt verplaatst, vindt u meer informatie over de status van de zelf-hostende integratieruntime.
 
-![Meldingen in het systeemvak](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Meldingen in het systeemvak](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Poorten en firewall
 Er zijn twee firewalls om te overwegen: de *bedrijfsfirewall* die worden uitgevoerd op de centrale-router van de organisatie, en de *Windows firewall* geconfigureerd als een daemon op de lokale computer waar de zelf-hostende integratieruntime is geïnstalleerd.
 
-![Firewall](media\create-self-hosted-integration-runtime\firewall.png)
+![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
 
 Op de *bedrijfsfirewall* niveau, moet u de volgende domeinen bevinden en uitgaande poorten configureren:
 
@@ -249,11 +249,11 @@ Bijvoorbeeld, als u wilt kopiëren van een on-premises gegevensarchief naar een 
 ## <a name="proxy-server-considerations"></a>Overwegingen voor de proxy-server
 Als uw bedrijfsnetwerk bevindt een proxyserver gebruikt voor toegang tot het internet, configureert u de zelf-hostende integratieruntime voor het gebruik van de juiste proxy-instellingen. U kunt de proxy instellen tijdens de registratie-fase.
 
-![Geef-proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Geef-proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 De zelf-hostende integratieruntime maakt gebruik van de proxy-server verbinding maken met de cloudservice. Selecteer **koppeling wijzigen** tijdens de eerste configuratie. Ziet u het dialoogvenster proxy-instellingen.
 
-![Set-proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Set-proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Er zijn drie opties:
 
@@ -272,7 +272,7 @@ Nadat de zelf-hostende integratieruntime is geregistreerd, als u wilt weergeven 
 
 U kunt weergeven en bijwerken van de HTTP-proxy met behulp van de Configuration Manager-hulpprogramma.
 
-![Weergave-proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Weergave-proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > Als u een proxyserver met NTLM-verificatie instelt, wordt de hostservice van integratieruntime wordt uitgevoerd onder het domeinaccount. Als u het wachtwoord voor het domeinaccount dat later wijzigt, moet u bijwerken van de configuratie-instellingen voor de service en start deze dienovereenkomstig opnieuw. Vanwege deze vereiste is het raadzaam dat u een speciale domeinaccount gebruiken voor toegang tot de proxyserver die vereist niet dat u het wachtwoord regelmatig bijwerken.

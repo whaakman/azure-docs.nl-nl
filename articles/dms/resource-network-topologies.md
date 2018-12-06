@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/8/2018
-ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300689"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971076"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Netwerktopologieën voor migraties van Azure SQL database Managed Instance met behulp van de Azure Database Migration Service
 Dit artikel worden verschillende netwerktopologieën maken waarin de Azure Database Migration Service werken kunt met een uitgebreide migratie-ervaring bieden van on-premises SQL-Servers naar Azure SQL Database Managed Instance.
@@ -24,7 +24,7 @@ Dit artikel worden verschillende netwerktopologieën maken waarin de Azure Datab
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Azure SQL Database Managed Instance geconfigureerd voor hybride werkbelastingen 
 Gebruik deze topologie als uw Azure SQL Database Managed Instance is verbonden met uw on-premises netwerk. Deze aanpak biedt de meest eenvoudige netwerkroutering en geeft de maximale doorvoer tijdens de migratie.
 
-![Netwerktopologie voor hybride werkbelastingen](media\resource-network-topologies\hybrid-workloads.png)
+![Netwerktopologie voor hybride werkbelastingen](media/resource-network-topologies/hybrid-workloads.png)
 
 **Vereisten**
 - In dit scenario, de Azure SQL Database Managed Instance en de Azure Database Migration Service-exemplaar worden gemaakt in hetzelfde Azure-VNET, maar ze gebruiken verschillende subnetten.  
@@ -36,7 +36,7 @@ Deze topologie gebruiken als uw omgeving een of meer van de volgende scenario's 
 - Als het beleid voor rollen gebaseerd toegangsbeheer (RBAC) is voldaan en u wilt voorkomen dat de gebruikers toegang tot hetzelfde abonnement als dat als host voor de Azure SQL Database Managed Instance fungeert.
 - De VNETs die worden gebruikt voor de Azure SQL Database Managed Instance en Azure Database Migration Service zijn in verschillende abonnementen.
 
-![Netwerktopologie voor beheerd exemplaar is geïsoleerd van de on-premises netwerk](media\resource-network-topologies\mi-isolated-workload.png)
+![Netwerktopologie voor beheerd exemplaar is geïsoleerd van de on-premises netwerk](media/resource-network-topologies/mi-isolated-workload.png)
 
 **Vereisten**
 - Het VNET waarmee Azure Database Migration Service wordt gebruikt voor dit scenario moet ook worden verbonden met de on-premises netwerk met behulp van (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
@@ -47,7 +47,7 @@ Deze topologie gebruiken als uw omgeving een of meer van de volgende scenario's 
 
 Gebruik deze topologie als de bron-SQL Server wordt gehost in een Azure-VM en hetzelfde VNET met Azure SQL Database Managed Instance en Azure Database Migration Service deelt.
 
-![Netwerktopologie voor Cloud-naar-Cloud-migraties met een gedeelde vnet](media\resource-network-topologies\cloud-to-cloud.png)
+![Netwerktopologie voor Cloud-naar-Cloud-migraties met een gedeelde vnet](media/resource-network-topologies/cloud-to-cloud.png)
 
 **Vereisten**
 - Er is geen aanvullende vereisten.
@@ -59,7 +59,7 @@ Deze topologie gebruiken als uw omgeving een of meer van de volgende scenario's 
 - Als het beleid voor rollen gebaseerd toegangsbeheer (RBAC) is voldaan en u wilt voorkomen dat de gebruikers toegang tot hetzelfde abonnement als dat als host voor de Azure SQL Database Managed Instance fungeert.
 - De VNETs die worden gebruikt voor Azure SQL Database Managed Instance en Azure Database Migration Service zijn in verschillende abonnementen.
 
-![Netwerktopologie voor Cloud-naar-Cloud-migraties met een geïsoleerd vnet](media\resource-network-topologies\cloud-to-cloud-isolated.png)
+![Netwerktopologie voor Cloud-naar-Cloud-migraties met een geïsoleerd vnet](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
 **Vereisten**
 - Instellen van [VNET-netwerkpeering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tussen het VNET gebruikt voor Azure SQL Database Managed Instance en Azure Database Migration Service.

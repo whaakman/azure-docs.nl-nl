@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: dafbfb959e70563f8619f7aea877a3aa1c380453
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7f8eacf11f2333abc348efaa82c92ecbe05136ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997400"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966174"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integration Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -46,7 +46,7 @@ Azure-SSIS | Uitvoering van SSIS-pakket | Uitvoering van SSIS-pakket
 
 Het volgende diagram toont hoe verschillende typen Integration Runtime gecombineerd kunnen worden gebruikt om geavanceerde mogelijkheden voor gegevensintegratie en netwerkondersteuning te bieden:
 
-![Verschillende typen Integration Runtime](media\concepts-integration-runtime\different-integration-runtimes.png)
+![Verschillende typen Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 Een Azure Integration Runtime is geschikt voor:

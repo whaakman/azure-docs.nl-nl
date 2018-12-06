@@ -2,25 +2,17 @@
 title: Over Azure Point-to-Site VPN-verbindingen | Microsoft Docs
 description: Dit artikel helpt u inzicht in de punt-naar-Site-verbindingen en kunt u bepalen welk verificatietype voor P2S-VPN-gateway te gebruiken.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 12/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe25858f185cf4ddfd17f956b66846a22ddb0e6c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003356"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971368"
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site-VPN
 
@@ -30,14 +22,15 @@ Met een point-to-site-VPN-gatewayverbinding (P2S) kunt u vanaf een afzonderlijke
 
 Punt-naar-site VPN kunt gebruiken dat een van de volgende protocollen:
 
+* OpenVPN, VPN-protocol op basis van een SSL/TLS. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. OpenVPN kan worden gebruikt om verbinding te maken van Android, iOS-, Linux en Mac-apparaten (OSX-versie 10.11 en hoger).
+
 * Secure Socket Tunneling Protocol (SSTP), een eigen VPN op basis van een SSL-protocol. Een SSL VPN-oplossing kan passeren, firewalls, omdat de meeste firewalls open TCP-poort 443, dat gebruikmaakt van SSL. SSTP wordt alleen ondersteund op Windows-apparaten. Azure ondersteunt alle versies van Windows die SSTP (Windows 7 en hoger) hebben.
 
 * IKEv2 VPN, een op standaarden gebaseerde IPsec VPN-oplossing. IKEv2 VPN kan worden gebruikt om verbinding te maken vanaf Mac-apparaten (OSX-versie 10.11 en hoger).
 
-Als u een gemengde clientomgeving met Windows en Mac-apparaten hebt, configureert u zowel SSTP als IKEv2.
 
 >[!NOTE]
->IKEv2 voor P2S is beschikbaar voor het Resource Manager-implementatiemodel alleen. Het is niet beschikbaar voor het klassieke implementatiemodel.
+>IKEv2- en OpenVPN voor P2S zijn beschikbaar voor het Resource Manager-implementatiemodel alleen. Ze zijn niet beschikbaar voor het klassieke implementatiemodel.
 >
 
 ## <a name="authentication"></a>Hoe worden de P2S-VPN-clients geverifieerd?
@@ -52,11 +45,17 @@ De validatie van het clientcertificaat wordt uitgevoerd door de VPN-gateway en e
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Verifiëren met behulp van Active Directory (AD) Domain-Server
 
-Verificatie van AD-domeinen kan gebruikers verbinding maken met Azure met de domeinreferenties van hun organisatie. Hiervoor een RADIUS-server die is geïntegreerd met de AD-server. Organisaties kunnen ook gebruikmaken van hun bestaande RADIUS-implementatie.   
-  De RADIUS-server kan worden on-premises geïmplementeerd of in uw Azure VNET. Tijdens de verificatie, wordt de Azure VPN-Gateway fungeert als een pass through- en stuurt verificatieberichten heen en weer tussen de RADIUS-server en het verbindende apparaat. Bereikbaarheid van de Gateway naar de RADIUS-server is dus belangrijk. Als de RADIUS-server kan de huidige on-premises, klikt u vervolgens is een S2S VPN-verbinding tussen Azure en de on-premises site vereist voor bereikbaarheid.  
-  De RADIUS-server kan ook worden geïntegreerd met AD certificaatservices. Hiermee kunt u de RADIUS-server en de implementatie van uw enterprise-certificaat voor P2S-certificaatverificatie gebruiken als alternatief voor de Azure-certificaatverificatie. Het voordeel is dat u hoeft niet aan de ingetrokken certificaten en basiscertificaten uploaden naar Azure.
+Verificatie van AD-domeinen kan gebruikers verbinding maken met Azure met de domeinreferenties van hun organisatie. Hiervoor een RADIUS-server die is geïntegreerd met de AD-server. Organisaties kunnen ook gebruikmaken van hun bestaande RADIUS-implementatie.   
+  
+De RADIUS-server kan worden on-premises geïmplementeerd of in uw Azure VNET. Tijdens de verificatie, wordt de Azure VPN-Gateway fungeert als een pass through- en stuurt verificatieberichten heen en weer tussen de RADIUS-server en het verbindende apparaat. Bereikbaarheid van de Gateway naar de RADIUS-server is dus belangrijk. Als de RADIUS-server kan de huidige on-premises, klikt u vervolgens is een S2S VPN-verbinding tussen Azure en de on-premises site vereist voor bereikbaarheid.  
+  
+De RADIUS-server kan ook worden geïntegreerd met AD certificaatservices. Hiermee kunt u de RADIUS-server en de implementatie van uw enterprise-certificaat voor P2S-certificaatverificatie gebruiken als alternatief voor de Azure-certificaatverificatie. Het voordeel is dat u hoeft niet aan de ingetrokken certificaten en basiscertificaten uploaden naar Azure.
 
 Een RADIUS-server kan ook worden geïntegreerd met andere systemen externe id. Hiermee opent u tal van verificatieopties voor P2S VPN, met inbegrip van opties voor meervoudige.
+
+>[!NOTE]
+>OpenVPN protocol wordt niet ondersteund met RADIUS-verificatie.
+>
 
 ![punt-naar-site](./media/point-to-site-about/p2s.png "punt-naar-Site")
 
@@ -77,13 +76,11 @@ Het zip-bestand bevat ook de waarden van een aantal belangrijke instellingen op 
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Welke Gateway-SKU's ondersteuning voor P2S VPN?
+## <a name="gwsku"></a>Welke gateway-SKU's ondersteuning voor P2S-VPN?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* De Benchmark cumulatieve doorvoer is gebaseerd op de metingen van meerdere tunnels die via één gateway worden gecombineerd. Het is niet een gegarandeerde doorvoer vanwege de omstandigheden van internetverkeer en het gedrag van uw toepassing.
-* Informatie over prijzen vindt u op de pagina met prijzen 
-* SLA (Service Level Agreement) informatie kan worden gevonden op de SLA-pagina.
+* Zie voor Gateway-SKU aanbevelingen [over VPN-Gateway-instellingen](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie.

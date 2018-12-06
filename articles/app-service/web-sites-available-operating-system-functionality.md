@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ebb95093d96a3c1fd36565831215355b18ac5d1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678675"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968422"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>De functionaliteit van het besturingssysteem op Azure App Service
 In dit artikel beschrijft de functionaliteit van algemene basislijn besturingssysteem dat beschikbaar is voor alle Windows-apps die worden uitgevoerd op [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit bevat de bestands-, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -85,7 +85,7 @@ Op de lokale stations die zijn gekoppeld aan de virtuele machine die een app uit
 
 Twee voorbeelden van hoe App Service maakt gebruik van tijdelijke lokale opslag zijn de map voor de tijdelijke ASP.NET-bestanden en de map voor IIS gecomprimeerde bestanden. De ASP.NET-compilatie-systeem gebruikt de map 'Tijdelijke ASP.NET Files' als een tijdelijke compilatie cachelocatie. IIS maakt gebruik van de ' IIS gecomprimeerde "map met tijdelijke bestanden voor het opslaan van de uitvoer van de gecomprimeerde antwoord. Beide van deze typen bestand gebruik (evenals andere) opnieuw worden toegewezen in App Service naar de tijdelijke lokale opslag per app. Dit opnieuw toe te wijzen, zorgt u ervoor dat de functionaliteit blijft zoals verwacht.
 
-Elke app in App Service wordt uitgevoerd als de identiteit van een willekeurige unieke met beperkte bevoegdheden werkproces met de naam 'id van de toepassingsgroep', verder die hier worden beschreven: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Toepassingscode gebruikt deze identiteit voor basic alleen-lezen toegang tot het besturingssysteemstation (het station D:\). Dit betekent toepassingscode kan lijst met algemene mapstructuren en algemene bestanden lezen op het systeemstation. Hoewel dit lijkt te zijn van een enigszins algemeen niveau van toegang, de dezelfde mappen en bestanden zijn toegankelijk wanneer u inricht wordt een werkrol in Azure gehoste service en de station-inhoud lezen. 
+Elke app in App Service wordt uitgevoerd als de identiteit van een willekeurige unieke met beperkte bevoegdheden werkproces met de naam 'id van de toepassingsgroep', verder die hier worden beschreven: [ https://www.iis.net/learn/manage/configuring-security/application-pool-identities ](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Toepassingscode gebruikt deze identiteit voor basic alleen-lezen toegang tot het besturingssysteemstation (het station D:\). Dit betekent toepassingscode kan lijst met algemene mapstructuren en algemene bestanden lezen op het systeemstation. Hoewel dit lijkt te zijn van een enigszins algemeen niveau van toegang, de dezelfde mappen en bestanden zijn toegankelijk wanneer u inricht wordt een werkrol in Azure gehoste service en de station-inhoud lezen. 
 
 <a name="multipleinstances"></a>
 

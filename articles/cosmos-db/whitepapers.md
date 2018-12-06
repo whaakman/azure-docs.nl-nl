@@ -1,20 +1,18 @@
 ---
 title: Azure Cosmos DB-whitepapers
-description: Technische documenten kunt u Azure Cosmos DB-concepten op een dieper niveau verkennen.
+description: Deze technische documenten worden Azure Cosmos DB-concepten in detail beschreven.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: sngun
-ms.openlocfilehash: 23445e2243a2824be95ef6d94eb13342d884e0c8
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3a73c5450ff305ea9f4e168dbfcf4b2b373e13aa
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072245"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966089"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB-whitepapers 
 

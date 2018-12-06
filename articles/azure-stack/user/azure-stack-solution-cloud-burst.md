@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890990"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968200"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Zelfstudie: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
 
@@ -107,17 +107,17 @@ Azure Repos
 
     Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurcode. Gebruik [Azure Resource Manager-sjablonen](https://azure.microsoft.com/resources/templates/) voor beide particuliere en gehoste cloudontwikkeling.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Kloon de opslagplaats** door het maken en de standaard web-app te openen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image2.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Implementatie van zelfstandige web-app voor App Services in beide clouds maken
 
 1.  Bewerk de **WebApplication.csproj** bestand. Selecteer **Runtimeidentifier** en toe te voegen **win10 x64**. (Zie [Self-contained implementatie](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentatie.) 
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image3.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image3.png)
 
 2.  Controleer in de code voor het Azure-opslagplaatsen met Team Explorer.
 
@@ -129,7 +129,7 @@ Azure Repos
 
 2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .net Core.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image4.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. De build worden uitgevoerd. De [onafhankelijke implementatie build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) proces artefacten die kunnen worden uitgevoerd op Azure en Azure Stack zal publiceren.
 
@@ -143,87 +143,87 @@ Azure pijplijnen en Azure DevOps-Server bieden een pijplijn maximaal kunnen word
 
 ## <a name="create-release-definition"></a>Release-definitie maken
 
-![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image5.png)
+![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  Selecteer de **plus** om toe te voegen een nieuwe versie onder de **Releases tabblad** op de pagina bouwen en lanceren van VSO.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image6.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. De implementatie van Azure App Service-sjabloon toepassen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image7.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. Toevoegen onder artefact toevoegen, de artefact voor de Azure-Cloud-app bouwen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image8.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. Selecteer onder pijplijntabblad, de **fase, taak** koppelen van de omgeving en de Azure-cloud Omgevingswaarden instellen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image9.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. Stel de **omgevingsnaam** en selecteer Azure **abonnement** voor het Azure-Cloud-eindpunt.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image10.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. Onder de naam van de omgeving, stelt u de vereiste **Azure app service-naam**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image11.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. Voer **VS2017 gehost** onder wachtrij van de Agent voor Azure in de cloud gehoste omgeving.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image12.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. Selecteer in Azure App Service implementeren in het menu geldig **pakket of de map** voor de omgeving. Selecteer **OK** naar **maplocatie**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image13.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image14.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. Sla alle wijzigingen op en gaat u terug naar **release-pijplijn**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image15.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Voeg een nieuwe artefact selecteren van de build voor de Azure Stack-app.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image16.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Voeg een meer omgeving toepassen van de Azure App Service-implementatie.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image17.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. De naam van de nieuwe Azure Stack-omgeving.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image18.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Zoek de Azure Stack-omgeving onder **taak** tabblad.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image19.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Selecteer het abonnement voor het eindpunt van de Azure Stack.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image20.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. De naam van de Azure Stack web-app instellen als de naam van de App-service.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image21.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Selecteer het Azure Stack-agent.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image22.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. Selecteer sectie onder de implementatie van Azure App Service de geldige **pakket of de map** voor de omgeving. Selecteer **OK** naar maplocatie.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image23.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image24.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. Variabele tabblad toevoegen een variabele met de naam `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, stel de waarde als **waar**, en bereik op Azure Stack.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image25.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. Selecteer de **doorlopend** pictogram van de implementatie-trigger in zowel artefacten en schakelt u de **gaat door met het** trigger voor implementatie.
 
-    ![Alternatieve tekst](media\azure-stack-solution-cloud-burst\image26.png)
+    ![Alternatieve tekst](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. Selecteer de **vóór de implementatie** voorwaarden-pictogram in de Azure Stack-omgeving en stelt u de trigger op **na de release.**
 
@@ -307,7 +307,7 @@ Het maken van een release-definitie is het bouwproces voor de laatste stap in de
 
 3.  Op **selecteert u een sjabloon**, kiest u **Azure App Service-implementatie**, en selecteer vervolgens **toepassen**.
 
-4.  Op **toevoegen artefact**, uit de ** Source (Build definition) selecteert u de Azure-Cloud-app bouwen.
+4.  Op **toevoegen artefact**, uit de **Source (Build definition)** selecteert u de Azure-Cloud-app bouwen.
 
 5.  Op de **pijplijn** tabblad de **1 fase**, **1 taak** koppelen aan **omgevingstaken weergeven**.
 
@@ -323,7 +323,7 @@ Het maken van een release-definitie is het bouwproces voor de laatste stap in de
 
 11. Sla alle wijzigingen op en gaat u terug naar **pijplijn**.
 
-12. Op de **pijplijn** tabblad **toevoegen artefact**, en kies de **NorthwindCloud Traders-vat** uit de ** Source (Build Definition) ** lijst.
+12. Op de **pijplijn** tabblad **toevoegen artefact**, en kies de **NorthwindCloud Traders-vat** uit de **Source (Build Definition)** lijst.
 
 13. Op **selecteert u een sjabloon**, toevoegen van een andere omgeving. Kies **Azure App Service-implementatie** en selecteer vervolgens **toepassen**.
 

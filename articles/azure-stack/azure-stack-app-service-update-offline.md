@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 740a3ce36dde953cb92c52a10cbebf12544adae0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614800"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968149"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline-update van Azure App Service in Azure Stack
 
@@ -101,7 +101,7 @@ Als u App Service bijwerken in een omgeving zonder verbinding, moet u eerst een 
 
    1. Klik op de **Connect** naast de **Azure Stack-abonnementen** vak.
         * Als u Azure Active Directory (Azure AD), voert u de Azure AD-beheerdersaccount en het wachtwoord die u hebt opgegeven tijdens de implementatie van Azure Stack. Klik op **aanmelden**.
-        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld *cloudadmin@azurestack.local*. Voer uw wachtwoord in en klikt u op **aanmelden**.
+        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld _cloudadmin@azurestack.local_. Voer uw wachtwoord in en klikt u op **aanmelden**.
    2. In de **Azure Stack-abonnementen** Schakel de **Providerabonnement standaard**.
    3. In de **Azure Stack-locaties** vak, selecteert u de locatie die overeenkomt met de regio die u naar implementeert. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure Stack Development Kit.
    4. Als een bestaande App Service-implementatie wordt gedetecteerd, klikt u vervolgens de resource-account voor groep en de opslag ingevuld en grijs.
