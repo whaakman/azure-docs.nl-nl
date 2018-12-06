@@ -12,15 +12,15 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 11/29/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953549"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890225"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Zelfstudie: Meer informatie over het upgraden van een Service Fabric-toepassing met Visual Studio
 
@@ -48,22 +48,29 @@ Voor u met deze zelfstudie begint:
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Een Service Fabric-NET-service upgraden met behulp van Visual Studio
 
-In dit artikel laat zien hoe een microservice in een toepassing onafhankelijk upgraden.  In dit voorbeeld wijzigen we de `WebFrontEnd` service om een taakcategorie weer te geven. Vervolgens upgraden we de geïmplementeerde service.
+In dit artikel laat zien hoe een microservice in een toepassing een upgrade uitvoert. In dit voorbeeld wijzigen we de `WebFrontEnd` service voor het weergeven van een categorie en vergroot de hoeveelheid CPU krijgt. Vervolgens upgraden we de geïmplementeerde service.
 
 ## <a name="modify-the-config"></a>De configuratie wijzigen
 
-Upgrades kunnen worden veroorzaakt door wijzigingen in de code en/of wijzigingen in de configuratie.  Om te introduceren een configuratiewijziging, opent u de `WebFrontEnd` van het project `service.yaml` bestand (dit is onder de **serviceresources** knooppunt).
+Wanneer u een Service Fabric-NET-app maakt, Visual studio wordt toegevoegd een **parameters.yaml** -bestand voor elke implementatieomgeving (cloud en lokaal). In deze bestanden, kunt u parameters en waarden die vervolgens kunnen worden verwezen vanuit uw Mesh *.yaml bestanden zoals service.yaml of network.yaml definiëren.  Visual Studio biedt enkele variabelen die voor u, zoals hoeveel CPU die de service kan gebruiken.
 
-In de `resources:` sectie, wijzigt u `cpu:` van 0,5 1.0, in afwachting dat de web-front-end wordt intensief gebruikt. Het moet er nu uitzien als volgt:
+We werken de `WebFrontEnd_cpu` parameter voor het bijwerken van de cpu-resources te `1.5` in afwachting die de **WebFrontEnd** service strenger wordt gebruikt.
 
-```xml
-              ...
-              resources:
-                requests:
-                  cpu: 1.0
-                  memoryInGB: 1
-              ...
-```
+1. In de **todolistapp** project, onder **omgevingen** > **Cloud**, open de **parameters.yaml** bestand. Wijzig de `WebFrontEnd_cpu`, waarde die moet worden `1.5`. Naam van de parameter wordt voorafgegaan door de naam van de `WebFrontEnd_` als een best practice te onderscheiden van de parameters met dezelfde naam die betrekking hebben op andere services.
+
+    ```xml
+    WebFrontEnd_cpu: 1.5
+    ```
+
+2. Open de **WebFrontEnd** van het project **service.yaml** bestand onder **WebFrontEnd** > **serviceresources**.
+
+    Houd er rekening mee dat de in `resources:` sectie `cpu:` is ingesteld op `"[parameters('WebFrontEnd_cpu')]"`. Als het project is gebouwd voor de cloud, de waarde voor `'WebFrontEnd_cpu` wordt gemaakt op basis van de **omgevingen** > **Cloud** > **parameters.yaml** bestand en worden `1.5`. Als het project wordt opgebouwd als lokaal wilt uitvoeren, de waarde wordt gemaakt op basis van de **omgevingen** > **lokale** > **parameters.yaml** -bestand, en '0,5' zijn.
+
+> [!Tip]
+> Standaard wordt de parameterbestand dat is een peer van het bestand profile.yaml worden gebruikt voor het leveren van de waarden voor dat bestand profile.yaml.
+> Bijvoorbeeld, omgevingen > Cloud > parameters.yaml biedt de parameterwaarden voor omgevingen > Cloud > profile.yaml.
+>
+> U kunt dit wijzigen door het volgende toe te voegen aan het bestand profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` bijvoorbeeld `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` of `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Wijzigen van het model
 
@@ -125,28 +132,29 @@ Ontwikkel en voer de app om te controleren of er een nieuwe categoriekolom in de
 
 ## <a name="upgrade-the-app-from-visual-studio"></a>Upgrade van de app vanuit Visual Studio
 
-Ongeacht of u een code-upgrade of een upgrade van een configuratie wilt maken (in dit geval we voeren beide), upgrade uitvoeren voor uw Service Fabric-NET-app op Azure met de rechtermuisknop op **todolistapp** in Visual Studio en selecteer **publiceren ...**
+Of u maakt een code-upgrade of een configuratie-upgrade (in dit geval we het doen beide), upgrade van uw Service Fabric-NET-app op Azure met de rechtermuisknop op **todolistapp** in Visual Studio en selecteer vervolgens **publiceren...**
 
 Vervolgens ziet u het dialoogvenster **Service Fabric-toepassing publiceren**.
 
+Gebruik de **doelprofiel** vervolgkeuzelijst om het bestand profile.yaml moet worden gebruikt voor deze implementatie te selecteren. We een upgrade uitvoert van de app in de cloud, zodat we selecteren de **cloud.yaml** in de vervolgkeuzelijst die wordt gebruikt de `WebFrontEnd_cpu` waarde van 1,0 gedefinieerd in dat bestand.
+
 ![Dialoogvenster in Visual Studio over Service Fabric Mesh-publicatie](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Selecteer uw Azure-account en -abonnement. Zorg ervoor dat **locatie** is ingesteld op de locatie die u hebt gebruikt toen u oorspronkelijk de to-do-app gepubliceerd naar Azure. In dit artikel gebruikt **VS-Oost**.
+Selecteer uw Azure-account en -abonnement. Stel de **locatie** naar de locatie die u hebt gebruikt toen u oorspronkelijk de to-do-app gepubliceerd naar Azure. In dit artikel gebruikt **VS-Oost**.
 
-Zorg ervoor dat **resourcegroep** is ingesteld op de resourcegroep die u hebt gebruikt toen u oorspronkelijk de to-do-app gepubliceerd naar Azure.
+Stel **resourcegroep** naar de resourcegroep die u hebt gebruikt toen u oorspronkelijk de to-do-app gepubliceerd naar Azure.
 
-Zorg ervoor dat **Azure Container Registry** is ingesteld op de azure container registry-naam die u hebt gemaakt toen u oorspronkelijk de to-do-app gepubliceerd naar Azure.
+Stel **Azure Container Registry** in de azure container registry-naam die u hebt gemaakt toen u oorspronkelijk de to-do-app gepubliceerd naar Azure.
 
 Druk in het dialoogvenster publiceren op de **publiceren** om de upgrade van de to-do-app op Azure.
 
-U kunt de voortgang van de upgrade door het selecteren van de **Service Fabric Tools** deelvenster in de Visual Studio **uitvoer** venster. Nadat de upgrade is voltooid, de **Service Fabric Tools** uitvoer wordt weergegeven de IP-adres en poort van uw toepassing in de vorm van een URL.
+De voortgang van de upgrade door het selecteren van de **Service Fabric Tools** deelvenster in de Visual Studio **uitvoer** venster. 
+
+Nadat de installatiekopie is gemaakt en naar Azure Container Registry gepusht een **voor de status van** koppeling wordt weergegeven in de uitvoer die u kunt klikken op voor het controleren van de implementatie in Azure portal.
+
+Nadat de upgrade is voltooid, de **Service Fabric Tools** uitvoer wordt weergegeven de IP-adres en poort van uw toepassing in de vorm van een URL.
 
 ```json
-Packaging Application...
-Building Images...
-Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
-Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
