@@ -1,82 +1,74 @@
 ---
-title: Een symbolen toevoegen en markeringen met Azure Maps | Microsoft Docs
-description: Symbolen en markeringen toevoegen aan een Javascript-kaart
-author: walsehgal
-ms.author: v-musehg
-ms.date: 10/30/2018
+title: Een symbool laag toevoegen aan Azure-kaarten | Microsoft Docs
+description: Symbolen toevoegen aan de Javascript-kaart
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/2/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c921d9bed666e428779a125c17591c65ad690f1c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282682"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888933"
 ---
-# <a name="add-symbols-and-markers-to-a-map"></a>Symbolen en markeringen toevoegen aan een kaart
+# <a name="add-a-symbol-layer-to-a-map"></a>Een symbool laag toevoegen aan een kaart
 
-Dit artikel leest u hoe symbolen en markeringen kunt toevoegen aan een kaart met behulp van een gegevensbron.
+Dit artikel leest u hoe u gegevens uit een gegevensbron als een laag symbool op een kaart kan weergeven. Symbool lagen worden samengesteld met WebGL en aanzienlijk meer gegevenspunten dan HTML-markeringen ondersteunen, maar bieden geen ondersteuning voor traditionele CSS en HTML-elementen voor stijl.  
 
-## <a name="add-a-symbol-marker"></a>Een symbool markering toevoegen
+> [!TIP]
+> Symbool lagen standaard worden de coördinaten van alle geometrie in een gegevensbron weergegeven. Functies instellen om te beperken van de laag zodanig dat deze alleen punt geometrie wordt weergegeven de `filter` eigenschap van de laag `['==', '$type', 'Point']`
+
+## <a name="add-a-symbol-layer"></a>Een symbool laag toevoegen
 
 <iframe height='500' scrolling='no' title='Switch-pincode-locatie' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pincode locatie</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Het eerste vereiste blok van de bovenstaande code wordt een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een punt wordt vervolgens gemaakt en toegevoegd aan de gegevensbron. Een punt is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [wijst](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest).
+In het tweede blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Een [functie] met een [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometry is verpakt door de [vorm](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) klasse zodat het eenvoudiger om bij te werken, en vervolgens gemaakt en toegevoegd aan de gegevensbron.
 
 Het derde blok van code maakt een [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) en updates van het punt coördinaten van de muis klikt u op met behulp van de Shapeklasse [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#setcoordinates) methode.
 
 Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart.  De gegevensbron, de gebeurtenislistener klikken en het symbool-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat het punt wordt weergegeven nadat de kaart volledig is geladen.
 
-## <a name="add-a-custom-symbol"></a>Een aangepaste symbool toevoegen
+## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Een aangepast pictogram toevoegen aan een symbool-laag
 
-<iframe height='500' scrolling='no' title='HTML-gegevensbron' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+Symbool lagen worden weergegeven met behulp van WebGL. Als alle resources, zoals pictogramafbeeldingen, moeten worden geladen in de context WebGL. Dit voorbeeld laat zien hoe u een symboolpictogram van een aangepaste toevoegen aan het toewijzen van resources en vervolgens worden gebruikt om gegevens met een aangepaste symbool op de kaart weer te geven. De `textField` eigenschap van het symbool laag vereist een expressie die moet worden opgegeven. In dit geval willen we de temperatuur-eigenschap van de functie punt als de waarde van de weergegeven. Dit kan worden bereikt met deze expressie: `['get', 'temperature']`. 
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Pictogram van een afbeelding aangepaste symbool' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>pictogram van een afbeelding aangepaste symbool</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+## <a name="customize-a-symbol-layer"></a>Een symbool laag aanpassen 
 
-Het tweede codeblok wordt toegevoegd een [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) aan de map met de [markeringen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) eigenschap van de [kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) klasse. De HtmlMarker wordt toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat deze wordt weergegeven nadat de kaart volledig is geladen.
+Het symbool-laag heeft veel opmaakopties beschikbaar. Hier is een hulpprogramma voor het testen van deze verschillende opmaakopties.
 
-## <a name="add-bubble-markers"></a>Bellendiagrammen toevoegen
+<br/>
 
-<iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opties voor Tegellaag symbool' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/PxVXje/'>symbool opties voor Tegellaag</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
-
-In het tweede blok van code, een matrix van functies is gedefinieerd en een [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest) object wordt gemaakt. Object voor een gegevensbron wordt vervolgens gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse en de MultiPoint-object wordt toegevoegd aan de gegevensbron.
-
-Een [Bel laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) wordt weergegeven op basis van een punt-gegevens die zijn ingepakt in de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als cirkels op de kaart. Het laatste blok van code maakt een bel-laag en voegt deze toe aan de kaart. Controleer de eigenschappen van een laag Bel op [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
-
-De MultiPoint-object, de gegevensbron en de bel-laag worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat de cirkel wordt weergegeven nadat de kaart volledig is geladen.
-
-## <a name="add-bubble-markers-with-label"></a>Bellendiagrammen met het label toevoegen
-
-<iframe height='500' scrolling='no' title='MultiLayer DataSource' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-De bovenstaande code ziet u hoe om te visualiseren en labelgegevens op de kaart. Het eerste vereiste blok van de bovenstaande code wordt een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
-
-Het tweede blok van code, maakt een [wijst](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) object. Het maakt vervolgens een gegevensbron object via de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse en voegt u het punt toe aan de gegevensbron.
-
-Een [Bel laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) wordt weergegeven op basis van een punt-gegevens die zijn ingepakt in de [gegevensbron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als cirkels op de kaart. Het derde blok van code maakt een bel-laag en voegt deze toe aan de kaart. Controleer de eigenschappen van een laag Bel op [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
-
-Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart. Het laatste blok van code maakt en voegt een laag symbool aan de kaart die het tekstlabel voor de belgrootte wordt weergegeven. Controleer de eigenschappen van een laag symbool op [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
-
-De gegevensbron en de lagen worden gemaakt en toegevoegd aan de kaart in de [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) functie om ervoor te zorgen dat gegevens worden weergegeven nadat de kaart volledig is geladen.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
 > [!div class="nextstepaction"]
-> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [TexTOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
 Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarten:
 
@@ -85,3 +77,9 @@ Zie de volgende artikelen voor meer voorbeelden van code toevoegen aan uw kaarte
 
 > [!div class="nextstepaction"]
 > [Een vorm toevoegen](./map-add-shape.md)
+
+> [!div class="nextstepaction"]
+> [Een bellendiagram laag toevoegen](./map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [HTML-Makers toevoegen](./map-add-bubble-layer.md)

@@ -371,7 +371,7 @@ Toepassingsrollen definiëren een groep van rollen die kunnen worden toegewezen 
 
 | Veld | Description | Vereist |
 |-------|-------------|:--------:|
-| Name | De unieke naam van de toepassingsrol. Het bijbehorende slimme contract moet gebruiken dezelfde **naam** voor de rol die van toepassing. Basistype namen zijn gereserveerd. U kunt geen een toepassingsrol naam met dezelfde naam als [Type](#type)| Ja |
+| Name | De unieke naam van de toepassingsrol. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de toepasselijke rol. Basistype namen zijn gereserveerd. U kunt toepassingsrol niet dezelfde naam geven als [Type](#type)| Ja |
 | Description | Beschrijving van de toepassingsrol. | Nee |
 
 ### <a name="application-roles-example"></a>Voorbeeld van de toepassing-rollen
@@ -394,7 +394,7 @@ Identifiers omvatten een verzameling van gegevens die wordt gebruikt voor het be
 
 | Veld | Description | Vereist |
 |-------|-------------|:--------:|
-| Name | De unieke naam van de eigenschap of de parameter. Het bijbehorende slimme contract moet gebruiken dezelfde **naam** voor de parameter of van toepassing op. | Ja |
+| Name | De unieke naam van de eigenschap of de parameter. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de toepasselijke parameter. | Ja |
 | DisplayName | Beschrijvende weergavenaam voor de eigenschap of de parameter. | Ja |
 | Description | Beschrijving van de eigenschap of de parameter. | Nee |
 
