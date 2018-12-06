@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: bc80bfacf6896161fae03b9ed93f5fe22e13ada2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725281"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955426"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Gebruiksanalyse met Application Insights
 
@@ -60,26 +60,6 @@ Inzichten aan de rechterkant ontdekt u interessante patronen in de set gegevens.
 * De **sessies** rapport telt het aantal sessies van gebruiker die toegang hebben tot uw site. Een sessie is een periode van activiteit door een gebruiker, gevolgd door een periode van inactiviteit van meer dan de helft van een uur.
 
 [Meer informatie over de hulpprogramma's voor gebruikers, sessies en gebeurtenissen](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Paginaweergaven
-
-Op de blade gebruik, klikt u op via de tegel paginaweergaven om op te halen van een uitsplitsing van de meest populaire's:
-
-![De blade overzicht klikt u op de pagina weergaven-grafiek](./media/app-insights-usage-overview/05-games.png)
-
-Het bovenstaande voorbeeld is van een website games. In de grafieken ziet we direct:
-
-* Gebruik nog niet is in de afgelopen week verbeterd. Misschien moet u bedenken search engine optimization?
-* Tennis is de meest populaire spel pagina. Laten we ons richten op verdere verbeteringen aan deze pagina.
-* Gemiddeld gebruikers gaat u naar de pagina wordt ongeveer drie keer per week. (Er zijn drie keer meer sessies dan gebruikers.)
-* De meeste gebruikers gaat u naar de site in de Verenigde Staten werken week, en met werkuren. Misschien bieden we een "snelle verbergen"-knop op de webpagina wordt weergegeven.
-* De [aantekeningen](app-insights-annotations.md) op de grafiek weergeven wanneer nieuwe versies van de website zijn geïmplementeerd. Geen van de recente implementaties had een merkbare invloed op het gebruik.
-
-Wat gebeurt er als u wilt onderzoeken het verkeer naar uw site in meer detail, zoals het splitsen van een aangepaste eigenschap verzendt u uw site in de telemetrie van paginaweergaven?
-
-1. Open de **gebeurtenissen** hulpprogramma in het menu voor Application Insights-resource. Met dit hulpprogramma kunt u het aantal paginaweergaven en aangepaste gebeurtenissen zijn verzonden in uw app, op basis van tal van opties voor filteren, cohorting en segmentering kunt analyseren.
-2. Selecteer 'Een paginaweergave' in de vervolgkeuzelijst 'Die gebruik hebben gemaakt'.
-3. Selecteer een eigenschap waarmee uw telemetrie van paginaweergaven splitsen in de vervolgkeuzelijst 'Delen door'.
 
 ## <a name="retention---how-many-users-come-back"></a>Retentie - hoeveel gebruikers terugkomen?
 

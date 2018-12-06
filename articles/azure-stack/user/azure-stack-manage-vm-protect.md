@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341834"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963910"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack
 
@@ -58,7 +58,7 @@ Plan de strategie voor herstel van back-up en herstel na noodgevallen voor elke 
 | **Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP** | Gebruiker virtuele machines worden geïmplementeerd naar de CSP beheerd Azure Stack. Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | CSP werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters. Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | CSP werkt Azure Stack in de primaire site. Datacenter van de klant is het doel voor herstel en failovers. |
 | **Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant** | Gebruiker virtuele machines worden geïmplementeerd naar de klant beheerd Azure Stack. Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | Klant werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters. Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | Klant werkt Azure Stack in de primaire site. Van de CSP-datacenter is het doel voor herstel en failovers. |
 
-![Combinaties van bron-doel](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Combinaties van bron-doel](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>De beoogde hersteltijden toepassing
 
@@ -77,7 +77,7 @@ Nog een metrische waarde is **Mean Time herstellen** (MTTR), dit is de gemiddeld
 
 De meest voorkomende bescherming-schema voor toepassingen op basis van een virtuele machine is het gebruik van back-upsoftware. Back-ups van een virtuele machine normaal gesproken bevat het besturingssysteem, besturingssysteemconfiguratie, binaire waarden van toepassingen en toepassingsgegevens. De back-ups worden gemaakt door het maken van een momentopname van de volumes, schijven of de hele virtuele machine. Met Azure Stack, u hebt de flexibiliteit van de back-ups van uit binnen de context van het gastbesturingssysteem te installeren of uit de Azure Stack-opslag en compute-API's. Azure Stack biedt geen ondersteuning voor back-ups van nemen op het hypervisorniveau van de.
  
-![Back-up-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Back-up-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Herstellen van de toepassing, moet een of meer virtuele machines herstellen naar de cloud of naar een nieuwe cloud. U kunt een cloud doelgroep in uw datacenter of in de openbare cloud. De cloud die u kiest, is volledig binnen uw beheer en is gebaseerd op uw vereisten voor privacy en de onafhankelijkheid van gegevens.
  
@@ -107,7 +107,7 @@ Een alternatieve methode om ontwikkelaars te ondersteunen hoge beschikbaarheid i
 
 Met deze methode voert de toepassing wordt geïmplementeerd in een cloud en de virtuele machine is gerepliceerd naar de andere cloud. Als een failover wordt geactiveerd, de secundaire virtuele machines moeten worden ingeschakeld in de tweede cloud. In sommige scenario's maakt de failover de schijven voor virtuele machines en wordt aan hen. Dit proces kan lang duren om uit te voeren, vooral bij een toepassing met meerdere lagen die een reeks specifieke opstarten vereist. Er kan ook worden stappen beschreven die moeten worden uitgevoerd voordat de toepassing is gereed om te beginnen met het afhandelen van aanvragen.
 
-![Replicatie-handmatige failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Replicatie-handmatige failover](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Downtime gemeten in minuten
  - RPO: Variabele preventie van gegevensverlies (afhankelijk van de replicatiefrequentie)

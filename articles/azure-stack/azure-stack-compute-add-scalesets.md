@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: accd36c9e0d09da0073570301600b362fff85f6e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647337"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971824"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtual Machine Scale Sets beschikbaar maken in Azure Stack
 
@@ -97,7 +97,7 @@ Nadat u een virtuele-machineschaalset gemaakt, kunnen gebruikers afbeeldingen in
 
     Als u een installatiekopie met een nieuwere versie (die de versie verandert) downloadt, kan niet de schaalset omhoog schalen. Dit is standaard, zoals de versie van de installatiekopie opgegeven in de sjabloon van de schaalset moet beschikbaar zijn.  
 
-Zie voor meer informatie, [besturingssysteemschijven en installatiekopieën](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+Zie voor meer informatie, [besturingssysteemschijven en installatiekopieën](./user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>Schalen van een virtuele-machineschaalset
 

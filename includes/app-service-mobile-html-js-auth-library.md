@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133213"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52973235"
 ---
 ### <a name="server-auth"></a>Procedure: Verifiëren bij een provider (Server Flow)
 Als u het verificatieproces in uw app door Mobile Apps wilt laten beheren, moet u uw app registreren bij uw id-provider. Daarna moet u in uw Azure App Service de door uw provider verstrekte toepassings-id en geheim configureren.
@@ -52,27 +52,6 @@ client.login(
 
 ```
 In dit voorbeeld wordt ervan uitgegaan dat het token dat is opgegeven door de betreffende SDK-provider, is opgeslagen in de tokenvariabele.
-
-#### <a name="microsoft-account-example"></a>Voorbeeld van Microsoft-account
-
-In het volgende voorbeeld wordt de Live SDK gebruikt, die eenmalige aanmelding ondersteunt voor Windows Store-apps met behulp van een Microsoft-account:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-In dit voorbeeld wordt een token opgehaald van Live Connect, dat wordt doorgegeven aan uw App Service door de aanmeldingsfunctie aan te roepen.
 
 ### <a name="auth-getinfo"></a>Procedure: Informatie verzamelen over de geverifieerde gebruiker
 

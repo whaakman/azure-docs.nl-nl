@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 950ab0b07a97c044b124e56c8d43b79aae29ec88
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b781c4657306beb92e730e22e56e6a75359f4401
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721269"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964131"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -37,7 +37,7 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
 Als u geen toegang tot uw Log Analytics-werkruimte in de Azure-portal hebt, moet u het configureren van uw machtigingen met behulp van [Azure op rollen gebaseerde toegang](../role-based-access-control/role-assignments-portal.md). Zie voor meer informatie over het beheren van machtigingen voor de werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Zie voor meer informatie over het beheren van machtigingen voor waarschuwingen [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Hoe kan ik een nieuwe werkruimte maken? 
-Klik in de lijst met werkruimten in Azure portal, op **toevoegen** in de lijst met werkruimten.  Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
+Klik in de lijst met werkruimten in Azure portal, op **toevoegen** in de lijst met werkruimten.  Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../log-analytics/../azure-monitor/learn/quick-create-workspace.md).
 
 ![Overzichtspagina](media/log-analytics-oms-portal-faq/new-workspace.png)
 
@@ -112,7 +112,7 @@ In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplo
 Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../monitoring-and-diagnostics/alert-metric.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hoe krijg ik toegang tot Mijn dashboards?
-De [mijn Dashboard](../log-analytics/../azure-monitor/platform/dashboards.md) functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](../log-analytics/../azure-monitor/platform/view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../log-analytics/log-analytics-tutorial-dashboards.md) aan Azure-Dashboards.
+De [mijn Dashboard](../log-analytics/../azure-monitor/platform/dashboards.md) functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](../log-analytics/../azure-monitor/platform/view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../log-analytics/../azure-monitor/learn/tutorial-logs-dashboards.md) aan Azure-Dashboards.
 
 ## <a name="how-do-i-check-my-usage"></a>Hoe kan ik mijn gebruik controleren?
 U kunt nu eenvoudig bekijken en beheren van uw gebruik en kosten van Log Analytics door te selecteren **gebruik en geraamde kosten** in uw werkruimte.
@@ -126,4 +126,4 @@ Voor een beperkte periode, u kunt nog steeds toegang tot de portal via deze URL 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Zoeken en installeren van oplossingen voor](../azure-monitor/insights/solutions.md) met behulp van de Azure portal.
-- Meer informatie over [zoeken in Logboeken in Azure portal](log-analytics-log-search-portals.md).
+- Meer informatie over [zoeken in Logboeken in Azure portal](../azure-monitor/log-query/portals.md).

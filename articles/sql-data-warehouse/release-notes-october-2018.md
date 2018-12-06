@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705375"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966820"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in oktober 2018.
@@ -62,6 +62,7 @@ Azure SQL Data Warehouse (SQL DW) heeft nu de systeemeigen integratie met Azure 
 | **CETAS Parquet storingen op kleine resourceklassen op datawarehouses DW2000 en meer** | Deze oplossing een null-verwijzing in het maken van externe tabel als Parquet code pad de juiste manier wordt geïdentificeerd. |
 |**De waarde van identiteitskolom kan verloren gaan in een CTAS-bewerking** | De waarde van een kolom vaststellen niet kan worden behouden als CTASed naar een andere tabel. Gemeld in een blog: [ https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/ ](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Interne fout in sommige gevallen wanneer een sessie is beëindigd terwijl een query wordt nog steeds uitgevoerd.** | Deze oplossing wordt geactiveerd een InvalidOperationException als een sessie wordt beëindigd wanneer de query wordt nog steeds uitgevoerd. |
+| **(Geïmplementeerd in November 2018) Klanten zijn de prestaties van een suboptimale ondervindt tijdens het laden van meerdere kleine bestanden van ADLS (Gen1) met behulp van Polybase.** | De systeemprestaties is tijdens beveiligingsvalidatie voor AAD-token knelpunt. Problemen met de prestaties zijn verholpen door het inschakelen van de cache van beveiligingstokens. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

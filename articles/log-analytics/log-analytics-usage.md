@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 843271901b8d58c2c5a6c4cf495997498b8278b6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c72e1c92815f70838db20ab67c3f70fc5223ac03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848847"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964744"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
@@ -47,6 +47,7 @@ We gaan kijken hoe kunnen we meer informatie over beide van deze oorzaken.
 
 > [!NOTE]
 > Sommige velden van het type gebruik gegevens terwijl u nog steeds in het schema zijn afgeschaft en hun waarden niet meer worden ingevuld. Dit zijn **Computer** en de velden met betrekking tot de opname (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** en **AverageProcessingTimeMs**.
+> Zie hieronder voor de nieuwe manier om op te vragen van de hoeveelheid opgenomen gegevens per computer. 
 
 ### <a name="data-volume"></a>Gegevensvolume 
 Op de **gebruik en geschatte kosten** pagina, de *opname van gegevens per oplossing* grafiek toont de totale hoeveelheid gegevens die worden verzonden en hoeveel er worden verzonden door elke oplossing. Hiermee kunt u bepalen trends, zoals of de algehele gegevensgebruik (of het gebruik door een bepaalde oplossing) groeit, stabiel blijft of afneemt. De query die wordt gebruikt voor het genereren van dit is
@@ -64,24 +65,32 @@ U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoor
 
 ### <a name="nodes-sending-data"></a>Knooppunten die gegevens verzenden
 
-Voor meer informatie over het aantal knooppunten waarvoor gegevens zijn gerapporteerd in de afgelopen maand, gebruik
+Voor meer informatie over het aantal computers (knooppunten) waarvoor gegevens zijn gerapporteerd in de afgelopen maand, gebruik
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Als het aantal gebeurtenissen die per computer weergeven, gebruikt u
+Om te zien de **grootte** gebruik van factureerbare gebeurtenissen die per computer
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Gebruik deze query's spaarzaam scans in verschillende gegevenstypen zijn kostbaar zijn om uit te voeren. Deze query vervangt de oude manier om deze query's uitvoeren met het gegevenstype van het gebruik. 
+
+Om te zien de **aantal** van gebeurtenissen die per computer, gebruikt u het volgende:
 
 `union withsource = tt *
 | summarize count() by Computer | sort by count_ nulls last`
 
-Gebruik deze query spaarzaam omdat deze duur om uit te voeren. Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt u 
+Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt u 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize count() by Computer  | sort by count_ nulls last`
 
-Als u zien welke factureerbare typen gegevens worden verzonden naar een specifieke computer wilt, gebruikt:
+Als u zien van de aantallen voor factureerbare gegevenstypen zijn gegevens te verzenden naar een specifieke computer wilt, gebruikt:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
@@ -209,7 +218,7 @@ Maak een nieuwe [Actiegroep](../monitoring-and-diagnostics/monitoring-action-gro
 Wanneer u een waarschuwing ontvangt, gebruikt u de stappen in de volgende sectie om te bepalen waarom het-gebruik is hoger dan verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Zoekopdrachten in logboeken in Log Analytics](../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
+* Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-queries.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
 * Gebruik de stappen in [Een nieuwe logboekwaarschuwing maken](../monitoring-and-diagnostics/alert-metric.md) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan.
 * Gebruik [oplossingstargeting](../azure-monitor/insights/solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 * Lees [Filterbeleid van Azure Security Center](../security-center/security-center-enable-data-collection.md) om een effectief beleid voor het verzamelen van beveiligingsgebeurtenissen te configureren.

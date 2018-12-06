@@ -1,7 +1,24 @@
 ---
-titel: ' PowerShell - draaien TDE-beveiliging - Azure SQL Database | Microsoft-Docs-beschrijving: meer informatie over het draaien van de sleutelbeveiliging transparante gegevensversleuteling (TDE) voor een Azure SQL-server.
-Services: sql-database ms.service: sql-database ms.subservice: beveiliging ms.custom: ms.devlang: ms.topic: conceptueel auteur: aliceku ms.author: aliceku ms.reviewer: vanto manager: jhubbard ms.date: 07-08-2017
---- 
+title: PowerShell - draaien TDE-beveiliging - Azure SQL Database | Microsoft Docs
+description: Informatie over het draaien van de sleutelbeveiliging transparante gegevensversleuteling (TDE) voor een Azure SQL-server.
+services: sql-database
+ms.service: sql-database
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto
+manager: jhubbard
+ms.date: 08/07/2017
+ms.openlocfilehash: fe8872e0db9f596ca7c58b087b1b061ae91f7384
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957552"
+---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>De transparante gegevensversleuteling (TDE)-beveiliging met behulp van PowerShell draaien 
 
 Dit artikel wordt beschreven rouleren van de sleutel voor een Azure SQL-server met behulp van een TDE-beveiliging van Azure Key Vault. Een Azure SQL-server TDE-beveiliging betekent overschakelen naar een nieuwe asymmetrische sleutel die worden beveiligd met de databases op de server draaien. Rouleren van de sleutel is een online bewerking en duurt slechts een paar seconden voltooid, omdat dit alleen wordt ontsleuteld en versleutelt de gegevensversleutelingssleutel van de database, niet de gehele database opnieuw.

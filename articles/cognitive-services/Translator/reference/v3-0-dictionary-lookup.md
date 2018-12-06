@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127837"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957739"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text-API 3.0: Woordenlijst opzoeken
 
-Biedt alternatieve vertalingen voor een woord en een klein aantal idiomatisch zinnen. Elke vertaling heeft een part-of-speech en een lijst met back-vertalingen. De back-vertalingen inschakelen om te begrijpen van de vertaling in de context van een gebruiker. De [woordenlijst voorbeeld](.\v3-0-dictionary-examples.md) bewerking kunt verder inzoomen op Zie dit voorbeeld wordt van elk paar vertaling.
+Biedt alternatieve vertalingen voor een woord en een klein aantal idiomatisch zinnen. Elke vertaling heeft een part-of-speech en een lijst met back-vertalingen. De back-vertalingen inschakelen om te begrijpen van de vertaling in de context van een gebruiker. De [woordenlijst voorbeeld](./v3-0-dictionary-examples.md) bewerking kunt verder inzoomen op Zie dit voorbeeld wordt van elk paar vertaling.
 
 ## <a name="request-url"></a>Aanvraag-URL
 
@@ -42,11 +42,11 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>uit</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de invoertekst. De source-taal moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de invoertekst. De source-taal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
   </tr>
   <tr>
     <td>tot</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
   </tr>
 </table>
 
@@ -73,7 +73,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`, die de term lookup vertegenwoordigt.
 
@@ -92,13 +92,13 @@ Er gelden de volgende beperkingen:
 
 Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreeks in de invoermatrix. Een resultaatobject bevat de volgende eigenschappen:
 
-  * `normalizedSource`: Een tekenreeks waarin de gestandaardiseerde vorm van de bronterm. Bijvoorbeeld, als de aanvraag 'JOHN', is de gestandaardiseerde vorm 'john'. De inhoud van dit veld wordt de invoer naar [lookup voorbeelden](.\v3-0-dictionary-examples.md).
+  * `normalizedSource`: Een tekenreeks waarin de gestandaardiseerde vorm van de bronterm. Bijvoorbeeld, als de aanvraag 'JOHN', is de gestandaardiseerde vorm 'john'. De inhoud van dit veld wordt de invoer naar [lookup voorbeelden](./v3-0-dictionary-examples.md).
     
   * `displaySource`: Een tekenreeks die de bronterm best in een formulier geven geschikt om eindgebruikers weer te geven. Bijvoorbeeld, als de invoer is 'JOHN', de weergaveformulier weer de gebruikelijke spelling van de naam: "John". 
 
   * `translations`: Een lijst van vertalingen voor de bronterm. Elk element van de lijst is een object met de volgende eigenschappen:
 
-    * `normalizedTarget`: Een tekenreeks waarin de gestandaardiseerde vorm van deze term in de doel-taal. Deze waarde moet worden gebruikt als invoer voor [lookup voorbeelden](.\v3-0-dictionary-examples.md).
+    * `normalizedTarget`: Een tekenreeks waarin de gestandaardiseerde vorm van deze term in de doel-taal. Deze waarde moet worden gebruikt als invoer voor [lookup voorbeelden](./v3-0-dictionary-examples.md).
 
     * `displayTarget`: Een tekenreeks die de term in de gewenste taal en in een formulier beste geven geschikt om eindgebruikers weer te geven. Over het algemeen dit alleen wijkt af van de `normalizedTarget` in termen van hoofdlettergebruik. Bijvoorbeeld, een hoofdletter, zoals "Juan" heeft `normalizedTarget = "juan"` en `displayTarget = "Juan"`.
 
@@ -125,11 +125,11 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
     
     * `backTranslations`: Een lijst met "back vertalingen' van het doel. Bijvoorbeeld, de woorden die het doel zich vertalen in gegevensbron. De lijst kan worden gegarandeerd de bron-woord dat was aangevraagd bevatten (bijvoorbeeld, als de bron word wordt opgezocht is "vliegen" en vervolgens kan worden gegarandeerd dat 'vliegen' worden opgenomen in de `backTranslations` lijst). Maar het is niet noodzakelijkerwijs bevindt zich op de eerste positie en vaak niet worden. Elk element van de `backTranslations` lijst is een object dat wordt beschreven door de volgende eigenschappen:
 
-        * `normalizedText`: Een tekenreeks waarin de gestandaardiseerde vorm van de bronterm die een back-omzetting van het doel is. Deze waarde moet worden gebruikt als invoer voor [lookup voorbeelden](.\v3-0-dictionary-examples.md).        
+        * `normalizedText`: Een tekenreeks waarin de gestandaardiseerde vorm van de bronterm die een back-omzetting van het doel is. Deze waarde moet worden gebruikt als invoer voor [lookup voorbeelden](./v3-0-dictionary-examples.md).        
 
         * `displayText`: Een tekenreeks die de bronterm die een back-vertaling van het doel in een formulier aanbevolen geschikt om eindgebruikers weer te geven.
 
-        * `numExamples`: Een geheel getal dat het aantal voorbeelden die beschikbaar voor deze combinatie van de vertaling zijn vertegenwoordigt. Werkelijke voorbeelden moeten worden opgehaald met een afzonderlijke aanroep naar [lookup voorbeelden](.\v3-0-dictionary-examples.md). Het nummer van de is voornamelijk bedoeld om u te vergemakkelijken weergeven in een UX. Een gebruikersinterface kan bijvoorbeeld een hyperlink toevoegen aan de back-vertaling als het aantal voorbeelden groter dan nul is en de back-vertaling als tekst zonder opmaak weergeven als er geen voorbeelden. Houd er rekening mee dat het werkelijke aantal voorbeelden geretourneerd door een aanroep naar [lookup voorbeelden](.\v3-0-dictionary-examples.md) mogelijk minder dan `numExamples`, omdat er aanvullende filters kan worden toegepast op elk gewenst moment verwijderen 'slechte'-voorbeelden.
+        * `numExamples`: Een geheel getal dat het aantal voorbeelden die beschikbaar voor deze combinatie van de vertaling zijn vertegenwoordigt. Werkelijke voorbeelden moeten worden opgehaald met een afzonderlijke aanroep naar [lookup voorbeelden](./v3-0-dictionary-examples.md). Het nummer van de is voornamelijk bedoeld om u te vergemakkelijken weergeven in een UX. Een gebruikersinterface kan bijvoorbeeld een hyperlink toevoegen aan de back-vertaling als het aantal voorbeelden groter dan nul is en de back-vertaling als tekst zonder opmaak weergeven als er geen voorbeelden. Houd er rekening mee dat het werkelijke aantal voorbeelden geretourneerd door een aanroep naar [lookup voorbeelden](./v3-0-dictionary-examples.md) mogelijk minder dan `numExamples`, omdat er aanvullende filters kan worden toegepast op elk gewenst moment verwijderen 'slechte'-voorbeelden.
         
         * `frequencyCount`: Een geheel getal dat de frequentie van deze NAT-paar in de gegevens vertegenwoordigt. Het belangrijkste doel van dit veld is om te voorzien van een manier om te sorteren van back-vertalingen, zodat de meest voorkomende voorwaarden die voor het eerst een gebruikersinterface.
 

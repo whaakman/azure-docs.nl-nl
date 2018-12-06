@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821545"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961141"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -94,7 +94,7 @@ De container voor het initiëren van de koppeling wordt u gevraagd de tegengeste
 
 Koppelingen zijn met de naam en die zijn gekoppeld aan knooppunten. Zoals vermeld in het begin, zijn knooppunten de communicerende entiteiten binnen een container.
 
-Een knooppunt is in Service Bus, rechtstreeks gelijk is aan een wachtrij, een onderwerp, een abonnement of een subwachtrij voor onbestelbare berichten van een wachtrij of abonnement. De naam van het knooppunt gebruikt AMQP is daarom de relatieve naam van de entiteit binnen de Service Bus-naamruimte. Als de naam van een wachtrij `myqueue`, dat is ook de naam van de AMQP-knooppunt. Een onderwerpabonnement volgt de HTTP-API-conventie door wordt gesorteerd in een verzameling van de resource 'abonnementen' en dus een abonnement **sub** of een onderwerp **mytopic** heeft de naam van het AMQP-knooppunt  **mytopic/abonnementen/sub**.
+Een knooppunt is in Service Bus, rechtstreeks gelijk is aan een wachtrij, een onderwerp, een abonnement of een subwachtrij voor onbestelbare berichten van een wachtrij of abonnement. De naam van het knooppunt gebruikt AMQP is daarom de relatieve naam van de entiteit binnen de Service Bus-naamruimte. Als de naam van een wachtrij `myqueue`, dat is ook de naam van de AMQP-knooppunt. Een onderwerpabonnement volgt de HTTP-API-conventie door wordt gesorteerd in een verzameling van de resource 'abonnementen' en dus een abonnement **sub** op een onderwerp **mytopic** heeft de naam van het AMQP-knooppunt  **mytopic/abonnementen/sub**.
 
 De client die verbinding maakt is ook gebruik van een naam in het lokale knooppunt voor het maken van koppelingen; vereist Service Bus is niet over de knooppuntnamen prescriptieve en worden niet geïnterpreteerd. AMQP 1.0-client-stacks algemeen gebruik een schema om te verzekeren dat die deze tijdelijke knooppuntnamen uniek binnen het bereik van de client zijn.
 
@@ -213,7 +213,7 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 | Veldnaam | Gebruik | API-naam |
 | --- | --- | --- |
 | duurzame |- |- |
-| prioriteit |- |- |
+| priority |- |- |
 | ttl |Time to live voor dit bericht |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | eerste overnemende |- |- |
 | aantal bezorgingspogingen |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
@@ -243,7 +243,7 @@ Er zijn enkele andere service bus-bericht-eigenschappen, maken geen deel uit van
 | Aantekening kaart sleutel | Gebruik | API-naam |
 | --- | --- | --- |
 | x-opt-gepland-in de wachtrij plaatsen-tijd | Verklaart op dat moment het bericht op de entiteit moet worden weergegeven |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partitie-key | Toepassingsspecifieke sleutel die welke partitie bepaalt het bericht moet worden neergezet in. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-partitie-key | Toepassingsspecifieke sleutel die welke partitie bepaalt het bericht moet worden neergezet in. | [partitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
 | x-opt-via-partitiesleutel | Toepassing gedefinieerde partitiesleutel waarde als een transactie moet worden gebruikt voor het verzenden van berichten uit via een wachtrij voor overdracht. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
 | x-opt-in de wachtrij-tijd | Service gedefinieerde UTC-tijd dat de werkelijke tijd van het bericht enqueuing vertegenwoordigt. Op de invoer wordt genegeerd. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
 | x-opt--volgnummer | Service gedefinieerde unieke nummer toegewezen aan een bericht. | [sequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |

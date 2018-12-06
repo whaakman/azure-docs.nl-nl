@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d5f6934385d616390baf336404ddd79d4bc2a490
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443743"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965433"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de lucht-en ruimtevaart en andere bedrijven
 
@@ -218,7 +218,7 @@ De volgende stappen helpen u over het visualiseren van de gegevensuitvoer van St
    * Zorg ervoor dat de ***visualisaties*** deelvenster is geopend en wordt weergegeven aan de rechterkant van het scherm.
 3. Zodra u de gegevens die binnenkomen in Power BI hebt, kun u de streaming-gegevens te visualiseren. Hieronder is een voorbeeld van dashboard met sommige visualisaties snelpad vastgemaakt aan het. U kunt andere dashboardtegels op basis van de juiste gegevenssets maken. Afhankelijk van hoe lang u de gegevensgenerator uitvoert, kan de nummers van de visualisaties afwijken.
 
-    ![Dashboardweergave](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Dashboardweergave](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Hier volgen enkele stappen voor het maken van een van de bovenstaande – tegels de "vloot weergave van de Sensor 11 vs. Drempelwaarde 48,26" tegel:
    

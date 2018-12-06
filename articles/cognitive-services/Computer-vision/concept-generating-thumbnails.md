@@ -8,41 +8,44 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 9cb82b40d1fbec513b0219f26d1959fbd7f64570
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343959"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966735"
 ---
 # <a name="generating-thumbnails"></a>Miniaturen genereren
 
-Een miniatuur is een kleine weergave van een afbeelding op volledige grootte. Uiteenlopende apparaten zoals telefoons, tablets en pc's maakt u een andere gebruiker gebruikerservaring (UX)-indelingen en miniatuurweergaven nodig. Met slim bijsnijden, kunt deze Computer Vision-functie u het probleem is opgelost.
+Een miniatuur is een kleiner formaat weergave van een afbeelding. Miniaturen worden gebruikt om afbeeldingen en andere gegevens op een meer betaalbare en lay-out-vriendelijk manier vertegenwoordigen. De Computer Vision-API maakt gebruik van slim bijsnijden, samen met het formaat van de afbeelding, intuïtieve miniaturen voor een bepaalde installatiekopie maken.
 
-Na het uploaden van een afbeelding, Computer Vision genereert een miniatuur van hoge kwaliteit en analyseert de objecten op de afbeelding om te identificeren de *regio van belang* (ROI). Deze kan eventueel bijsnijden de afbeelding om te voldoen aan de vereisten van het rendement op investering opleveren. De miniatuur van het gegenereerde kan met behulp van een hoogte-breedteverhouding die verschilt van de hoogte-breedteverhouding van de oorspronkelijke afbeelding, om aan uw behoeften te worden weergegeven.
+De generatie van miniaturen Computer Vision-algoritme werkt als volgt:
+1. Verwijderen van bepaalde elementen van de installatiekopie en Identificeer de _interessegebied_&mdash;het gebied van de installatiekopie waarin de belangrijkste objecten wordt weergegeven.
+1. De afbeelding op basis van het geïdentificeerde bijsnijden _interessegebied_.
+1. De hoogte-breedteverhouding aanpassen aan de miniaturen dimensies doel wijzigen.
 
-De miniaturen algoritme werkt als volgt:
+## <a name="area-of-interest"></a>Interessegebied
 
-1. Hiermee verwijdert u storende elementen van de installatiekopie en identificeert het object, de regio van belang zijn.
-2. Snijdt de afbeelding op basis van het geïdentificeerde regio van belang zijn.
-3. Hiermee wijzigt u de hoogte-breedteverhouding aanpassen aan de grootte van het doel miniatuur.
+Wanneer u een afbeelding uploadt, de Computer Vision-API analyseert ze om te bepalen de *interessegebied*. Deze kunt vervolgens deze regio gebruiken om te bepalen hoe de afbeelding bijsnijden. De bewerking bijsnijden, echter altijd overeen met de gewenste hoogte-breedteverhouding als er een is opgegeven.
+
+U krijgt ook de onbewerkte selectiekader box-coördinaten van deze dezelfde *interessegebied* door het aanroepen van de **areaOfInterest** API in plaats daarvan. U kunt deze gegevens vervolgens naar de oorspronkelijke afbeelding wijzigen, maar u wilt gebruiken.
+
+## <a name="examples"></a>Voorbeelden
 
 De miniatuur van het gegenereerde kan sterk verschillen, afhankelijk van wat u voor de hoogte, breedte en slim bijsnijden opgeeft, zoals wordt weergegeven in de volgende afbeelding.
 
 ![Miniaturen](./Images/thumbnail-demo.png)
 
-## <a name="thumbnail-generation-examples"></a>Voorbeelden van miniaturen te genereren
-
 De volgende tabel ziet u standaard miniatuurweergaven die worden gegenereerd door de Computer Vision voor installatiekopieën van het voorbeeld. De miniaturen zijn gegenereerd voor een opgegeven doel-hoogte en breedte van 50 pixels, met een slim bijsnijden ingeschakeld.
 
 | Installatiekopie | Miniatuur |
 |-------|-----------|
-|![Outdoor Mountain](./Images/mountain_vista.png) | ![Buitengebruik Mountain miniatuur](./Images/mountain_vista_thumbnail.png) |
-|![Vision bloem analyseren](./Images/flower.png) | ![Vision analyseren bloem miniatuur](./Images/flower_thumbnail.png) |
-|![Vrouw plafond](./Images/woman_roof.png) | ![Vrouw plafond miniatuur](./Images/woman_roof_thumbnail.png) |
+|![Berglandschap](./Images/mountain_vista.png) | ![Buitengebruik Mountain miniatuur](./Images/mountain_vista_thumbnail.png) |
+|![Vision-analyse Bloem](./Images/flower.png) | ![Vision analyseren bloem miniatuur](./Images/flower_thumbnail.png) |
+|![Vrouw op dak](./Images/woman_roof.png) | ![Vrouw plafond miniatuur](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kennis met concepten over [installatiekopieën taggen](concept-tagging-images.md) en [categoriseren van beelden](concept-categorizing-images.md).
+Meer informatie over [installatiekopieën taggen](concept-tagging-images.md) en [categoriseren van beelden](concept-categorizing-images.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a641b5bb754c265a4fa5fb7e2fe85989d4813354
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961344"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955170"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -35,12 +35,12 @@ Voor toegang tot en gebruik de **beheer** sectie die u moet zich in de **beheerd
 ### <a name="change-application-name-and-url"></a>Naam van de toepassing wijzigen en de URL
 In de **toepassingsinstellingen** pagina, kunt u de naam en de URL van uw toepassing wijzigen en vervolgens selecteert u **opslaan**.
 
-![De instellingenpagina van toepassing](media\howto-administer\image0-a.png)
+![De instellingenpagina van toepassing](media/howto-administer/image0-a.png)
 
 > [!Note]
 > Als u de URL van uw wijzigt, kan de URL van uw oude kan worden uitgevoerd door een andere Azure IoT Central klant. Als dit gebeurt, is het niet meer beschikbaar voor gebruik. Wanneer u de URL van uw wijzigt, de oude URL is niet meer werkt en u moet op de hoogte stellen uw gebruikers over de nieuwe URL te gebruiken.
 
-### <a name="prepare-and-upload-image"></a>Voorbereiden en installatiekopie uploaden
+### <a name="prepare-and-upload-image"></a>Installatiekopie voorbereiden en uploaden
 Als u wilt wijzigen van de installatiekopie van de toepassing, Zie [voorbereiden en uploaden van afbeeldingen aan uw Azure IoT Central toepassing](howto-prepare-images.md).
 
 ### <a name="copy-an-application"></a>Kopiëren van een toepassing
@@ -48,11 +48,11 @@ U kunt een kopie van een toepassing, verminderd met elk apparaatexemplaren, de g
 
 Klik op de **kopie** knop. Geef de details voor de nieuwe betalen per gebruik-toepassing in het dialoogvenster. Klik vervolgens op de **kopie** knop om te bevestigen dat u wilt doorgaan. Meer informatie over de velden in dit formulier in [maken van een toepassing](quick-deploy-iot-central.md) Quick Start.
 
-![De instellingenpagina van toepassing](media\howto-administer\appCopy2.png)
+![De instellingenpagina van toepassing](media/howto-administer/appCopy2.png)
 
 Nadat de app-kopieerbewerking is geslaagd, gaat u naar de nieuwe toepassing die is gemaakt door te kopiëren van uw toepassing met behulp van de koppeling die wordt weergegeven.
 
-![De instellingenpagina van toepassing](media\howto-administer\appCopy3.png)
+![De instellingenpagina van toepassing](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > Kopiëren van een toepassing, kopieert ook de definitie van de regels en acties. Maar omdat gebruikers die toegang tot uw oorspronkelijke app hebben worden niet gekopieerd naar de gekopieerde app, hebt u handmatig gebruikers toevoegen aan acties zoals e-mailadres waarvoor gebruikers vereist zijn. In het algemeen is het een goed idee om te controleren of de regels en acties om ervoor te zorgen dat ze zijn bijgewerkt in de nieuwe app.
@@ -71,13 +71,13 @@ Zie voor meer informatie, [help voor Microsoft-account](https://support.microsof
 
 1. Als u wilt een gebruiker toevoegen aan een IoT Central-toepassing, gaat u naar de **gebruikers** pagina in de **beheer** sectie.
 
-    ![Lijst met gebruikers](media\howto-administer\image1.png)
+    ![Lijst met gebruikers](media/howto-administer/image1.png)
 
 1. Toevoegen van een gebruiker op de **gebruikers** pagina, kies **+ gebruiker toevoegen**.
 
 1. Kies een rol voor de gebruiker van de **rol** vervolgkeuzelijst. Meer informatie over functies in de [rollen beheren](#manage-roles) sectie van dit artikel.
 
-    ![Een cloudrol kiezen](media\howto-administer\image3.png)
+    ![Een cloudrol kiezen](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  Gebruikers bulksgewijs toevoegen, typt u de gebruikers-id van alle gebruikers die u wilt toevoegen van elkaar gescheiden door puntkomma's. Kies een rol van de **rol** vervolgkeuzelijst. Selecteer vervolgens **Opslaan**.
@@ -117,10 +117,10 @@ Als u wilt uw factuur bekijken, gaat u naar de **facturering** pagina in de **be
 
 U kunt uw proefversie-toepassing naar een betalen per gebruik converteren. Dit zijn de verschillen tussen deze soorten toepassingen.
 
-- **Proefversie** toepassingen zijn gratis voor zeven dagen voordat ze zijn verlopen. Ze kunnen worden geconverteerd naar betalen per gebruik op elk gewenst moment voordat ze zijn verlopen.
-- **Betalen per gebruik** toepassingen worden in rekening gebracht per apparaat, met de eerste 5 apparaten gratis.
+- **Proefversies** van toepassingen zijn zeven dagen gratis en verlopen daarna. Voordat ze verlopen, kunnen ze op elk gewenst moment worden geconverteerd naar betalen per gebruik.
+- **Betalen per gebruik**-toepassingen worden per apparaat in rekening gebracht, waarbij de eerste vijf apparaten gratis zijn.
 
-Meer informatie over prijzen op de [Azure IoT Central pagina met prijzen](https://azure.microsoft.com/pricing/details/iot-central/).
+Lees meer over prijzen op de [prijzenpagina van IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
     
 Volg deze stappen voor het voltooien van deze Self-serviceproces:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783369"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970625"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -167,7 +167,7 @@ De volgende tabel bevat de vereisten van de binnenkomende poort voor de Windows 
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Vereist voor de PowerShell-cmdlet voor versleuteling, zoals beschreven in [versleutelen referenties voor on-premises gegevensarchieven in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), en door de toepassing Referentiebeheer veilig referenties instellen voor on-premises gegevensopslagexemplaren in de zelf-hostende integratieruntime. |
 
-![Vereisten voor de gateway-poort](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Vereisten voor de gateway-poort](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>IP-configuraties en in een whitelist opnemen in de gegevensopslag
 Sommige gegevensarchieven in de cloud vereist ook dat u goedgekeurde IP-adres van de computer die toegang tot de store. Zorg ervoor dat het IP-adres van de zelf-hostende integration runtime-machine in de whitelist is of in de firewall op de juiste wijze geconfigureerd.

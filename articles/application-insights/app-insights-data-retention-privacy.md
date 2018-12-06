@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 075358ad559806c375d44b6a125e8d2839b6632f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2814ecb0ff9fc49e4763dbe604fef353394f9aac
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726301"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965237"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -102,9 +102,8 @@ Microsoft gebruikt de gegevens alleen om te kunnen bieden u de service.
 ## <a name="where-is-the-data-held"></a>Waar worden de gegevens bewaard?
 * In de Verenigde Staten, Europa of Zuidoost-Azië. Wanneer u een nieuwe Application Insights-resource maakt, kunt u de locatie selecteren. 
 
-
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Houdt dat in mijn app moet worden gehost in de Verenigde Staten, Europa of Zuidoost-Azië?
-* Nee. Uw toepassing kan overal worden uitgevoerd in de hosts van uw eigen on-premises of in de Cloud.
+* Nee. Uw toepassing kan overal worden uitgevoerd in de hosts van uw eigen on-premises of in de cloud.
 
 ## <a name="how-secure-is-my-data"></a>Hoe veilig zijn mijn gegevens?
 Application Insights is een Azure-Service. Beleidsregels voor veiligheid zijn beschreven in de [whitepaper voor Azure-beveiliging, Privacy en naleving](https://go.microsoft.com/fwlink/?linkid=392408).
@@ -250,7 +249,7 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 | [JavaScript SDK toevoegen aan webpagina][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Standaard-eigenschappen definiëren][apiproperties] |**Eigenschappen van** op alle standaardentiteiten en aangepaste gebeurtenissen |
 | [TrackMetric aanroepen][api] |Numerieke waarden<br/>**Eigenschappen** |
-| [Aanroep bijhouden *][api] |De naam van gebeurtenis<br/>**Eigenschappen** |
+| [Aanroep bijhouden *][api] |Gebeurtenisnaam<br/>**Eigenschappen** |
 | [TrackException aanroepen][api] |**Uitzonderingen**<br/>Stackdump<br/>**Eigenschappen** |
 | SDK kan geen gegevens verzamelen. Bijvoorbeeld: <br/> -geen toegang tot de prestatiemeteritems<br/> -uitzondering in telemetrische initializer |Diagnostische gegevens van SDK |
 
@@ -280,6 +279,9 @@ Voor [SDK's voor andere platforms][platforms], Zie de documenten.
 | Diagnostische gegevens van SDK |Traceringsbericht of uitzondering |
 
 U kunt [uitschakelen deel van de gegevens door ApplicationInsights.config te bewerken][config]
+
+> [!NOTE]
+> Client IP wordt gebruikt voor het afleiden van geografische locatie, maar standaard IP-gegevens niet meer worden opgeslagen en allemaal nullen worden geschreven naar het bijbehorende veld. Meer informatie geven over de verwerking van persoonlijke gegevens wordt aangeraden dit [artikel](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). Als u nodig hebt voor het opslaan van IP-adres kunt u dit doen met een [telemetrische initializer](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="credits"></a>Credits
 Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind, beschikbaar is via [ http://www.maxmind.com ](http://www.maxmind.com).

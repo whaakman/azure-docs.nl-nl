@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: fa77e117b8045be4ef0566e388c4e8df08c95fe2
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4016471be05c1062eb389ab4851330f3a80dbcb2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42058068"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969023"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van Node.js-back-end en Node.js-apparaat
 
@@ -35,18 +35,17 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * Een IoT-Hub.
 * Installeer de meest recente [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node).
 
-
 U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en de identiteit van een module in IoT-Hub maken
 
 In deze sectie maakt u een Node.js-app die u een apparaat-id en de identiteit van een module in het identiteitenregister van uw IoT-hub maakt. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie de sectie Id-register in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
 
-1.  Maak een map voor het opslaan van uw code.
-2. In die map voor het eerst uitvoert **npm init -y** te maken van een lege package.json met standaardwaarden. Dit is de projectbestand voor uw code.
-3. Voer **npm installeren -S azure-iothub@modules-preview**  voor het installeren van de SDK-service binnen de **node_modules** submap. 
+1. Maak een map voor het opslaan van uw code.
+2. In die map voor het eerst uitvoert **npm init -y** te maken van een lege package.json met standaardwaarden. Dit is de projectbestand voor uw code.
+3. Voer **npm installeren -S azure-iothub@modules-preview ** voor het installeren van de SDK-service binnen de **node_modules** submap.
 
-    > [!NOTE] 
+    > [!NOTE]
     > De naam submap node_modules maakt gebruik van de module word betekent 'een bibliotheek van het knooppunt'. De term hier heeft niets te doen met IoT Hub-modules.
 
 4. Maak de volgende JS-bestand in uw directory. Deze aanroepen **add.js**. Kopieer en plak uw hub-verbindingsreeks en hubnaam.
@@ -126,7 +125,7 @@ In deze sectie maakt u een Node.js-app op uw gesimuleerde apparaat die updates v
     > [!NOTE]
     > De installatieopdracht gevoel traag. Worden even geduld, dit wordt omlaag te schuiven veel code uit de pakketopslagplaats.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Als er een fout met de mededeling van npm ERR! Fout bij het parseren van json register, dit is het veilig worden genegeerd. Als er een fout met de mededeling van npm ERR! Fout bij het parseren van json register, dit is het veilig worden genegeerd.
 
 3. Maak een bestand met de naam twin.js. Kopieer en plak uw module-id-reeks.
@@ -180,7 +179,7 @@ In deze sectie maakt u een Node.js-app op uw gesimuleerde apparaat die updates v
     });
     ```
 
-2. Voer nu dit met de opdracht **knooppunt twin.js**.
+2. Voer nu dit met de opdracht **knooppunt twin.js**.
 
     ```
     F:\temp\module_twin>node twin.js
@@ -200,9 +199,8 @@ Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen,
 * [Aan de slag met apparaatbeheer][lnk-device-management]
 * [Aan de slag met IoT Edge][lnk-iot-edge]
 
-
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

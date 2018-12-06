@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 687feec668e628e36f9c23cec9943220524cc6e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841928"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956513"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Over de Mobility-service voor VMware-VM's en fysieke servers
 
@@ -56,11 +56,11 @@ Als computers die u wilt repliceren actieve antivirusprogramma's software die wo
 2. Open de kluis in de portal > **gerepliceerde items**.
 3. Als de configuratieserver de meest recente versie is, ziet u een melding die leest "de nieuwe agent bijwerken van Azure Site recovery-replicatie is beschikbaar. Klik om te installeren."
 
-     ![Venster gerepliceerde items](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Venster gerepliceerde items](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. Klik op de melding en **agentupdate**, selecteert u de machines waarop u wilt upgraden van de Mobility-service. Klik vervolgens op **OK**.
 
-     ![Lijst met items voor VM gerepliceerd](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Lijst met items voor VM gerepliceerd](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. De Mobility-Service-Update-taak wordt gestart voor elk van de geselecteerde computers.
 

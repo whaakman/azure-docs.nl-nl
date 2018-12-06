@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4e1a8bd60c71bfc46b3c57cff6a87c5b2477146e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405732"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956445"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -74,7 +74,7 @@ Instellen als u meldingen over fouten of andere mogelijke problemen, [waarschuwi
 
 Voor uitgebreidere foutopsporing met details van de runtime en gebeurtenissen, kunt u Diagnostische logboekregistratie met instellen [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics is een service in Azure waarmee u uw cloud en on-premises omgevingen om te helpen u hun beschikbaarheid en prestaties te onderhouden. 
 
-Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het maken van een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md).
+Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het maken van een Log Analytics-werkruimte](../azure-monitor/learn/quick-create-workspace.md).
 
 1. In de [Azure-portal](https://portal.azure.com), zoek en selecteer uw logische app. 
 

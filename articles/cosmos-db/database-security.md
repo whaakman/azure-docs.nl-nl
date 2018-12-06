@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 6fb9ebe2b0afc645bbdfb6de6a8551440644fe59
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d88a82921e5baee06aacc09fafe274a8c56780c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836080"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972402"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB-database-beveiliging
 
@@ -75,7 +75,7 @@ Laten we even stilstaan bij elkaar in detail.
 |Geofencing|Azure Cosmos DB garandeert gegevensbeheer voor soevereine regio's (bijvoorbeeld Duitsland, China, VS (overheid)).|
 |Beveiligde faciliteiten|Gegevens in Azure Cosmos DB worden opgeslagen op SSD's in de beveiligde datacenters van Azure.<br><br>Meer informatie in [wereldwijde Microsoft-datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS-versleuteling|Alle interacties voor de Azure Cosmos DB-client-naar-service zijn SSL/TLS 1.2 die geschikt. Alle intra datacenter en cross datacenter replicatie is ook SSL/TLS 1.2 afgedwongen.|
-|Versleuteling 'at rest'|Alle gegevens die zijn opgeslagen in Azure Cosmos DB is versleuteld in rust. Meer informatie in [Azure Cosmos DB versleuteling-at-rest](.\database-encryption-at-rest.md)|
+|Versleuteling 'at rest'|Alle gegevens die zijn opgeslagen in Azure Cosmos DB is versleuteld in rust. Meer informatie in [Azure Cosmos DB versleuteling-at-rest](./database-encryption-at-rest.md)|
 |Gecorrigeerde servers|Als een beheerde database hoeft Azure Cosmos DB te beheren en vullen van de servers, die automatisch voor u heeft gedaan.|
 |Beheerdersaccounts met sterke wachtwoorden|Het is moeilijk te geloven moeten we ook nog deze vereiste, maar in tegenstelling tot sommige van onze concurrenten, is het niet mogelijk om een Administrator-account zonder een wachtwoord in Azure Cosmos DB.<br><br> Beveiliging via SSL en HMAC geheime gebaseerde verificatie is standaard sparen.|
 |Beveiliging en bescherming-certificeringen|Voor de meeste tot aan de gegevenslijst met van certificeringen, Zie de algemene [naleving van Azure site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) en de meest recente [Azure conformiteitsdocument](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) met alle certificeringen (zoek Cosmos). Voor een meer gerichte leest u uitchecken van het bericht 25 April 2018 [Azure #CosmosDB: veilige, particuliere en compatibele](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) waaronder Soc's 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High en nog veel meer.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: fd54d3425e342de688c5b573a4c329ab32af0c98
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681990"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961804"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Resourcegroepen bewaken met Azure Monitor (preview)
 
@@ -28,19 +28,19 @@ Moderne toepassingen zijn vaak complexe en zeer gedistribueerde met veel afzonde
 2. Kies een van de resourcegroepen die u wilt verkennen. (Als u hebt een groot aantal resourcegroepen te filteren op abonnement kan soms nuttig zijn.)
 3. Voor toegang tot inzichten voor een resourcegroep, klikt u op **Insights** in het menu aan de linkerkant van een resourcegroep.
 
-![Schermafbeelding van de resource-groep insights-overzichtspagina](.\media\resource-group-insights\0001-overview.png)
+![Schermafbeelding van de resource-groep insights-overzichtspagina](./media/resource-group-insights/0001-overview.png)
 
 ## <a name="resources-with-active-alerts-and-health-issues"></a>Resources met actieve waarschuwingen en statusproblemen
 
 De overzichtspagina toont het aantal waarschuwingen is gestart en nog steeds actief is, samen met de huidige Azure Resource Health van elke resource. Samen deze informatie kunt u snel vinden alle resources die problemen ondervindt. Waarschuwingen helpen u problemen detecteren in uw code en hoe u uw infrastructuur hebt geconfigureerd. Azure Resource Health-oppervlakken probleem met de Azure-platform zelf, die niet specifiek zijn voor de afzonderlijke toepassingen.
 
-![Schermopname van Azure Resource Health deelvenster](.\media\resource-group-insights\0002-overview.png)
+![Schermopname van Azure Resource Health deelvenster](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Resource Health
 
 Als u Azure Resource Health, Controleer de **weergeven Azure Resource Health** vak boven de tabel. Deze kolom is verborgen om u te helpen bij de pagina snel geladen.
 
-![Schermafbeelding met resource health graph is toegevoegd](.\media\resource-group-insights\0003-overview.png)
+![Schermafbeelding met resource health graph is toegevoegd](./media/resource-group-insights/0003-overview.png)
 
 Standaard worden de resources zijn gegroepeerd op app-laag en het resourcetype. **App-laag** is een eenvoudige categorisatie van resourcetypen, die alleen in de context van de resource-groep insights-overzichtspagina bestaat. Er zijn met betrekking tot de toepassingscode resourcetypen, compute-infrastructuur, netwerken, opslag en databases. Beheerprogramma's krijgen hun eigen app-lagen en elke andere resource wordt gecategoriseerd als behorend tot de **andere** app-laag. Deze groepering kunt u in een oogopslag zien welke subsystemen van uw toepassing in orde is en niet in orde zijn.
 
@@ -69,33 +69,33 @@ Voor het testen van het tabblad fouten select **fouten** onder **onderzoeken** i
 
 De aan de linkerkant in de menubalk verandert nadat uw selectie is gemaakt, biedt u de nieuwe opties.
 
-![Schermafbeelding van de fout overzichtsvenster](.\media\resource-group-insights\00004-failures.png)
+![Schermafbeelding van de fout overzichtsvenster](./media/resource-group-insights/00004-failures.png)
 
 Wanneer App Service is gekozen, krijgt u een galerie van Azure Monitor werkmap-sjablonen.
 
-![Schermafbeelding van de werkmap-toepassingsgalerie](.\media\resource-group-insights\0005-failure-insights-workbook.png)
+![Schermafbeelding van de werkmap-toepassingsgalerie](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
 De sjabloon voor fout Insights kiezen, wordt de werkmap geopend.
 
-![Schermopname van het rapport over fouten](.\media\resource-group-insights\0006-failure-visual.png)
+![Schermopname van het rapport over fouten](./media/resource-group-insights/0006-failure-visual.png)
 
 U kunt een van de rijen selecteren. De selectie wordt vervolgens weergegeven in de weergave van een grafische details.
 
-![Schermafbeelding van de foutdetails](.\media\resource-group-insights\0007-failure-details.png)
+![Schermafbeelding van de foutdetails](./media/resource-group-insights/0007-failure-details.png)
 
 Werkmappen abstracte onmiddellijk het moeilijk werk van het maken van aangepaste rapporten en visualisaties naar een eenvoudig worden gebruikt. Sommige gebruikers willen mogelijk alleen het vooraf gedefinieerde parameters aanpassen, zijn werkmappen volledig aanpasbaar.
 
 Als u een beeld van hoe deze werkmap intern functioneert, selecteer **bewerken** in de bovenste balk.
 
-![Schermafbeelding van de optie voor extra bewerken](.\media\resource-group-insights\0008-failure-edit.png)
+![Schermafbeelding van de optie voor extra bewerken](./media/resource-group-insights/0008-failure-edit.png)
 
 Een aantal **bewerken** vakken weergegeven in de buurt van de verschillende elementen van de werkmap. Selecteer de **bewerken** vak onder de tabel van bewerkingen.
 
-![Schermafbeelding van de invoervakken](.\media\resource-group-insights\0009-failure-edit-graph.png)
+![Schermafbeelding van de invoervakken](./media/resource-group-insights/0009-failure-edit-graph.png)
 
 Dit geeft aan de onderliggende Log Analytics-query die vraagt om de tabelvisualisatie van de.
 
- ![Schermafbeelding van log analytics-query-venster](.\media\resource-group-insights\0010-failure-edit-query.png)
+ ![Schermafbeelding van log analytics-query-venster](./media/resource-group-insights/0010-failure-edit-query.png)
 
 U kunt de query rechtstreeks wijzigen. Of u kunt gebruiken als uitgangspunt en lenen uit bij het ontwerpen van uw eigen aangepaste geparameteriseerde werkmap.
 
@@ -103,11 +103,11 @@ U kunt de query rechtstreeks wijzigen. Of u kunt gebruiken als uitgangspunt en l
 
 Prestaties biedt een eigen galerie van werkmappen. Voor App Service biedt de werkmap met vooraf gedefinieerde prestaties van toepassingen in de volgende weergave:
 
- ![Schermafbeelding van de weergave van agentprestaties](.\media\resource-group-insights\0011-performance.png)
+ ![Schermafbeelding van de weergave van agentprestaties](./media/resource-group-insights/0011-performance.png)
 
 In dit geval, als u bewerken selecteert ziet u dat deze set visualisaties wordt aangestuurd door Azure Monitor metrische gegevens.
 
- ![Schermafbeelding van de Prestatieweergave met metrische gegevens over Azure](.\media\resource-group-insights\0012-performance-metrics.png)
+ ![Schermafbeelding van de Prestatieweergave met metrische gegevens over Azure](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

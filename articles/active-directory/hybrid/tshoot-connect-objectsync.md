@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c810e121b751d098bd0fbda09db51c031f003460
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cfd963ae38d42d245f2eec1ddb76c7af316039ba
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314998"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961124"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Objectsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit artikel bevat stappen voor het oplossen van problemen met objectsynchronisatie met behulp van de taak voor het oplossen van problemen. Als u wilt zien hoe u problemen oplossen in Azure Active Directory (Azure AD) Connect werkt, Bekijk [in deze korte video](https://aka.ms/AADCTSVideo).
@@ -36,13 +36,13 @@ Als u wilt de taak voor het oplossen van problemen in de wizard uitvoert, moet u
 4.  Navigeer naar de pagina extra taken, selecteert u problemen oplossen en klik op volgende.
 5.  Klik op starten voor het oplossen van problemen met het menu start in PowerShell op de pagina voor problemen oplossen.
 6.  Selecteer in het hoofdmenu van Objectsynchronisatie oplossen.
-![](media\tshoot-connect-objectsync\objsynch11.png)
+![](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Invoerparameters voor het oplossen van problemen
 De volgende invoerparameters nodig zijn voor de taak voor het oplossen van problemen:
 1.  **Object-DN-naam** : dit is de DN-naam van het object dat problemen oplossen moet
 2.  **Naam voor AD Connector** : dit is de naam van de AD-forest waarin de bovenstaande object zich bevindt.
-3.  Azure AD-tenant hoofdbeheerdersreferenties ![](media\tshoot-connect-objectsync\objsynch1.png)
+3.  Azure AD-tenant hoofdbeheerdersreferenties ![](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Inzicht in de resultaten van de taak voor het oplossen van problemen
 Het oplossen van problemen met taak voert de volgende controles uit:
@@ -59,27 +59,27 @@ De rest van deze sectie wordt beschreven specifieke resultaten die worden gereto
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>UPN-achtervoegsel is niet geverifieerd met Azure AD-Tenant
 Wanneer UserPrincipalName (UPN) / achtervoegsel van de alternatieve aanmeldings-ID is niet geverifieerd met de Azure AD-Tenant en Azure Active Directory de UPN-achtervoegsels vervangt door de standaard domein naam 'onmicrosoft.com'.
 
-![](media\tshoot-connect-objectsync\objsynch2.png)
+![](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Het wijzigen van UPN-achtervoegsel van een federatief domein naar een ander federatief domein
 Azure Active Directory is niet toegestaan voor de synchronisatie van UserPrincipalName (UPN) / Alternate Login ID achtervoegsel wijziging ten opzichte van een federatief domein naar een ander federatief domein. Dit geldt voor domeinen die worden geverifieerd met de Azure AD-Tenant en het verificatietype dat wordt als federatieve hebben.
 
-![](media\tshoot-connect-objectsync\objsynch3.png) 
+![](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD-Tenant DirSync-functie 'SynchronizeUpnForManagedUsers' is uitgeschakeld
 Wanneer de DirSync-functie van Azure AD-Tenant 'SynchronizeUpnForManagedUsers' is uitgeschakeld, is Azure Active Directory kan geen updates van de synchronisatie voor UserPrincipalName/alternatieve aanmeldings-ID voor de gelicentieerde gebruikersaccounts met beheerde verificatie.
 
-![](media\tshoot-connect-objectsync\objsynch4.png)
+![](media/tshoot-connect-objectsync/objsynch4.png)
 
 ## <a name="object-is-filtered-due-to-domain-filtering"></a>Object is gefilterd door het domein filteren
 ### <a name="domain-is-not-configured-to-sync"></a>Domein is niet geconfigureerd om te synchroniseren
 Er is een object buiten het bereik vanwege domein niet is geconfigureerd. In het volgende voorbeeld wordt het object is niet gesynchroniseerd bereik als het domein dat hoort bij is gefilterd van synchronisatie.
 
-![](media\tshoot-connect-objectsync\objsynch5.png)
+![](media/tshoot-connect-objectsync/objsynch5.png)
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>Domein is geconfigureerd voor synchroniseren, maar ontbreekt stappen uitvoeren profielen/uitvoeren
 Object is buiten het bereik als het domein, ontbreekt uitgevoerd werk profielen/uitvoeren. Het object is niet gesynchroniseerd bereik in het onderstaande voorbeeld als het domein dat hoort bij stappen uitvoeren voor de volledige Import profiel uitvoert ontbreekt.
-![](media\tshoot-connect-objectsync\objsynch6.png)
+![](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>Object wordt vervaldatum gefilterd op OE filteren
 Het object is niet gesynchroniseerd bereik vanwege een OE-filters gebruiken om configuratie. In het volgende voorbeeld wordt het object deel uitmaakt van organisatie-eenheid = NoSync, DC = bvtadwbackdc, DC = com.  Deze organisatie-eenheid is niet opgenomen in het bereik van gegevenssynchronisatie.</br>
@@ -98,7 +98,7 @@ Als gevolg van diverse verschillen tussen on-premises synchroniseert Active Dire
 ## <a name="html-report"></a>HTML-rapport
 Naast het analyseren van het object, genereert de taak voor het oplossen van problemen ook een HTML-rapport dat alles bekend over het object is. Dit HTML-rapport kan worden gedeeld met het ondersteuningsteam om te doen probleemoplossing, indien nodig meer.
 
-![](media\tshoot-connect-objectsync\objsynch8.png)
+![](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](whatis-hybrid-identity.md).

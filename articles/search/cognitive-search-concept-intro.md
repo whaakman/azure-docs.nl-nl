@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5d7f275be1f04658f9901aba9faca83375a9bbf5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729031"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956190"
 ---
 # <a name="what-is-cognitive-search"></a>Wat is cognitive search?
 
@@ -31,7 +31,7 @@ De cognitieve vaardigheden in Azure Search zijn gebaseerd op de dezelfde AI-algo
 Natuurlijke taal en verwerking van afbeeldingen wordt toegepast tijdens de fase van de gegevensopname met steeds deel van de samenstelling van een document in een doorzoekbare index in Azure Search resultaten. Gegevens worden als een Azure data source en vervolgens via een indexing-pijplijn met behulp van afhankelijk van wat wordt gepusht [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) u nodig hebt. De architectuur worden uitgebreid, zodat als de ingebouwde vaardigheden niet voldoende, kunt u maken en koppelen [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) aangepaste verwerking te integreren. Voorbeelden zijn een aangepaste entiteit module of document classificatie die gericht is op een specifiek domein, zoals Financiën, wetenschappelijke publicaties of diergeneeskunde.
 
 > [!NOTE]
-> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
+> Cognitief zoeken is een openbare preview. Het uitvoeren van vaardighedensets, het extraheren van afbeeldingen en normaliseren worden momenteel gratis aangeboden. De prijzen voor deze mogelijkheden worden op een later moment bekend gemaakt. 
 
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitief zoeken
 
@@ -90,8 +90,19 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 
 **Stap 1: Een service voor zoeken in een regio die de API's maken** 
 
++ US - west-centraal
 + US - zuid-centraal
++ US - oost
++ US - oost 2
++ US - west 2
++ Canada - midden
 + Europa -west
++ Verenigd Koninkrijk Zuid
++ Europa - noord
++ Brazilië - zuid
++ Azië - zuidoost
++ India - centraal
++ Australië - oost
 
 **Stap 2: Praktische ervaring naar het hoofdniveau van de werkstroom**
 

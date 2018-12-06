@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: c3dbecfcaf40a85c57b9f795d7f2d9b76d27c195
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2740da5a51e95a327a868734a7f009dddf40219a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274066"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964931"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Verwijderen van de MySQL-resourceprovider
 
 Voordat u de MySQL-resourceprovider verwijdert, moet u alle afhankelijkheden van de provider verwijderen. U moet ook een kopie van het implementatiepakket dat is gebruikt voor het installeren van de resourceprovider.
 
 > [!NOTE]
-> U vindt de downloadkoppelingen voor de resource provider-installatieprogramma's in [implementeert de vereisten van de provider resource](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> U vindt de downloadkoppelingen voor de resource provider-installatieprogramma's in [implementeert de vereisten van de provider resource](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 Verwijderen van de MySQL-resourceprovider wordt niet tenant-databases verwijderd van de servers die als host fungeert.
 

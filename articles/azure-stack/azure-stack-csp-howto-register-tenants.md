@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498569"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963739"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Toevoegen van tenant voor gebruik en facturering met Azure Stack
 
@@ -36,7 +36,7 @@ Het volgende diagram toont de stappen die een CSP volgen moet om een nieuwe klan
 
 **Stappen voor het toevoegen van een eindklant**
 
-![Cloudserviceprovider instellen voor het bijhouden van gebruik en voor het beheren van de klant-account beëindigen](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![Cloudserviceprovider instellen voor het bijhouden van gebruik en voor het beheren van de klant-account beëindigen](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>Maak een nieuwe klant in Partnercentrum
 
@@ -50,7 +50,7 @@ Nadat u een record van uw klant in Partner Center hebt gemaakt, kunt u deze abon
 ## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Een gastgebruiker in de map van de klant end maken
 
 Als de eindklant hun eigen account beheren wilt, een gastgebruiker in de directory maken en deze gegevens worden verzonden. De eindgebruiker wordt vervolgens de Gast toevoegen en de Gast-machtiging voor het verhogen **eigenaar** aan het Azure Stack-CSP-account.
- 
+ 
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>De registratie wordt bijgewerkt met het klantabonnement dat einde
 
 Werk uw registratie met abonnement van de nieuwe klant. Azure-rapporten van de klant gebruik met behulp van de identiteit van de klant van Central-Partner. Deze stap zorgt ervoor dat elke klant gebruik onder de afzonderlijke CSP-abonnement van de klant wordt gerapporteerd. Dit maakt het gebruik van de gebruiker bijhouden en facturering veel eenvoudiger.
@@ -86,10 +86,10 @@ Configureer Azure Stack ter ondersteuning van gebruikers van meerdere Azure AD-t
 
 ## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Een lokale bron maken in de tenant van de end-klant in Azure Stack
 
-Nadat u de nieuwe klant hebt toegevoegd aan Azure Stack, of de klanttenant einde de Gast-account met de van eigenaarsbevoegdheden heeft ingeschakeld, controleert u of u kunt een resource maken in hun tenant. Bijvoorbeeld, kunnen ze [een Windows-machine maken met de Azure Stack-portal](user\azure-stack-quick-windows-portal.md).
+Nadat u de nieuwe klant hebt toegevoegd aan Azure Stack, of de klanttenant einde de Gast-account met de van eigenaarsbevoegdheden heeft ingeschakeld, controleert u of u kunt een resource maken in hun tenant. Bijvoorbeeld, kunnen ze [een Windows-machine maken met de Azure Stack-portal](user/azure-stack-quick-windows-portal.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
  - De foutberichten worden weergegeven als ze worden geactiveerd in uw registratieproces Zie [Tenant-registratie foutberichten](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
  - Zie voor meer informatie over het ophalen van informatie over het gebruik van de resource van Azure Stack, [gebruik en facturering in Azure Stack](azure-stack-billing-and-chargeback.md).
- - Als u wilt controleren hoe een eindklant mogen toevoegen, als de CSP, als de manager voor Azure Stack-tenant, Zie [inschakelen van een Cloudserviceprovider voor het beheren van uw Azure Stack-abonnement](user\azure-stack-csp-enable-billing-usage-tracking.md).
+ - Als u wilt controleren hoe een eindklant mogen toevoegen, als de CSP, als de manager voor Azure Stack-tenant, Zie [inschakelen van een Cloudserviceprovider voor het beheren van uw Azure Stack-abonnement](user/azure-stack-csp-enable-billing-usage-tracking.md).

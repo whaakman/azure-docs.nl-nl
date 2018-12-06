@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 614fdae1865f008bdbc2cb8d5e8b96c0addcc112
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 08238732c9e2d4e09e1f956c18768a15c95828c2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036919"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958170"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - best practices voor infrastructuur
 
@@ -186,7 +186,7 @@ Met behulp van Azure Virtual Network met HDInsight kunt de volgende scenario's:
 - Verbinding maken met HDInsight gegevens opslaat in een Azure-netwerk.
 - Rechtstreeks toegang hebben tot Hadoop-services die niet openbaar beschikbaar zijn via internet. Bijvoorbeeld, Kafka-API's of de HBase-Java-API.
 
-HDInsight kan ofwel worden toegevoegd aan een nieuwe of bestaande Azure Virtual Network. Als HDInsight wordt toegevoegd aan een bestaand Virtueelnetwerk, de bestaande netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes moeten worden bijgewerkt voor onbeperkte toegang tot [verschillende IP-adressen](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip-1) in de Azure-Datacenter. Zorg er ook niet op het blokkeren van verkeer naar de [poorten](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) die worden gebruikt door HDInsight-services.
+HDInsight kan ofwel worden toegevoegd aan een nieuwe of bestaande Azure Virtual Network. Als HDInsight wordt toegevoegd aan een bestaand Virtueelnetwerk, de bestaande netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes moeten worden bijgewerkt voor onbeperkte toegang tot [verschillende IP-adressen](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) in de Azure-Datacenter. Zorg er ook niet op het blokkeren van verkeer naar de [poorten](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) die worden gebruikt door HDInsight-services.
 
 > [!Note]
 > HDInsight ondersteunt momenteel geen geforceerde tunneling. Geforceerde tunneling is een subnetinstelling die ervoor zorgt het uitgaande internetverkeer met een apparaat voor controle dat en logboekregistratie. Verwijder geforceerde tunnels zijn voordat het installeren van HDInsight in een subnet of een nieuw subnet maken voor HDInsight. HDInsight ook ondersteunt geen uitgaande netwerkconnectiviteit te beperken.

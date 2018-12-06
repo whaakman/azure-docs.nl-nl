@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303690"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959322"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -26,11 +26,11 @@ In deze gebruiksaanwijzing ziet u hoe u implementeert uw code wordt [Azure App S
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 De stappen in deze gebruiksaanwijzing:
 
-* [Installeer Git](http://www.git-scm.com/downloads).
+* [Installeer Git](https://www.git-scm.com/downloads).
 * Onderhouden een lokale Git-opslagplaats met code die u wilt implementeren.
 
 Als u een opslagplaats met voorbeeld wilt volgen, voer de volgende opdracht in uw lokale terminalvenster:
@@ -117,7 +117,7 @@ Klik op **Azure DevOps-Services continue levering** > **blijven**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-In de **configureren** pagina, een nieuwe organisatie van Azure DevOps-Services configureren of een bestaande organisatie opgeven. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, een nieuwe organisatie van Azure DevOps-Services configureren of een bestaande organisatie opgeven. Wanneer u klaar bent, klikt u op **Doorgaan**.
 
 > [!NOTE]
 > Als u gebruiken van een bestaande organisatie van Azure DevOps-Services die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
@@ -126,7 +126,7 @@ In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolg
 
 Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt inschakelen implementatiesites gebruiken en klik vervolgens op **doorgaan**.
 
-In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
+In de **Samenvatting** pagina, controleer uw opties en klik op **Voltooien**.
 
 Het duurt een paar minuten voor de Services van Azure DevOps-organisatie gereed is. Wanneer dit klaar is, kopieert u de URL van de Git-opslagplaats in het midden van de implementatie.
 
@@ -213,10 +213,10 @@ git config --global http.postBuffer 524288000
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
-      OR
+      OF
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Project Kudu-documentatie](https://github.com/projectkudu/kudu/wiki)
 * [Continue implementatie in Azure App Service](app-service-continuous-deployment.md)

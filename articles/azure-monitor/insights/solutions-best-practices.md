@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 726159f7450c29385a331b29191c38085a820876
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632430"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957620"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Aanbevolen procedures voor het maken van oplossingen in Azure (Preview)
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "52632430"
 In dit artikel bevat aanbevolen procedures voor [het maken van een oplossingsbestand management](solutions-solution-file.md) in Azure.  Deze informatie wordt bijgewerkt als aanvullende aanbevolen procedures worden geïdentificeerd.
 
 ## <a name="data-sources"></a>Gegevensbronnen
-- Gegevensbronnen kunnen worden [geconfigureerd met een Resource Manager-sjabloon](../../log-analytics/log-analytics-template-workspace-configuration.md), maar ze moeten niet worden opgenomen in een oplossingsbestand.  De reden is dat het configureren van gegevensbronnen momenteel niet idempotent zijn is, wat betekent dat uw oplossing bestaande configuratie in de werkruimte van de gebruiker kan overschrijven.<br><br>Uw oplossing is bijvoorbeeld mogelijk waarschuwings- en gebeurtenissen van het logboek voor toepassingsgebeurtenissen.  Als u dit als een gegevensbron in uw oplossing opgeeft, riskeert u informatiegebeurtenissen wordt verwijderd als de gebruiker dit in orde in hun werkruimte heeft.  Als u alle gebeurtenissen opgenomen, kan klikt u vervolgens u worden verzameld overmatige informatiegebeurtenissen in de werkruimte van de gebruiker.
+- Gegevensbronnen kunnen worden [geconfigureerd met een Resource Manager-sjabloon](../../azure-monitor/platform/template-workspace-configuration.md), maar ze moeten niet worden opgenomen in een oplossingsbestand.  De reden is dat het configureren van gegevensbronnen momenteel niet idempotent zijn is, wat betekent dat uw oplossing bestaande configuratie in de werkruimte van de gebruiker kan overschrijven.<br><br>Uw oplossing is bijvoorbeeld mogelijk waarschuwings- en gebeurtenissen van het logboek voor toepassingsgebeurtenissen.  Als u dit als een gegevensbron in uw oplossing opgeeft, riskeert u informatiegebeurtenissen wordt verwijderd als de gebruiker dit in orde in hun werkruimte heeft.  Als u alle gebeurtenissen opgenomen, kan klikt u vervolgens u worden verzameld overmatige informatiegebeurtenissen in de werkruimte van de gebruiker.
 
 - Als uw oplossing vereist dat gegevens uit een van de standard-gegevensbronnen, moet klikt u vervolgens u definiëren dit als een vereiste.  Status in de documentatie bij de klant moet de gegevensbron configureren op hun eigen.  
 - Voeg een [Flow gegevensverificatie](../../azure-monitor/platform/view-designer-tiles.md) bericht voor weergaven in uw oplossing om te geven van de gebruiker op gegevensbronnen die worden geconfigureerd voor de vereiste gegevens moeten te verzamelen.  Dit bericht wordt weergegeven op de tegel van de weergave als vereiste gegevens is niet gevonden.

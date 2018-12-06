@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 209152b157ef2cfae872490bcff4f2a7100c3a4d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e65f85d8349c4c8c69a50e93b093c04250e73a4e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339335"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961425"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Het gebruik en facturering voor Azure Stack als een Cloudserviceprovider beheren 
 
@@ -33,7 +33,7 @@ Het volgende diagram toont de stappen die u moet uw gedeelde services-account ki
 
 **Stappen voor het gebruik bijhouden als een CSP toevoegen**
 
-[ ![Proces voor het inschakelen van gebruik en beheer als een Cloudserviceprovider](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "proces voor het inschakelen van gebruik en beheer als een Cloudserviceprovider") ](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
+[ ![Proces voor het inschakelen van gebruik en beheer als een Cloudserviceprovider](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "proces voor het inschakelen van gebruik en beheer als een Cloudserviceprovider") ](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Een CSP of APSS abonnement maken
 

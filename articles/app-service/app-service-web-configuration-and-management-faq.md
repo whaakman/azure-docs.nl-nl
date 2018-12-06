@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 8cc47fc7ec60027851525b98cdf95e7d534ea556
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241851"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967739"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie en beheer Veelgestelde vragen voor Web-Apps in Azure
 
@@ -106,7 +106,7 @@ Zie voor meer informatie, [Veelgestelde vragen over App Service-certificaten en 
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Waarom zie ik het bericht 'Gedeeltelijk voltooid' wanneer ik wil back-up van mijn web-app?
 
-Een veelvoorkomende oorzaak van de back-fout is dat bepaalde bestanden gebruikt door de toepassing worden. Bestanden die gebruikt worden zijn vergrendeld terwijl u de back-up uitvoert. Dit voorkomt dat deze bestanden back-up wordt gemaakt en kan leiden tot een status 'Gedeeltelijk voltooid'. U kunt mogelijk te voorkomen dat dit voorkomen door bestanden uitsluiten van het back-upproces. U kunt back-up alleen wat u nodig hebt. Zie voor meer informatie, [back-up van alleen de belangrijke onderdelen van uw site met Azure WebApps](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Een veelvoorkomende oorzaak van de back-fout is dat bepaalde bestanden gebruikt door de toepassing worden. Bestanden die gebruikt worden zijn vergrendeld terwijl u de back-up uitvoert. Dit voorkomt dat deze bestanden back-up wordt gemaakt en kan leiden tot een status 'Gedeeltelijk voltooid'. U kunt mogelijk te voorkomen dat dit voorkomen door bestanden uitsluiten van het back-upproces. U kunt back-up alleen wat u nodig hebt. Zie voor meer informatie, [back-up van alleen de belangrijke onderdelen van uw site met Azure WebApps](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Hoe verwijder ik een koptekst van het HTTP-antwoord?
 
@@ -288,7 +288,7 @@ Zie voor gedetailleerde informatie voor verificatie en autorisatie in App Servic
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Hoe omleiden standaard *. azurewebsites.net domein aan mijn Azure-web-app aangepaste domein?
 
-Wanneer u een nieuwe website maken met behulp van Web-Apps in Azure, een standaard *sitename*. azurewebsites.net domein is toegewezen aan uw site. Als u een aangepaste hostnaam aan uw site toevoegen en niet wilt dat gebruikers kunnen toegang krijgen tot uw standaard *. azurewebsites.net domein, kunt u de standaard-URL omleiden. Zie voor informatie over het omleiden van al het verkeer van het standaarddomein van uw website naar uw aangepaste domein, [het standaarddomein een omleiding naar uw aangepaste domein in Azure-web-apps](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Wanneer u een nieuwe website maken met behulp van Web-Apps in Azure, een standaard *sitename*. azurewebsites.net domein is toegewezen aan uw site. Als u een aangepaste hostnaam aan uw site toevoegen en niet wilt dat gebruikers kunnen toegang krijgen tot uw standaard *. azurewebsites.net domein, kunt u de standaard-URL omleiden. Zie voor informatie over het omleiden van al het verkeer van het standaarddomein van uw website naar uw aangepaste domein, [het standaarddomein een omleiding naar uw aangepaste domein in Azure-web-apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Hoe bepaal ik welke versie van .NET versie is geïnstalleerd in App Service?
 

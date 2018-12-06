@@ -11,19 +11,19 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: c6314b4f53969b32040713df4834e5706d31be3a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 20867b6bfecb981a9bc47180cb39a1c489b19d2f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865349"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959747"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van de Windows Data Science Virtual Machine van Azure
 De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Windows Azure virtuele machine (VM). Het is vooraf geïnstalleerd en geconfigureerd met verschillende hulpprogramma's die worden gebruikt voor gegevensanalyse en machine learning. De volgende hulpprogramma's zijn opgenomen:
 
-* [Azure Machine Learning](../service/index.yml) Workbench.
+* [Azure Machine Learning-service](../service/index.yml) Python-SDK.
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
 * Anaconda Python-distributie.
 * Jupyter-Notebook met R, Python en PySpark-kernels.
@@ -193,13 +193,13 @@ De **Power BI Desktop** is geïnstalleerd voor informatie over het bouwen van da
 > 
 > 
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+### <a name="azure-machine-learning-service-python-sdk"></a>Azure Machine Learning-service Python-SDK
 
-Azure Machine Learning Workbench is een bureaubladtoepassing en opdrachtregelinterface. De workbench heeft ingebouwde gegevensvoorbereiding waarmee u de stappen voor gegevensvoorbereiding leert terwijl u ze nemen. Het biedt ook projectbeheer, uitvoeringsgeschiedenis en integratie van notitieblokken om uw productiviteit te verbeteren. 
+De Azure Machine Learning-SDK voor Python wordt gebruikt door data scientists en AI-ontwikkelaars om te bouwen en uitvoeren van machine learning-werkstromen met de [Azure Machine Learning-service](../service/overview-what-is-azure-ml.md). U kunt werken met de service in een Python-omgeving, met inbegrip van Jupyter Notebooks of uw favoriete Python IDE, met open-source frameworks, zoals TensorFlow en scikit-meer informatie.
 
-Kunt u open-source frameworks, waaronder TensorFlow, Cognitive Toolkit, Spark ML en scikit-informatie over het ontwikkelen van uw modellen. Op de DSVM, bieden we een pictogram voor het installeren van de Azure Machine Learning Workbench in de individuele gebruiker op het bureaublad **% LOCALAPPDATA %** directory. 
+Om te beginnen met de Python-SDK, Zie [Python gebruiken om aan de slag met Azure Machine Learning](../service/quickstart-create-workspace-with-python.md).
 
-Elke gebruiker van de workbench moet een eenmalige actie ondernemen. Dubbelklik op de ```AzureML Workbench Setup``` pictogram op het bureaublad de workbench-exemplaar te installeren. Azure Machine Learning ook maakt en gebruikt een per gebruiker Python-omgeving die wordt opgehaald in de **%LOCALAPPDATA%\amlworkbench\python** directory.
+De Python-SDK is vooraf geïnstalleerd op de Microsoft Data Science Virtual Machine.
 
 ## <a name="more-microsoft-development-tools"></a>Meer Microsoft-ontwikkelprogramma 's
 De [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) wordt gebruikt om te zoeken en downloaden van andere Microsoft-ontwikkelhulpprogramma's. Er is ook een snelkoppeling naar het hulpprogramma dat is opgegeven op het bureaublad van Microsoft Data Science Virtual Machine.  
@@ -215,7 +215,6 @@ De [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/pl
 | Microsoft Machine Learning Server (zelfstandige versie)-Python | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Standaardexemplaar R, Machine Learning Server (zelfstandige versie) | C:\Program Files\Microsoft\ML Server\R_SERVER |
 | SQL-Machine Learning-Services in de database-instantie directory | C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
-| Azure Machine Learning Workbench, per gebruiker | %localappdata%\amlworkbench | 
 | Diverse hulpprogramma 's | c:\dsvm\tools |
 
 > [!NOTE]
@@ -226,7 +225,7 @@ De [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/pl
 ## <a name="next-steps"></a>Volgende stappen
 
 * De hulpprogramma's op de virtuele machine voor datatechnologie verkennen door het selecteren van de **Start** menu.
-* Meer informatie over Azure Machine Learning-Services en Workbench door naar het product te [snelstartgidsen en zelfstudies pagina](../service/index.yml). 
+* Meer informatie over Azure Machine Learning-service door te lezen [wat is Azure Machine Learning-service?](../service/overview-what-is-azure-ml.md) en uit te proberen de [snelstartgidsen en zelfstudies](../service/index.yml) die beschikbaar zijn.
 * Navigeer naar **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** voor voorbeelden die gebruikmaken van de bibliotheek RevoScaleR in R die ondersteuning biedt voor gegevensanalyse op de grote schaal.  
 * Lees het artikel [tien dingen die u in de Data science Virtual Machine doen kunt](https://aka.ms/dsvmtenthings).
 * Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](../team-data-science-process/index.yml).

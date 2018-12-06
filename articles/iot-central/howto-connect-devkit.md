@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255724"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956649"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven hoe u, als een apparaat-ontwikkelaar, een MXChip Io
 
 U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
-1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [maken van een toepassing Quick Start](quick-deploy-iot-central.md).
+1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 1. Een apparaat DevKit. Als u wilt een apparaat DevKit kopen, gaat u naar [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -49,12 +49,12 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** appa
     * Voer de apparaat-Id **<span style="color:Red">(moet zich bevinden in kleine letters)</span>** of gebruikt u de voorgestelde apparaat-id.
     * Voer de naam van het apparaat of de voorgestelde naam gebruiken
     
-    ![Apparaat toevoegen](media\concepts-connectivity\add-device.png)
+    ![Apparaat toevoegen](media/concepts-connectivity/add-device.png)
 
 
 1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door te klikken op **Connect** op de Apparaatpagina.
  
-    ![Verbindingsdetails](media\concepts-connectivity\device-connect.PNG)
+    ![Verbindingsdetails](media/concepts-connectivity/device-connect.PNG)
 
 3. Zorg ervoor dat deze details op te slaan als u temporaritly verbinding verbroken via internet bij het voorbereiden van het apparaat DevKit. 
 

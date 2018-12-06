@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a096bd2f23910eb2eb3bc4aa36e34400ccfbb701
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853401"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956975"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: vertalen
 
@@ -42,11 +42,11 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>uit</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken [ondersteunde talen](.\v3-0-languages.md) met behulp van de `translation` bereik. Als de `from` parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
+    <td>*Optionele parameter*.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de `translation` bereik. Als de `from` parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
   </tr>
   <tr>
     <td>tot</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `translation` bereik. Gebruik bijvoorbeeld `to=de` te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld `to=de&to=it` te vertalen in het Duits en Italiaans.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `translation` bereik. Gebruik bijvoorbeeld `to=de` te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld `to=de&to=it` te vertalen in het Duits en Italiaans.</td>
   </tr>
   <tr>
     <td>Teksttype</td>
@@ -86,7 +86,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>AllowFallback</td>
-    <td>*Optionele parameter*.<br/>Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: `true` (standaard) of `false`.<br/><br/>`AllowFallback=false` Hiermee geeft u de vertaling moet alleen gebruiken voor systemen die zijn getraind voor de `category` opgegeven door de aanvraag. Als een vertaling voor de taal die X Y vereist via een taal pivot E, klikt u vervolgens alle systemen in de keten-koppeling (X -> E- en E -> Y) moet worden aangepast en hebben dezelfde categorie. Als er geen systeem met een specifieke categorie wordt gevonden, wordt de aanvraag een 400-statuscode geretourneerd. `AllowFallback=true` Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat.
+    <td>*Optionele parameter*.<br/>Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: `true` (standaard) of `false`.<br/><br/>`allowFallback=false` Hiermee geeft u de vertaling moet alleen gebruiken voor systemen die zijn getraind voor de `category` opgegeven door de aanvraag. Als een vertaling voor de taal die X Y vereist via een taal pivot E, klikt u vervolgens alle systemen in de keten-koppeling (X -> E- en E -> Y) moet worden aangepast en hebben dezelfde categorie. Als er geen systeem met een specifieke categorie wordt gevonden, wordt de aanvraag een 400-statuscode geretourneerd. `allowFallback=true` Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat.
 </td>
   </tr>
 </table> 
@@ -111,11 +111,6 @@ Aanvraagheaders zijn onder andere:
   <tr>
     <td>X-ClientTraceId</td>
     <td>*Optioneel*.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. U kunt deze header weglaten als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam `ClientTraceId`.</td>
-  </tr>
-  <tr>
-    <td>X-MT-systeem</td>
-    <td>*Optioneel*.<br/>Hiermee geeft u het type dat is gebruikt voor de vertaling voor elke 'to'-taal voor vertaling aangevraagd. De waarde is een door komma's gescheiden lijst met tekenreeksen. Elke tekenreeks geeft aan dat een type:<br/><ul><li>Aangepast - aanvraag bevat een aangepast systeem en ten minste één aangepaste system is gebruikt tijdens de conversie.</li><li>Team - alle andere aanvragen</li></ul>
-</td>
   </tr>
 </table> 
 
@@ -174,6 +169,21 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
 Voorbeeld van JSON-antwoorden vindt u in de [voorbeelden](#examples) sectie.
 
+## <a name="response-headers"></a>Antwoordheaders
+
+<table width="100%">
+  <th width="20%">Headers</th>
+  <th>Beschrijving</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
+  </tr>
+  <tr>
+    <td>X-MT-systeem</td>
+    <td>Hiermee geeft u het type dat is gebruikt voor de vertaling voor elke 'to'-taal voor vertaling aangevraagd. De waarde is een door komma's gescheiden lijst met tekenreeksen. Elke tekenreeks geeft aan dat een type:<br/><ul><li>Aangepast - aanvraag bevat een aangepast systeem en ten minste één aangepaste system is gebruikt tijdens de conversie.</li><li>Team - alle andere aanvragen</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>Antwoord-statuscodes
 
 Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert. 
@@ -199,7 +209,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   </tr>
   <tr>
     <td>408</td>
-    <td>De aanvraag kan niet worden uitgevoerd omdat een bron ontbreekt. Controleer het foutbericht voor meer informatie. Wanneer u een aangepaste `category`, dit betekent meestal dat de aangepaste vertaalsysteem nog niet beschikbaar is voor het verzenden van aanvragen. De aanvraag moet opnieuw worden uitgevoerd na een wachttijd (bijvoorbeeld 10 minuten).</td>
+    <td>De aanvraag kan niet worden uitgevoerd omdat een bron ontbreekt. Controleer het foutbericht voor meer informatie. Wanneer u een aangepaste `category`, dit betekent meestal dat de aangepaste vertaalsysteem nog niet beschikbaar is voor het verzenden van aanvragen. De aanvraag moet opnieuw worden uitgevoerd na een wachttijd (bijvoorbeeld 1 minuut).</td>
   </tr>
   <tr>
     <td>429</td>

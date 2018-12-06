@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e4ec1ecbde04cbf843f99bdcdf36977a856c3b03
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: eccd81d50c93c2fdeb67e2536a0afa879c08a1b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684654"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970268"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen
 
@@ -344,4 +344,4 @@ De laatste stap bestaat uit het controleren van de Log Analytics-werkruimte om e
 In dit artikel hebt u een logische app gemaakt om Azure-activiteitenlogboeken te lezen uit een Event Hub en te verzenden naar Log Analytics voor analyse. Bekijk voor meer informatie over het visualiseren van gegevens in Log Analytics, inclusief het maken van dashboards, de zelfstudie over het visualiseren gegevens.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over het visualiseren van gegevens uit Zoeken in logboeken](./../../log-analytics/log-analytics-tutorial-dashboards.md)
+> [Zelfstudie over het visualiseren van gegevens uit Zoeken in logboeken](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

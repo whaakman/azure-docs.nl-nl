@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261992"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961923"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Het Blob storage gebruiken met iOS
 
 Dit artikel leest hoe u algemene scenario's met behulp van Microsoft Azure Blob-opslag uitvoert. De voorbeelden zijn geschreven in Objective-C en gebruik de [Azure Storage-clientbibliotheek voor iOS](https://github.com/Azure/azure-storage-ios). De behandelde scenario's zijn uploaden, vermelden, downloaden en verwijderen van blobs. Zie voor meer informatie over blobs de [Vervolgstappen](#next-steps) sectie. U kunt ook downloaden de [voorbeeldapp](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) om snel het gebruik van Azure Storage in een iOS-toepassing.
 
-## <a name="what-is-blob-storage"></a>Wat is Blob storage?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+Zie voor meer informatie over Blob-opslag, [Inleiding tot Azure Blob-opslag](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 

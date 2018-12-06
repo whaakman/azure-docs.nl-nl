@@ -1,18 +1,18 @@
 ---
-title: Maak Qlik Sense verbinding met Azure Cosmos DB en Visualiseer uw gegevens | Microsoft Docs
+title: Maak Qlik Sense verbinding met Azure Cosmos DB en Visualiseer uw gegevens
 description: In dit artikel wordt beschreven hoe u verbinding maken met Azure Cosmos DB Qlik Sense en Visualiseer uw gegevens.
 services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: sngun
-ms.openlocfilehash: 3bae365b879019862dd76ac8a857d4ded2b6c4bb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 57832b59d8b43f5aa157b278e67c50b25084c86c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241025"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962832"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Maak Qlik Sense verbinding met Azure Cosmos DB en Visualiseer uw gegevens
 

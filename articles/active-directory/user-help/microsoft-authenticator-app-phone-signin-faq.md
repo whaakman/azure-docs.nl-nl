@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: b2483d93fdc83970ca1568326f4bc728de16f77c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038864"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962214"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Meld u aan met uw telefoon, niet met uw wachtwoord
 De Microsoft Authenticator-app niet alleen kunt u uw accounts veilig houden door te voeren verificatie in twee stappen nadat u uw wachtwoord invoeren, maar nu kunt dit het wachtwoord voor je Microsoft-account volledig vervangen.
@@ -43,13 +43,13 @@ Als uw organisatie deze nieuwe ervaring is ingeschakeld, moet u mogelijk zijn om
 
     Nadat u hebt uw gebruikersnaam wordt ingevoerd, ziet u een pagina met een getal van twee cijfers, of u wilt goedkeuren de aanmelding via de Microsoft Authenticator-app. Als u niet dat dit teken in de methode gebruiken wilt, kunt u **uw wachtwoord gebruiken in plaats daarvan**, en meld u aan met uw wachtwoord.
 
-    ![Box-aanmelding goedkeuren](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![Box-aanmelding goedkeuren](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
 2. In de Microsoft Authentication-app, ontvangt u een melding of u wilt **aanmelding goedkeuren**. Kies **goedkeuren** als je de aanmeldingspoging herkent. Kies anders **weigeren**. 
 
 3. Tik op het hetzelfde nummer ziet u op de **aanmelding goedkeuren** scherm. De PINCODE van uw telefoon of uw biometrische sleutel gebruiken om de verificatie te voltooien.
 
-    ![Goedkeuren vak aanmelden met nummer om u te selecteren](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![Goedkeuren vak aanmelden met nummer om u te selecteren](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Telefoon aanmelden voor uw persoonlijke account inschakelen 
 U kunt op aanmelden via telefoon inschakelen voor uw persoonlijke Microsoft-account, zoals het account waarmee u zich aanmeldt bij Outlook.com, Xbox of Skype.

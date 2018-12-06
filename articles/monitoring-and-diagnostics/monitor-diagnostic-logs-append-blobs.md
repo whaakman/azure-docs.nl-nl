@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: b83c67e5c2ca47e73c1743d8eeaea03a8d92ea1f
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247849"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959874"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Indeling wijzigen naar diagnostische logboeken van Azure Monitor gearchiveerd naar een opslagaccount voorbereiden
 
@@ -47,11 +47,11 @@ U wordt alleen beïnvloed door deze wijziging als u:
  
 Om te identificeren als u instellingen voor resourcediagnose die gegevens naar een Azure storage-account verzenden hebt, kunt u navigeren naar de **Monitor** sectie van de portal, klik op **diagnostische instellingen**, en identificeren alle resources die zijn **diagnostische Status** ingesteld op **ingeschakeld**:
 
-![Azure Monitor diagnostische instellingen-blade](./media/monitor-diagnostic-logs-append-blobs\portal-diag-settings.png)
+![Azure Monitor diagnostische instellingen-blade](./media/monitor-diagnostic-logs-append-blobs/portal-diag-settings.png)
 
 Als diagnostische Status is ingesteld op ingeschakeld, hebt u een actieve diagnostische instelling voor die bron. Klik op de bron om te zien als alle instellingen voor diagnostische gegevens naar een opslagaccount verzenden:
 
-![Storage-account is ingeschakeld](./media/monitor-diagnostic-logs-append-blobs\portal-storage-enabled.png)
+![Storage-account is ingeschakeld](./media/monitor-diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
 Als u gegevens verzenden naar een opslagaccount met behulp van deze instellingen voor resourcediagnose resources hebt, wordt de indeling van de gegevens in dat opslagaccount worden beïnvloed door deze wijziging. Tenzij u aangepaste hulpprogramma's die de werking van deze opslagaccounts hebt, heeft de indeling wijziging geen gevolgen voor u.
 

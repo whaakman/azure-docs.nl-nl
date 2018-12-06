@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883819"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956292"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure SQL DB
 
@@ -30,7 +30,7 @@ Als uw brondatabase uit een of meer tijdelijke tabellen bestaat, uw databasemigr
 
 {"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Database migratie error", "errorEvents": "[" vastleggen functies kunnen niet worden ingesteld. Retcode is: SQL_ERROR geretourneerd SqlState: 42000 NativeError: 13570 bericht: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] op het gebruik van replicatie wordt niet ondersteund met de tijdelijke systeemversietabel ' [-toepassing. Steden], regel: 1 kolom: -1 "]"}
  
- ![Voorbeeld van de tijdelijke tabel fouten](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Voorbeeld van de tijdelijke tabel fouten](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Tijdelijke oplossing**
 
@@ -52,7 +52,7 @@ Zie voor meer informatie het artikel [tijdelijke tabellen](https://docs.microsof
 
 Mogelijk ziet u een SQL-uitzondering voorstellen 'ntext is niet compatibel met hierarchyid' tijdens de bewerking 'alle gegevens worden geladen':
      
-![Voorbeeld van hierarchyid-fouten](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![Voorbeeld van hierarchyid-fouten](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Tijdelijke oplossing**
 
@@ -107,7 +107,7 @@ Als u DMS voor het migreren van de waarde van de exacte tijdstempel opgeslagen i
 
 Wanneer u de migratie-fouten in de status van Databases detailweergave optreden, selecteert de **fouten bij de migratie van gegevens** koppeling in het bovenste lint bieden aanvullende informatie die specifiek zijn voor de migratie-fouten mogelijk niet.
 
-![fouten bij de migratie van de gegevens er zijn geen details-voorbeeld](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![fouten bij de migratie van de gegevens er zijn geen details-voorbeeld](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Tijdelijke oplossing**
 
@@ -115,6 +115,6 @@ Als u details van de specifieke fout, de volgende stappen uit te voeren.
 
 1. Sluit de blade Database gedetailleerde status weergegeven om het scherm van de migratie van activiteit weer te geven.
 
-     ![migratie-activiteitenscherm](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![migratie-activiteitenscherm](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Selecteer **Zie foutdetails** om specifieke foutberichten die u helpen bij het oplossen van fouten bij de migratie weer te geven.

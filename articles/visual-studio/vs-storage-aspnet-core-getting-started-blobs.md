@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442738"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961107"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET Core)
 
@@ -27,7 +27,7 @@ ms.locfileid: "42442738"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob-opslag is een service waarmee ongestructureerde gegevens worden opgeslagen in de cloud-objecten of-blobs. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag.
+Azure Blob-opslag is een service waarmee ongestructureerde gegevens worden opgeslagen in de cloud-objecten of-blobs. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag. Zie voor meer informatie over Blob-opslag, [Inleiding tot Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md).
 
 Deze zelfstudie laat zien hoe u ASP.NET Core-code voor enkele algemene scenario's die gebruikmaken van Blob-opslag te schrijven. Scenario's omvatten het maken van een blob-container en uploaden, vermelden, downloaden en verwijderen van blobs.
 
@@ -36,8 +36,6 @@ Deze zelfstudie laat zien hoe u ASP.NET Core-code voor enkele algemene scenario'
 ## <a name="prerequisites"></a>Vereisten
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 ## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 

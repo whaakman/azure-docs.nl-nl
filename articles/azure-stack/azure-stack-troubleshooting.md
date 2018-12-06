@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c463599190c5bfaac47a70dbca7b8a67dc830f3a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363472"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957637"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Het oplossen van Microsoft Azure Stack
 
@@ -43,7 +43,7 @@ Dit gedrag is waarschijnlijk alleen het resultaat van het standaardgedrag van ee
 Een Windows Server-installatiekopie en galerie-item moet worden toegevoegd voor het implementeren van virtuele machines in Azure Stack.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Nadat de Azure Stack-host opnieuw is opgestart, enkele VM's kunnen niet automatisch wordt gestart.
-Na het opnieuw opstarten van de host, merkt u wellicht Azure Stack-services zijn niet onmiddellijk beschikbaar.  Dit komt doordat Azure Stack [infrastructuur-VM's](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) en resourceproviders even duren om te controleren op consistentie, maar uiteindelijk automatisch wordt gestart.
+Na het opnieuw opstarten van de host, merkt u wellicht Azure Stack-services zijn niet onmiddellijk beschikbaar.  Dit komt doordat Azure Stack [infrastructuur-VM's](../azure-stack/asdk/asdk-architecture.md#virtual-machine-roles) en resourceproviders even duren om te controleren op consistentie, maar uiteindelijk automatisch wordt gestart.
 
 U merkt wellicht ook die tenant die virtuele machines niet automatisch wordt gestart na opnieuw opstarten van de Azure Stack development kit-host. Dit is een bekend probleem en moet een aantal handmatige stappen voor het ze online brengt:
 

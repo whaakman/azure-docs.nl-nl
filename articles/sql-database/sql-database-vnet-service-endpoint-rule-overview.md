@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0fc5ca73dec79942e05c7dfd410bc0a13e5ffb44
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 12/04/2018
+ms.openlocfilehash: 3469b03cae88a5bdf7c9ccd51b54af92ea8d7b23
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648714"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958385"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse
 
@@ -145,7 +145,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Gevolgen van het toestaan van Azure-services voor toegang tot server verwijderen
 
 Veel gebruikers wilt verwijderen **kunnen Azure-services tot server** van hun Azure SQL-Servers en vervang deze door een VNet-firewallregel.
-Echter verwijderen van dit van invloed op de volgende functies van Azure SQL Database:
+Echter verwijderen van dit van invloed op de volgende functies:
 
 ### <a name="import-export-service"></a>Import Export-Service
 
@@ -166,12 +166,64 @@ Azure SQL-Database heeft de gegevenssynchronisatie-functie die verbinding maakt 
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage
 
-Azure Storage is de dezelfde functie waarmee u verbinding met uw Storage-account beperken geïmplementeerd.
-Als u ervoor kiest deze functie wilt gebruiken met een opslagaccount dat wordt gebruikt door een Azure SQL-Server, kunt u problemen ondervindt. Vervolgens wordt een lijst met en een beschrijving van de Azure SQL Database-functies die worden beïnvloed door dit.
+Azure Storage is de dezelfde functie waarmee u verbinding met uw Azure Storage-account beperken geïmplementeerd. Als u ervoor kiest deze functie wilt gebruiken met een Azure Storage-account dat wordt gebruikt door Azure SQL-Server, kunt u problemen ondervindt. Vervolgens wordt een lijst met en een beschrijving van de Azure SQL Database en Azure SQL Data Warehouse-functies die worden beïnvloed door dit.
 
 ### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL datawarehouse PolyBase
 
-PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse van Storage-accounts. Als het opslagaccount dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Er is een beperking voor deze en kunt u contact opnemen met Microsoft ondersteuning voor meer informatie.
+PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse vanuit Azure Storage-accounts. Als de Azure Storage-account dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Voor het inschakelen van beide PolyBase importeren en exporteren van scenario's met Azure SQL Data Warehouse verbinding met Azure Storage die wordt beveiligd met VNet, volgt u de stappen die hieronder worden beschreven:
+
+#### <a name="prerequisites"></a>Vereisten
+1.  Installeer Azure PowerShell volgens dit [handleiding](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+2.  Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst upgraden naar algemeen gebruik v2 met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  U moet hebben **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** onder Azure Storage-account ingeschakeld **Firewalls en virtuele netwerken** instellingenmenu. Verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor meer informatie.
+ 
+#### <a name="steps"></a>Stappen
+1.  In PowerShell **de logische SQL-Server registreren** met Azure Active Directory (AAD):
+
+    ```powershell
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
+    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    ```
+    
+ 1. Maak een **voor algemeen gebruik v2-Opslagaccount** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+    > [!NOTE]
+    > - Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u **eerst upgraden naar v2** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > - Voor bekende problemen met Azure Data Lake Storage Gen2 Raadpleeg dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+    
+1.  Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob (Preview)** RBAC-rol met de logische SQL-Server.
+
+    > [!NOTE] 
+    > Alleen leden met de eigenaar van bevoegdheden kunnen deze stap uitvoeren. Voor de verschillende ingebouwde rollen voor Azure-resources, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1.  **Polybase-verbinding met de Azure Storage-account:**
+
+    1. Maak een database **[hoofdsleutel](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** als u een eerder hebt gemaakt:
+        ```SQL
+        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+        ```
+    
+    1. Maken van database-scoped referentie met **id = 'Beheerde Service-identiteit'**:
+
+        ```SQL
+        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+        ```
+        > [!NOTE] 
+        > - Er is niet nodig om op te geven van GEHEIM met de Azure Storage-toegangssleutel omdat dit mechanisme gebruikt [beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) op de achtergrond.
+        > - Identiteitsnaam van de moet **'Beheerde Service-identiteit'** voor PolyBase-verbinding met het werken met Azure Storage-account is beveiligd met VNet.    
+    
+    1. Externe gegevensbron maken met abfss: / / kleurenschema voor de verbinding met uw opslagaccount voor algemeen gebruik v2 met PolyBase:
+
+        ```SQL
+        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+        ```
+        > [!NOTE] 
+        > - Als u al externe tabellen die zijn gekoppeld aan voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst verwijderen die externe tabellen en zet de bijbehorende externe gegevensbron. Maak vervolgens de externe gegevensbron met abfss: / / verbinding maken met het opslagaccount voor algemeen gebruik v2 als hierboven-schema en de externe tabellen met behulp van deze nieuwe externe gegevensbron opnieuw te maken. U kunt [genereren en Scripts Wizard publiceren](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) maken-scripts voor de externe tabellen voor een eenvoudige genereren.
+        > - Voor meer informatie over abfss: / / -schema, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+        > - Voor meer informatie over CREATE EXTERNAL DATA SOURCE verwijzen naar dit [handleiding](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+        
+    1. Query als normale [externe tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Controlefunctie voor Azure SQL Database
 
@@ -179,11 +231,11 @@ Auditlogboeken controlefunctie voor BLOBs worden verstuurd naar uw eigen opslaga
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNet-firewallregel toevoegen aan uw server zonder in te schakelen op VNet-Service-eindpunten
 
-Lang geleden, voordat dit onderdeel is verbeterd, moest u VNet-service-eindpunten inschakelen voordat u een live VNet-regel in de Firewall kan implementeren. De eindpunten die betrekking hebben een bepaald VNet-subnet naar een Azure SQL-Database. Maar nu vanaf januari 2018, u kunt omzeilen deze vereiste door in te stellen de **IgnoreMissingServiceEndpoint** vlag.
+Lang geleden, voordat dit onderdeel is verbeterd, moest u VNet-service-eindpunten inschakelen voordat u een live VNet-regel in de Firewall kan implementeren. De eindpunten die betrekking hebben een bepaald VNet-subnet naar een Azure SQL-Database. Maar nu vanaf januari 2018, u kunt omzeilen deze vereiste door in te stellen de **IgnoreMissingVNetServiceEndpoint** vlag.
 
-Alleen instelling een firewallregel niet om de server beveiligen. U moet ook VNet-service-eindpunten op inschakelen om de beveiliging van kracht. Wanneer u service-eindpunten inschakelen, ondervindt uw VNet-subnet uitvaltijd totdat de bewerking is de overgang van uitgeschakeld naar op. Dit geldt met name in de context van grote VNets. U kunt de **IgnoreMissingServiceEndpoint** vlag te verlagen of elimineren van de uitvaltijd tijdens de overgang.
+Alleen instelling een firewallregel niet om de server beveiligen. U moet ook VNet-service-eindpunten op inschakelen om de beveiliging van kracht. Wanneer u service-eindpunten inschakelen, ondervindt uw VNet-subnet uitvaltijd totdat de bewerking is de overgang van uitgeschakeld naar op. Dit geldt met name in de context van grote VNets. U kunt de **IgnoreMissingVNetServiceEndpoint** vlag te verlagen of elimineren van de uitvaltijd tijdens de overgang.
 
-U kunt instellen dat de **IgnoreMissingServiceEndpoint** vlag met behulp van PowerShell. Zie voor meer informatie, [PowerShell voor het maken van een service-eindpunt voor Virtueelnetwerk en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+U kunt instellen dat de **IgnoreMissingVNetServiceEndpoint** vlag met behulp van PowerShell. Zie voor meer informatie, [PowerShell voor het maken van een service-eindpunt voor Virtueelnetwerk en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="errors-40914-and-40615"></a>Fouten 40914 en 40615
 

@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b1b8c660dfd6ea6890a940a97f5ff1ec1617c28d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568587"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963382"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge-certificaat-gebruiksdetails
 
@@ -51,7 +51,7 @@ De fabrikant gebruikt in elk geval een tussenliggende CA-certificaat aan het ein
 
 ### <a name="device-ca-certificate"></a>Device CA-certificaat
 
-Het CA-certificaat van het apparaat is gegenereerd op basis van en ondertekend door het laatste tussenliggende CA-certificaat in het proces. Dit certificaat is geïnstalleerd op het Edge-apparaat, bij voorkeur in veilige opslag, zoals een hardware security module (HSM). Bovendien identificatie een certificaat van een apparaat unieke van een IoT Edge-apparaat. Het CA-certificaat van het apparaat is voor IoT Edge, kunnen andere certificaten worden uitgegeven. Bijvoorbeeld, het CA-apparaatcertificaat uitgeeft leaf certificaten voor apparaten die worden gebruikt voor verificatie van apparaten aan de [Azure IoT Device Provisioning Service](..\iot-dps\about-iot-dps.md).
+Het CA-certificaat van het apparaat is gegenereerd op basis van en ondertekend door het laatste tussenliggende CA-certificaat in het proces. Dit certificaat is geïnstalleerd op het Edge-apparaat, bij voorkeur in veilige opslag, zoals een hardware security module (HSM). Bovendien identificatie een certificaat van een apparaat unieke van een IoT Edge-apparaat. Het CA-certificaat van het apparaat is voor IoT Edge, kunnen andere certificaten worden uitgegeven. Bijvoorbeeld, het CA-apparaatcertificaat uitgeeft leaf certificaten voor apparaten die worden gebruikt voor verificatie van apparaten aan de [Azure IoT Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge-werkbelasting CA
 

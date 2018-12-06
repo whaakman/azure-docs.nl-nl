@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343642"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960648"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack-firewall-integratie
 Het verdient aanbeveling dat u een firewall-apparaat gebruiken om te beveiligen Azure Stack. Hoewel firewalls bij items zoals gedistribueerde denial-of-service (DDOS)-aanvallen, inbraakdetectie en inhoudsinspectie helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services, zoals blobs, tabellen en wachtrijen.
@@ -49,7 +49,7 @@ Azure Stack is geïmplementeerd in een edge-implementatie, rechtstreeks achter d
 
 Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor de openbare VIP-groep van het externe netwerk tijdens de implementatie. In een scenario edge, wordt deze niet aanbevolen voor gebruik van openbaar routeerbare IP's op een ander netwerk voor uit veiligheidsoverwegingen. In dit scenario kan een gebruiker de volledige zelf beheerde cloud-ervaring in een openbare cloud, zoals Azure-ervaring.  
 
-![Voorbeeld van Azure Stack edge firewall](.\media\azure-stack-firewall\firewallScenarios.png)
+![Voorbeeld van Azure Stack edge firewall](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet- of perimeter network firewall bedrijfsscenario
 In een enterprise-implementatie van intranet of een perimeternetwerk, Azure Stack geïmplementeerd op een ingedeeld in de multi-zone-firewall of tussen de edge-firewall en firewall van het interne, zakelijke netwerk. Het verkeer wordt dan gedistribueerd tussen de beveiligde, perimeternetwerk bevinden (of DMZ) en niet-beveiligde zones als hieronder beschreven:
@@ -58,7 +58,7 @@ In een enterprise-implementatie van intranet of een perimeternetwerk, Azure Stac
 - **Perimeter-zone**. Het perimeternetwerk is wanneer het externe of internetgerichte toepassingen, zoals webservers worden doorgaans geïmplementeerd. Dit wordt meestal bewaakt door een firewall om te voorkomen dat aanvallen, zoals DDoS en indringers (hacken) terwijl u nog steeds opgegeven binnenkomend verkeer van internet. Alleen het externe netwerk openbare VIP-groep van Azure Stack moet zich bevinden in de DMZ-zone.
 - **Niet-beveiligde zone**. Dit is het externe netwerk, het internet. Deze **is niet** aanbevolen om te implementeren, Azure Stack in de niet-beveiligde zone.
 
-![Voorbeeld van Azure Stack perimeter network](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Voorbeeld van Azure Stack perimeter network](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Meer informatie
 Meer informatie over [poorten en protocollen die worden gebruikt door Azure Stack-eindpunten](azure-stack-integrate-endpoints.md).

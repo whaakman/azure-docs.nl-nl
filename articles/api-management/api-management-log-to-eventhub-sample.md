@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48dfa3180f040af3e8298d418cf71c537477ba5a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603175"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956945"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Uw API's met Azure API Management, Eventhubs en Runscope controleren
 De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen die worden verzonden op uw HTTP-API. Het bestaan van de aanvragen en antwoorden is echter tijdelijk. De aanvraag wordt gedaan en hiervandaan stroomt het via de API Management-service naar uw back-end-API. Uw API verwerkt de aanvraag en een antwoord doorloopt de consument API. De API Management-service houdt u enkele belangrijke statistische gegevens over de API's om weer te geven in de Azure portal-dashboard, maar ook buiten dat de gegevens verwijderd zijn.
@@ -45,7 +45,7 @@ Eventhubs heeft de mogelijkheid om gebeurtenissen streamen naar meerdere consume
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>Een beleid voor het verzenden van de toepassing/http-berichten
 Een Event Hub accepteert gebeurtenisgegevens als een eenvoudige tekenreeks. De inhoud van die tekenreeks wordt aan u. Als u een HTTP-aanvraag verpakken en dit uit te verzenden naar Event Hubs, moeten we de tekenreeks met de aanvraag of antwoord informatie. In situaties als volgt, als er een bestaande indeling kan opnieuw worden gebruikt en we kunnen geen onze eigen parseren code schrijven. In eerste instantie als ik beschouwd met behulp van de [HAR](http://www.softwareishard.com/blog/har-12-spec/) voor het verzenden van HTTP-aanvragen en antwoorden. Deze indeling is echter wel geoptimaliseerd voor het opslaan van een reeks HTTP-aanvragen in een JSON-indeling. Het bevat een aantal verplichte elementen die onnodige complexiteit voor het scenario van het HTTP-bericht doorgegeven via de kabel toegevoegd.  
 
-Een alternatief is om te gebruiken de `application/http` mediatype zoals beschreven in de HTTP-specificatie [RFC 7230](http://tools.ietf.org/html/rfc7230). Dit mediatype exact dezelfde indeling die wordt gebruikt voor het verzenden van daadwerkelijk HTTP-berichten via de kabel gebruikt, maar het hele bericht te plaatsen in de hoofdtekst van een andere HTTP-aanvraag. In ons geval gaan alleen we de hoofdtekst als onze bericht gebruiken om te verzenden naar Event Hubs. Eenvoudig, is er een parser die deel uitmaakt van [2.2-Client voor Microsoft ASP.NET Web API](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotheken die u kunnen deze indeling parseren en te converteren naar de native `HttpRequestMessage` en `HttpResponseMessage` objecten.
+Een alternatief is om te gebruiken de `application/http` mediatype zoals beschreven in de HTTP-specificatie [RFC 7230](https://tools.ietf.org/html/rfc7230). Dit mediatype exact dezelfde indeling die wordt gebruikt voor het verzenden van daadwerkelijk HTTP-berichten via de kabel gebruikt, maar het hele bericht te plaatsen in de hoofdtekst van een andere HTTP-aanvraag. In ons geval gaan alleen we de hoofdtekst als onze bericht gebruiken om te verzenden naar Event Hubs. Eenvoudig, is er een parser die deel uitmaakt van [2.2-Client voor Microsoft ASP.NET Web API](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotheken die u kunnen deze indeling parseren en te converteren naar de native `HttpRequestMessage` en `HttpResponseMessage` objecten.
 
 Als u dit bericht maken, moeten we om te profiteren van C# [beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Hier is het beleid, die vervolgens een HTTP-aanvraagbericht naar Azure Event Hubs doorsturen.
 
@@ -159,7 +159,7 @@ Het beleid voor het verzenden van het HTTP-antwoordbericht lijkt op de aanvraag 
 De `set-variable` beleid maakt een waarde die toegankelijk is voor zowel de `log-to-eventhub` beleid in de `<inbound>` sectie en de `<outbound>` sectie.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Ontvangen van gebeurtenissen van Event Hubs
-Gebeurtenissen van Azure Event Hub worden ontvangen met behulp van de [AMQP-protocol](http://www.amqp.org/). De Service Bus van Microsoft-team aangebracht client bibliotheken die beschikbaar zijn voor het vereenvoudigen van de gebeurtenissen in beslag nemen. Er zijn twee verschillende manieren worden ondersteund, een wordt een *directe Consumer* en de andere is met behulp van de `EventProcessorHost` klasse. Voorbeelden van deze twee methoden kunnen u vinden in de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md). De verkorte versie van de verschillen is, `Direct Consumer` hebt u volledige controle en de `EventProcessorHost` biedt enkele van de Loodgieterswerk voor u, maar kunt u bepaalde veronderstellingen over hoe u deze gebeurtenissen worden verwerkt.  
+Gebeurtenissen van Azure Event Hub worden ontvangen met behulp van de [AMQP-protocol](https://www.amqp.org/). De Service Bus van Microsoft-team aangebracht client bibliotheken die beschikbaar zijn voor het vereenvoudigen van de gebeurtenissen in beslag nemen. Er zijn twee verschillende manieren worden ondersteund, een wordt een *directe Consumer* en de andere is met behulp van de `EventProcessorHost` klasse. Voorbeelden van deze twee methoden kunnen u vinden in de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md). De verkorte versie van de verschillen is, `Direct Consumer` hebt u volledige controle en de `EventProcessorHost` biedt enkele van de Loodgieterswerk voor u, maar kunt u bepaalde veronderstellingen over hoe u deze gebeurtenissen worden verwerkt.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 In dit voorbeeld gebruiken we de `EventProcessorHost` voor het gemak, maar wordt deze wellicht niet de beste keuze voor dit specifieke scenario. `EventProcessorHost` komt het harde werk van het te zorgen dat u hoeft te bekommeren threading problemen binnen een bepaalde gebeurtenis processor-klasse. In ons scenario, zijn we echter gewoon converteren van het bericht naar een andere indeling en deze samen met een andere service met behulp van een asynchrone methode door te geven. Er is niet nodig voor het bijwerken van gedeelde status en daarom geen risico threading problemen. Voor de meeste scenario's, `EventProcessorHost` is waarschijnlijk de beste keuze en het is zeker de gemakkelijker optie.     
@@ -213,7 +213,7 @@ De `HttpMessage` -exemplaar bevat een `MessageId` GUID waarmee we verbinding mak
 De `HttpMessage` exemplaar wordt vervolgens doorgestuurd naar de implementatie van `IHttpMessageProcessor`, die een interface die ik heb gemaakt als u wilt loskoppelen van de ontvangen en de interpretatie van de gebeurtenis van Azure Event Hub en de daadwerkelijke verwerking van is.
 
 ## <a name="forwarding-the-http-message"></a>Doorsturen van de HTTP-bericht
-Voor dit voorbeeld, besloot het normaal zou zijn om de HTTP-aanvraag via het uiterste te interessante [Runscope](http://www.runscope.com). Runscope is een cloud-gebaseerde service die is gespecialiseerd in HTTP-foutopsporing, logboekregistratie en bewaking. Ze hebben een gratis laag, dus het is gemakkelijk om te proberen en deze maakt het mogelijk om te zien van de HTTP-aanvragen in realtime worden gebruikt met onze API Management-service.
+Voor dit voorbeeld, besloot het normaal zou zijn om de HTTP-aanvraag via het uiterste te interessante [Runscope](https://www.runscope.com). Runscope is een cloud-gebaseerde service die is gespecialiseerd in HTTP-foutopsporing, logboekregistratie en bewaking. Ze hebben een gratis laag, dus het is gemakkelijk om te proberen en deze maakt het mogelijk om te zien van de HTTP-aanvragen in realtime worden gebruikt met onze API Management-service.
 
 De `IHttpMessageProcessor` implementatie er als volgt uitzien,
 
@@ -260,7 +260,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Ik kan profiteren van een [bestaande-clientbibliotheek voor Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) die kunt u eenvoudig pushmeldingen `HttpRequestMessage` en `HttpResponseMessage` omhoog in de service-exemplaren. Als u de API Runscope opent, moet u een account en een API-sleutel. Instructies voor het ophalen van een API-sleutel kunnen worden gevonden de [toepassingen maken voor toegang tot Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
+Ik kan profiteren van een [bestaande-clientbibliotheek voor Runscope](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) die kunt u eenvoudig pushmeldingen `HttpRequestMessage` en `HttpResponseMessage` omhoog in de service-exemplaren. Als u de API Runscope opent, moet u een account en een API-sleutel. Instructies voor het ophalen van een API-sleutel kunnen worden gevonden de [toepassingen maken voor toegang tot Runscope API](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
 
 ## <a name="complete-sample"></a>Compleet voorbeeld
 De [broncode](https://github.com/darrelmiller/ApimEventProcessor) en tests voor het voorbeeld op GitHub. U moet een [API Management-Service](get-started-create-service-instance.md), [een verbonden Event Hub](api-management-howto-log-event-hubs.md), en een [Opslagaccount](../storage/common/storage-create-storage-account.md) om uit te voeren van het voorbeeld voor uzelf.   

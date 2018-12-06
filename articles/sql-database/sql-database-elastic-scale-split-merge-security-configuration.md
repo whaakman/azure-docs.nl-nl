@@ -3,21 +3,21 @@ title: Beveiligingsconfiguratie splitsen en samenvoegen | Microsoft Docs
 description: Instellen van x409 certificaten voor het versleutelen met de service voor splitsen en samenvoegen/voor elastisch uitschalen.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231392"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964829"
 ---
 # <a name="split-merge-security-configuration"></a>Beveiligingsconfiguratie splitsen en samenvoegen
 Voor het gebruik van de service voor splitsen/samenvoegen, moet u goed beveiliging configureren. De service maakt deel uit van de functie Elastic Scale van Microsoft Azure SQL Database. Zie voor meer informatie, [elastische schaal splitsen en samenvoegen-Service-zelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -142,7 +142,7 @@ Er zijn twee verschillende mechanismen voor het opsporen en voorkomen van denial
 Deze zijn gebaseerd op de functies die nader beschreven in de dynamische IP-beveiliging in IIS. Wanneer waken voor deze configuratie wijzigen van de volgende factoren:
 
 * Het gedrag van proxy's en apparaten via de informatie over de externe host Network Address Translation
-* Elke aanvraag aan een resource in de Webrol wordt beschouwd (bijvoorbeeld laden scripts, afbeeldingen, enzovoort)
+* Elke aanvraag aan een resource in de Webrol wordt beschouwd (bijvoorbeeld het laden van scripts, afbeeldingen, enzovoort)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Het aantal gelijktijdige toegang beperken
 De instellingen die voor het configureren van dit probleem zijn:
@@ -178,7 +178,7 @@ Uitvoeren:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Om aan te passen:
@@ -223,7 +223,7 @@ Volg deze stappen in alle account/machine die communiceert met de service:
 ## <a name="turn-off-client-certificate-based-authentication"></a>Op basis van certificaten clientverificatie uitschakelen
 Alleen client certificaten gebaseerde verificatie wordt ondersteund en u dit uitschakelt wilt toestaan voor openbare toegang tot de service-eindpunten, tenzij andere beveiligingsmechanismen geïmplementeerd (bijvoorbeeld Microsoft Azure Virtual Network) zijn.
 
-U kunt deze instellingen wijzigen op false in het serviceconfiguratiebestand de functie om uit te schakelen:
+U kunt deze instellingen wijzigen op false in het configuratiebestand van de service aan de functie uit te schakelen:
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
@@ -239,7 +239,7 @@ Voer de volgende stappen uit voor het maken van een zelfondertekend certificaat 
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ De waarde van de volgende instelling bijwerken met dezelfde vingerafdruk:
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>Certificaten van de client
-Elke persoon die toegang hebben tot de service moet een clientcertificaat dat is uitgegeven voor his/hers exclusieve gebruiken en moet kiezen dat HIS/hers eigen sterk wachtwoord in om de persoonlijke sleutel beveiligen. 
+Elke persoon die toegang hebben tot de service moet een clientcertificaat dat is uitgegeven voor eigen gebruik hebben en hun eigen sterk wachtwoord voor het beveiligen van de persoonlijke sleutel moet kiezen. 
 
 De volgende stappen moeten worden uitgevoerd in dezelfde computer waar de zelf-ondertekende CA-certificaat is gegenereerd en opgeslagen:
 
@@ -288,7 +288,7 @@ De volgende stappen moeten worden uitgevoerd in dezelfde computer waar de zelf-o
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -316,14 +316,14 @@ Wachtwoord invoeren en vervolgens exporteren certificaat met de volgende opties:
 * De persoon aan wie dit certificaat wordt uitgegeven moet het wachtwoord voor export kiezen
 
 ## <a name="import-client-certificate"></a>Client-certificaat importeren
-Elke gebruiker voor wie een clientcertificaat is verleend, moet het sleutelpaar in de machines die deze wordt gebruikt om te communiceren met de service importeren:
+Elke gebruiker voor wie een clientcertificaat is verleend, moet het sleutelpaar op de computers die ze gebruiken voor het communiceren met de service importeren:
 
 * Dubbelklik op de. PFX-bestand in Windows Verkenner
 * Importeren in het persoonlijke certificaatarchief met ten minste deze optie:
   * Alle uitgebreide eigenschappen is ingeschakeld
 
 ## <a name="copy-client-certificate-thumbprints"></a>Client-certificaatvingerafdrukken kopiëren
-Elke gebruiker voor wie een clientcertificaat is verleend, moet deze stappen volgen om de vingerafdruk van his/hers ophalen-certificaat dat wordt toegevoegd aan het serviceconfiguratiebestand:
+Elke gebruiker voor wie een clientcertificaat is verleend, moet deze stappen volgen om de vingerafdruk van het certificaat, dat wordt toegevoegd aan het serviceconfiguratiebestand ophalen:
 
 * Certmgr.exe uitvoeren
 * Selecteer het tabblad persoonlijke gegevens

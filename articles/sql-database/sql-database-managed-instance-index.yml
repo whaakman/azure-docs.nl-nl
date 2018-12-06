@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28bdbcbbfa014495feb394bde78a197b274f07d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7e7d2fed15ba9fbbdddbd19ebfad40b4f9f7c6d0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844172"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962331"
 documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
-  ms.author: jovanpop-msft
+  ms.date: 12/05/2018
+  ms.author: jovanpop
 abstract:
   description: Azure SQL Database Managed Instance is een volledig beheerde SQL Server Database Engine-instantie die wordt gehost in Azure-cloud. Dit is de beste PaaS-optie voor het migreren van SQL Server-database naar de cloud. Informatie over het maken en gebruiken van Managed Instance met onze snelstartgidsen, zelfstudies en voorbeelden.
   aside:
@@ -65,6 +65,19 @@ sections:
     - title: Geavanceerde beveiliging
       href: /azure/sql-database/sql-database-security-index
       html: <p>Beveilig uw instantie en de databases met ingebouwde beveiligingsfuncties van Azure SQL database.<p>
+- title: Nieuwe en preview-functies
+  items:
+  - type: paragraph
+    text: 'We zijn voortdurend verbeteren van de Managed Instance met nieuwe functies:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="sql-database-managed-instance#business-critical-service-tier">Kritieke-bedrijfslaag</a> is nu in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">algemene beschikbaarheid (GA)</a>.
+    - html: (Preview) <a href="https://aka.ms/managed-instance-aadlogins">Azure AD maken aanmeldingen</a> met behulp van <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">maken van externe PROVIDER voor de aanmelding</a> .
+    - html: (Preview) Maken van instanties met <a href="https://aka.ms/managed-instance-collation">sortering van uw keuze op serverniveau</a>.
+    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configureren van back-upretentie van 35 dagen</a> voor Point-in-time restore. Houd er rekening mee dat langetermijnretentie (maximaal 10 jaar) nog niet is ingeschakeld, zodat u kunt <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">kopie-alleen back-ups</a> als alternatief.
+    - html: (Preview) Gebruik <a href="https://aka.ms/managed-instance-failover-groups">geografisch gedistribueerde failovergroepen</a> Bewaar een kopie van het exemplaar in een andere regio en ervoor zorgen dat uw gegevens beschikbaar zijn, zelfs in het scenario regionale na noodgevallen zijn.
+    - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Doen om uw eigen versleutelingssleutels</a> tijdens het migreren van on-premises databases die al transparante gegevensversleuteling (TDE) hebt ingeschakeld.
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -123,7 +136,6 @@ sections:
     - html: Controleer of de database kan worden gemigreerd met behulp van <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration assistent</a> of <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Database experimenten-assistent</a>.
     - html: Breng uw databases voor het gebruik van Managed Instance <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">systeemeigen terugzetten</a> of <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Verplaats uw SSIS-pakketten naar <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellaire modellen van SSAS te <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a>, en SQL Server Reporting Services rapporten <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
-    - html: Optimaliseer uw gegevensopslag in <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/">categorie Algemeen gebruik</a>.
     - html: Zoek de best practices en aanbevelingen voor <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">beveiligen van uw exemplaar</a>.
     - html: Distribueren van uw gegevens met <a href="/azure/sql-database/replication-with-sql-database-managed-instance">transactionele replicatie</a>.
 - title: Referentie

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430892"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958522"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Instellingen voor meldingen in Azure AD Domain Services
 
@@ -41,7 +41,7 @@ Op de pagina geeft alle geadresseerden voor e-mailmeldingen voor Azure AD Domain
 
 De volgende afbeelding is een voorbeeld van een e-mailmelding:
 
-![Voorbeeld van de e-mailmelding](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Voorbeeld van de e-mailmelding](./media/active-directory-domain-services-alerts/email-alert.png)
 
 Het e-mailbericht Hiermee geeft u het beheerde domein die de waarschuwing is aanwezig op, evenals waardoor de tijd van detectie en een koppeling naar de health-pagina van de Azure AD Domain Services in Azure portal.
 

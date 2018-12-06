@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584108"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Zelfstudie: Azure Active Directory-integratie met MobileIron
 
@@ -50,24 +50,27 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
+Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. MobileIron uit de galerie toe te voegen
 1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>MobileIron uit de galerie toe te voegen
+
 Voor het configureren van de integratie van MobileIron in Azure AD, moet u MobileIron uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen MobileIron uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
+
 1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
@@ -103,7 +106,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
+
     ![In het dialoogvenster voor eenmalige aanmelding](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
 1. Op de **MobileIron domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
@@ -119,12 +122,13 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![MobileIron domein en URL's, eenmalige aanmelding](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
     In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE]  Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. U ontvangt de waarden van sleutel en de host van de beheerdersportal van MobileIron die later in de zelfstudie wordt uitgelegd.
+
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. U ontvangt de waarden van sleutel en de host van de beheerdersportal van MobileIron die later in de zelfstudie wordt uitgelegd.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. Klik op **opslaan** knop.
 
@@ -134,7 +138,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Ga naar **Admin** > **identiteit**.
 
-   * Selecteer **AAD** optie in de **informatie over Cloud id-provider Setup** veld.
+   - Selecteer **AAD** optie in de **informatie over Cloud id-provider Setup** veld.
 
     ![Knop van de beheerder voor eenmalige aanmelding configureren](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -143,7 +147,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Knop van de beheerder voor eenmalige aanmelding configureren](./media/mobileiron-tutorial/key.png)
 
 1. In de **metagegevensbestand exporteren uit AAD en importeer MobileIron Cloud veld** klikt u op **bestand kiezen** voor het uploaden van de metagegevens van de gedownloade vanuit Azure portal. Klik op **gedaan** eenmaal geüploade.
- 
+
     ![Single Sign-On admin metagegevens knop configureren](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
@@ -203,20 +207,20 @@ In het geval van MobileIron is inrichten een handmatige taak.
     1. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals Julia.
 
     1. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals Simon.
-    
-    1. Klik op **Gereed**.  
+
+    1. Klik op **Gereed**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan MobileIron.
 
-![De de gebruikersrol toewijzen][200] 
+![De de gebruikersrol toewijzen][200]
 
 **Als u wilt Britta Simon aan MobileIron toewijst, moet u de volgende stappen uitvoeren:**
 
 1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![Gebruiker toewijzen][201]
 
 1. Selecteer in de lijst met toepassingen, **MobileIron**.
 
@@ -235,19 +239,18 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
 1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel MobileIron in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing MobileIron.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
-
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 
@@ -262,4 +265,3 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

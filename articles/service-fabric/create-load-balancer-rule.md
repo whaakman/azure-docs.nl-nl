@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: ryanwi
-ms.openlocfilehash: e4c3bf627c4a5e01c4d9001fcbb0feed0b92209f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e41e5d48141b120ec1f80b0faa899bda07a2934e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008039"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962060"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Poorten openen voor een Service Fabric-cluster
 
 De load balancer geïmplementeerd met uw Azure Service Fabric-cluster zorgt ervoor dat verkeer naar uw app wordt uitgevoerd op een knooppunt. Als u uw app voor het gebruik van een andere poort wijzigt, moet u die poort (of een andere poort te routeren) in de Azure Load Balancer.
 
-Wanneer u uw Service Fabric-cluster geïmplementeerd in Azure, wordt een load balancer is automatisch voor u gemaakt. Als u een load balancer niet hebt, raadpleegt u [een internetgerichte load balancer configureren](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Wanneer u uw Service Fabric-cluster geïmplementeerd in Azure, wordt een load balancer is automatisch voor u gemaakt. Als u een load balancer niet hebt, raadpleegt u [een internetgerichte load balancer configureren](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 ## <a name="configure-service-fabric"></a>Service fabric configureren
 
@@ -33,7 +33,7 @@ Uw Service Fabric-toepassing **ServiceManifest.xml** config-bestand definieert d
 
 ## <a name="create-a-load-balancer-rule"></a>Een load balancer-regel maken
 
-Een Load Balancer-regel wordt de poort van een internetgerichte wordt geopend en verkeer naar het interne knooppunt-poort die wordt gebruikt door uw toepassing worden doorgestuurd. Als u een load balancer niet hebt, raadpleegt u [een internetgerichte load balancer configureren](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Een Load Balancer-regel wordt de poort van een internetgerichte wordt geopend en verkeer naar het interne knooppunt-poort die wordt gebruikt door uw toepassing worden doorgestuurd. Als u een load balancer niet hebt, raadpleegt u [een internetgerichte load balancer configureren](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 Voor het maken van een Load Balancer-regel, moet u de volgende informatie verzamelen:
 
@@ -68,7 +68,7 @@ De Azure CLI-opdracht heeft een aantal parameters die in de volgende tabel worde
 
 
 >[!NOTE]
->Zie voor meer informatie over het maken van een load balancer met de Azure CLI [een load balancer maken met de Azure CLI](..\load-balancer\load-balancer-get-started-internet-arm-cli.md).
+>Zie voor meer informatie over het maken van een load balancer met de Azure CLI [een load balancer maken met de Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -104,7 +104,7 @@ $lb | Set-AzureRmLoadBalancer
 Met betrekking tot de `New-AzureRmLoadBalancerRuleConfig` opdracht, de `-FrontendPort` vertegenwoordigt de poort voor externe verbindingen wordt aangegeven dat de load balancer en de `-BackendPort` vertegenwoordigt de service fabric-toepassing luistert op poort.
 
 >[!NOTE]
->Zie voor meer informatie over het maken van een load balancer met PowerShell [een load balancer maken met PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
+>Zie voor meer informatie over het maken van een load balancer met PowerShell [een load balancer maken met PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

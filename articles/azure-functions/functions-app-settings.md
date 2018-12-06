@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458119"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965851"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
@@ -82,7 +82,7 @@ Het pad naar de hoofdmap waarin de *host.json* bestands- en functie mappen zich 
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag van sleutels. De ondersteunde opslagplaatsen zijn momenteel blob-opslag ('Blob') en het lokale bestandssysteem ('Files'). De standaardwaarde is een blob in versie 1 en het bestandssysteem in versie 2. Houd er rekening mee dat in versie 1 bestandssysteem werkt alleen voor functies die worden uitgevoerd in een app service-plan.
+Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag van sleutels. De ondersteunde opslagplaatsen zijn momenteel blob-opslag ('Blob') en het lokale bestandssysteem ('Files'). De standaardwaarde is een blob in versie 2 en het bestandssysteem in versie 1.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -122,7 +122,7 @@ De versie van de Functions-runtime voor gebruik in deze functie-app. Een tilde m
 
 ## <a name="functionsworkerruntime"></a>FUNCTIES\_WORKER\_RUNTIME
 
-De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet` (C# /F #), `node` (JavaScript), en `java` (Java).
+De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet` (C#/F#), `node` (JavaScript), en `java` (Java).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|

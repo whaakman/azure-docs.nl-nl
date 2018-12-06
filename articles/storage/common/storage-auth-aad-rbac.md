@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726386"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960240"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Blob- en wachtrijgegevens met RBAC (Preview)
 
@@ -40,14 +40,14 @@ U kunt ook aangepaste rollen voor gebruik met containers en wachtrijen definiër
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Een rol toewijzen aan een beveiligings-principal
 
-Een RBAC-rol toewijzen aan een Azure-identiteit om machtigingen aan containers of wachtrijen in uw opslagaccount te verlenen. U kunt het bereik van de toewijzing van rol met de storage-account, of aan een bepaalde container of de wachtrij. De volgende tabel geeft een overzicht van de rechten verleend door de ingebouwde rollen, afhankelijk van bereik: 
+Een RBAC-rol toewijzen aan een Azure-identiteit om machtigingen aan containers of wachtrijen in uw opslagaccount te verlenen. U kunt het bereik van de toewijzing van rol met de storage-account, of aan een bepaalde container of de wachtrij. De volgende tabel geeft een overzicht van de rechten verleend door de ingebouwde rollen, afhankelijk van bereik:
 
-|                                 |     Inzender voor BLOB-gegevens                                                 |     Gegevenslezer voor opslagblob                                                |     Inzender voor wachtrij Data                                  |     Gegevenslezer voor opslagwachtrij                                 |
-|---------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------|
-|    Binnen het bereik van abonnement       |    Lees-/ schrijftoegang tot alle containers en blobs in het abonnement       |    Leestoegang tot alle containers en blobs in het abonnement       |    Lees-/ schrijftoegang tot alle wachtrijen in het abonnement       |    Leestoegang tot alle wachtrijen in het abonnement         |
-|    Binnen het bereik van resourcegroep     |    Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep     |    Leestoegang tot alle containers en blobs in de resourcegroep     |    Lees-/ schrijftoegang tot alle wachtrijen in de resourcegroep     |    Leestoegang tot alle wachtrijen in de resourcegroep     |
-|    Binnen het bereik van storage-account    |    Lees-/ schrijftoegang tot alle containers en blobs in de storage-account    |    Leestoegang tot alle containers en blobs in de storage-account    |    Lees-/ schrijftoegang tot alle wachtrijen in de storage-account    |    Leestoegang tot alle wachtrijen in de storage-account    |
-|    Binnen het bereik van container/wachtrij    |    Toegang tot de opgegeven container en de blobs voor lezen/schrijven              |    Leestoegang tot de opgegeven container en de blobs              |    Lees-/ schrijftoegang tot de opgegeven wachtrij                  |    Leestoegang tot de opgegeven wachtrij                    |
+|Bereik|De eigenaar van de BLOB-gegevens|Inzender voor BLOB-gegevens|Gegevenslezer voor opslagblob|Inzender voor wachtrij Data|Gegevenslezer voor opslagwachtrij|
+|---|---|---|---|---|---|
+|Het niveau van abonnement|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement| Leestoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle wachtrijen in het abonnement|Leestoegang tot alle wachtrijen in het abonnement|
+|Het niveau van resourcegroep|Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep|Leestoegang tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle wachtrijen in de resourcegroep|Leestoegang tot alle wachtrijen in de resourcegroep|
+|Niveau van de Storage-account|Lees-/ schrijftoegang tot alle containers en blobs in de storage-account|Lees-/ schrijftoegang tot alle containers en blobs in de storage-account|Leestoegang tot alle containers en blobs in de storage-account|Lees-/ schrijftoegang tot alle wachtrijen in de storage-account|Leestoegang tot alle wachtrijen in de storage-account|
+|Het niveau van de container/wachtrij|Toegang tot de opgegeven container en de blobs voor lezen/schrijven|Toegang tot de opgegeven container en de blobs voor lezen/schrijven|Leestoegang tot de opgegeven container en de blobs|Lees-/ schrijftoegang tot de opgegeven wachtrij|Leestoegang tot de opgegeven wachtrij|
 
 > [!NOTE]
 > Als een eigenaar van uw Azure Storage-account, zijn u machtigingen voor toegang tot gegevens niet automatisch toegewezen. U moet zelf expliciet een RBAC-rol toewijzen voor Azure Storage. U kunt deze op het niveau van uw abonnement, resourcegroep, opslagaccount, of een container of een wachtrij toewijzen.
@@ -76,6 +76,9 @@ Een ingebouwde rol verlenen van toegang tot alle containers of wachtrijen in het
 
 ### <a name="assign-a-role-scoped-to-a-container-or-queue-in-the-azure-portal"></a>Een rol binnen het bereik van een container of een wachtrij in Azure portal toewijzen
 
+> [!IMPORTANT]
+> U kunt dit niet doen als u een account met de hiërarchische naamruimte nog ingeschakeld.
+
 De stappen voor het toewijzen van een ingebouwde rol binnen het bereik van een container of een wachtrij zijn vergelijkbaar. De procedure hieronder wijst een rol binnen het bereik van een container, maar u kunt dezelfde stappen als u wilt toewijzen van een rol binnen het bereik van een wachtrij: 
 
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw storage-account en weergeven van de **overzicht** voor het account.
@@ -99,4 +102,3 @@ De stappen voor het toewijzen van een ingebouwde rol binnen het bereik van een c
     - [Beheren van op rollen gebaseerd toegangsbeheer (RBAC) met de REST-API](../../role-based-access-control/role-assignments-rest.md)
 - Zie voor informatie over het toestaan van toegang tot containers en wachtrijen van binnen uw storage-toepassingen, [gebruik Azure AD met Azure Storage-toepassingen](storage-auth-aad-app.md).
 - Zie voor meer informatie over Azure AD-integratie voor Azure-containers en wachtrijen, het blog van het Azure Storage-team plaatst, [aankondiging van de Preview-versie van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-- 

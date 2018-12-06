@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285115"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966718"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
 
@@ -163,23 +163,23 @@ Maak een opslagaccount en container schoon gegevens zich bevinden.
 
 10. Selecteer **Maken** om het opslagaccount te maken.
 
-    ![Alternatieve tekst](\media\azure-stack-solution-machine-learning\image1.png)
+    ![Alternatieve tekst](/media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Kies de opslagaccount die onlangs zijn gemaakt.
 
 12.  Selecteer op **Blobs**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image2.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image2.png)
 
 13.  Selecteer op **+ Container** en selecteert u een op **Container**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image3.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image3.png)
 
 14.  Geef de naam op voor de container **uploadeddata** en kies het toegangstype **Container**.
 
 15.  Selecteer op **maken**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image4.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image4.png)
 
 ## <a name="step-2-create-a-data-science-virtual-machine"></a>Stap 2: Maak een virtuele Machine voor Datatechnologie
 
@@ -189,11 +189,11 @@ Maak een Ubuntu Data Science Virtual Machine (DSVM) in Azure portal.
 
 2.  Selecteer op de **+ nieuw** koppeling en zoek naar 'Data Science Virtual Machine voor Linux Ubuntu CSP
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image5.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image5.png)
 
 1.  Kies **Data Science Virtual Machine voor Linux (Ubuntu)** in de lijst en volg de aanwijzingen op het scherm instructies voor het maken van de DSVM.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image6.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image6.png)
 
 > ! [Belangrijk]  
 > **Kies** wachtwoord ** als de*verificatietype*.
@@ -268,19 +268,19 @@ Gebruik de Azure-portal voor het inrichten van de Azure Machine Learning-account
 
 1.  Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement moet worden gebruikt. Als u een Azure-abonnement, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image7.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image7.png)
 
 1.  Selecteer de knop **Een resource maken** (+) in de linkerbovenhoek van de portal.
 
-    ![Een resource maken in Azure Portal](media\azure-stack-solution-machine-learning\image8.png)
+    ![Een resource maken in Azure Portal](media/azure-stack-solution-machine-learning/image8.png)
 
 1.  Voer **Machine Learning** in de zoekbalk in. Selecteer het zoekresultaat met de naam **Machine Learning Experimenten (preview)**.
 
-    ![Azure Machine Learning-zoekfunctie](media\azure-stack-solution-machine-learning\image9.png)
+    ![Azure Machine Learning-zoekfunctie](media/azure-stack-solution-machine-learning/image9.png)
 
 1.  In de **Machine Learning experimenten** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen met het definiëren van het experimenten-account.
 
-    ![Azure Machine Learning - Experimenten-account maken](media\azure-stack-solution-machine-learning\image10.png)
+    ![Azure Machine Learning - Experimenten-account maken](media/azure-stack-solution-machine-learning/image10.png)
 
 1.  In de **ML experimenten** deelvenster de Machine Learning experimenten-account configureren.
 
@@ -299,15 +299,15 @@ Gebruik de Azure-portal voor het inrichten van de Azure Machine Learning-account
     | Prijscategorie voor Modelbeheer | **DEVTEST** | Selecteer **geen prijscategorie geselecteerd** om de prijscategorie voor de nieuwe Modelbeheer-account te geven. Selecteer om kosten te besparen, de DEVTEST-prijscategorie als deze beschikbaar op het abonnement (beperkte beschikbaarheid is). U kunt ook de prijscategorie S1 selecteren. Kies selecteren om op te slaan van de geselecteerde prijscategorie. |
     | Vastmaken aan dashboard | controleren | Selecteer de **vastmaken aan dashboard** optie voor het eenvoudig bijhouden van de Machine Learning experimenten-account op de eerste dashboardpagina van Azure portal. |
 
-    ![Machine Learning Experimenten-accountconfiguratie](media\azure-stack-solution-machine-learning\image11.png)
+    ![Machine Learning Experimenten-accountconfiguratie](media/azure-stack-solution-machine-learning/image11.png)
 
 1.  Selecteer **Maken** om te beginnen met het proces voor het maken van het Experimenten-account en het Modelbeheer-account.
 
-    ![Machine Learning Experimenten-accountconfiguratie](media\azure-stack-solution-machine-learning\image12.png)
+    ![Machine Learning Experimenten-accountconfiguratie](media/azure-stack-solution-machine-learning/image12.png)
 
     Het duurt een paar seconden om een account te maken. Controleer de status van het implementatieproces door het selecteren van het meldingspictogram (de klok) op de werkbalk van de Azure portal.
 
-    ![Meldingen in Azure-portal](media\azure-stack-solution-machine-learning\image13.png)
+    ![Meldingen in Azure-portal](media/azure-stack-solution-machine-learning/image13.png)
 
 ### <a name="install-and-log-in-to-workbench"></a>Installeren en meld u aan bij workbench 
 
@@ -349,7 +349,7 @@ Azure Machine Learning Workbench is beschikbaar voor Windows of macOS. Overzicht
 
 1.  Klik in het deelvenster **PROJECTS** op het plusteken (+) om **New Project** te kiezen.
 
-    ![Nieuwe werkruimte](media\azure-stack-solution-machine-learning\image14.png)
+    ![Nieuwe werkruimte](media/azure-stack-solution-machine-learning/image14.png)
 
 1.  Vul de formuliervelden in en selecteer de knop **Maken** om een nieuw project te maken in Workbench.
 
@@ -362,11 +362,11 @@ Azure Machine Learning Workbench is beschikbaar voor Windows of macOS. Overzicht
     | Geselecteerde werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte gemaakt voor de experimenten-account in Azure portal. <br>Met behulp van Quickstart, wordt de werkruimte met de naam IrisGarden vermeld. Gebruik anders de werkruimte met de naam van het experimenten-account of de naam van een voorkeur. |
     | Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die worden gebruikt voor het verkennen van het product. Deze sjabloon bevat de scripts en gegevens die nodig zijn voor deze snelstart en andere zelfstudies op deze documentatiesite. |
 
-    ![Nieuw project](media\azure-stack-solution-machine-learning\image15.png)
+    ![Nieuw project](media/azure-stack-solution-machine-learning/image15.png)
 
 1.  Er wordt een nieuw project gemaakt en het projectdashboard wordt geopend met dat project. Verken de startpagina van project, gegevensbronnen, notitieblokken en broncodebestanden.
 
-    ![Project openen](media\azure-stack-solution-machine-learning\image16.png)
+    ![Project openen](media/azure-stack-solution-machine-learning/image16.png)
 
 ### <a name="attach-a-dsvm-compute-target"></a>Een DSVM compute-doel toevoegen
 
@@ -374,7 +374,7 @@ Zodra de DSVM is gemaakt, koppelt u deze aan het project Azure ML.
 
 1.  In de Azure ML Workbench-app, start de CLI van Azure ML Workbench door te selecteren **bestand**->**Open PowerShell**
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image17.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image17.png)
 
 1.  Zodra de prompt is geopend PowerShell de volgende opdracht gebruiken:
 
@@ -384,19 +384,19 @@ Zodra de DSVM is gemaakt, koppelt u deze aan het project Azure ML.
 
 1.  Het volgende bericht:
 
-     ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image18.png)
+     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image18.png)
 
 1.  Blader naar de site zoals beschreven in de opdrachtprompt en voer de code die wordt geleverd.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image19.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image19.png)
 
 1.  Selecteer Doorgaan wanneer hierom wordt gevraagd, en selecteer vervolgens het Azure-account dat het experimentele Azure ML-Account is gekoppeld.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image20.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image20.png)
 
 1.  De Azure ML Workbench CLI stuurt vervolgens het volgende bericht:
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image21.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image21.png)
 
 1.  Wanneer de aanmelding voor ML-Account en werkruimte wordt weergegeven als geslaagd, koppelt u de DSVM.
 
@@ -406,7 +406,7 @@ Zodra de DSVM is gemaakt, koppelt u deze aan het project Azure ML.
 
     De volgende melding wordt weergegeven:
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image22.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image22.png)
 
     ```PowerShell  
         # prepare the Docker image on the DSVM 
@@ -427,15 +427,15 @@ Dit pakket kan later worden doorgegeven aan een runtime, zoals local-C\#/CoreCLR
 
     Dit bestand bevat een tabel met vijf kolommen en 50 rijen. Vier kolommen zijn kolommen voor numerieke functies. De vijfde kolom is een tekenreeks-doelkolom. Geen van de kolommen heeft een kopnaam.
 
-    ![iris.csv](media\azure-stack-solution-machine-learning\image23.png)
+    ![iris.csv](media/azure-stack-solution-machine-learning/image23.png)
 
 1.  Klik in de **gegevensweergave** op het plusteken (**+**) om een nieuwe gegevensbron toe te voegen. De pagina **Add Data Source** (Gegevensbron toevoegen) wordt geopend.
 
-    ![Gegevensweergave in Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image24.png)
+    ![Gegevensweergave in Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image24.png)
 
 1.  Selecteer **tekstbestanden (\*CSV, \*.json, \*.txt.,...)** .
 
-    ![Gegevensbron in Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image25.png)
+    ![Gegevensbron in Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image25.png)
 
 1.  Selecteer **Volgende**.
 
@@ -444,39 +444,39 @@ Dit pakket kan later worden doorgegeven aan een runtime, zoals local-C\#/CoreCLR
     > [!Important]  
     > Selecteer de **iris.csv** -bestand uit vanuit de huidige projectmap voor deze oefening. Anders kunnen latere stappen mislukken.
 
-    ![Iris selecteren](media\azure-stack-solution-machine-learning\image26.png)
+    ![Iris selecteren](media/azure-stack-solution-machine-learning/image26.png)
 
 1.  Een nieuw bestand met de naam `*iris-1.dsource` wordt gemaakt. Het bestand is een unieke naam met `-1` omdat het voorbeeldproject al wordt geleverd met een niet-genummerde **iris.dsource** bestand.
 
     Het bestand wordt geopend en de gegevens worden weergegeven. Een reeks kolomkoppen, van **Kolom1** naar **Column5**, wordt automatisch toegevoegd aan deze gegevensset. Ga naar de onderkant en u ziet dat de laatste rij van de gegevensset leeg is. De rij is leeg vanwege de extra regeleinde in het CSV-bestand.
 
-    ![Gegevensweergave iris](media\azure-stack-solution-machine-learning\image27.png)
+    ![Gegevensweergave iris](media/azure-stack-solution-machine-learning/image27.png)
 
 1.  Selecteer de knop **Metrics** (Metrische gegevens). Er worden histogrammen gegenereerd en weergegeven.
 
     Ga terug naar de gegevensweergave door de **gegevens** knop.
 
-    ![Gegevensweergave iris](media\azure-stack-solution-machine-learning\image28.png)
+    ![Gegevensweergave iris](media/azure-stack-solution-machine-learning/image28.png)
 
 1.  Bekijk de histogrammen. Er is voor elke kolom een volledige set statistieken berekend.
 
-    ![Gegevensweergave iris](media\azure-stack-solution-machine-learning\image29.png)
+    ![Gegevensweergave iris](media/azure-stack-solution-machine-learning/image29.png)
 
 1.  Maak eerst een gegevensvoorbereidingspakket door de knop **Prepare** te selecteren. Het **gelijknamige** dialoogvenster wordt geopend.
 
     Het voorbeeldproject bevat een **iris.dprep** gegevensvoorbereidingsbestand die standaard is geselecteerd.
 
-    ![Gegevensweergave iris](media\azure-stack-solution-machine-learning\image30.png)
+    ![Gegevensweergave iris](media/azure-stack-solution-machine-learning/image30.png)
 
 1.  Maak een nieuw pakket voor gegevensvoorbereiding door te selecteren **+ New Data Preparation Package** in het menu.
 
-    ![Gegevensweergave iris](media\azure-stack-solution-machine-learning\image31.png)
+    ![Gegevensweergave iris](media/azure-stack-solution-machine-learning/image31.png)
 
 1.  Voer een nieuwe waarde in voor de naam van het pakket (gebruik daarvoor **iris-1**) en selecteer **OK**.
 
     Een nieuw gegevensvoorbereidingspakket met de naam **iris-1.dprep** is gemaakt en geopend in de editor voor gegevensvoorbereiding.
 
-    ![Gegevensweergave iris](media\azure-stack-solution-machine-learning\image32.png)
+    ![Gegevensweergave iris](media/azure-stack-solution-machine-learning/image32.png)
 
     Vervolgens is voorbereiden van gegevens vereist.
 
@@ -484,7 +484,7 @@ Dit pakket kan later worden doorgegeven aan een runtime, zoals local-C\#/CoreCLR
 
     In deze volgorde **Petal Length**, **Petal Width**, **Petal Length**, **Petal Width**, en **soorten** voor de vijf kolommen respectievelijk.
 
-    ![Kolomnamen wijzigen](media\azure-stack-solution-machine-learning\image33.png)
+    ![Kolomnamen wijzigen](media/azure-stack-solution-machine-learning/image33.png)
 
 1.  Unieke waarden tellen:
 
@@ -496,23 +496,23 @@ Dit pakket kan later worden doorgegeven aan een runtime, zoals local-C\#/CoreCLR
 
         Het deelvenster **Inspectors** wordt geopend onder de gegevens. Een histogram met vier balken wordt weergegeven. De doelkolom vier afzonderlijke waarden heeft: **iris_virginica**, **iris_versicolor**,**Iris-setosa**, en een **(null)** waarde.
 
-    ![Selecteer Value Counts](media\azure-stack-solution-machine-learning\image34.png)
+    ![Selecteer Value Counts](media/azure-stack-solution-machine-learning/image34.png)
 
-    ![Histogram met aantal waarden](media\azure-stack-solution-machine-learning\image35.png)
+    ![Histogram met aantal waarden](media/azure-stack-solution-machine-learning/image35.png)
 
 1.  Als u de null-waarden wilt filteren, selecteert u de balk "(null)" en selecteert u het minteken (**-**).
 
     De rij (null) wordt vervolgens grijs weergegeven om aan te geven dat deze is gefilterd.
 
-    ![Null-waarden filteren](media\azure-stack-solution-machine-learning\image36.png)
+    ![Null-waarden filteren](media/azure-stack-solution-machine-learning/image36.png)
 
 1.  Bekijk de afzonderlijke gegevensvoorbereidingsstappen die worden beschreven in het deelvenster **STEPS**. Kolommen worden gewijzigd en rijen met null-waarden worden gefilterd, wordt elke actie vastgelegd als een stap van de voorbereiding van gegevens. Bewerk de afzonderlijke stappen voor het aanpassen van de instellingen, volgorde van de stappen veranderen en zelfs stappen verwijderen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image37.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image37.png)
 
 1.  Sluit de editor voor gegevensvoorbereiding. Selecteer het pictogram **x** op het tabblad **iris-1** bij het grafiekpictogram om het tabblad te sluiten. Het werk wordt automatisch opgeslagen in de **iris-1.dprep** bestand die wordt weergegeven onder de **Data Preparations** kop.
 
-    ![Sluiten](media\azure-stack-solution-machine-learning\image38.png)
+    ![Sluiten](media/azure-stack-solution-machine-learning/image38.png)
 
 ### <a name="generate-python-code-to-invoke-a-data-preparation-package"></a>Python-code voor het aanroepen van een gegevensvoorbereidingspakket genereren
 
@@ -522,7 +522,7 @@ De uitvoer van een gegevensvoorbereidingspakket kan rechtstreeks in Python of in
 
 2.  Klik met de rechtermuisknop op het bestand **iris 1.dprep** en selecteer **Generate Data Access Code File** in het contextmenu.
 
-    ![Code genereren](media\azure-stack-solution-machine-learning\image39.png)
+    ![Code genereren](media/azure-stack-solution-machine-learning/image39.png)
 
     Een nieuw bestand met de naam **iris 1. PY** wordt geopend met de volgende regels met code voor het aanroepen van de logica die is gemaakt als een gegevensvoorbereidingspakket:
 
@@ -552,18 +552,18 @@ De uitvoer van een gegevensvoorbereidingspakket kan rechtstreeks in Python of in
 
 1.  Selecteer in het project hebt geopend, de **bestanden** knop (mappictogram) in het deelvenster uiterst links de lijst met bestanden in de projectmap te openen.
 
-    ![Het project in de Azure Machine Learning Workbench openen](media\azure-stack-solution-machine-learning\image40.png)
+    ![Het project in de Azure Machine Learning Workbench openen](media/azure-stack-solution-machine-learning/image40.png)
 
 1.  Selecteer het Python-scriptbestand **iris_sklearn.py**.
 
-    ![Kies een script](media\azure-stack-solution-machine-learning\image41.png)
+    ![Kies een script](media/azure-stack-solution-machine-learning/image41.png)
 
     De code wordt weergegeven op een nieuw tabblad van de teksteditor in Workbench.
 
     > [!Note]  
     > De code weergegeven mogelijk niet precies hetzelfde als de bovenstaande code omdat dit voorbeeldproject regelmatig wordt bijgewerkt.
 
-    ![Een bestand openen](media\azure-stack-solution-machine-learning\image42.png)
+    ![Een bestand openen](media/azure-stack-solution-machine-learning/image42.png)
 
 1.  Bekijk de code van het Python-script om vertrouwd te raken met de stijl van coderen.
 
@@ -615,31 +615,31 @@ De uitvoer van een gegevensvoorbereidingspakket kan rechtstreeks in Python of in
 
 2.  Zoek het tabblad met de naam **iris_sklearn.py**.
 
-    ![Zoek het tabblad met script](media\azure-stack-solution-machine-learning\image43.png)
+    ![Zoek het tabblad met script](media/azure-stack-solution-machine-learning/image43.png)
 
 1.  Selecteer in de werkbalk bovenaan het tabblad **lokale** als de uitvoeringsomgeving andiris_sklearn.pyas het script uit te voeren. Dit is mogelijk al ingeschakeld.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image44.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image44.png)
 
 1.  Verplaatsen naar de rechterkant van de werkbalk en enter0.01in de **argumenten** veld.
 
     Deze waarde komt overeen met de regularisatiesnelheid van het logistieke regressiemodel.
 
-    ![Lokale en scriptkeuze](media\azure-stack-solution-machine-learning\image45.png)
+    ![Lokale en scriptkeuze](media/azure-stack-solution-machine-learning/image45.png)
 
 1.  Selecteer de knop **Run**. Er wordt direct een taak gepland. De taak wordt vermeld in het deelvenster **Jobs** aan de rechterkant van het Workbench-venster.
 
-    ![Lokale en scriptkeuze](media\azure-stack-solution-machine-learning\image46.png)
+    ![Lokale en scriptkeuze](media/azure-stack-solution-machine-learning/image46.png)
 
     Na enkele ogenblikken verandert de status van de taak van **Submitting**naar **met**, en tot slot naar **voltooid**.
 
 1.  Selecteer **Completed** in de taakstatustekst in het deelvenster **Jobs**.
 
-    ![Sklearn van run](media\azure-stack-solution-machine-learning\image47.png)
+    ![Sklearn van run](media/azure-stack-solution-machine-learning/image47.png)
 
     Een pop-upvenster wordt geopend en wordt de tekst standaarduitvoer (stdout) voor de uitvoerbewerking weergegeven. Als u wilt de stdout-tekst sluiten, selecteert u de **sluiten** (**x**) knop in de rechterbovenhoek van het pop-upvenster.
 
-    ![Standaarduitvoer](media\azure-stack-solution-machine-learning\image48.png)
+    ![Standaarduitvoer](media/azure-stack-solution-machine-learning/image48.png)
 
 1.  In dezelfde taakstatus in het **taken** deelvenster, selecteert u de blauwe tekst **iris_sklearn.py \[n\] **(* n * is het uitvoeringsnummer) net boven de  **Voltooid** status en de begintijd. Het venster **Run Properties** wordt geopend en de volgende informatie wordt weergegeven voor de desbetreffende run:
 
@@ -701,13 +701,13 @@ In Azure Machine Learning Workbench wordt elke uitvoering van het script vastgel
 
 1.  Als u de lijst met **Runs** wilt openen, selecteert u in de linkerwerkbalk de knop **Runs** (klokpictogram). Selecteer vervolgens **iris_sklearn.py** om weer te geven de **Run Dashboard** ofiris_sklearn.py.
 
-    ![Weergave van run](media\azure-stack-solution-machine-learning\image49.png)
+    ![Weergave van run](media/azure-stack-solution-machine-learning/image49.png)
 
 1.  Het tabblad **Run Dashboard** wordt geopend.
 
     Bekijk de statistieken die zijn vastgelegd voor de verschillende runs. Grafieken worden weergegeven in de rechterbovenhoek van het tabblad. Elke run heeft een volgnummer en de details van de uitvoering worden vermeld in de tabel aan de onderkant van het scherm.
 
-    ![Dashboard van run](media\azure-stack-solution-machine-learning\image50.png)
+    ![Dashboard van run](media/azure-stack-solution-machine-learning/image50.png)
 
 1.  Filter de tabel en selecteer vervolgens een of meer grafieken om de status, duur, nauwkeurigheid en regularisatiefrequentie van elke run te bekijken.
 
@@ -715,11 +715,11 @@ In Azure Machine Learning Workbench wordt elke uitvoering van het script vastgel
 
 3.  Selecteer in de linkerbovenhoek van het **vergelijkingsdeelvenster** de knop **Run List** om terug te keren naar het **Run Dashboard**.
 
-    ![Ga terug naar Run list](media\azure-stack-solution-machine-learning\image51.png)
+    ![Ga terug naar Run list](media/azure-stack-solution-machine-learning/image51.png)
 
 1.  Selecteer een afzonderlijke run om de detailweergave van de run te zien. Opmerking: de statistieken voor de geselecteerde run worden vermeld in de sectie **Run Properties**. De bestanden die worden weggeschreven naar de map voor uitvoer worden weergegeven in de **uitvoer** uit en download de bestanden van daaruit.
 
-    ![Details van run](media\azure-stack-solution-machine-learning\image52.png)
+    ![Details van run](media/azure-stack-solution-machine-learning/image52.png)
 
 De twee grafieken, de verwarringsmatrix en de ROC-curve met meerdere klassen worden weergegeven in de sectie **Visualizations**. Alle logboekbestanden zijn beschikbaar in de sectie **Logs**.
 
@@ -840,13 +840,13 @@ De twee grafieken, de verwarringsmatrix en de ROC-curve met meerdere klassen wor
 
     Selecteer het pictogram van de map in het linkerdeelvenster voor een lijst met de projectbestanden.  Open het Python-script met de naam **run.py**. Met dit script is handig om verschillende regularisatiefrequenties. 
 
-    ![Ga terug naar Run list](media\azure-stack-solution-machine-learning\image53.png)
+    ![Ga terug naar Run list](media/azure-stack-solution-machine-learning/image53.png)
 
 1.  Voer het experiment meerdere keren met uit deze frequenties.
 
     Dit script wordt` aniris_sklearn.pyjob` met een snelheid regularisatie o `10.0` (een heel groot aantal). Het tarief voor het script vervolgens delen helft in de volgende run uit, enzovoort, totdat het tarief niet kleiner zijn dan is `0.005`. Het script bevat de volgende code:
 
-    ![Ga terug naar Run list](media\azure-stack-solution-machine-learning\image54.png)
+    ![Ga terug naar Run list](media/azure-stack-solution-machine-learning/image54.png)
 
 1.  U kunt het script **run.py** vanaf de opdrachtregel als volgt uitvoeren:
 
@@ -906,7 +906,7 @@ Dit codefragment laat zien hoe het pickle-uitvoerbestand is gegenereerd. Op de s
 
     3. Het deelvenster **Run Properties** wordt geopend. In de rechterbovenhoek van het deelvenster ziet u de **uitvoer** sectie. d\. Als u wilt het pickle-bestand downloaden, schakel het selectievakje in naast de **model.pkl** bestand en selecteer vervolgens **downloaden**. Sla het bestand naar de hoofdmap van de projectmap. Het bestand is nodig bij de volgende stappen.  
 
-    ![Pickle-bestand downloaden](media\azure-stack-solution-machine-learning\image55.png)
+    ![Pickle-bestand downloaden](media/azure-stack-solution-machine-learning/image55.png)
 
 ### <a name="get-scoring-script-and-schema-files"></a>Scoring-script en de schemabestanden ophalen
 
@@ -918,7 +918,7 @@ Scoring-script is voor het implementeren van de webservice het modelbestand nodi
 
 3.  Selecteer het bestand **score_iris.py**. Het Python-script wordt geopend. Dit bestand wordt gebruikt als het scoring-bestand.
 
-    ![Scoring-bestand](media\azure-stack-solution-machine-learning\image56.png)
+    ![Scoring-bestand](media/azure-stack-solution-machine-learning/image56.png)
 
 1.  Voer het script uit om het schemabestand op te halen. Selecteer de omgeving **local** en het script **score_iris.py** in de opdrachtbalk en selecteer vervolgens **Run**.
 
@@ -1040,7 +1040,7 @@ De Docker-engine moet lokaal worden uitgevoerd om de stappen te kunnen voltooien
 
     Zorg ervoor dat 'Provisioning State' heeft de waarde 'Succeeded', zoals wordt weergegeven, voordat het instellen van de omgeving in stap 5:
 
-    ![Inrichtingsstatus](media\azure-stack-solution-machine-learning\image57.png)
+    ![Inrichtingsstatus](media/azure-stack-solution-machine-learning/image57.png)
 
 1.  Stel de omgeving in.
 
@@ -1160,7 +1160,7 @@ Gebruik de volgende opdrachten in het Windows-subsysteem voor Linux-sessie voor 
     The key fingerprint is: SHA256:lUtUUjzaqWqGeolEPKeBmsnrhcNGM9Dn2OxYatt05SE  <user>@<machine-name>
     The key's randomart image is:  
     ```
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image58.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image58.png)
 
 4. Na het genereren van de sleutel, plak de gegevens van de sleutel met de volgende opdrachten: 
     ```Bash
@@ -1217,11 +1217,11 @@ De service-principal toegang geven tot het abonnement, zodat deze resources kan 
 
 9.  Selecteer **+ nieuw** > **Compute** > **Kubernetes-Cluster**. Selecteer **Maken**.
 
-    ![Oplossingssjabloon implementeren](media\azure-stack-solution-machine-learning\image59.png)
+    ![Oplossingssjabloon implementeren](media/azure-stack-solution-machine-learning/image59.png)
 
 10\. Selecteer **basisbeginselen** in het Kubernetes-Cluster maken.
 
-    ![Deploy Solution Template](media\azure-stack-solution-machine-learning\image60.png)
+    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Voer de **Linux VM-Beheerdersgebruikersnaam**. De naam van de gebruiker voor de virtuele Linux-Machines die deel van het Kubernetes-cluster uitmaken en DVM.
 
@@ -1250,7 +1250,7 @@ De service-principal toegang geven tot het abonnement, zodat deze resources kan 
 
 1.  Selecteer de **instellingen voor Azure Stack-stempel**.
 
-    ![Oplossingssjabloon implementeren](media\azure-stack-solution-machine-learning\image61.png)
+    ![Oplossingssjabloon implementeren](media/azure-stack-solution-machine-learning/image61.png)
 
 2.  Voer de **Tenant Azure Resource Manager-eindpunt**. Dit is de Azure Resource Manager-eindpunt verbinding maken met de resourcegroep voor het Kubernetes-cluster maken. Het eindpunt van de Azure Stack-operator is nodig voor een geïntegreerd systeem. Voor de Azure Stack Development Kit (ASDK), gebruik `https://management.local.azurestack.external`.
 
@@ -1356,7 +1356,7 @@ Als u het lokale JSON-bestand is verkregen, in een nieuwe sessie WSL, gebruik de
 
 Kubernetes-configuratie-instellingen worden gedefinieerd (Zie de onderstaande uitvoer).
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image62.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image62.png)
 
 Start de lokale proxyservice:
 
@@ -1366,19 +1366,19 @@ kubectl proxy
 
 Blader naar de kubernetes-cluster UI op het volgende adres: `https://localhost:8001`.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image63.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image63.png)
 
 U hebt nu een plaats voor het implementeren van de container en een container die zich in de cloud die u on-premises kunt zien.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image64.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image64.png)
 
 Aanpassen de **iris_deployment.yaml** bestand (zich in /*mnt/c/gebruikers/<current user>/documenten/Kube directory*), zodat **webservicename** en containers  **Afbeelding** en **naam** overeenkomen met de implementatie, met een code-editor naar keuze.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image65.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image65.png)
 
 Stel de poort van de container in op **5001.**
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image66.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image66.png)
 
 En maak vervolgens de **imagePullSecret**:
 
@@ -1409,7 +1409,7 @@ Sla de **iris_deployment.yaml** bestand (zich in /*mnt/c/gebruikers/<current use
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image67.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 Controleer de status van de implementatie:
 
@@ -1417,7 +1417,7 @@ Controleer de status van de implementatie:
 Kubectl get deployments
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image68.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 De implementatie kan enige tijd duren.
 
@@ -1429,7 +1429,7 @@ De implementatie kan enige tijd duren.
 
 2.  Selecteer in de pagina projecten **nieuw Project**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image69.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image69.png)
 
 1.  Noem het project **HybridMLIris**.
 
@@ -1437,7 +1437,7 @@ De implementatie kan enige tijd duren.
 
 3.  Selecteer een proces en selecteer **maken**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image70.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image70.png)
 
 ### <a name="import-some-code--create-repository"></a>Importeren van code opslagplaats maken
 
@@ -1447,15 +1447,15 @@ Een Git-opslagplaats voor YAML-code is vereist.
 
 1.  Selecteer in het projectdashboard standaard genereren Git-referenties.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image71.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image71.png)
 
 1.  Voer wachtwoord indien nodig en sla de Git-referenties.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image72.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image72.png)
 
 1.  Initialiseren van de opslagplaats door het selecteren van de **initialiseren** knop en het maken van een **Leesmij-bestand** bestand.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image73.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image73.png)
 
 #### <a name="clone-the-git-repository-locally-and-upload-the-code"></a>De Git-opslagplaats lokaal klonen en de code te uploaden. 
 
@@ -1465,7 +1465,7 @@ Een Git-opslagplaats voor YAML-code is vereist.
     sudo mkdir /mnt/c/users/<User>/source sudo mkdir /mnt/c/users/<User>/source/repos sudo mkdir /mnt/c/users/<User>/source/repos/hybridMLIris cd /mnt/c/users/<User>/source/repos/hybridMLIris sudo git clone  https://<yourvstssite>.visualstudio.com/HybridMLIris/_git/HybridMLIris
     ```
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image74.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image74.png)
 
 1.  Navigeer naar de nieuwe gekloonde opslagplaats:
 
@@ -1474,7 +1474,7 @@ Een Git-opslagplaats voor YAML-code is vereist.
     cd ./HybridMLIris
     ```
     
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image75.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Kopieer de **iris_deployment.yaml** -bestand in de opslagplaats.
 
@@ -1488,7 +1488,7 @@ Een Git-opslagplaats voor YAML-code is vereist.
     git add . git commit -m Added Deployment YAML git push
     ```
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image76.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image76.png)
 
 ### <a name="prepare-the-private-build-and-release-agent-for-vsts-integration"></a>Voorbereiden van de Privéversie en Release-Agent voor integratie met VSTS
 
@@ -1514,27 +1514,27 @@ Een Service-Principal is een sleutel vereist voor verificatie, volgt u de stappe
 
 1.  Van **App-registraties** in Azure Active Directory, selecteert u de toepassing.
 
-    ![toepassing selecteren](media\azure-stack-solution-machine-learning\image77.png)
+    ![toepassing selecteren](media/azure-stack-solution-machine-learning/image77.png)
 
 1.  Noteer de waarde van **toepassings-ID. De waarde wordt gebruikt bij het configureren van het service-eindpunt in VSTS.**
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image78.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image78.png)
 
 1.  Selecteer **Instellingen** om een verificatiesleutel te genereren.
 
-    ![instellingen selecteren](media\azure-stack-solution-machine-learning\image79.png)
+    ![instellingen selecteren](media/azure-stack-solution-machine-learning/image79.png)
 
 1.  Selecteer **Sleutels**.
 
-    ![sleutels selecteren](media\azure-stack-solution-machine-learning\image80.png)
+    ![sleutels selecteren](media/azure-stack-solution-machine-learning/image80.png)
 
 1.  Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
 
-    ![sleutel opslaan](media\azure-stack-solution-machine-learning\image81.png)
+    ![sleutel opslaan](media/azure-stack-solution-machine-learning/image81.png)
 
 Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, zoals deze later nodig is. De **sleutelwaarde** met de toepassing-ID is vereist voor aanmelding bij als de toepassing. De waarde van de sleutel waar de toepassing deze kan ophalen Store.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image82.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image82.png)
 
 #### <a name="get-tenant-id"></a>Tenant-ID ophalen
 
@@ -1542,15 +1542,15 @@ Als onderdeel van de configuratie van de service-eindpunt, VSTS vereist de **Ten
 
 1.  Selecteer **Azure Active Directory**.
 
-    ![azure active directory selecteren](media\azure-stack-solution-machine-learning\image83.png)
+    ![azure active directory selecteren](media/azure-stack-solution-machine-learning/image83.png)
 
 1.  De tenant-ID, selecteer **eigenschappen** voor de Azure AD-tenant.
 
-    ![Azure AD-eigenschappen selecteren](media\azure-stack-solution-machine-learning\image84.png)
+    ![Azure AD-eigenschappen selecteren](media/azure-stack-solution-machine-learning/image84.png)
 
 1.  Kopieer de **Map-id**. Deze waarde is de tenant-ID.
 
-    ![tenant-id](media\azure-stack-solution-machine-learning\image85.png)
+    ![tenant-id](media/azure-stack-solution-machine-learning/image85.png)
 
 De Service-Principal-rechten voor het implementeren van resources in de Azure Stack-abonnement verlenen
 
@@ -1560,27 +1560,27 @@ Stel het bereik op het niveau van het abonnement, resourcegroep of resource. Mac
 
 1.  Ga naar het gewenste niveau van bereik om de toepassing te wijzen. Selecteer bijvoorbeeld het volgende om te wijzen aan een rol op het abonnementsbereik, **abonnementen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image86.jpeg)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image86.jpeg)
 
 1.  Selecteer de **abonnement** (resourcegroep of resource) om de toepassing te wijzen.
 
-    ![abonnement voor toewijzing selecteren](media\azure-stack-solution-machine-learning\image87.png)
+    ![abonnement voor toewijzing selecteren](media/azure-stack-solution-machine-learning/image87.png)
 
 1.  Selecteer **toegangsbeheer (IAM)**.
 
-    ![Selecteer toegang](media\azure-stack-solution-machine-learning\image88.png)
+    ![Selecteer toegang](media/azure-stack-solution-machine-learning/image88.png)
 
 1.  Selecteer **Toevoegen**.
 
-    ![Selecteer toevoegen](media\azure-stack-solution-machine-learning\image89.png)
+    ![Selecteer toevoegen](media/azure-stack-solution-machine-learning/image89.png)
 
 1.  Selecteer de rol om de toepassing te wijzen. De volgende afbeelding toont de **eigenaar** rol.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image90.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image90.png)
 
 1.  Azure Active Directory-toepassingen worden niet standaard weergegeven in de beschikbare opties. Om de toepassing te zoeken **geeft u de naam** in het zoekvak en selecteer deze.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image91.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image91.png)
 
 1.  Selecteer **opslaan** voltooien van de rol toe te wijzen. De toepassing wordt weergegeven in de lijst met gebruikers die zijn toegewezen aan een rol voor deze scope.
 
@@ -1598,18 +1598,18 @@ In plaats van elke agent afzonderlijk beheren, agents zijn ingedeeld in **agentp
 
  -  Selecteer **beveiliging beheren** access token maken-pagina.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image92.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image92.png)
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image93.jpeg)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image93.jpeg)
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image94.jpeg)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image94.jpeg)
 
 > [!Note]  
 > De informatie over beveiligingstoken verkrijgen. Het wordt niet opnieuw na het verlaten van dit scherm worden weergegeven.
 
 1.  Kopieer de **token**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image95.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image95.png)
 
 #### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Installatie van die de VSTS build-agent op de Azure Stack gehoste Server bouwen
 
@@ -1660,7 +1660,7 @@ In plaats van elke agent afzonderlijk beheren, agents zijn ingedeeld in **agentp
 
 2.  Downloaden en implementeren van de build-agent als een service met een **persoonlijk toegangstoken (PAT)** en uit te voeren als het account van de VM-beheer.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image96.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image96.png)
 
     ```Bash  
         cd \home\<user>
@@ -1678,7 +1678,7 @@ In plaats van elke agent afzonderlijk beheren, agents zijn ingedeeld in **agentp
         ./config.sh
     ```
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image97.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image97.png)
 
 2.  Na **./config.sh**is voltooid, voert de volgende code om in te schakelen van de service bij het opstarten van de server en start de service:
 
@@ -1693,23 +1693,23 @@ De agent is nu zichtbaar in VSTS-map.
 
 Gebruikers kunnen eindpunten maken zodat VSTO builds Azure Service-apps naar de stack implementeren kunnen. VSTS verbindt met de build-agent, die vervolgens verbinding met Azure Stack maakt.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image98.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image98.png)
 
 1.  Op de **instellingen** in het menu **Security**.
 
 2.  In de **VSTS groepen** lijst aan de linkerkant, selecteer **makers van eindpunt**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image99.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image99.png)
 
 3.  Op de **tabblad leden** selecteert u de **+ toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image100.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image100.png)
 
 1.  Type **gebruikersnaam** en selecteert u de gebruikersnaam in de lijst.
 
 2.  Selecteer **wijzigingen opslaan**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image101.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image101.png)
 
 3.  In de **VSTS groepen** lijst aan de linkerkant, selecteer **eindpunt beheerders**.
 
@@ -1719,13 +1719,13 @@ Gebruikers kunnen eindpunten maken zodat VSTO builds Azure Service-apps naar de 
 
 6.  Selecteer **wijzigingen opslaan.**
 
-    ![buchatech](media\azure-stack-solution-machine-learning\image102.jpeg)
+    ![buchatech](media/azure-stack-solution-machine-learning/image102.jpeg)
 
     De build-agent in Azure Stack krijgt aanwijzingen van VSTS, die vervolgens endpoint-informatie voor de communicatie met de Azure Stack brengt.
 
     VSTS aan Azure Stack-verbinding is nu gereed.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image103.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image103.png)
 
 ### <a name="configure-build-and-release-definitions"></a>Configureren van Build and Release-definities
 
@@ -1735,61 +1735,61 @@ Nu dat de verbindingen tot stand worden gebracht, wordt u handmatig toewijzen va
 
 1.  Selecteer de sectie bouwt onder de Build and Release-hub en de definitie van een nieuwe maken.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image104.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image104.png)
 
 1.  VSTS Git selecteren en selecteer de opslagplaats die eerder hebt gemaakt.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image105.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image105.png)
 
 1.  Selecteer lege pijplijn als de sjabloon
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image106.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  Naam van de Build **kopie artefact** en selecteert u de Azure Stack Build-Server voor de Agent-wachtrij.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image107.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image107.png)
 
 1.  Fase 1 selecteert in de processen en wijzig de naam **kopie artefact**, klikt u vervolgens **toevoegen van een taak** met de fase:
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image108.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image108.png)
 
 1.  Selecteer **Build-artefacten publiceren** uit de **hulpprogramma** lijst en selecteer **toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image109.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  Selecteer de **pad om te publiceren** en selecteer de **iris_deployment.yaml** bestand.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image110.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image110.png)
 
 1.  Naam van het artefact **iris_deployment** en selecteer de locatie voor publiceren moet **Visual Studio Team Services/TFS**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image111.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image111.png)
 
 1.  Selecteer **opslaan en in de wachtrij**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image112.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image112.png)
 
 1.  Controleer de status van build van het door het selecteren van de build-ID.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image113.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image113.png)
 
 Succes ziet er ongeveer als volgt uit:
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image114.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image114.png)
 
 #### <a name="create-the-release-definition-for-the-yaml-code"></a>De definitie van de Release voor de YAML-code maken
 
 1.  Selecteer de sectie Releases onder de Build and Release-hub, de definitie van een nieuwe
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image115.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image115.png)
 
 1.  Selecteer lege pijplijn als sjabloon.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image106.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  De naam van de omgeving Azure Stack.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image116.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image116.png)
 
 1.  Een nieuwe artefact toevoegen door te selecteren **artefacten** en **+ toevoegen**
 
@@ -1799,25 +1799,25 @@ Succes ziet er ongeveer als volgt uit:
 
 4.  Selecteer vervolgens **toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image117.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image117.png)
 
 1.  Selecteer Azure Stack in omgevingen, en vervolgens een nieuwe taak toevoegen aan Azure Stack
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image118.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image118.png)
 
 
 1.  Ingesteld op de Agent-fase wordt de wachtrij van de Agent op de Azure Stack die wordt gehost bouwen Server.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image119.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image119.png)
 
 1.  Een nieuwe taak toevoegen aan deze fase, selecteert u de implementeren in Kubernetes taak onder implementeren en selecteer toevoegen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image120.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image120.png)
 
 
 1.  Geef het de naam **Kubectl toepassen** (standaardnaam) en selecteert u de opdracht toepassen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image121.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image121.png)
 
     Maak nu een nieuwe verbinding van de Kubernetes-Service.
 
@@ -1846,7 +1846,7 @@ Succes ziet er ongeveer als volgt uit:
 
 11. Ga naar <https://aka.ms/devicelogin> in de browser. Wanneer u hierom wordt gevraagd, typt u de code in de CLI, ontvangen in de browser.
 
-    ![Kubernetes-Service-eindpunt](media\azure-stack-solution-machine-learning\image122.png)
+    ![Kubernetes-Service-eindpunt](media/azure-stack-solution-machine-learning/image122.png)
 
 1.  Typ de volgende opdracht uit achter de opdrachtprompt om op te halen van de referenties voor toegang voor het Kubernetes-cluster.
 
@@ -1854,20 +1854,20 @@ Succes ziet er ongeveer als volgt uit:
 
 AZ aks get-credentials resource-group <yourResourceGroup> naam <yourazurecontainerservice>
 
-![Kubernetes-Service-eindpunt](media\azure-stack-solution-machine-learning\image123.png)
+![Kubernetes-Service-eindpunt](media/azure-stack-solution-machine-learning/image123.png)
 
 1.  Navigeer naar de **.kube**map onder de basismap (bijvoorbeeld: C:\\gebruikers\\<user>\\documenten\\Kube)
 
 2.  Kopieer de inhoud van de**config**-bestand en plak deze in het venster verbinding met Kubernetes. Selecteer de**OK**knop.
 
-    ![Kubernetes-Service-eindpunt](media\azure-stack-solution-machine-learning\image124.png)
+    ![Kubernetes-Service-eindpunt](media/azure-stack-solution-machine-learning/image124.png)
     
 
 3.  Zodra het Kubernetes-eindpunt is gemaakt en ingeschakeld, het selectievakje Gebruik configuratie bestanden voor het toevoegen van een configuratiebestand. Blader vervolgens naar het bestand iris_deployment.yaml in de gekoppelde artefacten.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image125.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image125.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image126.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image126.png)
 
 4.  Sla de release-definitie.
 
@@ -1883,7 +1883,7 @@ kubectl get deployments
 
 De uitvoer moet er ongeveer als volgt, terwijl in het proces implementeren.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image127.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image127.png)
 
 ```Bash  
 kubectl proxy
@@ -1891,7 +1891,7 @@ kubectl proxy
 
 Zodra de kubernetes UI wordt uitgevoerd, bladert u naar de implementatie op [ **https://localhost:8001/** ](https://localhost:8001/) navigeer vervolgens naar **Workloads-replicasets >**.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image128.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image128.png)
 
 ### <a name="deploy-the-yaml-service"></a>Het YAML-Service implementeren
 
@@ -1903,7 +1903,7 @@ Zodra de kubernetes UI wordt uitgevoerd, bladert u naar de implementatie op [ **
     cd /mnt/c/users/<User>/source/repos/HybridMLIris/HybridMLIris/
     ```
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image75.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Kopieer de **iris_service.yaml** -bestand in de opslagplaats.
 
@@ -1919,21 +1919,21 @@ Zodra de kubernetes UI wordt uitgevoerd, bladert u naar de implementatie op [ **
     git push
     ```
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image129.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image129.png)
 
 #### <a name="update-the-build-definition-for-the-yaml-code"></a>De Build-definitie voor de YAML-code bijwerken
 
 1.  Selecteer de sectie bouwt onder de Build and Release-hub en selecteer de definitie van de eerder hebt gemaakt.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image130.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image130.png)
 
 2.  Selecteer de knop bewerken om te bewerken van de definitie.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image131.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image131.png)
 
 3.  **Een taak toevoegen** met de fase. Selecteer **Build-artefacten publiceren** uit de **hulpprogramma** lijst en selecteer **toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image108.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image108.png)
 
 4.  Geef het de naam **Kubectl toepassen** (standaardnaam) en selecteert u de opdracht toepassen.
 
@@ -1943,26 +1943,26 @@ Zodra de kubernetes UI wordt uitgevoerd, bladert u naar de implementatie op [ **
 
 1.  Selecteer de sectie theReleases onder de Build and Release-hub en selecteert u de releasedefinitie eerder hebt gemaakt. Selecteer vervolgens de koppeling bewerken.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image132.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image132.png)
 
 1.  Selecteer de omgeving **Azure Stack** vervolgens een nieuwe taak toevoegen aan Azure Stack.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image133.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image133.png)
 
 1.  Toevoegen een **nieuwe taak** naar deze fase, selecteert u de **implementeren in Kubernetes** taak onder **implementeren** en selecteer **toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image134.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image134.png)
 
 1.  Geef het de naam **Kubectl toepassen** (standaardnaam) en selecteert u de opdracht toepassen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image109.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  De verbinding Kubernates Service ingesteld op de Azure Stack-verbinding eerder hebt gemaakt en selecteer vervolgens de **configuratiebestanden gebruiken** selectievakje in om toe te voegen een configuratiebestand. Blader naar het bestand iris_service.yaml in de gekoppelde artefacten.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image135.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image135.png)
 
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image136.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Sla de release-definitie.
 
@@ -1978,7 +1978,7 @@ kubectl get deployments
 
 De uitvoer moet er ongeveer als volgt, terwijl in het proces implementeren.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image127.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image127.png)
 
 
 ```Bash  
@@ -1987,7 +1987,7 @@ kubectl proxy
 
 Zodra de kubernetes UI wordt uitgevoerd, bladert u naar de implementatie op [ **https://localhost:8001/** ](https://localhost:8001/) navigeer vervolgens naar **Workloads-replicasets >**.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image137.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image137.png)
 
 
 ### <a name="kubernetes-scoring-and-validation"></a>Kubernetes scoren en validatie
@@ -2000,15 +2000,15 @@ kubectl proxy
 
 Blader naar de Kubernetes-UI, en ga vervolgens naar **implementaties** -> **Iris-implementatie** -> **nieuwe replicaset**  ->  **Iris-implementatie-xxxxxxxxx** (waar de kruisjes zijn voor de implementatie-ID).
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image138.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image138.png)
 
 Navigeer vervolgens naar **Services** en selecteer de **Extern eindpunt** van de Service om te valideren functioneert.
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image139.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image139.png)
 
 Een van die vergelijkbaar is met het volgende validatiebericht weergegeven:
 
-![Alternatieve tekst](media\azure-stack-solution-machine-learning\image140.png)
+![Alternatieve tekst](media/azure-stack-solution-machine-learning/image140.png)
 
 #### <a name="create-azure-stack-scoring-function-app-in-the-azure-stack-portal"></a>Azure Stack Scoring-functie-App in de Azure Stack-Portal maken
 
@@ -2016,37 +2016,37 @@ Een functie-app is vereist voor het hosten van de uitvoering van elke functie. E
 
 1.  Selecteer in de gebruikersportal van Azure Stack, de **+ nieuw** knop gevonden in de linkerbovenhoek, selecteer vervolgens**Web en mobiel** >**functie-App**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image141.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image141.png)
 
 1.  Noem de functie **gegevensfuncties** en plaats deze in dezelfde resourcegroep met de resterende Machine Learning-inhoud. Laat het hulpprogramma automatisch een nieuwe app service-plan voor het maken en gebruiken van de storage-account eerder hebt gemaakt voor de app-opslag.
 
-    ![Nieuwe functie app-instellingen definiëren](media\azure-stack-solution-machine-learning\image142.png)
+    ![Nieuwe functie app-instellingen definiëren](media/azure-stack-solution-machine-learning/image142.png)
 
 1.  Selecteer**maken**inrichten en implementeren van de functie-app.
 
 2.  Selecteer het meldingspictogram in de rechterbovenhoek van de portal en zoek de**implementatie is voltooid** bericht.
 
-    ![Instellingen voor nieuwe functie-apps definiëren](media\azure-stack-solution-machine-learning\image143.png)
+    ![Instellingen voor nieuwe functie-apps definiëren](media/azure-stack-solution-machine-learning/image143.png)
 
 1.  Selecteer**naar de resource gaan** om de nieuwe functie-app weer te geven.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image144.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image144.png)
 
 1.  Een nieuwe functie maken die door het selecteren van **functies**, dan zal de **+ nieuwe functie** knop.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image145.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image145.png)
 
 1.  HTTP-Trigger selecteren
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image146.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image146.png)
 
 1.  Selecteer **C\#**  als de taal en de naam van de functie: **clean-score-data**, en stelt u het autorisatieniveau op **anoniem**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image147.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image147.png)
 
 1.  De inhoud van de voorbeeld-code voor opschonen-score-gegevens in de functie kopiëren en plakken
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image148.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image148.png)
 
 #### <a name="use-postman-to-validate-functions"></a>Postman gebruiken om te valideren van functies
 
@@ -2054,39 +2054,39 @@ Om te controleren of dat u hebt ingesteld de functies en Kbernetes kunt correct 
 
 1.  Blader naar de Kubernetes-UI, en ga vervolgens naar **implementaties** -> **Iris-implementatie** -> **nieuwe replicaset**  ->  **Iris-implementatie-xxxxxxxxx** (waar de kruisjes zijn voor de implementatie-ID)
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image138.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image138.png)
 
 1.  Navigeer vervolgens naar **Services** en kopieer de **Extern eindpunt**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image149.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image149.png)
 
 1.  Download en installeer de Postman-app [hier](https://www.getpostman.com/apps) indien nodig.
 
 2.  Meld u aan bij de Postman-App en sluit het dialoogvenster voor het nieuwe bestand.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image150.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image150.png)
 
 1.  Selecteer in bericht in de postman-app...
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image151.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image151.png)
 
 1.  Plak de **Extern eindpunt** URL in de postman-app onder de **aanvraag-URL** toe te voegen  **\\score** aan het einde van de URL, zoals hieronder weergegeven.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image152.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image152.png)
 
 1.  Selecteer de **hoofdtekst** tabblad en klik vervolgens op de gegevens typt als **onbewerkte**, klikt u vervolgens **JSON**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image153.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image153.png)
 
 1.  Navigeer via een webbrowser naar **Extern eindpunt**. Het volgende toe te voegen aan de URL **/swagger.json** dit leidt tot de Services Swagger-bestand gebruikt om instellingen te controleren.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image154.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image154.png)
 
 1.  Kopieert u het voorbeeld weergegeven in de **Swagger.JSON** bestand.
 
 2.  In de Postman-App in het voorbeeld in de hoofdtekst van het bericht te plakken en selecteer **verzenden**. Er moet een waarde die vergelijkbaar is met het voorbeeld hieronder retourneren.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image155.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image155.png)
 
 ## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>Stap 7: Een Azure Stack-opslagaccount en de Storage-wachtrij maken
 
@@ -2106,29 +2106,29 @@ Maak een Azure Stack-opslagaccount en de Storage-wachtrij voor gegevens.
 
 7.  Selecteer**maken**om het opslagaccount te maken.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image156.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Kies de opslagaccount die onlangs zijn gemaakt.
 
 2.  Selecteer op**wachtrijen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image157.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image157.png)
 
 1.  Selecteer op **+ wachtrij** en de wachtrij en selecteert u de naam **OK.**
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image158.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image158.png)
 
 1.  Krijgen de **Connection String** voor de Storage-wachtrij en deze te kopiëren.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image159.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image159.png)
 
 1.  Navigeer naar de Azure-functie-App en selecteer vervolgens **toepassingsinstellingen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image160.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image160.png)
 
 1.  In binnen de toepassingsinstellingen van de functie-App, bladert u omlaag naar de instellingen van toepassingen, en selecteer **+ nieuwe instelling toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image161.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image161.png)
 
 1.  Voer de naam van het opslagaccount in de **naam** veld toe te voegen aan het einde; _opslag
 
@@ -2136,11 +2136,11 @@ Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-a
 
 1.  Plak de verbindingsreeks in de **waarde** veld.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image162.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image162.png)
 
 1.  Schuif omlaag naar de bovenkant van de instellingen van de toepassing en selecteer **opslaan**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image163.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image163.png)
 
 ### <a name="update-the-scoring-function-to-use-storage-queue"></a>De Scoring-functie voor het gebruik van Storage-wachtrij bijwerken
 
@@ -2150,15 +2150,15 @@ Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-a
 
 3.  Selecteer vervolgens **+ nieuwe uitvoer** uit de uitvoer.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image164.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image164.png)
 
 1.  Selecteer vervolgens **Azure Queue Storage** en kies **Selecteer**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image165.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image165.png)
 
 1.  Update de **wachtrijnaam** naar de Opslagwachtrij eerder hebt gemaakt, en stel de **Opslagaccountverbinding** aan de Storage-accountverbinding gemaakt eerdere en selecteer **opslaan.**
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image166.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image166.png)
 
 ## <a name="step-8-create-a-function-to-handle-clean-data"></a>Stap 8: Maak een functie voor het afhandelen van nieuwe gegevens
 
@@ -2166,15 +2166,15 @@ Maak een nieuwe Azure Stack-functie voor het verplaatsen van de schoon gegevens 
 
 1.  Een nieuwe functie maken die door het selecteren van **functies**, dan zal de **+ nieuwe functie** knop.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image167.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image167.png)
 
 1.  Selecteer **Timertrigger**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image168.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image168.png)
 
 1.  Selecteer **C\#**  als de taal en de naam van de functie: **uploaden naar azure** en stel de planning op **0 0 \*/1 \* \* \***  die in CRON notatie wordt eenmaal per uur.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image169.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image169.png)
 
 ### <a name="get-the-connection-string-to-the-azure-hosted-storage-account"></a>De verbindingsreeks naar het Azure gehoste Opslagaccount ophalen
 
@@ -2182,17 +2182,17 @@ Maak een nieuwe Azure Stack-functie voor het verplaatsen van de schoon gegevens 
 
 2.  Selecteer **toegangssleutels**, kopieer vervolgens de **Connection String** voor het Opslagaccount.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image170.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image170.png)
 
 ### <a name="update-the-upload-to-azure-function-to-use-the-azure-hosted-storage"></a>Het uploaden naar azure te gebruiken van de Azure-opslag die wordt gehost functie bijwerken
 
 1.  Navigeer naar de Azure-functie-App en selecteer vervolgens **toepassingsinstellingen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image171.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image171.png)
 
 1.  In binnen de toepassingsinstellingen van de functie-App, bladert u omlaag naar de instellingen van toepassingen, en selecteer **+ nieuwe instelling toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image172.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image172.png)
 
 1.  Voer de naam van het opslagaccount in de **naam** veld toe te voegen aan het einde; _opslag
 
@@ -2200,11 +2200,11 @@ Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-a
 
 1.  Plak de Azure gehost Storage Account Connection String in het **waarde** veld.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image173.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image173.png)
 
 1.  Schuif omlaag naar de bovenkant van de instellingen van de toepassing en selecteer **opslaan**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image174.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image174.png)
 
 1.  Ga terug naar de **uploaden naar azure** functie.
 
@@ -2212,15 +2212,15 @@ Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-a
 
 3.  Selecteer vervolgens **+ nieuwe uitvoer** uit de uitvoer.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image175.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image175.png)
 
 1.  Selecteer vervolgens **Azure Blob Storage** en kies **Selecteer**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image176.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image176.png)
 
 1.  Update de **pad** naar storage-container gemaakt eerder in de volgende indeling: **uploadeddata / {rand-guid} .txt**, en stel de **Opslagaccountverbinding** naar de Storage-accountverbinding met Azure gemaakt eerdere en selecteer **opslaan.**
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image177.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image177.png)
 
 1.  Kopiëren en plakken die de inhoud van de voorbeeld-code voor **uploaden naar azure** in de functie.
 
@@ -2228,11 +2228,11 @@ Hierdoor kan de toepassing om te begrijpen dat dit een eindpunt van de storage-a
 
 3.  Sla op en voer de Code uit.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image178.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image178.png)
 
 1.  Controleer het gehoste Storage-account om de gegevens te zien is geparseerd naar de cloud van Azure: geslaagd ziet eruit als het hieronder.
 
-    ![Alternatieve tekst](media\azure-stack-solution-machine-learning\image179.png)
+    ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image179.png)
 
 De gegevens is opgeschoond van gevoelige gegevens door de Azure Stack die wordt gehost Kubernetes Machine Learning en geüpload naar de openbare Cloud van Azure van de on-premises Azure Stack, via de Azure Stack host functie-Apps, en de gegevens voor het uploaden van bestanden in een edge/verbroken kunt voorbereiden scenario.
 

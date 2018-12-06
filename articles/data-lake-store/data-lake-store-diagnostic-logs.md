@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 91cbebecc227d24337b2d1b421dd1611bf0fac46
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390793"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966072"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Diagnostische logboeken openen voor Azure Data Lake Storage Gen1
 Leer hoe u Diagnostische logboekregistratie voor uw Azure Data Lake Storage Gen1-account en het weergeven van de logboeken die worden verzameld voor uw account inschakelen.
@@ -46,7 +46,7 @@ Organisaties kunnen diagnostische logboekregistratie inschakelen voor hun Gen1 v
         
         * Selecteer de optie voor **Stream naar een event hub** logboek om gegevens te streamen naar een Azure Event Hub. Waarschijnlijk gebruikt u deze optie hebt u een pijplijn downstream-verwerkingen binnenkomende Logboeken in realtime analyseren. Als u deze optie selecteert, moet u de details opgeven voor de Azure Event Hub die u wilt gebruiken.
 
-        * Selecteer de optie voor **verzenden naar Log Analytics** de Azure Log Analytics-service gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de Log Analytics-werkruimte die u de logboekanalyse uitvoeren gebruikt is. Zie [weergeven of analyseren van gegevens die zijn verzameld met zoeken in Logboeken Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van Log Analytics.
+        * Selecteer de optie voor **verzenden naar Log Analytics** de Azure Log Analytics-service gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de Log Analytics-werkruimte die u de logboekanalyse uitvoeren gebruikt is. Zie [weergeven of analyseren van gegevens die zijn verzameld met zoeken in Logboeken Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) voor meer informatie over het gebruik van Log Analytics.
      
    * Geef op of u wilt ophalen van de logboeken voor controle of aanvraag zich aanmeldt of beide.
    * Geef het aantal dagen waarvoor gegevens moeten worden bewaard. Bewaarperiode is alleen van toepassing als u Azure storage-account gebruikt voor het archiveren van gegevens aan het logboek.
@@ -159,7 +159,7 @@ Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeli
       ]
     }
 
-#### <a name="audit-log-schema"></a>Audit log schema
+#### <a name="audit-log-schema"></a>Schema van auditlogboek
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
 | tijd |Reeks |De tijdstempel (in UTC) van het logboek |
@@ -178,7 +178,7 @@ Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeli
 | StreamName |Reeks |Het pad naar de bewerking is uitgevoerd op |
 
 ## <a name="samples-to-process-the-log-data"></a>Voorbeelden voor het verwerken van de logboekgegevens
-Bij het verzenden van Logboeken van Azure Data Lake Storage Gen1 met Azure Log Analytics (Zie [weergeven of analyseren van gegevens die zijn verzameld met zoeken in Logboeken Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van Log Analytics), de volgende query retourneert een tabel met een lijst van gebruiker namen weergeven, het tijdstip van de gebeurtenissen en het aantal gebeurtenissen voor de tijd van de gebeurtenis, samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van gebruikers-GUID of andere kenmerken:
+Bij het verzenden van Logboeken van Azure Data Lake Storage Gen1 met Azure Log Analytics (Zie [weergeven of analyseren van gegevens die zijn verzameld met zoeken in Logboeken Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) voor meer informatie over het gebruik van Log Analytics), de volgende query retourneert een tabel met een lijst van gebruiker namen weergeven, het tijdstip van de gebeurtenissen en het aantal gebeurtenissen voor de tijd van de gebeurtenis, samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van gebruikers-GUID of andere kenmerken:
 
 ```
 search *

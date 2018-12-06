@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284724"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954609"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Kan niet extern verbinding maken met een virtuele machine omdat RDP-poort niet is ingeschakeld in NSG
 
@@ -51,7 +51,7 @@ Volg deze stappen zodat de RDP-poort in een NSG:
     **Bestemmingen**: </br>
     **Actie**: toestaan </br>
 
-In geeft u het bron-IP-adres, deze instelling kan alleen verkeer vanaf een specifiek IP-adres of een bereik van IP-adressen verbinding maken met de virtuele machine. Zorg ervoor dat de computer die u gebruikt voor de RDP-sessie te starten binnen het bereik is.
+Als u het bron-IP-adres opgeeft, kunt deze instelling alleen verkeer vanaf een specifiek IP-adres of een bereik van IP-adressen verbinding maken met de virtuele machine. Zorg ervoor dat de computer die u gebruikt voor de RDP-sessie te starten binnen het bereik is.
 
 Zie voor meer informatie over nsg's [netwerkbeveiligingsgroep](../../virtual-network/security-overview.md).
 

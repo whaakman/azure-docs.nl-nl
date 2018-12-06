@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 590679daff20f9c469fb8fcfcc0fbbad77f91b5b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b54d5abed3e0d29103f5a15ea7fb6dc37dba240e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162847"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967807"
 ---
 # <a name="app-service-environment-management-addresses"></a>Beheeradressen van App Service-omgeving
 
@@ -46,7 +46,7 @@ U kunt de beheeradressen die met uw ASE met de volgende API-aanroep overeenkomen
 
 De API retourneert een JSON-document met inbegrip van alle inkomende-adressen voor de as-omgeving. De lijst met adressen bevat de beheeradressen het VIP-adres gebruikt door de as-omgeving en de adresbereik van de ASE-subnet zelf.  
 
-Voor het aanroepen van de API met de [armclient](http://github.com/projectkudu/ARMClient) gebruik de volgende opdrachten, maar vervang in uw abonnements-ID, resourcegroep en de naam van de as-omgeving.  
+Voor het aanroepen van de API met de [armclient](https://github.com/projectkudu/ARMClient) gebruik de volgende opdrachten, maar vervang in uw abonnements-ID, resourcegroep en de naam van de as-omgeving.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01

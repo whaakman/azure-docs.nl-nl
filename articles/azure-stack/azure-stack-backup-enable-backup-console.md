@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038362"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962559"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up inschakelen voor Azure Stack vanuit de beheerportal
-Schakel de infrastructuur voor Backup-Service via de beheerportal zodat Azure Stack-back-ups kunt genereren. U kunt deze back-ups gebruiken om te herstellen van uw omgeving met behulp van de cloudherstel in geval van [een onherstelbare fout](.\azure-stack-backup-recover-data.md). Het doel van cloudherstel is om ervoor te zorgen dat uw operators en gebruikers zich weer in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen hersteld met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en eerder gedefinieerde compute, opslag en netwerkquota.
+Schakel de infrastructuur voor Backup-Service via de beheerportal zodat Azure Stack-back-ups kunt genereren. U kunt deze back-ups gebruiken om te herstellen van uw omgeving met behulp van de cloudherstel in geval van [een onherstelbare fout](./azure-stack-backup-recover-data.md). Het doel van cloudherstel is om ervoor te zorgen dat uw operators en gebruikers zich weer in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen hersteld met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en eerder gedefinieerde compute, opslag en netwerkquota.
 
 Echter, de infrastructuur voor Backup-Service heeft geen back-up IaaS-VM's, netwerkconfiguraties en opslagresources, zoals storage-accounts, -blobs, tabellen en enzovoort, zodat gebruikers die zich aanmelden na het cloudherstel is voltooid niet een van de eerder bestaande weergegeven resources. Platform as a Service (PaaS)-resources en de gegevens worden ook niet ondersteund door de service. 
 
@@ -58,31 +58,31 @@ Beheerders en gebruikers zijn die verantwoordelijk is voor back-up en herstellen
     ```
 10. Selecteer **OK** uw back-controller-instellingen op te slaan.
 
-    ![Azure Stack - instellingen voor back-up-controller](media\azure-stack-backup\backup-controller-settings.png)
+    ![Azure Stack - instellingen voor back-up-controller](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>Back-up starten
 Voor het starten van een back-up, klikt u op **back-up nu** starten van een on-demand back-up. Een on-demand back-up wordt de tijd voor de volgende geplande back-up niet worden gewijzigd. Nadat de taak is voltooid, kunt u Bevestig de instellingen in **Essentials**:
 
-![Azure Stack - back-up op aanvraag](media\azure-stack-backup\scheduled-backup.png)
+![Azure Stack - back-up op aanvraag](media/azure-stack-backup/scheduled-backup.png)
 
 U kunt ook de PowerShell-cmdlet uitvoeren **Start AzsBackup** op uw computer Azure Stack-beheer. Zie voor meer informatie, [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>In- of uitschakelen van automatische back-ups
 Back-ups worden automatisch gepland wanneer u back-up inschakelen. U kunt de volgende back-uptijd van planning controleren in **Essentials**. 
 
-![Azure Stack - back-up op aanvraag](media\azure-stack-backup\on-demand-backup.png)
+![Azure Stack - back-up op aanvraag](media/azure-stack-backup/on-demand-backup.png)
 
 Als u uitschakelen toekomstige geplande back-ups wilt, klikt u op **uitschakelen automatische back-ups**. Uitschakelen automatische back-ups blijven back-instellingen die zijn geconfigureerd en de back-upschema, behouden. Deze actie wordt gewoon de scheduler om over te slaan toekomstige back-ups. 
 
-![Azure Stack - uitschakelen geplande back-ups](media\azure-stack-backup\disable-auto-backup.png)
+![Azure Stack - uitschakelen geplande back-ups](media/azure-stack-backup/disable-auto-backup.png)
 
 Bevestig dat toekomstige geplande back-ups zijn uitgeschakeld **Essentials**:
 
-![Azure Stack - back-ups zijn uitgeschakeld bevestigen](media\azure-stack-backup\confirm-disable.png)
+![Azure Stack - back-ups zijn uitgeschakeld bevestigen](media/azure-stack-backup/confirm-disable.png)
 
 Klik op **inschakelen automatische back-ups** om te informeren over de planner voor het starten van toekomstige back-ups op het geplande tijdstip. 
 
-![Azure Stack - inschakelen geplande back-ups](media\azure-stack-backup\enable-auto-backup.png)
+![Azure Stack - inschakelen geplande back-ups](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

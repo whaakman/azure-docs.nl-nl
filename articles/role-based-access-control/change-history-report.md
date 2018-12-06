@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62389edabb6d510fa1294affeb8e874efd18fc06
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678420"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967892"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Activiteitenlogboeken bekijken om wijzigingen van RBAC
 
@@ -117,7 +117,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Hier volgen de basisstappen om te beginnen:
 
-1. [Een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [De oplossing Activity Log Analytics configureren](../azure-monitor/platform/collect-activity-logs.md#configuration) voor uw werkruimte.
 
@@ -125,7 +125,7 @@ Hier volgen de basisstappen om te beginnen:
 
    ![Log Analytics-optie in de portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. (Optioneel) gebruik van de [zoeken in logboeken](../log-analytics/log-analytics-log-search.md) pagina of het [portal Advanced Analytics](../log-analytics/query-language/get-started-analytics-portal.md) query's uitvoeren en bekijk de logboeken. Zie voor meer informatie over deze twee opties [pagina voor zoeken in Logboeken of de portal Advanced Analytics](../log-analytics/log-analytics-log-search-portals.md).
+1. (Optioneel) gebruik van de [zoeken in logboeken](../log-analytics/log-analytics-log-search.md) pagina of het [portal Advanced Analytics](../azure-monitor/log-query/get-started-portal.md) query's uitvoeren en bekijk de logboeken. Zie voor meer informatie over deze twee opties [pagina voor zoeken in Logboeken of de portal Advanced Analytics](../azure-monitor/log-query/portals.md).
 
 Hier volgt een query waarmee nieuwe roltoewijzingen ingedeeld door de doel-resourceprovider geretourneerd:
 

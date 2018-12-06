@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837338"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969529"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack 
 
@@ -103,7 +103,7 @@ De storage-account en blob-container wordt alle oorspronkelijke gegevens die wor
 
 4.  Selecteer **maken om te maken van het opslagaccount**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Nadat u hebt gemaakt, selecteert u de naam van het opslagaccount.
 
@@ -111,7 +111,7 @@ De storage-account en blob-container wordt alle oorspronkelijke gegevens die wor
 
 7.  Selecteer boven aan de blade **+ Container.** en selecteer **Container**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Naam: **uw keuze**
 
@@ -146,31 +146,31 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
     **Voorbeeld:**
 
-    ![Instellingen voor nieuwe functie-apps definiëren](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![Instellingen voor nieuwe functie-apps definiëren](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  Selecteer **Maken** om de functie-app in te richten en te implementeren.
 
 6.  Selecteer het meldingspictogram in de rechterbovenhoek van de portal en zoek het bericht **Implementatie voltooid**.
 
-    ![Instellingen voor nieuwe functie-apps definiëren](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![Instellingen voor nieuwe functie-apps definiëren](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Selecteer **naar de resource gaan** om nieuwe functie-app weer te geven.
 
-![De functie-app is gemaakt.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![De functie-app is gemaakt.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Een functie toevoegen aan de functie-app van Azure Stack
 
 1.  Maak een nieuwe functie door te klikken op **functies**, dan zal de **+ nieuwe functie** knop.
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Selecteer **Timertrigger**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image4.png)
 
 3.  Selecteer **C\#**  als de taal en de naam van de functie: `upload-to-azure` ingesteld van de planning op `0 0 * * * *`, die in de CRON-notatie is één keer per uur.
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Een door Blob Storage geactiveerde functie maken
 
@@ -178,7 +178,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 2.  Typ in het zoekveld `blob` en kies vervolgens de gewenste taal voor de **blobtrigger** sjabloon.
 
-  ![Kies de trigger-sjabloon voor blob-opslag.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Kies de trigger-sjabloon voor blob-opslag.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  Gebruik de instellingen zoals opgegeven in de onderstaande tabel:
 
@@ -190,7 +190,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
     **Voorbeeld:**
 
-    ![Maak de door Blob Storage geactiveerde functie.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Maak de door Blob Storage geactiveerde functie.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  Selecteer **maken** om de functie te maken.
 
@@ -202,7 +202,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 3.  Vouw het opslagaccount, **Blob-containers**, en de blob u eerder hebt gemaakt. Selecteer **uploaden** en vervolgens **bestanden uploaden**.
 
-    ![Upload een bestand naar de blob-container.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Upload een bestand naar de blob-container.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Selecteer het veld bestanden in het dialoogvenster van de bestanden uploaden. Blader naar een bestand op een lokale computer, zoals een afbeeldingsbestand, selecteert u deze en selecteer **Open** en vervolgens **uploaden**.
 
@@ -210,7 +210,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
     **Voorbeeld:**
 
-    ![Bekijk het bericht in de logboeken.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Bekijk het bericht in de logboeken.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Een Azure Stack-storage-account maken
 
@@ -232,9 +232,9 @@ Gebruik de stappen en de instellingen die hierboven worden beschreven om te make
 
 4.  Selecteer **OK.**
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![Alternatieve tekst](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Een wachtrij geactiveerde functie maken
 
@@ -258,7 +258,7 @@ Gebruik de stappen en de instellingen die hierboven worden beschreven om te make
 
 3.  Vouw het opslagaccount, **Blob-containers**, en de blob u eerder hebt gemaakt. Selecteer **uploaden** en vervolgens **bestanden uploaden.**
 
-    ![Upload een bestand naar de blob-container.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Upload een bestand naar de blob-container.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Selecteer het veld bestanden in het dialoogvenster van de bestanden uploaden. Blader naar een bestand op een lokale computer, zoals een afbeeldingsbestand, selecteert u deze en selecteer **Open** en vervolgens **uploaden**.
 
@@ -266,7 +266,7 @@ Gebruik de stappen en de instellingen die hierboven worden beschreven om te make
 
   **Voorbeeld:**
 
-    ![Bekijk het bericht in de logboeken.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Bekijk het bericht in de logboeken.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Veilig opgeslagen en geopend compatibele gegevens
 

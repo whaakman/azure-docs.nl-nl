@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168260"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958407"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Gegevensoverdracht met het AzCopy-v10 (Preview)
 
@@ -84,6 +84,16 @@ Om te zien in de help-pagina en voorbeelden voor een specifieke opdracht de onde
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>Maken van een bestandssysteem (alleen in Azure Data Lake Storage Gen2)
+
+Als u al hiërarchische naamruimten ingeschakeld op uw blob storage-account, kunt u de volgende opdracht uit om te maken van een nieuwe bestandssysteem, zodat u kunt een downloadbestanden naar uploaden.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+De ``account`` deel van deze tekenreeks is de naam van uw storage-account. De ``top-level-resource-name`` deel van deze tekenreeks is de naam van het bestandssysteem dat u wilt maken.
+
 ## <a name="copy-data-to-azure-storage"></a>Gegevens kopiëren naar Azure Storage
 
 Gebruik de opdracht kopiëren om over te dragen gegevens van de bron naar de bestemming. De bron-/ doel mag a:
@@ -107,10 +117,22 @@ De volgende opdracht worden alle bestanden onder de map C:\local\path recursief 
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Als u al hiërarchische naamruimten ingeschakeld op uw blob storage-account, kunt u de volgende opdracht uit om bestanden te uploaden naar uw bestandssysteem:
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 De volgende opdracht worden alle bestanden onder de map C:\local\path (zonder recursing in de submappen) geüpload naar de container 'mycontainer1':
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Als u al hiërarchische naamruimten ingeschakeld op uw blob storage-account, kunt u de volgende opdracht uit:
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 Als u meer voorbeelden, gebruikt u de volgende opdracht uit:
@@ -127,6 +149,8 @@ Als u wilt kopiëren van gegevens tussen twee opslagaccounts, gebruik de volgend
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+Als u wilt werken met blob storage-accounts waarvoor hiërarchische ingeschakelde naamruimten, vervang de tekenreeks ``blob.core.windows.net`` met ``dfs.core.windows.net`` in deze voorbeelden.
 
 > [!NOTE]
 > De opdracht wordt het inventariseren van alle blob-containers en kopieer deze naar de doelaccount. Op dit moment ondersteunt AzCopy v10 alleen blok-blobs tussen twee opslagaccounts kopiëren. Alle andere storage-account-objecten (toevoeg-blobs, pagina-blobs, bestanden, tabellen en wachtrijen) wordt overgeslagen.
@@ -154,6 +178,8 @@ Op dezelfde manier kunt u een Blob-container naar een lokaal bestandssysteem syn
 ```
 
 De opdracht kunt u de bron naar de bestemming op basis van laatst gewijzigde tijdstempels incrementeel te synchroniseren. Als u toevoegen of verwijderen van een bestand in de bron, doet AzCopy v10 hetzelfde als in de bestemming.
+
+[!NOTE] Als u wilt werken met blob storage-accounts waarvoor hiërarchische ingeschakelde naamruimten, vervang de tekenreeks ``blob.core.windows.net`` met ``dfs.core.windows.net`` in deze voorbeelden.
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 

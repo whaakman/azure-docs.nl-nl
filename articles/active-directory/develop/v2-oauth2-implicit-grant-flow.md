@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424097"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962576"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 
@@ -36,7 +36,7 @@ Met het v2.0-eindpunt, kunt u gebruikers zich in uw apps met één pagina met zo
 
 Voor deze toepassingen (AngularJS, Ember.js, React.js, enzovoort), Azure Active Directory (Azure AD) biedt ondersteuning voor de impliciete toekenning van OAuth 2.0-stroom. De impliciete stroom wordt beschreven in de [OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749#section-4.2). Het belangrijkste voordeel is dat de app om op te halen van tokens van Azure AD zonder uit te voeren van een back-endserver uitwisseling van verificatiegegevens. Hiermee wordt de app te melden bij de gebruiker, sessie en het verkrijgen van tokens, voor andere web-API's in de client JavaScript-code. Er zijn enkele belangrijke beveiligingsoverwegingen rekening moet houden bij het gebruik van de impliciete stroom specifiek ongeveer [client](https://tools.ietf.org/html/rfc6749#section-10.3) en [gebruikersimitatie](https://tools.ietf.org/html/rfc6749#section-10.3).
 
-Als u de impliciete stroom en de Azure AD gebruiken wilt voor verificatie toevoegen aan uw JavaScript-app, raden we u de JavaScript-bibliotheek van open-source [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
+Als u de impliciete stroom en de Azure AD gebruiken wilt voor verificatie toevoegen aan uw JavaScript-app, raden we u de JavaScript-bibliotheek van open-source [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 Als u liever niet te gebruiken van een bibliotheek in uw app met één pagina en protocolberichten uzelf te sturen, volgt u de algemene stappen hieronder.
 
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Als u wilt testen met behulp van de impliciete flow aanmelden, klikt u op <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Na het aanmelden, moet uw browser worden omgeleid naar `https://localhost/myapp/` met een `id_token` in de adresbalk.
-> 
+>
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 34e6fb195ae64823336684e9ad2e9382316822b0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285740"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961066"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Importbeperkingen voor API- en bekende problemen
 ## <a name="about-this-list"></a>Over deze lijst
 Bij het importeren van een API, kan u gehoord enkele beperkingen of identificeren van problemen die worden verholpen moeten voordat u met succes kunt importeren. In dit artikel worden deze, onderverdeeld op basis van de indeling van het importeren van de API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Als u uw OpenAPI-document importeren fouten ontvangt, zorg ervoor dat u hebt het - met de ontwerpfunctie in Azure portal (ontwerp - Front-End - OpenAPI Specification Editor), gevalideerd of met een derde partij hulpprogramma zoals <a href="http://editor.swagger.io">Swagger Editor</a>.
+Als u uw OpenAPI-document importeren fouten ontvangt, zorg ervoor dat u hebt het - met de ontwerpfunctie in Azure portal (ontwerp - Front-End - OpenAPI Specification Editor), gevalideerd of met een derde partij hulpprogramma zoals <a href="https://editor.swagger.io">Swagger Editor</a>.
 
 * Alleen JSON-indeling voor OpenAPI wordt ondersteund.
 * Vereiste parameters voor het pad en de query moeten unieke namen hebben. (In de OpenAPI een parameternaam alleen moet uniek zijn binnen een locatie, zoals pad, query, -header.  In API Management kunnen we echter bewerkingen om te worden discriminated op pad en de query-parameters (die biedt geen ondersteuning voor OpenAPI). Daarom moeten parameternamen moeten uniek zijn binnen de volledige URL-sjabloon.)

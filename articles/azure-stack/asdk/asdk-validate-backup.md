@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 6fa3ba36dca45d5b99c6b5f2ba24367bcd077024
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028171"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961422"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>De ASDK gebruiken om te valideren van een back-up van Azure Stack
-Na het implementeren van Azure Stack en de inrichting van Gebruikersresources, zoals aanbiedingen, plannen, quota en abonnementen, moet u [back-up van Azure Stack-infrastructuur inschakelen](..\azure-stack-backup-enable-backup-console.md). Plannen en uitvoeren van back-ups regelmatig infrastructuur zorgt ervoor dat infrastructuur voor beheergegevens is niet verloren gaan als er een catastrofale hardware- of -fout-service.
+Na het implementeren van Azure Stack en de inrichting van Gebruikersresources, zoals aanbiedingen, plannen, quota en abonnementen, moet u [back-up van Azure Stack-infrastructuur inschakelen](../azure-stack-backup-enable-backup-console.md). Plannen en uitvoeren van back-ups regelmatig infrastructuur zorgt ervoor dat infrastructuur voor beheergegevens is niet verloren gaan als er een catastrofale hardware- of -fout-service.
 
 > [!TIP]
-> We raden u [uitvoeren van een on-demand back-up](..\azure-stack-backup-back-up-azure-stack.md) voordat u begint met deze procedure om te controleren of u hebt een kopie van de meest recente infrastrcuture gegevens beschikbaar. Zorg ervoor dat u het vastleggen van de back-up-ID nadat de back-up is voltooid. Deze ID is vereist tijdens het cloudherstel. 
+> We raden u [uitvoeren van een on-demand back-up](../azure-stack-backup-back-up-azure-stack.md) voordat u begint met deze procedure om te controleren of u hebt een kopie van de meest recente infrastrcuture gegevens beschikbaar. Zorg ervoor dat u het vastleggen van de back-up-ID nadat de back-up is voltooid. Deze ID is vereist tijdens het cloudherstel. 
 
 Back-ups van Azure Stack-infrastructuur bevatten belangrijke gegevens over uw cloud dat kan worden hersteld tijdens het opnieuw implementeren van Azure Stack. U kunt de ASDK gebruiken voor het valideren van deze back-ups zonder enige impact op uw productie-cloud. 
 

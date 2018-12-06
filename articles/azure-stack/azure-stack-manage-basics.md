@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254516"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972385"
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen voor het beheer van Azure Stack
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.
@@ -32,9 +32,9 @@ Als u een geïntegreerde Azure Stack-systeem, worden de bijgewerkte versies van 
  
 ### <a name="development-kit"></a>Development kit
 
-Als u de Azure Stack Development Kit, raadpleegt u de [wat is Azure Stack?](.\asdk\asdk-what-is.md) artikel om ervoor te zorgen dat u leert wat het doel van de development kit en de beperkingen. Als een "sandbox" waar u kunt Azure Stack, evalueren en ontwikkelt en test uw apps in een niet-productieomgeving moet u de development kit. (Zie voor informatie over de implementatie de [Azure Stack Development Kit implementatie](.\asdk\asdk-install.md) artikel.)
+Als u de Azure Stack Development Kit, raadpleegt u de [wat is Azure Stack?](./asdk/asdk-what-is.md) artikel om ervoor te zorgen dat u leert wat het doel van de development kit en de beperkingen. Als een "sandbox" waar u kunt Azure Stack, evalueren en ontwikkelt en test uw apps in een niet-productieomgeving moet u de development kit. (Zie voor informatie over de implementatie de [Azure Stack Development Kit implementatie](./asdk/asdk-install.md) artikel.)
 
-Zoals Azure innoveren we snel. We brengen regelmatig nieuwe builds. Als u de development kit uitvoert en u verplaatsen naar de nieuwste build wilt, moet u [Azure Stack opnieuw implementeren](.\asdk\asdk-redeploy.md). U kunt geen updatepakketten toepassen. Dit proces duurt, maar het voordeel is dat u de nieuwste functies kunt uitproberen. De documentatie development kit op onze website weerspiegelt de nieuwste release-build.
+Zoals Azure innoveren we snel. We brengen regelmatig nieuwe builds. Als u de development kit uitvoert en u verplaatsen naar de nieuwste build wilt, moet u [Azure Stack opnieuw implementeren](./asdk/asdk-redeploy.md). U kunt geen updatepakketten toepassen. Dit proces duurt, maar het voordeel is dat u de nieuwste functies kunt uitproberen. De documentatie development kit op onze website weerspiegelt de nieuwste release-build.
 
 ## <a name="learn-about-available-services"></a>Meer informatie over beschikbare services
 

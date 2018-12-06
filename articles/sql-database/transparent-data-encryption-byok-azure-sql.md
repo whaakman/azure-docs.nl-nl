@@ -11,19 +11,19 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 12/04/2018
+ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408222"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966769"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption: Bring Your Own Key-ondersteuning
 
-Bring Your Own Key (BYOK) ondersteuning voor [transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) kunt u voor het versleutelen van de Database Gegevensversleutelingsleutel (DEK) met een asymmetrische sleutel met de naam TDE-beveiliging.  De TDE-beveiliging worden opgeslagen onder het besturingselement in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), van het Azure-cloud-gebaseerde externe sleutelbeheersysteem. Azure Key Vault is de eerste service voor sleutelbeheer, waarbij TDE ondersteuning voor BYOK is geïntegreerd. De DEK TDE, die is opgeslagen op de opstartpagina van een database wordt versleuteld en ontsleuteld door de TDE-beveiliging. De TDE-beveiliging worden opgeslagen in Azure Key Vault en nooit verlaat de key vault. Als de server toegang tot de key vault is ingetrokken, kunnen een database kan niet worden ontsleuteld en lezen in het geheugen.  De TDE-beveiliging is ingesteld op het niveau van de logische server en wordt overgenomen door alle databases die zijn gekoppeld aan die server.
+Bring Your Own Key (BYOK) ondersteuning voor [transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) kunt u voor het versleutelen van de Database Gegevensversleutelingsleutel (DEK) met een asymmetrische sleutel met de naam TDE-beveiliging.  De TDE-beveiliging worden opgeslagen onder het besturingselement in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), van het Azure-cloud-gebaseerde externe sleutelbeheersysteem. Azure Key Vault is de eerste service voor sleutelbeheer, waarbij TDE ondersteuning voor BYOK is geïntegreerd. De DEK TDE, die is opgeslagen op de opstartpagina van een database wordt versleuteld en ontsleuteld door de TDE-beveiliging. De TDE-beveiliging worden opgeslagen in Azure Key Vault en nooit verlaat de key vault. Als de server toegang tot de key vault is ingetrokken, kunnen een database kan niet worden ontsleuteld en lezen in het geheugen. Voor Azure SQL Database, de TDE-beveiliging is ingesteld op het niveau van de logische server en wordt overgenomen door alle databases die zijn gekoppeld aan die server. Voor Azure SQL Managed Instance, de TDE-beveiliging is ingesteld op het instantieniveau en deze is overgenomen door alle *versleutelde* databases op dat exemplaar. De term *server* verwijst zowel naar de server en het exemplaar in dit document, tenzij anders vermeld.
 
-Met BYOK-ondersteuning, gebruikers kunnen nu essentiële beheertaken, met inbegrip van sleutelrotaties beheren, key vault-machtigingen, verwijderen van sleutels en inschakelen van controle/rapportage over alle TDE beveiligingstoepassingen met behulp van Azure Key Vault-functionaliteit. Key Vault biedt centraal beheer, maakt gebruik van nauw bewaakte hardware security modules (HSM's), en kunt scheiding van functies tussen het beheer van sleutels en gegevens om te voldoen aan regelgeving.  
+Met BYOK-ondersteuning, gebruikers essentiële beheertaken, met inbegrip van sleutelrotaties kunnen beheren, key vault-machtigingen, verwijderen van sleutels en Schakel controle/rapportage over alle TDE beveiligingstoepassingen met behulp van Azure Key Vault-functionaliteit. Key Vault biedt centraal beheer, maakt gebruik van nauw bewaakte hardware security modules (HSM's), en kunt scheiding van functies tussen het beheer van sleutels en gegevens om te voldoen aan regelgeving.  
 
 TDE met BYOK biedt de volgende voordelen:
 
@@ -43,34 +43,33 @@ TDE met BYOK biedt de volgende voordelen:
 Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key Vault, verzendt de server de DEK van elke database TDE is ingeschakeld voor Key Vault voor de aanvraag voor een wrap. Key Vault geeft als resultaat van de versleutelingssleutel versleutelde database die is opgeslagen in de database.  
 
 > [!IMPORTANT]
-> Het is belangrijk te weten dat **wanneer een TDE-beveiliging zijn opgeslagen in Azure Key Vault, de Azure Key Vault nooit verlaat**. De logische server alleen sleutelbewerking aanvragen verzenden naar de TDE-beveiliging-sleutelmateriaal in Key Vault en **nooit toegang heeft tot of de TDE-beveiliging in de cache opslaat**. De Key Vault-beheerder heeft het recht om in te trekken van Key Vault-machtigingen van de server op elk gewenst moment, in welk geval alle verbindingen met de server worden afgekapt.
+> Het is belangrijk te weten dat **wanneer een TDE-beveiliging zijn opgeslagen in Azure Key Vault, de Azure Key Vault nooit verlaat**. Kan de server alleen sleutelbewerking aanvragen verzenden naar de TDE-beveiliging-sleutelmateriaal in Key Vault en **nooit toegang heeft tot of de TDE-beveiliging in de cache opslaat**. De Key Vault-beheerder heeft het recht om in te trekken van Key Vault-machtigingen van de server op elk gewenst moment, in welk geval alle verbindingen met de server worden afgekapt.
 
 ## <a name="guidelines-for-configuring-tde-with-byok"></a>Richtlijnen voor het configureren van TDE met BYOK
 
 ### <a name="general-guidelines"></a>Algemene richtlijnen
 
-- Zorg ervoor dat Azure Key Vault en Azure SQL Database gebruikt gaan worden in dezelfde tenant.  Cross-tenant key vault en server interacties **worden niet ondersteund**.
+- Zorg ervoor dat Azure Key Vault en Azure SQL Database/MI gebruikt gaan worden in dezelfde tenant.  Cross-tenant key vault en server interacties **worden niet ondersteund**.
 - Bepaal welke abonnementen zijn die moet worden gebruikt voor de vereiste resources: het verplaatsen van dat de server voor abonnementen later een nieuwe installatie van TDE met BYOKs vereist. Meer informatie over [verplaatsen van resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - Bij het configureren van TDE met BYOK, is het belangrijk om te overwegen de belasting die door operations herhaalde verpakken/uitpakken van de key vault geplaatst. Bijvoorbeeld, omdat alle databases die zijn gekoppeld aan een logische server de dezelfde TDE-beveiliging gebruikt, wordt een failover van die server geactiveerd als er veel belangrijke bewerkingen op de kluis omdat er databases op de server zijn. Op basis van onze ervaring en gedocumenteerd [key vault-Servicelimieten](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), het is raadzaam het koppelen van maximaal 500 Standard / algemeen gebruik of 200 Premium / bedrijfskritieke databases met een Azure Key Vault in één abonnement om ervoor te zorgen consistent hoge beschikbaarheid bij toegang tot de TDE-beveiliging in de kluis.
 - Aanbevolen: Bewaar een kopie van de TDE-beveiliging on-premises.  Hiervoor hebt u een HSM-apparaat om te maken van lokaal een TDE-beveiliging en een systeem sleutelbewaring door derden voor het opslaan van een lokale kopie van de TDE-beveiliging.  Informatie over [over te dragen van een sleutel uit een lokale HSM naar Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Richtlijnen voor het configureren van Azure Key Vault
 
-- Maak een key vault met [voorlopig verwijderen](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ingeschakeld om te beschermen tegen gegevensverlies in geval van per ongeluk sleutel – of sleutelkluis – verwijderen van gegevens.  U moet gebruiken [PowerShell om in te schakelen van de eigenschap 'voorlopig verwijderen'](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) voor de sleutelkluis (deze optie is niet beschikbaar is via de Portal voor Azure Sleutelkluis nog –, maar door SQL vereist):  
+- Maak een key vault met [voorlopig verwijderen](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ingeschakeld om te beschermen tegen gegevensverlies in geval van per ongeluk sleutel – of sleutelkluis – verwijderen van gegevens.  U moet gebruiken [PowerShell om in te schakelen van de eigenschap 'voorlopig verwijderen'](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) voor de sleutelkluis (deze optie is niet beschikbaar is via de Portal voor Azure Sleutelkluis nog –, maar vereist voor Azure SQL):  
   - Voorlopig verwijderde bronnen worden gedurende een ingestelde periode van 90 dagen tijd bewaard, tenzij ze zijn hersteld of verwijderd.
   - De **herstellen** en **opschonen** acties hebben hun eigen machtigingen die zijn gekoppeld in een toegangsbeleid voor key vault.
 - Stel een resourcevergrendeling voor de sleutelkluis om te bepalen wie kan deze kritieke resource verwijdert en helpen om te voorkomen dat per ongeluk of niet-geautoriseerde wordt verwijderd.  [Meer informatie over de resource wordt vergrendeld](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- De logische servertoegang verlenen tot de key vault met behulp van de identiteit van de Azure Active Directory (Azure AD).  Wanneer u de Portal-gebruikersinterface, de Azure AD-identiteit automatisch wordt gemaakt en de key vault-machtigingen zijn verleend aan de server.  Met behulp van PowerShell TDE met BYOK te configureren, de Azure AD-identiteit moet worden gemaakt en voltooiing moet worden gecontroleerd. Zie [TDE configureren met BYOK](transparent-data-encryption-byok-azure-sql-configure.md) voor gedetailleerde stapsgewijze instructies bij het gebruik van PowerShell.
+- De logische servertoegang verlenen tot de key vault met behulp van de identiteit van de Azure Active Directory (Azure AD).  Wanneer u de Portal-gebruikersinterface, de Azure AD-identiteit automatisch wordt gemaakt en de key vault-machtigingen zijn verleend aan de server.  Met behulp van PowerShell TDE met BYOK te configureren, de Azure AD-identiteit moet worden gemaakt en voltooiing moet worden gecontroleerd. Zie [TDE configureren met BYOK](transparent-data-encryption-byok-azure-sql-configure.md) en [TDE configureren met BYOK voor beheerd exemplaar](http://aka.ms/sqlmibyoktdepowershell) voor gedetailleerde stapsgewijze instructies bij het gebruik van PowerShell.
 
   > [!NOTE]
   > Als de Azure AD Identity **per ongeluk is verwijderd of de machtigingen van de server worden ingetrokken** met behulp van de key vault-toegangsbeleid, de server verliest de toegang tot de key vault en TDE versleuteld databases binnen 24 uur zijn verwijderd.
 
-- Als u firewalls en virtuele netwerken voor Azure Key Vault, moet u het volgende configureren: 
-  - Vertrouwde Microsoft-services om over te slaan van de firewall toestaan: Ja gekozen 
-         
-    > [!NOTE] 
-    > Als TDE versleuteld SQL-databases geen toegang meer tot de key vault omdat ze de firewall niet overslaan, de databases binnen 24 uur zijn verwijderd.
+- Als u firewalls en virtuele netwerken voor Azure Key Vault, moet u het volgende configureren: - de vertrouwde Microsoft-services om over te slaan van de firewall toestaan: Ja gekozen
+
+ > [!NOTE]
+ > Als TDE versleuteld SQL-databases geen toegang meer tot de key vault omdat ze de firewall niet overslaan, de databases binnen 24 uur zijn verwijderd.
 
 - Controle en rapportage van alle versleutelingssleutels inschakelen: Key Vault biedt u logboeken die gemakkelijk zijn te injecteren in andere security information en event management (SIEM) hulpprogramma's. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is een voorbeeld van een service die al is geïntegreerd.
 - Om hoge beschikbaarheid van de versleutelde databases te garanderen, configureert u elke logische server met twee Sleutelkluizen van Azure die zich in verschillende regio's bevinden.

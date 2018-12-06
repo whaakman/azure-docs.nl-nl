@@ -1,6 +1,6 @@
 ---
-title: Het beheren van gelijktijdige schrijft naar resources in Azure Search
-description: Optimistische gelijktijdigheid gebruiken om te voorkomen dat Force Feedback conflicten op updates of verwijderingen aan de Azure Search indexen, Indexeerfuncties en gegevensbronnen.
+title: Gelijktijdige schrijfbewerkingen naar resources in Azure Search beheren
+description: Optimistische gelijktijdige uitvoering gebruiken om te voorkomen dat halverwege lucht conflicten op updates of verwijderingen aan Azure Search-indexen, Indexeerfuncties en gegevensbronnen.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,43 +8,43 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: f5fa495c1266c847cabc0eb4e35b85132550bc3c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 764c39b6619f42c5b765d53af4cbfbe43f1d8799
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796377"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967494"
 ---
-# <a name="how-to-manage-concurrency-in-azure-search"></a>Het beheren van gelijktijdigheid van taken in Azure Search
+# <a name="how-to-manage-concurrency-in-azure-search"></a>Gelijktijdigheid van taken in Azure Search beheren
 
-Bij het beheren van Azure Search-resources, zoals indexen en gegevensbronnen, is het belangrijk om bij te werken bronnen veilig, vooral als bronnen gelijktijdig door verschillende onderdelen van uw toepassing worden geopend. Wanneer twee clients gelijktijdig een resource zijn zonder coördinatie bijwerkt, zijn racetoestanden mogelijk. Om dit te voorkomen, Azure Search biedt een *optimistische gelijktijdigheidsmodel*. Er zijn geen vergrendelingen voor een bron. Er is in plaats daarvan een ETag voor elke bron die u de resourceversie, identificeert zodat u kunt aanvragen dat per ongeluk voorkomen opgesteld worden overschreven.
+Bij het beheren van Azure Search-resources zoals indexen en gegevensbronnen, is het belangrijk om bij te werken resources veilig, met name als resources gelijktijdig worden gebruikt door verschillende onderdelen van uw toepassing. Wanneer twee clients gelijktijdig een resource zonder coördinatie bijwerkt, zijn racevoorwaarden mogelijk. Om dit te voorkomen, Azure Search biedt een *optimistische gelijktijdigheidsmodel*. Er zijn geen vergrendelingen op een resource. Er is in plaats daarvan een ETag voor elke resource waarmee de resourceversie, zodat u ze kunt moesten maken aanvragen die voorkomen per ongeluk dat worden overschreven.
 
 > [!Tip]
-> Conceptuele code in een [C#-oplossing steekproef](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) wordt uitgelegd hoe gelijktijdigheidbeheer werkt in Azure Search. De code maakt voorwaarden die gelijktijdigheidbeheer aanroepen. Lezen van de [onderstaande codefragment](#samplecode) is waarschijnlijk voldoende voor de meeste ontwikkelaars, maar als u wilt uitvoeren, bewerken appsettings.json als de servicenaam en een admin api-sleutel wilt toevoegen. Een service-URL van de opgegeven `http://myservice.search.windows.net`, de servicenaam is `myservice`.
+> Conceptuele code in een [voorbeeld C# oplossing](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) wordt uitgelegd hoe gelijktijdigheidsbeheer werkt in Azure Search. De code maakt voorwaarden waarmee u gelijktijdigheidsbeheer kunt aanroepen. Lezen van de [codefragment hieronder](#samplecode) is waarschijnlijk voldoende voor de meeste ontwikkelaars, maar als u wilt uitvoeren, bewerken appsettings.json als naam van de service en een admin api-sleutel wilt toevoegen. Een service-URL van de opgegeven `http://myservice.search.windows.net`, de servicenaam van de is `myservice`.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Optimistische gelijktijdigheid van taken is geïmplementeerd via access voorwaarde controleert in API-aanroepen schrijven naar indexen, indexeerfuncties gegevensbronnen en synonymMap resources. 
+Optimistische gelijktijdigheid wordt geïmplementeerd via access voorwaarde controleert in API-aanroepen naar indexen, indexeerfuncties, gegevensbronnen en synonymmap, die vervolgens resources schrijven. 
 
-Alle resources hebben een [ *entiteitscode (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) waarmee object versie-informatie. De ETag eerst inschakelt, kunt u voorkomen dat gelijktijdige wijzigingen in een typische werkstroom (ophalen, lokaal wijzigen, bijwerken) door ervoor te zorgen ETag komt overeen met de bron van de lokale kopie. 
+Alle resources hebben een [ *entity-tag (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) waarmee de object-versie-informatie. De ETag die is eerst inschakelt, kunt u voorkomen dat gelijktijdige updates in een werkstroom (get, lokaal wijzigen, bijwerken) door ervoor te zorgen dat de resource ETag komt overeen met de lokale kopie. 
 
-+ De REST-API maakt gebruikt een [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) op de aanvraagheader.
-+ De .NET SDK stelt de ETag via een accessCondition-object, instellen van de [If-Match | De header If-Match-geen](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) op de bron. Een object dat is overgenomen van [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) heeft een accessCondition-object.
++ De REST-API maakt gebruik van een [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) in de aanvraagheader.
++ De .NET SDK stelt de ETag via een accessCondition-object, instellen van de [If-Match | De header If-Match-geen](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) op de resource. Een object overnemen van [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) een accessCondition-object.
 
-Telkens wanneer u een resource bijwerkt, wordt de ETag automatisch gewijzigd. Wanneer u gelijktijdigheid management implementeert, wordt u alleen een voorwaarde plaatsen op de updateaanvraag die de externe bron hebben de dezelfde ETag als kopie van de resource die u hebt gewijzigd op de client vereist. Als een gelijktijdige proces al de externe bron is gewijzigd, wordt de ETag niet overeenkomt met de voorwaarde en de aanvraag mislukt met HTTP 412. Als u de .NET SDK, dit zich voordoet als een `CloudException` waar de `IsAccessConditionFailed()` uitbreidingsmethode ' true ' geretourneerd.
+Telkens wanneer u een resource bijwerkt, wordt automatisch de ETag gewijzigd. Wanneer u gelijktijdigheidsbeheer implementeert, zich staat u alleen een voorwaarde in de updateaanvraag die de externe resource toe aan de ETag die hetzelfde is als de kopie van de resource die u hebt gewijzigd op de client zijn vereist. Als de externe resource al is gewijzigd in een gelijktijdige proces, de ETag niet overeenkomen met de voorwaarde en de aanvraag mislukken met HTTP 412. Als u de .NET SDK, dit zich voordoet als een `CloudException` waar de `IsAccessConditionFailed()` uitbreidingsmethode retourneert ' True '.
 
 > [!Note]
-> Er is slechts één mechanisme voor gelijktijdigheid van taken. Het wordt altijd gebruikt ongeacht welke API wordt gebruikt voor updates van de resource. 
+> Er is slechts één mechanisme voor gelijktijdigheid van taken. Het wordt altijd gebruikt, ongeacht welke API wordt gebruikt voor updates van de resource. 
 
 <a name="samplecode"></a>
-## <a name="use-cases-and-sample-code"></a>Gebruiksvoorbeelden en voorbeeldcode
+## <a name="use-cases-and-sample-code"></a>Use cases en voorbeeldcode
 
-De volgende code toont de belangrijkste updatebewerkingen accessCondition controleert:
+De volgende code ziet u accessCondition controleert op belangrijke update-bewerkingen:
 
-+ Een update mislukken als de bron niet meer bestaat
++ Een update mislukt als de resource niet meer bestaat
 + Een update mislukt als de resourceversie wordt gewijzigd
 
-### <a name="sample-code-from-dotnetetagsexplainer-programhttpsgithubcomazure-samplessearch-dotnet-getting-startedtreemasterdotnetetagsexplainer"></a>Voorbeeldcode uit [DotNetETagsExplainer programma](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
+### <a name="sample-code-from-dotnetetagsexplainer-programhttpsgithubcomazure-samplessearch-dotnet-getting-startedtreemasterdotnetetagsexplainer"></a>Voorbeeldcode van [DotNetETagsExplainer programma](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
 
 ```
     class Program
@@ -165,13 +165,13 @@ De volgende code toont de belangrijkste updatebewerkingen accessCondition contro
 }
 ```
 
-## <a name="design-pattern"></a>Ontwerp
+## <a name="design-pattern"></a>ontwerppatroon
 
-Een ontwerppatroon voor de uitvoering van optimistische gelijktijdigheid bevatten een lus die probeert de voorwaarde voor toegang opnieuw controleren, een test voor de voorwaarde voor toegang en eventueel een bijgewerkte resource haalt voordat u de wijzigingen opnieuw toepassen. 
+Een ontwerppatroon voor het implementeren van optimistische gelijktijdigheid bevatten een lus die pogingen van de voorwaarde toegang controleren, een test voor de voorwaarde toegang en eventueel een bijgewerkte resource opgehaald voordat u de wijzigingen opnieuw toepassen. 
 
-Dit codefragment ziet u de toevoeging van een synonymMap naar een index die al bestaat. Deze code is van de [synoniem (preview) C#-zelfstudie voor Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
+Dit codefragment ziet u het toevoegen van een synonymmap, die vervolgens naar een index die al bestaat. Deze code is afkomstig van de [synoniem (preview) C# zelfstudie voor Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
 
-Het fragment opgehaald van de index "hotels", controleert de Objectversie van het op een updatebewerking, er een uitzondering gegenereerd als de voorwaarde is mislukt, en vervolgens probeert om opnieuw de bewerking (maximaal drie keer), beginnen met een index voor het ophalen van de server naar de nieuwste versie.
+Het codefragment wordt de index "hotels", controleert de Objectversie voor een updatebewerking, een uitzondering genereert als de voorwaarde is mislukt, en vervolgens probeert om opnieuw de bewerking (maximaal drie keer), beginnen met het ophalen van de index van de server naar de meest recente versie.
 
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
@@ -207,14 +207,14 @@ Het fragment opgehaald van de index "hotels", controleert de Objectversie van he
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Controleer de [synoniemen C#-voorbeeld](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) voor meer context voor het veilig bijwerken van een bestaande index.
+Controleer de [synoniemen C# voorbeeld](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) voor meer context over het veilig bijwerken van een bestaande index.
 
 Probeer een van de volgende voorbeelden om op te nemen ETags of AccessCondition objecten wijzigen.
 
 + [REST-API-voorbeeld op Github](https://github.com/Azure-Samples/search-rest-api-getting-started) 
-+ [Voorbeeld van de .NET SDK op Github](https://github.com/Azure-Samples/search-dotnet-getting-started). Deze oplossing bevat de 'DotNetEtagsExplainer'-project met de code in dit artikel.
++ [SDK voor .NET-voorbeeld op Github](https://github.com/Azure-Samples/search-dotnet-getting-started). Deze oplossing omvat het 'DotNetEtagsExplainer'-project met de code die in dit artikel worden gepresenteerd.
 
 ## <a name="see-also"></a>Zie ook
 
-  [Veelvoorkomende HTTP-headers voor aanvraag en -antwoord](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
-  [HTTP-statuscodes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) [Index-bewerkingen (REST-API)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)
+  [Veelvoorkomende HTTP-aanvraag- en reactieheaders](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
+  [HTTP-statuscodes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) [Index-bewerkingen (REST-API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

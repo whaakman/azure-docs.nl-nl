@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8020db5f099f0d2c3dc8203f2d4afeea6a38cb41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 52657ae18b6fd06408887df82bd822eb2ff8fffe
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964353"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure
 
@@ -170,6 +170,9 @@ VM-type | Generatie 1<br/><br/> Generatie 2--Windows | Virtuele machines van gen
 --- | --- | ---
 Kluis verplaatsen tussen resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee | Nee
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee | Nee
+
+> [!NOTE]
+> Bij het repliceren van Hyper-VM's (beheerd met of zonder SCVMM) van on-premises naar Azure, kunt u repliceren naar slechts één AD-tenant van de ene specifieke omgeving - Hyper-V-site of SCVMM zoals van toepassing.
 
 
 ## <a name="provider-and-agent"></a>Provider en agent

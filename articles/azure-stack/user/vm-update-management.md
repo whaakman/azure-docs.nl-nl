@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: 1ef20dc35b069c5f12c2f31d0979949be27271e0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324162"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959169"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack-VM bijwerken en beheren
 U kunt de volgende functies van Azure Automation-oplossing voor het beheren van Windows-VM's die zijn geïmplementeerd met behulp van Azure Stack:
@@ -41,7 +41,7 @@ Verschillende vereisten moeten worden voldaan voordat u deze functies voor het b
 Voor het gebruik van de voorraad, wijzigingen bijhouden en Update Management Azure automation-functies voor Azure Stack Windows VM's, moet u eerst om in te schakelen van deze oplossingen in Azure.
 
 > [!TIP]
-> Als u al deze functies ingeschakeld voor Azure-VM's hebt, kunt u de referenties van uw bestaande LogAnalytics werkruimte. Als u al hebt een LogAnalytics WorkspaceID en primaire sleutel die u wilt gebruiken, gaat u verder met [de volgende sectie](.\vm-update-management.md#in-the-azure-stack-administration-portal). Anders gaat u door in deze sectie om een nieuwe LogAnalytics en een automation-account te maken.
+> Als u al deze functies ingeschakeld voor Azure-VM's hebt, kunt u de referenties van uw bestaande LogAnalytics werkruimte. Als u al hebt een LogAnalytics WorkspaceID en primaire sleutel die u wilt gebruiken, gaat u verder met [de volgende sectie](./vm-update-management.md#in-the-azure-stack-administration-portal). Anders gaat u door in deze sectie om een nieuwe LogAnalytics en een automation-account te maken.
 
 De eerste stap bij het inschakelen van deze oplossingen is het [maken van een werkruimte LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) in uw Azure-abonnement. Een Log Analytics-werkruimte is een unieke Log Analytics-omgeving met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. Als u een werkruimte hebt gemaakt, noteert u de werkruimte-id en de sleutel. Als u wilt deze informatie te bekijken, gaat u naar de blade van de werkruimte, klikt u op **geavanceerde instellingen**, en bekijk de **werkruimte-ID** en **primaire sleutel** waarden. 
 

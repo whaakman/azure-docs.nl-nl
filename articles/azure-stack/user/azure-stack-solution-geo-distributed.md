@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877663"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965390"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
@@ -114,17 +114,17 @@ Hybride CI/CD naar Web-App implementeren in Azure en Azure Stack en breng wijzig
 
     Hybride continue integratie/continue levering (CI/CD) kunt toepassen op zowel de toepassingscode als de infrastructuurcode. Gebruik [Azure Resource Manager-sjablonen](https://azure.microsoft.com/resources/templates/) voor beide particuliere en gehoste cloudontwikkeling.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image1.JPG)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image1.JPG)
 
 2. **Kloon de opslagplaats** door het maken en de standaard web-app te openen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image2.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image2.png)
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Implementatie van web-app maken in beide clouds
 
 1.  Bewerk de **WebApplication.csproj** bestand: Selecteer **Runtimeidentifier** en toe te voegen **win10 x64**. (Zie [Self-contained implementatie](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentatie.)
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image3.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image3.png)
 
 1.  **Controleer in de code voor het Azure-opslagplaatsen** met Team Explorer.
 
@@ -136,7 +136,7 @@ Hybride CI/CD naar Web-App implementeren in Azure en Azure Stack en breng wijzig
 
 2. Voeg **win10 - r-x64** code. Dit is nodig voor het activeren van een onafhankelijke implementatie met .net Core.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image4.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image4.png)
 
 3. **Uitvoeren van de build**. De [onafhankelijke implementatie build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) proces artefacten die kunnen worden uitgevoerd op Azure en Azure Stack zal publiceren.
 
@@ -151,87 +151,87 @@ Azure DevOps en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden g
 #### <a name="create-release-definition"></a>Release-definitie maken
 
 
-![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image5.png)
+![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image5.png)
 
 1.  Selecteer de **plus** om toe te voegen een nieuwe versie onder de **Releases tabblad** op de pagina Build en versie van Visual Studio Online (VSO).
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image6.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Van toepassing de **Azure App Service-implementatie** sjabloon.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image7.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image7.png)
 
 3. Onder toevoegen artefact vervolgkeuzelijst, **toevoegen van het artefact** voor de Azure-Cloud-app bouwen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image8.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image8.png)
 
 4. Selecteer onder pijplijntabblad, de **fase, taak** koppelen van de omgeving en de Azure-cloud Omgevingswaarden instellen.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image9.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image9.png)
 
 5. Stel de **omgevingsnaam** en selecteer Azure **abonnement** voor het Azure-Cloud-eindpunt.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image10.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image10.png)
 
 6. Onder de naam van de omgeving, stelt u de vereiste **Azure app service-naam**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image11.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image11.png)
 
 7. Voer **VS2017 gehost** onder wachtrij van de Agent voor Azure in de cloud gehoste omgeving.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image12.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image12.png)
 
 8. Selecteer in Azure App Service implementeren in het menu geldig **pakket of de map** voor de omgeving. Klik op OK om te **maplocatie**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image13.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image13.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image14.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image14.png)
 
 9. Sla alle wijzigingen op en gaat u terug naar **release-pijplijn**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image15.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image15.png)
 
 10. Voeg een **nieuwe artefact** selecteren van de build voor de Azure Stack-app.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image16.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image16.png)
 
 11. Toevoegen van een meer omgeving toepassen van de **Azure App Service-implementatie.**
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image17.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image17.png)
 
 12. Naam van de nieuwe omgeving **Azure Stack.**
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image18.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image18.png)
 
 13. Zoek de Azure Stack-omgeving onder **taak** tabblad.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image19.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image19.png)
 
 14. Selecteer de **abonnement** voor het eindpunt van de Azure Stack.
 
-  ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image20.png)
+  ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Stel de naam van Azure Stack-web-app als de **App service-naam**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image21.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image21.png)
 
 16. Selecteer de **Azure Stack-agent**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image22.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image22.png)
 
 17. Selecteer sectie onder de implementatie van Azure App Service de geldige **pakket of de map** voor de omgeving. Klik op OK om te **maplocatie**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image23.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image23.png)
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image24.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image24.png)
 
 18. Onder **variabele** tabblad toevoegen in een variabele met de naam `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, stel de waarde als `true`, en het bereik instellen op `Azure Stack`.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image25.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image25.png)
 
 19. Selecteer de **doorlopend** pictogram van de implementatie-trigger in zowel artefacten en schakelt u de **gaat door met het** trigger voor implementatie.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image26.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image26.png)
 
 20. Selecteer de **vóór de implementatie** voorwaarden-pictogram in de Azure Stack-omgeving en stelt u de trigger op **na de release.**
 
@@ -244,7 +244,7 @@ Azure DevOps en Azure DevOps-Server bieden een pijplijn maximaal kunnen worden g
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. 
 
-![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image27.png)
+![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
@@ -296,7 +296,7 @@ Pagina DNS-records kan worden weergegeven in **My domains**. De koppeling met de
 
 In de schermafbeelding hieronder wordt een voorbeeld van een pagina met DNS-records weergegeven:
 
-![Voorbeeld van een pagina met DNS-records](media\azure-stack-solution-geo-distributed\image28.png)
+![Voorbeeld van een pagina met DNS-records](media/azure-stack-solution-geo-distributed/image28.png)
 
 1.  Selecteer in de Domeinnaamregistrar, **toevoegen of maken** om een record te maken. Sommige providers hebben afzonderlijke links voor verschillende typen records. Raadpleeg de documentatie van de provider.
 
@@ -306,7 +306,7 @@ In de schermafbeelding hieronder wordt een voorbeeld van een pagina met DNS-reco
 
 Nadat de CNAME zijn toegevoegd, lijkt de pagina met DNS-records in het volgende voorbeeld:
 
-![Navigatie naar Azure-app in de portal](media\azure-stack-solution-geo-distributed\image29.png)
+![Navigatie naar Azure-app in de portal](media/azure-stack-solution-geo-distributed/image29.png)
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>De toewijzing van het CNAME-record in Azure inschakelen
 
@@ -348,9 +348,9 @@ Nadat de CNAME zijn toegevoegd, lijkt de pagina met DNS-records in het volgende 
 
   Het duurt even voordat de nieuwe hostnamen worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor om de gegevens bij te werken.
   
-  ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image31.png) 
+  ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  In het geval van een fout wordt een verificatie-foutmelding aan de onderkant van de pagina weergegeven. ![Verificatiefout](media\azure-stack-solution-geo-distributed\image32.png)
+  In het geval van een fout wordt een verificatie-foutmelding aan de onderkant van de pagina weergegeven. ![Verificatiefout](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  De bovenstaande stappen mogen worden herhaald om toe te wijzen een wildcard-domein (\*. northwindcloud.com)... Hiermee wordt het toevoegen van extra subdomeinen toe die aan deze appservice zonder te hoeven maken van een afzonderlijke CNAME-record voor elk criterium. De registrar instructies om deze instelling te configureren.
@@ -404,17 +404,17 @@ Een aangepast SSL-certificaat binden aan de web-app, de [App Service-plan](https
 
 2.  Selecteer in het menu links **App Services**, en selecteer vervolgens de naam van de web-app.
 
-![Selecteer de web-app](media\azure-stack-solution-geo-distributed\image33.png)
+![Selecteer de web-app](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>Controleer de prijscategorie
 
 1.  Schuif in de navigatiebalk links van de web-app-pagina naar de **instellingen** sectie en selecteer **opschalen (App Service-plan)**.
 
-    ![Menu Opschalen](media\azure-stack-solution-geo-distributed\image34.png)
+    ![Menu Opschalen](media/azure-stack-solution-geo-distributed/image34.png)
 
 1.  Zorg ervoor dat de web-app zich niet in de **gratis** of **gedeelde** laag. De huidige laag van de web-app wordt gemarkeerd in een donkerblauw vak.
 
-    ![Controleer prijscategorie](media\azure-stack-solution-geo-distributed\image35.png)
+    ![Controleer prijscategorie](media/azure-stack-solution-geo-distributed/image35.png)
 
 Aangepaste SSL wordt niet ondersteund in de categorie **Gratis** of **Gedeeld**. Zo, volg de stappen in de volgende sectie, of **uw prijscategorie kiezen** pagina en gaat u naar [uploaden en uw SSL-certificaat binden](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
@@ -424,11 +424,11 @@ Aangepaste SSL wordt niet ondersteund in de categorie **Gratis** of **Gedeeld**.
 
 2.  Selecteer **Selecteer**.
 
-![Prijscategorie kiezen](media\azure-stack-solution-geo-distributed\image36.png)
+![Prijscategorie kiezen](media/azure-stack-solution-geo-distributed/image36.png)
 
 De schaalbewerking is voltooid wanneer de melding wordt weergegeven.
 
-![Melding voor omhoog schalen](media\azure-stack-solution-geo-distributed\image37.png)
+![Melding voor omhoog schalen](media/azure-stack-solution-geo-distributed/image37.png)
 
 #### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>Uw SSL-certificaat binden en tussenliggende certificaten samenvoegen
 
@@ -491,11 +491,11 @@ Als IIS of **Certreq.exe** worden gebruikt voor het genereren van de certificaat
 
 5.  Selecteer **Uploaden**.
 
-![Certificaat uploaden](media\azure-stack-solution-geo-distributed\image38.png)
+![Certificaat uploaden](media/azure-stack-solution-geo-distributed/image38.png)
 
 Wanneer App Service klaar is met uploaden van het certificaat, wordt deze weergegeven de **SSL-instellingen** pagina.
 
-![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image39.png)
+![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Uw SSL-certificaat binden
 
@@ -514,11 +514,11 @@ Wanneer App Service klaar is met uploaden van het certificaat, wordt deze weerge
 
     1.  Selecteer **Binding toevoegen**.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image40.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image40.png)
 
 Wanneer App Service klaar is met uploaden van het certificaat, wordt deze weergegeven de **SSL-bindingen** secties.
 
-![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image41.png)
+![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>Opnieuw toewijzen van de A-record voor IP SSL
 
@@ -534,7 +534,7 @@ De **aangepast domein** pagina wordt bijgewerkt met de nieuwe, specifieke IP-adr
 
 Blader naar https://<your.custom.domain>to in verschillende browsers, zorg ervoor dat het web Azië en Stille Oceaan wordt geleverd.
 
-![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image42.png)
+![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
 > Als er validatie certificaatfouten optreden, een zelfondertekend certificaat mogelijk de oorzaak of tussenliggende certificaten mogelijk hebben is afgebroken bij het exporteren van het PFX-bestand.
@@ -545,7 +545,7 @@ Standaard kan iedereen toegang tot de web-app met behulp van HTTP. alle HTTP-ver
 
 Selecteer in de web-app-pagina **SL-instellingen**. Klik op **Alleen HTTPS** en selecteer **Aan**.
 
-![HTTPS afdwingen](media\azure-stack-solution-geo-distributed\image43.png)
+![HTTPS afdwingen](media/azure-stack-solution-geo-distributed/image43.png)
 
 Wanneer de bewerking is voltooid, gaat u naar een van de HTTP-URL's die naar de app verwijzen. Bijvoorbeeld:
 
@@ -561,7 +561,7 @@ De app kunnen [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 sta
 
 2.  In **TLS-versie**, selecteert u de minimale TLS-versie.
 
-![TLS 1.1 of 1.2 afdwingen](media\azure-stack-solution-geo-distributed\image44.png)
+![TLS 1.1 of 1.2 afdwingen](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>Een Traffic Manager-profiel maken
 
@@ -583,7 +583,7 @@ De app kunnen [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 sta
 
     7.  Wanneer de algemene implementatie van Traffic Manager-profiel voltooid is, wordt deze weergegeven in de bijbehorende resourcegroep als een van de resources.
 
-    ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image45.png)
+    ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager-eindpunten toevoegen
 
@@ -632,7 +632,7 @@ De app kunnen [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 sta
 
 1.  Als beide eindpunten zijn toegevoegd, worden ze weergegeven in **Traffic Manager-profiel**, samen met de controlestatus **Online**.
 
-  ![Alternatieve tekst](media\azure-stack-solution-geo-distributed\image46.png)
+  ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Wereldwijd opererende onderneming is afhankelijk van de mogelijkheden van Azure Geo-distributie**
 

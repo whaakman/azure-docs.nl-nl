@@ -7,31 +7,33 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 05a364cc66d18909c7833138d351dc02bace32c2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: c71d7de2ac036fe47253be08bb0b1e01e9e76701
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822106"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957211"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Ondersteuning voor containers in Azure Cognitive Services
 
-Ondersteuning voor containers in Azure Cognitive Services kunnen ontwikkelaars gebruikmaken van de dezelfde uitgebreide API's die beschikbaar in Azure zijn en flexibiliteit kunt waar u wilt implementeren en te hosten van de services die worden geleverd met [Docker-containers](https://www.docker.com/what-container). Ondersteuning voor containers is momenteel beschikbaar in Preview-versie voor een subset van Azure Cognitive Services, met inbegrip van onderdelen van [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), en [Tekstanalyse](text-analytics/overview.md).
+Ondersteuning voor containers in Azure Cognitive Services kunnen ontwikkelaars gebruikmaken van de dezelfde uitgebreide API's die beschikbaar in Azure zijn en flexibiliteit kunt waar u wilt implementeren en te hosten van de services die worden geleverd met [Docker-containers](https://www.docker.com/what-container). Ondersteuning voor containers is momenteel beschikbaar in Preview-versie voor een subset van Azure Cognitive Services, met inbegrip van onderdelen van [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Tekstanalyse](text-analytics/overview.md), en [ Language Understanding](LUIS/luis-container-howto.md) (LUIS).
 
 Containerstrategie is een benadering voor softwaredistributie waarin een toepassing of service, inclusief de afhankelijkheden en de configuratie wordt geleverd samen als een containerinstallatiekopie. Met weinig of geen wijziging, kan de installatiekopie van een container worden geïmplementeerd op een containerhost. Containers zijn geïsoleerd van elkaar worden verbonden en het onderliggende besturingssysteem, met een kleinere footprint dan een virtuele machine. Containers kunnen worden geïnstantieerd van containerinstallatiekopieën voor taken op korte termijn en verwijderd wanneer het niet meer nodig hebt.
 
-Bekijk deze [korte video](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services) voor een demonstratie.
+De volgende video ziet u met behulp van een Cognitive Services-container.
 
-De [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), en [Tekstanalyse](text-analytics/overview.md) services zijn beschikbaar op [Microsoft Azure](https://azure.microsoft.com). Meld u aan bij de [Azure-portal](https://portal.azure.com/) maken en verken Azure-resources voor deze services.
+[![Demonstratie van de container voor Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
+
+De [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Tekstanalyse](text-analytics/overview.md), en [Language Understanding (LUIS)](LUIS/what-is-luis.md) services zijn beschikbaar op [Microsoft Azure](https://azure.microsoft.com). Meld u aan bij de [Azure-portal](https://portal.azure.com/) maken en verken Azure-resources voor deze services.
 
 ## <a name="features-and-benefits"></a>Functies en voordelen
 
-- **Controle over gegevens**: kunnen klanten Cognitive Services gebruiken met volledige controle over hun gegevens.  Dit is essentieel voor klanten die gegevens verzenden naar de cloud, kunnen niet, maar toegang nodig tot Cognitive Services-technologie. Ondersteuning voor consistentie in hybride omgevingen: alle gegevens, beheer, identiteit en beveiliging.
+- **Controle over gegevens**: zodat klanten waar deze Cognitive Services hun gegevens verwerken.  Dit is essentieel voor klanten die gegevens verzenden naar de cloud, kunnen niet, maar toegang nodig tot Cognitive Services-technologie. Ondersteuning voor consistentie in hybride omgevingen: alle gegevens, beheer, identiteit en beveiliging.
 - **Controle over gegevensmodellen kunnen bijwerken**: bieden klanten flexibiliteit in versiebeheer en bijwerken van modellen die zijn geïmplementeerd in hun oplossingen.
-- **Draagbare architectuur**: het maken van een draagbare toepassingsarchitectuur die kan worden geïmplementeerd in de cloud, on-premises en edge inschakelen. Containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](/azure/azure-stack/). Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Hoge doorvoer / lage latentie**: bieden klanten de mogelijkheid om te schalen voor hoge doorvoer en lage latentie is vereist door het inschakelen van Cognitive Services om uit te voeren in Azure Kubernetes Service fysiek dicht bij hun logica van toepassingen en gegevens.
+- **Draagbare architectuur**: het maken van een draagbare toepassingsarchitectuur die kan worden geïmplementeerd op Azure, on-premises en edge inschakelen. Containers rechtstreeks naar kunnen worden geïmplementeerd [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](/azure/azure-stack/). Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Hoge doorvoer / lage latentie**: bieden klanten de mogelijkheid om te schalen voor hoge doorvoer en lage latentie is vereist door het inschakelen van Cognitive Services om uit te voeren fysiek dicht bij hun logica van toepassingen en gegevens. Containers transacties per seconde (TPS) kunnen niet worden gegevenslimiet en kunnen worden gemaakt voor het schalen van zowel en uitbreiden voor het afhandelen van aanvraag als u de benodigde hardwarebronnen opgeven. 
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Containers in Azure Cognitive Services
@@ -42,6 +44,7 @@ Azure Cognitive Services-containers bieden de volgende set Docker-containers, di
 |---------|----------|-------------|
 |[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |**Tekst herkennen** |Extraheert gedrukte tekst uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangsten, posters en visitekaartjes.<br/><br/>**Belangrijk:** de tekst herkennen-container op dit moment werkt alleen met Engels.<br>[Toegang aanvragen](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |**Face** |Detecteert menselijke gezichten in afbeeldingen en -kenmerken, zoals gezichtsoriëntatiepunten (zoals hartstukken en ogen), geslacht, leeftijd en andere machine voorspeld gezichtskenmerken identificeert. Naast detectie controleren Face of twee gezichten in dezelfde afbeelding of andere installatiekopieën zijn hetzelfde met behulp van een betrouwbaarheidsscore of gezichten op een database om te zien als een gelijkende vergelijken of identieke face al bestaat. Deze kunt soortgelijke gezichten ook organiseren in groepen, met behulp van gedeelde visuele kenmerken.<br>[Toegang aanvragen](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
+|[LUIS](LUIS/luis-container-howto.md) |**LUIS** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2043204))|Een ervaren of gepubliceerd Language Understanding-model, ook wel bekend als een LUIS-app, worden in een docker-container en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container. U kunt het verzamelen van Logboeken voor query's uit de container en upload deze terug naar de [LUIS portal](https://www.luis.ai) voor het verbeteren van de nauwkeurigheid van de app.|
 |[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**Sleutel vindt er sleuteltermextractie plaats** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extraheert sleuteltermen voor het identificeren van de belangrijkste punten. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. |
 |[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Taaldetectie** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018759)) |Detecteert welke taal de ingevoerde tekst is geschreven en het rapport een code één taal voor elk document dat op de aanvraag ingediend voor maximaal 120 talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. |
 |[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Sentimentanalyse** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018654)) |Onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseert. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is. De analyse-modellen zijn vooraf getrainde met behulp van een uitgebreide hoofdtekst van de tekst en natuurlijke taal technologieën van Microsoft. Voor [geselecteerde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. |
@@ -78,3 +81,4 @@ Installeren en de functionaliteit van containers in Azure Cognitive Services ver
 * [Installeren en Computer Vision-containers gebruiken](Computer-vision/computer-vision-how-to-install-containers.md)
 * [Installeren en gebruiken van de Face-containers](Face/face-how-to-install-containers.md)
 * [Installeren en gebruiken van de Text Analytics-containers](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+* [Installeren en gebruiken van containers met Language Understanding (LUIS)](LUIS/luis-container-howto.md)

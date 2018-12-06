@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720443"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962678"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integratie-overwegingen voor Azure Stack-geïntegreerde systemen
 Als u geïnteresseerd in een geïntegreerde Azure Stack-systeem bent, moet u enkele van de belangrijkste Beschouwingen over planning om de implementatie en hoe het systeem past in uw datacenter te begrijpen. In dit artikel bevat een overzicht van deze overwegingen om u te helpen u belangrijke infrastructuur beslissingen voor uw Azure Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met de leverancier van de OEM-hardware omdat ze Azure Stack in uw datacenter implementeren.  
@@ -57,7 +57,7 @@ U moet rekening houden met welke id-provider die u wilt gebruiken voor Azure Sta
 
 Uw keuze van id-provider heeft geen gevolgen voor virtuele machines van tenants, identiteitssysteem en accounts die ze gebruiken, of ze kunnen deelnemen aan een Active Directory-domein, enzovoort. Dit staat los.
 
-U kunt meer informatie over het kiezen van een id-provider in de [Azure Stack geïntegreerde systemen verbinding modellen artikel](.\azure-stack-connection-models.md).
+U kunt meer informatie over het kiezen van een id-provider in de [Azure Stack geïntegreerde systemen verbinding modellen artikel](./azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS en Graph-integratie
 Als u ervoor Azure Stack als id-provider met behulp van AD FS implementeren kiest, moet u het exemplaar van AD FS in Azure Stack integreren met een bestaande AD FS-exemplaar via een federatieve vertrouwensrelatie. Hiermee wordt de identiteiten in een bestaand Active Directory-forest om te verifiëren met resources in Azure Stack.

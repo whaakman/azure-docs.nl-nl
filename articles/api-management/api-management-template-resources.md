@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444764"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970328"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-sjabloon-resources
 Met Azure API Management biedt de volgende typen resources voor gebruik in de developer portal-sjablonen.  
@@ -144,7 +144,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |GeneralExceptionMessage|Iets is niet goed. Het is mogelijk een tijdelijke storing of een bug. Probeer het opnieuw.|  
 |NoItemsToDisplay|Er zijn geen items om weer te geven.|  
 |PagerButtonLabelFirst|Eerste|  
-|PagerButtonLabelLast|Nieuwste|  
+|PagerButtonLabelLast|Laatste|  
 |PagerButtonLabelNext|Volgende|  
 |PagerButtonLabelPrevious|Vorige|  
 |PagerLabelPageNOfM|Pagina {0} van {1}|  
@@ -176,7 +176,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |WebDocumentationTemplatesDeveloperKey|Uw abonnementssleutel opgeven|  
 |WebDocumentationTemplatesJavaApache|In dit voorbeeld wordt de Apache HTTP-client uit HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Waarden voor optionele parameters naar behoefte opgeven|  
-|WebDocumentationTemplatesPhpPackage|In dit voorbeeld wordt het HTTP_Request2-pakket. (voor meer informatie: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|In dit voorbeeld wordt het HTTP_Request2-pakket. (voor meer informatie: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Waarden voor padparameters opgeven (weergegeven als {...}) en een corpus aanvragen indien nodig|  
 |WebDocumentationTemplatesRequestBody|Aanvraagcorpus opgeven|  
 |WebDocumentationTemplatesRequiredParams|Waarden opgeven voor de volgende vereiste parameters|  
@@ -561,7 +561,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |SubscriptionStateActive|Actief|  
 |SubscriptionStateCancelled|Geannuleerd|  
 |SubscriptionStateExpired|Vervallen|  
-|SubscriptionStateRejected|Geweigerd|  
+|SubscriptionStateRejected|Afgewezen|  
 |SubscriptionStateRequested|Aangevraagd|  
 |SubscriptionStateSuspended|Uitgesteld|  
 |DefaultSubscriptionNameTemplate|{0}  (standaard)|  
@@ -571,13 +571,13 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |ApiManagementUserLimitReached|Deze service heeft het maximum aantal toegestane gebruikers bereikt. Voer een upgrade uit naar een hogere prijscategorie.|  
   
 ##  <a name="glyphs"></a> Glyph resources  
- Sjablonen voor ontwikkelaarsportals API Management kunnen gebruiken de statusbalk van [Glyphicons van Bootstrap](http://getbootstrap.com/components/#glyphicons). Deze set symbolen bevat meer dan 250 statusbalk in lettertype van de [Glyphicon](http://glyphicons.com/) Halflings instellen. Gebruik de volgende syntaxis voor het gebruik van een glyph uit deze verzameling.  
+ Sjablonen voor ontwikkelaarsportals API Management kunnen gebruiken de statusbalk van [Glyphicons van Bootstrap](https://getbootstrap.com/components/#glyphicons). Deze set symbolen bevat meer dan 250 statusbalk in lettertype van de [Glyphicon](https://glyphicons.com/) Halflings instellen. Gebruik de volgende syntaxis voor het gebruik van een glyph uit deze verzameling.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- Zie voor de volledige lijst van de statusbalk [Glyphicons van Bootstrap](http://getbootstrap.com/components/#glyphicons).
+ Zie voor de volledige lijst van de statusbalk [Glyphicons van Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het werken met sjablonen [over het aanpassen van de API Management-ontwikkelaarsportal met behulp van sjablonen](api-management-developer-portal-templates.md).

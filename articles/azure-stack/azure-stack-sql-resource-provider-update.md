@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: d897fd43cf712f217b6cd55f14854164fb7abfa6
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8fc8be105c6c610e6b246fa0ec619fecc81b1dd9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887777"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966242"
 ---
 # <a name="update-the-sql-resource-provider"></a>Bijwerken van de SQL-resourceprovider
 
@@ -28,11 +28,11 @@ ms.locfileid: "52887777"
 Een nieuwe SQL-resourceprovider kan worden vrijgegeven wanneer Azure Stack wordt bijgewerkt naar een nieuwe build. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk.
 
 > [!IMPORTANT]
-> U moet updates installeren in de volgorde waarin die ze zijn vrijgegeven. U kunt de versies niet overslaan. Raadpleeg de lijst met versies in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> U moet updates installeren in de volgorde waarin die ze zijn vrijgegeven. U kunt de versies niet overslaan. Raadpleeg de lijst met versies in [implementeert de vereisten van de provider resource](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Overzicht
 
-Voor het bijwerken van de resourceprovider, gebruikt u de *UpdateSQLProvider.ps1* script. Met dit script wordt geleverd bij het downloaden van de nieuwe SQL-resourceprovider. De updateproces is vergelijkbaar met het proces waarmee [implementeren van de resourceprovider](.\azure-stack-sql-resource-provider-deploy.md). Het updatescript maakt gebruik van dezelfde argumenten als het script DeploySqlProvider.ps1 en u moet gegevens opgeven.
+Voor het bijwerken van de resourceprovider, gebruikt u de *UpdateSQLProvider.ps1* script. Met dit script wordt geleverd bij het downloaden van de nieuwe SQL-resourceprovider. De updateproces is vergelijkbaar met het proces waarmee [implementeren van de resourceprovider](./azure-stack-sql-resource-provider-deploy.md). Het updatescript maakt gebruik van dezelfde argumenten als het script DeploySqlProvider.ps1 en u moet gegevens opgeven.
 
 ### <a name="update-script-processes"></a>Update-script-processen
 

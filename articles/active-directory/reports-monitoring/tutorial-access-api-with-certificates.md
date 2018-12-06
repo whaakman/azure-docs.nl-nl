@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0ee756828a50cdf62471923614afbe88e238b9ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624554"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961957"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Zelfstudie: Gegevens met behulp van de Azure Active Directory reporting API met certificaten ophalen
 
@@ -39,9 +39,7 @@ In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot d
     - Toegangstokens van gebruiker, toepassingssleutels en certificaten met behulp van ADAL
     - Afhandeling van pagina's met zoekresultaten door Graph API
 
-4. Als dit de eerste keer is met de module voeren **installeren MSCloudIdUtilsModule**, anders importeren met behulp van de **Import-Module** Powershell-opdracht. Uw sessie moet lijken op dit scherm:
-
-        ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+4. Als dit de eerste keer is met de module voeren **installeren MSCloudIdUtilsModule**, anders importeren met behulp van de **Import-Module** Powershell-opdracht. Uw sessie moet lijken op dit scherm: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 5. Gebruik de **New-SelfSignedCertificate** Powershell-commandlet een testcertificaat maken.
 

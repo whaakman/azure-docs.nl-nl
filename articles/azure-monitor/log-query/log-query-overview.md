@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4a2ea188a35b5157950f0d61f35a5f2a4a0e83d3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3015db350b8011ccd328369732c5af3fa028a438
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855821"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963552"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyseren van Log Analytics-gegevens in Azure Monitor
 
@@ -31,7 +31,7 @@ Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in een Log A
 
 ## <a name="log-queries"></a>Logboeken-query 's
 
-U moet een logboekquery voor het ophalen van gegevens van Log Analytics.  Of u bent [analyseren van gegevens in de portal](../../log-analytics/log-analytics-log-search-portals.md), [configureren van een waarschuwingsregel](../../monitoring-and-diagnostics/alert-metric.md) om te worden geïnformeerd over een bepaalde voorwaarde of bij het ophalen van gegevens met de [Log Analytics API](https://dev.loganalytics.io/), u wordt een query gebruiken om op te geven van de gegevens die u wilt.  In dit artikel wordt beschreven hoe de logboeken-query's worden gebruikt in Log Analytics en concepten die u weten moet voordat u een maakt.
+U moet een logboekquery voor het ophalen van gegevens van Log Analytics.  Of u bent [analyseren van gegevens in de portal](../../azure-monitor/log-query/portals.md), [configureren van een waarschuwingsregel](../../monitoring-and-diagnostics/alert-metric.md) om te worden geïnformeerd over een bepaalde voorwaarde of bij het ophalen van gegevens met de [Log Analytics API](https://dev.loganalytics.io/), u wordt een query gebruiken om op te geven van de gegevens die u wilt.  In dit artikel wordt beschreven hoe de logboeken-query's worden gebruikt in Log Analytics en concepten die u weten moet voordat u een maakt.
 
 
 
@@ -39,7 +39,7 @@ U moet een logboekquery voor het ophalen van gegevens van Log Analytics.  Of u b
 
 De verschillende manieren die u query's in Log Analytics gebruikt omvatten het volgende:
 
-- **Portals.** U kunt uitvoeren interactieve analyses van logboekgegevens in de [Azure-portal](../../log-analytics/log-analytics-log-search-portals.md).  Hiermee kunt u uw query bewerken en analyseer de resultaten in verschillende indelingen en visualisaties.  
+- **Portals.** U kunt uitvoeren interactieve analyses van logboekgegevens in de [Azure-portal](../../azure-monitor/log-query/portals.md).  Hiermee kunt u uw query bewerken en analyseer de resultaten in verschillende indelingen en visualisaties.  
 - **Regels voor waarschuwingen.** [Waarschuwingsregels](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactief problemen van gegevens in uw werkruimte te identificeren.  De waarschuwingsregel is gebaseerd op een logboekzoekopdracht die automatisch met regelmatige tussenpozen wordt uitgevoerd.  De resultaten worden gecontroleerd om te bepalen of een waarschuwing moet worden gemaakt.
 - **Dashboards.** U kunt de resultaten van elke query in vastmaken een [Azure-dashboard](../../azure-monitor/platform/dashboards.md) waarmee u logboek- en metrische gegevens bij elkaar te visualiseren en (optioneel) delen met andere Azure-gebruikers. 
 - **Weergaven.**  Kunt u visualisaties van gegevens moeten worden opgenomen in de Gebruikersdashboards met [Weergaveontwerper](../../azure-monitor/platform/view-designer.md).  Logboeken-query's leveren de gegevens die worden gebruikt door [tegels](../../azure-monitor/platform/view-designer-tiles.md) en [visualisatie delen](../../azure-monitor/platform/view-designer-parts.md) in elke weergave.  
@@ -50,7 +50,7 @@ De verschillende manieren die u query's in Log Analytics gebruikt omvatten het v
 ![Zoekopdrachten in Logboeken](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Een query schrijven
-Meld u Analytics gebruikt [een versie van de querytaal van Data Explorer](../../log-analytics/query-language/get-started-queries.md) ophalen en analyseren van logboekgegevens op verschillende manieren.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
+Meld u Analytics gebruikt [een versie van de querytaal van Data Explorer](../../azure-monitor/log-query/get-started-queries.md) ophalen en analyseren van logboekgegevens op verschillende manieren.  U doorgaans begint met eenvoudige query's en vervolgens de voortgang voor het gebruik van meer geavanceerde functies zoals de vereisten van uw steeds complexer.
 
 De basisstructuur van een query is een brontabel gevolgd door een reeks van operators, gescheiden door een sluisteken `|`.  U kunt koppelen samen meerdere operators voor het verfijnen van de gegevens en geavanceerde functies uitvoeren.
 
@@ -94,9 +94,9 @@ union Update, workspace("contoso-workspace").Update
 ```
 
 ## <a name="how-log-analytics-data-is-organized"></a>De rangschikking van Log Analytics-gegevens
-Wanneer u een query bouwen, start u door te bepalen welke tabellen bevatten de gegevens die u zoekt. Verschillende soorten gegevens zijn onderverdeeld in specifieke tabellen in elk [Log Analytics-werkruimte](../../log-analytics/log-analytics-quick-create-workspace.md).  Documentatie voor verschillende gegevensbronnen bevat de naam van het gegevenstype dat wordt gemaakt en een beschrijving van elk van de bijbehorende eigenschappen.  Veel query's worden alleen gegevens uit één tabel vereist, maar andere gebruiken misschien een verscheidenheid aan opties om op te nemen van gegevens uit meerdere tabellen.
+Wanneer u een query bouwen, start u door te bepalen welke tabellen bevatten de gegevens die u zoekt. Verschillende soorten gegevens zijn onderverdeeld in specifieke tabellen in elk [Log Analytics-werkruimte](../../azure-monitor/learn/quick-create-workspace.md).  Documentatie voor verschillende gegevensbronnen bevat de naam van het gegevenstype dat wordt gemaakt en een beschrijving van elk van de bijbehorende eigenschappen.  Veel query's worden alleen gegevens uit één tabel vereist, maar andere gebruiken misschien een verscheidenheid aan opties om op te nemen van gegevens uit meerdere tabellen.
 
-Terwijl [Application Insights](../../application-insights/app-insights-overview.md) gegevens van de toepassing stores, zoals aanvragen, uitzonderingen, traceringen en gebruik in Log Analytics, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet gebruiken de [Application Insights-console](../../application-insights/app-insights-analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](../../log-analytics/log-analytics-cross-workspace-search.md) om Application Insights-gegevens met andere gegevens in Log Analytics te combineren.
+Terwijl [Application Insights](../../application-insights/app-insights-overview.md) gegevens van de toepassing stores, zoals aanvragen, uitzonderingen, traceringen en gebruik in Log Analytics, deze gegevens worden opgeslagen in een andere partitie dan de andere logboekgegevens. U dezelfde querytaal gebruiken voor toegang tot deze gegevens, maar moet gebruiken de [Application Insights-console](../../application-insights/app-insights-analytics.md) of [Application Insights REST-API](https://dev.applicationinsights.io/) om deze te openen. U kunt [cross-resources query's](../../azure-monitor/log-query/cross-workspace-query.md) om Application Insights-gegevens met andere gegevens in Log Analytics te combineren.
 
 
 ![Tabellen](media/log-query-overview/queries-tables.png)
@@ -109,5 +109,5 @@ Terwijl [Application Insights](../../application-insights/app-insights-overview.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [portals die u gebruiken om te maken en bewerken van zoekopdrachten](../../log-analytics/log-analytics-log-search-portals.md).
-- Bekijk een [zelfstudie over het schrijven van query's](../../log-analytics/query-language/get-started-queries.md) met behulp van de nieuwe querytaal.
+- Meer informatie over de [portals die u gebruiken om te maken en bewerken van zoekopdrachten](../../azure-monitor/log-query/portals.md).
+- Bekijk een [zelfstudie over het schrijven van query's](../../azure-monitor/log-query/get-started-queries.md) met behulp van de nieuwe querytaal.

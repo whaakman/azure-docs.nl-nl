@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446855"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959849"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 
-
 ## <a name="task-3-configure-administrative-group"></a>Taak 3: de beheergroep configureren
+
 In deze taak voor de configuratie maakt u een beheergroep in uw Azure AD-directory. Deze speciale beheergroep heet *AAD DC Administrators*. Leden van deze groep zijn beheerdersmachtigingen nodig voor computers die toegevoegd aan het beheerde domein zijn-verleend. Op domein systemen, wordt deze groep toegevoegd aan de groep administrators. Leden van deze groep kunnen bovendien extern bureaublad gebruiken extern verbinding maken met domein machines.
 
 > [!NOTE]
@@ -49,14 +49,14 @@ Azure AD Domain Services kunnen voor een volledige synchronisatie van alle gebru
 ### <a name="full-synchronization"></a>Volledige synchronisatie
 
 1. Voor volledige synchronisatie, klikt u er gewoon 'OK' aan de onderkant van het scherm als volledige nog is geselecteerd.
-    ![Volledige synchronisatie](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![Volledige synchronisatie](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### <a name="scoped-synchronization"></a>Synchronisatie van binnen het bereik
 
 1. In-/ uitschakelen met de synchronisatieknop 'Binnen bereik' en een pagina groepen selecteren wordt weergegeven. In dit ziet u welke groepen zijn al geselecteerd worden gesynchroniseerd met uw beheerde domein.
-    ![Synchronisatie van binnen het bereik](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![Synchronisatie van binnen het bereik](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. Klik op **groepen selecteren** in de bovenste navigatiebalk. Hier, wordt het kiezen van een groep weergegeven aan de zijde. Gebruik dit om eventuele extra groepen moeten worden gesynchroniseerd met Azure AD Domain Services. Wanneer u klaar bent, klikt u op **Selecteer** om te sluiten van het kiezen van de groep en voegt u deze groepen toe aan de geselecteerde lijst.
-    ![Scoped synchronisatie groepen selecteren](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![Scoped synchronisatie groepen selecteren](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. Klik op **OK** verplaatsen naar de pagina overzicht.
 
 ## <a name="deploy-your-managed-domain"></a>Uw beheerde domein implementeren
@@ -69,8 +69,8 @@ Azure AD Domain Services kunnen voor een volledige synchronisatie van alle gebru
 
     ![Melding - implementatie wordt uitgevoerd](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>Controleer de implementatiestatus van uw beheerde domein
+
 Het proces van inrichting van uw beheerde domein kan een uur duren.
 
 1. Wanneer uw implementatie uitgevoerd wordt, kunt u zoeken naar 'domain services' in de **zoeken naar resources** zoekvak. Selecteer **Azure AD Domain Services** uit de zoekresultaten. De **Azure AD Domain Services** blade geeft een lijst van het beheerde domein dat wordt ingericht.
@@ -96,10 +96,10 @@ Het proces van inrichting van uw beheerde domein kan een uur duren.
 
     ![Domain Services: tabblad Eigenschappen nadat volledig is ingericht](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## <a name="need-help"></a>Hulp nodig?
+
 Het duurt een uur of twee voor beide domeincontrollers voor uw beheerde domein moet worden ingericht. Als uw implementatie is mislukt of is vastgelopen in de status 'In behandeling' voor meer dan een paar uur, gerust [voor hulp contact op met het productteam](active-directory-ds-contact-us.md).
 
-
 ## <a name="next-step"></a>Volgende stap
+
 [Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk](active-directory-ds-getting-started-dns.md)

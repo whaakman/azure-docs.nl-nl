@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 6b694794da5eabaddf4d6f29203b7d6553ef4940
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/05/2018
+ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844393"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955051"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
 **Read Scale-Out** kunt u saldo Azure SQL Database alleen-lezen-werkbelastingen met behulp van de capaciteit van een alleen-lezen-replica.
-
-## <a name="overview-of-read-scale-out"></a>Overzicht van Scale-Out van lezen
 
 Elke database in de Premium-laag ([DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md)) of in de laag bedrijfskritiek ([vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md)) automatisch is ingericht met verschillende AlwaysON-replica's op ondersteuning voor de beschikbaarheids-SLA.
 
@@ -47,7 +45,7 @@ Een van de voordelen van replica's is dat de replica's altijd de transactioneel 
 > [!NOTE]
 > Replicatielatentie binnen de regio laag zijn en deze situatie is zeldzaam.
 
-## <a name="connecting-to-a-read-only-replica"></a>Verbinding maken met een alleen-lezen replica
+## <a name="connect-to-a-read-only-replica"></a>Verbinding maken met een alleen-lezen replica
 
 Wanneer u Read Scale-Out voor een database inschakelen, de `ApplicationIntent` optie in de verbindingsreeks die is opgegeven door de client bepaalt of de verbinding wordt doorgestuurd naar de replica schrijven of naar een alleen-lezen-replica. Met name als de `ApplicationIntent` waarde `ReadWrite` (de standaardwaarde), de verbinding worden omgeleid naar de databasereplica voor lezen / schrijven. Dit is gelijk aan het bestaande gedrag. Als de `ApplicationIntent` waarde `ReadOnly`, de verbinding wordt doorgestuurd naar een alleen-lezen-replica.
 
@@ -65,6 +63,8 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>Controleren of er een verbinding met een alleen-lezen replica is
+
 U kunt controleren of u met een alleen-lezen-replica verbonden bent met de volgende query uit te voeren. Alleen-lezen wanneer verbonden met een alleen-lezen replica wordt geretourneerd.
 
 ```SQL
@@ -78,7 +78,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 Read Scale-Out is standaard ingeschakeld in [Managed Instance](sql-database-managed-instance.md) laag bedrijfskritiek. Het expliciet moet worden ingeschakeld [database op logische server geplaatst](sql-database-logical-servers.md) lagen Premium en bedrijfskritiek. De methoden voor het inschakelen en uitschakelen van Read Scale-Out wordt hier beschreven.
 
-### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>In- en uitschakelen van Read Scale-Out met behulp van Azure PowerShell
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Enable en disable Read Scale-Out
 
 De December 2016 beheren Read Scale-Out in Azure PowerShell vereist Azure PowerShell versie of hoger. Zie voor de nieuwste versie van PowerShell, [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -102,7 +102,7 @@ Een nieuwe database maken met meer scale-out ingeschakeld (de items in de puntha
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Inschakelen en uitschakelen van Read Scale-Out met behulp van de Azure SQL Database REST-API
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST-API: Enable en disable Read Scale-Out
 
 Voor een database maken met lezen scale-out is ingeschakeld, of voor het in- of uitschakelen van lezen scale-out voor een bestaande database, maken of bijwerken van de bijbehorende database-entiteit met de `readScale` eigenschap ingesteld op `Enabled` of `Disabled` zoals in het onderstaande voorbeeld de aanvraag.
 

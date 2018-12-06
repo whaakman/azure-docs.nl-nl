@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946898"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967211"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Op basis van een logboek en vooraf samengevoegde metrische gegevens in Application Insights
 
@@ -55,7 +55,7 @@ Er zijn verschillende [manieren van het verzenden van aangepaste metrische gegev
 
 Alle metrische gegevens die u met behulp van verzendt [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) of [GetMetric en TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API-aanroepen worden automatisch opgeslagen in zowel logboeken en metrische gegevens. Terwijl de versie op basis van het logboek van uw aangepaste metrische gegevens van altijd alle dimensies behoudt, wordt het vooraf samengevoegde versie van de metrische gegevens echter standaard met er zijn geen dimensies opgeslagen. U kunt de verzameling van dimensies van aangepaste metrische gegevens inschakelen op de [gebruik en geschatte kosten](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) tabblad checkt u 'Inschakelen waarschuwingen voor de aangepaste metrische dimensies': 
 
-![Gebruik en geschatte kosten](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Gebruik en geschatte kosten](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>Waarom is verzameling van aangepaste metrische gegevens dimensies standaard uitgeschakeld?
 
@@ -65,7 +65,7 @@ De verzameling van aangepaste metrische gegevens dimensies is standaard uitgesch
 
 Azure Monitor Metrics Explorer gebruiken om te grafieken van metrische gegevens over vooraf samengevoegde en op basis van een logboek en aan de auteur van dashboards met grafieken te tekenen. Na het selecteren van de gewenste Application Insights-resource, de kiezer naamruimte gebruiken om over te schakelen tussen standard (preview) en logboekbestanden op basis van metrische gegevens of Selecteer een aangepaste metrische naamruimte:
 
-![Metrische naamruimte](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Metrische naamruimte](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5989ec9f95e2f5129a128d19326833718f37b508
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730232"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959528"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Gebeurtenissen van de service Fabric Linux-cluster in Syslog
 
@@ -94,7 +94,7 @@ Hier volgen de wijzigingen te belichten
 ```
 
 ## <a name="log-analytics-integration"></a>Log Analytics-integratie
-U vindt deze Syslog-gebeurtenissen in een hulpprogramma voor bewaking, zoals Log Analytics. U kunt een Log Analytics-werkruimte maken met behulp van de Azure Marketplace via deze [instructies]. (.. / log-analytics/log-analytics-quick-create-workspace.md) moet u ook de Log Analytics-agent toevoegen aan uw cluster voor het verzamelen en deze gegevens worden verzonden naar de werkruimte. Dit is dezelfde agent die wordt gebruikt voor het verzamelen van prestatiemeteritems. 
+U vindt deze Syslog-gebeurtenissen in een hulpprogramma voor bewaking, zoals Log Analytics. U kunt een Log Analytics-werkruimte maken met behulp van de Azure Marketplace via deze [instructies]. (.. / azure-monitor/learn/quick-create-workspace.md) moet u ook de Log Analytics-agent toevoegen aan uw cluster voor het verzamelen en deze gegevens worden verzonden naar de werkruimte. Dit is dezelfde agent die wordt gebruikt voor het verzamelen van prestatiemeteritems. 
 
 1. Navigeer naar de `Advanced Settings` blade
 

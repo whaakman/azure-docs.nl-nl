@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
-ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/05/2018
+ms.openlocfilehash: 6523828b522379dd1cd70f1c548caf7af15b5d90
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159550"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964761"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection voor Azure SQL-Database
 
@@ -32,7 +32,7 @@ SQL geavanceerde Threat Protection (ATP) biedt een geavanceerde SQL-beveiligings
 
 Schakel SQL ATP eenmaal zodat al deze functies opgenomen. U kunt met één klik ATP inschakelen op uw volledige databaseserver, waarmee wordt toegepast op alle databases op de server. 
 
-ATP-prijzen worden uitgelijnd met Azure Security Center standard-laag op $15/knooppunt/maand, waarbij elke beveiligde SQL Database-server wordt beschouwd als één knooppunt. De eerste 60 dagen na activering worden beschouwd als een gratis proefperiode is afgelopen en worden niet gefactureerd. Zie voor meer informatie de [pagina met prijzen van Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+ATP-prijzen worden uitgelijnd met Azure Security Center standard-laag, waarbij elke beveiligde SQL Database-server wordt beschouwd als één knooppunt. Nieuw beveiligde resources in aanmerking komen voor een gratis proefversie van Security Center standard-laag. Zie voor meer informatie de [pagina met prijzen van Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="getting-started-with-atp"></a>Aan de slag met ATP 
@@ -45,7 +45,7 @@ Inschakelen van ATP door te navigeren naar **Advanced Threat Protection** onder 
 ![Inschakelen van ATP](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> De kosten van ATP zijn $15/knooppunt/maand, waarbij een knooppunt staat voor de hele logische SQL-server. U wordt dus slechts één keer betaalt voor het beveiligen van alle databases op de server met ATP. De eerste 60 dagen worden beschouwd als een gratis proefversie.
+> De kosten van ATP wordt uitgelijnd met Azure Security Center standard-laag prijzen per knooppunt, waarbij een knooppunt staat voor de hele logische SQL-server. U wordt dus slechts één keer betaalt voor het beveiligen van alle databases op de server met ATP. U kunt uitproberen ATP in eerste instantie met een gratis proefversie.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Evaluatie van beveiligingsproblemen configureren
 

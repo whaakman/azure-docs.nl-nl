@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fdcc230171006c6388e75b947e10a73fb953001a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970175"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Externe services van de Azure API Management-service gebruiken
 Het beleid dat beschikbaar is in Azure API Management-service kan een breed scala aan nuttig werk op basis van alleen de inkomende aanvraag, de uitgaande antwoord, en informatie over de standaardconfiguratie. Echter, de mogelijkheid om te communiceren met externe services van API Management beleid opent u veel meer mogelijkheden.
@@ -68,13 +68,13 @@ Er zijn bepaalde afwegingen bij het gebruik van een fire-and-forget-stijl van de
 De `send-request` beleid maakt met een externe service voor de complexe verwerkingsfuncties uitvoeren en retourneren gegevens naar de API management-service die kunnen worden gebruikt voor verdere beleidsverwerking.
 
 ### <a name="authorizing-reference-tokens"></a>Naslaginformatie over tokens autoriseren
-Een belangrijke functie van API Management beveiligt back-endresources. Als de autorisatieserver die wordt gebruikt door uw API maakt [JWT-tokens](http://jwt.io/) als onderdeel van de stroom OAuth2 als [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) heeft, kunt u de `validate-jwt` beleid om te controleren of de geldigheid van het token. Sommige autorisatieservers maken ook [verwijzen naar tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) die zonder een retouraanroep de autorisatie-server kan niet worden geverifieerd.
+Een belangrijke functie van API Management beveiligt back-endresources. Als de autorisatieserver die wordt gebruikt door uw API maakt [JWT-tokens](https://jwt.io/) als onderdeel van de stroom OAuth2 als [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) heeft, kunt u de `validate-jwt` beleid om te controleren of de geldigheid van het token. Sommige autorisatieservers maken ook [verwijzen naar tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) die zonder een retouraanroep de autorisatie-server kan niet worden geverifieerd.
 
 ### <a name="standardized-introspection"></a>Gestandaardiseerde introspection
 In het verleden ligt en is er geen gestandaardiseerde manier controleren of u een referentie-token met een autorisatie-server. Maar een onlangs voorgestelde standaard [RFC 7662](https://tools.ietf.org/html/rfc7662) is gepubliceerd door de IETF waarmee wordt gedefinieerd hoe een resource-server kunt controleren of de geldigheid van een token.
 
 ### <a name="extracting-the-token"></a>Uitpakken van het token
-De eerste stap is het token ophalen uit de autorisatie-header. De waarde voor header moet zijn geformatteerd met het `Bearer` autorisatieschema, een spatie en het Autorisatietoken volgens [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Er zijn helaas gevallen waar de autorisatieschema wordt weggelaten. Voor het account voor dit bij het parseren van API Management splitst de waarde van de header op een spatie en selecteert de laatste tekenreeks van de geretourneerde matrix met tekenreeksen. Dit biedt een oplossing voor de onjuist opgemaakte autorisatie-header.
+De eerste stap is het token ophalen uit de autorisatie-header. De waarde voor header moet zijn geformatteerd met het `Bearer` autorisatieschema, een spatie en het Autorisatietoken volgens [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Er zijn helaas gevallen waar de autorisatieschema wordt weggelaten. Voor het account voor dit bij het parseren van API Management splitst de waarde van de header op een spatie en selecteert de laatste tekenreeks van de geretourneerde matrix met tekenreeksen. Dit biedt een oplossing voor de onjuist opgemaakte autorisatie-header.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ U kunt een `<choose>` beleid om te detecteren of het token ongeldig is en als di
 </choose>
 ```
 
-Als per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) waarin wordt beschreven hoe `bearer` tokens moeten worden gebruikt, API Management geeft ook een `WWW-Authenticate` -header met de 401-respons. De WWW-verificatie is bedoeld om te geven van een client op het maken van een goed gemachtigde aanvraag. Vanwege de grote verscheidenheid aan benaderingen mogelijk is met het OAuth2-framework is het moeilijk zijn om te communiceren, de benodigde gegevens. Gelukkig zijn er inspanningen uitgevoerd om te helpen [clients ontdekken hoe goed om aanvragen te autoriseren met een resource-server](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Als per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) waarin wordt beschreven hoe `bearer` tokens moeten worden gebruikt, API Management geeft ook een `WWW-Authenticate` -header met de 401-respons. De WWW-verificatie is bedoeld om te geven van een client op het maken van een goed gemachtigde aanvraag. Vanwege de grote verscheidenheid aan benaderingen mogelijk is met het OAuth2-framework is het moeilijk zijn om te communiceren, de benodigde gegevens. Gelukkig zijn er inspanningen uitgevoerd om te helpen [clients ontdekken hoe goed om aanvragen te autoriseren met een resource-server](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Definitieve oplossing
 Aan het einde krijgt u het volgende beleid:

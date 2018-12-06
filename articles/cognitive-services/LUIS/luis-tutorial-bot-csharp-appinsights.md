@@ -10,46 +10,50 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 83ad70e1242af1e01af06206a3a141f455072a44
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c7f12352355b12cf1a7363a2a82fa786248cdc6f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038949"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965288"
 ---
 # <a name="add-luis-results-to-application-insights"></a>LUIS resultaten naar Application Insights toevoegen
-In deze zelfstudie voegt LUIS antwoord informatie [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app. 
+
+In deze zelfstudie voegt LUIS antwoord informatie [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
 
 De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-* Application Insights toevoegen aan een web-app-bot
-* Vastleggen en LUIS queryresultaten verzenden naar Application Insights
-* Query uitvoeren op Application Insights voor het belangrijkste doel, score en utterance
+> * Application Insights toevoegen aan een web-app-bot
+> * Vastleggen en LUIS queryresultaten verzenden naar Application Insights
+> * Query uitvoeren op Application Insights voor het belangrijkste doel, score en utterance
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Uw LUIS web app-bot uit de **[vorige zelfstudie](luis-csharp-tutorial-build-bot-framework-sample.md)** met Application Insights is ingeschakeld. 
+* Uw LUIS web app-bot uit de **[vorige zelfstudie](luis-csharp-tutorial-build-bot-framework-sample.md)** met Application Insights is ingeschakeld.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) lokaal op uw computer geïnstalleerd.
 
 > [!Tip]
 > Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
 
-Alle code in deze zelfstudie vindt u op de [LUIS-Samples github-opslagplaats](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) en elke regel die is gekoppeld aan deze zelfstudie is opgenomen als met `//LUIS Tutorial:`. 
+Alle code in deze zelfstudie vindt u op de [LUIS-Samples github-opslagplaats](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) en elke regel die is gekoppeld aan deze zelfstudie is opgenomen als met `//LUIS Tutorial:`.
 
 ## <a name="review-luis-web-app-bot"></a>LUIS web app-bot bekijken
-In deze zelfstudie wordt ervan uitgegaan dat u hebt code dat er als volgt of dat u hebt voltooid de [andere zelfstudie](luis-csharp-tutorial-build-bot-framework-sample.md): 
+
+In deze zelfstudie wordt ervan uitgegaan dat u hebt code dat er als volgt of dat u hebt voltooid de [andere zelfstudie](luis-csharp-tutorial-build-bot-framework-sample.md):
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 
 ## <a name="application-insights-in-web-app-bot"></a>Application Insights in web app-bot
+
 Op dit moment verzamelt de Application Insights-service, toegevoegd als onderdeel van het maken van web-app-bot-service telemetrie van de algemene status voor de bot. Deze verzamelt geen informatie van LUIS-antwoord. Als u wilt analyseren en verbeteren van LUIS, moet u de informatie van LUIS-antwoord.  
 
-Als u wilt vastleggen van de reactie van LUIS, de web-app-bot moet **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** geïnstalleerd en geconfigureerd voor het project. 
+Als u wilt vastleggen van de reactie van LUIS, de web-app-bot moet **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** geïnstalleerd en geconfigureerd voor het project.
 
 ## <a name="download-web-app-bot"></a>Web app-bot downloaden
+
 Gebruik [Visual Studio 2017](https://www.visualstudio.com/downloads/) toevoegen en configureren van Application Insights voor de web-app-bot. Als u wilt gebruiken de web-app-bot in Visual Studio, de code in de bot voor web-app te downloaden.
 
 1. Selecteer in de Azure-portal voor de web-app-bot, **bouwen**.
@@ -66,13 +70,13 @@ Gebruik [Visual Studio 2017](https://www.visualstudio.com/downloads/) toevoegen 
 
 ## <a name="open-solution-in-visual-studio-2017"></a>Geopende oplossing in Visual Studio 2017
 
-1. Pak het bestand naar een map. 
+1. Pak het bestand naar een map.
 
 2. Open Visual Studio 2017 en open het oplossingsbestand `Microsoft.Bot.Sample.LuisBot.sln`. Als de beveiligingswaarschuwing wordt weergegeven, selecteert u 'OK'.
 
     ![Geopende oplossing in Visual Studio 2017](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-security-warning.png)
 
-3. Visual Studio moet afhankelijkheden toevoegen aan de oplossing. In de **Solution Explorer**, met de rechtermuisknop op **verwijzingen**, en selecteer **NuGet-pakketten beheren...** . 
+3. Visual Studio moet afhankelijkheden toevoegen aan de oplossing. In de **Solution Explorer**, met de rechtermuisknop op **verwijzingen**, en selecteer **NuGet-pakketten beheren...** .
 
     ![Manage NuGet Packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
 
@@ -81,7 +85,8 @@ Gebruik [Visual Studio 2017](https://www.visualstudio.com/downloads/) toevoegen 
     ![NuGet-pakketten herstellen](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-restore-packages.png)
 
 ## <a name="add-application-insights-to-the-project"></a>Application Insights toevoegen aan het project
-Installeren en configureren van Application Insights in Visual Studio. 
+
+Installeren en configureren van Application Insights in Visual Studio.
 
 1. In Visual Studio 2017, in het bovenste menu Selecteer **Project**en selecteer vervolgens **Application Insights Telemetry toevoegen...** .
 
@@ -89,21 +94,21 @@ Installeren en configureren van Application Insights in Visual Studio.
 
     ![Beginnen met de configuratie van Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
 
-3. Uw app registreren bij Application Insights. U moet uw Azure-portal referenties invoeren. 
+3. Uw app registreren bij Application Insights. U moet uw Azure-portal referenties invoeren.
 
-4. Visual Studio voegt Application Insights toe aan het project, status weergeven als dit gebeurt. 
+4. Visual Studio voegt Application Insights toe aan het project, status weergeven als dit gebeurt.
 
     ![Status van Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-adding-application-insights-to-project.png)
 
-    Wanneer het proces is voltooid, de **configuratie van Application Insights** de voortgangsstatus wordt weergegeven. 
+    Wanneer het proces is voltooid, de **configuratie van Application Insights** de voortgangsstatus wordt weergegeven.
 
     ![Voortgangsstatus van Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configured-application-insights-to-project.png)
 
-    De **tracering verzamelen** is rood, wat betekent dat deze niet is ingeschakeld. In deze zelfstudie gebruik geen van de functie. 
+    De **tracering verzamelen** is rood, wat betekent dat deze niet is ingeschakeld. In deze zelfstudie gebruik geen van de functie.
 
 ## <a name="build-and-resolve-errors"></a>Bouwen en fouten oplossen
 
-1. Maak de oplossing hiervoor de **bouwen** in het menu Selecteer vervolgens **oplossing opnieuw opbouwen**. Wacht tot de build te voltooien. 
+1. Maak de oplossing hiervoor de **bouwen** in het menu Selecteer vervolgens **oplossing opnieuw opbouwen**. Wacht tot de build te voltooien.
 
 2. Als de build is mislukt met `CS0104` fouten, moet u deze kunt oplossen. In de `Controllers` map in de `MessagesController.cs file`, los van de niet-eenduidige gebruik van `Activity` type door het voorvoegsel van het type activiteit met de Connector-type. U doet dit door de naam wijzigen `Activity` op regel 22 en 36 van `Activity` naar `Connector.Activity`. De oplossing opnieuw opbouwen. Er mag geen fouten meer build zijn.
 
@@ -112,6 +117,7 @@ Installeren en configureren van Application Insights in Visual Studio.
     [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
 
 ## <a name="publish-project-to-azure"></a>Project kunt publiceren naar Azure
+
 De **Application Insights** pakket wordt nu weergegeven in het project en correct geconfigureerd voor uw referenties in de Azure-portal. De wijzigingen voor het project moeten worden gepubliceerd naar Azure.
 
 1. In de **Solution Explorer**, met de rechtermuisknop op de projectnaam en selecteer **publiceren**.
@@ -126,12 +132,13 @@ De **Application Insights** pakket wordt nu weergegeven in het project en correc
 
     ![Project kunt publiceren naar portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
-4. In de **publiceren instellingen importbestand** windows, gaat u naar de projectmap, gaat u naar de `PostDeployScripts` map, selecteert u de bestanden die eindigen op `.PublishSettings`, en selecteer `Open`. U hebt nu publiceren voor dit project geconfigureerd. 
+4. In de **publiceren instellingen importbestand** windows, gaat u naar de projectmap, gaat u naar de `PostDeployScripts` map, selecteert u de bestanden die eindigen op `.PublishSettings`, en selecteer `Open`. U hebt nu publiceren voor dit project geconfigureerd.
 
-5. Uw lokale broncode publiceren naar Bot Service door het selecteren van de **publiceren** knop. De **uitvoer** venster toont de status. De rest van de zelfstudie wordt uitgevoerd in Azure portal. Sluit Visual Studio 2017. 
+5. Uw lokale broncode publiceren naar Bot Service door het selecteren van de **publiceren** knop. De **uitvoer** venster toont de status. De rest van de zelfstudie wordt uitgevoerd in Azure portal. Sluit Visual Studio 2017.
 
 ## <a name="open-three-browser-tabs"></a>Drie browsertabbladen openen
-In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit drie verschillende weergaven van de web-app-bot gebruiken. Het is mogelijk beter te hebben van drie afzonderlijke tabbladen in de browser openen: 
+
+In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit drie verschillende weergaven van de web-app-bot gebruiken. Het is mogelijk beter te hebben van drie afzonderlijke tabbladen in de browser openen:
   
 >  * Testen in chatten
 >  * Online code-editor maken/openen -> App Service-editor
@@ -149,7 +156,7 @@ In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit 
 
    [!code-csharp[Add the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=61-92 "Add the LogToApplicationInsights function")]
 
-    De Application Insights-instrumentatiesleutel is al in de web-app-bot toepassing instellen met de naam `BotDevInsightsKey`. 
+    De Application Insights-instrumentatiesleutel is al in de web-app-bot toepassing instellen met de naam `BotDevInsightsKey`.
 
     De laatste regel van de functie worden de gegevens naar Application Insights. De naam van de tracering is `LUIS`, een unieke naam naast andere telemetriegegevens die zijn verzameld door deze web-app-bot. Alle eigenschappen ook worden voorafgegaan door `LUIS_` zodat u welke gegevens zien kunt in deze zelfstudie wordt toegevoegd in vergelijking tot informatie die wordt bepaald door de web-app-bot.
 
@@ -158,6 +165,7 @@ In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit 
    [!code-csharp[Use the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=114-115 "Use the LogToApplicationInsights function")]
 
 ## <a name="build-web-app-bot"></a>Bouw web app-bot
+
 1. Bouw de web-app-bot op twee manieren. De eerste methode is met de rechtermuisknop op `build.cmd` in de **App Service-Editor**en selecteer vervolgens **uitvoeren vanaf de Console**. De uitvoer van de console wordt weergegeven en is voltooid met `Finished successfully.`
 
 2. Als dit niet wordt voltooid, moet u de console openen, gaat u naar het script en voeren met behulp van de volgende stappen uit. In de **App Service-Editor**, op de bovenste blauwe balk, selecteert u de naam van uw bot, vervolgens **Kudu-Console openen** in de vervolgkeuzelijst.
@@ -174,7 +182,7 @@ In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit 
 
 ## <a name="test-the-web-app-bot"></a>Testen van de web-app-bot
 
-1. Als u wilt testen van uw web-app-bot, open de **testen in Web Chat** functie in de portal. 
+1. Als u wilt testen van uw web-app-bot, open de **testen in Web Chat** functie in de portal.
 
 2. Voer de woordgroep `Coffee bar on please`.  
 
@@ -189,9 +197,10 @@ Turn on the hall light
 ```
 
 ## <a name="view-luis-entries-in-application-insights"></a>LUIS-items weergeven in Application Insights
-Open Application Insights om te zien van de LUIS-vermeldingen. 
 
-1. Selecteer in de portal **alle resources** vervolgens filteren op de naam van de web-app-bot. Klik op de resource met het type **Application Insights**. Het pictogram voor Application Insights is een gloeilampje. 
+Open Application Insights om te zien van de LUIS-vermeldingen.
+
+1. Selecteer in de portal **alle resources** vervolgens filteren op de naam van de web-app-bot. Klik op de resource met het type **Application Insights**. Het pictogram voor Application Insights is een gloeilampje.
 
     ![Zoeken naar app insights](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
@@ -203,16 +212,16 @@ Open Application Insights om te zien van de LUIS-vermeldingen.
 
     ![Lees trace artikel](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace-item.png)
 
-    Wanneer u klaar bent, selecteert u de top rechtse **X** om terug te keren naar de lijst met items van de afhankelijkheid. 
-
+    Wanneer u klaar bent, selecteert u de top rechtse **X** om terug te keren naar de lijst met items van de afhankelijkheid.
 
 > [!Tip]
 > Als u de afhankelijkheidslijst opslaan en dit bestand later wilt, klikt u op **... Meer** en klikt u op **favoriet opslaan**.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights-query voor het doel, score en utterance
-Application Insights biedt u de power query uitvoeren op gegevens die met de [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) taal, alsmede exporteren naar [Power BI](https://powerbi.microsoft.com). 
 
-1. Klik op **Analytics** aan de bovenkant van de afhankelijkheid worden vermeld, boven het filtervak. 
+Application Insights biedt u de power query uitvoeren op gegevens die met de [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) taal, alsmede exporteren naar [Power BI](https://powerbi.microsoft.com).
+
+1. Klik op **Analytics** aan de bovenkant van de afhankelijkheid worden vermeld, boven het filtervak.
 
     ![Knop Analytics](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-analytics-button.png)
 
@@ -232,18 +241,17 @@ Application Insights biedt u de power query uitvoeren op gegevens die met de [Ku
 
     ![Aangepaste analyserapport](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
-
-Meer informatie over de [Kusto-querytaal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
-
+Meer informatie over de [Kusto-querytaal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi).
 
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework
+
 Meer informatie over [Bot Framework](https://dev.botframework.com/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Andere informatie die u mogelijk wilt toevoegen aan de application insights-gegevens omvatten app-ID, versie-ID, datum laatste model, laatste datum van de trein, de laatste publicatiedatum. Deze waarden kunnen ofwel worden opgehaald van de eindpunt-URL (app-ID en versie-ID) of van een [API ontwerpen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) aanroepen en vervolgens ingesteld in de bot-instellingen van de web-app en van daaruit opgehaald.  
 
-Als u van hetzelfde abonnement endpoint voor meer dan één LUIS-app gebruikmaakt, moet u ook de abonnements-ID en een eigenschap met de mededeling dat het een gedeelde sleutel opnemen. 
+Als u van hetzelfde abonnement endpoint voor meer dan één LUIS-app gebruikmaakt, moet u ook de abonnements-ID en een eigenschap met de mededeling dat het een gedeelde sleutel opnemen.
 
 > [!div class="nextstepaction"]
 > [Meer informatie over de voorbeeld-uitingen](luis-how-to-add-example-utterances.md)

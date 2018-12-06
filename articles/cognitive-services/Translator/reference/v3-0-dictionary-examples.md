@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967994"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text-API 3.0: Woordenlijst voorbeelden
 
-Biedt voorbeelden die laten zien hoe de voorwaarden in de woordenlijst in de context worden gebruikt. Deze bewerking wordt gebruikt in combinatie met [Dictionary lookup](.\v3-0-dictionary-lookup.md).
+Biedt voorbeelden die laten zien hoe de voorwaarden in de woordenlijst in de context worden gebruikt. Deze bewerking wordt gebruikt in combinatie met [Dictionary lookup](./v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>Aanvraag-URL
 
@@ -42,11 +42,11 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>uit</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de invoertekst. De source-taal moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de invoertekst. De source-taal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
   </tr>
   <tr>
     <td>tot</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
   </tr>
 </table>
 
@@ -73,13 +73,13 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de volgende eigenschappen:
 
-  * `Text`: Een tekenreeks op te geven de term te zoeken. Dit moet de waarde van een `normalizedText` veld uit de back-vertalingen van een vorige [Dictionary lookup](.\v3-0-dictionary-lookup.md) aanvraag. Het kan ook worden de waarde van de `normalizedSource` veld.
+  * `Text`: Een tekenreeks op te geven de term te zoeken. Dit moet de waarde van een `normalizedText` veld uit de back-vertalingen van een vorige [Dictionary lookup](./v3-0-dictionary-lookup.md) aanvraag. Het kan ook worden de waarde van de `normalizedSource` veld.
 
-  * `Translation`: Een tekenreeks op te geven de vertaalde tekst die eerder zijn geretourneerd door de [Dictionary lookup](.\v3-0-dictionary-lookup.md) bewerking. Dit moet de waarde van de `normalizedTarget` veld in de `translations` lijst van de [Dictionary lookup](.\v3-0-dictionary-lookup.md) antwoord. Voorbeelden voor het specifieke bron-doel word-paar retourneert de service.
+  * `Translation`: Een tekenreeks op te geven de vertaalde tekst die eerder zijn geretourneerd door de [Dictionary lookup](./v3-0-dictionary-lookup.md) bewerking. Dit moet de waarde van de `normalizedTarget` veld in de `translations` lijst van de [Dictionary lookup](./v3-0-dictionary-lookup.md) antwoord. Voorbeelden voor het specifieke bron-doel word-paar retourneert de service.
 
 Er is een voorbeeld:
 

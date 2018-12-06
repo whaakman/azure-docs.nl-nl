@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a4be229e1c491c3062b14e631cfec5b14185bb82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869956"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957654"
 ---
 # <a name="asdk-release-notes"></a>Opmerkingen bij de release van ASDK  
-In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit (ASDK). Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
+In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit (ASDK). Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](../azure-stack-updates.md#determine-the-current-version).
 
 > De hoogte blijven van wat is er nieuw in de ASDK Abonneer u op de [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
@@ -180,13 +180,13 @@ Zie voor meer informatie, [Azure Stack syslog doorsturen](../azure-stack-integra
 Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **Starten van back-ups volgens een vooraf gedefinieerd schema** -als een apparaat, Azure Stack kan nu automatisch activeren infrastructuur back-ups regelmatig om te voorkomen van menselijk handelen. Azure Stack wordt ook automatisch opschonen van de externe share voor back-ups die ouder dan de opgegeven bewaarperiode zijn. Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Starten van back-ups volgens een vooraf gedefinieerd schema** -als een apparaat, Azure Stack kan nu automatisch activeren infrastructuur back-ups regelmatig om te voorkomen van menselijk handelen. Azure Stack wordt ook automatisch opschonen van de externe share voor back-ups die ouder dan de opgegeven bewaarperiode zijn. Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 2496385 | ASDK, IS -->  
-- **Toegevoegde tijd in de totale back-uptijd voor gegevensoverdracht.** Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Toegevoegde tijd in de totale back-uptijd voor gegevensoverdracht.** Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 1702130 | ASDK, IS --> 
-- **Back-up externe capaciteit wordt nu de juiste capaciteit van de externe share.** (Dit was eerder programmeren tot 10 GB.) Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Back-up externe capaciteit wordt nu de juiste capaciteit van de externe share.** (Dit was eerder programmeren tot 10 GB.) Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Azure Resource Manager-sjablonen bieden nu ondersteuning voor het element voorwaarde** -u kunt nu een resource in een Azure Resource Manager-sjabloon met behulp van een voorwaarde implementeren. U kunt de sjabloon voor het implementeren van een resource op basis van een voorwaarde, zoals het evalueren van als een parameterwaarde bevindt ontwerpen. Zie voor meer informatie over het gebruik van een sjabloon als een voorwaarde [een resource voorwaardelijk implementeren](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) en [sectie met variabelen van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in de documentatie van Azure. 
@@ -194,7 +194,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
    U kunt ook sjablonen [resources implementeren op meer dan één abonnement of resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
-- **Ondersteuning voor de versie van de Microsoft.COMPUTE API-resource is bijgewerkt** ondersteuning voor API-versie 2017-10-01, 2015-06-15 voor Azure Stack-netwerkbronnen. Ondersteuning voor resource-versies tussen 10-01-2017 en 15-06-2015 is niet opgenomen in deze release. Raadpleeg [overwegingen voor Azure Stack-netwerken](.\.\user\azure-stack-network-differences.md) voor functionaliteit verschillen.
+- **Ondersteuning voor de versie van de Microsoft.COMPUTE API-resource is bijgewerkt** ondersteuning voor API-versie 2017-10-01, 2015-06-15 voor Azure Stack-netwerkbronnen. Ondersteuning voor resource-versies tussen 10-01-2017 en 15-06-2015 is niet opgenomen in deze release. Raadpleeg [overwegingen voor Azure Stack-netwerken](../user/azure-stack-network-differences.md) voor functionaliteit verschillen.
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack is ondersteuning toegevoegd voor omgekeerde DNS-zoekacties voor dergelijke infrastructuur-eindpunten voor Azure Stack** (dat is voor de portal, adminportal, beheer en adminmanagement). Hiermee kunt Azure Stack Extern eindpunt namen worden omgezet vanaf een IP-adres.
@@ -222,7 +222,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - **Azure Resource Manager bevat de regionaam van de.** Met deze release bevat objecten die zijn opgehaald van de Azure Resource Manager nu het naamkenmerk regio. Als een bestaande PowerShell-script wordt het object rechtstreeks aan een andere cmdlet doorgegeven, kan het script een foutmelding weergegeven en mislukken. Dit gedrag van Azure Resource Manager-compatibel is en vereist dat de aanroepende client om af te trekken van het kenmerk regio. Voor meer informatie over de Azure Resource Manager-Zie [Azure Resource Manager-documentatie](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 <!-- TBD | IS, ASDK -->  
-- **Abonnementen verplaatsen tussen gedelegeerde Providers.** U kunt abonnementen nu verplaatsen tussen abonnementen van nieuwe of bestaande Provider overgedragen die deel uitmaken van dezelfde Directory-tenant. Abonnementen die behoren tot het abonnement van de Provider standaard kunnen ook worden verplaatst naar de Provider overgedragen abonnementen in dezelfde Directory-tenant. Zie voor meer informatie [aanbiedingen in Azure Stack delegeren](.\.\azure-stack-delegated-provider.md).
+- **Abonnementen verplaatsen tussen gedelegeerde Providers.** U kunt abonnementen nu verplaatsen tussen abonnementen van nieuwe of bestaande Provider overgedragen die deel uitmaken van dezelfde Directory-tenant. Abonnementen die behoren tot het abonnement van de Provider standaard kunnen ook worden verplaatst naar de Provider overgedragen abonnementen in dezelfde Directory-tenant. Zie voor meer informatie [aanbiedingen in Azure Stack delegeren](../azure-stack-delegated-provider.md).
  
 <!-- 2536808 IS ASDK --> 
 - **Aanmaaktijd van de virtuele machine verbeterd** voor virtuele machines die zijn gemaakt met de installatiekopieën die u vanuit de Azure marketplace downloaden.
@@ -246,7 +246,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - De lijst met back-up wordt nu vernieuwd wanneer u de back-up handmatig van de externe share verwijderen.
 
 <!-- 2360715 |  ASDK, IS -->  
-- Bij het instellen van datacenter-integratie, u geen toegang meer tot de AD FS-bestand met metagegevens van een share. Zie voor meer informatie, [AD FS-integratie instellen door op te geven van bestand met federatieve metagegevens](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- Bij het instellen van datacenter-integratie, u geen toegang meer tot de AD FS-bestand met metagegevens van een share. Zie voor meer informatie, [AD FS-integratie instellen door op te geven van bestand met federatieve metagegevens](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 <!-- 2388980 | ASDK, IS --> 
 - We een probleem opgelost dat gebruikers van een bestaande openbare IP-adres toegewezen die was eerder zijn toegewezen aan een netwerkinterface of Load Balancer met een nieuwe netwerkinterface of Load Balancer.  
@@ -269,7 +269,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 <!--  TBD ASDK --> 
 - De virtuele machine die als host fungeert voor het eindpunt van de bevoegdheden (PEP) is verhoogd tot 4GB. In de ASDK heet deze virtuele machine AzS-ERCS01.
 
-- <!--  TBD – IS, ASDK --> *Basic A* grootten van virtuele machines buiten gebruik worden gesteld voor [het maken van virtuele-machineschaalsets](.\.\azure-stack-compute-add-scalesets.md) (VMSS) via de portal. Als u wilt een VMSS te maken met deze grootte, PowerShell of een sjabloon te gebruiken. 
+- <!--  TBD – IS, ASDK --> *Basic A* grootten van virtuele machines buiten gebruik worden gesteld voor [het maken van virtuele-machineschaalsets](../azure-stack-compute-add-scalesets.md) (VMSS) via de portal. Als u wilt een VMSS te maken met deze grootte, PowerShell of een sjabloon te gebruiken. 
 
 ### <a name="known-issues"></a>Bekende problemen
 
@@ -283,7 +283,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - Abonnementen die zijn toegevoegd aan een gebruikersabonnement als een aanvullende plan kunnen niet worden verwijderd, zelfs wanneer u het abonnement uit het gebruikersabonnement verwijderen. Het abonnement blijft totdat de abonnementen die verwijzen naar het aanvullende plan worden ook verwijderd. 
 
 <!--2760466 – IS  ASDK --> 
-- Wanneer u een nieuwe Azure Stack-omgeving met deze versie installeert, de waarschuwing die aangeeft *activering vereist* mogelijk niet weergegeven. [Activering](.\.\azure-stack-registration.md) is vereist voordat u de marketplace-publicatie kunt gebruiken. 
+- Wanneer u een nieuwe Azure Stack-omgeving met deze versie installeert, de waarschuwing die aangeeft *activering vereist* mogelijk niet weergegeven. [Activering](../azure-stack-registration.md) is vereist voordat u de marketplace-publicatie kunt gebruiken. 
 
 <!-- TBD - IS ASDK --> 
 - De twee administratieve abonnementstypen die zijn geïntroduceerd in versie 1804 mag niet worden gebruikt. De abonnementstypen zijn **softwarelicentiecontrole abonnement**, en **verbruik abonnement**. Deze abonnementstypen zijn **softwarelicentiecontrole abonnement**, en **verbruik abonnement**. Deze abonnementstypen zijn zichtbaar in de nieuwe Azure Stack-omgevingen vanaf versie 1804 maar nog niet klaar voor gebruik. U moet echter ook doorgaan met de **standaard providerabonnement** type.
@@ -417,17 +417,17 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 ### <a name="new-features"></a>Nieuwe functies
 Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.  
 
-- <!-- 1658937 | ASDK, IS --> **Starten van back-ups volgens een vooraf gedefinieerd schema** -als een apparaat, Azure Stack kan nu automatisch activeren infrastructuur back-ups regelmatig om te voorkomen van menselijk handelen. Azure Stack wordt ook automatisch opschonen van de externe share voor back-ups die ouder dan de opgegeven bewaarperiode zijn. Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 1658937 | ASDK, IS --> **Starten van back-ups volgens een vooraf gedefinieerd schema** -als een apparaat, Azure Stack kan nu automatisch activeren infrastructuur back-ups regelmatig om te voorkomen van menselijk handelen. Azure Stack wordt ook automatisch opschonen van de externe share voor back-ups die ouder dan de opgegeven bewaarperiode zijn. Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
-- <!-- 2496385 | ASDK, IS -->  **Toegevoegde tijd in de totale back-uptijd voor gegevensoverdracht.** Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 2496385 | ASDK, IS -->  **Toegevoegde tijd in de totale back-uptijd voor gegevensoverdracht.** Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
--   <!-- 1702130 | ASDK, IS -->  **Back-up externe capaciteit wordt nu de juiste capaciteit van de externe share.** (Dit was eerder programmeren tot 10 GB.) Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+-   <!-- 1702130 | ASDK, IS -->  **Back-up externe capaciteit wordt nu de juiste capaciteit van de externe share.** (Dit was eerder programmeren tot 10 GB.) Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager-sjablonen bieden nu ondersteuning voor het element voorwaarde** -u kunt nu een resource in een Azure Resource Manager-sjabloon met behulp van een voorwaarde implementeren. U kunt de sjabloon voor het implementeren van een resource op basis van een voorwaarde, zoals het evalueren van als een parameterwaarde bevindt ontwerpen. Zie voor meer informatie over het gebruik van een sjabloon als een voorwaarde [een resource voorwaardelijk implementeren](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) en [sectie met variabelen van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in de documentatie van Azure. 
 
    U kunt ook sjablonen [resources implementeren op meer dan één abonnement of resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
-- <!--2753073 | IS, ASDK -->  **Ondersteuning voor de versie van de Microsoft.COMPUTE API-resource is bijgewerkt** ondersteuning voor API-versie 2017-10-01, 2015-06-15 voor Azure Stack-netwerkbronnen.  Ondersteuning voor resource-versies tussen 10-01-2017 en 15-06-2015 is niet opgenomen in deze release, maar worden opgenomen in een toekomstige release.  Raadpleeg [overwegingen voor Azure Stack-netwerken](.\.\user\azure-stack-network-differences.md) voor functionaliteit verschillen.
+- <!--2753073 | IS, ASDK -->  **Ondersteuning voor de versie van de Microsoft.COMPUTE API-resource is bijgewerkt** ondersteuning voor API-versie 2017-10-01, 2015-06-15 voor Azure Stack-netwerkbronnen.  Ondersteuning voor resource-versies tussen 10-01-2017 en 15-06-2015 is niet opgenomen in deze release, maar worden opgenomen in een toekomstige release.  Raadpleeg [overwegingen voor Azure Stack-netwerken](../user/azure-stack-network-differences.md) voor functionaliteit verschillen.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack is ondersteuning toegevoegd voor omgekeerde DNS-zoekacties voor dergelijke infrastructuur-eindpunten voor Azure Stack** (dat is voor de portal, adminportal, beheer en adminmanagement). Hiermee kunt Azure Stack Extern eindpunt namen worden omgezet vanaf een IP-adres.
 
@@ -444,11 +444,11 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 
   Omdat deze functie nog in preview is, afhankelijk u niet van het in een productieomgeving.
 
-  Zie voor meer informatie, [Azure Stack syslog doorsturen](.\.\azure-stack-integrate-security.md).
+  Zie voor meer informatie, [Azure Stack syslog doorsturen](../azure-stack-integrate-security.md).
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager bevat de regionaam van de.** Met deze release bevat objecten die zijn opgehaald van de Azure Resource Manager nu het naamkenmerk regio. Als een bestaande PowerShell-script wordt het object rechtstreeks aan een andere cmdlet doorgegeven, kan het script een foutmelding weergegeven en mislukken. Dit gedrag van Azure Resource Manager-compatibel is en vereist dat de aanroepende client om af te trekken van het kenmerk regio. Voor meer informatie over de Azure Resource Manager-Zie [Azure Resource Manager-documentatie](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-- <!-- TBD | IS, ASDK -->  **Abonnementen verplaatsen tussen gedelegeerde Providers.** U kunt abonnementen nu verplaatsen tussen abonnementen van nieuwe of bestaande Provider overgedragen die deel uitmaken van dezelfde Directory-tenant. Abonnementen die behoren tot het abonnement van de Provider standaard kunnen ook worden verplaatst naar de Provider overgedragen abonnementen in dezelfde Directory-tenant. Zie voor meer informatie [aanbiedingen in Azure Stack delegeren](.\.\azure-stack-delegated-provider.md).
+- <!-- TBD | IS, ASDK -->  **Abonnementen verplaatsen tussen gedelegeerde Providers.** U kunt abonnementen nu verplaatsen tussen abonnementen van nieuwe of bestaande Provider overgedragen die deel uitmaken van dezelfde Directory-tenant. Abonnementen die behoren tot het abonnement van de Provider standaard kunnen ook worden verplaatst naar de Provider overgedragen abonnementen in dezelfde Directory-tenant. Zie voor meer informatie [aanbiedingen in Azure Stack delegeren](../azure-stack-delegated-provider.md).
  
 - <!-- 2536808 IS ASDK --> **Aanmaaktijd van de virtuele machine verbeterd** voor virtuele machines die zijn gemaakt met de installatiekopieën die u vanuit de Azure marketplace downloaden.
 
@@ -464,7 +464,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 
 - <!-- 2215948 |  ASDK, IS --> De lijst met back-up wordt nu vernieuwd wanneer u de back-up handmatig van de externe share verwijderen.
 
-- <!-- 2360715 |  ASDK, IS -->  Bij het instellen van datacenter-integratie, u geen toegang meer tot de AD FS-bestand met metagegevens van een share. Zie voor meer informatie, [AD FS-integratie instellen door op te geven van bestand met federatieve metagegevens](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- <!-- 2360715 |  ASDK, IS -->  Bij het instellen van datacenter-integratie, u geen toegang meer tot de AD FS-bestand met metagegevens van een share. Zie voor meer informatie, [AD FS-integratie instellen door op te geven van bestand met federatieve metagegevens](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 - <!-- 2388980 | ASDK, IS --> We een probleem opgelost dat gebruikers van een bestaande openbare IP-adres toegewezen die was eerder zijn toegewezen aan een netwerkinterface of Load Balancer met een nieuwe netwerkinterface of Load Balancer.  
 
@@ -511,7 +511,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - U kunt geen updates voor stuurprogramma's toepassen met behulp van een OEM-uitbreidingspakket met deze versie van Azure Stack.  Er is geen oplossing voor dit probleem.
  
 <!-- TBD - IS ASDK --> 
-- De mogelijkheid [een nieuwe ondersteuningsaanvraag openen in de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. In plaats daarvan gebruikt u de volgende koppeling:     
+- De mogelijkheid [een nieuwe ondersteuningsaanvraag openen in de vervolgkeuzelijst](../azure-stack-manage-portals.md#quick-access-to-help-and-support) uit binnen de beheerder van de portal is niet beschikbaar. In plaats daarvan gebruikt u de volgende koppeling:     
     - Gebruik voor Azure Stack Development Kit https://aka.ms/azurestackforum.    
 
 <!-- 2403291 - IS ASDK --> 
@@ -605,7 +605,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 <!-- 2292271 - IS ASDK --> 
 - Als u een quotumlimiet voor een netwerkbron die deel uitmaakt van een aanbieding en een Plan dat is gekoppeld aan een tenantabonnement verhoogt, wordt de nieuwe limiet niet toegepast op dat aan het abonnement. De nieuwe limiet is echter van toepassing op nieuwe abonnementen die zijn gemaakt nadat het quotum is verhoogd.
 
-  U kunt dit probleem omzeilen, door een aanvullende plan te gebruiken voor het verhogen van een quotum op het netwerk wanneer het abonnement al gekoppeld aan een abonnement is. Zie voor meer informatie over het [beschikbaar maken voor een aanvullende plan](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  U kunt dit probleem omzeilen, door een aanvullende plan te gebruiken voor het verhogen van een quotum op het netwerk wanneer het abonnement al gekoppeld aan een abonnement is. Zie voor meer informatie over het [beschikbaar maken voor een aanvullende plan](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 <!-- 2304134 IS ASDK --> 
 - U kunt een abonnement met DNS-Zone resources of de routetabel-resources die zijn gekoppeld aan het niet verwijderen. Als u wilt het abonnement is verwijderd, moet u eerst de DNS-Zone en routetabel resources uit het tenantabonnement verwijderen.

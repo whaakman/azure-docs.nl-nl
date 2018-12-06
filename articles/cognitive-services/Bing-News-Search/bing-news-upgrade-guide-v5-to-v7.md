@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 565c0ed877cf4500131f7ad3099f3c7d3f1a1220
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801162"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955034"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Upgradehandleiding nieuws zoeken-API
 
@@ -25,7 +25,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 ### <a name="endpoints"></a>Eindpunten
 
-- Het versienummer van het eindpunt is gewijzigd van versie 5 in versie 7. Bijvoorbeeld, https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/news/search.
+- Het versienummer van het eindpunt is gewijzigd van versie 5 in versie 7. Bijvoorbeeld, https://api.cognitive.microsoft.com/bing/ **v7.0**  /nieuws/zoeken.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fout antwoordobjecten en foutcodes
 
@@ -34,7 +34,6 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 - De volgende velden toevoegt aan de `Error` object.  
   - `subCode`&mdash;Indien mogelijk partities van de foutcode in discrete buckets
   - `moreDetails`&mdash;Als u meer informatie over de fout wordt beschreven in de `message` veld
-   
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
@@ -77,18 +76,18 @@ Geblokkeerd|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Queryparameters
 
-- Producten toegevoegd als een mogelijke waarde die u mogelijk de [categorie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) parameter om op te vragen. Zie [categorieën op markten](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).  
-    
-- Toegevoegd de [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) queryparameter die actuele onderwerpen op met de meest recente eerst gesorteerd op basis van datum als resultaat.  
-  
+- Producten toegevoegd als een mogelijke waarde die u mogelijk de [categorie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) parameter om op te vragen. Zie [categorieën op markten](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).
+
+- Toegevoegd de [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) queryparameter die actuele onderwerpen op met de meest recente eerst gesorteerd op basis van datum als resultaat.
+
 - Toegevoegd de [omdat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) queryparameter, dat wordt geretourneerd van actuele onderwerpen die zijn gedetecteerd door Bing op of na de opgegeven Unix-epoche timestamp.
 
 ### <a name="object-changes"></a>Wijzigingen van object
 
-- Toegevoegd de `mentions` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. De `mentions` veld bevat een lijst met entiteiten (personen of locaties) die zijn gevonden in het artikel.  
-  
-- Toegevoegd de `video` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. De `video` veld bevat een video met betrekking tot het nieuwsartikel. De video is een \<iframe\> die u kunt insluiten of een beweging miniatuur.   
-  
-- Toegevoegd de `sort` veld de [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) object. De `sort` veld ziet u de sorteervolgorde van de artikelen. Bijvoorbeeld, worden de artikelen gesorteerd op relevantie (standaard) of de datum.  
-  
+- Toegevoegd de `mentions` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. De `mentions` veld bevat een lijst met entiteiten (personen of locaties) die zijn gevonden in het artikel.
+
+- Toegevoegd de `video` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. De `video` veld bevat een video met betrekking tot het nieuwsartikel. De video is een \<iframe\> die u kunt insluiten of een beweging miniatuur.
+
+- Toegevoegd de `sort` veld de [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) object. De `sort` veld ziet u de sorteervolgorde van de artikelen. Bijvoorbeeld, worden de artikelen gesorteerd op relevantie (standaard) of de datum.
+
 - Toegevoegd de [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) object, dat een sorteervolgorde bepaalt. De `isSelected` veld geeft aan of het antwoord de sorteervolgorde gebruikt. Als **waar**, het antwoord gebruikt de sorteervolgorde. Als `isSelected` is **false**, kunt u de URL in de `url` veld om aan te vragen van een andere sorteervolgorde.

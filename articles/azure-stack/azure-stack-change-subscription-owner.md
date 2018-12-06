@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468667"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959193"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Wijzig de eigenaar voor een Azure Stack-gebruikersabonnement
 
@@ -40,8 +40,8 @@ Er zijn twee soorten *eigenaren* die zijn toegewezen aan een abonnement:
 
 Voer het volgende script als u wilt wijzigen van de eigenaar van de facturering van het gebruikersabonnement van een. De computer die u gebruikt om uit te voeren van het script moet verbinding maken met Azure Stack en uitvoeren van de Azure Stack-PowerShell-module 1.3.0 of hoger. Zie voor meer informatie, [PowerShell voor Azure Stack installeren](azure-stack-powershell-install.md). 
 
-> [!Note]  
->  In een multitenant Azure Stack, moet de nieuwe eigenaar zich in dezelfde map als de eigenaar van de bestaande. Voordat u de eigendom van het abonnement aan een gebruiker die zich in een andere map bieden kunt, moet u eerst [die gebruiker als gast uitnodigen in uw directory](../active-directory/b2b/add-users-administrator.md). 
+> [!Note]
+>  In een multitenant Azure Stack, moet de nieuwe eigenaar zich in dezelfde map als de eigenaar van de bestaande. Voordat u de eigendom van het abonnement aan een gebruiker die zich in een andere map bieden kunt, moet u eerst [die gebruiker als gast uitnodigen in uw directory](../active-directory/b2b/add-users-administrator.md). 
 
 Vervang de volgende waarden in het script voordat deze wordt uitgevoerd: 
  

@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ce13607e795710ebc7b0020a0025bd207327f1d2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d255894b7b9673f3a7d27414b4fb0c114d821747
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878751"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962136"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Wat is de Azure Database Migration Service?
 Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure data platforms met minimale downtime (online migratie).
@@ -27,7 +27,6 @@ Azure Database Migration Service kan worden geïntegreerd enkele van de function
 > Met behulp van de Azure Database Migration Service om uit te voeren van een online migratie vereist het maken van een exemplaar op basis van de prijscategorie Premium (Preview).
 
 ## <a name="regional-availability"></a>Regionale beschikbaarheid
-
 Zie voor bijgewerkte informatie over regionale beschikbaarheid van de Azure Database Migration Service [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
 ## <a name="pricing"></a>Prijzen

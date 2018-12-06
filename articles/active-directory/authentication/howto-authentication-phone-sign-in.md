@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287180"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963944"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Zonder wachtwoord aanmelden via telefoon met de Microsoft Authenticator-app (preview-versie)
 
@@ -50,7 +50,7 @@ U kunt het zonder wachtwoord telefoon aanmelden preview met behulp van de volgen
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hoe kan mijn eindgebruikers aanmelden via telefoon inschakelen?
 
-Er is geen manier om af te dwingen van gebruikers om te maken of gebruiken van deze nieuwe referentie voor de openbare preview. Een eindgebruiker wordt alleen aanmelding zonder wachtwoord optreden wanneer een beheerder als hun tenant ingeschakeld en de Microsoft Authenticator-app als u wilt aanmelden via telefoon inschakelen door de gebruiker is bijgewerkt.
+Er is geen manier om af te dwingen van gebruikers om te maken of gebruiken van deze nieuwe referentie voor de openbare preview. Een eindgebruiker wordt alleen aanmelding zonder wachtwoord optreden als een beheerder hun tenant is ingeschakeld en de Microsoft Authenticator-app als u wilt aanmelden via telefoon inschakelen door de gebruiker is bijgewerkt.
 
 > [!NOTE]
 > Deze mogelijkheid is in de app sinds maart 2017, dus er is een mogelijkheid is dat wanneer het beleid is ingeschakeld voor een tenant, kunt u de volgende deze stroom onmiddellijk. Houd er rekening mee en bereid uw gebruikers om deze wijziging.

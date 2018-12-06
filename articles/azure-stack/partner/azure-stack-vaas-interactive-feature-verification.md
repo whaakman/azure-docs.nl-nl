@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bc2fbf7aadf99a2f765def2d352819dfa6cd5fa4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265795"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972062"
 ---
 # <a name="interactive-feature-verification-testing"></a>Functie voor interactieve verificatie testen  
 
@@ -48,7 +48,7 @@ Een test voor de nieuwe schijf is een veelvoorkomend scenario. In dit voorbeeld 
 
 3.  Selecteer **Start** op de **testronde** tegel.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  Voer een naam voor de **testronde** werkstroom.
 
@@ -63,7 +63,7 @@ Een test voor de nieuwe schijf is een veelvoorkomend scenario. In dit voorbeeld 
 > [!Note]  
 > Gebruiker met beheerdersrechten en het wachtwoord moeten worden opgegeven voor schijf-id functie voor interactieve verificatie testen.
 
-![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## <a name="select-the-test"></a>Selecteer de test
 
@@ -72,51 +72,51 @@ Een test voor de nieuwe schijf is een veelvoorkomend scenario. In dit voorbeeld 
     > [!Note]  
     > De versie van de test wordt verhoogd wanneer er verbeteringen in de test kunnen worden aangebracht. De hoogste versie moet altijd worden gebruikt, tenzij anders wordt door Microsoft wordt aangegeven.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  Geef de gebruiker met beheerdersrechten en het wachtwoord door te selecteren **bewerken**.
 
 3.  Selecteer de juiste test tot uitvoering van agent/DVM gestart van de test op.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  Selecteer **indienen** om de test te starten.
 
-![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## <a name="start-the-test"></a>De test te starten
 
 De schijf-ID Test aanwijzingen geven op de computer waarop de agent VaaS uitvoert. Meestal is dit de DVM of de Jumpbox voor het Azure Stack-exemplaar.
 
-![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## <a name="choose-the-actions"></a>Kies de acties
 
 1.  Ga als volgt de **documentatie** en **validatie** koppelingen naar instructies van Microsoft voor het uitvoeren van dit scenario te bekijken.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  Selecteer **Volgende**.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  Volg de instructies in de controle vooraf script uit te voeren.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  Zodra de controle vooraf script is voltooid, de handmatige scenario (nieuwe schijf) worden uitgevoerd volgens de **documentatie** en **validatie** koppeling in de **informatie**tabblad.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  Sluit het dialoogvenster niet tijdens het uitvoeren van de handmatige scenario.
 
 6.  Wanneer u klaar bent met het uitvoeren van het scenario handmatige, volg de instructies de post-controle-script uit te voeren.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  Selecteer op de voltooiing van de handmatige (nieuwe schijf)-scenario, **volgende**.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > Als u het venster sluit, wordt de test wordt gestopt voordat deze wordt uitgevoerd.
@@ -125,7 +125,7 @@ De schijf-ID Test aanwijzingen geven op de computer waarop de agent VaaS uitvoer
 
 1.  Wanneer de test voltooid is, wordt u gevraagd om feedback te geven.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  Deze vragen helpt Microsoft bij het beoordelen van de kwaliteit van succes snelheid en release van het scenario.
 
@@ -133,7 +133,7 @@ De schijf-ID Test aanwijzingen geven op de computer waarop de agent VaaS uitvoer
 
 1.  Koppel alle logboekbestanden die u wilt verzenden naar Microsoft.
 
-    ![Alternatieve tekst](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![Alternatieve tekst](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  Accepteer de gebruiksrechtovereenkomst voor het verzenden van de feedback.
 
