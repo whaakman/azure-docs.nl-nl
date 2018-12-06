@@ -1,0 +1,91 @@
+---
+title: Azure Data Lake Storage Gen2 Preview Inleiding
+description: Biedt een overzicht van Azure Data Lake Storage Gen2 Preview
+services: storage
+author: jamesbak
+ms.service: storage
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.author: jamesbak
+ms.component: data-lake-storage-gen2
+ms.openlocfilehash: 3b0a2e4f39b3b523743768e96bfe9a63b1795f60
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52975317"
+---
+# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Inleiding tot Azure Data Lake Storage Gen2 Preview
+
+Azure Data Lake Storage Gen2 Preview is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, gebouwd op [Azure Blob-opslag](storage-blobs-introduction.md). Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure-blobopslag en Azure Data Lake Storage Gen1 geconvergeerd. Functies van [Azure Data Lake Storage Gen1](https://docs.microsoft.com/en-us/azure/data-lake-store/index), zoals de semantiek van het bestandssysteem, map en Bestandsbeveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob-opslag](storage-blobs-introduction.md).
+
+## <a name="designed-for-enterprise-big-data-analytics"></a>Ontworpen voor analyse van big data voor ondernemingen
+
+Data Lake Storage Gen2 maakt Azure Storage de basis voor het enterprise datalakes bouwen op Azure. Data Lake Storage Gen2 kunt ontworpen vanaf het begin het afhandelen van meerdere petabytes aan gegevens terwijl de honderden gigabits van doorvoer, u enorme hoeveelheden gegevens eenvoudig te beheren.
+
+Een fundamenteel onderdeel van Data Lake Storage Gen2 is de toevoeging van een [hiërarchische naamruimte](data-lake-storage-namespace.md) naar Blob-opslag. De hiërarchische naamruimte organiseert objecten/bestanden in een hiërarchie van mappen voor efficiënte toegang tot gegevens. Algemene naamconventie voor object store maakt gebruik van slashes in de naam om na te bootsen een hiërarchische mapstructuur. Deze structuur wordt echte met Data Lake Storage Gen2. Bewerkingen zoals het hernoemen of verwijderen van een directory worden één atomic metagegevens worden uitgevoerd op de map in plaats van met het inventariseren van en verwerken van alle objecten die delen van het voorvoegsel van de naam van de map.
+
+In het verleden had cloudanalyses te boeten op het gebied van prestaties, beheer en beveiliging. Data Lake Storage Gen2 adressen elk van deze aspecten in de volgende manieren:
+
+-   **Prestaties** is geoptimaliseerd omdat u niet nodig hebt om te kopiëren of transformatie van gegevens als een vereiste voor analyse. De hiërarchische naamruimte wordt aanzienlijk verbetert de prestaties van directory-management-bewerkingen, wat zorgt voor betere algehele prestaties van de taak.
+
+-   **Management** is eenvoudiger omdat u kunt ordenen en manipuleren van bestanden door middel van mappen en submappen.
+
+-   **Beveiliging** uitvoerbaar is omdat u POSIX-machtigingen op mappen of afzonderlijke bestanden kunt definiëren.
+
+-   **Kosteneffectiviteit** wordt mogelijk gemaakt zoals Data Lake Storage Gen2 is gebaseerd op de lage kosten [Azure Blob-opslag](storage-blobs-introduction.md). De aanvullende functies nog verder verlagen de totale eigendomskosten voor het uitvoeren van big data-analyses op Azure.
+
+## <a name="key-features-of-data-lake-storage-gen2"></a>Belangrijke functies van Data Lake Storage Gen2
+
+-   **Hadoop-compatibele toegang**: Data Lake Storage Gen2 kunt u beheren en toegang tot gegevens, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). De nieuwe [ABFS stuurprogramma](data-lake-storage-abfs-driver.md) is beschikbaar in alle Apache Hadoop-omgevingen, met inbegrip van [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), en [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) voor toegang tot gegevens die zijn opgeslagen in Data Lake Storage Gen2.
+
+-   **Een hoofdverzameling van POSIX-machtigingen**: het beveiligingsmodel voor Data Lake Gen2 biedt ondersteuning voor ACL en POSIX-machtigingen, samen met enkele extra granulariteit die specifiek zijn voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via Storage Explorer of frameworks, zoals Hive- en Spark.
+
+-   **Voordelige**: Data Lake Storage Gen2 biedt de opslagcapaciteit van de lage kosten en transacties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](../common/storage-lifecycle-management-concepts.md).
+
+-   **Geoptimaliseerde stuurprogramma**: is van het stuurprogramma abfs [speciaal geoptimaliseerd](data-lake-storage-abfs-driver.md) voor analyse van big data. De bijbehorende REST-API's zijn opgehaald via het eindpunt van de DFS-dfs.core.windows.net.
+
+### <a name="scalability"></a>Schaalbaarheid
+
+Azure Storage is schaalbaar standaard of u toegang via Data Lake Storage Gen2 of Blob storage-interfaces hebt. Wordt uitgevoerd om te slaan en te gebruiken om *vele exabytes aan gegevens*. Deze hoeveelheid opslag is beschikbaar met doorvoer, gemeten in gigabits per seconde (Gbps) op hoog niveau van invoer/uitvoer-bewerkingen per seconde (IOPS). Verwerking wordt dan alleen persistentie uitgevoerd op in de buurt van constante per aanvraag latenties die worden gemeten op service-, account- en bestandsniveau.
+
+### <a name="cost-effectiveness"></a>Kosteneffectiviteit
+
+Een van de vele voordelen van het bouwen van Data Lake Storage Gen2 boven op Azure Blob-opslag is de lage kosten van opslagcapaciteit en transacties. In tegenstelling tot andere cloud storage services, zijn gegevens die zijn opgeslagen in Data Lake Storage Gen2 is niet vereist om te worden verplaatst of getransformeerd vóór het uitvoeren van analyses. Zie voor meer informatie over prijzen [prijzen voor Azure Storage]((https://azure.microsoft.com/pricing/details/storage)).
+
+Daarnaast functies zoals de [hiërarchische naamruimte](data-lake-storage-namespace.md) aanzienlijk verbeteren de algehele prestaties van veel analytics-taken. Deze verbetering in de prestaties van betekent dat u nodig minder rekenkracht voor het verwerken van de dezelfde hoeveelheid gegevens hebt, wat resulteert in een lagere totale eigendomskosten (TCO) voor de end-to-end-analytics-taak.
+
+### <a name="one-service-multiple-concepts"></a>Een service, meerdere concepten
+
+Data Lake Storage Gen2 is een aanvullende mogelijkheden voor analyse van big data, gebouwd op Azure Blob Storage. Er zijn tal van voordelen in gebruik te maken van bestaande platformonderdelen van Blobs maken en gebruiken van datalakes voor analyses, dit leiden tot meerdere concepten met een beschrijving van de dingen die dezelfde, gedeeld.
+
+Hier volgen de equivalente entiteiten, zoals beschreven door andere concepten. Tenzij anders opgegeven deze entiteiten rechtstreeks synoniem zijn:
+
+| Concept                                | Bovenste niveau organisatie | Organisatie van lager niveau                                            | Gegevenscontainer |
+|----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
+| BLOBs-opslag voor algemeen gebruik-object | Container              | Virtuele map (SDK alleen – geeft geen atomaire bewerking) | Blob           |
+| ADLS Gen2 – Storage Analytics          | Bestandssysteem             | Directory                                                           | File           |
+
+## <a name="open-source-platforms-that-work-with-data-lake-storage-gen2"></a>Open source-platforms die met Data Lake Storage Gen2 werken
+
+Data Lake Storage Gen2 ondersteuning voor verschillende open source-platforms. Deze platforms worden weergegeven in de volgende tabel.
+
+> [!NOTE]
+> Alleen de versies die worden weergegeven in deze tabel worden ondersteund.
+
+| Platform |  Ondersteunde versie (s) | Meer informatie |
+| --- | --- | --- |
+| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+| [Hadoop](https://hadoop.apache.org/) | 2.7 + | [Apache Hadoop-versies archiveren](https://hadoop.apache.org/release.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Opmerkingen bij de release van de onderneming Claudera 6.x](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2 + | [Databricks Runtime-versies](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[HortenWorks](https://hortonworks.com/)| 2.6 + | [HortenWorks-documentatie](https://docs.hortonworks.com/) |
+
+## <a name="next-steps"></a>Volgende stappen
+
+De volgende artikelen beschreven enkele van de belangrijkste concepten van Data Lake Storage Gen2 en details over het opslaan, openen, beheren en haal praktische informatie uit uw gegevens:
+
+-   [Hiërarchische naamruimte](data-lake-storage-namespace.md)
+-   [Een opslagaccount maken](data-lake-storage-quickstart-create-account.md)
+-   [Een HDInsight-cluster maken met Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+-   [Een Azure Data Lake Storage Gen2-account in Azure Databricks gebruiken](data-lake-storage-quickstart-create-databricks-account.md)

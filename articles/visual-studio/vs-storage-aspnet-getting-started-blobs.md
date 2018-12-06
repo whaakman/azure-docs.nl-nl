@@ -4,7 +4,6 @@ description: Aan de slag verbonden met behulp van Azure Blob-opslag in een ASP.N
 services: storage
 author: ghogen
 manager: douge
-ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
@@ -12,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: b8c0891d8528e0622682788e5b10d5a76ad92ec8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 93859b3b6fcdad67d46604f2ab34bec4138feb2b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054105"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969614"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET)
 
@@ -25,7 +24,7 @@ ms.locfileid: "42054105"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob-opslag is een service waarmee ongestructureerde gegevens worden opgeslagen in de cloud-objecten of-blobs. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag.
+Azure Blob-opslag is een service waarmee ongestructureerde gegevens worden opgeslagen in de cloud-objecten of-blobs. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag. Zie voor meer informatie over Blob-opslag, [Inleiding tot Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md).
 
 Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's die gebruikmaken van Blob-opslag te schrijven. Scenario's omvatten het maken van een blob-container en uploaden, vermelden, downloaden en verwijderen van blobs.
 
@@ -34,9 +33,6 @@ Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's die
 ## <a name="prerequisites"></a>Vereisten
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 

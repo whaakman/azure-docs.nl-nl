@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aa1d5a4fc29b6fa5fc751edfd40e61d8762f6bd7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245722"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965339"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs
 
@@ -35,7 +35,7 @@ Wanneer Visual Studio een consoletoepassingsproject WebJobs is ingeschakeld impl
 
 Een project WebJobs-functionaliteit heeft de volgende items toegevoegd aan het:
 
-* De [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-pakket.
+* De [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-pakket.
 * Een [webjob-publiceren settings.json](#publishsettings) -bestand met de implementatie en de scheduler-instellingen. 
 
 ![Diagram van wat wordt toegevoegd aan een Console-App implementeren als een WebJob inschakelen](./media/websites-dotnet-deploy-webjobs/convert.png)
@@ -97,7 +97,7 @@ Voor het maken van een nieuw project voor WebJobs is ingeschakeld, kunt u gebrui
     Maak een project dat is geconfigureerd voor het automatisch als een WebJob implementeren als een webproject in dezelfde oplossing wordt geïmplementeerd. Gebruik deze optie als u wilt uitvoeren van de webtaak in dezelfde web-app waarin u de gerelateerde web-App uitvoeren.
 
 > [!NOTE]
-> De WebJobs nieuwe-projectsjabloon, maken automatisch NuGet-pakketten installeert en bevat de code in *Program.cs* voor de [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Als u niet wilt dat met de WebJobs-SDK, verwijderen of wijzigen de `host.RunAndBlock` -instructie in *Program.cs*.
+> De WebJobs nieuwe-projectsjabloon, maken automatisch NuGet-pakketten installeert en bevat de code in *Program.cs* voor de [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Als u niet wilt dat met de WebJobs-SDK, verwijderen of wijzigen de `host.RunAndBlock` -instructie in *Program.cs*.
 > 
 > 
 
@@ -130,7 +130,7 @@ De velden in dit dialoogvenster overeenkomen met de velden op de **webtaak toevo
 > 
 
 ## <a id="publishsettings"></a>webjob-publish-settings.json
-Wanneer u een consoletoepassing voor WebJobs-implementatie configureert, Visual Studio installeert de [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-pakket en winkels planningsgegevens in een *webjob-publiceren settings.json*  bestand in het project *eigenschappen* map van het WebJobs-project. Hier volgt een voorbeeld van het bestand:
+Wanneer u een consoletoepassing voor WebJobs-implementatie configureert, Visual Studio installeert de [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-pakket en winkels planningsgegevens in een *webjob-publiceren settings.json*  bestand in het project *eigenschappen* map van het WebJobs-project. Hier volgt een voorbeeld van het bestand:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",

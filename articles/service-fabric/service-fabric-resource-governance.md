@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: twhitney, subramar
-ms.openlocfilehash: f2898de030a70d578eb45e81c9ccbef90bce96c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 66f651f921773f638b4493be70319d5d80b122db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300469"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956837"
 ---
-# <a name="resource-governance"></a>Resourcebeheer 
+# <a name="resource-governance"></a>Resourcebeheer
 
 Wanneer u meerdere services op hetzelfde knooppunt of cluster uitvoert, is het mogelijk dat één service meer resources, alle andere services in het proces bandbreedte verbruikt mogelijk gebruiken. Dit probleem wordt aangeduid als het probleem 'noisy neighbor'. Azure Service Fabric kunt de ontwikkelaar om op te geven reserveringen en limieten per service om te garanderen van resources en gebruik van resources te beperken.
 
 > Voordat u met dit artikel verdergaat, wordt aangeraden dat u bekend bent met de [Service Fabric-toepassingsmodel](service-fabric-application-model.md) en de [Service Fabric-hostingmodel](service-fabric-hosting-model.md).
 >
 
-## <a name="resource-governance-metrics"></a>Metrische gegevens voor het beheer van resources 
+## <a name="resource-governance-metrics"></a>Metrische gegevens voor het beheer van resources
 
 Resourcebeheer wordt ondersteund in Service Fabric in overeenstemming met de [servicepakket](service-fabric-application-model.md). De resources die zijn toegewezen aan het servicepakket kunnen verder worden onderverdeeld tussen pakketten. De resourcelimieten die zijn opgegeven betekent ook dat de reservering van de resources. Service Fabric ondersteunt CPU en geheugen per service-pakket op te geven met twee ingebouwde [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md):
 
@@ -37,6 +37,7 @@ Resourcebeheer wordt ondersteund in Service Fabric in overeenstemming met de [se
 * *Geheugen* (naam van de meetwaarde `servicefabric:/_MemoryInMB`): geheugen, uitgedrukt in megabytes en het fysieke geheugen die beschikbaar is op de machine wordt toegewezen.
 
 Voor deze twee metrische gegevens, [Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) totale clustercapaciteit, de belasting van elk knooppunt in het cluster en de resterende resources in het cluster worden bijgehouden. Deze twee metrische gegevens zijn gelijk aan een andere gebruiker of aangepaste metrische gegevens. Alle bestaande functies kunnen worden gebruikt met deze:
+
 * Het cluster kan worden [met gelijke taakverdeling](service-fabric-cluster-resource-manager-balancing.md) op basis van deze twee metrische gegevens (standaardinstelling).
 * Het cluster kan worden [gedefragmenteerd](service-fabric-cluster-resource-manager-defragmentation-metrics.md) op basis van deze twee metrische gegevens.
 * Wanneer [een cluster beschrijven](service-fabric-cluster-resource-manager-cluster-description.md), gebufferde capaciteit kan worden ingesteld voor deze twee metrische gegevens.
@@ -61,11 +62,11 @@ Er zijn echter twee situaties waarin andere processen om CPU wedijveren mogelijk
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuratie voor het inschakelen van resourcebeheer van een cluster
 
-Wanneer een knooppunt wordt gestart en toegevoegd aan het cluster, Service Fabric detecteert de beschikbare hoeveelheid geheugen en het aantal beschikbare kernen en stelt vervolgens de knooppuntcapaciteiten voor deze twee resources. 
+Wanneer een knooppunt wordt gestart en toegevoegd aan het cluster, Service Fabric detecteert de beschikbare hoeveelheid geheugen en het aantal beschikbare kernen en stelt vervolgens de knooppuntcapaciteiten voor deze twee resources.
 
-Als u wilt laten bufferruimte voor het besturingssysteem en voor andere processen kan worden uitgevoerd op het knooppunt, Service Fabric gebruikt maximaal 80% van de beschikbare resources op het knooppunt. Dit percentage is configureerbaar en kan worden gewijzigd in het clustermanifest. 
+Als u wilt laten bufferruimte voor het besturingssysteem en voor andere processen kan worden uitgevoerd op het knooppunt, Service Fabric gebruikt maximaal 80% van de beschikbare resources op het knooppunt. Dit percentage is configureerbaar en kan worden gewijzigd in het clustermanifest.
 
-Hier volgt een voorbeeld van hoe u vertelt u Service Fabric om 50% van de beschikbare CPU-capaciteit en 70% van het beschikbare geheugen te gebruiken: 
+Hier volgt een voorbeeld van hoe u vertelt u Service Fabric om 50% van de beschikbare CPU-capaciteit en 70% van het beschikbare geheugen te gebruiken:
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
@@ -75,7 +76,7 @@ Hier volgt een voorbeeld van hoe u vertelt u Service Fabric om 50% van de beschi
 </Section>
 ```
 
-Als u volledige handmatige installatie van knooppuntcapaciteit nodig hebt, kunt u het normale mechanisme voor het beschrijven van de knooppunten in het cluster. Hier volgt een voorbeeld van het instellen van het knooppunt met vier kernen en 2 GB geheugen: 
+Als u volledige handmatige installatie van knooppuntcapaciteit nodig hebt, kunt u het normale mechanisme voor het beschrijven van de knooppunten in het cluster. Hier volgt een voorbeeld van het instellen van het knooppunt met vier kernen en 2 GB geheugen:
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -87,6 +88,7 @@ Als u volledige handmatige installatie van knooppuntcapaciteit nodig hebt, kunt 
 ```
 
 Wanneer automatische detectie van beschikbare bronnen is ingeschakeld en knooppuntcapaciteit worden handmatig gedefinieerd in het clustermanifest, Service Fabric controleert of het knooppunt voldoende resources voor ondersteuning van de capaciteit die de gebruiker heeft gedefinieerd:
+
 * Als knooppuntcapaciteit die zijn gedefinieerd in het manifest kleiner dan of gelijk zijn aan de beschikbare bronnen op het knooppunt, klikt u vervolgens de capaciteiten die zijn opgegeven in het manifest Service Fabric gebruikt.
 
 * Als de knooppuntcapaciteit die zijn gedefinieerd in het manifest groter zijn dan de beschikbare resources, Service Fabric de beschikbare resources gebruikt als knooppuntcapaciteit.
@@ -99,17 +101,16 @@ Automatische detectie van beschikbare resources kan worden uitgeschakeld als het
 </Section>
 ```
 
-Voor optimale prestaties moet moet de volgende instelling ook worden ingeschakeld in het clustermanifest: 
+Voor optimale prestaties moet moet de volgende instelling ook worden ingeschakeld in het clustermanifest:
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+    <Parameter Name="PreventTransientOvercommit" Value="true" />
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
 
-
-## <a name="specify-resource-governance"></a>Resourcebeheer opgeven 
+## <a name="specify-resource-governance"></a>Resourcebeheer opgeven
 
 Resource governance limieten zijn opgegeven in het toepassingsmanifest (ServiceManifestImport sectie), zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -131,8 +132,8 @@ Resource governance limieten zijn opgegeven in het toepassingsmanifest (ServiceM
     </Policies>
   </ServiceManifestImport>
 ```
-  
-In dit voorbeeld wordt de service-pakket met de naam **ServicePackageA** opgehaald van één kern op de knooppunten waar het wordt geplaatst. Deze servicepakket bevat twee codepakketten met (**CodeA1** en **CodeA2**), en beide geeft u de `CpuShares` parameter. Het deel van de CpuShares 512:256 verdeelt de core tussen de twee pakketten. 
+
+In dit voorbeeld wordt de service-pakket met de naam **ServicePackageA** opgehaald van één kern op de knooppunten waar het wordt geplaatst. Deze servicepakket bevat twee codepakketten met (**CodeA1** en **CodeA2**), en beide geeft u de `CpuShares` parameter. Het deel van de CpuShares 512:256 verdeelt de core tussen de twee pakketten.
 
 Dus in dit voorbeeld CodeA1 twee derde van een kern opgehaald en CodeA2 wordt opgehaald van een derde van een kern (en een gegarandeerde flexibele reservering hierop). Als CpuShares niet voor codepakketten opgegeven zijn, wordt de cores daartussen gelijkmatig verdeeld in Service Fabric.
 
@@ -164,7 +165,7 @@ Bij het opgeven van resourcebeheer is het mogelijk te gebruiken [toepassingspara
   </ServiceManifestImport>
 ```
 
-In dit voorbeeld zijn standaardwaarden voor parameters ingesteld voor de productie-omgeving, waarbij elk pakket Service krijgt 4 kernen en 2 GB geheugen. Het is mogelijk standaardwaarden wijzigen met de parameter voor toepassingsbestanden. In dit voorbeeld wordt één parameterbestand kan worden gebruikt voor het testen van de toepassing lokaal, waar deze minder resources dan in productie zou krijgen: 
+In dit voorbeeld zijn standaardwaarden voor parameters ingesteld voor de productie-omgeving, waarbij elk pakket Service krijgt 4 kernen en 2 GB geheugen. Het is mogelijk standaardwaarden wijzigen met de parameter voor toepassingsbestanden. In dit voorbeeld wordt één parameterbestand kan worden gebruikt voor het testen van de toepassing lokaal, waar deze minder resources dan in productie zou krijgen:
 
 ```xml
 <!-- ApplicationParameters\Local.xml -->
@@ -180,13 +181,14 @@ In dit voorbeeld zijn standaardwaarden voor parameters ingesteld voor de product
 </Application>
 ```
 
-> [!IMPORTANT]  Het opgeven van resourcebeheer met parameters voor de toepassing is vanaf met Service Fabric versie 6.1 beschikbaar.<br> 
+> [!IMPORTANT]
+> Het opgeven van resourcebeheer met parameters voor de toepassing is vanaf met Service Fabric versie 6.1 beschikbaar.<br>
 >
-> Als parameters voor de toepassing worden gebruikt om op te geven resourcebeheer, Service Fabric kan niet geen downgrade worden uitgevoerd op een eerdere versie dan versie 6.1. 
-
+> Als parameters voor de toepassing worden gebruikt om op te geven resourcebeheer, Service Fabric kan niet geen downgrade worden uitgevoerd op een eerdere versie dan versie 6.1.
 
 ## <a name="other-resources-for-containers"></a>Andere bronnen voor containers
-Naast de CPU en geheugen is het mogelijk om op te geven van andere resourcelimieten voor containers. Deze limieten zijn opgegeven op het niveau van de code-pakket en worden toegepast wanneer de container wordt gestart. In tegenstelling tot met CPU en geheugen, wordt niet met Cluster Resource Manager is niet op de hoogte van deze resources, en elke capaciteit controles uitvoeren of taakverdeling voor hen. 
+
+Naast de CPU en geheugen is het mogelijk om op te geven van andere resourcelimieten voor containers. Deze limieten zijn opgegeven op het niveau van de code-pakket en worden toegepast wanneer de container wordt gestart. In tegenstelling tot met CPU en geheugen, wordt niet met Cluster Resource Manager is niet op de hoogte van deze resources, en elke capaciteit controles uitvoeren of taakverdeling voor hen.
 
 * *MemorySwapInMB*: de hoeveelheid swap-geheugen die een container kunt gebruiken.
 * *MemoryReservationInMB*: de dynamische limiet voor geheugen-beheer die wordt afgedwongen alleen wanneer er conflicten geheugen wordt gedetecteerd op het knooppunt.
@@ -208,5 +210,6 @@ Deze resources kunnen worden gecombineerd met CPU en geheugen. Hier volgt een vo
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Lees voor meer informatie over het Cluster Resource Manager [Maak kennis met de Service Fabric-cluster resource manager](service-fabric-cluster-resource-manager-introduction.md).
 * Voor meer informatie over het toepassingsmodel en servicepakketten en codepakketten en hoe de replica's worden toegewezen aan deze--lezen [een toepassing modelleren in Service Fabric](service-fabric-application-model.md).

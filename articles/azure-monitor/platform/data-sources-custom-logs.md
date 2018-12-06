@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 099fe053f354f2773dfec1d3085c03d83671ed2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03c561001999245b55e6e76b02f8916d0b2d619f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833853"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963229"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
-Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra de verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met behulp van parseren de [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) functie van Log Analytics.
+Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog. Zodra de verzameld, kunt u het parseren van de gegevens in afzonderlijke velden in uw query's of extraheer de gegevens die tijdens de verzameling die moet worden afzonderlijke velden.
 
 ![Aangepaste logboekverzameling](media/data-sources-custom-logs/overview.png)
 
@@ -105,13 +105,10 @@ Zodra de Log Analytics wordt gestart vanuit het aangepaste logboek verzamelen, w
 
 > [!NOTE]
 > Als de RawData-eigenschap in de zoekopdracht ontbreekt, moet u sluiten en opnieuw openen van uw browser.
->
->
+
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Stap 6. Parseren van de aangepaste logboekvermeldingen
-De volledige logboekvermelding worden opgeslagen in één eigenschap, genaamd **RawData**.  U zult waarschijnlijk voor het scheiden van de verschillende soorten informatie in elk item in afzonderlijke eigenschappen die zijn opgeslagen in de record.  U dit doen met de [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) functie van Log Analytics.
-
-Gedetailleerde stappen voor het parseren van het aangepaste logboek worden niet hier beschreven.  Raadpleeg de [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) documentatie voor deze informatie.
+De volledige logboekvermelding worden opgeslagen in één eigenschap, genaamd **RawData**.  U zult waarschijnlijk voor het scheiden van de verschillende soorten informatie in elk item in afzonderlijke eigenschappen voor elke record. Raadpleeg [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md) voor opties voor het parseren van **RawData** in meerdere eigenschappen.
 
 ## <a name="removing-a-custom-log"></a>Een aangepast logboek verwijderen...
 Gebruik het volgende proces in Azure portal te verwijderen van een aangepaste logboek dat u eerder hebt gedefinieerd.
@@ -123,7 +120,7 @@ Gebruik het volgende proces in Azure portal te verwijderen van een aangepaste lo
 ## <a name="data-collection"></a>Gegevensverzameling
 Log Analytics verzamelt nieuwe vermeldingen van elk aangepast logboek ongeveer elke 5 minuten.  De agent wordt plaats daarvan worden opgenomen in elke logboekbestand die het verzamelt uit.  Als de agent voor een bepaalde periode offline gaat, klikt u vervolgens verzamelt Log Analytics gegevens van waar het laatste afgebroken, zelfs als deze items zijn gemaakt terwijl de agent offline was.
 
-De volledige inhoud van de logboekvermelding worden geschreven naar één eigenschap, genaamd **RawData**.  U kunt dit parseren naar meerdere eigenschappen die kunnen worden geanalyseerd en worden afzonderlijk worden doorzocht door te definiëren [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) nadat u het aangepaste logboek hebt gemaakt.
+De volledige inhoud van de logboekvermelding worden geschreven naar één eigenschap, genaamd **RawData**.  Zie [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md) geïmporteerd voor methoden voor het parseren van elke logboekvermelding in meerdere eigenschappen.
 
 ## <a name="custom-log-record-properties"></a>Het aangepaste logboek record-eigenschappen
 Aangepaste logboekrecords zijn een type met de naam van het logboek dat u opgeeft en de eigenschappen in de volgende tabel.
@@ -132,18 +129,8 @@ Aangepaste logboekrecords zijn een type met de naam van het logboek dat u opgeef
 |:--- |:--- |
 | TimeGenerated |Datum en tijd waarop de record is verzameld door Log Analytics.  Als het logboek een scheidingsteken wordt gebruikt op basis van tijd is dit de tijd die worden verzameld van de vermelding. |
 | SourceSystem |Type van de record van agent is verzameld. <br> OpsManager – Windows-agent, rechtstreeks verbinding maken of System Center Operations Manager <br> Linux: alle Linux-agents |
-| RawData |Volledige tekst van de verzamelde post. |
+| RawData |Volledige tekst van de verzamelde post. Waarschijnlijk wilt u [parseren van deze gegevens in afzonderlijke eigenschappen](../log-query/parse-text.md). |
 | ManagementGroupName |Naam van de beheergroep van System Center Operations Manage agents.  Voor andere agents is dit AOI -\<werkruimte-ID\> |
-
-## <a name="log-searches-with-custom-log-records"></a>Zoekopdrachten in Logboeken met records in het aangepaste logboek
-Records uit de aangepaste logboeken worden opgeslagen in de werkruimte voor logboekanalyse net als bij records uit een andere gegevensbron.  Er wordt een type dat overeenkomt met de naam die u opgeeft bij het definiëren van het logboek, zodat u de eigenschap Type van uw zoekopdracht gebruiken kunt om op te halen records die zijn verzameld uit een specifiek logboekbestand.
-
-De volgende tabel bevat voorbeelden van zoekopdrachten die records uit aangepaste logboeken ophalen.
-
-| Query’s uitvoeren | Beschrijving |
-|:--- |:--- |
-| MyApp_CL |Alle gebeurtenissen uit een aangepaste Meld u aan met de naam MyApp_CL. |
-| MyApp_CL &#124; waar Severity_CF == "error" |Alle gebeurtenissen uit een aangepaste benoemde MyApp_CL aanmelden met een waarde van *fout* in een aangepast veld met de naam *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Walkthrough voor voorbeeld van een aangepast logbestand toevoegen
@@ -181,5 +168,5 @@ We aangepaste velden gebruiken voor het definiëren van de *EventTime*, *Code*, 
 ![Logboek query's uitvoeren met aangepaste velden](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) parseren van de vermeldingen in de aangepaste aanmelding bij afzonderlijke velden.
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
+* Zie [parseren tekstgegevens in Log Analytics](../log-query/parse-text.md) geïmporteerd voor methoden voor het parseren van elke logboekvermelding in meerdere eigenschappen.
+* Meer informatie over [zoekopdrachten](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.

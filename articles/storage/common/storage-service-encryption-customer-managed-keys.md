@@ -8,14 +8,15 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0ed05cab774360c4165e89399ba16f7443debb85
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165154"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970702"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault
+
 Microsoft Azure is belangrijk dat u kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen goed. Een manier die het opslagplatform van Azure beschermt uw gegevens is via versleuteling SSE (Storage Service), die uw gegevens worden versleuteld bij het schrijven van deze naar de opslag en ontsleutelt de gegevens bij het ophalen van het. De versleuteling en ontsleuteling is automatische, transparant en maakt gebruik van 256-bits [AES-versleuteling](https://wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
 
 U kunt Microsoft beheerde sleutels gebruiken met SSE of kunt u uw eigen versleutelingssleutels. Dit artikel wordt beschreven hoe u uw eigen versleutelingssleutels. Zie voor meer informatie over het gebruik van Microsoft beheerde sleutels of over SSE in het algemeen, [Storage Service Encryption voor data-at-rest](storage-service-encryption.md).
@@ -28,23 +29,33 @@ SSE voor Azure Blob storage en Azure Files is geïntegreerd met Azure Key Vault,
 Waarom uw eigen sleutels maken? Aangepaste sleutels biedt u meer flexibiliteit, zodat u kunt maken, draaien, uitschakelen en definiëren van besturingselementen voor toegang. Aangepaste sleutels maken het ook mogelijk om te controleren van de versleutelingssleutels die wordt gebruikt om uw gegevens te beveiligen.
 
 ## <a name="get-started-with-customer-managed-keys"></a>Aan de slag met de klant beheerde sleutels
-Als u wilt gebruiken door de klant beheerde sleutels met SSE, kunt u een nieuwe sleutelkluis maken en sleutel of u een bestaande sleutelkluis en de sleutel kunt gebruiken. Het opslagaccount en de key vault moeten zich in dezelfde regio, maar ze kunnen zich in verschillende abonnementen. 
+
+Als u wilt gebruiken door de klant beheerde sleutels met SSE, kunt u een nieuwe sleutelkluis maken en sleutel of u een bestaande sleutelkluis en de sleutel kunt gebruiken. Het opslagaccount en de key vault moeten zich in dezelfde regio, maar ze kunnen zich in verschillende abonnementen.
 
 ### <a name="step-1-create-a-storage-account"></a>Stap 1: Een storage-account maken
-Maak eerst een storage-account als u er nog geen hebt. Zie voor meer informatie, [een opslagaccount maken](storage-quickstart-create-account.md).
+
+Maak eerst een storage-account als u er nog geen hebt. Zie [Een opslagaccount maken](storage-quickstart-create-account.md) voor meer informatie.
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Stap 2: Serverversleuteling inschakelen voor de Blob-en bestand
+
 Als u wilt met behulp van de klant beheerde sleutels SSE inschakelt, moeten twee belangrijke functies voor gegevensbeveiliging, voorlopig verwijderen en niet verwijderen, ook worden ingeschakeld in Azure Key Vault. Deze instellingen ervoor dat de sleutels kunnen niet per ongeluk of opzettelijk verwijderde. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren of ransomware-aanvallen.
 
 Als u inschakelen via een programma door de klant beheerde sleutels voor SSE wilt, kunt u de [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), wordt de [Storage Resource Provider-clientbibliotheek voor .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), of de [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
-Als u wilt gebruiken door de klant beheerde sleutels met SSE, moet u de identiteit van een storage-account toewijzen aan de storage-account. U kunt de identiteit instellen door het uitvoeren van de volgende PowerShell-opdracht:
+Als u wilt gebruiken door de klant beheerde sleutels met SSE, moet u de identiteit van een storage-account toewijzen aan de storage-account. U kunt de identiteit instellen door het uitvoeren van de volgende PowerShell of Azure CLI-opdracht:
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
-U kunt voorlopig verwijderen en kan niet opschonen inschakelen door het uitvoeren van de volgende PowerShell-opdrachten:
+```azurecli-interactive
+az storage account \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --assign-identity
+```
+
+U kunt voorlopig verwijderen en kan niet opschonen inschakelen door het uitvoeren van de volgende PowerShell of Azure CLI-opdrachten:
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
@@ -62,31 +73,44 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
+```azurecli-interactive
+az resource update \
+    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
+    --set properties.enableSoftDelete=true
+
+az resource update \
+    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
+    --set properties.enablePurgeProtection=true
+```
+
 ### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Stap 3: Versleuteling inschakelen met de klant beheerde sleutels
+
 SSE maakt standaard gebruik van Microsoft beheerde sleutels. U kunt SSE inschakelen met de klant beheerde sleutels voor de storage-account met de [Azure-portal](https://portal.azure.com/). Op de **instellingen** blade voor de storage-account, klikt u op **versleuteling**. Selecteer de **uw eigen sleutel gebruiken** optie, zoals wordt weergegeven in de volgende afbeelding.
 
 ![Versleutelingsoptie Portal schermopname](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
 ### <a name="step-4-select-your-key"></a>Stap 4: Uw sleutel selecteren
+
 U kunt uw sleutel opgeven als een URI of door het selecteren van de sleutel in een key vault.
 
 #### <a name="specify-a-key-as-a-uri"></a>Een sleutel opgeeft als een URI
+
 Als u uw sleutel van een URI, de volgende stappen uit:
 
-1. Kies de **Enter-toets URI** optie.  
+1. Kies de **Enter-toets URI** optie.
 2. In de **Key URI** veld, geeft u de URI.
 
-    ![Portal schermafbeelding versleuteling met de optie key uri invoeren](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+   ![Portal schermafbeelding versleuteling met de optie key uri invoeren](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+#### <a name="specify-a-key-from-a-key-vault"></a>Geef een sleutel van een key vault
 
-#### <a name="specify-a-key-from-a-key-vault"></a>Geef een sleutel van een key vault 
 Als u uw sleutel uit een key vault, de volgende stappen uit:
 
-1. Kies de **selecteren uit Key Vault** optie.  
+1. Kies de **selecteren uit Key Vault** optie.
 2. Kies de key vault met de sleutel die u wilt gebruiken.
 3. Kies de sleutel uit de key vault.
 
-    ![Portal schermopname coderingen gebruik uw eigen sleutel optie](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+   ![Portal schermopname coderingen gebruik uw eigen sleutel optie](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
 Als het opslagaccount heeft geen toegang tot de key vault, kunt u de Azure PowerShell-opdracht weergegeven in de volgende afbeelding om toegang te verlenen uitvoeren.
 
@@ -94,8 +118,8 @@ Als het opslagaccount heeft geen toegang tot de key vault, kunt u de Azure Power
 
 U kunt ook toegang via Azure portal door te navigeren naar de Azure Key Vault in Azure portal en het verlenen van toegang tot het opslagaccount.
 
-
 U kunt de bovenstaande sleutel koppelen aan een bestaand opslagaccount met behulp van de volgende PowerShell-opdrachten:
+
 ```powershell
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
 $keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
@@ -105,12 +129,15 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Stap 5: Gegevens kopiëren naar storage-account
+
 Gegevens over te dragen naar uw nieuwe opslagaccount zodat ze zijn versleuteld. Zie voor meer informatie [Veelgestelde vragen over de Storage-Serviceversleuteling](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Stap 6: De status van de versleutelde gegevens opvragen
+
 De status van de versleutelde gegevens opvragen.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>Veelgestelde vragen over SSE met klant-beheerde sleutels
+
 **Ik gebruik Premium-opslag; kan ik door de klant beheerde sleutels gebruiken met SSE?**  
 Ja, SSE met door Microsoft beheerd en door de klant beheerde sleutels op zowel Standard storage en Premium storage wordt ondersteund.
 
@@ -154,6 +181,7 @@ SSE met de klant beheerde sleutels is beschikbaar in alle regio's voor Azure-blo
 Neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) voor eventuele problemen met betrekking tot de versleuteling voor opslagservice.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 - Voor meer informatie over de uitgebreide reeks beveiligingsprogramma mogelijkheden die ontwikkelaars helpen bij het bouwen van veilige toepassingen, Zie de [Storage-beveiligingshandleiding](storage-security-guide.md).
 - Zie voor informatie over Azure Key Vault, [wat is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 - Zie voor het aan de slag met Azure Key Vault, [aan de slag met Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).

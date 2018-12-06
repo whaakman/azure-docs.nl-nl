@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 9f4ee3bdba87747a04dd4a5af9391c9dba6e1b51
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ac0e004039465171c615bbd3c79f361ceb764166
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834210"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962247"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
-U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../../azure-monitor/platform/agent-data-sources.md) op agents en ook [gegevens verzameld van Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.   
+U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../../azure-monitor/platform/agent-data-sources.md) op agents en ook [gegevens verzameld van Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.   
 
 Deze zelfstudie leidt u door het proces voor het maken en plannen van een runbook in Azure Automation om gegevens te schrijven naar Log Analytics.
 
@@ -30,7 +30,7 @@ Deze zelfstudie leidt u door het proces voor het maken en plannen van een runboo
 ## <a name="prerequisites"></a>Vereisten
 Dit scenario vereist de volgende resources die zijn geconfigureerd in uw Azure-abonnement.  Beide is een gratis account.
 
-- [Log Analytics-werkruimte](../../log-analytics/log-analytics-quick-create-workspace.md).
+- [Log Analytics-werkruimte](../../azure-monitor/learn/quick-create-workspace.md).
 - [Azure automation-account](../..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Overzicht van scenario
@@ -41,7 +41,7 @@ Voor deze zelfstudie schrijft u een runbook dat informatie over Automation-taken
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. Data Collector-API-module installeren
-Elke [aanvraag van de API HTTP Data Collector](../../log-analytics/log-analytics-data-collector-api.md#create-a-request) op de juiste wijze moet worden geformatteerd en een autorisatie-header bevatten.  U kunt dit doen in uw runbook, maar u kunt verminderen de hoeveelheid code met behulp van een module die vereenvoudigt u dit proces vereist.  Een module die u kunt gebruiken is [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI) in de PowerShell Gallery.
+Elke [aanvraag van de API HTTP Data Collector](../../azure-monitor/platform/data-collector-api.md#create-a-request) op de juiste wijze moet worden geformatteerd en een autorisatie-header bevatten.  U kunt dit doen in uw runbook, maar u kunt verminderen de hoeveelheid code met behulp van een module die vereenvoudigt u dit proces vereist.  Een module die u kunt gebruiken is [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI) in de PowerShell Gallery.
 
 Gebruik een [module](../../automation/automation-integration-modules.md) in een runbook moet worden geïnstalleerd in uw Automation-account.  Een runbook in hetzelfde account kunt vervolgens de functies gebruiken in de module.  U kunt een nieuwe module installeren door te selecteren **activa** > **Modules** > **toevoegen van een module** in uw Automation-account.  
 
@@ -216,4 +216,4 @@ Telkens wanneer een runbook wordt gestart, [wordt een taak gemaakt](../../automa
 - Uw runbook in het pakket een [beheeroplossing](../../azure-monitor/insights/solutions-creating.md) te distribueren naar klanten.
 - Meer informatie over [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Meer informatie over [Azure Automation](https://docs.microsoft.com/azure/automation/).
-- Meer informatie over de [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md).
+- Meer informatie over de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md).

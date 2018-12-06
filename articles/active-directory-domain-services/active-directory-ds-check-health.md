@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502174"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969001"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Controleer de status van een Azure AD Domain Services beheerde domein
 
@@ -32,7 +32,7 @@ Met behulp van de health-pagina in uw Azure-portal, bent u kunnen ervoor zorgen 
 2. Klik op het domein dat u wilt weergeven van de status van.
 3. Klik in het navigatiedeelvenster links op **Health**.
 
-De volgende afbeelding ziet u een voorbeeld van health-pagina: ![voorbeeld van de health-pagina](.\media\active-directory-domain-services-alerts\health-page.png)
+De volgende afbeelding ziet u een voorbeeld van health-pagina: ![voorbeeld van de health-pagina](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Status van uw beheerde domein wordt elk uur worden geëvalueerd. Na het aanbrengen van wijzigingen aan uw beheerde domein, wachten tot de volgende beoordelingscyclus om de bijgewerkte status van uw beheerde domein weer te geven. De tijdstempel 'Laatst geëvalueerd' in de rechterbovenhoek ziet u wanneer de status van uw beheerde domein voor het laatst is geëvalueerd.
@@ -43,10 +43,10 @@ De status in de rechterbovenhoek van status van uw pagina geeft aan dat de algeh
 
 | Status | Pictogram | Uitleg |
 | --- | :----: | --- |
-| In uitvoering | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Uw beheerde domein soepel en hoeft niet alle waarschuwingen voor kritieke of waarschuwingsstatus. Dit domein mogelijk informatieve waarschuwingen. |
-| Aandacht is vereist (waarschuwing) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Er zijn geen kritieke waarschuwingen op uw beheerde domein, maar er zijn een of meer waarschuwingen die moeten worden opgelost. |
-| Aandacht is vereist (Kritiek) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Er zijn een of meer kritieke waarschuwingen op uw beheerde domein. Misschien hebt u ook de waarschuwing en/of informatieve waarschuwingen. |
-| Implementeren | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Uw domein wordt momenteel geïmplementeerd. |
+| In uitvoering | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Uw beheerde domein soepel en hoeft niet alle waarschuwingen voor kritieke of waarschuwingsstatus. Dit domein mogelijk informatieve waarschuwingen. |
+| Aandacht is vereist (waarschuwing) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Er zijn geen kritieke waarschuwingen op uw beheerde domein, maar er zijn een of meer waarschuwingen die moeten worden opgelost. |
+| Aandacht is vereist (Kritiek) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Er zijn een of meer kritieke waarschuwingen op uw beheerde domein. Misschien hebt u ook de waarschuwing en/of informatieve waarschuwingen. |
+| Implementeren | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Uw domein wordt momenteel geïmplementeerd. |
 
 ## <a name="monitors"></a>Monitors
 Monitors zijn aspecten van uw beheerde domein die Azure AD Domain Services regelmatig controleert. De beste manier om uw monitors in een status in orde houden is om op te lossen actieve waarschuwingen voor uw beheerde domein.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 39223f49d315e722b13b734b3424d61f630834b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007617"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966122"
 ---
 ## <a name="configuring-homepage"></a>Startpagina configureren
 
@@ -21,19 +21,19 @@ De startpagina is de pagina die wordt geladen wanneer gebruikers die toegang tot
 
 Bijvoorbeeld, als volgt de startpagina voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'. Voor het aanpassen van de startpagina voor uw toepassing, selecteert u eerst **bewerken** in de rechterbovenhoek. 
 
-![Startpagina voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'](media\howto-configure-homepage\image1.png)
+![Startpagina voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'](media/howto-configure-homepage/image1.png)
 
 Selecteren **bewerken**, de bibliotheek voor het dashboard wordt geopend in een deelvenster aan de linkerkant. Er zijn veel soorten tegels en dashboard primitieven die kunnen worden toegevoegd aan het aanpassen van uw startpagina.
 
-![Bibliotheek voor het dashboard](media\howto-configure-homepage\image2.png)
+![Bibliotheek voor het dashboard](media/howto-configure-homepage/image2.png)
 
 Bijvoorbeeld, u kunt toevoegen een **instellingen en eigenschappen** tegel om een selectie van de huidige waarden van instellingen en eigenschappen weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. In dit geval is geselecteerd **ingesteld temperatuur**. Te klikken op **gedaan** zorgt ervoor dat deze tegel worden weergegeven op de startpagina.
 
-!['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](media\howto-configure-homepage\image3.png)
+!['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](media/howto-configure-homepage/image3.png)
 
 Als een operator de startpagina bekijkt, kunnen ze nu deze tegel waarin de eigenschappen of de instellingen van het apparaat zien:
 
-![Tabblad met de weergegeven instellingen en eigenschappen voor de tegel 'Dashboard'](media\howto-configure-homepage\image4.png)
+![Tabblad met de weergegeven instellingen en eigenschappen voor de tegel 'Dashboard'](media/howto-configure-homepage/image4.png)
 
 Experimenteren met de verschillende andere tegeltypen in de bibliotheek om te ontdekken hoe u de startpagina van uw toepassing nog meer kunt aanpassen.
 

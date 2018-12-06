@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443573"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961006"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -81,7 +81,7 @@ Voor het genereren van een wachtwoord, eerst voor zorgen dat de **verlopen** is 
 > Noteer dit wachtwoord. Nadat u deze pagina verlaat wordt het wachtwoord niet opnieuw weergegeven.
 > 
 
-De volgende voorbeelden gebruiken de Git Bash-hulpprogramma van [Git voor Windows](http://www.git-scm.com/downloads) maar kunt u een Git-hulpprogramma dat u bekend met bent.
+De volgende voorbeelden gebruiken de Git Bash-hulpprogramma van [Git voor Windows](https://www.git-scm.com/downloads) maar kunt u een Git-hulpprogramma dat u bekend met bent.
 
 Open uw Git-hulpprogramma in de gewenste map en voer de volgende opdracht voor het klonen van de git-opslagplaats naar uw lokale computer, met de opdracht die is geleverd door de Azure-portal.
 

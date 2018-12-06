@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274176"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968045"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>De partner-ID koppelen aan uw Azure-accounts
 
@@ -30,7 +30,7 @@ Voordat u uw partner-ID koppelen, moet uw klant u toegang geven tot hun Azure-re
 
 - **Gastgebruiker:** uw klant kunt u als een gastgebruiker toevoegen en toewijzen van alle RBAC-rollen. Zie voor meer informatie, [gastgebruikers toevoegen van een andere directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Directory-account:** uw klant kunt maken van een nieuwe gebruiker van uw organisatie in de map en alle RBAC-rol toe te wijzen.
+- **Directory-account:** uw klant kunt maken van een gebruikersaccount voor u in hun eigen map en alle RBAC-rol toe te wijzen.
 
 - **Service-principal:** uw klant een app of script toevoegen van uw organisatie in de map en alle RBAC-rol toe te wijzen. De identiteit van de app of script staat bekend als service-principal.
 

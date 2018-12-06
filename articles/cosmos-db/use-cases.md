@@ -1,20 +1,18 @@
 ---
-title: Algemene scenario's en scenario's voor Azure Cosmos DB | Microsoft Docs
+title: Algemene scenario's en scenario's voor Azure Cosmos DB
 description: 'Meer informatie over de top vijf use cases voor Azure Cosmos DB: door de gebruiker gegenereerde inhoud, logboekregistratie, gegevens in de catalogus, gebruikersgegevens voor de voorkeuren en Internet of Things (IoT).'
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: sngun
-ms.openlocfilehash: 50bc70fa18bc8fb04e4f8117340c66665204282c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 400ce3ddb2a01db32faa7d3303c89a76c2c4649a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251070"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960027"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Algemene scenario's Azure Cosmos DB
 Dit artikel bevat een overzicht van enkele algemene scenario's voor Azure Cosmos DB.  De aanbevelingen in dit artikel fungeren als een beginpunt tijdens het ontwikkelen van uw toepassing met Cosmos DB.   

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238726"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960092"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -44,12 +44,12 @@ Een enkel apparaat verbinding maakt met IoT Central met behulp van SAS is eenvou
 1. Voeg een **echt apparaat** van Device Explorer, klikt u op **+ Nieuw > echte** om toe te voegen een echt apparaat.
     * Voer de apparaat-Id **<span style="color:Red">(moet zich bevinden in kleine letters)</span>** of gebruikt u de voorgestelde apparaat-id.
     * Voer de naam van het apparaat of de voorgestelde naam gebruiken   
-    ![Apparaat toevoegen](media\concepts-connectivity\add-device.png)
+    ![Apparaat toevoegen](media/concepts-connectivity/add-device.png)
 1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door te klikken op **Connect** op de Apparaatpagina.
     * **[Scope-ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)**  per IoT Central-App en wordt gegenereerd door DP's, die wordt gebruikt om te controleren of de unieke apparaat-ID in een App.
     * **Apparaat-Id** is de unieke apparaat-ID per App, het apparaat moet voor het verzenden van apparaat-Id als onderdeel van de registratie-aanroep.   
     * **Primaire sleutel** een SAS-token is gegenereerd door IoT Central voor dit specifieke apparaat. 
-    ![Verbindingsdetails](media\concepts-connectivity\device-connect.PNG)
+    ![Verbindingsdetails](media/concepts-connectivity/device-connect.PNG)
 1. Details voor deze verbinding gebruiken **apparaat-id, de apparaatnaam en de primaire sleutel voor het apparaat** in uw apparaatcode inrichten en verbinding maken met uw apparaat en weer te geven van de gegevens direct worden doorgevoerd. Als u van het volgen van het apparaat MxChip gebruikmaakt [de stapsgewijze instructies hier](howto-connect-devkit.md#add-a-real-device), start u vanuit de sectie **bereid het apparaat DevKit**.   
 
     Hieronder vindt u de referenties voor andere talen die u wilt gebruiken.
@@ -137,13 +137,13 @@ Apparaten kunt verbinden met IoT Central X509 met certificaten, er zijn drie bel
 
     *   **Toevoegen van X509 basis- of tussencertificaat** u gebruikt voor het genereren van de certificaten voor de leaf-apparaten. Ga naar Beheer > apparaatverbinding > certificaten. 
     
-        ![Verbindingsinstellingen](media\concepts-connectivity\connection-settings.PNG)
+        ![Verbindingsinstellingen](media/concepts-connectivity/connection-settings.PNG)
     *   **Verificatie van het certificaat:** certificaat eigendom verifiëren zorgt ervoor dat de uploader van het certificaat in het bezit is van de persoonlijke sleutel van het certificaat. Om te controleren of het certificaat
         *  Verificatiecode genereren, klikt u op de knop naast het veld voor de verificatie voor het genereren van de verificatiecode. 
         *  Maak een X.509-certificaat voor verificatie met de verificatiecode, sla het certificaat als een cer-bestand. 
         *  Upload het ondertekende verificatiecertificaat en klikt u op verifiëren.
 
-        ![Verbindingsinstellingen](media\concepts-connectivity\verify-cert.png)
+        ![Verbindingsinstellingen](media/concepts-connectivity/verify-cert.png)
     *   **Secundair certificaat:** tijdens de levenscyclus van uw IoT-oplossing, moet u certificaten implementeren. Twee van de belangrijkste redenen voor het verlengen van certificaten is een schending van de beveiliging en certificaten verlopen. Secundaire certificaten worden gebruikt om uitvaltijd voor de poging om in te richten als u bij het bijwerken van het primaire certificaat voor apparaten te verlagen.
 
     **TESTEN ALLEEN VOOR TESTDOELEINDEN** 
@@ -180,7 +180,7 @@ Een van de belangrijkste scenario's met die IOT Central kunnen is voor OEM's voo
 
 Hieronder ziet u de stroom om apparaten te verbinden met deze functie
 
-![Verbindingsinstellingen](media\concepts-connectivity\device-connection-flow.PNG)
+![Verbindingsinstellingen](media/concepts-connectivity/device-connection-flow.PNG)
 
 
 Volg de stappen op basis van uw keuze van apparaat-verificatieschema (X509/SAS)
@@ -188,7 +188,7 @@ Volg de stappen op basis van uw keuze van apparaat-verificatieschema (X509/SAS)
 1. **Verbindingsinstellingen** 
     * **X509 certificaten:** [toevoegen en controleer of de basis-/ tussencertificaat](#connect-devices-using-x509-certificates) en deze gebruiken voor het genereren van de certificaten voor apparaten in de volgende stap.
     * **SAS:** Kopieer de primaire sleutel (deze sleutel is de groep SAS-sleutel voor deze IoT Central-toepassing) en deze gebruiken voor het genereren van de SAS-sleutels van het apparaat in de volgende stap. 
-![Verbindingsinstellingen SAS](media\concepts-connectivity\connection-settings-sas.png)
+![Verbindingsinstellingen SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. **Apparaatreferenties genereren** 
     *   **Certificaten X509:** genereren van het leaf-certificaten voor uw apparaten met behulp van de root/tussencertificaat die u hebt toegevoegd aan deze app. Zorg ervoor dat u de **apparaat-ID** als een cname in de leaf-certificaten en  **<span style="color:Red">(moet zich bevinden in kleine letters)</span>**. Hier volgt een [-opdrachtregelprogramma](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) voor het genereren van certificaten voor het testen van leaf/apparaat.
@@ -232,7 +232,7 @@ Apparaat is Registeretd wanneer
 U kunt Iot hub apparaat-verbindingsreeks voor Azure IoT Hub ophalen met behulp van de volgende stappen 
 1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID apparaat primaire sleutel** van de Apparaatpagina (hebt u naar de Apparaatpagina > Klik op verbinding maken) 
 
-    ![Verbindingsdetails](media\concepts-connectivity\device-connect.PNG)
+    ![Verbindingsdetails](media/concepts-connectivity/device-connect.PNG)
 
 1. De verbindingsreeks van het apparaat met behulp van het opdrachtregelprogramma commnd ophalen.
     Gebruik de onderstaande instructies voor het ophalen van de verbindingsreeks van apparaat  

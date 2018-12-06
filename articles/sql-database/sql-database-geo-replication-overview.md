@@ -3,7 +3,7 @@ title: Failover-groepen en actieve geo-replicatie - Azure SQL Database | Microso
 description: Gebruik automatische failover-groepen met actieve geo-replicatie en automatische failover inschakelen na een storing.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: de439683082909e65d285a7946a71eb781287937
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c951791031b6304a26aadd434fa7336a9c7c474f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843475"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963144"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Overzicht: Actieve geo-replicatie en automatische failover-groepen
 
@@ -25,7 +25,7 @@ Actieve geo-replicatie is Azure SQL Database-functie waarmee u leesbare replica'
 
 ![Geo-replicatie](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
 
-Actieve geo-replicatie is bedoeld als een zakelijke continuïteit-oplossing waarmee de toepassing snel noodherstel van afzonderlijke databases in het geval van een regionale disastor of een storing in de grote schaal uitvoeren. Als geo-replicatie is ingeschakeld, kan de toepassing failover naar een secundaire database in een andere Azure-regio kunt starten. Maximaal vier secundaire databases worden ondersteund in de dezelfde of verschillende regio's en de secundaire replica's kunnen ook worden gebruikt voor toegang voor alleen-lezen query's. De failover moet handmatig worden gestart door de toepassing of de gebruiker. Na een failover is de nieuwe primaire het eindpunt van een andere verbinding.
+Actieve geo-replicatie is bedoeld als een zakelijke continuïteit-oplossing waarmee de toepassing snel noodherstel van afzonderlijke databases in het geval van een regionale rampenscenario of een grootschalige storing uitvoeren. Als geo-replicatie is ingeschakeld, kan de toepassing failover naar een secundaire database in een andere Azure-regio kunt starten. Maximaal vier secundaire databases worden ondersteund in de dezelfde of verschillende regio's en de secundaire replica's kunnen ook worden gebruikt voor toegang voor alleen-lezen query's. De failover moet handmatig worden gestart door de toepassing of de gebruiker. Na een failover is de nieuwe primaire het eindpunt van een andere verbinding.
 
 > [!NOTE]
 > Actieve geo-replicatie is beschikbaar voor alle databases in alle service-lagen in alle regio's.
@@ -206,11 +206,11 @@ Als uw toepassing gebruikmaakt van beheerde exemplaar als de gegevenslaag, volgt
 
 - **De secundaire exemplaar in de dezelfde DNS-zone als het primaire exemplaar maken**
 
-  Wanneer een nieuw exemplaar wordt gemaakt, wordt een unieke id automatisch gegenereerd als de DNS-Zone en opgenomen in de DNS-naam van het exemplaar. Een meerdere domeinen (SAN)-certificaat voor dit exemplaar is ingericht met het SAN-veld in de vorm van &lt;zone_id&gt;. database.windows.net. Dit certificaat kan worden gebruikt voor verificatie van de clientverbindingen met een exemplaar in de dezelfde DNS-zone. Om ervoor te zorgen van niet-onderbroken verbinding met het primaire exemplaar na een failover zowel de primaire en secundaire moet exemplaren in dezelfde DNS-zone. Wanneer uw toepassing gereed voor productie-implementatie is, het maken van een secundair exemplaar in een andere regio en zorg ervoor dat de DNS-zone met het primaire exemplaar deelt. Dit wordt gedaan door op te geven een `DNS Zone Partner` optionele parameter van de `create instance` PowerShell-opdracht.
+  Wanneer een nieuw exemplaar wordt gemaakt, wordt een unieke id automatisch gegenereerd als de DNS-Zone en opgenomen in de DNS-naam van het exemplaar. Een meerdere domeinen (SAN)-certificaat voor dit exemplaar is ingericht met het SAN-veld in de vorm van &lt;zone_id&gt;. database.windows.net. Dit certificaat kan worden gebruikt voor verificatie van de clientverbindingen met een exemplaar in de dezelfde DNS-zone. Om ervoor te zorgen van niet-onderbroken verbinding met het primaire exemplaar na een failover zowel de primaire en secundaire moet exemplaren in dezelfde DNS-zone. Wanneer uw toepassing gereed voor productie-implementatie is, het maken van een secundair exemplaar in een andere regio en zorg ervoor dat de DNS-zone met het primaire exemplaar deelt. Dit wordt gedaan door op te geven een `DNS Zone Partner` optionele parameter met de Azure-portal, PowerShell of de REST-API.
 
 - **Replicatieverkeer tussen de twee exemplaren inschakelen**
 
-  Omdat elk exemplaar is geïsoleerd in een eigen VNET, moet twee richtingen verkeer tussen deze VNETs worden toegestaan. Zie [replicatie met SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+  Omdat elk exemplaar is geïsoleerd in een eigen VNET, moet twee richtingen verkeer tussen deze VNETs worden toegestaan. Zie [Azure VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 - **Configureren van een failovergroep voor het beheren van failovers van volledige-exemplaar**
 
@@ -229,8 +229,8 @@ Als uw toepassing gebruikmaakt van beheerde exemplaar als de gegevenslaag, volgt
 
   > [!NOTE]
   > In bepaalde Servicelagen, Azure SQL Database ondersteunt het gebruik van [alleen-lezen replica's](sql-database-read-scale-out.md) laden saldo alleen-lezen querywerkbelastingen met behulp van de capaciteit van een alleen-lezen replica en het gebruik van de `ApplicationIntent=ReadOnly` parameter in de verbinding tekenreeks. Wanneer u een secundaire geo-replicatie hebt geconfigureerd, kunt u deze mogelijkheid verbinding maken met een alleen-lezen replica op de primaire locatie of in de geografisch gerepliceerde locatie.
-  > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, gebruik &lt;failover-groepsnaam&gt;.&lt; zone_id&gt;. database.windows.net.
-  > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, gebruik &lt;failover-groepsnaam&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
+  > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, &lt;failover-groepsnaam&gt;.&lt; zone_id&gt;. database.windows.net.
+  > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, &lt;failover-groepsnaam&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
 - **Worden voorbereid voor verslechtering van prestaties**
 
   SQL failover beslissing is onafhankelijk van de rest van de toepassing of andere services die worden gebruikt. De toepassing kan worden "gemengde" met bepaalde onderdelen in één regio en sommige in een andere. Om te voorkomen dat de degradatie, zorg ervoor dat de implementatie van de redundante toepassing in de DR-regio en volg de richtlijnen in dit artikel netwerk <link>.
@@ -380,6 +380,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee wijzigt u de configuratie van de failovergroep|
 | Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee haalt de configuratie van de failover|
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover van de failovergroep naar de secundaire server|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Hiermee verwijdert u een failovergroep|
 
 ### <a name="manage-sql-database-failover-using-the-rest-api"></a>Beheren van een failover van SQL database met behulp van de REST-API
 

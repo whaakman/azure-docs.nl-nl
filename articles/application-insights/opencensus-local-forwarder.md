@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: 39d6b586158ce292f3697af0f7241a3858842374
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722221"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970583"
 ---
 # <a name="local-forwarder"></a>Lokale doorstuurserver
 
@@ -39,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Download de LF. WindowsServiceHost.zip-bestand van de [lokale doorstuurserver release pagina](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) op GitHub.
 
-    ![Schermafbeelding van de lokale doorstuurserver release-downloadpagina](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Schermafbeelding van de lokale doorstuurserver release-downloadpagina](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. In dit voorbeeld voor een eenvoudige demonstratie we alleen het ZIP-bestand naar het pad wordt uitgepakt `C:\LF-WindowsServiceHost`.
 
@@ -55,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Het onderzoeken van een nieuwe service via de Services GUI-type ``services.msc``
         
-     ![Schermopname van het lokale-doorstuurserver](.\media\opencensus-local-forwarder\002-services.png)
+     ![Schermopname van het lokale-doorstuurserver](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Met de rechtermuisknop op** de nieuwe lokale doorstuurserver en selecteer **Start**. Uw service voert nu een status running doorbrengt.
 
@@ -73,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. Om te bevestigen dat de gewenste instellingen voldaan is en dat de lokale doorstuurserver voor traceergegevens als verwachte selectievakje luistert de ``LocalForwarder.log`` bestand. Hier ziet u resultaten die vergelijkbaar is met de afbeelding hieronder aan de onderkant van het bestand:
 
-    ![Schermafbeelding van LocalForwarder.log bestand](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Schermafbeelding van LocalForwarder.log bestand](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Consoletoepassing
 

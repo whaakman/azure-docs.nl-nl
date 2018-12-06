@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126323"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966259"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Azure Data Lake Storage Gen1 resources beheren met behulp van Storage Explorer
 
@@ -136,7 +136,7 @@ De volgende items laten zien hoe u resources binnen een Gen1 van Data Lake Stora
 
    ![Dialoogvenster waarin de voortgang van het uploaden wordt getoond](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > U kunt de mappen en bestanden rechtstreeks in een lokale computer slepen om het uploaden te starten. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Mappen of bestanden downloaden naar uw lokale computer
@@ -164,7 +164,7 @@ Het bestand wordt gedownload en geopend met de toepassing die is gekoppeld aan h
 
 ![Selecties voor het kopiëren van een map](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > Kopieer- en plakbewerkingen voor opslagtypen worden niet ondersteund. U kunt Data Lake Storage Gen1 mappen of bestanden kopiëren en plak deze in een ander Gen1 van Data Lake Storage-account. Maar u *kan geen* Data Lake Storage Gen1 mappen of bestanden kopiëren en plakken in Azure Blob-opslag of andersom.
 > 
 > Bij het kopiëren en plakken worden de mappen of bestanden gedownload naar de lokale computer en vervolgens geüpload naar het doel. Het hulpprogramma voert de actie *niet* uit in de back-end. Het kopiëren en plakken van grote bestanden gaat langzaam. Het geavanceerd kopiëren en verplaatsen van bestanden wordt momenteel geoptimaliseerd.

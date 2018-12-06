@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005730"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964812"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -36,19 +36,19 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 
 1. Als u geen regels nog gemaakt nog, ziet u het volgende scherm:
 
-    ![Nog geen regels](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
+    ![Nog geen regels](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
 1. Op de **regels** tabblad **sjabloon bewerken** en vervolgens **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
 1. Klik op **telemetrie** om een regel voor het controleren van telemetrie van apparaten te maken.
 
-    ![Regeltypen](media\howto-create-telemetry-rules\Rule_Types.png)
+    ![Regeltypen](media/howto-create-telemetry-rules/Rule_Types.png)
 
 1. Voer een naam die u helpt bij het identificeren van de regel in de sjabloon van dit apparaat.
 
 1. Om in te schakelen direct de regel voor alle apparaten die zijn gemaakt voor deze sjabloon, in-/ uitschakelen **regel inschakelen voor alle apparaten voor deze sjabloon**.
 
-   ![Details van de regel](media\howto-create-telemetry-rules\Rule_Detail.png)
+   ![Details van de regel](media/howto-create-telemetry-rules/Rule_Detail.png)
     
     De regel wordt automatisch toegepast op alle apparaten die onder de apparaat-sjabloon.
     
@@ -61,7 +61,7 @@ Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
 1. Selecteer de telemetrie die u controleren wilt in de **meting** vervolgkeuzelijst.
 
-   ![Voorwaarde](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
+   ![Voorwaarde](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
 1. Kies vervolgens **aggregatie**, **Operator**, en geef een **drempelwaarde** waarde.
     - Aggregatie is optioneel. Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt telemetrie die aan de voorwaarde voldoet. Bijvoorbeeld, als de regel is geconfigureerd om te activeren wanneer temperatuur hoger is dan 80 en vervolgens de regel wordt geactiveerd vrijwel direct wanneer het apparaat temperatuur > 80 rapporteert.
@@ -78,14 +78,14 @@ Deze sectie leest u over het instellen van acties moet worden uitgevoerd wanneer
 
 1. Kies de **+** naast **acties**. U ziet hier de lijst met beschikbare acties.  
 
-    ![Actie toevoegen](media\howto-create-telemetry-rules\Add_Action.png)
+    ![Actie toevoegen](media/howto-create-telemetry-rules/Add_Action.png)
 
 1. Kies de **e** actie, voer een geldig e-mailadres in de **naar** veld en geeft u een opmerking in de hoofdtekst van het e-mailbericht moet worden weergegeven wanneer de regel wordt geactiveerd.
 
     > [!NOTE]
     > E-mailberichten worden alleen verzonden naar de gebruikers die zijn toegevoegd aan de toepassing en ten minste één keer hebben aangemeld. Meer informatie over [Gebruikersbeheer](howto-administer.md) in Azure IoT Central.
 
-   ![Actie configureren](media\howto-create-telemetry-rules\Configure_Action.png)
+   ![Actie configureren](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Als u wilt de regel niet opslaan, kiest u **opslaan**. De regel meteen live binnen een paar minuten en start de bewaking van telemetrie wordt verzonden naar uw toepassing. Als de voorwaarde die is opgegeven in de regel wordt voldaan, wordt de geconfigureerde e-mailactie geactiveerd door de regel.
 

@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094861"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963127"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -337,6 +337,27 @@ De PowerShell-cmdlets waarmee het onderliggende runbook scenario zijn:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -met deze cmdlet kunt u een runbook te starten en parameters doorgeven aan het runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -met deze cmdlet kunt u de taak de status van alle onderliggende controleren als er bewerkingen die worden uitgevoerd moeten nadat het onderliggende runbook is voltooid.
+
+### <a name="429"></a>Scenario: 429: het aantal verwerkte aanvragen op dat moment is te groot. Probeer het opnieuw
+
+#### <a name="issue"></a>Probleem
+
+Het ontvangen van de volgende strekking weergegeven bij het uitvoeren van de `Get-AzureRmAutomationJobOutput` cmdlet:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout kan optreden bij het ophalen van de uitvoer van een runbook met veel [uitgebreide streams](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Oplossing
+
+Er zijn twee manieren deze fout op te lossen:
+
+* Het runbook bewerken en verminder het aantal taakstromen die deze verzendt.
+* Verminder het aantal stromen moet worden opgehaald als de cmdlet wordt uitgevoerd. Hiervoor kunt u de `-Stream Output` parameter voor de `Get-AzureRmAutomationJobOutput` alleen uitvoerstromen cmdlet om op te halen. 
 
 ## <a name="common-errors-when-importing-modules"></a>Veelvoorkomende fouten bij het importeren van modules
 

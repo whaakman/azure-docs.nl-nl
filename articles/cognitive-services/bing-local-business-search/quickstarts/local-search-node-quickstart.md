@@ -10,17 +10,17 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309171"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968535"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snelstartgids: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Node.js
 
 Gebruik deze Quick Start om te beginnen met het verzenden van aanvragen naar de Bing lokale bedrijven zoeken-API, dit is een Cognitive Service van Azure. Terwijl deze eenvoudige toepassing is geschreven in Node.js, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen en parseren van JSON.
- 
+
 In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit de API voor de zoekquery `hotel in Bellevue`.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -29,16 +29,17 @@ In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit 
 
 * De [aanvraag van de JavaScript-bibliotheek](https://github.com/request/request)
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Gebruik de toegangssleutel die is geleverd door de gratis proefversie.  Zie ook [Cognitive Services prijsinformatie: Bing zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Gebruik de toegangssleutel die is geleverd door de gratis proefversie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-##<a name="code-scenario"></a>Codescenario
+## <a name="code-scenario"></a>Codescenario
+
 De volgende code haalt definieert en stuurt de aanvraag. De code wordt geïmplementeerd in de volgende stappen:
 
 1. Declareer variabelen om het eindpunt op te geven met een host en pad.
-2. Geef de query en de queryparameter toevoegen. 
+2. Geef de query en de queryparameter toevoegen.
 3. Maak een handlerfunctie voor het antwoord.
 4. Definieer de Search-functie die wordt gemaakt van de aanvraag en de kop Ocp-Apim-Subscription-Key toegevoegd.
-5. Voer de Search-functie uit. 
+5. Voer de Search-functie uit.
 
 Dit is de volledige code voor deze demo:
 
@@ -92,6 +93,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstartgids voor lokale bedrijven zoeken](local-quickstart.md)
-- [Lokale bedrijven zoeken Java-snelstartgids](local-search-java-quickstart.md)
-- [Lokale bedrijven zoeken Python-snelstartgids](local-search-python-quickstart.md)
+
+* [Snelstartgids voor lokale bedrijven zoeken](local-quickstart.md)
+* [Lokale bedrijven zoeken Java-snelstartgids](local-search-java-quickstart.md)
+* [Lokale bedrijven zoeken Python-snelstartgids](local-search-python-quickstart.md)

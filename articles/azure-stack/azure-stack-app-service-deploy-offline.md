@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614035"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971501"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een niet-verbonden Azure Stack-omgeving beveiligd door AD FS
 
@@ -200,7 +200,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
 2. Schakel in het overzicht, onder status om te zien die de **Status** weergegeven **alle rollen zijn gereed**.
 
     ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen het worker-subnet en de bestandsserver aan te geven.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
 > * Bron:
@@ -221,9 +221,9 @@ Nadat u implementeert en registreer de resourceprovider App Service, het testen 
 > [!NOTE]
 > U moet maken van een aanbieding die de naamruimte Microsoft.Web binnen het abonnement heeft. Vervolgens moet u een tenantabonnement hebben waarin ze zich op deze aanbieding abonneren. Zie voor meer informatie, [maken aanbieding](azure-stack-create-offer.md) en [plan maken](azure-stack-create-plan.md).
 >
-U *moet* een tenantabonnement te maken van toepassingen die gebruikmaken van App Service in Azure Stack hebt. De enige mogelijkheden die een servicebeheerder in de beheerportal uitvoeren kunt zijn met betrekking tot het beheer van de resource provider van App Service. Deze mogelijkheden omvatten capaciteit toe te voegen, implementatiebronnen configureren en werkrolniveaus en SKU's toe te voegen.
+> U *moet* een tenantabonnement te maken van toepassingen die gebruikmaken van App Service in Azure Stack hebt. De enige mogelijkheden die een servicebeheerder in de beheerportal uitvoeren kunt zijn met betrekking tot het beheer van de resource provider van App Service. Deze mogelijkheden omvatten capaciteit toe te voegen, implementatiebronnen configureren en werkrolniveaus en SKU's toe te voegen.
 >
-Vanaf de derde technical preview, voor het maken van web-API en Azure Functions apps, moet u de tenantportal te gebruiken en een tenantabonnement hebt.
+> Vanaf de derde technical preview, voor het maken van web-API en Azure Functions apps, moet u de tenantportal te gebruiken en een tenantabonnement hebt.
 
 1. Klik in de portal voor Azure Stack-tenant op **+ een resource maken** > **Web en mobiel** > **Web-App**.
 

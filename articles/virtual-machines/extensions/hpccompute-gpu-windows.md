@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495974"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971960"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
 
@@ -78,17 +78,8 @@ De volgende JSON ziet u het schema voor de extensie.
 | type | NvidiaGpuDriverWindows | tekenreeks |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>Instellingen
-
-Alle instellingen zijn optioneel. De standaardinstelling is de nieuwste ondersteunde stuurprogramma installeren zoals van toepassing.
-
-| Naam | Beschrijving | Standaardwaarde | Geldige waarden | Gegevenstype |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: RASTER stuurprogrammaversie<br> NC/ND: CUDA-stuurprogrammaversie | meest recente | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | tekenreeks |
-| installGridND | RASTER stuurprogramma installeren op de ND-serie VM 's | false | waar of ONWAAR | booleaans |
 
 ## <a name="deployment"></a>Implementatie
-
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Het volgende voorbeeld komt overeen met het bovenstaande ARM en PowerShell-voorbeeld en voegt u ook aangepaste instellingen toe als een voorbeeld van de installatie van niet-standaard-stuurprogramma. Specifiek, wordt een specifiek GRID-stuurprogramma geïnstalleerd, zelfs als een virtuele machine uit de ND-serie wordt ingericht.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 

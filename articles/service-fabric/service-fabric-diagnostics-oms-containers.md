@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: aabdae370c28f8fa633372be4505c00c25254408
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403247"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972249"
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Containers bewaken met Log Analytics
  
@@ -53,7 +53,7 @@ De agent kunt u het verzamelen van verschillende container-specifieke logboeken 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [containerbewakingsoplossing voor Log Analytics](../log-analytics/log-analytics-containers.md).
+* Meer informatie over [containerbewakingsoplossing voor Log Analytics](../azure-monitor/insights/containers.md).
 * Meer informatie over de indeling met containers in Service Fabric - [Service Fabric en containers](service-fabric-containers-overview.md)
 * Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Log Analytics
 * Log Analytics configureren om het instellen van [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) regels om te detecteren en diagnostiek

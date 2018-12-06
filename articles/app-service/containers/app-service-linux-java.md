@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cf3e5bf6752311881e1266d2fb49aa5b7108e68a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497337"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965561"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -151,36 +151,47 @@ Volg de instructies in de [een bestaand aangepast SSL-certificaat binden](/azure
 >[!NOTE]
 > Als uw toepassing gebruikmaakt van de Spring-Framework of Spring Boot, kunt u de database-verbindingsgegevens voor de Spring gegevens JPA als omgevingsvariabelen instellen [in uw toepassing eigenschappenbestand]. Gebruik vervolgens [app-instellingen](/azure/app-service/web-sites-configure#app-settings) voor het definiëren van deze waarden voor uw toepassing in de Azure portal of de CLI.
 
-De voorbeeld-configuratie-fragmenten in deze sectie gebruiken MySQL-database. Zie voor meer informatie, de configuratie van documenten voor [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), en [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+Deze instructies zijn van toepassing op alle databaseverbindingen. U moet tijdelijke aanduidingen invullen met de gekozen database stuurprogramma klassenaam en het JAR-bestand. Opgegeven is een tabel met klassenamen en Stuurprogrammadownloads voor algemene databases.
 
-Voor het configureren van Tomcat voor het gebruik van beheerde verbindingen met databases met behulp van Java-Database Connectivity (JDBC) of de Java-persistentie API (JPA), moet u eerst de CATALINA_OPTS omgevingsvariabele gelezen door Tomcat bij het opstarten aanpassen. Stel deze waarden via een app-instelling in App Service-Maven-invoegtoepassing:
+| Database   | De naam van de stuurprogramma-klasse                             | JDBC Driver                                                                      |
+|------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| PostgreSQL | `org.postgresql.Drvier`                        | [Downloaden](https://jdbc.postgresql.org/download.html)                                    |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Selecteer "Platform onafhankelijke") |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Downloaden](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+
+Voor het configureren van Tomcat voor het gebruik van Java-Database Connectivity (JDBC) of de Java-persistentie API (JPA), eerst aanpassen aan de `CATALINA_OPTS` omgevingsvariabele die Tomcat aan begin van worden ingelezen. Stel deze waarden via een app-instelling in de [App Service-Maven-invoegtoepassing](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-Of een equivalente App-Service instellen vanuit Azure portal.
+Of stel de omgevingsvariabelen in de blade 'Instellingen' in de Azure-portal.
 
-Bepaal vervolgens of de gegevensbron moet beschikbaar zijn gesteld slechts aan één toepassing of aan alle toepassingen die worden uitgevoerd op de App Service-plan.
+>[!NOTE]
+> Als u Azure Database voor Postgres gebruikt, vervangt u `ssl=true` met `sslmode=require` in de JDBC-verbindingsreeks.
 
-Voor gegevensbronnen op toepassingsniveau: 
+Bepaal vervolgens als de gegevensbron moet beschikbaar zijn voor één toepassing of voor alle toepassingen die worden uitgevoerd op de Tomcat-servlet.
 
-1. Voeg een `context.xml` als deze niet bestaat in uw webtoepassing en toe te voegen de `META-INF` map van het WAR-bestand wanneer het project wordt gemaakt.
+#### <a name="for-application-level-data-sources"></a>Voor gegevensbronnen op toepassingsniveau: 
 
-2. In dit bestand voegt een `Context` padvermelding voor de gegevensbron een koppeling naar een adres JNDI.
+1. Maak een `context.xml` -bestand in de `META-INF/` map van uw project. Maak de `META-INF/` map als deze niet bestaat.
+
+2. In `context.xml`, Voeg een `Context` element op de gegevensbron een koppeling naar een adres JNDI. Vervang de `driverClassName` tijdelijke aanduiding met de klassenaam van het stuurprogramma van de bovenstaande tabel.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
     ```
@@ -189,38 +200,50 @@ Voor gegevensbronnen op toepassingsniveau:
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-Voor gedeelde bronnen op serverniveau:
+#### <a name="for-shared-server-level-resources"></a>Voor gedeelde bronnen op serverniveau:
 
 1. Kopieer de inhoud van `/usr/local/tomcat/conf` in `/home/tomcat/conf` exemplaar met behulp van SSH als u nog niet een configuratie er hebt in uw App Service Linux.
+    ```
+    mkdir -p /home/tomcat
+    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    ```
 
-2. Toevoegen van de context aan uw `server.xml`
+2. Toevoegen van een contextelement in uw `server.xml` binnen de `<Server>` element.
 
     ```xml
+    <Server>
+    ...
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
+    ...
+    </Server>
     ```
 
 3. Bijwerken van uw toepassing `web.xml` naar de gegevensbron in uw toepassing gebruiken.
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-4. Zorg ervoor dat de JDBC-stuurprogramma's beschikbaar voor de Tomcat-classloader zijn door ze in te plaatsen de `/home/tomcat/lib` directory. Als u wilt deze bestanden uploaden naar uw App Service-exemplaar, kunt u de volgende stappen uitvoeren:  
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Ten slotte, plaatst u de stuurprogramma-JAR-bestanden in het klassepad Tomcat en uw App-Service opnieuw starten: 
+
+1. Zorg ervoor dat de JDBC-stuurprogramma's beschikbaar voor de Tomcat-classloader zijn door ze in te plaatsen de `/home/tomcat/lib` directory. (Maak deze map als deze niet al bestaat.) Als u wilt deze bestanden uploaden naar uw App Service-exemplaar, kunt u de volgende stappen uitvoeren:  
     1. De uitbreiding voor de Azure App Service-webpp installeren:
 
       ```azurecli-interactive
@@ -235,7 +258,9 @@ Voor gedeelde bronnen op serverniveau:
 
     3. Verbinding maken met de lokale tunneling poort met uw SFTP-client en de bestanden te uploaden de `/home/tomcat/lib` map.
 
-5. De App Service Linux-toepassing opnieuw hebt gestart. Tomcat wordt opnieuw ingesteld `CATALINA_HOME` naar `/home/tomcat/conf` en de bijgewerkte configuratie en -klassen gebruiken.
+    U kunt ook een FTP-client gebruiken voor het uploaden van het JDBC-stuurprogramma. Volg deze [instructies voor het ophalen van de referenties van uw FTP-](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+
+2. Als u een gegevensbron op serverniveau hebt gemaakt, moet u de App Service Linux-toepassing opnieuw starten. Tomcat wordt opnieuw ingesteld `CATALINA_HOME` naar `/home/tomcat/conf` en gebruikt u de bijgewerkte configuratie.
 
 ## <a name="docker-containers"></a>Docker-containers
 
@@ -245,7 +270,7 @@ Voor het gebruik van de JDK Zulu Azure wordt ondersteund in uw containers, zorg 
 
 App Service for Linux ondersteunt twee runtimes voor het beheerde hosten van Java-webtoepassingen:
 
-- De [Tomcat-servletcontainer](http://tomcat.apache.org/) voor het uitvoeren van toepassingen die zijn verpakt als web-archiefbestanden (WAR). Ondersteunde versies zijn 8.5 en 9.0.
+- De [Tomcat-servletcontainer](https://tomcat.apache.org/) voor het uitvoeren van toepassingen die zijn verpakt als web-archiefbestanden (WAR). Ondersteunde versies zijn 8.5 en 9.0.
 - Java SE runtime-omgeving voor het uitvoeren van toepassingen geleverd als archief voor Java (JAR)-bestanden. De enige ondersteunde primaire versie is Java 8.
 
 ## <a name="java-runtime-statement-of-support"></a>Ondersteuning voor statusverklaring van Java-runtime 

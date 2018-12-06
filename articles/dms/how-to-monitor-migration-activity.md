@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883904"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961175"
 ---
 # <a name="monitor-migration-activity"></a>Activiteit van de migratie controleren
 In dit artikel leert u hoe u de voortgang van een migratie op het databaseniveau van een en het tabelniveau van een.
@@ -24,7 +24,7 @@ In dit artikel leert u hoe u de voortgang van een migratie op het databaseniveau
 ## <a name="monitor-at-the-database-level"></a>Controleren op het databaseniveau van de
 Voor het bewaken van activiteiten op het databaseniveau van de, raadpleegt u de blade op databaseniveau:
 
-![Blade op databaseniveau](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Blade op databaseniveau](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > Selecteren van de database-hyperlink ziet u de lijst met tabellen en de voortgang van de migratie.
@@ -104,7 +104,7 @@ Voor het bewaken van activiteiten op het tabelniveau van de, de blade op tabelni
 
 Het onderste gedeelte van de blade geeft een lijst van de tabellen en geeft een kort overzicht van migratie wordt uitgevoerd.
 
-![Tabel-niveau van de blade - snel overzicht](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Tabel-niveau van de blade - snel overzicht](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 De volgende tabel beschrijft de velden die worden weergegeven in de details van de tabel op serverniveau.
 
@@ -123,9 +123,9 @@ De volgende tabel beschrijft de velden die worden weergegeven in de details van 
 ## <a name="monitor-at-table-level--detailed-summary"></a>Controleren op het tabelniveau van: gedetailleerd overzicht
 Er zijn twee tabbladen die de migratievoortgang van in volledig laden en incrementele gegevenssynchronisatie weergeven.
     
-![Tabblad volledig laden](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Tabblad volledig laden](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Tabblad van incrementele gegevens synchroniseren](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Tabblad van incrementele gegevens synchroniseren](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 De volgende tabel beschrijft de velden weergegeven in de tabel op migratie wordt uitgevoerd.
 

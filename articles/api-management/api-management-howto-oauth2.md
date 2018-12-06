@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967926"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met OAuth 2.0 in Azure API Management
 
-Veel API's ondersteunen [OAuth 2.0](http://oauth.net/2/) voor het beveiligen van de API en zorg ervoor dat alleen geldige gebruikers toegang hebben, en ze alleen toegang tot bronnen die ze hebben bent recht. Om te kunnen gebruiken Azure API Management interactieve Developer-Console met deze API's, kunt de service u uw service-exemplaar om te werken met het OAuth 2.0 ingeschakelde API configureren.
+Veel API's ondersteunen [OAuth 2.0](https://oauth.net/2/) voor het beveiligen van de API en zorg ervoor dat alleen geldige gebruikers toegang hebben, en ze alleen toegang tot bronnen die ze hebben bent recht. Om te kunnen gebruiken Azure API Management interactieve Developer-Console met deze API's, kunt de service u uw service-exemplaar om te werken met het OAuth 2.0 ingeschakelde API configureren.
 
 ## <a name="prerequisites"> </a>Vereisten
 
@@ -143,7 +143,7 @@ Zie voor meer informatie over het gebruik van OAuth 2.0 en API Management, de vo
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
 [Prerequisites]: #prerequisites

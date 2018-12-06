@@ -3,7 +3,7 @@ title: Maken en beheren van elastische taken met behulp van PowerShell | Microso
 description: PowerShell gebruikt voor het beheren van pools voor Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: pwershell
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 36b03794f4b55af3de89f96ecee02f5542f40f01
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243194"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972096"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>SQL Database elastische taken met behulp van PowerShell (preview) maken en beheren
 
@@ -34,7 +34,7 @@ De PowerShell-APIs voor **taken voor Elastic Database** (in preview), kunt u bij
 * **Taken voor elastic Database** PowerShell pakket: Zie [taken voor Elastic Database installeren](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecteer uw Azure-abonnement
-Selecteer het abonnement dat u uw abonnements-Id moet (**- SubscriptionId**) of de naam van abonnement (**- SubscriptionName**). Als u meerdere abonnementen hebt kunt u uitvoeren de **Get-AzureRmSubscription** cmdlet en kopieert u de informatie over het gewenste abonnement van het resultaat is ingesteld. Wanneer u gegevens van uw abonnement hebt, voert u de volgende cmdlet om in te stellen van dit abonnement als de standaard, namelijk het doel voor het maken en beheren van taken uit:
+Selecteer het abonnement dat u uw abonnements-Id moet (**- SubscriptionId**) of de naam van abonnement (**- SubscriptionName**). Als u meerdere abonnementen hebt kunt u uitvoeren de **Get-AzureRmSubscription** cmdlet en kopieert u de informatie over het gewenste abonnement van het resultaat is ingesteld. Wanneer u gegevens van uw abonnement hebt, kunt u de volgende cmdlet om in te stellen van dit abonnement als de standaard, namelijk het doel voor het maken en beheren van taken uitvoeren:
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 

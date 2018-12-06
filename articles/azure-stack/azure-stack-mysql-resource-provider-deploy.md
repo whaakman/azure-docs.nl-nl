@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2017e08361c9ff060fde96b78549133d48372e34
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853894"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971994"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
@@ -32,8 +32,8 @@ De resourceprovider van MySQL-Server gebruiken om MySQL-databases als een Azure 
 
 Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure Stack-MySQL-resourceprovider implementeren. Om te voldoen aan deze vereisten, de stappen in dit artikel op een computer die toegang de beschermde VM-eindpunt tot.
 
-* Als u dit nog niet hebt gedaan, [registreren Azure Stack](.\azure-stack-registration.md) met Azure, zodat u kunt Azure marketplace-items downloaden.
-* U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waar u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](.\azure-stack-powershell-install.md).
+* Als u dit nog niet hebt gedaan, [registreren Azure Stack](./azure-stack-registration.md) met Azure, zodat u kunt Azure marketplace-items downloaden.
+* U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waar u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](./azure-stack-powershell-install.md).
 * De vereiste Windows Server-core VM toevoegen aan de Azure Stack marketplace door te downloaden de **Windows Server 2016 Datacenter - Server Core** installatiekopie.
 
 * De MySQL-resourceprovider binaire downloaden en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map.
@@ -60,7 +60,7 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
 
 ### <a name="certificates"></a>Certificaten
 
-_Geïntegreerde systemen alleen voor installaties_. Moet u de SQL-PaaS-PKI-certificaat dat is beschreven in de sectie met optionele PaaS certificaten van [Azure Stack-implementatievereisten PKI](.\azure-stack-pki-certs.md#optional-paas-certificates). Plaats het pfx-bestand in de locatie die is opgegeven door de **DependencyFilesLocalPath** parameter. Bieden een certificaat voor ASDK systemen.
+_Geïntegreerde systemen alleen voor installaties_. Moet u de SQL-PaaS-PKI-certificaat dat is beschreven in de sectie met optionele PaaS certificaten van [Azure Stack-implementatievereisten PKI](./azure-stack-pki-certs.md#optional-paas-certificates). Plaats het pfx-bestand in de locatie die is opgegeven door de **DependencyFilesLocalPath** parameter. Bieden een certificaat voor ASDK systemen.
 
 ## <a name="deploy-the-resource-provider"></a>De resourceprovider implementeren
 

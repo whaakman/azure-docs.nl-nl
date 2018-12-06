@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277270"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969954"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -36,7 +36,7 @@ Hier ziet u de versie van Azure CLI en andere afhankelijke bibliotheken die zijn
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Vertrouwen van de Azure Stack-CA-basiscertificaat
 
-1. Ophalen van de Azure Stack-CA-basiscertificaat van [uw Azure Stack-operators](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) en vertrouwt. Als u het basiscertificaat van de Azure Stack-CA vertrouwt, voegt u deze toe aan het bestaande certificaat voor Python.
+1. Ophalen van de Azure Stack-CA-basiscertificaat van [uw Azure Stack-operators](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) en vertrouwt. Als u het basiscertificaat van de Azure Stack-CA vertrouwt, voegt u deze toe aan het bestaande certificaat voor Python.
 
 1. De certificaatlocatie op uw computer vinden. De locatie kan variëren, afhankelijk van waar u Python hebt geïnstalleerd. U moet hebben [pip](https://pip.pypa.io) en de [gecertificeerde](https://pypi.org/project/certifi/) -module geïnstalleerd. U kunt de volgende Python-opdracht uit vanuit de bash-prompt:
 
@@ -242,6 +242,6 @@ Er zijn enkele bekende problemen waarmee u rekening houden moet bij het gebruik 
 
 [Sjablonen implementeren met Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Azure CLI voor Azure Stack-gebruikers (Operator) inschakelen](..\azure-stack-cli-admin.md)
+[Azure CLI voor Azure Stack-gebruikers (Operator) inschakelen](../azure-stack-cli-admin.md)
 
 [Gebruikersmachtigingen beheren](azure-stack-manage-permissions.md)

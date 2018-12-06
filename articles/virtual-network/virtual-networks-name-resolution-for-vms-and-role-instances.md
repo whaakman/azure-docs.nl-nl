@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 53e3a298dd8a3eebca1943d9bade51187f14d722
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 17bcc7ada244484c2c2df5bd81c82f695a8b5342
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054445"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969904"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -125,7 +125,7 @@ options timeout:1 attempts:5
 Het bestand resolv.conf wordt doorgaans automatisch gegenereerd en mag niet worden bewerkt. De specifieke stappen voor het toevoegen van de *opties* regel variëren per distributie:
 
 * **Ubuntu** (maakt gebruik van resolvconf):
-  1. Voeg de *opties* te **/etc/resolveconf/resolv.conf.d/head**.
+  1. Voeg de *opties* te **/etc/resolvconf/resolv.conf.d/tail**.
   2. Voer `resolvconf -u` om bij te werken.
 * **SUSE** (maakt gebruik van netconf):
   1. Toevoegen *timeout:1 pogingen: 5* naar de **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** parameter in **/etc/sysconfig/network/config**. 

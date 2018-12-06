@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: dd7f76e20e43e24c31f5afd8c8d9eb97db04255f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68c838481120dea7635ac5ea76859a8088d732fb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843220"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957347"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
@@ -38,7 +38,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 2. Typ in de zoekbalk typt, **Serviceoverzicht** en druk op **Enter**.
 3. Selecteer in de marketplace pagina met zoekresultaten, **Serviceoverzicht** in de lijst.<br><br> ![Oplossing Serviceoverzicht selecteren uit de zoekresultaten van Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
 4. Op de **Serviceoverzicht** in het overzichtsdeelvenster details van de oplossing bekijken en klik vervolgens op **maken** om te beginnen met het onboarding-proces aan uw Log Analytics-werkruimte.<br><br> ![Onboard de oplossing Serviceoverzicht](./media/service-map/service-map-onboard.png).
-5. In de **configureren van een oplossing** deelvenster, selecteer een bestaande of maak een nieuwe Log Analytics-werkruimte.  Zie voor meer informatie over het maken van een nieuwe werkruimte [een Log Analytics-werkruimte maken in Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md). Nadat u de vereiste gegevens hebt, klikt u op **maken**.  
+5. In de **configureren van een oplossing** deelvenster, selecteer een bestaande of maak een nieuwe Log Analytics-werkruimte.  Zie voor meer informatie over het maken van een nieuwe werkruimte [een Log Analytics-werkruimte maken in Azure portal](../../azure-monitor/learn/quick-create-workspace.md). Nadat u de vereiste gegevens hebt, klikt u op **maken**.  
 
 Hoewel de informatie wordt gecontroleerd en de oplossing is geïmplementeerd, u kunt de voortgang bijhouden onder **meldingen** in het menu. 
 
@@ -147,7 +147,7 @@ Bepaalde processen bepaalde functies op machines bedienen: web-servers, toepassi
 |:--|:--|
 | ![Webserver](media/service-map/role-web-server.png) | Webserver |
 | ![App-server](media/service-map/role-application-server.png) | Toepassingsserver |
-| ![Database-server](media/service-map/role-database.png) | Database-server |
+| ![Databaseserver](media/service-map/role-database.png) | Databaseserver |
 | ![LDAP-server](media/service-map/role-ldap.png) | LDAP-server |
 | ![SMB-server](media/service-map/role-smb.png) | SMB-server |
 
@@ -353,7 +353,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 |RemoteLatitude |De breedtegraad geolocatie.  Bijvoorbeeld, *47.68* |
 |RemoteLongitude |De lengtegraad geolocatie.  Bijvoorbeeld, *-122.12* |
 
-#### <a name="malicious-ip"></a>Schadelijk IP-adres
+#### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
 | Eigenschap | Beschrijving |
@@ -497,7 +497,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ## <a name="rest-api"></a>REST-API
 Alle de gegevens verwerken, server en afhankelijkheid in Serviceoverzicht beschikbaar via is de [REST-API voor Service-kaart](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostische gegevens en gebruiksgegevens
+## <a name="diagnostic-and-usage-data"></a>Diagnostische en gebruiksgegevens
 Microsoft verzamelt automatisch gebruiks- en prestatiegegevens gegevens via uw gebruik van de Service Map-service. Microsoft gebruikt deze gegevens te bieden en de kwaliteit, beveiliging en integriteit van de Service Map-service te verbeteren. De gegevens omvatten informatie over de configuratie van uw software, zoals het besturingssysteem en versie, IP-adres, DNS-naam en Werkstationnaam om nauwkeurige en efficiënte mogelijkheden voor probleemoplossing. Microsoft verzamelt geen namen, adressen of andere contactgegevens.
 
 Zie voor meer informatie over het verzamelen van gegevens en het gebruik, de [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5de652c1296ddcf94015f8c00529fc5288f98291
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a2cedb95469f97b564aaad2baa0ff7c784d67bf8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834771"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960988"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs met Log Analytics voor het bijhouden van hun status controleren
 
@@ -35,7 +35,7 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren. A
 
 * Een [Log Analytics-abonnement](https://azure.microsoft.com/pricing/details/log-analytics/) niveau die ondersteuning bieden voor het aantal apparaten dat u wilt bewaken. Prijzen voor log Analytics is afhankelijk van hoeveel apparaten zijn ingeschreven en hoeveel gegevens er processen. Moet u dit in aanmerking te nemen bij het plannen van de Surface Hub-implementatie.
 
-Vervolgens wordt u een bestaande Log Analytics-werkruimte toevoegen of een nieuwe maken. Gedetailleerde instructies voor het gebruik van een van beide methoden is op [een Log Analytics-werkruimte maken in Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md). Wanneer de Log Analytics-werkruimte is geconfigureerd, zijn er twee manieren om uw Surface Hub-apparaten te registreren:
+Vervolgens wordt u een bestaande Log Analytics-werkruimte toevoegen of een nieuwe maken. Gedetailleerde instructies voor het gebruik van een van beide methoden is op [een Log Analytics-werkruimte maken in Azure portal](../../azure-monitor/learn/quick-create-workspace.md). Wanneer de Log Analytics-werkruimte is geconfigureerd, zijn er twee manieren om uw Surface Hub-apparaten te registreren:
 
 * Automatisch via Intune
 * Handmatig via **instellingen** op de Surface Hub-apparaat.

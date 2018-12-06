@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 2028de68b3c50f24c46bfafd804b00e84301a9d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256592"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972283"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Een web-app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -90,7 +90,7 @@ Normaal gesproken implementeren van een webproject met de `customErrors` vlag in
 
 ![Onnuttige foutpagina](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Vaak is de eenvoudigste manier om de oorzaak van de fout om in te schakelen gedetailleerde foutberichten worden weergegeven, die de eerste dag van de vorige schermafbeeldingen wordt uitgelegd hoe u kunt doen. Waarvoor is vereist een wijziging in het geïmplementeerde Web.config-bestand. U kunt bewerken de *Web.config* -bestand in het project en implementeer het project opnieuw of maak een [Web.config-transformatie](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) en implementeren van een foutopsporingsbuild werkt, maar er is een snellere manier: in **Solution Explorer** , u kunt rechtstreeks bestanden weergeven en bewerken in de externe web-app met behulp van de *externe weergave* functie.
+Vaak is de eenvoudigste manier om de oorzaak van de fout om in te schakelen gedetailleerde foutberichten worden weergegeven, die de eerste dag van de vorige schermafbeeldingen wordt uitgelegd hoe u kunt doen. Waarvoor is vereist een wijziging in het geïmplementeerde Web.config-bestand. U kunt bewerken de *Web.config* -bestand in het project en implementeer het project opnieuw of maak een [Web.config-transformatie](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) en implementeren van een foutopsporingsbuild werkt, maar er is een snellere manier: in **Solution Explorer** , u kunt rechtstreeks bestanden weergeven en bewerken in de externe web-app met behulp van de *externe weergave* functie.
 
 1. In **Server Explorer**, vouw **Azure**, vouw **App Service**, vouw de resourcegroep die uw web-app bevindt zich in uit en vouw vervolgens het knooppunt voor uw web-app.
 
@@ -491,7 +491,7 @@ You can send logs to any or all of three destinations:
 
 You can specify a different severity level for each destination.
 
-Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
+Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
 
 You currently have file system logs set to verbose level; the following steps walk you through setting up information level logs to go to storage account tables. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
 
@@ -629,12 +629,12 @@ Zie de volgende bronnen voor meer informatie over het oplossen van web-apps in A
 
 Voor hulp bij een specifieke vraag voor het oplossen van problemen, een thread te starten in een van de volgende forums:
 
-* [De Azure-forum op de ASP.NET-website](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
+* [De Azure-forum op de ASP.NET-website](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
 * [De Azure-forum op MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
-* [StackOverflow.com](http://www.stackoverflow.com).
+* [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Foutopsporing in Visual Studio
-Zie voor meer informatie over het gebruik van foutopsporingsmodus in Visual Studio [foutopsporing in Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) en [Tips voor fouten opsporen met Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Zie voor meer informatie over het gebruik van foutopsporingsmodus in Visual Studio [foutopsporing in Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) en [Tips voor fouten opsporen met Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Externe foutopsporing in Azure
 Zie de volgende bronnen voor meer informatie over foutopsporing op afstand voor Azure-web-apps en WebJobs:
@@ -649,7 +649,7 @@ Als uw web-app gebruikmaakt van een Azure-Web-API of Mobile Services back-end en
 ### <a name="tracing-in-aspnet-applications"></a>Traceren in ASP.NET-toepassingen
 Er zijn geen grondige en up-to-date introductie van ASP.NET-tracering beschikbaar op het Internet. Het beste kunt u doen is aan de slag met oude inleidende materialen die zijn geschreven voor Web Forms omdat MVC niet nog bestaat en die met nieuwere blog aanvulling zijn op alle nieuwe die gericht op specifieke problemen berichten. Een goede plaats om te starten, zijn de volgende bronnen:
 
-* [Controle en telemetrie (Building Real-World Cloudapps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
+* [Controle en telemetrie (Building Real-World Cloudapps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   E-book hoofdstuk met aanbevelingen voor tracering in Azure-cloud-toepassingen.
 * [ASP.NET-tracering](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Oude maar nog steeds een goede bron voor een algemene inleiding tot aan het onderwerp.
@@ -672,12 +672,12 @@ catch (Exception ex)
 }
 ```
 
-* [Streaming diagnostische traceerlogboeken van de Azure Command Line (plus glimp!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  Het gebruik van de opdrachtregel doen wat in deze zelfstudie laat zien hoe doen in Visual Studio. [Glimp](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is een hulpprogramma voor foutopsporing van ASP.NET-toepassingen.
+* [Streaming diagnostische traceerlogboeken van de Azure Command Line (plus glimp!)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+  Het gebruik van de opdrachtregel doen wat in deze zelfstudie laat zien hoe doen in Visual Studio. [Glimp](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is een hulpprogramma voor foutopsporing van ASP.NET-toepassingen.
 * [Met behulp van WebApps-logboekregistratie en diagnose - met David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) en [Streaminglogboeken van Web-Apps - met David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Video's met Scott Hanselman en David Ebbo.
 
-Voor logboekregistratie van fouten, een alternatief voor het schrijven van uw eigen code tracering is een open-source logboekregistratie-framework gebruikt zoals [ELMAH](http://nuget.org/packages/elmah/). Zie voor meer informatie, [blogberichten van Scott Hanselman over ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
+Voor logboekregistratie van fouten, een alternatief voor het schrijven van uw eigen code tracering is een open-source logboekregistratie-framework gebruikt zoals [ELMAH](https://nuget.org/packages/elmah/). Zie voor meer informatie, [blogberichten van Scott Hanselman over ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
 Moet u ook geen gebruik van ASP.NET of `System.Diagnostics` voor het ophalen van streaming-logboeken van Azure. De Azure-web-app streamen log-service een streamt *.txt*, *.html*, of *.log* -bestand dat is gevonden in de *logboekbestanden* map. Daarom kunt u uw eigen systeem logboekregistratie die worden geschreven naar het bestandssysteem van de web-app maken en het bestand automatisch wordt gestreamd en gedownload. U moet doen, is toepassingscode schrijven waarmee bestanden in de *d:\home\logfiles* map.
 
@@ -686,13 +686,13 @@ Zie de volgende bronnen voor meer informatie over het analyseren van weblogboeke
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Een hulpprogramma voor het weergeven van gegevens in webserverlogboeken (*.log* bestanden).
-* [Het oplossen van prestatieproblemen voor IIS of met behulp van LogParser toepassingsfouten ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Het oplossen van prestatieproblemen voor IIS of met behulp van LogParser toepassingsfouten ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Een inleiding tot het hulpprogramma Logboekparser die u gebruiken kunt voor het analyseren van weblogboeken-server.
 * [Blog van Robert McMurray over het gebruik van LogParser plaatst.](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [De HTTP-statuscode in IIS 7.0, IIS 7.5 en IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analyse van Logboeken voor mislukte aanvragen traceren
-De Microsoft TechNet-website bevat een [met behulp van tracering van mislukte aanvragen](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) sectie, die mogelijk nuttig zijn voor informatie over het gebruik van deze logboeken. Maar deze documentatie richt zich voornamelijk op de tracering van mislukte aanvragen configureren in IIS, die u niet in Azure Web Apps doen.
+De Microsoft TechNet-website bevat een [met behulp van tracering van mislukte aanvragen](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) sectie, die mogelijk nuttig zijn voor informatie over het gebruik van deze logboeken. Maar deze documentatie richt zich voornamelijk op de tracering van mislukte aanvragen configureren in IIS, die u niet in Azure Web Apps doen.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

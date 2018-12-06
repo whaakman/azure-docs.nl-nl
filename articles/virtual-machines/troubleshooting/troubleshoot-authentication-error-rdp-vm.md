@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 5f9d933f0f294855719c8d187e759708ef8c9931
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633940"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967977"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Verificatiefouten oplossen wanneer u verbinding maken met virtuele Azure-machine met RDP
 
@@ -75,7 +75,7 @@ De virtuele machine is ingesteld voor het accepteren van alleen Federal Informat
 
 ### <a name="create-a-backup-snapshot"></a>Een momentopname van een back-up maken
 
-Volg de stappen in voor het maken van een back-upmomentopname [momentopname maken van een schijf](..\windows\snapshot-copy-managed-disk.md).
+Volg de stappen in voor het maken van een back-upmomentopname [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Verbinding maken met de virtuele machine op afstand
 

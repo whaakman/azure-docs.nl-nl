@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 32f3dd0543e841c4aae87cf48654c95a4609e51a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682840"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970855"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -58,7 +58,7 @@ De app moet worden uitgevoerd de **Standard**, **Premium**, of **geïsoleerd* la
 4. Klik in de resource-blade van uw app, op **implementatiesites**, klikt u vervolgens op een implementatiesite als u wilt dat de sleuf van resource-blade geopend met een set metrische gegevens en configuratie net als elke andere app. De naam van de site wordt weergegeven aan de bovenkant van de blade om u te herinneren dat u de implementatiesleuf bekijkt.
    
     ![Titel van de implementatie-sleuf][StagingTitle]
-5. Klik op de URL van de app in de blade van de site. U ziet de implementatiesite heeft een eigen hostnaam en is ook een live-app. Als u wilt beperken openbare toegang tot de implementatiesleuf, Zie [App Service Web-App-blok webtoegang tot niet-productie-implementatiesleuven](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Klik op de URL van de app in de blade van de site. U ziet de implementatiesite heeft een eigen hostnaam en is ook een live-app. Als u wilt beperken openbare toegang tot de implementatiesleuf, Zie [App Service Web-App-blok webtoegang tot niet-productie-implementatiesleuven](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 Er is geen inhoud na implementatie sleuf maken. U kunt implementeren op de site van een andere opslagplaats vertakking, of een geheel andere opslagplaats. U kunt ook wijzigen van de site-configuratie. Gebruik het publiceren profiel of de implementatie-referenties die zijn gekoppeld aan de implementatiesite voor updates van inhoud.  U kunt bijvoorbeeld [publiceren naar deze sleuf met git](app-service-deploy-local-git.md).
 
@@ -258,7 +258,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 Voor [Azure CLI](https://github.com/Azure/azure-cli) opdrachten voor implementatiesites, Zie [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure App Service Web App-web-toegang tot niet-productie-implementatiesleuven blokkeren](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Azure App Service Web App-web-toegang tot niet-productie-implementatiesleuven blokkeren](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Inleiding tot App Service on Linux](../app-service/containers/app-service-linux-intro.md)  
 [Gratis proefversie van Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 

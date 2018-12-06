@@ -19,7 +19,7 @@ ms.locfileid: "49341936"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Naslaginformatie over Azure Blockchain Workbench-configuratie
 
-Azure Blockchain Workbench-toepassingen zijn werkstromen voor meerdere partijen die zijn gedefinieerd door de metagegevens in de configuratie en code in een smart contract. De metagegevens in de configuratie definieert de werkstromen op hoog niveau en het interactiemodel van de blockchain-toepassing. Smart contracts definiëren de bedrijfslogica van de blockchain-toepassing. Workbench gebruikt de configuratie en smart contractcode voor het genereren van de gebruikerservaringen in blockchain-toepassingen.
+ Azure Blockchain Workbench-toepassingen zijn werkstromen voor meerdere partijen die zijn gedefinieerd door de metagegevens in de configuratie en code in een smart contract. De metagegevens in de configuratie definieert de werkstromen op hoog niveau en het interactiemodel van de blockchain-toepassing. Smart contracts definiëren de bedrijfslogica van de blockchain-toepassing. Workbench gebruikt de configuratie en smart contractcode voor het genereren van de gebruikerservaringen in blockchain-toepassingen.
 
 De metagegevens in de configuratie bevat de volgende informatie voor elke blockchain-toepassing:
 
@@ -39,7 +39,7 @@ Elke gedefinieerde werkstroom bevat het volgende:
 
 Een blockchain-toepassing bevat configuratie-metagegevens, werkstromen en gebruikersrollen die kunnen handelen of deelnemen in de toepassing.
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
 | ApplicationName | De unieke toepassingsnaam. Het bijbehorende smart contract moet dezelfde **ApplicationName** gebruiken voor de toepasselijke contractklasse.  | Ja |
 | DisplayName | Beschrijvende weergavenaam van de toepassing. | Ja |
@@ -49,13 +49,13 @@ Een blockchain-toepassing bevat configuratie-metagegevens, werkstromen en gebrui
 
 Zie voor een voorbeeld [voorbeeldconfiguratiebestand](#configuration-file-example).
 
-## <a name="workflows"></a>Werkstromen
+## <a name="workflows"></a>Workflows
 
 De bedrijfslogica van een toepassing kan worden gezien als een toestandsmachine waar een actie ervoor zorgt dat de stroom van de bedrijfslogica van de ene status naar een andere verandert. Een werkstroom is een verzameling van dergelijke statussen en acties. Elke werkstroom bestaat uit een of meer smart contracts die de bedrijfslogica in codebestanden vertegenwoordigen. Een uitvoerbaar contract is een instantie van een werkstroom.
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
-| Naam | Naam van de unieke werkstroom. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de toepasselijke contractklasse. | Ja |
+| Name | Naam van de unieke werkstroom. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de toepasselijke contractklasse. | Ja |
 | DisplayName | Beschrijvende weergavenaam van de werkstroom. | Ja |
 | Description | Beschrijving van de werkstroom. | Nee |
 | Initiators | Verzameling van [ApplicationRoles](#application-roles). Functies die zijn toegewezen aan gebruikers die zijn gemachtigd voor het maken van contracten in de werkstroom. | Ja |
@@ -71,7 +71,7 @@ Zie voor een voorbeeld [voorbeeldconfiguratiebestand](#configuration-file-exampl
 
 Ondersteunde gegevenstypen.
 
-| Type | Beschrijving |
+| Type | Description |
 |-------|-------------|
 | address  | Blockchain-adrestype, zoals *contracten* of *gebruikers*. |
 | array    | Eén niveau matrix van het type geheel getal, bool, geld en tijd. Matrices kunnen statisch of dynamisch zijn. Gebruik **ElementType** om op te geven van het gegevenstype van de elementen binnen de matrix. Zie [voorbeeldconfiguratie](#example-configuration-of-type-array). |
@@ -174,7 +174,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Hiermee definieert u invoerparameters voor een instantie van een werkstroom.
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
 | Parameters | Verzameling van [id's](#identifiers) vereist voor het initiëren van een smart contract. | Ja |
 
@@ -207,7 +207,7 @@ Hiermee definieert u invoerparameters voor een instantie van een werkstroom.
 
 Definieert de functies die kunnen worden uitgevoerd in de werkstroom.
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
 | Name | De unieke naam van de functie. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de desbetreffende functie. | Ja |
 | DisplayName | Beschrijvende weergavenaam van de functie. | Ja |
@@ -251,13 +251,13 @@ Definieert de functies die kunnen worden uitgevoerd in de werkstroom.
 
 ```
 
-## <a name="states"></a>Statussen
+## <a name="states"></a>States
 
 Een verzameling van unieke statussen binnen een werkstroom. Elke status bevat een stap in de besturingsstroom van de bedrijfslogica. 
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
-| Name | De unieke naam van de status. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de status van de van toepassing. | Ja |
+| Name | De unieke naam van de status. Het bijbehorende slimme contract moet gebruiken dezelfde **naam** voor de status van de van toepassing. | Ja |
 | DisplayName | Beschrijvende weergavenaam van de status. | Ja |
 | Description | Beschrijving van de status. | Nee |
 | PercentComplete | Een geheel getal-waarde die wordt weergegeven in de gebruikersinterface Blockchain Workbench om de voortgang in de Controlestroom van zakelijke logica weer te geven. | Ja |
@@ -324,10 +324,10 @@ Een verzameling van unieke statussen binnen een werkstroom. Elke status bevat ee
 
 Beschikbare acties voor de volgende status. Een of meer gebruikersrollen kunnen een actie uitvoeren bij elke status, waarbij een status kan overgaan van de ene naar een andere in de werkstroom. 
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
 | AllowedRoles | Lijst met toepassingensrollen die een overgang mogen starten. Alle gebruikers van de opgegeven rol kunnen  actie uitvoeren. | Nee |
-| AllowedInstanceRoles | Lijst met deelnemende of opgegeven gebruikersrollen in het smart contract die een overgang mogen starten. Rolinstanties zijn gedefinieerd in de **eigenschappen** in werkstromen. AllowedInstanceRoles vertegenwoordigen een gebruiker die deel uitmaakt van een instantie van een smart contract. AllowedInstanceRoles bieden u de mogelijkheid om de uitvoering van een actie te beperken tot een gebruikersrol in een instantie van het contract. U kunt bijvoorbeeld alleen de gebruiker die het contract gemaakt heeft (InstanceOwner) deze laten beëindigen in plaats van alle gebruikers in roltype (Owner) als u deze rol opgeeft in AllowedRoles. | Nee |
+| AllowedInstanceRoles | Lijst met deelnemende of opgegeven gebruikersrollen in het smart contract die een overgang mogen starten. Rolinstanties zijn gedefinieerd in de **eigenschappen** in werkstromen. AllowedInstanceRoles vertegenwoordigen een gebruiker die deel uitmaakt van een instantie van een smart contract. AllowedInstanceRoles bieden u de mogelijkheid om de uitvoering van een actie te beperken tot een gebruikersrol in een instantie van het contract.  U kunt bijvoorbeeld alleen de gebruiker die het contract gemaakt heeft (InstanceOwner) deze laten beëindigen in plaats van alle gebruikers in roltype (Owner) als u deze rol opgeeft in AllowedRoles. | Nee |
 | DisplayName | Beschrijvende weergavenaam van de overgang. | Ja |
 | Description | Beschrijving van de overgang. | Nee |
 | Function | De naam van de functie voor het starten van de overgang. | Ja |
@@ -369,9 +369,9 @@ Beschikbare acties voor de volgende status. Een of meer gebruikersrollen kunnen 
 
 Toepassingsrollen definiëren een groep van rollen die kunnen worden toegewezen aan gebruikers die in de toepassing acties kunnen uitvoeren of eraan deelnemen. Toepassingsrollen kunnen worden gebruikt voor het beperken van acties en deelname in de blockchain-toepassing en de bijbehorende werkstromen. 
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
-| Name | De unieke naam van de toepassingsrol. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de toepasselijke rol. Basistypenamen zijn gereserveerd. U kunt toepassingsrol niet dezelfde naam geven als [Type](#type)| Ja |
+| Name | De unieke naam van de toepassingsrol. Het bijbehorende slimme contract moet gebruiken dezelfde **naam** voor de rol die van toepassing. Basistype namen zijn gereserveerd. U kunt geen een toepassingsrol naam met dezelfde naam als [Type](#type)| Ja |
 | Description | Beschrijving van de toepassingsrol. | Nee |
 
 ### <a name="application-roles-example"></a>Voorbeeld van de toepassing-rollen
@@ -392,9 +392,9 @@ Toepassingsrollen definiëren een groep van rollen die kunnen worden toegewezen 
 
 Identifiers omvatten een verzameling van gegevens die wordt gebruikt voor het beschrijven van werkstroomeigenschappen, de  constructor en functieparameters. 
 
-| Veld | Beschrijving | Vereist |
+| Veld | Description | Vereist |
 |-------|-------------|:--------:|
-| Name | De unieke naam van de eigenschap of de parameter. Het bijbehorende smart contract moet dezelfde **naam** gebruiken voor de toepasselijke parameter. | Ja |
+| Name | De unieke naam van de eigenschap of de parameter. Het bijbehorende slimme contract moet gebruiken dezelfde **naam** voor de parameter of van toepassing op. | Ja |
 | DisplayName | Beschrijvende weergavenaam voor de eigenschap of de parameter. | Ja |
 | Description | Beschrijving van de eigenschap of de parameter. | Nee |
 

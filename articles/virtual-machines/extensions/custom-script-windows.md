@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282324"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963501"
 ---
 # <a name="custom-script-extension-for-windows"></a>Aangepaste Scriptextensie voor Windows
 
@@ -37,11 +37,11 @@ Dit document wordt uitgelegd hoe u de aangepaste Scriptextensie met behulp van d
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De aangepaste Scriptextensie voor Linux wordt uitgevoerd op de extensie met de extensie ondersteund besturingssysteem van voor meer informatie Zie dit [artikel](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+De aangepaste Scriptextensie voor Linux wordt uitgevoerd op de extensie met de extensie ondersteund OSs, voor meer informatie, Zie dit [artikel](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### <a name="script-location"></a>Locatie van het script
 
-De extensie kunt u uw Azure Blob storage-referenties gebruiken voor toegang tot Azure Blob-opslag. U kunt ook kan de locatie van het script worden een where, zolang de virtuele machine naar dit eindpunt, zoals GitHub, interne bestandsserver enzovoort doorsturen kunt.
+De extensie kunt u uw Azure Blob storage-referenties gebruiken voor toegang tot Azure Blob-opslag. U kunt ook mag de locatie van het script overal, zolang de virtuele machine naar dit eindpunt, zoals GitHub, interne bestandsserver enzovoort doorsturen kunt.
 
 
 ### <a name="internet-connectivity"></a>Verbinding met Internet
@@ -52,15 +52,15 @@ Als uw script op een lokale server is, moet u mogelijk nog steeds extra firewall
 ### <a name="tips-and-tricks"></a>Tips en trucs
 * Het hoogste aantal fouten voor deze extensie wordt veroorzaakt door fouten in de syntaxis in het script test het script wordt uitgevoerd zonder fouten, en ook plaatsen extra logboekregistratie in het script om gemakkelijker vinden wanneer deze is mislukt.
 * Schrijven van scripts die idempotent zijn zijn, zodat als ze opnieuw meer dan één keer per ongeluk uitvoert ophalen, worden er geen wijzigingen in het systeem.
-* Zorg ervoor dat de scripts hebben geen gebruikersinvoer nodig wanneer ze worden uitgevoerd.
+* Zorg ervoor dat de scripts geen gebruikersinvoer nodig wanneer ze worden uitgevoerd.
 * Er is 90 minuten toegestaan voor het script uit te voeren, iets langer resulteert in een mislukte bepaling van de extensie.
-* Plaats niet opnieuw wordt opgestart in het script, wordt dit problemen veroorzaken met andere extensies die worden geïnstalleerd en na opnieuw opstarten, de uitbreiding wordt niet voortgezet na het opnieuw opstarten. 
-* Hebt u een script dat zal opnieuw worden opgestart, toepassingen installeren en uitvoeren van scripts, enzovoort. U moet het opnieuw opstarten met behulp van een Windows-taak, of hulpprogramma's zoals DSC of Chef, Puppet-uitbreidingen plannen.
+* Niet opnieuw wordt opgestart in het script plaatsen, deze actie wordt problemen veroorzaken met andere extensies die worden geïnstalleerd. Na opnieuw opstarten, de uitbreiding wordt niet voortgezet na het opnieuw opstarten. 
+* Hebt u een script dat zal opnieuw worden opgestart, toepassingen installeren en uitvoeren van scripts, enzovoort. U kunt het opnieuw opstarten met behulp van een Windows-taak, of hulpprogramma's zoals DSC of Chef, Puppet-uitbreidingen plannen.
 * De extensie wordt een script alleen slechts één keer uitgevoerd als u een script uitvoeren op elke keer opstarten, wilt moet u de extensie gebruikt om te maken van een Windows-taak.
 * Als u wilt om te plannen wanneer een script wordt uitgevoerd, moet u de extensie te maken van een Windows-taak. 
 * Wanneer het script wordt uitgevoerd, ziet u alleen een 'transitioning' status van de extensie van de Azure portal of de CLI. Als u vaker statusupdates van een script uit te voeren, moet u om uw eigen oplossing te maken.
 * Aangepaste scriptextensie biedt geen systeemeigen ondersteuning voor proxy-servers, maar u kunt een hulpprogramma voor bestandsoverdracht die ondersteuning biedt voor proxy-servers in uw script, zoals *Curl* 
-* Houd rekening met het niet standaard directory-locaties die uw scripts of opdrachten kunnen afhankelijk zijn, hebben de logica voor het afhandelen van dit.
+* Houd rekening met niet-standaard directory-locaties die uw scripts of opdrachten kunnen afhankelijk zijn, hebben de logica voor deze situatie afhandelt.
 
 
 ## <a name="extension-schema"></a>Extensieschema
@@ -92,7 +92,8 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 | type | Customscriptextension gebruiken | tekenreeks |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (bijvoorbeeld) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matrix |
+| tijdstempel (bijvoorbeeld) | 123456789 | 32-bits geheel getal |
 | commandToExecute (bijvoorbeeld) | PowerShell - ExecutionPolicy Unrestricted - File configureren muziek app.ps1 | tekenreeks |
 | storageAccountName (bijvoorbeeld) | examplestorageacct | tekenreeks |
 | storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | tekenreeks |
@@ -123,19 +125,20 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 #### <a name="property-value-details"></a>Details van eigenschap
  * `commandToExecute`: (**vereist**, string) het invoerpunt-script om uit te voeren. Dit veld in plaats daarvan gebruiken als uw opdracht geheimen zoals wachtwoorden bevat, of uw fileUris gevoelig zijn.
 * `fileUris`: (optioneel, string-matrix) de URL's voor bestanden die moeten worden gedownload.
+* `timestamp` (optioneel, 32-bits geheel getal) te gebruiken in dit veld alleen voor het activeren van een opnieuw uitvoeren van het script door de waarde van dit veld te wijzigen.  Een geheel getal-waarde is toegestaan. alleen moet deze anders is dan de vorige waarde.
 * `storageAccountName`: (optioneel, string) de naam van de storage-account. Als u de storage-referenties opgeeft alle `fileUris` moet URL's voor Azure-Blobs.
 * `storageAccountKey`: (optioneel, string) de toegangssleutel van storage-account
 
 De volgende waarden kunnen worden ingesteld in de openbare of beveiligde instellingen, de uitbreiding wordt een configuratie waarbij de onderstaande waarden zijn ingesteld in de instellingen voor zowel openbare als beveiligde afwijzen.
 * `commandToExecute`
 
-Met openbare instellingen misschien nuttig voor foutopsporing, maar het is raadzaam dat u beveiligde instellingen.
+Met openbare instellingen misschien nuttig voor foutopsporing, maar het wordt aanbevolen dat u beveiligde instellingen.
 
-Openbare instellingen worden naar de virtuele machine waar het script wordt uitgevoerd in niet-versleutelde tekst verzonden.  Beveiligde instellingen zijn versleuteld met behulp van een sleutel die alleen bekend bij de Azure- en de virtuele machine. De instellingen worden opgeslagen met de virtuele machine als ze zijn verzonden dat wil zeggen als de instellingen zijn versleuteld ze worden opgeslagen, worden versleuteld op de virtuele machine. Het certificaat voor het ontsleutelen van de versleutelde waarden is opgeslagen op de virtuele machine en voor het ontsleutelen van (indien nodig)-instellingen tijdens runtime.
+Openbare instellingen worden naar de virtuele machine waar het script wordt uitgevoerd in niet-versleutelde tekst verzonden.  Beveiligde instellingen zijn versleuteld met behulp van een sleutel die alleen bekend bij de Azure- en de virtuele machine. De instellingen worden opgeslagen met de virtuele machine als ze zijn verzonden dat wil zeggen, als de instellingen zijn versleuteld ze worden opgeslagen, worden versleuteld op de virtuele machine. Het certificaat voor het ontsleutelen van de versleutelde waarden is opgeslagen op de virtuele machine en voor het ontsleutelen van (indien nodig)-instellingen tijdens runtime.
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie beschreven kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de aangepaste Scriptextensie tijdens de sjabloonimplementatie van een Azure Resource Manager. De volgende voorbeelden laten zien hoe de aangepaste scriptextensie gebruiken:
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Het JSON-schema, dat wordt beschreven in de vorige sectie kan worden gebruikt in een Azure Resource Manager-sjabloon om uit te voeren van de aangepaste Scriptextensie tijdens de sjabloonimplementatie van een Azure Resource Manager. De volgende voorbeelden laten zien hoe de aangepaste scriptextensie gebruiken:
 
 * [Zelfstudie: Extensies voor virtuele machines met Azure Resource Manager-sjablonen implementeren](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Implementeer twee Tier-toepassing op Windows- en Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
@@ -199,9 +202,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Het aangepaste script meerdere keren uitvoeren met CLI
-Als u wilt de aangepaste scriptextensie meer dan eenmaal wordt uitgevoerd, kunt u dit alleen doen in deze omstandigheden:
+Als u de aangepaste scriptextensie meer dan één keer uitgevoerd wilt, kunt u deze actie in deze omstandigheden alleen doen:
 1. De extensie 'Name'-parameter is hetzelfde als de vorige implementatie van de extensie.
-2. De configuratie anders wordt die de opdracht wordt niet opnieuw worden uitgevoerd, moet u bijwerken, bijvoorbeeld, kan u toevoegen in een dynamische eigenschap in aan de opdracht, zoals een tijdstempel. 
+2. De configuratie anders wordt die de opdracht wordt niet opnieuw kan worden uitgevoerd, moet u bijwerken. U kunt in een dynamische eigenschap toevoegen in de opdracht, zoals een tijdstempel.
 
 ## <a name="troubleshoot-and-support"></a>Problemen oplossen en ondersteuning
 
@@ -222,9 +225,9 @@ De opgegeven bestanden zijn gedownload naar de volgende map op de virtuele doelm
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-waar `<n>` is een geheel getal dat kan worden gewijzigd tussen uitvoeringen van de extensie.  De `1.*` waarde komt overeen met de werkelijke, huidige `typeHandlerVersion` waarde van de extensie.  Bijvoorbeeld, de werkelijke map kan worden `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+waar `<n>` is een decimaal geheel getal, uitvoeringen van de uitbreiding kan worden gewijzigd.  De `1.*` waarde komt overeen met de werkelijke, huidige `typeHandlerVersion` waarde van de extensie.  Bijvoorbeeld, de werkelijke map kan worden `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-Bij het uitvoeren van de `commandToExecute` opdracht, de uitbreiding wordt ingesteld voor deze map (bijvoorbeeld `...\Downloads\2`) als de huidige werkmap. Hierdoor is het gebruik van relatieve paden te vinden van de bestanden die worden gedownload de `fileURIs` eigenschap. Zie de onderstaande tabel voor meer voorbeelden.
+Bij het uitvoeren van de `commandToExecute` opdracht, de uitbreiding wordt ingesteld voor deze map (bijvoorbeeld `...\Downloads\2`) als de huidige werkmap. Dit proces maakt het gebruik van relatieve paden te vinden van de bestanden die worden gedownload de `fileURIs` eigenschap. Zie de onderstaande tabel voor meer voorbeelden.
 
 Omdat het absolute downloadpad na verloop van tijd verschillen kan, is het beter om te kiezen voor relatieve scriptbestand paden in de `commandToExecute` string, indien mogelijk. Bijvoorbeeld:
 ```json

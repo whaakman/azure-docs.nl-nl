@@ -2,18 +2,18 @@
 title: Back-up van VMware-servers met Azure Backup Server
 description: Azure Backup Server gebruiken voor back-up van een VMware vCenter-/ ESXi-servers naar Azure of schijf. Dit artikel vindt u stap voor stap instructies voor back-ups van (of beveiligen) = uw VMware-workloads.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e39e5d12610164ca4a1372830cf25ea203fd382c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216407"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968831"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Back-up van een VMware-server naar Azure
 
@@ -55,7 +55,7 @@ Als u kunt dit probleem oplossen en een beveiligde verbinding maken, downloaden 
 4. Met de rechtermuisknop op **download.zip**, en selecteer vervolgens **Alles uitpakken** om de inhoud te extraheren.
 
     Het ZIP-bestand haalt de inhoud ervan naar een map met de naam **certificaten**. Twee soorten bestanden worden weergegeven in de map certificaten. Bestand van het basiscertificaat heeft een extensie die met een genummerde volgorde, zoals.0 en.1 begint.
-    
+
     Het CRL-bestand heeft een extensie die met een reeks zoals .r0 of .r1 begint. Het CRL-bestand is gekoppeld aan een certificaat.
 
     ![-Bestand dat het lokaal downloaden ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
@@ -249,7 +249,7 @@ Voordat u de VMware-server aan Azure Backup Server toevoegen, installeert [Updat
     ![In het dialoogvenster van Azure Backup-Server toevoegen referentie](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Klik op **toevoegen** naar de nieuwe referentie toevoegen aan Azure Backup Server. De nieuwe referentie wordt weergegeven in de lijst in de **referenties beheren** in het dialoogvenster.
-    
+
     ![Het dialoogvenster Azure Backup Server beheren referenties](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. Sluit de **referenties beheren** in het dialoogvenster, klikt u op de **X** in de rechterbovenhoek.
@@ -271,7 +271,7 @@ Als u wilt openen productie Wizard voor het toevoegen, voert u de volgende proce
 
 2. Op de **productieservertype selecteren** pagina, selecteert u **VMware-Servers**, en klik vervolgens op **volgende**.
 
-3. In **naam/IP-serveradres**, geef de volledig gekwalificeerde domeinnaam (FQDN) of IP-adres van de VMware-server. Als alle ESXi-servers worden beheerd door dezelfde vCenter, kunt u de naam van de vCenter.
+3. In **naam/IP-serveradres**, geef de volledig gekwalificeerde domeinnaam (FQDN) of IP-adres van de VMware-server (de host ESXi-server). Als alle ESXi-servers worden beheerd door dezelfde vCenter, kunt u de naam van de vCenter.
 
     ![VMware-server FQDN-naam of IP-adres opgeven](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

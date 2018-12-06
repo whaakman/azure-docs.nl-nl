@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158316"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957663"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Een virtuele Windows Server-machine toevoegen aan een beheerd domein
 In dit artikel laat zien hoe een Windows Server-machine implementeren met behulp van de Azure-portal. Vervolgens wordt uitgelegd hoe u de virtuele machine koppelen aan een beheerd domein van Azure Active Directory Domain Services (Azure AD DS).
@@ -30,7 +30,7 @@ In dit artikel laat zien hoe een Windows Server-machine implementeren met behulp
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>Stap 1: Een Windows Server-machine maken
 Voor het maken van een Windows virtuele machine die lid is van het virtuele netwerk waarin u Azure AD DS hebt ingeschakeld, voert u de volgende stappen uit:
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer boven in het linkerdeelvenster **nieuw**.
 3. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**.
 

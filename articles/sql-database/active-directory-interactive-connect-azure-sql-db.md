@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 04/06/2018
 manager: craigg
-ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055523"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958814"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>ActiveDirectoryInteractive modus gebruiken om te verbinden met Azure SQL Database
 
@@ -66,23 +66,23 @@ Voor het gebruik van Azure AD-verificatie, dient uw C#-clientprogramma een GUID 
 
 1. Azure-portal &gt; **Azure Active Directory** &gt; **App-registratie**
 
-    ![App-registratie](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![App-registratie](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. De **toepassings-ID** waarde wordt gegenereerd en weergegeven.
 
-    ![App-ID weergeven](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![App-ID weergeven](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **Geregistreerde app** &gt; **instellingen** &gt; **vereiste machtigingen** &gt; **toevoegen**
 
-    ![Machtigingsinstellingen voor geregistreerde app](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![Machtigingsinstellingen voor geregistreerde app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **Vereiste machtigingen** &gt; **API-toegang toevoegen** &gt; **Select an API** &gt; **Azure SQL Database**
 
-    ![Toegang tot API voor Azure SQL Database toevoegen](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Toegang tot API voor Azure SQL Database toevoegen](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **API-toegang** &gt; **machtigingen selecteren** &gt; **gedelegeerde machtigingen**
 
-    ![Het overdragen van machtigingen voor API voor Azure SQL Database](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Het overdragen van machtigingen voor API voor Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Instellen van Azure AD-beheerder voor uw SQL Database-server
@@ -124,13 +124,13 @@ De C#-programma is afhankelijk van de naamruimte **Microsoft.IdentityModel.Clien
 
 Een naamruimten die afhankelijk van het C#-voorbeeld is **System.Data.SqlClient**. Is van belang zijn speciale de enum **SqlAuthenticationMethod**. Deze opsomming heeft de volgende waarden:
 
-- **SqlAuthenticationMethod.ActiveDirectory \*interactief**\*:&nbsp; Gebruik dit met de naam van een Azure AD-gebruiker om multi-factor authentication, MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * interactief ***:&nbsp; Gebruik dit met de naam van een Azure AD-gebruiker om multi-factor authentication, MFA.
     - Deze waarde is de focus van dit artikel. Het genereert een interactieve ervaring door het weergeven van dialoogvensters voor het wachtwoord van de gebruiker, en vervolgens voor MFA-validatie als MFA is ingesteld op deze gebruiker.
     - Deze waarde is beschikbaar vanaf .NET Framework versie 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*geïntegreerde**\*:&nbsp; Gebruik deze optie voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze methode biedt geen ondersteuning voor MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * geïntegreerde ***:&nbsp; Gebruik deze optie voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze methode biedt geen ondersteuning voor MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*wachtwoord**\*:&nbsp; dit gebruiken voor verificatie met een Azure AD-gebruiker en wachtwoord van de gebruiker vereist. De authenticatie wordt uitgevoerd in Azure SQL-Database. Deze methode biedt geen ondersteuning voor MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * wachtwoord ***:&nbsp; dit gebruiken voor verificatie met een Azure AD-gebruiker en wachtwoord van de gebruiker vereist. De authenticatie wordt uitgevoerd in Azure SQL-Database. Deze methode biedt geen ondersteuning voor MFA.
 
 
 

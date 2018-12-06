@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987236"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963569"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -134,7 +134,7 @@ Ja, alleen API-versie 2017-03-01 en nieuwere ondersteunt de geografische routeri
 ## <a name="traffic-manager-subnet-traffic-routing-method"></a>Methode voor verkeersroutering voor Traffic Manager-Subnet
 
 ### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Wat zijn enkele gebruiksvoorbeelden waar subnet routering nuttig is?
-Subnet routeren, kunt u onderscheid maken tussen de ervaring die om u voor specifieke sets van gebruikers die zijn geïdentificeerd door de bron-IP-adres van de IP-adres van de DNS-aanvragen te leveren. Een voorbeeld is de andere inhoud weergeven als gebruikers verbinding met een website voor uw zakelijke hoofdkantoor. Een andere zou worden gebruikers beperken van bepaalde internetproviders alleen toegang hebben tot de eindpunten die ondersteuning bieden voor alleen IPv4-verbindingen als de ISP's suboptimale prestaties hebt als IPv6 wordt gebruikt.
+Subnet routeren, kunt u onderscheid maken tussen de ervaring die om u voor specifieke sets van gebruikers die zijn geïdentificeerd door de bron-IP-adres van de IP-adres van de DNS-aanvragen te leveren. Een voorbeeld is de andere inhoud weergeven als gebruikers verbinding met een website van uw zakelijke hoofdkantoor. Een andere zou worden gebruikers beperken van bepaalde internetproviders alleen toegang hebben tot de eindpunten die ondersteuning bieden voor alleen IPv4-verbindingen als de ISP's suboptimale prestaties hebt als IPv6 wordt gebruikt.
 Een andere reden voor het gebruik van de routeringsmethode Subnet is in combinatie met andere profielen in een geneste profiel ingesteld. Bijvoorbeeld, als u wilt gebruiken uw gebruikers geografische routeringsmethode voor geofencing, maar voor een specifieke provider die u wilt een andere routeringsmethode doen, kunt je een profiel withy Subnet routeringsmethode als het profiel van de bovenliggende en die Internet-provider voor het gebruik van een specifieke onderliggende pro overschrijven bestands- en standaard geografische profiel hebben voor iedereen.
 
 ### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Hoe weet Traffic Manager het IP-adres van de eindgebruiker

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 93bafb739c35b81796186dc845f7933a82e1675b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404338"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968115"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Netwerkprestatiemeter configureren voor ExpressRoute
 
@@ -62,7 +62,7 @@ Een werkruimte maken in het abonnement waaraan de VNets koppelen aan het Express
    >U kunt een nieuwe werkruimte maken of een bestaande werkruimte gebruiken. Als u een bestaande werkruimte gebruiken wilt, moet u ervoor zorgen dat de werkruimte is gemigreerd naar de nieuwe querytaal. [Meer informatie...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
-   ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](./media/how-to-npm/3.png)<br><br>
 2. Aan de onderkant van de belangrijkste **Network Performance Monitor** pagina, klikt u op **maken** openen **Network Performance Monitor - de nieuwe oplossing maken** pagina. Klik op **Log Analytics-werkruimte - Selecteer een werkruimte** de werkruimten-pagina te openen. Klik op **+ nieuwe werkruimte maken** om de pagina van de werkruimte te openen.
 3. Op de **Log Analytics-werkruimte** weergeeft, schakelt **nieuw**, klikt u vervolgens de volgende instellingen configureren:
 
@@ -76,11 +76,11 @@ Een werkruimte maken in het abonnement waaraan de VNets koppelen aan het Express
     >Het ExpressRoute-circuit is overal ter wereld. Dit hoeft niet te worden in dezelfde regio als de werkruimte.
     >
   
-    ![werkruimte](.\media\how-to-npm\4.png)<br><br>
+    ![werkruimte](./media/how-to-npm/4.png)<br><br>
 4. Klik op **OK** opslaan en implementeren van de instellingen-sjabloon. Nadat de sjabloon wordt gevalideerd, klikt u op **maken** implementeren van de werkruimte.
 5. Nadat de werkruimte is geïmplementeerd, gaat u naar de **NetworkMonitoring(name)** resource die u hebt gemaakt. Het valideren van de instellingen en klik vervolgens op **oplossing is aanvullende configuratie vereist**.
 
-   ![aanvullende configuratie](.\media\how-to-npm\5.png)
+   ![aanvullende configuratie](./media/how-to-npm/5.png)
 
 ## <a name="agents"></a>Stap 2: Installeren en configureren van agents
 
@@ -90,7 +90,7 @@ Een werkruimte maken in het abonnement waaraan de VNets koppelen aan het Express
 2. Kopieer vervolgens de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
 3. Uit de **Log Analytics-Agents configureren voor bewaking met TCP-protocol** sectie, het Powershell-Script downloaden. Het PowerShell-script kunt u de relevante firewallpoort voor de TCP-transacties openen.
 
-  ![PowerShell-script](.\media\how-to-npm\7.png)
+  ![PowerShell-script](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: een monitoring agent installeren op elke controleserver (op elke VNET die u wilt bewaken)
 
@@ -108,13 +108,13 @@ Het is raadzaam dat u ten minste twee agents op elke zijde van de ExpressRoute-v
 
   * Als u wilt verbinding maken met **Azure Log Analytics**, plak de **werkruimte-ID** en **Werkruimtesleutel** (primaire sleutel) die u in Kladblok in de vorige sectie hebt gekopieerd. Klik op **Volgende**.
 
-    ![ID en -sleutel](.\media\how-to-npm\8.png)
+    ![ID en -sleutel](./media/how-to-npm/8.png)
   * Als u wilt verbinding maken met **Operations Manager**op de **Beheergroepconfiguratie** pagina, typt u de **Beheergroepsnaam**, **Management Server** , en de **Beheerserverpoort**. Klik op **Volgende**.
 
-    ![Operations Manager](.\media\how-to-npm\9.png)
+    ![Operations Manager](./media/how-to-npm/9.png)
   * Op de **actie-Account van Agent** pagina, kiest u de **lokaal systeem** -account, of **domein of lokaal computeraccount**. Klik op **Volgende**.
 
-    ![Account](.\media\how-to-npm\10.png)
+    ![Account](./media/how-to-npm/10.png)
 6. Op de **gereed voor installatie** pagina, Controleer uw keuzes en klik vervolgens op **installeren**.
 7. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
 8. Als u klaar bent, is de Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt de configuratie controleren en verifiëren dat de agent is verbonden met Azure Log Analytics. Wanneer verbinding is gemaakt, de agent wordt een bericht weergegeven: **The Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite service**.
@@ -132,7 +132,7 @@ Proxy-instellingen voor de Microsoft Monitoring Agent via het Configuratiescherm
 3. Klik op het tabblad **Proxyinstellingen**.
 4. Selecteer **een proxyserver gebruiken** en typ de URL en het poortnummer, wanneer u een nodig hebt. Als er voor uw proxyserver verificatie is vereist, voert u de gebruikersnaam en het wachtwoord in om de proxyserver te openen.
 
-  ![Proxy](.\media\how-to-npm\11.png)
+  ![Proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: Controleer de verbinding van de agent
 
@@ -143,7 +143,7 @@ U kunt eenvoudig controleren of uw agents communiceren.
 3. Klik op de **Azure Log Analytics** tabblad.
 4. In de **Status** kolom ziet u de agent is verbonden met Log Analytics.
 
-  ![status](.\media\how-to-npm\12.png)
+  ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: open de firewallpoorten op de monitoring agentservers
 
@@ -160,7 +160,7 @@ Poort 8084 wordt standaard geopend. U kunt een aangepaste poort gebruiken door o
 
 Open een PowerShell-venster met beheerdersbevoegdheden op de agentservers. Voer de [EnableRules](https://aka.ms/npmpowershellscript) PowerShell-script (die u eerder hebt gedownload). Gebruik geen parameters.
 
-![PowerShell_Script](.\media\how-to-npm\script.png)
+![PowerShell_Script](./media/how-to-npm/script.png)
 
 ## <a name="opennsg"></a>Stap 3: Configureer regels voor netwerkbeveiligingsgroepen
 
@@ -176,13 +176,13 @@ Zie voor meer informatie over NSG [Netwerkbeveiligingsgroepen](../virtual-networ
 
 1. Navigeer naar de overzichtstegel van Network Performance Monitor door te gaan naar de **alle Resources** pagina en klik vervolgens op de goedgekeurde lijst NPM-werkruimte.
 
-  ![npm-werkruimte](.\media\how-to-npm\npm.png)
+  ![npm-werkruimte](./media/how-to-npm/npm.png)
 2. Klik op de **Network Performance Monitor** overzichtstegel om het dashboard. Het dashboard bevat een ExpressRoute-pagina, die laat zien dat ExpressRoute in een niet-geconfigureerde status'. Klik op **functie instellen** om de configuratiepagina van Network Performance Monitor te openen.
 
-  ![functie instellen](.\media\how-to-npm\npm2.png)
+  ![functie instellen](./media/how-to-npm/npm2.png)
 3. Navigeer naar het tabblad ExpressRoute-Peerings, zich in het deelvenster links op de configuratiepagina. Klik vervolgens op **nu detecteren**.
 
-  ![detecteren](.\media\how-to-npm\13.png)
+  ![detecteren](./media/how-to-npm/13.png)
 4. Wanneer detectie is voltooid, ziet u een lijst met de volgende items:
   * Alle van de Microsoft-peering-verbindingen in de ExpressRoute-circuit die gekoppeld aan dit abonnement zijn.
   * Alle van de privé-peeringverbindingen die verbinding met de VNets maken die zijn gekoppeld aan dit abonnement.
@@ -195,7 +195,7 @@ In deze sectie configureert u de monitors. Volg de stappen voor het type peering
 
 Voor persoonlijke peering wanneer detectie is voltooid, ziet u regels voor wordt de unieke **Circuitnaam** en **VNet-naam**. In eerste instantie zijn deze regels uitgeschakeld.
 
-![regels](.\media\how-to-npm\14.png)
+![regels](./media/how-to-npm/14.png)
 
 1. Controleer de **deze peering controleren** selectievakje.
 2. Schakel het selectievakje **statuscontrole inschakelen voor deze peering**.
@@ -211,10 +211,10 @@ Voor Microsoft-peering, klikt u op de Microsoft-peering verbindingen die u wilt 
 1. Controleer de **deze peering controleren** selectievakje. 
 2. (Optioneel) U kunt het doel Microsoft service-eindpunt kunt wijzigen. Standaard kiest NPM een Microsoft-service-eindpunt als het doel. NPM bewaakt connectiviteit vanuit uw on-premises servers naar dit eindpunt doel via ExpressRoute. 
     * Als u wilt dit eindpunt doel wijzigen, klikt u op de **(bewerken)** koppeling onder **doel:**, en selecteer een ander doel eindpunt van de Microsoft-service in de lijst met URL's.
-      ![doel bewerken](.\media\how-to-npm\edit_target.png)<br>
+      ![doel bewerken](./media/how-to-npm/edit_target.png)<br>
 
     * U kunt een aangepaste URL of IP-adres gebruiken. Deze optie is met name relevant als u van Microsoft gebruikmaakt-peering voor het maken van een verbinding met Azure PaaS-services, zoals Azure Storage, SQL-databases en Websites die worden aangeboden op openbare IP-adressen. Klik op de koppeling om dit te doen, **(aangepaste URL of IP-adres gebruiken in plaats daarvan)** aan de onderkant van de lijst met URL's, voert u het openbare eindpunt van uw Azure PaaS-service die is verbonden via de ExpressRoute-Microsoft-peering.
-    ![aangepaste URL](.\media\how-to-npm\custom_url.png)<br>
+    ![aangepaste URL](./media/how-to-npm/custom_url.png)<br>
 
     * Als u deze instellingen zijn optioneel, zorg ervoor dat alleen het Microsoft service-eindpunt hier is geselecteerd. Het eindpunt moet zijn verbonden met ExpressRoute en bereikbaar is door de on-premises-agents.
 3. Schakel het selectievakje **statuscontrole inschakelen voor deze peering**.
@@ -227,37 +227,37 @@ Voor Microsoft-peering, klikt u op de Microsoft-peering verbindingen die u wilt 
 
 Als u de bewaking tegels ziet, zijn uw ExpressRoute-circuits en verbindingsresources die worden bewaakt door NPM. U kunt klikken op Microsoft-Peering-tegel om in te zoomen op de status van de Microsoft-Peering-verbindingen.
 
-![bewaking van tegels](.\media\how-to-npm\15.png)
+![bewaking van tegels](./media/how-to-npm/15.png)
 
 ### <a name="dashboard"></a>Network Performance Monitor pagina
 
 De NPM-pagina bevat een pagina voor ExpressRoute die een overzicht van de status van ExpressRoute-circuits en -peerings.
 
-![Dashboard](.\media\how-to-npm\dashboard.png)
+![Dashboard](./media/how-to-npm/dashboard.png)
 
 ### <a name="circuits"></a>Lijst van circuits
 
 Om weer te geven van een lijst van alle bewaakte ExpressRoute-circuits, klikt u op de **ExpressRoute-circuits** tegel. U kunt een circuit selecteren en de status, trendgrafieken voor pakketverlies en bandbreedtegebruik latentie weergeven. De grafieken zijn interactief. U kunt een aangepaste tijdvenster voor het uitzetten van de grafieken selecteren. Sleep de muis over een gebied in het diagram inzoomen en Zie fijnmazig gegevenspunten.
 
-![circuit_list](.\media\how-to-npm\circuits.png)
+![circuit_list](./media/how-to-npm/circuits.png)
 
 #### <a name="trend"></a>Trend van gegevensverlies, latentie en doorvoer
 
 De grafieken voor bandbreedte, latentie en verlies, zijn interactief. U kunt inzoomen op een gedeelte van deze grafieken met behulp van besturingselementen van de muis. U kunt ook de bandbreedte, latentie en verlies van gegevens voor andere intervallen zien door te klikken op **datum/tijd**, dat zich bevindt onder de knop acties in de linkerbovenhoek.
 
-![trend](.\media\how-to-npm\16.png)
+![trend](./media/how-to-npm/16.png)
 
 ### <a name="peerings"></a>Lijst met Peerings
 
 Aan de lijst met alle verbindingen met virtuele netwerken via persoonlijke peering weergeven, klikt u op de **privé-Peerings** tegel op het dashboard. Hier kunt u een virtuele netwerkverbinding en de status, trendgrafieken voor pakketverlies en bandbreedtegebruik latentie weergeven.
 
-![lijst met circuit](.\media\how-to-npm\peerings.png)
+![lijst met circuit](./media/how-to-npm/peerings.png)
 
-### <a name="nodes"></a>Knooppunten weergeven
+### <a name="nodes"></a>knooppunten weergeven
 
 Aan de lijst met alle bijbehorende koppelingen tussen de on-premises knooppunten en de Azure VM's / Microsoft-service-eindpunten voor de gekozen ExpressRoute-peering verbinding weergeven, klikt u op **knooppuntkoppelingen weergeven**. U kunt de status van elke koppeling, evenals de trend van verlies en latentie die is gekoppeld aan deze weergeven.
 
-![knooppunten weergeven](.\media\how-to-npm\nodes.png)
+![knooppunten weergeven](./media/how-to-npm/nodes.png)
 
 ### <a name="topology"></a>Circuit-topologie
 
@@ -265,9 +265,9 @@ Als u wilt weergeven van circuit topologie, klikt u op de **topologie** tegel. H
 
 U kunt het niveau van de zichtbaarheid van on-premises hops opnemen door over te stappen van de schuifregelaar in onderstaande verhogen **Filters**. De schuifregelaar naar links of rechts verplaatsen, verhoogt/vermindert het aantal hops in de grafiek topologie. De latentie voor elk segment is zichtbaar, waardoor voor snellere isolatie van segmenten van hoge latentie in uw netwerk.
 
-![filters](.\media\how-to-npm\topology.png)
+![filters](./media/how-to-npm/topology.png)
 
 #### <a name="detailed-topology-view-of-a-circuit"></a>Gedetailleerde weergave van de topologie van een circuit
 
 Deze weergave toont de VNet-verbindingen.
-![gedetailleerde topologie](.\media\how-to-npm\17.png)
+![gedetailleerde topologie](./media/how-to-npm/17.png)

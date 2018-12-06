@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/8/2018
+ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 83f053a8815f31803f536920497fdc42e72d2a2d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74ea923ccfc88847ae6d2513b3ef592cc8899b8d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629013"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966871"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Bouw de IoT Central apparaat bridge andere clouds IoT verbinden met IoT Central
 
@@ -25,7 +25,7 @@ De apparaat-brug IoT Central is een open-source-oplossing die uw Sigfox, het ond
 De apparaat-brug IoT Central is een open-source-oplossing in Github. Het is klaar om te beginnen met een knop 'Implementeren naar Azure' die een aangepaste Azure Resource Manager-sjabloon met verschillende Azure-resources in uw Azure-abonnement implementeert. De resources zijn onder andere:
 -   Azure Functions-app
 -   Azure Storage-account
--   App Service-Plan (S1-laag)
+-   Verbruiksabonnement
 -   Azure Key Vault de functie-app is het cruciaal onderdeel van de brug apparaat. Wordt een HTTP POST-aanvragen ontvangen van andere IoT-platformen of alle aangepaste platforms via een eenvoudige webhook-integratie. Er zijn voorbeelden die laten zien hoe u verbinding maken met Sigfox, Particle en TTN clouds beschikbaar. Deze oplossing voor het verbinding maken met uw aangepaste IoT-cloud als uw platform HTTP POST-aanvragen naar uw functie-app verzenden kunt kunt u gemakkelijk uitbreiden.
 De functie-app de gegevens worden getransformeerd in een indeling die door IoT Central geaccepteerd en stuurt het langs via DPS-API's.
 
@@ -37,10 +37,9 @@ Als uw IoT Central-app de ID van het apparaat door apparaat in het doorgestuurde
 De instructies worden in de Leesmij-bestand in de Github-repo in detail weergegeven. 
 
 ## <a name="pricing"></a>Prijzen
-Dit wordt gehost in uw Azure-abonnement. Het merendeel van de geschatte kosten van de ingerichte bronnen afkomstig is van de [prijs van een standaard App Service-Plan]( https://azure.microsoft.com/en-us/pricing/details/app-service/windows/). U kunt meer informatie over deze en mogelijke manieren om dit in het Leesmij-bestand te verminderen.
+De Azure-resources worden gehost in uw Azure-abonnement. U kunt meer informatie over de prijzen de [Leesmij-bestand](https://aka.ms/iotcentralgithubdevicebridge).
 
 ## <a name="next-steps"></a>Volgende stappen
-
 Nu dat u over het bouwen van de IoT Central apparaat bridge hebt geleerd, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]

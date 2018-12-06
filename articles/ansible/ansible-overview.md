@@ -8,28 +8,28 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 22eeb3993cd408a8369236683da3db466a348a30
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160742"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956751"
 ---
 # <a name="ansible-with-azure"></a>Ansible met Azure
 
-[Ansible](http://www.ansible.com) is een open-source-product waarmee het inrichten van clouds, Configuratiebeheer en toepassingsimplementaties worden geautomatiseerd. Wanneer u Ansible gebruikt kunt u virtuele machines, containers en netwerk inrichten en cloudinfrastructuren voltooien. Ansible Bovendien kunt u de implementatie en configuratie van bronnen in uw omgeving automatiseren.
+[Ansible](https://www.ansible.com) is een open-source-product waarmee het inrichten van clouds, Configuratiebeheer en toepassingsimplementaties worden geautomatiseerd. Wanneer u Ansible gebruikt kunt u virtuele machines, containers en netwerk inrichten en cloudinfrastructuren voltooien. Ansible Bovendien kunt u de implementatie en configuratie van bronnen in uw omgeving automatiseren.
 
 In dit artikel biedt een eenvoudig overzicht van de voordelen van het gebruik van Ansible met Azure.
 
 ## <a name="ansible-playbooks"></a>Ansible-playbooks
 
-[Ansible-playbooks](http://docs.ansible.com/ansible/latest/playbooks.html) van Ansible-configuratie, implementatie en orchestration-taal. Ze kunnen een beleid dat u wilt dat uw externe systemen om af te dwingen, of een reeks stappen in een algemene IT-proces wordt beschreven. Bij het maken van een playbook u dat doet met YAML, waarmee een model van een configuratie of een proces wordt gedefinieerd.
+[Ansible-playbooks](https://docs.ansible.com/ansible/latest/playbooks.html) van Ansible-configuratie, implementatie en orchestration-taal. Ze kunnen een beleid dat u wilt dat uw externe systemen om af te dwingen, of een reeks stappen in een algemene IT-proces wordt beschreven. Bij het maken van een playbook u dat doet met YAML, waarmee een model van een configuratie of een proces wordt gedefinieerd.
 
 ## <a name="ansible-modules"></a>Ansible-modules
 
-Ansible bevat een reeks [Ansible modules](http://docs.ansible.com/ansible/latest/modules_by_category.html) die kunnen worden uitgevoerd op externe hosts rechtstreeks of via [playbooks](http://docs.ansible.com/ansible/latest/playbooks.html). Gebruikers kunnen ook hun eigen modules maken. Modules kunnen worden gebruikt voor het beheren van systeembronnen -, zoals services, pakketten of -bestanden - of systeemopdrachten uit te voeren.
+Ansible bevat een reeks [Ansible modules](https://docs.ansible.com/ansible/latest/modules_by_category.html) die kunnen worden uitgevoerd op externe hosts rechtstreeks of via [playbooks](https://docs.ansible.com/ansible/latest/playbooks.html). Gebruikers kunnen ook hun eigen modules maken. Modules kunnen worden gebruikt voor het beheren van systeembronnen -, zoals services, pakketten of -bestanden - of systeemopdrachten uit te voeren.
 
-Voor interactie met Azure-services, Ansible bevat een suite van [Ansible cloud modules](http://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) waarmee de hulpmiddelen voor het eenvoudig maken en organiseren van uw infrastructuur in Azure. 
+Voor interactie met Azure-services, Ansible bevat een suite van [Ansible cloud modules](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) waarmee de hulpmiddelen voor het eenvoudig maken en organiseren van uw infrastructuur in Azure. 
 
 ## <a name="migrate-existing-workload-to-azure"></a>Bestaande workloads migreren naar Azure
 
@@ -40,7 +40,7 @@ Wanneer u Ansible gebruikt voor het definiëren van uw infrastructuur, kunt u va
 Ansible kunt u voor het automatiseren van cloud-eigen apps in Azure met behulp van Azure-microservices zoals [Azure Functions](https://azure.microsoft.com//services/functions/) en [Kubernetes op Azure](https://azure.microsoft.com/services/container-service/kubernetes/).  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>Beheren van implementaties met een dynamische voorraad
-Via de [dynamische voorraad](http://docs.ansible.com/ansible/intro_dynamic_inventory.html) functie, Ansible biedt de mogelijkheid voor pull-inventarisatie van Azure-resources. Vervolgens kunt u code van uw bestaande Azure-implementaties en deze gelabelde implementaties via Ansible beheren.
+Via de [dynamische voorraad](https://docs.ansible.com/ansible/intro_dynamic_inventory.html) functie, Ansible biedt de mogelijkheid voor pull-inventarisatie van Azure-resources. Vervolgens kunt u code van uw bestaande Azure-implementaties en deze gelabelde implementaties via Ansible beheren.
 
 ## <a name="additional-azure-marketplace-options"></a>Aanvullende opties voor Azure Marketplace
 De [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Marketplace-installatiekopie door Red Hat helpt organisaties bij het schalen van IT-automatisering en beheer complexe implementaties in fysieke, virtuele en cloudinfrastructuren. Ansible Tower bevat mogelijkheden die meer besturingsmogelijkheden van zichtbaarheid, controle, beveiliging en efficiëntie die nodig zijn voor de hedendaagse ondernemingen bieden. Ansible Tower gecodeerd referenties zoals Azure en SSH-sleutels, zodat u taken aan minder ervaren werknemers zonder het risico delegeren kunt van het blootstellen van uw referenties.

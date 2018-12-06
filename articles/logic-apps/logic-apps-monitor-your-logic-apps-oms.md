@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: adc97da12d1a55dd3dcf435fc8051a8eb9b537a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232373"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968183"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Logische apps controleren met Azure Log Analytics
 
@@ -27,7 +27,7 @@ Als u wilt inschakelen op Azure Log Analytics voor bestaande logische apps, volg
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het maken van een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md). 
+Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het maken van een Log Analytics-werkruimte](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Diagnostische logboekregistratie inschakelen bij het maken van logische apps
 

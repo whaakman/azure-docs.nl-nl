@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976822"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972079"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -45,7 +45,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
     Azure Files is specifiek voor een bestandssysteem. Azure Files heeft alle samenvattingen van bestand die u kent en waardeert van jarenlange samenwerking met on-premises-besturingssystemen. Azure Files biedt, zoals Azure Blob storage, een REST-interface en op basis van REST-clientbibliotheken. In tegenstelling tot Azure Blob-opslag biedt Azure Files SMB-toegang tot Azure-bestandsshares. U kunt een Azure-bestandsshare rechtstreeks in Windows, Linux of macOS, on-premises of in virtuele machines, cloud zonder code te schrijven of eventuele speciale stuurprogramma's te koppelen aan het bestandssysteem koppelen via SMB. U kunt ook Azure-bestandsshares op on-premises bestandsservers cache met behulp van Azure File Sync voor snelle toegang, dicht bij waar de gegevens wordt gebruikt. 
    
-    Zie voor een gedetailleerdere beschrijving van de verschillen tussen Azure Files en Azure Blob-opslag, [beslissen wanneer u het gebruik van Azure Blob-opslag, Azure Files of Azure-schijven](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Zie voor meer informatie over Azure Blob-opslag, [Inleiding tot Blob-opslag](../blobs/storage-blobs-introduction.md).
+    Zie voor een gedetailleerdere beschrijving van de verschillen tussen Azure Files en Azure Blob-opslag, [beslissen wanneer u het gebruik van Azure Blob-opslag, Azure Files of Azure-schijven](../common/storage-decide-blobs-files-disks.md). Zie voor meer informatie over Azure Blob-opslag, [Inleiding tot Blob-opslag](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Waarom zou ik een Azure-bestandsshare in plaats van Azure-schijven gebruiken?**  
     Een diskette in Azure-schijven is gewoon een schijf. Als u de waarde van Azure-schijven, moet u een schijf koppelen aan een virtuele machine die wordt uitgevoerd in Azure. Azure-schijven kunnen worden gebruikt voor alles wat zou u een schijf voor op een on-premises server. U kunt deze gebruiken als een besturingssysteemschijf systeem, als wisselruimte voor een besturingssysteem, of als toegewezen opslag voor een toepassing. Een interessante gebruiken voor Azure-schijven is het maken van een bestandsserver in de cloud te gebruiken op de dezelfde plaatsen waar u een Azure-bestandsshare kunt. Implementeren van een bestandsserver in Azure Virtual Machines is een krachtige manier om opslag van bestanden in Azure wanneer u de implementatie-opties die op dit moment niet worden ondersteund door Azure-bestanden (zoals NFS-protocol ondersteunings- of premium-opslag) vereist. 
@@ -54,7 +54,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
     Eén mogelijke benadering voor het ophalen van het beste van zowel Azure Files en een bestandsserver die in Azure Virtual Machines wordt gehost (naast het gebruik van Azure-schijven als opslag voor back-end) is het installeren van Azure File Sync op een bestandsserver die wordt gehost op een cloud-VM. Als de Azure-bestandsshare in dezelfde regio als de bestandsserver is, kunt u in de cloud tiering en instellen van het volume van het percentage vrije ruimte tot maximum (99%). Dit zorgt ervoor minimale duplicatie van gegevens. U kunt ook alle toepassingen die u met uw bestandsservers, wilt zoals ondersteuning voor toepassingen waarvoor NFS-protocol gebruiken.
 
-    Zie voor meer informatie over een optie voor het instellen van een krachtige en maximaal beschikbare bestandsserver in Azure [implementeren IaaS VM-gastclusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Zie voor een gedetailleerdere beschrijving van de verschillen tussen Azure Files en Azure-schijven, [beslissen wanneer u het gebruik van Azure Blob-opslag, Azure Files of Azure-schijven](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Zie voor meer informatie over Azure-schijven, [overzicht Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Zie voor meer informatie over een optie voor het instellen van een krachtige en maximaal beschikbare bestandsserver in Azure [implementeren IaaS VM-gastclusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Zie voor een gedetailleerdere beschrijving van de verschillen tussen Azure Files en Azure-schijven, [beslissen wanneer u het gebruik van Azure Blob-opslag, Azure Files of Azure-schijven](../common/storage-decide-blobs-files-disks.md). Zie voor meer informatie over Azure-schijven, [overzicht Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
 **Hoe ga ik aan de slag met Azure Files?**  

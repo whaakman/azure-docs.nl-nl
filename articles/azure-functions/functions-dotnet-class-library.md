@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086638"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971314"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -81,7 +81,7 @@ De triggerkenmerk geeft het triggertype en invoergegevens koppelt aan een parame
 Handtekening van de methode kan parameters dan de regio die wordt gebruikt in combinatie met het triggerkenmerk bevatten. Hier volgen enkele van de extra parameters die u kunt opnemen:
 
 * [Invoer- en uitvoerbindingen](functions-triggers-bindings.md) als zodanig gemarkeerd door met het inrichten van deze kenmerken.  
-* Een `ILogger` of `TraceWriter` parameter voor [logboekregistratie](#logging).
+* Een `ILogger` of `TraceWriter` ([versie 1.x-alleen](functions-versions.md#creating-1x-apps))-parameter voor [logboekregistratie](#logging).
 * Een `CancellationToken` parameter voor [correct afsluiten](#cancellation-tokens).
 * [Binding van expressies](functions-triggers-bindings.md#binding-expressions-and-patterns) parameters om op te halen de metagegevens van activeren.
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Logboekregistratie
 
-Om aan te melden uitvoer naar de streaminglogboeken in C#, een argument van het type bevatten [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Het is raadzaam dat u deze de naam `log`. Vermijd het gebruik van `Console.Write` in Azure Functions.
+Om aan te melden uitvoer naar de streaminglogboeken in C#, een argument van het type bevatten [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Het is raadzaam dat u deze de naam `log`, zoals in het volgende voorbeeld:  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> Voor informatie over een nieuwere framework voor logboekregistratie die u in plaats van gebruiken kunt `TraceWriter`, Zie [schrijven Logboeken in C#-functies](functions-monitoring.md#write-logs-in-c-functions) in de **Monitor Azure Functions** artikel.
+Vermijd het gebruik van `Console.Write` in Azure Functions. Zie voor meer informatie, [schrijven Logboeken in C# functies](functions-monitoring.md#write-logs-in-c-functions) in de **Monitor Azure Functions** artikel.
 
 ## <a name="async"></a>Asynchrone
 

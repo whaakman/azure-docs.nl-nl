@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b72b2183cb796602f05a0a6858d4de108d3cc2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016825"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964795"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Als een CSP, maken en beheren van een Azure IoT Central-toepassing namens uw klant 
 
@@ -23,21 +23,21 @@ Als een CSP, kunt u maken en beheren van Microsoft Azure IoT Central toepassinge
 
 Als u wilt beginnen, aanmelden bij uw account op de Microsoft-Partner-Portal en selecteer een klant voor wie u wilt maken van een Azure IoT Central-toepassing. Ga naar Service management voor de klant in het linkernavigatievenster.
 
-![Microsoft Partner Center, aangepaste weergave](media\howto-create-application-asCSP\image1.png)
+![Microsoft Partner Center, aangepaste weergave](media/howto-create-application-asCSP/image1.png)
 
 Azure IoT Central vermeld als een service die beschikbaar zijn om te beheren. Klik op de Azure IoT Central-koppeling op de pagina om nieuwe toepassingen maakt of bestaande toepassingen voor de klant beheren.
 
-![Azure IoT Central beschikbaar voor het beheren](media\howto-create-application-asCSP\image2.png)
+![Azure IoT Central beschikbaar voor het beheren](media/howto-create-application-asCSP/image2.png)
 
 U komt terecht op de pagina Azure IoT Central Application Manager. Azure IoT Central houdt context of u afkomstig van het Microsoft Partner Center is en of u voor het beheren van die specifieke klant afkomstig is. U ziet dit bevestigd in de koptekst van de pagina Toepassingsbeheer. Hier kunt u ofwel navigeren naar een bestaande toepassing eerder voor de klant om te beheren of een nieuwe toepassing maken voor de klant die u hebt gemaakt.
 
-![Manager voor CSP's maken](media\howto-create-application-asCSP\image3.png)
+![Manager voor CSP's maken](media/howto-create-application-asCSP/image3.png)
 
 Voor het maken van een toepassing met Azure IoT Central, klikt u op de **nieuwe toepassing** tegel. Hiermee wordt de pagina voor het maken van de toepassing geladen. U moet Vul de velden op deze pagina en kies vervolgens **maken**. Vindt u meer informatie over elk van de velden hieronder in.
 
-![Toepassingspagina voor CSP's maken](media\howto-create-application-asCSP\image4.png)
+![Toepassingspagina voor CSP's maken](media/howto-create-application-asCSP/image4.png)
 
-![Toepassingspagina voor CSP's maken](media\howto-create-application-asCSP\image4-1.png)
+![Toepassingspagina voor CSP's maken](media/howto-create-application-asCSP/image4-1.png)
 
 ## <a name="payment-plan"></a>Betalingsschema
 
@@ -65,7 +65,7 @@ Zie voor meer informatie, [Azure Active Directory](https://docs.microsoft.com/az
 
 Een Azure-abonnement kunt u exemplaren maken van Azure-services. Azure IoT Central automatisch toegang voor alle Azure-abonnementen van de klant die u hebt gevonden, en geeft deze weer in een vervolgkeuzelijst op de **toepassing maken** pagina. Kies een Azure-abonnement te maken van een nieuwe Azure IoT Central-toepassing.
 
-Als u geen Azure-abonnement hebt, kunt u in het Microsoft Partner Center maken. Nadat u het Azure-abonnement maakt, gaat u terug naar de **toepassing maken** pagina. Uw nieuwe abonnement wordt weergegeven in de **Azure-abonnement** vervolgkeuzelijst.
+Als u geen Azure-abonnement hebt, kunt u in het Microsoft Partner Center maken. Nadat u het Azure-abonnement hebt gemaakt, gaat u terug naar de pagina **Toepassing maken**. Uw nieuwe abonnement wordt weergegeven in de vervolgkeuzelijst.**Azure-abonnement**.
 
 Zie voor meer informatie, [Azure-abonnementen](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
@@ -78,17 +78,17 @@ Zie voor meer informatie, [Azure-regio's](https://docs.microsoft.com/azure/guide
 Ziet u de regio's waar Azure IoT Central is beschikbaar op de [producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) pagina.
 
 > [!Note]
-> Als u een regio hebt gekozen, kunt u uw toepassing naar een andere regio niet later verplaatsen.
+> Als u eenmaal een regio hebt gekozen, kunt u de toepassing later niet naar een andere regio verplaatsen.
 
-## <a name="application-template"></a>De sjabloon voor toepassingen
+## <a name="application-template"></a>Toepassingsjabloon
 
-U kunt een van de beschikbare sjablonen voor uw nieuwe Azure IoT Central-toepassing. Een toepassingssjabloon mag vooraf gedefinieerde items zoals apparaatsjablonen en dashboards om u te helpen aan de slag.
+U kunt een van de beschikbare sjablonen voor uw nieuwe Azure IoT Central-toepassing. Een toepassingssjabloon kan vooraf gedefinieerde items bevatten, zoals apparaatsjablonen en dashboards om u op weg te helpen.
 
-| De sjabloon voor toepassingen | Beschrijving |
+| Toepassingsjabloon | Beschrijving |
 | -------------------- | ----------- |
-| Aangepaste toepassing   | Hiermee maakt u een lege toepassing voor u om in te vullen met uw eigen apparaatsjablonen en apparaten. |
-| Voorbeeld van Contoso       | Hiermee maakt u een toepassing die gebruikmaakt van een apparaat-sjabloon voor een eenvoudige aangesloten apparaat. Gebruik deze sjabloon om te beginnen met het verkennen van Azure IoT Central. |
-| Voorbeeld Devkits       | Hiermee maakt een toepassing met apparaatsjablonen kunt u verbinding maken met een MXChip of Raspberry Pi-apparaat. Gebruik deze sjabloon als u een ontwikkelaar van het apparaat te experimenteren met code op een van deze apparaten. |
+| Aangepaste toepassing   | Hiermee maakt u een lege toepassing die u kunt vullen met uw eigen apparaatsjablonen en apparaten. |
+| Contoso-voorbeeld       | Hiermee maakt u een toepassing die gebruikmaakt van een apparaat-sjabloon voor een eenvoudige aangesloten apparaat. Gebruik deze sjabloon als u wilt beginnen met het verkennen van Azure IoT Central. |
+| Devkits-voorbeeld       | Hiermee maakt u een toepassing met apparaatsjablonen die u in staat stelt verbinding te maken met een MXChip- of Raspberry Pi-apparaat. Gebruik deze sjabloon als u een ontwikkelaar van het apparaat te experimenteren met code op een van deze apparaten. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

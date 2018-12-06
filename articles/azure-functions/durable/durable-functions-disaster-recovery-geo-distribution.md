@@ -10,18 +10,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d999350f309dbd2bf74bbb3d10e74feddf6ee602
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 34583d8052dfd29a3f08187b88c15e3847a4dbb9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642380"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966276"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Herstel bij noodgeval en geodistributie
 
 ## <a name="overview"></a>Overzicht
 In de duurzame functies van Azure, worden alle statussen persistent gemaakt in Azure Storage. Een [taak hub](durable-functions-task-hubs.md) is een logische container voor Azure Storage-resources die worden gebruikt voor indelingen. Orchestrator en activiteit functies kunnen alleen met elkaar communiceren wanneer ze deel uitmaken van dezelfde taak hub.
 De beschreven scenario's voorstellen implementatieopties voor betere beschikbaarheid en uitvaltijd tijdens de disaster recovery activiteiten.
+
 Het is belangrijk dat u ziet dat deze scenario's zijn gebaseerd op actief-passief-configuraties, omdat ze worden geleid door het gebruik van Azure Storage. Dit patroon bestaat uit een back-up (passieve) functie-app implementeren naar een andere regio. Traffic Manager bewaakt de primaire (actieve) functie-app voor beschikbaarheid. Het wordt failover naar de back-functie-app als de primaire mislukt. Zie voor meer informatie, [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)van [prioriteit Verkeersrouteringsmethode.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
 
 

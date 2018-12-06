@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078712"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971892"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service op Azure Stack update 1 release-opmerkingen
 
@@ -145,7 +145,7 @@ Site-sleuf wisselen is onderverdeeld in deze release. Voor het herstellen van de
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. Blader naar de **CN0 VM** onder virtuele Machines in de Azure Stack-beheerdersportal en **op verbinding maken met** openen van een extern bureaublad-sessiehost met het exemplaar van de domeincontroller. Gebruik de referenties die zijn opgegeven tijdens de implementatie van App Service.
 3. Start **PowerShell als beheerder** en voer het volgende script
@@ -197,18 +197,20 @@ Site-sleuf wisselen is onderverdeeld in deze release. Voor het herstellen van de
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Werknemers kunnen geen bestandsserver bereiken wanneer App Service is geïmplementeerd in een bestaand virtueel netwerk en de bestandsserver alleen beschikbaar op het particuliere netwerk is.
- 
+
+6. Werknemers kunnen geen bestandsserver bereiken wanneer App Service is geïmplementeerd in een bestaand virtueel netwerk en de bestandsserver alleen beschikbaar op het particuliere netwerk is.
+
 Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven. Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
- * Bron:
- * Poortbereik van bron: *
- * Bestemming: IP-adressen
- * Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
- * Poortbereik van doel: 445
- * Protocol: TCP
- * Actie: toestaan
- * Prioriteit: 700
- * Naam: Outbound_Allow_SMB445
+
+- Bron:
+- Poortbereik van bron: *
+- Bestemming: IP-adressen
+- Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+- Poortbereik van doel: 445
+- Protocol: TCP
+- Actie: toestaan
+- Prioriteit: 700
+- Naam: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekende problemen voor Cloud-beheerders die Azure App Service in Azure Stack
 

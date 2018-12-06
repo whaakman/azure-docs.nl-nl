@@ -10,19 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 12/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 767497a6ced0eb54559b9bdd10761b659e32a33f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 034e611f6ea95675dc3169feefe1916a81c50943
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681021"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972368"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Instellen van Application Insights: afhankelijkheid bijhouden
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Het is doorgaans een service die wordt aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](app-insights-overview.md) meet hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
-
-![voorbeeldgrafieken](./media/app-insights-asp-net-dependencies/10-intro.png)
 
 Met de afhankelijkheidsmonitor met out-of-the-box rapporten momenteel aanroepen naar deze typen afhankelijkheden:
 
@@ -30,13 +28,16 @@ Met de afhankelijkheidsmonitor met out-of-the-box rapporten momenteel aanroepen 
   * SQL-databases
   * ASP.NET-web- en WCF-services die gebruikmaken van op basis van HTTP-bindingen
   * Lokale of externe HTTP-aanroepen
-  * Azure Cosmos DB, tabel, blob-opslag en wachtrij
+  * Azure Cosmos DB, tabel, blob-opslag en wachtrij 
 * Webpagina's
   * AJAX-aanroepen
 
 Controle werkt met behulp van [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) rond geselecteerde methoden. Prestatieoverhead is minimaal.
 
 U kunt ook uw eigen SDK-aanroepen voor het bewaken van andere afhankelijkheden, zowel in de client en server-code schrijven met behulp van de [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+
+> [!NOTE]
+> Azure Cosmos DB is automatisch bijgehouden alleen als [HTTP/HTTPS](../cosmos-db/performance-tips.md#networking) wordt gebruikt. De TCP-modus wordt niet door Application Insights worden vastgelegd.
 
 ## <a name="set-up-dependency-monitoring"></a>Instellen van de afhankelijkheidsbewaking
 Gedeeltelijke afhankelijkheidsgegevens worden verzameld, automatisch door de [Application Insights-SDK](app-insights-asp-net.md). Als u de volledige gegevens, de juiste agent voor de host-server te installeren.

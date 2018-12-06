@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404998"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958329"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Hoe kan ik gerelateerde gegevensassets weergeven in Azure Data Catalog?
 Azure Data Catalog kunt u weergeven die betrekking hebben op een geselecteerde gegevens asset en bekijk de relaties tussen deze gegevensassets. 
@@ -31,7 +31,7 @@ Wanneer u gegevensassets uit de volgende gegevensbronnen hebt geregistreerd, wor
 ## <a name="view-related-data-assets"></a>Gerelateerde gegevensassets weergeven
 Als u wilt weergeven van gegevensassets die gerelateerd zijn aan een geselecteerde gegevensset, gebruikt u de **relaties** tabblad zoals wordt weergegeven in de volgende afbeelding: 
 
-![Azure Data Catalog - gerelateerde gegevensassets weergeven](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Azure Data Catalog - gerelateerde gegevensassets weergeven](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 In dit voorbeeld zijn er twee relaties voor de geselecteerde **ProductSubcategory** gegevensasset: 
 
@@ -43,7 +43,7 @@ In dit voorbeeld zijn er twee relaties voor de geselecteerde **ProductSubcategor
 
 Voor meer informatie, zoals de volledig gekwalificeerde naam van de kolom, Beweeg de muisaanwijzer over en ziet u een pop-upvenster die vergelijkbaar is met de volgende afbeelding: 
 
-![Azure Data Catalog - relatie pop-upvenster](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Azure Data Catalog - relatie pop-upvenster](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 Als u wilt opnemen relaties tussen de elementen die al zijn geregistreerd, deze assets opnieuw te registreren.
 

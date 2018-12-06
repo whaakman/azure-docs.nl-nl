@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338570"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970260"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Het oplossen van Microsoft Azure Stack Development Kit (ASDK)
 Dit document bevat algemene informatie over probleemoplossing voor de ASDK. Als u een probleem dat niet wordt vermeld ondervindt, controleert u of om te controleren of de [MSDN-Forum voor Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) voor verdere ondersteuning en informatie.  
@@ -64,7 +64,7 @@ Ja, dit is verwacht gedrag. Het is zo ontworpen omdat:
 
 Als u VHD's 'zwevende' ziet, is het belangrijk te weten als ze deel uitmaken van de map voor een opslagaccount dat is verwijderd. Als het opslagaccount is niet verwijderd, is het normaal dat ze nog steeds aanwezig.
 
-U kunt meer lezen over het configureren van de bewaarperiode drempelwaarde en on-demand vrijmaken in [opslagaccounts beheren](.\.\azure-stack-manage-storage-accounts.md).
+U kunt meer lezen over het configureren van de bewaarperiode drempelwaarde en on-demand vrijmaken in [opslagaccounts beheren](../azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>Vrijmaken van opslagruimte
@@ -72,4 +72,3 @@ Het duurt maximaal 14 uur geregenereerde capaciteit worden weergegeven in de por
 
 ## <a name="next-steps"></a>Volgende stappen
 [Ga naar het ondersteuningsforum voor Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-

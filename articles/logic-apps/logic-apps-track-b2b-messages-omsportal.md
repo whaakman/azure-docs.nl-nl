@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: aacdaf4ec55b1223ce993a7246ed9f0405a5054e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233550"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957178"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>B2B-berichten met Azure Log Analytics bijhouden
 
@@ -37,11 +37,11 @@ Na het instellen van B2B-communicatie tussen handelspartners in uw integratie-ac
 
 * Als u dat nog niet gedaan hebt, [diagnostische gegevens publiceren naar Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-* Nadat u de bovenstaande vereisten voldoen, moet u ook een Log Analytics-werkruimte die u gebruiken voor het bijhouden van B2B-communicatie via Log Analytics. Als u een Log Analytics-werkruimte hebt, krijgt u informatie [over het maken van een Log Analytics-werkruimte](../log-analytics/log-analytics-quick-create-workspace.md).
+* Nadat u de bovenstaande vereisten voldoen, moet u ook een Log Analytics-werkruimte die u gebruiken voor het bijhouden van B2B-communicatie via Log Analytics. Als u een Log Analytics-werkruimte hebt, krijgt u informatie [over het maken van een Log Analytics-werkruimte](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Logische Apps B2B-oplossing installeren
 
-Voordat u Log Analytics voor uw logische app B2B-berichten bijhouden hebben kan, toevoegen de **Logic Apps B2B** oplossing naar Log Analytics. Meer informatie over [oplossingen toe te voegen aan Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Voordat u Log Analytics voor uw logische app B2B-berichten bijhouden hebben kan, toevoegen de **Logic Apps B2B** oplossing naar Log Analytics. Meer informatie over [oplossingen toe te voegen aan Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services**. In het zoekvak zoeken "log analytics" en selecteer **Log Analytics**.
 

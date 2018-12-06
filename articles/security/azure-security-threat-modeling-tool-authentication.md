@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e502004db62713585d68cdda6f80b4e4024dde28
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251556"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971212"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Beveiliging-Frame: Verificatie | Oplossingen 
 | Product/Service | Artikel |
@@ -322,7 +322,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemeen, .NET Framework 3 |
 | **Kenmerken**              | Het referentietype client - None |
-| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Stappen** | Het ontbreken van verificatie betekent dat iedereen toegang kunnen krijgen tot deze service is. Een service die de clients niet geverifieerd kan alle gebruikers toegang tot de functionaliteit. De toepassing voor verificatie op basis van clientreferenties configureren. Dit kan worden gedaan door het transport clientCredentialType te stellen op Windows of het certificaat. |
 
 ### <a name="example"></a>Voorbeeld

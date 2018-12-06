@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 45ce5bfc516d51feddad7ebdad5828705b14620d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850837"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964455"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Over de Azure Site Recovery-Implementatieplanner voor VMware naar Azure
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery Deployment Planner voor productie-installaties van het type VMware-naar-Azure.
@@ -99,9 +99,9 @@ U kunt het hulpprogramma uitvoeren vanuit Windows Server 2012 R2 als de server n
 De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de map op het hoogste niveau.
 
     Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit.
-    E:\ASR Deployment Planner_v2.2.zip
+    E:\ASR implementatie Planner_v2.3.zip
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR implementatie Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Bijwerken naar de nieuwste versie van de Deployment Planner
 Als u een eerdere versie van de Deployment Planner hebt, doe dan het volgende:
@@ -117,7 +117,7 @@ Als u een eerdere versie van de Deployment Planner hebt, doe dan het volgende:
 
 
 ## <a name="version-history"></a>Versiegeschiedenis
-De meest recente versie van het hulpprogramma Site Recovery Deployment Planner is 2.2.
+De meest recente versie van het hulpprogramma Site Recovery Deployment Planner is 2.3.
 Raadpleeg de pagina [Site Recovery Deployment Planner version history](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Versiegeschiedenis van de Site Recovery Deployment Planner) voor de oplossingen die zijn toegevoegd in elke update.
 
 ## <a name="next-steps"></a>Volgende stappen

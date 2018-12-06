@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e10c6580c29784f8d56a31e267c47ec08894113b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418361"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970770"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Problemen met domein en SSL-certificaat oplossen in Azure-web-apps
 
@@ -145,7 +145,7 @@ Als alternatief kunt u de HTML-webpagina methode handmatig controleren of uw dom
 3.  Upload dit bestand in de hoofdmap van de webserver die als host voor uw domein fungeert.
 4.  Selecteer **vernieuwen** om de certificaatstatus te controleren. Het duurt enkele minuten voor verificatie te voltooien.
 
-Bijvoorbeeld, als u een standaard-certificaat voor azure.com met het domein verificatie token waarde 1234abcd, een webaanvraag gedaan bij http://azure.com/1234abcd.html moet de waarde 1234abcd retourneren. 
+Bijvoorbeeld, als u een standaard-certificaat voor azure.com met het domein verificatie token waarde 1234abcd, een webaanvraag gedaan bij https://azure.com/1234abcd.html moet de waarde 1234abcd retourneren. 
 
 > [!IMPORTANT]
 > De volgorde van een certificaat heeft slechts 15 dagen om het domein verificatie-bewerking te voltooien. Na 15 dagen, de certificeringsinstantie het certificaat geweigerd en u niet worden in rekening gebracht voor het certificaat. In dit geval verwijderen van dit certificaat en probeer het opnieuw.
