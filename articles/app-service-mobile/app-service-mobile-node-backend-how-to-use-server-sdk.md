@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817505"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963995"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js-SDK
 
@@ -36,7 +36,7 @@ Mobile Apps biedt de mogelijkheid een geoptimaliseerd voor mobiel toegang tot We
 
 Beide bewerkingen opgeven voor verificatie voor alle id-providers waarmee Azure App Service. Deze providers zijn sociale id-providers, zoals Facebook, Twitter, Google en Microsoft, evenals Azure Active Directory voor de id van de onderneming.
 
-U kunt ook voorbeelden vinden voor elk use-case in het [directory voorbeelden op GitHub].
+U kunt ook voorbeelden vinden voor elk use-case in het [map van de voorbeelden op GitHub].
 
 ## <a name="supported-platforms"></a>Ondersteunde platforms
 
@@ -101,7 +101,7 @@ U vindt de code voor deze eenvoudige toepassing in de [basicapp voorbeeld op Git
 
 ### <a name="howto-vs2015-basicapp"></a>Een Node.js-back-end maken met behulp van Visual Studio 2015
 
-Visual Studio 2015 is vereist voor het ontwikkelen van Node.js-toepassingen vanuit de IDE. Als u wilt starten, installeert de [1.1 van Node.js-hulpprogramma's voor Visual Studio]. Wanneer u klaar bent met de installatie, moet u een snelle 4.x-toepassing maken:
+Visual Studio 2015 is vereist voor het ontwikkelen van Node.js-toepassingen vanuit de IDE. Als u wilt starten, installeert de [Node.js-hulpprogramma's 1.1 voor Visual Studio]. Wanneer u klaar bent met de installatie, moet u een snelle 4.x-toepassing maken:
 
 1. Open de **nieuw Project** in het dialoogvenster (van **bestand** > **nieuw** > **Project**).
 1. Vouw **sjablonen** > **JavaScript** > **Node.js**.
@@ -148,11 +148,11 @@ Selecteer het selectievakje in voor **ik erken dat hiermee alle site-inhoud word
 
 ### <a name="download-quickstart"></a>Het CodeProject van de Node.js-back-end-snelstartgids downloaden met behulp van Git
 
-Wanneer u een back-end voor Node.js mobiele Apps maakt met behulp van de portal **Quick start** in het deelvenster een Node.js-project is voor u gemaakt en geïmplementeerd op uw site. U kunt in de portal, tabellen en API's toevoegen en bewerken van codebestanden voor de Node.js-back-end. U kunt ook verschillende-hulpprogramma's gebruiken voor het downloaden van het back-end-project, zodat u kunt toevoegen of wijzigen van tabellen en API's en vervolgens het project opnieuw te publiceren. Zie voor meer informatie de [Implementatiehandleiding voor Azure App Service].
+Wanneer u een back-end voor Node.js mobiele Apps maakt met behulp van de portal **Quick start** in het deelvenster een Node.js-project is voor u gemaakt en geïmplementeerd op uw site. U kunt in de portal, tabellen en API's toevoegen en bewerken van codebestanden voor de Node.js-back-end. U kunt ook verschillende-hulpprogramma's gebruiken voor het downloaden van het back-end-project, zodat u kunt toevoegen of wijzigen van tabellen en API's en vervolgens het project opnieuw te publiceren. Zie voor meer informatie de [Azure App Service-Implementatiehandleiding].
 
 De volgende procedure maakt gebruik van een Git-opslagplaats voor het downloaden van de snelstartcode project:
 
-1. Installeer Git, als u dat nog niet hebt gedaan. De stappen die nodig zijn om Git te installeren variëren tussen besturingssystemen. Zie voor specifieke besturingssysteem-distributies en installatie [installeren van Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
+1. Installeer Git, als u dat nog niet hebt gedaan. De stappen die nodig zijn om Git te installeren variëren tussen besturingssystemen. Zie voor specifieke besturingssysteem-distributies en installatie [installeren van Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
 1. Zie [voorbereiden van uw opslagplaats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) om in te schakelen van de Git-opslagplaats voor uw back-end-site. Maak een notitie van de implementatie-gebruikersnaam en wachtwoord.
 1. In het deelvenster voor uw Mobile Apps-back-end, maak een notitie van de **Git-kloon-URL** instelling.
 1. Voer de `git clone` met behulp van de Git-kloon-URL. Voer uw wachtwoord indien nodig, zoals in het volgende voorbeeld:
@@ -171,11 +171,11 @@ De site wordt gepubliceerd telkens wanneer een nieuwe set doorvoeracties naar de
 
 ### <a name="howto-publish-to-azure"></a>Uw Node.js-back-end publiceren naar Azure
 
-Microsoft Azure biedt veel mechanismen voor het publiceren van uw Mobile Apps Node.js-back-end voor de Azure-service. Implementatiehulpprogramma's geïntegreerd in Visual Studio, opdrachtregelprogramma's en continue implementatie-opties op basis van het besturingselement van deze mechanismen zijn. Zie voor meer informatie de [Implementatiehandleiding voor Azure App Service].
+Microsoft Azure biedt veel mechanismen voor het publiceren van uw Mobile Apps Node.js-back-end voor de Azure-service. Implementatiehulpprogramma's geïntegreerd in Visual Studio, opdrachtregelprogramma's en continue implementatie-opties op basis van het besturingselement van deze mechanismen zijn. Zie voor meer informatie de [Azure App Service-Implementatiehandleiding].
 
 Azure App Service heeft specifiek advies voor Node.js-toepassingen die u moet doorlezen voordat u de back-end publiceren:
 
-* Hoe u [versie van het knooppunt opgeven]
+* Hoe u [Geef de versie van het knooppunt]
 * Hoe u [Node-modules gebruiken]
 
 ### <a name="howto-enable-homepage"></a>Een startpagina voor uw toepassing inschakelen
@@ -382,7 +382,7 @@ De meeste instellingen in het bestand azureMobile.js hebben een gelijkwaardige a
 
 Instellen van een app-instelling:
 
-1. Meld u aan bij de [Azure Portal].
+1. Meld u aan bij [Azure Portal].
 1. Selecteer **alle resources** of **App Services**, en selecteer vervolgens de naam van uw mobiele app.
 1. De **instellingen** deelvenster wordt standaard geopend. Als dit niet zo is, selecteert u **instellingen**.
 1. Op de **algemene** in het menu **toepassingsinstellingen**.
@@ -399,7 +399,7 @@ Als u de meeste appinstellingen wijzigt, moet service opnieuw worden opgestart.
 
 Met behulp van Azure SQL Database als een gegevensarchief is vrijwel identiek voor alle typen voor Azure App Service-toepassing. Als u niet hebt gedaan al, volgt u deze stappen voor het maken van een back-end van Mobile Apps:
 
-1. Meld u aan bij de [Azure Portal].
+1. Meld u aan bij [Azure Portal].
 1. Selecteer in de linkerbovenhoek van het venster de **+ nieuw** knop > **Web en mobiel** > **mobiele App**, en geef vervolgens een naam voor uw Mobile Apps-back-end.
 1. In de **resourcegroep** voert u dezelfde naam als uw app.
 1. De standaardwaarde van App Service-plan is geselecteerd. Als u wijzigen van uw App Service-plan wilt:
@@ -968,27 +968,27 @@ Met behulp van de Azure-portal, kunt u uw Node.js-back-end-script-bestanden in A
 [Google-verificatie configureren]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
 [Microsoft-verificatie configureren]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter-verificatie configureren]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[Implementatiehandleiding voor Azure App Service]: ../app-service/app-service-deploy-local-git.md
+[Azure App Service-Implementatiehandleiding]: ../app-service/app-service-deploy-local-git.md
 [Bewaking van Azure App Service]: ../app-service/web-sites-monitor.md
 [Diagnostische logboekregistratie inschakelen in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
 [Azure App Service in Visual Studio oplossen]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[versie van het knooppunt opgeven]: ../nodejs-specify-node-version-azure-apps.md
+[Geef de versie van het knooppunt]: ../nodejs-specify-node-version-azure-apps.md
 [Node-modules gebruiken]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure Portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Belofte]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [Todo-voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
-[directory voorbeelden op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
+[map van de voorbeelden op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[1.1 van Node.js-hulpprogramma's voor Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[Node.js-hulpprogramma's 1.1 voor Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [MSSQL Node.js-pakket]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

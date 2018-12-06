@@ -13,12 +13,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 0de561b177a1474b0ce4f0f203803e8265db5e7a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8eef75a6e1f4f05aa6d7ce8f9e6fdda52162d0bc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818343"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960716"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Over het gebruik iOS-clientbibliotheek voor Azure Mobile Apps
 
@@ -715,7 +715,7 @@ De Facebook-SDK voor iOS kunt u gebruikers zich in uw toepassing met Facebook.  
 Infrastructuur voor iOS kunt u gebruikers zich in uw toepassing met Twitter. Clientverificatie voor de stroom is het beter voor het gebruik van de `loginWithProvider:completion:` methode, zoals deze biedt een meer systeemeigen UX uiterlijk en kunt u extra aanpassingen.
 
 1. Uw mobiele app back-end voor aanmelding bij Twitter configureren door de [App Service configureren voor aanmelding met Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) zelfstudie.
-2. Fabric toevoegen aan uw project door de [Fabric voor iOS - aan de slag] documentatie en het instellen van TwitterKit.
+2. Fabric toevoegen aan uw project door de [Infrastructuur voor iOS - aan de slag] documentatie en het instellen van TwitterKit.
 
    > [!NOTE]
    > Fabric maakt standaard een Twitter-toepassing voor u. Het maken van een toepassing registreert de Consumer Key- en Consumer Secret die u eerder hebt met de volgende codefragmenten hebt gemaakt, kunt u voorkomen.    U kunt ook kunt u de sleutel van de consument- en Consumer Secret waarden die u in App Service met de waarden die u ziet opgeeft in vervangen de [Dashboard voor Infrastructuurresources]. Als u deze optie kiest, moet u de callback-URL instellen op een plaatsaanduidingswaarde zoals `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
@@ -899,26 +899,26 @@ De Google-In SDK voor iOS kunt u gebruikers Meld u aan bij uw toepassing met beh
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
 [Azure Portal]: https://portal.azure.com/
-[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Dynamische Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Dynamische Schema]: https://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Dashboard voor infrastructuurresources]: https://www.fabric.io/home
-[Fabric voor iOS - aan de slag]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Infrastructuur voor iOS - aan de slag]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
-[2]: http://azure.github.io/azure-mobile-apps-ios-client/
+[2]: https://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
-[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]:../active-directory/develop/quickstart-v1-ios.md

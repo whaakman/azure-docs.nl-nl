@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 60675d7d40dbab863677ea120c25986cff61a308
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443505"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960138"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
 
@@ -179,14 +179,14 @@ Zie voor meer informatie, [hoe: web-eindpunt controleren].
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Een aangepaste domeinnaam configureren in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Implementeren naar Faseringsomgevingen voor Web-Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [HTTPS inschakelen voor een app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Hoe: web-eindpunt controleren]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Hoe: web-eindpunt controleren]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Basisbeginselen van controle voor Web-Apps in Azure App Service]: ./web-sites-monitor.md
-[pipeline-modus]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[pipeline-modus]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Een web-app schalen in Azure App Service]: ./web-sites-scale.md
 [App Service uitproberen]: https://azure.microsoft.com/try/app-service/
 

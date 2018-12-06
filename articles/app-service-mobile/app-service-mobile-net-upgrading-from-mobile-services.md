@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 2d346739cd2e80546aee921317e278c1cff32b34
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4fd896e3b26ae66621ba49d1bb8a5d86c0dd63ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873135"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963263"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uw bestaande .NET Azure Mobile Service upgraden naar App Service
 App Service Mobile is een nieuwe manier voor het bouwen van mobiele toepassingen met Microsoft Azure. Zie voor meer informatie, [Wat zijn mobiele apps?].
@@ -204,7 +204,7 @@ public class TodoItem : ITableData
 Opmerking: als er fouten optreden op `NotMapped`, Voeg een verwijzing naar de assembly `System.ComponentModel.DataAnnotations`.
 
 ### <a name="cors"></a>CORS
-Sommige ondersteuning voor CORS Mobile Services opgenomen door de ASP.NET-CORS-oplossing. Deze laag wrapping is verwijderd als u wilt de ontwikkelaar geven meer controle wilt, zodat u kunt rechtstreeks gebruikmaken van [ASP.NET CORS-ondersteuning](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+Sommige ondersteuning voor CORS Mobile Services opgenomen door de ASP.NET-CORS-oplossing. Deze laag wrapping is verwijderd als u wilt de ontwikkelaar geven meer controle wilt, zodat u kunt rechtstreeks gebruikmaken van [ASP.NET CORS-ondersteuning](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 De belangrijkste gebieden van belang als u met behulp van CORS zijn die de `eTag` en `Location` headers moeten worden toegestaan om de client-SDK's goed te laten werken.
 
@@ -282,7 +282,7 @@ Wanneer u de nieuwe clientversie gereed, probeer het op basis van uw project bij
 [Azure Portal]: https://portal.azure.com/
 [klassieke Azure-portal]: https://manage.windowsazure.com/
 [Wat zijn mobiele apps?]: app-service-mobile-value-prop.md
-[Mobiele App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobiele App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki

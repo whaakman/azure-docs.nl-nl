@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9e863146b78fa510ea6f5b6eb9b3aa0fc4ce926
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230832"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965783"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>PHP configureren in Azure App Service WebApps
 
@@ -148,7 +148,7 @@ Zend-extensies worden ook ondersteund met behulp van een **PHP_ZENDEXTENSIONS** 
 
 In plaats van de standaard-PHP-runtime, kunt App Service Web Apps gebruiken van een PHP-runtime die u opgeeft voor het uitvoeren van PHP-scripts. De runtime die u opgeeft kan worden geconfigureerd door een `php.ini` -bestand dat u ook opgeven. Een aangepaste PHP-runtime gebruiken met Web-Apps, deze stappen te volgen.
 
-1. Verkrijgen van een niet-thread-safe, VC9 of VC11 compatibele versie van PHP voor Windows. Recente versies van PHP voor Windows vindt u hier: [ http://windows.php.net/download/ ]. Oudere versies vindt u in het archief hier: [ http://windows.php.net/downloads/releases/archives/ ].
+1. Verkrijgen van een niet-thread-safe, VC9 of VC11 compatibele versie van PHP voor Windows. Recente versies van PHP voor Windows vindt u hier: [ https://windows.php.net/download/ ]. Oudere versies vindt u in het archief hier: [ https://windows.php.net/downloads/releases/archives/ ].
 1. Wijzig de `php.ini` -bestand voor de runtime. Alle configuratieinstellingen die system-niveau-only richtlijnen worden genegeerd door de Web-Apps. (Zie voor meer informatie over het system-niveau-only richtlijnen [Lijst van php.ini-richtlijnen]).
 1. (Optioneel) extensies toevoegen aan uw PHP-runtime en kunnen ze in de `php.ini` bestand.
 1. Voeg een `bin` naar de hoofdmap en put de map waarin uw PHP-runtime in deze map (bijvoorbeeld `bin\php`).
@@ -196,7 +196,7 @@ Zie voor meer informatie de [PHP-ontwikkelaarscentrum](https://azure.microsoft.c
 >
 
 [gratis proefversie]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lijst van php.ini-richtlijnen]: http://www.php.net/manual/en/ini.list.php
 [. user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +206,8 @@ Zie voor meer informatie de [PHP-ontwikkelaarscentrum](https://azure.microsoft.c
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
