@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: ef26bd433d311e63e122f48871654c9fbc26216a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275051"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013165"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Uw Azure Machine Learning-modellen met Application Insights bewaken
 
@@ -24,9 +25,6 @@ In dit artikel leert u hoe u Azure Application Insights instellen voor uw Azure 
 * Uitzonderingen.
 
 [Meer informatie over Application Insights](../../application-insights/app-insights-overview.md). 
-
->[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK versie 0.1.74
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -100,7 +98,7 @@ U kunt in- en uitschakelen van Application Insights in Azure portal.
 1. In de [Azure-portal](https://portal.azure.com), opent u uw werkruimte.
 1. Selecteer **implementaties**, selecteert u de service en selecteer **bewerken**.
 
-   [![Knop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Gebruik de knop bewerken](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. In **geavanceerde instellingen**, schakel de **diagnose van AppInsights inschakelen** selectievakje. 
 
@@ -130,7 +128,7 @@ Zie voor meer informatie over het gebruik van Application Insights, [wat is Appl
 
 ## <a name="example-notebook"></a>Voorbeeld van de notebook
 
-De [00. aan Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) notebook concepten in dit artikel laat zien.  Dit notitieblok ophalen:
+De [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook concepten in dit artikel laat zien. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

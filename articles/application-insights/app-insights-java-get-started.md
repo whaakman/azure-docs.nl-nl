@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 46ba2aa42f6669443354ceb7661684612e26f45f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728035"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994376"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
@@ -74,7 +74,7 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
     </dependencies>
 ```
 
-* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>2.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in de [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>2.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in de [Maven-artefacten](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Moet u bijwerken naar een nieuwe SDK?* Vernieuw de afhankelijkheden van uw project.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Als u Gradle gebruikt... <a name="gradle-setup" />
@@ -97,7 +97,7 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Als u Eclipse gebruikt om een Dynamic Web-project te maken...
 Gebruik de [invoegtoepassing Application Insights-SDK voor Java][eclipse]. Opmerking: hoewel u met behulp van deze invoegtoepassing Application Insights sneller aan het werk hebt (ervan uitgaande dat u niet Maven/Gradle gebruikt), is het geen systeem voor afhankelijkheidsbeheer. Daardoor worden de Application Insights-bibliotheken in uw project niet automatisch bijgewerkt door alleen maar de invoegtoepassing bij te werken.
 
-* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `version:'2.0.n'`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in de [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `version:'2.0.n'`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in de [Maven-artefacten](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Bijwerken naar een nieuwe SDK* Vernieuw de afhankelijkheden van uw project.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Als u afhankelijkheden handmatig beheert...

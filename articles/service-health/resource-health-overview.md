@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 918ff674e57a14f685c7f9ef2aaaca5ca064976e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309426"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012841"
 ---
 # <a name="azure-resource-health-overview"></a>Overzicht van Azure Resource Health
  
@@ -53,7 +53,7 @@ Resource Health biedt extra informatie over de gebeurtenis en het herstelproces.
 ![Status van 'Niet beschikbaar' voor een virtuele machine vanwege een platformgebeurtenis](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>Niet-platform-gebeurtenissen
-Niet-platform gebeurtenissen worden geactiveerd door de acties van gebruikers. Voorbeelden zijn een virtuele machine stoppen of het maximum aantal verbindingen met een Redis-cache wordt bereikt.
+Niet-platform gebeurtenissen worden geactiveerd door de acties van gebruikers. Voorbeelden zijn een virtuele machine stoppen of het maximum aantal verbindingen met een Azure-Cache voor Redis bereikt.
 
 ![Status van 'Niet beschikbaar' voor een virtuele machine vanwege een niet-platformgebeurtenis](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

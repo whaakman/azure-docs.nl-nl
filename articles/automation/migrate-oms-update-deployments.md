@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2e99abfbc89d96f1dc5ca3c59789e13dd157a10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5380372cc1f2928b79b0d20f4dd46e429a93dc5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678947"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992262"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Uw OMS-Update-implementaties te migreren naar Azure
 
-De portal van Operations Management Suite (OMS) wordt [afgeschaft](../log-analytics/log-analytics-oms-portal-transition.md). Alle functionaliteit die beschikbaar in de OMS-portal voor het beheer van de Update was is beschikbaar in de Azure-portal. Dit artikel bevat informatie die u nodig als u wilt migreren naar Azure portal.
+De portal van Operations Management Suite (OMS) wordt [afgeschaft](../azure-monitor/platform/oms-portal-transition.md). Alle functionaliteit die beschikbaar in de OMS-portal voor het beheer van de Update was is beschikbaar in de Azure-portal. Dit artikel bevat informatie die u nodig als u wilt migreren naar Azure portal.
 
 ## <a name="key-information"></a>Belangrijke informatie
 
@@ -57,9 +57,9 @@ De **nieuwe Update-implementatie** deelvenster wordt geopend. Voer waarden in vo
 
 Voor de Machines wilt bijwerken, selecteert u de opgeslagen zoekopdracht die worden gebruikt door de bestaande implementatie van OMS.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
-|Naam |Unieke naam voor het identificeren van de update-implementatie. |
+|Name |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Selecteer **Linux** of **Windows**.|
 |Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt. CentOS ondersteunt dit niet buiten het vak.|

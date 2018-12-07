@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684974"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011731"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -41,14 +41,14 @@ HDInsight-cluster wordt geleverd met enkele voorbeeldgegevens. U gebruikt de vol
   
   | Veld | Gegevenstype |
   | --- | --- |
-  | clientid |tekenreeks |
-  | querytime |tekenreeks |
-  | markt |tekenreeks |
-  | deviceplatform |tekenreeks |
-  | devicemake |tekenreeks |
-  | devicemodel |tekenreeks |
-  | state |tekenreeks |
-  | Land/regio |tekenreeks |
+  | clientid |string |
+  | querytime |string |
+  | markt |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | Land/regio |string |
   | querydwelltime |double |
   | sessie-id |bigint |
   | sessionpagevieworder |bigint |
@@ -88,7 +88,7 @@ Als u liever de Azure PowerShell gebruiken voor het maken van het cluster en de 
      
         De volgende waarden zijn vastgelegd in de sectie met variabelen:
         
-        |Naam|Waarde|
+        |Name|Waarde|
         |----|-----|
         | Standaardnaam van opslagaccount | &lt;Clusternaam > opslaan |
         | Azure SQL database-servernaam | &lt;Clusternaam > dbserver |
@@ -638,8 +638,8 @@ Get-AzureRmHDInsightJobOutput `
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
 [sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

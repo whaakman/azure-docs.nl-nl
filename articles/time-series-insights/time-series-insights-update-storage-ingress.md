@@ -1,6 +1,6 @@
 ---
-title: De opslag van gegevens en inkomend verkeer in de Azure Time Series Insights (preview) | Microsoft Docs
-description: Inzicht krijgen in de opslag van gegevens en de inkomende gegevens in de Azure Time Series Insights (preview)
+title: De opslag van gegevens en inkomend verkeer in de Azure Time Series Insights (Preview) | Microsoft Docs
+description: Inzicht krijgen in de opslag van gegevens en de inkomende gegevens in de Azure Time Series Insights (Preview)
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,21 +8,21 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: d4c82f01b64ebb0248367f595fe25b2ec50f2d77
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/05/2018
+ms.openlocfilehash: e2440f6aa32710730e8b015bef1e7c583f7063e2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876030"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001865"
 ---
 # <a name="data-storage-and-ingress-in-the-azure-time-series-insights-preview"></a>De opslag van gegevens en inkomend verkeer in de Azure Time Series Insights (Preview)
 
-Dit artikel beschrijft de wijzigingen in de opslag van gegevens en inkomend verkeer van de Azure Time Series Insights (Preview). Het betreft de onderliggende opslagstructuur, bestandsindeling, en **Time Series-ID** eigenschap. Hierin worden ook het onderliggende proces van inkomend verkeer, doorvoer en beperkingen.
+Dit artikel beschrijft de wijzigingen in de opslag van gegevens en inkomend verkeer van de Preview van Azure Time Series Insights (TSI). Het betreft de onderliggende opslagstructuur, bestandsindeling, en **Time Series-ID** eigenschap. Hierin worden ook het onderliggende proces van inkomend verkeer, doorvoer en beperkingen.
 
 ## <a name="data-storage"></a>Gegevensopslag
 
-Bij het maken van een Time Series Insights-update (**PAYG SKU**)-omgeving, maakt u twee resources:
+Bij het maken van een Azure TSI Preview (**PAYG SKU**)-omgeving, maakt u twee resources:
 
 * Een Azure TSI-omgeving.
 * Een Azure-opslag voor algemeen gebruik V1-account waar de gegevens worden opgeslagen.
@@ -32,15 +32,15 @@ De TSI (Preview) maakt gebruik van Azure Blob-opslag met het type Parquet-bestan
 Net als elke andere Azure Storage-blob, kunt u lezen en schrijven naar uw blobs Azure TSI gemaakt voor de ondersteuning van verschillende integratiescenario's.
 
 > [!TIP]
-> Het is belangrijk te onthouden TSI-prestaties kan negatief worden beïnvloed door lezen of schrijven naar uw blobs te vaak.
+> TSI-prestaties kan nadelig worden beïnvloed door te lezen of schrijven naar uw blobs te vaak.
 
-Lees voor een overzicht van Azure Blob-opslag werkt, de [Storage-blobs inleiding](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+Lees voor een overzicht van Azure Blob Storage, de [Storage-blobs inleiding](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
-Raadpleeg voor meer informatie over het type Parquet-bestand, [bestandstypen worden ondersteund in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
+Zie voor meer informatie over het type van het bestand Parquet [bestandstypen worden ondersteund in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
 
 ## <a name="parquet-file-format"></a>Parquet-indeling
 
-Parquet is gegevens kolomgebaseerde-bestandsindeling die is ontworpen voor:
+Parquet is kolomgebaseerde, gegevens, bestandsindeling die is ontworpen voor:
 
 * Interoperabiliteit
 * Ruimte-efficiëntie
@@ -48,7 +48,7 @@ Parquet is gegevens kolomgebaseerde-bestandsindeling die is ontworpen voor:
 
 Azure TSI gekozen Parquet omdat efficiënte compressie biedt en codering schema's met prestaties verbeterde voor de verwerking van complexe gegevens in één bulkbewerking.
 
-Voor een beter inzicht in wat de Parquet-bestand indeling heeft, Ga naar de [officiële Parquet-pagina](https://parquet.apache.org/documentation/latest/).
+Om te krijgen een beter begrip van de Parquet-indeling wordt alles over, lees de [officiële documentatie van Parquet](https://parquet.apache.org/documentation/latest/).
 
 ## <a name="event-structure-in-parquet"></a>Gebeurtenisstructuur in Parquet
 
@@ -56,18 +56,18 @@ Twee kopieën van de blobs die zijn gemaakt door Azure TSI worden opgeslagen in 
 
 1. De eerste, een initiële kopie wordt worden gepartitioneerd op basis van aankomsttijd:
 
-    * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI internal suffix>.parquet`
+    * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
     * Aanmaaktijd BLOB voor blobs gepartitioneerd op basis van aankomsttijd.
 
-1. De tweede, een repartitioned kopie wordt worden gepartitioneerd op basis van de dynamische groepering van time series-ID:
+1. De tweede, een repartitioned kopie wordt worden gepartitioneerd op basis van de dynamische groepering van **Time Series-ID**:
 
-    • `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI internal suffix>.parquet`
-    * Tijdstempel van de min-gebeurtenis in de blob voor blobs gepartitioneerd op basis van de tijdreeks-id.
+    * `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+    * Tijdstempel van de minimale gebeurtenis in een blob voor blobs gepartitioneerd op basis van **Time Series-ID**.
 
 > [!NOTE]
-> * `<YYYY>` toegewezen aan jaar.
-> * `<MM>` toegewezen aan de maand.
-> * `<YYYYMMDDHHMMSSfff>` Maps volledige tijdstempel in milliseconden.
+> * `<YYYY>` toegewezen aan de weergave van een jaar 4 cijfers.
+> * `<MM>` toegewezen aan de weergave van een maand 2 cijfers.
+> * `<YYYYMMDDHHMMSSfff>` toegewezen aan een timestamp-weergave met 4-cijferige jaar (`YYYY`), maand 2 cijfers (`MM`), 2 cijfers dag (`DD`), 2 cijfers uur (`HH`), 2 cijfers minuut (`MM`), 2 cijfers seconde (`SS`), en 3 cijfers milliseconden (`fff`).
 
 Azure TSI-gebeurtenissen worden toegewezen aan de inhoud van de Parquet-bestand als volgt:
 
@@ -76,11 +76,11 @@ Azure TSI-gebeurtenissen worden toegewezen aan de inhoud van de Parquet-bestand 
 * Alle andere eigenschappen toewijzen aan kolommen wordt beëindigd met `_string` (tekenreeks), `_bool` (boolean), `_datetime` (datetime), en `_double` (double), afhankelijk van de eigenschapstype.
 * Dat is de eerste versie van de bestandsindeling en verwijzen we naar het bestand als **V = 1**.  Als deze functie zich verder ontwikkelt de naam van de dienovereenkomstig wordt verhoogd naar **V = 2**, **V = 3**, enzovoort.
 
-## <a name="how-to-partition"></a>Hoe partitie
+## <a name="partitions"></a>Partities
 
 Elke omgeving Azure TSI (Preview) moet een **Time Series-ID** eigenschap en een **Timestamp** eigenschap, die wordt geïdentificeerd. Uw **Time Series-ID** fungeert als een logische partitie voor uw gegevens en biedt de Azure TSI (Preview)-omgeving met een natuurlijke grens voor het distribueren van gegevens over fysieke partities. Beheer van fysieke partitie wordt beheerd door Azure TSI (Preview) in een Azure Storage-account.
 
-Azure TSI maakt gebruik van dynamische partitioneren storage-gebruik en query's uitvoeren om prestaties te optimaliseren door verwijderen en opnieuw maken van partities. De TSI (Preview) algoritme voor dynamische partitioneren streeft ernaar om te voorkomen dat gegevens voor meerdere verschillende logische partities met één fysieke partitie. Of met andere woorden de partitionering algoritme doel is dat alle gegevens die betrekking hebben op één **Time Series-ID** moet exclusief aanwezig zijn in Parquet-bestanden zonder wordt met andere interleaved **Time Series-id's**. Het algoritme voor dynamische partitioneren ook wil behouden de oorspronkelijke volgorde van gebeurtenissen in een enkel **Time Series-ID**.
+Azure TSI maakt gebruik van dynamische partitioneren storage-gebruik en query's uitvoeren om prestaties te optimaliseren door verwijderen en opnieuw maken van partities. De Azure TSI (Preview) algoritme voor dynamische partitioneren probeert om te voorkomen dat één fysieke partitie met gegevens voor meerdere, afzonderlijke, logische partities. Met andere woorden, het partitioneren algoritme houdt u alle gegevens specifieke naar een enkele **Time Series-ID** uitsluitend aanwezig zijn in Parquet-bestanden zonder wordt met andere interleaved **-id's van Time Series**. Het algoritme voor dynamische partitioneren ook wil behouden de oorspronkelijke volgorde van gebeurtenissen in een enkel **Time Series-ID**.
 
 In eerste instantie wordt gelijktijdig met inkomend verkeer, de gegevens zijn gepartitioneerd door de **tijdstempel** , zodat een enkele, logische partitie binnen een bepaald tijdsinterval kan zijn verdeeld over meerdere fysieke partities. Een enkele fysieke partitie kan ook veel of alle logische partities bevatten.  Vanwege beperkingen van de bestandsgrootte blob, zelfs met optimale partitioneren van één logische partitie kan innemen meerdere fysieke partities.
 
@@ -89,7 +89,7 @@ In eerste instantie wordt gelijktijdig met inkomend verkeer, de gegevens zijn ge
 
 Als u historische gegevens of berichten batchgewijs uploadt, moet u opgeven de **Timestamp** eigenschap in de gegevens die is toegewezen aan de juiste **Timestamp** waarde die u met uw gegevens wenst op te slaan.  De **Timestamp** eigenschap is hoofdlettergevoelig. Lees voor meer het [Tijdreeksmodel artikel](./time-series-insights-update-tsm.md).
 
-## <a name="physical-partition"></a>Fysieke partitie
+## <a name="physical-partitions"></a>Fysieke partities
 
 Een fysieke partitie is een blok-blob die zijn opgeslagen in Azure Storage. De werkelijke grootte van de blobs variëren omdat deze is afhankelijk van de push-frequentie, maar we verwachten blobs ongeveer 20-50 MB groot zijn. Het team TSI geselecteerd vanwege die verwachtingen, 20 MB groot zijn om queryprestaties te optimaliseren. Dit kan na verloop van tijd op basis van de grootte en de snelheid van binnenkomende gegevens wijzigen.
 
@@ -98,7 +98,7 @@ Een fysieke partitie is een blok-blob die zijn opgeslagen in Azure Storage. De w
 > * Azure-blobs worden af en toe opnieuw gepartitioneerd voor betere prestaties door wordt verwijderd en opnieuw gemaakt.
 > * Houd er ook rekening mee dat de dezelfde TSI-gegevens gebruikt in meerdere blobs worden kunnen.
 
-## <a name="logical-partition"></a>Logische partitie
+## <a name="logical-partitions"></a>Logische partities
 
 Een logische partitie is een partitie in een fysieke partitie waarin alle gegevens die zijn gekoppeld aan een sleutelwaarde van één partitie. De TSI (Preview) worden logisch partitie voor elke blob op basis van twee eigenschappen:
 
@@ -156,7 +156,7 @@ De API-eindpunt kan worden bereikt op `/getRecorded`. Lees voor meer informatie 
 
 ### <a name="data-deletion"></a>Gegevens verwijderen
 
-Blobs niet verwijderen omdat Time Series Insights (Preview) metagegevens over de blobs in de TSI-update houdt.
+Blobs niet verwijderen omdat Azure TSI (Preview) metagegevens over de blobs in de TSI-update houdt.
 
 ## <a name="ingress"></a>Inkomend verkeer
 
@@ -166,14 +166,15 @@ De Azure TSI (Preview) biedt ondersteuning voor de dezelfde bronnen van gebeurte
 
 Ondersteunde gebeurtenisbronnen zijn onder andere:
 
-* Azure IoT Hub
-* Azure Event Hubs
-  * Opmerking: Azure Event Hub-instanties ondersteuning voor Kafka.
+- Azure IoT Hub
+- Azure Event Hubs
+  
+  > [!NOTE]
+  > Azure Event Hub-instanties ondersteuning voor Kafka.
 
 Ondersteunde bestandstypen zijn onder andere:
 
-* JSON
-  * Zie voor meer op de ondersteunde JSON-vormen we kunnen worden verwerkt, de [hoe vorm JSON](./time-series-insights-send-events.md#json) documentatie.
+* JSON: Zie voor meer op de ondersteunde JSON-vormen we kunnen worden verwerkt, de [hoe vorm JSON](./time-series-insights-send-events.md#json) documentatie.
 
 ### <a name="data-availability"></a>Beschikbaarheid van gegevens
 

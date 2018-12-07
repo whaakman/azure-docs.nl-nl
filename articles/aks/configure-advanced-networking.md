@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: a46989ea197166065b4ca482200a0d30e1def7c9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 943c0d4eb25fad1282b3329b945ded45581aeba3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723088"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994559"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Geavanceerde netwerken configureren in Azure Kubernetes Service (AKS)
 
@@ -162,18 +162,18 @@ Meer informatie over netwerken in AKS in de volgende artikelen:
 - [Maken van een controller voor binnenkomend verkeer met een dynamische openbare IP-adres en we gaan coderen voor het automatisch genereren van TLS-certificaten configureren][aks-ingress-tls]
 - [Maken van een controller voor binnenkomend verkeer met een statisch openbaar IP-adres en we gaan coderen voor het automatisch genereren van TLS-certificaten configureren][aks-ingress-static-tls]
 
-### <a name="acs-engine"></a>ACS-Engine
+### <a name="aks-engine"></a>AKS-Engine
 
-[Azure Container Service Engine (ACS-Engine)] [ acs-engine] is een open-source-project dat Azure Resource Manager-sjablonen die u gebruiken genereert kunt voor het implementeren van clusters op Azure Docker-functionaliteit. Kubernetes, DC/OS, Swarm-modus en Swarm-orchestrators kunnen worden geïmplementeerd met ACS-Engine.
+[Azure Kubernetes Service Engine (Engine AKS)] [ aks-engine] is een open-source-project dat Azure Resource Manager-sjablonen die u gebruiken genereert kunt voor het implementeren van clusters op Azure Docker-functionaliteit. Kubernetes, DC/OS, Swarm-modus en Swarm-orchestrators kunnen worden geïmplementeerd met AKS-Engine.
 
-Kubernetes-clusters die zijn gemaakt met de ACS-Engine ondersteunen zowel de [kubenet] [ kubenet] en [Azure CNI] [ cni-networking] invoegtoepassingen. Als zodanig worden basiseigenschappen en geavanceerde scenario's voor netwerken ondersteund door de ACS-Engine.
+Kubernetes-clusters die zijn gemaakt met AKS Engine ondersteunen zowel de [kubenet] [ kubenet] en [Azure CNI] [ cni-networking] invoegtoepassingen. Als zodanig worden basiseigenschappen en geavanceerde scenario's voor netwerken ondersteund door AKS-Engine.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
 [portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

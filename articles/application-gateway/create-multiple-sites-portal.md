@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/28/2017
 ms.author: victorh
-ms.openlocfilehash: 8f2e2500c39f42ebd7fefb3cec941088edf126f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045016"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993319"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Maken en configureren van een toepassingsgateway voor het hosten van meerdere websites met behulp van de Azure-portal
 
@@ -37,11 +37,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Aanmelden bij Azure Portal op [http://portal.azure.com](http://portal.azure.com)
+Aanmelden bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-Een virtueel netwerk is vereist voor communicatie tussen de bronnen die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
+U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
 
 1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
@@ -53,7 +53,7 @@ Een virtueel netwerk is vereist voor communicatie tussen de bronnen die u maakt.
     ![Nieuwe toepassingsgateway maken](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
-5. Klik op **een virtueel netwerk kiezen**, klikt u op **nieuw**, en voer vervolgens deze waarden voor het virtuele netwerk:
+5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
     - *myVnet* als de naam van het virtuele netwerk.
     - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
@@ -81,7 +81,7 @@ Een virtueel netwerk is vereist voor communicatie tussen de bronnen die u maakt.
 In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook IIS installeren op de virtuele machines om te controleren dat verkeer juist wordt doorgestuurd.
 
 1. Klik op **Nieuw**.
-2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst met aanbevolen.
+2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst Aanbevolen.
 3. Voer deze waarden in voor de virtuele machine:
 
     - *contosoVM* : voor de naam van de virtuele machine.

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a9646ad2daed5ebc224d6d0b97f1f42c7da101e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425849"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994442"
 ---
 # <a name="connect-with-excel"></a>Verbinden met Excel
 
 Nadat u hebt gemaakt van een server en een tabellair model geïmplementeerd, kunnen clients verbinding maken met en gegevens verkennen. 
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Het account dat u zich aan met moet behoren tot een databaserol model met ten minste de machtiging lezen. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md). 
+Het account dat u zich aanmeldt moet behoren tot een databaserol model met ten minste de machtiging lezen. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Verbinding maken in Excel
 

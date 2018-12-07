@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9fa5d70a633f423c82457759d7ed18047167e3e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228977"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999898"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Over het beheren van een functie-app in Azure portal 
 
 In Azure Functions biedt een functie-app de uitvoeringscontext voor de afzonderlijke functies. Functie-app-gedrag van toepassing op alle functies die worden gehost door een bepaalde functie-app. In dit onderwerp wordt beschreven hoe configureren en beheren van uw functie-apps in Azure portal.
 
-Als u wilt beginnen, gaat u naar de [Azure-portal](http://portal.azure.com) en meld u aan bij uw Azure-account. Typ de naam van uw functie-app in de zoekbalk boven in de portal en selecteer deze in de lijst. Na het selecteren van uw functie-app, ziet u de volgende pagina:
+Als u wilt beginnen, gaat u naar de [Azure-portal](https://portal.azure.com) en meld u aan bij uw Azure-account. Typ de naam van uw functie-app in de zoekbalk boven in de portal en selecteer deze in de lijst. Na het selecteren van uw functie-app, ziet u de volgende pagina:
 
 ![Overzicht van de functie-app in Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 

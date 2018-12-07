@@ -12,20 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a6272f0a6da10075db299d0f8c87f0d748a7a946
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737189"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996467"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Vergelijking van Azure Data Lake Storage Gen1 en Azure Blob-opslag
+  >[!NOTE] 
+    >[Azure Data Lake Storage Gen2 Preview](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) onlangs is aangekondigd. Preview van Data Lake Storage Gen2 is het resultaat van de mogelijkheden van onze twee bestaande storage-services, Azure Blob Storage geconvergeerd en [Azure Data Lake Storage Gen1] (https://docs.microsoft.com/azure/data-lake-store/index). Functies van Azure Data Lake Storage Gen1, zoals de semantiek van het bestandssysteem, op bestandsniveau beveiliging en schaal worden gecombineerd met lage kosten, gelaagde opslag, hoge beschikbaarheid/noodherstel herstelfuncties van [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Wij raden u Gen2 Preview van Data Lake-opslag gebruiken als basis voor het bouwen van uw enterprise datalakes en krijgt het beste van Azure Blob Storage, evenals Azure Data Lake Storage Gen1.
+
 De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data Lake Storage Gen1 en Azure Blob Storage langs een aantal belangrijke aspecten van de verwerking van big data. Azure Blob-opslag is een algemeen gebruik, schaalbare opslag die is ontworpen voor een groot aantal scenario's voor opslag. Azure Data Lake Storage Gen1 is een zeer grote opslagruimte die is geoptimaliseerd voor workloads voor analyse van big data.
+
+
+
+
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |
 | Doel |Geoptimaliseerde opslag voor workloads voor analyse van big data |Algemeen gebruik objectarchief voor een groot aantal scenario's voor opslag, met inbegrip van big data-analyses |
-| Use Cases |Batch, interactieve, streaming analytics en machine learning-gegevens, zoals logboekbestanden, IoT-gegevens, klikstromen, grote gegevenssets |Elk type tekst of binaire gegevens, zoals toepassing back-end, back-upgegevens en opslag van media voor streaming en algemeen gebruik-gegevens. Bovendien volledige ondersteuning voor workloads voor analyse; batch, interactieve, streaming analytics en machine learning-gegevens, zoals logboekbestanden, IoT-gegevens, klikstromen, grote gegevenssets |
+| Gebruiksvoorbeelden |Batch, interactieve, streaming analytics en machine learning-gegevens, zoals logboekbestanden, IoT-gegevens, klikstromen, grote gegevenssets |Elk type tekst of binaire gegevens, zoals toepassing back-end, back-upgegevens en opslag van media voor streaming en algemeen gebruik-gegevens. Bovendien volledige ondersteuning voor workloads voor analyse; batch, interactieve, streaming analytics en machine learning-gegevens, zoals logboekbestanden, IoT-gegevens, klikstromen, grote gegevenssets |
 | Belangrijkste concepten |Data Lake Storage Gen1-account bevat mappen die op zijn beurt gegevens die zijn opgeslagen als bestanden bevat |Storage-account heeft containers, die op zijn beurt de gegevens in de vorm van blobs |
 | structuur |Hiërarchisch bestandssysteem |Objectarchief met platte-naamruimte |
 | API |REST-API via HTTPS |REST-API via HTTP/HTTPS |

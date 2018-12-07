@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247378"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013182"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Beveiliging Frame: Beveiligde communicatie | Oplossingen 
 | Product/Service | Artikel |
@@ -34,7 +34,7 @@ ms.locfileid: "51247378"
 | **Mobiele Client** | <ul><li>[Implementeren van certificaten vast te maken](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS inschakelen: Beveilig transportkanaal](#https-transport)</li><li>[WCF: Set-berichtbeveiliging beveiligingsniveau op EncryptAndSign](#message-protection)</li><li>[WCF: Een account minste bevoegdheden gebruiken voor het uitvoeren van de WCF-service](#least-account-wcf)</li></ul> |
 | **Web-API** | <ul><li>[Al het verkeer naar de Web-API's via HTTPS-verbinding afdwingen](#webapi-https)</li></ul> |
-| **Azure Redis-cache** | <ul><li>[Zorg ervoor dat de communicatie met Azure Redis Cache via SSL](#redis-ssl)</li></ul> |
+| **Azure Redis-Cache** | <ul><li>[Zorg ervoor dat communicatie met Azure-Cache voor Redis via SSL](#redis-ssl)</li></ul> |
 | **Veld voor IoT-Gateway** | <ul><li>[Apparaat Veldgateway communicatie beveiligen](#device-field)</li></ul> |
 | **IoT-Cloud-Gateway** | <ul><li>[Apparaat naar Cloud-gatewaycommunicatie met behulp van SSL/TLS beveiligen](#device-cloud)</li></ul> |
 
@@ -372,16 +372,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Zorg ervoor dat de communicatie met Azure Redis Cache via SSL
+## <a id="redis-ssl"></a>Zorg ervoor dat communicatie met Azure-Cache voor Redis via SSL
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Azure Redis-cache | 
+| **Onderdeel**               | Azure Cache voor Redis | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Azure Redis-SSL-ondersteuning](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Stappen** | Redis-server biedt geen ondersteuning voor SSL gebruiksklaar, maar Azure Redis Cache biedt. Als u verbinding met Azure Redis-Cache maakt en de client SSL, zoals StackExchange.Redis ondersteunt, moet u SSL gebruiken. Niet-SSL-poort is standaard uitgeschakeld voor nieuwe Azure Redis-Cache-exemplaren. Zorg ervoor dat het instellen van veilige standaardwaarden niet worden gewijzigd, tenzij er een afhankelijkheid op SSL-ondersteuning voor redis-clients. |
+| **Stappen** | Redis-server biedt geen ondersteuning voor SSL gebruiksklaar, maar biedt Azure Cache voor Redis. Als u verbinding met Azure-Cache voor Redis maakt en de client SSL, zoals StackExchange.Redis ondersteunt, moet u SSL gebruiken. Niet-SSL-poort is standaard uitgeschakeld voor nieuwe Azure-Cache voor instanties van Redis. Zorg ervoor dat het instellen van veilige standaardwaarden niet worden gewijzigd, tenzij er een afhankelijkheid op SSL-ondersteuning voor redis-clients. |
 
 Houd er rekening mee dat Redis is ontworpen om te worden geopend door vertrouwde clients in vertrouwde omgevingen. Dit betekent dat meestal het niet een goed idee om de Redis-exemplaar rechtstreeks met internet of in het algemeen tot een omgeving waar niet-vertrouwde clients rechtstreeks toegang de Redis-TCP-poort of UNIX-socket tot hebben zichtbaar te maken. 
 

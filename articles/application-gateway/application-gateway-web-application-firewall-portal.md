@@ -1,6 +1,6 @@
 ---
-title: Een toepassingsgateway maken met een web application firewall - Azure-portal | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway met web application firewall via de Azure-portal.
+title: Een toepassingsgateway maken met een web application firewall - Azure portal | Microsoft Docs
+description: Meer informatie over het maken van een toepassingsgateway met een firewall voor webtoepassingen met behulp van de Azure-portal.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -11,86 +11,86 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 12ef6447e53ba0da3fbd3d56749d7798c49a2cfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33207388"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993959"
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Een toepassingsgateway maken met een web application firewall met de Azure portal
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure portal
 
-U kunt de Azure portal maken een [toepassingsgateway](application-gateway-introduction.md) met een [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). Het gebruik van WAF [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regels voor het beveiligen van uw toepassing. Deze regels omvatten bescherming tegen aanvallen, zoals SQL-injectie, cross-site scripting aanvallen en sessie hijacks.
+U kunt de Azure-portal gebruiken om te maken een [toepassingsgateway](application-gateway-introduction.md) met een [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). De WAF gebruikt [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regels om uw toepassing te beveiligen. Deze regels omvatten bescherming tegen aanvallen als SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken met WAF ingeschakeld
-> * De virtuele machines gebruikt als back-endservers maken
-> * Een opslagaccount maken en configureren van diagnostische gegevens
+> * De virtuele machines die worden gebruikt als back-endservers maken
+> * Een opslagaccount maken en diagnostische gegevens configureren
 
-![Web application firewall voorbeeld](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+![Voorbeeld van een WAF (Web Application Firewall)](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Aanmelden bij de Azure portal op [http://portal.azure.com](http://portal.azure.com)
+Aanmelden bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-Een virtueel netwerk is vereist voor de communicatie tussen de bronnen die u maakt. Twee subnetten worden gemaakt in dit voorbeeld: één voor de toepassingsgateway, en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
+U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
 
-1. Klik op **nieuw** gevonden in de linkerbovenhoek van de Azure portal.
-2. Selecteer **Networking** en selecteer vervolgens **Application Gateway** in de lijst met aanbevolen.
-3. Voer deze waarden voor de toepassingsgateway:
+1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
+2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
+3. Voer deze waarden in voor de toepassingsgateway:
 
-    - *myAppGateway* - voor de naam van de toepassingsgateway.
-    - *myResourceGroupAG* - voor de nieuwe resourcegroep.
+    - *myAppGateway* als de naam van de toepassingsgateway.
+    - *myResourceGroupAG* als de nieuwe resourcegroep.
     - Selecteer *WAF* voor de laag van de toepassingsgateway.
 
     ![Nieuwe toepassingsgateway maken](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-4. Accepteer de standaardwaarden voor de overige instellingen en klik vervolgens op **OK**.
-5. Klik op **Kies een virtueel netwerk**, klikt u op **nieuw**, en voer deze waarden voor het virtuele netwerk:
+4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
+5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
-    - *myVNet* - voor de naam van het virtuele netwerk.
-    - *10.0.0.0/16* - voor de adresruimte van het virtuele netwerk.
-    - *myAGSubnet* - voor de subnetnaam.
-    - *10.0.0.0/24* - voor de adresruimte van het subnet.
+    - *myVnet* als de naam van het virtuele netwerk.
+    - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
+    - *myAGSubnet* als de naam van het subnet.
+    - *10.0.0.0/24* als de adresruimte van het subnet.
 
     ![Virtueel netwerk maken](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-6. Klik op **OK** voor het maken van het virtuele netwerk en subnet.
-7. Klik op **Kies een openbaar IP-adres**, klikt u op **nieuw**, en voer vervolgens de naam van het openbare IP-adres. In dit voorbeeld wordt het openbare IP-adres met de naam *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik vervolgens op **OK**.
+6. Klik op **OK** om het virtuele netwerk en subnet te maken.
+7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
 8. Accepteer de standaardwaarden voor de configuratie van de Listener, laat u de Web application firewall is uitgeschakeld en klik vervolgens op **OK**.
-9. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om netwerkbronnen en de toepassingsgateway te maken. Duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie wordt voltooid voordat u doorgaat met de volgende sectie.
+9. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om netwerkbronnen en de application gateway te maken. Het duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie is voltooid voordat u doorgaat met de volgende sectie.
 
 ### <a name="add-a-subnet"></a>Een subnet toevoegen
 
-1. Klik op **alle resources** in het menu links en klik vervolgens op **myVNet** uit de lijst met resources.
+1. Klik in het menu links op **Alle resources** en vervolgens in de lijst met resources op **myVNet**.
 2. Klik op **subnetten**, en klik vervolgens op **Subnet**.
 
     ![Subnet maken](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-3. Voer *myBackendSubnet* voor de naam van het subnet en klik vervolgens op **OK**.
+3. Voer *myBackendSubnet* in als naam van het subnet en klik op **OK**.
 
 ## <a name="create-backend-servers"></a>Back-endservers maken
 
-In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook IIS installeren op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
+In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-endservers voor de toepassingsgateway. U installeert ook IIS op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
 
 ### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
 1. Klik op **Nieuw**.
-2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst met aanbevolen.
-3. Voer deze waarden voor de virtuele machine:
+2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst Aanbevolen.
+3. Voer deze waarden in voor de virtuele machine:
 
-    - *myVM* - voor de naam van de virtuele machine.
+    - *myVM* als naam van de virtuele machine.
     - *azureuser* als gebruikersnaam van de beheerder.
-    - *Azure123456!* voor het wachtwoord.
-    - Selecteer **gebruik bestaande**, en selecteer vervolgens *myResourceGroupAG*.
+    - *Azure123456!* als het wachtwoord.
+    - Selecteer **Bestaande gebruiken** en selecteer *myResourceGroupAG*.
 
 4. Klik op **OK**.
 5. Selecteer **DS1_V2** als grootte van de virtuele machine en klik op **Selecteren**.
-6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en het subnet is **myBackendSubnet**. 
+6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en dat het subnet **myBackendSubnet** is. 
 7. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
 8. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
 
@@ -100,7 +100,7 @@ In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-en
 
     ![Aangepaste extensie installeren](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. Voer de volgende opdracht voor het installeren van IIS op de virtuele machine: 
+2. Voer de volgende opdracht uit om IIS op de virtuele machine te installeren: 
 
     ```azurepowershell-interactive
     Set-AzureRmVMExtension `
@@ -114,59 +114,59 @@ In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-en
       -Location EastUS
     ```
 
-3. Maak een tweede virtuele machine en IIS installeren met behulp van de stappen die u zojuist hebt voltooid. Voer *myVM2* voor de naam en VMName in Set AzureRmVMExtension.
+3. Maak een tweede virtuele machine en installeer IIS met behulp van de stappen die u zojuist hebt voltooid. Voer *myVM2* in als de naam ervan en als VMName in Set-AzureRmVMExtension.
 
 ### <a name="add-backend-servers"></a>Back-endservers toevoegen
 
-1. Klik op **alle resources**, en klik vervolgens op **myAppGateway**.
-2. Klik op **back-endpools**. Een standaardgroep is automatisch gemaakt met de toepassingsgateway. Klik op **appGateayBackendPool**.
-3. Klik op **toevoegen doel** elke virtuele machine die u hebt gemaakt toevoegen aan de back-endpool.
+1. Klik op **Alle resources** en vervolgens op **myAppGateway**.
+2. Klik op **Back-endpools**. Er is automatisch een standaardpool gemaakt met de toepassingsgateway. Klik op **appGateayBackendPool**.
+3. Klik op **toevoegen doel** elke virtuele machine die u hebt gemaakt aan de back-endpool toevoegen.
 
     ![Back-endservers toevoegen](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
 4. Klik op **Opslaan**.
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en configureren van diagnostische gegevens
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en diagnostische gegevens configureren
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie en preventie doeleinden. U kunt ook logboekanalyse of Event Hub gebruiken om gegevens te noteren.
+In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Log Analytics of Event Hub gebruiken om gegevens vast te leggen.
 
-1. Klik op **nieuw** gevonden in de linkerbovenhoek van de Azure portal.
+1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Storage** en selecteer vervolgens **Opslagaccount - blob, bestand, tabel, wachtrij**.
-3. Voer de naam van het opslagaccount, selecteer **gebruik bestaande** voor de resourcegroep en selecteer vervolgens **myResourceGroupAG**. In dit voorbeeld wordt de naam van het opslagaccount is *myagstore1*. Accepteer de standaardwaarden voor de overige instellingen en klik vervolgens op **maken**.
+3. Voer de naam van het opslagaccount, selecteer **Use existing** voor de resourcegroep en selecteer vervolgens **myResourceGroupAG**. In dit voorbeeld wordt de naam van het opslagaccount is *myagstore1*. Accepteer de standaardwaarden voor de overige instellingen en klik vervolgens op **maken**.
 
 ## <a name="configure-diagnostics"></a>Diagnostische gegevens configureren
 
-Diagnostische gegevens te registreren in de logboeken ApplicationGatewayAccessLog ApplicationGatewayPerformanceLog en ApplicationGatewayFirewallLog configureert.
+Configureer diagnostische gegevens om gegevens vast te leggen in de logboeken ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog en ApplicationGatewayFirewallLog.
 
 1. Klik in het menu links op **alle resources**, en selecteer vervolgens *myAppGateway*.
-2. Bewaking, klik op **diagnostische logboeken**.
-3. Klik op **diagnostics-instelling toevoegen**.
+2. Onder controleren, klikt u op **diagnoselogboeken**.
+3. Klik op **diagnostische instelling toevoegen**.
 4. Voer *myDiagnosticsSettings* als de naam voor de diagnostische instellingen.
 5. Selecteer **archiveren naar een opslagaccount**, en klik vervolgens op **configureren** selecteren de *myagstore1* storage-account dat u eerder hebt gemaakt.
-6. Selecteer de gateway-logboeken te verzamelen en bewaren.
+6. Selecteer de application gateway-logboeken te verzamelen en bewaren.
 7. Klik op **Opslaan**.
 
     ![Diagnostische gegevens configureren](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
+## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-1. Het openbare IP-adres vinden voor de toepassingsgateway op het scherm overzicht. Klik op **alle resources** en klik vervolgens op **myAGPublicIPAddress**.
+1. Zoek op het scherm Overzicht het openbare IP-adres voor de toepassingsgateway. Klik op **Alle resources** en vervolgens op **myAGPublicIPAddress**.
 
-    ![Record application gateway openbaar IP-adres](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
+    ![Registreer het openbare IP-adres van de toepassingsgateway](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
 2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
-    ![Test toepassingsgateway](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
+    ![Toepassingsgateway testen](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe:
+In dit artikel hebt u geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken met WAF ingeschakeld
-> * De virtuele machines gebruikt als back-endservers maken
-> * Een opslagaccount maken en configureren van diagnostische gegevens
+> * De virtuele machines die worden gebruikt als back-endservers maken
+> * Een opslagaccount maken en diagnostische gegevens configureren
 
-Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
+Voor meer informatie over Toepassingsgateways en de bijbehorende resources, gaat u naar de artikelen met procedures.

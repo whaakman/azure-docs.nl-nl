@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201943"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997274"
 ---
-# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Maak een aangepaste test voor Azure Application Gateway (klassiek) met behulp van PowerShell
+# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Een aangepaste test maken voor Azure Application Gateway (klassiek) met behulp van PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-In dit artikel kunt u een aangepaste test toevoegen aan een bestaande application gateway met PowerShell. Aangepaste tests zijn handig voor toepassingen die de pagina controle van een specifieke status hebben, of voor toepassingen die een geslaagde reactie op de standaardwebtoepassing geen bieden.
+In dit artikel, kunt u een aangepaste test toevoegen aan een bestaande toepassingsgateway met PowerShell. Aangepaste tests zijn handig voor toepassingen waarvoor een specifieke statuscontrolepagina of voor toepassingen die een geslaagd antwoord op de standaard web-App bieden.
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](application-gateway-create-probe-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -61,20 +61,20 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. U kunt kiezen tussen een klein, middelgroot en groot.
+> De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. U kunt kiezen tussen Small, Medium en Large.
 > 
 > 
 
-*VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze waarden worden gemaakt nadat de gateway uitgevoerd is.
+*VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze waarden worden ingevuld zodra de gateway in de status running doorbrengt is.
 
-### <a name="configure-an-application-gateway-by-using-xml"></a>Een toepassingsgateway configureren met XML
+### <a name="configure-an-application-gateway-by-using-xml"></a>Een toepassingsgateway configureren met behulp van XML
 
 In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren voor de toepassingsgatewayresource.  
 
 Kopieer de volgende tekst naar Kladblok.
 
 ```xml
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 <FrontendIPConfigurations>
     <FrontendIPConfiguration>
         <Name>fip1</Name>
@@ -139,31 +139,31 @@ Kopieer de volgende tekst naar Kladblok.
 
 Bewerk de waarden tussen de haakjes voor de configuratie-items. Sla het bestand op met de bestandsextensie .xml.
 
-Het volgende voorbeeld ziet hoe u een configuratiebestand gebruiken om de toepassingsgateway taakverdeling van HTTP-verkeer via de openbare poort 80 en verzenden van netwerkverkeer naar de back-endpoort 80 tussen twee IP-adressen met behulp van een aangepaste test te stellen.
+Het volgende voorbeeld ziet hoe u een configuratiebestand gebruikt voor het instellen van de toepassingsgateway taakverdeling van HTTP-verkeer op openbare poort 80 en verzenden van netwerkverkeer naar back-endpoort 80 tussen twee IP-adressen met behulp van een aangepaste test.
 
 > [!IMPORTANT]
 > Het protocolitem Http of Https is hoofdlettergevoelig.
 
 Een nieuwe configuratie-item \<Probe\> wordt toegevoegd aan het configureren van aangepaste tests.
 
-De configuratieparameters zijn:
+De parameters voor de configuratie zijn:
 
-|Parameter|Beschrijving|
+|Parameter|Description|
 |---|---|
 |**Naam** |De referentienaam voor aangepaste test. |
 * **Protocol** | Protocol dat wordt gebruikt (mogelijke waarden zijn HTTP of HTTPS).|
-| **Host** en **pad** | Volledige URL-pad dat wordt opgeroepen door de toepassingsgateway de status van het exemplaar te bepalen. Bijvoorbeeld, als u een website hebt http://contoso.com/, en vervolgens de aangepaste test kan worden geconfigureerd voor 'http://contoso.com/path/custompath.htm' voor test controles hebben een geslaagde HTTP-antwoord.|
-| **Interval** | Hiermee configureert u de controles van de test-interval in seconden.|
-| **Timeout** | Hiermee definieert u de test-time-outwaarde voor de controle van een HTTP-antwoord.|
-| **UnhealthyThreshold** | Het aantal mislukte HTTP-antwoorden die nodig zijn voor de back-end-instantie als vlag *slecht*.|
+| **Host** en **pad** | Volledige URL-pad dat wordt aangeroepen door de application gateway de status van het exemplaar te bepalen. Bijvoorbeeld, als u een website hebt http://contoso.com/, en vervolgens de aangepaste test kan worden geconfigureerd voor "http://contoso.com/path/custompath.htm' voor de test wordt gecontroleerd om een geslaagde HTTP-antwoord.|
+| **Interval** | Hiermee configureert u de testcontroles interval in seconden.|
+| **Timeout** | Definieert de time-out voor de test voor de controle van een HTTP-antwoord.|
+| **UnhealthyThreshold** | Het aantal mislukte HTTP-antwoorden die nodig zijn voor het markeren van de back-end-instantie als *niet in orde*.|
 
-Naam van de test wordt verwezen in de \<BackendHttpSettings\> configuratie om toe te wijzen welke back-end-adresgroep maakt gebruik van aangepaste test-instellingen.
+Naam van de test wordt verwezen in de \<BackendHttpSettings\> configuratie om toe te wijzen die back-end-pool maakt gebruik van aangepaste test-instellingen.
 
-## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Een aangepaste test toevoegen aan een bestaande application gateway
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Een aangepaste test toevoegen aan een bestaande toepassingsgateway
 
-Wijzigen van de huidige configuratie van een toepassingsgateway drie stappen vereist: ophalen van het huidige XML-configuratiebestand, als u een aangepaste test wilt wijzigen en de toepassingsgateway configureren met de nieuwe XML-instellingen.
+Wijzigen van de huidige configuratie van een application gateway zijn drie stappen vereist: ophalen van de huidige XML-configuratiebestand en de toepassingsgateway configureren met de nieuwe XML-instellingen wijzigen om een aangepaste test hebt.
 
-1. Ophalen van het XML-bestand met behulp van `Get-AzureApplicationGatewayConfig`. Deze cmdlet exporteert u de configuratie-XML om toe te voegen testinstelling worden gewijzigd.
+1. Ophalen van het XML-bestand met behulp van `Get-AzureApplicationGatewayConfig`. Deze cmdlet wordt de configuratie-XML worden gewijzigd om toe te voegen testinstelling geëxporteerd.
 
   ```powershell
   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
@@ -185,7 +185,7 @@ Wijzigen van de huidige configuratie van een toepassingsgateway drie stappen ver
 </Probes>
   ```
 
-  Toevoegen in de sectie backendHttpSettings van de XML-naam van de test zoals weergegeven in het volgende voorbeeld:
+  Toevoegen in de sectie backendHttpSettings van het XML-bestand, de naam van de test zoals wordt weergegeven in het volgende voorbeeld:
 
   ```xml
     <BackendHttpSettings>
@@ -200,7 +200,7 @@ Wijzigen van de huidige configuratie van een toepassingsgateway drie stappen ver
 
   Sla het XML-bestand.
 
-1. De configuratie van de application gateway met het nieuwe XML-bestand bijwerken met behulp van `Set-AzureApplicationGatewayConfig`. Deze cmdlet werkt de toepassingsgateway van uw met de nieuwe configuratie.
+1. De configuratie van de application gateway met het nieuwe XML-bestand bijwerken met behulp van `Set-AzureApplicationGatewayConfig`. Deze cmdlet werkt uw application gateway met de nieuwe configuratie.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"

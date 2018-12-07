@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950366"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999927"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in Azure Functions (preview)
 OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Functions is een preview-functie die u gebruiken kunt om te schrijven van de definitie van een OpenAPI 2.0 in een functie-app. U kunt vervolgens dat bestand hosten met behulp van de functie-app.
 
 > [!IMPORTANT]
-> De OpenAPI-preview-functie is alleen beschikbaar in de runtime 1.x. Meer informatie over het maken van een 1.x-functie-app [vindt u hier](./functions-versions.md#creating-1x-apps).
+> De OpenAPI-preview-functie is alleen vandaag beschikbaar in de runtime 1.x. Meer informatie over het maken van een 1.x-functie-app [vindt u hier](./functions-versions.md#creating-1x-apps).
 
-[OpenAPI-metagegevens](http://swagger.io/) kunt u een functie die als host fungeert voor een REST-API om te worden verbruikt door een groot aantal andere software. Deze software bevat Microsoft-aanbiedingen zoals PowerApps en de [API Apps-functie van Azure App Service](../app-service/app-service-web-overview.md), hulpprogramma's voor ontwikkelaars van derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger), en [nog veel meer pakketten](http://swagger.io/tools/).
+[OpenAPI-metagegevens](https://swagger.io/) kunt u een functie die als host fungeert voor een REST-API om te worden verbruikt door een groot aantal andere software. Deze software bevat Microsoft-aanbiedingen zoals PowerApps en de [API Apps-functie van Azure App Service](../app-service/app-service-web-overview.md), hulpprogramma's voor ontwikkelaars van derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger), en [nog veel meer pakketten](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,13 +39,13 @@ U kunt alle OpenAPI-instellingen configureren op de **API-definitie** pagina in 
 Instellen zodat de generatie van een gehoste OpenAPI-definitie en de definitie van een snelstartgids **bron van API-definitie** naar **functie (Preview)**. **Externe URL** Hiermee staat u de functie te gebruiken van een OpenAPI-definitie die ergens anders is gehost.
 
 ## <a name="generate-definition"></a>Het geraamte Swagger uit uw functie metagegevens genereren
-Aan de hand van een sjabloon kunt u beginnen met het schrijven van uw eerste OpenAPI-definitie. De functie voor definitie-sjabloon maakt een eenvoudige OpenAPI-definitie met behulp van alle metagegevens in het bestand function.json voor elk van de functies van uw HTTP-trigger. U moet invullen meer informatie over uw API van de [OpenAPI-specificatie](http://swagger.io/specification/), zoals aanvraag- en -sjablonen.
+Aan de hand van een sjabloon kunt u beginnen met het schrijven van uw eerste OpenAPI-definitie. De functie voor definitie-sjabloon maakt een eenvoudige OpenAPI-definitie met behulp van alle metagegevens in het bestand function.json voor elk van de functies van uw HTTP-trigger. U moet invullen meer informatie over uw API van de [OpenAPI-specificatie](https://swagger.io/specification/), zoals aanvraag- en -sjablonen.
 
 Zie voor stapsgewijze instructies, de [zelfstudie aan de slag](./functions-api-definition-getting-started.md).
 
 ### <a name="templates"></a>Beschikbare sjablonen
 
-|Naam| Beschrijving |
+|Name| Description |
 |:-----|:-----|
 |Gegenereerde definitie|Een OpenAPI-definitie met de maximale hoeveelheid gegevens die kan worden afgeleid uit bestaande metagegevens van de functie.|
 
@@ -55,10 +55,10 @@ In de volgende tabel staat voor de Azure portal-instellingen en de bijbehorende 
 
 |Swagger.json|Portal UI|Function.json|
 |:----|:-----|:-----|
-|[Host](http://swagger.io/specification/#fixed-fields-15)|**Functie van app-instellingen** > **App Service-instellingen** > **overzicht** > **URL**|*Niet aanwezig*
-|[Paden](http://swagger.io/specification/#paths-object-29)|**Integreer** > **geselecteerde HTTP-methoden**|Bindingen: Route
-|[Pad-Item](http://swagger.io/specification/#path-item-object-32)|**Integreer** > **Routesjabloon**|Bindingen: methoden
-|[Beveiliging](http://swagger.io/specification/#security-scheme-object-112)|**sleutels**|*Niet aanwezig*|
+|[Host](https://swagger.io/specification/#fixed-fields-15)|**Functie van app-instellingen** > **App Service-instellingen** > **overzicht** > **URL**|*Niet aanwezig*
+|[Paden](https://swagger.io/specification/#paths-object-29)|**Integreer** > **geselecteerde HTTP-methoden**|Bindingen: Route
+|[Pad-Item](https://swagger.io/specification/#path-item-object-32)|**Integreer** > **Routesjabloon**|Bindingen: methoden
+|[Beveiliging](https://swagger.io/specification/#security-scheme-object-112)|**sleutels**|*Niet aanwezig*|
 |bewerkings-id *|**Route + toegestane bewerkingen**|Route + toegestane bewerkingen|
 
 \*De bewerkings-ID is alleen vereist voor integratie met PowerApps en Flow.

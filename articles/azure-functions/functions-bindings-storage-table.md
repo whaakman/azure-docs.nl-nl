@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 56616ff01ff70230a591285014ed291a2fdc7b34
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250985"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999542"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -26,7 +26,7 @@ In dit artikel wordt uitgelegd hoe u werkt met Azure Table storage-bindingen in 
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Table storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
+De Table storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -325,9 +325,9 @@ Zie voor meer informatie over het gebruik van CloudTable [aan de slag met Azure 
 
 Als u probeert te binden aan `CloudTable` en een foutmelding krijgt, zorg ervoor dat u een verwijzing naar [de juiste versie van de Storage-SDK](#azure-storage-sdk-version-in-functions-1x).
 
-### <a name="input---f-example"></a>Invoer - F #-voorbeeld
+### <a name="input---f-example"></a>Invoer - F# voorbeeld
 
-Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestand en [skriptu F #](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrijtrigger om te lezen van een rij in een enkele tabel. 
+Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestand en [ F# script](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrijtrigger om te lezen van een rij in een enkele tabel. 
 
 De *function.json* bestand bevat een `partitionKey` en een `rowKey`. De `rowKey` waarde '{queueTrigger}' geeft aan dat de rijsleutel afkomstig uit de wachtrij bericht-tekenreeks is.
 
@@ -357,7 +357,7 @@ De *function.json* bestand bevat een `partitionKey` en een `rowKey`. De `rowKey`
 
 De [configuratie](#input---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
 [<CLIMutable>]
@@ -499,7 +499,7 @@ In de [Java functions runtime library](/java/api/overview/azure/functions/runtim
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Table` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |
@@ -627,9 +627,9 @@ public class Person
 
 ```
 
-### <a name="output---f-example"></a>Uitvoer - F #-voorbeeld
+### <a name="output---f-example"></a>Uitvoer - F# voorbeeld
 
-Het volgende voorbeeld wordt een tabel-Uitvoerbinding een *function.json* bestand en [skriptu F #](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
+Het volgende voorbeeld wordt een tabel-Uitvoerbinding een *function.json* bestand en [ F# script](functions-reference-fsharp.md) code die gebruikmaakt van de binding. De functie schrijft meerdere tabelentiteiten.
 
 Hier volgt de *function.json* bestand:
 
@@ -655,7 +655,7 @@ Hier volgt de *function.json* bestand:
 
 De [configuratie](#output---configuration) sectie wordt uitgelegd dat deze eigenschappen.
 
-Dit is de F #-code:
+Hier volgt de F# code:
 
 ```fsharp
 [<CLIMutable>]
@@ -759,7 +759,7 @@ U kunt de `StorageAccount` kenmerk om op te geven van de storage-account op het 
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Table` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |

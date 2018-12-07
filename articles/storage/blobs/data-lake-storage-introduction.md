@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 3b0a2e4f39b3b523743768e96bfe9a63b1795f60
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a273d0bd4d064cb1c6ac4d3951af8a493e303f51
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975317"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015888"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Inleiding tot Azure Data Lake Storage Gen2 Preview
 
@@ -41,7 +41,7 @@ In het verleden had cloudanalyses te boeten op het gebied van prestaties, beheer
 
 -   **Een hoofdverzameling van POSIX-machtigingen**: het beveiligingsmodel voor Data Lake Gen2 biedt ondersteuning voor ACL en POSIX-machtigingen, samen met enkele extra granulariteit die specifiek zijn voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via Storage Explorer of frameworks, zoals Hive- en Spark.
 
--   **Voordelige**: Data Lake Storage Gen2 biedt de opslagcapaciteit van de lage kosten en transacties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](../common/storage-lifecycle-management-concepts.md).
+-   **Voordelige**: Data Lake Storage Gen2 biedt de opslagcapaciteit van de lage kosten en transacties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](storage-lifecycle-management-concepts.md).
 
 -   **Geoptimaliseerde stuurprogramma**: is van het stuurprogramma abfs [speciaal geoptimaliseerd](data-lake-storage-abfs-driver.md) voor analyse van big data. De bijbehorende REST-API's zijn opgehaald via het eindpunt van de DFS-dfs.core.windows.net.
 

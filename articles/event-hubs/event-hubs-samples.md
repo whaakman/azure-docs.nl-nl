@@ -8,32 +8,33 @@ manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3db77a31dfe92e16d2ec145cc0be595082d0d927
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7a1b7cc534c68027163625d3c7be785a144f4b9e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279378"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013574"
 ---
-# <a name="event-hubs-samples"></a>Event Hubs-voorbeelden 
+# <a name="git-repositories-with-samples-for-azure-event-hubs"></a>GIT-opslagplaatsen met voorbeelden voor Azure Event Hubs 
 U kunt voorbeelden voor Event Hubs vinden op [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Deze voorbeelden demonstreren belangrijke functies in [Azure Event Hubs](/azure/event-hubs/). In dit artikel worden gecategoriseerd en een beschrijving van de voorbeelden die beschikbaar zijn, met koppelingen naar elk.
 
 ## <a name="net-samples"></a>.NET-voorbeelden
 
-| Voorbeeldnaam | Beschrijving | 
+| Voorbeeldnaam | Description | 
 | ----------- | ----------- | 
 | [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | Dit voorbeeld laat zien hoe u een .NET Core-consoletoepassing die een reeks gebeurtenissen naar een event hub verzendt. |
 | [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | Dit voorbeeld laat zien hoe u een .NET Core-consoletoepassing die een reeks gebeurtenissen vanaf een event hub ontvangt met behulp van de Event Processor Host-bibliotheek.  | 
 
 ## <a name="java-samples"></a>Java-voorbeelden
 
-| Voorbeeldnaam | Beschrijving | 
+| Voorbeeldnaam | Description | 
 | ----------- | ----------- | 
 | [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | In dit voorbeeld ziet hoe u voor het opnemen van batches van gebeurtenissen in uw event hub. | 
 | [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | In dit voorbeeld ziet hoe u voor het opnemen van gebeurtenissen in uw event hub. |

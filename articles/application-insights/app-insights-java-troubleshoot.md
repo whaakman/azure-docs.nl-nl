@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: e39fb82796c8e6b09f624b2030ff6266bd4189f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 95eb5475f5584830eac5bd9c690be4a6a85de5c8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720419"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016722"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Probleemoplossing voor en antwoorden op vragen over Application Insights voor Java
 Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen enkele tips.
@@ -56,7 +56,7 @@ Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen 
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Java-Agent kan geen afhankelijkheidsgegevens vastleggen
 * Hebt u Java-agent geconfigureerd door [Java-Agent configureren](app-insights-java-agent.md) ?
 * Zorg ervoor dat zowel de jar java-agent en de AI-Agent.xml-bestand in dezelfde map worden geplaatst.
-* Zorg ervoor dat de afhankelijkheid die u probeert te automatisch verzamelen wordt ondersteund voor het automatisch verzamelen. We ondersteunen momenteel alleen MySQL, MsSQL, Oracle database en verzameling van Redis-Cache-afhankelijkheid.
+* Zorg ervoor dat de afhankelijkheid die u probeert te automatisch verzamelen wordt ondersteund voor het automatisch verzamelen. We ondersteunen momenteel alleen MySQL, MsSQL, Oracle DB en Azure-Cache voor de verzameling van Redis-afhankelijkheid.
 * Gebruikt u JDK 1.7 of 1.8? We bieden afhankelijkheid verzameling momenteel geen ondersteuning in JDK 9.
 
 ## <a name="no-usage-data"></a>Er zijn geen gebruiksgegevens
@@ -156,7 +156,7 @@ Maakt gebruik van Application Insights `org.apache.http`. Dit is verplaatst in A
 * [Logboeken met diagnostische gegevens vastleggen][javalogs]
 
 ## <a name="get-help"></a>Help opvragen
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Bestand een probleem op GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

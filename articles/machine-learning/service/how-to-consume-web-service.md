@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de webservice-implementaties - Azure Machine Learning
-description: Leer hoe u een webservice die zijn gemaakt door het implementeren van een Azure Machine Learning-model te gebruiken. Implementeren van een Azure Machine Learning-model, maakt een webservice die een REST-API beschikbaar stelt. U kunt clients voor deze API met behulp van de programmeertaal van uw keuze maken. In dit document leert hoe u toegang tot de API met behulp van Python en C#.
+title: Het gebruik van de webservice-implementaties - Azure Machine Learning-service
+description: Leer hoe u een webservice die is gegenereerd wanneer een model is geïmplementeerd met Azure Machine Learning-model te gebruiken. De webservice die een REST-API beschikbaar stelt. Clients voor deze API met behulp van de programmeertaal van uw keuze maken.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262896"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016637"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
@@ -100,7 +101,7 @@ De REST-API wordt verwacht dat de hoofdtekst van het verzoek om te worden van ee
 > [!IMPORTANT]
 > De structuur van de gegevens moet overeenkomen met wat de scoring-script en het model in de verwachte service. Het scoring-script kan de gegevens wijzigen voordat deze wordt doorgegeven aan het model.
 
-Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) voorbeeld wordt een matrix van 10 cijfers verwacht. Het scoring-script in dit voorbeeld maakt een matrix Numpy van de aanvraag en doorgegeven aan het model. Het volgende voorbeeld ziet u de gegevens die deze service wordt verwacht dat:
+Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld wordt een matrix van 10 cijfers verwacht. Het scoring-script in dit voorbeeld maakt een matrix Numpy van de aanvraag en doorgegeven aan het model. Het volgende voorbeeld ziet u de gegevens die deze service wordt verwacht dat:
 
 ```json
 {
@@ -126,7 +127,7 @@ De webservice kan meerdere sets met gegevens in één aanvraag accepteren. Retou
 
 ## <a name="call-the-service-c"></a>De service aanroepen (C#)
 
-In dit voorbeeld ziet u hoe u C# voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) voorbeeld:
+In dit voorbeeld ziet u hoe u C# voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld:
 
 ```csharp
 using System;
@@ -215,7 +216,7 @@ De geretourneerde resultaten zijn vergelijkbaar met de volgende JSON-document:
 
 ## <a name="call-the-service-go"></a>De service (Ga) aanroepen
 
-In dit voorbeeld ziet u hoe u met behulp van Go voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) voorbeeld:
+In dit voorbeeld ziet u hoe u met behulp van Go voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld:
 
 ```go
 package main
@@ -307,7 +308,7 @@ De geretourneerde resultaten zijn vergelijkbaar met de volgende JSON-document:
 
 ## <a name="call-the-service-java"></a>Roept de service (Java)
 
-In dit voorbeeld laat zien hoe u Java gebruikt voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) voorbeeld:
+In dit voorbeeld laat zien hoe u Java gebruikt voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld:
 
 ```java
 import java.io.IOException;
@@ -387,7 +388,7 @@ De geretourneerde resultaten zijn vergelijkbaar met de volgende JSON-document:
 
 ## <a name="call-the-service-python"></a>De service (Python) aanroepen
 
-In dit voorbeeld laat zien hoe u Python gebruikt voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) voorbeeld:
+In dit voorbeeld laat zien hoe u Python gebruikt voor het aanroepen van de webservice gemaakt op basis van de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld:
 
 ```python
 import requests

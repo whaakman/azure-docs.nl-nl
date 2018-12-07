@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c704639ce696672a87485a36d43a282d04a47a7e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5183e626ac990e265e9f4794220f24d43d865ed7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845165"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999995"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
 ![Application Insights-symbool](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Met de ondersteuning van [query's voor meerdere bronnen](../../log-analytics/log-analytics-cross-workspace-search.md), de oplossing Application Insights-connector is niet langer vereist en wordt afgeschaft. Vanaf juli kunt pas u weer nieuwe Application Insights-resources koppelen aan Log Analytics-werkruimten. Bestaande koppelingen en dashboards blijft functioneren tot November 2018. Zie voor meer informatie, [OMS-portal naar Azure verplaatst,](../../log-analytics/log-analytics-oms-portal-transition.md).
+> Met de ondersteuning van [query's voor meerdere bronnen](../../azure-monitor/log-query/cross-workspace-query.md), de oplossing Application Insights-connector is niet langer vereist en wordt afgeschaft. Vanaf juli kunt pas u weer nieuwe Application Insights-resources koppelen aan Log Analytics-werkruimten. Bestaande koppelingen en dashboards blijft functioneren tot November 2018. Zie voor meer informatie, [OMS-portal naar Azure verplaatst,](../../azure-monitor/platform/oms-portal-transition.md).
 
 De Applications Insights-Connector-oplossing helpt u bij het vaststellen van prestatieproblemen en inzicht krijgen wat gebruikers doen met uw app wanneer deze wordt bewaakt met [Application Insights](../../application-insights/app-insights-overview.md). Weergaven van dezelfde toepassingstelemetrie die ontwikkelaars wordt weergegeven in Application Insights zijn beschikbaar in Log Analytics. Wanneer u uw Application Insights-apps met Log Analytics integreert, is echter zichtbaarheid van uw toepassingen met operationele gegevens en uw toepassing op één plek met verhoogd. Met de dezelfde weergaven, kunt u samenwerken met uw app-ontwikkelaars. De algemene weergaven kunt de tijd om te detecteren en oplossen van toepassings- en platformproblemen te beperken.
 
@@ -42,11 +42,11 @@ Wanneer u de oplossing gebruikt, kunt u het volgende doen:
 
 Gegevens niet in tegenstelling tot de meeste andere Log Analytics-oplossingen, door agents verzameld voor de Application Insights-Connector. Alle gegevens die worden gebruikt door de oplossing wordt geleverd rechtstreeks vanuit Azure.
 
-| Verbonden bron | Ondersteund | Beschrijving |
+| Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
 | [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
 | [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
-| [SCOM-beheergroep](../../log-analytics/log-analytics-om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
+| [SCOM-beheergroep](../../azure-monitor/platform/om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
 | [Azure Storage-account](collect-azure-metrics-logs.md) | Nee | De oplossing doet niet Verzamelingsgegevens van Azure storage. |
 
 ## <a name="prerequisites"></a>Vereisten
@@ -174,7 +174,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 
 ### <a name="generic-fields"></a>Algemene velden
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -200,7 +200,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 
 ### <a name="availability-specific-fields"></a>Beschikbaarheid-specifieke velden
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | TelemetryType | Beschikbaarheid |
 | AvailabilityTestName | Naam van de WebTest |
@@ -242,7 +242,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 
 ### <a name="request-specific-fields"></a>Aanvraag-specifieke velden
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | Aanvraag |

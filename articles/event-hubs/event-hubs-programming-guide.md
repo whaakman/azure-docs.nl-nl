@@ -5,18 +5,18 @@ services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfb2db8a4a0091e26cc2b893e615ba831da30ac7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cd97aed36e9fd82df0d37913d5ea9e57c875a673
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746321"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011450"
 ---
-# <a name="event-hubs-programming-guide"></a>Programmeerhandleiding voor Event Hubs
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Programmeerhandleiding voor Azure Event Hubs
 Dit artikel worden enkele algemene scenario's bij het schrijven van code met Azure Event Hubs. Er wordt uitgegaan van een basisbegrip van Event Hubs. Zie het [Overzicht van Event Hubs](event-hubs-what-is-event-hubs.md) voor een conceptueel overzicht van Event Hubs.
 
 ## <a name="event-publishers"></a>Gebeurtenisuitgevers
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>Gebeurtenissen verzenden naar een event hub
 
-Verzenden van gebeurtenissen naar een event hub door het maken van een [EventHubClient][] exemplaar en het verzenden van asynchrone wijze via de [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) methode. Deze methode heeft één [EventData][] instantieparameter en verzendt deze synchroon naar een event hub.
+Verzenden van gebeurtenissen naar een event hub door het maken van een [EventHubClient][] exemplaar en het verzenden van asynchrone wijze via de [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) methode. Deze methode heeft één [EventData][] instantieparameter en verzendt het asynchroon naar een event hub.
 
 ## <a name="event-serialization"></a>Gebeurtenisserialisatie
 

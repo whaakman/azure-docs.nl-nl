@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 12/05/2018
 ms.author: genli
-ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238314"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994183"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Oplossen van problemen: Problemen met Azure punt-naar-site-verbinding
 
@@ -300,7 +300,7 @@ Dit probleem kan optreden als de VPN-client heeft de routes niet verkrijgen van 
 
 ### <a name="solution"></a>Oplossing
 
-Dit probleem op te lossen [Azure VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md).
+Dit probleem op te lossen [Azure VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md). Om ervoor te zorgen dat de nieuwe routes worden gebruikt, moeten de punt-naar-Site VPN-clients opnieuw worden gedownload nadat peering op virtueel netwerk is geconfigureerd.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fout: 'de functie intrekken kon niet intrekkingscontrole omdat de certificaatintrekkingsserver offline is. (Fout 0x80092013)"
 

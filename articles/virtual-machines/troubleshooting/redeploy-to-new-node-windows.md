@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5da5cfebfb3f847f01165aa28309a44e62ef96a3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c0bf4d1684ca5a0921173dc90f51fec9fb052efc
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418769"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993265"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Windows virtuele machine naar de nieuwe Azure-knooppunt opnieuw implementeren
-Als u problemen is aangesloten kan het oplossen van Remote Desktop (RDP)-verbinding of de toepassing toegang en op basis van Windows Azure-machine (VM), de virtuele machine opnieuw te implementeren helpen. Wanneer u een virtuele machine opnieuw implementeren, wordt Azure proberen om zonder problemen af te sluiten van de virtuele Machine, de virtuele machine verplaatsen naar een nieuw knooppunt in de Azure-infrastructuur en vervolgens inschakelen om opnieuw op, behoud van alle configuratie-opties en bijbehorende resources. Dit artikel ziet u hoe u een virtuele machine met behulp van Azure PowerShell of Azure portal opnieuw implementeren.
+Als u problemen is aangesloten kan het oplossen van Remote Desktop (RDP)-verbinding of de toepassing toegang en op basis van Windows Azure-machine (VM), de virtuele machine opnieuw te implementeren helpen. Wanneer u een virtuele machine opnieuw implementeren, wordt Azure de virtuele machine af, de virtuele machine verplaatsen naar een nieuw knooppunt in de Azure-infrastructuur en vervolgens inschakelen om opnieuw op, behoud van alle configuratie-opties en bijbehorende resources. Dit artikel ziet u hoe u een virtuele machine met behulp van Azure PowerShell of Azure portal opnieuw implementeren.
 
 > [!NOTE]
 > Nadat u een virtuele machine opnieuw implementeren, is de tijdelijke schijf verloren en dynamische IP-adressen die zijn gekoppeld aan virtuele netwerkinterface worden bijgewerkt. 
@@ -36,7 +36,6 @@ Het volgende voorbeeld wordt geïmplementeerd voor de virtuele machine met de na
 ```powershell
 Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
-
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 

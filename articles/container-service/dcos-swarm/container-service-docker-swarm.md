@@ -1,6 +1,6 @@
 ---
-title: Azure Swarm-cluster met Docker API beheren
-description: Implementeer containers naar een Docker Swarm-cluster in Azure Container Service
+title: (AFGESCHAFT) Beheren Azure Swarm-cluster met Docker-API
+description: Containers implementeren in een Docker Swarm-cluster in Azure Container Service
 services: container-service
 author: rgardler
 manager: madhana
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3f8d18bc053bc303ab124ba38c8621d4ee2e8cb8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331542"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997947"
 ---
-# <a name="container-management-with-docker-swarm"></a>Containerbeheer met Docker Swarm
+# <a name="deprecated-container-management-with-docker-swarm"></a>(AFGESCHAFT) Containerbeheer met Docker Swarm
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Docker Swarm biedt een omgeving voor het implementeren van beperkte workloads in een gegroepeerde set Docker-hosts. Docker Swarm maakt gebruik van de systeemeigen Docker API. De werkstroom voor het beheer van containers in een Docker Swarm is bijna identiek aan de werkstroom op een enkele containerhost. Dit document bevat enkele eenvoudige voorbeelden van de implementatie van beperkte workloads in een Azure Container Service-exemplaar van Docker Swarm. Zie [Docker Swarm op Docker.com](https://docs.docker.com/swarm/) voor uitgebreidere documentatie bij Docker Swarm.
 

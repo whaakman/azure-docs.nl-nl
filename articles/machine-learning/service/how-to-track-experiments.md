@@ -9,12 +9,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 44c5cce103996f1774fb87b46760c23dc9ab575c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ae61f6fe24486eb1d4d5deecf5fb005a4d71b5fc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957705"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016160"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
@@ -241,7 +242,7 @@ Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoe
    RunDetails(run).show()
    ```
 
-  ![Schermafbeelding van de Jupyter-notebook widget](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+  ![Jupyter notebook widget voor geautomatiseerde Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 Om verdere details van een pijplijn-Klik op de pijplijn weer te geven u graag zou willen verkennen in de tabel en de grafieken worden weergegeven in een pop-upvenster vanuit Azure portal.
@@ -264,7 +265,7 @@ Wanneer een experiment is voltooid, kunt u bladeren naar de vastgelegde experime
 
 De koppeling voor de uitvoering biedt u rechtstreeks naar de pagina de details van uitvoering in Azure portal. Hier ziet u alle eigenschappen, bijgehouden metrische gegevens, afbeeldingen en grafieken die zijn vastgelegd in het experiment. In dit geval geregistreerd we MSE en het alpha-waarden.
 
-  ![Schermafbeelding van de details van de uitvoering in Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Details van de uitvoering in Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 U kunt ook eventuele uitvoer of de logboeken voor de uitvoering weergeven of downloaden van de momentopname van het experiment dat u hebt verzonden, zodat u de map experiment met anderen kunt delen.
 
@@ -300,15 +301,15 @@ Meer informatie over:
 
 1. Selecteer het experiment dat u geïnteresseerd bent in.
 
-  ![Schermopname van het experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+  ![Lijst van experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
 
 1. Selecteer het aantal uitvoeren in de tabel.
 
-   ![Schermopname van het experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![Experiment uitvoeren](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
 
 1.  Selecteer in de tabel, het aantal herhalingen voor het model dat u graag verder te verkennen.
 
-   ![Schermopname van het experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![Model van experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
 
 

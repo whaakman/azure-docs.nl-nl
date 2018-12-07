@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb18a7338eb688ab427725933b9fc3f73b44b502
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030674"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992055"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Zelfstudie: Kosten van aanbevelingen optimaliseren
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u het volgende:
 > * Controleer of de actie om ervoor te zorgen dat de virtuele machine met succes is gewijzigd
 
 ## <a name="prerequisites"></a>Vereisten
-Aanbevelingen zijn beschikbaar voor alle [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) klanten. U moet toegang tot een of meer van de volgende bereiken om weer te geven gegevens van cost ten minste hebt gelezen.
+Aanbevelingen zijn beschikbaar voor alle klanten met een [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). U moet minimaal leestoegang hebben tot een of meer van de volgende bereiken om kostengegevens te kunnen bekijken.
 
 - Abonnement
 - Resourcegroep

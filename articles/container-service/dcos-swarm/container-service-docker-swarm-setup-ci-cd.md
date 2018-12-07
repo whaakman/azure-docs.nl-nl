@@ -1,5 +1,5 @@
 ---
-title: CI/CD met Azure Containerservice- en Swarm
+title: (AFGESCHAFT) CI/CD met Azure Containerservice- en Swarm
 description: Azure Container Service met Docker Swarm, een Azure Container Registry en Azure DevOps gebruiken om te leveren voortdurend een toepassing met meerdere containers .NET Core
 services: container-service
 author: jcorioland
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 3b91c269104e740add1d3a5b8ecaee93ca269188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302823"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992547"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met Docker Swarm met Azure DevOps-Services
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(AFGESCHAFT) Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met Docker Swarm met Azure DevOps-Services
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Een van de grootste uitdagingen bij het ontwikkelen van moderne toepassingen voor de cloud wordt deze toepassingen continu leveren. In dit artikel leert u hoe u voor het implementeren van een volledige continue integratie en implementatie (CI/CD)-pijplijn met behulp van Azure Container Service met Docker Swarm, Azure Container Registry en Azure-pijplijnen.
 
@@ -39,7 +41,7 @@ Hier volgt een korte beschrijving van de stappen uit:
 1. Docker Swarm in het cluster haalt de meest recente versie van de installatiekopieën 
 1. De nieuwe versie van de toepassing wordt geïmplementeerd met behulp van Docker Compose 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u deze zelfstudie begint, moet u de volgende taken uitvoeren:
 

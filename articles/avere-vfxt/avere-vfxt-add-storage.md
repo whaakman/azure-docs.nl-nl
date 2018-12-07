@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163168"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001959"
 ---
 # <a name="configure-storage"></a>Opslag configureren
 
@@ -19,6 +19,12 @@ Deze stap stelt u het opslagsysteem back-end voor uw cluster vFXT.
 
 > [!TIP]
 > Als u gebruikt de `create-cloudbacked-cluster` prototype-script voor het maken van een nieuwe blobcontainer samen met het Avere vFXT cluster, dat de container is al ingesteld voor gebruik en u geen hoeft opslag toevoegen.
+>
+> Echter, als de nieuwe Blob-container is versleuteld met een standaard-sleutel voor versleuteling, moet u de sleutelherstel-bestand downloaden van het cluster of de standaard-sleutel vervangen door een nieuwe sleutel voor het opslaan van gegevens. De standaard-sleutel wordt opgeslagen in het cluster en kan niet worden opgehaald als het cluster verloren gegaan is of niet beschikbaar is.
+>
+> Nadat u verbinding met het Avere van het Configuratiescherm, klik op de **instellingen** tabblad, en kies vervolgens **Core Filer** > **Cloud versleutelingsinstellingen**. In de **lokale sleutel Store** sectie, kies een van de volgende opties: 
+> * Gebruik de **herdownloaden Recovery bestand** knop waarmee de herstelbestand voor de bestaande sleutel. De herstelbestand is versleuteld met het beheerderswachtwoord van het cluster. Zorg ervoor dat u het bestand opslaan in een betrouwbare plaats. 
+> * Volg de instructies in de **genereren van een nieuwe hoofdsleutel** sectie van de pagina voor het maken van een nieuwe versleutelingssleutel die u beheert. Deze optie kunt u een unieke wachtwoordzin opgeven en het vereist dat u om te uploaden en downloaden van het herstelbestand voor het valideren van het paar wachtwoordzin-bestand opnieuw.
 
 Volg deze instructies als u gebruikt de `create-minimal-cluster` prototype-script voor het cluster, of als u wilt toevoegen van een extra hardware of een systeem voor cloud-gebaseerde opslag.
 
@@ -91,7 +97,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
    * **Resourcegroep** : hetzelfde als de clustergroep vFXT (optioneel)
    * **Locatie** : hetzelfde als het cluster vFXT
    * **Prestaties** - standaard (Premium storage wordt niet ondersteund)
-   * **Soort account** : algemeen gebruik V2 (StorageV2)
+   * **Soort account** -General-purpose V2 (StorageV2)
    * **Replicatie** -lokaal redundante opslag (LRS)
    * **Toegangslaag** - ' hot '
    * **Veilige overdracht vereist** -Schakel deze optie (niet-standaard waarde)

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2fe78efc8d85da2a8cd38a217c25f89ca7aefd22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645521"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012994"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Handmatig de queryprestaties in Azure SQL Database
 
@@ -258,7 +258,7 @@ Sommige toepassingen zijn schrijven-intensieve. U kunt de totale i/o-belasting v
 
 ### <a name="application-tier-caching"></a>Toepassingslaag caching
 
-Sommige databasetoepassingen hebt leesintensief workloads. Lagen caching mogelijk de belasting van de database te verminderen en mogelijk de grootte van het compute vereist ter ondersteuning van een database met behulp van Azure SQL Database mogelijk beperken. Met [Azure Redis Cache](https://azure.microsoft.com/services/cache/), als u een werkbelasting leesintensief hebt, kunt u de gegevens eenmaal lezen (of bijvoorbeeld één keer per toepassingslaag machine, afhankelijk van hoe deze is geconfigureerd), en dat gegevens buiten uw SQL-database op te slaan. Dit is een manier om te beperken van de belasting van de database (CPU en i/o-lezen), maar er is van invloed op transactionele consistentie, omdat de gegevens worden gelezen uit de cache mogelijk niet gesynchroniseerd met de gegevens in de database. Hoewel in veel toepassingen bepaalde mate van inconsistentie acceptabel is, is dat niet geldt voor alle werkbelastingen. U moet de vereisten van elke toepassing volledig begrijpen voordat u een cachingstrategie toepassingslaag implementeert.
+Sommige databasetoepassingen hebt leesintensief workloads. Lagen caching mogelijk de belasting van de database te verminderen en mogelijk de grootte van het compute vereist ter ondersteuning van een database met behulp van Azure SQL Database mogelijk beperken. Met [Azure Cache voor Redis](https://azure.microsoft.com/services/cache/), als u een werkbelasting leesintensief hebt, kunt u de gegevens eenmaal lezen (of bijvoorbeeld één keer per toepassingslaag machine, afhankelijk van hoe deze is geconfigureerd), en dat gegevens buiten uw SQL-database op te slaan. Dit is een manier om te beperken van de belasting van de database (CPU en i/o-lezen), maar er is van invloed op transactionele consistentie, omdat de gegevens worden gelezen uit de cache mogelijk niet gesynchroniseerd met de gegevens in de database. Hoewel in veel toepassingen bepaalde mate van inconsistentie acceptabel is, is dat niet geldt voor alle werkbelastingen. U moet de vereisten van elke toepassing volledig begrijpen voordat u een cachingstrategie toepassingslaag implementeert.
 
 ## <a name="next-steps"></a>Volgende stappen
 

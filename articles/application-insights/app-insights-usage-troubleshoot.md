@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d173cd8ddcd713e39fc925a101b42bdd918e5499
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721151"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995546"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Gebruiker gedrag analyseprogramma's in Application Insights oplossen
 Hebt u vragen over de [gebruiker gedrag analyseprogramma's in Application Insights](app-insights-usage-overview.md): [gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md), [Trechters](usage-funnels.md), [Gebruikersstromen](app-insights-usage-flows.md), [Retentie](app-insights-usage-retention.md), of cohorten? Hier volgen enkele antwoorden.
@@ -56,5 +56,5 @@ Als uw app te veel namen van aangepaste gebeurtenissen verzendt is, moet u de na
 * [Overzicht van gebruiker gedrag analytics-hulpprogramma 's](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Help opvragen
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

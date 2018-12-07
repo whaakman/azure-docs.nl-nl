@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes-cluster - operationeel beheer bewaken
+title: (AFGESCHAFT) Azure Kubernetes-cluster - operationeel beheer bewaken
 description: Bewaking van Kubernetes-cluster in Azure Container Service met behulp van Log Analytics
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426410"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997200"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Een Azure Container Service-cluster bewaken met Log Analytics
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(AFGESCHAFT) Een Azure Container Service-cluster bewaken met Log Analytics
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Zie voor de bijgewerkte versie dit artikel die gebruikmaakt van Azure Kubernetes Service, [Azure Monitor voor containers](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 In dit scenario wordt ervan uitgegaan dat u hebt [gemaakt van een Kubernetes-cluster met behulp van Azure Container Service](container-service-kubernetes-walkthrough.md).
@@ -59,11 +62,11 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-log-analytics"></a>Bewaking van Containers met Log Analytics
 
-Log Analytics is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. Container-oplossing is een oplossing in Log Analytics, dat helpt u bij het weergeven van de container-inventaris, prestaties en logboeken op één locatie. U kunt controleren, containers oplossen door de logboeken in de centrale locatie bekijken en zoeken ruis verbruikt overtollige container op een host.
+Log Analytics is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. Container-oplossing is een oplossing in Log Analytics, dat helpt u bij het weergeven van de container-inventaris, prestaties en logboeken op één locatie. U kunt controleren, containers oplossen door de logboeken in de centrale locatie bekijken en zoeken ruis verbruikt overtollige container op een host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Raadpleeg voor meer informatie over Container-oplossing, de [Container-oplossing Log Analytics](../../log-analytics/log-analytics-containers.md).
+Raadpleeg voor meer informatie over Container-oplossing, de [Container-oplossing Log Analytics](../../azure-monitor/insights/containers.md).
 
 ## <a name="installing-log-analytics-on-kubernetes"></a>Installeren van Log Analytics in Kubernetes
 

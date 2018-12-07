@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb96933569c18b8c70d8991c9ba19f9f3e1243e6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 65d94c4df3111e1ffe5a5340bba1db454681bb5e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633696"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016007"
 ---
 # <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Pig-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
 
@@ -32,14 +32,14 @@ Leer hoe u Apache Pig Latin-taken uitvoert door REST-aanvragen met een Azure HDI
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* [CURL](http://curl.haxx.se/)
+* [CURL](https://curl.haxx.se/)
 
-* [jq](http://stedolan.github.io/jq/)
+* [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Pig-taken uitvoeren met Curl
 
 > [!NOTE]
-> De REST-API wordt beveiligd via [eenvoudige verificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via HTTP Secure (HTTPS) om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
+> De REST-API wordt beveiligd via [eenvoudige verificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via HTTP Secure (HTTPS) om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
 >
 > Wanneer u de opdrachten in deze sectie, Vervang `USERNAME` met de gebruiker om te verifiëren met het cluster en vervang `PASSWORD` met het wachtwoord voor het gebruikersaccount. Vervang `CLUSTERNAME` door de naam van uw cluster.
 >

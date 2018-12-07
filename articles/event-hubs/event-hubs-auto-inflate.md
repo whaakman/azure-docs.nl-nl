@@ -10,16 +10,17 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1bbbbbada07dc898a4c1424a315d472cf910926f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986998"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010821"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatisch schalen van Azure Event Hubs-doorvoereenheden
 
@@ -49,13 +50,13 @@ U kunt inschakelen of uitschakelen automatisch vergroten op een Event Hubs-naamr
 
 U kunt de functie voor automatisch vergroten inschakelen bij het maken van een Event Hubs-naamruimte:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Inschakelen van automatisch vergroten op tijd event hub maken](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Met deze optie is ingeschakeld, kunt u met uw doorvoereenheden klein beginnen en opschalen toename van de behoeften van uw gebruik. De bovengrens voor inflatie heeft geen direct invloed op prijzen, die afhankelijk is van het aantal throughput units per uur gebruikt.
 
 U kunt ook inschakelen voor automatisch vergroten met behulp van de **schaal** optie in het deelvenster instellingen in de portal:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+![Inschakelen van automatisch vergroten met schaal-optie](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: 'Quick Start: Azure Docker CE-cluster voor Linux'
+title: '(AFGESCHAFT) Snelstartgids: Azure Docker CE-cluster voor Linux'
 description: Leer snel hoe u een Docker CE-cluster voor Linux-containers in Azure Container Service maakt met de Azure CLI.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: c8f9db2674976d2c1efa7686b8b224b48a19a534
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964442"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994300"
 ---
-# <a name="deploy-docker-ce-cluster"></a>Docker CE-cluster implementeren
+# <a name="deprecated-deploy-docker-ce-cluster"></a>(AFGESCHAFT) Docker CE-cluster implementeren
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In deze snelstartgids wordt een Docker CE-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 

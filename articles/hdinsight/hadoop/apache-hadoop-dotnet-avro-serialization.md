@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 9727a990548977e0b07710d879881669161c7a4c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634002"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015259"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Gegevens in het Apache Hadoop met het Microsoft Avro Library serialiseren
 
@@ -27,7 +27,7 @@ In dit onderwerp ziet u hoe u de [Microsoft Avro Library](https://github.com/Azu
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-De <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> het Apache Avro gegevens serialisatie system voor de omgeving Microsoft.NET implementeert. Apache Avro biedt een compacte binaire gegevens DIF-indeling voor de serialisatie. Hierbij <a href="http://www.json.org" target="_blank">JSON</a> voor het definiëren van een taal-agnostisch schema waarmee taalherkenning interoperabiliteit van talen. Gegevens die zijn geserialiseerd in één taal kunnen worden gelezen in een andere. C, C++, C#, Java, PHP, Python en Ruby worden momenteel ondersteund. Gedetailleerde informatie over deze indeling vindt u de <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro-specificatie</a>. 
+De <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> het Apache Avro gegevens serialisatie system voor de omgeving Microsoft.NET implementeert. Apache Avro biedt een compacte binaire gegevens DIF-indeling voor de serialisatie. Hierbij <a href="http://www.json.org" target="_blank">JSON</a> voor het definiëren van een taal-agnostisch schema waarmee taalherkenning interoperabiliteit van talen. Gegevens die zijn geserialiseerd in één taal kunnen worden gelezen in een andere. C, C++, C#, Java, PHP, Python en Ruby worden momenteel ondersteund. Gedetailleerde informatie over deze indeling vindt u de <a href="https://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro-specificatie</a>. 
 
 >[!NOTE]
 >De Microsoft Avro Library biedt geen ondersteuning voor het deel van de externe procedure aanroepen (RPC's) van deze specificatie.
@@ -58,7 +58,7 @@ De onderstaande onderdelen vereist voordat u de bibliotheek installeert:
 ## <a name="compile-schemas-using-avro-library"></a>Schema's met Avro-bibliotheek gecompileerd
 De Microsoft Avro Library bevat een hulpprogramma voor het genereren van code waarmee het maken van C#-typen automatisch op basis van de vooraf gedefinieerde JSON-schema. Het hulpprogramma voor het genereren van code niet wordt gedistribueerd als een binaire kan worden uitgevoerd, maar kan eenvoudig worden gemaakt via de volgende procedure:
 
-1. Download het ZIP-bestand met de meest recente versie van HDInsight SDK-broncode uit de <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK voor Hadoop</a>. (Klik op de **downloaden** pictogram, niet de **Downloads** tabblad.)
+1. Download het ZIP-bestand met de meest recente versie van HDInsight SDK-broncode uit de <a href="https://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK voor Hadoop</a>. (Klik op de **downloaden** pictogram, niet de **Downloads** tabblad.)
 2. De HDInsight SDK uitpakken naar een map op de computer met .NET Framework 4 geïnstalleerd en die zijn verbonden met Internet om vereiste afhankelijkheid NuGet-pakketten te downloaden. Hieronder ziet, gaan we ervan uit dat de broncode wordt uitgepakt naar C:\SDK.
 3. Ga naar de map C:\SDK\src\Microsoft.Hadoop.Avro.Tools en build.bat uitvoeren. (Het bestand aanroepen MSBuild van de 32-bits-distributie van het .NET Framework. Als u wilt de 64-bits versie te gebruiken, bewerk build.bat, de opmerkingen in het bestand te volgen.) Zorg ervoor dat de build voltooid is. (Op sommige systemen MSBuild kan leiden tot waarschuwingen. Deze waarschuwingen hebben geen invloed op het hulpprogramma, zolang er geen fouten build zijn.)
 4. Het gecompileerde hulpprogramma bevindt zich in C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
@@ -852,7 +852,7 @@ De gegevens worden vervolgens uit het bestand gelezen en gedeserialiseerd naar e
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Voorbeeld 5: Serialisatie met behulp van containerbestanden van object met een aangepaste compressiecodec
 Het vijfde voorbeeld ziet hoe u een aangepaste compressiecodec voor container van de avro-object. Een voorbeeld met de code voor dit voorbeeld kan worden gedownload vanaf de [Azure-codevoorbeelden](https://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
 
-De [Avro-specificatie](http://avro.apache.org/docs/current/spec.html#Required+Codecs) kunt u het gebruik van een optioneel compressiecodec (in aanvulling op **Null** en **Deflate** standaardinstellingen). In dit voorbeeld is het niet implementeren van een nieuwe codec zoals Snappy (die worden vermeld als een ondersteunde optioneel compressiecodec in de [Avro-specificatie](http://avro.apache.org/docs/current/spec.html#snappy)). Het laat zien hoe u de .NET Framework 4.5-implementatie van de [ **Deflate** ] [ deflate-110] verbeterde codecs, waarmee u een betere compressiealgoritme op basis van de [zlib ](http://zlib.net/) compressiebibliotheek dan de standaard .NET Framework 4-versie.
+De [Avro-specificatie](https://avro.apache.org/docs/current/spec.html#Required+Codecs) kunt u het gebruik van een optioneel compressiecodec (in aanvulling op **Null** en **Deflate** standaardinstellingen). In dit voorbeeld is het niet implementeren van een nieuwe codec zoals Snappy (die worden vermeld als een ondersteunde optioneel compressiecodec in de [Avro-specificatie](https://avro.apache.org/docs/current/spec.html#snappy)). Het laat zien hoe u de .NET Framework 4.5-implementatie van de [ **Deflate** ] [ deflate-110] verbeterde codecs, waarmee u een betere compressiealgoritme op basis van de [zlib ](https://zlib.net/) compressiebibliotheek dan de standaard .NET Framework 4-versie.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1351,7 +1351,7 @@ Het zesde voorbeeld ziet u enkele programmeertechnieken die betrekking hebben op
 Het voorbeeld heeft de volgende taken:
 
 * Maakt verbinding met een bestaand HDInsight-service-cluster.
-* Serialiseert verschillende CSV-bestanden en het resultaat geüpload naar Azure Blob storage. (De CSV-bestanden samen met het voorbeeld worden gedistribueerd en uitpakken van AMEX voorraad historische gegevens worden verspreid door vertegenwoordigen [Infochimps](http://www.infochimps.com/) voor de periode 1970 2010. Het voorbeeld leest gegevens uit een CSV-bestand, converteert u de records voor exemplaren van de **voorraad** klasse en serialiseert u ze via reflectie. Aandelen typedefinitie is gemaakt op basis van een JSON-schema via het Microsoft Avro Library-hulpprogramma voor het genereren van code.
+* Serialiseert verschillende CSV-bestanden en het resultaat geüpload naar Azure Blob storage. (De CSV-bestanden samen met het voorbeeld worden gedistribueerd en uitpakken van AMEX voorraad historische gegevens worden verspreid door vertegenwoordigen [Infochimps](https://www.infochimps.com/) voor de periode 1970 2010. Het voorbeeld leest gegevens uit een CSV-bestand, converteert u de records voor exemplaren van de **voorraad** klasse en serialiseert u ze via reflectie. Aandelen typedefinitie is gemaakt op basis van een JSON-schema via het Microsoft Avro Library-hulpprogramma voor het genereren van code.
 * Hiermee maakt u een nieuwe externe tabel met de naam **voorraden** in Hive en koppelingen naar de gegevens in de vorige stap hebt geüpload.
 * Een query uitvoert met behulp van Hive via de **voorraden** tabel.
 
@@ -1378,5 +1378,5 @@ Als u wilt opschonen van het cluster, moet u de volgende opdracht uitvoeren:
 
     AvroHDISample clean
 
-[deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
-[deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
+[deflate-100]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx

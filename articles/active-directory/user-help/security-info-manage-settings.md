@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162713"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016143"
 ---
 # <a name="manage-your-security-info-preview"></a>Beheren van je beveiligingsgegevens (preview)
 
@@ -67,7 +67,7 @@ Als u uw apparaat verliest of als uw apparaat wordt aangetast, hebt u om de inst
 
 3. In de **-account beheren** gedeelte **vergeet MFA op onthouden apparaten**.
     
-    Kies deze optie betekent dat u hebt om te gaan met het proces voor multi-factor Authentication opnieuw nadat u zich hebt aangemeld.
+    Kies deze optie betekent dat u hebt om te gaan met het proces voor multi-factor Authentication (MFA) opnieuw nadat u zich hebt aangemeld.
 
     ![Scherm profiel met de vergeten koppeling gemarkeerd](media/security-info/security-info-forget.png)
 
@@ -77,7 +77,7 @@ In dit artikel helpt u bij het oplossen van je beveiligingsgegevens, met inbegri
 
 |Probleem|Oplossing|
 |-------|--------|
-|Ik heb mijn telefoon met mij|Het mogelijk dat u hebt geen uw telefoon met u te allen tijde, maar dat u hebt nog kunnen aanmelden bij uw werk- of schoolaccount. U lost dit probleem, kunt u zich aanmelden met een andere verificatiemethode waarvoor uw telefoon, zoals uw e-mailadres of het nummer van uw zakelijke telefoon. Aanvullende methoden toevoegen aan je beveiligingsgegevens, kunt u Volg de stappen in de [wijzigen van uw gegevens](#change-your-info) sectie.|
+|Ik heb mijn telefoon met mij|Het mogelijk dat u hebt geen uw telefoon met u te allen tijde, maar dat u hebt nog kunnen aanmelden bij uw werk- of schoolaccount. U lost dit probleem, kunt u zich aanmelden met een andere verificatiemethode waarvoor uw telefoon, zoals uw telefoonnummer. Aanvullende methoden toevoegen aan je beveiligingsgegevens, kunt u Volg de stappen in de [wijzigen van uw gegevens](#change-your-info) sectie.|
 |Kan ik mijn telefoon verloren of gestolen was|Helaas, verlies van uw telefoon of deze wordt gestolen kan gebeuren. In dit geval raadzaam dat u uw organisatie op de hoogte kunt zodat uw IT-personeel uw appwachtwoorden opnieuw instellen kunnen en schakel alle apparaten uit de lijst met vertrouwde apparaten onthouden. U kunt ook uw eigen vertrouwde apparaten vergeet met de volgende stappen in de [beheren van je beveiligingsgegevens voor een verloren of potentieel aangetast apparaat](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) sectie.|
 |Er treedt een nieuw telefoonnummer|Er zijn twee manieren om dit probleem te verhelpen. U kunt zich aanmelden met behulp van een andere verificatiemethode waarvoor uw telefoonnummer, zoals e-mail, of als die kan niet worden gebruikt, kunt u contact met uw organisatie de IT-personeel en hebben ze uw instellingen wissen. Aanvullende methoden toevoegen aan je beveiligingsgegevens, kunt u Volg de stappen in de [wijzigen van uw gegevens](#change-your-info) sectie.|
 |Mijn standaardmethode is onjuist|U kunt uw standaardmethode bijwerken in uw beveiligingsopties. Voor meer informatie gaat u naar de [wijzigen van uw gegevens](#change-your-info) sectie.|

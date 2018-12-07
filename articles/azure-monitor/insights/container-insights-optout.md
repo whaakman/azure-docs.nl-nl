@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 6865fac08b8c607f7053b334c648766cc1e7c291
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 1df4e345645fb216f1656b2bbe87396cf0719d1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715299"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994985"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Stoppen met het controleren van uw Azure Kubernetes Service (AKS) met Azure Monitor voor containers (Preview)
 
@@ -149,5 +149,5 @@ Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, 
 ProvisioningState       : Succeeded
 ```
 
-Als de werkruimte alleen ter ondersteuning van de bewaking van het cluster is gemaakt en deze niet meer nodig hebt, hebt u deze handmatig te verwijderen. Als u niet bekend bent met het verwijderen van een werkruimte, Zie [verwijderen van een Azure Log Analytics-werkruimte met de Azure-portal](../../log-analytics/log-analytics-manage-del-workspace.md). Vergeet niet over de **Resource-ID van werkruimte** we eerder in stap 4 hebt gekopieerd, gaat u die nodig hebt. 
+Als de werkruimte alleen ter ondersteuning van de bewaking van het cluster is gemaakt en deze niet meer nodig hebt, hebt u deze handmatig te verwijderen. Als u niet bekend bent met het verwijderen van een werkruimte, Zie [verwijderen van een Azure Log Analytics-werkruimte met de Azure-portal](../../azure-monitor/platform/delete-workspace.md). Vergeet niet over de **Resource-ID van werkruimte** we eerder in stap 4 hebt gekopieerd, gaat u die nodig hebt. 
 

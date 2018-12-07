@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: f440e92f62c7c61966145a1e74d3d3be9f6b7825
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: bacb2cfffe567808f95e42e5ee6e2070815eace6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250553"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996731"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindingen voor Azure Functions
 
@@ -27,13 +27,13 @@ In dit artikel wordt uitgelegd hoe u werkt met Azure Service Bus-bindingen in Az
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Service Bus-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-pakket versie 2.x. 
+De Service Bus-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-pakket versie 2.x. 
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
-De Service Bus-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub-opslagplaats.
+De Service Bus-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -118,9 +118,9 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### <a name="trigger---f-example"></a>Trigger - F #-voorbeeld
+### <a name="trigger---f-example"></a>Trigger - F# voorbeeld
 
-Het volgende voorbeeld ziet u een Service Bus-trigger binding in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie vastlegt een Service Bus-wachtrij-bericht. 
+Het volgende voorbeeld ziet u een Service Bus-trigger binding in een *function.json* bestand en een [ F# functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie vastlegt een Service Bus-wachtrij-bericht. 
 
 Hier volgt de binding-gegevens de *function.json* bestand:
 
@@ -139,7 +139,7 @@ Hier volgt de binding-gegevens de *function.json* bestand:
 }
 ```
 
-Dit is de F #-scriptcode:
+Hier volgt de F# code script:
 
 ```fsharp
 let Run(myQueueItem: string, log: ILogger) =
@@ -277,7 +277,7 @@ De Service Bus-account moet worden gebruikt, wordt bepaald in de volgende volgor
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `ServiceBusTrigger` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op 'serviceBusTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
@@ -317,7 +317,7 @@ Functies 1.x kunt u configureren `autoRenewTimeout` in *host.json*, die verwijst
 
 De Service Bus-trigger bevat diverse [metagegevenseigenschappen](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Dit zijn de eigenschappen van de [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) klasse.
 
-|Eigenschap|Type|Beschrijving|
+|Eigenschap|Type|Description|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Het aantal bezorgingen.|
 |`DeadLetterSource`|`string`|De dead-letter-bron.|
@@ -419,9 +419,9 @@ public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> output
 }
 ```
 
-### <a name="output---f-example"></a>Uitvoer - F #-voorbeeld
+### <a name="output---f-example"></a>Uitvoer - F# voorbeeld
 
-Het volgende voorbeeld ziet u een Service Bus-Uitvoerbinding een *function.json* bestand en een [F #-scriptfunctie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie een timertrigger gebruikt voor het verzenden van een wachtrijbericht elke 15 seconden.
+Het volgende voorbeeld ziet u een Service Bus-Uitvoerbinding een *function.json* bestand en een [ F# functie script](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie een timertrigger gebruikt voor het verzenden van een wachtrijbericht elke 15 seconden.
 
 Hier volgt de binding-gegevens de *function.json* bestand:
 
@@ -447,7 +447,7 @@ Hier volgt de binding-gegevens de *function.json* bestand:
 }
 ```
 
-Hier volgt een F #-scriptcode die wordt gemaakt van een enkel bericht:
+Hier volgt F# code die een enkel bericht maakt een script:
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
@@ -561,7 +561,7 @@ U kunt de `ServiceBusAccount` kenmerk om op te geven van de Service Bus-account 
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `ServiceBus` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op 'Service Bus'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op 'out'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
@@ -617,12 +617,13 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            }
         }
     }
 }
 ```
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |autoRenewTimeout|00:05:00|De maximale tijdsduur waarbinnen de vergrendeling van het bericht automatisch wordt vernieuwd.| 
 |automatisch aanvullen|false|De trigger moet of onmiddellijk markeren als voltooid (automatisch aanvullen) of wacht op verwerking voor het aanroepen van voltooid.| 

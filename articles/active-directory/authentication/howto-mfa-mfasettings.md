@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497007"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013011"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -29,7 +29,7 @@ U hebt toegang tot de instellingen in verband met multi-factor Authentication va
 
 Sommige van deze instellingen gelden voor MFA-Server en/of de Azure MFA.
 
-| Functie | Beschrijving |
+| Functie | Description |
 | ------- | ----------- |
 | Accountvergrendeling | Tijdelijk Vergrendel accounts in de multi-factor authentication-service als er te veel verificatiepogingen in een rij geweigerd. Deze functie is alleen van toepassing op gebruikers die een pincode om te verifiëren. (MFA-Server) |
 | [Gebruikers blokkeren/deblokkeren](#block-and-unblock-users) | Gebruikt voor het blokkeren van bepaalde gebruikers op de MFA-Server (on-premises) geen multi-factor Authentication-aanvragen worden ontvangen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Gebruikers blijven geblokkeerd gedurende 90 dagen vanaf het moment dat ze worden geblokkeerd. |
@@ -43,7 +43,7 @@ Sommige van deze instellingen gelden voor MFA-Server en/of de Azure MFA.
 
 Instellingen in deze sectie zijn alleen voor MFA-Server.
 
-| Functie | Beschrijving |
+| Functie | Description |
 | ------- | ----------- |
 | Serverinstellingen | MFA-Server downloaden en activeringsreferenties voor het initialiseren van uw omgeving te genereren |
 | [Eenmalige bypass](#one-time-bypass) | Toestaan dat een gebruiker verifiëren zonder verificatie in twee stappen uitvoeren voor een beperkte periode. |
@@ -329,7 +329,7 @@ U kunt de verificatiemethoden die beschikbaar voor uw gebruikers zijn. De volgen
 
 Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registreren, kiezen ze hun gewenste verificatiemethode uit de opties die u hebt ingeschakeld. Richtlijnen voor het registratieproces voor de gebruiker is opgegeven in [instellen van mijn account voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Methode | Beschrijving |
+| Methode | Description |
 |:--- |:--- |
 | Bellen naar telefoon |Plaatst een geautomatiseerd telefoongesprek. De gebruiker beantwoordt het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. Het telefoonnummer is niet gesynchroniseerd met on-premises Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|
@@ -384,3 +384,7 @@ De functie vermindert het aantal verificaties op web-apps, waarbij elke keer nor
 ### <a name="mark-a-device-as-trusted"></a>Een apparaat als vertrouwd is ingeschakeld
 
 Nadat u de multi-factor Authentication onthouden functie hebt ingeschakeld, gebruikers een apparaat als vertrouwd als kunnen markeren ze zich aanmelden door te selecteren **niet opnieuw vragen**.
+
+# <a name="next-steps"></a>Volgende stappen
+
+[Azure AD-aanmeldingspagina huisstijl aanpassen](..\fundamentals\customize-branding.md)

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720402"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993365"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI-kanaal van Application Insights
-[Power BI](http://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) is een suite met hulpprogramma's voor business die helpt u bij het analyseren van gegevens en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit verschillende bronnen, met inbegrip van Analytics-query's uit combineren [Azure Application Insights](app-insights-overview.md).
 
 Er zijn drie methoden voor het Application Insights-gegevens exporteren naar Power BI:
 
@@ -40,7 +40,7 @@ Als u wilt importeren in uw Application Insights-query, moet u de bureaubladvers
 Installeer [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exporteren van een Analytics-query
-1. [Analytics openen en uw query schrijven](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Analytics openen en uw query schrijven](../azure-monitor/log-query/get-started-portal.md).
 2. Test en de query te verfijnen totdat u tevreden met de resultaten bent. Zorg ervoor dat de query correct wordt uitgevoerd in Analytics voordat u het exporteren.
 3. Op de **exporteren** menu, kiest u **Power BI (M)**. Bewaar het tekstbestand.
    
@@ -152,6 +152,6 @@ U kunt het dashboard bewerken door de Application Insights-grafieken met die van
 Na de eerste import telkens het dashboard en de rapporten dagelijks bijgewerkt. U kunt het schema voor gegevensvernieuwing instellen op de gegevensset kunt beheren.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Power BI - informatie](http://www.powerbi.com/learning/)
-* [Analytics-zelfstudie](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI - informatie](https://www.powerbi.com/learning/)
+* [Analytics-zelfstudie](../azure-monitor/log-query/get-started-portal.md)
 

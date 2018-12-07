@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: ce539da92b9d58282ab44a3729f4bf4fb8eaedf5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840330"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997687"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Transact-SQL-verschillen oplossen tijdens de migratie naar SQL Database
 
@@ -45,25 +45,37 @@ De core (data definition language met) DDL-instructies zijn beschikbaar, maar so
 
 Naast de Transact-SQL-instructies met betrekking tot de niet-ondersteunde functies die beschreven worden [vergelijking van Azure SQL Database](sql-database-features.md), de volgende instructies en groepen instructies worden niet ondersteund. Als zodanig, als uw database worden gemigreerd maakt gebruik van de volgende functies, opnieuw engineering toepassen op uw T-SQL om deze T-SQL-functies en instructies te elimineren.
 
--Sortering van systeem objecten - verbinding gerelateerd: eindpuntinstructies. SQL Database biedt geen ondersteuning voor Windows-verificatie, maar ondersteunt wel de vergelijkbare Azure Active Directory-verificatie. Voor sommige verificatietypen is de nieuwste versie van SSMS vereist. Zie voor meer informatie, [verbinding maken met SQL-Database of SQL Data Warehouse door met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md).
--Databaseoverschrijdende query's met drie of vier onderdeelnamen. (Alleen-lezen query's die databaseoverschrijdend zijn worden ondersteund door middel van [elastische databasequery](sql-database-elastic-query-overview.md).) - Cross database chaining-eigendom, `TRUSTWORTHY` instelling - `EXECUTE AS LOGIN` 'Uitvoeren als gebruiker' in plaats daarvan gebruiken.
--Versleuteling wordt ondersteund, met uitzondering van extensible key management - Eventing: gebeurtenissen, meldingen van gebeurtenissen, querymeldingen - bestandsplaatsing: syntaxis die betrekking heeft op databasebestandsplaatsing, grootte en databasebestanden die automatisch worden beheerd door Microsoft Azure.
+- Systeemobjecten sorteren
+- Verbindingen gerelateerd: eindpuntinstructies. SQL Database biedt geen ondersteuning voor Windows-verificatie, maar ondersteunt wel de vergelijkbare Azure Active Directory-verificatie. Voor sommige verificatietypen is de nieuwste versie van SSMS vereist. Zie [Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) voor meer informatie.
+- Databaseoverschrijdende query’s met drie of vier onderdeelnamen. (Alleen-lezen query’s die databaseoverschrijdend zijn worden ondersteund dankzij [elastische databasequery’s](sql-database-elastic-query-overview.md).)
+- Databaseoverschrijdend het eigendom koppelen, instelling `TRUSTWORTHY`
+- `EXECUTE AS LOGIN` Gebruik in plaats daarvan 'EXECUTE AS USER'.
+- Versleuteling wordt ondersteund, behalve voor Extensible Key Management
+- Eventing: Gebeurtenissen, meldingen van gebeurtenissen, querymeldingen
+- Plaatsing van bestanden: syntaxis die betrekking heeft op databasebestandsplaatsing, grootte en databasebestanden die automatisch worden beheerd door Microsoft Azure.
 - Hoge beschikbaarheid: syntaxis die betrekking hebben op hoge beschikbaarheid, die wordt beheerd via uw Microsoft Azure-account. Dit omvat syntaxis voor back-ups, herstellen, Always On, databasespiegeling, de back-upfunctie voor logboekbestanden en herstelmodi.
--Meld u lezer: syntaxis die afhankelijk is van de logboekweergave die niet beschikbaar op de SQL-Database is: Push-replicatie, Change Data Capture. SQL Database kan abonnee zijn op een artikel over push-replicatie.
--Functies: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes` -Hardware: syntaxis die betrekking heeft op hardwaregerelateerde serverinstellingen:, zoals geheugen, werkthreads, CPU-affiniteit, trace worden gemarkeerd. Gebruik van service-lagen en compute-grootten in plaats daarvan.
-- `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, en vierdelige namen - .NET Framework: CLR-integratie met de referenties van de SQL Server - functionaliteit voor semantische zoeken - Server: Gebruik [referenties in het databasebereik](https://msdn.microsoft.com/library/mt270260.aspx) in plaats daarvan.
--Items serverniveau: serverrollen, `sys.login_token`. `GRANT`, `REVOKE`, en `DENY` van de machtigingen op serverniveau zijn niet beschikbaar, hoewel enkele hiervan worden vervangen door machtigingen op databaseniveau. Sommige handige DMV’s op serverniveau hebben vergelijkbare DMV’s op databaseniveau.
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- `sp_configure` opties en `RECONFIGURE`. Sommige opties zijn beschikbaar met [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
+- Meld u lezer: syntaxis die afhankelijk is van de logboekweergave die niet beschikbaar op de SQL-Database is: Push-replicatie, Change Data Capture. SQL Database kan abonnee zijn op een artikel over push-replicatie.
+- Functies: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
+- Hardware: Syntaxis die betrekking heeft op hardwaregerelateerde serverinstellingen:, zoals geheugen, werkthreads, CPU-affiniteit, trace worden gemarkeerd. Gebruik van service-lagen en compute-grootten in plaats daarvan.
+- `KILL STATS JOB`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, en vierdelige namen
+- .NET framework: CLR-integratie met SQL Server
+- Semantische zoekopdrachten
+- Serverreferenties: Gebruik [referenties in het databasebereik](https://msdn.microsoft.com/library/mt270260.aspx) in plaats daarvan.
+- Items op serverniveau: serverrollen, `sys.login_token`. `GRANT`, `REVOKE`, en `DENY` van de machtigingen op serverniveau zijn niet beschikbaar, hoewel enkele hiervan worden vervangen door machtigingen op databaseniveau. Sommige handige DMV’s op serverniveau hebben vergelijkbare DMV’s op databaseniveau.
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- `sp_configure`-opties en `RECONFIGURE`. Sommige opties zijn beschikbaar met [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
 - SQL ServerAgent: Syntaxis die afhankelijk van de SQL Server Agent of de MSDB-database is: waarschuwingen, operators, servers voor Centraal beheer. Gebruik in plaats daarvan opties voor scripts, zoals Azure PowerShell.
--SQL Server audit: Gebruik SQL Database auditing in plaats daarvan.
--SQL Server trace - Tracering vlaggen: sommige traceermarkeringsitems zijn verplaatst naar compatibiliteitsmodi.
--Foutopsporing in transact-SQL - Triggers: binnen het serverbereik of aanmeldingstriggers - `USE` instructie: als u de databasecontext wilt een andere database, moet u een nieuwe verbinding met de nieuwe database.
+- SQL Server audit: Gebruik SQL Database auditing in plaats daarvan.
+- SQL Server-tracering
+- Traceermarkeringen: sommige traceermarkeringsitems zijn verplaatst naar compatibiliteitsmodi.
+- Transact-SQL-foutopsporing
+- Triggers: triggers binnen het serverbereik of aanmeldingstriggers
+- `USE`-instructie: als u de databasecontext wilt wijzigen naar een andere database, moet u een nieuwe verbinding maken met de nieuwe database.
 
 ## <a name="full-transact-sql-reference"></a>Volledige naslaginformatie voor Transact-SQL
 

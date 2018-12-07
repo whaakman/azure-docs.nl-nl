@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4c58984e512556b73281cca1154b4879c9db79d5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d9f632485d1ebf263efb78bfbf6de40496ebb75c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956759"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016251"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Beveiligen van Azure SQL-service en -gegevens in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen.  Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's), netwerk-, SQL en gegevens en toepassingen.
@@ -51,10 +51,10 @@ Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder
 
 ## <a name="data-and-storage-recommendations"></a>Aanbevelingen voor gegevens en opslag
 
-|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
+|Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
 |Storage-account|20|Veilige overdracht naar storage-account vereisen|Veilige overdracht is een optie die ervoor zorgt dat uw storage-account om te accepteren van aanvragen van beveiligde verbindingen (HTTPS). Gebruik van HTTPS-verificatie tussen de server en de service garandeert en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
-|Redis|20|Alleen beveiligde verbindingen met uw Redis-Cache inschakelen|Alleen verbindingen met SSL-beveiliging met Redis-Cache inschakelen. Gebruik van beveiligde verbindingen zorgt ervoor dat de verificatie tussen de server en de service en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
+|Redis|20|Alleen beveiligde verbindingen naar uw Azure-Cache voor Redis inschakelen|Schakel alleen verbindingen met SSL-beveiliging met Azure-Cache voor Redis. Gebruik van beveiligde verbindingen zorgt ervoor dat de verificatie tussen de server en de service en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
 |SQL|15|Transparent Data Encryption inschakelen voor SQL-databases|Transparante gegevensversleuteling inschakelen om data-at-rest te beveiligen en de vereisten na te leven.|
 |SQL|15|Controleren voor SQL-servers inschakelen|Controle inschakelen voor Azure SQL-servers. (Alleen voor azure SQL-service. Bevat geen SQL die worden uitgevoerd op uw virtuele machines.)|
 |SQL|15|Controleren voor SQL-databases inschakelen|Controle inschakelen voor Azure SQL-databases. (Alleen voor azure SQL-service. Bevat geen SQL die worden uitgevoerd op uw virtuele machines.)|

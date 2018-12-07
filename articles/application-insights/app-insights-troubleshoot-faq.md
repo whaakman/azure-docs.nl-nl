@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 894c3e42378ddcbe9cba7b6f33d8500988695754
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721014"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996524"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -140,7 +140,7 @@ We controleren of het IP-adres (IPv4 of IPv6) van de webclient met behulp van [G
 * Telemetrie van de browser: We verzamelen van de afzender IP-adres.
 * Servertelemetrie: de Application Insights-module verzamelt IP-adres van de client. Het is niet verzameld als `X-Forwarded-For` is ingesteld.
 
-U kunt configureren dat de `ClientIpHeaderTelemetryInitializer` overnemen van het IP-adres van een andere koptekst. In sommige systemen, bijvoorbeeld, wordt deze verplaatst door een proxy, load balancer of een CDN `X-Originating-IP`. [Meer informatie](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+U kunt configureren dat de `ClientIpHeaderTelemetryInitializer` overnemen van het IP-adres van een andere koptekst. In sommige systemen, bijvoorbeeld, wordt deze verplaatst door een proxy, load balancer of een CDN `X-Originating-IP`. [Meer informatie](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 U kunt [Power BI gebruiken](app-insights-export-power-bi.md) om de aanvraagtelemetrie van uw op een kaart weer te geven.
 
@@ -184,7 +184,7 @@ Gebruik één resource voor alle onderdelen of rollen in een enkele business-sys
 ## <a name="what-are-the-user-and-session-counts"></a>Wat zijn de gebruikers- en telt?
 
 * De JavaScript-SDK wordt de cookie van een gebruiker op de webclient, om terugkerende gebruikers te identificeren en een sessiecookie ingesteld om activiteiten te groeperen.
-* Als er geen client-side-script, kunt u [cookies ingesteld op de server](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Als er geen client-side-script, kunt u [cookies ingesteld op de server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Als een echte gebruiker maakt gebruik van uw site in verschillende browsers of met behulp van in-privé-/ incognito te bladeren, of verschillende computers, en ze zullen meer dan één keer worden geteld.
 * Voor het identificeren van een gebruiker is aangemeld op computers en browsers, Voeg een aanroep naar [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 

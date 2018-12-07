@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 4747c06ddb56a86c2efc7340043efdd019b86049
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 03fea6cf1276172893f18f1b09c8e3fdeec4ac4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962906"
+ms.locfileid: "53001154"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hoe u ingebouwde Azure-Monitor voor containers (Preview) 
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor containers voor het bewaken van de prestaties van workloads die worden geïmplementeerd in Kubernetes-omgevingen en die worden gehost op [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -35,7 +35,7 @@ U kunt ook inschakelen voor bewaking voor een of meer bestaande AKS-clusters in 
 Voordat u begint, zorg ervoor dat u het volgende hebt:
 
 - Een Log Analytics-werkruimte. Als u bewaking van uw nieuwe AKS-cluster of laat het onboarding-ervaring een standaardwerkruimte maken in de standaard-resourcegroep van het AKS-cluster-abonnement, kunt u deze maken. Als u wilt deze zelf maken, kunt u het maken via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), tot en met [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), of in de [Azure-portal](../../azure-monitor/learn/quick-create-workspace.md).
-- U bent lid van de inzendersrol van Log Analytics voor containerbewaking inschakelen. Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../../log-analytics/log-analytics-manage-access.md).
+- U bent lid van de inzendersrol van Log Analytics voor containerbewaking inschakelen. Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

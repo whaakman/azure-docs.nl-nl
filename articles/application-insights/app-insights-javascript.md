@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 52fe5ac108e2788e481d89901dd24098cdb3c9b4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 937cbc1346ce41670270b911e474e900f406a93b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965203"
+ms.locfileid: "52993620"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
 Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
@@ -74,7 +74,7 @@ Voeg het script in vlak vóór de `</head>`-tag op elke pagina die u wilt volgen
 
 Het script bevat de instrumentatiesleutel die de gegevens naar uw Application Insights-resource stuurt. 
 
-([Nadere uitleg over het script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+([Nadere uitleg over het script.](https://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 ## <a name="detailed-configuration"></a>Gedetailleerde configuratie
 U kunt diverse [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) instellen. In de meeste gevallen is dat echter niet nodig. U kunt bijvoorbeeld het aantal Ajax-aanroepen dat per paginaweergave wordt gerapporteerd beperken of deze rapportering uitschakelen (om verkeer te beperken). Of u kunt de foutopsporingsmodus zo instellen dat telemetrie snel via de pijplijn wordt verzameld zonder deze telemetrie in een batch op te nemen.
@@ -125,7 +125,7 @@ De blade Browser is een [Metrics Explorer-blade](app-insights-metrics-explorer.m
 ## <a name="page-load-performance"></a>Laadprestaties van de pagina
 Bovenaan staat een grafieksegment met laadtijden van pagina’s. De totale hoogte van de grafiek geeft de gemiddelde tijd aan die nodig is voor het laden en weergeven van pagina's van uw app in de browsers van uw gebruikers. De tijd wordt gemeten vanaf het moment dat de browser de eerste HTTP-aanvraag verzendt tot het moment dat alle synchrone gebeurtenissen tijdens het laden zijn verwerkt, met inbegrip van indeling en uitgevoerde scripts. Asynchrone taken, zoals het laden van de webonderdelen van AJAX-aanroepen, zijn niet opgenomen.
 
-De grafiek segmenteert de totale laadtijd van de pagina in de [standaardtijdsinstellingen gedefinieerd door W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+De grafiek segmenteert de totale laadtijd van de pagina in de [standaardtijdsinstellingen gedefinieerd door W3C](https://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 622ebbd902b0a87d891432e14398d40eb4004e92
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632506"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010974"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel verbinden met Apache Hadoop in Azure HDInsight met het Microsoft Hive ODBC-stuurprogramma
 
@@ -51,7 +51,7 @@ De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.
 4. Selecteer **stuurprogramma Microsoft Hive ODBC**, en klik vervolgens op **voltooien**. U ziet de **Microsoft Hive ODBC-stuurprogramma voor DNS-instellingen** dialoogvenster.
 5. Typ of selecteer de volgende waarden:
    
-   | Eigenschap | Beschrijving |
+   | Eigenschap | Description |
    | --- | --- |
    |  Naam van de gegevensbron |Geef uw gegevensbron een naam |
    |  Host |Voer &lt;HDInsightClusterName>.azurehdinsight.net in. Bijvoorbeeld: myHDICluster.azurehdinsight.net |
@@ -65,7 +65,7 @@ De volgende stappen laten zien hoe u een Hive ODBC-gegevensbron maken.
    
     Er zijn enkele belangrijke parameters rekening mee moet houden wanneer u klikt op **geavanceerde opties**:
    
-   | Parameter | Beschrijving |
+   | Parameter | Description |
    | --- | --- |
    |  Systeemeigen Query gebruiken |Wanneer deze optie is geselecteerd, probeert het ODBC-stuurprogramma niet TSQL converteren naar HiveQL. U dient deze alleen als u 100% zeker dat u verzendt pure HiveQL-instructies gebruiken. Bij het verbinden met SQL Server of Azure SQL Database, laat u het vakje uitgeschakeld. |
    |  Rijen per blok wordt opgehaald |Tijdens het ophalen van een groot aantal records, kan afstemmen van deze parameter worden vereist om ervoor te zorgen van optimale prestaties. |
@@ -107,6 +107,6 @@ In dit artikel hebt u geleerd hoe u gegevens ophaalt uit de HDInsight-Service in
 [hdinsight-use-hive]:hdinsight-use-hive.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query.md
-[hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
+[hive-odbc-driver-download]: https://go.microsoft.com/fwlink/?LinkID=286698
 
 

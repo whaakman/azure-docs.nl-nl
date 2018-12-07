@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971314"
+ms.locfileid: "52994541"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -154,7 +154,7 @@ Het gegenereerde *function.json* bestand bevat een `configurationSource` eigensc
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-De *function.json* bestand wordt gemaakt via het NuGet-pakket [Microsoft\.NET\.Sdk\.functies](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+De *function.json* bestand wordt gemaakt via het NuGet-pakket [Microsoft\.NET\.Sdk\.functies](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 Hetzelfde pakket wordt gebruikt voor beide versie 1.x en 2.x van de Functions-runtime. Het doelframework is wat een 1.x-project van een project 2.x onderscheidt. Hier vindt u belangrijke onderdelen van *.csproj* bestanden, met verschillende frameworks en hetzelfde doel `Sdk` pakket:
 
@@ -183,7 +183,7 @@ Hetzelfde pakket wordt gebruikt voor beide versie 1.x en 2.x van de Functions-ru
 
 Tussen de `Sdk` pakketafhankelijkheden zijn triggers en bindingen. Een 1.x-project verwijst naar de 1.x-triggers en bindingen omdat die zijn gericht op het .NET Framework, terwijl 2.x triggers en bindingen gericht op .NET Core.
 
-De `Sdk` pakket ook afhankelijk van [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json), en klik op indirect [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Deze afhankelijkheden Zorg ervoor dat het project gebruikmaakt van de versies van de pakketten die met Functions runtime-versie werken die de project-doelen. Bijvoorbeeld, `Newtonsoft.Json` versie 11 voor .NET Framework 4.6.1 is, maar de Functions-runtime die gericht is op .NET Framework 4.6.1 is alleen compatibel is met `Newtonsoft.Json` 9.0.1. Zodat uw functiecode aan te geven in dat project ook heeft gebruik van `Newtonsoft.Json` 9.0.1.
+De `Sdk` pakket ook afhankelijk van [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), en klik op indirect [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Deze afhankelijkheden Zorg ervoor dat het project gebruikmaakt van de versies van de pakketten die met Functions runtime-versie werken die de project-doelen. Bijvoorbeeld, `Newtonsoft.Json` versie 11 voor .NET Framework 4.6.1 is, maar de Functions-runtime die gericht is op .NET Framework 4.6.1 is alleen compatibel is met `Newtonsoft.Json` 9.0.1. Zodat uw functiecode aan te geven in dat project ook heeft gebruik van `Newtonsoft.Json` 9.0.1.
 
 De broncode voor `Microsoft.NET.Sdk.Functions` is beschikbaar in de GitHub-opslagplaats [azure\-functies\-vs\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

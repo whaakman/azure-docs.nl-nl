@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2d378c537d4e20698863c789101e4ad3167b7f10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: f36d0ec4446ee6591798c0d8926f41a4e177d81d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680817"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997057"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnose-uitzonderingen in uw web-apps met Application Insights
 Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insights](app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonderingen en andere gebeurtenissen op de client en de server, zodat u kunt snel onderzoek de oorzaken.
@@ -168,7 +168,7 @@ De eigenschappen en metingen parameters zijn optioneel, maar zijn nuttig voor [f
 ## <a name="browser-exceptions"></a>Browseruitzonderingen
 De meeste browseruitzonderingen worden gerapporteerd.
 
-Als uw webpagina scriptbestanden vanuit CDN's of andere domeinen bevat, controleert u of uw script-code heeft het kenmerk ```crossorigin="anonymous"```, en dat de server verzendt [CORS-headers](http://enable-cors.org/). Hierdoor hebt u een stack-trace en de details voor niet-verwerkte JavaScript-uitzonderingen van deze resources.
+Als uw webpagina scriptbestanden vanuit CDN's of andere domeinen bevat, controleert u of uw script-code heeft het kenmerk ```crossorigin="anonymous"```, en dat de server verzendt [CORS-headers](https://enable-cors.org/). Hierdoor hebt u een stack-trace en de details voor niet-verwerkte JavaScript-uitzonderingen van deze resources.
 
 ## <a name="web-forms"></a>Webformulieren
 Voor webformulieren zich de HTTP-Module voor het verzamelen van de uitzonderingen als er geen omleidingen geconfigureerd met CustomErrors.

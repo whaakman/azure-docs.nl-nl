@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155980"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998093"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ U kunt bouwen en uitvoeren van moderne, draagbare, op basis van microservices-to
 
 Als een open platform kunt met Kubernetes u uw toepassingen met uw favoriete programmeertaal, besturingssysteem, bibliotheken of bus messaging. Bestaande continue integratie en continue levering (CI/CD) hulpprogramma's kunnen integreren met Kubernetes voor het plannen en implementeren van releases.
 
-Azure Kubernetes Service (AKS) biedt een beheerde Kubernetes-service die de complexiteit voor implementatie en core-beheertaken, waaronder upgrades coördineren. De AKS-cluster-modellen worden beheerd door de Azure-platform en u betaalt alleen voor de AKS-knooppunten waarop uw toepassingen worden uitgevoerd. AKS is gebaseerd op de open-source Azure Container Service Engine (acs-engine).
+Azure Kubernetes Service (AKS) biedt een beheerde Kubernetes-service die de complexiteit voor implementatie en core-beheertaken, waaronder upgrades coördineren. De AKS-cluster-modellen worden beheerd door de Azure-platform en u betaalt alleen voor de AKS-knooppunten waarop uw toepassingen worden uitgevoerd. AKS is gebaseerd op de Engine voor open-source Azure Kubernetes Service (aks-engine).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architectuur van de Kubernetes-cluster
 
@@ -54,7 +54,7 @@ AKS biedt een cluster met één tenant-model, met een eigen API-server, Schedule
 
 Dit model beheerd cluster betekent dat u niet wilt configureren van onderdelen, zoals een maximaal beschikbare *etcd* store, maar dit betekent ook dat u kan niet rechtstreeks toegang hebben tot de cluster-master. Upgrades naar Kubernetes worden beheerd via de Azure CLI of Azure portal, die de cluster-master en klik vervolgens op de knooppunten wordt bijgewerkt. Voor het oplossen van problemen, kunt u de cluster master logboeken via Azure Log Analytics bekijken.
 
-Als u wilt configureren van de cluster-master op een bepaalde manier of directe toegang nodig tot deze, kunt u uw eigen Kubernetes-cluster via te implementeren [acs-engine][acs-engine].
+Als u wilt configureren van de cluster-master op een bepaalde manier of directe toegang nodig tot deze, kunt u uw eigen Kubernetes-cluster via te implementeren [aks-engine][aks-engine].
 
 ## <a name="nodes-and-node-pools"></a>Knooppunten en knooppuntgroepen
 
@@ -70,7 +70,7 @@ De Azure VM-grootte voor uw knooppunten definieert het aantal CPU's, hoeveel geh
 
 De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren.
 
-Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [acs-engine][acs-engine]. De upstream `acs-engine` vrijgegeven functies en configuratieopties te leveren voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Docker wilt, kunt u `acs-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
+Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties te leveren voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Docker wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
 
 ### <a name="resource-reservations"></a>Resource-reserveringen
 
@@ -218,7 +218,7 @@ Dit artikel vindt u enkele van de belangrijkste onderdelen die Kubernetes en hoe
 - [Kubernetes / AKS schalen][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

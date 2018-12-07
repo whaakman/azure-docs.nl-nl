@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3be368f128e4436cd58812937aaaf82a909b2645
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0618a580c6bdcef8f28a439cd79e67d863e58b9e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720759"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995235"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Web-apps tijdens runtime instrumenteren met Application Insights
 
-U kunt een live web-app instrumenteren met Azure Application Insights, zonder dat u de code hoeft te wijzigen of opnieuw hoeft te implementeren. Als uw apps worden gehost op een on-premises IIS-server, installeert u Status Monitor. Als uw apps Azure-web-apps zijn of worden uitgevoerd op een virtuele Azure-machine, kunt u Application Insights-bewaking inschakelen in het configuratiescherm van Azure. (Er zijn ook afzonderlijke artikelen over het instrumenteren van [live J2EE-web-apps](app-insights-java-live.md) en [Azure Cloud Services](app-insights-cloudservices.md).) U hebt een [Microsoft Azure](http://azure.com)-abonnement nodig.
+U kunt een live web-app instrumenteren met Azure Application Insights, zonder dat u de code hoeft te wijzigen of opnieuw hoeft te implementeren. Als uw apps worden gehost op een on-premises IIS-server, installeert u Status Monitor. Als uw apps Azure-web-apps zijn of worden uitgevoerd op een virtuele Azure-machine, kunt u Application Insights-bewaking inschakelen in het configuratiescherm van Azure. (Er zijn ook afzonderlijke artikelen over het instrumenteren van [live J2EE-web-apps](app-insights-java-live.md) en [Azure Cloud Services](app-insights-cloudservices.md).) U hebt een [Microsoft Azure](https://azure.com)-abonnement nodig.
 
 ![Schermopname van App Insights-overzicht grafieken met informatie over mislukte aanvragen, serverreactietijd en serveraanvragen](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
@@ -242,7 +242,7 @@ Voor toepassingen die bij het compileren al zijn geïnstrumenteerd:
  * Afhankelijkheidsaanroepen (.NET 4.5); retourwaarden in afhankelijkheidsaanroepen (.NET 4.6).
  * Stack-tracewaarden van uitzonderingen.
 
-[Meer informatie](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Meer informatie](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

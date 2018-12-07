@@ -9,37 +9,37 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 548992ac221b1b6f9a29082eb986aa42c6a2807e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265284"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994001"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - beveiligings- en aanbevolen procedures voor DevOps
 
 In dit artikel biedt aanbevelingen voor beveiliging en DevOps in Azure HDInsight-systemen. Het onderdeel van een serie die biedt best practices om u te helpen migreren on-premises Apache Hadoop-systemen tot Azure HDInsight.
 
-## <a name="use-the-enterprise-security-package-to-secure-and-govern-the-cluster"></a>De Enterprise-beveiligingspakket gebruikt om te beveiligen en beheren van het cluster
+## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>Beveiligen en beheren van de cluster met Enterprise-beveiligingspakket
 
-Enterprise Security Package (ESP) biedt ondersteuning voor verificatie op basis van Active Directory, ondersteuning voor meerdere gebruikers en rollen gebaseerd toegangsbeheer. Met de gekozen ESP optie HDInsight-cluster is toegevoegd aan het Active Directory-domein en de enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) voor Hive-beveiliging met behulp van Apache Ranger kunt configureren. De beheerder kan ook de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren.
+Enterprise Security Package (ESP) biedt ondersteuning voor verificatie op basis van Active Directory, ondersteuning voor meerdere gebruikers en rollen gebaseerd toegangsbeheer. Met de gekozen ESP optie HDInsight-cluster is toegevoegd aan het Active Directory-domein en de enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) voor een Apache Hive-beveiliging met behulp van Apache Ranger kunt configureren. De beheerder kan ook de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren.
 
 ESP is beschikbaar op de volgende clustertypen: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka en interactieve Query (LLAP Hive). 
 
 Gebruik de volgende stappen uit om de aan domein gekoppelde HDInsight-cluster te implementeren:
 
-- Azure Active Directory (AAD) implementeren door door te geven van de domeinnaam
-- Azure Active Directory Domain Services (AAD DS) implementeren
-- De vereiste Virtueelnetwerk en subnet maken
-- Een virtuele machine in het Virtueelnetwerk voor het beheren van AAD DS implementeren
-- De virtuele machine toevoegen aan het domein
-- Installatie van AD en hulpprogramma's voor DNS
-- Laat de AAD-DS-beheerder maken van een organisatie-eenheid (OE)
-- LDAPS voor AAD DS inschakelen
+- Azure Active Directory (AAD) implementeren door de naam van het domein.
+- Azure Active Directory Domain Services (AAD DS) implementeren.
+- De vereiste Virtueelnetwerk en subnet maken.
+- Een virtuele machine in het Virtueelnetwerk voor het beheren van AAD DS implementeren.
+- De virtuele machine toevoegen aan het domein.
+- Installatie van AD en hulpprogramma's voor DNS.
+- Laat de AAD-DS-beheerder maken van een organisatie-eenheid (OE).
+- LDAPS voor AAD DS inschakelen.
 - Maak een service-account in Azure Active Directory met gedelegeerde lezen en schrijven-beheerder toestemming voor de organisatie-eenheid, zodat deze kan. Deze serviceaccount kan vervolgens machines toevoegen aan het domein en plaats machine principals binnen de organisatie-eenheid. Het kan ook service-principals binnen de organisatie-eenheid die u tijdens het maken van een cluster opgeeft maken.
 
     > [!Note]
-    > Het serviceaccount hoeft niet te worden beheerdersaccount van AD-domein
+    > Het serviceaccount hoeft niet te worden beheerdersaccount van AD-domein.
 
 - ESP HDInsight-cluster implementeren door in te stellen van de volgende parameters:
     - **Domeinnaam**: de naam van het domein dat is gekoppeld aan Azure AD DS.
@@ -51,33 +51,33 @@ Gebruik de volgende stappen uit om de aan domein gekoppelde HDInsight-cluster te
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Een inleiding tot Hadoop-beveiliging met aan domein gekoppelde HDInsight-clusters](../domain-joined/apache-domain-joined-introduction.md)
+- [Een inleiding tot Apache Hadoop-beveiliging met aan domein gekoppelde HDInsight-clusters](../domain-joined/apache-domain-joined-introduction.md)
 - [Azure domein Hadoop-clusters in HDInsight plannen](../domain-joined/apache-domain-joined-architecture.md)
 - [Configureren van een domein gekoppeld HDInsight-cluster met behulp van Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Synchronisatie van Azure Active Directory-gebruikers met een HDInsight-cluster](../hdinsight-sync-aad-users-to-cluster.md)
-- [Hive-beleidsregels configureren in aan domein gekoppelde HDInsight](../domain-joined/apache-domain-joined-run-hive.md)
+- [Apache Hive-beleid configureren in aan domein gekoppelde HDInsight](../domain-joined/apache-domain-joined-run-hive.md)
 - [Apache Oozie in aan domein gekoppelde HDInsight Hadoop clusters uitvoeren](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
-## <a name="implement-end-to-end-enterprise-security-management"></a>End-to-enterprise security management implementeren
+## <a name="implement-end-to-end-enterprise-security"></a>Beveiliging voor complete bedrijven implementeren
 
 End-to-end bedrijfsbeveiliging kan worden bereikt met behulp van de volgende:
 
 - **Privé en beschermd gegevenspijplijn (perimeterbeveiliging niveau)**
-    - Perimeter-level Security kan worden bereikt via Azure Virtual Networks, Network Security Groups en Gateway-service
+    - Perimeter-level Security kan worden bereikt via Azure Virtual Networks, Network Security Groups en Gateway-service.
 
 - **Verificatie en autorisatie voor toegang tot gegevens**
-    - Aan domein gekoppelde HDInsight-cluster met behulp van Azure Active Directory Domain Services maken. (Enterprise-beveiligingspakket)
-    - Ambari gebruiken op basis van rollen om toegang te bieden tot clusterresources voor AD-gebruikers
+    - Aan domein gekoppelde HDInsight-cluster met behulp van Azure Active Directory Domain Services maken. (Enterprise-beveiligingspakket).
+    - Ambari gebruiken op basis van rollen om toegang te bieden tot clusterresources voor AD-gebruikers.
     - Gebruik Apache Ranger om in te stellen toegang beheren beleid voor Hive op de tabel / kolom / rijniveau.
     - SSH-toegang tot het cluster kan worden beperkt tot alleen de beheerder.
 
 - **Controle**
     - Weergeven en rapporteren van alle toegang tot het HDInsight-clusterresources en gegevens.
-    - Weergeven en rapporteren van alle wijzigingen aan het beleid voor toegangsbeheer
+    - Weergeven en rapporteren van alle wijzigingen aan het beleid voor toegangsbeheer.
 
 - **Versleuteling**
     - Transparante versleuteling van Server-Side met behulp van Microsoft beheerde sleutels of door de klant beheerde sleutels.
-    - Versleuteling tijdens overdracht met behulp van versleuteling van de Client-Side-, https- en TLS
+    - Versleuteling tijdens overdracht met behulp van versleuteling van de Client-Side-, https- en TLS.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
@@ -106,13 +106,13 @@ Regelmatig bijwerken naar de nieuwste versie van HDInsight om te profiteren van 
 1. Importeer alle tijdelijke gegevens die back-up is gemaakt.
 1. Start taken/doorgaan met het verwerken met behulp van het nieuwe cluster.
 
-Zie het artikel voor meer informatie: [Upgrade HDInsight-cluster naar een nieuwe versie](../hdinsight-upgrade-cluster.md)
+Zie het artikel voor meer informatie: [Upgrade HDInsight-cluster naar een nieuwe versie](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Patch voor cluster-besturingssystemen
 
 HDInsight zorgt patchen van het besturingssysteem van de virtuele machines die door HDInsight-clusters worden gebruikt als een beheerde Hadoop-service.
 
-Zie het artikel voor meer informatie: [OS patches voor HDInsight](../hdinsight-os-patching.md)
+Zie het artikel voor meer informatie: [OS patches voor HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Na de migratie
 
@@ -122,4 +122,4 @@ Zie het artikel voor meer informatie: [OS patches voor HDInsight](../hdinsight-o
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
+- Meer informatie over [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

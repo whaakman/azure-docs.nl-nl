@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164317"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999457"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
@@ -181,7 +181,7 @@ De informatie die nodig zijn voor het verbinding maken met de domeincontroller:
 
 De informatie die nodig is voor het cluster: 
 
-* Resourcegroepnaam
+* Naam van de resourcegroep
 * Azure-locatie 
 * Naam van virtueel netwerk
 * Subnetnaam
@@ -267,7 +267,7 @@ Open het voorbeeldscript in een teksteditor. Het is raadzaam om op te slaan van 
 
 Geef waarden voor deze scriptvariabelen.
 
-* Resourcegroepnaam
+* Naam van de resourcegroep
 
   * Als u netwerk- of -onderdelen die zich in verschillende resourcegroepen bevinden, verwijder de opmerkingen in de variabelen en ook deze namen opgeven. 
 
@@ -306,6 +306,15 @@ Wanneer het script is voltooid, kopieert u het beheer van IP-adres, die nodig vo
 
 ![Vanaf de opdrachtregel-uitvoer van het script voor het weergeven van het beheer van IP-adres aan het einde](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> Als u een nieuwe blobcontainer gemaakt, kan deze worden versleuteld met een standaardsleutel die niet buiten het cluster opgeslagen wordt. Voordat u gegevens opslaan op de container, moet u ofwel de sleutelherstel-bestand downloaden of maak uw eigen versleutelingssleutel en de herstelbestand opslaan in een permanente locatie. 
+> 
+> Als u de standaardsleutel gebruiken zonder de herstelbestand wordt gedownload, is het mogelijk om te geen toegang meer tot de versleutelde gegevens in de Blob core filer als het cluster vFXT is verloren raakt of vernietigd.
+>
+> Als uw script laat zien `WARNING` berichten, zoals de omcirkeld in de schermafbeelding hieronder, volg de instructies in [opslag configureren](avere-vfxt-add-storage.md) om te downloaden van het sleutelbestand of maak een nieuwe sleutel voor uw Blob-container. Gebruik de cluster-configuratieprogramma Avere het Configuratiescherm.
+
+![Vanaf de opdrachtregel-uitvoer van het script waarschuwingsberichten over het maken van een nieuwe versleutelingssleutel voor weergeven](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>Volgende stap
 
-Nu dat het cluster actief is en u weet dat het beheer van IP-adres, kunt u [verbinding maken met het cluster-configuratieprogramma](avere-vfxt-cluster-gui.md) ondersteuning inschakelen en het toevoegen van opslag, indien nodig.
+Nu dat het cluster actief is en u weet dat het beheer van IP-adres, kunt u [verbinding maken met het cluster-configuratieprogramma](avere-vfxt-cluster-gui.md) als ondersteuning wilt inschakelen, opslag toevoegen als nodig zijn, of de standaard-versleutelingssleutel op uw nieuwe Blob storage-adres.

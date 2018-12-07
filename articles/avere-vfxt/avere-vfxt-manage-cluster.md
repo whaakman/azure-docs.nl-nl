@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958913"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999064"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Het Avere vFXT-cluster beheren
 
@@ -81,7 +81,7 @@ Het script vfxt.py kan worden gebruikt voor deze beheertaken cluster:
 
 Zoals Avere het Configuratiescherm probeer vfxt.py bewerkingen om te controleren of de gewijzigde gegevens permanent worden opgeslagen op opslag voor back-end voordat u afsluit of vernietigen van het cluster of het knooppunt. Dit maakt het een veiliger optie dan de Avere-portal.
 
-vfxt.PY is vooraf geïnstalleerd in het cluster netwerkcontroller-VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
+vfxt.PY is vooraf geïnstalleerd in het cluster netwerkcontroller-VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 Een volledige vfxt.py (Engelstalig) is beschikbaar op GitHub: [Clusterbeheer met vfxt.py in de Cloud](https://github.com/azure/averesdk/blob/master/docs/README.md)
 

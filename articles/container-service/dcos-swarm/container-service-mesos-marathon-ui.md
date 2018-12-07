@@ -1,5 +1,5 @@
 ---
-title: Beheren Azure DC/OS-cluster met Marathon-gebruikersinterface
+title: (AFGESCHAFT) Beheren Azure DC/OS-cluster met Marathon-gebruikersinterface
 description: Implementeer containers naar een Azure Container Service-cluster met behulp van de webgebruikersinterface van Marathon.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903078"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992484"
 ---
-# <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Een DC/OS-cluster in Azure Container Service beheren via de webgebruikersinterface van Marathon
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(AFGESCHAFT) Een Azure Container Service DC/OS-cluster via de webgebruikersinterface van Marathon beheren
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS biedt een omgeving voor het implementeren en schalen van geclusterde workloads terwijl de onderliggende hardware wordt onttrokken. Op de DC/OS ligt een framework dat de planning en uitvoering van rekenworkloads regelt.
 

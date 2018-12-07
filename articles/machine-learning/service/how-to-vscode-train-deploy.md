@@ -1,23 +1,24 @@
 ---
-title: Met behulp van Visual Studio Code-hulpprogramma's voor AI-extensie met Azure Machine Learning
-description: Meer informatie over Visual Studio Code-hulpprogramma's voor AI en hoe u training en een machine learning en deep learning-modellen met Azure Machine Learning-service in VS Code implementeren.
+title: Visual Studio Code gebruiken om te trainen en implementeer modellen met Azure Machine Learning-service
+description: Meer informatie over Azure Machine Learning voor Visual Studio Code en het starten van training en het implementeren van machine learning en deep learning-modellen in Azure Machine Learning-service met behulp van Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
-ms.reviewer: jmartens
-ms.date: 10/1/2018
-ms.openlocfilehash: 377a4bbf359b2c65136625fcef8a1093e49da728
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 12/04/2018
+ms.custom: seodec12
+ms.openlocfilehash: e1ea0b867738f72d9ff4baff25b630887b9232c9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854302"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016423"
 ---
-# <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code-hulpprogramma's voor AI: trainen en implementeren van ML-modellen van VS Code
-In dit artikel leert u hoe u de **VS Code-hulpprogramma's voor AI** extensie te trainen en implementeren van machine learning en deep learning-modellen met Azure Machine Learning-service in VS Code.
+# <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code gebruiken om te trainen en machine learning-modellen implementeren
+
+In dit artikel leert u hoe u de **Azure Machine Learning voor Visual Studio Code** uitbreiding van de trein en implementeren van machine learning en deep learning-modellen met Azure Machine Learning-service in Visual Studio Code (VS-Code).
 
 Azure Machine Learning biedt ondersteuning voor het uitvoeren van experimenten, lokaal en op externe compute-doelen. Voor elke experiment, u kunt bijhouden van meerdere wordt uitgevoerd als u wilt vaak iteratief probeert verschillende technieken en hyperparameters. Azure Machine Learning kunt u aangepaste metrische gegevens bijhouden en experimenteren wordt uitgevoerd, data science reproduceerbaarheid en controleerbaarheid inschakelen.
 
@@ -25,7 +26,7 @@ Als u deze modellen kunt implementeren voor uw behoeften testen en productie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ [Hebt u VS Code-hulpprogramma's voor AI](how-to-vscode-tools.md) ingesteld voor Azure Machine Learning.
++ Hebben de [Azure Machine Learning voor VS Code](how-to-vscode-tools.md) extensie instellen.
 
 + Hebben de [Azure Machine Learning-SDK voor Python geïnstalleerd](how-to-vscode-tools.md) met VS Code.
 
@@ -33,7 +34,7 @@ Als u deze modellen kunt implementeren voor uw behoeften testen en productie.
 
 ## <a name="create-and-manage-compute-targets"></a>Maken en beheren van compute-doelen
 
-Met Visual Studio Code-hulpprogramma's voor AI, kunt u uw gegevens voorbereiden, modellen trainen en deze implementeren, zowel lokaal als op de externe compute-doelen.
+Met Azure Machine Learning voor VS Code, kunt u uw gegevens voorbereiden, modellen trainen en deze implementeren, zowel lokaal als op de externe compute-doelen.
 
 Deze uitbreiding ondersteunt diverse verschillende externe compute-doelen voor Azure Machine Learning. Zie de [volledige lijst met ondersteunde compute-doelen](how-to-set-up-training-targets.md) voor Azure Machine Learning.
 
@@ -43,19 +44,17 @@ Deze uitbreiding ondersteunt diverse verschillende externe compute-doelen voor A
 
 1. Klik op het Azure-pictogram in de activiteitenbalk Visual Studio Code. De Azure: Machine Learning zijbalk wordt weergegeven.
 
-2. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. Naam van het abonnement is 'OpenMind Studio' in de bewegende afbeelding en de werkruimte is 'MyWorkspace'. 
+2. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. Naam van het abonnement is 'Gratis' en de werkruimte is 'TeamWorkspace' in de animatie. 
 
 3. Onder het werkruimteknooppunt met de rechtermuisknop op de **Compute** knooppunt en kies **maken Compute**.
 
 4. Kies het doeltype compute in de lijst. 
 
-5. Voer een unieke naam voor deze compute-doel in het veld, en geef de grootte van de virtuele machine.
+5. Geavanceerde eigenschappen opgeven in het JSON-configuratiebestand dat wordt geopend in een nieuw tabblad. In dit bestand kunt u een unieke naam voor de compute-doel.
 
-6. Geavanceerde eigenschappen opgeven in het JSON-configuratiebestand dat wordt geopend in een nieuw tabblad. 
+6. Wanneer u klaar bent uw compute-doel configureren, klikt u op **indienen** in de rechterbenedenhoek.
 
-7. Wanneer u klaar bent uw compute-doel configureren, klikt u op **voltooien** in de rechterbenedenhoek.
-
-Hier volgt een voorbeeld van Azure Batch AI: [ ![maken Azure Batch AI compute in VS Code](./media/vscode-tools-for-ai/createcompute.gif)](./media/vscode-tools-for-ai/createcompute.gif#lightbox)
+Hier volgt een voorbeeld van Azure Machine Learning-Computing (AMLCompute): [ ![AML Compute in VS Code maken](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
 
 ### <a name="use-remote-computes-for-experiments-in-vs-code"></a>Externe berekeningen voor experimenten in VS Code gebruiken
 
@@ -113,21 +112,19 @@ dependencies:
 
 ## <a name="train-and-tune-models"></a>Modellen trainen en afstemmen
 
-Azure Machine Learning van VS Code gebruiken om snel Voortborduren op uw code, doorlopen en fouten opsporen en uw oplossing voor bron code naar keuze gebruiken. 
+Azure Machine Learning voor VS Code (Preview) gebruiken om snel Voortborduren op uw code, doorlopen en fouten opsporen en uw oplossing voor bron code naar keuze gebruiken. 
 
 **Uw experiment uitvoeren met Azure Machine Learning:**
 
 1. Klik op het Azure-pictogram in de activiteitenbalk Visual Studio Code. De Azure: Machine Learning zijbalk wordt weergegeven.
 
-1. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. Naam van het abonnement is 'OpenMind Studio' in de bewegende afbeelding en de werkruimte is 'MyWorkspace'. 
+1. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. 
 
 1. Vouw onder het werkruimteknooppunt, de **Compute** knooppunt en met de rechtermuisknop op de **uitvoeren Config** reken-en u wilt gebruiken. 
 
 1. Selecteer **Experiment uit te voeren**.
 
 1. Klik op **weergave Experiment uitvoeren** om te zien van de geïntegreerde Azure Machine Learning-portal voor de uitvoering van uw controleren en Zie uw getrainde modellen.
-
-   [![Machine learning-experiment uitvoeren vanuit Visual Studio Code](./media/vscode-tools-for-ai/runexperiment.gif)](./media/vscode-tools-for-ai/runexperiment.gif#lightbox)
 
 ## <a name="deploy-and-manage-models"></a>Modellen implementeren en beheren
 Azure Machine Learning kunt implementeren en beheren van uw machine learning-modellen in de cloud en op de rand. 
@@ -147,12 +144,11 @@ Geregistreerde modellen kunnen worden bijgehouden en worden geïmplementeerd.
 
 1. Kies of u wilt uploaden in de lijst, een **modelbestand** (voor één modellen) een **model map** (voor modellen met meerdere bestanden, zoals Tensorflow). 
 
-1. Gebruik het dialoogvenster voor het bestand om het bestand of map.
+1. Selecteer uw map of bestand.
 
-   [![COMPUTE](./media/vscode-tools-for-ai/registermodel.gif)](./media/vscode-tools-for-ai/registermodel.gif#lightbox)
+1. Wanneer u klaar bent u configureert de modeleigenschappen van uw, klikt u op **indienen** in de rechterbenedenhoek. 
 
-> [!Warning]
-> Verwijder de labels van het gegenereerde json-bestand op dit moment.
+
 
 ### <a name="deploy-your-service-from-vs-code"></a>Uw service implementeren vanuit Visual Studio Code
 
@@ -174,23 +170,17 @@ Meer informatie over [implementatie met Azure Machine Learning](how-to-deploy-an
 
 1. Met de rechtermuisknop op het model dat u wilt implementeren en kies **Service implementeren vanuit Model geregistreerd** opdracht in het contextmenu.
 
-1. Kies in het Opdrachtenpalet van VS Code de compute-doel waarnaar u wilt implementeren in de lijst. 
+1. Kies in het Opdrachtenpalet de compute-doel waarnaar u wilt implementeren in de lijst. 
 
 1. Voer in het veld een naam voor deze service. 
 
-1. Klik in het dialoogvenster in de rechterbenedenhoek op **Bladeren** en selecteer de scoring-script. Het dialoogvenster wordt gesloten.
+1. Druk op de Enter-toets op het toetsenbord om te bladeren en selecteer het scriptbestand in de Command Palette.
 
-1. Als u een lokale Docker-bestand hebt, klikt u op **Bladeren** in het tweede dialoogvenster dat wordt weergegeven. 
+1. In het Opdrachtenpalet, drukt u op de Enter-toets op het toetsenbord om te bladeren en selecteer het conda-afhankelijkheidsbestand.
 
-   Als u in het dialoogvenster annuleren en een lokale Docker-bestand niet opgeeft, wordt een 'Azure Machine Learning, een standaard gebruikt.
-
-1. In de derde in het dialoogvenster dat wordt weergegeven, klikt u op **Bladeren** en selecteer het pad naar het lokale conda of invoer van het bestandspad in json-editor later opnieuw.
-
-1. Als u een bestand schema.json hebt u wilt gebruiken, klikt u op **Bladeren** in de vierde dialoogvenster dat wordt weergegeven en selecteer het bestand.
+1. Wanneer u klaar bent uw service-eigenschappen te configureren, klikt u op **indienen** in de rechterbenedenhoek. In dit servicebestand-eigenschappen kunt u een lokale Docker-bestand of een schema.json-bestand dat u wilt gebruiken.
 
 De webservice is nu geïmplementeerd.
-
-Hier volgt een voorbeeld van Azure Container Instances: [ ![Azure Container Instances vanuit Visual Studio Code](./media/vscode-tools-for-ai/deploy.gif)](./media/vscode-tools-for-ai/deploy.gif#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: d9bf3618b32ce7c5ba7a300a929428dd0614743d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9e845d005af9481919472d8baba0aea17a877a5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276241"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992348"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gebruikersgegevens gevonden in een onderzoek in Azure Security Center beheren
 In dit artikel bevat informatie over het beheren van de gebruikersgegevens gevonden in de onderzoeksfunctie van Azure Security Center. Onderzoek gegevens worden opgeslagen in [Azure Log Analytics](../log-analytics/log-analytics-overview.md) en zichtbaar gemaakt in Security Center. Gebruikersgegevens beheren, biedt de mogelijkheid om te verwijderen of exporteren van gegevens.
@@ -58,4 +58,4 @@ Security Center van een gebruiker de rol van eigenaar, Inzender, toegewezen of b
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het beheren van gebruikersgegevens [gebruikersgegevens in Azure Security Center beheren](security-center-privacy.md).
-Zie voor meer informatie over het verwijderen van persoonlijke gegevens in Log Analytics, [exporteren en verwijderen van persoonlijke gegevens](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Zie voor meer informatie over het verwijderen van persoonlijke gegevens in Log Analytics, [exporteren en verwijderen van persoonlijke gegevens](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

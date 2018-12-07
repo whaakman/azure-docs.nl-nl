@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6b362b260c913faaad57d19c92fe6d6583093f0
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 154003f1addea9753234dbe2392ce932177d2d3a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685868"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012059"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Op tijd gebaseerde Oozie-coördinator met Hadoop in HDInsight gebruiken voor het definiëren van werkstromen en coördinatie van taken
 In dit artikel leert u hoe u workflows en coördinatoren definieert en hoe u activeert de coördinator taken, op basis van tijd. Is het handig om te gaan via [Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook met Azure Data Factory taken plannen. Zie voor meer Azure Data Factory [Pig en Hive met Data Factory gebruiken](../data-factory/transform-data.md).
@@ -69,7 +69,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 * **Een HDInsight-cluster**. Zie voor meer informatie over het maken van een HDInsight-cluster [maken van HDInsight-clusters][hdinsight-provision], of [aan de slag met HDInsight][hdinsight-get-started]. U moet de volgende gegevens op de zelfstudie te volgen:
 
     <table border = "1">
-    <tr><th>Cluster-eigenschap</th><th>Naam van de Windows PowerShell-variabele</th><th>Waarde</th><th>Beschrijving</th></tr>
+    <tr><th>Cluster-eigenschap</th><th>Naam van de Windows PowerShell-variabele</th><th>Waarde</th><th>Description</th></tr>
     <tr><td>De naam van de HDInsight-cluster</td><td>$clusterName</td><td></td><td>Het HDInsight-cluster op waarop u deze zelfstudie wordt uitgevoerd.</td></tr>
     <tr><td>Gebruikersnaam van de HDInsight-cluster</td><td>$clusterUsername</td><td></td><td>De naam van de gebruiker in de HDInsight-cluster. </td></tr>
     <tr><td>Gebruikerswachtwoord van HDInsight-cluster </td><td>$clusterPassword</td><td></td><td>Het wachtwoord van de gebruiker in de HDInsight-cluster.</td></tr>
@@ -80,7 +80,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 * **Een Azure SQL database**. U moet een firewallregel voor de SQL-Database-server zodat toegang vanaf uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en het configureren van de firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. Dit artikel bevat een Windows PowerShell-script voor het maken van de Azure SQL database-tabel die u nodig hebt voor deze zelfstudie.
 
     <table border = "1">
-    <tr><th>SQL database-eigenschap</th><th>Naam van de Windows PowerShell-variabele</th><th>Waarde</th><th>Beschrijving</th></tr>
+    <tr><th>SQL database-eigenschap</th><th>Naam van de Windows PowerShell-variabele</th><th>Waarde</th><th>Description</th></tr>
     <tr><td>SQL database-servernaam</td><td>$sqlDatabaseServer</td><td></td><td>De SQL-databaseserver waarop Sqoop gegevens worden geëxporteerd. </td></tr>
     <tr><td>Aanmeldingsnaam voor SQL database</td><td>$sqlDatabaseLogin</td><td></td><td>Aanmeldingsnaam voor SQL-Database.</td></tr>
     <tr><td>Aanmeldingswachtwoord voor SQL database</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Aanmeldingswachtwoord voor SQL-Database.</td></tr>
@@ -191,7 +191,7 @@ De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestan
     Werkstroomvariabelen voor de
 
     <table border = "1">
-    <tr><th>Werkstroomvariabelen voor de</th><th>Beschrijving</th></tr>
+    <tr><th>Werkstroomvariabelen voor de</th><th>Description</th></tr>
     <tr><td>${jobTracker}</td><td>Geef de URL van het beheer van Hadoop-taak. Gebruik <strong>jobtrackerhost:9010</strong> cluster in HDInsight versie 3.0 en 2.0.</td></tr>
     <tr><td>${nameNode}</td><td>Geef de URL van het knooppunt van de naam van Hadoop. Gebruik de standaard-bestand system wasb: / / -adres, bijvoorbeeld <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
     <tr><td>${queueName}</td><td>Hiermee geeft u de naam van de wachtrij die de taak om te worden verzonden. Gebruik <strong>standaard</strong>.</td></tr>
@@ -200,7 +200,7 @@ De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestan
     Variabelen voor de hive
 
     <table border = "1">
-    <tr><th>Hive-takenreeksbewerkingsvariabele</th><th>Beschrijving</th></tr>
+    <tr><th>Hive-takenreeksbewerkingsvariabele</th><th>Description</th></tr>
     <tr><td>${hiveDataFolder}</td><td>De bronmap voor de opdracht Create Table Hive.</td></tr>
     <tr><td>${hiveOutputFolder}</td><td>De map voor uitvoer voor de instructie INSERT OVERSCHRIJVEN.</td></tr>
     <tr><td>${hiveTableName}</td><td>De naam van de Hive-tabel die verwijst naar de log4j-gegevensbestanden.</td></tr>
@@ -209,7 +209,7 @@ De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestan
     Variabelen voor de Sqoop
 
     <table border = "1">
-    <tr><th>Sqoop takenreeksbewerkingsvariabele</th><th>Beschrijving</th></tr>
+    <tr><th>Sqoop takenreeksbewerkingsvariabele</th><th>Description</th></tr>
     <tr><td>${sqlDatabaseConnectionString}</td><td>Verbindingsreeks van de SQL-Database.</td></tr>
     <tr><td>${sqlDatabaseTableName}</td><td>De Azure SQL database-tabel op waarin de gegevens worden geëxporteerd.</td></tr>
     <tr><td>${hiveOutputFolder}</td><td>De map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren met Sqoop (export-dir).</td></tr>
@@ -235,7 +235,7 @@ De Hive-actie in de werkstroom wordt een bestand HiveQL-script. Dit scriptbestan
 
     Er zijn vijf variabelen die worden gebruikt in het definitiebestand:
 
-   | Variabele | Beschrijving |
+   | Variabele | Description |
    | --- | --- |
    | ${coordFrequency} |Tijd voor de taak onderbreken. Frequentie wordt altijd uitgedrukt in minuten. |
    | ${coordStart} |Begintijd van taak. |
@@ -744,13 +744,13 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow en een Oozie-coördin
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
+[powershell-download]: https://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Preparation.Output1.png

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c997b2644be3798629afce6d826c53b1d9492597
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634631"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017011"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop-logboeken analyseren
 
@@ -103,7 +103,7 @@ U kunt nu Excel gebruiken om te filteren en sorteren indien nodig. U wilt opneme
 
 Als u de logboeken, Zie [toegang tot YARN-toepassingslogboeken in Linux gebaseerde HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Zie voor meer informatie over toepassingslogboeken [vereenvoudigen van beheer van gebruiker-logboeken en toegang in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+Zie voor meer informatie over toepassingslogboeken [vereenvoudigen van beheer van gebruiker-logboeken en toegang in YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
 
 ## <a name="view-cluster-health-and-job-logs"></a>Cluster-status en taak logboeken bekijken
 ### <a name="access-the-ambari-ui"></a>Toegang tot de Ambari-gebruikersinterface

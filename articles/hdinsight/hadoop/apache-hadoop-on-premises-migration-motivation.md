@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288115"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000434"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - motivatie en voordelen
 
@@ -32,7 +32,7 @@ Azure HDInsight is een cloud-distributie van Hadoop-onderdelen uit de [Hortonwo
 - Apache HBase
 - R
 
-## <a name="advantages-that-azure-hdinsight-offers-over-on-premises-hadoop"></a>Voordelen van Azure HDInsight ten opzichte van on-premises Hadoop biedt
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Azure HDInsight-voordelen ten opzichte van on-premises Hadoop
 
 - **Lage kosten** -kosten kunnen worden teruggebracht door [het maken van clusters op aanvraag](../hdinsight-hadoop-create-linux-clusters-adf.md) en betaal alleen voor wat u gebruikt. Rekenwerk en opslag biedt een flexibiliteit doordat het gegevensvolume onafhankelijk van de grootte van het cluster.
 
@@ -67,7 +67,7 @@ Azure HDInsight is een cloud-distributie van Hadoop-onderdelen uit de [Hortonwo
 
 - **Zelfherstel processen en -componenten** -HDInsight controleert voortdurend de infrastructuur en open-source-onderdelen met behulp van een eigen bewakingsinfrastructuur. Deze herstelt kritieke fouten zoals onbeschikbaarheid van open-source-onderdelen en knooppunten ook automatisch. Waarschuwingen worden geactiveerd in Ambari als een OSS-onderdeel is mislukt.
 
-Zie voor meer informatie het artikel [wat is Azure HDInsight en de Hadoop-technologiestack](../hadoop/apache-hadoop-introduction.md).
+Zie voor meer informatie het artikel [wat is Azure HDInsight en de Apache Hadoop-technologiestack](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="migration-planning-process"></a>Planning-migratieproces
 

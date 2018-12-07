@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 44aee447c7f935cd67ca55902c53c5f6f9eb6fda
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500303"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993141"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server op de opmerkingen bij de release van de virtuele Machine van Azure
 
@@ -28,8 +28,8 @@ Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server in
 
 
 ## <a name="november-2018"></a>November 2018
-- **Nieuwe SQL-resourceprovider**: Er is een nieuwe resourceprovider voor SQL-VM's die voor betere beheer van uw virtuele machine zorgen. Zie voor meer informatie over het registreren van uw virtuele machine [oudere SQL-VM met nieuwe resourceprovider registreren](virtual-machines-windows-sql-ahb.md#register-legacy-sql-vm-with-new-resource-provider).
-- **Schakel over licentiemodel**: U kunt nu schakelen tussen het licentiemodel met betalen per gebruik en bring-your-own-van uw SQL-VM met Azure CLI of Powershell. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md)
+- **Nieuwe SQL-resourceprovider**: Er is een nieuwe resourceprovider voor SQL-VM's die voor betere beheer van uw virtuele machine zorgen. Zie voor meer informatie over het registreren van uw virtuele machine [bestaande SQL-VM met nieuwe resourceprovider registreren](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
+- **Schakel over licentiemodel**: U kunt nu schakelen tussen het licentiemodel met betalen per gebruik en bring-your-own-van uw SQL-VM met Azure CLI of PowerShell. Zie voor meer informatie, [de licentiemodel voor een SQL-VM wijzigen](virtual-machines-windows-sql-ahb.md)
 
 
 

@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: aacdaf4ec55b1223ce993a7246ed9f0405a5054e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957178"
+ms.locfileid: "52996547"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>B2B-berichten met Azure Log Analytics bijhouden
 
@@ -27,7 +27,7 @@ Na het instellen van B2B-communicatie tussen handelspartners in uw integratie-ac
 * Zoekopties
 
 > [!NOTE]
-> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
+> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../azure-monitor/platform/oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -144,7 +144,7 @@ Voor elk berichttype hier worden de eigenschapbeschrijvingen en typen Naamindeli
 
 Hier volgen eigenschapbeschrijvingen voor elk AS2-bericht.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Afzender | De gastpartner die is opgegeven in **instellingen ontvangen**, of de hostpartner die is opgegeven in **instellingen voor verzenden** voor een AS2-overeenkomst |
 | Ontvanger | De hostpartner die is opgegeven in **instellingen ontvangen**, of de gastpartner is opgegeven **instellingen voor verzenden** voor een AS2-overeenkomst |
@@ -175,7 +175,7 @@ Hier volgen de typen Naamindelingen voor elke map voor gedownloade AS2-bericht e
 
 Hier vindt u de eigenschapbeschrijvingen voor elke X12 bericht.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Afzender | De gastpartner die is opgegeven in **instellingen ontvangen**, of de hostpartner die is opgegeven in **instellingen voor verzenden** voor een X12 overeenkomst |
 | Ontvanger | De hostpartner die is opgegeven in **instellingen ontvangen**, of de gastpartner is opgegeven **instellingen voor verzenden** voor een X12 overeenkomst |
@@ -208,7 +208,7 @@ Hier vindt u de van Naamindelingen voor elk X12 gedownload bericht map en bestan
 
 Hier volgen eigenschapbeschrijvingen voor elk EDIFACT-bericht.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Afzender | De gastpartner die is opgegeven in **instellingen ontvangen**, of de hostpartner die is opgegeven in **instellingen voor verzenden** voor een EDIFACT-overeenkomst |
 | Ontvanger | De hostpartner die is opgegeven in **instellingen ontvangen**, of de gastpartner is opgegeven **instellingen voor verzenden** voor een EDIFACT-overeenkomst |

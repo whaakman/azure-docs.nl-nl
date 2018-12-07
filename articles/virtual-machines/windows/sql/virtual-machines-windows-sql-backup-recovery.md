@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428008"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997829"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Back-up en herstel voor SQL Server in Azure Virtual Machines
 
@@ -32,7 +32,7 @@ Het eerste deel van dit artikel biedt een overzicht van de beschikbare back-up e
 
 De volgende tabel bevat informatie over verschillende opties voor back-up en herstel voor SQL Server die wordt uitgevoerd op virtuele Azure-machines:
 
-| Strategie | SQL-versies | Beschrijving |
+| Strategie | SQL-versies | Description |
 |---|---|---|---|
 | [Automatische back-up](#automated) | 2014<br/> 2016<br/> 2017 | Automatische back-up kunt u plannen van regelmatige back-ups voor alle databases op een virtuele machine van SQL Server. Back-ups worden opgeslagen in Azure storage voor 30 dagen. U begint met SQL Server 2016, biedt automatische back-up v2 extra opties zoals het configureren van handmatig te plannen en de frequentie van volledige en logboekback-ups. |
 | [Azure Backup voor SQL-VM 's](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup biedt een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server die wordt uitgevoerd in virtuele Azure-machines. Met deze service kunt u back-ups voor meerdere servers en schaling van duizenden databases centraal beheren. Databases kunnen worden hersteld naar een bepaald punt in tijd in de portal. Het biedt een aanpasbare bewaarbeleid dat back-ups voor jaar kunt onderhouden. Deze functie is momenteel in openbare preview. |
@@ -40,7 +40,7 @@ De volgende tabel bevat informatie over verschillende opties voor back-up en her
 
 De volgende secties wordt elke optie in meer detail beschreven. De laatste sectie van dit artikel bevat een samenvatting in de vorm van een Functiematrix.
 
-## <a id="autoamted"></a> Automatische back-up
+## <a id="automated"></a> Automatische back-up
 
 Automatische back-up biedt een automatische back-upservice voor SQL Server Standard en Enterprise-edities die worden uitgevoerd in een Windows-VM in Azure. Deze service wordt geleverd door de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md), die automatisch is geïnstalleerd op SQL Server Windows-installatiekopieën voor virtuele machines in Azure portal.
 

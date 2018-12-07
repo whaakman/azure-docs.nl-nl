@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae2697c96435ec18ae7645520d438c41837f036f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231648"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016858"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
@@ -31,7 +31,7 @@ Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzich
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Bekende problemen
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Algemene problemen met Media Services.
 
-| Probleem | Beschrijving |
+| Probleem | Description |
 | --- | --- |
 | Enkele veelvoorkomende HTTP-headers zijn niet opgegeven in de REST-API. |Als u Media Services-toepassingen ontwikkelen met behulp van de REST-API, vindt u dat sommige algemene HTTP-header-velden (met inbegrip van CLIENT-REQUEST-ID REQUEST-ID en de RETURN-CLIENT-REQUEST-ID) worden niet ondersteund. De headers worden toegevoegd in een toekomstige update. |
 | Percentage codering is niet toegestaan. |Media Services wordt de waarde van de eigenschap IAssetFile.Name bij het bouwen van URL's voor de streaming-inhoud (bijvoorbeeld `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Om deze reden is niet procent codering toegestaan. De waarde van de eigenschap Name geen van de volgende [procent-encoding-gereserveerde tekens](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] '. Ook kunnen er slechts één '. ' voor de bestandsnaamextensie. |
@@ -39,7 +39,7 @@ Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzich
 | De Media Services beperking mechanisme Hiermee beperkt u het Resourcegebruik voor toepassingen die overmatige aanvragen naar de service versturen. De service kan de 'Service niet beschikbaar' 503 HTTP-statuscode geretourneerd. |Zie voor meer informatie, de beschrijving van de 503 HTTP-statuscode in [Media Services-foutcodes](media-services-encoding-error-codes.md). |
 | Wanneer u query uitvoeren op entiteiten, wordt een limiet van 1000 entiteiten in één keer omdat de openbare versie 2-REST queryresultaten tot 1000 resultaten beperkt geretourneerd. |Gebruik overslaan en nemen (.NET) / top (REST), zoals beschreven in [in dit voorbeeld .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) en [dit REST-API-voorbeeld](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Sommige clients kunnen afkomstig zijn via een probleem met herhaald label in het manifest Smooth Streaming. |Zie voor meer informatie, [in deze sectie](media-services-deliver-content-overview.md#known-issues). |
-| Media Services .NET SDK objecten kunnen niet worden geserialiseerd en als gevolg hiervan werken niet met Azure Redis-Cache. |Als u probeert om de SDK AssetCollection-object toe te voegen aan Azure Redis-Cache te serialiseren, wordt er een uitzondering gegenereerd. |
+| Media Services .NET SDK objecten kunnen niet worden geserialiseerd en als gevolg hiervan werken niet met Azure Cache voor Redis. |Als u probeert om de SDK AssetCollection-object toe te voegen aan Azure-Cache voor Redis te serialiseren, wordt er een uitzondering gegenereerd. |
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versiegeschiedenis van REST-API

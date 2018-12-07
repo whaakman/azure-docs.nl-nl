@@ -1,6 +1,6 @@
 ---
-title: Gegevensopslag in Azure Machine Learning gebruiken voor toegang tot gegevens
-description: Het gebruik van gegevensopslag voor toegang tot gegevensopslag tijdens de training
+title: Toegang tot gegevens in de gegevensopslag van Azure Machine Learning-service
+description: Het gebruik van gegevensopslag voor toegang tot gegevensopslag tijdens de training met Azure Machine Learning-service
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +9,13 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec18
+ms.openlocfilehash: 50df0647372832647712d514dd9d4651d8d9cc2d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620197"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014051"
 ---
 # <a name="how-to-access-data-during-training"></a>Toegang krijgen tot gegevens tijdens de training
 Een gegevensarchief gebruiken voor toegang tot en interactie met uw gegevens in Azure Machine Learning-werkstromen.

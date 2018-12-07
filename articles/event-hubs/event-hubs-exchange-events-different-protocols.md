@@ -1,5 +1,5 @@
 ---
-title: Exchange-gebeurtenissen tussen consumenten en producenten die gebruikmaken van verschillende protocollen in Azure Event Hubs | Microsoft Docs
+title: Exchange-gebeurtenissen tussen apps die gebruikmaken van verschillende protocollen - Azure Event Hubs | Microsoft Docs
 description: Dit artikel wordt beschreven hoe consumenten en producenten die gebruikmaken van verschillende protocollen (AMQP-, Apache Kafka- en HTTPS) gebeurtenissen bij het gebruik van Azure Event Hubs kunnen uitwisselen.
 services: event-hubs
 documentationcenter: ''
@@ -8,17 +8,17 @@ manager: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.custom: mvc
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 54edeafbe950cde88c2c6051f95825cfaed52ac7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284897"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015582"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Exchange-gebeurtenissen tussen consumenten en producenten die gebruikmaken van verschillende protocollen: AMQP, Kafka en HTTPS
 Azure Event Hubs ondersteunt drie protocollen voor consumenten en producenten: AMQP, Kafka en HTTPS. Elk van deze protocollen heeft zijn eigen manier voor het weergeven van een bericht, dus op een natuurlijke manier rijst de vraag van de volgende: als een toepassing gebeurtenissen naar een Event Hub met één protocol verzonden en met een ander protocol worden verbruikt, wat doet de verschillende onderdelen en waarden van de gebeurtenis er als volgt uitzien wanneer ze binnenkomen bij de consument? In dit artikel wordt beschreven aanbevolen procedures voor de producent en consument om ervoor te zorgen dat de waarden in een gebeurtenis correct worden geïnterpreteerd door de betreffende toepassing.

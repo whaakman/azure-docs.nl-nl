@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4be14cd1804c27eedc49cc17e33298c6134f6a37
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f9ae9b374e97c0f4be32d6c6a7d47fd803a1a0e5
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008739"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011518"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Controleer Hadoop-clusters in HDInsight met de Ambari-API
 Leer hoe u HDInsight-clusters controleren met Ambari APIs.
@@ -42,7 +42,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
   > 
 * **Een Azure HDInsight-cluster**. Zie voor instructies over het inrichten van het cluster [aan de slag met HDInsight] [ hdinsight-get-started] of [inrichten HDInsight-clusters][hdinsight-provision]. U moet de volgende gegevens op de zelfstudie te volgen:
   
-  | Cluster-eigenschap | Naam van Azure PowerShell-variabele | Waarde | Beschrijving |
+  | Cluster-eigenschap | Naam van Azure PowerShell-variabele | Waarde | Description |
   | --- | --- | --- | --- |
   |   De naam van de HDInsight-cluster |$clusterName | |De naam van uw HDInsight-cluster. |
   |   Gebruikersnaam voor cluster |$clusterUsername | |Clusternaam van de gebruiker opgegeven wanneer het cluster is gemaakt. |
@@ -122,7 +122,7 @@ Bij het gebruik van het eindpunt van de Ambari 'https://{clusterDns}.azurehdinsi
 ## <a name="ambari-monitoring-apis"></a>Ambari API's bewaken
 De volgende tabel bevat enkele van de meest voorkomende Ambari controle van het API-aanroepen. Zie voor meer informatie over de API [Ambari API Reference][ambari-api-reference].
 
-| Monitor, API-aanroep | URI | Beschrijving |
+| Monitor, API-aanroep | URI | Description |
 | --- | --- | --- |
 | Clusters ophalen |`/api/v1/clusters` | |
 | Cluster ophalen. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |clusters, services, hosts |
@@ -150,12 +150,12 @@ Nu hebt u geleerd hoe u Ambari controle van het API-aanroepen. Voor meer informa
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl-download]: https://curl.haxx.se/download.html
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

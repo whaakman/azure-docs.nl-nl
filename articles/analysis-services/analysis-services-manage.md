@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 536ae926ad8f401f952a41e17074536cc2b3c5f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832034"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993925"
 ---
 # <a name="manage-analysis-services"></a>Analyseservices beheren
 Wanneer u een Analysis Services-server in Azure hebt gemaakt, worden sommige administratie en beheer taken die u wilt uitvoeren van direct of enige tijd in de weg. Bijvoorbeeld uitvoeren om de gegevens vernieuwen, bepalen wie toegang tot de modellen op uw server, of bewaak de status van uw server. Bepaalde beheertaken kunnen alleen worden uitgevoerd in Azure portal voor anderen in SQL Server Management Studio (SSMS), en sommige taken kunnen worden uitgevoerd in een.
@@ -35,7 +35,7 @@ Als u de nieuwste functies, samen met de meest vloeiende ervaring bij het verbin
 
 
 ### <a name="to-connect-with-ssms"></a>Verbinding maken met SSMS
- Wanneer met behulp van SSMS, voordat u verbinding maakt met uw server de eerste keer, zorg er dan voor dat uw gebruikersnaam is opgenomen in de Analysis Services-Admins-groep. Zie voor meer informatie, [serverbeheerders](#server-administrators) verderop in dit artikel.
+ Wanneer met behulp van SSMS, voordat u verbinding maakt met uw server de eerste keer, zorg er dan voor dat uw gebruikersnaam is opgenomen in de Analysis Services-Admins-groep. Zie voor meer informatie, [Server-beheerders en databasegebruikers](#server-administrators-and-database-users) verderop in dit artikel.
 
 1. Voordat u verbinding maakt, moet u de naam van de server. In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de servernaam.
    

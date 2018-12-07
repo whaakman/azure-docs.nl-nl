@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 50a46b37be3115b92a3f8bc7cf426c8c7df78ce9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276649"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994134"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Inzicht in Cloudyn-rapporten voor kosten
 
@@ -186,7 +186,7 @@ Nadat u een rapport maakt, kunt u deze kunt opslaan voor toekomstig gebruik. Opg
 
 ### <a name="save-a-report-to-the-cloudyn-portal"></a>Een rapport opslaan in de Cloudyn-portal
 
-Wanneer u een rapport bekijkt, klikt u op **acties** en selecteer vervolgens **opslaan in Mijn rapporten**. Het rapport een naam en voeg vervolgens een uw eigen URL of de automatisch gemaakte URL gebruiken. U kunt eventueel **delen** het rapport openbaar met anderen in uw organisatie of als u deze aan uw entiteit kunt delen. Als u het rapport niet te delen, een persoonlijke rapport blijft en dat alleen kunt u bekijken. Sla het rapport.
+Wanneer u een rapport bekijkt, klikt u op **acties** en selecteer vervolgens **opslaan in Mijn rapporten**. Het rapport een naam en voeg vervolgens een uw eigen URL of de automatisch gemaakte URL gebruiken. U kunt eventueel **delen** het rapport openbaar met anderen in uw organisatie of als u deze aan uw entiteit kunt delen. Als u het rapport niet te delen, een persoonlijke rapport blijft en dat alleen kunt u bekijken. Sla het rapport op.
 
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Een rapport naar de cloud storage provider opslaan

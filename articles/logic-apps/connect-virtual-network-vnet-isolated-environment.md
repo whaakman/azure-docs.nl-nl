@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 8ad4c356c5826532b94721bc4d9071179e8bd93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846682"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997509"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps via een integratie van service-omgeving (ISE)
 
@@ -65,7 +65,7 @@ Wanneer u een integratie van service-omgeving (ISE) maakt, u een Azure-netwerk s
 
    1. Onder **rol**, selecteer **Inzender voor netwerken**. 
    
-   1. Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of toepassing**.
+   1. Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of service-principal**.
 
    1. Onder **Selecteer**, voer **Azure Logic Apps**. 
 
@@ -103,7 +103,7 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    ![Geef details van de omgeving](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Eigenschap | Vereist | Waarde | Beschrijving |
+   | Eigenschap | Vereist | Waarde | Description |
    |----------|----------|-------|-------------|
    | **Abonnement** | Ja | <*Azure-subscription-name*> | Het Azure-abonnement moet worden gebruikt voor uw omgeving | 
    | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De Azure-resourcegroep waar u om uw omgeving te maken |
@@ -141,14 +141,17 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
 
    ![Nadat de validatie is geslaagd, kiest u 'Maken'](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure begint met het implementeren van uw omgeving, maar dit proces kan duren *maximaal twee uur* voordat u klaar bent. 
+   Azure begint met het implementeren van uw omgeving, maar dit proces *mogelijk* duurt maximaal twee uur voordat u klaar bent. 
    Om te controleren of de implementatiestatus op de werkbalk van Azure, kies het meldingspictogram opent u het deelvenster meldingen.
 
    ![De implementatiestatus van de controleren](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
-   Wanneer de implementatie is voltooid, ziet u Azure deze melding:
+   Als de implementatie is voltooid, ziet u Azure deze melding:
 
    ![Implementatie is voltooid](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+
+   > [!NOTE]
+   > Als implementatie mislukt of als u uw ISE, Azure verwijderen *mogelijk* duren een uur voordat de subnetten zijn vrijgegeven. U moet dus gewacht voordat opnieuw gebruiken van deze subnetten in een andere ISE.
 
 1. Als u uw omgeving, kiest u **naar de resource gaan** als Azure niet automatisch naar uw omgeving gaat na de implementatie is voltooid.  
 

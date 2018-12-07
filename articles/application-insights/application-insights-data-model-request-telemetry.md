@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d3a2fe9b51e0e6e9de653abb1bfa56a2529218cb
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2092816946dae20f5b3ae5b0a09179197dda00eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722460"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992813"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetrie aanvragen: Application Insights-gegevensmodel
 
@@ -25,11 +25,11 @@ Een aanvraag telemetrie-item (in [Application Insights](app-insights-overview.md
 
 Aanvraag telemetrie biedt ondersteuning voor de standard uitbreidbaarheidsmodel met behulp van aangepaste `properties` en `measurements`.
 
-## <a name="name"></a>Naam
+## <a name="name"></a>Name
 
 Naam van de aanvraag vertegenwoordigt codepad genomen om de aanvraag te verwerken. De kardinaliteit van de lage waarde om toe te staan beter groepering van aanvragen. Voor HTTP-deze aanvragen vertegenwoordigt de HTTP-methode en de sjabloon van de URL-pad, zoals `GET /values/{id}` zonder de werkelijke `id` waarde.
 
-Application Insights web SDK verzendt Aanvraagnaam "as is" met betrekking tot gebruik van hoofdletters. Groeperen op gebruikersinterface is hoofdlettergevoelig, zodat `GET /Home/Index` worden afzonderlijk gerekend vanaf `GET /home/INDEX` Hoewel vaak ze leiden tot de dezelfde controller en de actie kan worden uitgevoerd. De reden hiervoor is dat URL's in het algemeen zijn [hoofdlettergevoelig](http://www.w3.org/TR/WD-html40-970708/htmlweb.html). U kunt om te controleren of alle `404` is er gebeurd voor de URL's in hoofdletters worden getypt. U vindt meer op de naam van verzameling van aanvragen door ASP.Net Web SDK in de [blogbericht](http://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK verzendt Aanvraagnaam "as is" met betrekking tot gebruik van hoofdletters. Groeperen op gebruikersinterface is hoofdlettergevoelig, zodat `GET /Home/Index` worden afzonderlijk gerekend vanaf `GET /home/INDEX` Hoewel vaak ze leiden tot de dezelfde controller en de actie kan worden uitgevoerd. De reden hiervoor is dat URL's in het algemeen zijn [hoofdlettergevoelig](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). U kunt om te controleren of alle `404` is er gebeurd voor de URL's in hoofdletters worden getypt. U vindt meer op de naam van verzameling van aanvragen door ASP.Net Web SDK in de [blogbericht](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Maximale lengte: 1024 tekens
 
@@ -69,7 +69,7 @@ Voor de web-apps, Application Insights aanvraag definiëren als mislukt wanneer 
 
 Gedeeltelijk geaccepteerd inhoud `206` kan duiden op een storing van een algemene aanvraag. Application Insights-eindpunt ontvangt bijvoorbeeld een batch van telemetrie-items als één aanvraag. Het resultaat `206` wanneer sommige items in de batch zijn niet verwerkt. Toenemende aantal `206` duidt op een probleem dat moet worden onderzocht. Dezelfde logica is van toepassing op `207` meerdere Status waarbij het succes in de slechtste van afzonderlijke responscodes mogelijk.
 
-U kunt meer op aanvraag resultaat lezen code en de statuscode in de [blogbericht](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+U kunt meer op aanvraag resultaat lezen code en de statuscode in de [blogbericht](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Aangepaste eigenschappen
 

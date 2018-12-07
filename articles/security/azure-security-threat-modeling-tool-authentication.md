@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: e502004db62713585d68cdda6f80b4e4024dde28
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971212"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014853"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Beveiliging-Frame: Verificatie | Oplossingen 
 | Product/Service | Artikel |
@@ -245,7 +245,7 @@ ms.locfileid: "52971212"
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Implementatie van de Server Identity - Caching](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Stappen** | <p>IdentityServer is een eenvoudige ingebouwde in-memory-cache. Dit is handig voor kleine schaal systeemeigen apps, schaalt het niet voor mid tier en back-end-toepassingen voor de volgende redenen:</p><ul><li>Deze toepassingen worden gebruikt door veel gebruikers tegelijk. Alle toegangstokens opslaan in het archief met dezelfde isolatie problemen maakt en uitdagingen geeft als het wordt uitgevoerd op schaal: veel gebruikers, elk met zo veel tokens als de resource die de app toegang heeft tot namens hen kunnen betekenen enorme aantallen en bijzonder veeleisende opzoekbewerkingen</li><li>Deze toepassingen worden doorgaans geïmplementeerd op gedistribueerde topologieën, waarbij meerdere knooppunten toegang tot de dezelfde cache hebben moeten</li><li>In de cache tokens moeten overleven proces wordt gerecycled en deactivations</li><li>Voor de bovenstaande redenen, tijdens het implementeren van web-apps, is het raadzaam om op te heffen tokencache van de standaard Identity-Server met een schaalbare alternatief zoals Azure Redis cache</li></ul>|
+| **Stappen** | <p>IdentityServer is een eenvoudige ingebouwde in-memory-cache. Dit is handig voor kleine schaal systeemeigen apps, schaalt het niet voor mid tier en back-end-toepassingen voor de volgende redenen:</p><ul><li>Deze toepassingen worden gebruikt door veel gebruikers tegelijk. Alle toegangstokens opslaan in het archief met dezelfde isolatie problemen maakt en uitdagingen geeft als het wordt uitgevoerd op schaal: veel gebruikers, elk met zo veel tokens als de resource die de app toegang heeft tot namens hen kunnen betekenen enorme aantallen en bijzonder veeleisende opzoekbewerkingen</li><li>Deze toepassingen worden doorgaans geïmplementeerd op gedistribueerde topologieën, waarbij meerdere knooppunten toegang tot de dezelfde cache hebben moeten</li><li>In de cache tokens moeten overleven proces wordt gerecycled en deactivations</li><li>Voor de bovenstaande redenen, wordt tijdens het implementeren van web-apps, aanbevolen voor de onderdrukking van de standaard Identity-Server met een schaalbare alternatief zoals Azure Cache-tokencache voor Redis</li></ul>|
 
 ## <a id="binaries-signed"></a>Zorg ervoor dat de binaire waarden van geïmplementeerde toepassingen digitaal zijn ondertekend
 
@@ -361,7 +361,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Moderne verificatie met Azure Active Directory voor webtoepassingen](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [als ADAL-tokencache met behulp van Redis](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Stappen** | <p>De standaardcache die ADAL (Active Directory Authentication Library) gebruikt een in-memory-cache die is gebaseerd op een statische opslag beschikbaar hele van proces is. Terwijl dit voor systeemeigen toepassingen werkt, wordt deze niet voor mid tier en back-end-toepassingen schalen om de volgende redenen:</p><ul><li>Deze toepassingen worden gebruikt door veel gebruikers tegelijk. Alle toegangstokens opslaan in het archief met dezelfde isolatie problemen maakt en uitdagingen geeft als het wordt uitgevoerd op schaal: veel gebruikers, elk met zo veel tokens als de resource die de app toegang heeft tot namens hen kunnen betekenen enorme aantallen en bijzonder veeleisende opzoekbewerkingen</li><li>Deze toepassingen worden doorgaans geïmplementeerd op gedistribueerde topologieën, waarbij meerdere knooppunten toegang tot de dezelfde cache hebben moeten</li><li>In de cache tokens moeten overleven proces wordt gerecycled en deactivations</li></ul><p>Voor de bovenstaande redenen, tijdens het implementeren van web-apps, het verdient aanbeveling voor de onderdrukking van de standaard ADAL-token-cache met een schaalbare alternatief zoals Azure Redis-cache.</p>|
+| **Stappen** | <p>De standaardcache die ADAL (Active Directory Authentication Library) gebruikt een in-memory-cache die is gebaseerd op een statische opslag beschikbaar hele van proces is. Terwijl dit voor systeemeigen toepassingen werkt, wordt deze niet voor mid tier en back-end-toepassingen schalen om de volgende redenen:</p><ul><li>Deze toepassingen worden gebruikt door veel gebruikers tegelijk. Alle toegangstokens opslaan in het archief met dezelfde isolatie problemen maakt en uitdagingen geeft als het wordt uitgevoerd op schaal: veel gebruikers, elk met zo veel tokens als de resource die de app toegang heeft tot namens hen kunnen betekenen enorme aantallen en bijzonder veeleisende opzoekbewerkingen</li><li>Deze toepassingen worden doorgaans geïmplementeerd op gedistribueerde topologieën, waarbij meerdere knooppunten toegang tot de dezelfde cache hebben moeten</li><li>In de cache tokens moeten overleven proces wordt gerecycled en deactivations</li></ul><p>Voor de bovenstaande redenen, tijdens het implementeren van web-apps, het verdient aanbeveling voor de onderdrukking van de standaard ADAL-token-cache met een schaalbare alternatief zoals Azure Cache voor Redis.</p>|
 
 ## <a id="tokenreplaycache-adal"></a>Zorg ervoor dat TokenReplayCache wordt gebruikt om te voorkomen dat de herhaling van tokens voor ADAL-verificatie
 

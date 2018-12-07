@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1069916efc1932b0a1a3139d015f448d4f8153a4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5df4ae93930002a00be4097e3eaa80ff77446a18
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843118"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994628"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows en Linux-gegevensbronnen van de prestaties die u in Log Analytics
 In Windows en Linux-prestatiemeteritems geven inzicht in de prestaties van de hardware-onderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems op regelmatige intervallen voor analyse in de buurt van real-time (NRT) naast het verzamelen van prestatiegegevens voor langere termijn analyse en rapportage.
@@ -34,7 +34,7 @@ Wanneer u prestatiemeteritems van Windows of Linux-prestaties voor een nieuwe Lo
 
 Voor Windows-prestatiemeteritems, kunt u een specifiek exemplaar voor elk prestatiemeteritem. Voor Linux-prestatiemeteritems, het exemplaar van elk item dat u kiest is van toepassing op alle onderliggende items van het bovenliggende item. De volgende tabel toont de algemene instanties beschikbaar voor zowel Windows als Linux-prestatiemeteritems.
 
-| Exemplaarnaam | Beschrijving |
+| Exemplaarnaam | Description |
 | --- | --- |
 | \_Totaal |Totaal van alle instanties |
 | \* |Alle instanties |
@@ -82,7 +82,7 @@ Elk object of de categorie van metrische gegevens voor prestaties voor het verza
 
 De parameters in dit element worden in de volgende tabel beschreven.
 
-| Parameters | Beschrijving |
+| Parameters | Description |
 |:--|:--|
 | object\_naam | Objectnaam voor de verzameling. |
 | exemplaar\_reguliere expressie |  Een *reguliere expressie* definiëren welke instanties te verzamelen. De waarde: `.*` Hiermee geeft u alle instanties. Voor het verzamelen van metrische gegevens van processor voor alleen de \_totale instantie die u kunt opgeven `_Total`. U kunt opgeven voor het verzamelen van metrische gegevens verwerken voor alleen de exemplaren crond of sshd: `(crond\|sshd)`. |
@@ -189,7 +189,7 @@ Log Analytics verzamelt alle opgegeven prestatiemeteritems op de opgegeven contr
 ## <a name="performance-record-properties"></a>Eigenschappen van de record Performance
 Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Computer |De computer waarop de gebeurtenis is verzameld. |
 | CounterName |Naam van het prestatiemeteritem |
@@ -208,7 +208,7 @@ Prestatierecords zijn een type **Perf** en hebben de eigenschappen in de volgend
 ## <a name="log-searches-with-performance-records"></a>Zoekopdrachten in Logboeken met prestatiegegevens
 De volgende tabel bevat voorbeelden van zoekopdrachten die prestatierecords ophalen.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:--- |:--- |
 | Prestaties |Alle prestatiegegevens |
 | Perf &#124; waarbij Computer == 'Computer' |Alle prestatiegegevens van een bepaalde computer |
@@ -228,4 +228,4 @@ De volgende tabel bevat voorbeelden van zoekopdrachten die prestatierecords opha
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems van Linux-toepassingen](data-sources-linux-applications.md) met inbegrip van MySQL en Apache HTTP-Server.
 * Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
-* Verzamelde gegevens te exporteren [Power BI](../../log-analytics/log-analytics-powerbi.md) voor extra visualisaties en analyse.
+* Verzamelde gegevens te exporteren [Power BI](../../azure-monitor/platform/powerbi.md) voor extra visualisaties en analyse.

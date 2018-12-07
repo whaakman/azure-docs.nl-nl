@@ -1,5 +1,5 @@
 ---
-title: Canary-release met Vamp op Azure DC/OS-cluster
+title: (AFGESCHAFT) Canary-release met Vamp op Azure DC/OS-cluster
 description: Vamp canary-release-Services gebruiken en toepassen van slimme verkeer filteren op een Azure Container Service DC/OS-cluster
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975853"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002071"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Microservices canary-release met Vamp op een Azure Container Service DC/OS-cluster
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(AFGESCHAFT) Microservices canary-release met Vamp op een Azure Container Service DC/OS-cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In dit scenario wordt ingesteld Vamp in Azure Container Service met een DC/OS-cluster. We canary release van de Vamp demo-service "sava" en vervolgens incompatibiliteit van de service met Firefox oplossen door toe te passen slimme verkeer filteren. 
 

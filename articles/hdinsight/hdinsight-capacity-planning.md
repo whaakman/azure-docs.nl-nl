@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b8b562e1f783a9da7621b29fbf6d5bd1ff6ca5ef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499120"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013506"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -97,7 +97,7 @@ U betaalt voor de levensduur van een cluster. Als er alleen specifieke tijden da
 
 Soms fouten kunnen optreden als gevolg van de parallelle uitvoering van meerdere kaart en onderdelen op een cluster met meerdere knooppunten verminderen. Om te isoleren van het probleem, probeert u gedistribueerde testen door te voeren gelijktijdige vouwt meerdere taken op een cluster met één knooppunt, u deze aanpak meerdere taken gelijktijdig worden uitgevoerd op clusters met meer dan één knooppunt. Gebruik voor het maken van een cluster met één knooppunt HDInsight in Azure de *geavanceerde* optie.
 
-U kunt ook een ontwikkelingsomgeving met één knooppunt op uw lokale computer installeren en testen van de oplossing bevat. Hortonworks biedt een omgeving met één knooppunt lokale ontwikkeling voor Hadoop-gebaseerde oplossingen die is handig voor het eerste ontwikkeling, bewijs van concept, en tests. Zie voor meer informatie, [Hortonworks Sandbox](http://hortonworks.com/products/hortonworks-sandbox/).
+U kunt ook een ontwikkelingsomgeving met één knooppunt op uw lokale computer installeren en testen van de oplossing bevat. Hortonworks biedt een omgeving met één knooppunt lokale ontwikkeling voor Hadoop-gebaseerde oplossingen die is handig voor het eerste ontwikkeling, bewijs van concept, en tests. Zie voor meer informatie, [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 
 Voor het identificeren van het probleem op een lokale cluster met één knooppunt kunt u mislukte taken opnieuw uitvoeren en aanpassen van de ingevoerde gegevens, of gebruik van kleinere gegevenssets. Hoe u deze taken worden uitgevoerd, is afhankelijk van het platform en het type van de toepassing.
 

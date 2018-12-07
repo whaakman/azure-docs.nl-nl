@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: e537795c9dec5f909810a37d4f13d5664bec05a2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 56ad4fdf781d9ed94a082ab5eb352803c70e52ef
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839973"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996233"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van gegevens die zijn opgeslagen in Azure Monitor. Dit omvat [metrische gegevens in de metrische gegevens van Azure store](../azure-monitor/platform/data-collection.md#metrics) en [gegevens vastleggen in Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
@@ -89,7 +89,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is vooral handig voor het maken van zakelijke dashboards en rapporten, evenals rapporten op de lange termijn KPI-trends analyseren. U kunt [importeren van de resultaten van een Log Analytics-query](../log-analytics/log-analytics-powerbi.md) naar een Power BI-gegevensset, zodat u van de functies profiteren kunt, zoals het combineren van gegevens uit verschillende bronnen en delen van rapporten op het web en mobiele apparaten.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is vooral handig voor het maken van zakelijke dashboards en rapporten, evenals rapporten op de lange termijn KPI-trends analyseren. U kunt [importeren van de resultaten van een Log Analytics-query](../azure-monitor/platform/powerbi.md) naar een Power BI-gegevensset, zodat u van de functies profiteren kunt, zoals het combineren van gegevens uit verschillende bronnen en delen van rapporten op het web en mobiele apparaten.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -141,5 +141,5 @@ U kunt gegevens in de metrische gegevens van Azure en de Log Analytics openen vi
 - Meer informatie over [Azure-dashboards](../azure-portal/azure-portal-dashboards.md).
 - Meer informatie over [weergaven in Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Meer informatie over [werkmappen in Application Insights](../application-insights/app-insights-usage-workbooks.md).
-- Meer informatie over [logboekgegevens importeren in Power BI](../log-analytics/log-analytics-powerbi.md).
+- Meer informatie over [logboekgegevens importeren in Power BI](../azure-monitor/platform/powerbi.md).
 - Meer informatie over de [Grafana Azure Monitor-gegevensbron invoegtoepassing](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

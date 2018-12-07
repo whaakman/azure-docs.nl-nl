@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d38c93f1e6e390117ff5d9e8772119ed1c26fd10
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e374528a0fa757458e7e4881714370937b56f9c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965527"
+ms.locfileid: "52998300"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines (Preview)
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor virtuele machines voor het bewaken van de status van het besturingssysteem van uw virtuele Azure-machines en schaalsets voor virtuele machines en virtuele machines in uw omgeving, met inbegrip van detectie en het toewijzen van afhankelijkheden voor toepassingen dat kan worden gehost op deze.  
@@ -149,7 +149,7 @@ De gegevens worden opgehaald van de agent voor Microsoft Dependency van Azure Mo
 
 De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de kaart-functie in een hybride omgeving.
 
-| Verbonden bron | Ondersteund | Beschrijving |
+| Verbonden bron | Ondersteund | Description |
 |:--|:--|:--|
 | Windows-agents | Ja | Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Linux-agents | Ja | Naast de [Log Analytics-agent voor Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
@@ -169,7 +169,7 @@ De volgende toegang moet worden verleend aan uw gebruikers om te kunnen inschake
 
 - Als u wilt weergeven van de prestaties, status, status en gegevens toewijzen, moet u toegevoegd als een lid van de rol van lezer bewaking voor de Azure-VM en de Log Analytics-werkruimte die is geconfigureerd met Azure Monitor voor virtuele machines.   
 
-Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../../log-analytics/log-analytics-manage-access.md).
+Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Inschakelen van de Azure-portal
 Voor bewaking van uw Azure-VM in Azure portal, het volgende doen:
@@ -197,7 +197,7 @@ In deze sectie instructies voor het uitvoeren van de bij de implementatie van de
 
 Samengevat, zijn de stappen die u uitvoeren om te vooraf configureren van uw Log Analytics-werkruimte moet voordat u verder kunt gaan met de voorbereidingen uw virtuele machines.
 
-1. Maak een nieuwe werkruimte als deze niet al die bestaat kan worden gebruikt voor de ondersteuning van Azure Monitor voor virtuele machines. Beoordeling [werkruimten beheren](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) voordat u een nieuwe werkruimte voor meer informatie over de kosten, beheer en naleving overwegingen voordat u doorgaat.       
+1. Maak een nieuwe werkruimte als deze niet al die bestaat kan worden gebruikt voor de ondersteuning van Azure Monitor voor virtuele machines. Beoordeling [werkruimten beheren](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) voordat u een nieuwe werkruimte voor meer informatie over de kosten, beheer en naleving overwegingen voordat u doorgaat.       
 2. Inschakelen van prestatiemeteritems in de werkruimte voor de verzameling op Linux- en Windows-machines.
 3. Installeren en inschakelen van de **ServiceMap** en **InfrastructureInsights** oplossing in uw werkruimte.  
 
@@ -310,7 +310,7 @@ Zie voor meer informatie over Azure Policy-toewijzing [overzicht van Azure Polic
 
 De volgende tabel bevat de beleidsdefinities die is opgegeven.  
 
-|Naam |Beschrijving |Type |  
+|Name |Description |Type |  
 |-----|------------|-----|  
 |[Preview]: Azure Monitor voor virtuele machines inschakelen |Azure Monitor inschakelen voor de virtuele Machines (VM's) in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt als parameter. |Initiatief |  
 |[Preview]: implementatie van de Audit afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde |Hiermee worden VM's gerapporteerd niet-compatibel als de VM-installatiekopie (OS) niet in de gedefinieerde lijst staat en de agent niet is geïnstalleerd. |Beleid |  
@@ -322,7 +322,7 @@ De volgende tabel bevat de beleidsdefinities die is opgegeven.
 
 Zelfstandige beleid (niet opgenomen in het initiatief) 
 
-|Naam |Beschrijving |Type |  
+|Name |Description |Type |  
 |-----|------------|-----|  
 |[Preview]: Audit Log Analytics-werkruimte voor VM - probleem melden |Rapporteren als niet-compatibele VM's als ze zich niet in de werkruimte LA is opgegeven in de toewijzing van beleid/initiatief. |Beleid |
 
@@ -552,7 +552,7 @@ De agent voor afhankelijkheden kan handmatig worden geïnstalleerd op Windows-co
 
 De volgende tabel ziet u de specifieke parameters die worden ondersteund door het installatieprogramma voor de agent vanaf de opdrachtregel.  
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 |:--|:--|
 | /? | Retourneert een lijst van de opdrachtregelopties. |
 | /S | Voer een installatie op de achtergrond zonder tussenkomst van de gebruiker. |
@@ -568,7 +568,7 @@ De agent voor afhankelijkheden is geïnstalleerd op Linux-servers van `InstallDe
 > Toegang tot de hoofdmap is vereist om de agent te installeren of configureren.
 > 
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 |:--|:--|
 | -help | Een lijst met de opdrachtregelopties ophalen. |
 | -s | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |

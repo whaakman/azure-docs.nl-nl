@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846161"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998114"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Het bieden van veilige externe toegang tot on-premises toepassingen
 
@@ -59,16 +59,16 @@ Met Azure AD-toepassingsproxy, kunt u verschillende soorten interne toepassingen
 * Rich client-apps die kunnen worden geïntegreerd met de Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Hoe werkt Application Proxy?
-Er zijn twee onderdelen die u nodig hebt om te configureren zodat Application Proxy werken: een connector en een extern eindpunt. 
+Er zijn twee onderdelen die u nodig hebt om te configureren zodat Application Proxy werken: een connector en een eindpunt. 
 
 De connector is een lichtgewicht agent die bevindt zich op een Windows-Server in uw netwerk. De connector vereenvoudigt het uitvoeren van de verkeersstroom van de service voor toepassingsproxy in de cloud naar uw toepassing on-premises. Uitgaande verbindingen wordt alleen gebruikt, zodat u hoeft inkomende poorten openen of iets in de DMZ te plaatsen. De connectors zijn staatloos en ophalen van informatie vanuit de cloud naar behoefte. Voor meer informatie over connectors, zoals hoe ze verdelen en geverifieerd, Zie [over Azure AD Application Proxy connectors](application-proxy-connectors.md). 
 
-Het externe eindpunt is hoe uw gebruikers bereiken voor uw toepassingen terwijl buiten uw netwerk. Ze kunnen ofwel rechtstreeks naar een externe URL die u hebt vastgesteld en ze toegang krijgen tot de toepassing via de MyApps-portal. Wanneer gebruikers naar een van deze eindpunten gaat, worden ze verifiëren in Azure AD en vervolgens worden gerouteerd via de connector op de on-premises toepassing.
+Het eindpunt mag een URL of een [eindgebruikersportal](end-user-experiences.md). Gebruikers kunnen toepassingen terwijl buiten uw netwerk bereiken door het openen van een externe URL. Gebruikers in uw netwerk kunnen de toepassing openen via een URL of een eindgebruikersportal. Wanneer gebruikers naar een van deze eindpunten gaat, worden ze verifiëren in Azure AD en vervolgens worden gerouteerd via de connector op de on-premises toepassing.
 
  ![AzureAD Application Proxy-diagram](./media/application-proxy/azureappproxxy.png)
 
-1. De gebruiker toegang heeft tot de toepassing via de Application Proxy-service en wordt omgeleid naar de aanmeldingspagina van Azure AD om te verifiëren.
-2. Na een geslaagde aanmelding, is een token gegenereerd en verzonden naar het clientapparaat.
+1. Nadat de gebruiker toegang gekregen de toepassing via een eindpunt tot heeft, wordt de gebruiker omgeleid naar de aanmeldingspagina van Azure AD. 
+2. Na een geslaagde aanmelding, is een token gegenereerd en verzonden naar de client-apparaat van de gebruiker.
 3. De client stuurt het token naar de Application Proxy-service, die wordt opgehaald van de user principal name (UPN) en de naam van de beveiligingsprincipal (SPN) van het token en stuurt de aanvraag naar de Application Proxy-connector.
 4. Als u eenmalige aanmelding hebt geconfigureerd, voert de connector aanvullende verificatie namens de gebruiker vereist.
 5. De connector stuurt de aanvraag naar de on-premises toepassing.  

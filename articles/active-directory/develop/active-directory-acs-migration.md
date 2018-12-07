@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423378"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015769"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Hoe: migreren van de Azure Access controleservice
 
@@ -132,7 +132,7 @@ Ten minste één alternatieve vorm van verificatie biedt ondersteuning voor elke
 | ------- | -------- |
 | Azure Service Bus | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Migreren naar Azure Redis-cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure Managed Cache | [Migreren naar Azure Cache voor Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Migreren naar de Cognitive Services API 's](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migreren naar de functie logische Apps van Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migreren naar Azure AD-verificatie](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |

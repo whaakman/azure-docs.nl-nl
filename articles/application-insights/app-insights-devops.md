@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57e201403374ac72ef79bb4335294e1e937c8757
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720301"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994418"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diepe diagnostische gegevens voor web-apps en services met Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Waarom moet ik Application Insights?
@@ -79,7 +79,7 @@ De belangrijkste categorieën van de gegevens zijn:
 * Logboektraceringen gebruikt voor foutopsporing.
 
 ## <a name="case-study-real-madrid-fc"></a>Casestudy: Real Madrid F.C.
-De webservice van [Real Madrid Football Club](http://www.realmadrid.com/) bedient ongeveer 450 miljoen fans over de hele wereld. Fans toegang zowel via webbrowsers en mobiele apps van de Club. Fans kunnen niet alleen het adresboek van tickets, maar ook toegang tot gegevens en videoclips op toekomstige games, spelers en resultaten. Ze kunnen zoeken met filters zoals aantallen doelstellingen beoordeeld. Er zijn ook koppelingen naar sociale media. De gebruikerservaring is uiterst persoonlijke en is bedoeld als een communicatie in twee richtingen contact opnemen met fans.
+De webservice van [Real Madrid Football Club](https://www.realmadrid.com/) bedient ongeveer 450 miljoen fans over de hele wereld. Fans toegang zowel via webbrowsers en mobiele apps van de Club. Fans kunnen niet alleen het adresboek van tickets, maar ook toegang tot gegevens en videoclips op toekomstige games, spelers en resultaten. Ze kunnen zoeken met filters zoals aantallen doelstellingen beoordeeld. Er zijn ook koppelingen naar sociale media. De gebruikerservaring is uiterst persoonlijke en is bedoeld als een communicatie in twee richtingen contact opnemen met fans.
 
 De oplossing [is een systeem van services en toepassingen op Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Schaalbaarheid is een basisvereiste: verkeer variabele en tijdens de en rond komt overeen met zeer hoge volumes kunt bereiken.
 

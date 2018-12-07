@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b47172df2ab3bd286db0faa21eb5197fd061bfd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253173"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012892"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Toepassingspatronen en ontwikkelingsstrategieën voor SQL Server in Azure Virtual Machines
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -41,7 +41,7 @@ U kunt veel soorten toepassingen met n-aantal lagen ontwikkelen door te scheiden
 
 Een typische *n-aantal lagen* toepassing bevat de presentatielaag, de bedrijfslaag en de gegevenslaag:
 
-| Laag | Beschrijving |
+| Laag | Description |
 | --- | --- |
 | **Presentatie** |De *presentatielaag* (weblaag, front-end-laag) is de laag waarop gebruikers werken interactief met een toepassing. |
 | **Business** |De *bedrijfslaag* (middelste laag) is de laag die de presentatie-laag en de gegevenslaag gebruiken om te communiceren met elkaar en bevat de kernfunctionaliteit van het systeem. |
@@ -192,7 +192,7 @@ In het diagram kunt zien, verdeelt het verkeer over meerdere virtuele machines e
 
 ![Toepassingspatronen met Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Een andere benadering voor het implementeren van dit patroon is het gebruik van een geconsolideerde Webrol die bevat zowel de presentatielaag en de business laag onderdelen zoals wordt weergegeven in het volgende diagram. Dit patroon is handig voor toepassingen waarvoor stateful ontwerp. Omdat Azure stateless compute-knooppunten op web-en werkrollen biedt, wordt afgeraden om een logica voor het opslaan van de sessiestatus met behulp van een van de volgende technologieën te implementeren: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) of [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
+Een andere benadering voor het implementeren van dit patroon is het gebruik van een geconsolideerde Webrol die bevat zowel de presentatielaag en de business laag onderdelen zoals wordt weergegeven in het volgende diagram. Dit patroon is handig voor toepassingen waarvoor stateful ontwerp. Omdat Azure stateless compute-knooppunten op web-en werkrollen biedt, wordt afgeraden om een logica voor het opslaan van de sessiestatus met behulp van een van de volgende technologieën te implementeren: [Azure Caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) of [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
 
 ![Toepassingspatronen met Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

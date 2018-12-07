@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631996"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011219"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Een inleiding tot Apache Hadoop-beveiliging met Enterprise-beveiligingspakket
 
@@ -22,7 +22,7 @@ In het verleden, Azure HDInsight slechts één gebruiker ondersteund: lokale beh
 
 U kunt een HDInsight-cluster maken met Enterprise Security Package (ESP) die lid van een Active Directory-domein is. U kunt vervolgens een lijst met werknemers van de onderneming die zich via Azure Active Directory verifiëren kunnen voor aanmelding bij het HDInsight-cluster configureren. Niemand van buiten de onderneming kunt aanmelden of toegang tot het HDInsight-cluster. 
 
-De enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) kunt configureren voor Apache Hive-beveiliging met behulp van [Apache Ranger](http://hortonworks.com/apache/ranger/). RBAC configureren toegang wordt beperkt tot gegevens alleen wat u nodig hebt. De beheerder kan ten slotte de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren. De beheerder kan vervolgens een hoge mate van beheer van hun bedrijfsbronnen behalen.
+De enterprise-beheerder op rollen gebaseerd toegangsbeheer (RBAC) kunt configureren voor Apache Hive-beveiliging met behulp van [Apache Ranger](https://hortonworks.com/apache/ranger/). RBAC configureren toegang wordt beperkt tot gegevens alleen wat u nodig hebt. De beheerder kan ten slotte de toegang tot de gegevens door werknemers en eventuele wijzigingen worden aangebracht aan het beleid voor toegangsbeheer controleren. De beheerder kan vervolgens een hoge mate van beheer van hun bedrijfsbronnen behalen.
 
 > [!NOTE]
 > Oozie is nu ingeschakeld op ESP-clusters. Voor toegang tot de Oozie-webgebruikersinterface, gebruikers moeten inschakelen [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
@@ -44,14 +44,14 @@ Met deze instelling kunnen enterprise werknemers aanmelden bij de clusterknooppu
 ## <a name="authorization"></a>Autorisatie
 Een best practice die volgen op de meeste bedrijven is ervoor te zorgen dat niet alle werknemers toegang tot alle bedrijfsresources heeft. De beheerder kan ook op rollen gebaseerd beleid voor toegangsbeheer voor de clusterresources definiëren. 
 
-De beheerder kan bijvoorbeeld [Apache Ranger](http://hortonworks.com/apache/ranger/) configureren om toegangscontrolebeleid in te stellen voor Hive. Deze functionaliteit zorgt ervoor dat werknemers toegang heeft tot alleen gegevens die ze nodig hebben om succesvol in hun werk te zijn. SSH-toegang tot het cluster is ook beperkt tot alleen de beheerder.
+De beheerder kan bijvoorbeeld [Apache Ranger](https://hortonworks.com/apache/ranger/) configureren om toegangscontrolebeleid in te stellen voor Hive. Deze functionaliteit zorgt ervoor dat werknemers toegang heeft tot alleen gegevens die ze nodig hebben om succesvol in hun werk te zijn. SSH-toegang tot het cluster is ook beperkt tot alleen de beheerder.
 
 ## <a name="auditing"></a>Controleren
 Controle van alle toegang tot de resources van het cluster en de gegevens is die nodig zijn om bij te houden van onbevoegde of onbedoelde toegang van de resources. Het is net zo belangrijk als de HDInsight-clusterresources te beveiligen tegen onbevoegde gebruikers en de gegevens te beveiligen. 
 
 De beheerder kan weergeven en rapporteren van alle toegang tot het HDInsight-clusterresources en gegevens. De beheerder kan ook weergeven en rapporteren van alle wijzigingen aan het beleid voor toegangsbeheer in Apache Ranger ondersteunde eindpunten hebt gemaakt. 
 
-Een HDInsight-cluster met ESP maakt gebruik van de vertrouwde Apache Ranger-gebruikersinterface om te zoeken naar de logboeken voor controle. Op de back-end, Ranger maakt gebruik van [Apache Solr](http://hortonworks.com/apache/solr/) voor het opslaan en zoeken naar Logboeken.
+Een HDInsight-cluster met ESP maakt gebruik van de vertrouwde Apache Ranger-gebruikersinterface om te zoeken naar de logboeken voor controle. Op de back-end, Ranger maakt gebruik van [Apache Solr](https://hortonworks.com/apache/solr/) voor het opslaan en zoeken naar Logboeken.
 
 ## <a name="encryption"></a>Versleuteling
 Beveiligen van gegevens is belangrijk voor vergadering beveiligings- en vereisten van de organisatie. Naast het beperken van toegang tot gegevens onbevoegde werknemers, moet u het versleutelen. 

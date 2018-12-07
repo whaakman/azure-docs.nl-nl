@@ -3,17 +3,17 @@ title: Kies de prijscategorie voor Azure-kaarten rechts | Microsoft Docs
 description: Meer informatie over prijzen van lagen die worden aangeboden door Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/03/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 20c59f95dcdb47ef3e457f177d7ad1a300981907
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855837"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998383"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>De prijscategorie van Azure Maps rechts kiezen
 
@@ -34,14 +34,16 @@ S0 en S1 Prijscategorieën kunnen verschillende hoeveelheden doorvoer van gegeve
 | Renderen                                  |        ✓           |     ✓    |
 | Verkeer                                 |        ✓           |     ✓    |
 | Tijdzones                              |        ✓           |     ✓    |
-| Beelden en gecombineerde beelden (preview)      |                    |     ✓    |
-| Route bereik (Preview)                   |                    |     ✓    |
-| IP-2-locatie (preview)                 |                    |     ✓    |
-| Veelhoeken van zoeken (Preview)          |                    |     ✓    |
-| Batch Geocodering (preview)               |                    |     ✓    |
-| Batch-routering (preview)                 |                    |     ✓    |
-| Matrix-routering (preview)                |                    |     ✓    |
+| * Beelden en gecombineerde beelden (preview)     |        ✓           |     ✓    |
+| * Route bereik (Preview)                  |        ✓           |     ✓    |
+| * Locatie van de 2 IP (preview)                |        ✓           |     ✓    |
+| * Veelhoeken van zoeken (Preview)         |        ✓           |     ✓    |
+| * Batch Geocodering (preview)              |        ✓           |     ✓    |
+| * Batch Routing (preview)                |        ✓           |     ✓    |
+| * Matrix Routing (preview)               |        ✓           |     ✓    |
 
+> [!Note]
+> Toegang tot deze mogelijkheden van S0 prijscategorie wordt afgeschaft na 4 februari 2019.
 
 Enkele aanvullende gegevenspunten waard zijn, wat voor soort enterprise hebt u of hoe essentieel de toepassing is wordt gemaakt?
 

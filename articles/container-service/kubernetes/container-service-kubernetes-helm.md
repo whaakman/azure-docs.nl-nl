@@ -1,5 +1,5 @@
 ---
-title: Implementeer containers met Helm in Azure Kubernetes
+title: (AFGESCHAFT) Implementeer containers met Helm in Azure Kubernetes
 description: Het Helm verpakking-hulpprogramma gebruiken voor het implementeren van containers in een Kubernetes-cluster in Azure Container Service
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634150"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997891"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm gebruiken voor het implementeren van containers in een Kubernetes-cluster
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(AFGESCHAFT) Helm gebruiken voor het implementeren van containers in een Kubernetes-cluster
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Zie voor de bijgewerkte versie dit artikel die gebruikmaakt van Azure Kubernetes Service, [installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) is een open-source verpakking-hulpprogramma dat helpt u bij het installeren en beheren van de levenscyclus van toepassingen met Kubernetes. Net als bij Linux pakketmanagers zoals Apt-get en Yum, Helm wordt gebruikt voor het beheren van Kubernetes grafieken die pakketten van vooraf geconfigureerde Kubernetes-resources zijn. Dit artikel ziet u hoe u werkt met Helm op een Kubernetes-cluster geïmplementeerd in Azure Container Service.
 

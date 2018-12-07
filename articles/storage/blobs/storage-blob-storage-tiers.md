@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253717"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014494"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob-opslag: Premium (preview), dynamische, statische en Archiefopslaglaag
 
@@ -113,7 +113,7 @@ Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde a
 Gegevens die zijn opgeslagen in de laag Premium kan niet in tiers worden verdeeld als u wilt warm, koud of archief met behulp van [Blob-laag instellen](/rest/api/storageservices/set-blob-tier) of met behulp van Azure Blob Storage-levenscyclusbeheer. Om gegevens te verplaatsen, moet u synchroon kopiëren blobs uit de Premium-toegang voor het gebruik van ' hot ' de [blok plaatsen van URL API](/rest/api/storageservices/put-block-from-url) of een versie van AzCopy die ondersteuning biedt voor deze API. De *blok plaatsen van URL* API synchroon worden gegevens gekopieerd op de server, wat betekent dat de aanroep is voltooid maar één keer alle de gegevens van de oorspronkelijke serverlocatie wordt verplaatst naar de doellocatie.
 
 ### <a name="blob-lifecycle-management"></a>Beheer van de BLOB-levenscyclus
-BLOB Storage lifecycle management (Preview) biedt een uitgebreide, op basis van regels beleid dat u gebruiken kunt voor de overgang van uw gegevens naar de beste toegangslaag en verloopt gegevens aan het einde van de levenscyclus. Zie [beheren van de levenscyclus van de Azure Blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) voor meer informatie.  
+BLOB Storage lifecycle management (Preview) biedt een uitgebreide, op basis van regels beleid dat u gebruiken kunt voor de overgang van uw gegevens naar de beste toegangslaag en verloopt gegevens aan het einde van de levenscyclus. Zie [beheren van de levenscyclus van de Azure Blob-opslag](storage-lifecycle-management-concepts.md) voor meer informatie.  
 
 ### <a name="blob-level-tiering-billing"></a>Facturering van laaginstelling op blobniveau
 
@@ -245,7 +245,7 @@ Gegevensopslag en andere limieten worden ingesteld op het accountniveau en niet 
 
 [De beschikbaarheid van Hot, Cool en Archive per regio controleren](https://azure.microsoft.com/regions/#services)
 
-[De levenscyclus van de Azure Blob storage beheren](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[De levenscyclus van de Azure Blob storage beheren](storage-lifecycle-management-concepts.md)
 
 [Gebruik van de huidige opslagaccounts evalueren door metrische gegevens voor Azure Storage in te schakelen](../common/storage-enable-and-view-metrics.md)
 

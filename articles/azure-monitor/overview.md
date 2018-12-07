@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847385"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994217"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -39,9 +39,9 @@ Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rech
 
 ![Metrische gegevens](media/overview/metrics.png)
 
-Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../azure-monitor/log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../log-analytics/log-analytics-log-search-portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Logboekgegevens die zijn verzameld door Azure Monitor is opgeslagen in Log Analytics, waaronder een [uitgebreide querytaal](../azure-monitor/log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met de [pagina logboekanalyse](../azure-monitor/log-query/portals.md) in Azure portal en de gegevens met behulp van deze hulpprogramma's rechtstreeks analyseren of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [ waarschuwingsregels](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-De querytaal van Log Analytics is geschikt voor eenvoudige logboeken-query's, maar bevat ook geavanceerde functies zoals aggregaties, joins en slimme analyse. U kunt snel leren over de query-taal met [meerdere lessen](../log-analytics/query-language/get-started-queries.md) die beschikbaar zijn.  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](../log-analytics/query-language/sql-cheatsheet.md) en [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
+De querytaal van Log Analytics is geschikt voor eenvoudige logboeken-query's, maar bevat ook geavanceerde functies zoals aggregaties, joins en slimme analyse. U kunt snel leren over de query-taal met [meerdere lessen](../azure-monitor/log-query/get-started-queries.md) die beschikbaar zijn.  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](../azure-monitor/log-query/sql-cheatsheet.md) en [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md).
 
 ![Logboeken](media/overview/logs.png)
 
@@ -61,7 +61,7 @@ Uitbreiden van de gegevens die u verzamelt in de huidige bewerking van de resour
 [Een instrumentatiepakket toevoegen aan uw toepassing](../application-insights/app-insights-azure-web-apps.md), Application Insights voor het verzamelen van gedetailleerde informatie over uw toepassing met inbegrip van paginaweergaven, aanvragen en uitzonderingen inschakelen. De beschikbaarheid van uw toepassing verder controleren door het configureren van een [beschikbaarheidstest](../application-insights/app-insights-monitor-web-app-availability.md) gebruikersverkeer simuleren.
 
 ### <a name="custom-sources"></a>Aangepaste bronnen
-Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp van de [Data Collector API](../log-analytics/log-analytics-data-collector-api.md). Hiermee kunt u aangepaste bewakingsscenario's maken en uitbreiden van de bewaking aan resources die niet beschikbaar voor telemetrie via andere bronnen maken.
+Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp van de [Data Collector API](../azure-monitor/platform/data-collector-api.md). Hiermee kunt u aangepaste bewakingsscenario's maken en uitbreiden van de bewaking aan resources die niet beschikbaar voor telemetrie via andere bronnen maken.
 
 
 
@@ -119,7 +119,7 @@ Automatisch schalen kunt u de juiste hoeveelheid resources die worden uitgevoerd
 ![Log Analytics-weergave](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) is een business analytics-service waarmee u interactieve visualisaties in een groot aantal gegevensbronnen en is een efficiënte manier om gegevens beschikbaar voor anderen binnen en buiten uw organisatie. U kunt Power BI om te configureren [importeren automatisch logboekgegevens van Azure Monitor](../log-analytics/log-analytics-powerbi.md) om te profiteren van deze extra visualisaties.
+[Power BI](https://powerbi.microsoft.com) is een business analytics-service waarmee u interactieve visualisaties in een groot aantal gegevensbronnen en is een efficiënte manier om gegevens beschikbaar voor anderen binnen en buiten uw organisatie. U kunt Power BI om te configureren [importeren automatisch logboekgegevens van Azure Monitor](../azure-monitor/platform/powerbi.md) om te profiteren van deze extra visualisaties.
 
 
 ![Power BI](media/overview/power-bi.png)

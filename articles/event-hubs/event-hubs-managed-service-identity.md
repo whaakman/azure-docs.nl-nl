@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 51b9aa33fd186a46d51f7e2fb64b42648b854cd3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d7ed4f0276e6220e6df528075e83cb9fabc6cc84
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833904"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011467"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Beheerde identiteiten voor Azure-resources met Event Hubs
 
@@ -47,7 +48,7 @@ De eerste stap is het maken van een App Service-ASP.NET-toepassing. Als u niet b
 
 Zodra u de toepassing hebt gemaakt, gaat u naar de nieuwe web-app in Azure portal (wordt ook weergegeven in de instructies) en navigeer naar de **beheerde Service-identiteit** pagina en de functie inschakelen: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Beheerde Service-identiteit pagina](./media/event-hubs-managed-service-identity/msi1.png)
  
 Nadat u de functie hebt ingeschakeld, is een nieuwe service-identiteit in uw Azure Active Directory gemaakt en geconfigureerd in de App Service-host.
 
@@ -67,7 +68,7 @@ Houd er rekening mee hoe de [MessagingFactory](/dotnet/api/microsoft.servicebus.
 
 Nadat u deze wijzigingen aanbrengt, publiceren en de toepassing wordt uitgevoerd. U kunt de juiste publiceren van gegevens krijgen door te downloaden en vervolgens een publicatieprofiel in Visual Studio te importeren:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Profiel voor publiceren importeren](./media/event-hubs-managed-service-identity/msi3.png)
  
 Als u wilt verzenden of ontvangen van berichten, voer de naam van de naamruimte en de naam van de entiteit die u hebt gemaakt, en klik vervolgens op een **verzenden** of **ontvangen**. 
  

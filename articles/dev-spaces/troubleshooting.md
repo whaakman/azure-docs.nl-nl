@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 36516030741678ec66b4211f49ede35cfdb98605
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706446"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014545"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -236,7 +236,7 @@ Dit probleem wordt opgelost als de agentknooppunten in het cluster meestal opnie
 ### <a name="reason"></a>Reden
 Wanneer u Dev spaties voor een naamruimte in uw AKS-cluster inschakelt, er een extra container met de naam _mindaro-proxy_ in elk van de pods die worden uitgevoerd binnen deze naamruimte is geïnstalleerd. Deze container onderschept aanroepen naar de services in de schil die integraal is voor Dev spaties team development mogelijkheden.
 
-Helaas kan dit leiden tot problemen met bepaalde services die in deze schillen uitgevoerd. Met name verstoort het schillen Redis-cache wordt uitgevoerd, waardoor-verbindingsfouten en fouten in de master/slave-communicatie.
+Helaas kan dit leiden tot problemen met bepaalde services die in deze schillen uitgevoerd. Met name verstoort het schillen uitgevoerd van Azure Cache voor Redis, waardoor-verbindingsfouten en fouten in de master/slave-communicatie.
 
 ### <a name="try"></a>Probeer:
 U kunt de betrokken pod(s) verplaatsen naar een naamruimte in het cluster dat wordt _niet_ Dev spaties bevatten die zijn ingeschakeld, terwijl u verdergaat met het uitvoeren van de rest van uw toepassing binnen een naamruimte Dev spaties ingeschakeld. Dev opslagruimten wordt niet geïnstalleerd. de _mindaro-proxy_ container binnen Dev spaties ingeschakelde naamruimten.

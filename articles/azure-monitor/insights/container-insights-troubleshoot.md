@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: da35f88550bb7bd1a4543f03936dcd52ddd926d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f5b08efda80eefad736386cd74ec1d40f05a6f3a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308356"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994826"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Oplossen van problemen met Azure Monitor voor containers (Preview)
 
@@ -99,7 +99,7 @@ De onderstaande tabel bevat een overzicht van de bekende problemen die optreden 
 | Foutberichten  | Bewerking |  
 | ---- | --- |  
 | Foutbericht `No data for selected filters`  | Het duurt enige tijd tot stand brengen van bewaking gegevensstroom voor nieuwe clusters. Wacht ten minste 10 tot 15 minuten voor de gegevens worden weergegeven voor uw cluster. |   
-| Foutbericht `Error retrieving data` | Terwijl Azure Kubenetes Service-cluster voor basisstatus en -prestaties instelt, een verbinding tot stand is gebracht tussen het cluster en Azure Log Analytics-werkruimte. Een Log Analytics-werkruimte wordt gebruikt voor het opslaan van alle bewakingsgegevens voor uw cluster. Deze fout kan optreden wanneer uw Log Analytics-werkruimte is verwijderd of verloren gaan. Controleer of uw werkruimte beschikbaar aan de hand is [toegang beheren](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Als de werkruimte ontbreekt, moet u voor de re-onboarding uw cluster met Azure Monitor voor containers. Voor de re-onboarding, moet u [uitschakelen](container-insights-optout.md) bewaking voor het cluster en [inschakelen](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor voor containers opnieuw. |  
+| Foutbericht `Error retrieving data` | Terwijl Azure Kubenetes Service-cluster voor basisstatus en -prestaties instelt, een verbinding tot stand is gebracht tussen het cluster en Azure Log Analytics-werkruimte. Een Log Analytics-werkruimte wordt gebruikt voor het opslaan van alle bewakingsgegevens voor uw cluster. Deze fout kan optreden wanneer uw Log Analytics-werkruimte is verwijderd of verloren gaan. Controleer of uw werkruimte beschikbaar aan de hand is [toegang beheren](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Als de werkruimte ontbreekt, moet u voor de re-onboarding uw cluster met Azure Monitor voor containers. Voor de re-onboarding, moet u [uitschakelen](container-insights-optout.md) bewaking voor het cluster en [inschakelen](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor voor containers opnieuw. |  
 | `Error retrieving data` na het toevoegen van Azure Monitor voor containers via az aks cli | Wanneer met behulp van onboarding `az aks cli`, zelden, Azure-Monitor voor containers mogelijk niet correct zijn toegevoegd. Controleer of de oplossing geïmplementeerd is. Om dit te doen, gaat u naar uw Log Analytics-werkruimte en of de oplossing beschikbaar is, door te selecteren **oplossingen** in het deelvenster aan de linkerkant. U lost dit probleem, moet u de oplossing implementeren door de instructies te volgen op [Azure Monitor for containers implementeren](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
 
 Om u te helpen bij het vaststellen van het probleem, wij een probleemoplossing script beschikbaar hebt opgegeven [hier](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  

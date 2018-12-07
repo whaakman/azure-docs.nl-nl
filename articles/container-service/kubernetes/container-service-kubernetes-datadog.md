@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes-cluster bewaken met Datadog
+title: (AFGESCHAFT) Azure Kubernetes-cluster bewaken met Datadog
 description: Bewaking van Kubernetes-cluster in Azure Container Service met Datadog
 services: container-service
 author: bburns
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629066"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995360"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Een Azure Container Service-cluster bewaken met DataDog
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(AFGESCHAFT) Een Azure Container Service-cluster bewaken met DataDog
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 In dit scenario wordt ervan uitgegaan dat u hebt [gemaakt van een Kubernetes-cluster met behulp van Azure Container Service](container-service-kubernetes-walkthrough.md).

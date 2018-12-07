@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 40cad9eec87c07a205a86f1009074cdbeaf58d15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249957"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001799"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR-servicebindingen voor Azure Functions
 
@@ -30,7 +30,7 @@ In dit artikel wordt uitgelegd hoe u om te verifiëren en verzenden van berichte
 
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
-De bindingen SignalR-Service vindt u in de [Microsoft.Azure.WebJobs.Extensions.SignalRService](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet-pakket, versie 1.0.0-preview1-*. Broncode voor het pakket is in de [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub-opslagplaats.
+De bindingen SignalR-Service vindt u in de [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet-pakket, versie 1.0.0-preview1-*. Broncode voor het pakket is in de [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub-opslagplaats.
 
 > [!NOTE]
 > Azure SignalR-Service is algemeen beschikbaar. SignalR-Service-bindingen voor Azure Functions zijn echter momenteel in preview.
@@ -243,7 +243,7 @@ module.exports = function (context, req) {
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `SignalRConnectionInfo` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type**|| Moet worden ingesteld op `signalRConnectionInfo`.|
 |**direction**|| Moet worden ingesteld op `in`.|
@@ -256,7 +256,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `SignalR` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type**|| Moet worden ingesteld op `signalR`.|
 |**direction**|| Moet worden ingesteld op `out`.|

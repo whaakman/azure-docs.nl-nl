@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: alkarche
-ms.openlocfilehash: 36a629781a50b6fc4f46815127de483aa1f3b004
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 042d41e9125e5d4fa0af04fd6edeba5f0b33123a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882710"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001592"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Een functie-App integreren met een Azure-netwerk
 Deze stapsgewijze zelfstudie leert u hoe u Azure Functions gebruiken voor het verbinding maken met bronnen in een Azure VNET. 
@@ -33,7 +33,7 @@ WordPress op een virtuele machine is gekozen omdat het een van de minst dure res
 
 1.  Ga naar de Azure-portal
 2.  Een nieuwe resource toevoegen door het openen van de blade 'Een resource maken'
-3.  Zoeken naar "[Wordpress LEMP7 Max Performance op CentOS](http://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)' en open de blade voor het maken 
+3.  Zoeken naar "[Wordpress LEMP7 Max Performance op CentOS](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)' en open de blade voor het maken 
 4.  Configureer de virtuele machine met de volgende informatie in de blade voor het maken:
     1.  Maak een nieuwe resourcegroep voor deze virtuele machine te maken met het opschonen van de resources die aan het einde van de zelfstudie gemakkelijker. Kan ik mijn resourcegroep '-functie-VNET-Tutorial' met de naam
     1.  Geef de virtuele machine een unieke naam. Kan ik mijn "VNET-Wordpress" met de naam
@@ -120,7 +120,7 @@ Uw functie-App is verbonden met Internet en uw VNET. De proxy wordt ontvangen va
 Azure Functions in App Service-plannen worden uitgevoerd op dezelfde service als web-apps, waardoor alle van de documnention voor Web-Apps wordt toegepast op specifieke functies.
 
 1. [Meer informatie over VNET-integratie met App Service / hier functies](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [Meer informatie over vnet's in Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
+1. [Meer informatie over vnet's in Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
 1. [Voor de functies voor netwerkbeheer inschakelen en beheren met App Service-omgevingen](https://docs.microsoft.com/azure/app-service/environment/intro)
 1. [Verbinding maken met afzonderlijke on-premises bronnen zonder wijzigingen van de firewall maken via hybride verbindingen](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 1. [Meer informatie over de functie proxy 's](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)

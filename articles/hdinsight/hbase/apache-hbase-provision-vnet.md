@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308934"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011195"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Apache HBase-clusters maken in HDInsight in Azure Virtual Network
 Informatie over het maken van Azure HDInsight Apache HBase-clusters in een [Azure Virtual Network][1].
@@ -247,7 +247,7 @@ In deze zelfstudie hebt u geleerd hoe u een Apache HBase-cluster maakt. Voor mee
 * [Aan de slag met Apache HBase met Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Overzicht van Virtual Network](../../virtual-network/virtual-networks-overview.md)
 
-[1]: http://azure.microsoft.com/services/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[1]: https://azure.microsoft.com/services/virtual-network/
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

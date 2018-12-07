@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: cf7c47e14ef41f58ca1d674521da669e56e7e892
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633170"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012178"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Apache Sqoop taken uitvoeren met Hadoop in HDInsight met Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,8 +27,8 @@ CURL is gebruikt om te demonstreren hoe u met HDInsight kunt werken met behulp v
 Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 
 * Volledige [Sqoop gebruiken met Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) het configureren van een omgeving met een HDInsight-cluster en een Azure SQL-database.
-* [cURL](http://curl.haxx.se/). CURL is een hulpprogramma voor het overbrengen van gegevens van of naar een HDInsight-cluster.
-* [jq](http://stedolan.github.io/jq/). Het hulpprogramma jq wordt gebruikt om de JSON-gegevens geretourneerd door de REST-aanvragen te verwerken.
+* [cURL](https://curl.haxx.se/). CURL is een hulpprogramma voor het overbrengen van gegevens van of naar een HDInsight-cluster.
+* [jq](https://stedolan.github.io/jq/). Het hulpprogramma jq wordt gebruikt om de JSON-gegevens geretourneerd door de REST-aanvragen te verwerken.
 
 ## <a name="submit-sqoop-jobs-by-using-curl"></a>Sqoop taken verzenden met behulp van Curl
 > [!NOTE]
@@ -36,7 +36,7 @@ Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende:
 > 
 > Voor de opdrachten in deze sectie vervangt u **USERNAME** door de gebruiker die moet worden geverifieerd bij het cluster en vervangt u **PASSWORD** door het wachtwoord voor het gebruikersaccount. Vervang **CLUSTERNAME** door de naam van uw cluster.
 > 
-> De REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via een beveiligde HTTP-verbinding (HTTPS). Zo zorgt u ervoor dat uw referenties veilig worden verzonden naar de server.
+> De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via een beveiligde HTTP-verbinding (HTTPS). Zo zorgt u ervoor dat uw referenties veilig worden verzonden naar de server.
 > 
 > 
 

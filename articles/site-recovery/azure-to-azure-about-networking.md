@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 76b3d23a042fae452b25b0a707e3c7ff9bbda613
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838189"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992120"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
 
@@ -114,7 +114,10 @@ In dit voorbeeld laat zien hoe het configureren van NSG-regels voor een virtuele
 
       ![opslag-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Regels voor uitgaande HTTPS (443) voor alle IP-adresbereiken die overeenkomen met de Office 365 maken [IP V4-eindpunten voor authenticatie en identiteit](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Maak een regel voor uitgaande HTTPS (443) voor 'AzureActiveDirectory' op de NSG zoals wordt weergegeven in de onderstaande schermafbeelding.
+
+      ![AAD-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. Uitgaande HTTPS (443)-regels maken voor de Site Recovery IP-adressen die overeenkomen met de doellocatie:
 
    **Locatie** | **Site Recovery-IP-adres** |  **Site Recovery bewaking IP-adres**
@@ -127,7 +130,7 @@ Deze regels zijn vereist voor replicatie kan worden ingeschakeld in de doelregio
 
 1. Maak een regel voor uitgaande HTTPS (443) voor 'Storage.CentralUS' op de NSG.
 
-2. Regels voor uitgaande HTTPS (443) voor alle IP-adresbereiken die overeenkomen met de Office 365 maken [IP V4-eindpunten voor authenticatie en identiteit](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Maak een regel voor uitgaande HTTPS (443) voor 'AzureActiveDirectory' op de NSG.
 
 3. Uitgaande HTTPS (443)-regels maken voor de Site Recovery IP-adressen die overeenkomen met de bronlocatie:
 

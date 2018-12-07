@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584703"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994408"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
 
 In dit artikel biedt aanbevelingen voor gegevensmigratie naar Azure HDInsight. Het onderdeel van een serie die biedt best practices om u te helpen migreren on-premises Apache Hadoop-systemen tot Azure HDInsight.
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>Gegevens migreren van on-premises naar Azure
+## <a name="migrate-on-premises-data-to-azure"></a>On-premises gegevens migreren naar Azure
 
 Er zijn twee manieren om gegevens te migreren van on-premises naar Azure-omgeving:
 
@@ -49,7 +49,7 @@ De volgende tabel bevat geschatte data transfer duur op basis van de gegevens vo
 
 Hulpprogramma's ingebouwd in Azure, zoals DistCp, Azure Data Factory en AzureCp, kunnen worden gebruikt voor gegevensoverdracht via het netwerk. Het hulpprogramma van derden WANDisco kan ook worden gebruikt voor hetzelfde doel. Kafka Mirrormaker en Sqoop kunnen worden gebruikt voor continue gegevensoverdracht van on-premises naar Azure storage-systemen.
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>Prestatie-overwegingen bij het gebruik van Apache DistCp
+## <a name="performance-considerations-with-apache-distcp"></a>Prestatieoverwegingen met Apache DistCp
 
 DistCp is een Apache-project die gebruikmaakt van een kaart MapReduce-taak gegevens overdragen, fouten afhandelen en herstellen van deze fouten. Een lijst met bronbestanden wilt toewijzen aan elke kaart-taak. De taak kaart kopieert alle toegewezen bestanden vervolgens naar de bestemming. Er zijn verschillende technieken kunnen de prestaties van DistCp verbeterd.
 
@@ -92,14 +92,14 @@ Het hive-metastore kan worden gemigreerd met behulp van de scripts of met behulp
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive-metastore migratie met behulp van scripts
 
-1. Het Hive-DDLs van on-premises Hive-metastore genereren. Deze stap kan worden gedaan met behulp van een [wrapper bash-script]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. De gegenereerde DDL ter vervanging van HDFS-url met ADLS-WASB/ABFS URL's bewerken
-1. De bijgewerkte DDL uitgevoerd op de metastore van het HDInsight-cluster
-1. Zorg ervoor dat de versie van de Hive-metastore compatibel tussen on-premises en cloud
+1. Het Hive-DDLs van on-premises Hive-metastore genereren. Deze stap kan worden gedaan met behulp van een [wrapper bash-script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Bewerk het gegenereerde DDL ter vervanging van HDFS-url met ADLS-WASB/ABFS URL's.
+1. Voer de bijgewerkte DDL op de metastore uit het HDInsight-cluster.
+1. Zorg ervoor dat de versie van de Hive-metastore compatibel tussen on-premises en cloud.
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Hive-metastore migratie met behulp van replicatie voor DB
 
-- Instellen van de Database-replicatie tussen on-premises Hive-metastore DB en HDInsight metastore DB
+- Instellen van databasereplicatie tussen on-premises Hive-metastore DB en HDInsight metastore DB.
 - Gebruik "Hive MetaTool" vervangen door HDFS-url WASB/ADLS/ABFS URL's, bijvoorbeeld:
 
 ```bash

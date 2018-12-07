@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632695"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000241"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -34,7 +34,7 @@ In dit artikel biedt een gedetailleerd overzicht, richtlijnen en diagrammen van 
 
 Met het oog op de on-demand of live streams met Media Services, moet u beschikken over ten minste één [streamingendpoint zo](https://docs.microsoft.com/rest/api/media/streamingendpoints). Wanneer uw Media Services-account wordt gemaakt een **standaard** streamingendpoint zo wordt toegevoegd aan uw account in de **gestopt** staat. U moet de streamingendpoint zo van waaruit u uw inhoud streamen naar uw viewers wilt starten. U kunt de standaardwaarde **streamingendpoint zo**, of maak een ander aangepast **streamingendpoint zo** met de gewenste configuratie- en CDN-instellingen. U besluiten om in te schakelen van meerdere door, elke regel die gericht is op een andere CDN en bieden een unieke hostnaam voor het leveren van inhoud. 
 
-In Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Wanneer u een LiveEvent maakt, wordt een invoereindpunt gemaakt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma. De externe live codering verzendt de bijdrage feed aan die een invoereindpunt met behulp van de [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) of [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (gefragmenteerde MP4)-protocol.  
+In Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) zijn verantwoordelijk voor het opnemen en verwerken van de live-videofeeds. Wanneer u een LiveEvent maakt, wordt een invoereindpunt gemaakt waarmee u kunt een live signaal verzenden vanaf een externe coderingsprogramma. De externe live codering verzendt de bijdrage feed aan die een invoereindpunt met behulp van de [RTMP](https://www.adobe.com/devnet/rtmp.html) of [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (gefragmenteerde MP4)-protocol.  
 
 Zodra de **LiveEvent** ontvangen van de bijdrage feed is gestart, kunt u de preview-eindpunt (de voorbeeld-URL te bekijken en te valideren dat u de live stream voordat u verdere publiceert ontvangt. Nadat u hebt gecontroleerd dat de stroom preview goed is, kunt u de LiveEvent gebruiken om de live stream beschikbaar voor levering via een of meer (vooraf gemaakt) **door**. Om dit te realiseren, maakt u een nieuw [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) op de **LiveEvent**. 
 

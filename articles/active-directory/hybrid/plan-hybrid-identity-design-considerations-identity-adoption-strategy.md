@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5aeefe82255d40938eff09d7920e2fd5aca94c95
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cfd3f32f6293d5760c4a4ddcf40428a2b9b70f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313640"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999090"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit ingebruikname definiëren
 In deze taak definieert u de acceptatiestrategie voor hybride identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de zakelijke vereisten die zijn beschreven in:
@@ -92,7 +92,7 @@ U moet ook rekening houden met welke mogelijkheden niet meer beschikbaar:
 * Overgang van Office op passieve verificatie kan ter ondersteuning van pure SAML 2.0 IDP's, maar ondersteuning is nog steeds op basis van de client door de client
 
 > [!NOTE]
-> Voor de meest recente lijst Lees het artikel https://aka.ms/ssoproviders.
+> Voor de meest recente lijst Lees het artikel [federatiecompatibiliteitslijst van Azure AD](how-to-connect-fed-compatibility.md).
 > 
 > 
 

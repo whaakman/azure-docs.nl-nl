@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: cff24991263ece54c143e5da8a3eb2a9e5b4af18
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 637ce81f2e2ef4c7271e26bd4e9dfe36da524e27
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634495"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012739"
 ---
 # <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Hive-query's uitvoeren met Apache Hadoop in HDInsight met behulp van REST
 
@@ -29,19 +29,19 @@ Leer hoe u de WebHCat REST-API gebruiken om het Hive-query's uitvoeren met Apach
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* Een REST-client. Dit document maakt gebruik van Windows PowerShell en [Curl](http://curl.haxx.se/) voorbeelden.
+* Een REST-client. Dit document maakt gebruik van Windows PowerShell en [Curl](https://curl.haxx.se/) voorbeelden.
 
     > [!NOTE]
     > Azure PowerShell biedt toegewezen cmdlets voor het werken met Hive in HDInsight. Zie voor meer informatie de [Hive gebruiken met Azure PowerShell](apache-hadoop-use-hive-powershell.md) document.
 
-Dit document maakt ook gebruik van Windows PowerShell en [Jq](http://stedolan.github.io/jq/) de JSON-gegevens geretourneerd door de REST-aanvragen verwerken.
+Dit document maakt ook gebruik van Windows PowerShell en [Jq](https://stedolan.github.io/jq/) de JSON-gegevens geretourneerd door de REST-aanvragen verwerken.
 
 ## <a id="curl"></a>Een Hive-query uitvoeren
 
 > [!NOTE]
 > Wanneer u cURL of een andere REST-communicatie met WebHCat, moet u de aanvragen verifiëren door te geven van de gebruikersnaam en het wachtwoord voor de beheerder van de HDInsight-cluster.
 >
-> De REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). Om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server, moet u aanvragen altijd uitvoeren via HTTP Secure (HTTPS).
+> De REST API is beveiligd via [basisverificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). Om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server, moet u aanvragen altijd uitvoeren via HTTP Secure (HTTPS).
 
 1. Om in te stellen de aanmelding bij cluster dat wordt gebruikt door de scripts in dit document, gebruikt u een van de volgende opdrachten:
 
@@ -190,15 +190,15 @@ Als u met Hive Tez gebruikt, ziet u de volgende documenten voor foutopsporing va
 
 Zie voor meer informatie over de REST-API die wordt gebruikt in dit document, de [WebHCat verwijzing](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -211,6 +211,6 @@ Zie voor meer informatie over de REST-API die wordt gebruikt in dit document, de
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 

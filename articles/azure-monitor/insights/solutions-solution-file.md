@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34161251ac52323bc3eff66cfe30f3de34bdf60c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 998c3f1fcfbf53f6f0dfb5ddf34d420f2b31a0b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715310"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001877"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Het maken van een oplossingsbestand management in Azure (Preview)
 > [!NOTE]
@@ -69,7 +69,7 @@ Hieronder ziet u een voorbeeld-parameter.
 
 De volgende tabel beschrijft de kenmerken van een parameter.
 
-| Kenmerk | Beschrijving |
+| Kenmerk | Description |
 |:--- |:--- |
 | type |Het gegevenstype voor de parameter. Het besturingselement voor tekstinvoer weergegeven voor de gebruiker, is afhankelijk van het gegevenstype.<br><br>Boole - vervolgkeuzelijst<br>tekenreeks - tekstvak<br>int - tekstvak<br>SecureString - veld wachtwoord<br> |
 | category |De categorie voor de parameter is optioneel.  Parameters in dezelfde categorie zijn gegroepeerd. |
@@ -84,14 +84,14 @@ De volgende tabel bevat de standaardparameters voor alle beheeroplossingen.  Dez
 >
 >
 
-| Parameter | Type | Beschrijving |
+| Parameter | Type | Description |
 |:--- |:--- |:--- |
-| accountName |tekenreeks |Azure Automation-accountnaam. |
-| pricingTier |tekenreeks |De prijscategorie van Log Analytics-werkruimte en Azure Automation-account. |
-| regionId |tekenreeks |De regio van de Azure Automation-account. |
-| solutionName |tekenreeks |Naam van de oplossing.  Als u uw oplossing via Quickstart-sjablonen implementeren wilt, moet klikt u vervolgens u definiëren solutionName als een parameter zodat u kunt een tekenreeks in plaats daarvan vereisen dat de gebruiker om op te geven een definiëren. |
-| Werkruimtenaam |tekenreeks |Naam van log Analytics-werkruimte. |
-| workspaceRegionId |tekenreeks |De regio van de Log Analytics-werkruimte. |
+| accountName |string |Azure Automation-accountnaam. |
+| pricingTier |string |De prijscategorie van Log Analytics-werkruimte en Azure Automation-account. |
+| regionId |string |De regio van de Azure Automation-account. |
+| solutionName |string |Naam van de oplossing.  Als u uw oplossing via Quickstart-sjablonen implementeren wilt, moet klikt u vervolgens u definiëren solutionName als een parameter zodat u kunt een tekenreeks in plaats daarvan vereisen dat de gebruiker om op te geven een definiëren. |
+| Werkruimtenaam |string |Naam van log Analytics-werkruimte. |
+| workspaceRegionId |string |De regio van de Log Analytics-werkruimte. |
 
 
 Hieronder volgt de structuur van de standaard parameters die u kunt kopiëren en plakken in uw oplossingsbestand.  
@@ -169,7 +169,7 @@ In dit geval u verwijzen naar waarden van variabelen met de oplossing met de syn
 De **dependsOn** element Hiermee geeft u een [afhankelijkheid](../../azure-resource-manager/resource-group-define-dependencies.md) op een andere resource.  Wanneer de oplossing is geïnstalleerd, wordt een resource wordt niet gemaakt totdat alle bijbehorende afhankelijkheden zijn gemaakt.  Bijvoorbeeld: uw oplossing kan [een runbook starten](solutions-resources-automation.md#runbooks) wanneer deze geïnstalleerd met behulp van een [taak resource](solutions-resources-automation.md#automation-jobs).  De resource van de taak zou zijn afhankelijk van de runbook-resource om ervoor te zorgen dat het runbook is gemaakt voordat de taak is gemaakt.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-werkruimte en het Automation-account
-Managementoplossingen vereisen een [Log Analytics-werkruimte](../../log-analytics/log-analytics-manage-access.md) weergaven bevatten en een [Automation-account](../../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat.  Deze moeten beschikbaar zijn voordat de resources in de oplossing worden gemaakt en moeten niet worden gedefinieerd in de oplossing zelf.  De gebruiker wordt [geeft u een werkruimte en account](solutions.md#log-analytics-workspace-and-automation-account) wanneer ze uw oplossing implementeren, maar u moet de volgende punten overwegen als de auteur.
+Managementoplossingen vereisen een [Log Analytics-werkruimte](../../azure-monitor/platform/manage-access.md) weergaven bevatten en een [Automation-account](../../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat.  Deze moeten beschikbaar zijn voordat de resources in de oplossing worden gemaakt en moeten niet worden gedefinieerd in de oplossing zelf.  De gebruiker wordt [geeft u een werkruimte en account](solutions.md#log-analytics-workspace-and-automation-account) wanneer ze uw oplossing implementeren, maar u moet de volgende punten overwegen als de auteur.
 
 
 ## <a name="solution-resource"></a>Oplossing voor resource
@@ -209,10 +209,10 @@ Elke oplossing vereist een resource-vermelding in de **resources** element waari
 ### <a name="dependencies"></a>Afhankelijkheden
 De bron van de oplossing moet hebben een [afhankelijkheid](../../azure-resource-manager/resource-group-define-dependencies.md) voor elke andere resources in de oplossing omdat ze bestaan moeten voordat de oplossing kan worden gemaakt.  U dit doen door het toevoegen van een vermelding voor elke resource in de **dependsOn** element.
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 De resource van de oplossing heeft de eigenschappen in de volgende tabel.  Dit omvat de resources waarnaar wordt verwezen en opgenomen in de oplossing waarmee wordt gedefinieerd hoe de resource wordt beheerd nadat de oplossing is geïnstalleerd.  Elke resource in de oplossing moet worden vermeld in ofwel de **referencedResources** of de **containedResources** eigenschap.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | workspaceResourceId |ID van de Log Analytics-werkruimte in de vorm  *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Werkruimtenaam\>*. |
 | referencedResources |Lijst met resources in de oplossing die mogen niet worden verwijderd wanneer de oplossing wordt verwijderd. |
@@ -223,7 +223,7 @@ Het bovenstaande voorbeeld is voor een oplossing met een runbook, een planning e
 ### <a name="plan"></a>Plannen
 De **plan** entiteit van de resource van de oplossing heeft de eigenschappen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | naam |Naam van de oplossing. |
 | versie |De versie van de oplossing zoals wordt bepaald door de auteur. |

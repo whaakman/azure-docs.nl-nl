@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: e5835454b4a0c0f1f2748f44037a162416b87549
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 14acffbaf56cd77cc7ed22875e72fe9f26f28c0a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405800"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998683"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure-beveiliging en naleving blauwdruk: Analytics voor de financiële dienstverlening FFIEC
 
@@ -72,7 +72,7 @@ De volgende sectie bevat de elementen van de implementatie en uitvoering.
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is een server zonder compute-service waarmee gebruikers code op aanvraag uitvoeren zonder expliciet inrichten of beheren van infrastructuur. Met Azure Functions kunt u een script of een stukje code uitvoeren in reactie op diverse gebeurtenissen.
 
-**Azure Machine Learning**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) is een techniek van gegevenswetenschap die computers kunnen bestaande gegevens om toekomstig gedrag, resultaten en trends prognoses te gebruiken.
+**Azure Machine Learning-service**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) is een techniek van gegevenswetenschap die computers kunnen bestaande gegevens om toekomstig gedrag, resultaten en trends prognoses te gebruiken.
 
 **Azure Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) gegevensbronnen gemakkelijk kunnen worden gedetecteerd en begrijpelijk is door de gebruikers die de gegevens beheren. Algemene gegevensbronnen kunnen worden geregistreerd, gelabeld en financiële gegevens gezocht. De gegevens blijven in de bestaande locatie, maar een kopie van de metagegevens wordt toegevoegd aan Data Catalog, samen met een verwijzing naar de locatie van de gegevens. Deze metagegevens worden ook geïndexeerd zodat elke gegevensbron gemakkelijk kan worden gedetecteerd via zoekopdrachten, en begrijpelijk is voor gebruikers die de gegevensbron detecteren.
 

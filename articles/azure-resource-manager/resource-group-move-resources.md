@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15ec028046b7c2b21f1892c460d53c73499680fe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 27b41655d9a6c9000d9bc3cf98bf3246bb108104
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312534"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015548"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -215,7 +215,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
-* Redis-Cache - als de Redis-Cache-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
+* Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
 * Search
 * Service Bus
@@ -330,7 +330,7 @@ Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resourc
 
 Voor het verplaatsen van een gekoppeld virtueel netwerk, moet u eerst de virtueel-netwerkpeering uitschakelen. Als uitgeschakeld, kunt u het virtuele netwerk kunt verplaatsen. Na de verplaatsing opnieuw de peering op virtueel netwerk.
 
-U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement, als het virtuele netwerk een subnet met resourcenavigatiekoppelingen bevat. Bijvoorbeeld, als een Redis-Cache-bron wordt geïmplementeerd in een subnet, heeft dat subnet een resourcenavigatiekoppeling.
+U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement, als het virtuele netwerk een subnet met resourcenavigatiekoppelingen bevat. Bijvoorbeeld, als een Azure-Cache voor Redis-resource wordt geïmplementeerd in een subnet, heeft dat subnet een resourcenavigatiekoppeling.
 
 ## <a name="app-service-limitations"></a>Beperkingen voor App Service
 

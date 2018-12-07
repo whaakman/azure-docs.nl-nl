@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: eb77046c6e673012209f0db452b20bf25046cd67
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250968"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001667"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps-bindingen voor Azure Functions 
 
@@ -31,13 +31,13 @@ De Mobile Apps-bindingen kunnen u lezen en bijwerken van gegevenstabellen in mob
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-Mobile Apps-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub-opslagplaats.
+Mobile Apps-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Invoer
 
-De Mobile Apps-Invoerbinding wordt een record van een tabeleindpunt mobiele geladen en geeft deze door aan uw functie. In C# en F #-functies, worden wijzigingen in de record automatisch verzonden terug naar de tabel wanneer de functie is afgesloten.
+De Mobile Apps-Invoerbinding wordt een record van een tabeleindpunt mobiele geladen en geeft deze door aan uw functie. In C# en F# functies, wijzigingen in de record worden automatisch terug naar de tabel verzonden wanneer de functie is afgesloten.
 
 ## <a name="input---example"></a>Invoer - voorbeeld
 
@@ -140,7 +140,7 @@ Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `MobileTable` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 | **type**|| Moet worden ingesteld op "mobileTable"|
 | **direction**||Moet worden ingesteld op 'in'|
@@ -157,11 +157,11 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="input---usage"></a>Invoer - gebruik
 
-In C#-functies, wanneer de record met de opgegeven ID is gevonden, wordt doorgegeven in de benoemde [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter. Wanneer de record niet wordt gevonden, de parameterwaarde is `null`. 
+In C#-functies, wanneer de record met de opgegeven ID is gevonden, wordt doorgegeven in de benoemde [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter. Wanneer de record niet wordt gevonden, de parameterwaarde is `null`. 
 
 In JavaScript-functies, de record is doorgegeven aan de `context.bindings.<name>` object. Wanneer de record niet wordt gevonden, de parameterwaarde is `null`. 
 
-In C# en F #-functies, wijzigingen die u aanbrengt aan de invoerpoort record (invoerparameter) automatisch terug naar de tabel worden verzonden wanneer de functie is afgesloten. U kunt een record in JavaScript-functies niet wijzigen.
+In C# en F# functies en wijzigingen die u in de invoer aanbrengt record (invoerparameter) automatisch terug naar de tabel worden verzonden wanneer de functie is afgesloten. U kunt een record in JavaScript-functies niet wijzigen.
 
 ## <a name="output"></a>Uitvoer
 
@@ -298,7 +298,7 @@ Zie voor een compleet voorbeeld [uitvoer - voorbeeld met C#](#output---c-example
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `MobileTable` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 | **type**|| Moet worden ingesteld op "mobileTable"|
 | **direction**||Moet worden ingesteld op 'out'|

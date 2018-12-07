@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 0b42a51f255080905cb0104d06ed18f1d18f8e5d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945192"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015412"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sectie met resources van Azure Resource Manager-sjablonen
 
@@ -81,7 +81,7 @@ Definieert u resources met de volgende structuur:
 ]
 ```
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
 | voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource tijdens deze implementatie worden ingericht. Wanneer `true`, de resource is gemaakt tijdens de implementatie. Wanneer `false`, de bron voor deze implementatie wordt overgeslagen. |
 | apiVersion |Ja |De versie van de REST-API moet worden gebruikt voor het maken van de resource. |
@@ -93,7 +93,7 @@ Definieert u resources met de volgende structuur:
 | kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources om te implementeren op hetzelfde moment opgeven. Zie voor meer informatie, [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat deze resource is geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze implementeert in de juiste volgorde. Als resources niet van elkaar afhankelijk zijn, zijn ze parallel geïmplementeerd. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of resource-id's uniek. Alleen lijst met resources die in deze sjabloon zijn geïmplementeerd. Resources die niet zijn gedefinieerd in deze sjabloon moeten al bestaan. Vermijd onnodige afhankelijkheden toevoegen als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor meer informatie over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
 | properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de hoofdtekst van de aanvraag voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. |
-| SKU | Nee | Sommige resources zijn waarden toegestaan die definiëren van de SKU om het te implementeren. Bijvoorbeeld, kunt u het type redundantie voor een opslagaccount. |
+| sku | Nee | Sommige resources zijn waarden toegestaan die definiëren van de SKU om het te implementeren. Bijvoorbeeld, kunt u het type redundantie voor een opslagaccount. |
 | type | Nee | Sommige resources kunnen een waarde die bepaalt het type resource dat u implementeert. Bijvoorbeeld, kunt u het type van de Cosmos DB te maken. |
 | plan | Nee | Sommige resources zijn waarden toegestaan die in de planning definiëren wilt implementeren. U kunt bijvoorbeeld opgeven dat de marketplace-installatiekopie voor een virtuele machine. | 
 | bronnen |Nee |Onderliggende resources die afhankelijk zijn van de resource wordt gedefinieerd. Geef alleen resourcetypen die zijn toegestaan door het schema van de bovenliggende resource. De volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource is niet impliciet. Afhankelijkheid zijn opgetreden, moet u expliciet definiëren. |
@@ -141,7 +141,7 @@ Geef een unieke resourcenaam voor elk resourcetype dat een eindpunt van de toega
 * Web Apps-functie van Azure App Service
 * SQL Server
 * Azure Key Vault
-* Azure Redis-cache
+* Azure Cache voor Redis
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search

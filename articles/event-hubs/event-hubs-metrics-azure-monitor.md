@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: e01262d67b6d08cd1cb05a6375344a5087fffce3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822840"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012518"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Event Hubs in Azure Monitor (preview)
 
@@ -37,13 +38,13 @@ Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens va
 
 U kunt metrische gegevens controleren na verloop van tijd in de [Azure-portal](https://portal.azure.com). Het volgende voorbeeld laat zien hoe om binnenkomende aanvragen op accountniveau en geslaagde aanvragen weer te geven:
 
-![][1]
+![Geslaagde metrische gegevens weergeven][1]
 
 U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Peview)**. Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de event hub, selecteer de event hub en klik vervolgens op **metrische gegevens (preview)**.
 
 Voor metrische gegevens voor ondersteuning van dimensies, moet u filteren met de waarde van de gewenste dimensie zoals wordt weergegeven in het volgende voorbeeld:
 
-![][2]
+![Filteren met de dimensiewaarde][2]
 
 ## <a name="billing"></a>Billing
 
@@ -60,7 +61,7 @@ Alle metrische waarden worden verzonden naar Azure Monitor elke minuut. De tijdg
 
 Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 | Inkomende aanvragen (preview) | Het aantal aanvragen voor de Azure Event Hubs-service gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName |
 | Geslaagde aanvragen (preview)   | Het aantal geslaagde aanvragen voor de Azure Event Hubs-service gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName |
@@ -70,13 +71,13 @@ Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 
 ## <a name="throughput-metrics"></a>Metrische gegevens over doorvoer
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 |Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik van de eenheid doorvoer is overschreden.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 
 ## <a name="message-metrics"></a>Bericht metrische gegevens
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 |Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die worden verzonden naar Event Hubs in een opgegeven periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 |Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten ophalen uit Event Hubs in een opgegeven periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
@@ -85,7 +86,7 @@ Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 
 ## <a name="connection-metrics"></a>Metrische verbindingsgegevens
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 |ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, maar ook op een entiteit.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 |Verbindingen geopend (preview)|Het aantal open verbindingen.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
@@ -95,7 +96,7 @@ Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 
 U kunt Event Hubs Capture metrische gegevens controleren wanneer u de Capture-functie voor uw eventhubs inschakelt. De volgende metrische gegevens wordt beschreven wat u kunt controleren met vastleggen is ingeschakeld.
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 |Achterstand (Preview) vastleggen|Het aantal bytes die nog moeten worden vastgelegd in het geselecteerde doel.<br/><br/> Eenheid: Bytes <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 |Vastgelegde berichten (Preview)|Het aantal berichten of gebeurtenissen die zijn vastgelegd op de gekozen bestemming gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
@@ -105,7 +106,7 @@ U kunt Event Hubs Capture metrische gegevens controleren wanneer u de Capture-fu
 
 Azure Event Hubs ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
 
-| Naam van meetwaarde | Beschrijving |
+| Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
 |EntityName| Eventhubs biedt ondersteuning voor de event hub-entiteiten in de naamruimte.|
 

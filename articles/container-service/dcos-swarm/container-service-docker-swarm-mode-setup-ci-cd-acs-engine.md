@@ -1,5 +1,5 @@
 ---
-title: CI/CD met Azure Container Service Engine en Swarm-modus
+title: (AFGESCHAFT) CI/CD met Azure Container Service Engine en Swarm-modus
 description: Azure Container Service Engine met Docker Swarm Mode, een Azure Container Registry en Azure DevOps gebruiken om te leveren voortdurend een toepassing met meerdere containers .NET Core
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299573"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995056"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met ACS-Engine en Docker Swarm-modus met behulp van Azure DevOps
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(AFGESCHAFT) Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met ACS-Engine en Docker Swarm-modus met behulp van Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *In dit artikel is gebaseerd op [volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met Docker Swarm met behulp van Azure DevOps](container-service-docker-swarm-setup-ci-cd.md) documentatie*
 
@@ -44,7 +46,7 @@ Hier volgt een korte beschrijving van de stappen uit:
 7. Docker Swarm Mode in het cluster haalt de meest recente versie van de installatiekopieën 
 8. De nieuwe versie van de toepassing wordt geïmplementeerd met behulp van Docker Stack 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u deze zelfstudie begint, moet u de volgende taken uitvoeren:
 

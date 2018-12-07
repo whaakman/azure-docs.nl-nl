@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 3a21b2521cc16b97519f2f84b40a3f51536757e2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057564"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999675"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Gebruik en geschatte kosten bewaken
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u gebruik en geschatte kosten weergeven in meerdere Azure bewakingsfuncties voor verschillende prijsmodellen.  Raadpleeg de volgende artikelen voor meer informatie.
-> - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](../log-analytics/log-analytics-manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
+> - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](../azure-monitor/platform/manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
 > - [Gegevensgebruik analyseren in Log Analytics](../log-analytics/log-analytics-usage.md) wordt beschreven hoe u om te analyseren en ontvang een waarschuwing op het gegevensgebruik van uw.
 > - [Prijzen en gegevensvolumes in Application Insights beheren](../application-insights/app-insights-pricing.md) wordt beschreven hoe u gegevensgebruik analyseren in Application Insights.
 

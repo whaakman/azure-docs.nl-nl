@@ -12,33 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250883"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994679"
 ---
 # <a name="output-metadata"></a>Uitvoermetagegevens
 ## <a name="overview"></a>Overzicht
 Een coderingstaak is gekoppeld aan een invoeractivum (of activa) op die u wilt uitvoeren van sommige coderingstaken. Voorbeeld: Codeer een MP4-bestand afspelen van H.264 MP4 adaptieve bitrate sets; maken van een miniatuur; Maak overlays. Na voltooiing van een taak, wordt een uitvoerasset geproduceerd.  De uitvoerasset bevat video, audio, miniaturen, enzovoort. De uitvoerasset bevat ook een bestand met metagegevens over de uitvoerasset. De naam van het metagegevens-XML-bestand heeft de volgende indeling: &lt;source_file_name&gt;_manifest.xml (bijvoorbeeld BigBuckBunny_manifest.xml).  
 
+Media Services wordt de invoer van de activa voor het genereren van metagegevens voorzorg niet gescand. Invoermetagegevens wordt alleen als een artefact als invoer die Asset wordt verwerkt in een taak gegenereerd. Dus dit artefact is geschreven naar de uitvoer Asset. Verschillende hulpprogramma's worden gebruikt voor het genereren van metagegevens voor invoer en uitvoer activa. De metagegevens van de invoer is daarom een iets ander schema dan de uitvoermetagegevens van de.
+
 Als u controleren van het bestand met metagegevens wilt, kunt u een **SAS** locator en download het bestand op uw lokale computer.  
 
 Dit artikel worden de elementen en typen van het XML-schema besproken waarop de metada uitvoer (&lt;source_file_name&gt;_manifest.xml) is gebaseerd. Zie voor meer informatie over het bestand met metagegevens over het invoeractivum [Invoermetagegevens](media-services-input-metadata-schema.md).  
 
-> [!NOTE]
-> U vindt de code van de volledige schema en de XML-voorbeeld aan het einde van dit artikel.  
->
->
+U vindt de code van de volledige schema en de XML-voorbeeld aan het einde van dit artikel.  
 
 ## <a name="AssetFiles "></a> AssetFiles root-element
 Verzameling van AssetFile vermeldingen voor de coderingstaak.  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Naam | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs = "0" maxOccurs = "1" |Een [AssetFile element](media-services-output-metadata-schema.md) dat is namelijk onderdeel van de verzameling AssetFiles. |
 
@@ -46,14 +45,14 @@ Verzameling van AssetFile vermeldingen voor de coderingstaak.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Naam**<br/><br/> Vereist |**xs:String** |De bestandsnaam voor de media-asset. |
 | **Grootte**<br/><br/> minInclusive = "0"<br/><br/> Vereist |**xs:Long** |Grootte van het assetbestand in bytes. |
 | **Duur**<br/><br/> Vereist |**xs:duration** |Inhoud afspelen back duur. |
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Naam | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **Bronnen** |Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile produceren. Zie voor meer informatie, [bronelement](media-services-output-metadata-schema.md). |
 | **VideoTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Elke fysieke AssetFile kan nul of meer video's in deze bevatten nummers interleaved in een indeling voor de juiste container. Zie voor meer informatie, [VideoTracks element](media-services-output-metadata-schema.md). |
@@ -65,7 +64,7 @@ Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Naam | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **Bron**<br/><br/> minOccurs = "1" maxOccurs = "niet-gebonden" |Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset. Zie voor meer informatie, [bronelement](media-services-output-metadata-schema.md). |
 
@@ -75,7 +74,7 @@ Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Naam**<br/><br/> Vereist |**xs:String** |De bestandsnaam van de invoerbron. |
 
@@ -85,7 +84,7 @@ Elke fysieke AssetFile kan nul of meer video's in deze bevatten nummers interlea
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Naam | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs = "1" maxOccurs = "niet-gebonden" |Een specifieke video in de bovenliggende AssetFile bijhouden. Zie voor meer informatie, [VideoTrack element](media-services-output-metadata-schema.md#VideoTrack). |
 
@@ -95,7 +94,7 @@ Een specifieke video in de bovenliggende AssetFile bijhouden.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive = "0"<br/><br/> Vereist |**xs:int** |Op nul gebaseerde index van deze video bijhouden. **Opmerking:** dit **Id** is niet noodzakelijkerwijs de TrackID zoals gebruikt in een MP4-bestand. |
 | **Code**<br/><br/> Vereist |**xs:String** |Video-codec code code. |
@@ -117,7 +116,7 @@ Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Naam | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs = "1" maxOccurs = "niet-gebonden" |Een specifieke audiotrack in de bovenliggende AssetFile. Zie voor meer informatie, [AudioTrack element](media-services-output-metadata-schema.md). |
 
@@ -127,7 +126,7 @@ Een specifieke audiotrack in de bovenliggende AssetFile.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive = "0"<br/><br/> Vereist |**xs:int** |Op nul gebaseerde index van deze audiotrack. **Opmerking:** dit is niet noodzakelijkerwijs de TrackID zoals gebruikt in een MP4-bestand. |
 | **Codec** |**xs:String** |Audiotrack codec tekenreeks. |
@@ -138,7 +137,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata
 | **Bitspersample obsahuje neplatnou Hodnotu**<br/><br/> minInclusive = "0"<br/><br/> Vereist |**xs:int** |Bits per voorbeeld voor de indeling wFormatTag typt. |
 
 ### <a name="child-elements"></a>Onderliggende elementen
-| Naam | Beschrijving |
+| Name | Description |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs = "0" maxOccurs = "1" |Volume softwarelicentiecontrole resultaat parameters. Zie voor meer informatie, [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
 
@@ -148,7 +147,7 @@ Volume softwarelicentiecontrole resultaat parameters.
 U vindt een voorbeeld van de XML- [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Kenmerken
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:String** |**Dolby** professionele volume softwarelicentiecontrole development kitversie. |
 | **DialogNormalization**<br/><br/> minInclusive = "-31" maxInclusive =-'1'<br/><br/> Vereist |**xs:int** |DialogNormalization die worden gegenereerd via DPLM, vereist wanneer LoudnessMetering is ingesteld |

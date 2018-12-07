@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a641b5bb754c265a4fa5fb7e2fe85989d4813354
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955170"
+ms.locfileid: "52992211"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -59,7 +59,10 @@ Nadat de app-kopieerbewerking is geslaagd, gaat u naar de nieuwe toepassing die 
 
 ### <a name="delete-an-application"></a>Een toepassing verwijderen
 
-Gebruik de **verwijderen** knop om uw IoT Central-toepassing permanent te verwijderen. Dit doet, worden alle gegevens die is gekoppeld aan deze toepassing permanent verwijderd. Als u wilt verwijderen van een toepassing, moet u ook machtigingen om resources te verwijderen hebben in de Azure-abonnement u hebt gekozen tijdens het maken van de toepassing. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> Als u wilt verwijderen van een toepassing, moet u ook machtigingen om resources te verwijderen hebben in de Azure-abonnement u hebt gekozen tijdens het maken van de toepassing. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Gebruik de **verwijderen** knop om uw IoT Central-toepassing permanent te verwijderen. Dit doet, worden alle gegevens die is gekoppeld aan deze toepassing permanent verwijderd.
 
 ## <a name="manage-users"></a>Gebruikers beheren
 

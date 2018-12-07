@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74987d09a9b8979d3c3596c87764f8f3bd4b5795
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d2f1035427815facf501c1349619a73e0f134eff
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846662"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995616"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -37,7 +37,7 @@ In dit artikel wordt ervan uitgegaan dat u bent al bekend bent met het [maken va
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-werkruimte
-Alle resources in Log Analytics zijn opgenomen in een [werkruimte](../../log-analytics/log-analytics-manage-access.md).  Zoals beschreven in [Log Analytics-werkruimte en het Automation-account](solutions.md#log-analytics-workspace-and-automation-account), de werkruimte niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  Als deze niet beschikbaar is, mislukt de installatie van de oplossing.
+Alle resources in Log Analytics zijn opgenomen in een [werkruimte](../../azure-monitor/platform/manage-access.md).  Zoals beschreven in [Log Analytics-werkruimte en het Automation-account](solutions.md#log-analytics-workspace-and-automation-account), de werkruimte niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  Als deze niet beschikbaar is, mislukt de installatie van de oplossing.
 
 De naam van de werkruimte is de naam van elke Log Analytics-resource.  Dit doet u in de oplossing met de **werkruimte** parameter zoals in het volgende voorbeeld van een resource SavedSearch.
 
@@ -77,7 +77,7 @@ Opnemen [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-over
 
 Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel beschreven. 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | category | De categorie voor de opgeslagen zoekopdracht.  Alle opgeslagen zoekopdrachten in dezelfde oplossing delen vaak één categorie, zodat ze samen worden gegroepeerd in de console. |
 | DisplayName | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
@@ -128,7 +128,7 @@ Een opgeslagen zoekopdracht kan een of meer planningen met elke planning voor ee
 
 De eigenschappen voor schema-resources worden in de volgende tabel beschreven.
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | ingeschakeld       | Ja | Hiermee geeft u op of de waarschuwing is ingeschakeld wanneer deze wordt gemaakt. |
 | interval      | Ja | Hoe vaak de query wordt uitgevoerd in minuten. |
@@ -188,18 +188,18 @@ Waarschuwingsacties hebben de volgende structuur.  Dit omvat de algemene variabe
 
 De eigenschappen voor actie bij waarschuwing resources worden in de volgende tabellen beschreven.
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | Type | Ja | Het type van de actie.  Dit is **waarschuwing** voor waarschuwingsacties. |
-| Naam | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
-| Beschrijving | Nee | Optionele beschrijving van de waarschuwing. |
+| Name | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
+| Description | Nee | Optionele beschrijving van de waarschuwing. |
 | Severity | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **Kritieke**<br>**Waarschuwing**<br>**Informatief**
 
 
 #### <a name="threshold"></a>Drempelwaarde
 In deze sectie is vereist.  Hiermee worden de eigenschappen van drempelwaarde voor waarschuwingen gedefinieerd.
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = minder dan** |
 | Waarde | Ja | De waarde om de resultaten te vergelijken. |
@@ -210,7 +210,7 @@ In deze sectie is optioneel.  Op te nemen voor een waarschuwing voor een meting 
 > [!NOTE]
 > Waarschuwingen van de meting van metrische gegevens zijn momenteel in openbare preview. 
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | TriggerCondition | Ja | Geeft aan of de drempelwaarde voor het totale aantal schendingen of achtereenvolgende schendingen van de volgende waarden:<br><br>**Totaal aantal<br>opeenvolgende** |
 | Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = minder dan** |
@@ -220,7 +220,7 @@ In deze sectie is optioneel.  Op te nemen voor een waarschuwing voor een meting 
 #### <a name="throttling"></a>Beperking
 In deze sectie is optioneel.  Deze sectie bevatten als u onderdrukken van waarschuwingen van de dezelfde regel voor een bepaalde hoeveelheid tijd wilt nadat een waarschuwing is gemaakt.
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | DurationInMinutes | Ja als beperking element opgenomen | Het aantal minuten dat waarschuwingen onderdrukken nadat een van de dezelfde waarschuwingsregel is gemaakt. |
 
@@ -230,7 +230,7 @@ Alle waarschuwingen in Azure, gebruik actiegroep als het standaardmechanisme voo
 
 Voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure, hebt een planning nu actiegroep informatie doorgegeven, samen met de drempelwaarde, kunnen een waarschuwing wilt maken. Details van de e-mail, Webhook-URL's, Runbook-automatisering details en andere acties moeten worden gedefinieerd in naast een actiegroep eerst voordat het maken van een waarschuwing; een kunt maken [actiegroep van Azure Monitor](../../monitoring-and-diagnostics/monitoring-action-groups.md) in de Portal of gebruik [actiegroep - Resource-sjabloon](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | AzNsNotification | Ja | De resource-ID van de actiegroep Azure moet worden gekoppeld aan de waarschuwing voor de nodige maatregelen nemen wanneer waarschuwingscriteria wordt voldaan. |
 | CustomEmailSubject | Nee | Aangepaste onderwerpregel van het e-mailbericht verzonden naar alle adressen die zijn opgegeven in actiegroep gekoppeld. |
@@ -247,7 +247,7 @@ Elke planning heeft een **waarschuwing** actie.  Hiermee definieert u de details
 ##### <a name="emailnotification"></a>EmailNotification
  Deze sectie is optioneel als u de melding om e-mail te verzenden naar een of meer ontvangers wilt opnemen.
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | Geadresseerden | Ja | Door komma's gescheiden lijst met e-mailadressen te sturen wanneer een waarschuwing wordt gemaakt, zoals in het volgende voorbeeld.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Onderwerp | Ja | Onderwerpregel van het e-mailbericht. |
@@ -257,7 +257,7 @@ Elke planning heeft een **waarschuwing** actie.  Hiermee definieert u de details
 ##### <a name="remediation"></a>Herstel
 Deze sectie is optioneel als u een runbook te starten in reactie op de waarschuwing wilt opnemen. |
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | RunbookName | Ja | De naam van het runbook te starten. |
 | WebhookUri | Ja | De URI van de webhook voor het runbook. |
@@ -287,7 +287,7 @@ Als de waarschuwing een webhook wordt aangeroepen, dan deze een actie-resource m
 
 De eigenschappen voor Webhook actie resources worden in de volgende tabellen beschreven.
 
-| De naam van element | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--|:--|:--|
 | type | Ja | Het type van de actie.  Dit is **Webhook** voor webhookacties. |
 | naam | Ja | De weergavenaam voor de actie.  Dit wordt niet weergegeven in de console. |

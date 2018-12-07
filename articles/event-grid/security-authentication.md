@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 427eb8abdede8c821d214d9f6a64fc6a122699de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914036"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002010"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -25,25 +25,27 @@ Azure Event Grid heeft drie typen verificatie:
 
 ## <a name="webhook-event-delivery"></a>Levering van gebeurtenissen voor WebHook
 
-Webhooks vormen een van de vele manieren voor het ontvangen van gebeurtenissen uit Azure Event Grid. Wanneer een nieuwe gebeurtenis klaar is, berichten EventGrid service een HTTP-aanvraag naar de geconfigureerde eindpunt met de gebeurtenis in de aanvraagtekst.
+Webhooks vormen een van de vele manieren voor het ontvangen van gebeurtenissen uit Azure Event Grid. Wanneer een nieuwe gebeurtenis klaar is, plaatst Event Grid-service een HTTP-aanvraag naar de geconfigureerde eindpunt met de gebeurtenis in de aanvraagtekst.
 
-Net als vele andere services die webhooks ondersteunen, moet u 'eigenaar' van de Webhook-eindpunt bewijzen voordat er begonnen wordt met het leveren van gebeurtenissen naar dit eindpunt EventGrid. Deze vereiste is om te voorkomen dat een nietsvermoedende eindpunt om het doel-eindpunt voor de bezorging van gebeurtenissen uit EventGrid. Echter, wanneer u een van de drie Azure-services die hieronder worden vermeld, de Azure-infrastructuur verwerkt automatisch deze validatie:
+Net als vele andere services die webhooks ondersteunen, moet u eigenaar van de Webhook-eindpunt bewijzen voordat er begonnen wordt met het leveren van gebeurtenissen naar dit eindpunt Event Grid. Deze vereiste voorkomt dat een kwaadwillende gebruiker overbelasting van uw eindpunt met gebeurtenissen. Wanneer u een van de drie Azure-services die hieronder worden vermeld, wordt deze validatie automatisch verwerkt door de Azure-infrastructuur:
 
 * Azure Logic Apps,
 * Azure Automation
-* Azure Functions voor EventGrid Trigger.
+* Azure Functions voor Event Grid-Trigger.
 
-Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger, moet de code van uw eindpunt om deel te nemen in een validatie-handshake met EventGrid. EventGrid ondersteunt twee verschillende validatie handshake modellen:
+Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger, moet de code van uw eindpunt om deel te nemen in een validatie-handshake met Event Grid. Event Grid ondersteunt twee manieren voor het valideren van het abonnement.
 
-1. **ValidationCode handshake**: op het moment van de event-abonnement maken, EventGrid plaatst een 'abonnement validatiegebeurtenis' aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere EventGridEvent en het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Wanneer uw toepassing heeft vastgesteld dat de validatieaanvraag voor de voor een verwachte gebeurtenisabonnement is, moet de toepassingscode echo weer de validatiecode voor het EventGrid reageert. Dit mechanisme handshake wordt ondersteund in alle EventGrid versies.
+1. **ValidationCode handshake (programmatisch)**: als u de broncode voor het eindpunt voor beheren, deze methode wordt aanbevolen. Op het moment van de event-abonnement maken verzendt Event Grid een gebeurtenis van de validatie van abonnement aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere Event Grid-gebeurtenis. Het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Uw toepassing gecontroleerd of de aanvraag voor de validatie voor een verwachte gebeurtenisabonnement, en kan de validatiecode naar Event Grid. Dit mechanisme handshake wordt ondersteund in alle versies van Event Grid.
 
-2. **ValidationURL handshake (handmatige handshake)**: In bepaalde gevallen hebt u geen controle over de broncode van het eindpunt voor het implementeren van de handshake ValidationCode op basis van. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), u via een programma kan niet reageren met de code voor validatie. Beginnen met 2018-05-01-preview-versie, EventGrid biedt nu ondersteuning voor een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement maakt met een SDK of een hulpprogramma dat gebruikmaakt van API-versie 2018-05-01-preview of hoger, EventGrid verzendt een `validationUrl` eigenschap als onderdeel van de gegevens van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake alleen een GET aanvragen op die URL, via een REST-client of via uw webbrowser. De validatie van de opgegeven URL is alleen voor ongeveer 10 minuten geldig. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u het maken van het gebeurtenisabonnement opnieuw voordat u begint met het handmatig worden gevalideerd.
+2. **ValidationURL handshake (handmatig)**: In bepaalde gevallen, u geen toegang tot de broncode van het eindpunt voor het implementeren van de handshake ValidationCode. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), u via een programma kan niet reageren met de code voor validatie.
 
-Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor de [Azure CLI](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API, zorg ervoor dat u `api-version=2018-05-01-preview`.
+   Beginnen met 2018-05-01-preview-versie, ondersteunt Event Grid een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement maakt met een SDK of een hulpprogramma dat gebruikmaakt van API-versie 2018-05-01-preview of hoger, Event Grid verzendt een `validationUrl` eigenschap in het gegevensgedeelte van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake vinden die URL in de gebeurtenisgegevens en handmatig een GET-aanvraag te verzenden. U kunt een REST-client of uw webbrowser.
+
+   De opgegeven URL is geldig voor 10 minuten. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u het maken van het gebeurtenisabonnement opnieuw voordat u begint met het handmatig worden gevalideerd.
 
 ### <a name="validation-details"></a>Validatiedetails
 
-* Op het moment van gebeurtenis-abonnement maken/bijwerken plaatst Event Grid een gebeurtenis van de validatie-abonnement naar het doel-eindpunt. 
+* Event Grid berichten op het moment van gebeurtenis-abonnement maken/bijwerken, een abonnement validatiegebeurtenis naar het doel-eindpunt. 
 * De gebeurtenis bevat de waarde van een header ' aeg gebeurtenistype: SubscriptionValidation '.
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere Event Grid-gebeurtenissen.
 * De eigenschap type gebeurtenis van de gebeurtenis is `Microsoft.EventGrid.SubscriptionValidationEvent`.
@@ -80,7 +82,7 @@ Om te bewijzen dat eindpunt eigendom, echo wordt teruggestuurd de validatiecode 
 
 Of u kunt handmatig het abonnement valideren door een GET-aanvraag verzenden naar de URL van de validatie. Het gebeurtenisabonnement blijft in behandeling totdat gevalideerd.
 
-U vindt een C#-voorbeeld dat laat hoe u zien voor het afhandelen van de abonnement-validatie-handshake op https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+Zie voor een voorbeeld van het verwerken van de abonnement-handshake-validatie: een [ C# voorbeeld](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Controlelijst
 

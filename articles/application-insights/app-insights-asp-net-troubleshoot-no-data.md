@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 68a2f11692a4a1bc0ccf62012dda4d2e57c9894f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 234cba3a3c58f1cff45925fcfcf23019dfa8d90e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868630"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998464"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -68,7 +68,7 @@ Klik in Solution Explorer met de rechtermuisknop op uw project en kies **Applica
 ## <a name="NuGetBuild"></a> "NuGet-pakketten ontbreken' op mijn buildserver
 *Alles bouwt OK wanneer ik ben foutopsporing op de ontwikkelcomputer, maar ik krijg een NuGet-fout op de buildserver.*
 
-Raadpleeg [NuGet-pakket herstellen](http://docs.nuget.org/Consume/Package-Restore) en [automatisch herstellen van pakket](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Raadpleeg [NuGet-pakket herstellen](https://docs.nuget.org/Consume/Package-Restore) en [automatisch herstellen van pakket](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## <a name="missing-menu-command-to-open-application-insights-from-visual-studio"></a>Ontbrekende opdracht Application Insights openen vanuit Visual Studio
 *Wanneer ik mijn project Solution Explorer met de rechtermuisknop, zie ik geen Application Insights-opdrachten of ik een Open Application Insights-opdracht niet wordt weergegeven.*

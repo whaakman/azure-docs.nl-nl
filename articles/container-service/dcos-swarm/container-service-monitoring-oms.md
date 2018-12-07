@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure DC/OS-cluster - operationeel Management
+title: (AFGESCHAFT) Monitor Azure DC/OS-cluster - operationeel Management
 description: Een Azure Container Service DC/OS-cluster bewaken met Log Analytics.
 services: container-service
 author: keikhara
@@ -9,20 +9,22 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 4576d9decc6ba1e01ef39abdb8a3ef89461196e8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b5c1596066b02d5ad4f59ed553408d263acc825c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407789"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993574"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Een Azure Container Service DC/OS-cluster bewaken met Log Analytics
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(AFGESCHAFT) Een Azure Container Service DC/OS-cluster bewaken met Log Analytics
 
-Log Analytics is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. Container-oplossing is een oplossing in Log Analytics, dat helpt u bij het weergeven van de container-inventaris, prestaties en logboeken op één locatie. U kunt controleren, containers oplossen door de logboeken in de centrale locatie bekijken en zoeken ruis verbruikt overtollige container op een host.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+Log Analytics is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. Container-oplossing is een oplossing in Log Analytics, dat helpt u bij het weergeven van de container-inventaris, prestaties en logboeken op één locatie. U kunt controleren, containers oplossen door de logboeken in de centrale locatie bekijken en zoeken ruis verbruikt overtollige container op een host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Zie voor meer informatie over Container-oplossing, de [Container-oplossing Log Analytics](../../log-analytics/log-analytics-containers.md).
+Zie voor meer informatie over Container-oplossing, de [Container-oplossing Log Analytics](../../azure-monitor/insights/containers.md).
 
 ## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Log Analytics instellen vanuit de DC/OS-universum
 
@@ -74,7 +76,7 @@ Nadat u uw werkruimte hebt geselecteerd, klikt u op **maken**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Raadpleeg voor meer informatie over de oplossing Log Analytics-Container, de [Container-oplossing Log Analytics](../../log-analytics/log-analytics-containers.md).
+Raadpleeg voor meer informatie over de oplossing Log Analytics-Container, de [Container-oplossing Log Analytics](../../azure-monitor/insights/containers.md).
 
 ### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>Het schalen van Log Analytics-agent met ACS DC/OS 
 
@@ -99,4 +101,4 @@ Wat werkt? Wat ontbreekt? Wat moet u dit is nuttig voor u? Laat het ons weten op
 
 ## <a name="next-steps"></a>Volgende stappen
 
- Nu dat u Log Analytics hebt ingesteld voor het bewaken van uw containers[uw container-dashboard zien](../../log-analytics/log-analytics-containers.md).
+ Nu dat u Log Analytics hebt ingesteld voor het bewaken van uw containers[uw container-dashboard zien](../../azure-monitor/insights/containers.md).

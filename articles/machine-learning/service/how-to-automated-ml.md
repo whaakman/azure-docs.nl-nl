@@ -1,30 +1,34 @@
 ---
-title: Wat is geautomatiseerde Machine Learning - Azure Machine Learning
-description: In dit artikel, kunt u meer informatie over automatische leerprocessen. De Azure Machine Learning-service kan automatisch een algoritme kiezen voor u en genereert een model op basis van het. Machine learning kunt u tijd besparen geautomatiseerd met behulp van de parameters en de criteria die u opgeeft om te selecteren van het beste algoritme voor het model.
+title: Wat is geautomatiseerde Machine Learning - service van Azure Machine Learning
+description: Meer informatie over hoe Azure Machine Learning-service kan automatisch een algoritme kiezen voor u en genereert een model op basis van het op te slaan dat met behulp van de parameters en de criteria die u opgeeft om te selecteren van het beste algoritme voor het model van uw tijd.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: krishnan
-author: krishnaanumalasetty
-ms.date: 9/24/2018
-ms.openlocfilehash: 2a9c05b68d05102fab80b2aa8fb1c1dad8a367ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+author: nacharya1
+ms.author: nilesha
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4b9356c7cba14cf5bd112c7d7ae1aab2842fb9d1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960036"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010889"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
-In dit artikel, kunt u meer informatie over automatische leerprocessen. De Azure Machine Learning-service kan automatisch een algoritme kiezen voor u en genereert een model op basis van het. Machine learning kunt u tijd besparen geautomatiseerd met behulp van de parameters en de criteria die u opgeeft om te selecteren van het beste algoritme voor het model.
+In dit artikel, kunt u meer informatie over automatische leerprocessen. De Azure Machine Learning-service kan automatisch een algoritme kiezen voor u en genereert een model op basis van het. Geautomatiseerde machine learning-bespaart u tijd door het genereren van modellen die zijn afgestemd op van de doelstellingen en beperkingen die u hebt gedefinieerd voor uw experiment, zoals de tijd voor het experiment dat moet worden uitgevoerd of die op de zwarte-modellen.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-1. Configureren van het type machine learning probleem dat u probeert op te lossen. Twee categorieën van leren met supervisie worden ondersteund:
+1. Configureren van het type machine learning probleem dat u probeert op te lossen. Categorieën van leren met supervisie worden ondersteund:
    + Classificatie
    + Regressie
+   + Prognose 
+
+   Terwijl geautomatiseerde machine learning algemeen beschikbaar is, **met de prognosefunctie is nog steeds in openbare preview.**
 
    Zie de [lijst met modellen](how-to-configure-auto-train.md#select-your-experiment-type) Azure Machine Learning kunt proberen bij het trainen van.
 

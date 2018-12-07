@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 7ff48962d01a83e8c9fce380d92fbc196ff96533
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585528"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011773"
 ---
 # <a name="liveevent-types-comparison"></a>LiveEvent typen vergelijking
 
 In Azure Media Services, een [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) kan bestaan uit een van de twee typen: live codering en Pass Through-query. 
 
-## <a name="types-comparison"></a>Vergelijking van de typen 
+## <a name="types-comparison"></a>Typen vergelijking 
 
 De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
 
@@ -42,6 +42,7 @@ De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
 | Ondersteunde diepte van de video bits, invoer en uitvoer|Maximaal 10-bits inclusief Kopregel 10/HLG|8-bits|
 | Ondersteunde invoer audio-codecs|AAC-LC, hij AAC v1, v2 HE-AAC|AAC-LC, hij AAC v1, v2 HE-AAC|
 | Ondersteunde uitvoer audio-codecs|Hetzelfde als invoer|AAC-LC|
+| Maximale beeldschermresolutie van uitvoervideo|Hetzelfde als invoer|720p (op 30 frames per seconde)|
 | Invoer-protocollen|RTMP, gefragmenteerde MP4 (Smooth Streaming)|RTMP, gefragmenteerde MP4 (Smooth Streaming)|
 | Prijs|Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad "Live Video"|Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad "Live Video"|
 | Maximale uitvoeringstijd|24 x 365 live lineaire|24x7|

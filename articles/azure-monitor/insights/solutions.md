@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: a498c9251c305b4845cc911fc9a21fbdafda72fe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2bf82c19498087e21bc66bf3c813b8f23d50d621
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832255"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996493"
 ---
 # <a name="management-solutions-in-azure"></a>Management-oplossingen in Azure
 Beheeroplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. In dit artikel geeft een kort overzicht van oplossingen in Azure en meer informatie over het gebruiken en ze te installeren.
@@ -77,7 +77,7 @@ Leden van de community kunnen oplossingen voor gegevensbeheer voor Azure-Snelsta
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-werkruimte en het Automation-account
-Alle oplossingen vereisen een [Log Analytics-werkruimte](../../log-analytics/log-analytics-manage-access.md) voor het opslaan van gegevens die zijn verzameld door de oplossing en voor het hosten van de logboeken en weergaven. Sommige oplossingen ook vereisen een [Automation-account](../../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat. De werkruimte en account moeten voldoen aan de volgende vereisten.
+Alle oplossingen vereisen een [Log Analytics-werkruimte](../../azure-monitor/platform/manage-access.md) voor het opslaan van gegevens die zijn verzameld door de oplossing en voor het hosten van de logboeken en weergaven. Sommige oplossingen ook vereisen een [Automation-account](../../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat. De werkruimte en account moeten voldoen aan de volgende vereisten.
 
 * Elke installatie van een oplossing kan alleen een Log Analytics-werkruimte en een Automation-account gebruiken. U kunt de oplossing afzonderlijk installeren in meerdere werkruimten.
 * Als een oplossing een Automation-account vereist, moeten klikt u vervolgens de Log Analytics-werkruimte en het Automation-account worden gekoppeld aan elkaar. Een Log Analytics-werkruimte kan alleen worden gekoppeld aan een Automation-account en een Automation-account kan slechts aan één Log Analytics-werkruimte zijn gekoppeld.

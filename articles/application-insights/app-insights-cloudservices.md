@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: c39cb01f1477e51623b02941bae03a51a389e197
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682865"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997022"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -28,7 +28,7 @@ ms.locfileid: "52682865"
 ## <a name="before-you-start"></a>Voordat u begint
 U hebt het volgende nodig:
 
-* Een abonnement op [Microsoft Azure](http://azure.com). Meld u aan met een Microsoft-account, dat u mogelijk al hebt voor Windows, XBox Live of andere Microsoft-cloudservices. 
+* Een abonnement op [Microsoft Azure](https://azure.com). Meld u aan met een Microsoft-account, dat u mogelijk al hebt voor Windows, XBox Live of andere Microsoft-cloudservices. 
 * Hulpprogramma’s van Microsoft Azure 2.9 of hoger
 * Developer Analytics Tools 7.10 of hoger
 
@@ -150,7 +150,7 @@ Als u prestatiemeteritems en aantallen gebeurtenissen wilt zien, opent u [Metric
 
 ![Gegevens van Azure Diagnostics](./media/app-insights-cloudservices/23-wad.png)
 
-Gebruik [Search](app-insights-diagnostic-search.md) of een [Analytics-query](../log-analytics/query-language/get-started-analytics-portal.md) om te zoeken in de verschillende traceerlogboeken die door Azure Diagnostics zijn verzonden. Stel bijvoorbeeld dat u te maken krijgt met een onverwerkte uitzondering waardoor een rol is gecrasht en gerecycled. Deze informatie zou worden weergegeven in het toepassingskanaal van het Windows-gebeurtenislogboek. U kunt Search gebruiken om naar de fout in het Windows-gebeurtenislogboek te kijken en om de volledige stack-trace voor de uitzondering op te halen. Hierdoor kunt u de hoofdoorzaak van het probleem.
+Gebruik [Search](app-insights-diagnostic-search.md) of een [Analytics-query](../azure-monitor/log-query/get-started-portal.md) om te zoeken in de verschillende traceerlogboeken die door Azure Diagnostics zijn verzonden. Stel bijvoorbeeld dat u te maken krijgt met een onverwerkte uitzondering waardoor een rol is gecrasht en gerecycled. Deze informatie zou worden weergegeven in het toepassingskanaal van het Windows-gebeurtenislogboek. U kunt Search gebruiken om naar de fout in het Windows-gebeurtenislogboek te kijken en om de volledige stack-trace voor de uitzondering op te halen. Hierdoor kunt u de hoofdoorzaak van het probleem.
 
 ![Zoeken in Azure Diagnostics](./media/app-insights-cloudservices/25-wad.png)
 
@@ -241,7 +241,7 @@ Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund i
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 

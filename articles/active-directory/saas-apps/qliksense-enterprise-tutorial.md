@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/06/2018
 ms.author: jeedes
-ms.openlocfilehash: a8816451b45171e0ba8cbd7acc937201c587c481
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 24353f89f7c833a16675841f741a4a81ac34597c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627947"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met Qlik Sense Enterprise
 
@@ -86,11 +86,11 @@ In Qlik Sense Enterprise, wijs de waarde van de **gebruikersnaam** in Azure AD a
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Qlik Sense Enterprise, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on) ** : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) ** - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Qlik Sense Enterprise](#create-a-qlik-sense-enterprise-test-user) ** : als u wilt een equivalent van Britta Simon in Qlik Sense onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) ** - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on) ** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Qlik Sense Enterprise](#create-a-qlik-sense-enterprise-test-user)**  : als u wilt een equivalent van Britta Simon in Qlik Sense onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -113,6 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
+    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -283,7 +284,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>Maak een testgebruiker Qlik Sense Enterprise
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Qlik Sense onderneming. Werken met [Qlik Sense Enterprise Client-ondersteuningsteam](https://www.qlik.com/us/services/support) om toe te voegen de gebruikers in het Qlik Sense Enterprise-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Qlik Sense onderneming. Werken met [Qlik Sense Enterprise Client-ondersteuningsteam](https://www.qlik.com/us/services/support) om toe te voegen de gebruikers in het Qlik Sense Enterprise-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 33f04f9deced7c4bc1c27cea5e8c431d4cd5512a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3cdedd0c8ddf6d2c724351cf150499434e3886c9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849323"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994705"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -30,13 +30,13 @@ Een HTTP-trigger kan worden aangepast om te reageren op [webhooks](https://en.wi
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub-opslagplaats.
+De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
-De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub-opslagplaats.
+De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
@@ -392,7 +392,7 @@ Zie voor een compleet voorbeeld [Trigger - voorbeeld met C#](#trigger---c-exampl
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `HttpTrigger` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 | **type** | N.v.t.| Vereist: moet worden ingesteld op `httpTrigger`. |
 | **direction** | N.v.t.| Vereist: moet worden ingesteld op `in`. |
@@ -629,7 +629,7 @@ Gebruik de HTTP-Uitvoerbinding om te reageren op de afzender van HTTP-aanvraag. 
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand. Voor C#-klassebibliotheken, zijn er geen kenmerkeigenschappen die overeenkomen met deze *function.json* eigenschappen.
 
-|Eigenschap  |Beschrijving  |
+|Eigenschap  |Description  |
 |---------|---------|
 | **type** |Moet worden ingesteld op `http`. |
 | **direction** | Moet worden ingesteld op `out`. |

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6cc817b86170ddab3152a041924ae99ff52a23ec
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723921"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995052"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>verzamelde: Linux-prestatiegegevens in Application Insights
 
 
-Om te verkennen van metrische gegevens voor prestaties Linux-systeem in [Application Insights](app-insights-overview.md), installeer [verzamelde](http://collectd.org/), samen met de bijbehorende Application Insights-invoegtoepassing. Deze open-source-oplossing worden verschillende systeem- en statistische gegevens verzameld.
+Om te verkennen van metrische gegevens voor prestaties Linux-systeem in [Application Insights](app-insights-overview.md), installeer [verzamelde](https://collectd.org/), samen met de bijbehorende Application Insights-invoegtoepassing. Deze open-source-oplossing worden verschillende systeem- en statistische gegevens verzameld.
 
 Doorgaans gebruikt u verzamelde als u al hebt [uw Java-webservice met Application Insights geïnstrumenteerd][java]. Dit biedt u meer gegevens u helpen bij het verbeteren van de prestaties van uw app of problemen diagnosticeren. 
 
@@ -38,7 +38,7 @@ Neemt een kopie van de instrumentatiesleutel die de resource.
 ## <a name="install-collectd-and-the-plug-in"></a>Verzamelde en de invoegtoepassing installeren
 Op uw Linux-server-machines:
 
-1. Installeer [verzamelde](http://collectd.org/) versie 5.4.0 of hoger.
+1. Installeer [verzamelde](https://collectd.org/) versie 5.4.0 of hoger.
 2. Download de [Application Insights verzamelde schrijver invoegtoepassing](https://aka.ms/aijavasdk). Houd er rekening mee het versienummer.
 3. Kopieer de invoegtoepassing JAR in `/usr/share/collectd/java`.
 4. Bewerken `/etc/collectd/collectd.conf`:

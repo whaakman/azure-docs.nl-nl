@@ -9,19 +9,19 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: af1d00e49819f1d69e08c0fa99891690e07b489f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233749"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995323"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Tracerings-query's voor B2B-berichten maken in Azure Log Analytics voor Azure Logic Apps
 
 Als u wilt zoeken AS2, X12 of EDIFACT-berichten dat u met bijhoudt [Azure Log Analytics](../log-analytics/log-analytics-overview.md), kunt u query's die filteracties op basis van specifieke criteria. U kunt bijvoorbeeld berichten op basis van een specifieke uitwisseling controlenummer vinden.
 
 > [!NOTE]
-> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
+> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../azure-monitor/platform/oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
 
 ## <a name="prerequisites"></a>Vereisten
 

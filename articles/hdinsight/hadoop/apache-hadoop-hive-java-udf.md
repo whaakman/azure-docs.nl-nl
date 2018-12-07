@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f027b4c827fd7afe1a9cd2f8f31839b092345728
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634070"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012484"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Gebruik van een Java UDF met Apache Hive in HDInsight
 
@@ -29,9 +29,9 @@ Informatie over het maken van een op Java gebaseerde gebruiker gedefinieerde fun
 
     De meeste stappen in dit document worden gebruikt voor zowel Windows - en Linux gebaseerde clusters. De stappen voor het uploaden van de compilatie UDF aan het cluster en de App uitvoeren, zijn echter specifiek voor op basis van Linux-clusters. Vindt u koppelingen naar informatie die kan worden gebruikt met Windows gebaseerde clusters.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 of hoger (of een equivalent, zoals OpenJDK)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 of hoger (of een equivalent, zoals OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Een teksteditor of IDE voor Java
 

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3c5c4d24d68fffc86a654e0dee5e2d3f36f15aea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064265"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000452"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Algemeen beschikbare services met behulp van Azure SQL-Database ontwerpen
 
@@ -34,7 +34,7 @@ In dit scenario hebben de toepassingen de volgende kenmerken:
 *   Weblaag en de gegevenslaag moeten worden geplaatst om te verminderen latentie en verkeer kosten 
 *   Fundamentele, downtime is een hogere bedrijfsrisico voor deze toepassingen dan verlies van gegevens
 
-In dit geval is de topologie van de implementatie van toepassing geoptimaliseerd voor het verwerken van regionale rampen als alle onderdelen van de toepassing samen failover plaatsvindt moeten. In het onderstaande diagram ziet u deze topologie. Voor geografische redundantie worden van de toepassing resources geïmplementeerd in de regio A en B. De resources in de regio B zijn echter niet gebruikt, totdat een regio uitvalt. Een failovergroep is geconfigureerd tussen de twee regio's voor het beheren van verbinding met de database, replicatie en failover. De webservice in beide regio's is geconfigureerd voor toegang tot de database via de lezen / schrijven-listener  **&lt;failover-groepsnaam&gt;. database.windows.net** (1). Traffic manager is ingesteld voor het gebruik [prioriteit routeringsmethode](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+In dit geval is de topologie van de implementatie van toepassing geoptimaliseerd voor het verwerken van regionale rampen als alle onderdelen van de toepassing samen failover plaatsvindt moeten. In het onderstaande diagram ziet u deze topologie. Voor geografische redundantie worden van de toepassing resources geïmplementeerd in de regio A en B. De resources in de regio B zijn echter niet gebruikt, totdat een regio uitvalt. Een failovergroep is geconfigureerd tussen de twee regio's voor het beheren van verbinding met de database, replicatie en failover. De webservice in beide regio's is geconfigureerd voor toegang tot de database via de lezen / schrijven-listener  **&lt;failover-groepsnaam&gt;. database.windows.net** (1). Traffic manager is ingesteld voor het gebruik [prioriteit routeringsmethode](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) ter illustratie wordt alleen in dit artikel wordt gebruikt. U kunt een load balancing-oplossing die ondersteuning biedt voor de routeringsmethode prioriteit.    
@@ -47,7 +47,7 @@ Deze configuratie voordat een storing in het volgende diagram wordt weergegeven:
 Na een storing in de primaire regio detecteert de service SQL Database dat de primaire database niet toegankelijk is en failover naar de secundaire regio op basis van de parameters van het automatische failover-beleid (1 activeert). Afhankelijk van de SLA van uw toepassing, kunt u een respijtperiode die de tijd tussen de detectie van de serviceonderbreking en de failover zelf bepaalt configureren. Het is mogelijk dat de eindpunt-failover van traffic manager wordt gestart voordat de failover-groep met de failover van de database wordt geactiveerd. In dat geval de web-App niet onmiddellijk opnieuw verbinding maken met de database. Maar de inlogmodus worden automatisch uitgevoerd zodra de databasefailover is voltooid. Als de mislukte regio teruggezet en weer online is, wordt de oude primaire automatisch opnieuw verbinding als een nieuwe secundaire. Het volgende diagram ziet u de configuratie na een failover.
  
 > [!NOTE]
-> Alle transacties na de failover zijn verloren gaan tijdens het opnieuw verbinden. Nadat de failover is voltooid, kan de toepassing in de regio B opnieuw verbinding maken met en opnieuw starten van de gebruiker verwerken. Zowel de web-App als de primaire database zijn nu in de regio B en blijven CO-locaties. n>
+> Alle transacties na de failover zijn verloren gaan tijdens het opnieuw verbinden. Nadat de failover is voltooid, kan de toepassing in de regio B opnieuw verbinding maken met en opnieuw starten van de gebruiker verwerken. Zowel de web-App als de primaire database zijn nu in de regio B en blijven CO-locaties. 
 
 ![Scenario 1. Configuratie na een failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -135,7 +135,7 @@ Als bijvoorbeeld een storing in Noord-Europa gebeurt, wordt de automatische data
 ![Scenario 3. Storing in Noord-Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> U kunt de tijd wanneer de ervaring van de eindgebruiker in Europa is verminderd door de lang latentie kunt verminderen. U doet dat u moeten proactief een kopie van de toepassing implementeren en de secundaire database (s) maken in een andere lokale regio (West-Europa) als vervanging van het offline toepassingsexemplaar in Noord-Europa. Wanneer de laatste weer online is kunt u bepalen of om door te gaan met behulp van West-Europa of verwijderen van de kopie van de toepassing bevat en gaat u terug naar de met behulp van Noord-Europa,
+> U kunt de tijd wanneer de ervaring van de eindgebruiker in Europa is verminderd door de lang latentie kunt verminderen. U doet dat u moeten proactief een kopie van de toepassing implementeren en de secundaire database (s) maken in een andere lokale regio (West-Europa) als vervanging van het offline toepassingsexemplaar in Noord-Europa. Wanneer deze weer online kunt u beslissen of om door te gaan met behulp van West-Europa of te verwijderen van de kopie van de toepassing bevat en gaat u terug naar de met behulp van Noord-Europa.
 >
 
 De sleutel **voordelen** van dit ontwerp zijn:

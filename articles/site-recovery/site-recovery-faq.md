@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 2f9095cf910748948984c28cd9171665df5a6301
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ef914318174ee3ce738769fcae910c82b35b21b4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871622"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998555"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -116,7 +116,7 @@ U moet een LRS of GRS-opslagaccount. GRS wordt aanbevolen, omdat de gegevens dan
 
 ### <a name="how-often-can-i-replicate-data"></a>Hoe vaak kan ik gegevens repliceren?
 * **Hyper-V:** Hyper-V-machines kunnen elke 30 seconden (met uitzondering van premium storage), 5 minuten of 15 minuten worden gerepliceerd. Als u de SAN-replicatie hebt ingesteld zijn replicatie is synchroon.
-* **VMware en fysieke servers:** hier is de replicatiefrequentie niet relevant. Replicatie is continue.
+* **Azure-VM's, VMware en fysieke servers:** is de replicatiefrequentie niet relevant hier. Replicatie is continue.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Kan ik replicatie van bestaande herstelsite naar een andere tertiaire site verlengen?
 Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aanvragen [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).

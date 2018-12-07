@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e9e92254db37edbd978b5799b13e63652e227f86
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687211"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014511"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>In Azure HDInsight Hive-query's optimaliseren
 
@@ -40,7 +40,7 @@ Zie voor meer informatie over het schalen van HDInsight [schaal HDInsight-cluste
 
 ## <a name="use-tez-instead-of-map-reduce"></a>Tez gebruiken in plaats van Mapreduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) is een engine voor het alternatieve uitvoeren met de MapReduce-engine. HDInsight-clusters op basis van Linux hebben Tez standaard ingeschakeld.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) is een engine voor het alternatieve uitvoeren met de MapReduce-engine. HDInsight-clusters op basis van Linux hebben Tez standaard ingeschakeld.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -52,7 +52,7 @@ Tez is sneller, omdat:
 * **Containers hergebruikt**. Wanneer mogelijk Tez is niet opnieuw gebruiken van containers om ervoor te zorgen dat de latentie vanwege het opstarten van containers wordt verminderd.
 * **Continue optimalisatietechnieken**. Optimalisatie is gewoonlijk gedaan tijdens de compilatie-fase. Maar meer informatie over de invoer beschikbaar is waarmee voor betere optimalisatie tijdens runtime. Continue optimalisatietechnieken die toe te staan om het optimaliseren van het plan verder in de fase van de runtime maakt gebruik van Tez.
 
-Zie voor meer informatie over deze concepten [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Zie voor meer informatie over deze concepten [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 U kunt elke query Hive Tez ingeschakeld door het voorvoegsel van de query met de volgende set-opdracht:
 

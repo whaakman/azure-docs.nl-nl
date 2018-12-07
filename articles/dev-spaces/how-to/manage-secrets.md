@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure-Containerservice, containers
-ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705494"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013998"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Geheimen beheren bij het werken met een Azure Dev-adresruimte
 
@@ -112,5 +112,5 @@ Azure Dev opslagruimten biedt twee opties voor het opslaan van geheimen aanbevol
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Met deze methoden u kunt nu veilig verbinding maken met een database, een Redis-cache of toegang tot beveiligde Azure-services.
+Met deze methoden kunt u nu veilig verbinding maken met een database, een Azure-Cache voor Redis, of toegang tot beveiligde Azure-services.
  

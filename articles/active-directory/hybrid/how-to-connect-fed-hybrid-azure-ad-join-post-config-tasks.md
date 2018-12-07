@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312478"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999237"
 ---
-# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Taken van na configuratie voor de hybride Azure AD join
+# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Taken na configuratie voor hybride Azure AD-koppeling
 
 Nadat u Azure AD Connect voor het configureren van uw organisatie voor de hybride Azure AD join hebt uitgevoerd, zijn er nog een paar extra stappen die moeten worden voltooid als u wilt dat de installatie te voltooien.  Alleen de stappen die van toepassing voor uw apparaten zijn te verrichten.
 
@@ -77,7 +77,7 @@ Voor het registreren van Windows downlevel-apparaten, moet u om ervoor te zorgen
 
 De Azure AD-apparaat verificatie-eindpunt toevoegen aan het lokale intranetzones op uw Windows downlevel-apparaten om te voorkomen dat certificaatmeldingen bij het verifiëren van de apparaten: https://device.login.microsoftonline.com 
 
-Als u [naadloze eenmalige aanmelding](https://aka.ms/hybrid/sso), ook deze zone inschakelen 'Balk statusupdates via scripts toestaan' en voeg het volgende eindpunt toe: https://autologon.microsoftazuread-sso.com 
+Als u [naadloze eenmalige aanmelding](how-to-connect-sso.md), ook deze zone inschakelen 'Balk statusupdates via scripts toestaan' en voeg het volgende eindpunt toe: https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Microsoft Workplace Join op Windows downlevel-apparaten installeren
 

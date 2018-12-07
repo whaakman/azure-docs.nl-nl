@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 588e56c9ae22578c08dbca07c7c576fe8b577b58
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423824"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Zelfstudie: Azure Active Directory-integratie met kleine verbeteringen
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van kleine verbeteringen in Azure AD, mo
 
 **Als u wilt toevoegen kleine verbeteringen in de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -216,7 +216,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij kleine verbeteringen, moet
 
     b. Voer de **achternaam** van gebruiker, zoals **Simon**.
 
-    c. Voer de **e** van gebruiker, zoals **brittasimon@contoso.com**. 
+    c. Voer de **e** van gebruiker, zoals <strong>brittasimon@contoso.com</strong>. 
 
     d. U kunt er ook voor kiezen om in te voeren van het persoonlijke bericht in de **e-mailmelding verzenden** vak. Als u niet verzenden van de melding wilt, schakel dit selectievakje in.
 

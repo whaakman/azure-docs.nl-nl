@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494959"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012348"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Apache Ambari-weergaven gebruiken om op te sporen Apache Tez-taken in HDInsight
 
@@ -103,6 +103,6 @@ Gebruik de volgende stappen uit om uit te voeren van een Hive-query die gebruikm
 
 Nu hebt u geleerd hoe u de Apache Tez-weergave, meer informatie over [Apache Hive in HDInsight met behulp van](hadoop/hdinsight-use-hive.md).
 
-Zie voor meer technische informatie over Apache Tez, de [Apache Tez-pagina op Hortonworks](http://hortonworks.com/hadoop/tez/).
+Zie voor meer technische informatie over Apache Tez, de [Apache Tez-pagina op Hortonworks](https://hortonworks.com/hadoop/tez/).
 
 Zie voor meer informatie over het gebruik van Apache Ambari met HDInsight [beheren HDInsight-clusters met behulp van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)

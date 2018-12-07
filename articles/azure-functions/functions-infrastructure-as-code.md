@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: d63686524c619b349a590c389e20e473b0d98641
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 484cf0976ce10e80ca7eaf9b215329b81ed4bb13
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091471"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994661"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiseer de implementatie van de resource voor uw functie-app in Azure Functions
 
@@ -269,13 +269,13 @@ Vervang ```<url-encoded-path-to-azuredeploy-json>``` met een [URL-gecodeerde](ht
 Hier volgt een voorbeeld dat gebruikmaakt van markdown:
 
 ```markdown
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
 Hier volgt een voorbeeld waarin HTML wordt gebruikt:
 
 ```html
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,5 +1,5 @@
 ---
-title: Toepassings- of gebruikersspecifieke Marathon-service
+title: (AFGESCHAFT) Toepassings- of gebruikersspecifieke Marathon-service
 description: Een toepassings- of gebruikersspecifieke Marathon-service maken
 services: container-service
 author: rgardler
@@ -9,13 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996119"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Een toepassings- of gebruikersspecifieke Marathon-service maken
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(AFGESCHAFT) Een toepassings- of gebruikersspecifieke Marathon-service maken
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure Container Service voorziet in een set masterservers waarop we Apache Mesos en Marathon vooraf configureren. Deze kunnen worden gebruikt voor het indelen van uw toepassingen op het cluster, maar het is raadzaam om niet de masterservers voor dit doel te gebruiken. Voor het aanpassen van de configuratie van Marathon moet bijvoorbeeld bij de masterservers zelf worden aangemeld en moeten wijzigingen worden aangebracht. Hierdoor worden gebruikers aangemoedigd unieke masterservers te maken die enigszins verschillen van de norm en die onafhankelijk moeten worden onderhouden en beheerd. Daarnaast is de configuratie die het ene team nodig heeft, mogelijk niet de optimale configuratie voor een ander team.
 

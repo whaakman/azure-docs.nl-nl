@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4803723511c43fc4f12ea6326c40022b1fdf9d17
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c0a314abc33951918817dc2ebf39946d5656aeda
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969087"
+ms.locfileid: "53002094"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
@@ -39,7 +39,7 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](../cosmos-db/serve
 
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
-De Azure Cosmos DB-bindingen voor Functions versie 2.x vindt u in de [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) NuGet-pakket versie 3.x. Broncode voor de bindingen is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub-opslagplaats.
+De Azure Cosmos DB-bindingen voor Functions versie 2.x vindt u in de [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) NuGet-pakket versie 3.x. Broncode voor de bindingen is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -256,7 +256,7 @@ Zie voor een compleet voorbeeld [Trigger - voorbeeld met C#](#trigger---c-exampl
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `CosmosDBTrigger` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** || Moet worden ingesteld op `cosmosDBTrigger`. |
 |**direction** || Moet worden ingesteld op `in`. Deze parameter wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
@@ -1480,7 +1480,7 @@ De constructor van het kenmerk wordt de databasenaam en verzamelingsnaam. Zie vo
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `CosmosDB` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type**     || Moet worden ingesteld op `cosmosDB`.        |
 |**direction**     || Moet worden ingesteld op `in`.         |
@@ -1922,7 +1922,7 @@ Zie voor een compleet voorbeeld [uitvoer - voorbeeld met C#](#output---c-example
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `CosmosDB` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type**     || Moet worden ingesteld op `cosmosDB`.        |
 |**direction**     || Moet worden ingesteld op `out`.         |
@@ -1970,7 +1970,7 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 }
 ```  
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |GatewayMode|Gateway|De verbindingsmodus die door de functie wordt gebruikt bij het verbinden met de Azure Cosmos DB-service. Opties zijn `Direct` en `Gateway`|
 |Protocol|Https|De verbindingsprotocol wordt gebruikt door de functie wanneer verbinding met de Azure Cosmos DB-service.  Lezen [hier voor een uitleg van beide modi](../cosmos-db/performance-tips.md#networking)| 

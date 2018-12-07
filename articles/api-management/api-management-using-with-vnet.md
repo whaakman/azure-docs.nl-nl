@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443522"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011677"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -120,7 +120,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | * / 25                       | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
 | * / 587                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
 | * / 25028                    | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
-| * / 6381 - 6383              | Inkomende en uitgaande | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Toegang tot Redis Cache-exemplaren tussen RoleInstances          | Externe en interne  |
+| * / 6381 - 6383              | Inkomende en uitgaande | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Toegang tot Azure Cache voor instanties van Redis tussen RoleInstances          | Externe en interne  |
 | * / *                        | Inkomend            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Infrastructuur van Azure Load Balancer                          | Externe en interne  |
 
 >[!IMPORTANT]

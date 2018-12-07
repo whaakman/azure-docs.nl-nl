@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7253a31057d8e7af5c0273ef112b1155cf15a014
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047137"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011654"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Deep dive - geavanceerde analyses
 
@@ -24,7 +24,7 @@ HDInsight biedt de mogelijkheid om waardevolle inzichten van grote hoeveelheden 
 
 ## <a name="advanced-analytics-process"></a>Geavanceerde analyse-proces
 
-![Proces](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Verwerken](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 Nadat u het zakelijke probleem hebt geïdentificeerd en zijn begonnen met het verzamelen en verwerken van uw gegevens, die u wilt maken van een model dat staat voor de vraag die u wilt voorspellen. Uw model gebruikt een of meer machine learning-algoritmen voor het maken van het type voorspelling die het beste past bij de behoeften van uw bedrijf.  Het merendeel van uw gegevens moet worden gebruikt om uw model te trainen met de rest gebruikt om te testen of evalueren ervan. 
 
@@ -63,7 +63,7 @@ HDInsight heeft meerdere machine learning-opties voor een geavanceerde analysewe
 
 ### <a name="machine-learning-and-spark"></a>Machine Learning en Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) is een aanbieding wordt gehost op Azure van [Spark](http://spark.apache.org/), een uniforme, open source, een framework voor parallelle gegevensverwerking die gebruikmaakt van in-memory verwerking om analyse van Big Data te verbeteren. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak, en geavanceerde analyses. Gedistribueerde berekening in-memory-mogelijkheden van Spark kunnen u een goede keuze voor de zich herhalende algoritmen in machine learning- en grafiekberekeningen gebruikt. 
+[HDInsight Spark](../spark/apache-spark-overview.md) is een aanbieding wordt gehost op Azure van [Spark](https://spark.apache.org/), een uniforme, open source, een framework voor parallelle gegevensverwerking die gebruikmaakt van in-memory verwerking om analyse van Big Data te verbeteren. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak, en geavanceerde analyses. Gedistribueerde berekening in-memory-mogelijkheden van Spark kunnen u een goede keuze voor de zich herhalende algoritmen in machine learning- en grafiekberekeningen gebruikt. 
 
 Er zijn drie schaalbare machine learning-bibliotheken die algoritmische modellering naar deze gedistribueerde omgeving meenemen:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165285"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999510"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Werken met een Azure Cosmos-account
 
@@ -38,7 +38,7 @@ U kunt nu doorgaan naar meer informatie over het beheren van uw Azure Cosmos-acc
 * [Wereldwijde distributie](distribute-data-globally.md)
 * [Consistentieniveaus](consistency-levels.md)
 * [Werken met Azure Cosmos-containers en objecten](databases-containers-items.md)
-* [VNET-service-eindpunt voor uw Azure Cosmos-account](firewall-support.md)
-* [IP-firewall voor uw Azure Cosmos-account](vnet-service-endpoint.md)
+* [VNET-service-eindpunt voor uw Azure Cosmos-account](vnet-service-endpoint.md)
+* [IP-firewall voor uw Azure Cosmos-account](firewall-support.md)
 * [Instructies voor het toevoegen en verwijderen van Azure-regio's aan uw Azure Cosmos-account](how-to-manage-database-account.md)
 * [Azure Cosmos DB-Sla 's](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

@@ -11,12 +11,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 6523828b522379dd1cd70f1c548caf7af15b5d90
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964761"
+ms.locfileid: "52997591"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection voor Azure SQL-Database
 
@@ -28,7 +28,7 @@ SQL geavanceerde Threat Protection (ATP) biedt een geavanceerde SQL-beveiligings
 
 - [Gegevensdetectie en -classificatie](sql-database-data-discovery-and-classification.md) (momenteel een preview-versie) biedt ingebouwde mogelijkheden in Azure SQL Database voor het detecteren, classificeren, labelen en beveiligen van de gevoelige gegevens in uw databases. Het kan worden gebruikt voor het zichtbaar maken van de classificatiestatus van gegevens in uw database, en het traceren van de toegang tot gevoelige gegevens binnen en buiten de database.
 - [Evaluatie van beveiligingsproblemen](sql-vulnerability-assessment.md) is een eenvoudig te configureren service waarmee u potentiële zwakke plekken in de beveiliging van de database kunt detecteren, volgen en verhelpen. Deze service biedt u inzicht in de status van de beveiliging en bruikbare stappen om beveiligingsproblemen op te lossen en de beveiliging van uw database te verbeteren.
-- [Detectie van bedreigingen](sql-database-threat-detection.md) detecteert vreemde activiteiten die duiden op ongebruikelijke en mogelijk schadelijke pogingen toegang te verkrijgen tot of aanvallen uit te voeren op uw database. Hiermee wordt uw database continu gecontroleerd op verdachte activiteiten en wordt u onmiddellijk gewaarschuwd bij mogelijke beveiligingsproblemen, SQL-injectieaanvallen en afwijkende databasetoegangspatronen. De waarschuwingen bevatten detailinformatie over verdachte activiteiten en aanbevelingen voor het onderzoeken en tegenhouden ervan.
+- [Detectie van bedreigingen](sql-database-threat-detection-overview.md) detecteert vreemde activiteiten die duiden op ongebruikelijke en mogelijk schadelijke pogingen toegang te verkrijgen tot of aanvallen uit te voeren op uw database. Hiermee wordt uw database continu gecontroleerd op verdachte activiteiten en wordt u onmiddellijk gewaarschuwd bij mogelijke beveiligingsproblemen, SQL-injectieaanvallen en afwijkende databasetoegangspatronen. De waarschuwingen bevatten detailinformatie over verdachte activiteiten en aanbevelingen voor het onderzoeken en tegenhouden ervan.
 
 Schakel SQL ATP eenmaal zodat al deze functies opgenomen. U kunt met één klik ATP inschakelen op uw volledige databaseserver, waarmee wordt toegepast op alle databases op de server. 
 

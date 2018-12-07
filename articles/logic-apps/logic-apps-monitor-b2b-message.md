@@ -9,19 +9,19 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 5dccfe61eaf97f27b211aa6812145f21f2098738
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2c1bac07d5086cffb99082520b05c7e42982c6f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961260"
+ms.locfileid: "52996612"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>B2B-berichten met Azure Log Analytics in Azure Logic Apps bewaken
 
 Na het instellen van B2B-communicatie tussen handelspartners in uw integratie-account, kan deze partners berichten met elkaar kunnen uitwisselen. Om te controleren dat deze communicatie werkt zoals verwacht, u AS2, X12, bewaken kunt en EDIFACT-berichten en het instellen van diagnostische gegevens van logboekregistratie voor uw integratie-account met [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Deze service controleert uw cloud en on-premises omgevingen, helpen u hun beschikbaarheid en prestaties te onderhouden en verzamelt runtime-gegevens en gebeurtenissen voor uitgebreidere foutopsporing. U kunt ook [gebruiken deze gegevens met andere services](#extend-diagnostic-data) zoals Azure Storage en Azure Event Hubs.
 
 > [!NOTE]
-> Deze pagina mogelijk nog steeds verwijzingen naar Microsoft Operations Management Suite (OMS), die is [buiten gebruik stellen in januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), maar deze stappen vervangt met Azure Log Analytics waar mogelijk. 
+> Deze pagina mogelijk nog steeds verwijzingen naar Microsoft Operations Management Suite (OMS), die is [buiten gebruik stellen in januari 2019](../azure-monitor/platform/oms-portal-transition.md), maar deze stappen vervangt met Azure Log Analytics waar mogelijk. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -44,7 +44,7 @@ U kunt inschakelen logboekregistratie rechtstreeks vanaf uw integratie-account o
 1. Nu zoeken en selecteer uw integratieaccount. In een lijst met een filter, selecteert u de waarden die betrekking hebben op uw integratie-account.
 Wanneer u klaar bent, kiest u **diagnostische instelling toevoegen**.
 
-   | Eigenschap | Waarde | Beschrijving | 
+   | Eigenschap | Waarde | Description | 
    |----------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | De Azure-abonnement dat is gekoppeld aan uw integratie-account | 
    | **Resourcegroep** | <*Azure-resource-group-name*> | De Azure-resourcegroep voor uw integratie-account | 
@@ -86,7 +86,7 @@ Wanneer u klaar bent, kiest u **diagnostische instelling toevoegen**.
 1. Nu zoeken en selecteer uw integratieaccount. In een lijst met een filter, selecteert u de waarden die betrekking hebben op uw integratie-account.
 Wanneer u klaar bent, kiest u **diagnostische instelling toevoegen**.
 
-   | Eigenschap | Waarde | Beschrijving | 
+   | Eigenschap | Waarde | Description | 
    |----------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | De Azure-abonnement dat is gekoppeld aan uw integratie-account | 
    | **Resourcegroep** | <*Azure-resource-group-name*> | De Azure-resourcegroep voor uw integratie-account | 
@@ -124,7 +124,7 @@ Samen met Azure Log Analytics, kunt u uitbreiden hoe u diagnostische gegevens va
 * [Azure Diagnostics-in Azure-opslag logboeken archiveren](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Stream diagnostische logboeken van Azure naar Azure Eventhubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-U kunt vervolgens get realtime bewaking met behulp van Telemetrie en analyses van andere services, zoals [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) en [Power BI](../log-analytics/log-analytics-powerbi.md). Bijvoorbeeld:
+U kunt vervolgens get realtime bewaking met behulp van Telemetrie en analyses van andere services, zoals [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) en [Power BI](../azure-monitor/platform/powerbi.md). Bijvoorbeeld:
 
 * [Stream-gegevens van Gebeurtenishubs met Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Met Stream Analytics streaming-gegevens analyseren en een realtime analytics-dashboard maken in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7b7bd66d90ad01479965c928eb69bfb1dfccce5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276483"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000210"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation-integratiemodules
 PowerShell is de basistechnologie achter Azure Automation. Omdat Azure Automation is gebouwd op PowerShell, zijn de PowerShell-modules bepalend voor de uitbreidbaarheid van Azure Automation. In dit artikel helpen we u de details van het gebruik van Azure Automation van PowerShell-modules, aangeduid als 'Integratiemodules' en aanbevolen procedures voor het maken van uw eigen PowerShell-modules om ervoor te zorgen dat ze werken als integratiemodules binnen Azure Automation. 
@@ -74,7 +74,7 @@ Hoewel integratiemodules in wezen PowerShell-modules zijn, is er toch een aantal
     #>
     function Get-TwilioPhoneNumbers {
     [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-    HelpUri='http://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
+    HelpUri='https://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
     param(
        [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
        [ValidateNotNullOrEmpty()]
@@ -136,7 +136,7 @@ Hoewel integratiemodules in wezen PowerShell-modules zijn, is er toch een aantal
     ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-      HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
+      HelpUri='https://www.twilio.com/docs/api/rest/sending-sms')]
       param(
          [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
          [ValidateNotNullOrEmpty()]

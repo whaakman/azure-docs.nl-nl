@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: c8f2677e91eb1c3d2ac670a51793f319e82d61fe
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2f237d250a6b6e2a0f6ed2e62540968d9fcc7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719926"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997973"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights voor .NET-consoletoepassingen
 [Application Insights](app-insights-overview.md) kunt u uw web-App voor beschikbaarheid, prestaties en gebruik te bewaken.
 
-U moet een abonnement met [Microsoft Azure](http://azure.com). Aanmelden met een Microsoft-account, die u mogelijk voor Windows, Xbox Live of andere Microsoft-cloudservices. Uw team mogelijk een organisatie-abonnement op Azure: vraag de eigenaar u toevoegen aan met uw Microsoft-account.
+U moet een abonnement met [Microsoft Azure](https://azure.com). Aanmelden met een Microsoft-account, die u mogelijk voor Windows, Xbox Live of andere Microsoft-cloudservices. Uw team mogelijk een organisatie-abonnement op Azure: vraag de eigenaar u toevoegen aan met uw Microsoft-account.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -124,7 +124,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelation
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* Voor .NET Framework-Windows-app, kunt u ook installeren en initialiseren van prestatiemeteritem collector module, zoals wordt beschreven [hier](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Voor .NET Framework-Windows-app, kunt u ook installeren en initialiseren van prestatiemeteritem collector module, zoals wordt beschreven [hier](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 #### <a name="full-example"></a>Compleet voorbeeld
 

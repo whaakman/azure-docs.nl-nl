@@ -9,14 +9,14 @@ keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 4f8135dd26b58b5b285798af5c420aa09b03074b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b386cf72525c6ef6234d99255ca0eed5ade32066
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850110"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000486"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -29,11 +29,11 @@ In dit artikel wordt uitgelegd hoe u werkt met Azure Blob storage-bindingen in A
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> De trigger van Event Grid gebruiken in plaats van de Blob storage-trigger voor alleen-blob storage-accounts voor grote schaal, of om koude start vertragingen te voorkomen. Zie voor meer informatie de [Trigger](#trigger) sectie.
+> De trigger van Event Grid gebruiken in plaats van de Blob storage-trigger voor alleen-blob storage-accounts voor hoge schaalbaarheid of latentie verminderd. Zie voor meer informatie de [Trigger](#trigger) sectie.
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Blob storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-opslagplaats.
+De Blob storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -55,7 +55,7 @@ Event Grid gebruiken in plaats van de Blob storage-trigger voor de volgende scen
 
 * Blob Storage-accounts
 * Grote schaal
-* Koude start vertraging minimaliseren
+* De latentie minimaal
 
 ### <a name="blob-storage-accounts"></a>Blob Storage-accounts
 
@@ -65,9 +65,9 @@ Event Grid gebruiken in plaats van de Blob storage-trigger voor de volgende scen
 
 Grote schaal kan los worden gedefinieerd als containers die meer dan 100.000 blobs erin hebt of storage-accounts die beschikken over meer dan 100 blob-updates per seconde.
 
-### <a name="cold-start-delay"></a>Koude start vertraging
+### <a name="latency-issues"></a>Latentieproblemen met
 
-Als uw functie-app op het verbruiksabonnement is, mag er maximaal 10 minuten duren in de verwerking van nieuwe blobs als een functie-app niet actief is geworden. Om te voorkomen dat deze vertraging koude start, kunt u overschakelen naar een App Service-plan met Always On ingeschakeld of een ander triggertype gebruiken.
+Als uw functie-app op het verbruiksabonnement is, mag er maximaal 10 minuten duren in de verwerking van nieuwe blobs als een functie-app niet actief is geworden. Om te voorkomen dat deze latentie, kunt u overschakelen naar een App Service-plan met Always On ingeschakeld. U kunt ook een [trigger van Event Grid](functions-bindings-event-grid.md) met uw Blob storage-account. Zie voor een voorbeeld: de [Event Grid-zelfstudie](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json). 
 
 ### <a name="queue-storage-trigger"></a>Trigger voor queue storage
 
@@ -314,7 +314,7 @@ Het storage-account te gebruiken, wordt bepaald in de volgende volgorde:
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `BlobTrigger` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `blobTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. Uitzonderingen worden vermeld in de [gebruik](#trigger---usage) sectie. |
@@ -391,7 +391,7 @@ Als de naam van de blob  *{20140101}-soundfile.mp3*, wordt de `name` variabele w
 
 De blobtrigger biedt verschillende eigenschappen van metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Deze waarden hebben dezelfde semantiek als de [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) type.
 
-|Eigenschap  |Type  |Beschrijving  |
+|Eigenschap  |Type  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Het pad naar de activerende blob.|
 |`Uri`|`System.Uri`|Van de blob-URI voor de primaire locatie.|
@@ -684,7 +684,7 @@ U kunt de `StorageAccount` kenmerk om op te geven van de storage-account op het 
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Blob` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `blob`. |
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Uitzonderingen worden vermeld in de [gebruik](#input---usage) sectie. |
@@ -969,7 +969,7 @@ U kunt de `StorageAccount` kenmerk om op te geven van de storage-account op het 
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Blob` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `blob`. |
 |**direction** | N.v.t. | Moet worden ingesteld op `out` voor een Uitvoerbinding. Uitzonderingen worden vermeld in de [gebruik](#output---usage) sectie. |

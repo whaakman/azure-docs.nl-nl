@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9df44ec59e9384ac047b5c67abae334d51ff4dd3
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b883ccc475a221c8aee135c5d14da32f7598b90c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679270"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999044"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Problemen met analyses in Application Insights oplossen
 Problemen met [Application Insights Analytics](app-insights-analytics.md)? Begin hier. Analytics is de krachtige zoekfunctie van Azure Application Insights.
@@ -104,7 +104,7 @@ De URL is ongeldig.
 * Open de app-resource in [Application Insights-portal](https://portal.azure.com). Gebruik vervolgens de knop Analytics.
 
 ## <a name="cookies"></a>Cookies van derden inschakelen
-  Zie [cookies van derden uitschakelen](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), maar u ziet dat we moeten **inschakelen** ze.
+  Zie [cookies van derden uitschakelen](https://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), maar u ziet dat we moeten **inschakelen** ze.
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

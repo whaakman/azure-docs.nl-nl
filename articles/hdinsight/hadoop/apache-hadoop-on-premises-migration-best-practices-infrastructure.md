@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08238732c9e2d4e09e1f956c18768a15c95828c2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a1641a76d43cdbac6253e00ea35f70325870853
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958170"
+ms.locfileid: "52993382"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - best practices voor infrastructuur
 
 In dit artikel biedt aanbevelingen voor het beheren van de infrastructuur van Azure HDInsight-clusters. Het onderdeel van een serie die biedt best practices om u te helpen migreren on-premises Apache Hadoop-systemen tot Azure HDInsight.
 
-## <a name="plan-well-for-the-capacity-needed-for-hdinsight-clusters"></a>Plan voor de capaciteit die nodig zijn voor HDInsight-clusters
+## <a name="plan-for-hdinsight-cluster-capacity"></a>Plan voor de capaciteit van de HDInsight-cluster
 
 De belangrijkste opties om u te maken voor de capaciteitsplanning voor HDInsight-cluster zijn als volgt:
 
@@ -29,13 +29,13 @@ De belangrijkste opties om u te maken voor de capaciteitsplanning voor HDInsight
 - **Kies de VM-grootte en hetzelfde type (ondersteunt nu de G-serie)** : elk clustertype bevat een set knooppunttypen en elk knooppunttype heeft specifieke opties voor de VM-grootte en hetzelfde type. De VM-grootte en het type wordt bepaald door de CPU-verwerking van kracht, RAM-geheugen en de netwerklatentie. Een gesimuleerde werkbelasting kan worden gebruikt om te bepalen van de optimale VM-grootte en het type voor elk knooppunt.
 - **Het aantal worker-knooppunten kiezen** -het oorspronkelijke aantal worker-knooppunten kan worden bepaald met behulp van de gesimuleerde werkbelasting. Het cluster kan later worden geschaald door meer worker-knooppunten om te voldoen aan de piekvraag load toe te voegen. Het cluster kan later worden geschaald wanneer de extra worker-knooppunten niet vereist zijn.
 
-Zie voor meer informatie het artikel [plannen van capaciteit voor HDInsight-clusters](../hdinsight-capacity-planning.md)
+Zie voor meer informatie het artikel [plannen van capaciteit voor HDInsight-clusters](../hdinsight-capacity-planning.md).
 
-## <a name="use-the-recommended-virtual-machine-types-for-cluster-nodes"></a>Gebruik de aanbevolen VM-typen voor clusterknooppunten
+## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Aanbevolen VM-type gebruiken voor cluster
 
 Zie [standaard configuratie en de virtuele machine knooppuntgrootten voor clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) aanbevolen voor de typen virtuele machines voor elk type van HDInsight-cluster.
 
-## <a name="check-the-availability-of-hadoop-components-in-hdinsight"></a>Controleer de beschikbaarheid van Hadoop-onderdelen in HDInsight
+## <a name="check-hadoop-components-availability-in-hdinsight"></a>Beschikbaarheid van de Hadoop-onderdelen in HDInsight controleren
 
 Elke versie van HDInsight is een cloud-distributie van een versie van Hortonworks Data Platform (HDP) en bestaat uit een verzameling van onderdelen van Hadoop-ecosysteem. Zie [versiebeheer van HDInsight-onderdeel](../hdinsight-component-versioning.md) voor meer informatie over alle HDInsight-onderdelen en hun huidige versies.
 
@@ -97,7 +97,7 @@ Scriptacties kunnen ook in de Azure Marketplace worden gepubliceerd als een HDIn
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Hadoop-toepassingen van derden installeren op HDInsight](../hdinsight-apps-install-applications.md)
+- [Apache Hadoop-toepassingen van derden installeren op HDInsight](../hdinsight-apps-install-applications.md)
 - [HDInsight clusters aanpassen met scriptacties](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Een HDInsight-toepassing publiceren in de Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
@@ -128,9 +128,9 @@ New—AzureRmHDInsightCluster `
     —Config $config
 ```
 
-Zie voor meer informatie het artikel [aanpassen HDInsight-clusters met Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md)
+Zie voor meer informatie het artikel [aanpassen HDInsight-clusters met Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="use-edge-nodes-on-hadoop-clusters-in-hdinsight-to-access-the-client-tools"></a>Edge-knooppunten op Hadoop-clusters in HDInsight gebruiken voor toegang tot de clienthulpprogramma 's
+## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Toegang client-hulpprogramma's van HDInsight Hadoop cluster edge-knooppunten
 
 Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd als op de hoofdknooppunten, maar met geen Hadoop-services die worden uitgevoerd. Het edge-knooppunt kan worden gebruikt voor de volgende doeleinden:
 
@@ -140,9 +140,9 @@ Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma
 
 Edge-knooppunten kunnen worden gemaakt en verwijderd via de Azure-portal en kunnen worden gebruikt tijdens of na het cluster maken. Nadat het edge-knooppunt is gemaakt, kunt u verbinding maken met het edge-knooppunt met behulp van SSH en clienthulpprogramma's voor toegang tot het Hadoop-cluster in HDInsight worden uitgevoerd. Het edge-knooppunt ssh-eindpunt is `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
-Zie voor meer informatie het artikel [lege edge-knooppunten op Hadoop-clusters in HDInsight gebruiken](../hdinsight-apps-use-edge-node.md)
+Zie voor meer informatie het artikel [lege edge-knooppunten op Apache Hadoop-clusters in HDInsight gebruiken](../hdinsight-apps-use-edge-node.md).
 
-## <a name="use-the-scale-up-and-scale-down-feature-of-clusters"></a>Gebruik de functie omhoog en omlaag schalen van clusters
+## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Gebruik de functie omhoog en omlaag schalen van clusters
 
 HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aantal worker-knooppunten in uw clusters schalen. Deze functie kunt u een cluster verkleinen na uur of in het weekend en vouw dit uit tijdens piek bedrijfsbehoeften te voldoen.
 
@@ -174,7 +174,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 Na de veilige modus te verlaten, kunt u handmatig de tijdelijke bestanden verwijderen of wacht Hive uiteindelijk opschonen ze automatisch.
 
-Zie voor meer informatie het artikel [schaal HDInsight-clusters](../hdinsight-scaling-best-practices.md)
+Zie voor meer informatie het artikel [schaal HDInsight-clusters](../hdinsight-scaling-best-practices.md).
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>Gebruik HDInsight met Azure Virtual Network
 
@@ -196,7 +196,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 - [Virtuele-netwerken-overzicht van Azure](../../virtual-network/virtual-networks-overview.md)
 - [Azure HDInsight met behulp van een Azure-netwerk uitbreiden](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="use-azure-virtual-network-service-endpoints-to-securely-connect-to-other-azure-services"></a>Gebruik Azure Virtual Network service-eindpunten veilig verbinding maken met andere Azure-services
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Veilig verbinding maken met Azure-services met Azure Virtual Network service-eindpunten
 
 HDInsight ondersteunt [virtual network-service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md) waarmee u veilig verbinding maken met Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB en SQL-databases. Als u een Service-eindpunt inschakelt voor Azure HDInsight, wordt verkeer stroomt via een beveiligde route van binnen het Azure-datacentrum. U kunt met deze uitgebreide niveau van beveiliging op de netwerklaag, big data storage-accounts aan de opgegeven virtuele netwerken (VNETs) vergrendelen en HDInsight-clusters nog steeds naadloos toegang tot gegevens en verwerkt die gebruiken.
 

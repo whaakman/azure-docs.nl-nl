@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 75f615f63b0741899995c2728f93231d8e46734a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632291"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016177"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
 
@@ -27,14 +27,14 @@ Informatie over het gebruik van de REST-API van WebHCat MapReduce-taken uitvoere
 ## <a id="prereq"></a>Vereisten
 
 * Een Hadoop op HDInsight-cluster
-* Windows PowerShell of [Curl](http://curl.haxx.se/) en [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell of [Curl](https://curl.haxx.se/) en [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Voer een MapReduce-taak
 
 > [!NOTE]
 > Wanneer u Curl of een andere REST-communicatie met WebHCat gebruikt, moet u de aanvragen verifiëren door te geven van de gebruikersnaam van beheerder van HDInsight-cluster en het wachtwoord. U moet de clusternaam gebruiken als onderdeel van de URI die wordt gebruikt voor het verzenden van de aanvragen naar de server.
 >
-> De REST-API is beveiligd met behulp van [eenvoudige verificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren met behulp van HTTPS om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
+> De REST-API is beveiligd met behulp van [eenvoudige verificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren met behulp van HTTPS om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
 
 1. Om in te stellen de aanmelding bij cluster dat wordt gebruikt door de scripts in dit document, moet u een van de followig-opdrachten gebruiken:
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9cbb1f080b9a5a98984ad48854bccc4fb2044c16
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841962"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998341"
 ---
 # <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
@@ -68,7 +68,7 @@ Meer informatie over prijzen voor Azure Migrate vindt u [hier](https://azure.mic
 
 ## <a name="how-do-i-manage-the-workspace"></a>Hoe beheer ik de werkruimte?
 
-U kunt de Log Analytics-werkruimte buiten Azure Migrate gebruiken. Het wordt niet verwijderd als het verwijderen van het migratieproject waarin deze is gemaakt. Als u de werkruimte niet meer nodig [verwijderen](../log-analytics/log-analytics-manage-access.md) handmatig.
+U kunt de Log Analytics-werkruimte buiten Azure Migrate gebruiken. Het wordt niet verwijderd als het verwijderen van het migratieproject waarin deze is gemaakt. Als u de werkruimte niet meer nodig [verwijderen](../azure-monitor/platform/manage-access.md) handmatig.
 
 Verwijder de werkruimte hebt gemaakt door Azure Migrate, niet, tenzij u het migratieproject verwijderen. Als u dit doet, werkt de functie voor visualisatie van afhankelijkheden niet zoals verwacht.
 

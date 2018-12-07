@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning voor WebSocket in Azure Application Gateway | Microsoft Docs
-description: Deze pagina bevat een overzicht van de toepassing Gateway WebSocket-ondersteuning.
+title: WebSocket-ondersteuning in Azure Application Gateway | Microsoft Docs
+description: Deze pagina bevat een overzicht van de Application Gateway WebSocket-ondersteuning.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: 75b06ddd02da231b7813c609c848c75e42116da5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836796"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993327"
 ---
-# <a name="overview-of-websocket-support-in-application-gateway"></a>Overzicht van WebSocket-ondersteuning in Application Gateway
+# <a name="overview-of-websocket-support-in-application-gateway"></a>Overzicht van de WebSocket-ondersteuning in Application Gateway
 
-Toepassingsgateway biedt systeemeigen ondersteuning voor WebSocket over alle gateway-grootte. Er is geen gebruiker configureerbare instelling selectief of WebSocket ondersteuning uitschakelen. 
+Application Gateway biedt systeemeigen ondersteuning voor WebSocket over alle gateway-grootten. Er is geen door de gebruiker configureerbare instelling om selectief WebSocket-ondersteuning in of uit te schakelen. 
 
-WebSocket-protocol in gestandaardiseerd [RFC6455](https://tools.ietf.org/html/rfc6455) een full-duplex communicatie tussen een server en een client via een langdurige TCP-verbinding worden ingeschakeld. Deze functie kunt u een nieuwe interactieve communicatie tussen de webserver en de client, die bidirectionele zonder de noodzaak voor polling als vereiste in implementaties op basis van HTTP worden kan. WebSocket heeft weinig overhead in tegenstelling tot HTTP en dezelfde TCP-verbinding voor meerdere aanvragen/antwoorden, wat resulteert in een efficiënter gebruik van bronnen kan gebruiken. WebSocket-protocollen zijn ontworpen om te werken via traditionele HTTP-poorten 80 en 443.
+WebSocket-protocol in gestandaardiseerd [RFC6455](https://tools.ietf.org/html/rfc6455) een full-duplex communicatie tussen een server en een client via een langlopende TCP-verbinding mogelijk maakt. Deze functie kunt voor een interactiever communicatie tussen de webserver en de client, die in twee richtingen zonder de noodzaak voor polling als vereiste in op basis van HTTP-implementaties worden kan. WebSocket heeft lage overhead in tegenstelling tot HTTP en dezelfde TCP-verbinding voor meerdere aanvragen/antwoorden, wat resulteert in een efficiënter gebruik van resources kunt hergebruiken. WebSocket-protocollen zijn ontworpen om te werken via traditionele HTTP-poorten 80 en 443.
 
-U kunt doorgaan met behulp van standaard HTTP-listener op poort 80 of 443 WebSocket-verkeer ontvangen. WebSocket-verkeer wordt vervolgens omgeleid naar de WebSocket-ingeschakelde back-endserver met de juiste back-endpool is opgegeven in de regels voor application gateway. De back-endserver moet reageren op de application gateway tests die worden beschreven in de [health test overzicht](application-gateway-probe-overview.md) sectie. Statuscontroles van Application gateway zijn alleen HTTP/HTTPS. Elke back-endserver moet reageren op HTTP-tests voor de toepassingsgateway WebSocket om gegevensverkeer te routeren naar de server.
+U kunt met behulp van een standaard HTTP-listener op poort 80 of 443 om WebSocket-verkeer te ontvangen. WebSocket-verkeer wordt vervolgens omgeleid naar de WebSocket-ingeschakelde back-endserver met behulp van de juiste back-endpool die zijn opgegeven in regels voor application gateway. De back-endserver moet reageren op de application gateway-tests, die worden beschreven in de [health test overzicht](application-gateway-probe-overview.md) sectie. Application gateway statuscontroles zijn alleen HTTP/HTTPS. Elke back-endserver moet reageren op HTTP-tests voor application gateway voor het WebSocket-verkeer routeren naar de server.
 
 ## <a name="listener-configuration-element"></a>Configuratie-element Listener
 
-Een bestaande HTTP-listener kan worden gebruikt ter ondersteuning van WebSocket-verkeer. Hier volgt een fragment van een element vanuit een voorbeeldbestand van de sjabloon een httpListeners. U moet zowel HTTP als HTTPS-listeners ter ondersteuning van WebSocket en beveiliging van WebSocket-verkeer. Op dezelfde manier kunt u de [portal](application-gateway-create-gateway-portal.md) of [PowerShell](application-gateway-create-gateway-arm.md) een toepassingsgateway maken met listeners op poort 80/443 ter ondersteuning van WebSocket-verkeer.
+Een bestaande HTTP-listener kan worden gebruikt ter ondersteuning van WebSocket-verkeer. Hier volgt een fragment van een httpListeners-element van een voorbeeldbestand van de sjabloon. U moet zowel HTTP als HTTPS listeners ter ondersteuning van WebSocket en beveiligde WebSocket-verkeer. Op deze manier kunt u de [portal](application-gateway-create-gateway-portal.md) of [PowerShell](application-gateway-create-gateway-arm.md) voor het maken van een toepassingsgateway met listeners op poort 80/443 ter ondersteuning van WebSocket-verkeer.
 
 ```json
 "httpListeners": [
@@ -65,9 +65,9 @@ Een bestaande HTTP-listener kan worden gebruikt ter ondersteuning van WebSocket-
     ],
 ```
 
-## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Regelconfiguratie BackendAddressPool BackendHttpSetting en routering
+## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool BackendHttpSetting en routering regelconfiguratie
 
-Een BackendAddressPool wordt gebruikt voor het definiëren van een back-endpool met servers van WebSocket is ingeschakeld. De backendHttpSetting wordt gedefinieerd met een back endpoort 80 en 443. De eigenschappen voor cookies gebaseerde affiniteit en requestTimeouts zijn niet relevant zijn voor WebSocket-verkeer. Er is geen wijziging vereist in de regel voor het doorsturen, 'Basic' wordt gebruikt voor het koppelen van de juiste listener aan de bijbehorende back-end-adresgroep. 
+Een BackendAddressPool wordt gebruikt voor het definiëren van een back endadresgroep met ingeschakeld WebSocket-servers. De backendHttpSetting is gedefinieerd met een back endpoort 80 en 443. De eigenschappen voor cookies gebaseerde affiniteit en requestTimeouts zijn niet relevant zijn voor WebSocket-verkeer. Er is geen wijziging vereist in de regel voor doorsturen, 'Basic' wordt gebruikt voor het koppelen van de juiste listener aan de bijbehorende back-end-adresgroep. 
 
 ```json
 "requestRoutingRules": [{
@@ -103,9 +103,9 @@ Een BackendAddressPool wordt gebruikt voor het definiëren van een back-endpool 
 }]
 ```
 
-## <a name="websocket-enabled-backend"></a>Back-end van WebSocket is ingeschakeld
+## <a name="websocket-enabled-backend"></a>Back-end WebSocket ingeschakeld
 
-Uw back-end moet een HTTP/HTTPS-webserver uitgevoerd op de geconfigureerde poort (meestal 80/443) voor WebSocket om te werken. Deze vereiste is omdat de initiële handshake moet HTTP met een upgrade uit naar de WebSocket-protocol als een headerveld WebSocket-protocol is vereist. Hier volgt een voorbeeld van een koptekst:
+Uw back-end moet een HTTP/HTTPS-webserver die wordt uitgevoerd op de geconfigureerde poort (meestal 80/443) voor WebSocket om te werken. Deze vereiste is omdat WebSocket-protocol is vereist voor de eerste handshake moet HTTP met een upgrade uit naar de WebSocket-protocol als een headerveld. Hier volgt een voorbeeld van een koptekst:
 
 ```
     GET /chat HTTP/1.1
@@ -113,14 +113,14 @@ Uw back-end moet een HTTP/HTTPS-webserver uitgevoerd op de geconfigureerde poort
     Upgrade: websocket
     Connection: Upgrade
     Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
-    Origin: http://example.com
+    Origin: https://example.com
     Sec-WebSocket-Protocol: chat, superchat
     Sec-WebSocket-Version: 13
 ```
 
-Een andere reden hiervoor is dat back-end de statuscontrole van application gateway biedt ondersteuning voor HTTP en HTTPS-protocollen. Als de back-endserver niet op HTTP of HTTPS tests reageert, is deze buiten het back-endpool nodig.
+Een andere reden hiervoor is dat statustest voor back-end van application gateway biedt ondersteuning voor HTTP en HTTPS-protocollen. Als de back-endserver niet op HTTP of HTTPS tests reageert, wordt het opgevat uit back endpool.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Na het leren over de WebSocket-ondersteuning gaat u naar [een toepassingsgateway maken](application-gateway-create-gateway.md) ingeschakeld om te beginnen met een WebSocket-webtoepassing.
+Nadat u meer over de ondersteuning van WebSocket, gaat u naar [een toepassingsgateway maken](application-gateway-create-gateway.md) aan de slag met een WebSocket-webtoepassing.
 

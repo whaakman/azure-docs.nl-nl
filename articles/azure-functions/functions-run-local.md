@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 89236575a73325d650f1357ff03abb53bbc7b00c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2264e6ff686519f7ef0d436d67f3055a48a7421b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848940"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997081"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -138,7 +138,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` ondersteunt de volgende opties, die versie 2.x alleen-lezen, tenzij anders wordt vermeld:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Initialiseert een C#-script (.csx)-project. U moet opgeven `--csx` in de volgende opdrachten. |
 | **`--docker`** | Maken van een docker-bestand voor een container met behulp van een basisinstallatiekopie die is gebaseerd op de gekozen `--worker-runtime`. Gebruik deze optie als u van plan bent om te publiceren naar een aangepaste Linux-container. |
@@ -181,7 +181,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 }
 ```
 
-| Instelling      | Beschrijving                            |
+| Instelling      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Als de waarde **waar**, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is **false**. |
 | **Waarden** | Verzameling van toepassings- en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze waarden overeenkomen met app-instellingen in uw functie-app in Azure, zoals **AzureWebJobsStorage** en **AzureWebJobsDashboard**. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst **verbinding** voor de [Blob storage-trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de **waarden** matrix. <br/>**AzureWebJobsStorage** is een vereiste app-instelling voor triggers dan HTTP. Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen **AzureWebJobsStorage** naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie. |
@@ -210,7 +210,7 @@ Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, kunt u om te teste
 
   ![Verbindingsreeks kopiëren vanuit Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Gebruik [Azure Storage Explorer](http://storageexplorer.com/) verbinding maken met uw Azure-account. In de **Explorer**, vouw uw abonnement, selecteer uw opslagaccount en kopieer de primaire of secundaire verbindingsreeks. 
++ Gebruik [Azure Storage Explorer](https://storageexplorer.com/) verbinding maken met uw Azure-account. In de **Explorer**, vouw uw abonnement, selecteer uw opslagaccount en kopieer de primaire of secundaire verbindingsreeks. 
 
   ![Kopieer de verbindingsreeks van Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
@@ -265,7 +265,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 U kunt deze opties ook opgeven in de opdracht met behulp van de volgende argumenten:
 
-| Argument     | Beschrijving                            |
+| Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versie 2.x) Genereert de dezelfde C#-script (.csx) sjablonen die worden gebruikt in versie 1.x en in de portal. |
 | **`--language -l`**| De sjabloon programmeertaal, zoals C#, F#, of JavaScript. Deze optie is vereist in versie 1.x. In versie 2.x gebruikt, geen gebruik deze optie of kies een taal die overeenkomt met de worker-runtime. |
@@ -296,7 +296,7 @@ De `host` opdracht is alleen vereist in versie 1.x.
 
 `func host start` ondersteunt de volgende opties:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--build`** | Bouw huidige project voordat wordt uitgevoerd. Versie 2.x en C# projecten alleen. |
 | **`--cert`** | Het pad naar een pfx-bestand dat een persoonlijke sleutel bevat. Alleen gebruikt met `--useHttps`. Versie 2.x alleen. |
@@ -388,7 +388,7 @@ U kunt ook een functie aanroepen via `func run <FunctionName>` en geef de invoer
 
 `func run` ondersteunt de volgende opties:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Inline-inhoud. |
 | **`--debug -d`** | Voeg een debugger toe aan het hostproces voordat u de functie uitvoert.|
@@ -432,14 +432,14 @@ De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als 
 
 Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van toepassing:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | De prompt dat appinstellingen worden overschreven wanneer `--publish-local-settings -i` wordt gebruikt.|
 
 Opties voor het volgende project publiceren worden alleen ondersteund in versie 2.x:
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Publicatie-instellingen en alleen de inhoud overslaan. De standaardwaarde is vragen. |
 |**`--list-ignored-files`** | Geeft een lijst van bestanden die worden genegeerd tijdens het publiceren, die is gebaseerd op het bestand .funcignore. |
@@ -462,7 +462,7 @@ func deploy
 
 De volgende aangepaste container implementatie-opties zijn beschikbaar: 
 
-| Optie     | Beschrijving                            |
+| Optie     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | De naam van een Docker-register van de huidige gebruiker aangemeld. |
 | **`--platform`** | Host-platform voor de functie-app. Geldige opties zijn `kubernetes` |

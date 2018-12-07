@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 83a7f50120b5f34c4e4d74d8233fc51be9c0e579
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f805fde861413fe84f1ad15ade1ce2923a9531ce
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448377"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Zelfstudie: Azure Active Directory-integratie met Predictix bestellen
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Predictix bestellen in Azure AD, moe
 
 **Als u wilt toevoegen Predictix bestellen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -113,6 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon: 
+    
     | |
     |--|
     | `https://<companyname-pricing>.dev.ordering.predictix.com` |

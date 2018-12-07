@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c5a98b9182e3a644a808b363df2fd44b115828f0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a62c6cbb6594aaf7c2c57d7efee1832d7b1430b7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727695"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000728"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen onderschept en methode uitvoertijd in Java-web-apps bewaken
 
@@ -27,7 +27,7 @@ Als u hebt [uw Java-web-app met Application Insights geïnstrumenteerd][java], k
 * **Afhankelijkheden:** gegevens over gesprekken die uw toepassing voor andere onderdelen maakt, met inbegrip van:
   * **REST-aanroepen** aangebracht via HttpClient, OkHttp en RestTemplate (Spring) worden vastgelegd.
   * **Redis** aanroepen via de client Jedis worden vastgelegd.
-  * **[JDBC aanroepen](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server en Oracle DB-opdrachten automatisch worden vastgelegd. Als de aanroep langer dan 10s duurt, rapporteert de agent voor MySQL, het queryplan.
+  * **[JDBC aanroepen](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server en Oracle DB-opdrachten automatisch worden vastgelegd. Als de aanroep langer dan 10s duurt, rapporteert de agent voor MySQL, het queryplan.
 * **Uitzonderingen gevangen:** informatie over uitzonderingen die door uw code worden uitgevoerd.
 * **Methode uitvoeringstijd:** informatie over de tijd die nodig is voor het uitvoeren van specifieke methoden.
 

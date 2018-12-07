@@ -1,5 +1,5 @@
 ---
-title: Azure Eventhubs voor Apache Kafka | Microsoft Docs
+title: Azure Event Hubs gebruiken vanuit toepassingen van Apache Kafka | Microsoft Docs
 description: Overzicht van en inleiding tot Kafka ingeschakeld Azure Event Hubs
 services: event-hubs
 documentationcenter: .net
@@ -7,18 +7,18 @@ author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 11/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 7f452fe9797e688dc05b644c003117461b4f8bb9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4f1cb4e3e8572ee5edbadfb7d2a1771ae9a80341
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277491"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014671"
 ---
-# <a name="azure-event-hubs-for-apache-kafka"></a>Azure Eventhubs voor Apache Kafka 
-
-Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Kafka op basis van toepassingen als alternatief voor het uitvoeren van uw eigen Kafka-cluster. Biedt ondersteuning voor Eventhubs [Apache Kafka-protocol 1.0 en hoger](https://kafka.apache.org/documentation/), en werkt met uw bestaande Kafka-toepassingen, met inbegrip van MirrorMaker. 
+# <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Azure Event Hubs gebruiken vanuit toepassingen van Apache Kafka
+Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Kafka op basis van toepassingen als alternatief voor het uitvoeren van uw eigen Kafka-cluster. Biedt ondersteuning voor Eventhubs [Apache Kafka-protocol 1.0 en hoger](https://kafka.apache.org/documentation/), en werkt met uw bestaande Kafka-toepassingen, met inbegrip van MirrorMaker.  
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Wat biedt Event Hubs voor Kafka
 
@@ -67,14 +67,14 @@ Hier volgt de lijst van Kafka-functies die nog niet ondersteund:
 
 In dit artikel opgegeven een inleiding tot Event Hubs voor Kafka. Zie de volgende koppelingen voor meer informatie:
 
-- [Over het maken van Kafka ingeschakeld Event Hubs](event-hubs-create-kafka-enabled.md)
-- [Stream naar Event Hubs van uw Kafka-toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Een Kafka-broker in een Kafka-functionaliteit event hub spiegelen](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Verbinding maken met Apache Spark naar een Kafka-functionaliteit event hub](event-hubs-kafka-spark-tutorial.md)
-- [Verbinding maken met Apache Flink naar een Kafka-functionaliteit event hub](event-hubs-kafka-flink-tutorial.md)
-- [Integratie van Kafka verbinding maken met een Kafka-functionaliteit event hub](event-hubs-kafka-connect-tutorial.md)
-- [Akka Streams verbinden met een Kafka-functionaliteit event hub](event-hubs-kafka-akka-streams-tutorial.md)
-- [Voorbeelden verkennen op onze GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Event Hubs maken waarvoor Kafka is ingeschakeld](event-hubs-create-kafka-enabled.md)
+- [Streamen naar Event Hubs vanaf uw Kafka-toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Een Kafka-broker spiegelen in een event hub waarvoor Kafka is ingeschakeld](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md) (Apache Spark verbinden met een Event Hub waarvoor Kafka is ingeschakeld)
+- [Apache Flink verbinden met een Event Hub waarvoor Kafka is ingeschakeld](event-hubs-kafka-flink-tutorial.md)
+- [Integrate Kafka Connect with a Kafka-enabled event hub](event-hubs-kafka-connect-tutorial.md) (Kafka Connect integreren met een Event Hub waarvoor Kafka is ingeschakeld)
+- [Akka Streams verbinden met een Event Hub waarvoor Kafka is ingeschakeld](event-hubs-kafka-akka-streams-tutorial.md)
+- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Voorbeelden bekijken op GitHub)
 
  
  

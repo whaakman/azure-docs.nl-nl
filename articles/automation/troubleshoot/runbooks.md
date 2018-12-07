@@ -8,12 +8,12 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963127"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015463"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -123,7 +123,7 @@ Als u MFA op uw Azure-account hebt, kunt u een Azure Active Directory-gebruiker 
 
 #### <a name="resolution"></a>Oplossing
 
-Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementatie-cmdlets voor model, [maken en toevoegen van een certificaat voor het beheren van Azure-services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Voor het gebruik van een service-principal met Azure Resource Manager-cmdlets, raadpleegt u [service-principal met behulp van Azure portal maken](../../active-directory/develop/howto-create-service-principal-portal.md) en [verifiëren van een service-principal met Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementatie-cmdlets voor model, [maken en toevoegen van een certificaat voor het beheren van Azure-services.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Voor het gebruik van een service-principal met Azure Resource Manager-cmdlets, raadpleegt u [service-principal met behulp van Azure portal maken](../../active-directory/develop/howto-create-service-principal-portal.md) en [verifiëren van een service-principal met Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Veelvoorkomende fouten bij het werken met runbooks
 
@@ -337,6 +337,24 @@ De PowerShell-cmdlets waarmee het onderliggende runbook scenario zijn:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -met deze cmdlet kunt u een runbook te starten en parameters doorgeven aan het runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -met deze cmdlet kunt u de taak de status van alle onderliggende controleren als er bewerkingen die worden uitgevoerd moeten nadat het onderliggende runbook is voltooid.
+
+### <a name="expired webhook"></a>Scenario: Status: 400-Ongeldige aanvraag bij het aanroepen van een webhook
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt de volgende fout wanneer u probeert een webhook voor een Azure Automation-runbook aanroepen.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Oorzaak
+
+De webhook die u probeert om aan te roepen is uitgeschakeld of is verlopen.
+
+#### <a name="resolution"></a>Oplossing
+
+Als de webhook is uitgeschakeld, kunt u de webhook via Azure portal opnieuw inschakelen. Als de webhook is verlopen, wordt de webhook moet worden verwijderd en opnieuw worden gemaakt. U kunt alleen [vernieuwen van een webhook](../automation-webhooks.md#renew-webhook) als deze niet al is verlopen.
 
 ### <a name="429"></a>Scenario: 429: het aantal verwerkte aanvragen op dat moment is te groot. Probeer het opnieuw
 

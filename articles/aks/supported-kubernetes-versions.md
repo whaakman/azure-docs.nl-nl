@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: f37bfc59e402e87afcffa469d4d2014ed6877db6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955697"
+ms.locfileid: "53001806"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Ondersteunde versies van Kubernetes in Azure Kubernetes Service (AKS)
 
 Ongeveer elke drie maanden wordt een secundaire versie uitgebracht door de Kubernetes-community. Deze releases bevatten nieuwe functies en verbeteringen. Patchreleases worden vaker uitgebracht (soms wekelijks) en zijn alleen bedoeld voor essentiële bugfixes in een secundaire versie. Deze patch-versies bevatten oplossingen voor beveiligingsproblemen of grote bugs die invloed hebben op een groot aantal klanten en producten die worden uitgevoerd in productie op basis van Kubernetes.
 
-Een nieuwe Kubernetes secundaire versie is beschikbaar in [acs-engine] [ acs-engine] dag één. Het SLO-doel (Service Level Objective) voor AKS is om binnen 30 dagen een secundaire versie voor AKS-clusters uit te brengen, afhankelijk van de stabiliteit van de release.
+Een nieuwe Kubernetes secundaire versie is beschikbaar in [aks-engine] [ aks-engine] dag één. Het SLO-doel (Service Level Objective) voor AKS is om binnen 30 dagen een secundaire versie voor AKS-clusters uit te brengen, afhankelijk van de stabiliteit van de release.
 
 ## <a name="kubernetes-version-support-policy"></a>Beleid voor ondersteuning van Kubernetes-versies
 
@@ -84,7 +84,7 @@ Het model wordt automatisch bijgewerkt naar de nieuwste ondersteunde versie.
 Zie voor meer informatie over het upgraden van uw cluster [een cluster Azure Kubernetes Service (AKS) upgraden][aks-upgrade].
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

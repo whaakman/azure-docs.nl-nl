@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: ceb0b1ce0d04c15a5b949519caad65d2c33b40ed
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c91508cbd98f18c875411cc7a36f9d71d817fb31
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092443"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997876"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Een Azure gehoste API exporteren naar PowerApps en Microsoft Flow
 
@@ -25,7 +25,7 @@ ms.locfileid: "44092443"
 Op deze manier kunnen ontwikkelaars die beschikbaar wilt stellen hun API's breder binnen een organisatie hun API's beschikbaar maken voor builders van Apps en stromen. Dit onderwerp leest u hoe u een API die zijn gebouwd met exporteert [Azure Functions](../azure-functions/functions-overview.md) of [Azure App Service](../app-service/app-service-web-overview.md). De geëxporteerde API wordt een *aangepaste connector*, die wordt gebruikt in PowerApps en Microsoft Flow net als een ingebouwde connector.
 
 ## <a name="create-and-export-an-api-definition"></a>Maken en exporteren van een API-definitie
-Voordat u exporteert een API, beschrijft u de API met behulp van een OpenAPI-definitie (voorheen bekend als een [Swagger](http://swagger.io/) bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd. PowerApps en Microsoft Flow kunt maken van aangepaste connectors voor de definitie van een OpenAPI 2.0. Azure Functions en Azure App Service hebben ingebouwde ondersteuning voor het maken, hosten en beheren van OpenAPI-definities. Zie voor meer informatie, [een RESTful API hosten met CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
+Voordat u exporteert een API, beschrijft u de API met behulp van een OpenAPI-definitie (voorheen bekend als een [Swagger](https://swagger.io/) bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd. PowerApps en Microsoft Flow kunt maken van aangepaste connectors voor de definitie van een OpenAPI 2.0. Azure Functions en Azure App Service hebben ingebouwde ondersteuning voor het maken, hosten en beheren van OpenAPI-definities. Zie voor meer informatie, [een RESTful API hosten met CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > U kunt ook aangepaste connectors in PowerApps en Microsoft Flow-gebruikersinterface bouwen zonder gebruik van een OpenAPI-definitie. Zie voor meer informatie, [registreren en gebruik een aangepaste connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) en [registreren en gebruik een aangepaste connector (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -66,7 +66,7 @@ Om uit te voeren van de export in **Express** modus, als volgt te werk:
 
 2. Gebruik de instellingen zoals opgegeven in de tabel.
 
-    |Instelling|Beschrijving|
+    |Instelling|Description|
     |--------|------------|
     |**Omgeving**|Selecteer de omgeving waarin de aangepaste connector moet worden opgeslagen. Zie voor meer informatie, [overzicht van omgevingen](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Naam van de aangepaste API**|Voer een naam en welke PowerApps en Microsoft Flow builders in de lijst van de connector zien.|
@@ -113,7 +113,7 @@ U kunt de API-definitie importeren in PowerApps en Microsoft Flow, de volgende s
 
 4. Op de **algemene** tabblad, lees de informatie die afkomstig zijn uit de OpenAPI-definitie.
 
-5. Op de **Security** tabblad als u wordt gevraagd om te voorzien van verificatiegegevens, voert u de waarden die geschikt is voor het verificatietype. Klik op **blijven**.
+5. Op de **Security** tabblad als u wordt gevraagd om te voorzien van verificatiegegevens, voert u de waarden die geschikt is voor het verificatietype. Klik op **Doorgaan**.
 
     ![Tabblad Beveiliging](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 

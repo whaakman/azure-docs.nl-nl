@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249292"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011991"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-schema's voor Media Services-gebeurtenissen
 
@@ -34,7 +34,7 @@ U kunt registreren voor alle gebeurtenissen met een abonnement op de gebeurtenis
 
 #### <a name="monitoring-job-state-changes"></a>Controle van de taakstatus verandert
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| Een gebeurtenis voor alle wijzigingen van de taakstatus ophalen. |
 | Microsoft.Media.JobScheduled| Een gebeurtenis wanneer de taak verandert de status van de geplande ophalen. |
@@ -46,7 +46,7 @@ U kunt registreren voor alle gebeurtenissen met een abonnement op de gebeurtenis
 
 #### <a name="monitoring-job-output-state-changes"></a>Bewaking taakstatus uitvoer wordt gewijzigd
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| Een gebeurtenis ophalen voor alle taakuitvoer die status verandert. |
 | Microsoft.Media.JobOutputScheduled| Een gebeurtenis wanneer de taak uitvoer overgangen naar geplande status ophalen. |
@@ -64,7 +64,7 @@ Media Services verzendt ook de **Live** gebeurtenistypen, zoals hieronder wordt 
 
 Stream-niveau gebeurtenissen worden gegenereerd per stream of de verbinding. Elke gebeurtenis is een `StreamId` parameter waarmee de verbinding of stream. Elke stroom of de verbinding heeft een of meer nummers van verschillende typen. Een verbinding van een coderingsprogramma kan bijvoorbeeld één audiotrack en vier video sporen te wissen. De stream-event-typen zijn:
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | Codering van is verbinding geweigerd. |
 | Microsoft.Media.LiveEventEncoderConnected | Coderingsprogramma maakt verbinding met live-gebeurtenis. |
@@ -74,7 +74,7 @@ Stream-niveau gebeurtenissen worden gegenereerd per stream of de verbinding. Elk
 
 Gebeurtenissen bijhouden op toepassingsniveau worden gegenereerd per spoor. De track event-typen zijn:
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Gegevenssegment van Media-server wordt geweigerd omdat het te laat is of een tijdstempel in de overlappende (tijdstempel van nieuwe gegevenssegment is kleiner dan de eindtijd van het vorige gegevenssegment). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media-server ontvangt de eerste gegevenssegment voor elk nummer in de stroom of de verbinding. |
@@ -109,12 +109,15 @@ Het volgende voorbeeld ziet u het schema van de **JobStateChange** gebeurtenis:
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| previousState | tekenreeks | De status van de taak voor de gebeurtenis. |
-| state | tekenreeks | De nieuwe status van de taak wordt een melding in deze gebeurtenis. Bijvoorbeeld, "in de wachtrij geplaatst: de taak is in afwachting van resources ' of ' gepland: de taak is klaar om te beginnen".|
+| previousState | string | De status van de taak voor de gebeurtenis. |
+| state | string | De nieuwe status van de taak wordt een melding in deze gebeurtenis. Bijvoorbeeld, "gepland: de taak is klaar om te beginnen" of "voltooid: de taak is voltooid '.|
 
 Wanneer de status van de taak worden een van de waarden: *in de wachtrij geplaatst*, *geplande*, *verwerking*, *voltooid*, *fout*, *Geannuleerd*, *annuleren*
+
+> [!NOTE]
+> *In de wachtrij geplaatst* zal alleen aanwezig zijn in de **previousState** eigenschap, maar niet in de **status** eigenschap.
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
 
@@ -176,7 +179,7 @@ Voor elke laatste taak statuswijziging (zoals JobFinished, JobCanceled, JobError
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | Uitvoer | Matrix | Hiermee haalt u de taak uitvoer.|
 
@@ -268,17 +271,17 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventConnectionRejected** 
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| StreamId | tekenreeks | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor het toevoegen van deze ID in de URL voor opnemen. |  
-| IngestUrl | tekenreeks | Opname-URL opgegeven door de live-gebeurtenis. |  
-| EncoderIp | tekenreeks | IP-adres van het coderingsprogramma. |
-| EncoderPort | tekenreeks | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
-| ResultCode | tekenreeks | De reden dat de verbinding is geweigerd. De resultaatcodes worden in de volgende tabel weergegeven. |
+| StreamId | string | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor het toevoegen van deze ID in de URL voor opnemen. |  
+| IngestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |  
+| EncoderIp | string | IP-adres van het coderingsprogramma. |
+| EncoderPort | string | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
+| ResultCode | string | De reden dat de verbinding is geweigerd. De resultaatcodes worden in de volgende tabel weergegeven. |
 
 De resultaatcodes zijn:
 
-| Resultaatcode | Beschrijving |
+| Resultaatcode | Description |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | Onjuiste URL voor opnemen |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | Coderingsprogramma IP niet aanwezig is in IP acceptatielijst geconfigureerd |
@@ -315,12 +318,12 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventEncoderConnected** ge
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| StreamId | tekenreeks | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor de levering van deze ID in de URL voor opnemen. |
-| IngestUrl | tekenreeks | Opname-URL opgegeven door de live-gebeurtenis. |
-| EncoderIp | tekenreeks | IP-adres van het coderingsprogramma. |
-| EncoderPort | tekenreeks | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
+| StreamId | string | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor de levering van deze ID in de URL voor opnemen. |
+| IngestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |
+| EncoderIp | string | IP-adres van het coderingsprogramma. |
+| EncoderPort | string | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -349,17 +352,17 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventEncoderDisconnected**
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| StreamId | tekenreeks | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor het toevoegen van deze ID in de URL voor opnemen. |  
-| IngestUrl | tekenreeks | Opname-URL opgegeven door de live-gebeurtenis. |  
-| EncoderIp | tekenreeks | IP-adres van het coderingsprogramma. |
-| EncoderPort | tekenreeks | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
-| ResultCode | tekenreeks | De reden voor het coderingsprogramma verbreken. Mogelijk correcte verbinding verbreken of een fout. De resultaatcodes worden in de volgende tabel weergegeven. |
+| StreamId | string | Id van de stroom of de verbinding. Coderingsprogramma of de klant is verantwoordelijk voor het toevoegen van deze ID in de URL voor opnemen. |  
+| IngestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |  
+| EncoderIp | string | IP-adres van het coderingsprogramma. |
+| EncoderPort | string | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
+| ResultCode | string | De reden voor het coderingsprogramma verbreken. Mogelijk correcte verbinding verbreken of een fout. De resultaatcodes worden in de volgende tabel weergegeven. |
 
 Het resultaat foutcodes zijn:
 
-| Resultaatcode | Beschrijving |
+| Resultaatcode | Description |
 | ----------- | ----------- |
 | MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP-sessie is een time-out na een inactiviteit voor toegestane tijdslimiet. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | De tijdstempel voor video- of audio FLVTag is ongeldig RTMP-codering. |
@@ -368,7 +371,7 @@ Het resultaat foutcodes zijn:
 
 De correcte verbinding verbreken resultaatcodes zijn:
 
-| Resultaatcode | Beschrijving |
+| Resultaatcode | Description |
 | ----------- | ----------- |
 | S_OK | Het coderingsprogramma is verbroken. |
 | MPE_CLIENT_TERMINATED_SESSION | Coderingsprogramma verbroken (RTMP). |
@@ -405,14 +408,14 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIncomingDataChunkDrop
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| TrackType | tekenreeks | Type van het spoor (Audio / Video). |
-| TrackName | tekenreeks | De naam van het spoor. |
+| TrackType | string | Type van het spoor (Audio / Video). |
+| TrackName | string | De naam van het spoor. |
 | Bitrate | geheel getal | Bitrate van het spoor. |
-| Tijdstempel | tekenreeks | Timestamp van het gegevenssegment is verwijderd. |
-| Tijdschaal | tekenreeks | Tijdschaal van de tijdstempel. |
-| ResultCode | tekenreeks | De reden van de gegevens chunk vervolgkeuzelijst. **FragmentDrop_OverlapTimestamp** of **FragmentDrop_NonIncreasingTimestamp**. |
+| Tijdstempel | string | Timestamp van het gegevenssegment is verwijderd. |
+| Tijdschaal | string | Tijdschaal van de tijdstempel. |
+| ResultCode | string | De reden van de gegevens chunk vervolgkeuzelijst. **FragmentDrop_OverlapTimestamp** of **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -445,16 +448,16 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIncomingStreamReceive
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| TrackType | tekenreeks | Type van het spoor (Audio / Video). |
-| TrackName | tekenreeks | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
+| TrackType | string | Type van het spoor (Audio / Video). |
+| TrackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
 | Bitrate | geheel getal | Bitrate van het spoor. |
-| IngestUrl | tekenreeks | Opname-URL opgegeven door de live-gebeurtenis. |
-| EncoderIp | tekenreeks  | IP-adres van het coderingsprogramma. |
-| EncoderPort | tekenreeks | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
-| Tijdstempel | tekenreeks | Eerste timestamp van het gegevenssegment dat is ontvangen. |
-| Tijdschaal | tekenreeks | Tijdschaal waarin tijdstempel wordt weergegeven. |
+| IngestUrl | string | Opname-URL opgegeven door de live-gebeurtenis. |
+| EncoderIp | string  | IP-adres van het coderingsprogramma. |
+| EncoderPort | string | Poort van het coderingsprogramma van waar deze stroom afkomstig is. |
+| Tijdstempel | string | Eerste timestamp van het gegevenssegment dat is ontvangen. |
+| Tijdschaal | string | Tijdschaal waarin tijdstempel wordt weergegeven. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -484,14 +487,14 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIncomingStreamsOutOfS
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| MinLastTimestamp | tekenreeks | Minimum van laatste tijdstempels tussen alle sporen (audio of video). |
-| TypeOfTrackWithMinLastTimestamp | tekenreeks | Het type van het spoor met minimale laatste tijdstempel (audio of video). |
-| MaxLastTimestamp | tekenreeks | Maximum van alle tijdstempels tussen alle sporen (audio of video). |
-| TypeOfTrackWithMaxLastTimestamp | tekenreeks | Het type van het spoor met maximale laatste tijdstempel (audio of video). |
-| TimescaleOfMinLastTimestamp| tekenreeks | Hiermee haalt u de tijdschaal waarin 'MinLastTimestamp' wordt weergegeven.|
-| TimescaleOfMaxLastTimestamp| tekenreeks | Hiermee haalt u de tijdschaal waarin 'MaxLastTimestamp' wordt weergegeven.|
+| MinLastTimestamp | string | Minimum van laatste tijdstempels tussen alle sporen (audio of video). |
+| TypeOfTrackWithMinLastTimestamp | string | Het type van het spoor met minimale laatste tijdstempel (audio of video). |
+| MaxLastTimestamp | string | Maximum van alle tijdstempels tussen alle sporen (audio of video). |
+| TypeOfTrackWithMaxLastTimestamp | string | Het type van het spoor met maximale laatste tijdstempel (audio of video). |
+| TimescaleOfMinLastTimestamp| string | Hiermee haalt u de tijdschaal waarin 'MinLastTimestamp' wordt weergegeven.|
+| TimescaleOfMaxLastTimestamp| string | Hiermee haalt u de tijdschaal waarin 'MaxLastTimestamp' wordt weergegeven.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -519,13 +522,13 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIncomingVideoStreamsO
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| FirstTimestamp | tekenreeks | Tijdstempel voor een van de sporen te wissen/kwaliteitsniveaus van het type video ontvangen. |
-| FirstDuration | tekenreeks | De duur van het gegevenssegment met eerste tijdstempel. |
-| SecondTimestamp | tekenreeks  | Tijdstempel voor een ander nummer/kwaliteit-niveau van het type video ontvangen. |
-| SecondDuration | tekenreeks | De duur van het gegevenssegment met tweede tijdstempel. |
-| Tijdschaal | tekenreeks | Tijdschaal van tijdstempels en de duur.|
+| FirstTimestamp | string | Tijdstempel voor een van de sporen te wissen/kwaliteitsniveaus van het type video ontvangen. |
+| FirstDuration | string | De duur van het gegevenssegment met eerste tijdstempel. |
+| SecondTimestamp | string  | Tijdstempel voor een ander nummer/kwaliteit-niveau van het type video ontvangen. |
+| SecondDuration | string | De duur van het gegevenssegment met tweede tijdstempel. |
+| Tijdschaal | string | Tijdschaal van tijdstempels en de duur.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -561,20 +564,20 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventIngestHeartbeat** geb
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| TrackType | tekenreeks | Type van het spoor (Audio / Video). |
-| TrackName | tekenreeks | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
+| TrackType | string | Type van het spoor (Audio / Video). |
+| TrackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
 | Bitrate | geheel getal | Bitrate van het spoor. |
 | IncomingBitrate | geheel getal | Berekende bitrate op basis van die afkomstig zijn van het coderingsprogramma gegevenssegmenten. |
-| LastTimestamp | tekenreeks | Meest recente tijdstempel ontvangen voor een nummer in de afgelopen 20 seconden. |
-| Tijdschaal | tekenreeks | Tijdschaal waarin tijdstempels worden uitgedrukt. |
+| LastTimestamp | string | Meest recente tijdstempel ontvangen voor een nummer in de afgelopen 20 seconden. |
+| Tijdschaal | string | Tijdschaal waarin tijdstempels worden uitgedrukt. |
 | OverlapCount | geheel getal | Aantal gegevenssegmenten had tijdstempels in de afgelopen 20 seconden overlapt. |
 | DiscontinuityCount | geheel getal | Het aantal wijzigingen in de afgelopen 20 seconden waargenomen. |
 | NonIncreasingCount | geheel getal | Aantal gegevenssegmenten met tijdstempels in het verleden zijn ontvangen in de afgelopen 20 seconden. |
-| UnexpectedBitrate | BOOL | Als de verwachte en de daadwerkelijke bitsnelheden verschillen door meer dan de toegestane limiet afgelopen 20 seconden. Dit is waar als en alleen als, IncomingBitrate > = 2 * bitrate of IncomingBitrate < = bitrate/2 of IncomingBitrate = 0. |
-| Status | tekenreeks | Status van de live-gebeurtenis. |
-| In orde | BOOL | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als OverlapCount = 0 & & DiscontinuityCount = 0 & & NonIncreasingCount = 0 & & UnexpectedBitrate = false. |
+| UnexpectedBitrate | bool | Als de verwachte en de daadwerkelijke bitsnelheden verschillen door meer dan de toegestane limiet afgelopen 20 seconden. Dit is waar als en alleen als, IncomingBitrate > = 2 * bitrate of IncomingBitrate < = bitrate/2 of IncomingBitrate = 0. |
+| Status | string | Status van de live-gebeurtenis. |
+| In orde | bool | Geeft aan of opnemen in orde is gebaseerd op het aantal en de vlaggen. Goed is ingesteld op true als OverlapCount = 0 & & DiscontinuityCount = 0 & & NonIncreasingCount = 0 & & UnexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -605,30 +608,30 @@ Het volgende voorbeeld ziet u het schema van de **LiveEventTrackDiscontinuityDet
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| TrackType | tekenreeks | Type van het spoor (Audio / Video). |
-| TrackName | tekenreeks | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
+| TrackType | string | Type van het spoor (Audio / Video). |
+| TrackName | string | Naam van het nummer (beide opgegeven door het coderingsprogramma of, in het geval van RTMP, genereert *TrackType_Bitrate* indeling). |
 | Bitrate | geheel getal | Bitrate van het spoor. |
-| PreviousTimestamp | tekenreeks | Timestamp van het vorige fragment. |
-| NewTimestamp | tekenreeks | Tijdstempel van de huidige fragment. |
-| DiscontinuityGap | tekenreeks | De kloof tussen boven twee tijdstempels. |
-| Tijdschaal | tekenreeks | Tijdschaal in welke tussenruimte zowel tijdstempel en onderbreking worden weergegeven. |
+| PreviousTimestamp | string | Timestamp van het vorige fragment. |
+| NewTimestamp | string | Tijdstempel van de huidige fragment. |
+| DiscontinuityGap | string | De kloof tussen boven twee tijdstempels. |
+| Tijdschaal | string | Tijdschaal in welke tussenruimte zowel tijdstempel en onderbreking worden weergegeven. |
 
 ### <a name="common-event-properties"></a>Algemene eigenschappen van gebeurtenis
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | tekenreeks | Het onderwerp EventGrid. Deze eigenschap heeft de resource-ID voor de Media Services-account. |
-| onderwerp | tekenreeks | Het bronpad voor het kanaal in Media Services onder het Media Services-account. Samenvoegen van het onderwerp en het onderwerp kunt u de resource-ID voor de taak. |
-| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. Bijvoorbeeld: 'Microsoft.Media.JobStateChange'. |
-| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Het onderwerp EventGrid. Deze eigenschap heeft de resource-ID voor de Media Services-account. |
+| onderwerp | string | Het bronpad voor het kanaal in Media Services onder het Media Services-account. Samenvoegen van het onderwerp en het onderwerp kunt u de resource-ID voor de taak. |
+| type gebeurtenis | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. Bijvoorbeeld: 'Microsoft.Media.JobStateChange'. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| id | string | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens voor Media Services. |
-| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262366"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002056"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security Frame: Gevoelige gegevens | Oplossingen 
 | Product/Service | Artikel |
@@ -429,7 +429,7 @@ Stel clientCredentialType op certificaat of Windows.
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemeen, .NET Framework 3 |
 | **Kenmerken**              | Modus - Transport, beveiligingsmodus - bericht |
-| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Koninkrijk Voeg](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [basisprincipes van beveiliging van WCF-CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Koninkrijk Voeg](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [basisprincipes van beveiliging van WCF-CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **Stappen** | Er is geen beveiliging transport of het bericht is gedefinieerd. Toepassingen die berichten zonder transport of bericht beveiliging kan niet garanderen de integriteit of vertrouwelijkheid van de berichten worden verzonden. Wanneer een WCF-security-binding is ingesteld op None, worden zowel transport en bericht-beveiliging uitgeschakeld. |
 
 ### <a name="example"></a>Voorbeeld

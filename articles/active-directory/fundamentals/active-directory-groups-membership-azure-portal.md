@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2d05a31c56cfe8ea92a933696ca3c9b0fadbd4d3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468023"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000312"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Hoe: toevoegen of verwijderen van een groep uit een andere groep met behulp van Azure Active Directory
 In dit artikel helpt u bij het toevoegen en verwijderen van een groep van een andere groep met behulp van Azure Active Directory.
@@ -29,7 +29,7 @@ In dit artikel helpt u bij het toevoegen en verwijderen van een groep van een an
 U kunt een bestaande beveiligingsgroep op een andere bestaande beveiligingsgroep (ook wel bekend als geneste groepen), het maken van een lid van groep (subgroep) en een bovenliggende groep toevoegen. De lid-groep neemt de kenmerken en eigenschappen van de bovenliggende groep, zodat u de configuratie.
 
 >[!Important]
->Wordt momenteel niet ondersteund:<ul><li>Beveiligingsgroepen toevoegen aan Office 365-groepen</li><li>Office 365-groepen toe te voegen aan beveiligingsgroepen of andere Office 365-groepen</li><li>Apps toewijzen aan geneste groepen</li><li>Licenties toe te passen op geneste groepen</li></ul>
+>Wordt momenteel niet ondersteund:<ul><li>Groepen toevoegen aan een groep gesynchroniseerd met on-premises Active Directory</li><li>Beveiligingsgroepen toevoegen aan Office 365-groepen</li><li>Office 365-groepen toe te voegen aan beveiligingsgroepen of andere Office 365-groepen</li><li>Apps toewijzen aan geneste groepen</li><li>Licenties toe te passen op geneste groepen</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Een groep toevoegen als een lid van een andere groep
 

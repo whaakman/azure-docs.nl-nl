@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f30114797c7ba62fde555487d3202de5edf48ecb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6122c1ef14d8ed1d93f682fdb3dbaaaaf30efabc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182345"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015021"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Log Analytics beheren met PowerShell
 U kunt de [Log Analytics PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) verschillende functies in Log Analytics uitvoeren vanaf een opdrachtregel of als onderdeel van een script.  Voorbeelden van de taken die u met PowerShell uitvoeren kunt zijn:
@@ -199,13 +199,13 @@ Voor bewaking zonder agent van Azure-resources, moeten de resources hebben van A
 | Data Lake analytics     | Ja | | 
 | Data Lake store         | Ja | |
 | Elastische SQL-groep        |     | Ja |
-| Event Hub-naamruimte     |     | Ja |
+| Event hub-naamruimte     |     | Ja |
 | IoT Hubs                |     | Ja |
 | Key Vault               | Ja | |
 | Load balancers          | Ja | |
 | Logic Apps              | Ja | Ja |
 | Netwerkbeveiligingsgroepen | Ja | |
-| Redis Cache             |     | Ja |
+| Azure Cache voor Redis             |     | Ja |
 | Services zoeken         | Ja | Ja |
 | Service Bus-naamruimte   |     | Ja |
 | SQL (v12)               |     | Ja |
@@ -221,7 +221,7 @@ $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegrou
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
 
-Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
 U kunt ook de voorgaande cmdlet gebruiken om Logboeken te verzamelen uit resources die zich in verschillende abonnementen. De cmdlet kan werken voor abonnementen, omdat u de id van zowel de bron die het maken van Logboeken en de werkruimte die de logboeken zijn verzonden naar opgeeft.

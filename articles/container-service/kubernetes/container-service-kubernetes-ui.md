@@ -1,5 +1,5 @@
 ---
-title: Beheren Azure Kubernetes-cluster met web-UI
+title: (AFGESCHAFT) Beheren Azure Kubernetes-cluster met web-UI
 description: Met behulp van de Kubernetes-Webinterface in Azure Container Service
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998522"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996139"
 ---
-# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Met Azure Container Service met behulp van de Kubernetes-Webinterface
+# <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(AFGESCHAFT) Met Azure Container Service met behulp van de Kubernetes-Webinterface
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Zie voor de bijgewerkte versie dit artikel die gebruikmaakt van Azure Kubernetes Service, [toegang tot het Kubernetes-web-dashboard in Azure Kubernetes Service (AKS)](../../aks/kubernetes-dashboard.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 In dit scenario wordt ervan uitgegaan dat u hebt [gemaakt van een Kubernetes-cluster met behulp van Azure Container Service](container-service-kubernetes-walkthrough.md).

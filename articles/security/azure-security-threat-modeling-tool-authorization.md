@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307653"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994764"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Beveiliging-Frame: Autorisatie | Oplossingen 
 | Product/Service | Artikel |
@@ -349,7 +349,7 @@ De `<behaviorExtensions/>` element van het configuratiebestand WCF geeft WCF aan
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemeen, NET Framework 3 |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Stappen** | <p>Deze service wordt niet gebruikt voor een besturingselement voor autorisatie. Wanneer een client een bepaalde WCF-service wordt aangeroepen, biedt WCF verschillende autorisatie-schema's die controleren of de aanroeper is gemachtigd om uit te voeren van de servicemethode op de server. Als de besturingselementen voor autorisatie zijn niet ingeschakeld voor de WCF-services, kan een geverifieerde gebruiker maar liefst uitbreiding van bevoegdheden.</p>|
 
 ### <a name="example"></a>Voorbeeld

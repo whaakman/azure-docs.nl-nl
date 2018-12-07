@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6a3fab0e6b3b092ddb55043882c4d284268abfc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006844"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012756"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Gebruik de Azure Data Lake-tools voor Visual Studio met de Hortonworks Sandbox
 
-Azure Data Lake bevat hulpprogramma's voor het werken met algemene Hadoop-clusters. Dit document bevat de stappen die nodig zijn voor gebruik van de Data Lake-hulpprogramma's met de Hortonworks Sandbox uitgevoerd op een lokale virtuele machine.
+Azure Data Lake bevat hulpprogramma's voor het werken met algemene Apache Hadoop-clusters. Dit document bevat de stappen die nodig zijn voor gebruik van de Data Lake-hulpprogramma's met de Hortonworks Sandbox uitgevoerd op een lokale virtuele machine.
 
 Met behulp van de Hortonworks Sandbox, kunt u werken met Hadoop lokaal op uw ontwikkelomgeving. Nadat u hebt een oplossing ontwikkeld en wilt implementeren op schaal, kunt u vervolgens verplaatsen naar een HDInsight-cluster.
 
@@ -34,7 +34,7 @@ Met behulp van de Hortonworks Sandbox, kunt u werken met Hadoop lokaal op uw ont
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Wachtwoorden voor de sandbox configureren
 
-Zorg ervoor dat de Hortonworks Sandbox wordt uitgevoerd. Volg de stappen in de [aan de slag in de Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) document. Deze stappen configureert u het wachtwoord voor de SSH `root` -account en de Ambari `admin` account. Deze wachtwoorden worden gebruikt wanneer u verbinding met de sandbox vanuit Visual Studio maken.
+Zorg ervoor dat de Hortonworks Sandbox wordt uitgevoerd. Volg de stappen in de [aan de slag in de Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) document. Deze stappen configureert u het wachtwoord voor de SSH `root` -account en de Apache Ambari `admin` account. Deze wachtwoorden worden gebruikt wanneer u verbinding met de sandbox vanuit Visual Studio maken.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Verbinding maken met de hulpprogramma's naar de sandbox
 
@@ -71,7 +71,7 @@ Zorg ervoor dat de Hortonworks Sandbox wordt uitgevoerd. Volg de stappen in de [
 
 Nadat u deze stappen te volgen, hebt u nu een **lokale HDInsight-cluster** vermelding in Server Explorer, onder de **HDInsight** sectie.
 
-## <a name="write-a-hive-query"></a>Een Hive-query schrijven
+## <a name="write-an-apache-hive-query"></a>Een Apache Hive-query schrijven
 
 Hive biedt een SQL-achtige querytaal (HiveQL) voor het werken met gestructureerde gegevens. Gebruik de volgende stappen uit om te leren hoe u on-demand-query's uitvoeren op het lokale cluster.
 
@@ -100,7 +100,7 @@ Hive biedt een SQL-achtige querytaal (HiveQL) voor het werken met gestructureerd
     Na de **taakstatus** wordt gewijzigd in **voltooid**, een omgeleid Acyclic Graph (DAG) wordt weergegeven. In dit diagram beschrijft het uitvoeringspad die is bepaald door de Tez bij het verwerken van de Hive-query. Tez is de standaard-uitvoeringsengine voor Hive op het lokale cluster.
 
     > [!NOTE]
-    > Tez is ook de standaardwaarde als u van HDInsight op basis van Linux-clusters gebruikmaakt. Het is niet de standaard op HDInsight op basis van Windows. Om deze te gebruiken, u moet de regel toevoegen `set hive.execution.engine = tez;` aan het begin van uw Hive-query.
+    > Apache Tez is ook de standaardwaarde als u van HDInsight op basis van Linux-clusters gebruikmaakt. Het is niet de standaard op HDInsight op basis van Windows. Om deze te gebruiken, u moet de regel toevoegen `set hive.execution.engine = tez;` aan het begin van uw Hive-query.
 
     Gebruik de **Taakuitvoer** koppeling om de uitvoer weer te geven. In dit geval is het 823, het aantal rijen in de tabel sample_08. U kunt diagnostische gegevens over de taak weergeven met behulp van de **taaklogboek** en **YARN-logboek downloaden** koppelingen.
 
@@ -127,7 +127,7 @@ U kunt ook een project met meerdere Hive-scripts maken. Een project gebruiken wa
 
 De **Hive voorbeeld** -project bevat twee scripts **WebLogAnalysis.hql** en **SensorDataAnalysis.hql**. U kunt deze scripts indienen met behulp van dezelfde **indienen** knop aan de bovenkant van het venster.
 
-## <a name="create-a-pig-project"></a>Een Pig-project maken
+## <a name="create-an-apache-pig-project"></a>Een Apache Pig-project maken
 
 Hoewel Hive een SQL-achtige taal biedt voor het werken met gestructureerde gegevens, wordt Pig werkt door het uitvoeren van transformaties op gegevens. Pig biedt een taal (Pig Latin) waarmee u voor het ontwikkelen van een pijplijn van transformaties. Als u wilt Pig gebruiken met het lokale cluster, de volgende stappen uit:
 
@@ -200,5 +200,5 @@ Vervolgens kunt u de tabel met behulp van een formulier maken. Aan de onderkant 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Leren werken met de kabels van de Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop-zelfstudie - aan de slag met HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Leren werken met de kabels van de Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Apache Hadoop-zelfstudie - aan de slag met HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

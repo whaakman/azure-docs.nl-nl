@@ -1,5 +1,5 @@
 ---
-title: Machine learning-modellen met behulp van een klasse Estimator met Azure Machine Learning te trainen
+title: Met behulp van een klasse Estimator met Azure Machine Learning-service van ML-modellen trainen
 description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde training van traditionele machine learning- en deep learning-modellen met behulp van Azure Machine Learning services Estimator klasse
 ms.author: minxia
 author: mx-iao
@@ -8,15 +8,16 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c47761c184d0e6c091ff49b3eca2fdf89574b49d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec12
+ms.openlocfilehash: 53462fc0aecbb8f5aeef0bb9208264c714ce8394
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114856"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011417"
 ---
-# <a name="how-to-train-models-with-azure-machine-learning"></a>Hoe u met het trainen van modellen met Azure Machine Learning
+# <a name="train-models-with-azure-machine-learning"></a>Trainen van modellen met Azure Machine Learning
 
 Training machine learning-modellen, met name deep neural networks is vaak een tijd - en rekenintensieve taak. Wanneer u klaar bent met het schrijven van uw scripts training en wordt uitgevoerd op een kleine subset van gegevens op uw lokale computer, wilt u waarschijnlijk uw workload opschalen.
 
@@ -35,7 +36,7 @@ In dit artikel richt zich op de stappen 4 en 5. Voor stappen 1-3, naar verwijzen
 
 ### <a name="single-node-training"></a>Training voor één knooppunt
 
-Gebruik een `Estimator` voor de training van een één knooppunt worden uitgevoerd op externe compute in Azure voor een scikit-model meer. U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#batch) object `compute_target` en uw [gegevensopslag](how-to-access-data.md) object `ds`.
+Gebruik een `Estimator` voor de training van een één knooppunt worden uitgevoerd op externe compute in Azure voor een scikit-model meer. U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#amlcompute) object `compute_target` en uw [gegevensopslag](how-to-access-data.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -54,11 +55,11 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Dit codefragment bevat de volgende parameters voor de `Estimator` constructor.
 
-Parameter | Beschrijving
+Parameter | Description
 --|--
 `source_directory`| Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute 
 `script_params`| Woordenlijst voor de opdrachtregelargumenten voor uw trainingsscript op te geven `entry_script`, in de vorm van < opdrachtregelargument, waarde > paren
-`compute_target`| Externe compute die uw trainingsscript uitgevoerd op, in dit geval een [Batch AI](how-to-set-up-training-targets.md#batch) cluster
+`compute_target`| Externe compute-doel dat uw trainingsscript wordt uitgevoerd op, in dit geval een Azure Machine Learning-Computing ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script`| FilePath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele aanvullende bestanden dat hangt ervan af, moeten zich bevinden in deze map
 `conda_packages`| Lijst met Python-pakketten worden geïnstalleerd via conda die nodig zijn voor uw trainingsscript.  
 De constructor heeft een andere parameter met de naam `pip_packages` die u gebruikt voor een pip-pakketten die nodig zijn
@@ -87,7 +88,7 @@ Er zijn twee aanvullende scenario's u met uitvoeren kunt de `Estimator`:
 
 De volgende code toont hoe u bij het uitvoeren van gedistribueerde training voor een CNTK-model. Bovendien, in plaats van de standaard Azure Machine Learning-afbeeldingen, wordt ervan uitgegaan dat u uw eigen aangepaste docker-installatiekopie gebruikt voor trainingen.
 
-U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#batch) object `compute_target`. U maken als volgt de estimator:
+U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#amlcompute) object `compute_target`. U maken als volgt de estimator:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -104,7 +105,7 @@ estimator = Estimator(source_directory='./my-cntk-proj',
 
 De bovenstaande code wordt aangegeven dat de volgende nieuwe parameters voor de `Estimator` constructor:
 
-Parameter | Beschrijving | Standaard
+Parameter | Description | Standaard
 --|--|--
 `custom_docker_base_image`| Naam van de installatiekopie die u wilt gebruiken. Geef alleen installatiekopieën die beschikbaar zijn in de openbare docker-opslagplaatsen (in dit geval Docker Hub). Gebruik van de constructor voor het gebruik van een installatiekopie van een privé-docker-opslagplaats, `environment_definition` parameter in plaats daarvan | `None`
 `node_count`| Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
@@ -117,13 +118,11 @@ run = experiment.submit(cntk_est)
 ```
 
 ## <a name="examples"></a>Voorbeelden
-Zie voor een zelfstudie voor het trainen van een model sklearn:
-* [tutorials/01.Train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+Voor een laptop die een sklearn model traint, Zie:
+* [zelfstudies/img-classificatie-deel 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Voor een zelfstudie over gedistribueerde CNTK met behulp van aangepaste docker, Zie:
-* [training/06.distributed-cntk-met-aangepaste-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
-
-Deze laptops ophalen:
+Voor laptops op gedistribueerde deep learning, Zie:
+* [How-to-use-azureml/training-with-deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

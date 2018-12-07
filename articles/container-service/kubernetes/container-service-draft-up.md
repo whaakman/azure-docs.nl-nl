@@ -1,5 +1,5 @@
 ---
-title: Draft gebruiken met Azure Containerservice en Azure Container Registry
+title: (AFGESCHAFT) Draft gebruiken met Azure Containerservice en Azure Container Registry
 description: Maak een ACS Kubernetes-cluster en een Azure Container Registry om uw eerste toepassing met Draft te maken in Azure.
 services: container-service
 author: squillace
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 42bd12b9479cd1b4f57a7f3ae73f3c32061fed65
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432276"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996530"
 ---
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft gebruiken met Azure Container Service en Azure Container Registry om een Kubernetes-toepassing te bouwen en implementeren
+# <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(AFGESCHAFT) Draft gebruiken met Azure Container Service en Azure Container Registry te bouwen en implementeren van een toepassing naar Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Zie voor de bijgewerkte versie dit artikel die gebruikmaakt van Azure Kubernetes Service, [concept gebruiken met Azure Kubernetes Service (AKS)](../../aks/kubernetes-draft.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Draft](https://aka.ms/draft) is een nieuw open-source hulpprogramma waarmee u eenvoudig containertoepassingen kunt ontwikkelen en ze kunt implementeren in Kubernetes-clusters. U hoeft hiervoor niet veel te weten over Docker en Kubernetes (u hoeft ze zelfs niet eens te installeren!). Als u een hulpprogramma als Draft gebruikt, kunnen u en uw team zich richten op het bouwen van de toepassing met Kubernetes en hoeft er minder aandacht te worden besteed aan de infrastructuur.
 

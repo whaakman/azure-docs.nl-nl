@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c16d85479399d7988be18f9b852563617bb824b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 42fc92b0cee20679ab72a389cc11522c0ca4e0fd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632645"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013749"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Java MapReduce-programma's ontwikkelen voor Apache Hadoop op HDInsight
 
@@ -25,12 +25,12 @@ Informatie over het gebruik van Apache Maven een MapReduce op basis van een Java
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 of hoger (of een equivalent, zoals OpenJDK).
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 of hoger (of een equivalent, zoals OpenJDK).
     
     > [!NOTE]
     > HDInsight versie 3.4 en eerder Java 7 gebruiken. Java 8 maakt gebruik van HDInsight 3.5 en hoger.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>De ontwikkelomgeving configureren
 
@@ -63,7 +63,7 @@ De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK
 
     Met deze opdracht maakt een map met de naam die is opgegeven door de `artifactID` parameter (**wordcountjava** in dit voorbeeld.) Deze map bevat de volgende items:
 
-   * `pom.xml` -De [Project Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) waarin gegevens en configuratie-informatie die wordt gebruikt om het project te bouwen.
+   * `pom.xml` -De [Project Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) waarin gegevens en configuratie-informatie die wordt gebruikt om het project te bouwen.
 
    * `src` -De map waarin de toepassing.
 
@@ -94,7 +94,7 @@ De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK
     </dependency>
    ```
 
-    Hiermee definieert u vereiste bibliotheken (vermeld in &lt;artifactId\>) met een specifieke versie (vermeld in &lt;versie\>). Bij het compileren, worden deze afhankelijkheden gedownload vanuit de opslagplaats van de Maven standaard. U kunt de [Maven-opslagplaats zoeken](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) om informatie weer te geven.
+    Hiermee definieert u vereiste bibliotheken (vermeld in &lt;artifactId\>) met een specifieke versie (vermeld in &lt;versie\>). Bij het compileren, worden deze afhankelijkheden gedownload vanuit de opslagplaats van de Maven standaard. U kunt de [Maven-opslagplaats zoeken](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) om informatie weer te geven.
    
     De `<scope>provided</scope>` vertelt Maven dat deze afhankelijkheden niet moeten worden verpakt met de toepassing die worden geleverd door het HDInsight-cluster tijdens de uitvoering.
 
@@ -138,7 +138,7 @@ De volgende omgevingsvariabelen kunnen worden ingesteld wanneer u Java en de JDK
     </build>
    ```
 
-    De eerste-invoegtoepassing configureert u de [Maven-invoegtoepassing voor tint](http://maven.apache.org/plugins/maven-shade-plugin/), dat wordt gebruikt voor het bouwen van een uberjar (ook wel een fatjar), die afhankelijkheden die zijn vereist voor de toepassing bevat. Dit voorkomt ook dat de duplicatie van licenties binnen de jar-pakket, waardoor problemen kunnen ontstaan op sommige systemen.
+    De eerste-invoegtoepassing configureert u de [Maven-invoegtoepassing voor tint](https://maven.apache.org/plugins/maven-shade-plugin/), dat wordt gebruikt voor het bouwen van een uberjar (ook wel een fatjar), die afhankelijkheden die zijn vereist voor de toepassing bevat. Dit voorkomt ook dat de duplicatie van licenties binnen de jar-pakket, waardoor problemen kunnen ontstaan op sommige systemen.
 
     De tweede invoegtoepassing configureert u de Java-versie van het doel.
 
@@ -291,9 +291,9 @@ In dit document hebt u geleerd over het ontwikkelen van een Java MapReduce-taak.
 
 Zie voor meer informatie, ook de [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -303,5 +303,5 @@ Zie voor meer informatie, ook de [Java Developer Center](https://azure.microsoft
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 040eea1efd3abdbbfa65c24b2950ebece9d4acbc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dfc1fe223dbff178c35a969e0273ed80fb4c8be9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258388"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016417"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK voor .NET 2.6 opmerkingen bij de Release
 Dit document bevat de releaseopmerkingen voor de Azure SDK voor .NET 2.6 release. 
@@ -59,7 +59,7 @@ U kunt cloud service-toepassingen (PaaS) dat die gericht is op .NET 4.5.2 of .NE
     Op dit moment is Azure Storage, versie 2011-08-18 gepland worden op 1 augustus 2016 verwijderd. Alle migraties van In-Role Cache van Azure SDK 2.5 of lager moeten naar 2.6 zijn voltooid op dit moment zijn opgelost. Zie voor meer informatie over het buiten gebruik stellen van Azure Storage, versie 2011-08-18 [Microsoft Azure Storage-Service versie verwijderen Update: uitbreiding van 2016](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 > [!IMPORTANT]
-> Microsoft kondigt de 30 November 2016 buiten gebruik stellen voor Azure Managed Cache Service en Azure In-Role Cache. Het is raadzaam om te migreren naar Azure Redis Cache ter voorbereiding op buiten gebruik stellen. Zie voor meer informatie over de datums en hulp bij de migratie [welke Azure Cache-aanbieding is juist voor mij?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> Microsoft kondigt de 30 November 2016 buiten gebruik stellen voor Azure Managed Cache Service en Azure In-Role Cache. Het is raadzaam dat u naar Azure Cache voor Redis ter voorbereiding op buiten gebruik stellen migreren. Zie voor meer informatie over de datums en hulp bij de migratie [welke Azure Cache-aanbieding is juist voor mij?](../azure-cache-for-redis/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 

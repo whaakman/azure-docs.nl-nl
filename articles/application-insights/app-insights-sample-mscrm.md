@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: b4bc632b4951781b85847699d38fd10df14c1a87
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720742"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002144"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
 Dit artikel leest u hoe u aan de telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met behulp van [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Behandelen we het complete proces van het Application Insights-script toevoegen aan uw toepassing, het vastleggen van gegevens en gegevensvisualisatie.
@@ -32,7 +32,7 @@ Dit artikel leest u hoe u aan de telemetriegegevens van [Microsoft Dynamics CRM 
 Voor het bewaken van uw toepassing, kunt u een Application Insights-SDK toevoegen aan uw toepassing. De SDK telemetrie verzendt naar de [Application Insights-portal](https://portal.azure.com), kunt u onze krachtige analyse- en diagnostische hulpprogramma's gebruiken, of de gegevens naar opslag exporteren.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Een Application Insights-resource maken in Azure
-1. Ophalen [een account in Microsoft Azure](http://azure.com/pricing). 
+1. Ophalen [een account in Microsoft Azure](https://azure.com/pricing). 
 2. Meld u aan bij de [Azure-portal](https://portal.azure.com) en een nieuwe Application Insights-resource toevoegen. Dit is waar uw gegevens worden verwerkt en weergegeven.
 
     ![Klik op +, Ontwikkelaarsservices, Application Insights.](./media/app-insights-sample-mscrm/01.png)

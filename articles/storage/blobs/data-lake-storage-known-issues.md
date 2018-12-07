@@ -6,14 +6,14 @@ author: normesta
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 83e9dfbe18dd79e8547e6b48daef39a5aed2cced
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975282"
+ms.locfileid: "52995433"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -35,7 +35,9 @@ Niet-beheerde schijven van de virtuele Machine (VM) is afhankelijk van deze API'
 
 ## <a name="azure-storage-explorer"></a>Azure Opslagverkenner
 
-Sommige functies in Storage Explorer werken niet nog met Azure Data Lake Storage Gen2 bestandssystemen. Deze beperkingen zijn van toepassing op de [zelfstandige versie](https://azure.microsoft.com/features/storage-explorer/) van Azure Storage Explorer, evenals de versie die wordt weergegeven in de Azure-portal.
+Als u wilt weergeven of Data Lake Storage Gen2 accounts beheren met behulp van Azure Storage Explorer, hebt u ten minste versie `1.6.0` van het hulpprogramma die beschikbaar is als een [gratis download](https://azure.microsoft.com/features/storage-explorer/).
+
+Houd er rekening mee dat de versie van Storage Explorer die is ingesloten in de Azure Portal biedt momenteel geen ondersteuning voor bekijken of beheren van Data Lake Storage Gen2 accounts met hiërarchische ingeschakelde naamruimten.
 
 ## <a name="blob-viewing-tool"></a>Hulpprogramma voor BLOB weergeven
 
@@ -57,21 +59,9 @@ In plaats daarvan gebruikt u de meest recente preview-versie van AzCopy ( [AzCop
 
 Services zoals Azure Databricks, HDInsight en Azure Data Factory integreren niet nog met Azure Active Directory (Azure AD) OAuth bearer-token verificatie.
 
-## <a name="access-control-lists-acl"></a>Toegangsbeheerlijsten (ACL)
-
-Directory- en bestandsniveau toegangsbeheerlijsten (ACL) zijn moeilijk te beheren. Er is geen gebruikersinterface gebaseerde hulpprogramma waarmee u kunt ophalen en instellen van de toegangsbeheerlijsten.
-
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) niet ontvangen van gebeurtenissen van Azure Data Lake Gen2 accounts omdat ze geen nog door deze accounts genereren.  
-
-## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
-
-U kunt rollen gebaseerd toegangsbeheer niet toepassen op bestandssysteemobjecten in een Azure Data Lake Storage Gen2-account.
-
-## <a name="sql-data-warehouse-polybase"></a>SQL datawarehouse PolyBase
-
-Wanneer Storage-Firewalls zijn ingeschakeld op een Azure Storage-account, SQL Data Warehouse [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017) geen toegang tot deze accounts.
 
 ## <a name="soft-delete-and-snapshots"></a>Voorlopig verwijderen en momentopnamen
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-ms.openlocfilehash: b260c4eecd0a1aff31c86766e2f03208ba6b1460
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 68986b3d60566ee190a92c6ccf8cda767824350f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727253"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000140"
 ---
 # <a name="azure-monitor-branding-changes"></a>Azure Monitor huisstijl wijzigingen
 In dit artikel beschrijft de recente huisstijl en naamswijzigingen onlangs hebt aangebracht in de Azure management-services. 
@@ -46,4 +46,4 @@ Operations Management Suite (OMS) is een bundeling van de volgende Azure managem
 ## <a name="next-steps"></a>Volgende stappen
 
 - Lees een [overzicht van Azure Monitor](overview.md) met de beschrijving van de verschillende onderdelen en functies.
-- Meer informatie over de [overgang van de OMS-portal](../log-analytics/log-analytics-oms-portal-transition.md).
+- Meer informatie over de [overgang van de OMS-portal](../azure-monitor/platform/oms-portal-transition.md).

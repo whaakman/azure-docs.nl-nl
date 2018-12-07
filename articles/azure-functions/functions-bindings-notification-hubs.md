@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e51a74783f7d7f080d1caa237bb7aabab0100e72
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248581"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996037"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs-Uitvoerbinding voor Azure Functions
 
@@ -28,7 +28,7 @@ Azure Notification Hubs moeten worden geconfigureerd voor het Platform meldingen
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Notification Hubs-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub-opslagplaats.
+De Notification Hubs-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -136,7 +136,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 }
 ```
 
-### <a name="f-template-example"></a>F #-voorbeeldsjabloon
+### <a name="f-template-example"></a>F#Voorbeeld van de sjabloon
 
 In dit voorbeeld wordt een melding verzonden voor een [sjabloon registratie](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) die bevat `location` en `message`.
 
@@ -281,7 +281,7 @@ De parameters van constructor en eigenschappen van het kenmerk worden beschreven
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `NotificationHub` kenmerk:
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** |N.v.t.| Moet worden ingesteld op 'notificationHub'. |
 |**direction** |N.v.t.| Moet worden ingesteld op 'out'. | 

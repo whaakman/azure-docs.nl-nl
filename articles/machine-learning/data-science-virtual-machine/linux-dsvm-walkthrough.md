@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 5c590b8df2eeb8859a6b78f4d719661c8b542ebe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037580"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000264"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -357,7 +357,7 @@ Installeren en Rammelaar starten met de volgende opdrachten:
 >
 >
 
-Rammelaar maakt gebruik van een tabblad gebaseerde interface. De meeste van de tabbladen komen overeen met de stappen in de [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), zoals het laden van gegevens of wilt u deze. Het data science process loopt van links naar rechts de tabbladen. Maar het laatste tabblad bevat een logboek van de R-opdrachten uitvoeren door Rammelaar.
+Rammelaar maakt gebruik van een tabblad gebaseerde interface. De meeste van de tabbladen komen overeen met de stappen in de [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), zoals het laden van gegevens of wilt u deze. Het data science process loopt van links naar rechts de tabbladen. Maar het laatste tabblad bevat een logboek van de R-opdrachten uitvoeren door Rammelaar.
 
 Laden en de gegevensset configureren:
 

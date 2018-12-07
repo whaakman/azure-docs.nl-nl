@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 358d17f29960983af1834e87f502331141fcff46
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e9a8c6345ca45234ffcec1588a98bf1b8d634e06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726114"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000684"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Releaseopmerkingen voor Developer Analytics Tools
 
@@ -180,7 +180,7 @@ U kunt uw toepassing op talloze manieren in de HockeyApp-portal beheren. Dit omv
 
 ![HockeyApp-portal](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Zie de [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb/app-management-2) voor meer informatie over app-beheer.
+Zie de [HockeyApp Knowledge Base](https://support.hockeyapp.net/kb/app-management-2) voor meer informatie over app-beheer.
 
 ### <a name="windows-forms-apps"></a>Windows Forms-apps
 Het contextmenu voor een Windows-formulier projectknooppunt bevat nu een optie voor het uploaden van uw build met HockeyApp.
@@ -228,7 +228,7 @@ Als u al een van deze frameworks voor logboekregistratie geconfigureerd hebt, ge
 
 Wanneer u de registratie-adapter die is geïnstalleerd hebt, Voer uw toepassing uit en zorg ervoor dat u de gegevens op het tabblad Diagnostische hulpprogramma's als volgt bekijken:
 
-![traceringen](./media/app-insights-release-notes-vsix/Traces.png)
+![Traces](./media/app-insights-release-notes-vsix/Traces.png)
 
 ### <a name="jump-to-or-find-the-code-where-the-telemetry-event-property-is-emitted"></a>Ga naar of de code niet vinden waarbij de eigenschap van de gebeurtenis telemetrie wordt verzonden
 Met de nieuwe release gebruiker kan klikken op een waarde in de gebeurtenis details en dit wordt gezocht naar een overeenkomende tekenreeks in de huidige open oplossing. Resultaten worden weergegeven in Visual Studio 'Resultaten vinden' bestaan uit zoals hieronder wordt weergegeven:

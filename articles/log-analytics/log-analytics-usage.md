@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c72e1c92815f70838db20ab67c3f70fc5223ac03
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 535bb76faeaff53a262abbecc59021b5de5ff7da
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964744"
+ms.locfileid: "52994360"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u gegevensgebruik analyseren in Log Analytics.  Raadpleeg de volgende artikelen voor meer informatie.
-> - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](log-analytics-manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
+> - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](../azure-monitor/platform/manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
 > - [Gebruik en geschatte kosten bewaken](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) wordt beschreven hoe u gebruik en geschatte kosten voor meerdere Azure-bewakingsfuncties voor verschillende prijsmodellen. Ook wordt beschreven hoe u kunt wijzigen van het prijsmodel.
 
 ## <a name="understand-usage"></a>Inzicht in gebruik

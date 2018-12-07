@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: f0ec2ff0b10e9554485f482bca6b160da0c4e016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719892"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001726"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Application Insights handmatig configureren voor .NET-toepassingen
 
@@ -29,7 +29,7 @@ U kunt [Application Insights](app-insights-overview.md) configureren voor het be
 
 U hebt de volgende zaken nodig:
 
-* Een abonnement op [Microsoft Azure](http://azure.com). Als uw team of organisatie een Azure-abonnement heeft, kan de eigenaar u toevoegen met behulp van uw [Microsoft-account](http://live.com).
+* Een abonnement op [Microsoft Azure](https://azure.com). Als uw team of organisatie een Azure-abonnement heeft, kan de eigenaar u toevoegen met behulp van uw [Microsoft-account](https://live.com).
 * Visual Studio 2013 of later.
 
 ## <a name="add"></a>1. Een Application Insights-resource kiezen

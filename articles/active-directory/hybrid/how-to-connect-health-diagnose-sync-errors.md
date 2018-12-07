@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282523"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996050"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Vaststellen en herstellen van de synchronisatiefouten dubbel kenmerk
 
@@ -28,7 +28,7 @@ De functie voor diagnose heeft tot deze voordelen:
 - Het biedt een diagnostische procedure die de taalinstelling van de synchronisatiefouten dubbel kenmerk. En het specifieke oplossingen biedt.
 - Het is van toepassing een oplossing voor specifieke scenario's van Azure AD om op te lossen van de fout in één stap.
 - Er is geen upgrade of de configuratie is vereist voor deze functie inschakelen.
-Zie voor meer informatie over Azure AD, [duplicatiekenmerken identificeren voor synchronisatie- en](https://aka.ms/dupattributeresdocs).
+Zie voor meer informatie over Azure AD, [duplicatiekenmerken identificeren voor synchronisatie- en](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="problems"></a>Problemen met
 ### <a name="a-common-scenario"></a>Een veelvoorkomend scenario

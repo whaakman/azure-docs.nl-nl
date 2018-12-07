@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2814ecb0ff9fc49e4763dbe604fef353394f9aac
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 613e0f51ae7bbb0b295f13d50fc95683085d7da9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965237"
+ms.locfileid: "52995808"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -28,14 +28,14 @@ Eerste, de korte antwoord:
 * De standaardtelemetrie voor modules die worden uitgevoerd 'buiten het vak' waarschijnlijk geen gevoelige gegevens te verzenden naar de service. De telemetrie is betrokken bij het laden, prestaties en gebruik metrische gegevens, uitzonderingenrapporten en andere diagnostische gegevens. De belangrijkste gegevens zichtbaar zijn in de diagnostische rapporten worden URL's; maar uw app mogen geen gevoelige gegevens in elk geval geplaatst als tekst zonder opmaak in een URL.
 * U kunt code schrijven die aanvullende aangepaste telemetrie verzendt naar helpt u met de diagnostische gegevens en bewaking wordt gebruikt. (Deze uitbreiding is een fantastische functie van Application Insights.) Is het mogelijk, per ongeluk deze code schrijven, zodat het persoonlijke en andere gevoelige gegevens bevat. Als uw toepassing met dergelijke gegevens werkt, moet u een grondig processen toepassen op de code die u schrijft.
 * Tijdens het ontwikkelen en testen van uw app, is het gemakkelijk om te controleren wat er door de SDK worden verzonden. De gegevens weergegeven in de windows-foutopsporing uitvoer van de IDE en de browser. 
-* De gegevens worden bewaard in [Microsoft Azure](http://azure.com) servers in de Verenigde Staten of Europa. (Maar overal kan worden uitgevoerd door uw app.) Azure heeft [sterke beveiliging verwerkt en voldoet aan een breed scala aan standaarden voor compliance](https://azure.microsoft.com/support/trust-center/). Alleen u en uw team aangewezen hebt toegang tot uw gegevens. Medewerkers van Microsoft kunt beperkte toegang toe alleen in bepaalde beperkte omstandigheden met uw kennis. Het versleuteld in doorvoer, maar niet in de servers.
+* De gegevens worden bewaard in [Microsoft Azure](https://azure.com) servers in de Verenigde Staten of Europa. (Maar overal kan worden uitgevoerd door uw app.) Azure heeft [sterke beveiliging verwerkt en voldoet aan een breed scala aan standaarden voor compliance](https://azure.microsoft.com/support/trust-center/). Alleen u en uw team aangewezen hebt toegang tot uw gegevens. Medewerkers van Microsoft kunt beperkte toegang toe alleen in bepaalde beperkte omstandigheden met uw kennis. Het versleuteld in doorvoer, maar niet in de servers.
 
 De rest van dit artikel meer volledig wordt ingegaan op wordt deze vragen te beantwoorden. Het is ontworpen om zichzelf, zodat u deze kunt weergeven aan collega's die geen deel uitmaken van uw team.
 
 ## <a name="what-is-application-insights"></a>Wat is Application Insights?
 [Azure Application Insights] [ start] is een service van Microsoft waarmee u de prestaties en bruikbaarheid van uw live-toepassing verbeteren. Deze bewaakt uw toepassing voortdurend die wordt uitgevoerd, zowel tijdens het testen en nadat u hebt gepubliceerd of geïmplementeerd. Application Insights maakt grafieken en tabellen waarin u u, bijvoorbeeld ziet, welke tijdstippen van de dag krijgt u de meeste gebruikers, hoe snel de app is en hoe goed wordt geleverd door de externe services die afhankelijk van is. Als er crashes, fouten of prestatieproblemen, kunt u zoeken via de telemetrische gegevens in detail om de oorzaak te achterhalen. En de service wordt u e-mails verzenden als er wijzigingen in de beschikbaarheid en prestaties van uw app.
 
-Om deze functionaliteit, kunt u een Application Insights-SDK installeren in uw toepassing, dat deel van de code uitmaakt. Wanneer uw app wordt uitgevoerd, wordt de SDK de werking ervan bewaakt en telemetrie verzendt naar de Application Insights-service. Dit is een cloudservice wordt gehost door [Microsoft Azure](http://azure.com). (Maar Application Insights werkt voor toepassingen, niet alleen de objecten die worden gehost in Azure.)
+Om deze functionaliteit, kunt u een Application Insights-SDK installeren in uw toepassing, dat deel van de code uitmaakt. Wanneer uw app wordt uitgevoerd, wordt de SDK de werking ervan bewaakt en telemetrie verzendt naar de Application Insights-service. Dit is een cloudservice wordt gehost door [Microsoft Azure](https://azure.com). (Maar Application Insights werkt voor toepassingen, niet alleen de objecten die worden gehost in Azure.)
 
 ![De SDK in uw app verzendt telemetrie naar de Application Insights-service.](./media/app-insights-data-retention-privacy/01-scheme.png)
 
@@ -204,7 +204,7 @@ We raden niet expliciet instellen van uw toepassing alleen gebruik van TLS 1.2, 
 |.NET | Ondersteund, varieert de configuratie door versie. | Raadpleeg voor gedetailleerde configuratie-informatie voor .NET 4.7 en eerdere versies [deze instructies](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Status Monitor | Ondersteunde, configuratie is vereist | Afhankelijk van statusmonitor [configuratie van het besturingssysteem](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuratie .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) voor ondersteuning van TLS 1.2.
 |Node.js |  Ondersteund in v10.5.0, zijn configuratie vereist. | Gebruik de [officiële Node.js TLS/SSL-documentatie](https://nodejs.org/api/tls.html) voor een specifieke configuratie van de toepassing. |
-|Java | Ondersteund, JDK ondersteuning voor TLS 1.2 is toegevoegd in [JDK 6 update 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) en [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 gebruikt [TLS 1.2 standaard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Java | Ondersteund, JDK ondersteuning voor TLS 1.2 is toegevoegd in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) en [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 gebruikt [TLS 1.2 standaard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux-distributies meestal afhankelijk zijn van [OpenSSL](https://www.openssl.org) voor ondersteuning van TLS 1.2.  | Controleer de [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) om te bevestigen van uw versie van OpenSSL wordt ondersteund.|
 | Windows 8.0-10 | Ondersteund en standaard ingeschakeld. | Om te bevestigen dat u nog steeds gebruikt de [standaardinstellingen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | WindowsServer 2012-2016 | Ondersteund en standaard ingeschakeld. | Om te bevestigen dat u nog steeds gebruikt de [standaardinstellingen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -230,7 +230,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Persoonlijke gegevens die zijn opgeslagen in Application Insights
 
-Onze [Application Insights persoonsgegevens artikel](../log-analytics/log-analytics-personal-data-mgmt.md) wordt dit probleem uitgebreid beschreven.
+Onze [Application Insights persoonsgegevens artikel](../azure-monitor/platform/personal-data-mgmt.md) wordt dit probleem uitgebreid beschreven.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kunnen mijn gebruikers uitschakelen Application Insights?
 Niet rechtstreeks. Geen bieden we een switch die uw gebruikers werken kunnen aan het uitschakelen van Application Insights.
@@ -281,10 +281,10 @@ Voor [SDK's voor andere platforms][platforms], Zie de documenten.
 U kunt [uitschakelen deel van de gegevens door ApplicationInsights.config te bewerken][config]
 
 > [!NOTE]
-> Client IP wordt gebruikt voor het afleiden van geografische locatie, maar standaard IP-gegevens niet meer worden opgeslagen en allemaal nullen worden geschreven naar het bijbehorende veld. Meer informatie geven over de verwerking van persoonlijke gegevens wordt aangeraden dit [artikel](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). Als u nodig hebt voor het opslaan van IP-adres kunt u dit doen met een [telemetrische initializer](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> Client IP wordt gebruikt voor het afleiden van geografische locatie, maar standaard IP-gegevens niet meer worden opgeslagen en allemaal nullen worden geschreven naar het bijbehorende veld. Meer informatie geven over de verwerking van persoonlijke gegevens wordt aangeraden dit [artikel](../azure-monitor/platform/personal-data-mgmt.md#application-data). Als u nodig hebt voor het opslaan van IP-adres kunt u dit doen met een [telemetrische initializer](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="credits"></a>Credits
-Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind, beschikbaar is via [ http://www.maxmind.com ](http://www.maxmind.com).
+Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind, beschikbaar is via [ https://www.maxmind.com ](https://www.maxmind.com).
 
 
 
@@ -297,7 +297,7 @@ Dit product bevat GeoLite2 gegevens die zijn gemaakt door MaxMind, beschikbaar i
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 

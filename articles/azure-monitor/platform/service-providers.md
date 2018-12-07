@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: c1af9cc9bc558fc610cdeeb81cda92082769b8cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c43b2e265903b119812d16ef4ef329393c725e71
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975387"
+ms.locfileid: "52992997"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics voor serviceproviders
 Log Analytics kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
@@ -75,12 +75,12 @@ Er zijn twee opties voor het implementeren van de centrale locatie in Log Analyt
 
 1. Centrale werkruimte: de serviceprovider kunt maken van een werkruimte in de tenant en gebruiken van een script dat gebruikmaakt van de [Query-API](https://dev.loganalytics.io/) met de [Data Collection API](../../azure-monitor/platform/data-collector-api.md) om de gegevens uit de verschillende werkruimten aan deze centrale locatie. Een andere optie, dan een script, is het gebruik [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI als een centrale locatie: Power BI kan fungeren als de centrale locatie als de verschillende werkruimten gegevens exporteren naar met behulp van de integratie tussen Log Analytics en [Power BI](../../log-analytics/log-analytics-powerbi.md). 
+2. Power BI als een centrale locatie: Power BI kan fungeren als de centrale locatie als de verschillende werkruimten gegevens exporteren naar met behulp van de integratie tussen Log Analytics en [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Automatiseer het maken en de configuratie van werkruimten met behulp van [Resource Manager-sjablonen](template-workspace-configuration.md)
 * Maken van werkruimten met behulp van automatiseren [PowerShell](../../log-analytics/log-analytics-powershell-workspace-configuration.md) 
 * Gebruik [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) om te integreren met bestaande systemen
-* Samenvatting rapporten genereren met [Power BI](../../log-analytics/log-analytics-powerbi.md)
+* Samenvatting rapporten genereren met [Power BI](../../azure-monitor/platform/powerbi.md)
 * Bekijk het proces van [configureren van Log Analytics en Power BI voor het bewaken van meerdere CSP-klanten](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

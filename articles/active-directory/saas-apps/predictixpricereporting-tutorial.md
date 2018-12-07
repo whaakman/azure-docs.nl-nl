@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c8708de847e1aeb6e460000c1517078512ec439b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a7b6122638636193b363d0ac57aae22a9c7da57a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838341"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Zelfstudie: Azure Active Directory-integratie met Predictix prijs rapportage
 
@@ -113,6 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
+    
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |

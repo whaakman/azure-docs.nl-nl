@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: adc97da12d1a55dd3dcf435fc8051a8eb9b537a9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968183"
+ms.locfileid: "52995645"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Logische apps controleren met Azure Log Analytics
 
@@ -23,7 +23,7 @@ Inschakelen om te controleren en uitgebreidere foutopsporing meer informatie ove
 Als u wilt inschakelen op Azure Log Analytics voor bestaande logische apps, volgt u deze stappen voor het [Diagnostische logboekregistratie inschakelen en de logische app runtime-gegevens verzenden naar Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
+> Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../azure-monitor/platform/oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
 
 ## <a name="prerequisites"></a>Vereisten
 

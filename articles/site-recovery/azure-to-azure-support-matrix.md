@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: a7d498349342e34cb56f031bfe1440e01e79173b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2906f6dff84cdd6a09c05734988ee005a3d65aac
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841843"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994643"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -40,7 +40,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 **Virtuele machines migreren tussen regio's binnen de ondersteunde geografische clusters (binnen en tussen abonnementen)** | Ondersteund binnen dezelfde Azure Active Directory-tenant.
 **Migreren van VM's binnen dezelfde regio** | Wordt niet ondersteund.
 
-# <a name="region-support"></a>Ondersteuning voor regio
+## <a name="region-support"></a>Ondersteuning voor regio
 
 U kunt repliceren en herstellen van virtuele machines tussen elke twee regio's binnen hetzelfde geografische cluster.
 
@@ -62,11 +62,10 @@ China | China-Oost, China-Noord
 
 Deze tabel bevat een overzicht van ondersteuning voor de cache-opslagaccount gebruikt door Site Recovery tijdens de replicatie.
 
-**Instelling** | **Details**
---- | ---
+**Instelling** | **Ondersteuning** | **Details**
+--- | --- | ---
 Algemeen gebruik V2 storage-accounts (warme en koude laag) | Wordt niet ondersteund. | De beperking bestaat voor cacheopslag omdat transactiekosten voor V2 aanzienlijk hoger is dan V1-opslagaccounts zijn.
-Azure Storage-firewalls voor virtuele netwerken  | Nee | Toestaan van toegang tot specifieke Azure-netwerken op cacheopslagaccounts gebruikt voor het opslaan van gerepliceerde gegevens wordt niet ondersteund.
-
+Azure Storage-firewalls voor virtuele netwerken  | Ondersteund | Als u cacheopslagaccount firewall is ingeschakeld of doel-opslagaccount gebruikt, controleert u of u ['Vertrouwde Microsoft-services toestaan'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## <a name="replicated-machine-operating-systems"></a>Gerepliceerde machine-besturingssystemen
@@ -145,7 +144,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default n
 --- | --- | ---
 Grootte | Elke Azure-VM-grootte met ten minste 2 CPU-kernen en 1 GB RAM-geheugen | Controleer of [Azure VM-groottes](../virtual-machines/windows/sizes.md).
 Beschikbaarheidssets | Ondersteund | Als u replicatie voor een Azure VM met de standaardopties inschakelt, wordt een beschikbaarheidsset op basis van de bron regio-instellingen automatisch gemaakt. U kunt deze instellingen wijzigen.
-Beschikbaarheidszones | Niet ondersteund | Virtuele machines die worden geïmplementeerd in beschikbaarheidszones op dit moment niet te repliceren.
+Beschikbaarheidszones | Ondersteund |  
 Hybrid Use Benefit (HUB) | Ondersteund | Als de bron-VM een HUB-licentie ingeschakeld, een testfailover heeft of failover gebruikt VM ook de HUB-licentie.
 Schaalsets van virtuele machines | Niet ondersteund |
 Installatiekopieën van Azure-galerie - Microsoft gepubliceerd | Ondersteund | Als de virtuele machine wordt uitgevoerd op een ondersteund besturingssysteem wordt ondersteund.
@@ -194,7 +193,7 @@ GRS | Ondersteund |
 RA-GRS | Ondersteund |
 ZRS | Niet ondersteund |  
 Opslag van koude en warme | Niet ondersteund | Schijven van virtuele machines worden niet ondersteund op de opslag van koude en warme
-Azure Storage-firewalls voor virtuele netwerken  | Ja | Zorg ervoor dat de vertrouwde Microsoft-services toegang hebben tot het opslagaccount als beperking van toegang tot het virtuele netwerk naar storage-accounts.
+Azure Storage-firewalls voor virtuele netwerken  | Ondersteund | Als u zijn beperken van toegang tot het virtuele netwerk voor storage-accounts, controleert u of u ['Vertrouwde Microsoft-services toestaan'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Opslagaccounts voor algemeen gebruik V2 (zowel warme en koude laag) | Nee | Toename van de transactie kosten vergeleken aanzienlijk met algemeen gebruik V1-opslagaccounts
 
 >[!IMPORTANT]
