@@ -7,14 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4768fbb845eb09e8aa3469dc2c4c29c4a323d662
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240629"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017301"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Java
 
@@ -44,11 +45,11 @@ Voor het gebruik van EventProcessorHost, hebt u een [Azure Storage-account][Azur
 1. Meld u aan bij de [Azure-portal][Azure portal], en klikt u op **+ een resource maken** aan de linkerkant van het scherm.
 2. Klik op **Opslag** en klik vervolgens op **Opslagaccount**. In de **storage-account maken** venster, typ een naam voor het opslagaccount. Voltooi de rest van de velden, selecteer de gewenste regio en klik vervolgens op **maken**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Een opslagaccount maken](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Klik op het zojuist gemaakte opslagaccount en klik vervolgens op **toegangssleutels**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Toegangssleutel ophalen](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Kopieer de key1-waarde naar een tijdelijke locatie. U gaat deze verderop in de zelfstudie gebruiken.
 
@@ -277,7 +278,7 @@ Maken van een klasse die de interface com.microsoft.azure.eventprocessorhost.ICh
 
 Gebruik van uw aangepaste implementatie van de manager van het controlepunt (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-In uw implementatie, kunt u het standaardmechanisme voor het plaatsen van controlepunten overschrijven en implementeren van onze eigen controlepunten op basis van uw eigen gegevensarchief (SQL Server, cosmos DB, Redis Cache enzovoort). U wordt aangeraden dat de store gebruikt voor het back-ups maken uw manager-implementatie van het controlepunt is toegankelijk voor alle EPH-exemplaren die zijn verwerking van gebeurtenissen voor de consumergroep.
+In uw implementatie, kunt u het standaardmechanisme voor het plaatsen van controlepunten overschrijven en implementeren van onze eigen controlepunten op basis van uw eigen gegevensarchief (SQL Server, CosmosDB, Azure Cache voor Redis enzovoort). U wordt aangeraden dat de store gebruikt voor het back-ups maken uw manager-implementatie van het controlepunt is toegankelijk voor alle EPH-exemplaren die zijn verwerking van gebeurtenissen voor de consumergroep.
 
 U kunt een gegevensopslag die beschikbaar is in uw omgeving.
 

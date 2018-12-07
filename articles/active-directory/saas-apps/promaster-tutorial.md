@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506680"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Zelfstudie: Azure Active Directory-integratie met ProMaster (door Inlogik)
 
@@ -33,7 +33,7 @@ ProMaster (door Inlogik) integreren met Azure AD biedt u de volgende voordelen:
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met ProMaster (door Inlogik), moet u de volgende items:
 
@@ -62,7 +62,7 @@ Voor het configureren van de integratie van ProMaster (door Inlogik) in Azure AD
 
 **Als u wilt toevoegen ProMaster (door Inlogik) uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
@@ -111,6 +111,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![ProMaster (door Inlogik)-domein en URL's, eenmalige aanmelding informatie](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. In de **id** tekstvak, gebruik een van de volgende URL-patroon:
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | |
 
     b. In de **antwoord-URL** tekstvak, gebruik een van de volgende URL-patroon:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![ProMaster (door Inlogik)-domein en URL's, eenmalige aanmelding informatie](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     In de **aanmeldings-URL** tekstvak, gebruik een van de volgende URL-patroon:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>Maak een testgebruiker ProMaster (door Inlogik)
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in ProMaster (door Inlogik). Werken met [ProMaster (door Inlogik)-ondersteuningsteam](mailto:michael.boldiston@inlogik.com) om toe te voegen de gebruikers in het platform ProMaster (door Inlogik). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in ProMaster (door Inlogik). Werken met [ProMaster (door Inlogik)-ondersteuningsteam](mailto:michael.boldiston@inlogik.com) om toe te voegen de gebruikers in het platform ProMaster (door Inlogik). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -221,7 +224,7 @@ In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met 
 Wanneer u op de tegel ProMaster (door Inlogik) in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing ProMaster (door Inlogik).
 Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

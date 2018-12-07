@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388305"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017096"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Richtlijnen voor vertrouwde verbindingen via Internet
 
@@ -157,7 +157,7 @@ Services die ondersteuning bieden voor implementatie van toegewezen instanties i
 |Azure Active Directory                | Algemene beschikbaarheid               |
 |Azure Batch                           | Algemene beschikbaarheid               |
 |App Service-omgeving               | Algemene beschikbaarheid               |
-|Azure Redis-cache                     | Algemene beschikbaarheid               |
+|Azure Cache voor Redis                     | Algemene beschikbaarheid               |
 |Azure HDInsight                       | Algemene beschikbaarheid               |
 |Schaalset voor virtuele machines             | Algemene beschikbaarheid               |
 |Azure Cloud Services                  | Algemene beschikbaarheid               |
@@ -263,7 +263,7 @@ U kunt eenvoudig toegang tot Microsoft Azure, Office 365 en Dynamics 365 om te v
 | Database | Azure Database for PostgreSQL | | | Ja |
 | Database | Azure SQL Data Warehouse | | | Ja |
 | Database | Azure Cosmos DB | | | Ja |
-| Database | Azure Redis-cache | | Ja | |
+| Database | Azure Cache voor Redis | | Ja | |
 | Storage | Azure Blob Storage | Ja | | |
 | Storage | Azure Files | Ja | | |
 | Storage | Azure Queue storage | Ja | | |

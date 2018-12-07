@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: c1fd0f462a3eb960e27b002f4f7c940a6bf978c8
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2511a608a74a04314b5fd56a55f4ae93ca0e2978
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620571"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017471"
 ---
 # <a name="api-management-caching-policies"></a>Cachebeleidsregels van API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -104,7 +104,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Naam|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |opzoeken van de cache|Root-element.|Ja|  
 |afhankelijk van koptekst|Start in cache opslaan van antwoorden per waarde van de opgegeven header, zoals accepteren, accepteren-tekenset, Accept-Encoding, Accept-taal, autorisatie, verwachte, van de Host, If-Match.|Nee|  
@@ -112,10 +112,10 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="attributes"></a>Kenmerken  
   
-| Naam                           | Beschrijving                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
+| Name                           | Description                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | toestaan-privé-reactie-caching | Als de waarde `true`, kunt opslaan in cache van aanvragen die een autorisatie-header bevatten.                                                                                                                                                                                                                                                                        | Nee       | false             |
-| cache-voorkeur               | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Redis-cache in Azure API Management gebruiken](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
+| cache-voorkeur               | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Azure-Cache gebruiken voor Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
 | downstream-caching-type        | Dit kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -geen - downstream opslaan in cache is niet toegestaan.<br />-persoonlijke - downstream in een privécache is toegestaan.<br />-openbare - persoonlijke en gedeelde downstream opslaan in cache is toegestaan.                                                                                                          | Nee       | geen              |
 | moet revalidate                | Als downstream opslaan in cache is ingeschakeld. dit kenmerk schakelt in of uit de `must-revalidate` cache-control instructie in antwoorden van een gateway.                                                                                                                                                                                                                      | Nee       | true              |
 | door ontwikkelaars verschillen              | Ingesteld op `true` aan reacties van cache per ontwikkelaarssleutel.                                                                                                                                                                                                                                                                                                         | Ja      |                   |
@@ -183,13 +183,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Naam|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |cache-store|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-| Naam             | Beschrijving                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
+| Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duur         | Time-to-live van de vermeldingen in de cache in seconden opgegeven.                                                                                                                                                                                                                                                                                                   | Ja      | N/A               |  
 
@@ -226,15 +226,15 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Naam|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |cache-lookup-waarde|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-| Naam             | Beschrijving                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
+| Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-voorkeur | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Redis-cache in Azure API Management gebruiken](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
+| cache-voorkeur | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Azure-Cache gebruiken voor Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
 | standaardwaarde:    | Een waarde die wordt toegewezen aan de variabele als de sleutel opzoeken van de cache heeft geresulteerd in een ontbreekt. Als dit kenmerk niet opgegeven is, `null` is toegewezen.                                                                                                                                                                                                           | Nee       | `null`            |
 | sleutel              | Waarde van de sleutel te gebruiken in de zoekopdracht in de cache.                                                                                                                                                                                                                                                                                                                       | Ja      | N/A               |
 | naam van de variabele    | Naam van de [contextvariabele](api-management-policy-expressions.md#ContextVariables) de looked van waarde wordt toegewezen aan, als de zoekopdracht is geslaagd. Als lookup in een ontbreekt resulteert, de variabele wordt toegewezen aan de waarde van de `default-value` kenmerk of `null`, als de `default-value` kenmerk wordt weggelaten.                                       | Ja      | N/A               |  
@@ -269,15 +269,15 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Naam|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |cache-store-waarde|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-| Naam             | Beschrijving                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
+| Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-voorkeur | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Redis-cache in Azure API Management gebruiken](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
+| cache-voorkeur | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Azure-Cache gebruiken voor Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
 | duur         | Waarde wordt in de cache worden opgeslagen voor de waarde voor de opgegeven duur, in seconden opgegeven.                                                                                                                                                                                                                                                                                 | Ja      | N/A               |
 | sleutel              | De waarde van de cache-sleutel worden opgeslagen onder.                                                                                                                                                                                                                                                                                                                   | Ja      | N/A               |
 | waarde            | De waarde in de cache opgeslagen.                                                                                                                                                                                                                                                                                                                                     | Ja      | N/A               |
@@ -309,15 +309,15 @@ De `cache-remove-value` Hiermee verwijdert u een item in de cache is geïdentifi
   
 #### <a name="elements"></a>Elementen  
   
-|Naam|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |cache-remove-waarde|Root-element.|Ja|  
   
 #### <a name="attributes"></a>Kenmerken  
   
-| Naam             | Beschrijving                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
+| Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Vereist | Standaard           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-voorkeur | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Redis-cache in Azure API Management gebruiken](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
+| cache-voorkeur | Kiezen uit de volgende waarden van het kenmerk:<br />- `internal` de ingebouwde API Management-cache gebruiken<br />- `external` de externe-cache gebruiken, zoals beschreven in [een externe Azure-Cache gebruiken voor Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` om te gebruiken externe cache als geconfigureerd of de interne cache anders. | Nee       | `prefer-external` |
 | sleutel              | De sleutel van de eerder in de cache waarde die moet worden verwijderd uit de cache.                                                                                                                                                                                                                                                                                        | Ja      | N/A               |
   
 #### <a name="usage"></a>Gebruik  

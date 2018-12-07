@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc1ca468545dc3a715fb11dbec459e14e60ade5b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590532"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017770"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager-sjablonen voor de consistentie van de cloud ontwikkelen
 
@@ -434,7 +434,7 @@ Resources kunnen verwijzingen naar andere services zijn op het platform. Een ope
 De volgende twee voorbeelden zijn algemene eindpunt naamruimten die expliciet worden opgegeven moeten bij het maken van een resource:
 
 * Storage-accounts (blob, wachtrij, tabel en bestand)
-* Verbindingsreeksen voor databases en Redis Cache
+* Verbindingsreeksen voor databases en Azure voor Redis-Cache
 
 Eindpunt-naamruimten kan ook worden gebruikt in de uitvoer van een sjabloon als informatie voor de gebruiker wanneer de implementatie is voltooid. Hier volgen algemene voorbeelden:
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f585a9d89418f15d9e5c08ae36b70791eca54219
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684219"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017147"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -124,21 +124,21 @@ Er zijn twee acties die zijn gedefinieerd in de werkstroom. De actie start voor 
 De RunHiveScript heeft meerdere variabelen. U kunt de waarden doorgeven bij het verzenden van de taak Oozie vanaf uw werkstation met behulp van Azure PowerShell.
 
 <table border = "1">
-<tr><th>Werkstroomvariabelen voor de</th><th>Beschrijving</th></tr>
+<tr><th>Werkstroomvariabelen voor de</th><th>Description</th></tr>
 <tr><td>${jobTracker}</td><td>Hiermee geeft u de URL van het beheer van Hadoop-taak. Gebruik <strong>jobtrackerhost:9010</strong> in HDInsight versie 3.0 en 2.1.</td></tr>
 <tr><td>${nameNode}</td><td>Hiermee geeft u de URL van het knooppunt van de naam van Hadoop. Het bestand system standaardadres gebruiken, bijvoorbeeld <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Hiermee geeft u de naam van de wachtrij die de taak wordt verzonden naar. Gebruik de <strong>standaard</strong>.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Hive-takenreeksbewerkingsvariabele</th><th>Beschrijving</th></tr>
+<tr><th>Hive-takenreeksbewerkingsvariabele</th><th>Description</th></tr>
 <tr><td>${hiveDataFolder}</td><td>Hiermee geeft u de bronmap voor de opdracht Create Table Hive.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Hiermee geeft u de map voor uitvoer voor de instructie INSERT OVERSCHRIJVEN.</td></tr>
 <tr><td>${hiveTableName}</td><td>Hiermee geeft u de naam van de Hive-tabel die verwijst naar de log4j-gegevensbestanden.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Sqoop takenreeksbewerkingsvariabele</th><th>Beschrijving</th></tr>
+<tr><th>Sqoop takenreeksbewerkingsvariabele</th><th>Description</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Hiermee geeft u de verbindingsreeks van de Azure SQL-database.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>Hiermee geeft u de waar de gegevens worden geëxporteerd naar Azure SQL-databasetabel.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Hiermee geeft u de map voor uitvoer voor de instructie Hive invoegen OVERSCHRIJVEN. Dit is dezelfde map voor het exporteren met Sqoop (export-dir).</td></tr>
@@ -657,13 +657,13 @@ In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u k
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
+[powershell-download]: https://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png  

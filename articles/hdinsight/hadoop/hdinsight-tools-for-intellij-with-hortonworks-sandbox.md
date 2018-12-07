@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2f09bd7055b987a8647a24d4ebb6ea5a27888a53
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 56747179c69e6495e9a764f81e0827e29cb077e6
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015584"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017403"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken
 
-Informatie over het gebruik van HDInsight-hulpprogramma's voor IntelliJ Apache Scala-toepassingen ontwikkelen en testen klikt u vervolgens de toepassingen op [Hortonworks Sandbox](http://hortonworks.com/products/sandbox/) op uw computer uitgevoerd. 
+Informatie over het gebruik van HDInsight-hulpprogramma's voor IntelliJ Apache Scala-toepassingen ontwikkelen en testen klikt u vervolgens de toepassingen op [Hortonworks Sandbox](https://hortonworks.com/products/sandbox/) op uw computer uitgevoerd. 
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) is een geïntegreerde ontwikkelomgeving (IDE) van Java voor het ontwikkelen van computersoftware. Als u ontwikkelt en uw toepassingen op Hortonworks Sandbox test, kunt u de toepassingen te verplaatsen [Azure HDInsight](apache-hadoop-introduction.md).
 
@@ -29,7 +29,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 
 - Hortonworks Data Platform (HDP) 2.4 op Hortonworks Sandbox wordt uitgevoerd op uw lokale computer. Als u HDP instelt, Zie [aan de slag in de Hadoop-ecosysteem met een Hadoop-sandbox op een virtuele machine](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
-    > HDInsight-hulpprogramma's voor IntelliJ is getest met HDP 2.4. Als u HDP 2.4, vouw **Hortonworks sandbox-archief** op de [Hortonworks Sandbox downloads site](http://hortonworks.com/downloads/#sandbox).
+    > HDInsight-hulpprogramma's voor IntelliJ is getest met HDP 2.4. Als u HDP 2.4, vouw **Hortonworks sandbox-archief** op de [Hortonworks Sandbox downloads site](https://hortonworks.com/downloads/#sandbox).
 
 - [Java Developer Kit (JDK) versie 1.8 of hoger](https://aka.ms/azure-jdks). Azure Toolkit voor IntelliJ vereist JDK.
 

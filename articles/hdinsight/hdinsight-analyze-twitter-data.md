@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85bd9e93fbd4c5ab5c0d2388d19334bc2cd3cb9e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8782db64a39ab3994c4689e7f809005c20c6dacd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497524"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017454"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Twitter-gegevens met behulp van Apache Hive in HDInsight analyseren
 Sociale websites vormen een van de belangrijkste drijvende krachten voor acceptatie van big data. Openbare API's die worden geleverd door sites zoals Twitter zijn een handige bron van de gegevens voor het analyseren en inzicht krijgen in populaire trends.
@@ -51,7 +51,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 
 De volgende tabel bevat de bestanden die in deze zelfstudie worden gebruikt:
 
-| Bestanden | Beschrijving |
+| Bestanden | Description |
 | --- | --- |
 | /tutorials/Twitter/Data/tweets.txt |De brongegevens voor de Hive-taak. |
 | /tutorials/Twitter/output |De map voor uitvoer voor de Hive-taak. Standaard Hive-Taaknaam van het uitvoerbestand is **000000_0**. |
@@ -78,8 +78,8 @@ De eerste stap voor het gebruik van OAuth is het maken van een nieuwe toepassing
 
    | Veld | Waarde |
    | --- | --- |
-   |  Naam |MyHDInsightApp |
-   |  Beschrijving |MyHDInsightApp |
+   |  Name |MyHDInsightApp |
+   |  Description |MyHDInsightApp |
    |  Website |http://www.myhdinsightapp.com |
 4. Controleer **Ja, ik ga akkoord**, en klik vervolgens op **uw Twitter-toepassing maken**.
 5. Klik op de **machtigingen** tabblad. Standaard de machtiging is **alleen-lezen**. Dit is voldoende voor deze zelfstudie.
@@ -226,7 +226,7 @@ In deze zelfstudie, kunt u Windows PowerShell gebruiken om de webservice aanroep
 
 3. Stel de eerste vijf tot acht variabelen in het script:
 
-    Variabele|Beschrijving
+    Variabele|Description
     ---|---
     $clusterName|Dit is de naam van het HDInsight-cluster waar u de toepassing uit te voeren.
     $oauth_consumer_key|Dit is de Twitter-toepassing **consumer key** u opgeschreven eerder tijdens het maken van de Twitter-toepassing.
@@ -435,7 +435,7 @@ Het HiveQL-script wordt het volgende doen:
 
 3. Hiermee stelt u de eerste twee variabelen in het script:
 
-   | Variabele | Beschrijving |
+   | Variabele | Description |
    | --- | --- |
    |  $clusterName |Voer de naam van het HDInsight-cluster waar u de toepassing uit te voeren. |
    |  $subscriptionID |Voer uw Azure-abonnement-ID. |
@@ -544,16 +544,16 @@ In deze zelfstudie hebben we gezien hoe u een niet-gestructureerde JSON-gegevens
 * [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
 [twitter-streaming-api]: https://developer.twitter.com/en/docs/api-reference-index
 [twitter-statuses-filter]: https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md

@@ -4,19 +4,19 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 2c96604093542c2697c691ad8fb8bf11e77e2d0b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 0e0d0586a253b3e0a73637fda2150a9b6d1351b6
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572020"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53019783"
 ---
-Voor het maken van een premium-cache, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en klikt u op **een resource maken** > **Databases** > **Redis-Cache** .
+Voor het maken van een premium-cache, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en klikt u op **een resource maken** > **Databases** > **Azure Cache voor Redis**.
 
 ![Cache maken](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> U kunt caches niet alleen in Azure Portal maken. U kunt ze ook maken met Resource Manager-sjablonen, PowerShell of Azure CLI. Voor meer informatie over het maken van een Azure Redis Cache raadpleegt u [Een cache maken](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> U kunt caches niet alleen in Azure Portal maken. U kunt ze ook maken met Resource Manager-sjablonen, PowerShell of Azure CLI. Zie voor meer informatie over het maken van een Azure-Cache van Azure voor Redis [een cache maken](../articles/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 

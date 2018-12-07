@@ -8,22 +8,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 27d4ad03e4a7f911fe3c9981618337a2fff51317
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: dcd7b58e2c1f4d6e556515ad7db778f2989588b9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114614"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017420"
 ---
-# <a name="how-to-train-pytorch-models"></a>Hoe PyTorch-modellen kunt trainen
+# <a name="pytorch-models-with-azure-machine-learning-service"></a>PyTorch-modellen met Azure Machine Learning-service
 
 Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van PyTorch, een aangepaste `PyTorch` klasse van de `Estimator`. De Azure SDK `PyTorch` estimator kunt u eenvoudig indienen PyTorch trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen.
 
 ## <a name="single-node-training"></a>Training voor één knooppunt
 Training met de `PyTorch` estimator is vergelijkbaar met de [basis `Estimator` ](how-to-train-ml-models.md), dus eerst Lees het artikel met instructies en zorg ervoor dat u er de concepten begrijpen.
   
-Als u wilt een PyTorch-taak uitvoert, instantiëren een `PyTorch` object. U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#batch) object `compute_target` en uw [gegevensopslag](how-to-access-data.md) object `ds`.
+Als u wilt een PyTorch-taak uitvoert, instantiëren een `PyTorch` object. U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#amlcompute) object `compute_target` en uw [gegevensopslag](how-to-access-data.md) object `ds`.
 
 ```Python
 from azureml.train.dnn import PyTorch
@@ -40,11 +41,11 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Hier geeft u de volgende parameters voor de PyTorch-constructor:
-Parameter | Beschrijving
+Parameter | Description
 --|--
 `source_directory` |  Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute
 `script_params` |  Woordenlijst voor de opdrachtregelargumenten voor uw trainingsscript op te geven `entry_script`, in de vorm van < opdrachtregelargument, waarde > paren
-`compute_target` |  Externe compute die uw trainingsscript uitgevoerd op, in dit geval een [Batch AI](how-to-set-up-training-targets.md#batch) cluster
+`compute_target` |  Externe compute-doel dat uw trainingsscript wordt uitgevoerd op, in dit geval een Azure Machine Learning-Computing ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` |  FilePath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele aanvullende bestanden dat hangt ervan af, moeten zich bevinden in deze map
 `conda_packages` |  Lijst met Python-pakketten worden geïnstalleerd via conda die nodig zijn voor uw trainingsscript. De constructor heeft een andere parameter met de naam `pip_packages` die u kunt gebruiken voor een pip-pakketten die nodig zijn
 `use_gpu` |  Deze vlag ingesteld op `True` gebruikmaken van de GPU voor training. Standaard ingesteld op `False`
@@ -80,7 +81,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Deze code wordt aangegeven dat de volgende nieuwe parameters voor de PyTorch-constructor:
-Parameter | Beschrijving | Standaard
+Parameter | Description | Standaard
 --|--|--
 `node_count` |  Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
 `process_count_per_node` |  Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt. | `1`
@@ -100,13 +101,9 @@ run = exp.submit(pt_est)
 ```
 
 ## <a name="examples"></a>Voorbeelden
-Zie voor een zelfstudie op één knooppunt PyTorch training:
-* [training/01.Train-hyperparameter-Tune-Deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/01.train-hyperparameter-tune-deploy-with-pytorch)
 
-Voor een zelfstudie over gedistribueerde PyTorch met Horovod, Zie:
-* [training/02.distributed-pytorch-met-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
-
-Deze laptops ophalen:
+Voor laptops op gedistribueerde deep learning, Zie:
+* [How-to-use-azureml/training-with-deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

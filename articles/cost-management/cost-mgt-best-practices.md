@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273796"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017685"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Over het optimaliseren van uw investeringen in de cloud met Azure Cost Management
 
@@ -140,7 +140,7 @@ Zie voor meer informatie, [analysis kosten](quick-acm-cost-analysis.md).
 
 ### <a name="export-billing-data-on-a-schedule"></a>Factureringsgegevens volgens een schema exporteren
 
-Wilt u uw factureringsgegevens importeren in een extern systeem, zoals een dashboard of financiële systeem? U kunt automatische rapporten dagelijks om te voorkomen dat handmatig downloaden bestanden maandelijks plannen. En u kunt facturering gegevens exporteren naar een Azure storage-account en ontvang een melding met behulp van [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md). Vervolgens kunt u uw Azure-gegevens te combineren met aangepaste gegevens die u in uw eigen systemen kunt gebruiken.
+Wilt u uw factureringsgegevens importeren in een extern systeem, zoals een dashboard of financiële systeem? Instellen van geautomatiseerde export naar Azure Storage en te voorkomen dat bestanden handmatig elke maand te downloaden. U kunt vervolgens gemakkelijk instellen automatische integratie met andere systemen aan uw factureringsgegevens gesynchroniseerd houden.
 
 Zie voor meer informatie over het exporteren van factureringsgegevens [maken en beheren van de geëxporteerde gegevens](tutorial-export-acm-data.md).
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 45a5e4c895a0c7a8f76bb34aa5aaf22fa31f4333
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 07ea61ffe3ffc17cd255b826e3506ffe2b1ce9cd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864856"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017719"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecteer en gebruik een compute-doel aan uw model te trainen
 
@@ -139,7 +139,8 @@ U kunt Azure Machine Learning-Computing op aanvraag maken bij het plannen van ee
 
 U kunt Azure Machine Learning-Computing maken als een compute-doel tijdens de uitvoering. In dit geval de rekenresources voor uw uitvoering, schaalbaar tot max_nodes die u in de configuratie uitvoeren opgeeft, wordt automatisch gemaakt en wordt vervolgens __automatisch verwijderd__ nadat de uitvoering is voltooid.
 
-Deze functionaliteit is momenteel beschikbaar als Preview en werkt niet met Hyperparameter afstemmen of Machine Learning geautomatiseerde taken.
+> [!IMPORTANT]
+> Uitvoeren op basis van het maken van Azure Machine Learning-Computing is momenteel beschikbaar als Preview. Gebruik niet maken op basis van een uitvoeren als u Hyperparameter afstemmen of geautomatiseerde Machine Learning. Als u nodig hebt om Hyperparameter afstemmen of geautomatiseerde Machine Learning te gebruiken, maakt u de Azure Machine Learning-compute vóór het indienen van een uitvoering.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute

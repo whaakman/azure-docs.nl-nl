@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3da4ecb1193959fcc8782f8aa5fdf32c130ee238
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840143"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016688"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook starten met een webhook
 
@@ -27,11 +27,11 @@ U kunt vergelijken webhooks voor andere methoden voor het starten van een runboo
 
 De volgende tabel beschrijft de eigenschappen die u voor een webhook configureren moet.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
-| Naam |U kunt een willekeurige naam die u wilt gebruiken voor een webhook omdat deze geen toegang heeft tot de client opgeven. Dit wordt alleen gebruikt voor u om te identificeren van het runbook in Azure Automation. <br> Als een best practice, moet u de webhook geeft een naam die betrekking hebben op de client die wordt gebruikt. |
+| Name |U kunt een willekeurige naam die u wilt gebruiken voor een webhook omdat deze geen toegang heeft tot de client opgeven. Dit wordt alleen gebruikt voor u om te identificeren van het runbook in Azure Automation. <br> Als een best practice, moet u de webhook geeft een naam die betrekking hebben op de client die wordt gebruikt. |
 | URL |De URL van de webhook is het unieke adres waarmee een client wordt aangeroepen met een HTTP POST naar het runbook dat is gekoppeld aan de webhook starten. Er wordt automatisch gegenereerd bij het maken van de webhook. U kunt een aangepaste URL niet opgeven. <br> <br> De URL bevat een beveiligingstoken waarmee het runbook worden aangeroepen door een derde partij zonder verdere verificatie. Daarom moet deze worden behandeld als een wachtwoord. Uit veiligheidsoverwegingen kunt u alleen de URL in de Azure-portal weergeven op het moment dat de webhook wordt gemaakt. Houd er rekening mee de URL op een veilige locatie op voor toekomstig gebruik. |
-| Verloopdatum |Als een certificaat heeft elke webhook een vervaldatum die op dat moment deze kan niet meer worden gebruikt. Deze datum van afloop voor kan worden gewijzigd nadat de webhook wordt gemaakt. |
+| Verloopdatum |Als een certificaat heeft elke webhook een vervaldatum die op dat moment deze kan niet meer worden gebruikt. Deze datum van afloop voor kan worden gewijzigd nadat de webhook wordt gemaakt, zolang de webhook niet is verlopen. |
 | Ingeschakeld |Een webhook is standaard ingeschakeld wanneer deze wordt gemaakt. Als u dit op uitgeschakeld instellen, zijn er geen client is kunnen gebruiken. U kunt instellen dat de **ingeschakeld** eigenschap wanneer u de webhook of op elk gewenst moment nadat deze is gemaakt. |
 
 ### <a name="parameters"></a>Parameters
@@ -44,7 +44,7 @@ Wanneer een client wordt gestart voor een runbook met behulp van een webhook, ov
 
 De **$WebhookData** object heeft de volgende eigenschappen:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | WebhookName |De naam van de webhook. |
 | RequestHeader |Hash-tabel met de headers van de binnenkomende POST-aanvraag. |
@@ -107,7 +107,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 De client ontvangt een van de volgende retourcodes van de POST-aanvraag.
 
-| Code | Tekst | Beschrijving |
+| Code | Tekst | Description |
 |:--- |:--- |:--- |
 | 202 |Geaccepteerd |De aanvraag is geaccepteerd en het runbook is met succes in de wachtrij geplaatst. |
 | 400 |Onjuiste aanvraag |De aanvraag is niet geaccepteerd voor een van de volgende redenen: <ul> <li>De webhook is verlopen.</li> <li>De webhook is uitgeschakeld.</li> <li>Het token in de URL is ongeldig.</li>  </ul> |
@@ -121,6 +121,12 @@ Ervan uitgaande dat de aanvraag is geslaagd, bevat het antwoord voor webhook de 
 ```
 
 De client kan niet bepalen wanneer de runbooktaak is voltooid of de status van de voltooiing van de webhook. Kan het deze gegevens met behulp van de taak-ID met een andere methode zoals bepalen [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) of de [API van Azure Automation](/rest/api/automation/job).
+
+## <a name="renew-webhook"></a>Vernieuwen van een webhook
+
+Wanneer een webhook wordt gemaakt heeft een geldigheidsduur van één jaar. Na dat jaar tijd de webhook automatisch verloopt. Zodra een webhook is verlopen kunnen worden niet opnieuw worden geactiveerd, moet worden verwijderd en opnieuw gemaakt. Als de verlooptijd niet door een webhook is bereikt, kan deze kan worden uitgebreid.
+
+Als u wilt uitbreiden een webhook, gaat u naar het runbook dat de webhook bevat. Selecteer **Webhooks** onder **Resources**. Klik op de webhook die u wilt uitbreiden, Hiermee opent u de **Webhook** pagina.  Kies een nieuwe datum en tijd en klik op **opslaan**.
 
 ## <a name="sample-runbook"></a>Voorbeeldrunbook
 

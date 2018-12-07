@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 80a32335b8b9b89bdc5bf53cbed994d78a6ca81e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956431"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017600"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -92,7 +92,7 @@ In plaats van u zorgen te maken over het bouwen en beheren van een complete toep
 
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u eenvoudig te bouwen, verpakken, implementeren en beheren van schaalbare en betrouwbare microservices. Het biedt ook mogelijkheden voor uitgebreide Toepassingsbeheer voor het inrichten, implementeren, bewaken, upgraden/patchen en verwijderen van geïmplementeerde toepassingen. Apps die worden uitgevoerd op een gedeelde groep machines, kunnen klein beginnen en schaalt naar honderden of duizenden machines zo nodig.
 
-Service Fabric ondersteunt WebAPI met Open Web Interface voor .NET (OWIN) en ASP.NET Core. Het biedt SDK's voor het bouwen van services op Linux in zowel .NET Core als Java. Zie voor meer informatie over Service Fabric, de [leertraject voor Service Fabric](https://azure.microsoft.com/documentation/learning-paths/service-fabric/).
+Service Fabric ondersteunt WebAPI met Open Web Interface voor .NET (OWIN) en ASP.NET Core. Het biedt SDK's voor het bouwen van services op Linux in zowel .NET Core als Java. Zie voor meer informatie over Service Fabric, de [documentatie voor Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/).
 
 >**Wanneer u:** Service Fabric is een goede keuze wanneer u het maken van een toepassing of een bestaande toepassing voor het gebruik van een microservice-architectuur te herschrijven. Service Fabric gebruikt wanneer u meer controle over en directe toegang tot de onderliggende infrastructuur nodig hebt.
 
@@ -245,7 +245,7 @@ Services, zoals [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-Omvat het uitvoeren van uw app op Azure kunnen werken met meerdere Azure-services, die allemaal dezelfde levenscyclus volgen en kan worden beschouwd als een logische eenheid. Een web-app kan bijvoorbeeld Web-Apps, SQL-Database, Storage, Azure Redis-Cache en Azure Content Delivery Network services gebruiken. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) kunt u met de resources in uw toepassing als groep werken. U kunt implementeren, bijwerken of verwijderen van alle resources in een enkele, gecoördineerde bewerking.
+Omvat het uitvoeren van uw app op Azure kunnen werken met meerdere Azure-services, die allemaal dezelfde levenscyclus volgen en kan worden beschouwd als een logische eenheid. Bijvoorbeeld: een web-app Web-Apps, SQL-Database, Storage, Azure Cache kunt gebruiken voor Redis en Azure Content Delivery Network services. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) kunt u met de resources in uw toepassing als groep werken. U kunt implementeren, bijwerken of verwijderen van alle resources in een enkele, gecoördineerde bewerking.
 
 Azure Resource Manager bevat naast logisch groeperen en beheren van gerelateerde resources, implementatiemogelijkheden waarmee u de implementatie en configuratie van de gerelateerde resources aanpassen. U kunt met behulp van Resource Manager, bijvoorbeeld, implementeren en configureren van een toepassing die uit meerdere virtuele machines, een load balancer en een Azure SQL-database als één eenheid bestaat.
 

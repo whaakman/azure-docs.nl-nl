@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b632ef49f49768c86b7a7ce2efc601f036532a29
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629024"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017583"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java ondernemingsgids voor App Service onder Linux
 
@@ -27,17 +27,18 @@ Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-o
 
 ## <a name="scale-with-app-service"></a>Schaal met App Service 
 
-De toepassingsserver voor WildFly in App Service op Linux wordt uitgevoerd in de zelfstandige modus, niet in de domeinconfiguratie van een. 
+De toepassingsserver voor WildFly in App Service op Linux wordt uitgevoerd in de zelfstandige modus, niet in de domeinconfiguratie van een. Wanneer u het App Service-Plan uitschaalt, wordt elke instantie WildFly is geconfigureerd als een zelfstandige server.
 
- Uw toepassing horizontaal of verticaal schalen met [regels voor schalen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) en door [uw aantal instanties verhoogt](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Uw toepassing horizontaal of verticaal schalen met [regels voor schalen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) en door [uw aantal instanties verhoogt](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Configuratie van de toepassingsserver aanpassen
 
-Ontwikkelaars kunnen schrijven van een startup Bash-script voor het uitvoeren van aanvullende configuratie nodig is voor hun toepassing, zoals:
+Web-App-instanties zijn staatloos, zodat elke nieuw exemplaar gestart bij het opstarten voor de ondersteuning van de Wildfly-configuratie die nodig zijn voor de toepassing moet worden geconfigureerd.
+U kunt een opstartscript Bash-script voor het aanroepen van de CLI WildFly te schrijven:
 
 - Instellen van gegevensbronnen
 - Messaging-providers configureren
-- Andere modules en dependnecies toevoegen aan de configuratie van de Wildfly-server.
+- Andere modules en afhankelijkheden toevoegen aan de configuratie van de Wildfly.
 
  Het script wordt uitgevoerd wanneer Wildfly actief en werkend is, maar voordat de toepassing wordt gestart. Het script moet worden gebruikt de [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) aangeroepen vanuit `/opt/jboss/wildfly/bin/jboss-cli.sh` application server configureren met een configuratie- of wijzigingen nodig zijn nadat de server wordt gestart. 
 
@@ -51,7 +52,7 @@ Uploaden van het opstartscript naar `/home/site/deployments/tools` in uw App Ser
 
 Stel de **opstartscript** veld in de Azure-portal naar de locatie van uw shell opstartscript bijvoorbeeld `/home/site/deployments/tools/your-startup-script.sh`.
 
-Gebruik [toepassingsinstellingen](/azure/app-service/web-sites-configure#application-settings) om in te stellen van omgevingsvariabelen voor gebruik in het script. Deze instellingen beschikbaar worden gesteld aan de opstartomgeving script en verbindingsreeksen en andere geheimen buiten het versiebeheer houden.
+Geef [toepassingsinstellingen](/azure/app-service/web-sites-configure#application-settings) in de configuratie van de toepassing om door te geven van omgevingsvariabelen voor gebruik in het script. Toepassingsinstellingen houden en verbindingsreeksen en andere geheimen die nodig zijn voor het configureren van uw toepassing buiten-versiebeheer.
 
 ## <a name="modules-and-dependencies"></a>Modules en afhankelijkheden
 
@@ -102,7 +103,7 @@ Standaard App Service on Linux sessiecookies affiniteit wordt gebruikt om ervoor
 - Als een exemplaar van de toepassing opnieuw wordt opgestart of omlaag geschaald, wordt de status van de gebruiker-sessie in de toepassingsserver, gaan verloren.
 - Als toepassingen time-outinstellingen lang sessie of een vast aantal gebruikers hebt, duurt het even voordat autoscaled nieuwe exemplaren te ontvangen omdat alleen nieuwe sessies worden doorgestuurd naar de zojuist gestarte exemplaren.
 
-U kunt configureren dat Wildfly voor het gebruik van een externe sessie-store, zoals [Redis-Cache](/azure/redis-cache/). U moet [uitschakelen van de ARR-affiniteit voor bestaande exemplaar](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuratie van de sessie cookies op basis van routering uitgeschakeld en wordt de geconfigureerde Wildfly sessie store werken zonder tussenkomst toestaan.
+U kunt configureren dat Wildfly voor het gebruik van een externe sessie-store, zoals [Azure Cache voor Redis](/azure/azure-cache-for-redis/). U moet [uitschakelen van de ARR-affiniteit voor bestaande exemplaar](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuratie van de sessie cookies op basis van routering uitgeschakeld en wordt de geconfigureerde Wildfly sessie store werken zonder tussenkomst toestaan.
 
 ## <a name="enable-web-sockets"></a>Websockets inschakelen
 

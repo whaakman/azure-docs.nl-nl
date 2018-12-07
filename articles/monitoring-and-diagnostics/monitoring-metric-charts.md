@@ -5,25 +5,25 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/17/2017
+ms.date: 12/05/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: d1cfaadd06d20a0f57d75cd43d00040c9e44c429
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ff487fef9400803de0dba78352a1d29c5a71e6d2
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966021"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017916"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
 Azure Monitor Metrics Explorer is een onderdeel van de Microsoft Azure-portal die u kunt grafieken te tekenen, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics Explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services. 
 
-## <a name="what-are-metrics-in-azure"></a>Wat zijn metrische gegevens in Azure?
+## <a name="metrics-in-azure"></a>Metrische gegevens in Azure
 
 Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen die worden verzameld en opgeslagen na verloop van tijd. Er zijn metrische gegevens voor standard (of 'platform') en aangepaste metrische gegevens. De standaard metrische gegevens worden aan u vertrekt door de Azure-platform zelf. Standaard metrische gegevens weer de status en gebruik statistische gegevens van uw Azure-resources. Terwijl aangepaste metrische gegevens naar Azure worden verzonden door uw toepassingen met behulp van de [Application Insights-API voor aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Aangepaste metrische gegevens worden opgeslagen in de Application Insights-resources samen met andere specifieke metrische gegevens voor een toepassing.
 
-## <a name="how-do-i-create-a-new-chart"></a>Hoe kan ik een nieuwe grafiek maken?
+## <a name="create-a-new-chart"></a>Maak een nieuwe grafiek
 
 1. De Azure-portal openen
 2. Navigeer naar de nieuwe **Monitor** tabblad, en selecteer vervolgens **metrische gegevens**.
@@ -54,11 +54,11 @@ Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen di
    > [!NOTE]
    > Normaal gesproken u niet metrische gegevens met verschillende eenheden (dat wil zeggen "milliseconden" en 'kilobytes') of met aanmerkelijk verschillende schalen in een grafiek hebt. In plaats daarvan kunt u overwegen meerdere diagrammen. Klik op de knop grafiek toevoegen aan meerdere diagrammen maken in Metrics Explorer.
 
-## <a name="how-do-i-apply-filters-to-the-charts"></a>Hoe ik filters toepassen op de grafieken?
+## <a name="apply-filters-to-charts"></a>Filters toepassen op grafieken
 
 U kunt filters toepassen op de grafieken met metrische gegevens met dimensies. Bijvoorbeeld, als de metriek "Aantal transacties" een dimensie heeft, "reactietype', waarmee wordt aangegeven of het antwoord van transacties is geslaagd of mislukt vervolgens filteren op deze dimensie wilt tekenen regel in een grafiek voor alleen geslaagde (of alleen mislukt) transacties. 
 
-### <a name="to-add-a-filter"></a>Een filter toevoegen:
+### <a name="to-add-a-filter"></a>Een filter toevoegen
 
 1. Klik op het pictogram Filter toevoegen ![filterpictogram](./media/monitoring-metric-charts/icon002.png) boven de grafiek
 
@@ -76,11 +76,11 @@ U kunt filters toepassen op de grafieken met metrische gegevens met dimensies. B
 
 5. U kunt de stappen 1-4 meerdere filters toepassen op de dezelfde grafieken herhalen.
 
-## <a name="how-do-i-segment-a-chart"></a>Hoe ik een grafiek segment?
+## <a name="segment-a-chart"></a>Een grafiek in segmenten
 
 U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschillende segmenten van de metrische gegevens vergelijken ten opzichte van elkaar en identificeren van de afgelegen segmenten van een dimensie. 
 
-### <a name="to-segment-a-chart"></a>Een grafiek in segmenten:
+### <a name="to-segment-a-chart"></a>Een grafiek in segmenten
 
 1. Klik op het pictogram groepering toevoegen  ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/icon003.png) boven de grafiek.
  
@@ -100,7 +100,7 @@ U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschil
    > [!NOTE]
    > Gebruik zowel filteren en groeperen op dezelfde dimensie verborgen segmenten die zijn niet relevant voor uw scenario en grafieken gemakkelijker te lezen.
 
-## <a name="how-do-i-lock-lower-and-upper-boundaries-of-the-chart-y-axis"></a>Hoe ik de onderste en bovenste grenzen van de y-as voor de grafiek vergrendelen?
+## <a name="lock-boundaries-of-chart-y-axis"></a>Grenzen van de vergrendeling van grafiek y-as
 
 Vergrendeling van het bereik van de y-as wordt belangrijk wanneer de grafiek kleinere fluctuaties van hogere waarden toont. 
 
@@ -110,12 +110,12 @@ Een ander voorbeeld is een schommelingen in het beschikbare geheugen, waarbij de
 
 Gebruiken voor het beheren van de y-as-bereik, de '...' grafiek van menu en selecteer **grafiek bewerken** voor toegang tot geavanceerde grafiekinstellingen. Wijzig de waarden in de sectie y-as-bereik, of gebruik **automatisch** knop om terug te keren naar de standaardinstellingen.
 
-![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0013.png)
+![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0014-manually-set-granularity.png)
 
 > [!WARNING]
 > Vergrendelen van de grenzen van de y-as voor de grafieken die verschillende bijhouden telt of opgeteld gedurende een bepaalde tijd (en dus gebruik count, som, minimum of maximum aggregaties) moet u meestal een vaste tijdgranulatie op te geven in plaats van afhankelijk zijn van de automatische standaardwaarden. Dit is nodig omdat de waarden in grafieken wijzigen wanneer de tijdgranulatie wordt automatisch gewijzigd door de gebruiker vergroten of verkleinen browservenster of als een schermresolutie gaan. De resulterende wijzigen in tijd granulariteit effecten het uiterlijk van de grafiek, ongeldig huidige selectie van y-as-bereik.
 
-## <a name="how-do-i-pin-charts-to-dashboards"></a>Hoe ik grafieken aan dashboards vastmaken?
+## <a name="pin-charts-to-dashboards"></a>Grafieken vastmaken aan dashboards
 
 Na het configureren van de grafieken, kunt u deze toevoegen aan de dashboards, zodat u kunt opnieuw mogelijk in de context van andere bewaking telemetrie bekijken of met uw team delen. 
 
