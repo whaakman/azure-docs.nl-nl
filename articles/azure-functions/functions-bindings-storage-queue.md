@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e47233f075482b9ad00336ce1aaeae78465be2d5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 565b4c66c98d62fdcbd23f6446f522b810db1430
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248559"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999460"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -27,7 +27,7 @@ In dit artikel wordt uitgelegd hoe u werkt met Azure Queue storage-bindingen in 
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 
-De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-opslagplaats.
+De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -246,7 +246,7 @@ Het storage-account te gebruiken, wordt bepaald in de volgende volgorde:
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `QueueTrigger` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t.| Moet worden ingesteld op `queueTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction**| N.v.t. | In de *function.json* alleen het bestand. Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
@@ -273,7 +273,7 @@ Gebruik in JavaScript, `context.bindings.<name>` voor toegang tot de nettolading
 
 De wachtrijtrigger bevat diverse [metagegevenseigenschappen](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies in andere bindingen voor gegevensbinding of als parameters in uw code. Dit zijn de eigenschappen van de [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) klasse.
 
-|Eigenschap|Type|Beschrijving|
+|Eigenschap|Type|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Payload van de wachtrij (als een geldige tekenreeks). Als de wachtrij nettolading als een tekenreeks bericht, `QueueTrigger` heeft dezelfde waarde als de variabele met de naam van de `name` eigenschap in *function.json*.|
 |`DequeueCount`|`int`|Het aantal keren dat die dit bericht heeft zijn uit wachtrij verwijderd.|
@@ -502,7 +502,7 @@ U kunt de `StorageAccount` kenmerk om op te geven van de storage-account op het 
 
 De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand en de `Queue` kenmerk.
 
-|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|de eigenschap Function.JSON | De kenmerkeigenschap |Description|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op `queue`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
@@ -564,7 +564,7 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 ```  
 
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
 |maxPollingInterval|00:00:02|Het maximale interval tussen de wachtrij worden opgevraagd. Minimaal is 00:00:00.100 (100 ms). | 
 |visibilityTimeout|00:00:00|Het tijdsinterval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt. | 

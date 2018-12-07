@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 11e9099ba9008ead6583eaf30292cdec63475f02
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725400"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994257"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-apps
 
-Wanneer er een uitzondering optreedt, kunt u automatisch een momentopname voor foutopsporing verzamelen van uw live webtoepassing. De momentopname toont de status van de broncode en variabelen op het moment dat de uitzondering is opgetreden. De Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) bewaakt uitzonderingstelemetrie van uw web-app. Deze verzamelt momentopnamen op uw uitzonderingen boven activerende zodat u de informatie die u nodig hebt om problemen in de productieomgeving te diagnosticeren. Bevatten de [Snapshot collector NuGet-pakket](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in uw toepassing, en (optioneel) Configureer verzameling parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Momentopnamen worden weergegeven op [uitzonderingen](app-insights-asp-net-exceptions.md) in de Application Insights-portal.
+Wanneer er een uitzondering optreedt, kunt u automatisch een momentopname voor foutopsporing verzamelen van uw live webtoepassing. De momentopname toont de status van de broncode en variabelen op het moment dat de uitzondering is opgetreden. De Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) bewaakt uitzonderingstelemetrie van uw web-app. Deze verzamelt momentopnamen op uw uitzonderingen boven activerende zodat u de informatie die u nodig hebt om problemen in de productieomgeving te diagnosticeren. Bevatten de [Snapshot collector NuGet-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in uw toepassing, en (optioneel) Configureer verzameling parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Momentopnamen worden weergegeven op [uitzonderingen](app-insights-asp-net-exceptions.md) in de Application Insights-portal.
 
 U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Als u een krachtigere foutopsporing ervaring met de broncode, opent u momentopnamen met Visual Studio 2017 Enterprise. In Visual Studio, kunt u ook [Snappoints om interactief momentopnamen te instellen](https://aka.ms/snappoint) zonder te wachten op een uitzondering.
 
@@ -45,7 +45,7 @@ De volgende omgevingen worden ondersteund:
 
 1. [Application Insights inschakelen in uw web-app](app-insights-asp-net.md), als u dit nog niet hebt gedaan.
 
-2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
+2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
 3. Bekijk de standaardopties die het pakket wordt toegevoegd aan [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -91,7 +91,7 @@ De volgende omgevingen worden ondersteund:
     > [!NOTE]
     > Ervoor dat uw toepassing verwijst naar versie 2.1.1 of hoger, van het pakket Microsoft.ApplicationInsights.AspNetCore zijn.
 
-2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
+2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
 3. Wijzigen van uw toepassing `Startup` klasse die u wilt toevoegen en configureren van de Snapshot Collector telemetrie processor.
 
@@ -168,7 +168,7 @@ De volgende omgevingen worden ondersteund:
 
 1. Als uw toepassing is niet al zijn geïnstrumenteerd met Application Insights, aan de slag met [Application Insights inschakelen en het instellen van de instrumentatiesleutel](app-insights-windows-desktop.md).
 
-2. Voeg de [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
+2. Voeg de [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
 3. Momentopnamen worden verzameld alleen op uitzonderingen die worden gerapporteerd aan Application Insights. Mogelijk moet u uw code meldt deze wijzigen. De code van afhandelingsservice voor uitzondering, is afhankelijk van de structuur van uw toepassing, maar een voorbeeld is lager dan:
     ```csharp
@@ -225,7 +225,7 @@ Momentopnamen kunnen gevoelige gegevens bevatten, en standaard ze niet kan worde
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Fouten opsporen in momentopnamen met Visual Studio 2017 Enterprise
 1. Klik op de **momentopname downloaden** knop voor het downloaden van een `.diagsession` -bestand, dat kan worden geopend door Visual Studio 2017 Enterprise.
 
-2. Om te openen de `.diagsession` -bestand, moet u beschikken over de Snapshot Debugger VS zijn geïnstalleerd. De Snapshot Debugger-component is een vereist onderdeel van de ASP.net-werkbelasting in Visual Studio en kan worden geselecteerd in de lijst met afzonderlijke onderdelen in het installatieprogramma van Visual Studio. Als u met behulp van een eerdere versie van Visual Studio dan 15.5 moet u voor het installeren van de extensie van de [Visual Studio marketplace](http://aka.ms/snapshotdebugger).
+2. Om te openen de `.diagsession` -bestand, moet u beschikken over de Snapshot Debugger VS zijn geïnstalleerd. De Snapshot Debugger-component is een vereist onderdeel van de ASP.net-werkbelasting in Visual Studio en kan worden geselecteerd in de lijst met afzonderlijke onderdelen in het installatieprogramma van Visual Studio. Als u met behulp van een eerdere versie van Visual Studio dan 15.5 moet u voor het installeren van de extensie van de [Visual Studio marketplace](https://aka.ms/snapshotdebugger).
 
 3. Nadat u de momentopnamebestand opent, wordt de pagina Minidump foutopsporing in Visual Studio weergegeven. Klik op **fouten opsporen in beheerde Code** foutopsporing van de momentopname te starten. De momentopname wordt geopend aan de coderegel waar de uitzondering is opgetreden, zodat u kunt fouten opsporen in de huidige status van het proces.
 

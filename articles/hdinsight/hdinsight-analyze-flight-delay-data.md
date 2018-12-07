@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497745"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015871"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight
 [Apache Hive](https://hive.apache.org/) biedt een methode die wordt uitgevoerd [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) taken via een SQL-achtige taal met de naam *[HiveQL] [ hadoop-hiveql]*, die kunnen worden gebruikt voor het samenvatten, uitvoeren van query's en analyseren van grote hoeveelheden gegevens.
@@ -67,7 +67,7 @@ Als u weten hoe u get wilt/uploadt de gegevens naar uw eigen opslagaccount en ho
 De volgende tabel bevat de bestanden die in deze zelfstudie worden gebruikt:
 
 <table border="1">
-<tr><th>Bestanden</th><th>Beschrijving</th></tr>
+<tr><th>Bestanden</th><th>Description</th></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>De HiveQL-scriptbestand dat wordt gebruikt door de Hive-taak. Met dit script is geüpload naar een Azure Blob storage-account met de openbare toegang tot. <a href="#appendix-b">Bijlage B</a> bevat instructies voor het voorbereiden en dit bestand te uploaden naar uw eigen Azure Blob storage-account.</td></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>De invoergegevens voor de Hive-taak. De gegevens is naar een Azure Blob storage-account met de openbare toegang tot geüpload. <a href="#appendix-a">Bijlage A</a> bevat instructies voor ophalen van de gegevens en de gegevens uploaden naar uw eigen Azure Blob storage-account.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>Het uitvoerpad voor de Hive-taak. De standaardcontainer wordt gebruikt voor het opslaan van de uitvoergegevens.</td></tr>
@@ -721,9 +721,9 @@ Nu u begrijpt hoe u een bestand uploaden naar Azure Blob-opslag, hoe u een Apach
 * [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
 * [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

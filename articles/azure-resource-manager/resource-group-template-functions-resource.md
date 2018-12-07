@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 12/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6da2f7792df564ea3a41df37ab9b00574a205e5b
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 776a0e79a1098f46a04c846a8814d48c9fead5e3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219542"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999615"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Functies van de resource voor Azure Resource Manager-sjablonen
 
@@ -53,10 +53,10 @@ Retourneert de waarden voor elk resourcetype die ondersteuning biedt voor de lij
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName of resourceIdentifier |Ja |tekenreeks |De unieke id voor de resource. |
-| apiVersion |Ja |tekenreeks |API-versie van de runtimestatus van de resource. Normaal gesproken in de indeling, **jjjj-mm-dd**. |
+| resourceName of resourceIdentifier |Ja |string |De unieke id voor de resource. |
+| apiVersion |Ja |string |API-versie van de runtimestatus van de resource. Normaal gesproken in de indeling, **jjjj-mm-dd**. |
 | functionValues |Nee |object | Een object met waarden voor de functie. Geef alleen dit object voor functies die ondersteuning bieden voor ontvangst van een object met parameterwaarden, zoals **listAccountSas** op een storage-account. | 
 
 ### <a name="return-value"></a>Retourwaarde
@@ -190,10 +190,10 @@ Retourneert informatie over een resourceprovider en de ondersteunde resourcetype
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Ja |tekenreeks |Namespace van de provider |
-| ResourceType |Nee |tekenreeks |Het type resource binnen de opgegeven naamruimte. |
+| providerNamespace |Ja |string |Namespace van de provider |
+| ResourceType |Nee |string |Het type resource binnen de opgegeven naamruimte. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -278,17 +278,19 @@ Retourneert een object waarmee de runtimestatus van een resource.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName of resourceIdentifier |Ja |tekenreeks |Naam of de unieke id van een resource. |
-| apiVersion |Nee |tekenreeks |API-versie van de opgegeven resource. Deze parameter opgeeft als de bron is niet in dezelfde sjabloon ingericht. Normaal gesproken in de indeling, **jjjj-mm-dd**. |
-| 'Volledige' |Nee |tekenreeks |De waarde die aangeeft of het volledige resource-object te retourneren. Als u geen opgeeft `'Full'`, alleen het object voor eigenschappen van de resource wordt geretourneerd. De volledige-object bevat waarden, zoals de resource-ID en de locatie. |
+| resourceName of resourceIdentifier |Ja |string |Naam of de unieke id van een resource. |
+| apiVersion |Nee |string |API-versie van de opgegeven resource. Deze parameter opgeeft als de bron is niet in dezelfde sjabloon ingericht. Normaal gesproken in de indeling, **jjjj-mm-dd**. |
+| 'Volledige' |Nee |string |De waarde die aangeeft of het volledige resource-object te retourneren. Als u geen opgeeft `'Full'`, alleen het object voor eigenschappen van de resource wordt geretourneerd. De volledige-object bevat waarden, zoals de resource-ID en de locatie. |
 
 ### <a name="return-value"></a>Retourwaarde
 
 Elk resourcetype geeft als resultaat van de verschillende eigenschappen voor de referentie-functie. De functie retourneren niet een enkele, vooraf gedefinieerde indeling. De geretourneerde waarde verschilt ook, op basis van of u het volledige object hebt opgegeven. Overzicht van de eigenschappen voor een resourcetype, het object in de uitvoersectie zoals wordt weergegeven in het voorbeeld te retourneren.
 
 ### <a name="remarks"></a>Opmerkingen
+
+De referentie-functie kan de runtimestatus van een eerder geïmplementeerde resource of een resource die is geïmplementeerd in de huidige sjabloon ophalen. In dit artikel ziet u voorbeelden voor beide scenario's. Wanneer u verwijst naar een resource in de huidige sjabloon, geef de naam van de resource als parameter. Wanneer u verwijst naar een eerder geïmplementeerde resource, bieden u de resource-ID en een API-versie voor de resource. U kunt geldige API-versies bepalen voor uw resource in de [sjabloonverwijzing](/azure/templates/).
 
 De functie verwijzing is afgeleid van de waarde van een runtimestatus en daarom niet worden gebruikt in de sectie met variabelen. Het kan worden gebruikt in de uitvoersectie van een sjabloon of [gekoppelde sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Het kan niet worden gebruikt in de uitvoersectie van een [geneste sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, uw geneste sjabloon te converteren naar een gekoppelde sjabloon. 
 
@@ -445,13 +447,16 @@ In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
 ```
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) verwijst naar een opslagaccount die in deze sjabloon is niet geïmplementeerd. Het opslagaccount bestaat al in dezelfde resourcegroep bevinden.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) verwijst naar een opslagaccount die in deze sjabloon is niet geïmplementeerd. Het opslagaccount bestaat al binnen hetzelfde abonnement.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "storageResourceGroup": {
+            "type": "string"
+        },
         "storageAccountName": {
             "type": "string"
         }
@@ -459,8 +464,8 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
     "resources": [],
     "outputs": {
         "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
+            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]",
+            "type": "object"
         }
     }
 }
@@ -469,13 +474,13 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageResourceGroup=<rg-for-storage> storageAccountName=<your-storage-account>
 ```
 
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageResourceGroup <rg-for-storage> -storageAccountName <your-storage-account>
 ```
 
 <a id="resourcegroup" />
@@ -570,13 +575,13 @@ Retourneert de unieke id van een resource. U kunt deze functie gebruiken als de 
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nee |tekenreeks (In GUID-indeling) |Standaard wordt het huidige abonnement. Deze waarde opgeven wanneer u nodig hebt om op te halen van een resource in een ander abonnement. |
-| resourceGroupName |Nee |tekenreeks |Standaardwaarde is de huidige resourcegroep. Deze waarde opgeven wanneer u nodig hebt om op te halen van een resource in een andere resourcegroep. |
-| ResourceType |Ja |tekenreeks |Het type resource, met inbegrip van de naamruimte van de resource-provider. |
-| resourceName1 |Ja |tekenreeks |De naam van de resource. |
-| resourceName2 |Nee |tekenreeks |Volgende resource naam segment als bron is genest. |
+| resourceGroupName |Nee |string |Standaardwaarde is de huidige resourcegroep. Deze waarde opgeven wanneer u nodig hebt om op te halen van een resource in een andere resourcegroep. |
+| ResourceType |Ja |string |Het type resource, met inbegrip van de naamruimte van de resource-provider. |
+| resourceName1 |Ja |string |De naam van de resource. |
+| resourceName2 |Nee |string |Volgende resource naam segment als bron is genest. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -691,7 +696,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Naam | Type | Waarde |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
 | sameRGOutput | Reeks | /Subscriptions/{Current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | Reeks | /Subscriptions/{Current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

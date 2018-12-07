@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056246"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993214"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met pad gebaseerde routering regels met behulp van de Azure portal
 
@@ -36,11 +36,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Aanmelden bij Azure Portal op [http://portal.azure.com](http://portal.azure.com)
+Aanmelden bij Azure Portal op [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-Een virtueel netwerk is vereist voor communicatie tussen de bronnen die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
+U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
 
 1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
@@ -52,7 +52,7 @@ Een virtueel netwerk is vereist voor communicatie tussen de bronnen die u maakt.
     ![Nieuwe toepassingsgateway maken](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
-5. Klik op **een virtueel netwerk kiezen**, klikt u op **nieuw**, en voer vervolgens deze waarden voor het virtuele netwerk:
+5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
 
     - *myVnet* als de naam van het virtuele netwerk.
     - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
@@ -80,7 +80,7 @@ Een virtueel netwerk is vereist voor communicatie tussen de bronnen die u maakt.
 In dit voorbeeld maakt u drie virtuele machines die worden gebruikt als back-endservers voor application gateway. U installeert ook IIS op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
 
 1. Klik op **Nieuw**.
-2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst met aanbevolen.
+2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst Aanbevolen.
 3. Voer deze waarden in voor de virtuele machine:
 
     - *myVM1* als naam van de virtuele machine.
@@ -154,7 +154,7 @@ In dit voorbeeld maakt u drie virtuele machines die worden gebruikt als back-end
 
     ![Registreer het openbare IP-adres van de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Bijvoorbeeld http://http://40.121.222.19.
+2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Bijvoorbeeld http:// http://40.121.222.19.
 
     ![Basis-URL testen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

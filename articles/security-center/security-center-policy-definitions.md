@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4f9fc31f411d36e63775a3665b6dfe27eec7710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319377"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011627"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Beleid voor Azure-beveiliging bewaakt door Azure Security Center
 In dit artikel biedt een overzicht van Azure Policy-definities die kan worden bewaakt in Security Center.
@@ -43,7 +43,7 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |Controle op de instelling van de eigenschap ClusterProtectionLevel op EncryptAndSign in Service Fabric|Service Fabric biedt drie niveaus van beveiliging (geen, aanmelding en EncryptAndSign) voor communicatie van knooppunt-naar-knooppunt met behulp van een primaire clustercertificaat. Stel het beveiligingsniveau om ervoor te zorgen dat alle berichten van knooppunt-naar-knooppunt zijn versleuteld en digitaal zijn ondertekend.| 
 |Het gebruik van Azure Active Directory voor clientverificatie in Service Fabric controleren|Exclusief gebruik van clientverificatie via Azure Active Directory in Service Fabric controleren| 
 |Inschakelen van diagnostische logboeken voor Search-service controleren|Audit logs in te schakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.| 
-|Inschakelen van uitsluitend beveiligde verbindingen met Redis Cache controleren|Controleren op alleen clientverbindingen via SSL met Redis-Cache in te schakelen. Gebruik van beveiligde verbindingen zorgt ervoor dat de verificatie tussen de server en de service en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk| 
+|Audit alleen beveiligde verbindingen naar uw Azure-Cache voor Redis in te schakelen|De controlemodus alleen verbindingen met SSL-beveiliging met Azure-Cache voor Redis in te schakelen. Gebruik van beveiligde verbindingen zorgt ervoor dat de verificatie tussen de server en de service en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk| 
 |Inschakelen van diagnostische logboeken in Logic Apps controleren|Audit logs in te schakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.| 
 |Inschakelen van diagnostische logboeken in Key Vault controleren|Audit logs in te schakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.|
 |Inschakelen van diagnostische logboeken in Event Hub controleren|Audit logs in te schakelen en ze maximaal een jaar bewaren. Hierdoor kunnen sporen onderzoek activiteit opnieuw kunt maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.| 

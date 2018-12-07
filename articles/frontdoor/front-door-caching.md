@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 6c62e2e559749ae8dc29e86d9c2414c28b487995
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965616"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001945"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Opslaan in cache met de Service Azure voordeur
 Het volgende document bevat gedrag voor voordeur met regels voor doorsturen die opslaan in cache ingeschakeld.
@@ -26,7 +26,7 @@ Azure voordeur Service voorziet in grote bestanden zonder een bovengrens voor be
 
 </br>Nadat het segment bij de voordeur omgeving aankomt, is het in de cache opgeslagen en onmiddellijk naar de gebruiker verzonden. Voordeur haalt vervolgens vooraf het volgende segment tegelijk. Deze vooraf vastgestelde zorgt ervoor dat de inhoud blijft één segment voor de gebruiker, waardoor latentie. Dit proces gaat door totdat het volledige bestand is gedownload (indien nodig), zijn alle bereiken in bytes beschikbaar zijn (indien nodig), of als de client de verbinding verbreekt.
 
-</br>Lees voor meer informatie over de aanvraag bereik in bytes, [RFC 7233](http://www.rfc-base.org/rfc-7233.html).
+</br>Lees voor meer informatie over de aanvraag bereik in bytes, [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 Voordeur slaat alle segmenten als ze worden ontvangen en zodat het hele bestand hoeft niet te worden in de cache op de voordeur-cache. De volgende aanvragen voor het bestand of de byte-adresbereiken worden geleverd uit de cache. Als niet alle segmenten in de cache zijn opgeslagen, vooraf ophalen wordt gebruikt om aan te vragen van segmenten van de back-end. Deze optimalisatie is afhankelijk van de mogelijkheid van de back-end voor ondersteuning van de byte-bereikaanvragen; Als de back-end biedt geen ondersteuning voor byte-bereikaanvragen, is deze optimalisatie niet effectief.
 
 ## <a name="file-compression"></a>Bestandscompressie
@@ -116,5 +116,5 @@ De volgende aanvraagheaders wordt niet naar een back-end worden doorgestuurd bij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [maken van een voordeur](quickstart-create-front-door.md).
-- Informatie over [de werking van de voordeur](front-door-routing-architecture.md).
+- Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
+- Lees [hoe Front Door werkt](front-door-routing-architecture.md).
