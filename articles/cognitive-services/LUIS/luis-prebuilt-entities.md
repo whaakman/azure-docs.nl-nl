@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8371e99224b511a87b2061708f00822a70c024b0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139971"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999072"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Vooraf gemaakte entiteiten voor het herkennen van veelvoorkomende gegevenstypen
 
@@ -54,6 +54,12 @@ Test de nieuwe doel op het eindpunt toegevoegd door een waarde voor de **q** par
 |de afspraak op 3 maart annuleren|LUIS de meest recente 3 maart in het verleden geretourneerd (2018-03-03) en 3 maart in de toekomst (03-03-2019) omdat de utterance hebt opgegeven een jaar.|
 |Een vergadering om 10 uur plannen|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Markeren van entiteiten met een vooraf gedefinieerde entiteit-token
+ Als u tekst, zoals `HH-1234`, die u wilt markeren als een aangepaste entiteit _en_ hebt [vooraf gedefinieerde nummer](luis-reference-prebuilt-number.md) toegevoegd aan het model, kunt u zich niet aan de aangepaste entiteit in de portal LUIS markeren. U kunt markeren met de API. 
+
+ Als u wilt markeren van dit type token, waar dat onderdeel van deze al is gemarkeerd met een vooraf gedefinieerde entiteit, de vooraf gedefinieerde entiteit uit de LUIS-app te verwijderen. U hoeft niet te trainen van de app. Markeert vervolgens het token aan uw eigen aangepaste entiteit. Voeg de vooraf gedefinieerde entiteit terug naar de LUIS-app.
+
+ Voor een ander voorbeeld kunt u overwegen de utterance als een lijst van de klasse voorkeuren: `I want first year spanish, second year calculus, and fourth year english lit.` als de LUIS-app het rangtelwoord voor de Prebuild toegevoegd heeft, `first`, `second`, en `fourth` al gemarkeerd met rangtelwoorden. Als u wilt dat het rangtelwoord voor de en de klasse vast te leggen, kunt u een samengestelde entiteit maken en deze teruglopen van de vooraf gedefinieerde volgnummer en de aangepaste entiteit voor de klassenaam van de.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

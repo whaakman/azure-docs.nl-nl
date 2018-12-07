@@ -1,25 +1,26 @@
 ---
-title: LUIS-bot met C# - Web-app Bot - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
-description: Met C#, bouw een chatbot geïntegreerd met taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren.
+title: Bot metC#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 59d98b46827a5e60dcdcbd109dc484891cef9ba8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032271"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011790"
 ---
 # <a name="luis-bot-in-c"></a>LUIS-bot in C#
 
-Met C#, bouw een chatbot geïntegreerd met taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren. De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
+Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren. De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
 
 ## <a name="prerequisite"></a>Vereiste
 
@@ -27,7 +28,7 @@ Met C#, bouw een chatbot geïntegreerd met taalbegrip (LUIS). Deze chatbot maakt
 
 ## <a name="luis-homeautomation-intents"></a>LUIS HomeAutomation Intents
 
-| Intentie | Voorbeeld utterance | Bot-functionaliteit |
+| Intentie | Voorbeeld van een utterance | Bot-functionaliteit |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Schakel in het licht. | Wanneer de bedoeling LUIS `HomeAutomation.TurnOn` wordt gedetecteerd, wordt de bot roept de `OnIntent` dialoogvenster handler. Dit dialoogvenster is waar u een IoT-service om te schakelen op een apparaat en de gebruiker die het apparaat is ingeschakeld zien wilt aanroepen. |
 | HomeAutomation.TurnOff | De verlichting slaapkamers uitschakelen. | Wanneer de bedoeling LUIS `HomeAutomation.TurnOff` wordt gedetecteerd, wordt de bot roept de `OffIntent` dialoogvenster handler. Dit dialoogvenster is waar roept u een IoT-service waarmee een apparaat uitschakelen en de gebruiker melden dat het apparaat is uitgeschakeld. |

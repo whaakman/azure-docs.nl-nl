@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986444"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993842"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Zelfstudie: MySQL-databases met hoge beschikbaarheid bieden
 
@@ -46,7 +46,7 @@ Voordat u de stappen in deze zelfstudie begint, zorg ervoor dat de [resourceprov
 > Alle van de volgende opties zijn vereist voor het maken van de MySQL-cluster.
 
 - [MySQL met replicatie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Dit is de sjabloon van de Bitnami-oplossing die wordt gebruikt voor de implementatie van de MySQL-cluster.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview). Debian 8 "Jessie" backports kernel voor Microsoft Azure die worden geleverd door credativ. Debian GNU/Linux is een van de meest populaire Linux-distributies.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 "Jessie" backports kernel voor Microsoft Azure die worden geleverd door credativ. Debian GNU/Linux is een van de meest populaire Linux-distributies.
 - [Aangepast script voor linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). Aangepaste Scriptextensie is een hulpprogramma voor het uitvoeren van uw virtuele machine aanpassen taken post VM inrichten. Wanneer deze extensie wordt toegevoegd aan een virtuele Machine, kan deze scripts downloaden uit Azure storage en voer ze uit op de virtuele machine. Aangepaste Scriptextensie taken kunnen ook worden geautomatiseerd met behulp van de Azure PowerShell-cmdlets en Azure platformoverschrijdende Command-Line Interface (xPlat CLI).
 - VM-toegang voor Linux-extensie 1.4.7. De extensie voor VM-toegang kunt u het wachtwoord, SSH-sleutel of de configuraties SSH opnieuw instellen, zodat u weer toegang met uw virtuele machine krijgen kan. U kunt ook een nieuwe gebruiker met wachtwoord of SSH-sleutel toevoegen of verwijderen van een gebruiker die deze extensie. Deze extensie is bedoeld voor virtuele Linux-machines.
 

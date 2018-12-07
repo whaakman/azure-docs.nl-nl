@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: adde29b0719f777bc6cf3ab86adbdeec4befddf0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842412"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994848"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "52842412"
 
 Wanneer er updates beschikbaar voor extensies voor virtuele machines (VM zijn) u wilt gebruiken, moet u deze downloaden. Extensies in het product hebt verzonden, niet bijwerken in de normale patch- en bijwerkproces; dus regelmatig controleren op updates. Andere extensies zijn alleen beschikbaar via de Marketplace-beheer.
 
-|  | Itemnaam | Beschrijving | Uitgever | Het type besturingssysteem |
+|  | Itemnaam | Description | Uitgever | Het type besturingssysteem |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS-extensie](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Downloaden van deze extensie voor het implementeren van een SQL-Server op de Windows Marketplace-item - deze extensie is vereist.** | Microsoft | Windows |
 |![Aangepaste scriptextensie](media/azure-stack-marketplace-azure-items/cse.png) | [Aangepaste scriptextensie](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Deze update downloaden naar de inbox-versie van de Custom Script Extension voor Windows.** | Microsoft | Windows |
@@ -50,7 +50,7 @@ Wanneer er updates beschikbaar voor extensies voor virtuele machines (VM zijn) u
 
 Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van Azure Marketplace en sjablonen voor oplossingen. Download alle afhankelijkheden afzonderlijk die u hebt genoteerd. Toepassingen zoals SQL Server- en Machine Learning Server moeten de juiste licentiëring, behalve wanneer gemarkeerd als gratis versie of proefversie.
 
-|  | Itemnaam | Beschrijving | Uitgever |
+|  | Itemnaam | Description | Uitgever |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Geavanceerde oplossingen die eenvoudig te implementeren, kosteneffectieve, toepassingen en de gebruiker gericht. Deze installatiekopieën worden regelmatig bijgewerkt met de meest recente patches. **Belangrijke informatie: installatiekopieën gedownload voordat 18 januari 2018 moet worden verwijderd en door de meest recente versies vervangen.** | Microsoft |
 | ![Evaluatieversie van SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013-evaluatieversie op Windows Server 2012 Datacenter en Visual Studio 2017 community edition. | Microsoft |
@@ -82,13 +82,12 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 
 ## <a name="linux-distributions"></a>Linux-distributies
 
-|  | Itemnaam | Beschrijving | Uitgever |
+|  | Itemnaam | Description | Uitgever |
 | --- | --- | --- | --- |
 | ![Linux-besturingssysteem wissen](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux-besturingssysteem wissen](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Een verwijzing Linux-distributie die zijn geoptimaliseerd voor Intel-architectuur. | Linux-Project wissen |
 | ![Container Linux door CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux door CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux is een eigentijdse en minimale Linux-distributie biedt een eenvoudige manier uitvoeren van containers, -clusters beheren en uw servers naadloos bijwerken: alle onderdelen waarmee de datawarehouse-scale compute. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu-Server is's werelds meest populaire Linux voor cloudomgevingen. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |
-| ![Debian 9 'Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 'Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |
 | ![Op basis van centOS 6,9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic)  |
 | ![Op basis van centOS 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic)  |
 | ![7.3 op basis van CentOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic) |
@@ -100,7 +99,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL van derden, gratis en proefversie afbeeldingen en sjablonen voor oplossingen
 
-|  | Itemnaam | Beschrijving | Uitgever |
+|  | Itemnaam | Description | Uitgever |
 | --- | --- | --- | --- |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | De Arista vEOS Router is een kostenbeheeroplossing met meerdere Clouds uitgebreide, en multi-hypervisor virtual router waarmee ondernemingen en cloudproviders om op te bouwen consistente, zeer veilige en schaalbare hybride netwerken. | Arista Networks |
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Security Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Centraal beheren meerdere Barracuda Web Application Firewalls (WAF). | Barracuda Networks, Inc. |

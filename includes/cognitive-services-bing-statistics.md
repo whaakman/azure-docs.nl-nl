@@ -8,101 +8,93 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: 4e19c1afefdc5bcacebcb0d495193b48c7a6d724
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313707"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978770"
 ---
-Bing statistieken voorziet in analyse voor Bing zoeken-API's. Analytics bevat Belvolume, bovenste queryreeksen en geografische verdeling. Om in te schakelen Bing statistieken in uw Bing-zoekopdracht betaald abonnement, gaat u naar uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), selecteer uw betaalde abonnement en klikt u op inschakelen Bing statistieken. De snelheid van uw abonnement inschakelen Bing statistieken enigszins verhoogt (Zie [prijzen](https://aka.ms/bingstatisticspricing)).
-
-
-> [!NOTE]
-> Bing statistieken is beschikbaar voor betaalde abonnementen alleen - is niet beschikbaar met gratis proefabonnementen. 
+Bing statistieken biedt analytics voor Bing zoeken-API's. Analytics bevat aanroepvolume, top queryreeksen en geografische verdeling. Om in te schakelen Bing statistieken in uw Bing Search betaald abonnement, gaat u naar uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), selecteert u uw betaalde abonnement en klikt u op inschakelen Bing statistieken. Het aantal abonnementen iets inschakelen van Bing statistieken verhoogt (Zie [prijzen](https://aka.ms/bingstatisticspricing)).
 
 > [!NOTE]
-> U mag geen gegevens beschikbaar via het dashboard met Bing-statistieken niet gebruiken voor het maken van toepassingen voor distributie naar derden.
+> Bing statistieken is beschikbaar voor betaalde abonnementen alleen - is niet beschikbaar met gratis proefabonnementen.
 
-Bing analytische gegevens per 24 uur bijgewerkt en onderhoudt aan 13 maanden aan geschiedenis.
+> [!NOTE]
+> U mag geen gegevens beschikbaar zijn via het dashboard Bing statistieken niet gebruiken om het maken van toepassingen om te worden gedistribueerd naar derden beperkt.
+
+Bing analytics-gegevens om de 24 uur bijgewerkt en onderhouden van op 13 maanden aan geschiedenis.
 
 ## <a name="accessing-your-analytics"></a>Toegang tot uw analyses
 
-Voor toegang tot uw dashboard met analytische, gaat u naar https://bingapistatistics.com. Zorg ervoor dat u bent aangemeld bij het gebruik van hetzelfde Microsoft-account (MSA) waarmee u uw betaalde abonnement.
+Voor toegang tot uw analytics-dashboard, gaat u naar https://bingapistatistics.com. Zorg ervoor dat u bent aangemeld met behulp van hetzelfde Microsoft-account (MSA) waarmee u uw betaalde abonnement.
 
+## <a name="filtering-the-data"></a>Gegevens filteren
 
-## <a name="filtering-the-data"></a>De gegevens filteren
+Standaard wordt alle metrische gegevens die u toegang tot hebt weer door de diagrammen en grafieken. U kunt de gegevens weergegeven in de diagrammen en grafieken door te selecteren van de resources, markten, eindpunten filteren en rapportageperiode u geïnteresseerd bent in. De diagrammen en grafieken wijzigen om de toegepaste filters weer te geven. De volgende beschrijven de filters die u kunt wijzigen.
 
-Standaard weerspiegelen de grafieken en diagrammen alle metrische gegevens die u toegang tot hebt. U kunt de gegevens weergegeven in de grafieken en diagrammen door het selecteren van de resources, markten, eindpunten filteren en rapportageperiode u geïnteresseerd bent in. De grafieken en diagrammen aangepast aan de toegepaste filters. De volgende beschrijven de filters die u kunt wijzigen.
-
-- **De resource-ID**: de unieke resource-ID waarmee u uw Azure-abonnement. De lijst bevat meerdere id's als u zich op meer dan één Bing zoeken-API-laag abonneert. Standaard worden alle bronnen geselecteerd.  
+- **Resource-ID**: de unieke resource-ID waarmee uw Azure-abonnement. De lijst bevat meerdere id's als u zich op meer dan één Bing zoeken-API-laag abonneert. Standaard worden alle resources geselecteerd.  
   
-- **Markten**: de herkomst van de resultaten van markten. Bijvoorbeeld en-us (Engels, Verenigde Staten). Standaard worden alle markten geselecteerd. Houd er rekening mee dat de markt en WW de markt dat Bing gebruikt als de oproep geen een markt geeft en Bing kan niet vaststellen van de gebruiker markt.  
+- **Markten**: de markten waar de resultaten afkomstig zijn uit. Bijvoorbeeld, en-us (Engels, Verenigde Staten). Overal zijn standaard ingeschakeld. Houd er rekening mee dat de markt en WW de markt die Bing gebruikt als de aanroep een markt niet is opgegeven en Bing is niet mogelijk te bepalen van de gebruiker markt.  
   
-- **Eindpunten**: de Bing zoeken-API-eindpunten. De lijst bevat alle eindpunten waarvoor u een betaald abonnement hebt. Standaard worden alle eindpunten geselecteerd.  
+- **Eindpunten**: de Bing zoeken-API-eindpunten. De lijst bevat alle eindpunten waarvoor u een betaald abonnement hebt. Alle eindpunten zijn standaard ingeschakeld.  
 
-- **Tijdsbestek**: de rapportageperiode. U kunt opgeven:  
-  
-  - Alle&mdash;up 13 maanden aan gegevens bevat  
-  - Afgelopen 24 uur&mdash;omvat analytics van de afgelopen 24 uur  
-  - Afgelopen week&mdash;omvat analytics van de afgelopen zeven dagen  
-  - Afgelopen maand&mdash;omvat analytics van de afgelopen 30 dagen  
-  - Een aangepast datumbereik&mdash;analytics uit het opgegeven datumbereik bevat, indien beschikbaar  
-  
+- **Periode**: de rapportageperiode. U kunt opgeven:
+  - Alle&mdash;voorziet naar 13 maanden aan gegevens van maximaal  
+  - Afgelopen 24 uur&mdash;bevat analyses van de afgelopen 24 uur  
+  - Afgelopen week&mdash;bevat analyse van de afgelopen zeven dagen  
+  - Afgelopen maand&mdash;bevat analyses van de afgelopen 30 dagen  
+  - Een aangepast datumbereik&mdash;bevat analyses van het opgegeven datumbereik, indien beschikbaar  
+
   > [!NOTE]  
-  > Het duurt maximaal 24 uur voor metrische gegevens om op te halen op het dashboard. Het dashboard bevat de datum en tijd die de gegevens voor het laatst is bijgewerkt.  
-  
+  > Het duurt maximaal 24 uur voor metrische gegevens naar het ontwerpoppervlak voor pijplijnen op het dashboard. Het dashboard ziet u de datum en tijd die de gegevens voor het laatst is bijgewerkt.  
+
   > [!NOTE]  
-  > Metrische gegevens zijn beschikbaar vanaf het moment dat u de statistieken van Bing-invoegtoepassing inschakelen. 
+  > Metrische gegevens zijn beschikbaar vanaf het moment dat u de invoegtoepassing Bing statistieken inschakelen.
 
+## <a name="charts-and-graphs"></a>Diagrammen en grafieken
 
-## <a name="charts-and-graphs"></a>Grafieken
-
-Het dashboard toont de grafieken van de metrische gegevens beschikbaar voor het geselecteerde eindpunt. Niet alle metrische gegevens zijn beschikbaar voor alle eindpunten. De grafieken en diagrammen voor elk eindpunt zijn statisch (u mogelijk niet selecteren de grafieken en diagrammen om weer te geven). Het dashboard toont alleen grafieken en grafieken waarvoor gegevens is. 
+Het dashboard laat diagrammen en grafieken van de metrische gegevens beschikbaar zijn voor het geselecteerde eindpunt. Niet alle metrische gegevens zijn beschikbaar voor alle eindpunten. De diagrammen en grafieken voor elk eindpunt statisch zijn (u kunt niet selecteren de diagrammen en grafieken om weer te geven). Het dashboard laat alleen diagrammen en grafieken die er gegevens zijn.
 
 <!--
 For example, if you don't include the User-Agent header in your calls, the dashboard will not include device-related graphs.
 -->
 
-Hier volgen de mogelijke metrische gegevens. Elke metrische opmerkingen bij de eindpunt-beperkingen. 
+Hier volgen de mogelijke metrische gegevens. Elke metrische opmerkingen bij de eindpunt-beperkingen.
 
-- **Aanroepen van Volume**: toont het aantal aanroepen tijdens de rapportageperiode. Als de rapportageperiode voor een dag, ziet de grafiek u het aantal aanroepen per uur. Anders wordt toont de grafiek het aantal aanroepen per dag van de rapportperiode.  
+- **Aanroepen van Volume**: geeft het aantal aanroepen tijdens de rapportageperiode. Als de rapportageperiode voor een dag is, toont de grafiek het aantal aanroepen per uur. Anders wordt toont de grafiek het aantal aanroepen per dag van de rapportageperiode.  
   
   > [!NOTE]
-  > Het Belvolume kan afwijken van facturering rapporten, waaronder doorgaans alleen geslaagde aanroepen. 
-  
--  **Meest gebruikte query**: toont de top-query's en het aantal exemplaren van elke query tijdens de rapportageperiode. U kunt het aantal query's die worden weergegeven. U kunt bijvoorbeeld de eerste 25, 50 of 75 query's weergeven. Top-query's is niet beschikbaar voor de volgende eindpunten:  
-  
+  > De aanroepvolume kan afwijken van de facturering rapporten, waaronder over het algemeen alleen geslaagde aanroepen.
+
+- **Meest gebruikte query**: de populairste query's en het aantal exemplaren van elke query tijdens de rapportageperiode wordt weergegeven. U kunt het aantal query's die worden weergegeven. U kunt bijvoorbeeld de top 25, 50 of 75 query's weergeven. Top-query's is niet beschikbaar voor de volgende eindpunten:  
+
   - /images/trending
-  - installatiekopieën/details
-  - installatiekopieën/visualsearch
+  - / afbeeldingen/details
+  - / afbeeldingen/visualsearch
   - /videos/trending
-  - video's / details
+  - / video's / details
   - /News
-  - nieuws/trendingtopics
+  - / nieuws/trendingtopics
   - /Suggestions  
   
   > [!NOTE]  
-  > Querytermen kunnen worden onderdrukt als u wilt verwijderen van vertrouwelijke gegevens zoals e-mailberichten, telefoonnummers, sofi-nummer, enzovoort.  
+  > Querytermen kunnen worden onderdrukt als u wilt verwijderen van vertrouwelijke informatie, zoals e-mailberichten, telefoonnummers, SSN, enzovoort.
 
-- **Geografische verdeling**: de herkomst van de resultaten van markten. Bijvoorbeeld en-us (Engels, Verenigde Staten). Bing gebruikt de `mkt` queryparameter om te bepalen van de markt, indien opgegeven. Anders gebruikt Bing signalen zoals IP-adres van de oproepende functie om te bepalen van de markt.  
-  
-- **Antwoord Code distributie**: de HTTP-statuscodes van alle aanroepen tijdens de rapportageperiode.  
-  
-- **Aanroepen van de oorsprong distributie**: de typen browsers die door de gebruikers worden gebruikt. Bijvoorbeeld, rand, Chrome Safari en FireFox. Aanroepen van buiten een browser, zoals bots, Postman of met curl vanuit een console-app zijn gegroepeerd onder bibliotheken. De oorsprong wordt bepaald met behulp van de aanvraag gebruikersagent header-waarde. Als de aanvraag niet de gebruikersagent-koptekst bevat, probeert de Bing worden afgeleid van de oorsprong van andere signalen.  
-  
-- **Veilige distributie van de zoekopdracht**: de distributie van veilige zoekactie waarden. Bijvoorbeeld, uitschakelen, Gemiddeld of strict. De `safeSearch` parameter bevat de waarde als de opgegeven query. Bing standaard anders de waarde te nemen.  
-  
-- **Distributie aangevraagd beantwoordt**: zoeken om de Web API beantwoordt u aangevraagd de `responseFilter` queryparameter.  
-  
-- **Verdeling geretourneerd beantwoordt**: de antwoorden die Web-API voor zoeken in het antwoord geretourneerd.  
-  
-- **Antwoord Server distributie**: de toepassingsserver die uw API-aanvragen in behandeling genomen. De mogelijke waarden zijn Bing.com (voor verkeer aangeboden via apparaten desktops en laptops) en Bing.com-mobile (voor verkeer aangeboden via mobiele apparaten). De server is bepaald met behulp van de aanvraag gebruikersagent header-waarde. Als de aanvraag niet de gebruikersagent-koptekst bevat, probeert de Bing worden afgeleid van de server van andere signalen.  
-  
+- **Geografische verdeling**: de markten waar de resultaten afkomstig zijn uit. Bijvoorbeeld, en-us (Engels, Verenigde Staten). Bing gebruikt de `mkt` queryparameter om te bepalen van de markt, indien opgegeven. Anders gebruikt Bing signalen, zoals IP-adres van de oproepende functie om te bepalen van de markt.
 
+- **Responscode**: de HTTP-statuscodes van alle aanroepen tijdens de rapportageperiode.
+
+- **Aanroepen van oorsprong distributie**: de typen browsers die worden gebruikt door de gebruikers. Bijvoorbeeld Edge, Chrome Safari en FireFox. Aanroepen van buiten een browser, zoals bots, Postman of met curl vanuit een console-app zijn gegroepeerd onder bibliotheken. De oorsprong wordt bepaald met behulp van de aanvraag gebruikersagent header-waarde. Als de aanvraag bevat geen koptekst van de gebruikersagent, probeert Bing worden afgeleid van de oorsprong van andere signalen.  
+
+- **Veilig zoeken distributie**: de distributie van veilig zoekwaarden. Bijvoorbeeld, uitgeschakeld, Gemiddeld of strikte. De `safeSearch` parameter bevat de waarde als de opgegeven query. Bing standaard anders de waarde te nemen.  
+
+- **Distributie aangevraagd antwoorden**: de Web-API voor Search antwoorden u aangevraagd de `responseFilter` queryparameter.  
+
+- **Antwoorden op verdeling geretourneerd**: de antwoorden die webzoekopdrachten-API in het antwoord geretourneerd.
+
+- **Antwoord Server distributie**: de toepassingsserver die uw API-aanvragen wordt behandeld. De mogelijke waarden zijn Bing.com (voor verkeer worden aangeleverd vanuit desktop en laptop-apparaten) en Bing.com-mobile (voor verkeer worden aangeleverd vanuit de mobiele apparaten). De server wordt bepaald met behulp van de aanvraag gebruikersagent header-waarde. Als de aanvraag bevat geen koptekst van de gebruikersagent, probeert Bing worden afgeleid van de server van andere signalen.
 
 Hieronder ziet u de analyse die beschikbaar voor elk eindpunt zijn.
 
-![Distributie door de ondersteuningsmatrix voor eindpunt](./media/cognitive-services-bing-statistics/bing-statistics-matrix.PNG)
-
-
+![Distributie per eindpunt ondersteuningsmatrix](./media/cognitive-services-bing-statistics/bing-statistics-matrix.PNG)

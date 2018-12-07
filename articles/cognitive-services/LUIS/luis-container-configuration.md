@@ -1,21 +1,22 @@
 ---
-title: Docker-container-instellingen voor Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Docker-container-instellingen
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: De LUIS container runtime-omgeving is geconfigureerd met behulp van de `docker run` opdracht argumenten. LUIS heeft enkele vereiste instellingen, samen met een aantal optionele instellingen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 020c623f881dd806cbc42b72596a2cc87e29045b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cb82cfcecbb719b357cda46bf969acf6c6cefe7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965050"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015293"
 ---
 # <a name="configure-containers"></a>Containers configureren
 
@@ -57,7 +58,7 @@ De `ApplicationInsights` instelling kunt u om toe te voegen [Azure Application I
 
 De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `ApplicationInsights` sectie.
 
-|Vereist| Naam | Gegevenstype | Beschrijving |
+|Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Nee| `InstrumentationKey` | Reeks | De instrumentatiesleutel van de Application Insights-exemplaar aan welke telemetrie gegevens voor de container is verzonden. Zie voor meer informatie, [Application Insights voor ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). <br><br>Voorbeeld:<br>`InstrumentationKey=123456789`|
 
@@ -71,7 +72,7 @@ Deze instelling kan worden gevonden op twee plaatsen:
 * Azure-portal: **van Language Understanding** overzicht, met het label `Endpoint`
 * LUIS-portal: **sleutels en het eindpunt instellingen** pagina als onderdeel van de URI van het eindpunt.
 
-|Vereist| Naam | Gegevenstype | Beschrijving |
+|Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
@@ -79,7 +80,7 @@ Deze instelling kan worden gevonden op twee plaatsen:
 
 De `Eula` instelling geeft aan dat u de licentie voor de container hebt geaccepteerd. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet worden ingesteld op `accept`.
 
-|Vereist| Naam | Gegevenstype | Beschrijving |
+|Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Eula` | Reeks | Instemming met licentie vereisen<br><br>Voorbeeld:<br>`Eula=accept` |
 
@@ -91,7 +92,7 @@ Fluentd is een open-source-gegevensverzamelaar voor centrale logboekregistratie.
 
 De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `Fluentd` sectie.
 
-| Naam | Gegevenstype | Beschrijving |
+| Name | Gegevenstype | Description |
 |------|-----------|-------------|
 | `Host` | Reeks | De IP-adres of de DNS-hostnaam van de Fluentd-server. |
 | `Port` | Geheel getal | De poort van de Fluentd-server.<br/> De standaardwaarde is 24224. |
@@ -116,7 +117,7 @@ De volgende logboekregistratie-providers worden ondersteund door de LUIS-contain
   
 De `Disk` logboekregistratie-provider ondersteunt de volgende configuratie-instellingen:  
 
-| Naam | Gegevenstype | Beschrijving |
+| Name | Gegevenstype | Description |
 |------|-----------|-------------|
 | `Format` | Reeks | De indeling van de uitvoer voor de logboekbestanden.<br/> **Opmerking:** deze waarde moet worden ingesteld op `json` om in te schakelen van de provider voor logboekregistratie. Als deze waarde is opgegeven zonder ook een koppelpunt uitvoer op te geven bij het instantiëren van een container, wordt er een fout optreedt. |
 | `MaxFileSize` | Geheel getal | De maximale grootte in megabytes (MB) van een logboekbestand. Wanneer de grootte van het huidige logboekbestand voldoet aan of deze waarde overschrijdt, wordt een nieuw logboekbestand wordt gestart door de provider voor logboekregistratie. Als -1 is opgegeven, wordt de grootte van het logboekbestand alleen beperkt door de maximale bestandsgrootte, indien aanwezig, voor het koppelen van de uitvoer. De standaardwaarde is 1. |
@@ -133,7 +134,7 @@ De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het h
 
 De volgende tabel beschrijft de instellingen die worden ondersteund.
 
-|Vereist| Naam | Gegevenstype | Beschrijving |
+|Vereist| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
 |Ja| `Input` | Reeks | Het doel van de invoer koppelen. De standaardwaarde is `/input`. Dit is de locatie van de LUIS-pakketbestanden. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Nee| `Output` | Reeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat logboeken van LUIS-query's en logboeken voor containers. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|

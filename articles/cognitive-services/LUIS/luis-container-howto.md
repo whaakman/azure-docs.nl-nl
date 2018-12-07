@@ -1,21 +1,22 @@
 ---
-title: Over het installeren en uitvoeren van docker-containers - Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Docker-containers
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: De LUIS-container in een docker-container, wordt uw app getrainde of gepubliceerd geladen en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 085273bbf16ba7cb3557763dd392a7a7207d30db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965578"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013813"
 ---
 # <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
  
@@ -268,7 +269,7 @@ De queryparameters configureren hoe en wat wordt geretourneerd in antwoord op de
 
 |Queryparameter|Type|Doel|
 |--|--|--|
-|`q`|tekenreeks|Utterance van de gebruiker.|
+|`q`|string|Utterance van de gebruiker.|
 |`timezoneOffset`|getal|U kunt de timezoneOffset [wijzigt de tijdzone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) die worden gebruikt door de vooraf gedefinieerde entiteit datetimeV2.|
 |`verbose`|booleaans|Retourneert alle intents en hun scores wanneer ingesteld op true. Standaard is ingesteld op false, die alleen het belangrijkste doel retourneert.|
 |`staging`|booleaans|Query retourneert uit de resultaten van de omgeving voor fasering als is ingesteld op true. |
@@ -340,7 +341,7 @@ Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbind
 
 De `docker run` maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
 
-| Optie | Beschrijving |
+| Optie | Description |
 |--------|-------------|
 | `ApiKey` | De API-sleutel van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte Azure LUIS resource die is opgegeven `Billing`. |
 | `Billing` | Het eindpunt van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte LUIS Azure-resource van het eindpunt.|

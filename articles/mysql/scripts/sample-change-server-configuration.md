@@ -48,4 +48,4 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 ## <a name="next-steps"></a>Volgende stappen
 - Lees de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 - Meer scripts om te proberen: [Azure CLI-voorbeelden voor Azure Database for MySQL](../sample-scripts-azure-cli.md)
-- Zie [How To Configure Server Parameters in Azure Database for MySQL](../howto-server-parameters.md) (Serverparameters in Azure Database for MySQL configureren) voor meer informatie over serverparameters.
+- Zie [Serverparameters in Azure Database for MySQL configureren](../howto-server-parameters.md) voor meer informatie over serverparameters.

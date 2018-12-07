@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298741"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996717"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack-datacenter-integratie - eindpunten publiceren
 
@@ -79,10 +79,14 @@ Azure Stack ondersteunt alleen transparante proxy-servers. In een implementatie 
 |NTP|(IP van de NTP-server opgegeven voor de implementatie)|UDP|123|
 |DNS|(IP van DNS-server is opgegeven voor de implementatie)|TCP<br>UDP|53|
 |CRL|(URL onder CRL-distributiepunten op uw certificaat)|HTTP|80|
+|Infrastructuur voor back-up|(IP of FQDN-naam van het externe doel bestandsserver)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Uitgaande URL's worden verdeeld met Azure traffic manager voor de best mogelijke connectiviteit op basis van geografische locatie. Met laden met gelijke taakverdeling URL's, Microsoft kunt bijwerken en back-endeindpunten wijzigen zonder gevolgen voor klanten. Microsoft deelt niet de lijst met IP-adressen voor de URL's met taakverdeling. U moet een apparaat dat door de URL in plaats van door IP-filtering ondersteunt.
+
+> [!Note]  
+> In 1809 communiceert de infrastructuur voor Backup-service met de externe server uit de openbare VIP-netwerk. Voordat u 1809, wordt de service communiceert via de infrastructuur voor openbare-netwerk. Als uw omgevingen kan geen toegang tot infrastructuurresources van het openbare VIP-netwerk, moet u de meest recente 1809-hotfix toepassen voor Azure Stack. Deze hotfix wordt de infrastructuur voor back-upservice terug verplaatsen naar de infrastructuur voor openbare-netwerk. In 1811, als u de hotfix 1809 toegepast en blijven de infrastructuur voor back-upservice in de infrastructuur voor openbare-netwerk. Als u niet de hotfix toepast hebt, wordt de update voor de service terug verplaatsen naar de infrastructuur voor openbare-netwerk.
 
 ## <a name="next-steps"></a>Volgende stappen
 

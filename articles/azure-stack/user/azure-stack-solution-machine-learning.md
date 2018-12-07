@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966718"
+ms.locfileid: "53002178"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
 
@@ -81,9 +81,8 @@ Kennis van Azure en Azure Stack is vereist. Beginnen met de volgende onderwerpen
 
  -  Implementatie van [Azure Container Services (ACS) Kubernetes op Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
- -  Implementatie van Azure Machine Learning-service (preview) [4-delige zelfstudie](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1)
+ -  Implementatie van Azure Machine Learning-service [2-delige zelfstudie](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 
- -  Azure Machine Learning experimenten [account](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/experimentation-service-template)
 
 **Azure Stack**
 
@@ -284,7 +283,7 @@ Gebruik de Azure-portal voor het inrichten van de Azure Machine Learning-account
 
 1.  In de **ML experimenten** deelvenster de Machine Learning experimenten-account configureren.
 
-    | Instelling | Aanbevolen waarde voor zelfstudie | Beschrijving |
+    | Instelling | Aanbevolen waarde voor zelfstudie | Description |
     |---------------------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Naam experimenteeraccount | Unieke naam | Voer een unieke naam ter identificatie van het account. Gebruik de naam van een afdeling of project die het beste het experiment identificeert. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. |
     | Abonnement | Het abonnement | Kies het Azure-abonnement moet worden gebruikt voor het experiment. Als er meerdere abonnementen bestaan, kiest u het abonnement waarin de resource wordt in rekening gebracht. |
@@ -353,12 +352,12 @@ Azure Machine Learning Workbench is beschikbaar voor Windows of macOS. Overzicht
 
 1.  Vul de formuliervelden in en selecteer de knop **Maken** om een nieuw project te maken in Workbench.
 
-    | Veld | Aanbevolen waarde voor zelfstudie | Beschrijving |
+    | Veld | Aanbevolen waarde voor zelfstudie | Description |
     |-------------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Projectnaam | myIris | Voer een unieke naam ter identificatie van het account. Gebruik de afdelingen of naam van het project die het best het experiment identificeert. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. |
     | Projectmap | c:\Temp\ | Selecteer de map waarin het project moet worden gemaakt. |
     | Projectbeschrijving | Leeg laten | Optioneel veld, nuttig voor het beschrijven van de projecten. |
-    | URL van GIT-opslagplaats Visualstudio.com | Leeg laten | Optioneel veld. Een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Meer informatie over het instellen van een opslagplaats](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
+    | URL van GIT-opslagplaats Visualstudio.com | Leeg laten | Optioneel veld. Een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. |
     | Geselecteerde werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte gemaakt voor de experimenten-account in Azure portal. <br>Met behulp van Quickstart, wordt de werkruimte met de naam IrisGarden vermeld. Gebruik anders de werkruimte met de naam van het experimenten-account of de naam van een voorkeur. |
     | Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die worden gebruikt voor het verkennen van het product. Deze sjabloon bevat de scripts en gegevens die nodig zijn voor deze snelstart en andere zelfstudies op deze documentatiesite. |
 

@@ -85,7 +85,7 @@ items:
       - name: Logboekgegevens
         href: platform/data-security.md
       - name: Verwerking van persoonlijke logboekgegevens
-        href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
+        href: platform/personal-data-mgmt.md
       - name: Verzameling, retentie en opslag van toepassingsgegevens
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: Inzichten
@@ -115,9 +115,9 @@ items:
     - name: Overgang OMS-portal
       items:
       - name: Overzicht
-        href: ../log-analytics/log-analytics-oms-portal-transition.md?toc=/azure/azure-monitor/toc.json
+        href: platform/oms-portal-transition.md
       - name: Veelgestelde vragen
-        href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
+        href: platform/oms-portal-faq.md
   - name: Reageren op incidenten
     items:
     - name: Waarschuwingen
@@ -153,7 +153,7 @@ items:
       - name: Rolmachtigingen en -beveiliging
         href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
       - name: Workspaces
-        href: ../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json
+        href: platform/manage-access.md
       - name: Toepassingen
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP-adressen
@@ -166,8 +166,6 @@ items:
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: Ontwikkelings-, test- en productiegegevens scheiden
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
-      - name: Apps met meerdere onderdelen bewaken
-        href: ../application-insights/app-insights-monitor-multi-role-apps.md?toc=/azure/azure-monitor/toc.json
       - name: Hoe kan ik ... in Application Insights?
         href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
     - name: Werkruimten beheren
@@ -181,7 +179,7 @@ items:
         - name: Azure PowerShell gebruiken
           href: learn/quick-create-workspace-posh.md
       - name: Een werkruimte verwijderen
-        href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
+        href: platform/delete-workspace.md
       - name: Ontwerp voor serviceproviders
         href: platform/service-providers.md
   - name: Gegevens verzamelen
@@ -562,7 +560,7 @@ items:
         - name: Prijzen
           href: insights/network-performance-monitor-pricing-faq.md
         - name: Veelgestelde vragen
-          href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-faq.md
     - name: Virtuele machines bewaken
       items:
       - name: Azure Monitor voor virtuele machines
@@ -647,7 +645,7 @@ items:
     - name: Power BI
       items:
       - name: Logboekgegevens exporteren
-        href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powerbi.md
       - name: Toepassingsgegevens exporteren
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Gegevens naar Grafana verzenden
@@ -838,7 +836,7 @@ items:
     - name: Abonnementsdetails voor Enterprise-toepassing
       href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
     - name: Logboekgegevensvolume en -retentie
-      href: ../log-analytics/log-analytics-manage-cost-storage.md?toc=/azure/azure-monitor/toc.json
+      href: platform/manage-cost-storage.md
     - name: Gebruik van logboekgegevens bewaken
       href: ../log-analytics/log-analytics-usage.md?toc=/azure/azure-monitor/toc.json
   - name: Automatiseren
@@ -1010,9 +1008,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: ee2702e834ce782f5b690cbfc78d300efa1ee602
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc89f1634040b7002e58206aaf6d1ade6965b2a8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968166"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017899"

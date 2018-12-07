@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 3394fc2f6395799a252b645635d982b4573296c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 31482cc7850c574b952c454021af729da324ba15
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47000706"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978860"
 ---
 <!-- N.B. no header, no intents here, language-agnostic -->
 
@@ -21,7 +21,7 @@ De Cognitive Services [spraak SDK](~/articles/cognitive-services/speech-service/
 
 1. De gebeurtenissen voor asynchrone bewerking bezighouden indien gewenst. De gebeurtenis-handlers de herkenning wordt aangeroepen wanneer er een tijdelijke en laatste resultaten. Anders ontvangt uw toepassing alleen een resultaat van de definitieve transcriptie.
 
-1. Opname starten. Voor één spraakherkenning, zoals opdracht of een query spraakherkenning, gebruikt u de `RecognizeOnceAsync()` methode. Deze methode retourneert de eerste herkende utterance. Voor langlopende spraakherkenning, zoals transcriptie, gebruikt u de `StartContinuousRecognitionAsync()` methode. De gebeurtenissen voor asynchrone herkenningsresultaten bezighouden.
+1. Opname starten. Voor één spraakherkenning, zoals opdracht of een query spraakherkenning, gebruikt u de `RecognizeOnceAsync()` (of gelijkwaardige taal) methode. Deze methode retourneert de eerste herkende utterance. Voor langlopende spraakherkenning, zoals transcriptie, gebruikt u de `StartContinuousRecognitionAsync()` (of gelijkwaardige taal) methode. De gebeurtenissen voor asynchrone herkenningsresultaten bezighouden.
 
 Zie de volgende codefragmenten voor spraak opname-scenario's die gebruikmaken van de spraak-SDK.
 
