@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Blockchain Workbench-architectuur
 description: Overzicht van Azure Blockchain Workbench-architectuur en de bijbehorende onderdelen.
 services: azure-blockchain
@@ -78,42 +78,42 @@ De databaseconsument neemt berichten van de servicebus en pusht de gegevens naar
 
 ### <a name="storage-consumer"></a>Opslagconsument
 
-De consument opslag gebruikt berichten van Service Bus en gegevens naar een gekoppelde storage wordt gepusht. Bijvoorbeeld, opslaan hash documenten in Azure Storage.
+De opslagconsument neemt berichten van de Service Bus en pusht gegevens naar een aangesloten opslag. U kunt gehashte documenten bijvoorbeeld opslaan in Azure Storage.
 
-## <a name="transaction-builder-and-signer"></a>Transactie builder en ondertekend door
+## <a name="transaction-builder-and-signer"></a>Transactiebuilder en ondertekenaar
 
-Als een bericht op het binnenkomende berichtenbroker worden geschreven naar de blockchain moet, wordt deze door de gebruiker DLT worden verwerkt. De gebruiker DLT is een service, die haalt het bericht met metagegevens voor een gewenste transactie om uit te voeren en stuurt de gegevens naar de *transactie builder en ondertekend door*. De *transactie builder en ondertekend door* ophaalprotocol een blockchain-transactie op basis van de gegevens en de gewenste blockchain-bestemming. Nadat u samengesteld, wordt de transactie is ondertekend. Persoonlijke sleutels worden opgeslagen in Azure Key Vault.
+Als een bericht op de inbound-berichtenmakelaar naar de blockchain moet worden geschreven, wordt dit door de DLT-consument verwerkt. De DLT-consument is een service die het bericht met metagegevens voor een gewenste transactie ophaalt en vervolgens de informatie naar de transactiebuilder en ondertekenaar verzendt. De transactiebuilder en ondertekenaar assembleert een blockchain-transactie op basis van de gegevens en de gewenste blockchainbestemming. Eenmaal geassembleerd, is de transactie ondertekend. Privésleutels worden opgeslagen in Azure Key Vault.
 
- Blockchain Workbench haalt de juiste persoonlijke sleutel uit Key Vault en de transactie buiten Key Vault zich. Eenmaal is ondertekend, wordt de transactie wordt verzonden naar transactie routers en grootboeken.
+Blockchain Workbench haalt de juiste persoonlijke sleutel uit Key Vault en ondertekent de transactie buiten Key Vault. Na ondertekening wordt de transactie verzonden naar transactierouters en grootboeken.
 
 ## <a name="transaction-routers-and-ledgers"></a>Transactie-routers en grootboeken
 
-Transactie-routers en grootboeken ondertekende transacties nemen en deze doorsturen naar de juiste blockchain. Op dit moment ondersteunt Blockchain Workbench Ethereum als de doel-blockchain.
+Transactierouters en grootboeken nemen ondertekende transacties en leiden ze naar de juiste blockchain. Momenteel ondersteunt Blockchain Workbench Ethereum als doel-blockchain.
 
 ## <a name="dlt-watcher"></a>DLT watcher
 
-Een watcher van de technologie (DLT) gedistribueerd grootboek bewaakt gebeurtenissen plaatsvinden op blok-ketens die is gekoppeld aan Blockchain Workbench.
-Gebeurtenissen zijn de informatie die relevant is voor personen en systemen. Bijvoorbeeld, het maken van nieuwe instanties van het contract, uitvoeren van transacties en wijzigingen van status. De gebeurtenissen worden vastgelegd en verzonden naar de broker uitgaand multicastverkeer voor message zodat ze kunnen worden gebruikt door de downstream consumenten.
+Een DLT-watcher (distributed ledger technology) bewaakt gebeurtenissen die zich voordoen op blokketens die zijn verbonden aan Blockchain Workbench.
+Gebeurtenissen weerspiegelen informatie die relevant is voor individuen en systemen. Bijvoorbeeld het creëren van nieuwe contractinstanties, uitvoering van transacties en statuswijzigingen. De gebeurtenissen worden vastgelegd en verzonden naar de uitgaande berichtenmakelaar, zodat ze kunnen worden gebruikt door downstream-gebruikers.
 
-Bijvoorbeeld, de SQL-consument gebeurtenissen bewaakt, verbruikt ze en vult de SQL-database met de opgenomen waarden. De kopie kunt opnieuw kunt maken van een replica van de gegevens in de chain in een archief buiten de chain.
+De SQL-consument bewaakt bijvoorbeeld gebeurtenissen, gebruikt deze en vult de SQL-database met de ingesloten waarden. De kopie maakt het opnieuw maken van een replica van on-chain data in een off-chain opslag mogelijk.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-De Azure SQL-database die is gekoppeld aan Blockchain Workbench contract definities, metagegevens van de configuratie en een SQL-toegankelijk replica van gegevens die zijn opgeslagen in de blockchain opgeslagen. Deze gegevens kan eenvoudig worden opgevraagd, gevisualiseerd of geanalyseerd door rechtstreeks toegang tot de database. Ontwikkelaars en andere gebruikers kunnen u de database gebruiken voor rapportage, analyse, of andere gegevensgerichte integraties. Gebruikers kunnen bijvoorbeeld transactiegegevens met behulp van Power BI visualiseren.
+De Azure SQL-database die is gekoppeld aan Blockchain Workbench slaat contractdefinities, metadata van de configuratie en een SQL-toegankelijke replica van gegevens die zijn opgeslagen in de blockchain op. Deze gegevens kunnen eenvoudig worden opgevraagd, gevisualiseerd of geanalyseerd door rechtstreeks toegang te krijgen tot de database. Ontwikkelaars en andere gebruikers kunnen de database gebruiken voor rapportage, analyses of andere gegevensgerichte integraties. Gebruikers kunnen bijvoorbeeld transactiegegevens visualiseren met Power BI.
 
-Deze buiten de chain-opslag biedt de mogelijkheid voor organisaties om gegevens te doorzoeken in SQL in plaats van een grootboek blockchain enterprise. Ook op een standard-schema dat staat los van blockchain-technologie-stacks standaardiseert, kan de opslag buiten de chain het hergebruik van rapporten en andere artefacten in projecten, scenario's en organisaties.
+Deze off-chain opslag biedt bedrijven de mogelijkheid om gegevens in SQL op te vragen in plaats van in een blockchain-grootboek. Door de standaardisatie van een standaardschema dat agnostisch is voor stacks van blockchaintechnologie, maakt de off-chainopslag het ook mogelijk om rapporten en andere artefacten te hergebruiken in projecten, scenario's en organisaties.
 
 ## <a name="azure-storage"></a>Azure Storage
 
 Azure Storage wordt gebruikt voor het opslaan van contracten en metagegevens die zijn gekoppeld aan contracten.
 
-Van inkooporders en vrachtbrieven, naar afbeeldingen die worden gebruikt in het nieuws en de medische beeldmateriaal naar de video die afkomstig zijn van een geheel worden beschouwd, waaronder politie hoofdtekst van de camera's en grote beweging afbeeldingen, spelen documenten een rol in veel blockchain gerichte scenario's. Documenten zijn niet geschikt om rechtstreeks op de blockchain te plaatsen.
+Van inkooporders en vrachtbrieven tot afbeeldingen in het nieuws en medische beelden, tot video afkomstig uit diverse bronnen, inclusief camera's van de politie en bioscoopfilms, spelen documenten een rol in veel blockchain-gerichte scenario's. Documenten zijn niet geschikt om direct op de blockchain te plaatsen.
 
-Blockchain Workbench ondersteunt de mogelijkheid documenten of andere media-inhoud met blockchain-bedrijfslogica toe te voegen. Een hash van het document of media-inhoud is opgeslagen in de blockchain en de werkelijke document of media-inhoud is opgeslagen in Azure Storage. De bijbehorende transactie-informatie is geleverd aan het binnenkomende berichtenbroker, verpakt, ondertekend en doorgestuurd naar de blockchain. Dit proces wordt geactiveerd voor gebeurtenissen die worden gedeeld via de uitgaande berichtenbroker. De SQL-database gebruikt deze informatie en verzendt dit naar de database voor het later opnieuw uitvoeren van query's. Downstream-systemen kunnen ook gebruiken voor deze gebeurtenissen om te fungeren, indien van toepassing.
+Blockchain Workbench ondersteunt de mogelijkheid om documenten of andere media-inhoud toe te voegen aan blockchain-bedrijfslogica. Een hash van het document of de media-inhoud wordt opgeslagen in de blockchain en de daadwerkelijke document- of media-inhoud wordt opgeslagen in Azure Storage. De bijbehorende transactie-informatie wordt aan de inkomende berichtbroker bezorgd, verpakt, ondertekend en naar de blockchain gerouteerd. Dit proces activeert gebeurtenissen die worden gedeeld via de uitgaande berichtenmakelaar. De SQL DB gebruikt deze informatie en verzendt deze naar de database voor later gebruik. Downstream-systemen kunnen deze gebeurtenissen ook consumeren om zo gepast te handelen.
 
 ## <a name="monitoring"></a>Bewaking
 
-Workbench biedt logboekregistratie van toepassingen met behulp van Application Insights en Azure Monitor. Application Insights wordt gebruikt voor het opslaan van alle geregistreerde gegevens van Blockchain Workbench en fouten, waarschuwingen en voltooide bewerkingen bevat. Application Insights kunnen worden gebruikt door ontwikkelaars om problemen met Blockchain Workbench kunt verhelpen. 
+Workbench biedt logging voor toepassingen met behulp van Application Insights en Azure Monitor. Application Insights wordt gebruikt om alle geregistreerde informatie van Blockchain Workbench op te slaan en bevat foutmeldingen, waarschuwingen en succesvolle bewerkingen. Application Insights kunnen door ontwikkelaars worden gebruikt om problemen met de Blockchain Workbench op te lossen.
 
 Azure Monitor biedt informatie over de status van de blockchain-netwerk. 
 
