@@ -92,7 +92,8 @@ Transactierouters en grootboeken nemen ondertekende transacties en leiden ze naa
 
 ## <a name="dlt-watcher"></a>DLT watcher
 
-Een DLT-watcher (distributed ledger technology) bewaakt gebeurtenissen die zich voordoen op blokketens die zijn verbonden aan Blockchain Workbench. Gebeurtenissen weerspiegelen informatie die relevant is voor individuen en systemen. Bijvoorbeeld het creëren van nieuwe contractinstanties, uitvoering van transacties en statuswijzigingen. De gebeurtenissen worden vastgelegd en verzonden naar de uitgaande berichtenmakelaar, zodat ze kunnen worden gebruikt door downstream-gebruikers.
+Een DLT-watcher (distributed ledger technology) bewaakt gebeurtenissen die zich voordoen op blokketens die zijn verbonden aan Blockchain Workbench.
+Gebeurtenissen weerspiegelen informatie die relevant is voor individuen en systemen. Bijvoorbeeld het creëren van nieuwe contractinstanties, uitvoering van transacties en statuswijzigingen. De gebeurtenissen worden vastgelegd en verzonden naar de uitgaande berichtenmakelaar, zodat ze kunnen worden gebruikt door downstream-gebruikers.
 
 De SQL-consument bewaakt bijvoorbeeld gebeurtenissen, gebruikt deze en vult de SQL-database met de ingesloten waarden. De kopie maakt het opnieuw maken van een replica van on-chain data in een off-chain opslag mogelijk.
 
