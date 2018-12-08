@@ -1,6 +1,6 @@
 ---
-title: Toevoegen of verwijderen van gebruikers in Azure Active Directory | Microsoft Docs
-description: Leer hoe u nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers met Azure Active Directory.
+title: Toevoegen of verwijderen van gebruikers - Azure Active Directory | Microsoft Docs
+description: Instructies over hoe u nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers met Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: dd4a9132d5f04870239be3127f723afb60b3ecef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295101"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104676"
 ---
-# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Hoe: toevoegen of verwijderen van gebruikers met Azure Active Directory
-Nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers in uw Azure Active Directory (Azure AD)-tenant met behulp van Azure AD.
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Toevoegen of verwijderen van gebruikers met Azure Active Directory
+Nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers uit uw tenant Azure Active Directory (Azure AD).
 
 ## <a name="add-a-new-user"></a>Een nieuwe gebruiker toevoegen
-U kunt een nieuwe gebruiker met de Azure Active Directory maken.
+U kunt een nieuwe gebruiker met behulp van de Azure Active Directory-portal maken.
 
 ### <a name="to-add-a-new-user"></a>Een nieuwe gebruiker toe te voegen
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als een globale beheerder of Gebruikerbeheerder voor de map.
@@ -58,10 +58,10 @@ U kunt een nieuwe gebruiker met de Azure Active Directory maken.
 Als u een omgeving met zowel Azure Active Directory (cloud) en Windows Server Active Directory (on-premises) hebt, kunt u nieuwe gebruikers toevoegen door te synchroniseren van de bestaande gegevens van de gebruiker-account. Zie voor meer informatie over hybride omgevingen en gebruikers [uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Een gebruiker verwijderen
-U kunt een bestaande gebruiker met behulp van Azure Active Directory verwijderen.
+U kunt een bestaande gebruiker met behulp van Azure Active Directory-portal verwijderen.
 
 ### <a name="to-delete-a-user"></a>Een gebruiker verwijderen
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, en vervolgens zoekt en selecteert u de gebruiker die u wilt verwijderen uit uw Azure AD-tenant. Bijvoorbeeld, _Mary Parker_.
 

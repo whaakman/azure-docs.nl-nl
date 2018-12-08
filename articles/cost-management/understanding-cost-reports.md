@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 50a46b37be3115b92a3f8bc7cf426c8c7df78ce9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994134"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103418"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Inzicht in Cloudyn-rapporten voor kosten
 
@@ -25,7 +25,7 @@ Dit artikel helpt u inzicht in de basisstructuur voor de rapporten voor manageme
 
 Hier volgt een overzicht van een voorbeeld van het rapport Cost Over Time. De meeste Cloudyn-rapporten hebben een vergelijkbare indeling.
 
-![Voorbeeldrapport](./media/understanding-cost-reports/sample-report.png)
+![Voorbeeld van het rapport Cost Over Time met genummerde gebieden die overeenkomt met beschrijvingen](./media/understanding-cost-reports/sample-report.png)
 
 Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgende informatie:
 
@@ -47,11 +47,11 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     Gebruik het gebied van de Tags aan groep door de tag categorieën. Labels die worden vermeld in het menu Azure afdeling of kosten center tags of ze zijn het kosten entiteits- en abonnement tags van Cloudyn. Selecteer de tags om resultaten te filteren. U kunt ook de naam van een tag (trefwoord) om resultaten te filteren typen.
 
-    ![Selecteer opties](./media/understanding-cost-reports/select-options.png)
+    ![Voorbeeld van een lijst met tags voor het filteren van resultaten op](./media/understanding-cost-reports/select-options.png)
 
     Klik op **toevoegen** een nieuw filter toe te voegen.
 
-    ![filter toevoegen](./media/understanding-cost-reports/add-filter.png)
+    ![Filter toevoegen met opties en voorwaarden om te filteren op](./media/understanding-cost-reports/add-filter.png)
 
     Tag groeperen of filteren heeft geen betrekking op Azure-resources of groep resourcetags.
 
@@ -61,9 +61,9 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     Groepen gebruiken in Cost Analysis rapporten om weer te geven standaard, ingedeeld categorieën van facturering van gegevens in uw rapport.  Echter bekijken groepen in Cost Allocation rapporten weergeven op basis van een tag categorieën. Tag op basis van categorieën worden gedefinieerd in het model voor kostentoewijzing en standard gespecificeerde categorieën van factureringsgegevens.
 
-    ![tags van groepen](./media/understanding-cost-reports/groups-tags01.png)
+    ![Eerste voorbeeld van de lijst met labels die u kunt groeperen op](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![tags van groepen](./media/understanding-cost-reports/groups-tags02.png)
+    ![Tweede voorbeeld van de lijst met labels die u kunt groeperen op](./media/understanding-cost-reports/groups-tags02.png)
 
     Groepen in de groep op basis van een tag categorieën zijn in Kostenrapporten toewijzing, onder andere:
       - Tags
@@ -166,7 +166,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     Weergave-indelingen gebruiken verschillende weergaven voor graph of de tabel selecteren.
 
-    ![Weergave-indelingen](./media/understanding-cost-reports/display-formats.png)
+    ![De symbolen van het weergave-indelingen die u kunt selecteren](./media/understanding-cost-reports/display-formats.png)
 
 13. **Multi-color**
 

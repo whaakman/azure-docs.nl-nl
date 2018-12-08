@@ -2,19 +2,19 @@
 title: Realtime IoT-gegevensstromen die Azure Stream Analytics gebruiken | Microsoft Docs
 description: IoT-sensortags en -gegevensstromen met Stream Analytics en realtime-gegevensverwerking
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 56243be40a4d47f315ff6599ff2d50c83e44afbc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849544"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103163"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Aan de slag met Azure Stream Analytics om gegevens te verwerken van IoT-apparaten
 In deze zelfstudie leert u hoe u stroomverwerkingslogica schrijft om gegevens te verzamelen van IoT-apparaten (Internet of Things). We gebruiken hier een echte IoT-gebruikstoepassing (Internet of Things) om aan te tonen hoe u snel en economisch een oplossing maakt.
@@ -56,35 +56,35 @@ Voor het gebruiksgemak biedt deze introductiehandleiding een bestand met voorbee
    > 
 4. Schakel het selectievakje in om uw taak op het dashboard te maken en klik vervolgens op **MAKEN**.
    
-    ![taak wordt gemaakt](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+    ![Stream analytics-taak wordt gemaakt](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. In de rechterbovenhoek van het browservenster moet een bericht staan dat de implementatie is gestart. Dit wordt snel gewijzigd naar het venster 'Voltooid', zoals hieronder wordt weergegeven.
    
-    ![taak wordt gemaakt](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
+    ![Stream analytics-implementatie is voltooid](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>Een Azure Stream Analytics-query maken
 Nadat de taak is gemaakt, is het tijd om deze te openen en een query te bouwen. U kunt de taak eenvoudig openen door op de bijbehorende tegel te klikken.
 
-![Taaktegel](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+![Stream Analytics-taaktegel in Azure portal](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
 Klik in het deelvenster **Taaktopologie** op het vak **QUERY** om naar de Query-editor te gaan. De **QUERY**-editor biedt u de mogelijkheid een T-SQL-query in te voeren die de transformatie van de binnenkomende gebeurtenisgegevens uitvoert.
 
-![Queryvak](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Stream Analytics query dashboardtegel](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 ### <a name="query-archive-your-raw-data"></a>Query: de onbewerkte gegevens archiveren
 De meest eenvoudige vorm van een query is het doorgeven van gegevens waarmee alle invoergegevens worden gearchiveerd op de aangewezen uitvoer. Download het voorbeeldgegevensbestand van [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) naar een locatie op uw computer. 
 
 1. Plak de query uit het bestand PassThrough.txt. 
    
-    ![Test invoerstroom](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+    ![Query in Stream Analytics query-editor plakken](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 2. Klik op de drie puntjes naast uw invoer en selecteer het vak **Voorbeeldgegevens uit het bestand uploaden**.
    
-    ![Test invoerstroom](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+    ![Kies de voorbeeldgegevens uploaden uit bestand](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
 3. Er wordt nu een deelvenster aan de rechterkant geopend. Selecteer hierin het gegevensbestand HelloWorldASA InputStream.json van uw downloadlocatie en klik onder aan het deelvenster op **OK**.
    
-    ![Test invoerstroom](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+    ![Json-Voorbeeldgegevensbestand uploaden](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
 4. Klik vervolgens op het tandwiel **Testen** links boven in het venster en voer uw testquery uit op de voorbeeldgegevensset. Als de verwerking is voltooid, wordt onder uw query een resultatenvenster geopend.
    
-    ![Testresultaten](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+    ![Resultaten van belastingstests voor Stream Analytics-query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>Query: gegevens filteren op basis van een voorwaarde
 We gaan de resultaten filteren op basis van een voorwaarde. We willen graag resultaten weergeven voor de gebeurtenissen die afkomstig zijn van "sensorA." De query bevindt zich in het bestand Filtering.txt.

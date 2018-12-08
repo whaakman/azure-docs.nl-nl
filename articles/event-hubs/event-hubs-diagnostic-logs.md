@@ -1,6 +1,6 @@
 ---
-title: Diagnostische logboeken in Azure Event Hubs | Microsoft Docs
-description: Meer informatie over het instellen van diagnostische logboeken voor eventhubs in Azure.
+title: Diagnostische logboeken - Azure Event Hub instellen | Microsoft Docs
+description: Meer informatie over het instellen van activiteitenlogboeken en diagnostische logboeken voor eventhubs in Azure.
 keywords: ''
 documentationcenter: ''
 services: event-hubs
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c0c8740648ad845b58ff0578607f4b5e9c235166
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985163"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105475"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Diagnostische logboeken voor een Azure event hub instellen
 
@@ -70,7 +71,7 @@ Alle logboeken worden opgeslagen in JavaScript Object Notation (JSON)-indeling. 
 
 Archief log JSON-tekenreeksen zijn onder andere elementen die worden vermeld in de volgende tabel:
 
-Naam | Beschrijving
+Name | Description
 ------- | -------
 Taaknaam | Beschrijving van de taak die is mislukt.
 ActivityId | Interne ID, die wordt gebruikt voor het bijhouden.
@@ -108,7 +109,7 @@ De volgende code is een voorbeeld van een logboek archiveren JSON-tekenreeks:
 
 Operationeel logboek van JSON-tekenreeksen zijn onder andere elementen die worden vermeld in de volgende tabel:
 
-Naam | Beschrijving
+Name | Description
 ------- | -------
 ActivityId | Interne ID gebruikt voor het bijhouden van gebruik.
 EventName | Naam van de bewerking.  

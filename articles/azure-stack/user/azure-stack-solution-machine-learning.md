@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002178"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106750"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
 
@@ -357,7 +357,7 @@ Azure Machine Learning Workbench is beschikbaar voor Windows of macOS. Overzicht
     | Projectnaam | myIris | Voer een unieke naam ter identificatie van het account. Gebruik de afdelingen of naam van het project die het best het experiment identificeert. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. |
     | Projectmap | c:\Temp\ | Selecteer de map waarin het project moet worden gemaakt. |
     | Projectbeschrijving | Leeg laten | Optioneel veld, nuttig voor het beschrijven van de projecten. |
-    | URL van GIT-opslagplaats Visualstudio.com | Leeg laten | Optioneel veld. Een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. |
+    | URL van GIT-opslagplaats Visualstudio.com | Leeg laten | Optioneel veld. Een project koppelen aan een Git-opslagplaats in Azure-opslagplaatsen voor broncodebeheer en samenwerking. |
     | Geselecteerde werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte gemaakt voor de experimenten-account in Azure portal. <br>Met behulp van Quickstart, wordt de werkruimte met de naam IrisGarden vermeld. Gebruik anders de werkruimte met de naam van het experimenten-account of de naam van een voorkeur. |
     | Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die worden gebruikt voor het verkennen van het product. Deze sjabloon bevat de scripts en gegevens die nodig zijn voor deze snelstart en andere zelfstudies op deze documentatiesite. |
 
@@ -1420,7 +1420,7 @@ Kubectl get deployments
 
 De implementatie kan enige tijd duren.
 
-### <a name="configure-visual-studio-team-services-to-deploy-automatically"></a>Visual Studio Team Services automatische implementatie configureren
+### <a name="configure-azure-devops-to-deploy-automatically"></a>Configureren van Azure DevOps automatisch implementeren
 
 #### <a name="create-a-team-project"></a>Maak een teamproject
 
@@ -1760,7 +1760,7 @@ Nu dat de verbindingen tot stand worden gebracht, wordt u handmatig toewijzen va
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image110.png)
 
-1.  Naam van het artefact **iris_deployment** en selecteer de locatie voor publiceren moet **Visual Studio Team Services/TFS**.
+1.  Naam van het artefact **iris_deployment** en selecteer de locatie voor publiceren moet **Azure pijplijnen**.
 
     ![Alternatieve tekst](media/azure-stack-solution-machine-learning/image111.png)
 

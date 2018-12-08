@@ -1,20 +1,21 @@
 ---
-title: Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Node.js | Microsoft Docs
-description: Informatie over het ontvangen van gebeurtenissen van Event Hubs met behulp van Node.js.
+title: Gebeurtenissen ontvangen met Node.js - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht voor het maken van een Node.js-toepassing die gebeurtenissen uit Azure Event Hubs ontvangt.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9d7ec781fbc559b434b51db4a5dd8ffb1b6ef11f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239081"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103227"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Node.js
 

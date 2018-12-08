@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014545"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104591"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -75,6 +75,7 @@ In Visual Studio:
 
     ![Schermafbeelding van de opties in menu Extra](media/common/VerbositySetting.PNG)
     
+### <a name="multi-stage-dockerfiles"></a>Meerdere fasen docker-bestanden:
 Mogelijk ziet u deze fout bij het gebruik van een docker-bestand meerdere fasen. De uitgebreide uitvoer ziet er als volgt:
 
 ```cmd
@@ -91,6 +92,21 @@ Service cannot be started.
 ```
 
 Dit komt doordat bouwt AKS-knooppunten een oudere versie van Docker die geen ondersteuning biedt voor meerdere fasen worden uitgevoerd. U moet uw docker-bestand om te voorkomen dat meerdere fasen builds herschrijven.
+
+### <a name="re-running-a-service-after-controller-re-creation"></a>Opnieuw uitvoeren van een service na het opnieuw maken van een domeincontroller
+Mogelijk ziet u deze fout bij het opnieuw uitvoeren van een service nadat u hebt verwijderd en vervolgens opnieuw gemaakt op de Azure Dev spaties-controller die zijn gekoppeld aan dit cluster. De uitgebreide uitvoer ziet er als volgt:
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+Dit komt doordat de controller Dev spaties worden niet verwijderd services die eerder zijn geïnstalleerd door de controller. De controller opnieuw te maken en vervolgens probeert om uit te voeren van de services met behulp van de nieuwe domeincontroller is mislukt omdat de oude services nog steeds voldaan is.
+
+Om dit op te lossen, gebruikt u de `kubectl delete` opdracht voor het handmatig verwijderen van de oude services van het cluster opnieuw en voer vervolgens Dev opslagruimten voor het installeren van de nieuwe services.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-naamomzetting voor een openbare URL die is gekoppeld aan een Dev-Spaces-service is mislukt
 
@@ -195,6 +211,15 @@ U hebt niet de VS Code-extensie voor Azure Dev opslagruimten geïnstalleerd op u
 
 ### <a name="try"></a>Probeer:
 Installeer de [VS Code-extensie voor Azure Dev spaties](get-started-netcore.md).
+
+## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Foutopsporing van de fout ' Ongeldige 'cwd' waarde ' / src'. Het systeem het opgegeven bestand vinden niet." of "starten: programma/src / [pad naar een binair project] bestaat niet"
+De fout wordt uitgevoerd het foutopsporingsprogramma VS Code rapporten `Invalid 'cwd' value '/src'. The system cannot find the file specified.` en/of `launch: program '/src/[path to project executable]' does not exist`
+
+### <a name="reason"></a>Reden
+De VS Code-extensie gebruikt standaard `src` als de werkmap voor het project voor de container. Als u hebt bijgewerkt uw `Dockerfile` om op te geven van een andere werkmap, mag u deze fout ziet.
+
+### <a name="try"></a>Probeer:
+Update de `launch.json` bestand onder de `.vscode` submap van de projectmap. Wijzig de `configurations->cwd` richtlijn om te verwijzen naar dezelfde map als de `WORKDIR` gedefinieerd in van uw project `Dockerfile`. U moet mogelijk ook om bij te werken de `configurations->program` ook richtlijn.
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Het type of de naam 'MijnBibliotheek' kan niet worden gevonden.
 

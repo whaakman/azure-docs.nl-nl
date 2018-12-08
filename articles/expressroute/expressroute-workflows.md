@@ -1,23 +1,24 @@
 ---
-title: Werkstromen voor het configureren van een Azure ExpressRoute-circuit | Microsoft Docs
-description: Deze pagina begeleidt u bij de werkstromen voor het configureren van ExpressRoute-circuit en -peerings
+title: 'Configuratie van werkstromen - ExpressRoute-circuit: Azure | Microsoft Docs'
+description: Deze pagina bevat de werkstromen voor het configureren van ExpressRoute-circuit en -peerings
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301035"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101684"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute-werkstromen voor circuitinrichting en -statussen
 Deze pagina vindt u de inrichting en configuratie van werkstromen op hoog niveau routering-service.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![circuit-werkstroom](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 De volgende afbeelding en de bijbehorende stappen wordt de taken die u volgen moet om een ExpressRoute-circuit dat is ingericht end-to-end weergeven. 
 
@@ -35,7 +36,7 @@ De volgende afbeelding en de bijbehorende stappen wordt de taken die u volgen mo
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![Routering werkstromen](./media/expressroute-workflows/routing-workflow.png)
 5. Virtuele netwerken koppelen aan ExpressRoute-circuits - kunt u virtuele netwerken koppelen aan uw ExpressRoute-circuit. Volg de instructies [VNets koppelen](expressroute-howto-linkvnet-arm.md) aan uw circuit. Deze vnet's in hetzelfde Azure-abonnement als het ExpressRoute-circuit kan zijn of kunnen zich in een ander abonnement.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>ExpressRoute-circuit inrichtingsstatussen

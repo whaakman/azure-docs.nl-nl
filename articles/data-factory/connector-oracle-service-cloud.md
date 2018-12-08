@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a576b94881e114a97e58bf93515e372221da3346
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b97b8e145e2a770a00c77eefc9ce6d323fd6222e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096220"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101828"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Gegevens kopiëren van Oracle-Service-Cloud met Azure Data Factory (Preview)
 
@@ -43,7 +43,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Oracle-Servicecloud gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **OracleServiceCloud** | Ja |
 | host | De URL van de Cloud voor Oracle-Service-exemplaar.  | Ja |
@@ -80,7 +80,12 @@ De volgende eigenschappen worden ondersteund voor Oracle-Servicecloud gekoppelde
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Oracle-Servicecloud gegevensset.
 
-Om gegevens te kopiëren van Oracle-Servicecloud, stel de eigenschap type van de gegevensset in **OracleServiceCloudObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Om gegevens te kopiëren van Oracle-Servicecloud, stel de eigenschap type van de gegevensset in **OracleServiceCloudObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **OracleServiceCloudObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -92,7 +97,8 @@ Om gegevens te kopiëren van Oracle-Servicecloud, stel de eigenschap type van de
         "linkedServiceName": {
             "referenceName": "<OracleServiceCloud linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -106,10 +112,10 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren van Oracle-Servicecloud, stelt u het brontype in de kopieeractiviteit naar **OracleServiceCloudSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **OracleServiceCloudSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

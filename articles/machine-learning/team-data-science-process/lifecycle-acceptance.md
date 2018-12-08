@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a60594123346b599270f2a7763e98fc863f85067
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 6464f4bf7d8d3649c9b59005e927dc5bc1463b28
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441482"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074517"
 ---
-# <a name="customer-acceptance"></a>Aanvaarding van de klant
+# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Klant acceptatie van de fase van de levenscyclus van het Team Data Science Process
 
 In dit artikel bevat een overzicht van de doelen, taken en producten die zijn gekoppeld aan de klant acceptatie van de fase van het Team Data Science Process (TDSP). Deze procedure biedt de levensduur van een aanbevolen die u gebruiken kunt voor het structureren van uw data-science-projecten. De levenscyclus van geeft een overzicht van de belangrijke fasen die projecten doorgaans worden uitgevoerd, vaak iteratief:
 

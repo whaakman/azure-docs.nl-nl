@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 292def9303cf74142a55e1101fe6371476f9f09d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c5fe310e4ba491180b9905ee7e4c80cf814eb9ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845209"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106291"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-gegevensbronnen in Log Analytics
 Syslog is een protocol voor het vastleggen van gebeurtenis die geldt voor Linux.  Toepassingen wordt berichten die kunnen worden opgeslagen op de lokale computer of worden geleverd met een Syslog-collector verzonden.  Wanneer de OMS-Agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt het bericht vervolgens naar Log Analytics waar een record wordt gemaakt in de OMS-opslagplaats.  
@@ -45,7 +45,7 @@ U kunt een nieuwe opslagruimte toevoegen door te klikken en de naam te typen **+
 Standaard worden alle wijzigingen in de configuratie automatisch doorgegeven naar alle agents.  Als u Syslog handmatig configureren op elke Linux-agent wilt, klikt u vervolgens het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog configureren op Linux-agent
-Wanneer de [OMS-agent is geïnstalleerd op een Linux-client](../../log-analytics/log-analytics-quick-collect-linux-computer.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld.  Dit bestand om de configuratie te wijzigen, kunt u wijzigen.  Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
+Wanneer de [OMS-agent is geïnstalleerd op een Linux-client](../../azure-monitor/learn/quick-collect-linux-computer.md), het installeren van een standaard syslog-configuratiebestand dat bepaalt de opslagruimte en de ernst van de berichten die worden verzameld.  Dit bestand om de configuratie te wijzigen, kunt u wijzigen.  Het configuratiebestand is verschillend, afhankelijk van de Syslog-daemon die op de client is geïnstalleerd.
 
 > [!NOTE]
 > Als u de syslog-configuratie bewerken, moet u de syslog-daemon voor de wijzigingen pas van kracht opnieuw opstarten.
@@ -185,7 +185,7 @@ Na het voltooien van de wijzigingen, de Syslog en de OMS-agent moet-service opni
 ## <a name="syslog-record-properties"></a>Eigenschappen van de Syslog-record
 Syslog-records zijn een type **Syslog** en hebben de eigenschappen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Computer |De computer waarop de gebeurtenis is verzameld. |
 | Opslagruimte |Hiermee definieert u het gedeelte van het systeem dat het bericht wordt gegenereerd. |
@@ -199,7 +199,7 @@ Syslog-records zijn een type **Syslog** en hebben de eigenschappen in de volgend
 ## <a name="log-queries-with-syslog-records"></a>Logboeken-query's met Syslog-records
 De volgende tabel bevat voorbeelden van Logboeken-query's die Syslog-records ophalen.
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:--- |:--- |
 | Syslog |Alle Syslogs. |
 | Syslog &#124; waar SeverityLevel == "error" |Alle Syslog-records met de ernst van fout. |
@@ -208,5 +208,5 @@ De volgende tabel bevat voorbeelden van Logboeken-query's die Syslog-records oph
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.
-* Gebruik [aangepaste velden](../../log-analytics/log-analytics-custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.
-* [Linux-agents configureren](../../log-analytics/log-analytics-quick-collect-linux-computer.md) voor het verzamelen van andere typen gegevens.
+* Gebruik [aangepaste velden](../../azure-monitor/platform/custom-fields.md) parseren van gegevens van syslog-records in afzonderlijke velden.
+* [Linux-agents configureren](../../azure-monitor/learn/quick-collect-linux-computer.md) voor het verzamelen van andere typen gegevens.

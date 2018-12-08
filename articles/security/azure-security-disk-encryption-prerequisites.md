@@ -1,20 +1,22 @@
 ---
-title: Vereisten voor Azure Disk Encryption | Microsoft Docs
+title: Vereisten - Azure Disk Encryption voor IaaS-VM's | Microsoft Docs
 description: Dit artikel bevat vereisten voor het gebruik van Microsoft Azure-schijfversleuteling voor IaaS-VM's.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 55226204d148239b7c32d1abc6f61fddcfc5b913
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498586"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104958"
 ---
-# <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption 
+# <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption
+
  In dit artikel, de vereisten voor Azure Disk Encryption, wordt beschreven welke items die worden voldaan moet voordat u Azure Disk Encryption kunt gebruiken. Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) voor het beheer van versleutelingssleutels. U kunt [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), of de [Azure-portal](https://portal.azure.com) Azure Disk Encryption te configureren.
 
 Voordat u Azure Disk Encryption op Azure IaaS Virtual Machines voor de ondersteunde scenario's die zijn beschreven inschakelen in de [overzicht van Azure Disk Encryption](azure-security-disk-encryption-overview.md) artikel, zorg ervoor dat u de vereisten hebt voldaan. 

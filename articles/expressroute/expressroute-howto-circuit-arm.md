@@ -1,18 +1,19 @@
 ---
-title: 'Een ExpressRoute-circuit maken en wijzigen: PowerShell: Azure Resource Manager | Microsoft Docs'
-description: Dit artikel wordt beschreven hoe u kunt maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
+title: 'Een ExpressRoute-circuit - PowerShell maken en wijzigen: Azure | Microsoft Docs'
+description: Maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: f95bdfe9a61a271825ff9bbe5ca7f84330c98df5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257449"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104999"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Maken en aanpassen van een ExpressRoute-circuit met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -23,7 +24,7 @@ ms.locfileid: "51257449"
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
 >
 
-In dit artikel wordt beschreven hoe u een Azure ExpressRoute-circuit maken met behulp van PowerShell-cmdlets en het Azure Resource Manager-implementatiemodel. In dit artikel leest u ook hoe de status van het circuit controleren, bijwerken of verwijderen en inrichting van het ongedaan maken.
+Dit artikel helpt u bij het maken van een ExpressRoute-circuit met behulp van PowerShell-cmdlets en het Azure Resource Manager-implementatiemodel. U kunt ook de status controleren, bijwerken, verwijderen of de inrichting van een circuit ongedaan maken.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -65,7 +66,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 Controleer als uw connectiviteitsprovider hier worden weergegeven. Noteer de volgende informatie, die u later nodig bij het maken van een circuit:
 
-* Naam
+* Name
 * PeeringLocations
 * BandwidthsOffered
 

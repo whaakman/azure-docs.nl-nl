@@ -1,21 +1,22 @@
 ---
-title: Speech API voor Service-SDK-documentatie - zelfstudies, API-verwijzing
+title: Apps ontwikkelen met de spraak-SDK - spraakservices
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over het maken en ontwikkelen van apps met de spraak-SDK
+description: Informatie over het maken van apps met behulp van de spraak-SDK.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469415"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106495"
 ---
 # <a name="ship-an-application"></a>Verzenden van een toepassing
 
@@ -38,7 +39,7 @@ De Media Foundation-bibliotheken moeten worden geïnstalleerd voor de invoer van
 
 De vereiste spraak SDK-bestanden kunnen worden geïmplementeerd in dezelfde map als uw toepassing. Op deze manier uw toepassing hebben rechtstreeks toegang tot de bibliotheken. Zorg ervoor dat u selecteert de juiste versie (Win32/x64) die overeenkomt met uw toepassing.
 
-| Naam | Functie
+| Name | Function
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | Core-SDK, vereist voor de systeemeigen en beheerde implementatie
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | vereist voor de beheerde implementatie

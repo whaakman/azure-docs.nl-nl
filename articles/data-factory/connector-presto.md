@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2017
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 29ac668ddb9d5df88d5f743630eaf2d9288b8727
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123433"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102007"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Gegevens kopiëren van Presto met Azure Data Factory (Preview)
 
@@ -43,7 +43,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Presto gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Presto** | Ja |
 | host | Het IP-adres of de hostnaam naam van de Presto-server. (dat wil zeggen 192.168.222.160)  | Ja |
@@ -88,7 +88,12 @@ De volgende eigenschappen worden ondersteund voor Presto gekoppelde service:
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund voor Presto-gegevensset.
 
-Om gegevens te kopiëren van Presto, stel de eigenschap type van de gegevensset in **PrestoObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Om gegevens te kopiëren van Presto, stel de eigenschap type van de gegevensset in **PrestoObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **PrestoObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -100,7 +105,8 @@ Om gegevens te kopiëren van Presto, stel de eigenschap type van de gegevensset 
         "linkedServiceName": {
             "referenceName": "<Presto linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -109,14 +115,14 @@ Om gegevens te kopiëren van Presto, stel de eigenschap type van de gegevensset 
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Presto bron.
 
-### <a name="prestosource-as-source"></a>PrestoSource als bron
+### <a name="presto-as-source"></a>Presto als bron
 
 Om gegevens te kopiëren van Presto, stelt u het brontype in de kopieeractiviteit naar **PrestoSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **PrestoSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

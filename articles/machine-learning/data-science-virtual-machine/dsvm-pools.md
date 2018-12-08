@@ -1,11 +1,12 @@
 ---
-title: Gegevens van toepassingen wetenschappelijke Virtual Machine - Azure | Microsoft Docs
-description: Pools van gegevens wetenschappelijke virtuele machines implementeren als een gedeelde bron voor een team
-keywords: deep leren, AI en hulpmiddelen voor wetenschappelijke gegevens, gegevens wetenschappelijke virtuele machine, georuimtelijke analytics, team gegevens wetenschappelijke processen
+title: Data Science Virtual Machine-pools - Azure | Microsoft Docs
+description: Pools van Data Science-VM's implementeren als een gedeelde bron voor een team
+keywords: deep learning, AI, hulpprogramma's voor data science, virtuele machine voor datatechnologie, georuimtelijke analyses, team data science process
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,68 +16,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 0740ff7542d066442146b8e80e188ad5ba49a2b5
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: acae59922f5a46f059e19db6865491f5186139f7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309395"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103401"
 ---
-# <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Een gedeelde groep van gegevens wetenschappelijke virtuele Machines maken
+# <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Maken van een gedeelde groep van virtuele Machines voor Datatechnologie
 
-Dit artikel wordt beschreven hoe u een gedeelde groep van gegevens wetenschappelijke Virtual Machines (DSVMs) voor een team gebruik kunt maken. De voordelen van het gebruik van een gedeelde groep zijn beter brongebruik vergemakkelijking van delen en samenwerking en effectiever beheer van DSVM resources. 
+In dit artikel wordt beschreven hoe u een gedeelde groep van virtuele Machines voor Datatechnologie (Dsvm) voor een team te gebruiken kunt maken. De voordelen van het gebruik van een gedeelde groep zijn beter Resourcegebruik, vereenvoudiging van delen en samenwerking en efficiënter beheer van resources van de DSVM. 
 
-U kunt veel methoden en technologieën gebruiken om een pool van DSVMs te maken. Dit artikel is gericht op de groepen voor batchverwerking en interactieve virtuele machines.
+U kunt vele methoden en -technologieën gebruiken om een pool van Dsvm te maken. In dit artikel is gericht op toepassingen voor batchverwerking en interactieve VM's.
 
-## <a name="batch-processing-pool"></a>Batchverwerking van toepassingen
-Als u een pool van DSVMs hoofdzakelijk uit te voeren taken in een batch offline instellen wilt, kunt u de [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) of [Azure Batch](https://docs.microsoft.com/azure/batch/) service. Dit artikel is gericht op Azure Batch AI.
+## <a name="batch-processing-pool"></a>Batchverwerking groep
+Als u instellen van een pool van Dsvm voornamelijk taken uit te voeren in een batch offline wilt, kunt u de [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) of [Azure Batch](https://docs.microsoft.com/azure/batch/) service. In dit artikel is gericht op Azure Batch AI.
 
-Ubuntu-versie van de DSVM wordt ondersteund als een van de afbeeldingen in Azure Batch AI. In de Azure CLI of de SDK voor Python, waar u de Azure Batch AI-cluster maakt, kunt u de `image` parameter en wordt ingesteld op `UbuntuDSVM`. U kunt kiezen welk type verwerking knooppunten: exemplaren op basis van GPU versus instanties van alleen-CPU, aantal processors en geheugen van een [ruime keuze van VM-instanties](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) beschikbaar zijn op Azure. 
+De Ubuntu-versie van de DSVM wordt ondersteund als een van de installatiekopieën in Azure Batch AI. In de Azure CLI of de Python-SDK, waar u de Azure Batch AI-cluster maakt, kunt u de `image` parameter instelt op `UbuntuDSVM`. U kunt kiezen welk type verwerking knooppunten die u wilt: op basis van GPU-exemplaren versus exemplaren alleen voor CPU, het aantal CPU's, en het geheugen van een [ruime keuze van de VM-exemplaren](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) beschikbaar zijn op Azure. 
 
-Wanneer u de installatiekopie van het Ubuntu DSVM in Batch AI met knooppunten op basis van GPU gebruikt, worden de benodigde GPU-stuurprogramma's en frameworks learning diepe vooraf is geïnstalleerd. De voorinstallatie bespaart u veel tijd bij het voorbereiden van de batch-knooppunten. Zelfs als u op een Ubuntu DSVM interactief ontwikkelt, zult u merken dat de knooppunten Batch AI precies de dezelfde installatie en configuratie van de omgeving zijn. 
+Wanneer u de installatiekopie van de Ubuntu-DSVM in Batch AI met knooppunten op basis van GPU gebruiken, worden de benodigde GPU-stuurprogramma's en deep learning frameworks vooraf is geïnstalleerd. De voorinstallatie bespaart u veel tijd bij het voorbereiden van de batch-knooppunten. Zelfs als u op een Ubuntu-DSVM interactief ontwikkelt, zult u merken dat de Batch AI-knooppunten de dezelfde installatie en configuratie van de omgeving zijn. 
 
-Wanneer u een Batch AI-cluster maakt, maakt u gewoonlijk ook een bestandsshare die is gekoppeld door alle knooppunten. De bestandsshare wordt gebruikt voor invoer en uitvoer van gegevens, evenals de code batch taak/scripts opslaan. 
+Wanneer u een Batch AI-cluster maakt, maakt u gewoonlijk ook een bestandsshare die is gekoppeld door alle knooppunten. De bestandsshare wordt gebruikt voor invoer en uitvoer van gegevens, evenals voor het opslaan van de batch-taak code/scripts. 
 
-Nadat u een Batch AI-cluster maakt, kunt u dezelfde CLI of Python SDK voor het verzenden van taken worden uitgevoerd. U betaalt voor alleen de tijd die wordt gebruikt voor het uitvoeren van de batchtaken. 
+Nadat u een Batch AI-cluster hebt gemaakt, kunt u dezelfde CLI of SDK voor Python kunt gebruiken voor het verzenden van taken om te worden uitgevoerd. U betaalt slechts voor de tijd die wordt gebruikt voor de batch-taken uitvoeren. 
 
 Zie voor meer informatie:
-* Stapsgewijze handleiding voor het gebruik van [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) Batch AI beheren
-* Stapsgewijze handleiding voor het gebruik van [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) Batch AI beheren
-* [Batch-AI recepten](https://github.com/Azure/BatchAI) die laten zien hoe u verschillende AI en deep frameworks met Batch AI leren gebruiken
+* Stapsgewijze uitleg van het gebruik van [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) voor het beheren van Batch AI
+* Stapsgewijze uitleg van het gebruik van [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) voor het beheren van Batch AI
+* [Batch AI recepten](https://github.com/Azure/BatchAI) die laten zien hoe u verschillende AI en deep learning-frameworks met Batch AI
 
-## <a name="interactive-vm-pool"></a>Interactieve VM-groep
+## <a name="interactive-vm-pool"></a>Interactieve VM-pool
 
-Een pool van interactieve virtuele machines die worden gedeeld door het hele AI/gegevens wetenschappelijke team kunnen gebruikers zich aanmelden met een beschikbaar exemplaar van de DSVM in plaats van een speciaal exemplaar voor elke set van gebruikers. Deze instelling kunt u betere beschikbaarheid en effectiever gebruik van bronnen. 
+Een pool van interactieve virtuele machines die worden gedeeld door het hele AI/data science-team kan gebruikers zich aanmelden bij een beschikbaar exemplaar van de DSVM in plaats van een toegewezen exemplaar voor elke set van gebruikers. Deze instelling kunt u betere beschikbaarheid en effectiever gebruik van resources. 
 
-De technologie die u gebruikt om een interactieve VM-pool te maken is [virtuele Azure-machine-schaalsets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). U kunt schaalsets maken en beheren van een groep identieke, taakverdeling en virtuele machines automatisch schalen. 
+De technologie die u gebruikt om een interactieve virtuele machine-pool te maken is [Azure virtuele-machineschaalsets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). U kunt schaalsets gebruiken voor een groep identieke, taakverdeling en virtuele machines automatisch schalen maken en beheren. 
 
-De gebruiker zich aanmeldt van de belangrijkste groep IP- of DNS-adres. De schaal automatisch ingesteld routes de sessie een DSVM beschikbaar in de schaalset. Omdat een soortgelijke omgeving ongeacht de virtuele machine wilt dat gebruikers ze bent aangemeld bij, alle exemplaren van de virtuele machine in de schaalset een station gedeeld netwerk, zoals een Azure-bestanden-share of een NFS-share koppelt. De gebruiker gedeelde werkruimte wordt normaal gesproken op de gedeelde bestandsopslag dat gekoppeld is op elk van de exemplaren. 
+De gebruiker zich aanmeldt de hoofdpool IP- of DNS-adres. De schaal automatisch ingesteld routes de sessie op een beschikbare DSVM in de schaalset. Aangezien een dergelijke omgeving, ongeacht de virtuele machine de gebruikers willen ze bent aangemeld bij, alle exemplaren van de virtuele machine in de schaalset een gedeeld netwerk-station, zoals een Azure-bestandsshare of een NFS-share koppelt. Gedeelde werkruimte van de gebruiker wordt normaal gesproken opgeslagen op de gedeelde bestandsopslag die gekoppeld op elk van de exemplaren. 
 
-U vindt een voorbeeldsjabloon voor Azure Resource Manager waarmee een schaal en Ubuntu DSVM exemplaren instelt voor [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). Een voorbeeld van de [parameterbestand](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) voor de Azure Resource Manager-sjabloon is op dezelfde locatie bevinden. 
+U vindt een voorbeeld Azure Resource Manager-sjabloon maakt u een schaalset met Ubuntu-DSVM-exemplaren op [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). Een voorbeeld van de [parameterbestand](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) voor de Azure Resource Manager-sjabloon is op dezelfde locatie. 
 
-U kunt de schaal van de Azure Resource Manager-sjabloon is ingesteld door het opgeven van waarden voor de parameter-bestand in Azure CLI kunt maken. 
+U kunt de schaalset op basis van de Azure Resource Manager-sjabloon door waarden voor de parameter-bestand op te geven in de Azure CLI maken. 
 
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
 az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
 De voorgaande opdrachten wordt ervan uitgegaan dat u hebt:
-* Een kopie van de parameter-bestand met de opgegeven waarden voor uw exemplaar van de schaal is ingesteld.
+* Een kopie van het parameterbestand met de waarden die zijn opgegeven voor uw exemplaar van de schaalset.
 * Het aantal VM-exemplaren.
 * Verwijzingen naar de Azure-bestanden delen.
-* Referenties voor het opslagaccount dat zal worden gekoppeld op elke virtuele machine. 
+* Referenties voor het opslagaccount dat wordt gekoppeld op elke virtuele machine. 
 
-De parameter-bestand wordt lokaal verwezen in de opdrachten. U kunt ook parameters in line- of vragen om ze in uw script doorgeven.  
+Het parameterbestand wordt lokaal verwezen in de opdrachten. U kunt ook parameters in line- of vragen om ze in uw script doorgeven.  
 
-De voorgaande sjabloon kunt u de SSH- en de JupyterHub-poort van de front-schaal ingesteld op de back-end-pool van Ubuntu DSVMs. Als een gebruiker aanmelden u alleen bij de virtuele machine op SSH of JupyterHub op normale wijze. Omdat de VM-exemplaren kunnen worden geschaald omhoog of omlaag dynamisch, geen status moet worden opgeslagen in de gekoppelde Azure-bestanden kunt delen. Dezelfde manier kunt u een pool maken met Windows DSVMs. 
+De voorgaande sjabloon kunt u de SSH- en de poort JupyterHub van de front-schaalset ingesteld op de back-end-pool van Ubuntu-Dsvm. Als een gebruiker aanmelden u alleen bij de virtuele machine op SSH of JupyterHub op normale wijze. Omdat de VM-exemplaren kunnen worden opgeschaald of omlaag dynamisch, elke status moet worden opgeslagen in de gekoppelde Azure-bestanden dan delen. U kunt dezelfde benadering gebruiken om een pool van Windows-Dsvm te maken. 
 
-De [script dat de bestanden van de Azure-share koppelt](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) is ook beschikbaar in de Azure-DataScienceVM-opslagplaats in GitHub. Het script koppelt de share Azure-bestanden op het opgegeven koppelpunt in het parameterbestand. Het script maakt ook zachte koppelingen naar het gekoppelde station in de basismap van de eerste gebruiker. Een directory gebruikersspecifieke notebook binnen de share Azure Files is voorlopig gekoppeld aan de `$HOME/notebooks/remote` map zodat gebruikers kunnen toegang krijgen tot, uitvoeren en hun Jupyter-notebooks opslaan. U kunt de dezelfde overeenkomst gebruiken wanneer u extra gebruikers maakt op de virtuele machine van de gebruiker Jupyter werkruimte verwijzen naar de share Azure-bestanden. 
+De [-script waarmee de Azure Files-share koppelt](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) is ook beschikbaar in de Azure-DataScienceVM-opslagplaats in GitHub. Het script koppelt u de Azure-bestandsshare op het opgegeven koppelpunt in het parameterbestand. Het script maakt ook zachte koppelingen naar het gekoppelde station in de basismap van de eerste gebruiker. Een directory gebruikersspecifieke notitieblok in de Azure Files-share is voorlopig gekoppeld aan de `$HOME/notebooks/remote` map zodat gebruikers kunnen toegang krijgen tot, uitvoeren en opslaan van hun Jupyter-notebooks. U kunt dezelfde conventie gebruiken wanneer u extra gebruikers maakt op de virtuele machine van elke gebruiker Jupyter werkruimte verwijzen naar de Azure-bestandsshare. 
 
-Virtuele-machineschaalsets ondersteuning voor automatisch schalen. U kunt regels instellen op wanneer extra exemplaren maken en wanneer schalen exemplaren. U kunt bijvoorbeeld omlaag schalen op nul-exemplaren op te slaan op de hardwarekosten gebruik cloud wanneer de virtuele machines niet helemaal worden gebruikt. De documentatie van pagina's van virtuele-machineschaalsets bieden gedetailleerde stappen voor het [automatisch schalen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+Virtuele-machineschaalsets ondersteuning voor automatisch schalen. U kunt regels instellen op wanneer u extra exemplaren en wanneer u voor het schalen van exemplaren. U kunt bijvoorbeeld omlaag schalen naar nul exemplaren op te slaan op de hardwarekosten gebruik cloud wanneer de virtuele machines worden helemaal niet gebruikt. De documentatie van pagina's van virtuele-machineschaalsets bieden gedetailleerde stappen voor het [automatisch schalen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Instellen van een algemene identiteit](dsvm-common-identity.md)
+* [Een gemeenschappelijke identiteit instellen](dsvm-common-identity.md)
 * [Veilig opslaan van referenties voor toegang tot cloud-bronnen](dsvm-secure-access-keys.md)
 
 

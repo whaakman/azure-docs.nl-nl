@@ -1,21 +1,22 @@
 ---
-title: LUIS vooraf gemaakte entiteiten de ouderdom van referentie - Azure | Microsoft Docs
+title: De ouderdom van vooraf gemaakte entiteiten
 titleSuffix: Azure
 description: In dit artikel bevat leeftijd vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 63ff00c29548af2f26a2b7b5e5ac68b5397671ec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2965f9fcedba55536ef25469975679bffe27b4e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441822"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102653"
 ---
 # <a name="age-entity"></a>Leeftijdsentiteit
 De vooraf gedefinieerde leeftijd entiteit bevat de leeftijdwaarde zowel numeriek en in termen van dagen, weken, maanden en jaren. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met leeftijd aan de toepassing intents. Leeftijd entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Leeftijd wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Rec
 ## <a name="resolution-for-prebuilt-age-entity"></a>Oplossing voor vooraf gedefinieerde leeftijd entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.age** entiteit.
 
-```JSON
+```json
 {
   "query": "A 90 day old utilities bill is quite late.",
   "topScoringIntent": {

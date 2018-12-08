@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process Team leiden taken - Azure | Microsoft Docs
-description: Een overzicht van de taken voor een team leiden op een data science-teamproject.
+title: Taken voor het team leiden in het Team Data Science Process Team - Azure
+description: Een overzicht van de taken die ertoe leiden dat een team in een data science-teamproject is opslagbewerkingen uit te voeren voor hun team van gegevenswetenschappers.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 68fd0abf314eb4fde5ff335acc161d82ad78cd0c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443846"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106631"
 ---
-# <a name="team-lead-tasks"></a>Team Lead taken
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Taken voor het team leiden in Team Data Science Process Team
 
 Dit onderwerp bevat de taken die een teamleider opslagbewerkingen uit te voeren voor hun team van gegevenswetenschappers. Het doel is het opzetten van collaboratief team-omgeving die standaardiseert op de [Team Data Science Process](overview.md) (TDSP). TDSP is een flexibele, iteratieve data science-methodologie predictive analytics-oplossingen en intelligente toepassingen efficiënt leveren. Het is ontworpen om samenwerking en team learning te verbeteren. Het proces is een distillatie van de best practices en structuren van zowel Microsoft en uit de industrie, die nodig zijn voor een succesvolle implementatie van data science initiatieven om bedrijven volledig te profiteren van de voordelen van hun analytics programma's. Voor een overzicht van de rollen personeel en de bijbehorende taken die worden beheerd door een team van gegevenswetenschappers standaardiseren over dit proces, Zie [Team Data Science Process rollen en taken](roles-tasks.md).
 

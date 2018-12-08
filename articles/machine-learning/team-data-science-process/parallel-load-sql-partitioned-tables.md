@@ -1,6 +1,6 @@
 ---
-title: Bouw en tabellen voor het snel parallelle importeren van gegevens in een SQL Server op een virtuele Azure-machine optimaliseren | Microsoft Docs
-description: Parallel bulkimporteren van gegevens met SQL-partitietabellen
+title: Parallel bulkimporteren van gegevens met behulp van SQL-partitietabellen op een Azure VM
+description: Gepartitioneerde tabellen voor het snel parallelle bulkbewerkingen voor importeren van gegevens naar een SQL Server-database bouwen.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f437de3043cbd3d689f85dc3524b419b1633553f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 5645799b0f1be1c2c6117a314920ee996880cb37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446463"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101176"
 ---
-# <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallel bulkimporteren van gegevens met SQL-partitietabellen
+# <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Bouw en tabellen voor het snel parallelle importeren van gegevens in een SQL Server op een virtuele Azure-machine optimaliseren
 
 Dit artikel wordt beschreven hoe u kunt gepartitioneerde tabellen voor het snel parallelle bulkbewerkingen voor importeren van gegevens naar een SQL Server-database bouwen. Voor grote laden/overdracht van gegevens naar een SQL-database, het importeren van gegevens op de SQL-database en de volgende query's kan worden verbeterd met behulp van *gepartitioneerde tabellen en weergaven*. 
 

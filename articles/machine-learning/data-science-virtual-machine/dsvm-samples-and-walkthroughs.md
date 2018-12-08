@@ -1,11 +1,12 @@
 ---
 title: Voorbeelden en procedures voor virtuele Machines voor Datatechnologie - Azure | Microsoft Docs
-description: Voorbeelden en scenario's voor Data Science Virtual Machines.
+description: Meer informatie over de voorbeelden en procedures die laten zien u hoe u algemene taken en scenario's met de Data Science Virtual Machine.
 keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 74d5893a377fb67dbec7b185525e74ac248deede
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 64be6af340aa02c6c0b094013d2cbd286286aca7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902753"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101983"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>Voorbeelden van virtuele Machines voor Datatechnologie
 
@@ -29,7 +30,7 @@ Azure Data Science Virtual Machines bevat een uitgebreide set met voorbeeldcode.
 > Zie voor meer informatie over het uitvoeren van Jupyter notebooks op uw virtuele machines voor datatechnologie, de [toegang Jupyter](#access-jupyter) sectie.
 
 ## <a name="quick-reference-of-samples"></a>Naslaggids van voorbeelden
-| Voorbeelden van categorie | Beschrijving | Locaties |
+| Voorbeelden van categorie | Description | Locaties |
 | ------------- | ------------- | ------------- |
 | R-taal  | Voorbeelden in R uitgelegd scenario's zoals verbinding maken met Azure-cloud-gegevensarchieven. Ze ook wordt uitgelegd hoe u wilt vergelijken van open-source R en Microsoft-R. En ze wordt uitgelegd hoe u modellen op Microsoft R Server of SQL Server. <br/> [R-taal](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Python-taal  | Voorbeelden van Python wordt uitgelegd scenario's, zoals het verbinden met Azure-cloud-gegevensarchieven en werken met Azure Machine Learning.  <br/> [Python-taal](#python-language) | <br/>`~notebooks` <br/><br/>|

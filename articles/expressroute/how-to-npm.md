@@ -1,29 +1,23 @@
 ---
-title: Network Performance Monitor configureren voor Azure ExpressRoute-circuits | Microsoft Docs
+title: Network Performance Monitor configureren voor ExpressRoute-circuits - Azure | Microsoft Docs
 description: Configureer cloud-gebaseerde netwerk (NPM) voor Azure ExpressRoute-circuits controleren. Dit bevat informatie over bewaking via ExpressRoute-privépeering en Microsoft-peering.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 93bafb739c35b81796186dc845f7933a82e1675b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968115"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104727"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Netwerkprestatiemeter configureren voor ExpressRoute
 
-(Netwerkprestatiemeter) is een cloud-gebaseerde Netwerkcontrole-oplossing waarmee connectiviteit tussen Azure-cloud-implementaties en on-premises locaties (filialen, enzovoort) worden gecontroleerd. NPM maakt deel uit van Log Analytics. NPM biedt een uitbreiding voor ExpressRoute waarmee u het bewaken van prestaties van het netwerk via ExpressRoute-circuits die zijn geconfigureerd voor gebruik van persoonlijke peering of Microsoft-peering. Wanneer u NPM voor ExpressRoute configureren, kunt u netwerkproblemen identificeren en oplossen detecteren. Deze service is ook beschikbaar voor Azure Government-Cloud.
+Dit artikel helpt u bij het configureren van een extensie voor Network Performance Monitor voor het controleren van ExpressRoute. (Netwerkprestatiemeter) is een cloud-gebaseerde Netwerkcontrole-oplossing waarmee connectiviteit tussen Azure-cloud-implementaties en on-premises locaties (filialen, enzovoort) worden gecontroleerd. NPM maakt deel uit van Log Analytics. NPM biedt een uitbreiding voor ExpressRoute waarmee u het bewaken van prestaties van het netwerk via ExpressRoute-circuits die zijn geconfigureerd voor gebruik van persoonlijke peering of Microsoft-peering. Wanneer u NPM voor ExpressRoute configureren, kunt u netwerkproblemen identificeren en oplossen detecteren. Deze service is ook beschikbaar voor Azure Government-Cloud.
 
 U kunt:
 

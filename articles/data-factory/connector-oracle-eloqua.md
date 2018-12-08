@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 56160b8db3bad5ebd04fc30442833d36f1633ed1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a8bb5e7ca71a24f36b102938668d57bdccd0b0b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123518"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101803"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Gegevens kopiëren van Oracle Eloqua met Azure Data Factory (Preview)
 
@@ -43,7 +43,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Oracle Eloqua gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Eloqua** | Ja |
 | endpoint | Het eindpunt van de Eloqua-server. Eloqua biedt ondersteuning voor meerdere datacenters, om te bepalen van uw eindpunt, meld u aan bij https://login.eloqua.com met uw referentie, Kopieer de **basis-URL** gedeelte van de URL van de omgeleide met het patroon van `xxx.xxx.eloqua.com`. | Ja |
@@ -76,7 +76,12 @@ De volgende eigenschappen worden ondersteund voor Oracle Eloqua gekoppelde servi
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Oracle Eloqua gegevensset.
 
-Om gegevens te kopiëren van Oracle Eloqua, stel de eigenschap type van de gegevensset in **EloquaObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Om gegevens te kopiëren van Oracle Eloqua, stel de eigenschap type van de gegevensset in **EloquaObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **EloquaObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -88,7 +93,8 @@ Om gegevens te kopiëren van Oracle Eloqua, stel de eigenschap type van de gegev
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -97,14 +103,14 @@ Om gegevens te kopiëren van Oracle Eloqua, stel de eigenschap type van de gegev
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Oracle Eloqua bron.
 
-### <a name="eloquasource-as-source"></a>EloquaSource als bron
+### <a name="eloqua-as-source"></a>Eloqua als bron
 
 Om gegevens te kopiëren van Oracle Eloqua, stelt u het brontype in de kopieeractiviteit naar **EloquaSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **EloquaSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Accounts"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Accounts"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

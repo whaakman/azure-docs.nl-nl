@@ -1,6 +1,6 @@
 ---
-title: Overzicht van het model voor verificatie en beveiliging van Azure Event Hubs | Microsoft Docs
-description: Event Hubs-verificatie- en beveiligingsmodellen.
+title: Verificatie en beveiliging van model - Azure Event Hubs | Microsoft Docs
+description: Dit artikel wordt het model voor verificatie en beveiliging van Azure Event Hubs beschreven.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0e8dcf9eede744d52e38b742946a59944988f199
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104149"
 ---
-# <a name="event-hubs-authentication-and-security-model-overview"></a>Event-Hubs verificatie- en beveiligingsmodellen
+# <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Eventhubs - verificatie en beveiligingsmodel
 
 Het beveiligingsmodel van Azure Event Hubs voldoet aan de volgende vereisten:
 

@@ -1,21 +1,22 @@
 ---
-title: Migratiehandleiding API van v1 in v2
+title: V1, v2 API-migratie
 titleSuffix: Azure Cognitive Services
-description: Informatie over hoe voor migratie naar de meest recente API instellen.
+description: Informatie over het migreren naar de meest recente API-set.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 7514390593b4afca4793923089516f3393db0428
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646572"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105832"
 ---
 # <a name="api-v2-migration-guide"></a>Migratiehandleiding voor API-versie 2
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's wordt afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
@@ -43,7 +44,7 @@ Het API-eindpunt heeft nieuwe querystring-parameters, evenals een andere reactie
 
 
 V1-eindpunt geslaagd antwoord:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ V1-eindpunt geslaagd antwoord:
 ```
 
 v2-eindpunt geslaagd antwoord:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

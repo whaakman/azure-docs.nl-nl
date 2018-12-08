@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687483"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101827"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -69,7 +69,7 @@ Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
 
 ## <a name="how-does-data-sync-work"></a>Hoe werkt Data Sync? 
 
--   **Bijhouden van gegevenswijzigingen:** gegevenssynchronisatie bijgehouden wijzigingen met behulp van invoegen, bijwerken en verwijderen van triggers. De wijzigingen worden vastgelegd in een tabel aan de in de database.
+-   **Bijhouden van gegevenswijzigingen:** gegevenssynchronisatie bijgehouden wijzigingen met behulp van invoegen, bijwerken en verwijderen van triggers. De wijzigingen worden vastgelegd in een tabel aan de in de database. Houd er rekening mee dat BULKSGEWIJS invoegen wordt niet geactiveerd triggers standaard. Als bulkhints niet opgegeven is, wordt er geen triggers voor invoegen uitvoeren. De optie bulkhints toevoegen zodat gegevenssynchronisatie die ingevoegd bijhouden kunt. 
 
 -   **Het synchroniseren van gegevens:** Data Sync is gemaakt in een Hub en Spoke-model. De Hub synchroniseert afzonderlijk met elk lid. Wijzigingen van de Hub worden gedownload naar het lid en vervolgens de wijzigingen van het lid worden geüpload naar de Hub.
 
@@ -82,7 +82,7 @@ Gegevenssynchronisatie is niet de beste oplossing voor de volgende scenario's:
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Data Sync instellen in Azure portal
 
 -   [Azure SQL Data Sync instellen](sql-database-get-started-sql-data-sync.md)
--   Gegevens synchroniseren Agent - [gegevens synchroniseren-Agent voor Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Data Sync-agent: [Data Sync-agent voor Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>Data Sync met PowerShell instellen
 

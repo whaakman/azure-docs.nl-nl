@@ -1,23 +1,24 @@
 ---
-title: Application Insights-gegevens van LUIS met C#
+title: Application Insights met behulp vanC#
 titleSuffix: Azure Cognitive Services
 description: Bouw een bot die is geïntegreerd met een LUIS-toepassing en de Application Insights met behulp van C#.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: c7f12352355b12cf1a7363a2a82fa786248cdc6f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fb7ce154985db97dba2a36b4b0d834cada1605d9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965288"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101055"
 ---
-# <a name="add-luis-results-to-application-insights"></a>LUIS resultaten naar Application Insights toevoegen
+# <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>LUIS resultaten aan met een Bot in Application Insights toevoegenC#
 
 In deze zelfstudie voegt LUIS antwoord informatie [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
 
@@ -174,7 +175,7 @@ In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit 
 
 3. Voer in het consolevenster de volgende opdracht:
 
-    ```
+    ```console
     cd site\wwwroot && build.cmd
     ```
 
@@ -190,11 +191,12 @@ In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit 
 
 3. Hier ziet u geen verschil in het antwoord chatbot. De wijziging verzendt gegevens naar Application Insights, niet in de bot antwoorden. Voer enkele meer uitingen zodat er nog iets meer gegevens in Application Insights:
 
-```
-Please deliver a pizza
-Turn off all the lights
-Turn on the hall light
-```
+|Utterances|
+|--|
+|Verzend een pizza|
+|Alle de verlichting uitschakelen|
+|Schakel op de lichtblauwe hall|
+
 
 ## <a name="view-luis-entries-in-application-insights"></a>LUIS-items weergeven in Application Insights
 
@@ -231,7 +233,7 @@ Application Insights biedt u de power query uitvoeren op gegevens die met de [Ku
 
 3. Als u wilt ophalen van de belangrijkste doel, score en utterance, voeg u de volgende vlak boven de laatste regel in het queryvenster:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
     | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
     | extend utterance = tostring(customDimensions.LUIS_query)

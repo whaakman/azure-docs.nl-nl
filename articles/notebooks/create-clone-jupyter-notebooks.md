@@ -1,5 +1,5 @@
 ---
-title: Over het maken en klonen Jupyter-notebooks in Azure | Microsoft Docs
+title: Maken en klonen Jupyter-notebooks in Azure
 description: Azure notitieblokken projecten beheren van een verzameling van notitieblokken en -gerelateerde bestanden, die u kunt nieuwe maken of klonen vanaf een andere bron.
 services: app-service
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 36de7ce0cbbc1c3a2c12682b6882dc4d5491eb10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855818"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106512"
 ---
-# <a name="create-and-clone-projects"></a>Maken en projecten klonen
+# <a name="create-and-clone-projects"></a>Projecten maken en klonen
 
 Azure-notitieblokken organiseert uw Jupyter-notebooks en de bijbehorende bestanden in logische groepen met de naam *projecten*. U een project eerst als een container maken en vervolgens maakt of een of meer notitieblokken in een map naast andere projectbestanden klonen. (Dit proces wordt geïllustreerd in de [zelfstudie](tutorial-create-run-jupyter-notebook.md).)
 
@@ -34,7 +34,7 @@ Uw **Mijn projecten** dashboard op `https://notebooks.azure.com/<userID>/project
 
 Wat u op het dashboard kunt doen, is afhankelijk van of u bent aangemeld met het account dat eigenaar is van de gebruikers-ID:
 
-| Opdracht | Beschikbaar voor | Beschrijving |
+| Opdracht | Beschikbaar voor | Description |
 | --- | --- | --- |
 | **Uitvoeren** | Eigenaar | Start de projectserver en de projectmap in Jupyter geopend. (Meer over het algemeen u eerst in een projectmap navigeren en start u een laptop van daaruit.) |
 | **Downloaden** | Iedereen | Een kopie van het geselecteerde project gedownload als een ZIP-bestand. |
@@ -49,7 +49,7 @@ Wat u op het dashboard kunt doen, is afhankelijk van of u bent aangemeld met het
 
 Wanneer u gebruikt de **Share** opdracht en selecteer de **insluiten** tabblad kunt u HTML-code of Markdown waarmee een badge 'notebook starten':
 
-    ![Launch notebook badge ](https://notebooks.azure.com/launch.png)
+![Laptop-badge starten ](https://notebooks.azure.com/launch.png)
 
 Als u een Azure-notitieblokken-project hebt, kunt u een koppeling die wordt gekloond vanuit GitHub rechtstreeks met behulp van de volgende sjablonen, vervangen door de juiste gebruikersnaam en de namen van de opslagplaats:
 
@@ -65,7 +65,7 @@ Als u een Azure-notitieblokken-project hebt, kunt u een koppeling die wordt gekl
 
 Wanneer u gebruikt de **+ nieuw Project** opdracht, Azure-notitieblokken wordt weergegeven een **nieuw Project maken** pop-upvenster. Voer de volgende informatie in dit pop-upvenster en selecteer vervolgens **maken**:
 
-| Veld | Beschrijving |
+| Veld | Description |
 | --- | --- |
 | Projectnaam | Een beschrijvende naam voor uw project die gebruikmaakt van Azure-notitieblokken weer te geven. Bijvoorbeeld: 'Ny Notebook Project'. |
 | Project-id | Een aangepaste id die deel van de URL die u gebruikt uitmaken voor het delen van een project. Deze ID kunt alleen letters, cijfers en afbreekstreepjes bevatten en is beperkt tot 30 tekens bevatten. Als u niet zeker weet wat u wilt gebruiken, wordt een algemene conventie is het gebruik van een kleine versie van de projectnaam van uw waar spaties in afbreekstreepjes bevatten, zoals 'Mijn-notebook-project' (afgekapt indien nodig aanpassen aan de maximale lengte) zijn ingeschakeld. |
@@ -76,7 +76,7 @@ Wanneer u gebruikt de **+ nieuw Project** opdracht, Azure-notitieblokken wordt w
 
 U kunt eenvoudig een volledige openbare GitHub-opslagplaats importeren als een project met inbegrip van alle gegevens en *README.md* bestanden. Gebruik de **GitHub-opslagplaats uploaden** opdracht, geef de volgende informatie in het pop-upvenster op en selecteer vervolgens **importeren**:
 
-| Veld | Beschrijving |
+| Veld | Description |
 | --- | --- |
 | GitHub-opslagplaats | De naam van de opslagplaats op github.com. Bijvoorbeeld, om te klonen van de Jupyter-notebooks voor Azure Cognitive Services op [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks), voer ' Microsoft/cognitieve-services-notitieblokken'.  |
 | Kloon-recursief | GitHub-opslagplaatsen kunnen meerdere onderliggende opslagplaatsen bevatten. Stel deze optie als u wilt klonen van de bovenliggende of hoofdopslagplaats en alle onderliggende items. Omdat het is mogelijk dat een opslagplaats te veel onderliggende elementen hebben, laat u deze optie wissen tenzij u zeker weet dat u ze nodig hebt. |

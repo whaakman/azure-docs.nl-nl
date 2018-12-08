@@ -1,23 +1,24 @@
 ---
-title: Application Insights-gegevens van LUIS met behulp van Node.js
+title: Application Insights, Node.js
 titleSuffix: Azure Cognitive Services
 description: Bouw een bot die is geïntegreerd met een LUIS-toepassing en de Application Insights met behulp van Node.js.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4461ac71ba5f9ab5901c5d7b72c15c0c165621e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321951"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103962"
 ---
-# <a name="add-luis-results-to-application-insights"></a>LUIS resultaten naar Application Insights toevoegen
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS resultaten toevoegen aan Application Insights en Azure functions
 In deze zelfstudie voegt LUIS-aanvraag en respons informatie aan [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
 
 De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
@@ -58,7 +59,7 @@ Om te kunnen leggen de LUIS-aanvraag en respons, de web-app-bot moet de **[Appli
 
 3. Voer de volgende opdracht om Application Insights en het onderstrepingsteken-pakketten te installeren in de console:
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ Om te kunnen leggen de LUIS-aanvraag en respons, de web-app-bot moet de **[Appli
 
     Wacht tot de pakketten te installeren:
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -142,7 +143,7 @@ Application Insights biedt u de power query uitvoeren op gegevens die met de [Ku
 
 3. Als u wilt ophalen van de belangrijkste doel, score en utterance, voeg u de volgende vlak boven de laatste regel in het queryvenster:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

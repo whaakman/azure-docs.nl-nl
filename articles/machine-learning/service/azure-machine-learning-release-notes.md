@@ -1,6 +1,7 @@
 ---
-title: Wat is er nieuw in Azure Machine Learning
-description: In dit document worden de updates voor Azure Machine Learning.
+title: Nieuwe functies
+titleSuffix: Azure Machine Learning service
+description: Meer informatie over de meest recente updates voor Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,84 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105135"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
+
+## <a name="2018-12-04-general-availability"></a>2018-12-04: algemene beschikbaarheid
+
+Azure Machine Learning-service is nu algemeen beschikbaar.
+
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-Computing
+Met deze release, kondigen we een nieuwe beheerde rekenervaring via [Azure Machine Learning-Computing](how-to-set-up-training-targets.md#amlcompute). Deze compute kan worden gebruikt voor Training en Batch inferentietaken, is één - op meerdere - node compute en het cluster-beheer en taakplanning voor de gebruiker. Deze automatisch wordt geschaald standaard biedt ondersteuning voor zowel CPU en GPU en maakt mogelijk gebruik van virtuele machines met lage prioriteit voor lagere kosten. Batch AI compute voor Azure Machine Learning wordt vervangen.
+  
+Azure Machine Learning-Computing kunnen worden gemaakt in Python, met behulp van Azure portal of de CLI. Deze moet worden gemaakt in de regio van uw werkruimte en kan niet worden gekoppeld aan een andere werkruimte. Deze compute maakt gebruik van een Docker-container voor het uitvoeren van uw en uw afhankelijkheden als u wilt repliceren van dezelfde omgeving voor alle knooppunten in uw pakketten.
+
+> [!Warning]
+> We raden u aan om een nieuwe werkruimte voor het gebruik van Azure Machine Learning-Computing. Er is een externe kans dat gebruikers bij het maken van Azure Machine Learning-Computing van een bestaande werkruimte ziet mogelijk een fout. Bestaande compute in uw werkruimte moet blijven werken niet beïnvloed.
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning-SDK voor Python v1.0.2
+
++ **Belangrijke wijzigingen**
+  + Met deze release, worden ondersteuning voor het maken van een virtuele machine van Azure Machine Learning verwijderd. U kunt nog steeds een bestaande VM-cloud koppelen of een externe on-premises server. 
+  + Ondersteuning voor BatchAI, die allemaal moeten worden ondersteund door Azure Machine Learning-Computing nu worden ook verwijderd.
+
++ **Nieuw**
+  + Voor machine learning-pijplijnen:
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
+
+
++ **bijgewerkt**
+  + Voor machine learning-pijplijnen:
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) accepteert nu runconfig
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) nu gekopieerd naar en van een SQL-gegevensbron
+    + Functionaliteit in SDK maken en bijwerken van schema's voor het uitvoeren van gepubliceerde pijplijnen plannen
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning-Dataprep SDK v0.5.2
+
++ **Belangrijke wijzigingen** 
+  * `SummaryFunction.N` is gewijzigd in `SummaryFunction.Count`.
+  
++ **Oplossingen voor problemen**
+  * Gebruik nieuwste AML uitvoeren Token bij het lezen van en schrijven naar gegevensopslag op afstand wordt uitgevoerd. Voorheen als het Token voor het uitvoeren van AML wordt bijgewerkt in Python, zal de runtime gegevensvoorbereiding niet worden bijgewerkt met de bijgewerkte AML uitvoeren Token.
+  * Aanvullende duidelijker foutberichten
+  * to_spark_dataframe() wordt niet meer vastlopen wanneer ze worden Spark maakt gebruik van Kryo serialisatie
+  * Aantal waarden Inspector kan nu meer dan 1000 unieke waarden weergeven
+  * Willekeurige Split mislukt langer als de oorspronkelijke gegevensstroom beschikt niet over een naam  
+
+### <a name="docs-and-notebooks"></a>Docs- en -laptops
++ ML-pijplijnen
+  + Nieuwe en bijgewerkte laptops voor aan de slag met pijplijnen, batch scoping en stijl verplaatsen voorbeelden: https://aka.ms/aml-pipeline-notebooks
+  + Meer informatie over het [uw eerste pijplijn maken](how-to-create-your-first-pipeline.md)
+  + Meer informatie over het [voorspellingen van batch met behulp van pijplijnen worden uitgevoerd](how-to-run-batch-predictions.md)
++ Azure Machine Learning-Computing
+  + [Voorbeeldnotitieblokken] (https://aka.ms/aml-notebooks) nu voor het gebruik van deze nieuwe beheerde berekening worden bijgewerkt.
+  + [Meer informatie over deze rekenkracht](how-to-set-up-training-targets.md#amlcompute)
+
+### <a name="azure-portal-new-features"></a>Azure-portal: nieuwe functies
++ Maken en beheren van [Azure Machine Learning-Computing](how-to-set-up-training-targets.md#amlcompute) typen in de portal.
++ Gebruik van netwerkquota's bewaken en [aanvraag quotum](how-to-manage-quotas.md) voor Azure Machine Learning-Computing.
++ De status van de Azure Machine Learning-Computing-cluster in realtime weergeven.
++ Virtual network-ondersteuning is toegevoegd voor het maken van Azure Machine Learning-Computing en Azure Kubernetes Service.
++ Voer uw gepubliceerde pijplijnen met bestaande parameters opnieuw uit.
++ Nieuwe [machine learning grafieken geautomatiseerde](how-to-track-experiments.md#auto) voor modellen voor tekstclassificatie (lift, verkrijgt, kalibreren, functie belang grafiek met model explainability) en regressiemodellen (dit en functie belang grafiek met model explainability). 
++ Pijplijnen kunnen worden weergegeven in Azure portal
+
+
+
 
 ## <a name="2018-11-20"></a>2018-11-20
 
@@ -253,7 +321,7 @@ Hieronder volgt een lijst met gedetailleerde updates in elk gebied onderdeel van
 #### <a name="ui"></a>GEBRUIKERSINTERFACE
 - Algemene verbeteringen en oplossingen voor problemen
 
-#### <a name="notebooks"></a>Notitieblokken
+#### <a name="notebooks"></a>Notebooks
 - Algemene verbeteringen en oplossingen voor problemen
 
 #### <a name="data-preparation"></a>Gegevensvoorbereiding 

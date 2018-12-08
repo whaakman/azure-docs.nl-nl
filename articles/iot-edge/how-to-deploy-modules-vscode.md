@@ -1,5 +1,5 @@
 ---
-title: Implementeren van Azure IoT Edge-modules (VS-Code) | Microsoft Docs
+title: Implementeren van modules in Visual Studio Code - Azure IoT Edge | Microsoft Docs
 description: Visual Studio Code gebruiken om te implementeren van modules voor een IoT Edge-apparaat
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a7f0fc0c3169aadac78609830dda55ae1ec7ea46
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567840"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100817"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Azure IoT Edge-modules van Visual Studio Code implementeren
 
@@ -109,7 +110,7 @@ De Azure IoT-uitbreidingen voor Visual Studio Code kunt u bewerkingen uitvoeren 
 
 2. Vouw aan de onderkant van de Verkenner van de **Azure IoT Hub-apparaten** sectie. 
 
-   ![Vouw de Azure IoT Hub-apparaten](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Vouw de sectie Azure IoT Hub-apparaten](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Klik op de **...**  in de **Azure IoT Hub-apparaten** sectiekop. Als u het beletselteken niet ziet, Beweeg de muisaanwijzer over de header. 
 

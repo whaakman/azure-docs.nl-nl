@@ -1,11 +1,12 @@
 ---
 title: Inrichten van een Geo kunstmatige intelligentie virtuele Machine op Azure - Azure | Microsoft Docs
-description: Klik hier voor meer informatie over het inrichten van een Geo AI virtuele Machine op Azure.
+description: Informatie over het maken en configureren van de Geo AI Data Science Virtual Machine. De Geo AI Data Science Virtual Machine biedt u de hulpmiddelen om AI en ML-oplossingen met behulp van geografische gegevens te maken.
 keywords: deep learning, AI, hulpprogramma's voor data science, virtuele machine voor datatechnologie, georuimtelijke analyses
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239794"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103945"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Een geografisch kunstmatige intelligentie-Machine in Azure inrichten 
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e052b656f12a9059a5ee9d3ea21d0fa20fc00c6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 75594bf77f9bde7549b14e3a154f18ba67ebac3d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123059"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103384"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Gegevens kopiëren van Zoho met Azure Data Factory (Preview)
 
@@ -43,7 +43,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Zoho gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Zoho** | Ja |
 | endpoint | Het eindpunt van de server Zoho (`crm.zoho.com/crm/private`). | Ja |
@@ -74,7 +74,12 @@ De volgende eigenschappen worden ondersteund voor Zoho gekoppelde service:
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Zoho gegevensset.
 
-Om gegevens te kopiëren van Zoho, stel de eigenschap type van de gegevensset in **ZohoObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Om gegevens te kopiëren van Zoho, stel de eigenschap type van de gegevensset in **ZohoObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **ZohoObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -86,7 +91,8 @@ Om gegevens te kopiëren van Zoho, stel de eigenschap type van de gegevensset in
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Om gegevens te kopiëren van Zoho, stel de eigenschap type van de gegevensset in
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Zoho bron.
 
-### <a name="zohosource-as-source"></a>ZohoSource als bron
+### <a name="zoho-as-source"></a>Zoho als bron
 
 Om gegevens te kopiëren van Zoho, stelt u het brontype in de kopieeractiviteit naar **ZohoSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **ZohoSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Accounts"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Accounts"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

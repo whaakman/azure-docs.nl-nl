@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 383b73d335c8993aa99109c7430d2292a3bfea4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c451482f0aa9c2e6c0a15ab048885920889a2708
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836437"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106393"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
 
@@ -42,7 +42,7 @@ Gebruik de volgende informatie om de oplossing te installeren en configureren.
 vSphere ESXi-Host 5.5, 6.0 of 6.5
 
 #### <a name="prepare-a-linux-server"></a>Een Linux-server voorbereiden
-Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens van de ESXi-hosts. De [Log Analytics Linux-agent](../../log-analytics/log-analytics-quick-collect-linux-computer.md) is het punt verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts kunt gebruiken om logboeken naar een enkel Linux-server, zoals in het volgende voorbeeld te sturen.
+Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens van de ESXi-hosts. De [Log Analytics Linux-agent](../../azure-monitor/learn/quick-collect-linux-computer.md) is het punt verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts kunt gebruiken om logboeken naar een enkel Linux-server, zoals in het volgende voorbeeld te sturen.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 

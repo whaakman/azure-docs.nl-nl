@@ -1,20 +1,21 @@
 ---
-title: Gebeurtenissen verzenden naar Azure Event Hubs met behulp van Node.js | Microsoft Docs
-description: Aan de slag verzenden van gebeurtenissen naar Event Hubs met behulp van Node.js.
+title: Gebeurtenissen verzenden met behulp van Node.js - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht voor het maken van een Node.js-toepassing die gebeurtenissen uit Azure Event Hubs verzendt.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 12/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e64aab3aed582a60140ee1357e79ee5ee4a4cdf4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 15ba584e882dd5a28b74094f949843ed653ad400
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965033"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104064"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Gebeurtenissen verzenden naar Azure Event Hubs met behulp van Node.js
 

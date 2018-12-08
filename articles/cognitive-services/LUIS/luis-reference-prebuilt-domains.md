@@ -1,21 +1,22 @@
 ---
-title: Vooraf gedefinieerde domein referentie - Azure | Microsoft Docs
+title: Vooraf gemaakte domeinverwijzing
 titleSuffix: Azure
 description: Referentie voor de vooraf gemaakte domeinen vooraf gemaakte verzamelingen van intenties en entiteiten van Language Understanding Intelligent Services (LUIS zijn).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335620"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106240"
 ---
 # <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
@@ -25,7 +26,7 @@ Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-
 ## <a name="list-of-prebuilt-domains"></a>Lijst met vooraf gemaakte domeinen
 LUIS biedt 20 vooraf gemaakte domeinen. 
 
-| Vooraf gedefinieerde domein | Beschrijving | Ondersteunde talen |
+| Vooraf gedefinieerde domein | Description | Ondersteunde talen |
 | ---------------- |-----------------------|:------:|
 | Agenda | Het domein van de agenda biedt intentie en entiteiten voor toe te voegen, te verwijderen, of bewerken van een afspraak, deelnemers aan de beschikbaarheid gecontroleerd en zoeken naar informatie over een agenda-gebeurtenis.| en-US<br/> zh-CN |
 | Camera | Het domein van de Camera biedt intenties en entiteiten voor het maken van afbeeldingen, video's opnemen en uitzenden video aan een toepassing.| en-US |
@@ -56,7 +57,7 @@ Zie de volgende secties voor meer informatie over elk domein.
 Het domein van de agenda biedt intenties en entiteiten met betrekking tot de agenda-items. De intenties agenda bevatten toe te voegen, verwijderen of bewerken van een afspraak, de beschikbaarheid gecontroleerd en informatie over een agenda-item of een afspraak zoeken.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Toevoegen | Een nieuwe eenmalige item toevoegen aan de agenda.| Een afspraak met Lisa om 2 uur op zondag <br/><br/>Ik wil een vergadering plannen<br/><br/>Ik wil een vergadering instellen|
 | CheckAvailability | Beschikbaarheid voor een afspraak of vergadering agenda van de gebruiker of een andere persoon kalender niet vinden.| Wanneer is Jim beschikbaar om te voldoen? <br/><br/>Weergeven als Carola morgen beschikbaar is<br/><br/>Chris vrij is op zaterdag?|
@@ -65,7 +66,7 @@ Het domein van de agenda biedt intenties en entiteiten met betrekking tot de age
 | Find | Mijn wekelijkse agenda weergeven.| Zoek de tandarts afspraak bekijken. <br/><br/>Mijn agenda weergeven<br/>|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Locatie | Locatie van agenda-item, afspraak of vergadering. Adressen, plaatsen en regio's zijn goede voorbeelden van locaties.| 209 Nashville sportschool <br/><br/>897 pancake house<br/><br/>Garage|
 | Onderwerp | De titel van een afspraak of vergadering.| De tandarts <br/><br/>Lunch met Julia<br/><br/>De afspraak van Doctor's|
@@ -74,7 +75,7 @@ Het domein van de agenda biedt intenties en entiteiten met betrekking tot de age
 Het domein van de Camera biedt intenties en entiteiten met betrekking tot het gebruik van een camera. De intenties van toepassing op een foto, selfie, schermopname of video vastleggen en uitzenden video aan een toepassing.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | CapturePhoto| Een foto vastleggen.| Maak een foto<br/><br/>vastleggen|
 | CaptureScreenshot | Een schermopname vastleggen.| Schermopname duren.<br/><br/>de schermopname.|
@@ -85,7 +86,7 @@ Het domein van de Camera biedt intenties en entiteiten met betrekking tot het ge
 | StopVideoRecording| Een video-opname stoppen| Dat is voldoende<br/><br/>opname stoppen|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AppName | De naam van een toepassing voor het uitzenden van video.| OneNote<br/><br/>Facebook<br/><br/>Skype|
 
@@ -94,7 +95,7 @@ Het domein van de Camera biedt intenties en entiteiten met betrekking tot het ge
 Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e-mail, berichten en telefoongesprekken.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AddContact| Een nieuwe contactpersoon toevoegen aan lijst met contactpersonen van de gebruiker.|Nieuwe contactpersoon toevoegen <br/><br/>Sla dit nummer en de naam op als Carola plaatsen|
 | AddMore| Voeg meer toe aan een e-mailadres of de tekst, als onderdeel van een stap voor stap e-mail of SMS-samenstelling.|Voeg meer toe aan de tekst <br/><br/>Meer e-instantie toevoegen|
@@ -127,7 +128,7 @@ Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e
 | TurnSpeakerOn| Schakel de sprekerherkenning-telefoon.|Handsfree-modus.<br/>Plaats Handsfree op.<br/>|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Het type van audio-apparaat (spreker, hoofdtelefoon, microfoon, enzovoort).| Spreker<br/>Hands-free<br/>Bluetooth|
 | Categorie | De categorie van een bericht of e-mail.| Belangrijk<br/>Hoge prioriteit|
@@ -144,12 +145,12 @@ Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e
 Het domein biedt intenties en entiteiten die betrekking hebben op te zoeken naar films, muziek, games en muziek Entertainment bevat.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Search| Zoeken naar films, muziek, apps, games en tv-programma's bevat.|Zoek in de store naar Halo.<br/>Zoeken naar Avatar.|
 
 ### <a name="entities"></a>Entiteiten
-| Naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | ContentRating | Media inhoudsrestricties, zoals G of R voor films.|Video van kinderen.<br/>PG beoordeeld.|
 | Genre | Het genre van een film, games, app of nummer.|Comedies<br/>Dramas<br/>Grappige|
@@ -169,16 +170,16 @@ Het domein biedt intenties en entiteiten die betrekking hebben op te zoeken naar
 Het domein van de gebeurtenissen biedt intenties en entiteiten die betrekking hebben op reservering tickets voor gebeurtenissen, zoals concerten, festivals, sport-games en comedy wordt weergegeven.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Book| Tickets op een gebeurtenis kopen.|Ik wil graag een ticket voor de symphony dit weekend kopen.|
 
 
 ### <a name="entities"></a>Entiteiten
-| Naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Adres | Locatie van de gebeurtenis of het adres. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| Naam | De naam van een gebeurtenis.|Shakespeare in het strand|
+| Name | De naam van een gebeurtenis.|Shakespeare in het strand|
 | PlaceName| De naam van de gebeurtenis-locatie.|Louvre<br/>Opera House<br/>Gewijzigd in Broadway|
 | PlaceType | Het type van de locatie van de gebeurtenis worden ondergebracht in.|Café<br/>Theater<br/>Bibliotheek|
 | Type | Het type van een gebeurtenis.|Concert<br/>Sport-game|
@@ -187,7 +188,7 @@ Het domein van de gebeurtenissen biedt intenties en entiteiten die betrekking he
 Het domein geschiktheid biedt intenties en entiteiten met betrekking tot het bijhouden van geschiktheid activiteiten. De intenties bevatten opslaan, notities, resterende tijd of afstand of het opslaan van Activiteitsresultaten.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AddNote| Aanvullende opmerkingen toevoegen aan een activiteit die wordt bijgehouden.|De moeite van het uitvoeren is 6/10<br/>Het terrein dat ik ben over het uitvoeren van op asfalt is<br/>Ik gebruik een fiets 3 snelheid|
 |GetRemaining| Hiermee haalt de resterende tijd of afstand voor een activiteit.|Hoeveel tijd tot de volgende lap?<br/>Hoeveel mijl blijven in mijn uitvoeren? Hoeveel tijd voor de splitsing?|
@@ -195,7 +196,7 @@ Het domein geschiktheid biedt intenties en entiteiten met betrekking tot het bij
 | LogWeight| Opslaan of de huidige gewicht van de gebruiker zich.|Mijn huidige gewicht opslaan<br/>Mijn gewicht nu aanmelden<br/>Mijn huidige instantie gewicht opslaan|
 
 ### <a name="entities"></a>Entiteiten
-| Naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | ActivityType | Het type van de activiteit om bij te houden. |Voer<br/>Lopen<br/>Zwemmen<br/>Cyclus |
 | Voedsel | Een type food om bij te houden in een app geschiktheid. |Bananen<br/>Zalmkleurig<br/>Door te schudden eiwitten|
@@ -208,14 +209,14 @@ Het domein geschiktheid biedt intenties en entiteiten met betrekking tot het bij
 Het domein Gaming biedt intenties en entiteiten met betrekking tot het beheren van een game partij in een spel.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | InviteParty| Een contactpersoon voor deelname aan een gaming-party uitnodigen.|De speler aan mijn partij uitnodigen<br/>Worden geleverd aan mijn partij<br/>Lid worden van mijn clan|
 |LeaveParty| Hiermee haalt de resterende tijd of afstand voor een activiteit.|Ik ben uit<br/>Ik heb deze partij voor een andere verlaten<br/>Ik ben afsluiten|
 | StartParty| Start een partij games in een spel.|Laten we man starten van een partij<br/>starten van een partij<br/>we moeten een clan vanavond beginnen|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Contactpersoon| De naam van een contactpersoon in een spel gebruiken.|Carola<br/>Jim|
 
@@ -224,14 +225,14 @@ Het domein Gaming biedt intenties en entiteiten met betrekking tot het beheren v
 Het domein HomeAutomation biedt intenties en entiteiten die betrekking hebben op de slimme home apparaten zoals verlichting en apparaten te beheren.
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Uitschakelen| Uit te schakelen, sluiten of een apparaat kan worden ontgrendeld.|De verlichting uitschakelen<br/>De maker van de koffie stoppen<br/>Garagedeur die sluiten|
 |Inschakelen| Schakel op een apparaat of het apparaat ingesteld op een bepaalde instelling of modus.|de maker van mijn koffie inschakelen<br/>kunt u de maker van mijn koffie inschakelen?<br/>Stel de thermostaat op 72 graden.|
 
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Apparaat | Een type apparaat dat kan worden ingeschakeld in- of uitschakelen.|koffie maker<br/>Thermostaat<br/>licht|
 | Bewerking | De status van het apparaat.|vergrendelen<br/>open<br/>op<br/>uit|
@@ -248,14 +249,14 @@ When is Captain Omar showing?
 ```
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Book | Film tickets kopen.|Boek me twee tickets voor kapitein Omar en de twee musketeers<br/>Ik wil een ticket voor morgen film kopen<br/>Ik wilt een ticket Captian Omar deel 2 volgende woensdag|
 |GetShowTime| Haal de showtime van een film.|Wanneer wordt kapitein Omar weergegeven?|
 
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Adres | Het adres van een theater film.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | MovieTitle | De titel van een film.|Levensduur van Pi<br/>Hunger Games<br/>Begin|
@@ -266,21 +267,22 @@ When is Captain Omar showing?
 Het domein muziek biedt intenties en entiteiten met betrekking tot het afspelen van muziek op een muziekspeler.
 
 ### <a name="examples"></a>Voorbeelden
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Voorbeelden|
+|--|
+|Beethoven afspelen|
+|spoor volume verhogen|
+|Gaat u naar het volgende nummer|
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | DecreaseVolume | De apparaat-volume te verlagen.|spoor volume te verlagen<br/>volume omlaag|
 | IncreaseVolume | Verhoog het volume van het apparaat.|spoor volume verhogen<br/>volume van|
 | Dempen |Dempen van de afgespeelde muziek.|Dempen nummer<br/>De track op dempen plaatsen<br/>Dempen muziek |
 | Onderbreken | Onderbreken van de afgespeelde muziek.|Onderbreken<br/>Onderbreken muziek<br/>Onderbreken bijhouden|
 | PlayMusic | Het afspelen van muziek op een apparaat.|Kevin Durant afspelen<br/>Paradise door Coldplay afspelen<br/>Hallo door songs afspelen|
-| Herhalen |Herhaal de afgespeelde muziek.|Herhaal de nummer<br/>De track winst afspelen<br/>Herhaal de muziek|
+| Herhaal deze procedure |Herhaal de afgespeelde muziek.|Herhaal de nummer<br/>De track winst afspelen<br/>Herhaal de muziek|
 | Hervatten | Hervatten van de afgespeelde muziek.|Nummer hervatten<br/>Muziek opnieuw starten<br/>Hervatten|
 | SkipBack | Overslaan achterwaartse een nummer.|Gaat u naar het volgende nummer<br/>Het volgende nummer afspelen|
 | SkipForward |Een nummer vooruit springen.|De vorige nummer afspelen<br/>Ga terug naar de vorige bijhouden |
@@ -288,7 +290,7 @@ Skip to the next song
 | Dempen opheffen | Een afspelen van muziekapparaat uitschakelen.| Dempen opheffen.|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | ArtistName | De actor, director, producent, schrijver, muzikant of artiest media om af te spelen op een apparaat dat is gekoppeld.|ELVIS Presley<br/>Taylor Swift<br/>Songs<br/>Mozart|
 | Genre | Het genre muziek wordt aangevraagd.|Land/regio muziek<br/>Gewijzigd in Broadway klassiekers<br/>Mijn klassieke muziek van de Barok periode|
@@ -297,14 +299,15 @@ Skip to the next song
 Het domein Opmerking biedt intenties en entiteiten met betrekking tot het maken, bewerken en het zoeken van notities.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Voorbeelden|
+|--|
+|Toevoegen aan mijn boodschappen Opmerking Sla tomaten brood koffie|
+|Schakel bananen in mijn lijst kruidenierswaren|
+|Alle items uit de lijst van Mijn vakantie verwijderen|
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AddToNote | Gegevens toevoegen aan een opmerking.|Toevoegen aan mijn boodschappen Opmerking Sla tomaten brood koffie<br/>Toevoegen aan mijn takenlijst<br/>cupcakes toevoegen aan mijn Wunderlist|
 | CheckOffItem | Items uit een bestaande notitie afvinken.|Schakel bananen in mijn lijst kruidenierswaren<br/>Kaas taart op Mijn vakantie winkelen lijst als voltooid markeren|
@@ -317,7 +320,7 @@ Remove all items from my vacation list
 | ShowNext | Zie het volgende item in een lijst van notities.|Het volgende object weergeven<br/>Volgende pagina<br/>Volgende|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AppName | De naam van de notities.|Wunderlist<br/>OneNote|
 | Naam contactpersoon | De naam van een contactpersoon in een opmerking.|Carola<br/>Jim<br/>Chris|
@@ -330,14 +333,16 @@ Remove all items from my vacation list
 Het domein OnDevice biedt intenties en entiteiten die betrekking hebben op het apparaat te beheren.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Voorbeelden|
+|--|
+|Sluit de videospeler|
+|Afspelen annuleren|
+|Kunt u het scherm lichtere?|
+
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AreYouListening | Vraag als het apparaat luistert.|is dit op?<br/>u luisteren?|
 |CloseApplication|Sluit de apparaattoepassing.|Sluit de videospeler|
@@ -368,7 +373,7 @@ Can you make the screen brighter?
 |TurnUpBrightness|Inschakelen van de helderheid van het apparaat.|Kunt u het scherm lichtere?|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AppName | De naam van een toepassing op het apparaat.|SoundCloud<br/>YouTube|
 | BrightnessLevel | Het helderheidsniveau van de ingesteld op het apparaat.|Honderd procent<br/>Vijftig<br/>40%|
@@ -381,14 +386,16 @@ Can you make the screen brighter?
 Het domein locaties biedt intents voor het verwerken van query's die betrekking hebben op locaties zoals bedrijven, instelling, restaurants, ruimten voor algemeen gebruik en -adressen.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Voorbeelden|
+|--|
+|Deze locatie opslaan in mijn Favorieten|
+|Hoe ver weg Inn vakantie is?|
+|Op welk tijdstip wordt Safeway gesloten?|
+
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AddFavoritePlace | Voeg een locatie toe aan de lijst Favorieten van de gebruiker.|Deze locatie opslaan in mijn Favorieten<br/>Dit adres toevoegen aan mijn Favorieten|
 |CheckAccident|Vraag of er een ongeluk beschikbaar is op een opgegeven weg.|Is er een ongeluk op 880?<br/>Ongeluk informatie weergeven|
@@ -423,7 +430,7 @@ restart|
 |TakesReservations|Vragen of een plaats reserveringen accepteert.|Accepteert de Galerie WordArt reserveringen<br/>Is het mogelijk om een reservering op de Olive Garden maken
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | AbsoluteLocation | De locatie of het adres van een centrale locatie.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Recreatie | De servicedoelstelling kenmerken/voordelen van een centrale locatie.|kinderen eten gratis<br/>afgebakend<br/>gratis vervangende domeinpagina|
@@ -432,7 +439,7 @@ restart|
 | DestinationAddress| Een nieuwe locatie of het adres.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| De naam van een doel dat is een bedrijf, restaurant, openbare voordelen of instelling.|centrale park<br/>Safeway<br/>Walmart|
 | DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>bioscoopvertoningen|
-| Afstand | De afstand op een plaats.|15 mijl<br/>5 mijl<br/>10 mijl opslaan|
+| afstand | De afstand op een plaats.|15 mijl<br/>5 mijl<br/>10 mijl opslaan|
 | MealType | Het type maaltijd zoals ontbijt of lunch. |Ontbijt<br/>Diner<br/>Lunchpauze<br/>Supper|
 | OpenStatus | Geeft aan of een plaats open of gesloten is.|Open<br/>Gesloten<br/>openen|
 | PlaceName | De naam van een centrale locatie.|Cheesecake Factory|
@@ -450,14 +457,16 @@ restart|
 Het domein herinnering biedt intenties en entiteiten voor het maken, bewerken en zoeken naar herinneringen.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Voorbeelden|
+|--|
+|Mijn interview 9 uur morgen wijzigen|
+|Herinner me aan te schaffen melk op mijn manier opnieuw start|
+|Kunt u als ik een herinnering over de verjaardag van Christine controleren?|
+
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Wijzigen| Een herinnering wijzigen.|Mijn interview 9 uur morgen wijzigen<br/>Mijn herinnering toewijzing naar morgen verplaatsen|
 | Maken| Maak een nieuwe herinnering.|Een herinnering maken<br/>Herinner me aan te schaffen melk<br/>Ik wil Vergeet niet om aan te roepen Rebecca wanneer ik bij u thuis ben|
@@ -465,7 +474,7 @@ Can you check if I have a reminder about Christine's birthday?
 | Find | Zoek een herinnering.|Heb ik een herinnering over mijn verjaardag?<br/>Kunt u als ik een herinnering over de verjaardag van Christine controleren?|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Tekst | De beschrijving van een herinnering.|pikken chemisch reinigen<br/>mijn auto verwijderen uitschakelen in het midden van de service|
 
@@ -473,19 +482,20 @@ Can you check if I have a reminder about Christine's birthday?
 Het domein RestaurantReservation biedt intenties en entiteiten met betrekking tot het beheren van restaurant reserveringen.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Voorbeelden|
+|--|
+|Op Zucca reserveren voor twee voor tonight|
+|Boek een tabel met de BJ voor morgen|
+|Tabel 3 in Palo Alto op 7|
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Reserve | Vraag een reservering voor een restaurant. |Op Zucca reserveren voor twee voor tonight<br/>Boek een tabel voor morgen<br/>Tabel 3 in Palo Alto op 7|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Adres| Een locatie van de gebeurtenis of het adres voor een reservering.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Recreatie | Een kenmerk met een beschrijving van de voorzieningen van een centrale locatie.|in de Indische Oceaan weergeven<br/>niet soorten|
@@ -502,21 +512,22 @@ Table for 3 in Palo Alto at 7
 Het domein Taxi biedt intenties en entiteiten voor het maken en beheren van taxi-reserveringen.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Voorbeelden|
+|--|
+|Hoe kom ik een CAB-bestand om 3 uur|
+|Hoe lang heb ik mijn taxi wachten?|
+|Mijn Uber annuleren|
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Book | Een taxi aanroepen. |Hoe kom ik een CAB-bestand<br/>Een taxi zoeken<br/>Boek me een uber x|
 | Annuleren | Een actie met betrekking tot een taxi reservering annuleren.|Mijn taxi annuleren<br/>Mijn Uber annuleren|
 | Bijhouden | Een taxi route traceren.|Hoe lang heb ik mijn taxi wachten?<br/>Waar bevindt mijn Uber?|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Adres| Het adres dat is gekoppeld aan een taxi reservering. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Een nieuwe locatie of het adres. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
@@ -531,20 +542,22 @@ Cancel my Uber
 Het domein vertalen biedt intenties en entiteiten met betrekking tot het vertalen van tekst naar een doel-taal.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Voorbeelden|
+|--|
+|Vertalen naar Frans|
+|Hallo Duits vertalen|
+|Deze zin in het Engels vertalen|
+
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Vertalen| Vertaal tekst naar een andere taal.|Vertalen naar Frans<br/>Hallo Duits vertalen|
 
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | TargetLanguage | De doeltaal van een vertaling.|Frans<br/>Duits<br/>Koreaans|
 | Tekst | Te vertalen tekst.|Hallo wereld<br/>Goedemorgen<br/>Goedenavond|
@@ -554,21 +567,22 @@ Translate this sentence to English
 Het domein tv-programma biedt intenties en entiteiten voor het beheren van tv's.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Voorbeelden|
+|--|
+|Switchkanaal BBC|
+|Tv-handleiding weergeven|
+|Nationale geografische bekijken|
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | ChangeChannel| Een kanaal op een tv-programma's wijzigen.|Wijziging CNN-kanaal<br/>Switchkanaal BBC<br/>Ga naar kanaal 4|
 | ShowGuide| De handleiding tv-programma's weergeven.|Tv-handleiding weergeven<br/>Wat is nu in film-kanaal ontvangen?<br/>Mijn lijst met programma's weergeven|
 | WatchTV| Vragen om te bekijken van een tv-kanaal.|Ik wil het kanaal Disney bekijken<br/>Ga naar tv-programma's.<br/>Nationale geografische bekijken|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | ChannelName | De naam van een tv-kanaal.|CNN<br/>BBC<br/>Film-kanaal|
 
@@ -576,21 +590,23 @@ Watch National Geographic
 Het domein van de hulpprogramma's biedt intents voor taken die gemeenschappelijk voor veel taken, zoals begroetingen, annuleren, bevestiging, help, herhaling, navigatie zijn, starten en stoppen.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Voorbeelden|
+|--|
+|Ga terug naar Twitter|
+|Help|
+|Herhaal de laatste vraag.|
+
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Annuleren | Een actie annuleren.|Annuleren van het bericht<br/>Ik wil niet meer het e-mailbericht verzenden|
 | Bevestigen | Controleer of een actie.|Ja bevestigen oh ik<br/>Ik ben goed bevestigen<br/>Oké, die ik ben bevestigen|
 | FinishTask | Een taak die de gebruiker begon voltooien.|Ik ben klaar<br/>Ik ben klaar<br/>Dit is voltooid|
 | GoBack | Ga naar de vorige stap, of Ga terug naar een vorige stap.|Ga terug naar Twitter<br/>Een stap terug<br/>Terug|
 | Help | Aanvraag voor hulp.|Help<br/>help openen<br/>Help|
-| Herhalen | Een actie herhalen.|Herhaal de laatste vraag.<br/>Herhaal de laatste nummer|
+| Herhaal deze procedure | Een actie herhalen.|Herhaal de laatste vraag.<br/>Herhaal de laatste nummer|
 | ShowNext | Het volgende item in een reeks weergeven. |Het volgende object weergeven<br/>Ga naar de volgende pagina|
 | ShowPrevious | Het vorige item weergeven in een serie.|Vorige weergeven|
 | Opnieuw | De app opnieuw starten of een nieuwe sessie starten.|Opnieuw beginnen<br/>Nieuwe sessie<br/>restart|
@@ -600,20 +616,22 @@ Repeat last question please
 Het domein weer biedt intenties en entiteiten voor het ophalen van de rapporten weer en geeft een prognose.
 
 ### <a name="examples"></a>Voorbeelden
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Voorbeelden|
+|--|
+|weer in Londen in september|
+|Wat? s de tien dagen prognose?|
+|Wat is de gemiddelde temperatuur in India in september?|
+
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | GetCondition | Historische gegevens met betrekking tot de weersomstandigheden ophalen. |weer in Londen in September<br/>Wat is de gemiddelde temperatuur in India in September?|
 | GetForecast | De huidige weersvoorspelling opvragen en prognose voor de komende dagen. |Hoe wordt het weer vandaag?<br/>Wat is de tien dagen prognose?<br/>Hoe worden de weersomstandigheden dit weekend?|
 
 ### <a name="entities"></a>Entiteiten
-| De naam van de entiteit | Beschrijving | Voorbeelden |
+| Naam van de entiteit | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Locatie| De absolute locatie voor een aanvraag weer.|Seattle<br/>Parijs<br/>Palo Alto|
 
@@ -621,14 +639,15 @@ What's the average temperature in India in september?
 Het domein Web biedt een doel voor het navigeren naar een website.
 
 ### <a name="examples"></a>Voorbeelden
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Voorbeelden|
+|--|
+|Navigeer naar facebook.com|
+|Ga naar www.twitter.com|
+|Navigeer naar www.bing.com|
 
 ### <a name="intents"></a>Intents
-| De naam van de intentie | Beschrijving | Voorbeelden |
+| De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Navigeren | Een aanvraag om naar een opgegeven website te gaan. |Navigeer naar facebook.com<br/>Ga naar www.twitter.com|
 

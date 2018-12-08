@@ -1,5 +1,6 @@
 ---
-title: Afstemmen van hyperparameters voor uw model met behulp van Azure Machine Learning
+title: Afstemmen van hyperparameters voor uw model
+titleSuffix: Azure Machine Learning service
 description: Efficiënt afstemmen van hyperparameters voor uw deep learning / machine learning-model met behulp van Azure Machine Learning-service. U leert hoe u wilt definiëren van de parameter zoeken ruimte, geeft u een primaire metrische waarde om te optimaliseren en voortijdig beëindigen slecht presterend wordt uitgevoerd.
 ms.author: swatig
 author: swatig007
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b722af6fd5dd29a5b7cef8581d27d421825fb323
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868154"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100732"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>Afstemmen van hyperparameters voor uw model
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Afstemmen van hyperparameters voor uw model met Azure Machine Learning-service
 
 Efficiënt afstemmen van hyperparameters voor uw model met behulp van Azure Machine Learning-service.  Hyperparameter afstemmen bevat de volgende stappen uit:
 

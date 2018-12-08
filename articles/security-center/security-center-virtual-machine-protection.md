@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 53a6ae828009db24b56a11b1fdcbea19842191f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316647"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106614"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -59,7 +59,7 @@ In deze sectie toont het totale aantal virtuele machines en computers dat is ge�
 ### Niet-bewaakte VM's en computers <a name="unmonitored-vms-and-computers"></a>
 Een virtuele machine of computer wordt niet bewaakt door Security Center als de machine wordt niet uitgevoerd voor de Microsoft Monitoring Agent-extensie. Een computer heeft misschien een lokale agent is al geïnstalleerd, bijvoorbeeld de directe OMS-agent of de SCOM-agent. Machines met deze agents worden geïdentificeerd als niet-bewaakt omdat deze agents niet volledig worden ondersteund in Security Center. De Microsoft Monitoring Agent-extensie is vereist om volledig te profiteren van alle mogelijkheden van Security Center.
 
-U kunt de extensie installeren op de niet-bewaakte virtuele machine of computer naast de reeds geïnstalleerde lokale agent. Configureer beide agents op dezelfde manier en verbind ze met dezelfde werkruimte. Hierdoor kan Security Center communiceren met de Microsoft Monitoring Agent-extensie en gegevens verzamelen. Zie [Enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) (De VM-extensie inschakelen) voor installatie-instructies voor de Microsoft Monitoring Agent-extensie.
+U kunt de extensie installeren op de niet-bewaakte virtuele machine of computer naast de reeds geïnstalleerde lokale agent. Configureer beide agents op dezelfde manier en verbind ze met dezelfde werkruimte. Hierdoor kan Security Center communiceren met de Microsoft Monitoring Agent-extensie en gegevens verzamelen. Zie [Enable the VM extension](../azure-monitor/learn/quick-collect-azurevm.md) (De VM-extensie inschakelen) voor installatie-instructies voor de Microsoft Monitoring Agent-extensie.
 
 Zie [Problemen met de agentstatus controleren](security-center-troubleshooting-guide.md#mon-agent) voor meer informatie over de redenen waarom Security Center VM's en computers die zijn geïnitialiseerd voor automatische inrichting niet afdoende kan bewaken.
 
@@ -178,7 +178,7 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
     ![Resources die in orde zijn][23]
 
 ## <a name="compute-and-app-recommendations"></a>Reken- en app-aanbevelingen
-|Resourcetype|Beveiligingsscore|Aanbeveling|Beschrijving|
+|Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
 |Machine|50|Bewakingsagent op uw machines installeren|Installeer de agent bewaking voor het verzamelen van gegevens, updates scannen, basislijnen te scannen en endpoint protection op elke machine inschakelen.|
 |Machine|50|Automatische inrichting en verzamelen van gegevens voor uw abonnementen inschakelen |Automatische inrichting en verzamelen van gegevens voor computers in uw abonnementen om gegevens te verzamelen, updates scannen, basislijnen te scannen en endpoint protection op elke machine die is toegevoegd aan uw abonnementen inschakelen.|

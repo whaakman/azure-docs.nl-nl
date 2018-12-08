@@ -1,21 +1,22 @@
 ---
-title: LUIS vooraf gemaakte entiteiten datetimeV2 referentie - Azure | Microsoft Docs
+title: DatetimeV2 vooraf gemaakte entiteiten
 titleSuffix: Azure
 description: Dit artikel vindt u datetimeV2 vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f59c429906d6cee2b9f4aff6e16ba23e8d28c97b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335773"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105849"
 ---
 # <a name="datetimev2-entity"></a>DatetimeV2-entiteit
 
@@ -27,7 +28,7 @@ DatetimeV2 wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/R
 ## <a name="example-json"></a>Voorbeeld van JSON 
 Het volgende voorbeeld-JSON-antwoord heeft een `datetimeV2` entiteit met een subtype van `datetime`. Zie voor meer voorbeelden van andere typen entiteiten datetimeV2 [subtypen van datetimeV2](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ Bijvoorbeeld, krijgt de utterance 'Mei 2e':
 Het volgende voorbeeld ziet de resolutie van de entiteit 'mei 2e'. Deze oplossing wordt ervan uitgegaan dat de datum van vandaag een datum tussen mei 2e 2017 en mei 2018 op 1.
 Velden met `X` in de `timex` veld zijn onderdelen van de datum die niet zijn expliciet worden opgegeven in de utterance.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ Velden met `X` in de `timex` veld zijn onderdelen van de datum die niet zijn exp
 
 De `datetimeV2` entiteit extraheert datum en tijd bereiken. De `start` en `end` velden geven het begin en einde van het bereik. Voor de utterance 'Mei 2e op 5 mei', LUIS biedt **daterange** waarden voor het huidige jaar en het komende jaar. In de `timex` veld, de `XXXX` waarden geven aan de dubbelzinnigheid van het jaar. `P3D` Geeft aan dat de periode is drie dagen lang is.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ De `datetimeV2` entiteit extraheert datum en tijd bereiken. De `start` en `end` 
 
 Het volgende voorbeeld laat zien hoe LUIS gebruikt **datetimeV2** om op te lossen de utterance "Dinsdag donderdag". In dit voorbeeld is de huidige datum 19 juni. LUIS bevat **daterange** waarden voor beide van de datumbereiken die voorafgaan aan en volgt u de huidige datum.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ De matrix met waarden is twee keer elementen als de tijd of bereik niet eenduidi
 
 Het volgende voorbeeld laat zien hoe LUIS gebruikt **datetimeV2** om op te lossen de utterance waarvoor een tijdsbereik.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

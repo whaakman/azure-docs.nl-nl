@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 608dd6067e5c9d31f720b97453615a3e8ead0a85
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038617"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101412"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
@@ -165,9 +165,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -221,9 +221,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -276,9 +276,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -336,9 +336,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -393,9 +393,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
    * Voorlopig verwijderen
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -450,9 +450,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -504,9 +504,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -570,9 +570,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
@@ -607,9 +607,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
@@ -656,9 +656,9 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
@@ -702,9 +702,11 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -764,9 +766,11 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```
@@ -818,9 +822,11 @@ Ten slotte wordt ondersteuning voor het gebruik van AzCopy voor bestandsshares i
 * Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
 * Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
 * De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
 
     ```

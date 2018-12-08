@@ -1,20 +1,22 @@
 ---
-title: Azure Disk Encryption voor Windows en Linux IaaS-VM's | Microsoft Docs
+title: Bijlage - Azure Disk Encryption voor IaaS-VM's | Microsoft Docs
 description: Dit artikel is de bijlage voor Microsoft Azure Disk Encryption voor Windows en Linux IaaS-VM's.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
-ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d6e186f25cc69791d939d93d24a37cadb1113353
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614666"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105039"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Bijlage voor Azure Disk Encryption 
+
 In dit artikel wordt een bijlage van [Azure Disk Encryption voor IaaS-VM's](azure-security-disk-encryption-overview.md). Zorg ervoor dat u de Azure Disk Encryption voor IaaS-VM's artikelen eerst voor meer informatie over de context te lezen. In dit artikel wordt beschreven hoe u vooraf gecodeerde VHD's en andere taken voorbereiden.
 
 ## <a name="connect-to-your-subscription"></a>Verbinding maken met uw abonnement
@@ -57,7 +59,7 @@ Voordat u begint, controleert u de [vereisten](azure-security-disk-encryption-pr
 
 ### <a name="bkmk_ConnectCLI"></a> Verbinding maken met uw abonnement met de Azure CLI
 
-1. Aanmelden bij Azure met [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Aanmelden bij Azure met [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
      
      ```azurecli
      az login
@@ -106,7 +108,7 @@ Als u al bekend met de vereisten voor Azure Disk Encryption bent, kunt u de [Pow
 De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShell-script: 
 
 
-|Parameter|Beschrijving|Is verplicht|
+|Parameter|Description|Is verplicht|
 |------|------|------|
 |$resourceGroupName| De naam van de resourcegroep waaraan de KeyVault behoort.  Een nieuwe resourcegroep met deze naam wordt gemaakt als deze niet bestaat.| True|
 |$keyVaultName|De naam van de Sleutelkluis waar versleutelingssleutels in sleutels moeten worden geplaatst. Een nieuwe kluis met deze naam wordt gemaakt als deze niet bestaat.| True|
@@ -189,7 +191,7 @@ Voor Windows Server 2008 R2, gebruikt u de volgende opdracht uit:
 
     ServerManagerCmd -install BitLockers
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Volume met het besturingssysteem voorbereiden voor BitLocker met behulp van `bdehdcfg`
-Voor het comprimeren van de OS-partitie en de machine voorbereiden voor BitLocker, uitvoeren van de [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand) indien nodig:
+Voor het comprimeren van de OS-partitie en de machine voorbereiden voor BitLocker, uitvoeren van de [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) indien nodig:
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -295,23 +297,23 @@ Versleuteling tijdens de installatie van de distributie configureren met de volg
 
 1. Selecteer **configureren van versleutelde volumes** wanneer u de schijven partitioneren.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Ubuntu 16.04 instellen - versleutelde volumes configureren](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Maak een afzonderlijke opstartstation, die niet moet worden versleuteld. Codeer uw basisstation.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Ubuntu 16.04-installatie - optie apparaten voor het versleutelen van](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Geef een wachtwoordzin. Dit is de wachtwoordzin op die u hebt geüpload naar de key vault.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Ubuntu 16.04 instellen - wachtwoordzin opgeven](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Voltooi partitioneren.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Ubuntu 16.04 instellen - partitionering voltooien](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. Wanneer u de virtuele machine worden opgestart en wordt gevraagd een wachtwoordzin, gebruikt u de wachtwoordzin die u hebt opgegeven in stap 3.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Ubuntu 16.04 instellen - wachtwoordzin opgeven bij het opstarten](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. De virtuele machine voorbereiden voor het uploaden naar Azure met [deze instructies](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
@@ -377,7 +379,7 @@ Configureren van versleuteling voor Azure door de volgende stappen:
 
 7. Nu kunt u de virtuele machine inrichting.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Ubuntu 16.04 Setup - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Ga door met de volgende stap en uw VHD uploaden naar Azure.
 
@@ -385,11 +387,11 @@ Configureren van versleuteling voor Azure door de volgende stappen:
 Voer de volgende stappen uit voor het configureren van versleuteling tijdens de installatie van softwaredistributie:
 1. Wanneer u de schijven partitioneren, selecteert u **Volumegroep versleutelen**, en voer een wachtwoord. Dit is het wachtwoord die u naar de sleutelkluis uploaden gaat.
 
- ![openSUSE 13.2 instellen](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![openSUSE 13.2 Setup - Volumegroep versleutelen](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Start de virtuele machine met behulp van uw wachtwoord.
 
- ![openSUSE 13.2 instellen](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![openSUSE 13.2 instellen - wachtwoordzin opgeven bij het opstarten](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. De virtuele machine voorbereiden voor het uploaden naar Azure door de instructies in [een SLES of opensuse gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
@@ -453,19 +455,19 @@ in:
 Voer de volgende stappen uit voor het configureren van versleuteling tijdens de installatie van softwaredistributie:
 1. Selecteer **mijn gegevens versleutelen** wanneer u schijven partitioneren.
 
- ![CentOS 7-instellingen](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![CentOS 7 Setup - installatie van doel](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Zorg ervoor dat **versleutelen** is geselecteerd als de hoofdpartitie.
 
- ![CentOS 7-instellingen](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![CentOS 7 Setup - selecteren voor hoofdpartitie versleutelen](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Geef een wachtwoordzin. Dit is de wachtwoordzin op die u naar de sleutelkluis uploaden gaat.
 
- ![CentOS 7-instellingen](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![Installatie van centOS 7 - wachtwoordzin opgeven](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. Wanneer u de virtuele machine worden opgestart en wordt gevraagd een wachtwoordzin, gebruikt u de wachtwoordzin die u hebt opgegeven in stap 3.
 
- ![CentOS 7-instellingen](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![CentOS 7 instellen - wachtwoordzin invoeren op opstartstatus](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp van de instructies "CentOS 7.0 +" in [een CentOS gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
@@ -526,7 +528,7 @@ tot
     ```    
 5. Voer de ' / usr/sbin/dracut - f - v ' om bij te werken van de initrd.
 
-![CentOS 7-instellingen](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![Installatie van centOS 7 - /usr/sbin/dracut -f - v wordt uitgevoerd](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Versleutelde VHD uploaden naar Azure storage-account
 Nadat BitLocker-versleuteling of DM-Crypt-versleuteling is ingeschakeld, wordt de lokaal versleutelde VHD moet worden geüpload naar uw storage-account.

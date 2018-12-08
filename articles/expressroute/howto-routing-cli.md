@@ -1,30 +1,23 @@
 ---
-title: 'Hoe u routering configureren voor een Azure ExpressRoute-circuit: CLI | Microsoft Docs'
+title: 'Het configureren van peering voor een circuit - ExpresssRoute: Azure CLI | Microsoft Docs'
 description: Dit artikel helpt u bij het maken en inrichten van de persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. In dit artikel leest u hoe u de status controleert en peerings voor uw circuit bijwerkt of verwijdert.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3a4fecfdcfa13453959b442d801cfb578843505e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 683a05c39b73f51d6eb2c81b8afbb32c7daf6bfc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237708"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104574"
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Routering voor een ExpressRoute-circuit met behulp van CLI maken en wijzigen
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Peering voor een ExpressRoute-circuit met behulp van CLI maken en wijzigen
 
-Dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit in het Resource Manager-implementatiemodel met behulp van CLI. U kunt ook controleren op de status, bijwerken of verwijderen en inrichting van peerings voor een ExpressRoute-circuit ongedaan maken. Als u wilt een andere methode gebruiken om te werken met uw circuit, selecteert u een artikel in de volgende lijst:
+Dit artikel helpt u bij het maken en beheren van routering configuratie/peering voor een ExpressRoute-circuit in het Resource Manager-implementatiemodel met behulp van CLI. U kunt ook controleren op de status, bijwerken of verwijderen en inrichting van peerings voor een ExpressRoute-circuit ongedaan maken. Als u wilt een andere methode gebruiken om te werken met uw circuit, selecteert u een artikel in de volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
@@ -59,20 +52,20 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
 1. Installeer de nieuwste versie van Azure CLI. Gebruik de nieuwste versie van de Azure-opdrachtregelinterface (CLI). * Controleer de [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 
-  ```azurecli
+  ```azurecli-interactive
   az login
   ```
 
   Selecteer het abonnement waarvoor u wilt maken van ExpressRoute-circuit.
 
-  ```azurecli
+  ```azurecli-interactive
   az account set --subscription "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit. Volg de instructies voor het [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen van Microsoft-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen. 
 
 3. Controleer de ExpressRoute-circuit om te controleren of deze is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route list
   ```
 
@@ -120,7 +113,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
    Voer het volgende voorbeeld voor het Microsoft-peering voor uw circuit te configureren:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
   ```
 
@@ -128,7 +121,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
 U krijgt informatie over de configuratie met behulp van het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
 
@@ -170,13 +163,13 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 
 U kunt een deel van de configuratie bijwerken. De geadverteerde voorvoegsels van het circuit worden bijgewerkt vanuit 123.1.0.0/24 in 124.1.0.0/24 in het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
 ```
 
 ### <a name="addIPv6msft"></a>Instellingen van de IPv6-Microsoft-peering toevoegen aan een bestaande IPv4-configuratie
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
@@ -184,7 +177,7 @@ az network express-route peering update -g ExpressRouteResourceGroup --circuit-n
 
 U kunt de peeringconfiguratie verwijderen door het volgende voorbeeld uitvoert:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
@@ -196,20 +189,20 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Installeer de nieuwste versie van Azure CLI. Moet u de meest recente versie van de Azure-opdrachtregelinterface (CLI). * Controleer de [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 
-  ```azurecli
+  ```azurecli-interactive
   az login
   ```
 
   Het abonnement selecteren waarmee u een ExpressRoute-circuit wilt maken
 
-  ```azurecli
+  ```azurecli-interactive
   az account set --subscription "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit. Volg de instructies voor het [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen persoonlijke Azure-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
 
 3. Controleer de ExpressRoute-circuit om te controleren of deze is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
   ```
 
@@ -254,13 +247,13 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   Gebruik het volgende voorbeeld voor persoonlijke Azure-peering voor uw circuit configureren:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
   ```
 
   Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
   ```
 
@@ -273,7 +266,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 U krijgt informatie over de configuratie met behulp van het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
@@ -309,7 +302,7 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 
 U kunt een deel van de configuratie met behulp van het volgende voorbeeld kunt bijwerken. In dit voorbeeld wordt de VLAN-ID van het circuit wordt bijgewerkt van 100 tot 500.
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
@@ -322,7 +315,7 @@ U kunt de peeringconfiguratie verwijderen door het volgende voorbeeld uitvoert:
 > 
 > 
 
-```azurecli
+```azurecli-interactive
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
@@ -334,20 +327,20 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Installeer de nieuwste versie van Azure CLI. Moet u de meest recente versie van de Azure-opdrachtregelinterface (CLI). * Controleer de [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 
-  ```azurecli
+  ```azurecli-interactive
   az login
   ```
 
   Selecteer het abonnement waarvoor u wilt maken van ExpressRoute-circuit.
 
-  ```azurecli
+  ```azurecli-interactive
   az account set --subscription "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit.  Volg de instructies voor het [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen openbare Azure-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
 
 3. Controleer of de ExpressRoute circuit is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route list
   ```
 
@@ -392,13 +385,13 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
   Voer het volgende voorbeeld om Azure openbare peering voor uw circuit te configureren:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
   ```
 
   Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
 
-  ```azurecli
+  ```azurecli-interactive
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
   ```
 
@@ -444,7 +437,7 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 
 U kunt een deel van de configuratie met behulp van het volgende voorbeeld kunt bijwerken. In dit voorbeeld is de VLAN-ID van het circuit wordt bijgewerkt van 200 in 600.
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
@@ -452,7 +445,7 @@ az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGro
 
 U kunt de peeringconfiguratie verwijderen door het volgende voorbeeld uitvoert:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 

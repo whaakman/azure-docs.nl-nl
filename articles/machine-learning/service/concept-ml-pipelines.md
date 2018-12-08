@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning-service van machine learning-pijplijnen - bouwen
+title: Machine learning-pijplijnen bouwen
+titleSuffix: Azure Machine Learning service
 description: In dit artikel meer informatie over de machine learning-pijplijnen die u kunt maken met de Azure Machine Learning-SDK voor Python en de voordelen van pijplijnen. Machine learning (ML) pijplijnen worden gebruikt door de datawetenschappers te bouwen, te optimaliseren en beheren van de machine learning-werkstromen.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 3b5afd2a39c14d71e123f93d503692356a655a87
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: b427df25e722dda95bd27cc1fb2657247bc6a41a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965834"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100630"
 ---
-# <a name="pipelines-and-azure-machine-learning"></a>Pijplijnen en Azure Machine Learning
+# <a name="building-machine-learning-pipelines-using-azure-machine-learning-service"></a>Building machine learning-pijplijnen met behulp van Azure Machine Learning-service
 
 In dit artikel meer informatie over de machine learning-pijplijnen die u kunt maken met de Azure Machine Learning-SDK voor Python en de voordelen van pijplijnen.
 
@@ -50,7 +52,7 @@ U kunt [bijhouden van de metrische gegevens voor uw experimenten pijplijn](https
 
 De belangrijkste voordelen voor het bouwen van pijplijnen voor uw machine learning-werkstromen is:
 
-|Groot voordeel|Beschrijving|
+|Groot voordeel|Description|
 |:-------:|-----------|
 |**Zonder toezicht&nbsp;wordt uitgevoerd**|Plannen van een paar stappen voor het parallel of op volgorde worden uitgevoerd in een betrouwbare manier zonder toezicht. Sinds gegevensvoorbereiding en modellen kunt laatste dagen of weken, u kunt nu richten op andere taken terwijl uw pijplijn wordt uitgevoerd. |
 |**Gemengde en diverse compute**|Gebruik meerdere pijplijnen die op een betrouwbare manier worden gecoördineerd in heterogene en schaalbare berekeningen en opslagruimten. Stappen voor afzonderlijke pijplijn kunnen worden uitgevoerd op andere compute updoelen, zoals HDInsight, GPU Data Science-VM's en Databricks, efficiënt gebruik van de beschikbare compute-opties.|

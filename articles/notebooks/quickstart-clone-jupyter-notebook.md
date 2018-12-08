@@ -1,5 +1,5 @@
 ---
-title: Klonen van een Jupyter-notebook vanuit GitHub met Azure-laptops | Microsoft Docs
+title: Klonen van een Jupyter-notebook vanuit GitHub met Azure-laptops
 description: Snel een Jupyter-notebook vanuit een GitHub-opslagplaats te klonen en voer dit in uw Azure-notitieblokken-account.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ace53fcb2c24e26aa6f33dbc0300915a45dc6a91
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e30057f773afe6ec625b811c6ca1447c519ceda7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856126"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106325"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Snelstartgids: Een notitieblok klonen
 
@@ -26,7 +26,7 @@ Veel gegevensanalisten en ontwikkelaars slaan hun notitieblokken in [GitHub-opsl
 
 Klonen wordt een kopie gemaakt van een GitHub-notebook in uw Azure-notitieblokken-account in plaats daarvan. De kloon is onafhankelijk van de oorspronkelijke opslagplaats; wijzigingen worden opgeslagen in alleen de account van uw Azure-notitieblokken en hebben geen invloed op de oorspronkelijke. Omdat de kloon in de cloud, kunt u het project delen met andere medewerkers die niet moeten een lokale kopieën te maken of zelfs automatisch laten Jupyter op hun eigen computers geïnstalleerd. U kunt een laptop ook klonen gewoon als een beginpunt voor een project van uw eigen of te downloaden van gegevensbestanden.
 
-## <a name="clone-the-azure-cognitive-services-notebooks"></a>Klonen van de Azure Cognitive Services-notebooks
+## <a name="clone-azure-cognitive-services-notebooks"></a>Klonen van Azure Cognitive Services-laptops
 
 1. Ga naar [Azure notitieblokken](https://notebooks.azure.com) en meld u aan. (Zie voor meer informatie, [-Snelstart: aanmelden bij Azure-notitieblokken](quickstart-sign-in-azure-notebooks.md)).
 

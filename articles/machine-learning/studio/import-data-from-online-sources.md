@@ -5,7 +5,7 @@ keywords: gegevens, de indeling, gegevenstypen, gegevensbronnen, trainingsgegeve
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 26d232567d9689ff8400726427d6dc582343a35f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315019"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103309"
 ---
-# <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Gegevens importeren in Azure Machine Learning Studio van verschillende online gegevensbronnen met de module Gegevens importeren
+# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Gegevens importeren in Azure Machine Learning Studio uit online-gegevensbronnen 
 Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig zijn voor het verplaatsen van gegevens uit deze bronnen in een Azure Machine Learning Studio-experiment.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ Houd er rekening mee dat omdat deze trainingsgegevens wordt geopend terwijl uw e
 ## <a name="supported-online-data-sources"></a>Online gegevensbronnen ondersteund
 Azure Machine Learning **importgegevens** module biedt ondersteuning voor de volgende gegevensbronnen:
 
-| Gegevensbron | Beschrijving | Parameters |
+| Gegevensbron | Description | Parameters |
 | --- | --- | --- |
 | Web-URL via HTTP |Leest de gegevens in door komma's gescheiden waarden (CSV), door tabs gescheiden waarden (TSV), kenmerkrelatie bestand format (ARFF) en indelingen Support Vector Machines (SVM-licht), van een web-URL die gebruikmaakt van HTTP |<b>URL</b>: Hiermee geeft u de volledige naam van het bestand, met inbegrip van de site-URL en de bestandsnaam, met de extensie. <br/><br/><b>Gegevensindeling</b>: Hiermee geeft u een van de ondersteunde gegevens opgemaakt: CSV, TSV, ARFF of SVM licht. Als de gegevens een rij met koppen heeft, wordt deze gebruikt voor het toewijzen van de namen van kolommen. |
 | Hadoop/HDFS |Leest gegevens uit gedistribueerde opslag in Hadoop. U de gegevens die u wilt met behulp van HiveQL, een SQL-achtige querytaal. HiveQL kan ook worden gebruikt voor statistische gegevens en het uitvoeren van de gegevens filteren voordat u de gegevens aan Machine Learning Studio toevoegen. |<b>Hive-databasequery</b>: Hiermee geeft u de Hive-query die wordt gebruikt om de gegevens te genereren.<br/><br/><b>HCatalog-server URI </b> : de naam van uw cluster met behulp van de indeling opgegeven  *&lt;de clusternaam van uw&gt;. azurehdinsight.net.*<br/><br/><b>Hadoop-gebruikersaccountnaam</b>: Hiermee geeft u de accountnaam van de Hadoop gebruiker gebruikt voor het inrichten van het cluster.<br/><br/><b>Het wachtwoord voor gebruikersaccount Hadoop</b> : Hiermee geeft u de referenties die worden gebruikt bij het inrichten van het cluster. Zie voor meer informatie, [Hadoop-clusters maken in HDInsight](../../hdinsight/hdinsight-provision-clusters.md).<br/><br/><b>Locatie van de uitvoergegevens</b>: Hiermee geeft u op of de gegevens worden opgeslagen in een Hadoop distributed file system (HDFS) of in Azure. <br/><ul>Als u de uitvoergegevens in HDFS opslaat, geeft u de HDFS server-URI. (Zorg ervoor dat de naam van het HDInsight-cluster zonder het voorvoegsel HTTPS:// gebruiken). <br/><br/>Als u de uitvoergegevens in Azure opslaat, moet u de Azure storage-accountnaam, de toegangssleutel voor opslag en de naam van de opslagcontainer.</ul> |

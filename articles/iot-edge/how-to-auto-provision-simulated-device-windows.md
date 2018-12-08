@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge-apparaat automatisch inrichten met DPS - Windows | Microsoft Docs
+title: Windows-apparaten automatisch inrichten met DPS - Azure IoT Edge | Microsoft Docs
 description: Een gesimuleerd apparaat op uw Windows-computer gebruiken voor het testen van automatische apparaatinrichting voor Azure IoT Edge met Device Provisioning Service
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9be790d9b512dc9338cf183240430ad0ada3bef4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565102"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101599"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows
 

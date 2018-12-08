@@ -1,23 +1,24 @@
 ---
-title: Controle-eindpunt uitingen van Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Gebruiker uitingen bekijken
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: De functie baanbrekende van LUIS is het concept van actief leren. Zodra uw LUIS eindpunt-query's heeft, verbetert actief leren de kwaliteit van de resultaten door uitingen selecteert dat u niet zeker weet. Als u deze uitingen label, trainen en publiceren, en vervolgens LUIS uitingen nauwkeuriger identificeert.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030792"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106546"
 ---
-# <a name="review-endpoint-utterances"></a>Eindpuntuitingen controleren
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>Over het bekijken van de eindpunt-uitingen in LUIS-portal
 
 De functie baanbrekende van LUIS is de [concept](luis-concept-review-endpoint-utterances.md) van actief leren. Zodra uw LUIS eindpunt-query's heeft, LUIS gebruikt active leren om de kwaliteit van de resultaten te verbeteren. In het proces actief leren, LUIS onderzoekt alle uitingen van het eindpunt en uitingen die het niet zeker weet is geselecteerd. Als u deze uitingen label, trainen en publiceren, en vervolgens LUIS uitingen nauwkeuriger identificeert. 
 

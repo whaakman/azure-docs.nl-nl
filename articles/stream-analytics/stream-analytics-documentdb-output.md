@@ -2,18 +2,19 @@
 title: Azure Stream Analytics-uitvoer naar Cosmos DB
 description: In dit artikel wordt beschreven hoe u Azure Stream Analytics gebruiken om op te slaan van de uitvoer naar Azure Cosmos DB voor JSON-uitvoer, voor het archiveren van gegevens en query's met lage latentie voor niet-gestructureerde JSON-gegevens.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2017
-ms.openlocfilehash: 9bdb012db2e7502d765fd342a636591bbbcb2c6c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311735"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106563"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-uitvoer naar Azure Cosmos DB  
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, gegevens archiveren en lage latentie-query's voor niet-gestructureerde JSON-gegevens. In dit document staan enkele aanbevolen procedures voor het implementeren van deze configuratie.
@@ -62,7 +63,7 @@ Het maken van Cosmos DB als uitvoer in Stream Analytics, genereert een prompt vo
 
 ![documentdb stream analytics uitvoerscherm](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Veld           | Beschrijving 
+Veld           | Description 
 -------------   | -------------
 Uitvoeralias    | Een alias om te verwijzen deze uitvoer in de ASA-query   
 Accountnaam    | De naam of het eindpunt-URI van de Azure Cosmos DB-account 

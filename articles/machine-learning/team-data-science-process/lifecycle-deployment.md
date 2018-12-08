@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 30d54b1475188fa886a811b22460d88e53aa564e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: cb3a1bd31983615810bf8a3e4eaf291eed248196
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446582"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074755"
 ---
-# <a name="deployment"></a>Implementatie
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Implementatiefase van de levenscyclus van het Team Data Science Process
 
 In dit artikel bevat een overzicht van de doelen, taken en producten die zijn gekoppeld aan de implementatie van het Team Data Science Process (TDSP). Deze procedure biedt de levensduur van een aanbevolen die u gebruiken kunt voor het structureren van uw data-science-projecten. De levenscyclus van geeft een overzicht van de belangrijke fasen die projecten doorgaans worden uitgevoerd, vaak iteratief:
 

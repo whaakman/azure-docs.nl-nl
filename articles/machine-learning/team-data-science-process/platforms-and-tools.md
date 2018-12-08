@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 96548b5db1051c751f6468cb330cb5049182ce95
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446446"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104251"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformen en hulpprogramma's voor data science-projecten
 
@@ -129,17 +129,17 @@ Als u van machines voor Linux (CentOS gebruikmaakt) de git-opdrachten uitvoeren,
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Opdrachten voor het genereren van de SSH-sleutel](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Kopieer de gehele ssh key inclusief *ssh-rsa*. 
 - Meld u aan bij uw Azure DevOps-Services. 
 - Klik op **< naam van uw\>**  in de rechterbovenhoek van de pagina en klik op **security**. 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![Klik op uw naam en klik vervolgens op beveiliging](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Klik op **openbare SSH-sleutels**, en klikt u op **+ toevoegen**. 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![Klik op de openbare SSH-sleutels en vervolgens klikt u op + toevoegen](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Plak de ssh sleutel hebt gekopieerd in het tekstvak en opslaan.
 

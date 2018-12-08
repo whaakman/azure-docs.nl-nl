@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie - maken en uitvoeren van een Jupyter-notebook op Azure | Microsoft Docs
+title: Zelfstudie - maken en uitvoeren van een Jupyter-notebook op Azure
 description: Hoe u een run van een Jupyter-notebook in Azure-notitieblokken waartoe ziet u het proces van het lineaire regressie in de gegevenswetenschap maakt.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a73a3e89c2f1c2b852193ae916d73675b5b0fbcd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856033"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106669"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Zelfstudie: maken en uitvoeren van een Jupyter-notebook met Python
 
@@ -54,7 +54,12 @@ Het lineaire regressiemodel dat u in het notitieblok maakt tekent u gegevens uit
 ### <a name="upload-the-data-file"></a>Het bestand uploaden
 
 1. Selecteer op uw projectdashboard in Azure-notitieblokken **uploaden** > **van URL**
-1. Voer de URL in het pop-upvenster `https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv` in **bestands-URL** en *cricket_chirps.csv* in **bestandsnaam**en selecteer vervolgens **gedaan**.
+1. Voer in het pop-upvenster de volgende URL in **bestands-URL** en *cricket_chirps.csv* in **bestandsnaam**en selecteer vervolgens **gedaan**.
+
+    ```url
+    https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
+    ```
+
 1. De *cricket_chirps.csv* bestand wordt nu weergegeven in de lijst met bestanden van uw project:
 
     ![Nieuw gemaakte CSV-bestand weergegeven in de lijst met project-bestanden](media/tutorial/csv-file-in-project.png)
@@ -87,7 +92,7 @@ Het lineaire regressiemodel dat u in het notitieblok maakt tekent u gegevens uit
 
 1. Selecteer **bestand opslaan** Sla het bestand op en gaat u terug naar het projectdashboard.
 
-## <a name="install-python-packages-at-the-project-level"></a>Installeren van Python-pakketten op het projectniveau van het
+## <a name="install-project-level-packages"></a>Project-niveau pakketten installeren
 
 Binnen een laptop, kunt u altijd opdrachten zoals gebruiken `!pip install` in een codecel om vereiste pakketten te installeren. Deze opdrachten worden echter uitgevoerd telkens als u van het notitieblok code cellen uitvoeren, en kan lang duren. Daarom kunt u in plaats daarvan installeren pakketten op het project op met een `requirements.txt` bestand.
 
@@ -113,7 +118,7 @@ Binnen een laptop, kunt u altijd opdrachten zoals gebruiken `!pip install` in ee
 
 Met deze stap setup in plaats wordt een laptop die u in het project uitvoert uitgevoerd in een omgeving waar deze pakketten zijn geïnstalleerd.
 
-## <a name="create-the-notebook-file-and-start-jupyter"></a>Het bestand notebook maken en starten van Jupyter
+## <a name="create-and-run-a-notebook"></a>Een notebook maken en uitvoeren
 
 Met het gereed gegevensbestand en de project-omgeving is ingesteld, kunt u nu maakt en open het notitieblok.
 
@@ -125,7 +130,7 @@ Met het gereed gegevensbestand en de project-omgeving is ingesteld, kunt u nu ma
 
     [![](media/tutorial/tutorial-new-notebook.png "Weergave van een nieuwe notebook in Azure-notitieblokken")](media/tutorial/tutorial-new-notebook.png#lightbox)
 
-## <a name="a-brief-tour-of-the-notebook-interface"></a>Een korte rondleiding door de notebook-interface
+## <a name="tour-the-notebook-interface"></a>Maakt een rondleiding door de notebook-interface
 
 Met de laptop die wordt uitgevoerd, kunt u code en Markdown cellen die cellen uitvoeren en beheren van de werking van de notebook toevoegen. Eerst, het is echter waard een paar minuten om vertrouwd te raken met de interface. Voor volledige documentatie, selecteert u de **Help** > **Notebook Help** -opdracht.
 
@@ -145,7 +150,7 @@ Jupyter biedt een ingebouwde rondleiding door de primaire UI-elementen. Selectee
 
 De groepen van opdrachten zijn als volgt:
 
-| Menu | Beschrijving |
+| Menu | Description |
 | --- | --- |
 | File | Opdrachten voor het beheren van de notebook-bestand, met inbegrip van opdrachten voor het maken en kopiëren van notebooks, een afdrukvoorbeeld weergeven en downloaden van het notitieblok in verschillende indelingen. |
 | Bewerken | Gangbare opdrachten Knippen, kopiëren en cellen plakken, zoeken en vervangen door waarden, cel bijlagen beheren en het invoegen van afbeeldingen.  |
@@ -404,7 +409,7 @@ U kunt ook de **bestand** > **maakt u een kopie** opdracht op elk gewenst moment
 
 Wanneer u klaar bent met een laptop, gebruikt u de **bestand** > **sluiten en stoppen** opdracht, waarbij de notebook wordt gesloten en de kernel dat actief is geweest deze wordt afgesloten. Het browsertabblad wordt in Azure-notitieblokken automatisch gesloten.
 
-## <a name="debugging-code-in-a-notebook-using-visual-studio-code"></a>Foutopsporing in een notitieblok met behulp van Visual Studio Code
+## <a name="debug-notebooks-using-visual-studio-code"></a>Fouten opsporen in notitieblokken met behulp van Visual Studio Code
 
 Als de cellen met code in uw laptop niet gedragen zich zoals verwacht, kunt u code bugs of andere defecten mogelijk. Echter, anders dan met behulp van `print` instructies toe aan de waarden van variabelen, weer een Jupyter-notebook niet alle foutopsporing opslagruimten bieden.
 

@@ -1,5 +1,6 @@
 ---
-title: Gegevens transformeren met Azure Machine Learning, Data Prep SDK - Python
+title: Transformeren en voorbereiden van gegevens met de Data Prep Python-SDK
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over het transformeren van nettolading en opschonen van gegevens met Azure Machine Learning Data Prep SDK. Transformatie-methoden gebruiken voor kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: c734605cd67fcd2490aef0ddc6732dad112424b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309790"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101786"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
 
@@ -41,7 +43,7 @@ dataflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dataflow.head(3)
 ```
 
-||Id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|Beschrijving|Beschrijving van locatie|Aanhoudingsbevel|Binnenlandse|...|Ward|Community-gebied|Code van de FBI|X-coördinaat|Y-coördinaat|Jaar|Bijgewerkt op|Breedtegraad|Lengtegraad|Locatie|
+||Id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|Description|Beschrijving van locatie|Aanhoudingsbevel|Binnenlandse|...|Ward|Community-gebied|Code van de FBI|X-coördinaat|Y-coördinaat|Jaar|Bijgewerkt op|Breedtegraad|Lengtegraad|Locatie|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07-05-2015 23:50:00 UUR|050XX N NEWLAND OPSLAAN|0820|DIEFSTAL|$500 EN KLIKT U ONDER|ADRES|false|false|...|41|10|06|1129230|1933315|2015|07-12-2015 |12:42:46 UUR|41.973309466|-87.800174996|(41.973309466,-87.800174996)|
 |1|10139776|HY329265|07-05-2015 23:30:00 UUR|011XX W MORSE OPSLAAN|0460|ACCU|EENVOUDIGE|ADRES|false|true|...|49|1|08B|1167370|1946271|2015|07-12-2015 12:42:46 UUR|42.008124017|-87.65955018|(42.008124017,-87.65955018)|
@@ -58,7 +60,7 @@ case_category = dataflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||Id|Nummer van de aanvraag|Aanvraagcategorie|Date|Blokkeren|IUCR|Het primaire Type|Beschrijving|Beschrijving van locatie|Aanhoudingsbevel|...|Ward|Community-gebied|Code van de FBI|X-coördinaat|Y-coördinaat|Jaar|Bijgewerkt op|Breedtegraad|Lengtegraad|Locatie|
+||Id|Nummer van de aanvraag|Aanvraagcategorie|Date|Blokkeren|IUCR|Het primaire Type|Description|Beschrijving van locatie|Aanhoudingsbevel|...|Ward|Community-gebied|Code van de FBI|X-coördinaat|Y-coördinaat|Jaar|Bijgewerkt op|Breedtegraad|Lengtegraad|Locatie|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|AAROM|07-05-2015 23:50:00 UUR|050XX N NEWLAND OPSLAAN|0820|DIEFSTAL|$500 EN KLIKT U ONDER|ADRES|false|false|...|41|10|06|1129230|1933315|2015|07-12-2015 |12:42:46 UUR|41.973309466|-87.800174996|(41.973309466,-87.800174996)|
 |1|10139776|HY329265|AAROM|07-05-2015 23:30:00 UUR|011XX W MORSE OPSLAAN|0460|ACCU|EENVOUDIGE|ADRES|false|true|...|49|1|08B|1167370|1946271|2015|07-12-2015 12:42:46 UUR|42.008124017|-87.65955018|(42.008124017,-87.65955018)|
@@ -77,7 +79,7 @@ case_id = case_id.to_number('Case Id')
 case_id.head(3)
 ```
 
-||Id|Nummer van de aanvraag|Aanvraag-Id|Date|Blokkeren|IUCR|Het primaire Type|Beschrijving|Beschrijving van locatie|Aanhoudingsbevel|...|Ward|Community-gebied|Code van de FBI|X-coördinaat|Y-coördinaat|Jaar|Bijgewerkt op|Breedtegraad|Lengtegraad|Locatie|
+||Id|Nummer van de aanvraag|Aanvraag-Id|Date|Blokkeren|IUCR|Het primaire Type|Description|Beschrijving van locatie|Aanhoudingsbevel|...|Ward|Community-gebied|Code van de FBI|X-coördinaat|Y-coördinaat|Jaar|Bijgewerkt op|Breedtegraad|Lengtegraad|Locatie|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|329907.0|07-05-2015 23:50:00 UUR|050XX N NEWLAND OPSLAAN|0820|DIEFSTAL|$500 EN KLIKT U ONDER|ADRES|false|false|...|41|10|06|1129230|1933315|2015|07-12-2015 |12:42:46 UUR|41.973309466|-87.800174996|(41.973309466,-87.800174996)|
 |1|10139776|HY329265|329265.0|07-05-2015 23:30:00 UUR|011XX W MORSE OPSLAAN|0460|ACCU|EENVOUDIGE|ADRES|false|true|...|49|1|08B|1167370|1946271|2015|07-12-2015 12:42:46 UUR|42.008124017|-87.65955018|(42.008124017,-87.65955018)|
@@ -216,16 +218,16 @@ builder.preview(skip=30)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|11/1/2015 22:54|Vanaf 1 januari 2015 10 PM - 12 AM|
-|31|1-11-2015 23:54|Vanaf 1 januari 2015 10 PM - 12 AM|
-|32|1-11-2015 23:59|Vanaf 1 januari 2015 10 PM - 12 AM|
-|33|11/2/2015 0:54|Vanaf 1 februari 2015 12 AM - 2 AM|
-|34|2-11-2015 1:00 uur|Vanaf 1 februari 2015 12 AM - 2 AM|
-|35|2-11-2015 1:54|Vanaf 1 februari 2015 12 AM - 2 AM|
-|36|2-11-2015 2:54|Vanaf 1 februari 2015 2 AM - 4 AM|
-|37|11/2/2015 3:54|Vanaf 1 februari 2015 2 AM - 4 AM|
-|38|2-11-2015 4:00 uur|Vanaf 1 februari 2015 4 AM - 6 AM|
-|39|2-11-2015 4:54|Vanaf 1 februari 2015 4 AM - 6 AM|
+|30|1/1/2015 22:54|Vanaf 1 januari 2015 10 PM - 12 AM|
+|31|1/1/2015 23:54|Vanaf 1 januari 2015 10 PM - 12 AM|
+|32|1/1/2015 23:59|Vanaf 1 januari 2015 10 PM - 12 AM|
+|33|1/2/2015 0:54|Vanaf 1 februari 2015 12 AM - 2 AM|
+|34|1/2/2015 1:00 uur|Vanaf 1 februari 2015 12 AM - 2 AM|
+|35|1/2/2015 1:54|Vanaf 1 februari 2015 12 AM - 2 AM|
+|36|1/2/2015 2:54|Vanaf 1 februari 2015 2 AM - 4 AM|
+|37|1/2/2015 3:54|Vanaf 1 februari 2015 2 AM - 4 AM|
+|38|1/2/2015 4:00 uur|Vanaf 1 februari 2015 4 AM - 6 AM|
+|39|1/2/2015 4:54|Vanaf 1 februari 2015 4 AM - 6 AM|
 
 Hier ziet u een probleem met de gegenereerde programma. Uitsluitend zijn gebaseerd op de een voorbeeld dat u hierboven hebt opgegeven, het programma afleiden hebt gekozen voor het parseren van de datum als 'Dag/maand/jaar', die niet wat u wilt dat in dit geval is. U kunt dit probleem oplossen, bieden met behulp van een ander voorbeeld de `add_example()` functioneren in de `builder` variabele.
 

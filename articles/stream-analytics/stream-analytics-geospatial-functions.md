@@ -4,17 +4,16 @@ description: Dit artikel wordt beschreven georuimtelijke functies die worden geb
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: 02d1f551c7ec2856bbfce65c5397f454f6b9d5be
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/06/2018
+ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703629"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103123"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Inleiding tot Stream Analytics georuimtelijke functies
 

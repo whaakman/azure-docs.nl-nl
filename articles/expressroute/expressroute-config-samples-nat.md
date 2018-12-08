@@ -1,41 +1,36 @@
 ---
-title: ExpressRoute klant router configuratie voorbeelden | Microsoft Docs
-description: Deze pagina vindt u voorbeelden van de router-configuratie voor Cisco en Juniper routers.
-documentationcenter: na
+title: Voorbeelden van routerconfiguratie - NAT - Azure ExpressRoute | Microsoft Docs
+description: Deze pagina bevat voorbeelden van routerconfiguratie voor Cisco en Juniper-routers.
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23850684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105985"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Voorbeelden van de router configuratie instellen en beheren van NAT
-Deze pagina vindt u voorbeelden van de NAT-configuratie voor Cisco ASA en Juniper SRX reeks routers. Deze zijn bedoeld als voorbeelden voor richtlijnen alleen en moeten niet worden gebruikt. U kunt werken met uw leverancier om te bedenken geschikte configuraties voor uw netwerk. 
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Voorbeelden van routerconfiguratie instellen en beheren van NAT
+
+Deze pagina bevat voorbeelden van de NAT-configuratie voor Cisco ASA en Juniper SRX reeks routers bij het werken met ExpressRoute. Deze zijn bedoeld om te worden voorbeelden voor alleen richtlijnen en mogen niet worden gebruikt als is. U kunt werken met de leverancier van uw zijn beschikbaar met de juiste configuraties voor uw netwerk.
 
 > [!IMPORTANT]
-> Voorbeelden in deze pagina zijn bedoeld om te worden uitsluitend voor hulp. Bespreek met de leverancier van uw verkoop / technisch team en uw netwerken team actief met relevante configuraties om te voldoen aan uw behoeften. Problemen met configuraties die worden vermeld in deze pagina wordt niet door Microsoft ondersteuning. Neem contact op met de leverancier van uw apparaat voor ondersteuning.
+> Voorbeelden in deze pagina zijn bedoeld om de worden alleen voor hulp. U moet werken met uw netwerk team zijn beschikbaar met de juiste configuraties om te voldoen aan uw behoeften en de verkoop- en technische team van uw leverancier. Problemen met betrekking tot de configuraties die worden vermeld op deze pagina wordt niet door Microsoft ondersteuning. Neem contact op met de leverancier van uw apparaat voor ondersteuningsproblemen.
 > 
 > 
 
-* Router configuratie voorbeelden van toepassing op Azure openbare en Microsoft-peerings. U moet de NAT niet configureren voor persoonlijke Azure-peering. Bekijk [ExpressRoute peerings](expressroute-circuit-peerings.md) en [ExpressRoute NAT-vereisten](expressroute-nat.md) voor meer informatie.
+* Voorbeelden van routerconfiguratie hieronder gelden voor openbare Azure- en Microsoft-peerings. U moet NAT niet configureren voor persoonlijke Azure-peering. Beoordeling [ExpressRoute-peerings](expressroute-circuit-peerings.md) en [ExpressRoute NAT-vereisten](expressroute-nat.md) voor meer informatie.
 
-* U moet afzonderlijke NAT IP-adresgroepen gebruiken voor verbinding met internet en ExpressRoute. Met behulp van de dezelfde NAT IP-adresgroep voor de internet- en ExpressRoute leidt tot asymmetrische Routering en verlies van verbinding.
+* U moet afzonderlijke NAT IP-adresgroepen gebruiken voor verbinding met internet en ExpressRoute. Met behulp van de dezelfde NAT IP-adresgroep via internet en ExpressRoute leidt asymmetrische Routering en verlies van verbinding.
 
 
-## <a name="cisco-asa-firewalls"></a>Cisco ASA firewalls
-### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>PAT configuratie voor verkeer van het klantnetwerk naar Microsoft
+## <a name="cisco-asa-firewalls"></a>Cisco ASA-firewalls
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>PAT-configuratie voor verkeer van het klantnetwerk naar Microsoft
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -55,7 +50,7 @@ Deze pagina vindt u voorbeelden van de NAT-configuratie voor Cisco ASA en Junipe
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>PAT configuratie voor verkeer van Microsoft naar een klantnetwerk
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>PAT-configuratie voor verkeer van Microsoft naar klantnetwerk
 
 **Interfaces en de richting:**
 
@@ -64,7 +59,7 @@ Deze pagina vindt u voorbeelden van de NAT-configuratie voor Cisco ASA en Junipe
 
 **Configuratie:**
 
-NAT-adresgroep:
+NAT-Pool:
 
     object network outbound-PAT
         host <NAT-IP>
@@ -74,7 +69,7 @@ Doelserver:
     object network Customer-Network
         network-object <IP> <Subnet-Mask>
 
-Object-groep voor IP-adressen van klanten
+Object-groep voor klant IP-adressen
 
     object-group network MSFT-Network-1
         network-object <MSFT-IP> <Subnet-Mask>
@@ -121,14 +116,14 @@ NAT-opdrachten:
 
 
 ### <a name="2-create-two-security-zones"></a>2. Twee beveiligingszones maken
-* Zone voor het interne netwerk en Untrust Zone vertrouwen voor extern gerichte Randrouters-netwerk
+* Zone voor het interne netwerk en Untrust Zone voor netwerk extern gerichte Randrouters vertrouwen
 * Juiste interfaces toewijzen aan de zones
 * Op de interfaces-services toestaan
 
-    beveiliging {zones {beveiligingszone vertrouwensrelatie {-inkomende-hostverkeer {-systeemservices {ping;                   } protocollen {bgp;                   interfaces}} {reth0.100;               }} beveiligingszone Untrust {-inkomende-hostverkeer {-systeemservices {ping;                   } protocollen {bgp;                   interfaces}} {reth1.100;               }           }       }   }
+    beveiliging {zones {beveiligingszone vertrouwensrelatie {-inkomende-hostverkeer {-systeemservices {ping;                   } protocollen {bgp;                   interfaces}} {reth0.100;               }}-beveiligingszone Untrust {-inkomende-hostverkeer {-systeemservices {ping;                   } protocollen {bgp;                   interfaces}} {reth1.100;               }           }       }   }
 
 
-### <a name="3-create-security-policies-between-zones"></a>3. Beveiligingsbeleid tussen de zones maken
+### <a name="3-create-security-policies-between-zones"></a>3. Beveiligingsbeleid tussen zones maken
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -160,8 +155,8 @@ NAT-opdrachten:
 
 
 ### <a name="4-configure-nat-policies"></a>4. NAT-beleid configureren
-* Maak twee NAT-adresgroepen. Een wordt gebruikt voor NAT-verkeer uitgaand naar Microsoft en andere van Microsoft de klant.
-* Regels NAT maken het respectieve verkeer
+* Maak twee NAT-pools. Een wordt gebruikt voor NAT-verkeer uitgaand naar Microsoft en andere van Microsoft aan de klant.
+* Maken van regels voor NAT het betreffende verkeer
   
        security {
            nat {
@@ -218,10 +213,10 @@ NAT-opdrachten:
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. BGP voor het adverteren selectief voorvoegsels in beide richtingen configureren
-Raadpleeg de voorbeelden in [routering configuratie voorbeelden ](expressroute-config-samples-routing.md) pagina.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. BGP voor het adverteren van selectieve voorvoegsels in beide richtingen configureren
+Kijk voor voorbeelden in [Routing voorbeelden ](expressroute-config-samples-routing.md) pagina.
 
-### <a name="6-create-policies"></a>6. Beleid maken
+### <a name="6-create-policies"></a>6. Beleidsregels maken
     routing-options {
                   autonomous-system <Customer-ASN>;
     }

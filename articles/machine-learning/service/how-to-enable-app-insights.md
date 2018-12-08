@@ -1,6 +1,7 @@
 ---
-title: Application Insights inschakelen voor de Azure Machine Learning-service
-description: Informatie over het instellen van Application Insights voor services die zijn geïmplementeerd via Azure Machine Learning-service
+title: Monitor-modellen met Application Insights
+titleSuffix: Azure Machine Learning service
+description: Application Insights gebruiken om de webservices die zijn geïmplementeerd via Azure Machine Learning-service controleren
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
 ms.custom: seodec18
-ms.openlocfilehash: ef26bd433d311e63e122f48871654c9fbc26216a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2b97ee8853ba49a3b12d98aeb2b494aa890c8e8f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013165"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102280"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Uw Azure Machine Learning-modellen met Application Insights bewaken
 
@@ -49,7 +50,7 @@ In dit artikel leert u hoe u Azure Application Insights instellen voor uw Azure 
     ```
 
 ### <a name="log-custom-traces-in-your-service"></a>Aangepaste logboektraceringen in uw service
-Als u wilt dat aangepaste logtraceringen, volgt u de standaard-implementatieproces voor [AKS](how-to-deploy-to-aks.md) of [ACI](how-to-deploy-to-aci.md) . Vervolgens:
+Als u wilt dat aangepaste logtraceringen, volgt u het proces van de standaard voor AKS of ACI in de [implementeren en waar](how-to-deploy-and-where.md) document. Gebruik vervolgens de volgende stappen uit:
 
 1. Het scoring-bestand bijwerken door toevoeging van afdrukken instructies.
     

@@ -9,16 +9,16 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: sclyon
-ms.openlocfilehash: 1230e8d4352254ef637419c77b4addb7f6f6bb05
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f84dfac7b556e59ec3ad76ff7d2c6e5f5105293
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875124"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101429"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: het Mongoose-framework gebruiken met Azure Cosmos DB
 
-Deze zelfstudie laat zien hoe u het [Mongoose-framework](http://mongoosejs.com/) gebruikt bij het opslaan van gegevens in Azure Cosmos DB. In deze zelfstudie gebruiken we de MongoDB-API voor Azure Cosmos DB. Voor wie niet bekend is met Mongoose: dit is een framework voor objectmodellering voor MongoDB in Node.js en biedt een ongecompliceerde, op schema's gebaseerde oplossing voor het modelleren van uw toepassingsgegevens.
+Deze zelfstudie laat zien hoe u het [Mongoose-framework](https://mongoosejs.com/) gebruikt bij het opslaan van gegevens in Azure Cosmos DB. In deze zelfstudie gebruiken we de MongoDB-API voor Azure Cosmos DB. Voor wie niet bekend is met Mongoose: dit is een framework voor objectmodellering voor MongoDB in Node.js en biedt een ongecompliceerde, op schema's gebaseerde oplossing voor het modelleren van uw toepassingsgegevens.
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
 
@@ -95,7 +95,7 @@ Voor elk model dat u maakt, maakt Mongoose een nieuwe MongoDB-verzameling eronde
 
 In deze zelfstudie worden beide modellen besproken. Eerst bespreken we het opslaan van één soort gegevens per verzameling. Dit is het de facto gedrag voor Mongoose.
 
-Mongoose heeft ook een concept genaamd [discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators zijn een mechanisme voor schema-overname. Hiermee kunt u meerdere modellen met overlappende schema's boven op dezelfde onderliggende MongoDB-verzameling hebben.
+Mongoose heeft ook een concept genaamd [discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators zijn een mechanisme voor schema-overname. Hiermee kunt u meerdere modellen met overlappende schema's boven op dezelfde onderliggende MongoDB-verzameling hebben.
 
 U kunt de verschillende gegevensmodellen opslaan in dezelfde verzameling en vervolgens een filtercomponent gebruiken op het moment dat de query voor het ophalen van de benodigde gegevens wordt uitgevoerd.
 
@@ -195,7 +195,7 @@ Standaard maakt Mongoose telkens wanneer u een objectmodel maakt een MongoDB-ver
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Mongoose-discriminators gebruiken voor het opslaan van gegevens in één enkele verzameling
 
-In deze methode gebruiken we [Mongoose-discriminators](http://mongoosejs.com/docs/discriminators.html) om de kosten van elke Azure Cosmos DB-verzameling zo laag mogelijk te houden. Met discriminators kunt u een onderscheidende 'sleutel' definiëren, zodat u kunt opslaan in, onderscheid maken tussen en filteren op verschillende objectmodellen.
+In deze methode gebruiken we [Mongoose-discriminators](https://mongoosejs.com/docs/discriminators.html) om de kosten van elke Azure Cosmos DB-verzameling zo laag mogelijk te houden. Met discriminators kunt u een onderscheidende 'sleutel' definiëren, zodat u kunt opslaan in, onderscheid maken tussen en filteren op verschillende objectmodellen.
 
 Hier maken we een basisobjectmodel, definiëren we een onderscheidende sleutel en voegen we 'Family' en 'VacationDestinations' toe aan het basismodel.
 

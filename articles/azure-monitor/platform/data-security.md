@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cdd01953e4053eec6e8b0cb57c7a68bb2ae01673
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e76bde90c0bf2d411697998fe140eb1b706b9b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957472"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106461"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -181,7 +181,7 @@ De bewaarperiode van de verzamelde gegevens opgeslagen in de database, is afhank
 Voor toegang tot uw Log Analytics-werkruimte moet u zich aanmeldt bij de Azure-portal met behulp van de organisatie-account of een Microsoft-account dat u eerder hebt ingesteld. Al het verkeer tussen de portal en de Log Analytics-service worden verzonden via een beveiligde HTTPS-kanaal. Wanneer u de portal, een sessie-ID is gegenereerd op de gebruiker-client (webbrowser) en gegevens worden opgeslagen in een lokale cache totdat de sessie wordt beëindigd. Wanneer is afgesloten, wordt de cache verwijderd. Client-side-cookies niet persoonlijk identificeerbare informatie bevatten, worden niet automatisch verwijderd. Sessiecookies HTTPOnly zijn gemarkeerd en worden beveiligd. Na een vooraf bepaald niet-actieve periode, is de Azure portal-sessie beëindigd.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over het verzamelen van gegevens met Log Analytics voor uw Azure-VM's na de [virtuele machine van Azure-snelstartgids](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+* Meer informatie over het verzamelen van gegevens met Log Analytics voor uw Azure-VM's na de [virtuele machine van Azure-snelstartgids](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-*  Als u verzamelen van gegevens van fysieke of virtuele Windows- of Linux-computers in uw omgeving wilt, raadpleegt u de [Quick Start voor Linux-computers](../../log-analytics/log-analytics-quick-collect-linux-computer.md) of [Quick Start voor Windows-computers](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Als u verzamelen van gegevens van fysieke of virtuele Windows- of Linux-computers in uw omgeving wilt, raadpleegt u de [Quick Start voor Linux-computers](../../azure-monitor/learn/quick-collect-linux-computer.md) of [Quick Start voor Windows-computers](../../azure-monitor/learn/quick-collect-windows-computer.md)
 

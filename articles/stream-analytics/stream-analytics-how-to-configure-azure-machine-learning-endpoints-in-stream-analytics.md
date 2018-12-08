@@ -4,17 +4,16 @@ description: In dit artikel wordt beschreven hoe u Machine taal door de gebruike
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700864"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104917"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning-integratie in Stream Analytics
 Stream Analytics ondersteunt de gebruiker gedefinieerde functies die met Azure Machine Learning-eindpunten aanroepen. REST-API-ondersteuning voor deze functie wordt beschreven in de [REST-API voor Stream Analytics-bibliotheek](https://msdn.microsoft.com/library/azure/dn835031.aspx). In dit artikel bevat aanvullende informatie die nodig zijn voor een succesvolle implementatie van deze mogelijkheid in Stream Analytics. Een zelfstudie is ook geboekt en is beschikbaar [hier](stream-analytics-machine-learning-integration-tutorial.md).
@@ -51,7 +50,7 @@ Als u bijvoorbeeld de volgende voorbeeldcode wordt een scalaire UDF met de naam 
 
 Voorbeeld van de aanvraag hoofdtekst:  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,7 +66,7 @@ Voorbeeld van de aanvraag hoofdtekst:
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Aanroep RetrieveDefaultDefinition-eindpunt voor standaard UDF
 Zodra het basisproject UDF is gemaakt wordt de volledige definitie van de UDF nodig. Het eindpunt RetreiveDefaultDefinition krijgt u de standaarddefinitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt. De nettolading van de onderstaande moet u de standaard UDF-definitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt ophalen. Hierin worden de werkelijke eindpunt niet opgegeven als deze al is opgegeven tijdens de PUT-aanvraag. Stream Analytics roept het eindpunt dat is opgegeven in de aanvraag als het expliciet is opgegeven. Als deze wordt gebruikt met een oorspronkelijk waarnaar wordt verwezen. De UDF-wordt één parameter (een zin) en retourneert één uitvoer van het type tekenreeks tekenreeks hier wat het label 'gevoel' voor de zin dat aangeeft.
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Voorbeeld van de aanvraag hoofdtekst:  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ Voorbeeld van de aanvraag hoofdtekst:
             "udfType": "Scalar"
         }
     }
-````
+```
 
 Een voorbeeld van uitvoer van deze wilt zoekt u naar iets dat hieronder.  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ Een voorbeeld van uitvoer van deze wilt zoekt u naar iets dat hieronder.
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>Patch UDF met de reactie
 De UDF moet nu worden gevuld met het vorige antwoord, zoals hieronder wordt weergegeven.
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 Aanvraagtekst (uitvoer van de RetrieveDefaultDefinition):
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ Aanvraagtekst (uitvoer van de RetrieveDefaultDefinition):
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Stream Analytics-transformatie om aan te roepen de UDF implementeren
 Nu de UDF (hier met de naam scoreTweet) op te vragen voor elke invoer gebeurtenis en een antwoord voor die gebeurtenis naar uitvoer schrijven.  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ Nu de UDF (hier met de naam scoreTweet) op te vragen voor elke invoer gebeurteni
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>Help opvragen

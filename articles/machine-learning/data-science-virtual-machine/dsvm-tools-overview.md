@@ -1,11 +1,12 @@
 ---
-title: Overzicht wetenschap-hulpprogramma's voor virtuele Machine - Azure | Microsoft Docs
-description: Wetenschappelijke virtuele machine overzicht van hulpprogramma's.
-keywords: hulpmiddelen voor wetenschappelijke gegevens, gegevens wetenschappelijke virtuele machine, hulpprogramma's voor gegevenswetenschap, gegevenswetenschap linux
+title: Overzicht van Data Science Virtual Machine-hulpprogramma's - Azure | Microsoft Docs
+description: Meer informatie over de hulpprogramma's en hulpprogramma's die vooraf geïnstalleerd op de Data Science Virtual Machine zijn.
+keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,26 +16,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9f10c30c8619a32e65063bbc83fd885aee93a4fa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7c51a44f7fcd46e9c15700fe91a4c86afbe02801
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407025"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100953"
 ---
-# <a name="get-to-know-your-data-science-virtual-machine"></a>Kennismaking met uw gegevens wetenschappelijke virtuele Machine
+# <a name="get-to-know-your-data-science-virtual-machine"></a>Maak kennis met de virtuele Machine voor Datatechnologie
 
-De gegevens wetenschappelijke virtuele Machine (DSVM) bevat een uitgebreide lijst met populaire gegevenswetenschap, machine learning/AI-hulpprogramma's en platforms van gegevens. De configuraties van het hulpprogramma zijn grondig door gegevenswetenschappers en ontwikkelaars bij Microsoft en door de community breder gegevens wetenschap, zodat de stabiliteit en algemene haalbaarheid getest.
+De Data Science Virtual Machine (DSVM) bevat een uitgebreide lijst met populaire data science, machine learning/AI-hulpprogramma's en gegevensplatforms. De configuraties van het hulpprogramma zijn uitvoerig getest door data scientists en ontwikkelaars bij Microsoft en door de bredere data science-community om te controleren of de stabiliteit en algemene gemaakt.
 
-De DSVM omvat ook meerdere codevoorbeelden en scenario's in de vorm van Jupyter-Notebooks kan lokaal worden uitgevoerd. Er is ook de documentatie voor deze voorbeelden om te helpen begrip. 
+De DSVM bevat ook meerdere codevoorbeelden en walkthroughs in de vorm van een Jupyter-notitieblokken die lokaal kan worden uitgevoerd. Er is ook documentatie voor deze voorbeelden om te helpen begrip. 
 
-De hulpprogramma's, platforms, hulpprogramma's en voorbeelden die zijn opgenomen in de VM van de wetenschappelijke gegevens zijn ingedeeld in de volgende secties:
+De hulpprogramma's, platforms, hulpprogramma's en voorbeelden die zijn opgenomen in de Data Science VM zijn ingedeeld in de volgende secties:
 
-1. **[Grondige Learning en AI Frameworks](dsvm-deep-learning-ai-frameworks.md)**
-2. **[Machine Learning en hulpmiddelen voor wetenschappelijke gegevens](dsvm-ml-data-science-tools.md)**
+1. **[Deep Learning en AI-Frameworks](dsvm-deep-learning-ai-frameworks.md)**
+2. **[Machine Learning en Data Science-hulpprogramma 's](dsvm-ml-data-science-tools.md)**
 3. **[Programmeertalen](dsvm-languages.md)**
-4. **[Ontwikkelingsprogramma's en IDE](dsvm-tools-development.md)**
-5. **[Hulpmiddelen voor opname van gegevens](dsvm-tools-ingestion.md)**
-6. **[Gegevensverkenning en visualisatie hulpprogramma 's](dsvm-tools-explore-and-visualize.md)**
-7. **[Gegevens Platforms](dsvm-data-platforms.md)**
-8. **[Voorbeelden en scenario 's](dsvm-samples-and-walkthroughs.md)**
+4. **[Ontwikkelprogramma's en -IDE 's](dsvm-tools-development.md)**
+5. **[Gegevensopnamehulpprogramma 's](dsvm-tools-ingestion.md)**
+6. **[Gegevens verkennen en hulpmiddelen voor gegevensvisualisatie](dsvm-tools-explore-and-visualize.md)**
+7. **[Gegevensplatforms](dsvm-data-platforms.md)**
+8. **[Voorbeelden en procedures](dsvm-samples-and-walkthroughs.md)**

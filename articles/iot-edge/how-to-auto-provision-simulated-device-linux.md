@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge-apparaat automatisch inrichten met DPS - Linux | Microsoft Docs
-description: Een gesimuleerd TPM gebruiken op een Linux-VM voor het testen van apparaat inrichten voor Azure IoT Edge
+title: Linux-apparaten automatisch inrichten met DPS - Azure IoT Edge | Microsoft Docs
+description: Een gesimuleerd TPM gebruiken op een Linux-VM voor het testen van Azure Device Provisioning Service voor Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 0550b1765e36d591a1baf34d3c255a252ca5278b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446238"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101752"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Een Edge-apparaat met een virtuele TPM op een Linux-machine maken en inrichten
 

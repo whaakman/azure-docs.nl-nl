@@ -1,5 +1,5 @@
 ---
-title: Aanmelden bij Azure-notitieblokken | Microsoft Docs
+title: Aanmelden bij Azure-laptops
 description: Snel Meld u aan bij Azure-notitieblokken en stel een gebruikers-ID, waardoor u de mogelijkheid voor toegang tot opgeslagen projecten en laptops met anderen delen.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 44513a63f3bc13592a5c7de2595149956597251c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855985"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106308"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Snelstart: Aanmelden en instellen van een gebruikers-ID
 
@@ -54,9 +54,9 @@ Hoewel u altijd Azure-notitieblokken weergeven kunt zonder dat u aangemeld, moet
 
 ## <a name="sign-out"></a>Afmelden
 
-1. Op Afmelden, selecteert u uw gebruikersnaam in de rechterbovenhoek van de pagina en selecteer vervolgens **Afmelden**:
+Op Afmelden, selecteert u uw gebruikersnaam in de rechterbovenhoek van de pagina en selecteer vervolgens **Afmelden**:
 
-    ![Locatie van de afmelding opdracht op de Azure-laptops](media/accounts/sign-out-command.png)
+![Locatie van de afmelding opdracht op de Azure-laptops](media/accounts/sign-out-command.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

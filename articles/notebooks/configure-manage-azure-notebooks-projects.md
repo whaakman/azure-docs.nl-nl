@@ -1,5 +1,5 @@
 ---
-title: Configureren en beheren van Azure Notebook projecten | Microsoft Docs
+title: Configureren en beheren van Azure Notebook-projecten
 description: Over het beheren van de metagegevens van het project, project-bestanden, van het project-omgeving en installatiestappen via de gebruikersinterface van Azure-notitieblokken en de directe terminal toegang.
 services: app-service
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 0e24d06cfeefd8315e21a45b833e6bf0e5f9dfd9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856021"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104081"
 ---
-# <a name="manage-and-configure-projects"></a>Beheren en configureren van projecten
+# <a name="manage-and-configure-projects"></a>Projecten beheren en configureren
 
 Een project in notitieblokken van Azure is in feite een configuratie van de onderliggende virtuele Linux-machine waarin Jupyter-notebooks uitgevoerd, samen met een map en de beschrijvende metagegevens. Het projectdashboard in notitieblokken van Azure kunt u bestanden beheren en configureren van het project kenmerken:
 
@@ -38,7 +38,7 @@ Azure-notitieblokken wordt de onderliggende virtuele machine gestart wanneer u e
 
 Selecteer in het projectdashboard **projectinstellingen**en selecteer vervolgens de **informatie** tabblad, dat de metagegevens van het project bevat, zoals beschreven in de volgende tabel. U kunt de metagegevens van het project op elk gewenst moment wijzigen.
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 | --- | --- |
 | Projectnaam | Een beschrijvende naam voor uw project die gebruikmaakt van Azure-notitieblokken weer te geven. Bijvoorbeeld: 'Hello World in Python'. |
 | Project-id | Een aangepaste id die deel van de URL uitmaken die u gebruiken voor het delen van een project (het formulier is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Deze ID kunt alleen letters, cijfers en afbreekstreepjes bevatten en is beperkt tot 30 tekens bevatten. Als u niet zeker weet wat u wilt gebruiken, is een algemene overeenkomst met een kleine versie van de naam van uw project waar de spaties zijn ingeschakeld in afbreekstreepjes bevatten, bijvoorbeeld 'Mijn Project Name' in "Mijn-project-name" verandert. |
@@ -57,7 +57,7 @@ Het projectdashboard ziet u de inhoud van het project tot mappensysteem. U kunt 
 
 De **+ nieuw** opdracht (sneltoets: n) maakt u nieuwe bestanden of mappen. Wanneer u de opdracht, selecteert u eerst het type item te maken:
 
-| Itemtype | Beschrijving | Opdrachtgedrag |
+| Itemtype | Description | Opdrachtgedrag |
 | --- | --- | --- |
 | **Notebook** | Een Jupyter-notebook | Geeft een pop-upvenster waarin u de bestandsnaam en de taal van het notitieblok opgeeft. |
 | **Map** | Een submap | Hiermee maakt u een bewerkingsveld met het in de lijst met bestanden van het project waarin u de naam van de map. |

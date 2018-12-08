@@ -1,6 +1,6 @@
 ---
-title: Het opnieuw instellen van wachtwoord van een gebruiker in Azure Active Directory | Microsoft Docs
-description: Informatie over het wachtwoord opnieuw instellen van een gebruiker met Azure Active Directory.
+title: Opnieuw instellen van het wachtwoord van een gebruiker - Azure Active Directory | Microsoft Docs
+description: Instructies over het wachtwoord opnieuw instellen van een gebruiker met Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736075"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103348"
 ---
-# <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Hoe: wachtwoord opnieuw instellen van een gebruiker met Azure Active Directory
-Als het wachtwoord is vergeten, als de gebruiker toegang tot een apparaat wordt geblokkeerd, of als de gebruiker een wachtwoord nooit hebt ontvangen, kunt u het wachtwoord van een gebruiker opnieuw instellen.
+# <a name="reset-a-users-password-using-azure-active-directory"></a>Wachtwoord opnieuw instellen van een gebruiker met Azure Active Directory
+U kunt als beheerder, het wachtwoord van een gebruiker opnieuw als het wachtwoord is vergeten, als de gebruiker toegang tot een apparaat wordt geblokkeerd, of als de gebruiker een wachtwoord nooit hebt ontvangen.
 
 >[!Note]
 >Als uw Azure AD-tenant de basismap van een gebruiker is, kunt u zich niet hun wachtwoord opnieuw instellen. Dit betekent dat als de gebruiker bij uw organisatie met een account van een andere organisatie, een Microsoft-account of een Google-account aanmeldt zich, kunt u zich niet op hun wachtwoord opnieuw instellen.<br><br>Als de gebruiker een bron van dienst als Windows Server Active Directory heeft, kunt u zult alleen het wachtwoord opnieuw instellen als u wachtwoord terugschrijven hebt ingeschakeld.<br><br>Als de gebruiker een bron van instantie als externe Azure AD heeft, kunt u zich niet aan het wachtwoord opnieuw instellen. Alleen de gebruiker of een beheerder in de externe Azure AD, kan het wachtwoord opnieuw instellen.
+
+>[!Note]
+>Als u niet een beheerder bent en zoekt in plaats daarvan voor instructies over hoe u uw eigen werk- of schoolaccount wachtwoord opnieuw instellen, Zie [uw werk- of schoolaccount wachtwoord opnieuw instellen](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="to-reset-a-password"></a>Een wachtwoord opnieuw instellen
 

@@ -1,5 +1,5 @@
 ---
-title: Modbus implementeren op Azure IoT Edge | Microsoft Docs
+title: Met gateways - Azure IoT Edge modbus-protocollen vertalen | Microsoft Docs
 description: Toestaan dat apparaten die Modbus TCP gebruiken, kunnen communiceren met Azure IoT Hub door een IoT-gatewayapparaat te maken
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: d8675042874ffaa824ccd1bf3b0017f0219268b8
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 51c1a9a6fe997249f543348c95c0c02dfa47ceaf
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566394"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101616"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Modbus TCP-apparaten verbinden via de gateway van een IoT Edge-apparaat
 

@@ -1,11 +1,12 @@
 ---
 title: Deep Learning en AI-frameworks - Azure | Microsoft Docs
-description: Deep Learning en AI-frameworks
+description: Meer informatie over de deep learning-frameworks en hulpmiddelen die worden ondersteund op de Data Science Virtual Machine.
 keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5bf9a0e9cbbcf2a4144255ac0bfbd4bd48e956c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241919"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104462"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](https://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding. 

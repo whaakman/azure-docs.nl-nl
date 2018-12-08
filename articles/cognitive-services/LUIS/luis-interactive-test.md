@@ -1,21 +1,22 @@
 ---
-title: Test uw LUIS-app in de portal LUIS
-titleSuffix: Azure Cognitive Services
+title: Test-app in de portal van LUIS
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Met Language Understanding (LUIS) kunt werken continu op uw toepassing het verfijnen en verbeteren van de taal begrijpen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 91df6add3a3c0a94984804b3d3bae769cc262a39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105951"
 ---
 # <a name="test-your-luis-app"></a>Uw LUIS-app testen
 <a name="train-your-app"></a>

@@ -1,21 +1,22 @@
 ---
-title: Bouw een LUIS-app via een programma met behulp van Node.js | Microsoft Docs
+title: Uitingen van importeren met behulp van Node.js
 titleSuffix: Azure
 description: Meer informatie over het bouwen van een LUIS-app via een programma uit bestaande gegevens in CSV-indeling met behulp van het ontwerpen van LUIS-API.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 729e19deb5efc91fb874214299f34fbb46d9bbdc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034039"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101168"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bouw een LUIS-app via een programma met behulp van Node.js
 
@@ -34,7 +35,7 @@ Zelfs als u een systeem dat niet is gemaakt met LUIS Denk eraan dat u hebt als h
 
 Open het `IoT.csv`-bestand. Het bevat een logboek van query's van gebruikers naar een hypothetische home automation-service, met inbegrip van hoe ze zijn gecategoriseerd, wat de gebruiker gezegd en sommige kolommen met nuttige informatie die buiten deze worden opgehaald. 
 
-![CSV-bestand](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![CSV-bestand van de vooraf bestaande gegevens](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 U ziet dat de **RequestType** kolom intents, kan worden en de **aanvragen** kolom ziet u een voorbeeld-utterance. De andere velden kunnen entiteiten zijn als ze zich in de utterance voordoen. Omdat er intenties en entiteiten voorbeeld uitingen, hebt u de vereisten voor een eenvoudige, voorbeeld-app.
 
@@ -106,9 +107,9 @@ Zodra de intenties en entiteiten zijn gedefinieerd in de LUIS-app, kunt u de uit
 ### <a name="install-nodejs-dependencies"></a>Installeer Node.js-afhankelijkheden
 De Node.js-afhankelijkheden installeren vanuit NPM in de terminal/opdrachtregel.
 
-````
+```console
 > npm install
-````
+```
 
 ### <a name="change-configuration-settings"></a>Configuratie-instellingen wijzigen
 Om deze toepassing gebruikt, moet u de waarden in het bestand index.js wijzigen naar de eindpuntsleutel van uw eigen en geeft u de naam die u wilt dat de app hebben. U kunt ook de cultuur van de app instellen of wijzigen van het versienummer.
@@ -116,28 +117,31 @@ Om deze toepassing gebruikt, moet u de waarden in het bestand index.js wijzigen 
 Open het bestand index.js en deze waarden aan de bovenkant van het bestand te wijzigen.
 
 
-````JavaScript
+```nodejs
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
-````
+```
+
 ### <a name="run-the-script"></a>Het script uitvoeren
 Voer het script uit vanaf de terminal/opdrachtregel met behulp van Node.js.
 
-````
+```console
 > node index.js
-````
+```
+
 of
-````
+
+```console
 > npm start
-````
+```
 
 ### <a name="application-progress"></a>Voortgang van de toepassing
 Terwijl de toepassing wordt uitgevoerd, ziet u de opdrachtregel wordt uitgevoerd. De uitvoer van de opdracht bevat de indeling van de antwoorden van LUIS.
 
-````
+```console
 > node index.js
 intents: ["TurnOn","TurnOff","Dim","Other"]
 entities: ["Operation","Device","Room"]
@@ -157,7 +161,7 @@ retrying add examples...
 
 Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-````
+```
 
 
 

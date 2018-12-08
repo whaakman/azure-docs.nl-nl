@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d9ee9a73f4e88786ca51fe9fac50ce51e25b4dde
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02bd85e8502af5e479d052f08276b08bb734d855
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123365"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103572"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Kopiëren van gegevens uit Xero met Azure Data Factory (Preview)
 
@@ -48,7 +48,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Xero gekoppelde service:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Xero** | Ja |
 | host | Het eindpunt van de server Xero (`api.xero.com`).  | Ja |
@@ -92,7 +92,12 @@ Alle tekst uit het .pem-bestand met inbegrip van de regel Unix endings(\n) bevat
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Xero-gegevensset.
 
-Als u wilt kopiëren van gegevens uit Xero, stel de eigenschap type van de gegevensset in **XeroObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Als u wilt kopiëren van gegevens uit Xero, stel de eigenschap type van de gegevensset in **XeroObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **XeroObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -104,7 +109,8 @@ Als u wilt kopiëren van gegevens uit Xero, stel de eigenschap type van de gegev
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -117,10 +123,10 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Als u wilt kopiëren van gegevens uit Xero, stelt u het brontype in de kopieeractiviteit naar **XeroSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **XeroSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Contacts"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Contacts"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

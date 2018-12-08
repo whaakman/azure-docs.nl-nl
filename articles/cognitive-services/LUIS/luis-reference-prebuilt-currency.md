@@ -1,21 +1,22 @@
 ---
-title: LUIS vooraf gemaakte entiteiten valuta referentie - Azure | Microsoft Docs
+title: CurrentY vooraf gemaakte entiteiten
 titleSuffix: Azure
 description: In dit artikel bevat valuta vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6346ce4e3c9e51852a9a98904b797b6eb64970e4
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 432ee8a7dda75b01015795034ee7f55fe0840775
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334003"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102708"
 ---
 # <a name="currency-entity"></a>Valuta-entiteit
 De vooraf gedefinieerde valuta-eenheid detecteert valuta in veel nominale waarden en landen, ongeacht de cultuur van LUIS-app. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met valuta voor de toepassing intents. Valuta entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Valuta wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recog
 ## <a name="resolution-for-currency-entity"></a>Oplossing voor de valuta-eenheid
 Het volgende voorbeeld ziet u de resolutie van de **builtin.currency** entiteit.
 
-```JSON
+```json
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {

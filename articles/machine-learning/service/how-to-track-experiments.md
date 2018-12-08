@@ -1,5 +1,6 @@
 ---
-title: 'Houd experimenten en training metrische gegevens: Azure Machine Learning | Microsoft Docs'
+title: Spoor experimenten en training metrische gegevens
+titleSuffix: Azure Machine Learning service
 description: U kunt met de service Azure Machine Learning, bijhouden van uw experimenten en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. Informatie over logboekregistratie toevoegen aan uw trainingsscript, hoe u het experiment verzenden, hoe u de voortgang van een actieve taak controleren en hoe u de resultaten van een uitvoering wilt weergeven.
 services: machine-learning
 author: heatherbshapiro
@@ -10,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae61f6fe24486eb1d4d5deecf5fb005a4d71b5fc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7137d43805065a8f29aa8fcf5307dd5b8947b345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016160"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101344"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
@@ -291,7 +292,7 @@ Meer informatie over:
 + [Model uitgelegd mogelijkheid](#model-explain-ability-and-feature-importance)
 
 
-### <a name="how-to-see-run-charts"></a>Hoe Bekijk grafieken uitvoeren:
+### <a name="view-the-run-charts"></a>De uitvoering grafieken bekijken
 
 1. Ga naar uw werkruimte. 
 

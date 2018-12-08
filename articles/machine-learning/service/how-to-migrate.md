@@ -1,5 +1,6 @@
 ---
-title: Migreren naar Azure Machine Learning-service
+title: Migreren van Workbench
+titleSuffix: Azure Machine Learning service
 description: Informatie over het upgraden of migreren naar de latere versie van Azure Machine Learning-service van een eerdere versie.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253445"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106648"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migreren naar de nieuwste versie van Azure Machine Learning-service 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migreren van de Workbench naar de nieuwste versie van Azure Machine Learning-service 
 
-**Als u de toepassing Workbench (preview) hebt geïnstalleerd en/of hebben experimenteermogelijkheden en Modelbeheer accounts bekijken, in dit artikel gebruiken om te migreren naar de nieuwste versie.**  Als u geen preview Workbench zijn geïnstalleerd, of een experimenten en/of Modelbeheer-account hebt, moet u niet verder niets te migreren.
+**Als u de Workbench-toepassing hebt geïnstalleerd en/of hebben experimenteermogelijkheden en Modelbeheer accounts bekijken, in dit artikel gebruiken om te migreren naar de nieuwste versie.**  Als u geen preview Workbench zijn geïnstalleerd, of een experimenten en/of Modelbeheer-account hebt, moet u niet verder niets te migreren.
 
 ## <a name="what-can-i-migrate"></a>Wat kan ik migreren?
 De meeste artefacten die zijn gemaakt in de eerste preview van Azure Machine Learning-service worden opgeslagen in uw eigen lokale of cloudopslag. Deze artefacten wordt niet verwijderd. Als u wilt migreren, registreert u de artefacten opnieuw met de bijgewerkte Azure Machine Learning-service. 
@@ -75,11 +76,10 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Opnieuw implementeren uw modellen met behulp van de nieuwe SDK of CLI naar de nieuwe implementatiedoelen voor het migreren van webservices. Er is niet nodig om uw oorspronkelijke scoring-bestand, modelbestanden bestand afhankelijkheden, omgevingsbestand en schema-bestanden te wijzigen. 
 
-In de nieuwste versie, de modellen worden geïmplementeerd als webservices [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) of [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS)-clusters. 
+In de nieuwste versie, worden modellen als webservices met Azure Container Instances (ACI) of Azure Kubernetes Service (AKS)-clusters geïmplementeerd. 
 
 Meer informatie in deze artikelen:
-+ [Implementeren naar ACI](how-to-deploy-to-aci.md)
-+ [Implementeren naar AKS](how-to-deploy-to-aks.md)
++ [Over het implementeren en waar](how-to-deploy-and-where.md)
 + [Zelfstudie: Implementeer modellen met Azure Machine Learning-service](tutorial-deploy-models-with-aml.md)
 
 Wanneer [ondersteuning voor de eerdere CLI](overview-what-happened-to-workbench.md#timeline), kunt u zich niet voor het beheren van de webservices die u oorspronkelijk hebt geïmplementeerd met uw Modelbeheer-account. Deze webservices blijven echter werken voor, zolang het Azure Container Service (ACS) wordt nog steeds ondersteund.

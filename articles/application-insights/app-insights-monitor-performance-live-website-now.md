@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0618a580c6bdcef8f28a439cd79e67d863e58b9e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995235"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105288"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Web-apps tijdens runtime instrumenteren met Application Insights
 
@@ -119,6 +119,7 @@ Als u opnieuw wilt publiceren zonder Application Insights toe te voegen aan de c
   * Selecteer in IIS Manager uw groep met toepassingen, open **Advanced Settings** en noteer de identiteit onder **Proces Model**.
   * Voeg in het configuratiescherm voor computerbeheer deze identiteit toe aan de groep Prestatiemetergebruikers.
 * Als op uw server MMA/SCOM (Systems Center Operations Manager) is geïnstalleerd, kan er een conflict optreden met sommige versies. Verwijder zowel SCOM als Status Monitor en installeer de meest recente versies.
+* Status Monitor logboeken kunnen worden gevonden op deze locatie standaard: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * Zie [Probleemoplossing][qna].
 
 ## <a name="system-requirements"></a>Systeemvereisten
@@ -217,9 +218,12 @@ Status Monitor verzamelt niet zelf telemetrie. Het configureert enkel de web-app
 
 Wanneer u een web-app selecteert die u met Status Monitor wilt instrumenteren:
 
-* Worden de Application Insights-assembly's en een .config-bestand gedownload en in de map met de binaire bestanden van de web-app geplaatst.
-* Wordt `web.config` gewijzigd om de Application Insights HTTP-bewakingsmodule toe te voegen.
+* Gedownload en wordt de Application Insights-assembly's en het bestand ApplicationInsights.config in de web-app binaire bestanden map geplaatst.
 * Schakelt CLR-profilering in voor het verzamelen van afhankelijkheidsaanroepen.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Welke versie van Application Insights-SDK installeren Status Monitor?
+
+Vanaf nu kunt Status Monitor alleen Application Insights-SDK-versie 2.3 of 2.4 installeren.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Moet ik Status Monitor telkens uitvoeren wanneer ik de app heb bijgewerkt?
 

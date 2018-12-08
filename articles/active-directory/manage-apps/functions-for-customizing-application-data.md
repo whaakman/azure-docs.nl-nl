@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: e5db47cabddb2898667ff9d6cdac41cf3b953099
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843577"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105152"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -47,7 +47,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
 | **suffix** |Vereist |Reeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
@@ -60,7 +60,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **inputFormat** |Vereist |Reeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [ https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -76,10 +76,10 @@ Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in 
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **separator** |Vereist |Reeks |De tekenreeks die wordt gebruikt om de bronwaarden scheiden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
-| ** bron1... bronN ** |Vereist, variabele-aantal keren |Reeks |De tekenreeks die waarden die moeten worden samengevoegd. |
+| **bron1... bronN** |Vereist, variabele-aantal keren |Reeks |De tekenreeks die waarden die moeten worden samengevoegd. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -89,7 +89,7 @@ Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in 
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk. |
 | **start** |Vereist |geheel getal |Indexeren de **bron** tekenreeks waar de subtekenreeks moet beginnen. Het eerste teken in de tekenreeks index 1 hebben, tweede teken wordt index 2 hebben, enzovoort. |
@@ -103,7 +103,7 @@ Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in 
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks | Doorgaans de naam van een eerste of laatste naamkenmerk |
 
@@ -115,7 +115,7 @@ Als een van de bronwaarden is een kenmerk meerdere waarden wordt elke waarde in 
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Booleaanse tekenreeks |Verwacht **bron** waarden zijn 'True' of 'False'... |
 
@@ -141,7 +141,8 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
   * Als **bron** een waarde heeft, maakt gebruik van **regexPattern** en **regexGroupName** vervangende waarde ophalen uit de eigenschap met de **replacementPropertyName** . Vervangende waarde wordt als het resultaat geretourneerd
 
 **Parameters:**<br> 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
 | **oldValue** |Optioneel |Reeks |Waarde die moet worden vervangen **bron** of **sjabloon**. |
@@ -164,9 +165,9 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| ** uniqueValueRule1... uniqueValueRuleN ** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |Reeks | Lijst met regels voor het genereren van unieke waarde om te evalueren |
+| **uniqueValueRule1... uniqueValueRuleN** |Ten minste zijn 2 afhankelijk van de vereiste, geen hoofdletters |Reeks | Lijst met regels voor het genereren van unieke waarde om te evalueren |
 
 
 - - -
@@ -177,7 +178,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Vereist |Reeks |**[appRoleAssignments]**  object. |
 
@@ -189,7 +190,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 
@@ -201,7 +202,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 **Parameters:**<br> 
 
-| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| Name | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 | **defaultValue** |Optioneel |Reeks |De standaardwaarde moet worden gebruikt wanneer de bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |

@@ -1,5 +1,6 @@
 ---
-title: Schrijven van gegevens met de Azure Machine Learning Data Prep SDK - Python
+title: Schrijf en voorbereiden van gegevens met de Data Prep Python-SDK
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over het schrijven van gegevens met Azure Machine Learning Data Prep SDK. U kunt schrijven van gegevens op elk gewenst moment in een gegevensstroom en bestanden in elk van onze ondersteunde locaties (lokale bestandssysteem, Azure Blob Storage en Azure Data Lake Storage).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,13 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 5e6cc45503a6c35d1b65ed10b792b7e307271e80
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 1278d0c448b041849f477b55d8311f516c3bccf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866137"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104438"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Schrijven van gegevens met behulp van de Azure Machine Learning Data Prep SDK
 
