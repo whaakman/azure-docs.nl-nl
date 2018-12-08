@@ -1,5 +1,6 @@
 ---
-title: Een model implementeren als een webservice op een FPGA met Azure Machine Learning
+title: Modellen implementeren als webservices op FPGA 's
+titleSuffix: Azure Machine Learning service
 description: Leer hoe u een webservice implementeren met een model uitvoeren op een FPGA met Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/29/2018
-ms.openlocfilehash: e46b2c0de1b65d2355e7258e9940ee1fee6be071
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: f5252f8de56658ebcf0d3815f6bd6246c495cd75
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872132"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090411"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning
 
