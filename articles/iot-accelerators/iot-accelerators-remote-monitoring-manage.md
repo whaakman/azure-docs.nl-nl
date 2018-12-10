@@ -1,35 +1,32 @@
 ---
-title: Zelfstudie over apparaten beheren in een op Azure gebaseerde oplossing voor externe bewaking | Microsoft Docs
-description: In deze zelfstudie leert u hoe u apparaten kunt beheren die verbonden zijn met de oplossingsversneller voor externe bewaking.
+title: 'Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u apparaten beheert die zijn verbonden met de oplossingsverbetering voor Externe bewaking.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821046"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679151"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
 
-In deze zelfstudie gebruikt u de oplossingsversneller voor externe bewaking om de verbonden IoT-apparaten te configureren en bewaken. U voegt een nieuw apparaat toe aan de oplossingsversneller, configureert het apparaat en werkt de firmware van het apparaat bij.
+In deze zelfstudie gebruikt u de oplossingsversneller voor externe bewaking om de verbonden IoT-apparaten te configureren en bewaken. U voegt een nieuw apparaat toe aan de oplossingsverbetering en configureert het apparaat.
 
-Contoso heeft nieuwe machines besteld om de capaciteit van een van de faciliteiten uit te breiden. Terwijl u wacht op de levering van de nieuwe machines, wilt u een simulatie uitvoeren om het gedrag van uw oplossing te testen. Om de simulatie uit te voeren, voegt u een nieuw gesimuleerd apparaat toe aan de oplossingsversneller voor externe bewaking. Vervolgens test u of dit gesimuleerde apparaat goed op acties en configuratie-updates reageert.
-
-Voor een uitbreidbare manier om apparaten te configureren en beheren, gebruikt de oplossingsversneller voor externe bewaking IoT Hub-functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [directe methoden](../iot-hub/iot-hub-devguide-direct-methods.md). Hoewel in deze zelfstudie gebruik wordt gemaakt van gesimuleerde apparaten, kan een ontwikkelaar directe methoden implementeren op een [fysiek apparaat dat is verbonden met de oplossingsversneller voor externe bewaking](iot-accelerators-connecting-devices.md).
+Contoso heeft nieuwe machines besteld om de capaciteit van een van de faciliteiten uit te breiden. Terwijl u wacht op de levering van de nieuwe machines, wilt u een simulatie uitvoeren om het gedrag van uw oplossing te testen. Om de simulatie uit te voeren, voegt u een nieuw gesimuleerd apparaat toe aan de oplossingsverbetering voor Externe bewaking. Vervolgens test u of dit gesimuleerde apparaat goed reageert op configuratie-updates. Hoewel in deze zelfstudie gebruik wordt gemaakt van gesimuleerde apparaten, kan een ontwikkelaar directe methoden implementeren op een [fysiek apparaat dat is verbonden met de oplossingsversneller voor externe bewaking](iot-accelerators-connecting-devices.md).
 
 In deze zelfstudie hebt u:
 
 >[!div class="checklist"]
 > * Een gesimuleerd apparaat inrichten.
 > * Een gesimuleerd apparaat testen.
-> * De firmware van een apparaat bijwerken.
 > * Een apparaat opnieuw configureren.
 > * Uw apparaten organiseren.
 
@@ -60,24 +57,6 @@ Controleer in **Apparaatdetails** of het nieuwe apparaat telemetrie verzendt. Al
 In het deelvenster **Apparaatdetails** ziet u andere informatie over het apparaat, zoals tagwaarden, de methoden die worden ondersteund en de eigenschappen die zijn gerapporteerd door het apparaat.
 
 Als u gedetailleerde diagnostische gegevens wilt zien, schuift u omlaag in het deelvenster **Apparaatdetails** naar de sectie **Diagnostische gegevens**.
-
-## <a name="act-on-a-device"></a>Reageren op een apparaat
-
-Om te testen of het gesimuleerde engine-apparaat correct reageert op acties die worden gestart vanuit het dashboard, voert u de **FirmwareUpdate**-methode uit. Als u een apparaat test door een methode uit te voeren, selecteert u het apparaat in de lijst met apparaten en klikt u op **Taken**. U kunt meer dan één apparaat selecteren om te testen. In het deelvenster **Taken** selecteert u **Methoden**. Het **Engine**-apparaatmodel werkt met drie methoden: **FirmwareUpdate**, **FillTank** en **EmptyTank**:
-
-[![Engine-methoden](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-Kies **FirmwareUpdate**, stel de naam van de taak in op **UpdateEngineFirmware**, de firmwareversie op **2.0.0**, de firmware-URI op **http://contoso.com/engine.bin** en klik tot slot op **Toepassen**:
-
-[![De methode van de firmware-update plannen](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-Als u de status van de taak wilt volgen, klikt u op **Taakstatus bekijken**:
-
-[![De geplande taak voor de firmware-update bewaken](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-Nadat de taak is voltooid, gaat u terug naar de pagina **Apparaten**. De nieuwe firmwareversie wordt weergegeven voor het apparaat.
-
-Als u meerdere apparaten van verschillende typen selecteert op de pagina **Apparaten**, kunt u nog steeds een taak maken om een methode voor die verschillende apparaten uit te voeren. Het deelvenster **Taken** geeft alleen de methoden weer die voor alle geselecteerde apparaten worden gebruikt.
 
 ## <a name="reconfigure-a-device"></a>Een apparaat opnieuw configureren
 

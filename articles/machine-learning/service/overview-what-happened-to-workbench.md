@@ -8,19 +8,19 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: b8263c399f287be79590860cce7036207ef2e3f7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243740"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879431"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Wat gebeurt er met Workbench in Azure Machine Learning (preview)?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Wat gebeurt er met Workbench in Azure Machine Learning?
 
-De Workbench-toepassing en een aantal andere vroege functies zijn vervangen in de versie van september 2018 om plaats te maken voor een verbeterde [architectuur](concept-azure-machine-learning-architecture.md). De nieuwe versie bevat veel belangrijke updates op basis van feedback van klanten om uw ervaring te verbeteren. De kernfunctionaliteit voor experimentele uitvoeringen tot modelimplementatie is niet gewijzigd, maar nu kunt u de robuuste <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> en [CLI](reference-azure-machine-learning-cli.md) gebruiken om uw machine learning-taken en -pijplijnen uit te voeren.  
+De Workbench-toepassing en een aantal andere vroege functies zijn afgeschaft en vervangen in de versie van september 2018 om plaats te maken voor een verbeterde [architectuur](concept-azure-machine-learning-architecture.md). De nieuwe versie bevat veel belangrijke updates op basis van feedback van klanten om uw ervaring te verbeteren. De kernfunctionaliteit voor experimentele uitvoeringen tot modelimplementatie is niet gewijzigd, maar nu kunt u de robuuste <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> en [CLI](reference-azure-machine-learning-cli.md) gebruiken om uw machine learning-taken en -pijplijnen uit te voeren.  
 
-In dit artikel ontdek u wat er is veranderd en hoe dit van invloed is op uw bestaande werk met de Azure Machine Learning service.
+In dit artikel leest u wat er is veranderd en hoe dit van invloed is op uw bestaande werk met de Azure Machine Learning Workbench en de bijbehorende API's.
 
 ## <a name="what-changed"></a>Wat is er veranderd?
 
@@ -44,10 +44,10 @@ De meeste artefacten die in de eerdere versie van de Azure Machine Learning serv
 
 U kunt uw accounts voor experimenten en modelbeheer nog een tijdje na september 2018 blijven gebruiken, evenals de Workbench-toepassing. Ondersteuning voor de volgende resources wordt in de drie tot vier maanden na de release stapsgewijs opgeheven. U kunt de documentatie voor de oude functies nog vinden in het [gedeelte Resources](../desktop-workbench/tutorial-classifying-iris-part-1.md) onderaan de inhoudsopgave.
 
-|Fase|Ondersteuningsdetails voor vroegere functies|
+|Buiten gebruik stellen&nbsp;fase|Ondersteuningsdetails voor vroegere functies|
 |:---:|----------------|
-|1|De mogelijkheid om een _Azure Machine Learning Experimenten-account_ en een _Modelbeheer-account_ te maken in de Azure-portal en vanaf de CLI-einden. De mogelijkheid om ML Compute-omgevingen te maken vanaf de CLI wordt ook beëindigd. Als u nog een account hebt, blijven de CLI en de bureaublad-Workbench tijdens deze fase werken.|
-|2|Ondersteuning voor de rest, waaronder de resterende API's en de bureaublad-Workbench, worden tijdens deze fase beëindigd.|
+|4 december 2018|De mogelijkheid om een _Azure Machine Learning Experimenten-account_ en een _Modelbeheer-account_ te maken in de Azure-portal en vanaf de CLI, is beëindigd. De mogelijkheid om ML Compute-omgevingen te maken vanaf de CLI is ook beëindigd. Als u nog een account hebt, blijven de CLI en de bureaublad-Workbench tijdens deze fase werken.|
+|9 januari 2019|Ondersteuning voor de rest, waaronder de resterende API's en de bureaublad-Workbench, wordt op deze datum beëindigd.|
 
 [Migreer vandaag nog](how-to-migrate.md). Al de nieuwste mogelijkheden zijn beschikbaar met de nieuwe <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md) en [portal](quickstart-get-started.md).
 
@@ -92,15 +92,15 @@ In de nieuwere versie worden modellen als webservices geïmplementeerd naar ACI-
 
 ## <a name="what-about-the-old-sdk--cli"></a>Hoe zit het met de oude SDK en CLI?
 
-Deze blijven nog een tijdje werken (zie de [tijdlijn](#timeline) hierboven). Het is raadzaam om uw nieuwe experimenten en modellen met de meest recente SDK en/of CLI te maken.
+Deze blijven nog werken tot januari (zie de [tijdlijn](#timeline) hierboven). Het is raadzaam om uw nieuwe experimenten en modellen met de meest recente SDK en/of CLI te maken.
 
 In de nieuwste versie kunt u met de nieuwe Python SDK in elke Python-omgeving communiceren met de Azure Machine Learning service. Informatie over het installeren van de meest recente <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.  U kunt ook de [bijgewerkte machine learning-extensie van Azure CLI](reference-azure-machine-learning-cli.md) gebruiken met de uitgebreide set `az ml`-opdrachten om in elke opdrachtregelomgeving met de service te communiceren, met inbegrip van de cloud shell van de Azure-portal.
 
-## <a name="what-about-vs-code-tools-for-ai"></a>Hoe zit het met Visual Studio Code Tools for AI?
+## <a name="what-about-azure-machine-learning-for-visual-studio-code"></a>Hoe zit het met Azure Machine Learning voor Visual Studio Code?
 
-In deze nieuwste release is de extensie Visual Studio Code Tools for AI uitgebreid en verbeterd voor gebruik met de bovenstaande nieuwe functies.
+In deze nieuwste release is Azure Machine Learning voor Visual Studio (VS) Code uitgebreid en verbeterd voor gebruik met de bovenstaande nieuwe functies.
 
-[ ![Visual Studio Code Tools for AI](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[ ![Azure Machine Learning voor Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Hoe zit het met domeinpakketten?
 

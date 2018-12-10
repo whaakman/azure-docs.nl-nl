@@ -1,148 +1,179 @@
 ---
-title: 'Snelstart: Taal bepalen op basis van tekst, Java - Translator Text-API'
+title: 'Quickstart: Teksttaal detecteren, Java - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Java.
+description: In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Java en de Translator Text REST API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: dcf7529ab0b9d7eb6792e2934d59a24c7a834174
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d810b282936db1a31cdeb0133ce3c5bf0059850b
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415556"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890774"
 ---
-# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-java"></a>Snelstart: Taal bepalen op basis van tekst met de Translator Text REST API (Java)
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Quickstart: de Translator Text-API gebruiken om teksttaal te detecteren met Java
 
-In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
+In deze quickstart leert u hoe u de taal van opgegeven tekst kunt detecteren met behulp van Java en de Translator Text REST API.
+
+Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet over [JDK 7 of 8](https://aka.ms/azure-jdks) beschikken om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar u kunt ook een teksteditor gebruiken.
+* [JDK 7 of hoger](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* Een Azure-abonnementssleutel voor Translator Text
 
-Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
+## <a name="initialize-a-project-with-gradle"></a>Een project initialiseren met Gradle
 
-## <a name="detect-request"></a>Detect-aanvraag
+Laten we beginnen met het maken van een werkmap voor dit project. Voer de volgende opdracht uit vanaf de opdrachtregel (of terminal):
 
-Met de volgende code bepaalt u de taal van de brontekst met de methode [Detect](./reference/v3-0-detect.md).
+```console
+mkdir detect-sample
+cd detect-sample
+```
 
-1. Maak een nieuw Java-project in uw favoriete code-editor.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, die tijdens runtime wordt gebruikt om u toepassing te maken en configureren. Voer de volgende opdracht uit vanuit uw werkmap:
+
+```console
+gradle init --type basic
+```
+
+Wanneer u wordt gevraagd om een **DSL** te kiezen, selecteert u **Kotlin**.
+
+## <a name="configure-the-build-file"></a>Het buildbestand configureren
+
+Zoek `build.gradle.kts` en open dit met uw favoriete IDE- of teksteditor. Kopieer het vervolgens in deze buildconfiguratie:
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "Detect"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+Vergeet niet dat dit voorbeeld afhankelijkheden heeft op OkHttp voor HTTP-aanvragen, en Gson voor het verwerken en parseren van JSON. Zie [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Nieuwe Gradle-builds maken) als u meer wilt weten over buildconfiguraties.
+
+## <a name="create-a-java-file"></a>Een Java-bestand maken
+
+We gaan nu een map maken voor uw voorbeeld-app. Voer vanuit uw werkmap de volgende opdracht uit:
+
+```console
+mkdir -p src/main/java
+```
+
+Maak vervolgens in deze map een bestand met de naam `Detect.java`.
+
+## <a name="import-required-libraries"></a>Vereiste bibliotheken importeren
+
+Open `Detect.java` en voeg deze importinstructies toe:
 
 ```java
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+import com.google.gson.*;
+import com.squareup.okhttp.*;
+```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
-/* NOTE: To compile and run this code:
-1. Save this file as Detect.java.
-2. Run:
-    javac Detect.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar Detect
-*/
+## <a name="define-variables"></a>Variabelen definiëren
 
+U moet eerst een openbare klasse voor uw project maken:
+
+```java
 public class Detect {
+  // All project code goes here...
+}
+```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+Voeg deze regels toe aan de klasse `Detect`:
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+```java
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+String url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0";
+```
 
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/detect?api-version=3.0";
+## <a name="create-a-client-and-build-a-request"></a>Een client maken en een aanvraag samenstellen
 
-    static String text = "Salve, mondo!";
+Voeg deze regel toe aan de klasse `Detect` om een instantie te maken van de `OkHttpClient`:
 
-    public static class RequestBody {
-        String Text;
+```java
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-        public RequestBody(String text) {
-            this.Text = text;
-        }
-    }
+Stel vervolgens de POST-aanvraag samen. Met het oog op taaldetectie kunt u de tekst naar believen wijzigen.
 
-    public static String Post (URL url, String content) throws Exception {
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
-        connection.setDoOutput(true);
+```java
+// This function performs a POST request.
+public String Post() throws IOException {
+    MediaType mediaType = MediaType.parse("application/json");
+    RequestBody body = RequestBody.create(mediaType,
+            "[{\n\t\"Text\": \"Salve mondo!\"\n}]");
+    Request request = new Request.Builder()
+            .url(url).post(body)
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
 
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
+## <a name="create-a-function-to-parse-the-response"></a>Een functie maken voor het parseren van het antwoord
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+Met deze eenvoudige functie wordt het JSON-antwoord van de Translator Text-service geparseerd en verfraaid.
 
-        return response.toString();
-    }
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
-    public static String Detect () throws Exception {
-        URL url = new URL (host + path);
+## <a name="put-it-all-together"></a>Alles samenvoegen
 
-        List<RequestBody> objList = new ArrayList<RequestBody>();
-        objList.add(new RequestBody(text));
-        String content = new Gson().toJson(objList);
+De laatste stap bestaat eruit om een aanvraag te maken en een antwoord te ontvangen. Voeg deze regels toe aan uw project:
 
-        return Post(url, content);
-    }
-
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main(String[] args) {
-        try {
-            String response = Detect ();
-            System.out.println (prettify (response));
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+```java
+public static void main(String[] args) {
+    try {
+        Detect detectRequest = new Detect();
+        String response = detectRequest.Post();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## <a name="detect-response"></a>Detect-antwoord
+## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het volgende voorbeeld kunt zien:
+Nu kunt u de voorbeeld-app gaan uitvoeren. Ga vanaf de opdrachtregel (of terminalsessie) naar de hoofdmap van uw werkmap en voer de volgende opdracht uit:
+
+```console
+gradle build
+```
+
+## <a name="sample-response"></a>Voorbeeldantwoord
 
 ```json
 [
@@ -175,3 +206,12 @@ Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en tr
 
 > [!div class="nextstepaction"]
 > [Bekijk Java-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## <a name="see-also"></a>Zie ook
+
+* [Tekst vertalen](quickstart-java-translate.md)
+* [Tekst transcriberen](quickstart-java-transliterate.md)
+* [Een taal identificeren op basis van de invoer](quickstart-java-detect.md)
+* [Alternatieve vertalingen verkrijgen](quickstart-java-dictionary.md)
+* [Een lijst ophalen van ondersteunde talen](quickstart-java-languages.md)
+* [De zinlengte in invoer bepalen](quickstart-java-sentences.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 179a13d6fbb162ae7727c6a176b60879901dc4d1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426183"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633721"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -40,7 +40,7 @@ In deze zelfstudie leert u het volgende:
 > * Een testnetwerkomgeving instellen
 > * Een firewall implementeren
 > * Een standaardroute maken
-> * Een toepassing configureren om toegang tot github.com toe te staan
+> * Een toepassing configureren om toegang tot msn.com toe te staan
 > * Een netwerkregel configureren om toegang tot externe DNS-servers toe te staan
 > * De firewall testen
 
@@ -136,7 +136,7 @@ Implementeer de firewall in het VNet.
 2. Klik op **Netwerken** en klik bij **Aanbevolen** op **Alles weergeven**.
 3. Klik op **Firewall** > **Maken**. 
 4. Gebruik op de pagina **Firewall maken** de volgende tabel om de firewall te configureren:
-   
+
    |Instelling  |Waarde  |
    |---------|---------|
    |Naam     |Test-FW01|
@@ -146,12 +146,12 @@ Implementeer de firewall in het VNet.
    |Een virtueel netwerk kiezen     |**Bestaande gebruiken**: Test-FW-VN|
    |Openbaar IP-adres     |**Nieuwe maken**. Het openbare IP-adres moet van het type Standaard-SKU zijn.|
 
-2. Klik op **Controleren + maken**.
-3. Controleer de samenvatting en klik vervolgens op **Maken** om de firewall te maken.
+5. Klik op **Controleren + maken**.
+6. Controleer de samenvatting en klik vervolgens op **Maken** om de firewall te maken.
 
    Het duurt enkele minuten voordat deze is geïmplementeerd.
-4. Zodra de implementatie is voltooid, gaat u naar de resourcegroep **Test-FW-RG** en klikt u op de firewall **Test-FW01**.
-6. Noteer het privé-IP-adres. U zult het later gebruiken wanneer u de standaardroute maakt.
+7. Zodra de implementatie is voltooid, gaat u naar de resourcegroep **Test-FW-RG** en klikt u op de firewall **Test-FW01**.
+8. Noteer het privé-IP-adres. U zult het later gebruiken wanneer u de standaardroute maakt.
 
 ## <a name="create-a-default-route"></a>Een standaardroute maken
 
@@ -182,7 +182,7 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 
 ## <a name="configure-an-application-rule"></a>Een toepassingsregel configureren
 
-Dit is de toepassingsregel waarmee uitgaande toegang wordt toegestaan tot github.com.
+Dit is de toepassingsregel waarmee uitgaande toegang wordt toegestaan tot msn.com.
 
 1. Open de resourcegroep **Test-FW-RG** en klik op de firewall **Test-FW01**.
 2. Klik op de pagina **Test-FW01** onder **Instellingen** op **Regels**.
@@ -194,7 +194,7 @@ Dit is de toepassingsregel waarmee uitgaande toegang wordt toegestaan tot github
 8. Onder **Regels**, **Doel-FQDN's**, typt u bij **Naam** **AllowGH**.
 9. Bij **Bronadressen** typt u **10.0.2.0/24**.
 10. Bij **Protocol:poort** typt u **http, https**.
-11. Bij **Doel-FQDN’s** typt u **github.com**.
+11. Bij **Doel-FQDN’s** typt u **msn.com**.
 12. Klik op **Add**.
 
 Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’s die standaard zijn toegestaan. Deze FQDN’s zijn specifiek voor het platform en kunnen niet voor andere doeleinden worden gebruikt. Zie [FQDN's voor infrastructuur](infrastructure-fqdns.md) voor meer informatie.
@@ -204,17 +204,17 @@ Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’
 Dit is de netwerkregel waarmee uitgaande toegang tot twee IP-adressen op poort 53 (DNS) wordt toegestaan.
 
 1. Klik op het tabblad **Verzameling met netwerkregels**.
-1. Klik op **Netwerkregelverzameling toevoegen**.
-2. Bij **Naam** typt u **Net-Coll01**.
-3. Bij **Prioriteit** typt u **200**.
-4. Bij **Actie** selecteert u **Toestaan**.
+2. Klik op **Netwerkregelverzameling toevoegen**.
+3. Bij **Naam** typt u **Net-Coll01**.
+4. Bij **Prioriteit** typt u **200**.
+5. Bij **Actie** selecteert u **Toestaan**.
 
 6. Onder **Regels** typt u bij **Naam** de naam **AllowDNS**.
-8. Bij **Protocol** selecteert u **UDP**.
-9. Bij **Bronadressen** typt u **10.0.2.0/24**.
-10. Bij doeladres typt u **209.244.0.3,209.244.0.4**.
-11. Bij **Doelpoorten** typt u **53**.
-12. Klik op **Add**.
+7. Bij **Protocol** selecteert u **UDP**.
+8. Bij **Bronadressen** typt u **10.0.2.0/24**.
+9. Bij doeladres typt u **209.244.0.3,209.244.0.4**.
+10. Bij **Doelpoorten** typt u **53**.
+11. Klik op **Add**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Het primaire en secundaire DNS-adres voor de netwerkinterface **Srv-Work** wijzigen
 
@@ -235,12 +235,12 @@ Test nu de firewall om te controleren of deze werkt zoals verwacht.
 1. Controleer in de Azure-portal de netwerkinstellingen voor de virtuele machine **Srv-Work** en noteer het privé-IP-adres.
 2. Verbind een extern bureaublad met de virtuele machine **Srv-Jump** en open van daaruit een externe bureaubladverbinding met het privé-IP-adres van **Srv-Work**.
 
-5. Open Internet Explorer en blader naar http://github.com.
-6. Klik op **OK** > **Sluiten** bij de beveiligingswaarschuwingen.
+3. Open Internet Explorer en blader naar http://msn.com.
+4. Klik op **OK** > **Sluiten** bij de beveiligingswaarschuwingen.
 
-   U zou nu de startpagina van GitHub moeten zien.
+   U zou nu de startpagina van MSN moeten zien.
 
-7. Blader naar http://www.msn.com.
+5. Blader naar http://www.msn.com.
 
    U zou nu door de firewall moeten worden geblokkeerd.
 

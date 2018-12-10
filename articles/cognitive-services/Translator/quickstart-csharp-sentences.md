@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d8a820b9b4c0c11d6e73728f8e62cc47eb4ab34
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 868c19f8c9e42bcd4a03aa2c766dff185f6319a7
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680052"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888338"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Snelstart: Zinlengtes ophalen met de Translator Text REST API (C#)
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Quickstart: De Translator Text-API gebruiken om de zinlengte te bepalen met C#
 
 In deze quickstart leert u hoe u zinlengtes bepaalt met behulp van .NET Core en de Translator Text-API.
 

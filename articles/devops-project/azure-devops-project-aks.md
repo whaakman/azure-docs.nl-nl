@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Uw ASP.NET Core-app implementeren naar AKS (Azure Kubernetes Service) met Azure DevOps Projects'
+title: 'Zelfstudie: ASP.NET Core-app implementeren naar Azure Kubernetes Service met Azure DevOps Projects'
 description: Azure DevOps Projects zorgt ervoor dat u eenvoudig aan de slag kunt met Azure. Met Azure DevOps Projects kunt u een ASP.NET Core-app eenvoudig in slechts enkele stappen implementeren naar AKS (Azure Kubernetes Service).
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165544"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620639"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Zelfstudie: Uw ASP.NET Core-app implementeren naar AKS (Azure Kubernetes Service) met Azure DevOps Projects
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Zelfstudie: ASP.NET Core-app implementeren naar Azure Kubernetes Service met Azure DevOps Projects
 
 Azure DevOps Projects biedt een vereenvoudigde ervaring waar u uw bestaande code en Git-opslagplaats gebruikt of een voorbeeldtoepassing kiest voor het maken van een CI- (Continue integratie) en CD-pijplijn (Continue levering) naar Azure. 
 
@@ -24,6 +24,7 @@ In DevOps Projects gebeurt ook het volgende:
 * Er worden automatisch Azure-resources gemaakt, zoals Azure Kubernetes Service.
 * In Azure DevOps wordt een release-pijplijn gemaakt en geconfigureerd om een build en release-pijplijn in te stellen voor CI/CD.
 * Er wordt een Azure Application Insights-resource gemaakt voor de bewaking.
+* [Azure Monitor voor containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) wordt ingeschakeld voor het bewaken van de prestaties voor de werkbelastingen van de container op het AKS-cluster
 
 In deze zelfstudie leert u het volgende:
 
@@ -74,7 +75,7 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 
     Nadat u dit alles hebt voltooid, wordt het dashboard van Azure DevOps Projects in de Azure-portal weergegeven. U kunt ook rechtstreeks vanuit **Alle resources** in de Azure-portal naar het dashboard van DevOps Projects gaan. 
 
-    Dit dashboard biedt meer inzicht in uw Azure DevOps-codeopslagplaats, uw CI/CD-pijplijn en uw AKS-cluster. U kunt meer CI/CD-opties configureren in uw Azure DevOps-pijplijn. Selecteer aan de rechterkant **Bladeren** om uw actieve app weer te geven.
+    Dit dashboard biedt meer inzicht in uw Azure DevOps-codeopslagplaats, uw CI/CD-pijplijn en uw AKS-cluster. U kunt meer CI/CD-opties configureren in uw Azure DevOps-pijplijn. Selecteer aan de rechterkant **Bladeren** om de actieve app weer te geven.
 
 ## <a name="examine-the-aks-cluster"></a>Het AKS-cluster bestuderen
 
@@ -105,7 +106,7 @@ DevOps Projects configureert automatisch een Azure-CI/CD-pijplijn in uw Azure De
 1. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken.  
     In de build worden verschillende taken uitgevoerd, zoals het ophalen van bronnen uit de Git-opslagplaats, het herstellen van afhankelijkheden, en het publiceren van uitvoergegevens die worden gebruikt voor implementaties.
 
-1. Selecteer bovenaan de build-pijplijn de naam van de build-pijplijn.
+1. Selecteer boven aan de build-pijplijn de naam van de build-pijplijn.
 
 1. Wijzig de naam van de build-pijplijn in een gebruiksvriendelijkere naam. Selecteer **Opslaan en wachtrij** en selecteer **Opslaan**.
 
@@ -113,7 +114,7 @@ DevOps Projects configureert automatisch een Azure-CI/CD-pijplijn in uw Azure De
     In dit deelvenster ziet u een audittrail van recente wijzigingen voor de build. In Azure DevOps worden alle wijzigingen in de build-pijplijn bijgehouden en krijgt u de mogelijkheid om versies te vergelijken.
 
 1. Selecteer **Triggers**.  
-    In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. Desgewenst kunt u kiezen of u vertakkingen van het CI-proces wilt opnemen of uitsluiten.
+    In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. U kunt eventueel kiezen of u branches van het CI-proces wilt opnemen of uitsluiten.
 
 1. Selecteer **Retentie**.  
     Afhankelijk van het scenario kunt u beleidsregels opgeven om een bepaald aantal builds te behouden of te verwijderen.

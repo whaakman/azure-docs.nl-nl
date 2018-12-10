@@ -1,107 +1,111 @@
 ---
-title: 'Snelstart: een DNS-zone en -record maken met behulp van Azure Portal'
-description: Gebruik deze snelstart om te leren hoe u een DNS-zone en -record maakt in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste DNS-zone en -record met behulp van Azure Portal.
+title: 'Quickstart: Een DNS-zone en -record maken met behulp van de Azure-portal'
+description: Gebruik deze stapsgewijze quickstart om te leren hoe u een Azure DNS-zone en -record maakt met behulp van de Azure-portal.
 services: dns
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: quickstart
-ms.date: 6/13/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: f54a9e40c4f75704e66c4a3a90ad4b293d1e6309
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831124"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889222"
 ---
-# <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Snelstart: Azure DNS configureren voor naamomzetting met behulp van Azure Portal
+# <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Quickstart: Azure DNS configureren voor naamomzetting met behulp van de portal
 
- U kunt Azure DNS configureren voor het omzetten van hostnamen in uw openbare domein. Als u bijvoorbeeld de domeinnaam contoso.com hebt gekocht van een domeinnaamregistrar, kunt u Azure DNS configureren om het domein contoso.com te hosten en www.contoso.com om te zetten in het IP-adres van uw webserver of web-app.
+U kunt Azure DNS configureren voor het omzetten van hostnamen in uw openbare domein. Als u bijvoorbeeld de domeinnaam *contoso.com* hebt gekocht bij een domeinnaamregistrar, kunt u Azure DNS configureren om het domein *contoso.com* te hosten en *www.contoso.com* om te zetten in het IP-adres van uw webserver of web-app.
 
-In deze snelstart maakt u een testdomein en maakt u vervolgens een adresrecord met de naam 'www' dat wordt omgezet naar het IP-adres 10.10.10.10.
+In deze quickstart maakt u een testdomein en maakt u vervolgens een adresrecord om *www* om te zetten in het IP-adres *10.10.10.10*.
 
-Het is belangrijk te weten dat de namen en IP-adressen die worden gebruikt in deze snelstart, slechts voorbeelden zijn, en niet bedoeld zijn om een werkelijk scenario voor te stellen. Waar van toepassing worden echter ook werkelijke scenario's beschreven.
+>[!IMPORTANT]
+>Alle namen en IP-adressen in deze quickstart zijn voorbeelden en geen weerspiegelingen van praktijkscenario’s. In deze quickstart worden ook, waar van toepassing, gevolgen in de praktijk beschreven.
 
 <!---
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
-Een DNS-zone bevat de DNS-records voor een bepaald domein. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. De volgende stappen laten zien hoe u dit doet.
-
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+Voor alle portal-stappen meldt u zich aan bij de [Azure-portal](https://portal.azure.com).
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
-1. Meld u aan bij Azure Portal.
-2. Klik linksboven op **+ Een resource maken**, vervolgens op **Netwerken** en daarna op **DNS-zone** om de pagina **DNS-zone maken** te openen.
+Een DNS-zone bevat de DNS-vermeldingen voor een domein. Als u uw domein wilt hosten in Azure DNS, maakt u een DNS-zone voor deze domeinnaam. 
 
-    ![DNS-zone](./media/dns-getstarted-portal/openzone650.png)
+**De DNS-zone maken:**
 
-4. Voer op de pagina **DNS-zone maken** de volgende waarden in en klik vervolgens op **Maken**:
+1. Selecteer linksboven **Een resource maken**, en vervolgens **Netwerken** en **DNS-zone**.
+   
+1. Typ of selecteer op de pagina **DNS-zone maken** de volgende waarden:
+   
+   - **Naam**: typ *contoso.xyz* voor het voorbeeld in deze quickstart. De naam van de DNS-zone mag elke waarde zijn die nog niet is geconfigureerd op de Azure DNS-servers. Een werkelijke waarde zou een domein zijn dat u hebt gekocht via een domeinnaamregistrar.
+   - **Resourcegroep**: selecteer **Nieuwe maken**, voer *dns-test* in, en selecteer **OK**. De naam van de resourcegroep moet uniek zijn binnen het Azure-abonnement. 
+   
+1. Selecteer **Maken**.
 
-
-   | **Instelling** | **Waarde** | **Details** |
-   |---|---|---|
-   |**Naam**|contoso.xyz|In deze snelstart kunt u elke gewenste waarde gebruiken voor de naam van de DNS-zone, zolang deze nog niet is geconfigureerd op de Azure DNS-servers. Een werkelijke waarde zou een domein zijn dat u hebt gekocht via een domeinnaamregistrar.|
-   |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin de DNS-zone moet worden gemaakt.|
-   |**Resourcegroep**|**Nieuwe maken:** dns-test|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. |
-   |**Locatie**|US - oost||
-
+   ![DNS-zone](./media/dns-getstarted-portal/openzone650.png)
+   
 Het maken van de zone kan een paar minuten duren.
 
 ## <a name="create-a-dns-record"></a>Een DNS-record maken
 
-Maak nu een nieuwe adresrecord (A-record). A-records worden gebruikt om de naam van een host om te zetten in een IPv4-adres.
+DNS-vermeldingen of -records voor het domein maakt u binnen de DNS-zone. Maak een nieuwe adresrecord of A-record om een hostnaam om te zetten in een IPv4-adres.
 
-1. Klik in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de pagina Alle resources op de DNS-zone **contoso.xyz**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **contoso.xyz** invoeren in het vak **Filteren op naam…** voor eenvoudige toegang tot de DNS-zone.
+**Een A-record maken:**
 
-1. Selecteer boven in de pagina **DNS-zone** de optie **+ Recordset** om de pagina **Recordset toevoegen** te openen.
+1. Open in de Azure-portal onder **Alle resources** de DNS-zone **contoso.xyz** in de resourcegroep **dns-test**. U kunt *contoso.xyz* invoeren in het vak **Filteren op naam**  om deze eenvoudiger te vinden.
 
-1. Voer op de pagina **Recordset toevoegen** de volgende waarden in en klik op **OK**: In dit voorbeeld maakt u een A-record.
+1. Selecteer boven aan de pagina **DNS-zone** de optie **+ Recordset**.
 
-   |**Instelling** | **Waarde** | **Details** |
-   |---|---|---|
-   |**Naam**|www|Naam van de record. Dit is de naam die u wilt gebruiken voor de host die u wilt omzetten in een IP-adres.|
-   |**Type**|A| Het type van de te maken DNS-record. A-records worden het meest gebruikt, maar er zijn andere recordtypen voor e-mailservers (MX), IPv6-adressen (AAAA), enzovoort. |
-   |**TTL**|1|Time-to-Live van de DNS-aanvraag. Geeft aan hoelang DNS-servers en -clients een antwoord in de cache kunnen opslaan.|
-   |**TTL-eenheid**|hours|Maateenheid van de TTL-waarde.|
-   |**IP-adres**|10.10.10.10| Dit is het IP-adres waarnaar de A-record wordt omgezet. Dit is slechts een testwaarde voor deze snelstart. Voor een reëel voorbeeld zou u het openbare IP-adres van uw webserver invoeren.|
+1. Typ of selecteer op de pagina **Recordset toevoegen** de volgende waarden:
 
+   - **Naam**: typ *www*. De recordnaam is de hostnaam die u wilt omzetten in het opgegeven IP-adres.
+   - **Type**: selecteer **A**. A-records worden het meest gebruikt, maar er zijn andere recordtypen voor e-mailservers (MX), IPv6-adressen (AAAA), enzovoort. 
+   - **TTL**: typ *1*. *Time-to-live* van de DNS-aanvraag geeft aan hoelang DNS-servers en -clients een antwoord kunnen opslaan in de cache.
+   - **TTL-eenheid**: selecteer **Uren**. Dit is de tijdseenheid voor de **TTL**-waarde. 
+   - **IP-adres**: typ voor het voorbeeld in deze quickstart *10.10.10.10*. Deze waarde is het IP-adres waarin de recordnaam wordt omgezet. In een praktijkscenario zou u het openbare IP-adres van de webserver invoeren.
 
-Omdat u in deze snelstart geen echte domeinnaam aanschaft, hoeft u Azure DNS niet als de naamserver te configureren bij uw domeinnaamregistrar. Maar in een reëel scenario wilt u dat iedereen op internet uw hostnaam kan omzetten om verbinding te maken met uw webserver of app. Zie [Een domein delegeren naar Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie over dat reële scenario.
-
+Aangezien in deze quickstart geen echt domein wordt gebruikt, hoeft u de Azure DNS-naamservers niet te configureren bij de registrar van uw domeinnaam. Bij een echt domein wilt u dat iedereen op internet de hostnaam omzet, zodat ze verbinding kunnen maken met uw webserver of web-app. U gaat naar uw domeinnaamregistrar om de naamserverrecords te vervangen door de Azure DNS-naamservers. Zie [Zelfstudie: Uw domein in Azure DNS hosten](dns-delegate-domain-azure-dns.md#delegate-the-domain) voor meer informatie.
 
 ## <a name="test-the-name-resolution"></a>De naamomzetting testen
 
-Nu u een testzone hebt met daarin een A-record, kunt u de naamomzetting testen met het hulpprogramma *nslookup*. 
+Nu u een testzone hebt met daarin een DNS-record, kunt u de naamomzetting testen met het hulpprogramma *nslookup*. 
 
-1. Eerst moet u de Azure DNS-naamservers noteren die u met nslookup wilt gebruiken. 
+**DNS-naamomzetting testen:**
 
-   De naamservers voor uw zone worden vermeld op de pagina **Overzicht** van de DNS-zone. Kopieer de naam van een van de naamservers:
+1. Open in de Azure-portal onder **Alle resources** de DNS-zone **contoso.xyz** in de resourcegroep **dns-test**. U kunt *contoso.xyz* invoeren in het vak **Filteren op naam**  om deze eenvoudiger te vinden.
 
-   ![zone](./media/dns-getstarted-portal/viewzonens500.png)
-
-2. Open nu een opdrachtprompt en voer de volgende opdracht uit:
-
-   ```
-   nslookup <host name> <name server>
+1. Kopieer een van de namen van de naamservers uit de lijst op de pagina **Overzicht**. 
    
-   For example:
+   ![zone](./media/dns-getstarted-portal/viewzonens500.png)
+   
+   >[!NOTE]
+   >In een praktijkscenario kopieert u de namen van alle vier de naamservers, inclusief de punt aan het einde, en gebruikt u deze voor de nieuwe Azure DNS-naamservernamen bij uw domeinregistrar. Zie [Een domein delegeren naar Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie
+   
+1. Open een opdrachtprompt en voer de volgende opdracht uit:
 
-   nslookup www.contoso.xyz ns1-08.azure-dns.com
    ```
+   nslookup <host name> <name server name>
+   ```
+   
+   Bijvoorbeeld:
+   
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+   
+   Er verschijnt een scherm dat er ongeveer als volgt uitziet:
+   
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Er verschijnt een pagina die er ongeveer uitziet als in de volgende schermafbeelding:
-
-![nslookup](media/dns-getstarted-portal/nslookup.PNG)
-
-Hiermee wordt gecontroleerd of de naamomzetting correct werkt. www.contoso.xyz wordt omgezet naar 10.10.10.10, net zoals u hebt geconfigureerd.
+De hostnaam **www.contoso.xyz** wordt omgezet in **10.10.10.10**, net zoals u hebt geconfigureerd. Met dit resultaat wordt gecontroleerd of de naamomzetting juist werkt. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Verwijder de resourcegroep **dns-test** als u deze niet langer nodig hebt, om de resources die u in deze snelstart hebt gemaakt, te verwijderen. Klik hiervoor op de resourcegroep **dns-test**en vervolgens op **Resourcegroep verwijderen**.
-
+Wanneer u de resources die u in deze quickstart hebt gemaakt, niet meer nodig hebt, verwijdert u ze door de resourcegroep **dns-test** te verwijderen. Open de resourcegroep **dns-test** en selecteer **Resourcegroep verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

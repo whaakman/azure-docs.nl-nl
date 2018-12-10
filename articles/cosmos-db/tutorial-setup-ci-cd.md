@@ -4,18 +4,16 @@ description: Zelfstudie over het instellen van build- en releasewerkstroom in Az
 services: cosmos-db
 keywords: Azure Cosmos DB Emulator
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036968"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875209"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Een CI/CD-pijplijn instellen met de build-taak van Azure Cosmos DB Emulator in Azure DevOps
 
@@ -23,7 +21,7 @@ Azure Cosmos DB Emulator biedt een lokale omgeving waarin de Azure Cosmos DB-ser
 
 Met de build-taak van Azure Cosmos DB Emulator voor Azure DevOps kunt u hetzelfde doen in een CI-omgeving. Gebruik de build-taak voor het uitvoeren van tests met de emulator als onderdeel van uw build- en releasewerkstromen. De taak initialiseer een Docker-container waarin de emulator al wordt uitgevoerd en biedt een eindpunt dat kan worden gebruikt door de rest van de build-definitie. U kunt zo veel instanties van de emulator maken en starten als u nodig hebt. Elke instantie wordt uitgevoerd in een afzonderlijke container. 
 
-In dit artikel leert u hoe u in Azure DevOps een CI-pijplijn instelt voor een ASP.NET-toepassing die de build-taak van Cosmos DB Emulator gebruikt voor het uitvoeren van tests. 
+In dit artikel leert u hoe u in Azure DevOps een CI-pijplijn instelt voor een ASP.NET-toepassing die de build-taak van Cosmos DB Emulator gebruikt voor het uitvoeren van tests. U kunt een soortgelijke aanpak gebruiken om een CI-pijplijn in te stellen voor een Node.js- of Python-toepassing. 
 
 ## <a name="install-the-emulator-build-task"></a>Build-taak van emulator installeren
 
@@ -82,6 +80,8 @@ Hieronder ziet u een voorbeeld van een **.runsettings**-bestand met parameters d
   </TestRunParameters>
 </RunSettings>
 ```
+
+Als u een CI/CD-pijplijn instelt voor een toepassing die gebruikmaakt van de MongoDB-API in Azure Cosmos DB, omvat de MongoDB-verbindingsreeks standaard poortnummer 10255. Deze poort is momenteel echter niet geopend. Gebruik daarom als alternatief poort 10250 om de verbinding tot stand te brengen. De MongoDB-API-verbindingsreeks is dezelfde, alleen is het ondersteunde poortnummer 10250 in plaats van 10255.
 
 Via de eigenschap `TestContext` in het testproject van de toepassing wordt er verwezen naar de parameters bij `TestRunParameters`. Hier volgt een voorbeeld van een test die wordt uitgevoerd met Cosmos DB.
 

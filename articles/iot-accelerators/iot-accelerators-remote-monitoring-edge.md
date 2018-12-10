@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826293"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843305"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Zelfstudie: Afwijkingen aan de rand detecteren met de oplossingsverbetering voor Externe bewaking
 
@@ -24,16 +24,26 @@ Deze zelfstudie gebruikt een gesimuleerde jaknikker om u te laten kennismaken me
 
 Contoso wil een intelligente randmodule voor de jaknikker implementeren waarmee afwijkingen in de temperatuur worden gedetecteerd. Een andere randmodule stuurt waarschuwingen naar de oplossing voor externe bewaking. Wanneer een waarschuwing wordt ontvangen, kan een Contoso-operator een onderhoudstechnicus sturen. Contoso kan ook een geautomatiseerde actie configureren, zoals het verzenden van een e-mailbericht, die moet worden uitgevoerd wanneer de oplossing een waarschuwing ontvangt.
 
-In deze zelfstudie gebruikt u uw lokale Windows-ontwikkelcomputer als een IoT Edge-apparaat. U installeert randmodules voor het simuleren van de jaknikker en voor het detecteren van afwijkingen in de temperatuur.
+In het volgende diagram worden de belangrijke onderdelen in het zelfstudiescenario weergegeven:
+
+![Overzicht](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 In deze zelfstudie hebt u:
 
 >[!div class="checklist"]
 > * Een IoT Edge-apparaat toevoegen aan de oplossing
 > * Een Edge-manifest maken
-> * Een pakket importeren dat de modules definieert die op het apparaat moeten worden uitgevoerd
+> * Een manifest importeren als pakket dat de modules definieert die op het apparaat moeten worden uitgevoerd
 > * Het pakket implementeren op uw IoT Edge-apparaat
 > * Waarschuwingen van het apparaten weergeven
+
+Op het Azure IoT Edge-apparaat gebeurt het volgende:
+
+* De runtime ontvangt het pakket en installeert de modules.
+* De module die de gegevensstroom analyseert, detecteert temperatuurafwijkingen in de pomp en verzendt opdrachten om het probleem op te lossen.
+* De module die de gegevensstroom analyseert, stuurt gefilterde gegevens door naar de oplossingsverbetering.
+
+In deze zelfstudie wordt een Linux-machine als een IoT Edge-apparaat gebruikt. U gaat ook een Edge-module installeren om de jaknikker te simuleren.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -111,54 +121,23 @@ Een Edge-apparaat vereist dat de Edge-runtime is geïnstalleerd. In deze zelfstu
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Noteer het openbare IP-adres. U hebt dat nodig in de volgende stap wanneer u verbinding gaat maken met behulp van SSH.
-
-1. Als u de virtuele machine wilt verbinden via SSH, voert u de volgende opdracht uit in de cloudshell:
+1. Voor het configureren van de Edge-runtime met de apparaatverbindingsreeks, voert u de volgende opdracht uit met behulp van de apparaatverbindingsreeks die u eerder hebt genoteerd:
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. Wanneer de verbinding is gemaakt met de virtuele machine, voert u de volgende opdrachten uit om de opslagplaats in te stellen in de virtuele machine:
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. Voer de volgende opdrachten uit om de container en Edge-runtimes in de virtuele machine te installeren:
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. Bewerk het configuratiebestand om de Edge-runtime te configureren met de apparaatverbindingsreeks:
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Wijs de apparaatverbindingsreeks toe aan de variabele **device_connection_string**, sla de wijzigingen op en sluit de editor.
-
-1. Start de Edge-runtime opnieuw op om de nieuwe configuratie in gebruik te nemen:
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. U kunt nu de SSH-sessie afsluiten en de cloudshell sluiten.
+    Zorg dat u de verbindingsreeks tussen dubbele aanhalingstekens plaatst.
 
 U hebt nu de IoT Edge-runtime geïnstalleerd en geconfigureerd op een Linux-apparaat. Verderop in deze zelfstudie gebruikt u de oplossing voor Externe bewaking om IoT Edge-modules te implementeren op dit apparaat.
 

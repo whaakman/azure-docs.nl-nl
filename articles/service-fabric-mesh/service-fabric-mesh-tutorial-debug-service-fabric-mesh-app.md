@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997009"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887505"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Zelfstudie: Fouten opsporen in een Service Fabric Mesh-toepassing die in uw lokale ontwikkelcluster wordt uitgevoerd
 
@@ -74,7 +74,9 @@ Druk op **F5** om de service lokaal te compileren en uit te voeren. Als het proj
 
 Als de lokale implementatie is voltooid en uw app in Visual Studio wordt uitgevoerd, wordt een standaardvoorbeeld van een webpagina in een browservenster geopend.
 
-**Tips voor foutopsporing**
+## <a name="debugging-tips"></a>Tips voor foutopsporing
+
+Maak de uitvoering van uw foutopsporing (F5) veel sneller door de instructies in [Optimize Visual Studio performance](service-fabric-mesh-howto-optimize-vs.md) (Prestaties van Visual Studio optimaliseren).
 
 Er is momenteel een probleem waardoor `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` niet kan worden aangeroepen omdat er geen verbinding met de service kan worden gemaakt. Dit kan zich voordoen wanneer het IP-adres van de host verandert. De oplossing:
 
@@ -96,7 +98,7 @@ Als u in Visual Studio fouten opspoort in een Service Fabric Mesh-toepassing, ge
 3. Ga terug naar de browser en vernieuw de pagina. U komt uit bij het onderbrekingspunt in de `OnGet()`-methode van het web-front-end. U kunt de `backendUrl`-variabele inspecteren om te zien hoe de omgevingsvariabelen die u in het bestand **service.yaml** hebt gedefinieerd, worden gecombineerd in de URL die wordt gebruikt om contact te maken met de back-endservice.
 4. Sla de `client.GetAsync(backendUrl).GetAwaiter().GetResult())`-aanroep over (F10) en u komt uit bij het `Get()`-onderbrekingspunt van de controller. Met deze methode ziet u hoe de lijst met taakitems uit de in-memory lijst wordt opgehaald.
 5. Als u klaar bent, stopt u met het fouten opsporen van uw project in Visual Studio door op **Shift+F5** te drukken.
- 
+
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit deel van de zelfstudie hebt u het volgende geleerd:

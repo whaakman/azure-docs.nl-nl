@@ -1,22 +1,21 @@
 ---
-title: Zelfstudie over het ontwikkelen van Java-toepassingen met Azure Cosmos DB | Microsoft Docs
+title: Zelfstudie over het ontwikkelen van Java-toepassingen met Azure Cosmos DB
 description: In deze zelfstudie over Java-webtoepassingen wordt uitgelegd hoe u Azure Cosmos DB en de SQL-API gebruikt voor het opslaan van en de toegang tot een Java-toepassing die wordt gehost op Azure Websites.
 keywords: Ontwikkelen van toepassingen, zelfstudie over databases, java-toepassing, zelfstudie over java-webtoepassingen, azure, Microsoft azure
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: f60afa88f0730e510a94aae0ac5d4fb3462c8a4e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 01b1a770959b29969fbfd0b4575a45b9c53318b6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421268"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867967"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Een Java-webtoepassing maken met Azure Cosmos DB en de SQL-API
 

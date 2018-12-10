@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968846"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890378"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Zelfstudie: Een toepassing implementeren in Service Fabric Mesh met behulp van een sjabloon
 
@@ -51,7 +51,7 @@ Voor u met deze zelfstudie begint:
 
 * [Docker installeren](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Installeer de Azure CLI en Azure Service Fabric Mesh CLI lokaal](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Installeer de Azure CLI en Azure Service Fabric Mesh CLI lokaal](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
@@ -359,9 +359,27 @@ Voer de volgende opdracht uit om de toepassing te implementeren:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-U moet binnen een paar minuten het volgende zien:
+Deze opdracht genereert een JSON-fragment dat hieronder wordt weergegeven. Kopieer de ```publicIPAddress```-eigenschap in de sectie ```outputs``` van de JSON-uitvoer.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Deze informatie wordt opgehaald uit de sectie ```outputs``` in de ARM-sjabloon. Zoals hieronder wordt weergegeven, verwijst deze sectie naar de Gateway-resource om het openbare IP-adres op te halen. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>De toepassing openen
 

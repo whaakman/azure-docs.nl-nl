@@ -1,9 +1,8 @@
 ---
-title: 'Snelstart: Gremlin API met PHP - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Gremlin-API met PHP - Azure Cosmos DB'
 description: In deze snelstart ziet u hoe u de Gremlin API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en PHP
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 06f54429957a84de81e3dfaae00c6126b5340b74
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e5a7d40007076d09695d166148d84684c1cccee5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702490"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839607"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: een grafiekdatabase maken met behulp van PHP en Azure Portal
 
@@ -29,7 +28,7 @@ ms.locfileid: "43702490"
 > * [PHP](create-graph-php.md)
 >  
 
-Deze snelstart laat zien hoe u PHP en de [Gremlin API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze snelstart begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
+Deze snelstart laat zien hoe u PHP en de [Gremlin API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze quickstart begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.  
 

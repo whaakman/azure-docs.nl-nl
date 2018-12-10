@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: e215577fdb39b3dc1a9c5ce641c44e3cdef8fb45
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 8b482391dfafdda0e54b3f9e2b8a3a7de2f2d5cd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604090"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834720"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Zelfstudie: Een webtoepassing inschakelen om te verifiëren met accounts met behulp van Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een voorbeeld van een ASP.NET-web-app te registreren in uw Azure AD B2C-tenant.
-> * Beleid te maken voor gebruikersregistratie, -aanmelding, het bewerken van een profiel en het opnieuw instellen van een wachtwoord.
+> * Gebruikersstromen maken voor gebruikersregistratie, -aanmelding, het bewerken van een profiel en het opnieuw instellen van een wachtwoord.
 > * De voorbeeld-web-app te configureren om uw Azure AD B2C-tenant te gebruiken. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -79,65 +79,87 @@ Azure AD B2C maakt voor [clienttoepassingen](../active-directory/develop/develop
 
 De sleutel wordt één keer in de portal weergegeven. Het is belangrijk om de waarde van de sleutel te kopiëren en op te slaan. U hebt deze waarde nodig als u uw app gaat configureren. Bewaar de sleutel op een veilige plek. Deel de sleutel niet met anderen.
 
-## <a name="create-policies"></a>Beleidsregels maken
+## <a name="create-user-flows"></a>Gebruikersstromen maken
 
-Een Azure AD B2C-beleid definieert gebruikerswerkstromen. Zo zijn acties als registreren, aanmelden, wijzigen van wachtwoorden en het bewerken van profielen veelvoorkomende werkstromen.
+Een Azure AD B2C-gebruikersstroom definieert de gebruikerservaring voor een identiteitstaak. Zo zijn acties als registreren, aanmelden, het wijzigen van wachtwoorden en het bewerken van profielen veelvoorkomende gebruikersstromen.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>Registratie- of aanmeldingsbeleid maken
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Een gebruikersstroom voor registratie of aanmelding maken
 
-Als u gebruikers wilt registreren om ze toegang te geven tot de web-app zodat ze zich daar vervolgens bij kunnen aanmelden, dan maakt u daarvoor een **registratie- of aanmeldingsbeleid**.
+Als u gebruikers wilt registreren om ze toegang te geven tot de web-app zodat ze zich daar vervolgens bij kunnen aanmelden, dan maakt u daarvoor een **gebruikersstroom voor registratie of aanmelding**.
 
-1. Selecteer in de Azure AD B2C-portalpagina **Registratie- of aanmeldingsbeleid** en klik op **Toevoegen**.
+1. Selecteer op de Azure AD B2C-portalpagina de optie **Gebruikersstromen** en klik op **Nieuwe gebruikersstroom**.
+2. Klik op het tabblad **Aanbevolen** op **Registreren en aanmelden**.
 
-    Gebruik de volgende instellingen voor het configureren van uw beleid:
+    Gebruik de volgende instellingen voor het configureren van uw gebruikersstroom:
 
-    ![Een registratie- of aanmeldingsbeleid toevoegen](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
-
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Naam** | SiUpIn | Voer een **naam** in voor het beleid. De naam van het beleid wordt voorafgegaan door **b2c_1_**. Gebruik de volledige beleidsnaam **b2c_1_SiUpIn** in de voorbeeldcode. | 
-    | **Identiteitsprovider** | E-mailregistratie | De identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
-    | **Registratiekenmerken** | Weergavenaam en postcode | Selecteer de kenmerken die tijdens de registratie moeten worden verzameld van de gebruiker. |
-    | **Toepassingsclaims** | Weergavenaam, Postcode, Gebruiker is nieuw, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token). |
-
-2. Klik op **Maken** om het beleid te maken. 
-
-### <a name="create-a-profile-editing-policy"></a>Een beleid voor profielbewerking maken
-
-Als u wilt toestaan dat gebruikers zelf hun gebruikersprofielgegevens opnieuw kunnen instellen, moet u een **beleid voor profielbewerking** maken.
-
-1. Selecteer in de Azure AD B2C-portalpagina **Beleid voor profielbewerking** en klik op **Toevoegen**.
-
-    Gebruik de volgende instellingen voor het configureren van uw beleid:
+    ![Een gebruikersstroom voor registratie of aanmelding toevoegen](media/active-directory-b2c-tutorials-web-app/add-susi-user-flow.png)
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Naam** | SiPe | Voer een **naam** in voor het beleid. De naam van het beleid wordt voorafgegaan door **b2c_1_**. Gebruik de volledige beleidsnaam **b2c_1_SiPe** in de voorbeeldcode. | 
-    | **Identiteitsprovider** | Aanmelding met lokaal account | De identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
-    | **Profielkenmerken** | Weergavenaam en postcode | Selecteer kenmerken die gebruikers bij het bewerken van het profiel kunnen wijzigen. |
-    | **Toepassingsclaims** | Weergavenaam, Postcode, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) nadat een profiel is bewerkt. |
+    | **Naam** | SiUpIn | Voer een **Naam** in voor de gebruikersstroom. De naam van de gebruikersstroom wordt voorafgegaan door **b2c_1_**. In de voorbeeldcode gebruikt u de volledige naam van de gebruikersstroom **b2c_1_SiUpIn**. | 
+    | **Id-providers** | E-mailregistratie | De identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
 
-2. Klik op **Maken** om het beleid te maken. 
+3. Klik onder **Gebruikerskenmerken en claims** op **Meer weergeven** en selecteer de volgende instellingen:
 
-### <a name="create-a-password-reset-policy"></a>Een beleid voor het opnieuw instellen van het wachtwoord maken
+    ![Een gebruikersstroom voor registratie of aanmelding toevoegen](media/active-directory-b2c-tutorials-web-app/add-attributes-and-claims.png)
 
-Als u wilt dat het wachtwoord voor uw toepassing opnieuw kan worden ingesteld, moet u een **beleid voor het opnieuw instellen van wachtwoorden** maken. Door dit beleid wordt de ervaring van consumenten beschreven als ze het wachtwoord opnieuw gaan instellen, evenals de inhoud van tokens die de toepassing ontvangt als de bewerking is voltooid.
+    | Kolom      | Aanbevolen waarden  | Beschrijving                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Kenmerk verzamelen** | Weergavenaam en postcode | Selecteer de kenmerken die tijdens de registratie moeten worden verzameld van de gebruiker. |
+    | **Claim retourneren** | Weergavenaam, Postcode, Gebruiker is nieuw, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token). |
+
+4. Klik op **OK**.
+5. Klik op **Maken** om de gebruikersstroom te maken. 
+
+### <a name="create-a-profile-editing-user-flow"></a>Een gebruikersstroom voor profielbewerking maken
+
+Als u wilt toestaan dat gebruikers zelf hun gebruikersprofielgegevens opnieuw kunnen instellen, moet u een **gebruikersstroom voor profielbewerking** maken.
+
+1. Selecteer op de Azure AD B2C-portalpagina de optie **Gebruikersstromen** en klik op **Nieuwe gebruikersstroom**.
+2. Klik op het tabblad **Aanbevolen** op **Profielbewerking**.
+
+    Gebruik de volgende instellingen voor het configureren van uw gebruikersstroom:
+
+    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Naam** | SiPe | Voer een **Naam** in voor de gebruikersstroom. De naam van de gebruikersstroom wordt voorafgegaan door **b2c_1_**. In de voorbeeldcode gebruikt u de volledige naam van de gebruikersstroom **b2c_1_SiPe**. | 
+    | **Id-providers** | Aanmelding met lokaal account | De identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
+
+3. Klik onder **Gebruikerskenmerken** op **Meer weergeven** en selecteer de volgende instellingen:
+
+    | Kolom      | Aanbevolen waarden  | Beschrijving                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Kenmerk verzamelen** | Weergavenaam en postcode | Selecteer kenmerken die gebruikers bij het bewerken van het profiel kunnen wijzigen. |
+    | **Claim retourneren** | Weergavenaam, Postcode, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) nadat een profiel is bewerkt. |
+
+4. Klik op **OK**.
+5. Klik op **Maken** om de gebruikersstroom te maken. 
+
+### <a name="create-a-password-reset-user-flow"></a>Een gebruikersstroom voor het opnieuw instellen van het wachtwoord maken
+
+Als u wilt dat het wachtwoord voor uw toepassing opnieuw kan worden ingesteld, moet u een **gebruikersstroom voor het opnieuw instellen van wachtwoorden** maken. Deze gebruikersstroom beschrijft de ervaring van consumenten wanneer ze het wachtwoord opnieuw instellen, evenals de inhoud van tokens die de toepassing ontvangt als de bewerking is voltooid.
 
 1. Selecteer in de Azure AD B2C-portalpagina **Beleid voor het opnieuw instellen van het wachtwoord** en klik op **Toevoegen**.
+2. Klik op het tabblad **Aanbevolen** op **Wachtwoord opnieuw instellen**.
 
-    Gebruik de volgende instellingen voor het configureren van uw beleid.
+    Gebruik de volgende instellingen om de gebruikersstroom te configureren.
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Naam** | SSPR | Voer een **naam** in voor het beleid. De naam van het beleid wordt voorafgegaan door **b2c_1_**. Gebruik de volledige beleidsnaam **b2c_1_SSPR** in de voorbeeldcode. | 
-    | **Identiteitsprovider** | Het wachtwoord opnieuw instellen met het e-mailadres | Dit is de identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
-    | **Toepassingsclaims** | Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) nadat een wachtwoord opnieuw is ingesteld. |
+    | **Naam** | SSPR | Voer een **Naam** in voor de gebruikersstroom. De naam van de gebruikersstroom wordt voorafgegaan door **b2c_1_**. In de voorbeeldcode gebruikt u de volledige naam van de gebruikersstroom **b2c_1_SSPR**. | 
+    | **Id-providers** | Het wachtwoord opnieuw instellen met het e-mailadres | Dit is de identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
 
-2. Klik op **Maken** om het beleid te maken. 
+3. Klik onder **Toepassingsclaims** op **Meer weergeven** en selecteer de volgende instellingen:
+    | Kolom      | Voorgestelde waarde  | Beschrijving                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Claim retourneren** | Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) nadat een wachtwoord opnieuw is ingesteld. |
+
+4. Klik op **OK**.
+5. Klik op **Maken** om de gebruikersstroom te maken. 
 
 ## <a name="update-web-app-code"></a>Web-app-code bijwerken
 
-Nadat u een web-app hebt geregistreerd en beleid hebt gemaakt, moet u uw app configureren voor het gebruik van uw Azure AD B2C-tenant. In deze zelfstudie configureert u een voorbeeld-web-app die u kunt downloaden uit GitHub. 
+Nu u een web-app hebt geregistreerd en gebruikersstromen hebt gemaakt, moet u uw app configureren voor het gebruik van uw Azure AD B2C-tenant. In deze zelfstudie configureert u een voorbeeld-web-app die u kunt downloaden uit GitHub. 
 
 [Download een ZIP-bestand ](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) of kloon de voorbeeld-web-app vanuit GitHub. Zorg ervoor dat u het voorbeeldbestand uitpakt in een map en dat het aantal tekens van het pad minder is dan 260.
 
@@ -145,15 +167,15 @@ Nadat u een web-app hebt geregistreerd en beleid hebt gemaakt, moet u uw app con
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-De voorbeeld-ASP.NET-web-app is een eenvoudige takenlijst-app waarmee u een takenlijst kunt maken en bijwerken. De app maakt gebruik van [Microsoft OWIN-middlewareonderdelen](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) zodat gebruikers zich kunnen aanmelden en de app in uw Azure AD B2C-tenant kunnen gebruiken. Als u een Azure AD B2C-beleid maakt, kunnen gebruikers een sociaal account gebruiken, of een account maken om te gebruiken als identiteit waarmee ze toegang krijgen tot de app. 
+De voorbeeld-ASP.NET-web-app is een eenvoudige takenlijst-app waarmee u een takenlijst kunt maken en bijwerken. De app maakt gebruik van [Microsoft OWIN-middlewareonderdelen](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) zodat gebruikers zich kunnen aanmelden en de app in uw Azure AD B2C-tenant kunnen gebruiken. Als u een Azure AD B2C-gebruikersstroom maakt, kunnen gebruikers een sociaal account gebruiken, of een account maken om te gebruiken als identiteit waarmee ze toegang krijgen tot de app. 
 
 Er bevinden zich twee projecten in de voorbeeldoplossing:
 
-**Voorbeeld-web-app (TaskWebApp):** een web-app om een takenlijst te maken of te bewerken. De web-app gebruikt het **registratie- of aanmeldingsbeleid** om gebruikers te registreren of aan te melden.
+**Voorbeeld-web-app (TaskWebApp):** een web-app om een takenlijst te maken of te bewerken. De web-app gebruikt de **gebruikersstroom voor registratie of aanmelding** om gebruikers te registreren of aan te melden.
 
 **Voorbeeld-web-API-app (TaskService):** een web-API die ondersteuning biedt voor het maken, lezen, bijwerken en verwijderen van takenlijstfunctionaliteit. De web-API wordt beveiligd door Azure AD B2C en wordt aangeroepen door de web-app.
 
-U moet instellen dat de app de app-registratie in uw tenant gebruikt. Dit omvat de toepassings-id en de sleutel die u eerder hebt geregistreerd. U moet ook de beleidsregels configureren die u hebt gemaakt. De voorbeeld-web-app definieert de configuratiewaarden als app-instellingen in het bestand Web.config. De app-instellingen wijzigen:
+U moet instellen dat de app de app-registratie in uw tenant gebruikt. Dit omvat de toepassings-id en de sleutel die u eerder hebt geregistreerd. U moet de gebruikersstromen die u hebt gemaakt ook configureren. De voorbeeld-web-app definieert de configuratiewaarden als app-instellingen in het bestand Web.config. De app-instellingen wijzigen:
 
 1. Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
 
@@ -171,11 +193,11 @@ De standaard-app biedt ondersteuning voor gebruikersregistratie, -aanmelding, he
 
 ### <a name="sign-up-using-an-email-address"></a>Aanmelden met een e-mailadres
 
-1. Klik op de koppeling **Registreren/Aanmelden** in de bovenste banner om te registreren als een gebruiker van de web-app. Er wordt gebruikgemaakt van het beleid **b2c_1_SiUpIn** dat u hebt gedefinieerd in een vorige stap.
+1. Klik op de koppeling **Registreren/Aanmelden** in de bovenste banner om te registreren als een gebruiker van de web-app. Hiervoor wordt de gebruikersstroom **b2c_1_SiUpIn** gebruikt die u hebt gedefinieerd in een vorige stap.
 
 2. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Aangezien u nog geen account hebt, klikt u op de koppeling **Nu registreren**. 
 
-3. Tijdens de aanmeldingswerkstroom wordt een pagina weergegeven waarmee de identiteit wordt opgehaald en gecontroleerd van de gebruiker die een e-mailadres heeft gebruikt. Tijdens de aanmeldingswerkstroom worden ook het wachtwoord van de gebruiker en de aangevraagde kenmerken opgehaald die in het beleid zijn gedefinieerd.
+3. Tijdens de aanmeldingswerkstroom wordt een pagina weergegeven waarmee de identiteit wordt opgehaald en gecontroleerd van de gebruiker die een e-mailadres heeft gebruikt. Tijdens de aanmeldingswerkstroom worden ook het wachtwoord van de gebruiker en de aangevraagde kenmerken opgehaald die in de gebruikersstroom zijn gedefinieerd.
 
     Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op. 
 
@@ -191,7 +213,7 @@ U kunt uw Azure AD B2C-tenant gebruiken voor andere zelfstudies voor Azure AD B2
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een Azure AD B2C-tenant maakt, beleid maakt, en de voorbeeld-web-app moet bijwerken om uw Azure AD B2C-tenant te gebruiken. Ga verder met de volgende zelfstudie als u meer wilt weten over het registreren, configureren en aanroepen van een ASP.NET-web-API die is beveiligd door uw Azure AD B2C-tenant.
+In deze zelfstudie hebt u geleerd hoe u een Azure AD B2C-tenant maakt, gebruikersstromen maakt en de voorbeeld-web-app bijwerkt om uw Azure AD B2C-tenant te gebruiken. Ga verder met de volgende zelfstudie als u meer wilt weten over het registreren, configureren en aanroepen van een ASP.NET-web-API die is beveiligd door uw Azure AD B2C-tenant.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Azure Active Directory B2C gebruiken voor het beveiligen van een ASP.NET-web-API](active-directory-b2c-tutorials-web-api.md)

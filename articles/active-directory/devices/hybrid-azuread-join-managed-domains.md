@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963928"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887794"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen
 
@@ -140,6 +140,8 @@ Als sommige van uw domein-gekoppelde apparaten downlevel Windows-apparaten zijn,
  
 - De lokale intranetinstellingen voor apparaatregistratie configureren
 
+- Naadloze eenmalige aanmelding (SSO) configureren
+
 - Downlevel Windows-apparaten beheren 
 
 
@@ -166,6 +168,11 @@ Om de hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te
 - `https://autologon.microsoftazuread-sso.com`.
 
 Daarnaast moet u **Statusbalkupdates via scripts toestaan** inschakelen in de zone Lokaal intranet van de gebruiker.
+
+
+### <a name="configure-seamless-sso"></a>Naadloze SSO configureren
+
+Voor het goed uitvoeren van Hybride Azure AD Join van uw downlevel Windows-apparaten in een beheerd domein dat Pass through-verificatie of wachtwoordhashsynchronisatie als uw Azure AD-cloudverificatiemethode gebruikt, moet u ook [Naadloze eenmalige aanmelding configureren](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren 

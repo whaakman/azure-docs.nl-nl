@@ -1,7 +1,6 @@
 ---
-title: Gegevens opvragen uit een Azure Cosmos DB Cassandra API-account
-description: Dit artikel laat zien hoe u met behulp van een Java-toepassing gebruikersgegevens opvraagt uit een Cassandra API-account van Azure Cosmos DB.
-services: cosmos-db
+title: 'Zelfstudie: Gegevens opvragen uit een Cassandra-API-account in Azure Cosmos DB'
+description: Deze zelfstudie laat zien hoe u met behulp van een Java-toepassing gebruikersgegevens opvraagt uit een Cassandra-API-account in Azure Cosmos DB.
 ms.service: cosmos-db
 author: kanshiG
 ms.author: govindk
@@ -9,26 +8,29 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: 57d83516708e3105ba32f8b83420f06aadf0ace1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739206"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867509"
 ---
-# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Zelfstudie: Gegevens opvragen uit een Azure Cosmos DB Cassandra-API-account
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Zelfstudie: Gegevens opvragen uit een Cassandra-API-account in Azure Cosmos DB
 
-Deze zelfstudie laat zien hoe u met behulp van een Java-toepassing gebruikersgegevens opvraagt uit een Cassandra API-account van Azure Cosmos DB. De Java-toepassing maakt gebruik van het [Java-stuurprogramma](https://github.com/datastax/java-driver) en vraagt gebruikersgegevens op zoals gebruikers-id, gebruikersnaam, woonplaats van de gebruiker. 
+Als ontwikkelaar hebt u mogelijk toepassingen die gebruikmaken van sleutel-/waardeparen. U kunt een Cassandra-API-account in Azure Cosmos DB gebruiken om de sleutel-/waardegegevens op te slaan en op te vragen. Deze zelfstudie laat zien hoe u met behulp van een Java-toepassing gebruikersgegevens opvraagt uit een Cassandra-API-account in Azure Cosmos DB. De Java-toepassing maakt gebruik van het [Java-stuurprogramma](https://github.com/datastax/java-driver) en vraagt gebruikersgegevens op zoals gebruikers-id, gebruikersnaam en woonplaats van de gebruiker. 
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Gegevens opvragen uit Cassandra-tabel
+> * Gegevens opvragen uit een Cassandra-tabel
 > * De app uitvoeren
+
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Dit artikel maakt deel uit van een meerdelige zelfstudie. Begin pas met deze zelfstudie nadat u de stappen hebt voltooid voor het maken van het Cassandra-API-account, de keyspace en de tabel en nadat de [voorbeeldgegevens in de tabel zijn geladen](cassandra-api-load-data.md). 
+* Dit artikel maakt deel uit van een meerdelige zelfstudie. Begin pas met deze zelfstudie nadat u de stappen hebt voltooid voor het maken van het Cassandra-API-account, de keyspace en de tabel, en nadat de [voorbeeldgegevens zijn geladen in de tabel](cassandra-api-load-data.md). 
 
 ## <a name="query-data"></a>Querygegevens
 
@@ -38,7 +40,7 @@ Gebruik de volgende stappen om een query uit te voeren op gegevens van uw Cassan
 
    * Een query uitvoeren op alle gebruikers in de database
    * Een query uitvoeren op een specifieke gebruiker, gefilterd op gebruikers-ID
-   * Een tabel verwijderen.
+   * Een tabel verwijderen
 
    ```java
    /**
@@ -103,9 +105,13 @@ Gebruik de volgende stappen om een query uit te voeren op gegevens van uw Cassan
 
 2. Open nu **Data Explorer** in de Azure-portal en controleer of de gebruikerstabel is verwijderd.
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+U kunt de resourcegroep, het Azure Cosmos-account en alle gerelateerde resources verwijderen wanneer u ze niet meer nodig hebt. Als u deze wilt verwijderen, selecteert u de resourcegroep voor de virtuele machine en selecteert u **Verwijderen**. Vervolgens bevestigt u de naam van de resourcegroep die u wilt verwijderen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* In deze zelfstudie hebt u geleerd hoe u een query kunt uitvoeren op gegevens in een Azure Cosmos DB Cassandra API-account. U kunt nu verdergaan met het volgende artikel:
+In deze zelfstudie hebt u geleerd hoe u gegevens kunt opvragen uit een Cassandra-API-account in Azure Cosmos DB. U kunt nu verdergaan met het volgende artikel:
 
 > [!div class="nextstepaction"]
 > [Gegevens migreren naar Cassandra API-account](cassandra-import-data.md)

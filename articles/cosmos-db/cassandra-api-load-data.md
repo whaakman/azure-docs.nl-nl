@@ -1,30 +1,32 @@
 ---
-title: Voorbeeldgegevens laden in een Azure Cosmos DB Cassandra-API-tabel met behulp van een Java-toepassing | Microsoft Docs
-description: Dit artikel laat zien hoe voorbeeldgegevens van een gebruiker worden geladen in een tabel van een Azure Cosmos DB Cassandra-API-account met behulp van een Java-toepassing.
-services: cosmos-db
+title: 'Zelfstudie: Voorbeeldgegevens laden in een Cassandra-API-tabel in Azure Cosmos DB met behulp van een Java-toepassing'
+description: Deze zelfstudie laat zien hoe u voorbeeldgegevens van een gebruiker laadt in een Cassandra-API-tabel in Azure Cosmos DB met behulp van een Java-toepassing.
 author: kanshiG
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e116dbf1d49fed1a47b830f9a57cd77a33b7ea9c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: fad6d34a3d3712a036e0275717754f75d5314aae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740717"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863650"
 ---
-# <a name="tutorial-load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>Zelfstudie: Voorbeeldgegevens laden in een Azure Cosmos DB Cassandra-API-tabel
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Zelfstudie: Voorbeeldgegevens laden in een Cassandra-API-tabel in Azure Cosmos DB
 
-Deze zelfstudie laat zien hoe voorbeeldgegevens van een gebruiker worden geladen in een tabel van een Azure Cosmos DB Cassandra-API-account met behulp van een Java-toepassing. De Java-toepassing maakt gebruik van het [Java-stuurprogramma](https://github.com/datastax/java-driver) en laadt gebruikersgegevens zoals gebruikers-id, gebruikersnaam, woonplaats van de gebruiker. 
+Als ontwikkelaar hebt u mogelijk toepassingen die gebruikmaken van sleutel-/waardeparen. U kunt een Cassandra-API-account gebruiken in Azure Cosmos DB om de sleutel-/waardegegevens op te slaan en te beheren. Deze zelfstudie laat zien hoe voorbeeldgegevens van een gebruiker worden geladen in een tabel van een Cassandra-API-account in Azure Cosmos DB met behulp van een Java-toepassing. De Java-toepassing maakt gebruik van het [Java-stuurprogramma](https://github.com/datastax/java-driver) en laadt gebruikersgegevens zoals gebruikers-id, gebruikersnaam, en woonplaats van de gebruiker. 
 
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Gegevens laden in Cassandra-tabel
+> * Gegevens laden in een Cassandra-tabel
 > * De app uitvoeren
+
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,7 +36,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 Gebruik de volgende stappen om gegevens in uw Cassandra-API-tabel te laden:
 
-1. Open het bestand 'UserRepository.java' in de map 'src\main\java\com\azure\cosmosdb\cassandra' en voeg de code toe om de velden user_id, user_name en user_bcity in de tabel in te voegen:
+1. Open het bestand UserRepository.java in de map src\main\java\com\azure\cosmosdb\cassandra en voeg de code toe om de velden user_id, user_name en user_bcity in de tabel in te voegen:
 
    ```java
    /**
@@ -60,7 +62,7 @@ Gebruik de volgende stappen om gegevens in uw Cassandra-API-tabel te laden:
    }
    ```
  
-2. Open het bestand 'UserProfile.java' in de map 'src\main\java\com\azure\cosmosdb\cassandra'. Deze klasse bevat de belangrijkste methode waarmee de methoden createKeyspace en createTable die u eerder hebt gedefinieerd, worden aangeroepen. Voeg nu de volgende code toe om wat voorbeeldgegevens in te voegen in de Cassandra-API-tabel.
+2. Open het bestand UserProfile.java in de map src\main\java\com\azure\cosmosdb\cassandra. Deze klasse bevat de belangrijkste methode waarmee de methoden createKeyspace en createTable die u eerder hebt gedefinieerd, worden aangeroepen. Voeg nu de volgende code toe om wat voorbeeldgegevens in te voegen in de Cassandra-API-tabel.
 
    ```java
    //Insert rows into user table
@@ -74,7 +76,7 @@ Gebruik de volgende stappen om gegevens in uw Cassandra-API-tabel te laden:
 
 ## <a name="run-the-app"></a>De app uitvoeren
 
-Open een opdrachtprompt of terminalvenster en wijzig het mappad in het pad waar u het project hebt gemaakt. Voer de 'mvn clean install'-opdracht uit om het bestand cosmosdb-cassandra-examples.jar in de doelmap te genereren en voer de toepassing uit. 
+Open een opdrachtprompt of terminalvenster en wijzig het mappad in het pad waar u het project hebt gemaakt. Voer de opdracht mvn clean install uit om het bestand cosmosdb-cassandra-examples.jar in de doelmap te genereren, en voer de toepassing uit. 
 
 ```bash
 cd "cassandra-demo"
@@ -88,7 +90,7 @@ U kunt nu Data Explorer openen in de Azure-portal openen om te bevestigen dat de
     
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u voorbeeldgegevens in de Azure Cosmos DB Cassandra-API-account kunt laden. U kunt nu verdergaan met het volgende artikel:
+In deze zelfstudie hebt u geleerd hoe u voorbeeldgegevens kunt laden in een Cassandra-API-account van Azure Cosmos DB. U kunt nu verdergaan met het volgende artikel:
 
 > [!div class="nextstepaction"]
 > [Gegevens uit de Cassandra-API-account opvragen](cassandra-api-query-data.md)

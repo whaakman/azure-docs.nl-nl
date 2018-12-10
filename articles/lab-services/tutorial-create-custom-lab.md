@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467426"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839038"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Zelfstudie: Een lab maken met Azure DevTest Labs
 In deze zelfstudie maakt u een lab met Azure Portal. Een labbeheerder stelt in een organisatie een lab op, maakt virtuele machines in het lab en configureert beleidsregels. Labgebruikers (bijvoorbeeld ontwikkelaars en testers) claimen virtuele machines in het lab, maken hier verbinding mee en gebruiken deze. 
@@ -80,15 +80,11 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
 1. Selecteer **Configuratie en beleid** in het menu links. 
 
     ![Configuratie en beleid](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Selecteer **toegangsbeheer (IAM)** in het menu en selecteer **+ toevoegen** in de werkbalk. 
-
-    ![Toegangsbeheer - knop Gebruiker toevoegen](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Selecteer **Toegangsbeheer (IAM)** in het menu en selecteer **+ Roltoewijzing toevoegen** in de werkbalk. 
 1. Voer op de pagina **Machtigingen toevoegen** de volgende acties uit:
     1. Selecteer bij **Rol** de optie **DevTest Labs-gebruiker**. 
     2. Selecteer de **gebruiker** die u wilt toevoegen. 
     3. Selecteer **Opslaan**.
-
-        ![Machtigingen toevoegen](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. Selecteer voor het sluiten van **Configuratie en beleid - toegangsbeheer (IAM)** **X** in de rechterhoek. 
 
 ## <a name="cleanup-resources"></a>Resources opruimen

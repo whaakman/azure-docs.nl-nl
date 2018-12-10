@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979190"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888746"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Zelfstudie: Een Service Fabric Mesh-toepassing met meerdere services bouwen, foutvrij maken, implementeren en upgraden
 
@@ -80,7 +80,7 @@ Stel **Service Name** in op **WebFrontEnd**. Druk op **OK** om de ASP.NET Core-s
 
 ![Dialoogvenster Nieuw project van Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-Vervolgens ziet u het dialoogvenster **New ASP.NET Core Web Application**. Selecteer in het dialoogvenster **New ASP.NET Core Web Application** de optie **Web Application** en klik op **OK**.
+Vervolgens ziet u het dialoogvenster ASP.NET Core Web Application. Selecteer **Webtoepassing** en klik op **OK**.
 
 ![Nieuwe ASP.NET Core-toepassing in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
@@ -88,9 +88,9 @@ U hebt nu een Service Fabric Mesh-toepassing gemaakt. Vervolgens maakt u het mod
 
 ## <a name="create-the-to-do-items-model"></a>Taakitemsmodel maken
 
-Ter vereenvoudiging worden de taakitems in-memory in een lijst opgeslagen. Maak een klassebibliotheek voor de taakitems en een lijst om ze in te bewaren. In Visual Studio, waarin momenteel het hulpmiddel **todolistapp** is geladen, selecteert u **File** > **Add** > **New Project**.
+Ter vereenvoudiging worden de taakitems in-memory in een lijst opgeslagen. Maak een klassebibliotheek voor de taakitems en een lijst om ze in te bewaren. In Visual Studio, waarin momenteel de oplossing **todolistapp** is geladen, selecteert u **File** > **Add** > **New Project**.
 
-In het dialoogvenster **New Project** typt u `C# .net core class` in het vak **Search**. Selecteer de sjabloon **Class Library (.NET Core)**.
+In het dialoogvenster **Add New Project** typt u `C# .net core class` in het vak **Search**. Selecteer de sjabloon **Class Library (.NET Core)**.
 
 Typ `Model` in het vak **Name**. Klik op **OK** om de klassebibliotheek te maken.
 
@@ -124,7 +124,7 @@ public class ToDoItem
 }
 ```
 
-Deze klasse representeert afzonderlijke taakitems.
+Deze klasse staat voor taakitems.
 
 Klik in Visual Studio met de rechtermuisknop op de klassebibliotheek **Model** en selecteer **Add** > **Class...** om een lijst te maken voor de taakitems. Het dialoogvenster **Add New Item** wordt weergegeven. Stel **Name** in op `ToDoList.cs` en klik op **Add**.
 
@@ -186,9 +186,9 @@ Maak vervolgens de Service Fabric-service waarmee de taakitems worden gevolgd.
 
 Klik in het Visual Studio-venster **Solution Explorer** met de rechtermuisknop op **todolistapp** en klik op **Add** > **New Service Fabric Service...**
 
-Het dialoogvenster **New Service Fabric Service** wordt weergegeven. Selecteer het projecttype **ASP.NET Core** en controleer of **Container OS** is ingesteld op **Windows**.
+Het dialoogvenster **New Service Fabric Service** wordt weergegeven. Selecteer het projecttype **ASP.NET Core** en controleer of **Container OS** is ingesteld op **Windows**. Stel **Service Name** in op **ToDoService**. Klik op **OK** om de ASP.NET Core-service te maken.
 
-Stel **Service Name** in op **ToDoService**. Klik op **OK** om de ASP.NET Core-service te maken. Vervolgens wordt het dialoogvenster **New ASP.NET Core Web Application** weergegeven. In dit dialoogvenster selecteert u **API** en vervolgens **OK**. Er wordt een project voor de service aan de oplossing toegevoegd.
+Vervolgens wordt het dialoogvenster **New ASP.NET Core Web Application** weergegeven. In dit dialoogvenster selecteert u **API** en vervolgens **OK**. Er wordt een project voor de service aan de oplossing toegevoegd.
 
 ![Nieuwe ASP.NET Core-toepassing in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
@@ -203,7 +203,7 @@ Schakel in **Reference Manager** het selectievakje in voor **Model** en klik op 
 Maak vervolgens een gegevenscontext waarmee het gebruik van gegevens uit het gegevensmodel wordt gecoördineerd.
 
 U voegt de gegevenscontextklasse toe door in Solution Explorer met de rechtermuisknop op **ToDoService** te klikken en vervolgens **Add** > **Class** te selecteren.
-Controleer in het dialoogvenster **Add New Item** of **Class** is geselecteerd, stel **Name** in op `DataContext` en klik op **Add**.
+Controleer in het dialoogvenster **Add New Item** of **Class** is geselecteerd, stel **Name** in op `DataContext.cs` en klik op **Add**.
 
 Vervang in **DataContext.cs** de inhoud van de lege `class DataContext` door:
 
@@ -313,7 +313,8 @@ Vervang de inhoud van het hele bestand door de volgende HTML, waarmee een eenvou
 </div>
 ```
 
-Open de code voor de indexpagina in **Solution Explorer** door **Index.cshtml** en vervolgens **Index.cshtml.cs** te openen.
+Klik op het pictogram van de vervolgkeuzelijst van het bestand **Index.cshtml** in de **Solution Explorer** en open vervolgens **Index.cshtml.cs**.
+
 Boven aan **Index.cshtml.cs** voegt u `using System.Net.Http;` toe
 
 Vervang de inhoud van `public class IndexModel` door:
@@ -352,26 +353,41 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 De URL bestaat uit de servicenaam en de poort. Al deze informatie is in het project **ToDoService** aanwezig in het bestand service.yaml.
 
+> [!IMPORTANT]
+> In de volgende stappen worden YAML-bestanden gewijzigd.
+> Gebruik spaties, geen tabs, om de variabelen in te springen in het bestand service.yaml. Doet u dit niet, dan wordt het bestand niet gecompileerd. Tijdens het maken van de omgevingsvariabelen kunnen tabs worden ingevoegd. Vervang de tabs door spaties. Hoewel u fouten zult zien in de uitvoer van de foutopsporing voor de **compilatie**, wordt de app nog steeds gestart, maar niet totdat u de tabs naar spaties hebt geconverteerd en de compilatie opnieuw hebt uitgevoerd. Om er zeker van te zijn dat er geen tabs meer in het bestand service.yaml aanwezig zijn, kunt u witruimtes zichtbaar maken in de editor van Visual Studio via **Edit**  > **Advanced**  > **View White Space**.
+> Houd er rekening mee dat service.yaml-bestanden worden verwerkt met de Engelse landinstellingen. Dus als u een decimaal scheidingsteken nodig hebt, moet u bijvoorbeeld een punt in plaats van een komma gebruiken.
+
 Ga in **Solution Explorer** naar het project **ToDoService** en open **Service Resources** > **service.yaml**.
 
 ![Afbeelding 1: het ToDoService-bestand service.yaml](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* De servicenaam, `ToDoService`, bevindt zich onder `services:` achter `name:`. Zie (1) in de bovenstaande afbeelding.
-* De poort, `20008`, bevindt zich onder `endpoints:` achter `port:`. Zie (2) in de bovenstaande afbeelding. In uw project kan het poortnummer anders zijn.
+* De servicenaam `ToDoService` bevindt zich onder `services:`. Zie (1) in de bovenstaande afbeelding.
+* De poort `80` bevindt zich onder `endpoints:`. Zie (2) in de bovenstaande afbeelding. Het poortnummer van uw project wijkt hier mogelijk van af.
 
-Vervolgens worden de omgevingsvariabelen die de servicenaam en het poortnummer representeren, gedefinieerd in het project WebFrontEnd zodat de back-endservice kan worden aangeroepen.
+Vervolgens moet we omgevingsvariabelen definiëren die de servicenaam en het poortnummer in het project WebFrontEnd representeren zodat dit de back-endservice kan aanroepen.
 
 Ga in **Solution Explorer** naar **WebFrontEnd** > **Service Resources** > **service.yaml** om de variabelen te definiëren waarmee het adres van de back-endservice wordt opgegeven.
 
-Voeg aan het bestand service.yaml, onder `environmentVariables`, de volgende variabelen toe. De spatiëring is van belang, dus lijn de variabelen die u toevoegt, uit met de andere variabelen onder `environmentVariables:`
+Voeg in het bestand service.yam de volgende variabelen toe onder `environmentVariables:`. (U moet eerst de `#` verwijderen om de opmerkingen bij `environmentVariables:` te verwijderen). Het gebruik van spaties is belangrijk, dus zorg dat u de variabelen die u toevoegt uitlijnt met de andere variabelen onder `environmentVariables:`. Het is heel belangrijk dat de waarde voor ApiHostPort overeenkomt met de waarde van de poort voor ToDoServiceListener die eerder is aangetroffen in het bestand service.yaml van ToDoService.
 
-> [!IMPORTANT]
-> Gebruik spaties, geen tabs, om de variabelen in te springen in het bestand service.yaml. Doet u dit niet, dan wordt het bestand niet gecompileerd. Tijdens het maken van de omgevingsvariabelen kunnen tabs worden ingevoegd. Vervang de tabs door spaties. Hoewel u fouten zult zien in de **build** met de opgespoorde fouten, wordt de app gewoon gestart. De app werkt echter pas als u de tabs door spaties hebt vervangen. Om er zeker van te zijn dat er geen tabs meer in het bestand service.yaml aanwezig zijn, kunt u witruimtes zichtbaar maken in de editor van Visual Studio via **Edit**  > **Advanced**  > **View White Space**.
-> Houd er rekening mee dat service.yaml-bestanden worden verwerkt met de Engelse landinstellingen.  Dus als u bijvoorbeeld een decimaal scheidingsteken nodig hebt, moet u een punt in plaats van een komma gebruiken.
+```yaml
+- name: ApiHostPort
+  value: 
+- name: ToDoServiceName
+  value: ToDoService
+```
+
+> [!Tip]
+> Er zijn twee manieren om de waarde op te geven voor `ToDoServiceName`: 
+> - Alleen de servicenaam, die zowel in een scenario voor het opsporen van fouten in Windows 10 als tijdens het implementeren van de service in Azure Service Fabric Mesh wordt omgezet.
+> - Volledig gekwalificeerde naam als servicename.appname. Dit werkt alleen als u fouten opspoort in Windows 10.
+> Het is raadzaam om alleen de naam van de service te gebruiken voor het omzetten van de service.
 
 Het bestand **service.yaml** van het project **WebFrontEnd** moet er zoals dit uitzien, hoewel uw `ApiHostPort`-waarde waarschijnlijk anders is:
 
 ![Service.yaml in het project WebFrontEnd](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
+
 
 U bent nu klaar om de installatiekopie van de Service Fabric Mesh-toepassing in uw lokale cluster te bouwen en implementeren, in combinatie met de back-endwebservice.
 

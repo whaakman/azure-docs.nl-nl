@@ -8,19 +8,19 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496223"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879482"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie 1: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning-service
 
-In deze zelfstudie gaat u een machine learning-model zowel lokaal als op externe rekenresources trainen. U gebruikt de werkstroom voor training en implementatie voor de Azure Machine Learning-service (preview) in een Python Jupyter-notebook.  Vervolgens kunt u het notebook gebruiken als een sjabloon voor het trainen van uw eigen machine learning-model met uw eigen gegevens. Deze zelfstudie is **deel één van een serie van twee**.  
+In deze zelfstudie gaat u een machine learning-model zowel lokaal als op externe rekenresources trainen. U gebruikt de werkstroom voor training en implementatie voor de Azure Machine Learning-service in een Python Jupyter-notebook.  Vervolgens kunt u het notebook gebruiken als een sjabloon voor het trainen van uw eigen machine learning-model met uw eigen gegevens. Deze zelfstudie is **deel één van een serie van twee**.  
 
-In deze zelfstudie traint u een eenvoudig logistieke regressiemodel met de gegevensset [MNIST](http://yann.lecun.com/exdb/mnist/) en [scikit-learn](http://scikit-learn.org) met behulp van de Azure Machine Learning-service.  MNIST is een populaire gegevensset die bestaat uit 70.000 afbeeldingen in grijstinten. Elke afbeelding is een handgeschreven cijfer van 28 x 28 pixels, dat een getal tussen 0-9 vertegenwoordigt. Het doel is om een classificatiemechanisme met meerdere klassen te maken om het cijfer te identificeren dat een bepaalde afbeelding vertegenwoordigt. 
+In deze zelfstudie traint u een eenvoudig logistieke regressiemodel met de gegevensset [MNIST](https://yann.lecun.com/exdb/mnist/) en [scikit-learn](https://scikit-learn.org) met behulp van de Azure Machine Learning-service.  MNIST is een populaire gegevensset die bestaat uit 70.000 afbeeldingen in grijstinten. Elke afbeelding is een handgeschreven cijfer van 28 x 28 pixels, dat een getal tussen 0-9 vertegenwoordigt. Het doel is om een classificatiemechanisme met meerdere klassen te maken om het cijfer te identificeren dat een bepaalde afbeelding vertegenwoordigt. 
 
 Leer hoe u het volgende doet:
 
@@ -36,16 +36,14 @@ In [deel twee van deze zelfstudie](tutorial-deploy-models-with-aml.md) leert u h
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK-versie 0.1.79
+> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.2
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://aka.ms/aml-notebook-tut-01). Voer het `01.train-models.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Voer het `tutorials/img-classification-part1-training.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> Deze zelfstudie is getest met Azure Machine Learning-SDK versie 0.1.74 
 
 ## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
 
@@ -94,11 +92,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-remote-compute-target"></a>Extern rekendoel maken
+### <a name="create-or-attach-existing-amlcompute"></a>Bestaande AMlCompute maken of koppelen
 
-Azure ML Managed Computer is een beheerde service waarmee gegevenswetenschappers machine learning-modellen kunnen trainen op clusters met virtuele Azure-machines, inclusief VM's met GPU-ondersteuning.  In deze zelfstudie maakt u een Azure Managed Computer-cluster als uw trainingsomgeving. Met deze code wordt een cluster voor u gemaakt als dit niet nog niet bestaat in uw werkruimte. 
+Azure Machine Learning Managed Compute (AmlCompute) is een beheerde service waarmee gegevenswetenschappers machine learning-modellen kunnen trainen op clusters met virtuele Azure-machines, inclusief VM's met GPU-ondersteuning.  In deze zelfstudie stelt u AmlCompute in als uw trainingsomgeving. Met deze code wordt het rekencluster voor u gemaakt als dat nog niet in uw werkruimte bestaat.
 
- **Het maken van het cluster duurt ongeveer 5 minuten.** Als het cluster al aanwezig is in de werkruimte, wordt het cluster gebruikt door deze code en wordt er geen nieuw cluster gemaakt.
+ **Het maken van het rekencluster duurt ongeveer 5 minuten.** Als het rekencluster al aanwezig is in de werkruimte, wordt het cluster gebruikt door deze code en wordt er geen nieuw cluster gemaakt.
 
 
 ```python
@@ -107,12 +105,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -132,7 +135,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -320,11 +323,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 U ziet hoe met het script gegevens worden opgehaald en modellen worden opgeslagen:
 
 + Het trainingsscript leest een argument om de map met de gegevens te vinden.  Als u de taak later verstuurt, wijst u naar het gegevensarchief voor dit argument: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
-    
+
 + Het trainingsscript slaat uw model op in een map met de naam outputs. <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Alles gegevens die naar deze map worden geschreven, worden automatisch geüpload naar uw werkruimte. Verderop in de zelfstudie gaat u dit model openen vanuit deze map.
-
 Vanuit het trainingsscript wordt verwezen naar het bestand `utils.py` om de gegevensset juist te laden.  Kopieer dit script naar de map script, zodat het samen met het trainingsscript vanaf de externe resource kan worden geopend.
 
 
@@ -340,12 +342,12 @@ Er wordt een estimator-object gebruikt om de run te verzenden.  Maak de estimato
 
 * De naam van het estimator-object, `est`
 * De map met uw scripts. Alle bestanden in deze map worden naar de clusterknooppunten geüpload voor uitvoering. 
-* Het rekendoel.  In dit geval gebruikt u het Batch AI-cluster dat u hebt gemaakt.
+* Het rekendoel.  In dit geval gebruikt u het Azure Machine Learning-rekencluster dat u hebt gemaakt
 * De naam van het trainingsscript, train.py
 * Vereiste parameters uit het trainingsscript 
 * Python-pakketten die nodig zijn voor training
 
-In deze zelfstudie is dit doel het Batch AI-cluster. Alle bestanden in de scriptmap worden naar de clusterknooppunten geüpload om te worden uitgevoerd. De data_folder is ingesteld voor gebruik van het gegevensarchief (`ds.as_mount()`).
+In deze zelfstudie bestaat dit doel uit AmlCompute. Alle bestanden in de scriptmap worden naar de clusterknooppunten geüpload om te worden uitgevoerd. De data_folder is ingesteld voor gebruik van het gegevensarchief (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator

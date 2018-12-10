@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c0d5b556cfeaf26e58104c1cbb7d394e5594f3e5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212927"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850496"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Herstel na noodgeval instellen naar een secundaire Azure-regio voor een Azure-VM 
 
@@ -54,10 +54,10 @@ Nadat de replicatietaak is voltooid, kunt u de replicatiestatus controleren, de 
 
 De VM in de primaire regio stopt met repliceren wanneer u replicatie uitschakelt:
 
-- De bronreplicatie-instellingen worden automatisch opgeschoond.
+- De bronreplicatie-instellingen worden automatisch opgeschoond. Houd er rekening mee dat de Site Recovery-extensie die is geïnstalleerd als onderdeel van de replicatie, niet wordt verwijderd en handmatig moet worden verwijderd. 
 - Site Recovery-facturering voor de VM wordt ook stopgezet.
 
-Stop de replicatie als volgt:
+Stop de replicatie als volgt
 
 1. Selecteer de VM.
 2. Klik in **Herstel na noodgeval** op **Replicatie uitschakelen**.

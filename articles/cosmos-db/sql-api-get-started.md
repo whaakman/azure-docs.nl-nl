@@ -1,28 +1,29 @@
 ---
-title: 'Azure Cosmos DB: zelfstudie Aan de slag met de SQL-API | Microsoft Docs'
+title: 'Azure Cosmos DB: zelfstudie Aan de slag met de SQL-API'
 description: Een zelfstudie waarmee u een online database en een C#-consoletoepassing maakt met de SQL-API.
 keywords: nosql zelfstudie, onlinedatabase, c#-consoletoepassing
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: b1ff7e7a2f79d99bc14f8e25ea82b212fad2acef
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165507"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867526"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: zelfstudie Aan de slag met de SQL-API
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET (preview)](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)

@@ -1,25 +1,23 @@
 ---
-title: Functieondersteuning in Azure Cosmos DB voor MongoDB | Microsoft Docs
+title: Functieondersteuning in Azure Cosmos DB voor MongoDB
 description: Meer informatie over de functieondersteuning die de Azure Cosmos DB MongoDB-API biedt voor MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: d9616f87e76231c3bb587c2018572b7526b471a5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 01e8af08ff5059867cc49cb9d55ae92f2ae21cdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050337"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879665"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>API-ondersteuning voor MongoDB voor MongoDB-functies en -syntaxis
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt met de MongoDB-API van de database communiceren via een van de open-source MongoDB-[clientstuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De MongoDB-API maakt het gebruik van bestaande clientstuurprogramma's mogelijk doordat de API functioneert conform het MongoDB-[wireprotocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodeldatabaseservice van Microsoft. U kunt met de MongoDB-API van de database communiceren via een van de open-source MongoDB-[clientstuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De MongoDB-API maakt het gebruik van bestaande clientstuurprogramma's mogelijk doordat de API functioneert conform het MongoDB-[wireprotocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Door gebruik te maken van de Azure Cosmos DB MongoDB-API hebt u de beschikking over de voordelen van de vertrouwde MongoDB-API’s, met alle zakelijke mogelijkheden die Azure Cosmos DB biedt: [wereldwijde distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), garanties voor beschikbaarheid en latentie, automatisch indexeren van alle velden, versleuteling van niet-actieve gegevens, het maken van back-ups, en meer.
 
@@ -316,11 +314,11 @@ Unieke indexen zijn beschikbaar in alle MongoDB-accounts.
 
 ## <a name="time-to-live-ttl"></a>TTL (time-to-live)
 
-Azure Cosmos DB biedt ondersteuning voor een relatieve TTL (time-to-live) op basis van de tijdstempel van het document. TTL kan via de [Azure-portal](https://portal.azure.com) worden ingeschakeld voor MongoDB-API-verzamelingen.
+Azure Cosmos DB biedt ondersteuning voor een relatieve TTL (time-to-live) op basis van de tijdstempel van het document. TTL kan via [Azure Portal](https://portal.azure.com) worden ingeschakeld voor MongoDB-API-verzamelingen.
 
 ## <a name="user-and-role-management"></a>Gebruikers- en rolbeheer
 
-Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Azure Cosmos DB biedt op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk Alleen-lezen die kunnen worden verkregen via de [Azure-portal](https://portal.azure.com) (pagina Verbindingsreeks).
+Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Azure Cosmos DB biedt op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk Alleen-lezen die kunnen worden verkregen via [Azure Portal](https://portal.azure.com) (pagina Verbindingsreeks).
 
 ## <a name="replication"></a>Replicatie
 

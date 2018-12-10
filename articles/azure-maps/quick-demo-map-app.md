@@ -3,18 +3,18 @@ title: Interactief zoeken naar kaarten met Azure Maps | Microsoft Docs
 description: 'Azure-snelstart: Een demo starten over interactief zoeken naar kaarten met Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/26/2018
+ms.date: 12/02/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d2aa3385dd7556cfc169b42b36d94a3e1d9ee3dd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5f828bfd2ceee81daf86382846be0c5ee7f1fe8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209969"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836573"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Een interactieve kaartzoekopdracht starten met Azure Maps
 
@@ -35,7 +35,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
     - De *Naam* van uw nieuwe account.
     - Het *Abonnement* dat u wilt gebruiken voor dit account.
     - De *Resourcegroep* voor dit account. U kunt kiezen om een *Nieuwe* of *Bestaande* resourcegroep te gebruiken.
-    - Selecteer een *Loacatie voor de resourcegroep*.
+    - Selecteer de gewenste *prijscategorie*.
     - Lees de *licentie* en de *privacyverklaring*, en schakel het selectievakje in om de voorwaarden te accepteren.
     - Klik ten slotte op de knop **Maken**.
 

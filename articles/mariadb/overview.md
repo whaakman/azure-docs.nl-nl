@@ -8,17 +8,17 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: b1e458339c2befdb51439cd23ef5f22ba4379c78
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686021"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850258"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Wat is Azure Database for MariaDB?
 
-Azure Database for MariaDB is een relationele databaseservice in de Microsoft-cloud. Azure Database for MariaDB is gebaseerd op de database-engine van de [MariaDB Community Edition](https://mariadb.org/download/), versie 10.2. Deze service is beschikbaar in de openbare-previewversie. 
+Azure Database for MariaDB is een relationele databaseservice in de Microsoft-cloud. Azure Database for MariaDB is gebaseerd op de database-engine van de [MariaDB Community Edition](https://mariadb.org/download/), versie 10.2.
 
 Azure Database for MariaDB levert:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Binnen een paar seconden prestaties en schaal aanpassen
 
-In de preview biedt de Azure Database for MariaDB-service verschillende prijscategorieën: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie  [Prijscategorieën](concepts-pricing-tiers.md) voor meer informatie.
+De Azure Database for MariaDB-service biedt verschillende prijscategorieën: Basic, Algemeen gebruik en Geoptimaliseerd voor geheugen. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app op een kleine database bouwen voor een paar euro met maand en vervolgens de schaal ervan aanpassen om aan de vereisten van uw oplossing te voldoen. Doordat de schaalbaarheid dynamisch is, kan uw database op een transparante manier reageren op snel veranderende resourcevereisten. U betaalt alleen voor de resources die u nodig hebt op het moment dat u ze nodig hebt. Zie  [Prijscategorieën](concepts-pricing-tiers.md) voor meer informatie.
 
 ## <a name="monitoring-and-alerting"></a>Bewaking en waarschuwingen
 
@@ -51,7 +51,7 @@ Hoe bepaalt u wanneer u omhoog of omlaag moet schalen? U maakt gebruik van de in
 
 ## <a name="keep-your-app-and-business-running"></a>Continuïteit van uw app en uw bedrijf
 
-De toonaangevende serviceovereenkomst (SLA) van Azure met 99,99% beschikbaarheid (niet aangeboden tijdens openbare preview) wordt mogelijk gemaakt door een wereldwijd netwerk van door Microsoft beheerde datacenters. Het netwerk zorgt ervoor dat uw app 24/7 wordt uitgevoerd. U profiteert van de ingebouwde beveiliging, fouttolerantie en gegevensbeveiliging in Azure Database for MariaDB. Met Azure Database for MariaDB kunt u met behulp van herstelpunten een server terugzetten naar een eerdere toestand, tot 35 dagen geleden.
+De toonaangevende serviceovereenkomst (SLA) van Azure met 99,99% beschikbaarheid wordt mogelijk gemaakt door een wereldwijd netwerk van door Microsoft beheerde datacenters. Het netwerk zorgt ervoor dat uw app 24/7 wordt uitgevoerd. U profiteert van de ingebouwde beveiliging, fouttolerantie en gegevensbeveiliging in Azure Database for MariaDB. Met Azure Database for MariaDB kunt u met behulp van herstelpunten een server terugzetten naar een eerdere toestand, tot 35 dagen geleden.
 
 ## <a name="secure-your-data"></a>Uw gegevens beveiligen
 

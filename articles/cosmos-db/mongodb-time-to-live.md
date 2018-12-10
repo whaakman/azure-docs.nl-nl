@@ -1,21 +1,19 @@
 ---
-title: Lees hoe u een TTL-waarde kunt instellen voor Azure Cosmos DB-documenten die zijn gemaakt via de API van MongoDB om deze na een bepaalde periode automatisch te verwijderen uit het systeem.
-description: Documentatie voor de TTL-functie voor afzonderlijke documenten van MongoDB.
+title: MongoDB per document TTL-functie in Azure Cosmos DB
+description: Lees hoe u een TTL-waarde kunt instellen voor Azure Cosmos DB-documenten die zijn gemaakt via de API van MongoDB om deze na een bepaalde periode automatisch te verwijderen uit het systeem.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
+ms.author: orkostak
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: orkostak
-ms.openlocfilehash: 8679da0dfe92b1d611fd0b61b9f7404256b2b688
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239862"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868750"
 ---
 # <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Gegevens automatisch laten verlopen in de MongoDB-API van Azure Cosmos DB
 

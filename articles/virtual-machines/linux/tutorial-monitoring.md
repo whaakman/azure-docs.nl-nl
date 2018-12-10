@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406497"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868545"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een virtuele Linux-machine bewaken en bijwerken in Azure
 
@@ -208,7 +208,7 @@ Als u een nieuwe update-implementatie voor de VM wilt plannen, selecteert u **Up
 * **Updateclassificatie**: selecteer de typen software die de update-implementatie moet opnemen in de implementatie. De classificatietypen zijn:
   * Essentiële en beveiligingsupdates
   * Andere Updates
-* **Updates die moeten worden uitgesloten**: u kunt een lijst met namen van pakketten opgeven die moeten worden overgeslagen tijdens de update-implementatie. Pakketnamen bieden ondersteuning voor jokertekens (zoals \*kernal\*).
+* **Updates die moeten worden uitgesloten**: u kunt een lijst met namen van pakketten opgeven die moeten worden overgeslagen tijdens de update-implementatie. Pakketnamen bieden ondersteuning voor jokertekens (zoals \*kernel\*).
 
   ![Scherm met instellingen voor de updateplanning](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 

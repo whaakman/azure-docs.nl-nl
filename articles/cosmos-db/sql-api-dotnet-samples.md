@@ -1,22 +1,19 @@
 ---
-title: 'Azure Cosmos DB: .NET-voorbeelden voor de SQL API | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET-voorbeelden voor de SQL API'
 description: Vind C# .NET-voorbeelden op github voor veelvoorkomende taken met de SQL API in Azure Cosmos DB, zoals CRUD-bewerkingen.
 keywords: Voorbeeld van NoSQL
-services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 5cee4a736232e7734be85b2940ce457bfbfd1613
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 39eacca1e5ddb4c7024c5195dc1823f2c3c651e7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262282"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875260"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-voorbeelden voor de SQL API
 > [!div class="op_single_selector"]
@@ -29,10 +26,12 @@ ms.locfileid: "52262282"
 > 
 > 
 
-De nieuwste voorbeeldoplossingen waarmee CRUD-bewerkingen en andere veelvoorkomende bewerkingen in Azure Cosmos DB-resources worden uitgevoerd, zijn opgenomen in de GitHub-opslagplaats [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples). Dit artikel bevat:
+De nieuwste voorbeeldoplossingen waarmee CRUD-bewerkingen en andere veelvoorkomende bewerkingen in Azure Cosmos DB-resources worden uitgevoerd, zijn opgenomen in de GitHub-opslagplaats [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples). Dit artikel bevat:
 
 * Koppelingen naar de taken in elk van de C#-voorbeeldprojectbestanden. 
 * Koppelingen naar het bijbehorende API-referentiemateriaal.
+
+De meest recente codevoorbeelden voor de .NET-SDK versie 3.0 (preview) vindt u in de GitHub-opslagplaats [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3). 
 
 **Vereisten**
 

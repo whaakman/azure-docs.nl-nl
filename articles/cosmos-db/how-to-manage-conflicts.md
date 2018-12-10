@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83785e532523c3e921b0772ddaa50502b2dc867d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961023"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633789"
 ---
 # <a name="manage-conflicts-between-regions"></a>Conflicten tussen regio 's beheren
 
@@ -83,9 +83,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>Een aangepast conflictoplossingsbeleid maken met opgeslagen procedure
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Een aangepast conflictoplossingsbeleid maken met een opgeslagen procedure
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden **niet** weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure.
+Deze voorbeelden laten zien hoe u een container kunt instellen met aangepast conflictoplossingsbeleid met een opgeslagen procedure om het conflict op te lossen. Deze conflicten worden niet weergegeven in de conflictfeed tenzij er een fout is in de opgeslagen procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -102,7 +102,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-U moet de opgeslagen procedure `resolver` maken nadat de container is gemaakt.
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
 
@@ -114,7 +114,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-U moet de opgeslagen procedure `resolver` maken nadat de container is gemaakt.
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
 
@@ -127,7 +127,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-U moet de opgeslagen procedure `resolver` maken nadat de container is gemaakt.
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -146,7 +146,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-U moet de opgeslagen procedure `resolver` maken nadat de container is gemaakt.
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
@@ -154,11 +154,11 @@ U moet de opgeslagen procedure `resolver` maken nadat de container is gemaakt.
 
 ```
 
-U moet de opgeslagen procedure `resolver` maken nadat de container is gemaakt.
+Nadat de container is gemaakt, moet u de opgeslagen procedure `resolver` maken.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Conflictoplossingsbeleid maken voor ‘last writer wins’
+## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Het conflictoplossingsbeleid 'last writer wins' maken
 
-Deze voorbeelden laten zien hoe u een container kunt instellen met conflictoplossingsbeleid voor ‘last writer wins’. Als het pad niet is ingesteld of ongeldig is, wordt de eigenschap `_ts` (het tijdstempelveld) ingesteld op de standaardwaarden. Deze conflicten worden **niet** weergegeven in de conflictfeed.
+Deze voorbeelden laten zien hoe u een container kunt instellen met het conflictoplossingsbeleid 'last writer wins'. Als het pad niet is ingesteld of ongeldig is, wordt het standaard ingesteld op de eigenschap `_ts`. Deze eigenschap is het tijdstempelveld. Deze conflicten worden niet weergegeven in de conflictfeed.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -210,7 +210,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Als u de eigenschap `conflictResolutionPath` vergeet, wordt deze ingesteld op de eigenschap `_ts`.
+Als u de eigenschap `conflictResolutionPath` weglaat, wordt het standaard ingesteld op de eigenschap `_ts`.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
 
@@ -277,8 +277,8 @@ while conflict:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt nu verdergaan met het leren van de volgende Cosmos DB-concepten:
+Meer informatie over de volgende Azure Cosmos DB-concepten:
 
 * [Partitionering en gegevensdistributie](partition-data.md)
-* [Indexeren in Cosmos DB](indexing-policies.md)
+* [Indexering in Azure Cosmos DB](indexing-policies.md)
 

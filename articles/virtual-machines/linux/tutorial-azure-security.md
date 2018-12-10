@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092608"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841160"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Zelfstudie: Azure Security Center gebruiken om virtuele Linux-machines te controleren
 
@@ -37,7 +37,7 @@ Met Azure Security Center kunt u meer inzicht krijgen in de beveiliging van uw A
 
 Security Center identificeert mogelijke configuratieproblemen voor virtuele machine (VM's) en gerichte beveiligingsrisico's. Dit kan het volgende omvatten: virtuele machines waarbij netwerkbeveiligingsgroepen ontbreken, niet-versleutelde schijven en RDP-beveiligingsaanvallen (Remote Desktop Protocol). De informatie wordt op het Security Center-dashboard in duidelijke grafieken weergegeven.
 
-Als u het Security Center-dashboard wilt openen, selecteert u in het menu van de Azure-portal de optie **Security Center**. Op het dashboard kunt u de beveiligingsstatus van uw Azure-omgeving bekijken, een aantal huidige aanbevelingen zien en de huidige status van bedreigingswaarschuwingen weergeven. U kunt elke algemene grafiek uitvouwen voor gedetailleerdere gegevens.
+Als u het Security Center-dashboard wilt openen, selecteert u in het menu van Azure Portal de optie **Security Center**. Op het dashboard kunt u de beveiligingsstatus van uw Azure-omgeving bekijken, een aantal huidige aanbevelingen zien en de huidige status van bedreigingswaarschuwingen weergeven. U kunt elke algemene grafiek uitvouwen voor gedetailleerdere gegevens.
 
 ![Dashboard van Security Center](./media/tutorial-azure-security/asc-dash.png)
 
@@ -53,7 +53,7 @@ Voordat u VM-beveiligingsconfiguraties kunt inzien, moet u eerst gegevensverzame
 2. Voor **gegevensverzameling** selecteert u in **Automatische inrichting** de optie **Aan**.
 3. Voor **Configuratie van de standaardwerkruimte** laat u **Werkruimten gebruiken die zijn gemaakt door Security Center (standaard)** staan.
 4. Bij **Beveiligingsgebeurtenissen** laat u de standaardoptie **Algemeen** staan.
-4. Klik boven aan de pagina op **Opslaan**. 
+4. Klik bovenaan de pagina op **Opslaan**. 
 
 Vervolgens wordt de Security Center-agent voor gegevensverzameling op alle VM's geïnstalleerd en wordt de gegevensverzameling gestart. 
 
@@ -61,12 +61,12 @@ Vervolgens wordt de Security Center-agent voor gegevensverzameling op alle VM's 
 
 Een beveiligingsbeleid wordt gebruikt voor het definiëren van de items waarvoor Security Center gegevens verzamelt en aanbevelingen doet. U kunt verschillende soorten beveiligingsbeleid toepassen op verschillende sets van Azure-resources. Hoewel Azure-resources standaard voor alle beleidsitems worden geëvalueerd, kunt u afzonderlijke beleidsitems uitschakelen voor alle Azure-resources of voor een resourcegroep. Zie [Beveiligingsbeleid instellen in Azure Security Center](../../security-center/security-center-policies.md) voor gedetailleerde informatie over Security Center-beveiligingsbeleid. 
 
-Een beveiligingsbeleid voor een volledig abonnement:
+Een beveiligingsbeleid voor een volledig abonnement instellen:
 
 1. Selecteer in het Security Center-dashboard **Beveiligingsbeleid** en selecteer vervolgens uw abonnement.
 2. Selecteer op de blade **Beveiligingsbeleid** de optie **Beveiligingsbeleid**. 
 3. Op de blade ** Beveiligingsbeleid - Beveiligingsbeleid ** schakelt u de beleidsitems in die u wilt toepassen op het abonnement.
-4. Wanneer u klaar bent met instellen, selecteert u boven aan de blade de optie **OK**. 
+4. Wanneer u klaar bent met instellen, selecteert u bovenaan de blade de optie **Opslaan**. 
 
 ![Uniek beleid](./media/tutorial-azure-security/unique-policy.png)
 
@@ -106,7 +106,7 @@ Wanneer aanbevelingen worden doorgevoerd, worden ze als opgelost gemarkeerd.
 
 Security Center geeft naast aanbevelingen voor resourceconfiguratie ook meldingen voor geconstateerde bedreigingen weer. De functie voor beveiligingsmeldingen combineert de verzamelde gegevens van elke VM, Azure-netwerklogboeken en gekoppelde partneroplossingen om bedreigingen voor Azure-resources te detecteren. Lees [Detectiemogelijkheden van Azure Security Center](../../security-center/security-center-detection-capabilities.md) voor gedetailleerdere informatie over de detectiemogelijkheden van Azure Security Center.
 
-De functie voor beveiligingsmeldingen vereist dat de Security Center-prijscategorie wordt verhoogd van *Gratis* naar *Standard*. Er is een **gratis proefversie** van 60 dagen beschikbaar wanneer u naar deze hogere prijscategorie overstapt. 
+De functie voor beveiligingsmeldingen vereist dat de Security Center-prijscategorie wordt verhoogd van *Gratis* naar *Standard*. Er is een **gratis proefversie** beschikbaar wanneer u naar deze hogere prijscategorie overstapt. 
 
 De prijscategorie wijzigen:  
 

@@ -1,21 +1,20 @@
 ---
-title: Azure-tabelopslag en Azure Cosmos DB Table-API gebruiken met C++ | Microsoft Docs
-description: Sla gestructureerde gegevens op in de cloud met Azure-tabelopslag of de Azure Cosmos DB Table-API.
+title: Azure Table Storage en Azure Cosmos DB Table-API gebruiken met C++
+description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage of de Azure Cosmos DB Table-API.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 520c0868e51f1212ee1beca8967d3c08f1d6e869
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: dff665a26efb00ed74ddfab4259c5c35ca1abb38
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797910"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880128"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Azure-tabelopslag en Azure Cosmos DB Table-API gebruiken met C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]

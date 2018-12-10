@@ -8,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419556"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872541"
 ---
 # <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Wat zijn de machine learning-producten van Microsoft?
 
@@ -22,22 +22,22 @@ Microsoft biedt tal van producten voor het bouwen, implementeren en beheren van 
 
 | Machine learning-product | Wat is het? | Wat u ermee kunt doen |
 |-|-|-|
-| In de cloud | | |
+| ***In de cloud*** | | |
 | [Azure Machine Learning-service](#azure-machine-learning-services) | Beheerde cloudservice voor ML  | Modellen trainen, implementeren en beheren in Azure met behulp van Python en CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuele interface voor ML met slepen en neerzetten | Modellen bouwen en implementeren en ermee experimenteren met behulp van vooraf geconfigureerde algoritmen |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuele interface voor ML met slepen&ndash;en&ndash;neerzetten | Modellen bouwen en implementeren en ermee experimenteren met behulp van vooraf geconfigureerde algoritmen |
 | [Azure Databricks](#azure-databricks) | Op Spark gebaseerd analyseplatform | Modellen en gegevenswerkstromen bouwen en implementeren |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure-services met geïntegreerde AI- en ML-modellen | Eenvoudig intelligente functies aan uw apps toevoegen |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtuele machine met vooraf geïnstalleerde hulpprogramma 's voor data science | ML-oplossingen ontwikkelen in een vooraf geconfigureerde omgeving |
-| On-premises | | |
+| ***On-premises***<br>*(on-premises servers kunnen ook in een virtuele machine in de cloud worden uitgevoerd)* | | |
 | [SQL Server Machine Learning-services](#sql-server-machine-learning-services) | Analyse-engine ingesloten in SQL | Modellen bouwen en implementeren in SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Zelfstandige enterprise server voor voorspellende analyse | Modellen bouwen en implementeren met R en Python |
-| Hulpprogramma's voor ontwikkelaars | | |
+| ***Ontwikkelhulpprogramma's*** | | |
 | [ML.NET](#mlnet) | Open-source, platformoverschrijdende ML SDK | ML-oplossingen voor .NET-toepassingen ontwikkelen |
 | [Windows ML](#windows-ml) | ML-platform voor Windows 10 | Getrainde modellen evalueren op een Windows 10-apparaat |
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning-service
 
-[Azure Machine Learning-service](overview-what-is-azure-ml.md) (preview) is een volledig beheerde cloudservice voor het trainen, implementeren en beheren van ML-modellen op schaal. De service ondersteunt open-source technologieën volledig, zodat u tienduizenden open-source Python-pakketten zoals TensorFlow, PyTorch en scikit-learn kunt gebruiken. Er zijn ook geavanceerde hulpprogramma's beschikbaar, zoals [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) en [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/). Deze maken het gemakkelijker om gegevens te verkennen en transformeren en vervolgens modellen te trainen en implementeren. Azure Machine Learning-service omvat functies die modelgeneratie automatiseren en afstemmen met gemak, efficiëntie en nauwkeurigheid.
+[Azure Machine Learning service](overview-what-is-azure-ml.md) is een volledig beheerde cloudservice voor het trainen, implementeren en beheren van ML-modellen op schaal. De service ondersteunt open-source technologieën volledig, zodat u tienduizenden open-source Python-pakketten zoals TensorFlow, PyTorch en scikit-learn kunt gebruiken. Er zijn ook geavanceerde hulpprogramma's beschikbaar, zoals [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/). Deze maken het gemakkelijker om gegevens te verkennen en transformeren en vervolgens modellen te trainen en implementeren. Azure Machine Learning-service omvat functies die modelgeneratie automatiseren en afstemmen met gemak, efficiëntie en nauwkeurigheid.
 
 Gebruik Azure Machine Learning service om ML-modellen te trainen, implementeren en beheren met behulp van Python en CLI op cloudschaal.
 
@@ -74,9 +74,10 @@ Gebruik Cognitive Services om apps te ontwikkelen op allerlei apparaten en platf
 ## <a name="azure-data-science-virtual-machine"></a>Azure Data Science Virtual Machine
 
 [Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) is een aangepaste VM-omgeving in de Azure-cloud van Microsoft, die speciaal is gebouwd voor datatechnologie. DSVM bevat veel populaire gegevenswetenschap- en andere hulpprogramma's die vooraf zijn geïnstalleerd en geconfigureerd voor het snel ontwikkelen van intelligente toepassingen voor geavanceerde analyses.
-Data Science Virtual Machine is beschikbaar voor zowel Windows als Linux Ubuntu (Azure Machine Learning service wordt niet ondersteund op Linux CentOS).
-Zie [Introduction to the Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) (Inleiding voor Azure Data Science Virtual Machine) voor informatie over specifieke versies en een lijst met wat is inbegrepen.
+
 Data Science Virtual Machine wordt ondersteund als een doel voor Azure Machine Learning service.
+Het is beschikbaar voor zowel Windows als Linux Ubuntu (Azure Machine Learning service wordt niet ondersteund op Linux CentOS).
+Zie [Introduction to the Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) (Inleiding voor Azure Data Science Virtual Machine) voor informatie over specifieke versies en een lijst met wat is inbegrepen.
 
 Gebruik Data Science-VM wanneer u taken wilt uitvoeren of hosten op één knooppunt. Of als u uw verwerking op één computer extern omhoog wilt schalen.
 

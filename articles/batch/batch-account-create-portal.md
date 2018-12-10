@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426102"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724091"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
 
@@ -91,11 +91,11 @@ Wanneer u uw eerste Batch-account maakt in de modus Gebruikersabonnement, moet u
 
     ![Microsoft.Batch-provider registreren][register_provider]
 
-1. Selecteer op de pagina **Abonnement** de optie **Toegangsbeheer (IAM)** > **Toevoegen**.
+1. Op de pagina **Abonnement** selecteert u **Toegangsbeheer (IAM)** > **Roltoewijzingen** > **Roltoewijzing toevoegen**.
 
     ![Toegangsbeheer voor abonnement][subscription_access]
 
-1. Selecteer op de pagina **Machtigingen toevoegen** de rol **Bijdrager** en zoek naar de Batch API. Zoek deze tekenreeksen totdat u de API hebt gevonden:
+1. Selecteer op de pagina **Roltoewijzing toevoegen** de rol **Bijdrager** en zoek naar de Batch API. Zoek deze tekenreeksen totdat u de API hebt gevonden:
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. Nieuwere Azure AD-tenants kunnen deze naam gebruiken.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is de id voor de Batch-API. 

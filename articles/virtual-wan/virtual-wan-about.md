@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c2edb821eb8bd9a5da7a6cce81269e7d3f611722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957597"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869888"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Wat is Azure Virtual WAN?
 
@@ -29,7 +29,7 @@ Met dit artikel krijgt u snel inzicht in de netwerkverbindingen van de workloads
 
 ## <a name="s2s"></a>Site-naar-site-verbindingen
 
-Als u een verbinding tussen de verschillende locaties wilt maken met Virtual WAN, kunt u dat doen via een [Virtual WAN-partner](https://go.microsoft.com/fwlink/p/?linkid=2019615) of de verbinding handmatig tot stand brengen.
+Als u een verbinding tussen de verschillende locaties wilt maken met Virtual WAN, kunt u dat doen via een [Virtual WAN-partner](virtual-wan-locations-partners.md) of de verbinding handmatig tot stand brengen.
 
 ### <a name="s2spartner"></a>Werken met een Virtual WAN-partner
 
@@ -46,11 +46,11 @@ Als u geen voorkeurspartner wilt gebruiken, kunt u de verbinding handmatig confi
 
 Met een point-to-site-verbinding (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele hub. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer. Deze oplossing is handig voor telewerkers die verbinding willen maken vanaf een externe locatie, zoals thuis of een conferentie. P2S-VPN is ook een uitstekende oplossing in plaats van een S2S-VPN wanneer u maar een paar clients hebt die verbinding moeten maken.
 
-Raadpleeg [Een site-naar-site-verbinding maken met Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid) als u de verbinding handmatig tot stand wilt brengen.
+Raadpleeg [Een site-naar-site-verbinding maken met Virtual WAN](virtual-wan-point-to-site-portal.md) als u de verbinding handmatig tot stand wilt brengen.
 
 ## <a name="er"></a>ExpressRoute-verbindingen (preview)
 
-Raadpleeg [Een ExpressRoute-verbinding maken met Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid) als u de verbinding handmatig tot stand wilt brengen.
+Raadpleeg [Een ExpressRoute-verbinding maken met Virtual WAN](virtual-wan-expressroute-portal.md) als u de verbinding handmatig tot stand wilt brengen.
 
 
 ## <a name="resources"></a>Virtual WAN-resources
@@ -76,4 +76,4 @@ Als u een end-to-end virtuele WAN wilt configureren, maakt u de volgende resourc
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* De [Virtual WAN-partners en -locaties](https://aka.ms/virtualwan) weergeven
+Bekijk de pagina [Virtual WAN partners and locations](virtual-wan-locations-partners.md) (Virtual WAN-partners en -locaties).

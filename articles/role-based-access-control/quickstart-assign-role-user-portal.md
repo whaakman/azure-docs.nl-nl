@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Toegang verlenen aan een gebruiker met behulp van RBAC en Azure Portal | Microsoft Docs'
+title: 'Zelfstudie: Toegang verlenen aan een gebruiker met behulp van RBAC en de Azure-portal | Microsoft Docs'
 description: Gebruik op rollen gebaseerd toegangsbeheer (RBAC) om machtigingen te verlenen aan een gebruiker door een rol toe te wijzen in de Azure-portal.
 services: role-based-access-control
 documentationCenter: ''
@@ -8,21 +8,27 @@ manager: mtillman
 editor: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 74ecca671409b6e163bc0db29d66167d240b645c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8caa5c3b33ac1b483429251e0c1256636c4ece1a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092519"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634469"
 ---
-# <a name="quickstart-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Snelstart: Toegang verlenen aan een gebruiker met behulp van RBAC en Azure Portal
+# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Zelfstudie: Toegang verlenen aan een gebruiker met behulp van RBAC en de Azure-portal
 
-Op rollen gebaseerde toegangsbeheer (RBAC) is de manier waarop u de toegang tot resources in Azure beheert. In deze snelstart verleent u een gebruiker toegang tot het maken en beheren van virtuele machines in een resource -groep.
+[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. In deze zelfstudie verleent u een gebruiker toegang tot het maken en beheren van virtuele machines in een resourcegroep.
+
+In deze zelfstudie leert u het volgende:
+
+> [!div class="checklist"]
+> * Toegang voor een gebruiker toewijzen op het niveau van een resourcegroep
+> * Toegang intrekken
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -38,7 +44,7 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
    ![Een nieuwe resourcegroep toevoegen](./media/quickstart-assign-role-user-portal/resource-group.png)
 
-1. Voer bij **Resourcegroepnaam** **rbac-quickstart-resource-group** in.
+1. Voer bij **Resourcegroepnaam** **rbac-resource-group** in.
 
 1. Selecteer een abonnement en een locatie.
 
@@ -54,17 +60,19 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 In RBAC verleent u toegang door een roltoewijzing te maken.
 
-1. Kies in de lijst met **Resourcegroepen** de nieuwe resourcegroep **rbac-quickstart-resource-group**.
+1. Kies in de lijst met **Resourcegroepen** de nieuwe resourcegroep **rbac-resource-group**.
 
-1. Kies **Toegangsbeheer (IAM)** om de huidige lijst met roltoewijzingen te zien.
+1. Kies **Toegangsbeheer (IAM)**.
+
+1. Ga naar het tabblad **Roltoewijzingen** om de huidige lijst met roltoewijzingen te zien.
 
    ![De blade Toegangsbeheer (IAM) voor een resourcegroep](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Kies **Toevoegen** om het deelvenster **Machtigingen toevoegen** te openen.
+1. Kies **Roltoewijzing toevoegen** om het deelvenster Roltoewijzing toevoegen te openen.
 
-   Als u niet bevoegd bent om rollen toe te wijzen, ziet u de optie **Toevoegen** niet.
+   Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
 
-   ![Het deelvenster Machtigingen toevoegen](./media/quickstart-assign-role-user-portal/add-permissions.png)
+   ![Deelvenster Roltoewijzing toevoegen](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
 1. Selecteer in de vervolgkeuzelijst **Rol** **Inzender voor virtuele machines**.
 
@@ -72,7 +80,7 @@ In RBAC verleent u toegang door een roltoewijzing te maken.
 
 1. Kies **Opslaan** om de roltoewijzing te maken.
 
-   Na enkele ogenblikken krijgt de gebruiker de rol Inzender voor virtuele machines toegewezen in het bereik van de resourcegroep rbac-quickstart-resource-group.
+   Na enkele ogenblikken krijgt de gebruiker de rol Inzender voor virtuele machines toegewezen in het bereik van de resourcegroep rbac-resource-group.
 
    ![Roltoewijzing Inzender voor virtuele machines](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
@@ -80,7 +88,7 @@ In RBAC verleent u toegang door een roltoewijzing te maken.
 
 Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijzing.
 
-1. Voeg in de lijst met roltoewijzingen een vinkje toe naast de gebruiker met de rol Inzender voor virtuele machines.
+1. Plaats in de lijst met roltoewijzingen een vinkje naast de gebruiker met de rol Inzender voor virtuele machines.
 
 1. Kies **Verwijderen**.
 
@@ -92,13 +100,13 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
 1. Kies **Resourcegroepen** in de navigatielijst.
 
-1. Kies **rbac-quickstart-resource-group** om de resourcegroep te openen.
+1. Kies **rbac-resource-group** om de resourcegroep te openen.
 
 1. Kies **Resourcegroep verwijderen** om de resourcegroep te verwijderen.
 
    ![Resourcegroep verwijderen](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
-1. Typ op de blade **Weet u zeker dat u wilt verwijderen** de naam van de resourcegroep: **rbac-quickstart-resource-group**.
+1. Typ in de blade **Weet u zeker dat u wilt verwijderen** de naam van de resourcegroep: **rbac-resource-group**.
 
 1. Kies **Verwijderen** om de resourcegroep te verwijderen.
 

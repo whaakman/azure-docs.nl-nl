@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497605"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864057"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Zelfstudie 2: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instance (ACI)
 
@@ -22,7 +22,7 @@ Deze zelfstudie is **deel twee van een tweedelige reeks**. In de [vorige zelfstu
 
 Nu kunt u het model als webservice implementeren in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Een webservice is een afbeelding, in dit geval een Docker-installatiekopie, die bestaat uit de scorelogica en het model zelf. 
 
-In dit gedeelte van de zelfstudie wordt uitgelegd hoe u de Azure Machine Learning-service (preview) gebruikt om de volgende bewerkingen uit te voeren:
+In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning-service voor het volgende gebruikt:
 
 > [!div class="checklist"]
 > * Uw testomgeving instellen
@@ -35,10 +35,12 @@ ACI is niet ideaal voor productie-implementaties, maar het is uiterst geschikt o
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://aka.ms/aml-notebook-tut-02). Voer het `02.deploy-models.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Voer het `tutorials/img-classification-part2-deploy.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Code in dit artikel is getest met de Azure Machine Learning SDK versie 1.0.2
 
 ## <a name="prerequisites"></a>Vereisten
 

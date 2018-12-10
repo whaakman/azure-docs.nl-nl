@@ -1,21 +1,20 @@
 ---
-title: Overzicht van Azure Table Storage | Microsoft Docs
+title: Overzicht van Azure Table Storage
 description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage, een oplossing voor NoSQL-gegevensopslag.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 204d0032516886c2d954965c7c4561d967bae705
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f07d041e7674cb1579247ca2b444017762c5be0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232185"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867406"
 ---
 # <a name="azure-table-storage-overview"></a>Overzicht van Azure Table Storage
 

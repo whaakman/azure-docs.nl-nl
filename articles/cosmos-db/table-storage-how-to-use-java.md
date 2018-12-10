@@ -1,28 +1,27 @@
 ---
-title: Azure Table Storage of de Azure Cosmos DB Table-API van Java gebruiken | Microsoft Docs
+title: Azure Table Storage of de Azure Cosmos DB Table-API van Java gebruiken
 description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage of de Azure Cosmos DB Table-API.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7be0ed8d59063f75b3d4fadbf69237bdb2d0d13
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797893"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863683"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Azure Table Storage of de Azure Cosmos DB Table-API van Java gebruiken
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Overzicht
-In dit artikel wordt beschreven hoe u veelvoorkomende scenario's uitvoert met de service Azure Table Storage en Azure Cosmos DB. De voorbeelden zijn geschreven in Java en maken gebruik van de [Azure Storage SDK voor Java][Azure Storage SDK for Java]. De volgende scenario's worden behandeld: het **maken**, **in een lijst opnemen** en **verwijderen** van tabellen, alsmede het **invoegen**, **uitvoeren van query’s**, **aanpassen** en **verwijderen** van entiteiten in een tabel. Zie de sectie [Volgende stappen](#next-steps) voor meer informatie over tabellen.
+In dit artikel wordt beschreven hoe u veelvoorkomende scenario's uitvoert met de service Azure Table Storage en Azure Cosmos DB. De voorbeelden zijn geschreven in Java en maken gebruik van de [Azure Storage SDK voor Java][Azure Storage SDK for Java]. De volgende scenario's worden behandeld: het **maken**, **in een lijst opnemen** en **verwijderen** van tabellen, alsmede het **invoegen**, **uitvoeren van query's**, **aanpassen** en **verwijderen** van entiteiten in een tabel. Zie de sectie [Volgende stappen](#next-steps) voor meer informatie over tabellen.
 
 > [!NOTE]
 > Er is een SDK beschikbaar voor ontwikkelaars die Azure Storage op Android-apparaten gebruiken. Raadpleeg de [Azure Storage SDK voor Android][Azure Storage SDK for Android] voor meer informatie.
@@ -40,7 +39,7 @@ In dit artikel wordt beschreven hoe u veelvoorkomende scenario's uitvoert met de
 ## <a name="create-a-java-application"></a>Een Java-toepassing maken
 In deze handleiding gebruikt u opslagfuncties die u lokaal kunt uitvoeren in een Java-toepassing, of in code die wordt uitgevoerd in een webrol of werkrol in Azure.
 
-Als u de voorbeelden in dit artikel wilt gebruiken, installeert u de Java Development Kit (JDK) en maakt u vervolgens een Azure-opslagaccount of Azure Cosmos DB-account in uw Azure-abonnement. Zodra u dit hebt gedaan, controleert u of uw ontwikkelingssysteem voldoet aan de minimumvereisten en afhankelijkheden die worden genoemd in de GitHub-opslagplaats [Azure Storage SDK voor Java][Azure Storage SDK for Java]. Indien uw systeem aan die vereisten voldoet, kunt u de instructies volgen voor het downloaden en installeren van de Azure Storage-bibliotheken voor Java op uw systeem vanuit die opslagplaats. Nadat u die taken hebt voltooid, kunt u een Java-toepassing maken waarbij de voorbeelden in dit artikel worden gebruikt.
+Als u de voorbeelden in dit artikel wilt gebruiken, installeert u de Java Development Kit (JDK) en maakt u vervolgens een Azure-opslagaccount of Azure Cosmos DB-account in uw Azure-abonnement. Zodra u dit hebt gedaan, controleert u of uw ontwikkelingssysteem voldoet aan de minimumvereisten en afhankelijkheden die worden genoemd in de GitHub-opslagplaats [Azure Storage SDK voor Java][Azure Storage SDK for Java]. Indien uw systeem aan die vereisten voldoet, kunt u de instructies volgen om de Azure Storage-bibliotheken voor Java vanuit die opslagplaats te downloaden en op uw systeem te installeren. Nadat u die taken hebt voltooid, kunt u een Java-toepassing maken waarin de voorbeelden in dit artikel worden gebruikt.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Uw toepassing configureren voor toegang tot tabelopslag
 Voeg bovenaan het Java-bestand de volgende importinstructies toe waar u Azure Storage-API's of de Azure Cosmos DB Table-API wilt gebruiken voor toegang tot tabellen:
@@ -53,7 +52,7 @@ import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
 ## <a name="add-an-azure-storage-connection-string"></a>Een Azure-opslagverbindingstekenreeks toevoegen
-Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks voor het opslaan van eindpunten en referenties voor toegang tot gegevensbeheerservices. Bij uitvoering in een clienttoepassing moet u de opslagverbindingstekenreeks opgeven in de volgende indeling, met de naam van uw opslagaccount en de primaire toegangssleutel voor het opslagaccount dat in [Azure Portal](https://portal.azure.com) wordt vermeld voor de waarden *AccountName* en *AccountKey*. 
+Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks om eindpunten en referenties voor toegang tot gegevensbeheerservices op te slaan. Bij uitvoering in een clienttoepassing moet u de opslagverbindingstekenreeks opgeven in de volgende indeling, met de naam van uw opslagaccount en de primaire toegangssleutel voor het opslagaccount dat in [Azure Portal](https://portal.azure.com) wordt vermeld voor de waarden *AccountName* en *AccountKey*. 
 
 In dit voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks:
 
@@ -86,19 +85,19 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-U kunt uw verbindingstekenreeks ook opslaan in het config.properties-bestand van uw project:
+U kunt uw verbindingstekenreeks ook opslaan in het bestand config.properties van uw project:
 
 ```java
 StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_account;AccountKey=your_account_key;TableEndpoint=https://your_table_endpoint/
 ```
 
-In de volgende voorbeelden wordt er van uitgegaan dat u een van deze methoden hebt gebruikt om de opslagverbindingstekenreeks op te halen.
+In de volgende voorbeelden wordt ervan uitgegaan dat u een van deze methoden hebt gebruikt om de opslagverbindingstekenreeks op te halen.
 
 ## <a name="create-a-table"></a>Een tabel maken
-Met een **CloudTableClient**-object kunt u referentieobjecten ophalen voor tabellen en entiteiten. Met de volgende code maakt u een **CloudTableClient**-object dat wordt gebruikt om een nieuw **CloudTable**-object te maken dat de tabel ‘mensen’ vertegenwoordigt. 
+Met een **CloudTableClient**-object kunt u referentieobjecten ophalen voor tabellen en entiteiten. Met de volgende code maakt u een **CloudTableClient**-object dat wordt gebruikt om een nieuw **CloudTable**-object te maken dat de tabel 'mensen' vertegenwoordigt. 
 
 > [!NOTE]
-> Er zijn andere manieren om **CloudStorageAccount**-objecten te maken. Raadpleeg **CloudStorageAccount** in de [Azure Storage Client SDK-referentie]) voor meer informatie.
+> Er zijn andere manieren om **CloudStorageAccount**-objecten te maken. Raadpleeg **CloudStorageAccount** in de [Azure Storage Client SDK-referentie] voor meer informatie.
 >
 
 ```java
@@ -124,7 +123,7 @@ catch (Exception e)
 ```
 
 ## <a name="list-the-tables"></a>De tabellen vermelden
-Voor het ophalen van een lijst met tabellen, roept u de methode **CloudTableClient.listTables()** aan om een lijst met tabelnamen op te halen.
+Als u een lijst met tabellen wilt weergeven, roept u de methode **CloudTableClient.listTables()** aan om een lijst met tabelnamen op te halen.
 
 ```java
 try
@@ -217,7 +216,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Een batch entiteiten invoegen
-U kunt in één schrijfbewerking een batch entiteiten invoegen in de tabelservice. Met de volgende code maakt u een **TableBatchOperation**-object en voegt hier vervolgens drie invoegbewerkingen aan toe. Elke invoegbewerking wordt toegevoegd door het maken van een nieuw entiteitobject, de waarden ervan in te stellen en vervolgens de methode **insert** aan te roepen op het **TableBatchOperation**-object om de entiteit aan een nieuwe invoegbewerking te koppelen. Vervolgens roept u met de code **execute** aan op het **CloudTable**-object, waarbij de tabel ‘mensen’ en het **TableBatchOperation**-object worden gespecificeerd dat de batch met tabelbewerkingen in één aanvraag naar de opslagservice verstuurt.
+U kunt in één schrijfbewerking een batch entiteiten invoegen in de tabelservice. Met de volgende code maakt u een **TableBatchOperation**-object en voegt hier vervolgens drie invoegbewerkingen aan toe. Elke invoegbewerking wordt toegevoegd door het maken van een nieuw entiteitobject, de waarden ervan in te stellen en vervolgens de methode **insert** aan te roepen op het **TableBatchOperation**-object om de entiteit aan een nieuwe invoegbewerking te koppelen. Vervolgens roept u met de code **execute** aan op het **CloudTable**-object, waarbij de tabel 'mensen' en het **TableBatchOperation**-object worden gespecificeerd. Zo wordt de batch met tabelbewerkingen in één aanvraag verzonden naar de opslagservice.
 
 ```java
 try

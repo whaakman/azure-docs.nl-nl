@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277763"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844835"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -101,23 +101,29 @@ Wanneer gebruikers zich proberen aan te melden, zien ze nu de koppeling Wachtwoo
 
 Uw gebruikers vinden hulp voor het gebruik van deze functie in [Uw wachtwoord voor werk of school opnieuw instellen](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
-## <a name="common-issues"></a>Algemene problemen
+Het auditlogboek van Azure AD bevat informatie over het IP-adres en het ClientType waarvoor het wachtwoord opnieuw is ingesteld.
+
+![Voorbeeld van opnieuw instellen van wachtwoord via het aanmeldingsscherm in het auditlogboek van Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Beperkingen
 
 Wanneer u deze functie test met Hyper-V, wordt de koppeling 'Wachtwoord opnieuw instellen' niet weergegeven.
 
 * Ga naar de VM die u voor de test gebruikt, klik op **Weergave** en schakel **Uitgebreide sessie** uit.
 
-Wanneer u deze functionaliteit test met Extern bureaublad, wordt de koppeling Wachtwoord opnieuw instellen niet weergegeven.
+Wanneer u deze functionaliteit test met Extern bureaublad of een Verbeterde VM-sessie, wordt de koppeling Wachtwoord opnieuw instellen niet weergegeven.
 
 * Wachtwoordherstel wordt momenteel niet ondersteund vanaf een extern bureaublad.
 
-Als het Windows-vergrendelingsscherm is uitgeschakeld met een registersleutel of groepsbeleid, is **Wachtwoord opnieuw instellen** niet beschikbaar.
-
 Als Ctrl+Alt+Del wordt vereist door het beleid of meldingen voor het vergrendelen van het scherm zijn uitgeschakeld, werkt **Wachtwoord opnieuw instellen** niet.
 
-Het auditlogboek van Azure AD bevat informatie over het IP-adres en het ClientType waarvoor het wachtwoord opnieuw is ingesteld.
+Van de volgende beleidsinstellingen is bekend dat ze de mogelijkheid om wachtwoorden opnieuw in te stellen verstoren
 
-![Voorbeeld van opnieuw instellen van wachtwoord via het aanmeldingsscherm in het auditlogboek van Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching, indien ingesteld op ingeschakeld of 1
+   * DontDisplayLastUserName, indien ingesteld op ingeschakeld of 1
+   * NoLockScreen, indien ingesteld op ingeschakeld of 1
+   * EnableLostMode, indien ingesteld op het apparaat
+   * Explorer.exe is vervangen door een aangepaste shell
 
 Als uw Windows 10-computers zich achter een proxyserver of firewall bevinden, is HTTPS-verkeer (443) naar passwordreset.microsoftonline.com en ajax.aspnetcdn.com toegestaan.
 

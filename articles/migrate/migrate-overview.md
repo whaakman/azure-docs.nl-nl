@@ -4,15 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246732"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839731"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -36,8 +36,8 @@ Azure Migrate helpt u bij het volgende:
 - Azure Migrate biedt voor migratiebeoordeling alleen ondersteuning voor beheerde schijven.
 -  U kunt een Azure Migrate-project alleen maken in de geografie van de Verenigde Staten. U kunt echter wel een migratie plannen voor elke Azure-doellocatie.
     - Alleen gedetecteerde metagegevens uit de on-premises omgeving worden opgeslagen in de migratieprojectregio.
-    - Metagegevens worden opgeslagen in een van de regio’s in de geografie: US - west-centraal/US - oost.
-    - Als u visualisatie van afhankelijkheden gebruikt met een Log Analytics-werkruimte, wordt deze in dezelfde regio gemaakt als het project.
+    - Metagegevens worden opgeslagen in een van de regio’s in de geselecteerde geografie: US - west-centraal/US - oost.
+    - Als u visualisatie van afhankelijkheden gebruikt door een nieuwe Log Analytics-werkruimte te maken, wordt deze gemaakt in dezelfde als het project.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Waar moet ik voor betalen?
@@ -51,18 +51,18 @@ Instellingen voor evaluatie kunnen worden aangepast op basis van uw behoeften. E
 
 **Eigenschap** | **Details**
 --- | ---
-**Doellocatie** | De Azure-locatie waarnaar u wilt migreren.<br/><br/>Azure Migrate ondersteunt momenteel 30 regio's. [Regio's controleren](https://azure.microsoft.com/global-infrastructure/services/). De doellocatie is standaard ingesteld op US - west 2.
-**Opslagtype** | het type schijf dat u wilt toewijzen in Azure. Dit is van toepassing wanneer het criterium voor het aanpassen van de grootte **zoals on-premises** is. U kunt het doeltype van de schijf opgeven als Premium-beheerde schijven (basisinstelling) of Standard-beheerde schijven. Voor het aanpassen van de grootte op basis van prestaties geldt dat de aanbeveling automatisch wordt gedaan op basis van de prestatiegegevens van de virtuele machines.
-**Criterium voor het aanpassen van de grootte** | U kunt de grootte aanpassen op basis van de **prestatiegeschiedenis** van de on-premises VM's of **zoals on-premises** (standaardinstelling). Bij deze optie wordt geen rekening gehouden met de prestatiegeschiedenis.
+**Doellocatie** | De Azure-locatie waarnaar u wilt migreren.<br/><br/>Azure Migrate biedt momenteel ondersteuning voor 33 regio’s als doellocaties voor migratie. [Regio's controleren](https://azure.microsoft.com/global-infrastructure/services/). De doellocatie is standaard ingesteld op US - west 2.
+**Opslagtype** | Het type beheerde schijven dat u wilt toewijzen aan alle VM’s die onderdeel uitmaken van de evaluatie. Als het groottecriterium *aanpassen van de grootte op basis van on-premises* is, kunt u het type doelschijf opgeven als Premium-schijven (standaard), standaard-SSD-schijven of standaard-HDD-schijven. Voor *aanpassen van de grootte op basis van prestaties* hebt u, naast de bovenstaande opties, ook de optie om Automatisch te selecteren. Dit zorgt ervoor dat de aanbeveling voor het aanpassen van de schijfgrootte automatisch gebeurd op basis van de prestatiegegevens van de VM’s. Als u bijvoorbeeld een [enkel exemplaar VM SLA van 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) wilt bereiken, moet u het opslagtype opgeven als beheerde Premium-schijven. Dit zorgt ervoor dat alle schijven in de evaluatie worden aanbevolen als beheerde Premium-schijven. Houd er rekening mee dat Azure Migrate voor migratiebeoordeling alleen ondersteuning voor beheerde schijven biedt.
+**Gereserveerde instanties** |  Of u [gereserveerde instanties](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure hebt. Azure Migrate maakt dienovereenkomstig een schatting van de kosten.
+**Criterium voor het aanpassen van de grootte** | U kunt de grootte aanpassen op basis van de **prestatiegeschiedenis** van de on-premises VM's (standaard) of **als on-premises** zonder rekening te houden met de prestatiegeschiedenis.
+**Prestatiegeschiedenis** | Azure Migrate evalueert de prestaties van on-premises machines standaard aan de hand van de prestatiegeschiedenis van de afgelopen dag, met een percentielwaarde van 95%.
+**Comfortfactor** | Tijdens de evaluatie houdt Azure Migrate rekening met een buffer (comfortfactor). Deze buffer wordt toegepast boven op de gegevens over machinegebruik voor VM's (CPU, geheugen, schijf en netwerk). De comfortfactor houdt rekening met factoren zoals seizoensgebonden gebruik, een korte prestatiegeschiedenis en een mogelijke gebruikstoename in de toekomst.<br/><br/> Een VM met 10 kernen en een gebruik van 20% komt bijvoorbeeld gewoonlijk overeen met een VM met 2 kernen. Met een comfortfactor van 2,0x is het resultaat echter een VM met 4 kernen. De standaardinstelling voor comfort is 1,3x.
+**VM-reeks** | De VM-reeks die voor schattingen van grootte wordt gebruikt. Als u bijvoorbeeld een productieomgeving hebt die u niet gaat migreren naar de A-serie van virtuele machines in Azure, kunt u de A-serie uitsluiten van de lijst of reeks. Grootte is alleen gebaseerd op de geselecteerde reeks.   
+**Valuta** | Factureringsvaluta. De standaardinstelling is Amerikaanse dollars.
+**Korting (%)** | Een abonnement-specifieke korting die u bovenop de Azure-aanbieding ontvangt. De standaardinstelling is 0%.
+**VM tijd actief** | Als uw VM's niet 24 x 7 worden uitgevoerd in Azure, kunt u de duur (aantal dagen per maand en aantal uur per dag) opgeven waarin ze worden uitgevoerd. De kostenschattingen worden dan overeenkomstig berekend. De standaardwaarde is 31 dagen per maand en 24 uur per dag.
 **Azure-aanbieding** | De [Azure-aanbieding](https://azure.microsoft.com/support/legal/offer-details/) waarop u bent geregistreerd. Azure Migrate maakt dienovereenkomstig een schatting van de kosten.
 **Azure Hybrid Benefit** | Geef op of u Software Assurance hebt en in aanmerking komt voor [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) voor de korting op de kosten.
-**Gereserveerde instanties** |  Of u [gereserveerde instanties](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure hebt. Azure Migrate maakt dienovereenkomstig een schatting van de kosten.
-**VM tijd actief** | De tijdsduur waarvoor de virtuele machines in Azure worden uitgevoerd. Schattingen van de kosten worden dienovereenkomstig uitgevoerd.
-**Prijscategorie** | U kunt de [prijscategorie (Basic/Standard)](../virtual-machines/windows/sizes-general.md) van de Azure-VM's opgeven. Als u bijvoorbeeld van plan bent om een productieomgeving te migreren, doet u er waarschijnlijk goed aan te kiezen voor de categorie Standard. Hiermee beschikt u over VM's met lage latentie, maar zijn de kosten mogelijk wel hoger. U kunt aan de andere kant in een testomgeving de categorie Basic gebruiken met een hogere latentie en lagere kosten. Standaard wordt de categorie [Standaard](../virtual-machines/windows/sizes-general.md) gebruikt.
-**Prestatiegeschiedenis** | Azure Migrate evalueert de prestaties van on-premises machines standaard aan de hand van de prestatiegeschiedenis van de afgelopen dag, met een percentielwaarde van 95%.
-**VM-reeks** | De VM-reeks die voor schattingen van grootte wordt gebruikt. Als u bijvoorbeeld een productieomgeving hebt die u niet gaat migreren naar de A-serie van virtuele machines in Azure, kunt u de A-serie uitsluiten van de lijst of reeks. Grootte is alleen gebaseerd op de geselecteerde reeks.   
-**Comfortfactor** | Tijdens de evaluatie houdt Azure Migrate rekening met een buffer (comfortfactor). Deze buffer wordt toegepast boven op de gegevens over machinegebruik voor VM's (CPU, geheugen, schijf en netwerk). De comfortfactor houdt rekening met factoren zoals seizoensgebonden gebruik, een korte prestatiegeschiedenis en een mogelijke gebruikstoename in de toekomst.<br/><br/> Een VM met 10 kernen en een gebruik van 20% komt bijvoorbeeld gewoonlijk overeen met een VM met 2 kernen. Met een comfortfactor van 2,0x is het resultaat echter een VM met 4 kernen. De standaardinstelling voor comfort is 1,3x.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Hoe werkt Azure Migrate?
 

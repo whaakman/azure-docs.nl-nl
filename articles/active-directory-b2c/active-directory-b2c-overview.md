@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954095"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724023"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Wat is Azure Active Directory B2C?
 
@@ -60,9 +60,9 @@ Azure AD B2C communiceert in een bepaalde volgorde met id-providers, klanten, an
 
 Met Azure AD B2C zijn uw toepassingen beschermd tegen denial-of-service- en wachtwoordaanvallen. Azure AD B2C maakt gebruik van detectie- en risicobeperkingstechnieken zoals SYN-cookies en limieten voor snelheid en verbinding om resources te beschermen tegen denial-of-service-aanvallen. Risicobeperking wordt ook toegepast voor brute-force-wachtwoordaanvallen en dictionary-wachtwoordaanvallen.
 
-#### <a name="built-in-policies"></a>Ingebouwd beleid
+#### <a name="user-flows"></a>Gebruikersstromen
 
-Elke aanvraag die naar Azure AD B2C wordt verzonden, bevat een beleid. Een beleid bepaalt hoe uw toepassing communiceert met Azure AD B2C. Er zijn vooraf gedefinieerde ingebouwde beleidsregels voor de meest algemene identiteitstaken, zoals registratie, aanmelding en het bewerken van profielen.  Zo kunt u bijvoorbeeld een registratiebeleid definiëren door het configureren van de volgende instellingen:
+Elke aanvraag die wordt verzonden naar Azure AD B2C duidt een gebruikersstroom aan. Dit is een beleid dat bepaalt op welke manier uw toepassing met Azure AD B2C communiceert. Vooraf gedefinieerde gebruikersstromen voor de meest algemene identiteitstaken, zoals registratie, aanmelding en het bewerken van profielen, zijn beschikbaar in de Azure AD B2C-portal.  Met een registratiegebruikersstroom kunt u bijvoorbeeld gedrag bepalen door de volgende instellingen te configureren:
 
 - Social media-accounts die de klant gebruikt om zich te registreren voor de toepassing
 - Gegevens van de klant die worden gevraagd, zoals voornaam of postcode

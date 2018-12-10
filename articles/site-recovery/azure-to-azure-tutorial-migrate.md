@@ -1,30 +1,30 @@
 ---
-title: Azure IaaS VM's naar een andere Azure-regio migreren met behulp van de Azure Site Recovery-service | Microsoft Docs
-description: Azure Site Recovery gebruiken voor het migreren van virtuele Azure IaaS-machines van de ene Azure-regio naar een andere.
+title: Azure IaaS-VM's verplaatsen naar een andere Azure-regio met behulp van de Azure Site Recovery-service | Microsoft Docs
+description: Azure Site Recovery gebruiken om Azure IaaS-VM’s te verplaatsen van de ene Azure-regio naar een andere.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9ad994ad3dc1fc350a9a41c23574acfa2bae9629
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 656f58bb9864757635ab5752da6bf31320504415
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212281"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843254"
 ---
-# <a name="migrate-azure-vms-to-another-region"></a>Virtuele Azure-machines migreren naar een andere regio
+# <a name="move-azure-vms-to-another-region"></a>Virtuele Azure-machines verplaatsen naar een andere regio
 
-Behalve dat u de service [Azure Site Recovery](site-recovery-overview.md) kunt gebruiken om herstel na noodgevallen van on-premises machines en virtuele Azure-machines te beheren en te organiseren met als doel de bedrijfscontinuïteit te waarborgen, en deze service kunt gebruiken voor herstel na een noodgeval (BCDR), kunt u Site Recovery ook gebruiken om virtuele Azure-machines naar een secundaire regio te migreren. Als u virtuele Azure-machines wilt migreren, moet u replicatie voor deze machines inschakelen en er een failover voor uitvoeren naar de secundaire regio van uw keuze.
+Behalve dat u de service [Azure Site Recovery](site-recovery-overview.md) kunt gebruiken om herstel na noodgevallen van on-premises machines en Azure-VM’s te beheren en te organiseren met als doel de bedrijfscontinuïteit te waarborgen, en deze service kunt gebruiken voor herstel na een noodgeval (BCDR), kunt u Site Recovery ook gebruiken om Azure-VM’s te verplaatsen naar een secundaire regio. Als u Azure-VM’s wilt verplaatsen, moet u replicatie voor deze machines inschakelen en er een failover voor uitvoeren naar de secundaire regio van uw keuze.
 
-Deze zelfstudie laat zien hoe u virtuele Azure-machines naar een andere regio kunt migreren. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe u Azure-VM’s kunt naar een andere regio kunt verplaatsen. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een Recovery Services-kluis maken
 > * Replicatie inschakelen voor een VM
-> * Een failover uitvoeren om de virtuele machine te migreren
+> * Een failover uitvoeren om de VM te verplaatsen
 
 Voor deze zelfstudie wordt ervan uitgegaan dat u al een Azure-abonnement hebt. Als dat niet het geval is, moet u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken voordat u begint.
 
@@ -34,7 +34,7 @@ Voor deze zelfstudie wordt ervan uitgegaan dat u al een Azure-abonnement hebt. A
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Zorg ervoor dat u virtuele Azure-machines hebt in de Azure-regio waaruit u wilt migreren.
+- Zorg ervoor dat de Azure-VM’s zich bevinden in de Azure-regio waaruit u wilt verplaatsen.
 - Zorg ervoor dat u inzicht hebt in de [architectuur en onderdelen voor dit scenario](azure-to-azure-architecture.md).
 - Controleer de [beperkingen en vereisten voor ondersteuning](azure-to-azure-support-matrix.md).
 
@@ -66,12 +66,12 @@ Als u net pas uw gratis Azure-account hebt gemaakt, bent u de beheerder van uw a
 
 ### <a name="verify-vm-outbound-access"></a>Uitgaande toegang van de virtuele machine controleren
 
-1. Zorg ervoor dat u geen verificatieproxy gebruikt om de verbinding met het netwerk te beheren voor virtuele machines die u wilt migreren. 
-2. Voor deze zelfstudie gaan we ervan uit dat de virtuele machines die u wilt migreren toegang hebben tot internet en geen gebruikmaken van een firewallproxy om de uitgaande toegang te beheren. Als dat wel het geval is, moet u de vereisten [hier](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity) controleren.
+1. Zorg ervoor dat u geen verificatieproxy gebruikt om de verbinding met het netwerk te beheren voor de VM’s die u wilt verplaatsen. 
+2. In deze zelfstudie gaan we ervan uit dat de VM’s die u wilt verplaatsen, toegang hebben tot internet en geen gebruikmaken van een firewallproxy om de uitgaande toegang te beheren. Als dat wel het geval is, moet u de vereisten [hier](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity) controleren.
 
 ### <a name="verify-vm-certificates"></a>VM-certificaten controleren
 
-Controleer of de meest recente basiscertificaten aanwezig zijn op de virtuele Azure-machines die u wilt migreren. Als de meest recente basiscertificaten niet aanwezig zijn, kan de virtuele machine vanwege veiligheidsbeperkingen niet bij Site Recovery worden geregistreerd.
+Controleer of de meest recente basiscertificaten aanwezig zijn op de Azure-VM’s die u wilt verplaatsen. Als de meest recente basiscertificaten niet aanwezig zijn, kan de virtuele machine vanwege veiligheidsbeperkingen niet bij Site Recovery worden geregistreerd.
 
 - Voor Windows-VM’s moet u de meest recente Windows-updates op de VM installeren, zodat alle vertrouwde basiscertificaten op de machine aanwezig zijn. In een niet-verbonden omgeving moet u de standaardprocedures van Windows Update en de standaardprocedures voor het bijwerken van de certificaten van uw organisatie volgen.
 - Voor Linux-VM’s volgt u de richtlijnen van de Linux-distributeur voor het verkrijgen van de meest recente basiscertificaten en de certificaatintrekkingslijst op de VM.
@@ -113,7 +113,7 @@ In Site Recovery wordt een lijst opgehaald van de virtuele machines die zijn gek
 
 
 1. Klik in Azure Portal op **Virtuele machines**.
-2. Selecteer de virtuele machine die u wilt migreren. Klik vervolgens op **OK**.
+2. Selecteer de VM die u wilt verplaatsen. Klik vervolgens op **OK**.
 3. Klik bij **Instellingen** op **Herstel na noodgeval**.
 4. Selecteer in **Noodherstel configureren** > **Doelregio** de doelregio waarnaar u wilt repliceren.
 5. Accepteer voor deze zelfstudie de overige standaardinstellingen.
@@ -136,7 +136,7 @@ In Site Recovery wordt een lijst opgehaald van de virtuele machines die zijn gek
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een virtuele Azure-machine naar een andere Azure-regio gemigreerd. U kunt nu herstel na noodgevallen configureren voor de gemigreerde virtuele machine.
+In deze zelfstudie hebt u een Azure-VM verplaatst naar een andere Azure-regio. U kunt nu herstel na noodgevallen configureren voor de verplaatste VM.
 
 > [!div class="nextstepaction"]
 > [Herstel na noodgeval instellen na een migratie](azure-to-azure-quickstart.md)

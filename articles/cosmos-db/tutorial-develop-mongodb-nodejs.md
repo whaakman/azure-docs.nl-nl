@@ -1,10 +1,8 @@
 ---
-title: Zelfstudie voor MongoDB, Angular en Node voor Azure | Microsoft Docs
+title: Zelfstudie voor MongoDB, Angular en Node voor Azure
 description: Leer aan de hand van deze reeks zelfstudies op video een MongoDB-app maken met Angular en Node op Azure Cosmos DB met precies dezelfde APIs die u gebruikt voor MongoDB.
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,18 +10,18 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 1a9d608e7f959b3fc164f87d408ccd268e8d2568
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 300ed850b0abd567fc3a2111a8d41dcb0a9e6d24
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41924757"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866614"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB 
 
 In deze meerdelige zelfstudie leert u hoe u een nieuwe [MongoDB API](mongodb-introduction.md)-app maakt met Express, Angular en Node.js (de MEAN-stack), waarna u de app verbinding laat maken met uw Azure Cosmos DB-database. Azure Cosmos DB ondersteunt MongoDB-clientverbindingen, zodat u Azure Cosmos DB kunt gebruiken in plaats van MongoDB, met dezelfde code die u gebruikt voor MongoDB-apps, maar met extra voordelen. Deze voordelen van Azure Cosmos DB zijn eenvoudige cloudimplementatie, schaling, beveiliging, globaal gerepliceerde gegevens, ondersteuning van meerdere modellen en supersnel lezen en schrijven. 
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt er snel databases mee maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de globaal gedistribueerde multimodeldatabaseservice van Microsoft. U kunt er snel databases mee maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
 Deze meerdelige zelfstudie behandelt de volgende taken:
 

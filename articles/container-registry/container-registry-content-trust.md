@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857666"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727327"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Inhoud vertrouwen in Azure Container Registry
 
@@ -77,7 +77,7 @@ Detailinformatie over het verlenen van de rol `AcrImageSigner` in Azure Portal e
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Navigeer naar het register in Azure Portal en selecteer vervolgens **Toegangsbeheer (IAM)** > **Toevoegen**. Selecteer, onder **Machtigingen toevoegen**, de rol `AcrImageSigner` onder **Rol**. **Selecteer** vervolgens een of meer gebruikers of service-principals, en klik op **Opslaan**.
+Navigeer naar het register in de Azure-portal en selecteer **Toegangsbeheer (IAM)** > **Roltoewijzing toevoegen**. Selecteer onder **Roltoewijzing toevoegen** de rol `AcrImageSigner` onder **Rol**. **Selecteer** vervolgens een of meer gebruikers of service-principals en klik op **Opslaan**.
 
 In dit voorbeeld is de rol `AcrImageSigner` toegewezen aan twee entiteiten: een service-principal met de naam 'service-principal' en een gebruiker met de naam 'Azure User'.
 

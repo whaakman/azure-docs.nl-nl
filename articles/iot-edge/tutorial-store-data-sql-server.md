@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442961"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833990"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: gegevens opslaan aan de rand met SQL Server-databases
 
@@ -36,7 +36,7 @@ In deze zelfstudie leert u het volgende:
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
+* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md). 
 
 Cloudresources:
 
@@ -97,9 +97,13 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
    | Een modulenaam opgeven | Noem uw module **sqlFunction**. |
    | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerafbeelding wordt vooraf gevuld vanuit de laatste stap. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. De uiteindelijke tekenreeks ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/sqlFunction. |
 
-   In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen: een map \.vscode, een map modules, een sjabloonbestand voor het distributiemanifest en een \.env-bestand. 
+   In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen. 
    
-4. Als u een nieuwe IoT Edge-oplossing maakt, wordt u via VS Code gevraagd om uw registerreferenties op te geven in het \.env-bestand. Het bestand wordt genegeerd in Git, en wordt later met de IoT Edge-extensie gebruikt voor registertoegang tot uw IoT Edge-apparaat. Open het \.env-bestand. 
+4. Open het \.ENV-bestand in de werkruimte van uw IoT Edge-oplossing. 
+
+   Als u een nieuwe IoT Edge-oplossing maakt, wordt u via VS Code gevraagd om uw registerreferenties op te geven in het \.env-bestand. Het bestand wordt genegeerd in Git, en wordt later met de IoT Edge-extensie gebruikt voor registertoegang tot uw IoT Edge-apparaat. 
+
+   Als u in de vorige stap niet uw containerregister hebt opgeven, maar de standaardinstelling localhost:5000 hebt geaccepteerd, hebt u geen \.ENV-bestand.
 
 5. Geef in het bestand deployment.template.json de IoT Edge runtime uw registerreferenties, zodat deze toegang heeft tot uw module-installatiekopieën. Zoek de secties **CONTAINER_REGISTRY_USERNAME** en **CONTAINER_REGISTRY_PASSWORD** op en voeg uw referenties toe na het gelijkteken: 
 
@@ -207,6 +211,16 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
 
 7. Sla het bestand **sqlFunction.cs** op. 
 
+8. Open het bestand **sqlFunction.csproj**.
+
+9. Zoek de groep met pakketverwijzingen en voeg een nieuwe toe voor SqlClient. 
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+10. Sla het bestand **sqlFunction.csproj** op.
+
 ## <a name="add-a-sql-server-container"></a>Een SQL Server-container toevoegen
 
 Een [distributiemanifest](module-composition.md) declareert welke modules de IoT Edge-runtime op uw IoT Edge-apparaat zal installeren. U hebt de code voor het maken van een ​​aangepaste functiemodule in de vorige sectie opgegeven, maar de SQL Server-module is al gebouwd. U hoeft alleen aan de IoT Edge-runtime op te geven dat het deze module moet opnemen, en die vervolgens op uw apparaat te configureren. 
@@ -225,15 +239,15 @@ Een [distributiemanifest](module-composition.md) declareert welke modules de IoT
 
    ```json
    "sql": {
-       "version": "1.0",
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always",
-       "env":{},
-       "settings": {
-           "image": "",
-           "createOptions": ""
-       }
+     "version": "1.0",
+     "type": "docker",
+     "status": "running",
+     "restartPolicy": "always",
+     "env":{},
+     "settings": {
+       "image": "",
+       "createOptions": ""
+     }
    }
    ```
 
@@ -244,19 +258,19 @@ Een [distributiemanifest](module-composition.md) declareert welke modules de IoT
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "microsoft/mssql-server-windows-developer",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "microsoft/mssql-server-windows-developer",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -264,19 +278,19 @@ Een [distributiemanifest](module-composition.md) declareert welke modules de IoT
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "mcr.microsoft.com/mssql/server:latest",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "mcr.microsoft.com/mssql/server:latest",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -322,11 +336,11 @@ U kunt modules op een apparaat instellen via de IoT Hub, maar u hebt ook toegang
 
    ![Implementatie voor één apparaat maken](./media/tutorial-store-data-sql-server/create-deployment.png)
 
-6. Ga in de bestandsverkenner naar de map **config** in uw oplossing en kies **deployment.json**. Klik op **Edge-distributiemanifest selecteren**. 
+6. Ga in de bestandsverkenner naar de map **config** in uw oplossing en kies **deployment.amd64**. Klik op **Edge-distributiemanifest selecteren**. 
 
-Als de implementatie is geslaagd, wordt er een bevestigingsbericht afgedrukt in de VS Code-uitvoer. 
+Als de implementatie is geslaagd, wordt er een bevestigingsbericht weergegeven in de VS Code-uitvoer. 
 
-U kunt ook controleren of alle modules op uw apparaat actief zijn. Voer op uw IoT Edge-apparaat de volgende opdracht uit om de status van de modules te bekijken. Dit kan enkele minuten duren.
+Vernieuw de status van uw apparaat in de sectie Azure IoT Hub-apparaten van VS Code. De nieuwe modules worden weergegeven en beginnen met rapporteren gedurende de volgende minuten waarin de containers worden geïnstalleerd en gestart. U kunt ook controleren of alle modules op uw apparaat actief zijn. Voer op uw IoT Edge-apparaat de volgende opdracht uit om de status van de modules te bekijken. 
 
    ```cmd/sh
    iotedge list
@@ -334,11 +348,11 @@ U kunt ook controleren of alle modules op uw apparaat actief zijn. Voer op uw Io
 
 ## <a name="create-the-sql-database"></a>De SQL-database maken
 
-Wanneer u het distributiemanifest op uw apparaat toepast, krijgt u drie modules die worden uitgevoerd. De module tempSensor genereert gesimuleerde omgevingsgegevens. De module sqlFunction neemt de gegevens en deelt deze in voor een database. 
+Wanneer u het distributiemanifest op uw apparaat toepast, krijgt u drie modules die worden uitgevoerd. De module tempSensor genereert gesimuleerde omgevingsgegevens. De module sqlFunction neemt de gegevens en deelt deze in voor een database. Deze sectie leidt u door het instellen van de SQL-database voor het opslaan van de temperatuurgegevens. 
 
-Deze sectie leidt u door het instellen van de SQL-database voor het opslaan van de temperatuurgegevens. 
+Voer de volgende opdrachten uit op uw IoT Edge-apparaat. Met deze opdrachten wordt verbinding gemaakt met de **sql**-module die wordt uitgevoerd op uw apparaat en worden er een database en een tabel gemaakt voor de opslag van de temperatuurgegevens die naar de module worden verzonden. 
 
-1. Gebruik een opdrachtregelprogramma om verbinding te maken met uw database. 
+1. Gebruik een opdrachtregelprogramma op uw IoT Edge-apparaat om verbinding te maken met uw database. 
    * Windows-container:
    
       ```cmd

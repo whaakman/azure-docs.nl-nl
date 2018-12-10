@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c82e0cd5bd6a15ff33f51b4e88f68c13080f595d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f617be79cb61932f79728feef76f056ce72ae0ab
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967962"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891126"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Zelfstudie: Een Service Fabric-toepassing upgraden die wordt uitgevoerd in Service Fabric Mesh
 
@@ -47,7 +47,7 @@ Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, kunt u een [gratis account maken](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
-* Open [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md) of [installeer de Azure CLI en Azure Service Fabric Mesh CLI lokaal](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* Open [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md) of [installeer de Azure CLI en Azure Service Fabric Mesh CLI lokaal](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="upgrade-application-configurations"></a>Toepassingsconfiguraties upgraden
 
@@ -59,7 +59,7 @@ In deze zelfstudie wordt het voorbeeld To Do List gebruikt. Dit voorbeeld is [ee
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-In de implementatiesjabloon voor de toepassingsresource heeft elke service een eigenschap *cpu* die kan worden gebruikt om de aangevraagde CPU-bronnen in te stellen. Een toepassing kan bestaan uit meerdere services, waarbij elke service een unieke *cpu*-instelling heeft, die samen worden geïmplementeerd en beheerd. Als u de CPU-bronnen van de web-front-endservice wilt uitbreiden, wijzigt u de waarde *cpu* in de implementatiesjabloon of het parameterbestand.  Vervolgens voert u een upgrade van de toepassing uit.
+In de implementatiesjabloon voor de toepassingsresource heeft elke service een eigenschap *cpu* die kan worden gebruikt om de aangevraagde CPU-bronnen in te stellen. Een toepassing kan bestaan uit meerdere services, waarbij elke service een unieke *cpu*-instelling heeft, die samen worden geïmplementeerd en beheerd. Als u de CPU-bronnen van de web-front-endservice wilt uitbreiden, wijzigt u de waarde *cpue* in de implementatiesjabloon of het parameterbestand.  Vervolgens voert u een upgrade van de toepassing uit.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Parameters van implementatiesjabloon wijzigen
 
