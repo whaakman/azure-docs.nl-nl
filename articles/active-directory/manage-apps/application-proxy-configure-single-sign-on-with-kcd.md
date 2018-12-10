@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422280"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136237"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
 
@@ -75,7 +75,7 @@ De Active Directory-configuratie varieert, afhankelijk van of de toepassingsserv
 Sharepointserviceaccount mag het computeraccount SP's of een service-account waarmee de app-pool van SP's wordt uitgevoerd.
 
 ## <a name="configure-single-sign-on"></a>Eenmalige aanmelding configureren 
-1. Publiceer de toepassing op basis van de instructies die worden beschreven [publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md). Zorg ervoor dat u selecteert **Azure Active Directory** als de **vooraf-verificatie methode**.
+1. Publiceer de toepassing op basis van de instructies die worden beschreven [publiceren van toepassingen met toepassingsproxy](application-proxy-add-on-premises-application.md). Zorg ervoor dat u selecteert **Azure Active Directory** als de **vooraf-verificatie methode**.
 2. Nadat uw toepassing wordt weergegeven in de lijst van zakelijke toepassingen, selecteert u deze en klikt u op **eenmalige aanmelding**.
 3. De modus voor één aanmelding instellen op **geïntegreerde Windows-verificatie**.  
 4. Voer de **SPN voor interne toepassing** van de toepassingsserver. In dit voorbeeld is de SPN voor de gepubliceerde toepassing http/www.contoso.com. Deze SPN moet zich in de lijst met services die de connector gedelegeerde referenties kan presenteren. 

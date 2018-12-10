@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: c219b2fb58d46d9280ef5c022140e0499e3ac54c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 81a3064290e0aa720a4fe6b0fa0d8eb13cfe6903
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347690"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141795"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Kan geen extern bureaublad naar Azure Virtual Machines vanwege statisch IP-adres
 
 In dit artikel beschrijft een probleem waarbij u kunt geen extern bureaublad naar Azure Windows Virtual Machines (VM's) nadat een statisch IP-adres is geconfigureerd in de virtuele machine.
 
-> [!NOTE] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel. 
+> [!NOTE]
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
 
-## <a name="symptoms"></a>Symptomen 
+## <a name="symptoms"></a>Symptomen
 
 Wanneer u een RDP-verbinding met een virtuele machine in Azure maakt, ontvangt u de volgende strekking weergegeven:
 
@@ -47,7 +47,7 @@ Wanneer u de schermafbeelding controleren in de [diagnostische gegevens over ops
 
 De virtuele machine heeft een statisch IP-adres dat gedefinieerd in de netwerkinterface in Windows. Dit IP-adres verschilt van het adres dat gedefinieerd in de Azure-portal.
 
-## <a name="solution"></a>Oplossing 
+## <a name="solution"></a>Oplossing
 
 Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de besturingssysteemschijf van de betrokken virtuele machine als een back-up. Zie voor meer informatie, [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
 
@@ -55,7 +55,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
 ### <a name="use-serial-control"></a>Seriële besturingselement gebruiken
 
-1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Als de seriële Console is niet ingeschakeld op de virtuele machine, Zie [opnieuw instellen van de netwerkinterface](reset-network-interface.md).
 2. Controleer als de DHCP is uitgeschakeld op de netwerkinterface:
 
@@ -63,7 +63,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 3. Als de DHCP is uitgeschakeld, kunt u de configuratie van de netwerkinterface op het gebruik van DHCP ongedaan maken:
 
         netsh interface ip set address name="<NIC Name>" source=dhc
-        
+
     Bijvoorbeeld, als de interwork interface namen 'Ethernet 2', voer de volgende opdracht:
 
         netsh interface ip set address name="Ethernet 2" source=dhc

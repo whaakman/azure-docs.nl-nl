@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622630"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139021"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publiceren van toepassingen op afzonderlijke netwerken en locaties met behulp van connectorgroepen
 
@@ -32,7 +32,7 @@ Alle toepassingen zijn toegewezen aan een connectorgroep. Als u geen groepen mak
 >Als u een grote Application Proxy-implementatie hebt, niet alle toepassingen aan de standaard-connector-groep toewijzen. Op die manier kunnen nieuwe connectors niet live verkeer niet ontvangen totdat u ze aan een connectorgroep actieve toewijzen. Deze configuratie kunt u connectors plaatsen in een niet-actieve modus door terug verplaatsen naar de standaard-groep, zodat u onderhoud uitvoeren kunt zonder gevolgen voor uw gebruikers.
 
 ## <a name="prerequisites"></a>Vereisten
-Als u wilt groeperen uw connectors, die u hebt om te controleren of u [geïnstalleerd meerdere connectors](application-proxy-enable.md). Wanneer u een nieuwe connector installeert, wordt automatisch lid wordt van de **standaard** connectorgroep.
+Als u wilt groeperen uw connectors, die u hebt om te controleren of u [geïnstalleerd meerdere connectors](application-proxy-add-on-premises-application.md). Wanneer u een nieuwe connector installeert, wordt automatisch lid wordt van de **standaard** connectorgroep.
 
 ## <a name="create-connector-groups"></a>Connectorgroepen maken
 Gebruik deze stappen om zoveel connectorgroepen als u wilt maken. 

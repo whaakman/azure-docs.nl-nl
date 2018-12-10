@@ -1,5 +1,5 @@
 ---
-title: IPsec-transportmodus configureren voor Windows-hosts – Azure ExpressRoute-privépeering | Microsoft Docs
+title: 'IPsec-transportmodus voor Windows-hosts privé-peering configureren: ExpressRoute: Azure | Microsoft Docs'
 description: Klik hier voor meer informatie over het inschakelen van IPsec-transportmodus tussen Azure Windows VM's en on-premises Windows-hosts via ExpressRoute persoonlijke peering met behulp van groepsbeleidsobjecten en organisatie-eenheden.
 services: expressroute
 author: fabferri
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
-ms.openlocfilehash: 1b228f0238c678c0cea4a6be2a6c3e0b929ed4d6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394323"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139110"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>IPsec-transportmodus voor ExpressRoute-privépeering configureren
 

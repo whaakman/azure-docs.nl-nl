@@ -1,5 +1,5 @@
 ---
-title: In de luchtvaart met Azure - technische handleiding voor Cortana Intelligence-oplossing voor voorspeld onderhoud | Microsoft Docs
+title: Handleiding voor Voorspellend onderhoud voor lucht-en ruimtevaart - Team Data Science Process
 description: Een technische handleiding voor de sjabloon met Microsoft Cortana Intelligence-oplossing voor predictief onderhoud in de lucht-en ruimtevaart, hulpprogramma's en transport.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: d5f6934385d616390baf336404ddd79d4bc2a490
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965433"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140180"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de lucht-en ruimtevaart en andere bedrijven
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de luchtvaart
 
 >[!Important]
 In dit artikel is afgeschaft. De discussie over Voorspellend onderhoud in de luchtvaart is nog steeds relevant zijn, maar voor actuele informatie, raadpleeg dan [overzicht van de oplossing voor zakelijke doelgroepen](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).

@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282512"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140843"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -51,7 +51,7 @@ In dit artikel is bedoeld voor mensen die een app met dit scenario voor het eers
 
 Als u al hebt van de toepassingsproxy is ingeschakeld, en een connector is geïnstalleerd, kunt u deze sectie overslaan en verplaatsen naar [toevoegen aan uw app naar Azure AD met Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
-De Application Proxy-connector is een Windows Server-service die zorgt ervoor het verkeer van uw externe medewerkers naar uw gepubliceerde apps dat. Zie voor meer installatie-instructies gedetailleerde, [toepassingsproxy inschakelen in Azure portal](application-proxy-enable.md).
+De Application Proxy-connector is een Windows Server-service die zorgt ervoor het verkeer van uw externe medewerkers naar uw gepubliceerde apps dat. Zie voor meer installatie-instructies gedetailleerde, [toepassingsproxy inschakelen in Azure portal](application-proxy-add-on-premises-application.md).
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als globale beheerder.
 2. Selecteer **Azure Active Directory** > **toepassingsproxy**.
@@ -66,7 +66,7 @@ De Application Proxy-connector is een Windows Server-service die zorgt ervoor he
 
 Er zijn twee acties die u moet uitvoeren in Azure portal. Eerst moet u uw toepassing met Application Proxy publiceren. Vervolgens moet u enkele gegevens over de app die u tijdens de stappen PingAccess gebruiken kunt verzamelen.
 
-Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd overzicht van de stappen 1-8, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md).
+Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd overzicht van de stappen 1-8, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md).
 
 1. Als u niet hebt gedaan in de laatste sectie, aanmelden bij de [Azure-portal](https://portal.azure.com) als globale beheerder.
 2. Selecteer **Azure Active Directory** > **bedrijfstoepassingen**.

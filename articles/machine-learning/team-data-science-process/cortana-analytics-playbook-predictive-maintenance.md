@@ -1,5 +1,5 @@
 ---
-title: Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud | Microsoft Docs
+title: Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud - Team Data Science Process
 description: Een uitgebreide beschrijving van de wetenschap dat wordt gebruikt door oplossingen voor Voorspellend onderhoud in meerdere verticale industrieën.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 1538357a744e4a2c885b6552ca94efc6642d2880
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: 8d2a16047a741daf484d6ccdc48453d49355d443
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444916"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135679"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -289,11 +289,11 @@ Meerdere klasse classificatietechnieken kunnen worden gebruikt in PdM oplossinge
 #### <a name="label-construction-for-multi-class-classification"></a>Label-constructie voor ROC-classificatie
 De vraag hier is: "Wat is de kans dat een asset niet wordt in de volgende _nZ_ tijdseenheden waar _n_ is het aantal perioden?" Als u wilt deze vraag te beantwoorden, een label nZ records vóór de fout van een asset met behulp van buckets van tijd (3Z, 2Z, Z). Label alle andere records "normale" (label = 0). Bij deze methode hoeft de doelvariabele bevat _categorische_ waarden. (Zie afbeelding 5).
 
-![Afbeelding 5. Labels voor multiklassen classificatie voor fout tijd voorspelling](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) afbeelding 5. Labels voor classificatie ROC voor fout tijd voorspelling
+![Afbeelding 5. Fout tijd voorspelling labels voor multiklassen classificatie](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) afbeelding 5. Labels voor classificatie ROC voor fout tijd voorspelling
 
 De vraag hier is: "Wat is de kans dat de asset niet wordt in de volgende X-tijdseenheid vanwege hoofdmap oorzaak/probleem _P<sub>ik</sub>_?" waar _ik_ is het aantal mogelijke oorzaken. Beantwoord deze vraag, label X records vóór de fout van een asset als ' over mislukken vanwege hoofdoorzaak _P<sub>ik</sub>_' (label = _P<sub>ik</sub>_). Label alle records als zijnde "normale" (label = 0). In deze methode zijn labels ook categorische (Zie afbeelding 6).
 
-![Afbeelding 6. Labels voor multiklassen classificatie voor hoofdmap oorzaak voorspelling](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) afbeelding 6. Labels voor classificatie ROC voor hoofdmap oorzaak voorspelling
+![Afbeelding 6. Hoofdoorzaak voorspelling labels voor multiklassen classificatie](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) afbeelding 6. Labels voor classificatie ROC voor hoofdmap oorzaak voorspelling
 
 Het model wordt de kans op mislukte vanwege elk toegewezen _P<sub>ik</sub>_  en de kans op fouten. Deze kansen kunnen worden besteld door magnitude om toe te staan voorspelling van de problemen die zijn ondergebracht in de toekomst.
 
@@ -409,7 +409,7 @@ Daarentegen PdM omvat _batchscore_. Om te voldoen aan de handtekening van het mo
 
 Het laatste gedeelte van deze handleiding bevat een lijst van PdM oplossingssjablonen, zelfstudies en experimenten die zijn geïmplementeerd in Azure. Deze toepassingen PdM kunnen worden geïmplementeerd in een Azure-abonnement binnen enkele minuten in sommige gevallen. Ze kunnen worden gebruikt als proof of concept demo's, sandboxes om te experimenteren met alternatieven of accelerators voor daadwerkelijke productie-implementaties. Deze sjablonen bevinden zich in de [Azure AI Gallery](http://gallery.azure.ai) of [Azure GitHub](https://github.com/Azure). Deze verschillende voorbeelden zal worden opgenomen in deze oplossingssjabloon na verloop van tijd.
 
-| # | Titel | Beschrijving |
+| # | Titel | Description |
 |--:|:------|-------------|
 | 2 | [De sjabloon voor Voorspellend onderhoud van Azure-oplossing](https://github.com/Azure/AI-PredictiveMaintenance) | Een sjabloon voor open-source oplossing die laat zien van ML-modellen en een volledige Azure-infrastructuur kan ondersteunen van scenario's voor Voorspellend onderhoud in de context van het externe controle IoT. |
 | 3 | [Deep Learning voor Predictief onderhoud](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure-notitieblok met een demo-oplossing van het gebruik van LSTM (lange termijn geheugen)-netwerken (een klasse van terugkerende Neurale netwerken) voor Voorspellend onderhoud, met een [blogbericht op dit voorbeeld](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|

@@ -1,6 +1,6 @@
 ---
-title: Uitvoering van wetenschappelijke gegevensprojecten - Azure Machine Learning | Microsoft Docs
-description: Een gegevenswetenschapper kunt hoe de voortgang van een data science-project te volgen.
+title: De voortgang van de data science-projecten - Team Data Science Process
+description: Hoe data science groepsbeheerders, lease-team en leads project kunnen de voortgang van een data science-project te volgen.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441465"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134298"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Voortgang van de data science-projecten volgen
+# <a name="tracking-the-progress-of-data-science-projects"></a>De voortgang van de data science-projecten
 
 Groepsbeheerders voor Data science, team leads en project leads nodig om de voortgang van hun projecten te houden, welke werk is uitgevoerd op deze en door wie en blijft op de to-do-lijsten. 
 

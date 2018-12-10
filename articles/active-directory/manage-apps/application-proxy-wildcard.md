@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 638ae4c779af3bebb68622ccee6932618d42e4f0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057105"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140044"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Wildcard-toepassingen in de Azure Active Directory-toepassingsproxy 
 
@@ -49,7 +49,7 @@ Bijvoorbeeld: `http(s)://*.adventure-works.com`. De interne en externe URL's kun
 
 Als u aanvullende toepassingen met verschillende configuratie-instellingen hebt, moet u deze uitzonderingen publiceren als afzonderlijke toepassingen te overschrijven de standaardinstellingen voor het jokerteken. Toepassingen zonder een jokerteken altijd voorrang op wildcard-toepassingen. Dit zijn "net" reguliere toepassingen vanuit het perspectief configuratie.
 
-Het maken van een jokertekentoepassing is gebaseerd op dezelfde [toepassing publiceren stroom](application-proxy-publish-azure-portal.md) die is beschikbaar voor alle andere toepassingen. Het enige verschil is dat u een jokerteken in de URL's en mogelijk de SSO-configuratie opnemen.
+Het maken van een jokertekentoepassing is gebaseerd op dezelfde [toepassing publiceren stroom](application-proxy-add-on-premises-application.md) die is beschikbaar voor alle andere toepassingen. Het enige verschil is dat u een jokerteken in de URL's en mogelijk de SSO-configuratie opnemen.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -137,7 +137,7 @@ Alle drie de toepassingen:
 - Hebben de dezelfde eigenschappen
 
 
-U kunt het jokerteken toepassingen publiceren met de stappen in [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). In dit scenario wordt ervan uitgegaan dat:
+U kunt het jokerteken toepassingen publiceren met de stappen in [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md). In dit scenario wordt ervan uitgegaan dat:
 
 - Een tenant met de volgende ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -145,7 +145,7 @@ U kunt het jokerteken toepassingen publiceren met de stappen in [toepassingen pu
 
 - Een **CNAME** vermelding die verwijst `*.adventure-works.com` naar `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` is gemaakt.
 
-Na de [beschreven stappen](application-proxy-publish-azure-portal.md), u een nieuwe application proxy-toepassing maken in uw tenant. In dit voorbeeld is het jokerteken in de volgende velden:
+Na de [beschreven stappen](application-proxy-add-on-premises-application.md), u een nieuwe application proxy-toepassing maken in uw tenant. In dit voorbeeld is het jokerteken in de volgende velden:
 
 - Interne URL:
 
@@ -168,7 +168,7 @@ De configuratie implementeert de volgende structuur:
 
 ![toepassings-id](./media/application-proxy-wildcard/05.png)
 
-| Kleur | Beschrijving |
+| Kleur | Description |
 | ---   | ---         |
 | Blauw  | Toepassingen expliciet gepubliceerd en weergegeven in de Azure-Portal. |
 | Grijs  | Toepassingen kunt u toegankelijk zijn via de bovenliggende toepassing. |
@@ -184,7 +184,7 @@ In dit scenario hebt u bovendien voor de drie algemene toepassingen een andere t
 
 U moet ervoor zorgen dat een CNAME-records aanwezig zijn die verwijst `finance.adventure-works.com` aan de specifieke eindpunt van de toepassing, opgegeven op de pagina Application Proxy voor de toepassing. Voor dit scenario `finance.adventure-works.com` verwijst naar `https://finance-awcycles.msappproxy.net/`. 
 
-Na de [beschreven stappen](application-proxy-publish-azure-portal.md), in dit scenario vereist de volgende instellingen:
+Na de [beschreven stappen](application-proxy-add-on-premises-application.md), in dit scenario vereist de volgende instellingen:
 
 
 - In de **interne URL**, u **financiën** in plaats van een jokerteken. 
@@ -215,6 +215,6 @@ Voor meer informatie over:
 
 - **Aangepaste domeinen**, Zie [werken met aangepaste domeinen in Azure AD-toepassingsproxy](application-proxy-configure-custom-domain.md).
 
-- **Publiceren van toepassingen**, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md)
+- **Publiceren van toepassingen**, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md)
 
 

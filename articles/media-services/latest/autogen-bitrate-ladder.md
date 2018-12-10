@@ -1,6 +1,6 @@
 ---
-title: De codering-standaard in Azure Media Services gebruiken om te coderen, video's met behulp van een automatisch gegenereerde bitrateladder | Microsoft Docs
-description: In dit onderwerp laat zien hoe de codering-standaard in Media Services gebruiken om te coderen invoer video met een automatisch gegenereerde bitrateladder, op basis van de invoerresolutie en de bitsnelheid. De invoerresolutie en bitrate wordt nooit worden overschreden. Bijvoorbeeld, als de invoer 720p op 3 Mbps, uitvoer wordt met de beste 720p blijven, en tarieven lager is dan 3 Mbps wordt gestart.
+title: Coderen, video's met codering-standaard in Media Services - Azure | Microsoft Docs
+description: In dit onderwerp laat zien hoe de codering-standaard in Media Services gebruiken om te coderen invoer video met een automatisch gegenereerde bitrateladder, op basis van de invoerresolutie en de bitsnelheid.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 976e1ea013c6a30615bdc742ed79e76ec35258a1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378955"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132803"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Coderen met een automatisch gegenereerde bitrateladder
 

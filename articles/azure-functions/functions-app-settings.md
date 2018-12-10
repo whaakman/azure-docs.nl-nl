@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965851"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138242"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
@@ -172,6 +172,48 @@ Hiermee kunt uw functie-app om uit te voeren vanuit een gekoppelde pakketbestand
 |WEBSITE\_UITVOEREN\_FROM\_PAKKET|1|
 
 Geldige waarden zijn een URL die wordt omgezet naar de locatie van een pakketbestand implementatie of `1`. Als de waarde `1`, het pakket moet zich in de `d:\home\data\SitePackages` map. Wanneer u zip-implementatie met deze instelling gebruikt, wordt het pakket automatisch geüpload naar deze locatie. In preview, deze instelling is de naam `WEBSITE_RUN_FROM_ZIP`. Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand](run-functions-from-deployment-package.md).
+
+## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+Standaard wordt Functions-proxy's gebruikmaken van een snelkoppeling naar de API-aanroepen van proxy's rechtstreeks naar de functies in dezelfde functie-App, in plaats van het maken van een nieuwe HTTP-aanvraag verzonden. Deze instelling kunt u uitschakelen dat gedrag.
+
+|Sleutel|Waarde|Description|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Aanroepen met een back-end-url die verwijst naar een functie in de lokale functie wordt niet meer rechtstreeks naar de functie worden verzonden en wordt in plaats daarvan worden omgeleid naar de HTTP-front-end voor de functie-App|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Dit is de standaardwaarde. Aanroepen met een back-end-url die verwijst naar een functie van de lokale functie-App wordt rechtstreeks naar deze functie worden doorgestuurd|
+
+
+## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+Deze instelling wordt bepaald of % 2F is gedecodeerd als slashes in de Routeparameters wanneer ze in de back-end-URL worden ingevoegd. 
+
+|Sleutel|Waarde|Description|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Parameters voor route met gecodeerde slashes hebben ze ontsleuteld. `example.com/api%2ftest` wordt `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Dit is de standaardinstelling. Alle route parameters worden doorgegeven ongewijzigd|
+
+### <a name="example"></a>Voorbeeld
+
+Hier volgt een voorbeeld van de proxies.json in een functie-app op de URL-myfunction.com
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|URL-decodering|Invoer|Uitvoer|
+|-|-|-|
+|true|myFunction.com/test%2fapi|example.com/test/API
+|false|myFunction.com/test%2fapi|example.com/test%2fapi|
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

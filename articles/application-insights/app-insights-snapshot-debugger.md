@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 11e9099ba9008ead6583eaf30292cdec63475f02
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a92b54a80de645dda8ea0cc0259bd07f72330204
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994257"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136712"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-apps
 
@@ -68,7 +68,7 @@ De volgende omgevingen worden ondersteund:
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
-        <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
+        <SnapshotsPerTenMinutesLimit>3</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
         <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
@@ -455,7 +455,7 @@ Of, als u appsettings.json met een .NET Core-toepassing:
 Wanneer een momentopname wordt gemaakt, is de activerend uitzondering gemarkeerd met een momentopname-ID. Deze momentopname-ID is opgenomen als een aangepaste eigenschap wanneer de uitzonderingstelemetrie naar Application Insights wordt gemeld. Met behulp van **zoeken** in Application Insights, vindt u alle telemetrie met de `ai.snapshot.id` aangepaste eigenschap.
 
 1. Blader naar uw Application Insights-resource in Azure portal.
-2. Klik op **zoeken**.
+2. Klik op **Zoeken**.
 3. Type `ai.snapshot.id` in het zoekvak en druk op Enter.
 
 ![Zoek telemetrie met een momentopname-ID in de portal](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)

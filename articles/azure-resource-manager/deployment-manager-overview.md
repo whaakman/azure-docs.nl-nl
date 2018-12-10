@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure Deployment Manager | Microsoft Docs
-description: Hierin wordt beschreven hoe u een service via een groot aantal regio's met Azure Deployment Manager implementeren
+title: Veilige implementatiemethoden in regio's - Azure Deployment Manager
+description: Beschrijft hoe u een service implementeren via een groot aantal regio's met Azure Deployment Manager. Hier ziet u veilige implementatiemethoden om te controleren of de stabiliteit van uw implementatie te bevestigen voordat het uitrollen van naar alle regio's.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427298"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138344"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (Private Preview) inschakelen
 
@@ -35,7 +36,7 @@ Deployment Manager wilt gebruiken, moet u vier bestanden maken:
 
 U implementeren de sjabloon topologie voordat u de implementatie-sjabloon implementeert.
 
-De Azure Deployment Manager REST API-verwijzing vindt [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
+De Azure Deployment Manager REST API-verwijzing vindt u [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## <a name="supported-locations"></a>Ondersteunde locaties
 

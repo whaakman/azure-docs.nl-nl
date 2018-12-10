@@ -1,26 +1,21 @@
 ---
-title: Azure Cosmos DB beheren in Azure Storage Explorer
-description: Leer Azure Cosmos DB beheren in Azure Storage Explorer.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Beheren van Azure Cosmos DB-resources met behulp van Azure Storage Explorer
+description: Leer hoe u verbinding maken met Azure Cosmos DB en de daarbij behorende bronnen beheren met behulp van Azure Storage Explorer.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162392"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138123"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Cosmos DB beheren in Azure Storage Explorer
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Beheren van Azure Cosmos DB-resources met behulp van Azure Storage Explorer
 
 Het gebruik van Azure Cosmos DB in Azure Storage Explorer stelt gebruikers in staat om Azure Cosmos DB entiteiten te beheren, gegevens te manipuleren, en opgeslagen procedures en triggers bij te werken samen met andere Azure entiteiten zoals opslagblobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren. Op dit moment ondersteunt Azure Storage Explorer SQL-, MongoDB-, Graph- en Table-accounts.
 
@@ -242,8 +237,8 @@ Als u met behulp van de bovenstaande stappen geen zelfondertekende certificaten 
 
 Als u uw abonnementen niet kunt ophalen nadat u zich hebt aangemeld:
 
-- Controleer of uw account toegang heeft tot de abonnementen door u aan te melden bij [Azure Portal](http://portal.azure.com/)
-- Zorg ervoor dat u bent aangemeld via de juiste omgeving ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Duitsland](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/) of Aangepaste omgeving/Microsoft Azure Stack)
+- Controleer of uw account toegang heeft tot de abonnementen door u aan te melden bij [Azure Portal](https://portal.azure.com/)
+- Zorg ervoor dat u bent aangemeld via de juiste omgeving ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Duitsland](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) of Aangepaste omgeving/Microsoft Azure Stack)
 - Als u zich achter een proxy bevindt, controleert u of de Storage Explorer-proxy correct is geconfigureerd
 - Probeer het account te verwijderen en opnieuw toe te voegen
 - Verwijder de volgende bestanden uit de basismap (zoals: C:\Users\ContosoUser) en probeer vervolgens het account opnieuw toe te voegen:

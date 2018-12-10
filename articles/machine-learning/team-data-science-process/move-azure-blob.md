@@ -1,5 +1,5 @@
 ---
-title: Gegevens verplaatsen naar en van Azure Blob-opslag | Microsoft Docs
+title: Gegevens verplaatsen naar en van Azure Blob storage - Team Data Science Process
 description: Gegevens verplaatsen naar en van Azure Blob-opslag
 services: machine-learning
 author: marktab
@@ -10,17 +10,20 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fa3fd5dfdd0fbdb8200b0c5c8df512caedbe735c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441839"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139844"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Gegevens verplaatsen naar en van Azure Blob-opslag
 
 Het Team Data Science Process is vereist dat gegevens worden opgenomen of geladen in tal van verschillende opslagomgevingen worden verwerkt of geanalyseerd in de meest geschikte manier in elke fase van het proces.
+
+## <a name="different-technologies-for-moving-data"></a>Verschillende technologieën voor het verplaatsen van gegevens
+
 De volgende artikelen wordt beschreven hoe u gegevens verplaatsen naar en van Azure Blob-opslag met behulp van verschillende technologieën.
 
 * [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
@@ -35,6 +38,8 @@ Methode die voor u geschikt is, is afhankelijk van uw scenario. De [scenario's v
 > 
 > 
 
+## <a name="using-azure-data-factory"></a>Azure Data Factory gebruiken
+
 Als alternatief kunt u [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) aan: 
 
 * maken en plannen van een pijplijn die gegevens vanuit Azure blob-opslag 
@@ -45,7 +50,7 @@ Als alternatief kunt u [Azure Data Factory](https://azure.microsoft.com/services
 Zie voor meer informatie, [voorspellende pijplijnen maken met Azure Data Factory en Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Vereisten
-Dit document wordt ervan uitgegaan dat u een Azure-abonnement, een storage-account en de bijbehorende opslagsleutel voor dat account hebt. Voordat u gegevens uploadt/downloadt, moet u uw Azure-opslag account naam en de accountsleutel weten.
+In dit artikel wordt ervan uitgegaan dat u een Azure-abonnement, een storage-account en de bijbehorende opslagsleutel voor dat account hebt. Voordat u gegevens uploadt/downloadt, moet u uw Azure-opslag account naam en de accountsleutel weten.
 
 * Als u een Azure-abonnement instelt, Zie [gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 * Zie voor instructies over het maken van een storage-account en voor het ophalen van account en sleutelgegevens [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).

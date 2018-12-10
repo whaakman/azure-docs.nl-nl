@@ -1,5 +1,5 @@
 ---
-title: Modellen in productie - Azure Machine Learning implementeren | Microsoft Docs
+title: Implementeren van modellen in productie - Team Data Science Process
 description: Klik hier voor meer informatie over het implementeren van modellen voor productie, zodat ze een actieve rol bij het maken van zakelijke beslissingen te nemen.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5b1614f92f7633e008f4f7176723002dc7730b15
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 35f9f369e752fa7c86a6bd295a79b79b23104d23
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495987"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137868"
 ---
-# <a name="deploy-models-in-production"></a>Modellen in de productieomgeving implementeren
+# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Modellen implementeren naar productie om af te spelen een actieve rol bij het maken van zakelijke beslissingen te nemen
 
 Productie-implementatie kunt een model voor het een actieve rol spelen in een bedrijf. Voorspellingen op basis van een geïmplementeerd model kunnen worden gebruikt voor zakelijke beslissingen te nemen.
 

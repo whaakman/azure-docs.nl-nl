@@ -1,6 +1,6 @@
 ---
-title: Power BI-dashboard voor en rijgewoonten - Azure | Microsoft Docs
-description: De mogelijkheden van Cortana Intelligence gebruiken om te krijgen van realtime en voorspellende inzichten op en winkelgedrag.
+title: Power BI-dashboard voor en rijgewoonten - Team Data Science Process
+description: Ontwikkelen van een Power BI-dashboard voor het verkrijgen van realtime, voorspellende en batch-inzichten in voertuigstatus en gewoonten te stimuleren.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b4d36b7d68bad658200024a2fe31a876d411536c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a964820979f24af1fee2be65461302be73b9e77b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444646"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135114"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle Telemetry Analytics-oplossing sjabloon Power BI-dashboard installatie-instructies
 
@@ -26,8 +26,8 @@ De beknopte beschrijving van deze oplossing, Zie [Vehicle Telemetry Analytics-op
 Als u wilt deze oplossing nog verder verkennen, Zie [Vehicle Telemetry Analytics-oplossing playbook: ontdeek de oplossing](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## <a name="prerequisites"></a>Vereisten
-* Implementeer de [Voertuigtelemetrieanalyse](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) oplossing. 
-* [Power BI Desktop installeren](https://www.microsoft.com/download/details.aspx?id=45331).
+* Implementeer de [Voertuigtelemetrieanalyse](https://gallery.cortanaintelligence.com/Solutions/5bdb23f3abb448268b7402ab8907cc90) oplossing. 
+* [Power BI Desktop installeren](https://aka.ms/pbidesktopstore).
 * Verkrijgen van een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/). Als u geen Azure-abonnement hebt, aan de slag met het gratis Azure-abonnement.
 * Open Power BI-account.
 
@@ -345,7 +345,7 @@ U het realtime dashboard gemaakt. Als u doorgaat CarEventGenerator.exe en Realti
 
 ### <a name="configure-power-bi-reports"></a>Power BI-rapporten configureren
 
-1. Open het bestand designer **ConnectedCarsPbiReport.pbix** met behulp van de Power BI Desktop. Als u er nog geen hebt, installeert u de Power BI Desktop uit de [Power BI Desktop installatie](https://www.microsoft.com/download/details.aspx?id=45331) website.
+1. Open het bestand designer **ConnectedCarsPbiReport.pbix** met behulp van de Power BI Desktop. Als u er nog geen hebt, installeert u de Power BI Desktop uit de [Power BI Desktop installatie](https://aka.ms/pbidesktopstore) website.
 
 1. Selecteer **query's bewerken**.
 

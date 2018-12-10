@@ -1,6 +1,6 @@
 ---
-title: Hive-tabellen maken en gegevens laden uit Azure Blob Storage | Microsoft Docs
-description: Hive-tabellen maken en gegevens in blob naar de hive-tabellen laden
+title: Hive-tabellen maken en gegevens laden uit Blob storage - Team Data Science Process
+description: Hive-query's te maken van Hive-tabellen laden van gegevens uit Azure blob-opslag gebruiken. Hive-tabellen partitioneren en de geoptimaliseerde rij kolommen (ORC) te verbeteren, opmaak gebruiken.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442877"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134944"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens laden uit Azure Blob Storage
 
@@ -65,14 +65,14 @@ Hebt u drie manieren om in te dienen Hive-query's in de Hadoop-opdrachtregel:
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Indienen van Hive-query's rechtstreeks in Hadoop vanaf de opdrachtregel.
 U kunt de opdracht, zoals uitvoeren `hive -e "<your hive query>;` om in te dienen eenvoudige Hive-query's rechtstreeks in Hadoop vanaf de opdrachtregel. Hier volgt een voorbeeld, waarbij een rood kader geeft een overzicht van de opdracht die is ingediend door de Hive-query en de groene vakje geeft een overzicht van de uitvoer van de Hive-query.
 
-![Werkruimte maken](./media/move-hive-tables/run-hive-queries-1.png)
+![Opdracht voor het indienen van Hive-query met de uitvoer van Hive-query](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Indienen van Hive-query's in .hql bestanden
 Wanneer de Hive-query gecompliceerder is en meerdere regels heeft, is het bewerken van query's in vanaf de opdrachtregel of in de opdrachtconsole Hive het niet praktisch. Een alternatief is het gebruik van een teksteditor in het hoofdknooppunt van het Hadoop-cluster voor het opslaan van de Hive-query's in een bestand .hql in een lokale map van het hoofdknooppunt. En vervolgens de Hive-query in het bestand .hql kan worden verzonden met behulp van de `-f` argument als volgt te werk:
 
     hive -f "<path to the .hql file>"
 
-![Werkruimte maken](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive-query in een bestand .hql](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Voortgang van de status scherm afdrukken van Hive-query's onderdrukken**
 
@@ -84,7 +84,7 @@ Standaard nadat Hive-query wordt verzonden in Hadoop vanaf de opdrachtregel, wor
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Indienen van Hive-query's in de opdrachtconsole Hive.
 U kunt ook eerst de opdrachtconsole Hive invoeren door uit te voeren opdracht `hive` in Hadoop vanaf de opdrachtregel, en vervolgens verzendt Hive-query's in de opdrachtconsole Hive. Hier volgt een voorbeeld. In dit voorbeeld Markeer de twee rode vakken de opdrachten gebruikt voor het invoeren van de opdrachtconsole Hive en de Hive-query verzonden in de opdrachtconsole Hive, respectievelijk. De groene vakje markeert de uitvoer van de Hive-query.
 
-![Werkruimte maken](./media/move-hive-tables/run-hive-queries-2.png)
+![Open de console van Hive-opdracht en voer de opdracht, Hive-query-uitvoer weergeven](./media/move-hive-tables/run-hive-queries-2.png)
 
 De eerdere voorbeelden uitvoer rechtstreeks van de resultaten van de Hive-query op het scherm. U kunt de uitvoer ook schrijven naar een lokaal bestand op het hoofdknooppunt, of naar een Azure-blob. Vervolgens kunt u andere hulpprogramma's voor verdere analyse van de uitvoer van Hive-query's.
 
@@ -95,7 +95,7 @@ Als u wilt uitvoeren van resultaten van Hive-query naar een lokale map op het ho
 
 In het volgende voorbeeld wordt de uitvoer van Hive-query naar een bestand wordt geschreven `hivequeryoutput.txt` in directory `C:\apps\temp`.
 
-![Werkruimte maken](./media/move-hive-tables/output-hive-results-1.png)
+![Uitvoer van Hive-query](./media/move-hive-tables/output-hive-results-1.png)
 
 **Hive-query resultaten uit naar een Azure-blob**
 
@@ -105,11 +105,11 @@ U kunt ook de resultaten van de Hive-query naar een Azure-blob, binnen de standa
 
 In het volgende voorbeeld wordt de uitvoer van Hive-query is geschreven naar een blob-map `queryoutputdir` binnen de standaardcontainer van het Hadoop-cluster. Hier, hoeft u alleen voor de naam van de map zonder naam van de blob. Wordt er een fout gegenereerd als u zowel de directory als de blob-namen, zoals `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Werkruimte maken](./media/move-hive-tables/output-hive-results-2.png)
+![Uitvoer van Hive-query](./media/move-hive-tables/output-hive-results-2.png)
 
 Als u de standaardcontainer van het Hadoop-cluster met behulp van Azure Storage Explorer opent, ziet u de uitvoer van de Hive-query, zoals wordt weergegeven in de volgende afbeelding. U kunt het filter (gemarkeerd met een rood kader) toepassen om op te halen alleen de blob met de opgegeven letters in namen.
 
-![Werkruimte maken](./media/move-hive-tables/output-hive-results-3.png)
+![Azure Storage Explorer met de uitvoer van de Hive-query](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Indienen van Hive-query's met de Hive-Editor
 U kunt ook de Queryconsole (Hive-Editor) door een URL van het formulier *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* in een webbrowser. U moet zijn geregistreerd in de zien deze console en dus moet u uw Hadoop-clusterreferenties hier.

@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621085"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135523"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Systeemeigen client-apps om te communiceren met de proxy-toepassingen inschakelen
 
@@ -35,7 +35,7 @@ Gebruik Azure AD Authentication Library, die zorgt voor verificatie en biedt ond
 In dit artikel begeleidt u bij de vier stappen voor het publiceren van een systeemeigen toepassing met Application Proxy en de Azure AD-Verificatiebibliotheek. 
 
 ## <a name="step-1-publish-your-application"></a>Stap 1: Uw toepassing publiceren
-Uw proxytoepassing te publiceren, net als elke andere toepassing en gebruikers toegang tot uw toepassing toe te wijzen. Zie voor meer informatie, [publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md).
+Uw proxytoepassing te publiceren, net als elke andere toepassing en gebruikers toegang tot uw toepassing toe te wijzen. Zie voor meer informatie, [publiceren van toepassingen met toepassingsproxy](application-proxy-add-on-premises-application.md).
 
 ## <a name="step-2-configure-your-application"></a>Stap 2: Uw toepassing configureren
 Configureer uw systeemeigen toepassing als volgt:
@@ -55,8 +55,8 @@ Zie voor meer informatie over het maken van een nieuwe app-registratie, [toepass
 De systeemeigen toepassing worden blootgesteld aan andere toepassingen in uw directory inschakelen:
 
 1. Klik in **App-registraties**, selecteer de nieuwe systeemeigen toepassing die u zojuist hebt gemaakt.
-2. Selecteer **vereiste machtigingen**.
-3. Selecteer **Toevoegen**.
+2. Selecteer **API-machtigingen**.
+3. Selecteer **toevoegen van een machtiging**.
 4. Open de eerste stap **Select an API**.
 5. Gebruik de zoekbalk om de Application Proxy-app die u hebt gepubliceerd in de eerste sectie te vinden. Kies de app en klik vervolgens op **Selecteer**. 
 

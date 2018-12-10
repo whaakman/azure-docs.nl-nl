@@ -1,5 +1,6 @@
 ---
-title: Configureren van uw geautomatiseerde machine learning-experiment - Azure Machine Learning
+title: Geautomatiseerde machine learning-experimenten configureren
+titleSuffix: Azure Machine Learning service
 description: Geautomatiseerde machine learning, kiest een algoritme voor u en genereert een model dat gereed is voor implementatie. Meer informatie over de opties die u kunt met geautomatiseerde machine learning-experimenten configureren.
 author: nacharya1
 ms.author: nilesha
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b2be09d69013cc8361f92cb0b6e3aa5fef3bcc02
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000302"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140163"
 ---
-# <a name="configure-your-automated-machine-learning-experiment"></a>Configureren van uw geautomatiseerde machine learning-experiment
+# <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
 Geautomatiseerde machine learning, kiest een algoritme en hyperparameters voor u en genereert een model dat gereed is voor implementatie. Er zijn diverse opties, kunt u geautomatiseerde machine learning-experimenten configureren. In deze handleiding leert u hoe u diverse configuratie-instellingen te definiëren.
 
@@ -214,7 +216,7 @@ Eigenschap |  Description | Standaardwaarde
 `iterations` |Maximum aantal iteraties. Elke herhaling is gelijk aan een trainingstaak die in een pijplijn resulteert. Pijplijn is voorverwerking van gegevens en het model. Als u een hoge kwaliteit-model, gebruikt u 250 of meer    | 100
 `max_concurrent_iterations`|    Maximumaantal iteraties om parallel uit voeren. Deze instelling werkt alleen voor externe compute.|   1
 `max_cores_per_iteration`   | Geeft het aantal kernen op de compute-doel moeten worden gebruikt met het trainen van één pijplijn. Als het algoritme kan gebruikmaken van meerdere kernen, verhoogt dit de prestaties op een computer meerdere kernen. U kunt dit instellen op-1 voor het gebruik van de beschikbare cores op de machine.|  1
-`Iteration_timeout_minutes` |   Beperkt de hoeveelheid tijd (minuten) een bepaalde iteratie nodig. Als een iteratie hoger is dan de opgegeven hoeveelheid, wordt die iteratie wordt geannuleerd. Als dat niet ingesteld, worden de iteratie blijft actief totdat deze is voltooid. |   Geen
+`iteration_timeout_minutes` |   Beperkt de hoeveelheid tijd (minuten) een bepaalde iteratie nodig. Als een iteratie hoger is dan de opgegeven hoeveelheid, wordt die iteratie wordt geannuleerd. Als dat niet ingesteld, worden de iteratie blijft actief totdat deze is voltooid. |   Geen
 `n_cross_validations`   |Aantal cross-validatie splitsingen.| Geen
 `validation_size`   |Grootte van de validatie is ingesteld als percentage van alle training-voorbeeld.|  Geen
 `preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: Imputes de ontbrekende gegevens-numerieke met gemiddelde, tekst met de meeste exemplaar </li><li>Categorische waarden: Als het gegevenstype en het aantal unieke numerieke waarden minder dan 5 procent, omgezet in een hot-codering is </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False | 

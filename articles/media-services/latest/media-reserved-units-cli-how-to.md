@@ -1,6 +1,6 @@
 ---
-title: Schalen van Media gereserveerde eenheden - Azure | Microsoft Docs
-description: In dit onderwerp wordt een overzicht van het vergroten/verkleinen Media verwerken met Azure Media Services.
+title: CLI gebruiken voor het schalen van gereserveerde Media-eenheden - Azure | Microsoft Docs
+description: Dit onderwerp leest hoe u met CLI mediaverwerking schalen met Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: 2b10de83e00b3668f70461f76634c560bcbea1a4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713058"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133788"
 ---
 # <a name="scaling-media-processing"></a>Mediaverwerking schalen
 
@@ -31,11 +32,11 @@ In dit artikel ziet u hoe u [Media Services v3 CLI](https://aka.ms/ams-v3-cli-re
 
 ## <a name="prerequisites"></a>Vereisten 
 
-- Installeren en de CLI lokaal gebruikt, in dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
 
-    Op dit moment niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) opdrachten werken in de Azure Cloud Shell. Het verdient de CLI lokaal gebruikt.
+    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
 
-- [Een Media Services-account maken](create-account-cli-how-to.md).
+- [Een Azure Media Services-account maken](create-account-cli-how-to.md).
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Gereserveerde schaal Media-eenheden met CLI
 

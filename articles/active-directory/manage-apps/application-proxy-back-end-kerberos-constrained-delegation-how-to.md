@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 52157797bb01fc73c551ca9654b2360d161b653d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356747"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134655"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor Application Proxy oplossen
 
@@ -32,7 +32,7 @@ In dit artikel biedt een single point of verwijzing die helpt bij het oplossen e
 
 In dit artikel worden de volgende veronderstellingen:
 
--   Implementatie van Azure AD-toepassingsproxy per [aan de slag met Application Proxy](application-proxy-enable.md) en algemene toegang tot niet-KCD toepassingen werken zoals verwacht.
+-   Implementatie van Azure AD-toepassingsproxy per [aan de slag met Application Proxy](application-proxy-add-on-premises-application.md) en algemene toegang tot niet-KCD toepassingen werken zoals verwacht.
 
 -   De gepubliceerde doeltoepassing is gebaseerd op Internet Information Services (IIS) en de Microsoft-implementatie van Kerberos.
 
@@ -40,7 +40,7 @@ In dit artikel worden de volgende veronderstellingen:
 
 -   De desbetreffende toepassing wordt gepubliceerd in een Azure-tenant met vooraf-verificatie ingeschakeld. Gebruikers worden verwacht voor verificatie op Azure via verificatie op basis van formulieren. Rich client verificatiescenario's niet zijn gekoppeld aan dit artikel. Ze kunnen worden toegevoegd op een bepaald moment in de toekomst.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Azure AD Application Proxy kan worden geïmplementeerd in tal van infrastructuren of omgevingen. De architecturen variëren in organisaties. De meest voorkomende oorzaken van problemen met KCD zijn de omgevingen niet. Eenvoudige onjuiste configuraties of algemene fouten kunt u de meeste problemen veroorzaken.
 
@@ -66,7 +66,7 @@ Wat er wordt een probleem met KCD? Er zijn verschillende algemene aanwijzingen K
 
 Beide van deze installatiekopieën de dezelfde symptoom weergeven: fout met eenmalige aanmelding. Gebruikerstoegang tot de toepassing is geweigerd.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Hoe u problemen oplossen, is afhankelijk van het probleem en de problemen die u ziet. Voordat u een verder gaat, moet u de volgende artikelen verkennen. Ze bieden nuttige probleemoplossingsinformatie:
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: dc89eadfc0038d74ced431693c321944a7ee3a12
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a524c773b0f4f6d3dc14830d4c3200512f8b287c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834363"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140911"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -184,15 +184,15 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 
 
  - **Resolutie**
-  1.    Mobility Service-agent detecteert de proxy-instellingen van Internet Explorer op Windows en /etc/environment op Linux.
-  2.  Als u liever proxy alleen voor ASR Mobility-Service instellen, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
-      - ``/usr/local/InMage/config/`` op ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` op ***Windows***
-  3.    De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben. </br>
+   1.   Mobility Service-agent detecteert de proxy-instellingen van Internet Explorer op Windows en /etc/environment op Linux.
+   2.  Als u liever proxy alleen voor ASR Mobility-Service instellen, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
+       - ``/usr/local/InMage/config/`` op ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` op ***Windows***
+   3.   De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben. </br>
                    *[proxy]*</br>
                    *Adres =http://1.2.3.4*</br>
                    *Poort 567 =*</br>
-  4. ASR Mobility Service-agent ondersteunt alleen ***niet-geverifieerde proxy's***.
+   4. ASR Mobility Service-agent ondersteunt alleen ***niet-geverifieerde proxy's***.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).

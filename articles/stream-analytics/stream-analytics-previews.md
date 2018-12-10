@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
-ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/04/2018
+ms.openlocfilehash: 637afab45e04c68777f8d1b42817c912cdc09941
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343671"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133737"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -22,10 +22,6 @@ In dit artikel bevat een overzicht van alle functies die momenteel in Preview-ve
 ## <a name="public-previews"></a>Openbare preview-versies
 
 De volgende functies zijn in openbare preview. U kunt profiteren van deze functies vandaag, maar niet gebruiken in uw productieomgeving.
-
-### <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics op IoT Edge
-
-Azure Stream Analytics op IoT Edge kunnen ontwikkelaars near-real-time-analytics op IoT Edge-apparaten implementeren. Zie voor meer informatie de [Azure Stream Analytics op IoT Edge](stream-analytics-edge.md) documentatie.
 
 ### <a name="integration-with-azure-machine-learning"></a>Integratie met Azure Machine Learning
 

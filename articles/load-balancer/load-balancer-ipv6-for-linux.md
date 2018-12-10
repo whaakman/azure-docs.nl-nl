@@ -1,5 +1,6 @@
 ---
-title: DHCPv6 configureren voor virtuele Linux-machines | Microsoft Docs
+title: DHCPv6 configureren voor virtuele Linux-machines
+titlesuffix: Azure Load Balancer
 description: Klik hier voor meer informatie over het DHCPv6 configureren voor virtuele Linux-machines.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: IPv6-, azure-load balancer, dual-stack, openbaar IP-adres, systeemeige
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 7ef376c044bceb14614388a72c11942869dbde07
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741620"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141710"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>DHCPv6 configureren voor virtuele Linux-machines
 

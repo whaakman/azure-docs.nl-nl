@@ -1,5 +1,5 @@
 ---
-title: Assets in Azure mediaservices | Microsoft Docs
+title: Assets in mediaservices - Azure | Microsoft Docs
 description: Dit artikel bevat een uitleg over wat activa zijn en hoe ze worden gebruikt door Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: f9a6f0963ce8f45da567bb4f6326e9fcc8f435ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085785"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140129"
 ---
 # <a name="assets"></a>Assets
 
@@ -34,7 +35,7 @@ Lees ook over [storage-accounts in Media Services](storage-account-concept.md) e
 
 De volgende tabel ziet u de eigenschappen van de Asset en biedt de definities.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Volledig gekwalificeerde resource-ID voor de resource.|
 |naam|De naam van de resource.|
@@ -72,7 +73,7 @@ Beschrijving van de operator:
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de Asset-eigenschappen: 
 
-|Naam|Filteren|Bestellen|
+|Name|Filteren|Bestellen|
 |---|---|---|
 |id|||
 |naam|Ondersteunt: Eq, Gt, Lt|Ondersteunt: oplopend of aflopend|
@@ -122,7 +123,7 @@ Zie voor voorbeelden van REST [activa - lijst](https://docs.microsoft.com/rest/a
 
 Ter bescherming van uw activa in rust, moeten de activa van de versleuteling van opslag aan de serverzijde worden versleuteld. De volgende tabel ziet u de werking van de versleuteling van opslag aan de serverzijde in Media Services:
 
-|Optie voor opslagversleuteling|Beschrijving|Media Services v2|Media Services v3|
+|Optie voor opslagversleuteling|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services-Storage-versleuteling|AES-256-codering, sleutel beheerd door Media Services|Ondersteund<sup>(1)</sup>|Niet ondersteund<sup>(2)</sup>|
 |[Storage Service Encryption voor Data-at-Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling op de server die worden aangeboden door Azure Storage, sleutel beheerd door Azure of door de klant|Ondersteund|Ondersteund|

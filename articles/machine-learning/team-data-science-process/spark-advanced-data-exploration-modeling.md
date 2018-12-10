@@ -1,5 +1,5 @@
 ---
-title: Geavanceerde met Spark gegevens verkennen en modelleren | Microsoft Docs
+title: Geavanceerde gegevensverkenning en modellering met Spark - Team Data Science Process
 description: HDInsight Spark gegevens verkennen en trainen binaire classificatie- en regressiemodellen modellen met behulp van kruisvalidatie en hyperparameter optimalisatie gebruiken.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fe7d3fb9a88b97eddf0708b7a5b2eefd09111542
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843424"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135471"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Met Spark verkennen en modelleren van geavanceerde gegevens
 

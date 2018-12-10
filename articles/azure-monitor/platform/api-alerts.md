@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 63346068529591d4d396b0590db96a73782181e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0176cc5688f7210d5e444b094b360bb1e7df1e7c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838851"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136403"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
 De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
@@ -34,7 +34,7 @@ Waarschuwingen kunnen op dit moment alleen worden gemaakt met een opgeslagen zoe
 Een opgeslagen zoekopdracht kan een of meer schema's hebben. Het schema wordt gedefinieerd hoe vaak de zoekopdracht wordt uitgevoerd en het tijdsinterval op waarover de criteria wordt geïdentificeerd.
 Schema's hebben de eigenschappen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Interval |Hoe vaak de zoekopdracht wordt uitgevoerd. Gemeten in minuten. |
 | QueryTimeSpan |Het tijdsinterval op waarover de criteria wordt geëvalueerd. Moet gelijk zijn aan of groter zijn dan het Interval. Gemeten in minuten. |
@@ -93,10 +93,10 @@ Een planning kan meerdere acties hebben. Een actie kan definiëren een of meer p
 
 Alle acties hebben de eigenschappen in de volgende tabel.  Verschillende typen waarschuwingen hebben verschillende extra eigenschappen, worden hieronder beschreven.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Type |Het type van de actie.  De mogelijke waarden zijn momenteel waarschuwings- en Webhook. |
-| Naam |Weergavenaam voor de waarschuwing. |
+| Name |Weergavenaam voor de waarschuwing. |
 | Versie |De API-versie die wordt gebruikt.  Op dit moment moet dit altijd worden ingesteld op 1. |
 
 ### <a name="retrieving-actions"></a>Bij het ophalen van acties
@@ -134,7 +134,7 @@ Gebruik de Delete-methode met de actie-ID om te verwijderen van een actie.
 ### <a name="alert-actions"></a>Waarschuwingsacties
 Een planning moet slechts één actie bij waarschuwing hebben.  Waarschuwingsacties zijn een of meer van de secties in de volgende tabel.  Elk wordt nader besproken die hieronder beschreven.
 
-| Sectie | Beschrijving | Gebruik |
+| Sectie | Description | Gebruik |
 |:--- |:--- |:--- |
 | Drempelwaarde |Criteria voor wanneer de actie wordt uitgevoerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
 | Severity |Het label dat wordt gebruikt om te classificeren waarschuwing wanneer ze worden geactiveerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
@@ -153,7 +153,7 @@ Een actie bij waarschuwing mag slechts één drempelwaarde hebben.  Als de resul
 
 Drempelwaarden hebben de eigenschappen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Operator |Operator voor de voor drempelwaardevergelijking. <br> gt = groter dan <br> lt = minder dan |
 | Waarde |De waarde voor de drempelwaarde. |
@@ -358,7 +358,7 @@ E-mailmeldingen verzenden e-mail naar een of meer ontvangers.  Ze bevatten de ei
 > Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals e-mailmelding nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Geadresseerden |Lijst met e-mailadressen. |
 | Onderwerp |Het onderwerp van het e-mailbericht. |
@@ -403,7 +403,7 @@ Herstel een runbook te starten in Azure Automation waarmee wordt geprobeerd om h
 
 De eigenschappen bevatten herstelbewerkingen in de volgende tabel.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | RunbookName |De naam van het runbook. Dit moet overeenkomen met een gepubliceerd runbook in het automation-account dat is geconfigureerd in de oplossing voor automatisering in uw Log Analytics-werkruimte. |
 | WebhookUri |De URI van de webhook. |
@@ -447,11 +447,12 @@ Hieronder volgt een compleet voorbeeld om te maken van een nieuw e-mailmelding. 
     $scheduleId     = "MySchedule"
     $thresholdId    = "MyThreshold"
     $actionId       = "MyEmailAction"
-
+    
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
-
-    $emailJson = ' {'Eigenschappen': {'Name': 'MyEmailAction', 'Versie': '1', 'prioriteit': 'Waarschuwing', 'Type': 'Waarschuwingsdrempel',' ': {'Operator': 'gt', 'Value': 10}, 'EmailNotification': {'Ontvangers': ['recipient1@contoso.com','recipient2@contoso.com'], 'Onderwerp':' Dit is het onderwerp ', 'Bijlagen': 'None'}} ' armclient /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/ plaatsen acties / $actionId /? api-version = 2015-03-20 $emailJson
+    
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 #### <a name="webhook-actions"></a>Webhookacties
 Webhookacties start een proces doordat aanroepen van een URL en eventueel een nettolading wordt verzonden.  Ze zijn vergelijkbaar met herstelacties tenzij ze zijn bedoeld voor webhooks die processen dan Azure Automation-runbooks kunnen aanroepen.  Ze bieden ook de aanvullende mogelijkheid van het leveren van een payload moet worden geleverd aan het extern proces.

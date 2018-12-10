@@ -1,19 +1,18 @@
 ---
-title: Azure Cosmos DB als een opslag met sleutelwaarden – kosten-overzicht
-description: Meer informatie over de lage kosten van het gebruik van Azure Cosmos DB als een sleutel-waardearchief.
-keywords: opslag met sleutelwaarden
-services: cosmos-db
+title: Aanvraag eenheid kosten voor Azure Cosmos DB als een sleutel-waardearchief
+description: Meer informatie over de kosten van de eenheid aanvraag van Azure Cosmos DB voor eenvoudige schrijven en leesbewerkingen wanneer deze wordt gebruikt als een sleutel/waarde-archief.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 7331db23757ab4eaae054c7fe640952fe22a7917
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840863"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134179"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB als een opslag met sleutelwaarden – kosten-overzicht
 
@@ -36,9 +35,9 @@ De volgende tabel ziet u het aantal ru's die zijn vereist voor het uitvoeren van
 
 ## <a name="cost-of-reads-and-writes"></a>Kosten van lees- en schrijfbewerkingen
 
-Als u 1000 inricht RU/sec., deze hoeveelheden 3.6 m RU/uur en worden kosten $0,08 voor het uur (in de Verenigde Staten en Europa). Voor een document van 1 KB grootte, dit betekent dat 3.6-m leesbewerkingen kunnen worden gebruikt of 0,72-m schrijft (3,6 m RU / 5) met behulp van de ingerichte doorvoer. Genormaliseerd voor miljoen lees- en schrijfbewerkingen, zijn de kosten $0,022 /m leesbewerkingen ($0,08 / 3.6) en $0.111/ m schrijft ($0,08 / 0,72). De kosten per miljoen wordt minimale zoals wordt weergegeven in de onderstaande tabel.
+Als u 1000 inricht RU/sec., deze hoeveelheden 3.6-m RU/uur en worden kosten $0,08 voor het uur (in de Verenigde Staten en Europa). Voor een document van 1 KB grootte, dit betekent dat 3.6-m leesbewerkingen kunnen worden gebruikt of 0,72-m schrijft (3.6-m RU / 5) met behulp van de ingerichte doorvoer. Genormaliseerd voor miljoen lees- en schrijfbewerkingen, zijn de kosten $0,022 /m leesbewerkingen ($0,08 / 3.6) en $0.111/ m schrijft ($0,08 / 0,72). De kosten per miljoen wordt minimale zoals wordt weergegeven in de onderstaande tabel.
 
-|Grootte van item|1-m lezen|1-m schrijven|
+|Grootte van item|1-m lezen|1 m schrijven|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|

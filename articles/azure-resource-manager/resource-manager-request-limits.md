@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager-aanvraaglimieten | Microsoft Docs
+title: Aanvraaglimieten en beperkingen - Azure Resource Manager
 description: Beschrijft hoe u gebruik van beperking met Azure Resource Manager-aanvragen wanneer de limieten voor een abonnement is bereikt.
 services: azure-resource-manager
 documentationcenter: na
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdc98c6d88b18f770d1869acbea5998ad4571287
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981810"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136886"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 Voor elke Azure-abonnement en de tenant staat Resource Manager maximaal 12.000 lezen aanvragen per uur en 1200 schrijven aanvragen per uur. Deze limieten zijn gericht op de principal-ID de aanvragen en de abonnements-ID of tenant-ID. Als uw aanvragen afkomstig is van meer dan één principal-ID, is de limiet voor het abonnement of de tenant is groter dan 12.000 en 1200 per uur.
@@ -33,7 +34,7 @@ Wanneer u de limiet is bereikt, ontvangt u de HTTP-statuscode **429 te veel aanv
 ## <a name="remaining-requests"></a>Overige aanvragen
 U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders. Elke aanvraag bevat de waarden voor het aantal resterende lees- en schrijfaanvragen. De volgende tabel beschrijft de reactieheaders die u voor deze waarden kunt bekijken:
 
-| Reactieheader | Beschrijving |
+| Reactieheader | Description |
 | --- | --- |
 | x-MS-ratelimit-Remaining-Subscription-reads |Abonnement binnen het bereik van leest de resterende. Deze waarde wordt geretourneerd voor leesbewerkingen. |
 | x-MS-ratelimit-Remaining-Subscription-Writes |Abonnement binnen het bereik van schrijft resterende. Deze waarde wordt geretourneerd op schrijfbewerkingen. |

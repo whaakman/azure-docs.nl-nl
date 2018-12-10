@@ -1,27 +1,23 @@
 ---
-title: Partitionering in Azure Cosmos DB Gremlin-API
-description: Lees hoe u een gepartitioneerde grafiek kunt gebruiken in Azure Cosmos DB.
-services: cosmos-db
+title: Partitioneren van gegevens in Azure Cosmos DB Gremlin-API
+description: Lees hoe u een gepartitioneerde grafiek kunt gebruiken in Azure Cosmos DB. Dit artikel beschrijft ook de vereisten en best practices voor een gepartitioneerde grafiek.
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 27b0d9d7ca22ba346dbc288020f704dc7d27aa6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7fc6068ccdc0c089b222fc8282063d526e862a38
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837192"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139432"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Met behulp van een gepartitioneerde grafiek in Azure Cosmos DB
 
-Een van de belangrijkste functies van de Gremlin-API in Azure Cosmos DB is de mogelijkheid om grootschalige grafieken via horizontale schaalbaarheid. Dit proces wordt bereikt door de [mogelijkheden in Azure Cosmos DB partitioneren](partition-data.md), waardoor het gebruik van containers, die onafhankelijk in de opslag en doorvoer schalen kunnen. Azure Cosmos DB ondersteunt de volgende typen containers voor alle API's:
-
-- **Vaste container**: deze containers een grafiek kunnen opslaan in grootte met een maximum van 10.000 aanvraageenheden per seconde dat is toegewezen maximaal 10 GB-database. Voor het maken van een vaste container is het niet nodig om op te geven van een belangrijke eigenschap van de partitie in de gegevens.
-
-- **Onbeperkte container**: deze containers kunnen automatisch worden geschaald voor het opslaan van een grafiek buiten de limiet van 10 GB tot en met horizontale partitionering. Elke partitie worden opgeslagen 10 GB en de gegevens zullen worden automatisch verdeeld op basis van de **opgegeven partitiesleutel**, dit is een vereiste parameter bij het gebruik van een onbeperkte container. Dit type container kan een vrijwel onbeperkt aantal gegevensgrootte opslaan en mogen maximaal 100.000 aanvraageenheden per seconde of meer [contact opnemen met ondersteuning voor](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+Een van de belangrijkste functies van de Gremlin-API in Azure Cosmos DB is de mogelijkheid om grootschalige grafieken via horizontaal schalen. Horizontaal schalen wordt bereikt door de [mogelijkheden in Azure Cosmos DB partitioneren](partition-data.md). De containers kunnen onafhankelijk worden geschaald in termen van opslag en doorvoer. U kunt containers maken in Azure Cosmos DB die automatisch kunnen worden geschaald voor het opslaan van een graph-gegevens. De gegevens wordt automatisch verdeeld op basis van de opgegeven **partitiesleutel**.
 
 De details op hoe de graph-databases worden gepartitioneerd in dit document worden beschreven, samen met de gevolgen voor zowel hoekpunten (of knooppunten) en randen.
 
@@ -29,17 +25,17 @@ De details op hoe de graph-databases worden gepartitioneerd in dit document word
 
 Hieronder vindt u informatie die u bij het maken van een gepartitioneerde grafiekcontainer deze begrijpt:
 
-- **Instellen van het partitioneren is noodzakelijk** als de container wordt verwacht dat meer dan 10 GB groot zijn en/of als bij het toewijzen van meer dan 10.000 aanvraageenheden per seconde (RU/s) vereist is.
+- **Partitioneren is vereist** als wordt verwacht dat de container voor het opslaan van meer dan 10 GB groot is of als u wilt toewijzen van meer dan 10.000 aanvraageenheden per seconde (ru's).
 
-- **Zowel hoekpunten en randen worden opgeslagen als JSON-documenten** in de back-end van een Gremlin-API van Azure Cosmos DB-container.
+- **Zowel hoekpunten en randen worden opgeslagen als JSON-documenten**.
 
-- **Hoekpunten vereisen een partitiesleutel**. Deze sleutel wordt bepaald welke partitie het hoekpunt worden opgeslagen via een hash-algoritme. De naam van de partitiesleutel van deze is een tekenreeks van één woord zonder spaties of speciale tekens en deze is gedefinieerd bij het maken van een nieuwe container met de volgende indeling `/partitioning-key-name` in de portal.
+- **Hoekpunten vereisen een partitiesleutel**. Deze sleutel wordt bepaald welke partitie het hoekpunt worden opgeslagen via een hash-algoritme. De naam van de partitiesleutel van deze is een tekenreeks één woord zonder spaties of speciale tekens. De partitiesleutel is gedefinieerd bij het maken van een nieuwe container en deze heeft een indeling: `/partitioning-key-name`.
 
-- **Randen worden opgeslagen met hun bronhoekpunt**. Met andere woorden, voor elk hoekpunt dat definieert de partitiesleutel waar ze worden opgeslagen samen met de uitgaande randen. Dit wordt gedaan om te voorkomen dat partitieoverkoepelende query's bij het gebruik van de `out()` kardinaliteit in graph-query's.
+- **Randen worden opgeslagen met hun bronhoekpunt**. Met andere woorden, voor elk hoekpunt dat de partitiesleutel wordt gedefinieerd waarin ze zijn opgeslagen, samen met de uitgaande randen. Dit wordt gedaan om te voorkomen dat partitieoverkoepelende query's bij het gebruik van de `out()` kardinaliteit in graph-query's.
 
 - **Graph-query's hoeft op te geven van een partitiesleutel**. Als u wilt profiteren van de horizontale partitionering in Azure Cosmos DB, moet de partitiesleutel worden opgegeven wanneer een hoekpunt is geselecteerd, indien mogelijk. De volgende zijn query's voor het selecteren van een of meerdere hoekpunten in een gepartitioneerde grafiek:
 
-    - `/id` en `/label` worden niet ondersteund als de partitiesleutels weergeven voor een container in Gremlin-API...
+    - `/id` en `/label` worden niet ondersteund als de partitiesleutels weergeven voor een container in Gremlin-API.
 
 
     - Selecteren en vervolgens een hoekpunt door-ID, **met behulp van de `.has()` stap om op te geven van de partitie-sleuteleigenschap**: 
@@ -68,18 +64,19 @@ Hieronder vindt u informatie die u bij het maken van een gepartitioneerde grafie
 
 ## <a name="best-practices-when-using-a-partitioned-graph"></a>Aanbevolen procedures bij het gebruik van een gepartitioneerde grafiek
 
-Hier volgen richtlijnen die moeten worden gevolgd om te controleren of de meest efficiënte prestaties en schaalbaarheid bij het gebruik van gepartitioneerde grafieken in onbeperkte containers:
+Gebruik de volgende richtlijnen voor optimale prestaties en schaalbaarheid bij het gebruik van gepartitioneerde grafieken met onbeperkte containers:
 
-- **Altijd de waarde voor de partitiesleutel opgeven bij het opvragen van een hoekpunt**. Het verkrijgen van een hoekpunt van een bekende partitie is de meest efficiënte manier wat betreft prestaties.
+- **Altijd de waarde voor de partitiesleutel opgeven bij het opvragen van een hoekpunt**. Hoekpunt ophalen uit een bekende partitie is een manier prestaties bereiken.
 
-- **De uitgaande richting gebruiken bij het opvragen van randen indien mogelijk**. Zoals eerder vermeld, worden de randen opgeslagen met hun bron hoekpunten in de uitgaande richting. Dit betekent dat de kans op sorteren op query's over meerdere partities wanneer de gegevens en query's zijn ontworpen met dit patroon waarmee u rekening moet worden beperkt.
+- **De uitgaande richting gebruiken bij het opvragen van randen indien mogelijk**. Zoals eerder vermeld, worden de randen opgeslagen met hun bron hoekpunten in de uitgaande richting. De kans op sorteren op query's over meerdere partities zijn dus geminimaliseerd wanneer de gegevens en query's met dit patroon waarmee u rekening moet worden ontworpen.
 
 - **Kies een partitiesleutel waarmee gegevens worden gelijkmatig wordt verdeeld over meerdere partities**. Dit besluit is sterk afhankelijk van het gegevensmodel van de oplossing. Meer informatie over het maken van een juiste partitiesleutel in [partitioneren en schalen in Azure Cosmos DB](partition-data.md).
 
-- **Query's voor het verkrijgen van gegevens binnen de grenzen van een partitie indien mogelijk optimaliseren**. Een strategie voor het partitioneren van optimale zou worden uitgelijnd met de patronen in een query uitvoeren op. Query's die gegevens worden verkregen uit één partitie bevatten de best mogelijke prestaties.
+- **Als u wilt ophalen van gegevens binnen de grenzen van een partitie-query's optimaliseren**. Een strategie voor het partitioneren van optimale zou worden uitgelijnd met de patronen in een query uitvoeren op. Query's die gegevens worden verkregen uit één partitie bevatten de best mogelijke prestaties.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel wordt is een overzicht van concepten en aanbevolen procedures voor het partitioneren van met een Gremlin-API van Azure Cosmos DB opgegeven. 
+
+Vervolgens kunt u doorgaan met het lezen van de volgende artikelen:
 
 * Meer informatie over [partitioneren en schalen in Azure Cosmos DB](partition-data.md).
 * Meer informatie over de [Gremlin-ondersteuning in Gremlin-API](gremlin-support.md).

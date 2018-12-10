@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2afe75045444fbc0ca36ee1cfca3d96f5b218ab0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230787"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135488"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD Application Proxy publiceren
 
@@ -49,7 +49,7 @@ In de implementatie van een extern bureaublad-services uitvoeren de RD-Webrol en
 
 - Eindpunten van de RD-Web- en de RD-Gateway moet zich op dezelfde computer, en met een algemene basis. RD-Web- en RD-Gateway worden gepubliceerd als een enkele aanvraag met de toepassingsproxy zodat u kunt een eenmalige aanmelding mogelijk tussen de twee toepassingen hebben.
 
-- U hebt al [extern bureaublad-services geïmplementeerd](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), en [toepassingsproxy hebt ingeschakeld](application-proxy-enable.md).
+- U hebt al [extern bureaublad-services geïmplementeerd](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), en [toepassingsproxy hebt ingeschakeld](application-proxy-add-on-premises-application.md).
 
 - In dit scenario wordt ervan uitgegaan dat uw eindgebruikers gaan via Internet Explorer op Windows 7 of Windows 10-desktops die verbinding via de extern bureaublad-webpagina wordt weergegeven maken. Als u nodig hebt ter ondersteuning van andere besturingssystemen, raadpleegt u [ondersteuning voor andere clientconfiguraties](#support-for-other-client-configurations).
 
@@ -63,7 +63,7 @@ Na het instellen van extern bureaublad-services en Azure AD-toepassingsproxy voo
 
 ### <a name="publish-the-rd-host-endpoint"></a>Het eindpunt van de extern bureaublad-Sessiehost host publiceren
 
-1. [Een nieuwe Application Proxy-toepassing publiceren](application-proxy-publish-azure-portal.md) met de volgende waarden:
+1. [Een nieuwe Application Proxy-toepassing publiceren](application-proxy-add-on-premises-application.md) met de volgende waarden:
    - Interne URL: `https://\<rdhost\>.com/`, waarbij `\<rdhost\>` is de algemene basis met RD-Web- en RD-Gateway.
    - Externe URL: Dit veld wordt automatisch ingevuld op basis van de naam van de toepassing, maar u kunt deze wijzigen. Uw gebruikers gaan naar deze URL wanneer ze toegang krijgen van RDS. tot
    - Methode voor verificatie vooraf: Azure Active Directory

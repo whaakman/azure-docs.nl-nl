@@ -1,5 +1,5 @@
 ---
-title: Scenario's identificeren en plan uw analytics-proces - Azure | Microsoft Docs
+title: Scenario's identificeren en te plannen van de analytics-proces - Team Data Science Process
 description: Identificeer scenario's en plan voor geavanceerde analytische gegevensverwerking op basis van een reeks van belangrijke vragen.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
-ms.openlocfilehash: feea90b20bac1bce9924731119fab6e3fab04450
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105901"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138038"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Scenario's en plannen identificeren voor geavanceerde analytische gegevensverwerking
 Welke resources moet u van plan bent om op te nemen bij het instellen van een omgeving voor het geavanceerde analyseren verwerking van een gegevensset? Dit artikel bevat een reeks vragen die de taken en resources relevante uw scenario identificeren. De volgorde van stappen op hoog niveau voor voorspellende analyses die worden beschreven in [wat is Team Data Science Process (TDSP)?](overview.md). Elk van deze stappen vereist specifieke resources voor de taken die relevant zijn voor uw specifieke scenario. De belangrijkste vragen om te bepalen van uw scenario heeft betrekking op gegevenslogistiek, kenmerken, de kwaliteit van de gegevenssets en de hulpprogramma's en talen die u liever de analyse.

@@ -1,22 +1,23 @@
 ---
-title: Leesbewerkingen op basis van Azure cosmos DB Cassandra-API van Spark
-description: Dit artikel lezen uit tabellen in een Cosmos DB Cassandra-API
-services: cosmos-db
-author: anagha-microsoft
+title: De tabelgegevens lezen Cassandra-API met behulp van Spark
+titleSufix: Azure Cosmos DB
+description: In dit artikel wordt beschreven hoe u gegevens lezen uit tabellen in Azure Cosmos DB Cassandra-API.
+author: kanshiG
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.devlang: spark-scala
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: ef5f1a3479080aaab665a449bbf946a29344f26c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 12/06/2018
+ms.author: govindk
+ms.custom: seodec18
+ms.openlocfilehash: 2fc5ac1af503eff2f9186266d977c4ee972fcc94
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224961"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133431"
 ---
-# <a name="read-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Cassandra-API voor lezen Azure Cosmos DB-tabellen uit Spark
+# <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Gegevens lezen uit tabellen van Cassandra-API van Azure Cosmos DB met behulp van Spark
 
  In dit artikel wordt beschreven hoe u gegevens die zijn opgeslagen in Azure Cosmos DB Cassandra-API van Spark lezen.
 

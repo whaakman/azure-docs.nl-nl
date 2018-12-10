@@ -1,5 +1,5 @@
 ---
-title: Toegang tot gegevenssets met Machine Learning Python-clientbibliotheek | Microsoft Docs
+title: Toegang tot gegevenssets met Python-clientbibliotheek - Team Data Science Process
 description: Installeer en gebruik van de Python-clientbibliotheek voor toegang tot en beheer van Azure Machine Learning-gegevens veilig vanuit een lokale Python-omgeving.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e81efb0a7977bbd50c63834f676b7cc75201dc68
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680682"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140027"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Toegang tot gegevenssets met Python met behulp van de clientbibliotheek van Azure Machine Learning Python
 De Preview-versie van Microsoft Azure Machine Learning Python-clientbibliotheek kunt inschakelen van beveiligde toegang tot uw Azure Machine Learning-gegevenssets van een lokale Python-omgeving en kunt het maken en beheren van gegevenssets in een werkruimte.
@@ -92,10 +92,10 @@ Autorisatietokens worden beheerd op de **AUTORISATIETOKENS** pagina onder **inst
     ![Gegevenssets][datasets]
 4. Selecteer het codefragment in het venster dat wordt weergegeven en deze naar het Klembord te kopiëren.
    
-    ![Code voor gegevenstoegang][dataset-access-code]
+    ![Data access code knop genereren][dataset-access-code]
 5. Plak de code in het notitieblok van uw lokale Python-toepassing.
    
-    ![Notebook][ipython-dataset]
+    ![Plak de code in de notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Toegang tot de tussenliggende gegevenssets van Machine Learning-experimenten
 Nadat een experiment in Machine Learning Studio wordt uitgevoerd, is het mogelijk voor toegang tot de tussenliggende gegevenssets van de uitvoerknooppunten van de modules. Tussenliggende gegevenssets zijn de gegevens die is gemaakt en gebruikt voor de tussenliggende stappen wanneer een model-hulpprogramma is uitgevoerd.
@@ -133,10 +133,10 @@ De volgende stappen ziet een voorbeeld van een experiment maakt, wordt uitgevoer
     ![Contextmenu][experiment]
 8. Selecteer het codefragment en naar het Klembord kopiëren vanuit het venster dat wordt weergegeven.
    
-    ![Code voor gegevenstoegang][intermediate-dataset-access-code]
+    ![Code voor gegevenstoegang genereren in contextmenu][intermediate-dataset-access-code]
 9. Plak de code in uw laptop.
    
-    ![Notebook][ipython-intermediate-dataset]
+    ![Plak de code in de notebook][ipython-intermediate-dataset]
 10. U kunt de gegevens visualiseren met matplotlib. Dit wordt weergegeven in een histogram van de kolom Leeftijd:
     
     ![Histogram][ipython-histogram]

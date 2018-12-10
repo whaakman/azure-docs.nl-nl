@@ -1,22 +1,18 @@
 ---
-title: Azure Cosmos DB-schaal en Prestatietesten | Microsoft Docs
-description: Meer informatie over het uitvoeren van de schaal en prestaties testen met Azure Cosmos DB
-keywords: Prestatietesten
-services: cosmos-db
+title: Prestaties en schaal testen met Azure Cosmos DB
+description: Informatie over schalen en prestaties testen met Azure Cosmos DB. U kunt vervolgens de functionaliteit van Azure Cosmos DB voor scenario's met hoogwaardige toepassingen evalueren.
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308168"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135352"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos DB
 

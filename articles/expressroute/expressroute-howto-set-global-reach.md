@@ -1,21 +1,21 @@
 ---
-title: Configureren van het wereldwijde bereik met Azure ExpressRoute | Microsoft Docs
+title: 'Wereldwijd bereik - ExpressRoute configureren: Azure | Microsoft Docs'
 description: Dit artikel helpt u koppelen van ExpressRoute-circuits samen om te maken van een particulier netwerk tussen uw on-premises netwerken en globale bereiken inschakelen.
-documentationcenter: na
 services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mialdrid
-ms.openlocfilehash: 67fbf9dc430d615efe3ef894add1a26bbce792bc
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: dca2001fda7658b422bbceb14612dec1f7be6cd2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237975"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140894"
 ---
-# <a name="configure-expressroute-global-reach-preview"></a>Configureren van ExpressRoute wereldwijd bereik (Preview)
+# <a name="configure-expressroute-global-reach-preview"></a>Configureer ExpressRoute globaal bereik (preview)
 Dit artikel helpt u bij het configureren van ExpressRoute globale bereiken met behulp van PowerShell. Zie voor meer informatie, [ExpressRouteRoute globaal bereik](expressroute-global-reach.md).
  
 ## <a name="before-you-begin"></a>Voordat u begint

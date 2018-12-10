@@ -1,6 +1,6 @@
 ---
-title: Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met cccess controle met Azure Media Services | Microsoft Docs
-description: Meer informatie over licenties voor Microsoft Smooth Streaming Client Porting Kit.
+title: Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met optie-control - Azure Media Services | Microsoft Docs
+description: Meer informatie over licentieverlening Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958190"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136270"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer 
 
@@ -401,15 +402,15 @@ De volgende schermafbeeldingen tonen verschillende aanmelden pagina's die worden
 
 **Aangepaste Azure AD-tenant domeinaccount**: de aangepaste aanmeldingspagina van de aangepaste Azure AD tenant-domein.
 
-![Domeinaccount voor aangepast Azure AD-tenant](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Aangepast Azure AD-tenant domeinaccount een](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft-domeinaccount met smartcard**: aangepast door Microsoft zakelijke pagina IT met tweeledige verificatie.
 
-![Domeinaccount voor aangepast Azure AD-tenant](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Aangepast Azure AD-tenant-domeinaccount twee](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft-account**: de aanmeldingspagina van het Microsoft-account voor consumenten.
 
-![Domeinaccount voor aangepast Azure AD-tenant](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Aangepast Azure AD-tenant domeinaccount drie](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>Versleutelde Media-extensies gebruiken voor PlayReady
 PlayReady is op een moderne browser met Encrypted Media Extensions (EME) voor PlayReady-ondersteuning, zoals Internet Explorer 11 op Windows 8.1 of hoger en Microsoft Edge-browser op Windows 10, de onderliggende DRM voor EME.

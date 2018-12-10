@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106648"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140742"
 ---
 # <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migreren van de Workbench naar de nieuwste versie van Azure Machine Learning-service 
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>Gegevensbestanden voorbereiden
-Gegevens voorbereiden bestanden zijn niet overdraagbaar zonder de Workbench. Maar u kunt nog steeds een grootte van de gegevensset voorbereiden voor het modelleren met behulp van de nieuwe Azure Machine Learning Data Prep SDK of Azure Databricks gebruiken voor big data-sets.  [Informatie over het verkrijgen van de SDK voor gegevensvoorbereiding](how-to-data-prep.md). 
+Gegevens voorbereiden bestanden zijn niet overdraagbaar zonder de Workbench. Maar u kunt nog steeds een grootte van de gegevensset voorbereiden voor het modelleren met behulp van de nieuwe Azure Machine Learning Data Prep SDK of Azure Databricks gebruiken voor big data-sets. [Informatie over het verkrijgen van de SDK voor gegevensvoorbereiding](https://aka.ms/data-prep-sdk).
 
 ## <a name="next-steps"></a>Volgende stappen
 

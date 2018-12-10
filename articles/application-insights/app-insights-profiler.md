@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2f726c9c70e6e46ad2e82e9d6f15dae2c9d3d008
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4d957c26bd4e4ae278c0909c9df1476b02954b86
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724686"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138004"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
-Profiler is op dit moment werkt voor ASP.NET en ASP.NET Core web-apps die worden uitgevoerd op Web-Apps. De basis-servicelaag of hoger is vereist voor het gebruik van Profiler.
+Profiler is op dit moment werkt voor ASP.NET en ASP.NET Core web-apps die worden uitgevoerd op Web-Apps. De basis-servicelaag of hoger is vereist voor het gebruik van Profiler. Inschakelen van Profiler in Linux is momenteel alleen mogelijk via [deze methode](app-insights-profiler-aspnetcore-linux.md).
 
 ## <a id="installation"></a> Profiler voor uw Web-Apps inschakelen
 Als u wilt Profiler inschakelen voor een web-app, volg de onderstaande instructies. Als u een ander type Azure-service uitvoert, vindt hier u instructies voor het inschakelen van Profiler op andere ondersteunde platforms:
@@ -29,11 +29,10 @@ Als u wilt Profiler inschakelen voor een web-app, volg de onderstaande instructi
 * [Service Fabric-toepassingen](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtuele machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-
 Application Insights Profiler is vooraf geïnstalleerd als onderdeel van de runtime van de App-Services, maar u moet het u aan bij de get-profielen inschakelen voor uw Azure-Web-Apps. Nadat u een Web-App hebt geïmplementeerd, zelfs als u hebt de App Insights-SDK opgenomen in de broncode, volgt u de stappen hieronder om de profiler inschakelen.
 
 1. Ga naar de **App Services** deelvenster in de Azure-portal.
-1. Navigeer naar **instellingen > controle** deelvenster.
+1. Navigeer naar **instellingen > Application Insights** deelvenster.
 
    ![App Insights inschakelen in App Services-portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 

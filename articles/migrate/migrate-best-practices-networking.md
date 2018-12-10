@@ -7,19 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 3142cabf28dd60fa49bed4cc153eaba096a2782e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109691"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139738"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Aanbevolen procedures voor het instellen van netwerken aan voor workloads die zijn gemigreerd naar Azure
 
-Als u plannen en ontwerpen voor migratie, naast nadenken over de migratie zelf, is een van de belangrijkste stappen het ontwerpen en implementeren van Azure-netwerken. Dit artikel wordt beschreven, planningsinformatie en aanbevolen procedures voor het netwerk wanneer u naar IaaS en PaaS-implementaties in Azure migreert.
+Als u plannen en ontwerpen voor migratie, naast de migratie zelf, is een van de belangrijkste stappen het ontwerpen en implementeren van Azure-netwerken. Dit artikel wordt beschreven aanbevolen procedures voor het netwerk wanneer u migreert naar IaaS en PaaS-implementaties in Azure.
 
 > [!IMPORTANT]
-> De aanbevolen procedures en meningen in dit artikel beschreven zijn gebaseerd op het Azure-platform en service-functies die beschikbaar zijn op het moment van schrijven. Functies en mogelijkheden veranderen verloop van tijd. Het is mogelijk dat niet alle aanbevelingen van toepassing zijn voor uw implementatie, dus selecteer die voor uw omgeving werken.
+> De aanbevolen procedures en meningen in dit artikel beschreven zijn gebaseerd op het Azure-platform en service-functies die beschikbaar zijn op het moment van schrijven. Functies en mogelijkheden veranderen verloop van tijd. Het is mogelijk dat niet alle aanbevelingen van toepassing zijn voor uw implementatie, dus selecteer die voor u werkt.
 
 
 ## <a name="design-virtual-networks"></a>Virtuele netwerken ontwerpen

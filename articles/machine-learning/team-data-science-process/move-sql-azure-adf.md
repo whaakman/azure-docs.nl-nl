@@ -1,5 +1,5 @@
 ---
-title: Gegevens verplaatsen van een on-premises SQL Server naar SQL Azure met Azure Data Factory | Microsoft Docs
+title: SQL Server-gegevens naar SQL Azure met Azure Data Factory - Team Data Science Process
 description: Instellen van een ADF-pijplijn waarmee stelt het bericht op twee activiteiten van de gegevens migreren die samen gegevens dagelijks tussen databases on-premises en in de cloud verplaatsen.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 87aa1c30bb567c6820e2d9ecacfc3f8cd2338339
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447033"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137766"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een on-premises SQL server naar SQL Azure met Azure Data Factory
 
@@ -43,7 +43,7 @@ We instellen een ADF-pijplijn waarmee twee gegevens migratieactiviteiten stelt h
 * gegevens kopiëren van de Azure Blob Storage-account naar een Azure SQL Database.
 
 > [!NOTE]
-> De stappen die hier zijn aangepast van de meer gedetailleerde zelfstudie die door het team ADF weergegeven: [gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md) verwijzingen naar de relevante secties van dit onderwerp zijn Als dat mogelijk is opgegeven.
+> De stappen die hier zijn aangepast van de meer gedetailleerde zelfstudie die door het team ADF weergegeven: [gegevens kopiëren van een on-premises SQL Server-database naar Azure Blob-opslag](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) verwijzingen naar de relevante secties van dit onderwerp vindt u bij van toepassing.
 >
 >
 
@@ -68,15 +68,10 @@ U kunt aanpassen van de procedure die hier beschikbaar zijn op een set van uw ei
 ## <a name="create-adf"></a> Maak een Azure Data Factory
 De instructies voor het maken van een nieuwe Azure Data Factory en een resourcegroep in de [Azure-portal](https://portal.azure.com/) vindt u [maken van een Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Naam van het nieuwe exemplaar van de ADF *adfdsp* en de naam van de resourcegroep gemaakt *adfdsprg*.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>Installeren en configureren van de Data Management Gateway
-Om in te schakelen uw pijplijnen in een Azure data factory om te werken met een on-premises SQL Server, moet u dit toevoegen als een gekoppelde Service aan de data factory. Voor het maken van een gekoppelde Service voor een on-premises SQL Server, moet u:
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installeren en configureren van Azure Data Factory Integration Runtime 
+De Integration Runtime is een klant beheerde gegevensintegratie-infrastructuur door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Deze runtime heette voorheen 'Data Management Gateway'. 
 
-* Download en installeer Microsoft Data Management Gateway op de lokale computer.
-* Configureer de gekoppelde service voor de on-premises gegevensbron om de gateway te gebruiken.
-
-De Data Management Gateway serialiseert en gedeserialiseerd van de bron en sink-gegevens op de computer waar dit wordt gehost.
-
-Zie voor installatie-instructies en informatie over Data Management Gateway [gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md)
+Om in te stellen, [volgt u de instrutions voor het maken van een pijplijn](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Maak gekoppelde services verbinding maken met de gegevensbronnen
 De informatie die nodig zijn voor Azure Data Factory verbinding maken met een Gegevensresource definieert de gekoppelde service. We hebben drie resources in dit scenario waarvoor gekoppelde services nodig zijn:

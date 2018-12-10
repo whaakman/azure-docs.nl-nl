@@ -1,6 +1,6 @@
 ---
-title: 'Het Team Data Science Process in actie: met behulp van SQL Data Warehouse | Microsoft Docs'
-description: Geavanceerde analyse-proces en de technologie in actie
+title: Bouwen en implementeren van een model met behulp van SQL Data Warehouse - Team Data Science Process
+description: Bouw en implementeer een machine learning-model met behulp van SQL Data Warehouse met een openbaar beschikbare gegevensset.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445702"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139117"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Het Team Data Science Process in actie: met behulp van SQL Data Warehouse
 In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar beschikbare gegevensset--de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De binaire classificeringsmodel samengesteld voorspelt al dan niet een tip wordt betaald voor een reis, en modellen voor multiklassen classificatie- en regressiemodellen worden ook besproken die het distributiepunt voor de betaalde bedragen tip voorspellen.
@@ -117,7 +117,7 @@ Open een Windows PowerShell-opdracht-console. Voer de volgende PowerShell script
 
 De uitvoering is geslaagd, wordt uw huidige werkmap gewijzigd in *- DestDir*. U moet kunnen zijn op het scherm wordt weergegeven zoals hieronder:
 
-![][19]
+![Huidige werken directorywijzigingen][19]
 
 In uw *- DestDir*, voer het volgende PowerShell-script in de beheerdersmodus:
 
@@ -321,7 +321,7 @@ U moet bepalen welke doen als er dubbele bron en doel-bestanden.
 > 
 > 
 
-![#21 tekenen][21]
+![Uitvoer van AzCopy][21]
 
 U kunt uw eigen gegevens. Als uw gegevens zich in uw on-premises computer in uw toepassing echte leven, kunt u nog steeds AzCopy on-premises gegevens uploaden naar uw persoonlijke Azure blob-opslag gebruiken. U hoeft alleen te wijzigen de **bron** locatie, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, in de AzCopy-opdracht van het PowerShell-script-bestand naar de lokale map waarin uw gegevens bevat.
 
@@ -334,7 +334,7 @@ Dit Powershell-script ook de gegevens in Azure SQL DW sluit aan bij Microsofts d
 
 Een uitvoering is geslaagd, ziet u scherm zoals hieronder:
 
-![][20]
+![Uitvoer van een geslaagde scriptuitvoering][20]
 
 ## <a name="dbexplore"></a>Gegevens verkennen en feature-engineering in Azure SQL Data Warehouse
 In deze sectie we gegevens verkennen en functie genereren uitvoeren door met het SQL-query's uitvoeren in Azure SQL DW rechtstreeks met **gegevens met Visual Studio Tools**. Alle SQL-query's die worden gebruikt in deze sectie vindt u in het voorbeeld van een script met de naam *SQLDW_Explorations.sql*. Dit bestand is al gedownload naar uw lokale directory door de PowerShell-script. U kunt ook ophalen via [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Maar het bestand in GitHub heeft niet de Azure SQL DW-informatie die is aangesloten.
@@ -571,16 +571,16 @@ Als u al een AzureML-werkruimte hebt ingesteld, kunt u rechtstreeks in het voorb
 
 1. Meld u aan bij uw AzureML-werkruimte, klikt u op 'Studio' aan de bovenkant en klikt u op 'NOTITIEBLOKKEN' aan de linkerkant van de webpagina wordt weergegeven.
    
-    ![#22 tekenen][22]
+    ![Klik op de Studio en -laptops][22]
 2. Klik op 'Nieuw' in de hoek linksonder van de webpagina wordt weergegeven, en selecteer ' Python 2'. Klik, Geef een naam op voor de notebook en klik op het vinkje voor het maken van de nieuwe, lege IPython Notebook.
    
-    ![#23 tekenen][23]
+    ![Klik op Nieuw en selecteer Python 2][23]
 3. Klik op het symbool 'Jupyter' in de bovenste linkerhoek van het nieuwe IPython Notebook.
    
-    ![#24 tekenen][24]
+    ![Klik op Jupyter-symbool][24]
 4. Slepen en neerzetten van het voorbeeld IPython Notebook op de **structuur** pagina van uw AzureML IPython Notebook-service, en klik op **uploaden**. Vervolgens wordt het voorbeeld IPython Notebook worden geüpload naar de AzureML IPython Notebook-service.
    
-    ![#25 tekenen][25]
+    ![Klik op uploaden][25]
 
 Om uit te voeren van het voorbeeld IPython Notebook of het Python-scriptbestand, de volgende Python pakketten zijn vereist. Als u van de AzureML IPython Notebook-service gebruikmaakt, zijn deze pakketten vooraf geïnstalleerd.
 
@@ -684,7 +684,7 @@ Vervolgens kijken we de BoxPlot voor de reis-afstand tot de quantiles visualiser
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Tekenen van #1][1]
+![Vak plot uitvoer][1]
 
 ### <a name="visualization-distribution-plot-example"></a>Visualisatie: Voorbeeld van de distributie tekengebied
 Plots die de distributie en een histogram voor de afstand sample reis visualiseren.
@@ -695,7 +695,7 @@ Plots die de distributie en een histogram voor de afstand sample reis visualiser
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Tekenen van #2][2]
+![Distributie plot uitvoer][2]
 
 ### <a name="visualization-bar-and-line-plots"></a>Visualisatie: Staaf- en grafieken
 In dit voorbeeld we de afstand reis naar vijf opslaglocaties bin en het binning resultaten te visualiseren.
@@ -709,26 +709,26 @@ We kunnen tekenen van de bovenstaande bin distributie in een staaf of lijn plot 
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Tekenen van #3][3]
+![Diagram uitvoer van de balk][3]
 
 en
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![#4 tekenen][4]
+![Regel plot uitvoer][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Visualisatie: Teststappen voorbeelden
 Laten we zien spreidingsdiagram tussen **reis\_tijd\_in\_seconden** en **reis\_afstand** om te zien of er een correlatie
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![#6 tekenen][6]
+![Teststappen uitvoer van de relatie tussen de tijd en afstand][6]
 
 We op dezelfde manier kunt controleren of de relatie tussen **tarief\_code** en **reis\_afstand**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![#8 tekenen][8]
+![Teststappen uitvoer van de relatie tussen de code en de afstand][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Gegevens verkennen op steekproefgegevens met behulp van SQL-query's in IPython notebook
 In deze sectie wordt toegelicht gegevens-distributies die gebruikmaken van de samplinggegevens die is opgeslagen in de nieuwe tabel die eerder is gemaakt. Houd er rekening mee dat vergelijkbare explorations kunnen worden uitgevoerd met behulp van de oorspronkelijke tabellen.

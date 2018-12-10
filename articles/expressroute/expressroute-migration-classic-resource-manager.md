@@ -1,70 +1,62 @@
 ---
-title: 'ExpressRoute gekoppeld virtuele netwerken migreren van klassiek naar Resource Manager: Azure: PowerShell | Microsoft Docs'
-description: Deze pagina wordt beschreven hoe het migreren van de gekoppelde virtuele netwerken in Resource Manager na het verplaatsen van het circuit.
-documentationcenter: na
+title: 'Virtuele netwerken migreren van klassiek naar Resource Manager - ExpressRoute: Azure: PowerShell | Microsoft Docs'
+description: Deze pagina wordt beschreven hoe u ExpressRoute gekoppelde virtuele netwerken migreren naar Resource Manager na het verplaatsen van uw circuit.
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/06/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 336f68308f7d4b4dd3c7476a4fabd793939e9e85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: c9f013a6af0b6d232eff32a9827006ce3247db3c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23850824"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136393"
 ---
-# <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute gekoppeld virtuele netwerken migreren van klassiek naar Resource Manager
+# <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute-gekoppelde virtuele netwerken migreren van klassiek naar Resource Manager
 
-In dit artikel wordt uitgelegd hoe virtuele netwerken van Azure ExpressRoute gekoppeld vanuit het klassieke implementatiemodel migreren naar het Azure Resource Manager-implementatiemodel na het verplaatsen van uw ExpressRoute-circuit. 
-
+In dit artikel wordt uitgelegd hoe u virtuele netwerken gekoppeld met een ExpressRoute van het klassieke implementatiemodel migreren naar de Azure Resource Manager-implementatiemodel na het verplaatsen van uw ExpressRoute-circuit. 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 * Controleer of u de nieuwste versie van de Azure PowerShell-modules. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
 * Zorg ervoor dat u hebt bekeken de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
-* Lees de informatie die is opgegeven onder [een ExpressRoute-circuit verplaatsen van klassiek naar Resource Manager](expressroute-move.md). Zorg ervoor dat u volledig limieten en beperkingen begrijpt.
-* Controleer of het circuit volledig operationeel is in het klassieke implementatiemodel.
-* Zorg ervoor dat u een resourcegroep die is gemaakt in het Resource Manager-implementatiemodel.
-* Controleer de volgende documentatie voor de resource-migratie:
+* Lees de informatie die is opgegeven onder [een ExpressRoute-circuit verplaatsen van klassiek naar Resource Manager](expressroute-move.md). Zorg ervoor dat u volledig inzicht in limieten en beperkingen.
+* Controleer of het circuit volledig operationeel zijn in het klassieke implementatiemodel.
+* Zorg ervoor dat u hebt een resourcegroep die is gemaakt in het Resource Manager-implementatiemodel.
+* Raadpleeg de volgende documentatie voor de resource-migratie:
 
-    * [Migratie van IaaS resources van klassieke in Azure Resource Manager-platform ondersteund](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-    * [Technische deep dive op platform ondersteund migratie van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-    * [Veelgestelde vragen: Platform ondersteund migratie van IaaS-middelen van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-    * [Bekijk meest voorkomende migratiefouten en oplossingen](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+    * [Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+    * [Technische details over door platforms ondersteunde migratie van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+    * [Veelgestelde vragen: Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+    * [Bekijk de meest voorkomende migratiefouten en oplossingen](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>Ondersteunde en niet-ondersteunde scenario 's
 
 * Een ExpressRoute-circuit kan worden verplaatst van het klassieke naar het Resource Manager-omgeving zonder uitvaltijd. U kunt elk ExpressRoute-circuit verplaatsen van het klassieke naar het Resource Manager-omgeving zonder uitvaltijd. Volg de instructies in [ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel met behulp van PowerShell](expressroute-howto-move-arm.md). Dit is een vereiste voor het verplaatsen van resources die zijn verbonden met het virtuele netwerk.
-* Virtuele netwerken, gateways en bijbehorende implementaties binnen het virtuele netwerk die zijn gekoppeld aan een ExpressRoute-circuit in hetzelfde abonnement kunnen worden gemigreerd naar de Resource Manager-omgeving zonder uitvaltijd. U kunt de stappen verderop voor het migreren van resources, zoals virtuele netwerken, gateways en virtuele machines die worden geïmplementeerd in het virtuele netwerk. U moet ervoor zorgen dat de virtuele netwerken correct zijn geconfigureerd voordat ze worden gemigreerd. 
-* Virtuele netwerken, gateways en bijbehorende implementaties binnen het virtuele netwerk die zich niet in hetzelfde abonnement als het ExpressRoute-circuit moeten enige downtime om de migratie te voltooien. De laatste sectie van het document beschrijft de stappen te volgen bronnen worden gemigreerd.
-* Een virtueel netwerk met zowel de ExpressRoute-Gateway en de VPN-Gateway kan niet worden gemigreerd.
+* Virtuele netwerken, gateways en bijbehorende implementaties binnen het virtuele netwerk die zijn gekoppeld aan een ExpressRoute-circuit in hetzelfde abonnement kunnen worden gemigreerd naar de Resource Manager-omgeving zonder uitvaltijd. U kunt de stappen verderop beschreven voor het migreren van resources zoals virtuele netwerken, gateways en virtuele machines die binnen het virtuele netwerk is geïmplementeerd. U moet ervoor zorgen dat de virtuele netwerken correct zijn geconfigureerd voordat ze worden gemigreerd. 
+* Virtuele netwerken, gateways en bijbehorende implementaties binnen het virtuele netwerk die zich niet in hetzelfde abonnement bevinden als het ExpressRoute-circuit vereist enige uitvaltijd om de migratie te voltooien. De laatste sectie van het document beschrijft de stappen worden gevolgd voor het migreren van resources.
+* Een virtueel netwerk met zowel ExpressRoute-Gateway en VPN-Gateway kan niet worden gemigreerd.
 
-## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Een ExpressRoute-circuit verplaatsen van klassiek naar Resource Manager
-U moet een ExpressRoute-circuit verplaatsen van het klassieke naar het Resource Manager-omgeving voordat u probeert te migreren van de resources die zijn gekoppeld aan het ExpressRoute-circuit. Zie de volgende artikelen voor het uitvoeren van deze taak:
+## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Een ExpressRoute-circuit van klassiek naar Resource Manager verplaatsen
+U moet een ExpressRoute-circuit verplaatsen van de klassieke naar de Resource Manager-omgeving voordat u probeert te migreren van resources die zijn gekoppeld aan het ExpressRoute-circuit. Als u wilt deze taak wordt uitgevoerd, Zie de volgende artikelen:
 
 * Lees de informatie die is opgegeven onder [een ExpressRoute-circuit verplaatsen van klassiek naar Resource Manager](expressroute-move.md).
-* [Een circuit verplaatsen van klassiek naar Resource Manager, met Azure PowerShell](expressroute-howto-move-arm.md).
-* De Azure Service Management portal gebruiken. U kunt de werkstroom te volgen [maken van nieuwe ExpressRoute-circuit](expressroute-howto-circuit-portal-resource-manager.md) en selecteer de optie importeren. 
+* [Een circuit verplaatsen van klassiek naar Resource Manager met Azure PowerShell](expressroute-howto-move-arm.md).
+* Gebruik de Azure Service Management-portal. U kunt de werkstroom voor het volgen [maken van een nieuwe ExpressRoute-circuit](expressroute-howto-circuit-portal-resource-manager.md) en selecteer de optie importeren. 
 
-Deze bewerking leidt tot uitvaltijd. U kunt blijven gegevensoverdracht tussen uw lokale en Microsoft terwijl de migratie uitgevoerd wordt.
+Met deze bewerking heeft geen betrekking op uitvaltijd. U kunt blijven gegevens over te dragen tussen uw locatie en Microsoft tijdens de migratie uitgevoerd wordt.
 
 ## <a name="migrate-virtual-networks-gateways-and-associated-deployments"></a>Migreren van virtuele netwerken, gateways en bijbehorende implementaties
 
-De stappen die u volgt als u wilt migreren, is afhankelijk van of uw resources zich in hetzelfde abonnement en/of verschillende abonnementen behoren.
+De stappen die u volgt als u wilt migreren, is afhankelijk van of uw resources bevinden zich in hetzelfde abonnement of verschillende abonnementen.
 
-### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-the-same-subscription-as-the-expressroute-circuit"></a>Migreren van virtuele netwerken, gateways en bijbehorende implementaties in hetzelfde abonnement als het ExpressRoute-circuit
-Deze sectie beschrijft de stappen te volgen voor het migreren van een virtueel netwerk, gateway en bijbehorende implementaties in hetzelfde abonnement als het ExpressRoute-circuit. Er is geen downtime gekoppeld aan deze migratie. U kunt alle resources via het migratieproces blijven. Het management vlak is vergrendeld terwijl de migratie uitgevoerd wordt. 
+### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-the-same-subscription-as-the-expressroute-circuit"></a>Migreren van virtuele netwerken, gateways en bijbehorende implementaties in hetzelfde abonnement bevinden als het ExpressRoute-circuit
+In deze sectie beschrijft de stappen worden gevolgd voor het migreren van een virtueel netwerk, gateway en bijbehorende implementaties in hetzelfde abonnement bevinden als het ExpressRoute-circuit. Er is geen uitvaltijd is gekoppeld aan deze migratie. U kunt echter ook doorgaan met alle resources door het migratieproces. Het beheervlak is vergrendeld terwijl de migratie uitgevoerd wordt. 
 
-1. Zorg ervoor dat het ExpressRoute-circuit is verplaatst van het klassieke naar het Resource Manager-omgeving.
-2. Zorg ervoor dat het virtuele netwerk op de juiste wijze is bedoeld voor de migratie.
+1. Zorg ervoor dat het ExpressRoute-circuit is verplaatst van het klassieke naar de Resource Manager-omgeving.
+2. Zorg ervoor dat het virtuele netwerk is voorbereid op de juiste wijze voor de migratie.
 3. Registreer uw abonnement voor de Resourcemigratie. Gebruik de volgende PowerShell-codefragment voor het registreren van uw abonnement voor de Resourcemigratie:
 
   ```powershell 
@@ -80,14 +72,14 @@ Deze sectie beschrijft de stappen te volgen voor het migreren van een virtueel n
   Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
-  Ook kunt u migratie afbreken door de volgende PowerShell-cmdlet:
+  U kunt ook de migratie afbreken door het uitvoeren van de volgende PowerShell-cmdlet:
 
   ```powershell
   Move-AzureVirtualNetwork -Abort $vnetName
   ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Migratie van IaaS resources van klassieke in Azure Resource Manager-platform ondersteund](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-* [Technische deep dive op platform ondersteund migratie van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-* [Veelgestelde vragen: Platform ondersteund migratie van IaaS-middelen van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-* [Bekijk meest voorkomende migratiefouten en oplossingen](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+* [Technische details over door platforms ondersteunde migratie van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+* [Veelgestelde vragen: Platform ondersteunde migratie van IaaS-resources van klassiek naar Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+* [Bekijk de meest voorkomende migratiefouten en oplossingen](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

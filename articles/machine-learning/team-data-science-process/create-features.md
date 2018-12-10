@@ -1,5 +1,5 @@
 ---
-title: Functie-engineering in datatechnologie | Microsoft Docs
+title: Functie-engineering in data science - Team Data Science Process
 description: De toepassing van feature-engineering uitgelegd en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446672"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138953"
 ---
 # <a name="feature-engineering-in-data-science"></a>Functie-engineering in datatechnologie
 Dit artikel worden de doeleinden van feature-engineering en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning. De voorbeelden die wordt gebruikt ter illustratie van dit proces worden getekend van Azure Machine Learning Studio. 

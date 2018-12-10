@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning-Anomaliedetectie-API | Microsoft Docs
+title: Azure Machine Learning-Anomaliedetectie-API - Team Data Science Process
 description: API voor afwijkingsdetectie is een voorbeeld gebouwd met Microsoft Azure Machine Learning waarmee afwijkingen worden gedetecteerd in time series-gegevens met numerieke waarden zijn gelijkmatig verdeeld in de tijd.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: (previous author=alokkirpal, ms.author=alok)
-ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443922"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134791"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Anomaliedetectie-API
 ## <a name="overview"></a>Overzicht
@@ -37,9 +37,9 @@ De Anomaliedetectie-aanbieding wordt geleverd met handige's aan de slag te gaan.
 > [!NOTE]
 > Probeer **oplossing IT Anomaly Insights** mogelijk gemaakt door [deze API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
 > 
-> Deze end-to-end oplossing geïmplementeerd voor uw Azure-abonnement <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **Begin hier >**</a>
-> 
->
+<!-- This Solution is no longer available
+> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
+--> 
 
 ## <a name="api-deployment"></a>API-implementatie
 Als u wilt gebruiken de API, moet u deze implementeren naar uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Hierdoor wordt geïmplementeerd twee AzureML-webservices (en hun verwante bronnen) aan uw Azure-abonnement: één voor afwijkingsdetectie met detectie van de periodieke variatie en één zonder te worden periodieke variatie gedetecteerd.  Als de implementatie is voltooid, kunt u zich voor het beheren van uw API's van de [AzureML-webservices](https://services.azureml.net/webservices/) pagina.  Op deze pagina zich kunt u kunnen vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor het aanroepen van de API.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
@@ -106,7 +106,7 @@ De Score-API wordt gebruikt voor het uitvoeren van detectie van afwijkingen op n
 ### <a name="detectors"></a>Detectoren
 De anomaliedetectie-API biedt ondersteuning voor detectoren in 3 hoofdcategorieën. Meer informatie over de specifieke parameters voor invoer en uitvoer voor elke detector vindt u in de volgende tabel.
 
-| Categorie detector | Detector | Beschrijving | Invoerparameters | Uitvoer |
+| Categorie detector | Detector | Description | Invoerparameters | Uitvoer |
 | --- | --- | --- | --- | --- |
 | Piek detectoren |TSpike Detector |Pieken en dips n op basis van veel van de waarden afkomstig zijn van de eerste en derde kwartielen detecteren |*tspikedetector.Sensitivity:* duurt geheel getal in het bereik 1-10, standaard: 3; Hogere waarden wordt meer extreme waarden zijn waardoor er minder gevoelig zijn variabel |TSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders |
 | Piek detectoren | ZSpike Detector |Pieken en dips n op basis van hoe ver de datapoints afkomstig van hun gemiddelde zijn detecteren |*zspikedetector.Sensitivity:* nemen geheel getal in het bereik 1-10, standaard: 3; Hogere waarden wordt meer extreme waarden, zodat u minder gevoelig zijn variabel |ZSpike: binaire waarden: '1' als er een piek/dip wordt gedetecteerd, '0' anders | |
@@ -116,7 +116,7 @@ De anomaliedetectie-API biedt ondersteuning voor detectoren in 3 hoofdcategorie�
 ### <a name="parameters"></a>Parameters
 Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wordt in de onderstaande tabel vermeld:
 
-| Invoerparameters | Beschrijving | Standaardinstelling | Type | Het geldige bereik | Voorgestelde bereik |
+| Invoerparameters | Description | Standaardinstelling | Type | Het geldige bereik | Voorgestelde bereik |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Geschiedenis (in totaal aantal gegevenspunten) gebruikt voor anomaliedetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van het time series |
 | detectors.spikesdips | Of u wilt detecteren alleen pieken, alleen Spanningsdips, of beide |Beide |geïnventariseerd |Beide, pieken, Spanningsdips |Beide |
@@ -129,7 +129,7 @@ Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wor
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op uw time series-gegevens en scores van afwijkingen en binaire piek indicatoren voor elk punt in tijd retourneert. De volgende tabel bevat de uitvoer van de API. 
 
-| Uitvoer | Beschrijving |
+| Uitvoer | Description |
 | --- | --- |
 | Time |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
 | Gegevens |Als de waarden van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
@@ -152,7 +152,7 @@ De detectoren in het eindpunt van de periodieke variatie zijn vergelijkbaar met 
 
 Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wordt in de onderstaande tabel vermeld:
 
-| Invoerparameters | Beschrijving | Standaardinstelling | Type | Het geldige bereik | Voorgestelde bereik |
+| Invoerparameters | Description | Standaardinstelling | Type | Het geldige bereik | Voorgestelde bereik |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Aggregatie-interval in seconden voor het verzamelen van invoer tijdreeks |0 (geen aggregatie wordt uitgevoerd) |geheel getal |0: aggregatie, > 0 anders overslaan |5 minuten op 1 dag, afhankelijk van het time series |
 | preprocess.aggregationFunc |Functie die wordt gebruikt voor het verzamelen van gegevens in de opgegeven AggregationInterval |gemiddelde |geïnventariseerd |gemiddelde, som, lengte |N/A |
@@ -172,7 +172,7 @@ Meer gedetailleerde informatie over deze invoerparameters die zijn opgegeven wor
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op uw time series-gegevens en scores van afwijkingen en binaire piek indicatoren voor elk punt in tijd retourneert. De volgende tabel bevat de uitvoer van de API. 
 
-| Uitvoer | Beschrijving |
+| Uitvoer | Description |
 | --- | --- |
 | Time |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |
 | OriginalData |Als de waarden van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens aggregatie (en/of) ontbrekende gegevens toerekening wordt toegepast |

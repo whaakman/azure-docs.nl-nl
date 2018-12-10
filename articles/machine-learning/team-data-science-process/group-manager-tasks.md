@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process Group Manager taken - Azure | Microsoft Docs
+title: Team Data Science Process manager groepstaken
 description: Een overzicht van de taken voor een groepmanager op een data science-teamproject.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d44b13bb087f171c3f0474cde73167481221274f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446344"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136577"
 ---
-# <a name="group-manager-tasks"></a>Groepsbeheerder taken
+# <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Taken voor een groepmanager op een data science-teamproject
 
 In dit onderwerp bevat de taken die wordt verwacht dat de Manager van een groep zijn voltooid voor historie / haar data science-organisatie. Het doel is het opzetten van gezamenlijke groepsomgeving die standaardiseert op de [Team Data Science Process](overview.md) (TDSP). Voor een overzicht van de rollen personeel en de bijbehorende taken die worden beheerd door een team van gegevenswetenschappers standaardiseren over dit proces, Zie [Team Data Science Process rollen en taken](roles-tasks.md).
 

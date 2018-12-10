@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962551"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132751"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>De toepassingsproxy en Qlik Sense 
 Azure Active Directory-toepassingsproxy en Qlik Sense zijn een partnerschap aangegaan samen om te controleren of dat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik Sense.  
@@ -27,13 +27,13 @@ Azure Active Directory-toepassingsproxy en Qlik Sense zijn een partnerschap aang
 De rest van dit scenario wordt ervan uitgegaan dat u het volgende gedaan:
  
 - Geconfigureerd [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Een Application Proxy-connector hebt geïnstalleerd](application-proxy-enable.md#install-and-register-a-connector) 
+- [Een Application Proxy-connector hebt geïnstalleerd](application-proxy-add-on-premises-application.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Uw toepassingen publiceren in Azure 
 Als u wilt publiceren QlikSense, moet u twee toepassingen publiceren in Azure.  
 
 ### <a name="application-1"></a>Toepassing #1: 
-Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd overzicht van de stappen 1-8, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). 
+Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd overzicht van de stappen 1-8, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md). 
 
 
 1. Meld u aan de Azure-portal als globale beheerder. 
@@ -63,6 +63,6 @@ Raadpleeg voor meer informatie over publiceren Qlik Sense met Application Proxy,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md)
+- [Publiceren van toepassingen met toepassingsproxy](application-proxy-add-on-premises-application.md)
 - [Werken met Application Proxy connectors](application-proxy-connector-groups.md)
 

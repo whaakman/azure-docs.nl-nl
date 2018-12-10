@@ -1,5 +1,5 @@
 ---
-title: Beveiligen van uw inhoud met Azure Media Services | Microsoft Docs
+title: Beveiligen van uw inhoud met Media Services - Azure | Microsoft Docs
 description: In dit artikel biedt een overzicht van de beveiliging van inhoud met Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: cb7e867ea4304cf8b8741eac183e60d325c752c7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238346"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141846"
 ---
 # <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud
 
@@ -105,7 +106,7 @@ PlayReady, Widevine en FairPlay een hogere mate van versleuteling in vergelijkin
 
 Ter bescherming van uw activa in rust, moeten de activa van de versleuteling van opslag aan de serverzijde worden versleuteld. De volgende tabel laat zien hoe de versleuteling van opslag aan de serverzijde in Media Services v3 werkt:
 
-|Optie voor opslagversleuteling|Beschrijving|Media Services v3|
+|Optie voor opslagversleuteling|Description|Media Services v3|
 |---|---|---|---|
 |Media Services-Storage-versleuteling| AES-256-codering, sleutel beheerd door Media Services|Niet ondersteund<sup>(1)</sup>|
 |[Storage Service Encryption voor Data-at-Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling op de server die worden aangeboden door Azure Storage, sleutel beheerd door Azure of door de klant|Ondersteund|

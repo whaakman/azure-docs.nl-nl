@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955250"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141965"
 ---
 # <a name="dtu-based-service-tiers"></a>Servicelagen op basis van DTU
 
@@ -31,6 +31,7 @@ Servicelagen op basis van DTU van elkaar worden onderscheiden door een bereik va
 ## <a name="compare-the-dtu-based-service-tiers"></a>De DTU-gebaseerde service-lagen vergelijken
 
 Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-, opslag- en prestatievereisten.
+
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
 |Specifieke workload|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie||
@@ -103,7 +104,7 @@ De database wordt de grootte op basis van een 'schaalfactor'. De schaalfactor (a
 
 De werkbelasting bestaat uit negen transactietypen, zoals weergegeven in de onderstaande tabel. Elke transactie is ontworpen voor het markeren van een bepaalde set kenmerken in de database-engine en systeem hardware, met een hoog contrast uit de andere transacties. Deze aanpak maakt het eenvoudiger om de impact van de verschillende onderdelen voor de algehele prestaties vast te stellen. De transactie "Lezen zware" levert bijvoorbeeld een groot aantal leesbewerkingen van schijf.
 
-| Transactietype | Beschrijving |
+| Transactietype | Description |
 | --- | --- |
 | Lite lezen |SELECTEER; in het geheugen; alleen-lezen |
 | Gemiddeld lezen |SELECTEER; voornamelijk in het geheugen; alleen-lezen |

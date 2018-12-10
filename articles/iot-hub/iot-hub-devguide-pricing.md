@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584095"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141496"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub-prijsinformatie
 
@@ -35,6 +35,7 @@ ms.locfileid: "47584095"
 | Apparaat- en -module apparaatdubbel-query 's | Query's worden in rekening gebracht als berichten, afhankelijk van de grootte van het resultaat in 512-byte-segmenten. |
 | Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | Niet in rekening gebracht. |
 | Taken per apparaat bewerkingen | Taakbewerkingen (zoals apparaatdubbel werkt, en methoden) worden in rekening gebracht als normale. Een taak die leidt tot 1000 methodeaanroepen met 1 KB aanvragen en antwoorden van de lege-instantie wordt bijvoorbeeld in rekening gebracht 1000 berichten. |
+| Keepalive-berichten | Wanneer u AMQP of MQTT-protocol gebruikt, worden de berichten uitgewisseld verbinding te maken en berichten die in de onderhandeling wordt uitgewisseld worden niet gefactureerd. |
 
 > [!NOTE]
 > Alle grootten worden berekend overweegt de payload-grootte in bytes (protocol framing wordt genegeerd). Voor berichten die eigenschappen en de hoofdtekst hebben, wordt de grootte in een protocol platformonafhankelijk berekend. Zie voor meer informatie, [IoT Hub-berichtindeling](iot-hub-devguide-messages-construct.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319545"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137834"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM-Gast OS firewall is onjuist geconfigureerd
 
@@ -33,7 +33,7 @@ In dit artikel over het oplossen van onjuist geconfigureerde gastbesturingssyste
 
 ## <a name="cause"></a>Oorzaak
 
-Een onjuiste configuratie van de firewall van de Gast-systeem kan sommige of alle soorten netwerkverkeer naar de virtuele machine blokkeren. 
+Een onjuiste configuratie van de firewall van de Gast-systeem kan sommige of alle soorten netwerkverkeer naar de virtuele machine blokkeren.
 
 ## <a name="solution"></a>Oplossing
 
@@ -43,11 +43,11 @@ Om dit probleem wilt oplossen, gebruikt u de seriële Console of [herstel de vir
 
 ## <a name="online-mitigations"></a>Online oplossingen
 
-Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sessie](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Als de seriële Console is niet ingeschakeld op de virtuele machine, gaat u naar de sectie 'Herstel de virtuele machine Offline' van de volgende Azure-artikel:
+Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sessie](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Als de seriële Console is niet ingeschakeld op de virtuele machine, gaat u naar de sectie 'Herstel de virtuele machine Offline' van de volgende Azure-artikel:
 
  [Een interne fout treedt op wanneer u probeert verbinding maken met een Azure-VM via Extern bureaublad](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-De volgende regels kunnen worden bewerkt voor de toegang tot de virtuele machine (via RDP) of om een makkelijker troubleshooting ervaring te bieden: 
+De volgende regels kunnen worden bewerkt voor de toegang tot de virtuele machine (via RDP) of om een makkelijker troubleshooting ervaring te bieden:
 
 *   Extern bureaublad (TCP-In): Dit is de standaard-regel die de primaire toegang tot de virtuele machine biedt door toe te staan van RDP in Azure.
 
@@ -55,7 +55,7 @@ De volgende regels kunnen worden bewerkt voor de toegang tot de virtuele machine
 
 *   Bestands- en printerdeling (SMB-In): deze regel kunnen de toegang tot het netwerk delen als een optie voor het oplossen van problemen.
 
-*   Bestands- en printerdeling (Echoaanvraag - ICMPv4-In): met deze regel kunt u de virtuele machine te pingen. 
+*   Bestands- en printerdeling (Echoaanvraag - ICMPv4-In): met deze regel kunt u de virtuele machine te pingen.
 
 U kunt de huidige status van de firewallregel opvragen in de toegang tot de seriële Console-exemplaar.
 
@@ -83,7 +83,7 @@ U kunt de huidige status van de firewallregel opvragen in de toegang tot de seri
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   Voor het oplossen van problemen, kunt u de firewallprofielen uitschakelen: 
+*   Voor het oplossen van problemen, kunt u de firewallprofielen uitschakelen:
 
     ```cmd
     netsh advfirewall set allprofiles state off

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447177"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139364"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -31,7 +31,7 @@ Krijg antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure
 
 **V:** Hoeveel virtuele machines kan een schaalset bevatten?
 
-**A:** Een schaalset kan 0 tot 1000 virtuele machines bevatten op basis van platforminstallatiekopieën, of 0 tot 300 virtuele machines op basis van aangepaste installatiekopieën.
+**A:** Een schaalset kan 0 tot 1000 virtuele machines op basis van platforminstallatiekopieën, of 0-600 virtuele machines op basis van aangepaste installatiekopieën hebben.
 
 **V:** Worden gegevensschijven binnen schaalsets ondersteund?
 
@@ -266,7 +266,7 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
     }
 ```
  
-de naam van de linuxConfiguration-element | Vereist | Type | Beschrijving
+de naam van de linuxConfiguration-element | Vereist | Type | Description
 --- | --- | --- | --- |  ---
 SSH | Nee | Verzameling | Hiermee geeft u de SSH-sleutel-configuratie voor een Linux-besturingssysteem
 pad | Ja | Reeks | Hiermee geeft u de Linux-bestandspad waarin de SSH-sleutels of het certificaat moet zich bevinden

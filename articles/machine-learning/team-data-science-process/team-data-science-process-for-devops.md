@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process voor DevOps | Microsoft Docs
-description: Biedt richtlijnen voor meer informatie over een analytics-workload met behulp van het Team Data Science Process en Azure Machine Learning.
+title: Team Data Science Process voor DevOps
+description: Bewerkingen (DevOps)-functies voor ontwikkelaars die specifiek voor een implementatie van de oplossing Advanced Analytics en Cognitive Services zijn.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: af6468e0d9deb08d0a2902de2a6b413b4b9052b8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3fc6f72571f110b0dbcb25ccbfadd400dfa787ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447075"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135845"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Team Data Science Process voor Developer-bewerkingen
 

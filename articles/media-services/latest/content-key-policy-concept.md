@@ -1,5 +1,5 @@
 ---
-title: Beleid voor sleutels in Azure mediaservices Content | Microsoft Docs
+title: Inhoud van de belangrijkste beleidsregels in mediaservices - Azure | Microsoft Docs
 description: Dit artikel bevat een uitleg over wat inhoudsbeleid van de sleutels zijn, en hoe ze worden gebruikt door Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085951"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141523"
 ---
 # <a name="content-key-policies"></a>Beleid voor inhoudssleutels
 
@@ -28,7 +29,7 @@ In Azure Media Services v3 kunt beleid voor inhoud sleutels u om op te geven hoe
 
 De volgende tabel ziet u de eigenschappen van de ContentKeyPolicy en biedt de definities.
 
-|Naam|Beschrijving|
+|Name|Description|
 |---|---|
 |id|Volledig gekwalificeerde resource-ID voor de resource.|
 |naam|De naam van de resource.|
@@ -63,7 +64,7 @@ Beschrijving van de operator:
 
 De volgende tabel ziet u hoe deze opties kunnen worden toegepast op de StreamingPolicy-eigenschappen: 
 
-|Naam|Filteren|Bestellen|
+|Name|Filteren|Bestellen|
 |---|---|---|
 |id|||
 |naam|Eq, ne, ge, le, gt, lt|Oplopend of aflopend|

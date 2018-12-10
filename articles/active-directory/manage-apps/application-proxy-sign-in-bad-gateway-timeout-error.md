@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2af5ed294c4a53e38690991f1f65b3f7d2f46c73
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356654"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134825"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>'Geen toegang tot deze zakelijke toepassing' Fout bij het gebruik van een toepassing Application Proxy
 
@@ -62,7 +62,7 @@ Een ongeldige gateway-fout geeft aan dat de connector kan niet worden bereikt va
 
 Als u een niet-toegestane fout ziet, heeft de gebruiker niet is toegewezen aan de toepassing. Deze fout kan zijn in Azure Active Directory of op de back endtoepassing.
 
-Zie voor meer informatie over het toewijzen van gebruikers aan de toepassing in Azure, de [configuratiedocumentatie](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Zie voor meer informatie over het toewijzen van gebruikers aan de toepassing in Azure, de [configuratiedocumentatie](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
 
 Als u hebt geverifieerd dat de gebruiker is toegewezen aan de toepassing in Azure, controleert u de Gebruikersconfiguratie van de in de back endtoepassing. Als u Kerberos-beperkte overdracht/geïntegreerde Windows-verificatie gebruikt, raadpleegt u de pagina KCD problemen oplossen voor richtlijnen.
 

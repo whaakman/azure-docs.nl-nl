@@ -1,20 +1,21 @@
 ---
-title: Opnieuw instellen van Azure ExpressRoute-peerings | Microsoft Docs
-description: Het uitschakelen en inschakelen van peerings van een ExpressRoute-circuit.
+title: 'Opnieuw instellen van circuitpeering - ExpressRoute: Azure | Microsoft Docs'
+description: Het ExpressRoute-circuitpeerings in- en uitschakelen.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415811"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132583"
 ---
-# <a name="reset-expressroute-peerings"></a>Opnieuw instellen van ExpressRoute-peerings
+# <a name="reset-expressroute-circuit-peerings"></a>Opnieuw instellen van ExpressRoute-circuitpeerings
 
 In dit artikel wordt beschreven hoe u uitschakelen en inschakelen van peerings van een ExpressRoute-circuit met behulp van PowerShell. Wanneer u een peering de uitschakelt, wordt de BGP-sessie op de primaire verbinding en de secundaire verbinding van uw ExpressRoute-circuit worden afgesloten. U verliest connectiviteit via deze peering naar Microsoft. Wanneer u een peering hebt ingeschakeld, wordt de BGP-sessie op de primaire verbinding en de secundaire verbinding van uw ExpressRoute-circuit van worden gebracht. U wordt opnieuw verbonden is via deze peering naar Microsoft. U kunt in- en Microsoft-Peering en Privépeering van Azure onafhankelijk van een ExpressRoute-circuit uitschakelen. Wanneer u eerst de peerings op uw ExpressRoute-circuit configureert, wordt de peerings zijn standaard ingeschakeld.
 

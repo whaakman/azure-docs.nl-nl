@@ -1,23 +1,22 @@
 ---
-title: Veelgestelde vragen over Azure Cosmos DB
+title: Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 description: Vind antwoorden op veelgestelde vragen over Azure Cosmos DB, een wereldwijd gedistribueerde, multi-model databaseservice. Meer informatie over de capaciteit, prestatieniveaus en te schalen.
 keywords: Databasevragen, veelgestelde vragen, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: e4ed9ee34260dfffc0034fb7524a037e957fab3f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: fc5b397f64bead38e630cb994d1d325a85b11cda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851176"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139653"
 ---
-# <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
-
-## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
+# <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
 
 ### <a name="what-happened-to-the-documentdb-api"></a>Wat is er gebeurd met de DocumentDB-API?
 
@@ -78,7 +77,7 @@ U kunt ook de [Azure Cosmos DB-Emulator](local-emulator.md) ontwikkelen en teste
 Als u wilt een technische vraag, kunt u posten naar een van deze twee vraag en antwoord forums:
 
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
 
 Om aan te vragen van nieuwe functies, maakt u een nieuwe aanvraag op [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -125,10 +124,6 @@ Wanneer u een regio, houd er rekening mee dat Azure Cosmos DB onafhankelijke en 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>Is het mogelijk om over te schakelen van niveau containerdoorvoer wordt ingericht voor het inrichten van de database-level doorvoer? Of omgekeerd
 
 Container en de inrichting van de database-level doorvoer zijn aparte aanbiedingen en schakelen tussen een van deze vereisen migreren van gegevens van bron naar bestemming. Dit betekent dat u wilt maken van een nieuwe database of een nieuwe verzameling en vervolgens migreren van gegevens met behulp van [bulksgewijs executor bibliotheek](bulk-executor-overview.md) of [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
-
-### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Hoe maak ik vaste verzameling met partitiesleutel
-
-Op dit moment kunt u verzameling met de doorvoer van een partitie maken met behulp van de [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) methode van de .net SDK of met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Het maken van een vaste verzameling met behulp van Azure portal wordt momenteel niet ondersteund.
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure cosmos DB biedt ondersteuning voor tijdseries analyseren?
 
@@ -236,7 +231,7 @@ Zie voor meer informatie, [verbinding maken met uw API voor MongoDB-database](co
 
 Samen met de algemene foutcodes voor MongoDB heeft de MongoDB-API een eigen specifieke foutcodes:
 
-| Fout               | Code  | Beschrijving  | Oplossing  |
+| Fout               | Code  | Description  | Oplossing  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Het totale aantal aanvraageenheden verbruikt meer is dan de frequentie van de ingerichte aanvraageenheid voor de verzameling en is beperkt. | Houd rekening met schaal de doorvoer toegewezen opnieuw aan een container of een set van containers met de Azure-portal of opnieuw proberen. |
 | ExceededMemoryLimit | 16501 | Als een service met meerdere tenants, heeft de bewerking van de client geheugen toegewezen overschreden. | Verklein het bereik van de bewerking door meer beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Voorbeeld:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {naam: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {leeftijd: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
@@ -304,7 +299,7 @@ U kunt uw feedback delen in een van de volgende manieren:
 
 * [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow wordt aanbevolen voor vragen over programmeren. Zorg ervoor dat uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [zo veel details bevatten mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Wat is de verbindingsreeks die ik wil gebruiken voor verbinding met de Table-API?
 
@@ -525,7 +520,7 @@ Azure Cosmos DB is een SLA-systeem waarmee latentie, doorvoer, beschikbaarheid e
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>Voor C# / .NET-ontwikkeling, moet ik gebruiken het Microsoft.Azure.Graphs pakket of Gremlin.NET?
 
-Azure Cosmos DB Gremlin-API maakt gebruik van de open-source-stuurprogramma's als de belangrijkste connectors voor de service. Zodat de aanbevolen optie is het gebruik van [stuurprogramma's die worden ondersteund door Apache Tinkerpop](http://tinkerpop.apache.org/).
+Azure Cosmos DB Gremlin-API maakt gebruik van de open-source-stuurprogramma's als de belangrijkste connectors voor de service. Zodat de aanbevolen optie is het gebruik van [stuurprogramma's die worden ondersteund door Apache Tinkerpop](https://tinkerpop.apache.org/).
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Hoe worden RU/s in rekening gebracht bij het uitvoeren van query's op een grafiekdatabase?
 
@@ -539,7 +534,7 @@ Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hoe kan ik beveiligen tegen aanvallen via injectie met behulp van Gremlin-stuurprogramma's?
 
-Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Waarom krijg ik de ' Fout bij Schemacompilatie Gremlin-Query: kan niet vinden van elke methode "fout?
 

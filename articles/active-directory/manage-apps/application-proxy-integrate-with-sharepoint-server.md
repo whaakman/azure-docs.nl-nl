@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0f1b46176ba440a11d1584846019859c63d2f263
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425204"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135777"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen
 
@@ -163,7 +163,7 @@ Voor het configureren van de KCD, herhaalt u de volgende stappen uit voor elke c
 
 Nu dat u SharePoint hebt ingeschakeld voor Kerberos- en geconfigureerde KCD, u kunt voor het publiceren van de SharePoint-farm voor externe toegang via Azure AD-toepassingsproxy.
 
-1. Publiceer uw SharePoint-site met de volgende instellingen. Zie voor stapsgewijze instructies [toepassingen publiceren met behulp van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). 
+1. Publiceer uw SharePoint-site met de volgende instellingen. Zie voor stapsgewijze instructies [toepassingen publiceren met behulp van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md). 
    - **Interne URL**: de URL van de SharePoint-site intern, zoals **https://SharePoint/**. Zorg ervoor dat u in dit voorbeeld **https**
    - **Methode voor verificatie vooraf**: Azure Active Directory
    - **Vertalen van URL in de Headers**: Nee

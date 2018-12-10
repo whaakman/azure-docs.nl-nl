@@ -1,5 +1,5 @@
 ---
-title: Implementatiefase van de levenscyclus van het Team Data Science Process - Azure | Microsoft Docs
+title: Implementatiefase van de levenscyclus van het Team Data Science Process
 description: De doelen, taken en producten voor de implementatiefase van uw data-science-projecten
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
-ms.openlocfilehash: cb3a1bd31983615810bf8a3e4eaf291eed248196
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074755"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138565"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Implementatiefase van de levenscyclus van het Team Data Science Process
 

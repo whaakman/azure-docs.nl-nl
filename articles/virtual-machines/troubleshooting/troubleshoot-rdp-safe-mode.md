@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 097b7efd7643e3b8450284d19e13a428dfd48ac2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309862"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138854"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Niet van RDP-verbinding met een virtuele machine omdat de virtuele machine wordt opgestart in de veilige modus
 
 In dit artikel laat zien hoe het oplossen van een probleem waarbij u geen verbinding naar Azure Windows Virtual Machines (VM's maken) omdat de virtuele machine is geconfigureerd om op te starten in de veilige modus.
 
-> [!NOTE] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel. 
+> [!NOTE]
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
 
-## <a name="symptoms"></a>Symptomen 
+## <a name="symptoms"></a>Symptomen
 
 Kunt u niet een RDP-verbinding of andere verbindingen (zoals HTTP) aan een virtuele machine in Azure omdat de virtuele machine is geconfigureerd om op te starten in de veilige modus. Wanneer u de schermafbeelding controleren in de [diagnostische gegevens over opstarten](../troubleshooting/boot-diagnostics.md) in Azure portal, ziet u mogelijk dat de virtuele machine normaal worden opgestart, maar de netwerkinterface niet beschikbaar is:
 
@@ -38,7 +38,7 @@ Kunt u niet een RDP-verbinding of andere verbindingen (zoals HTTP) aan een virtu
 De RDP-service is niet beschikbaar in de veilige modus. Alleen zijn essentiële systeem programma's en services geladen wanneer de virtuele machine wordt opgestart in de veilige modus. Dit geldt voor de twee verschillende versies van de veilige modus zijn "Opstarten in veilige modus minimale" en "Veilig opstarten met de connectiviteit".
 
 
-## <a name="solution"></a>Oplossing 
+## <a name="solution"></a>Oplossing
 
 Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de besturingssysteemschijf van de betrokken virtuele machine als een back-up. Zie voor meer informatie, [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
 
@@ -46,9 +46,9 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om te configure
 
 ### <a name="use-serial-control"></a>Seriële besturingselement gebruiken
 
-1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Als de seriële Console is niet ingeschakeld op de virtuele machine, Zie [herstel de virtuele machine offline](#repair-the-vm-offline).
-2. Controleer de opstartconfiguratiegegevens: 
+2. Controleer de opstartconfiguratiegegevens:
 
         bcdedit /enum
 
@@ -65,7 +65,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om te configure
 3. Verwijder de **safemoade** markeren, zodat de virtuele machine opnieuw in de normale modus opgestart:
 
         bcdedit /deletevalue {current} safeboot
-        
+
 4. Controleer de opstartconfiguratiegegevens om ervoor te zorgen dat de **veilig** markering wordt verwijderd:
 
         bcdedit /enum
@@ -77,7 +77,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om te configure
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>De besturingssysteemschijf koppelen aan een virtuele machine voor herstel
 
 1. [De besturingssysteemschijf koppelen aan een virtuele machine voor herstel](../windows/troubleshoot-recovery-disks-portal.md).
-2. Start een externe bureaubladverbinding met de virtuele machine voor herstel. 
+2. Start een externe bureaubladverbinding met de virtuele machine voor herstel.
 3. Zorg ervoor dat de schijf is gemarkeerd als **Online** in de Schijfbeheer-console. Houd er rekening mee de stationsletter die is toegewezen aan de gekoppelde besturingssysteemschijf.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>Inschakelen van de dump logboek- en seriële Console (optioneel)
@@ -115,10 +115,10 @@ Om in te schakelen dump logboek- en seriële Console, voer het volgende script.
 #### Configure the Windows to boot into normal mode
 
 1. Open an elevated command prompt session (**Run as administrator**).
-2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM. 
+2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
 
         bcdedit /store F:\boot\bcd /enum
-    Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
+    Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".
 
     If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
 

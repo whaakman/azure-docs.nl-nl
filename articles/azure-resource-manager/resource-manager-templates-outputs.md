@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager-sjabloon levert | Microsoft Docs
-description: Beschrijft hoe voor het definiëren van de uitvoer voor een Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
+title: Uitvoer van Azure Resource Manager-sjabloon | Microsoft Docs
+description: Beschrijft hoe u voor het definiëren van uitvoer voor een Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358362"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140452"
 ---
-# <a name="outputs-section-in-azure-resource-manager-templates"></a>Sectie van de uitvoer in Azure Resource Manager-sjablonen
-In de sectie uitvoer geeft u de waarden die worden geretourneerd van de implementatie. U kan bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource geretourneerd.
+# <a name="outputs-section-in-azure-resource-manager-templates"></a>De uitvoersectie in Azure Resource Manager-sjablonen
+In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. U kunt bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource retourneren.
 
-## <a name="define-and-use-output-values"></a>Definieer en het gebruik van de uitvoerwaarden
+## <a name="define-and-use-output-values"></a>Definiëren en uitvoerwaarden
 
-Het volgende voorbeeld ziet u hoe te retourneren van de resource-ID voor een openbaar IP-adres:
+Het volgende voorbeeld laat zien hoe geretourneerd van de resource-ID voor een openbaar IP-adres:
 
 ```json
 "outputs": {
@@ -36,7 +36,7 @@ Het volgende voorbeeld ziet u hoe te retourneren van de resource-ID voor een ope
 }
 ```
 
-Na de implementatie kunt u de waarde met een script ophalen. Gebruik voor PowerShell:
+Na de implementatie, kunt u de waarde met het script ophalen. Gebruik voor PowerShell:
 
 ```powershell
 (Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
@@ -48,9 +48,11 @@ Gebruik voor Azure CLI:
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-U kunt de uitvoerwaarde van een gekoppelde sjabloon ophalen met behulp van de [verwijzing](resource-group-template-functions-resource.md#reference) functie. Als u een waarde voor de uitvoer van een gekoppelde sjabloon, halen de waarde van de eigenschap syntaxis: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+U kunt de uitvoerwaarde van een gekoppelde sjabloon ophalen met behulp van de [verwijzing](resource-group-template-functions-resource.md#reference) functie. Als u een uitvoerwaarde op basis van een gekoppelde sjabloon, halen de waarde van de eigenschap met de syntaxis, zoals: `"[reference('deploymentName').outputs.propertyName.value]"`.
 
-U kunt bijvoorbeeld het IP-adres instellen voor een load balancer door op te halen van een waarde van een gekoppelde sjabloon.
+Bij het ophalen van een eigenschap van een uitvoer van een gekoppelde sjabloon, kan niet de eigenschapsnaam van de een streepje bestaan.
+
+U kunt bijvoorbeeld het IP-adres op een load balancer instellen door het ophalen van een waarde van een gekoppelde sjabloon.
 
 ```json
 "publicIPAddress": {
@@ -58,11 +60,11 @@ U kunt bijvoorbeeld het IP-adres instellen voor een load balancer door op te hal
 }
 ```
 
-U kunt geen gebruiken de `reference` functie in de sectie uitvoer van een [geneste sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, de sjabloon voor geneste niet converteren naar een gekoppelde sjabloon.
+U kunt geen gebruiken de `reference` functie in de uitvoersectie van een [geneste sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, uw geneste sjabloon te converteren naar een gekoppelde sjabloon.
 
 ## <a name="available-properties"></a>Beschikbare eigenschappen
 
-Het volgende voorbeeld ziet u de structuur van de definitie van een uitvoer:
+Het volgende voorbeeld ziet u de structuur van de uitvoerdefinitie van een:
 
 ```json
 "outputs": {
@@ -73,15 +75,15 @@ Het volgende voorbeeld ziet u de structuur van de definitie van een uitvoer:
 }
 ```
 
-| Elementnaam | Vereist | Beschrijving |
+| De naam van element | Vereist | Description |
 |:--- |:--- |:--- |
 | outputName |Ja |De naam van de uitvoerwaarde. Moet een geldige JavaScript-id. |
-| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning voor dezelfde typen als sjabloon invoerparameters. |
-| waarde |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de waarde voor uitvoer. |
+| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning van de dezelfde typen als sjabloon invoerparameters die zijn opgegeven. |
+| waarde |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de uitvoerwaarde. |
 
 ## <a name="recommendations"></a>Aanbevelingen
 
-Als u een sjabloon voor het maken van openbare IP-adressen gebruikt, moet u een uitvoer-sectie die gegevens van het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN retourneert) opnemen. Uitvoerwaarden kunt u eenvoudig ophalen van informatie over de openbare IP-adressen en FQDN's na de implementatie.
+Als u een sjabloon te maken van openbare IP-adressen gebruikt, moet u een uitvoersectie die gegevens van het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN retourneert) opnemen. U kunt uitvoerwaarden gebruiken om op te halen eenvoudig meer informatie over openbare IP-adressen en FQDN's na de implementatie.
 
 ```json
 "outputs": {
@@ -96,18 +98,18 @@ Als u een sjabloon voor het maken van openbare IP-adressen gebruikt, moet u een 
 }
 ```
 
-## <a name="example-templates"></a>Voorbeeld-sjablonen
+## <a name="example-templates"></a>Voorbeeldsjablonen
 
 
-|Template  |Beschrijving  |
+|Template  |Description  |
 |---------|---------|
-|[Variabelen kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Complexe variabelen maakt en deze waarden levert. Niet alle resources is geïmplementeerd. |
-|[Openbaar IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Hiermee maakt u een openbaar IP-adres en levert de resource-ID. |
+|[Kopieer variabelen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Complexe variabelen maakt en deze waarden weergeeft. Niet alle resources niet implementeren. |
+|[Openbaar IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Hiermee maakt u een openbaar IP-adres en de uitvoer van de resource-ID. |
 |[Load balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Koppelingen naar de voorgaande sjabloon. Maakt gebruik van de resource-ID in de uitvoer bij het maken van de load balancer. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
-* Zie voor meer informatie over de functies die u van binnen een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
+* Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
 * Als u wilt combineren meerdere sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Wellicht moet u bronnen gebruiken die zijn opgeslagen in een andere resourcegroep. Dit scenario is gebruikelijk dat wanneer u werkt met opslagaccounts of virtuele netwerken die worden gedeeld door meerdere resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).
+* Mogelijk moet u de resources die zijn opgeslagen in een andere resourcegroep gebruiken. In dit scenario is gebruikelijk bij het werken met opslagaccounts of virtuele netwerken die zijn verdeeld over meerdere resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).

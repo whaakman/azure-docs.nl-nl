@@ -1,24 +1,26 @@
 ---
-title: Een openbare Load Balancer Standard maken met zone-redundante frontend met openbare IP-adres met behulp van Azure portal | Microsoft Docs
-description: Leer hoe u een openbare Load Balancer Standard maken met zone-redundante openbaar IP-adres-frontend met Azure portal
+title: Een Standard Load Balancer maken met zone-redundante front met behulp van Azure portal
+titlesuffix: Azure Load Balancer
+description: Informatie over het maken van een openbare Standard Load Balancer met zone-redundante openbaar IP-adres-frontend met Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 70514433d11bbe7606d75a3e2c1f6dffc251621f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740940"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135680"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Een openbare Load Balancer Standard maken met zone-redundante frontend met openbare IP-adres met behulp van Azure portal
+#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Een openbare Standard Load Balancer maken met zone-redundante front met behulp van Azure portal
 
 In dit artikel begeleidt bij het maken van een openbare [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) met een zone-redundante front met behulp van een openbare standaard IP-adres. Er is een één front-end-IP-adres op een Standard Load Balancer zone-redundante standaard.
 

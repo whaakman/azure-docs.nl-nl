@@ -15,12 +15,12 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1269dfb3aec33e781601a1d885004ddf80127160
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 83f32cc18f1237d5d28e8340177fd6e2fae4e173
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367195"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133635"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Toegang tot uw on-premises toepassingen via Microsoft Teams
 
@@ -31,7 +31,7 @@ Uw gebruikers kunnen cloud-apps toevoegen aan hun Teams-kanalen [met tabs](https
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>De Application Proxy-connector installeert en uw app publiceren
 
-Als u dat nog niet gedaan hebt, [Application Proxy configureren voor uw tenant en het installeren van de connector](application-proxy-enable.md). Vervolgens [publiceren van uw on-premises toepassing](application-proxy-publish-azure-portal.md) voor externe toegang. Wanneer u de app publiceert, noteer de externe URL omdat deze wordt gebruikt om de app toevoegen aan Teams.
+Als u dat nog niet gedaan hebt, [Application Proxy configureren voor uw tenant en het installeren van de connector](application-proxy-add-on-premises-application.md). Vervolgens [publiceren van uw on-premises toepassing](application-proxy-add-on-premises-application.md) voor externe toegang. Wanneer u de app publiceert, noteer de externe URL omdat deze wordt gebruikt om de app toevoegen aan Teams.
 
 Als u al uw Apps zijn gepubliceerd, maar niet meer de externe URL's weet, controleren of ze de [Azure-portal](https://portal.azure.com). Meld u aan en navigeer naar **Azure Active Directory** > **bedrijfstoepassingen** > **alle toepassingen** > Selecteer uw app >  **Toepassingsproxy**.
 

@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van gegevens in Azure blob-containers, SQL Server en Hive-tabellen | Microsoft Docs
-description: Klik hier voor meer informatie over het verkennen van gegevens die zijn opgeslagen in verschillende Azure enviromnents.
+title: Voorbeeldgegevens in de locaties van andere Azure storage - Team Data Science Process
+description: Voorbeeldgegevens in Azure blob-containers, SQL Server en Hive-tabellen te verkleinen tot een grootte kleiner, maar representatieve en gemakkelijker.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 679d812c239e0f626d2872d29bc9de7848399bc6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7bc4174121a58353219e73eef86ec6c64f806647
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844597"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133210"
 ---
 # <a name="heading"></a>Voorbeeldgegevens in Azure blob-containers, SQL Server en Hive-tabellen
 

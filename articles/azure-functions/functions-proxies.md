@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095042"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139517"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -149,7 +149,7 @@ Elke proxy heeft een beschrijvende naam, zoals *proxy1* in het voorgaande voorbe
 > [!NOTE] 
 > De *route* eigenschap in Azure Functions-proxy's komt niet voor de eer de *routePrefix* eigenschap van de configuratie van de functie-App-host. Als u wilt opnemen een voorvoegsel zoals `/api`, moeten worden opgenomen in de *route* eigenschap.
 
-### <a name="disableProxies"></a>Afzonderlijke proxy's uitschakelen
+### <a name="disableProxies"></a> Afzonderlijke proxy's uitschakelen
 
 U kunt afzonderlijke proxy's uitschakelen door toe te voegen `"disabled": true` naar de proxy in het `proxies.json` bestand. Dit zorgt ervoor dat de aanvragen die voldoen aan de matchCondidtion naar 404 retourneren.
 ```json
@@ -166,6 +166,22 @@ U kunt afzonderlijke proxy's uitschakelen door toe te voegen `"disabled": true` 
     }
 }
 ```
+
+### <a name="applicationSettings"></a> Toepassingsinstellingen
+
+De proxy-gedrag kan worden beheerd door verschillende app-instellingen. Ze worden alle beschreven in de [naslaginformatie voor Functions-App](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Gereserveerde tekens (tekenreeks opmaak)
+
+Proxy's lezen alle tekenreeksen zonder interpretatie, met uitzondering van accolades en slashes
+
+|Teken|Escape-teken|Voorbeeld|
+|-|-|-|
+|{of}|{{of}}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
 
 ### <a name="requestOverrides"></a>Een object requestOverrides definiëren
 

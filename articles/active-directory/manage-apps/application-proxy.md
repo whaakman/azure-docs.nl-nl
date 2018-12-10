@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998114"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139948"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Het bieden van veilige externe toegang tot on-premises toepassingen
 
@@ -88,8 +88,8 @@ Voordat u Application Proxy configureert, controleert u of u hebt een ondersteun
 
 Aan de slag met Application Proxy in twee stappen:
 
-1. [Toepassingsproxy inschakelen en configureren van de connector](application-proxy-enable.md).    
-2. [Toepassingen publiceren](application-proxy-publish-azure-portal.md) -gebruik van de wizard snel en eenvoudig uw on-premises toepassingen gepubliceerde en toegankelijk is op afstand ophalen.
+1. [Toepassingsproxy inschakelen en configureren van de connector](application-proxy-add-on-premises-application.md).    
+2. [Toepassingen publiceren](application-proxy-add-on-premises-application.md) -gebruik van de wizard snel en eenvoudig uw on-premises toepassingen gepubliceerde en toegankelijk is op afstand ophalen.
 
 ## <a name="whats-next"></a>Volgende stappen
 Nadat u uw eerste app publiceert, is er veel meer u met Application Proxy doen kunt:

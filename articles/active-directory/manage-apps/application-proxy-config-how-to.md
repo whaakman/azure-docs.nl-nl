@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cf3e367dad528017a98e103962c57cb758da55cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: a7a5c097f0400d89398cef66eeb7bd0ce8d5e97b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356492"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132428"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Een toepassing Application Proxy configureren
 
@@ -28,15 +28,15 @@ In dit artikel kunt u meer informatie over het configureren van een Application 
 
 ## <a name="recommended-documents"></a>Aanbevolen documenten 
 
-Voor meer informatie over de initiële configuraties en het maken van een Application Proxy-toepassing via de beheerportal, volgt u de [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md).
+Voor meer informatie over de initiële configuraties en het maken van een Application Proxy-toepassing via de beheerportal, volgt u de [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md).
 
-Zie voor meer informatie over het configureren van Connectors [toepassingsproxy inschakelen in Azure portal](application-proxy-enable.md).
+Zie voor meer informatie over het configureren van Connectors [toepassingsproxy inschakelen in Azure portal](application-proxy-add-on-premises-application.md).
 
 Zie voor meer informatie over certificaten uploaden en gebruiken van aangepaste domeinen [werken met aangepaste domeinen in Azure AD-toepassingsproxy](application-proxy-configure-custom-domain.md).
 
 ## <a name="create-the-applicationsetting-the-urls"></a>De URL's voor de toepassingsinstelling maken
 
-Als u de stappen in de [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md) documentatie en zijn er een fout optreedt bij het maken van de toepassing, Zie de foutdetails voor meer informatie en suggesties voor het oplossen van de de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. Algemene om fouten te voorkomen, controleert u of:
+Als u de stappen in de [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md) documentatie en zijn er een fout optreedt bij het maken van de toepassing, Zie de foutdetails voor meer informatie en suggesties voor het oplossen van de de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. Algemene om fouten te voorkomen, controleert u of:
 
 -   U bent een beheerder met de machtiging voor het maken van een toepassing Application Proxy
 
@@ -75,4 +75,4 @@ Het foutbericht weergegeven in de rechterbovenhoek als u probeert om het certifi
    ![Melding prompt](./media/application-proxy-config-how-to/error-message2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md)
+[Toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md)

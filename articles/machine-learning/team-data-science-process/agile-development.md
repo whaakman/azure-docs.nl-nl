@@ -1,5 +1,5 @@
 ---
-title: Flexibele ontwikkeling van wetenschappelijke gegevensprojecten - Azure Machine Learning | Microsoft Docs
+title: Flexibele ontwikkeling van wetenschappelijke gegevensprojecten - Team Data Science Process
 description: Hoe kunnen ontwikkelaars een data science-project in een systematische, versie beheerd en gezamenlijke manier binnen een projectteam uitvoeren met behulp van het Team Data Science Process.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9fd8714e4c9fdc89036a3b05ba835b140363c0e3
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443369"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134400"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Flexibele ontwikkeling van wetenschappelijke gegevensprojecten
 

@@ -1,6 +1,6 @@
 ---
-title: Bedrijven inzicht in fase van de levenscyclus van het Team Data Science Process - Azure | Microsoft Docs
-description: De doelen, taken en producten voor de fase van het inzicht in business van uw data-science-projecten
+title: Inzicht in het bedrijf in Team Data Science Process
+description: De doelen, taken en producten voor de fase van het inzicht in bedrijven van uw data-science-projecten in het Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446718"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141659"
 ---
-# <a name="business-understanding"></a>Inzicht in het bedrijf
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>De zakelijke understanding fase van de levenscyclus van het Team Data Science Process
 
 In dit artikel bevat een overzicht van de doelen, taken en producten die zijn gekoppeld aan de zakelijke understanding fase van het Team Data Science Process (TDSP). Deze procedure biedt de levensduur van een aanbevolen die u gebruiken kunt voor het structureren van uw data-science-projecten. De levenscyclus van geeft een overzicht van de belangrijke fasen die projecten doorgaans worden uitgevoerd, vaak iteratief:
 
@@ -92,5 +92,3 @@ Hier vindt u koppelingen naar elke stap in de levenscyclus van de TDSP:
    5. [Aanvaarding van de klant](lifecycle-acceptance.md)
 
 We bieden volledige end-to-end-scenario's die laten zien van alle de stappen in het proces voor het specifieke scenario's. De [voorbeeld walkthroughs](walkthroughs.md) artikel geeft een lijst van de scenario's met koppelingen en beschrijvingen van miniaturen. De scenario's laten zien hoe u cloud, on-premises hulpprogramma's en services combineren in een werkstroom of een pijplijn te maken van een intelligente toepassingen. 
-
-Zie voor meer voorbeelden van hoe u het uitvoeren van de stappen in TDSPs die gebruikmaken van Azure Machine Learning Studio [de TDSP gebruiken met Azure Machine Learning](https://aka.ms/datascienceprocess).

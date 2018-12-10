@@ -1,5 +1,5 @@
 ---
-title: Klant acceptatie van de fase van de levenscyclus van het Team Data Science Process - Azure | Microsoft Docs
+title: Klant acceptatie van de fase van de levenscyclus van het Team Data Science Process
 description: De doelen, taken en producten voor de fase van de acceptatie van de klant van uw data-science-projecten
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
-ms.openlocfilehash: 6464f4bf7d8d3649c9b59005e927dc5bc1463b28
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074517"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132615"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Klant acceptatie van de fase van de levenscyclus van het Team Data Science Process
 

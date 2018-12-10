@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB PDF-query-referentiemateriaal | Microsoft Docs
+title: Azure Cosmos DB PDF-query-referentiemateriaal
 description: Afdrukbare PDF cheatsheets waarmee u Azure Cosmos DB SQL, MongoDB, grafiek en tabel-API's gebruiken om te vragen van uw gegevens
 keywords: overzichtskaart van SQL, sql cheat sheet PDF-, sql-query-Cheatsheet
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 21b2ee99fa8f9b22b4dfccadfaadf1d4a10980cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160967"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138140"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB-query-referentiemateriaal
 
@@ -36,7 +34,7 @@ Download de [referentiemateriaal voor Azure Cosmos DB A3-formaat query](https://
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer hulp bij het schrijven van query's:
-* Zie voor SQL-API-query's, [query uitvoert met behulp van de SQL-API](tutorial-query-sql-api.md), [SQL-query's voor Azure Cosmos DB](how-to-sql-query.md), en [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md)
+* Zie voor SQL-API-query's, [query uitvoert met behulp van de SQL-API](tutorial-query-sql-api.md), [SQL-query's voor Azure Cosmos DB](how-to-sql-query.md), en [naslaginformatie over SQL-syntaxis](sql-api-query-reference.md)
 * Zie voor MongoDB-query's, [query uitvoert met behulp van de MongoDB-API](tutorial-query-mongodb.md) en [ondersteuning voor MongoDB-API voor MongoDB-functies en -syntaxis](mongodb-feature-support.md)
 * Zie voor Gremlin-API-query's, [query uitvoert met behulp van de Gremlin-API](tutorial-query-graph.md) en [Azure Cosmos DB Gremlin graph-ondersteuning](gremlin-support.md)
 * Zie voor Table-API-query's, [query uitvoert met behulp van de Table-API](tutorial-query-table.md)

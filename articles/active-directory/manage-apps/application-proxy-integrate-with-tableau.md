@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058756"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138667"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy en Tableau 
 
@@ -29,7 +29,7 @@ Het scenario in dit artikel wordt ervan uitgegaan dat u hebt:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) geconfigureerd. 
 
-- Een [Application Proxy-connector](application-proxy-enable.md) geïnstalleerd. 
+- Een [Application Proxy-connector](application-proxy-add-on-premises-application.md) geïnstalleerd. 
 
  
 ## <a name="enabling-application-proxy-for-tableau"></a>Toepassingsproxy voor Tableau wordt ingeschakeld 
@@ -43,7 +43,7 @@ Als u wilt publiceren Tableau, moet u een toepassing publiceren in Azure Portal.
 
 Voor:
 
-- Gedetailleerde instructies van de stappen 1-8, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). 
+- Gedetailleerde instructies van de stappen 1-8, Zie [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-add-on-premises-application.md). 
 - Informatie over hoe u Tableau om waarden te vinden voor de velden van de App-Proxy, Zie de documentatie Tableau.  
 
 **Uw app publiceren**: 

@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333748"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134315"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Een aangepaste startpagina voor gepubliceerde apps instellen met behulp van Azure AD-toepassingsproxy
 
@@ -142,4 +142,4 @@ De URL van startpagina maken en bijwerken van uw toepassing met de waarde. Ga do
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen](application-proxy-integrate-with-sharepoint-server.md)
-- [Toepassingsproxy inschakelen in Azure portal](application-proxy-enable.md)
+- [Toepassingsproxy inschakelen in Azure portal](application-proxy-add-on-premises-application.md)

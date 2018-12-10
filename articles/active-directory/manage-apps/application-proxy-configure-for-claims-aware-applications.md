@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623098"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137698"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Werken met claim-compatibele toepassingen in toepassingsproxy
 [Claimbewuste apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) uitvoeren van een omleiding naar de Security Token Service (STS). De STS vraagt om de referenties van de gebruiker voor een token en vervolgens wordt de gebruiker omgeleid naar de toepassing. Er zijn een aantal manieren Application Proxy om te werken met deze omleidingen in te schakelen. Gebruik dit artikel om uw implementatie van claims-compatibele apps te configureren. 
@@ -29,7 +29,7 @@ Zorg ervoor dat de STS die de claims-compatibele app wordt omgeleid naar uw on-p
 
 ## <a name="publish-your-application"></a>Uw toepassing publiceren
 
-1. Publiceer de toepassing op basis van de instructies die worden beschreven [publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md).
+1. Publiceer de toepassing op basis van de instructies die worden beschreven [publiceren van toepassingen met toepassingsproxy](application-proxy-add-on-premises-application.md).
 2. Navigeer naar de pagina voor toepassingen in de portal en selecteer **eenmalige aanmelding**.
 3. Als u ervoor hebt gekozen **Azure Active Directory** als uw **vooraf-verificatie methode**, selecteer **Azure AD eenmalige aanmelding uitgeschakeld** als uw **intern Methode voor netwerkverificatie**. Als u ervoor hebt gekozen **Passthrough** als uw **vooraf-verificatie methode**, moet u niet van belang.
 

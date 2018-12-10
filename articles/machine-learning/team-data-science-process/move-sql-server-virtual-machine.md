@@ -1,5 +1,5 @@
 ---
-title: Gegevens verplaatsen naar SQL Server op een virtuele machine van Azure | Microsoft Docs
+title: Gegevens verplaatsen naar een computer met SQL Server-machine - Team Data Science Process
 description: Gegevens verplaatsen van platte bestanden of van een on-premises SQL Server naar SQL Server op virtuele Azure-machine.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 649c98c235adc2435840c6c43d3e2f9d5755265f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446191"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136185"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Gegevens verplaatsen naar SQL Server op een virtuele Azure-machine
 

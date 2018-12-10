@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 85e6dc8d72588ff64c0119a6c1944755ce5686f4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720929"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139262"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
 =================================
@@ -77,12 +77,12 @@ Het is ook belangrijk om te weten dat **alle parameters zijn optioneel**, dus al
 
 ### <a name="accepted-parameter-metadata-types"></a>Metagegevens van geaccepteerde parametertypen
 
-| Metagegevenstype   | Parametertype  | Beschrijving     | Voorbeeldwaarde    |
+| Metagegevenstype   | Parametertype  | Description     | Voorbeeldwaarde    |
 |---|---|---|---|---|
-| **BaseUri**     | tekenreeks          | Basis-URI van het implementatiepakket| [https://\<\..\>.blob.core.windows.net/\<\..\>](#) |
-| **gebruikersnaam**    | tekenreeks          | Nieuwe willekeurige gebruikersnaam.| admin68876      |
+| **BaseUri**     | string          | Basis-URI van het implementatiepakket| [https://\<\..\>.blob.core.windows.net/\<\..\>](#) |
+| **gebruikersnaam**    | string          | Nieuwe willekeurige gebruikersnaam.| admin68876      |
 | **Wachtwoord**    | beveiligde tekenreeks    | Nieuwe willekeurig wachtwoord | LP! ACS\^2kh     |
-| **Sessie-id**   | tekenreeks          | Unieke Test Drive-sessie-ID (GUID)    | b8c8693e-5673-449c-bAdd-257a405a6dee |
+| **Sessie-id**   | string          | Unieke Test Drive-sessie-ID (GUID)    | b8c8693e-5673-449c-bAdd-257a405a6dee |
 
 #### <a name="username"></a>gebruikersnaam
 
@@ -177,7 +177,7 @@ Als dit nodig is, kunt u deze parameter voor het aanduiden van de Test Drive-ses
 
 Sommige Azure-resources, zoals storage-accounts of DNS-namen, globaal unieke namen vereist.
 
-Dit betekent dat telkens wanneer de Test Drive wordt het Resource Manager-sjabloon geïmplementeerd, worden er een **nieuwe resourcegroep met een unieke naam** voor alle bijbehorende\' resources **.** Daarom is vereist om te gebruiken de [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) functie samengevoegd met de namen van variabelen voor de resourcegroep-id's voor het genereren van willekeurige unieke waarden:
+Dit betekent dat telkens wanneer de Test Drive wordt het Resource Manager-sjabloon geïmplementeerd, worden er een **nieuwe resourcegroep met een unieke naam** voor alle bijbehorende\' resources. Daarom is vereist om te gebruiken de [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) functie samengevoegd met de namen van variabelen voor de resourcegroep-id's voor het genereren van willekeurige unieke waarden:
 
       "variables": {
       ...

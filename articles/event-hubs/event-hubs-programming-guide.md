@@ -1,6 +1,6 @@
 ---
-title: Programmeerhandleiding voor Azure Event Hubs | Microsoft Docs
-description: Code schrijven voor Azure Event Hubs met behulp van de Azure .NET SDK.
+title: Programmeerhandleiding - Azure Event Hubs | Microsoft Docs
+description: In dit artikel bevat informatie over het schrijven van code voor Azure Event Hubs met behulp van de Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cd97aed36e9fd82df0d37913d5ea9e57c875a673
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011450"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138072"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmeerhandleiding voor Azure Event Hubs
 Dit artikel worden enkele algemene scenario's bij het schrijven van code met Azure Event Hubs. Er wordt uitgegaan van een basisbegrip van Event Hubs. Zie het [Overzicht van Event Hubs](event-hubs-what-is-event-hubs.md) voor een conceptueel overzicht van Event Hubs.
@@ -76,7 +76,7 @@ Bij het verzenden van gebeurtenisgegevens, kunt u een waarde die wordt gehasht o
 
 ### <a name="availability-considerations"></a>Beschikbaarheidsoverwegingen
 
-Met behulp van een partitiesleutel is optioneel en Overweeg zorgvuldig of u wel of niet een te gebruiken. In veel gevallen is met behulp van een partitiesleutel een goede keuze als Gebeurtenisvolgorde belangrijk is. Wanneer u een partitiesleutel, beschikbaarheid op een enkel knooppunt in deze partities nodig hebt en storingen kunnen optreden na verloop van tijd; bijvoorbeeld, wanneer compute-knooppunten opnieuw opstarten en patch. Als zodanig, als u een partitie-ID ingesteld en die partitie niet meer beschikbaar is voor een of andere reden, mislukken een poging tot toegang tot de gegevens in de betreffende partitie. Als u maximale beschikbaarheid is belangrijk, niet een partitiesleutel; opgeven in dat geval worden gebeurtenissen verzonden naar partities die gebruikmaken van de eerder beschreven round robin-model. In dit scenario maakt u een expliciete keuze tussen beschikbaarheid (geen partitie-ID) en consistentie (vastmaken gebeurtenissen naar een partitie-ID).
+Met behulp van een partitiesleutel is optioneel en Overweeg zorgvuldig of u wel of niet een te gebruiken. Als u bij het publiceren van een gebeurtenis geen partitiesleutel opgeeft, wordt er gebruikgemaakt van round robin-toewijzing. In veel gevallen is met behulp van een partitiesleutel een goede keuze als Gebeurtenisvolgorde belangrijk is. Wanneer u een partitiesleutel, beschikbaarheid op een enkel knooppunt in deze partities nodig hebt en storingen kunnen optreden na verloop van tijd; bijvoorbeeld, wanneer compute-knooppunten opnieuw opstarten en patch. Als zodanig, als u een partitie-ID ingesteld en die partitie niet meer beschikbaar is voor een of andere reden, mislukken een poging tot toegang tot de gegevens in de betreffende partitie. Als u maximale beschikbaarheid is belangrijk, niet een partitiesleutel; opgeven in dat geval worden gebeurtenissen verzonden naar partities die gebruikmaken van de eerder beschreven round robin-model. In dit scenario maakt u een expliciete keuze tussen beschikbaarheid (geen partitie-ID) en consistentie (vastmaken gebeurtenissen naar een partitie-ID).
 
 Een andere overweging is vertragingen bij de verwerking van gebeurtenissen verwerken. In sommige gevallen is het mogelijk beter om te verwijderen van gegevens en probeer het opnieuw dan opnieuw te verwerken, waardoor mogelijk meer downstream-verwerkingen vertragingen bijbenen. Met een aandelenkoersen is het bijvoorbeeld beter moet worden gewacht voor volledige actuele gegevens, maar in een live chat of VOIP-scenario in plaats daarvan zijn er gegevens snel, zelfs als deze is niet voltooid.
 

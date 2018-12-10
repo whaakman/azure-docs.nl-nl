@@ -1,5 +1,5 @@
 ---
-title: Continue integratie Azure pijplijn voor machine learning maken
+title: Maak continue integratie Azure pijplijn - Team Data Science Process
 description: 'DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes'
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=jainr, ms.author=jainr)"
-ms.openlocfilehash: 84d0c42b132016bbb350636cc00651a13bf93616
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102297"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134281"
 ---
 # <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Het maken van de pijplijn voor continue integratie in Azure met behulp van Docker, Kubernetes en Python Flask-toepassing
 Er zijn vaak twee stromen werkzaamheden, Data Scientists, het bouwen van machine learning-modellen en App-ontwikkelaars het bouwen van de toepassing en beschikbaar te maken voor eindgebruikers te gebruiken voor een toepassing AI. In dit artikel laten we zien hoe u voor het implementeren van een continue integratie (CI) / pijplijn voor continue levering (CD) voor een AI-toepassing. AI-toepassing is een combinatie van een model dat machine learning (ML) zijn ingebed toepassingscode. In dit artikel we bij het ophalen van een pretrained model vanuit een persoonlijke Azure-blob storage-account, wordt een AWS S3-account. Voor het artikel gebruiken we een eenvoudige python flask-toepassing.

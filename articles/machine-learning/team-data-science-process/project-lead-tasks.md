@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process Project leiden taken - Azure | Microsoft Docs
-description: Een overzicht van de taken voor een project leiden op een data science-teamproject.
+title: Taken voor het project leiden in Team Data Science Process
+description: Een overzicht van de taken die ertoe leiden dat een project is opslagbewerkingen uit te voeren op een data science-teamproject.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442894"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135161"
 ---
-# <a name="project-lead-tasks"></a>Projecttaken Lead
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Taken voor het project leiden in Team Data Science Process
 
 Deze zelfstudie bevat de taken die een projectleider opslagbewerkingen uit te voeren voor zijn/haar projectteam. Het doel is het opzetten van collaboratief team-omgeving die standaardiseert op de [Team Data Science Process](overview.md) (TDSP). De TDSP is een framework ontwikkeld door Microsoft en die een gestructureerde opeenvolging van activiteiten biedt voor het efficiënt uitvoeren van cloud gebaseerde predictive analytics-oplossingen. Voor een overzicht van de rollen personeel en de bijbehorende taken die worden beheerd door een team van gegevenswetenschappers standaardiseren over dit proces, Zie [Team Data Science Process rollen en taken](roles-tasks.md).
 
@@ -27,7 +27,8 @@ Een **Project leiden** beheert de dagelijkse werkzaamheden van afzonderlijke dat
 
 Dit onderwerp bevat momenteel taken 1,2 en 6 van deze werkstroom voor project leads.
 
->[AZURE.NOTE] We een overzicht van de stappen die nodig zijn voor het instellen van een omgeving TDSP-team voor een project met behulp van Azure DevOps in de volgende instructies. We geven over het uitvoeren van deze taken met Azure DevOps vanwege de manier waarop we TDSP bij Microsoft implementeert. Als een ander platform van de code die als host fungeert voor de groep wordt gebruikt, worden de taken die moeten worden uitgevoerd door de teamleider in het algemeen niet wijzigen. Maar de manier om deze taken uit te voeren afwijken.
+> [!NOTE]
+> We een overzicht van de stappen die nodig zijn voor het instellen van een omgeving TDSP-team voor een project met behulp van Azure DevOps in de volgende instructies. We geven over het uitvoeren van deze taken met Azure DevOps vanwege de manier waarop we TDSP bij Microsoft implementeert. Als een ander platform van de code die als host fungeert voor de groep wordt gebruikt, worden de taken die moeten worden uitgevoerd door de teamleider in het algemeen niet wijzigen. Maar de manier om deze taken uit te voeren afwijken.
 
 
 ## <a name="repositories-and-directories"></a>Opslagplaatsen en mappen
@@ -195,7 +196,8 @@ U moet nu push-inhoud **_DSProject1_** naar _R5_ opslagplaats in uw project op v
     
 - De wijziging en push doorvoeren. 
 
->[AZURE.NOTE] Als dit de eerste keer dat u door te op een Git-opslagplaats voeren, moet u globale parameters configureren *user.name* en *user.email* voordat u de `git commit` opdracht. Voer de volgende twee opdrachten uit:
+> [!NOTE]
+> Als dit de eerste keer dat u door te op een Git-opslagplaats voeren, moet u globale parameters configureren *user.name* en *user.email* voordat u de `git commit` opdracht. Voer de volgende twee opdrachten uit:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

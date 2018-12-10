@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445955"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134963"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -47,7 +47,7 @@ De windows-server moet TLS 1.2 is ingeschakeld voordat u de Application Proxy-co
 2. De server opnieuw opstarten
 
 
-Zie voor meer informatie over de netwerkvereisten voor de connectorserver, [aan de slag met Application Proxy en installeren van een connector](application-proxy-enable.md).
+Zie voor meer informatie over de netwerkvereisten voor de connectorserver, [aan de slag met Application Proxy en installeren van een connector](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Onderhoud
 De connectors en de service zorgen van alle taken die hoge beschikbaarheid. Ze kunnen worden toegevoegd of verwijderd dynamisch. Telkens wanneer die een nieuwe aanvraag binnenkomt wordt deze doorgestuurd naar een van de connectors die momenteel beschikbaar is. Als een connector tijdelijk niet beschikbaar is, heeft niet deze dit verkeer reageren.
@@ -64,7 +64,7 @@ U hebt geen handmatig verwijderen van connectors die niet gebruikt worden. Wanne
 
 ## <a name="automatic-updates"></a>Automatische updates
 
-Azure AD biedt Automatische updates voor alle connectors die u implementeert. Als de Application Proxy Connector Updater-service wordt uitgevoerd, wordt uw connectors automatisch bijgewerkt. Als u niet de Connector Updater-service op uw server ziet, moet u [uw connector opnieuw installeren](application-proxy-enable.md) om eventuele updates te downloaden. 
+Azure AD biedt Automatische updates voor alle connectors die u implementeert. Als de Application Proxy Connector Updater-service wordt uitgevoerd, wordt uw connectors automatisch bijgewerkt. Als u niet de Connector Updater-service op uw server ziet, moet u [uw connector opnieuw installeren](application-proxy-add-on-premises-application.md) om eventuele updates te downloaden. 
 
 Als u niet wilt wachten tot een automatische update te komen aan uw connector, kunt u een handmatige upgrade kunt uitvoeren. Ga naar de [connector-downloadpagina](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) op de server waarop de connector zich bevindt en selecteert u een **downloaden**. Een upgrade voor de lokale connector begint dit proces. 
 
@@ -136,7 +136,7 @@ Connectors kunnen ook worden gekoppeld, domeinen of forests die u een gedeelteli
 
 Implementatie van de connector wordt normaal gesproken is eenvoudig en is geen speciale configuratie vereist. Er zijn echter enkele unieke voorwaarden die u moeten overwegen:
 
-* Organisaties die het uitgaande verkeer beperken moeten [vereiste poorten openen](application-proxy-enable.md#open-your-ports).
+* Organisaties die het uitgaande verkeer beperken moeten [vereiste poorten openen](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * FIPS-compatibele computers kunnen worden verplicht om hun configuratie zodat de connector-processen voor het genereren en opslaan van een certificaat te wijzigen.
 * Organisaties die hun omgeving op basis van de processen die het netwerk aanvragen vergrendelen hebben om ervoor te zorgen dat beide connectorservices voor toegang tot alle vereiste poorten en IP-adressen zijn ingeschakeld.
 * In sommige gevallen kunnen uitgaande forward proxy's de wederzijdse certificaatverificatie opsplitsen en ervoor zorgen dat de communicatie mislukt.

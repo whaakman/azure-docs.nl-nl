@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 68ca8593dea93faf076ffb5d99ec7bcad210a810
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632956"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141829"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -125,17 +125,17 @@ De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor 
 
 | File | OS | Versie | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Verbonden bronnen
 Serviceoverzicht worden de gegevens uit de agent voor Microsoft Dependency opgehaald. De agent voor afhankelijkheden, is afhankelijk van de Log Analytics-agent voor de verbindingen met Log Analytics. Dit betekent dat een server de Log Analytics-agent geïnstalleerd en geconfigureerd met de agent voor afhankelijkheden moet hebben.  De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de oplossing Serviceoverzicht.
 
-| Verbonden bron | Ondersteund | Beschrijving |
+| Verbonden bron | Ondersteund | Description |
 |:--|:--|:--|
 | Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows-computers. <br><br>Naast de [Log Analytics-agent voor Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-computers. <br><br>Naast de [Log Analytics-agent voor Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux-agents moeten de agent voor Microsoft Dependency. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../../log-analytics/log-analytics-om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
+| Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. |
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van agentcomputers, dus er zijn geen gegevens te verzamelen over Azure Storage. |
 
 Op Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel de System Center Operations Manager en de Log Analytics om te verzamelen en verzenden door gegevens te controleren. (Deze agent heet de System Center Operations Manager-agent, de Log Analytics-agent, de MMA of de Agent toewijzen, afhankelijk van de context.) System Center Operations Manager en de Log Analytics bieden verschillende kant-en-klare versies van de MMA. Deze versies kunnen beide rapporteren aan System Center Operations Manager, aan Log Analytics of aan beide.  
@@ -156,7 +156,7 @@ Als u een System Center Operations Manager-klant bent met een beheergroep die is
 Als uw Windows- of Linux-computers kunnen niet rechtstreeks verbinding met de service maken, moet u de Log Analytics-agent verbinding maken met de Log Analytics-werkruimte met behulp van de gateway configureren. Zie voor meer informatie over het implementeren en configureren van de Log Analytics-gateway [verbinding maken met computers zonder toegang tot het Internet met behulp van de Log Analytics-gateway](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Management packs
-Als Service Map in een Log Analytics-werkruimte is geactiveerd, wordt een 300 KB managementpack wordt doorgestuurd naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht managementpack van System Center Operations Manager is geïmplementeerd. 
+Als Service Map in een Log Analytics-werkruimte is geactiveerd, wordt een 300 KB managementpack wordt doorgestuurd naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../../azure-monitor/platform/om-agents.md), het Serviceoverzicht managementpack van System Center Operations Manager is geïmplementeerd. 
 
 De naam van het management pack is Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Ze worden geschreven naar %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. De gegevensbron die gebruikmaakt van het managementpack is % Program files%\Microsoft bewaking Agent\Agent\Health Service State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -243,7 +243,7 @@ Gebruik opties uit de volgende tabel om de agent te installeren vanaf een opdrac
 
     InstallDependencyAgent-Windows.exe /?
 
-| Vlag | Beschrijving |
+| Vlag | Description |
 |:--|:--|
 | /? | Een lijst met de opdrachtregelopties ophalen. |
 | /S | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |
@@ -269,7 +269,7 @@ Voor een overzicht van de vlaggen voor installatie, voer de installatie programm
 
     InstallDependencyAgent-Linux64.bin -help
 
-| Vlag | Beschrijving |
+| Vlag | Description |
 |:--|:--|
 | -help | Een lijst met de opdrachtregelopties ophalen. |
 | -s | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |
@@ -373,7 +373,7 @@ Kan het zijn nuttig voor het installeren van de [nieuwste runtimebibliotheken](h
 
 De volgende tabel bevat de codenummers en voorgestelde oplossingen.
 
-| Code | Beschrijving | Oplossing |
+| Code | Description | Oplossing |
 |:--|:--|:--|
 | 0x17 | Het installatieprogramma bibliotheek vereist een Windows-update die is niet geïnstalleerd. | Zoek in de meest recente bibliotheek installer-logboekbestand.<br><br>Als een verwijzing naar "Windows8.1-KB2999226-x64.msu" wordt gevolgd door een regel "fout 0x80240017: kan niet worden uitgevoerd MSU-pakket," u hebt de vereisten voor het installeren van KB2999226. Volg de instructies in de sectie vereisten van [universeel C Runtime in Windows](https://support.microsoft.com/kb/2999226). Mogelijk moet u Windows Update uitvoeren en meerdere keren opnieuw om de vereiste onderdelen installeren.<br><br>Voer het installatieprogramma van Microsoft Dependency agent opnieuw uit. |
 

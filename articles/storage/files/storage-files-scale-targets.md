@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527434"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138582"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure bestanden schaalbaarheids- en prestatiedoelen
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Dit artikel worden de schaalbaarheids- en prestatiedoelen voor Azure Files en Azure File Sync.
@@ -46,6 +46,7 @@ Voor Azure File Sync is prestaties van essentieel belang is in twee fasen:
 2. **Doorlopende synchronisatie**: nadat de gegevens in eerste instantie wordt gemaakt in de Azure-bestandsshares, Azure File Sync houdt meerdere eindpunten gesynchroniseerd.
 
 Voor hulp bij het plannen van de implementatie voor elk van de fasen, worden hieronder de resultaten waargenomen tijdens het interne testen op een systeem met een configuratie
+
 | Systeemconfiguratie |  |
 |-|-|
 | CPU | 64 virtuele kernen met 64 MiB L3-cache |

@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse datatechnologische rondleidingen met behulp van T-SQL en Python op Azure | Microsoft Docs
+title: Analyse van SQL datawarehouse met T-SQL, Python - Team Data Science Process
 description: Voorbeelden die stapsgewijs door het gebruik van SQL Data Warehouse te doen, voorspellende analyses.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 425b28a3bfff46de3cb37562be8c6f868117a421
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7d5b4d5d797b56407712494ca3702586a33c9fca
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444985"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138021"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>SQL Data Warehouse datatechnologische rondleidingen met behulp van T-SQL en Python op Azure
 

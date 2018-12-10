@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB-diagnostische logboeken
-description: Gebruik deze handleiding om u aan de slag met Azure Cosmos DB logboekregistratie.
-services: cosmos-db
+title: Registratie in diagnoselogboek in Azure Cosmos DB
+description: Meer informatie over de verschillende manieren om te leggen en te bewaken gegevens die zijn opgeslagen in Azure Cosmos DB.
 author: SnehaGunda
-tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: e8548497666e7dc49a8ada6bdf686647e427d0d0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: c8d40587ec6feee9b1ae16e383341fc0f2d1ffb6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850462"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137891"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB-diagnostische logboeken
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registratie in diagnoselogboek in Azure Cosmos DB 
 
 Nadat u begint met het gebruik van een of meer Azure Cosmos DB-databases, kunt u controleren hoe en wanneer uw databases zijn geraadpleegd. Dit artikel bevat een overzicht van de logboeken die beschikbaar op het Azure-platform zijn. Leert u hoe u Diagnostische logboekregistratie inschakelen voor bewakingsdoeleinden voor het verzenden van logboeken naar [Azure Storage](https://azure.microsoft.com/services/storage/), stream logboeken naar het [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en hoe u Logboeken om te exporteren [Azure Log Analytics ](https://azure.microsoft.com/services/log-analytics/).
 
@@ -44,7 +43,7 @@ Het activiteitenlogboek verschilt van diagnostische logboeken. Het activiteitenl
 
 Activiteitenlogboeken (bewerkingen voor de controlelaag) kunnen uitgebreidere van aard en het volledige e-mailadres van de oproepende functie, IP-adres van oproepende functie, Resourcenaam, de naam van bewerking, tenant-id en meer kunnen opnemen. Het activiteitenlogboek bevat verschillende [categorieën](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) van gegevens. Zie voor volledige informatie over de schema's van deze categorieën vallen [gebeurtenisschema in het Azure-activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Logboeken met diagnostische gegevens kan echter zijn beperkingen in de natuur als persoonlijke gegevens vaak wordt verwijderd uit deze logboeken. Mogelijk hebt u het IP-adres van de oproepende functie, maar de laatste octant is verwijderd.
 
-### <a name="azure-metrics"></a>Metrische gegevens voor Azure
+### <a name="azure-metrics"></a>Metrische gegevens van Azure
 
 [Metrische gegevens van Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) zijn de belangrijkste type Azure telemetrische gegevens (ook wel genoemd _prestatiemeteritems_) die wordt verzonden door de meeste Azure-resources. Metrische gegevens kunt u informatie bekijken over de doorvoer, opslag, consistentie, beschikbaarheid en de latentie van uw Azure Cosmos DB-resources. Zie voor meer informatie, [bewaking en foutopsporing met metrische gegevens in Azure Cosmos DB](use-metrics.md).
 
@@ -80,7 +79,7 @@ Als u wilt inschakelen voor diagnostische gegevens vastleggen in Azure portal, m
 
     * **Archiveren naar een opslagaccount**: als u wilt deze optie gebruikt, moet u een bestaand opslagaccount verbinden. Zie voor informatie over het maken van een nieuw opslagaccount in de portal [een opslagaccount maken](../storage/common/storage-create-storage-account.md) en volg de instructies voor het maken van een Azure Resource Manager, account voor algemeen gebruik. Keer vervolgens terug naar deze pagina in de portal voor uw storage-account selecteren. Het duurt enkele minuten duren voordat de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
     * **Stream naar een event hub**: als u wilt deze optie gebruikt, moet u een bestaande Event Hubs-naamruimte en event hub verbinden. Zie voor het maken van een Event Hubs-naamruimte, [een Event Hubs-naamruimte en een event hub maken met behulp van de Azure-portal](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal voor het selecteren van de naam van de Event Hubs-naamruimte en het beleid.
-    * **Verzenden naar Log Analytics**: als u wilt deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe Log Analytics-werkruimte met de volgende stappen om te [Maak een nieuwe werkruimte](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in de portal. Zie voor meer informatie over het weergeven van uw logboeken in Log Analytics [weergave-logboeken in Log Analytics](#view-in-loganalytics).
+    * **Verzenden naar Log Analytics**: als u wilt deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe Log Analytics-werkruimte met de volgende stappen om te [Maak een nieuwe werkruimte](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in de portal. Zie voor meer informatie over het weergeven van uw logboeken in Log Analytics [weergave-logboeken in Log Analytics](#view-in-loganalytics).
     * **Meld u DataPlaneRequests**: Selecteer deze optie om aan te melden van aanvragen van de back-end van de onderliggende Azure Cosmos DB gedistribueerd platform voor SQL, grafiek, MongoDB, Cassandra en Table-API-accounts. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
     * **Meld u MongoRequests**: Selecteer deze optie om de gebruiker geïnitieerde aanvragen vastleggen van de Azure Cosmos DB-front-end voor het uitvoeren van de MongoDB-API-accounts. Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
     * **Metrische aanvragen**: Selecteer deze optie voor het opslaan van uitgebreide gegevens in [metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Als u naar een opslagaccount archiveren bent, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken worden automatisch verwijderd nadat de bewaarperiode is verlopen.
@@ -438,7 +437,7 @@ Diagnostische gegevens die zijn opgeslagen in Azure Storage en Log Analytics maa
 
 De volgende tabel beschrijft de inhoud van elke logboekvermelding.
 
-| Azure Storage-veld of eigenschap | Log Analytics-eigenschap | Beschrijving |
+| Azure Storage-veld of eigenschap | Log Analytics-eigenschap | Description |
 | --- | --- | --- |
 | **tijd** | **TimeGenerated** | De datum en tijd (UTC) wanneer de bewerking opgetreden. |
 | **ResourceId** | **Resource** | Het Azure Cosmos DB-account waarvoor de logboeken zijn ingeschakeld.|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253330"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141608"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Inhoud van Service Fabric zelfstandige pakket voor Windows Server
 In de [gedownload](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric zelfstandige pakket, vindt u de volgende bestanden:
@@ -40,6 +40,7 @@ In de [gedownload](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | Tools\ServiceFabricUpdateService.zip |Een hulpprogramma dat wordt gebruikt voor het inschakelen van automatisch code-upgrade voor clusters die geen toegang tot internet hebben. Meer informatie vindt [hier](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Sjablonen** 
+
 | **Bestandsnaam** | **Korte beschrijving** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een niet-beveiligde, drie knooppunten, één machine (of virtuele machine) ontwikkelingscluster wijzigen, met inbegrip van de gegevens voor elk knooppunt in het cluster. |

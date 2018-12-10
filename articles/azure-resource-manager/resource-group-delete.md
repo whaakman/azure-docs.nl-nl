@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager-resourcegroep voor verwijderen
-description: Hierin wordt beschreven hoe Azure Resource Manager de verwijdering van resources orders wanneer een resourcegroep wordt verwijderd.
+title: 'Verwijderen van de resourcegroep en resources: Azure Resource Manager'
+description: Hierin wordt beschreven hoe Azure Resource Manager de verwijdering van resources orders wanneer een resourcegroep wordt verwijderd. Beschrijft de responscodes en hoe Resource Manager worden verwerkt om te bepalen of de verwijdering is geslaagd.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b0711cab07584aa84ab437a2a4efb5aab92f3d1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319356"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132326"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager resource verwijderen
 
@@ -32,7 +33,7 @@ Wanneer u een resourcegroep verwijdert, Resource Manager de bepaalt de volgorde 
 
 3. De resterende resources zijn verwijderd na de vorige twee categorieën.
 
-## <a name="resource-deletion"></a>Resource verwijderen
+## <a name="resource-deletion"></a>Verwijderen van resource
 
 Nadat de volgorde is bepaald, problemen met Resource Manager een verwijderbewerking voor elke resource. Wacht voor eventuele afhankelijkheden om te voltooien voordat u doorgaat.
 
@@ -68,4 +69,4 @@ Resource Manager een failover voor andere foutcodes, het verwijderen van de reso
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer informatie over concepten van Resource Manager, [overzicht van Azure Resource Manager](resource-group-overview.md).
-* Als u de bewerkingen voor een resourceprovider, Zie [REST API van Azure](/rest/api/).
+* Zie voor verwijdering opdrachten, [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete), en [REST-API](/rest/api/resources/resourcegroups/delete).

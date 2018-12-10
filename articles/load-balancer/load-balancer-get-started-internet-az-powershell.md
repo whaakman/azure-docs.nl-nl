@@ -1,5 +1,6 @@
 ---
-title: Een openbare Load Balancer Standard maken met zone-redundante frontend met openbare IP-adres met behulp van PowerShell | Microsoft Docs
+title: Een Standard Load Balancer maken met zone-redundante front met behulp van Azure PowerShell
+titlesuffix: Azure Load Balancer
 description: Informatie over het openbare Load Balancer Standard maken met een zone-redundante frontend voor openbare IP-adres met behulp van PowerShell
 services: load-balancer
 documentationcenter: na
@@ -7,18 +8,19 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: 9dfd477678148f3e4bb80bafe61e4867dab54c8e
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739529"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138736"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Een openbare Load Balancer Standard maken met zone-redundante frontend met openbare IP-adres met behulp van PowerShell
+#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Standard Balancer maken met zone-redundante front met behulp van Azure PowerShell
 
 In dit artikel begeleidt bij het maken van een openbare [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) met een zone-redundante front met behulp van een openbare standaard IP-adres.
 

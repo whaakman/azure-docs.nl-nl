@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f4e7a911e98ea09376b4b6ac56e9441fe98e426
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978371"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135183"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure Database voor MySQL met behulp van de Azure CLI
 
@@ -71,9 +71,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 De `az mysql server restore` opdracht moet de volgende parameters:
-| Instelling | Voorgestelde waarde | Beschrijving  |
+
+| Instelling | Voorgestelde waarde | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
+| resource-group |  myResourceGroup |  De resourcegroep waarin de bronserver bestaat.  |
 | naam | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecteer een punt in tijd om naar te herstellen. Deze datum en tijd moet binnen de back-upretentieperiode van de bronserver vallen. Gebruik de ISO8601 datum en tijd-indeling. Bijvoorbeeld, kunt u uw eigen lokale tijdzone, zoals `2018-03-13T05:59:00-08:00`. U kunt ook de UTC Zulu-notatie, bijvoorbeeld gebruiken `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | De naam of ID van de bronserver voor het herstellen. |
@@ -108,13 +109,14 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 De `az mysql server georestore` opdracht requies de volgende parameters:
-| Instelling | Voorgestelde waarde | Beschrijving  |
+
+| Instelling | Voorgestelde waarde | Description  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | De naam van de resourcegroep waarin de nieuwe server deel van uitmaakt.|
 |naam | mydemoserver-georestored | De naam van de nieuwe server. |
 |source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
 |location | eastus | De locatie van de nieuwe server. |
-|SKU-naam| GP_Gen4_8 | Deze parameter stelt de prijzen laag, bewerking voor compute en het aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een algemeen gebruik, Gen 4-server met 8 vCores.|
+|sku-name| GP_Gen4_8 | Deze parameter stelt de prijzen laag, bewerking voor compute en het aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een algemeen gebruik, Gen 4-server met 8 vCores.|
 
 
 >[!Important]

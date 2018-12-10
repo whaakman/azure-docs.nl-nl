@@ -1,22 +1,22 @@
 ---
-title: Met Azure Cosmos DB met behulp van het Mongoose-framework
-description: Leer hoe u een Node.js Mongoose-app kunt verbinden met Azure Cosmos DB
-services: cosmos-db
-author: slyons
+title: Verbinding maken met een Node.js Mongoose-toepassing met Azure Cosmos DB
+description: Informatie over het gebruik van het Mongoose-Framework voor het opslaan en beheren van gegevens in Azure Cosmos DB.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-ms.openlocfilehash: 6f84dfac7b556e59ec3ad76ff7d2c6e5f5105293
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101429"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134927"
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: het Mongoose-framework gebruiken met Azure Cosmos DB
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Verbinding maken met een Node.js Mongoose-toepassing met Azure Cosmos DB
 
 Deze zelfstudie laat zien hoe u het [Mongoose-framework](https://mongoosejs.com/) gebruikt bij het opslaan van gegevens in Azure Cosmos DB. In deze zelfstudie gebruiken we de MongoDB-API voor Azure Cosmos DB. Voor wie niet bekend is met Mongoose: dit is een framework voor objectmodellering voor MongoDB in Node.js en biedt een ongecompliceerde, op schema's gebaseerde oplossing voor het modelleren van uw toepassingsgegevens.
 

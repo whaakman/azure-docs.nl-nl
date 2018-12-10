@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: a469fe0d6057d865ec006d9eb14ad95f2d4b7005
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308436"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138157"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Niet van RDP-verbinding naar Azure Virtual Machines, omdat de DHCP Client-service is uitgeschakeld
 
@@ -26,7 +26,7 @@ In dit artikel beschrijft een probleem waarbij u kunt geen extern bureaublad naa
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="symptoms"></a>Symptomen 
+## <a name="symptoms"></a>Symptomen
 
 U maken niet een RDP-verbinding een virtuele machine in Azure omdat de DHCP Client-service is uitgeschakeld in de virtuele machine. Wanneer u de schermafbeelding controleren in de [diagnostische gegevens over opstarten](../troubleshooting/boot-diagnostics.md) in Azure portal, ziet u de virtuele machine normaal worden opgestart en wacht tot de referenties in het aanmeldingsscherm. U weergeven op afstand de gebeurtenislogboeken op de virtuele machine met behulp van Logboeken. U ziet dat de DHCP Client-Service is niet gestart of niet kan worden gestart. De volgende logboek voor een voorbeeld:
 
@@ -36,7 +36,7 @@ U maken niet een RDP-verbinding een virtuele machine in Azure omdat de DHCP Clie
 **Gebeurtenis-ID**: 7022 </br>
 **Taak categorie**: geen </br>
 **Niveau**: fout </br>
-**Trefwoorden**: klassieke</br> 
+**Trefwoorden**: klassieke</br>
 **Gebruiker**: N.V.T. </br>
 **Computer**: myvm.cosotos.com</br>
 **Beschrijving**: de DHCP Client-service bij het starten vastgelopen.</br>
@@ -49,12 +49,12 @@ Voor klassieke virtuele machines moet u voor het werken in de OFFLINEMODUS bevin
 
 ## <a name="cause"></a>Oorzaak
 
-De DHCP Client-Service wordt niet uitgevoerd op de virtuele machine. 
+De DHCP Client-Service wordt niet uitgevoerd op de virtuele machine.
 
 > [!NOTE]
-> Dit artikel geldt alleen voor de DHCP Client-service en niet de DHCP-Server. 
+> Dit artikel geldt alleen voor de DHCP Client-service en niet de DHCP-Server.
 
-## <a name="solution"></a>Oplossing 
+## <a name="solution"></a>Oplossing
 
 Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de besturingssysteemschijf van de betrokken virtuele machine als een back-up. Zie voor meer informatie, [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
 
@@ -62,7 +62,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
 ### <a name="use-serial-control"></a>Seriële besturingselement gebruiken
 
-1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Als de seriële Console is niet ingeschakeld op de virtuele machine, Zie [opnieuw instellen van de netwerkinterface](reset-network-interface.md).
 2. Controleer als de DHCP is uitgeschakeld op de netwerkinterface:
 
@@ -70,7 +70,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 3. Als de DHCP is gestopt, probeert de service te starten
 
         sc start DHCP
-        
+
 4. Query uitvoeren op de service opnieuw om het ervoor te zorgen dat de service is gestart.
 
         sc query DHCP
@@ -89,9 +89,9 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
     |1069 - ERROR_SERVICE_LOGON_FAILED   |  Zie [DHCP Client-service is mislukt vanwege fout met aanmelding](#dhcp-client-service-fails-because-of-logon-failure) |
     | 1070 - ERROR_SERVICE_START_HANG  | Zie [DHCP Client-service vastloopt of loopt vast](#dhcp-client-service-crashes-or-hangs).  |
     | 1077 - ERROR_SERVICE_NEVER_STARTED  | Zie [DHCP Client-service is uitgeschakeld](#dhcp-client-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.  | 
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.  |
     |1053 | [Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.  |
-    
+
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP-Client-service is gestopt vanwege een fout toegang geweigerd
 
@@ -99,18 +99,18 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 2. Download het hulpprogramma procesmonitor het volgende script uit te voeren:
 
    ```
-   remove-module psreadline  
-   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-   $destination = "c:\temp\ProcessMonitor.zip" 
-   $wc = New-Object System.Net.WebClient 
-   $wc.DownloadFile($source,$destination) 
+   remove-module psreadline
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
+   $destination = "c:\temp\ProcessMonitor.zip"
+   $wc = New-Object System.Net.WebClient
+   $wc.DownloadFile($source,$destination)
    ```
 3. Nu beginnen met een **procmon** trace:
 
    ```
-   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML
    ```
-4. Het probleem te reproduceren door de service die wordt gegenereerd vanaf de **toegang geweigerd** bericht: 
+4. Het probleem te reproduceren door de service die wordt gegenereerd vanaf de **toegang geweigerd** bericht:
 
    ```
    sc start DHCP
@@ -118,8 +118,8 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
    Wanneer deze is mislukt, de trace-Monitor voor processen beëindigd:
 
-   ```   
-   procmon /Terminate 
+   ```
+   procmon /Terminate
    ```
 5. Verzamelen de **c:\temp\ProcMonTrace.PML** bestand:
 
@@ -132,7 +132,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
     ![Filteren op resultaat in proces bewaken](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
-7. Corrigeer de registersleutels, mappen of bestanden die zich op de uitvoer. Dit probleem wordt meestal veroorzaakt wanneer de aanmeldingsaccount die wordt gebruikt op de service beschikt niet over ACL-machtiging voor toegang tot deze objecten. Om te bepalen van de juiste ACL-machtiging voor het account aanmelden, kunt u controleren op een VM in orde. 
+7. Corrigeer de registersleutels, mappen of bestanden die zich op de uitvoer. Dit probleem wordt meestal veroorzaakt wanneer de aanmeldingsaccount die wordt gebruikt op de service beschikt niet over ACL-machtiging voor toegang tot deze objecten. Om te bepalen van de juiste ACL-machtiging voor het account aanmelden, kunt u controleren op een VM in orde.
 
 #### <a name="dhcp-client-service-is-disabled"></a>DHCP-Client-service is uitgeschakeld
 
@@ -158,7 +158,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
 #### <a name="dhcp-client-service-fails-because-of-logon-failure"></a>DHCP-Client-service is mislukt vanwege fout met aanmelding
 
-1. Omdat dit probleem treedt op als het account voor het opstarten van deze service is gewijzigd, terugkeren u het account naar de standaardstatus: 
+1. Omdat dit probleem treedt op als het account voor het opstarten van deze service is gewijzigd, terugkeren u het account naar de standaardstatus:
 
         sc config DHCP obj= 'NT Authority\Localservice'
 2. Start de service:
@@ -167,7 +167,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 3. Probeer verbinding maken met de virtuele machine met behulp van extern bureaublad.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP-Client-service vastloopt of loopt vast
-1. Als de status van de service is mislukt de **vanaf** of **stoppen** heeft, probeert de service te stoppen: 
+1. Als de status van de service is mislukt de **vanaf** of **stoppen** heeft, probeert de service te stoppen:
 
         sc stop DHCP
 2. De service op een eigen container 'svchost' isoleren:
@@ -184,12 +184,12 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om DHCP of [opn
 
 1. [De besturingssysteemschijf koppelen aan een virtuele machine voor herstel](../windows/troubleshoot-recovery-disks-portal.md).
 2. Start een externe bureaubladverbinding met de virtuele machine voor herstel. Zorg ervoor dat de gekoppelde schijf is gemarkeerd als **Online** in de Schijfbeheer-console. Houd er rekening mee de stationsletter die toegewezen aan de gekoppelde besturingssysteemschijf.
-3.  Open een opdrachtprompt met verhoogde bevoegdheid-exemplaar (**als administrator uitvoeren**). Voer het volgende script. Met dit script wordt ervan uitgegaan dat de stationsletter die toegewezen aan de gekoppelde besturingssysteemschijf **F**. De stationsletter vervangen door de waarde in uw virtuele machine. 
+3.  Open een opdrachtprompt met verhoogde bevoegdheid-exemplaar (**als administrator uitvoeren**). Voer het volgende script. Met dit script wordt ervan uitgegaan dat de stationsletter die toegewezen aan de gekoppelde besturingssysteemschijf **F**. De stationsletter vervangen door de waarde in uw virtuele machine.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
 
-    REM Set default values back on the broken service 
+    REM Set default values back on the broken service
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v start /t REG_DWORD /d 2 /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v ObjectName /t REG_SZ /d "NT Authority\LocalService" /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v type /t REG_DWORD /d 16 /f

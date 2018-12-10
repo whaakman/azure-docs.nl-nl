@@ -1,5 +1,5 @@
 ---
-title: De levenscyclus van het Team Data Science Process - Azure | Microsoft Docs
+title: De levenscyclus van het Team Data Science Process
 description: De stappen die nodig zijn om uit te voeren van uw data-science-projecten
 services: machine-learning
 author: marktab
@@ -10,19 +10,21 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 24807d00170ed46a95d2726e1172b15775e0376d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a2a4a8c895bddb03271014c50f57b666faa0c2cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443386"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135937"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>De levenscyclus van het Team Data Science Process
 
 Het Team Data Science Process (TDSP) biedt de levensduur van een aanbevolen die u gebruiken kunt voor het structureren van uw data-science-projecten. De levenscyclus van geeft een overzicht van de stappen van begin tot eind, projecten gewoonlijk volgen wanneer ze worden uitgevoerd. Als u een andere levenscyclus van wetenschappelijke gegevens, zoals de Cross-branche standaardproces voor datamining [(heldere-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), Knowledge Discovery in Databases [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), of uw organisatie eigen aangepaste proces , u kunt nog steeds de TDSP op basis van een taak. 
 
 Deze levenscyclus beheren is ontworpen voor data science-projecten die zijn bedoeld om te verzenden als onderdeel van intelligente toepassingen. Deze toepassingen machine learning of kunstmatige intelligentie modellen voor voorspellende analyses te implementeren. Verkennende data-science-projecten en projecten met een ad-hoc analytics kunnen ook profiteren van het gebruik van dit proces. Maar voor deze projecten, sommige van de hier beschreven stappen mogelijk niet nodig. 
+
+## <a name="five-lifecycle-stages"></a>Vijf fasen van het levenscyclusbeheer
 
 De TDSP-levenscyclus bestaat uit vijf belangrijke fasen die iteratief worden uitgevoerd. Deze fasen zijn onder andere:
 

@@ -1,5 +1,5 @@
 ---
-title: Het Team Data Science Process in de praktijk - met behulp van een Azure HDInsight Hadoop-Cluster op een gegevensset van 1 TB | Microsoft Docs
+title: Gebruik Azure HDInsight Hadoop-Cluster op de gegevensset van 1 TB - Team Data Science Process
 description: Voor een end-to-end scenario die gebruikmaakt van een HDInsight Hadoop-cluster te bouwen en implementeren van een model met behulp van een grote (1 TB) openbaar beschikbare gegevensset met behulp van het Team Data Science Process
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447024"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135811"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Het Team Data Science Process in de praktijk - met behulp van een Azure HDInsight Hadoop-Cluster op een gegevensset van 1 TB
 
@@ -478,7 +478,7 @@ Er zijn miljoenen unieke waarden voor sommige categorische functies van grote ge
 ##### <a name="building-counting-transforms"></a>Het bouwen van tellen transformeert
 Voor het bouwen van de functies count, gebruikt u de **bouwen tellen transformeren** module die beschikbaar is in Azure Machine Learning. De module er zo uit:
 
-![Telling transformeren-module maken](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Eigenschappen van module tellen transformeren bouwen](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![module bouwen tellen transformeren](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 

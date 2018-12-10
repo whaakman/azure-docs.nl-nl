@@ -1,5 +1,5 @@
 ---
-title: Verken gegevens in een Hadoop-cluster en maak modellen in Azure Machine Learning | Microsoft Docs
+title: Gegevens verkennen in een Hadoop-cluster - Team Data Science Process
 description: Met behulp van het Team Data Science Process voor een end-to-end-scenario, die gebruikmaakt van een HDInsight Hadoop-cluster te bouwen en implementeren van een model.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444202"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139619"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Het Team Data Science Process in actie: gebruik Azure HDInsight Hadoop-clusters
 In dit scenario gebruiken we de [Team Data Science Process (TDSP)](overview.md) in een end-to-end-scenario. We gebruiken een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, en de functie-engineering gegevens uit de openbaar beschikbare [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset, en down-sampling van de gegevens. Voor het afhandelen van binaire en multiklassen classificatie en de voorspellende taken regressie, bouwen we modellen van de gegevens met Azure Machine Learning. 
@@ -416,7 +416,7 @@ Het Hive-directory-opdrachtprompt en voer de volgende opdracht:
 > 
 > 
 
-Wanneer een gegevensset verkennen, willen we vaak het nummer van co-exemplaren van groepen van waarden te controleren. Deze sectie bevat een voorbeeld van hoe u dit doet voor CAB-bestanden en stuurprogramma's.
+Wanneer een gegevensset verkennen, willen we vaak CO-aantallen van groepen van waarden te controleren. Deze sectie bevat een voorbeeld van hoe u dit doet voor CAB-bestanden en stuurprogramma's.
 
 De **voorbeeld\_hive\_reis\_aantal\_door\_straten\_license.hql** bestand worden gegroepeerd op de gegevensset fare **straten** en **hack_license**, en retourneert, telt elke combinatie. Hier volgen de inhoud ervan:
 
@@ -765,7 +765,7 @@ U kunt nu doorgaan naar modellen bouwen en implementeren van modellen in [Machin
 
   Het volgende diagram toont onze experiment te voorspellen of een tip voor een bepaalde reis is betaald:
 
-  ![Diagram van experiment](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagram van experiment te voorspellen als tip is betaald](./media/hive-walkthrough/QGxRz5A.png)
 
   b. Ons doel label distributies zijn voor dit experiment, ongeveer 1:1.
 
@@ -785,7 +785,7 @@ U kunt nu doorgaan naar modellen bouwen en implementeren van modellen in [Machin
 
   Het volgende diagram toont het experiment te voorspellen in welke opslaglocaties een tip is waarschijnlijk vallen. De opslaglocaties zijn: klasse 0: tip = $0, 1 van de klasse: tip > $0 en tip < = $5, klasse 2: tip > $5 en tip < = $10, klasse 3: tip > $10 en tip < = $20 en klasse 4: tip > $20.
 
-  ![Diagram van experiment](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagram van experiment te voorspellen opslaglocatie voor de tip](./media/hive-walkthrough/5ztv0n0.png)
 
   Nu laten we zien hoe de distributie van de klasse werkelijke test eruitziet. Klasse 0 en 1 van de klasse heersen en de andere klassen zijn zeldzaam.
 
@@ -805,7 +805,7 @@ U kunt nu doorgaan naar modellen bouwen en implementeren van modellen in [Machin
 
   Het volgende diagram toont het experiment te voorspellen van het bedrag van de opgegeven tip:
 
-  ![Diagram van experiment](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagram van experiment te voorspellen hoeveelheid tip](./media/hive-walkthrough/11TZWgV.png)
 
   b. Problemen met regressie meten we de nauwkeurigheden van de voorspelling door te kijken de gekwadrateerde fout in de voorspellingen en de determinatiecoëfficiënt:
 

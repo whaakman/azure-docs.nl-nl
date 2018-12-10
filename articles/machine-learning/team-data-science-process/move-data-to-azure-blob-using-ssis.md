@@ -1,5 +1,5 @@
 ---
-title: Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors | Microsoft Docs
+title: Blob storage-gegevens met SSIS-connectors - Team Data Science Process verplaatsen
 description: Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2eda0490392e26d386faa4c1e379b50738a56cbb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443352"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134349"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors
 De [SQL Server Integration Services Feature Pack voor Azure](https://msdn.microsoft.com/library/mt146770.aspx) onderdelen verbinding maken met Azure, gegevens overdragen tussen Azure en on-premises gegevensbronnen en gegevens verwerken die zijn opgeslagen in Azure biedt.
@@ -64,7 +64,7 @@ Voor het verplaatsen van gegevens met behulp van de SSIS-functiepakket van on-pr
 
 De parameters die gebruikmaakt van de taak worden hier beschreven:
 
-| Veld | Beschrijving |
+| Veld | Description |
 | --- | --- |
 | **AzureStorageConnection** |Hiermee geeft u een bestaande Azure Storage Connection Manager of maakt een nieuwe toepassing die naar een Azure storage-account die verwijst verwijst naar waar de blob-bestanden worden gehost. |
 | **BlobContainer** |Hiermee geeft u de naam van de blob-container waarin de geüploade bestanden als blobs. |

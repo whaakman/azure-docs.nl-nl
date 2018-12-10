@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 3ddd2f122de832654be295c5978a88bec702558c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319433"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134434"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Binnenkomend verkeer wordt geblokkeerd door firewall van Azure VM-Gastbesturingssysteem
 
@@ -31,17 +31,17 @@ U kunt een RDP-verbinding niet gebruiken voor het verbinding maken met een Azure
 
 ## <a name="cause"></a>Oorzaak
 
-### <a name="cause-1"></a>Oorzaak 1 
+### <a name="cause-1"></a>Oorzaak 1
 
 De RDP-regel is niet ingesteld om toe te staan de RDP-verkeer.
 
-### <a name="cause-2"></a>Oorzaak 2 
+### <a name="cause-2"></a>Oorzaak 2
 
 De Gast-firewallprofielen zijn geconfigureerd dat alle binnenkomende verbindingen blokkeren, inclusief het RDP-verkeer.
 
 ![Firewall-instelling](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>Oplossing 
+## <a name="solution"></a>Oplossing
 
 Voordat u deze stappen hebt uitgevoerd, maakt u een momentopname van de schijf van de betrokken virtuele machine als een back-up. Zie voor meer informatie, [momentopname maken van een schijf](../windows/snapshot-copy-managed-disk.md).
 
@@ -49,7 +49,7 @@ Los het probleem, gebruikt u een van de methoden in [externe hulpprogramma's geb
 
 ### <a name="online-troubleshooting"></a>Online oplossen
 
-Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sessie](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Als de seriële Console is niet ingeschakeld op de virtuele machine, gaat u naar '[herstellen van de virtuele machine Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sessie](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Als de seriële Console is niet ingeschakeld op de virtuele machine, gaat u naar '[herstellen van de virtuele machine Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### <a name="mitigation-1"></a>Risicobeperking 1
 
@@ -80,7 +80,7 @@ Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sess
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     Anders wilt openen de specifieke extern bureaublad (TCP-In) de regel, voert u de volgende opdracht uit:
 
     ```cmd
@@ -94,7 +94,7 @@ Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sess
     ```
 
     Nadat u klaar bent met het oplossen van problemen en het instellen van de firewall correct is opnieuw inschakelen van de firewall.
-    
+
     > [!Note]
     > U hebt geen opnieuw opstarten van de virtuele machine als deze wijzigingen wilt toepassen.
 
@@ -128,11 +128,11 @@ Verbinding maken met de [seriële Console en open vervolgens een PowerShell-sess
     ```
 
     > [!Note]
-    > U hebt geen opnieuw opstarten van de virtuele machine om de wijzigingen te laten. 
+    > U hebt geen opnieuw opstarten van de virtuele machine om de wijzigingen te laten.
 
 4.  Probeer het opnieuw voor toegang tot uw virtuele machine via RDP.
 
-### <a name="offline-mitigations"></a>Offline oplossingen 
+### <a name="offline-mitigations"></a>Offline oplossingen
 
 1.  [De schijf koppelen aan een virtuele machine voor herstel](troubleshoot-recovery-disks-portal-windows.md).
 
@@ -159,7 +159,7 @@ Zie [hoe aan in-/ uitschakelen van een Firewall-regel op een gast-OS-document](
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

@@ -1,5 +1,5 @@
 ---
-title: Functies selecteren in het Team Data Science Process | Microsoft Docs
+title: Functies selecteren in het Team Data Science Process
 description: Het doel van functieselectie wordt beschreven en vindt u voorbeelden van hun rol in de uitbreiding van de synchronisatiegegevens van machine learning.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442369"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138650"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Functies selecteren in Team Data Science Process (TDSP)
 Dit artikel worden de doeleinden van functieselectie en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning. Deze voorbeelden worden van Azure Machine Learning Studio getekend. 
@@ -42,21 +42,21 @@ Onder andere, wordt een breed toegepaste categorie selectiemethodes functie in e
 
 In Azure Machine Learning Studio zijn er modules die zijn opgegeven voor de functies selecteren. Zoals u in de volgende afbeelding, deze modules bevatten [Functieselectie op basis van een Filter] [ filter-based-feature-selection] en [Fisher lineaire Discriminant analyse] [ fisher-linear-discriminant-analysis].
 
-![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection.png)
+![Functie selectie modules](./media/select-features/feature-Selection.png)
 
 Bijvoorbeeld, kunt u het gebruik van de [Functieselectie op basis van een Filter] [ filter-based-feature-selection] module. Doorgaan met behulp van het voorbeeld van de analysestructuur tekst voor het gemak. Wordt ervan uitgegaan dat u maken van een regressiemodel wilt nadat een set van 256-functies zijn gemaakt via de [hash-functies] [ feature-hashing] -module en dat de variabele antwoord is de 'Col1' book revisie classificaties met variërend van 1 tot 5. Door in te stellen 'Functie scoring methode' moet 'Pearson correlatie', de kolom' doel' moet 'Col1', en het 'aantal gewenste functies' tot 50. Vervolgens de module [Functieselectie op basis van een Filter] [ filter-based-feature-selection] produceert een gegevensset met 50 functies samen met het doelkenmerk 'Col1'. De volgende afbeelding ziet u de stroom van dit experiment en de invoerparameters:
 
-![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection1.png)
+![Filteren van eigenschappen van de module op basis van onderdelen selecteren](./media/select-features/feature-Selection1.png)
 
 De volgende afbeelding ziet de resulterende gegevenssets:
 
-![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection2.png)
+![Resulterende gegevensset voor filteren op basis van functieselectie module](./media/select-features/feature-Selection2.png)
 
 Elke functie wordt berekend op basis van de Pearson-correlatie tussen zichzelf en het doelkenmerk 'Col1'. De functies van de bovenste scores worden bewaard.
 
 De bijbehorende scores van de geselecteerde onderdelen worden weergegeven in de volgende afbeelding:
 
-![Voorbeeld van de functie selecteren](./media/select-features/feature-Selection3.png)
+![Scores voor filteren op basis van functieselectie module](./media/select-features/feature-Selection3.png)
 
 Door toe te passen dit [Functieselectie op basis van een Filter] [ filter-based-feature-selection] 50 van 256 functies worden geselecteerd omdat ze de meest gecorreleerde functies met de doelvariabele "Col1"-module op basis van de scoring-methode 'Pearson correlatie'.
 

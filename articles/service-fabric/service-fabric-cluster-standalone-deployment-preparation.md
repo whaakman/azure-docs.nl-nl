@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259085"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138786"
 ---
 <a id="preparemachines"></a>
 
@@ -83,6 +83,7 @@ Voor het maken van een zelfstandige cluster die u moet maken van een zelfstandig
 Zie voor meer informatie over de secties in dit bestand, [configuratie-instellingen voor zelfstandige Windows cluster](service-fabric-cluster-manifest.md).
 
 Open een van de ClusterConfig.json-bestanden van het pakket dat u hebt gedownload en wijzig de volgende instellingen:
+
 | **Configuratie-instelling** | **Beschrijving** |
 | --- | --- |
 | **NodeTypes** |Knooppunttypen kunnen u uw clusterknooppunten verdelen in verschillende groepen. Een cluster moet ten minste één NodeType hebben. Alle knooppunten in een groep hebben de volgende algemene kenmerken: <br> **Naam** -dit is de naam van het knooppunt. <br>**Eindpuntpoorten** - deze heten verschillende eindpunten (poorten) die gekoppeld aan dit knooppunttype zijn. U kunt een ander poortnummer die u wenst, zolang ze niet in strijd is met andere onderdelen in deze manifest en zijn niet al in gebruik door een andere toepassing die wordt uitgevoerd op de virtuele machine/machine gebruiken. <br> **Plaatsingseigenschappen** -deze beschrijving van eigenschappen voor dit knooppunttype die u als plaatsingsbeperkingen voor de systeemservices of uw services gebruikt. Deze eigenschappen worden de gebruiker gedefinieerde sleutel/waarde-paren die extra metagegevens voor een bepaald knooppunt bieden. Voorbeelden van eigenschappen van het knooppunt zijn of het knooppunt heeft een vaste schijf of grafische kaart, het aantal aandrijfassen in de harde schijf, kernen en andere fysieke eigenschappen. <br> **Capaciteiten** -knooppuntcapaciteit definieert de naam en het bedrag van een bepaalde resource dat een bepaald knooppunt beschikbaar voor gebruik is. Een knooppunt kan bijvoorbeeld dat er capaciteit voor een metrische waarde 'MemoryInMb' genoemd en 2048 MB beschikbare schijfruimte heeft standaard definiëren. Deze capaciteiten worden tijdens runtime gebruikt om ervoor te zorgen dat de services waarvoor bepaalde hoeveelheden resources zijn geplaatst op de knooppunten die deze resources zijn beschikbaar in de hoeveelheden die zijn vereist.<br>**IsPrimary** - hebt u meer dan één NodeType gedefinieerd ervoor te zorgen dat slechts één is ingesteld op primaire met de waarde *waar*, dit is waar de systeemservices uitvoeren. Alle andere typen moeten worden ingesteld op de waarde *false* |
@@ -97,20 +98,20 @@ Nadat de configuratie van het cluster alle instellingen die zijn geconfigureerd 
 Wanneer een Clusterbeheerder een zelfstandige Service Fabric-cluster configureert, wordt de omgeving moet worden ingesteld met de volgende criteria: <br>
 1. De gebruiker die het cluster te maken hebt beheerdersniveau beveiligingsrechten op alle machines die worden vermeld als knooppunten in het configuratiebestand van het cluster.
 2. Computer van waaruit het cluster is gemaakt, evenals op elke computer met het knooppunt cluster moet het volgende doen:
-* Hebt u Service Fabric-SDK geïnstalleerd
-* Hebt u Service Fabric-runtime is verwijderd 
-* Hebben de Windows Firewall-service (mpsvc) ingeschakeld
-* Hebben de Remote Registry-Service (remote registry) ingeschakeld
-* Bestand die delen (SMB) ingeschakeld
-* Vereiste poorten geopend zijn op basis van poorten voor cluster-configuratie
-* Vereiste poorten zijn geopend voor SMB in Windows en de Remote Registry-service: 135, 137, 138, 139 en 445
-* Netwerkverbinding hebben met elkaar
+   * Hebt u Service Fabric-SDK geïnstalleerd
+   * Hebt u Service Fabric-runtime is verwijderd 
+   * Hebben de Windows Firewall-service (mpsvc) ingeschakeld
+   * Hebben de Remote Registry-Service (remote registry) ingeschakeld
+   * Bestand die delen (SMB) ingeschakeld
+   * Vereiste poorten geopend zijn op basis van poorten voor cluster-configuratie
+   * Vereiste poorten zijn geopend voor SMB in Windows en de Remote Registry-service: 135, 137, 138, 139 en 445
+   * Netwerkverbinding hebben met elkaar
 3. Geen van de cluster-knooppunt machines moet een domeincontroller.
 4. Als het cluster worden geïmplementeerd, een beveiligd cluster is, controleert u de benodigde beveiligingsreferenties vereisten zijn in plaats en correct zijn geconfigureerd op basis van de configuratie.
 5. Als de cluster-machines niet toegankelijk is met internet zijn, moet u het volgende instellen in de configuratie van het cluster:
-* Telemetrie uitschakelen: onder *eigenschappen* ingesteld *"enableTelemetry": false*
-* Automatische Fabric versie gedownload en dat de huidige clusterversie einde van ondersteuning wordt binnenkort meldingen uitschakelen: onder *eigenschappen* ingesteld *"fabricClusterAutoupgradeEnabled": false*
-* U kunt ook als internet toegang tot het netwerk beperkt tot witte lijst domeinen is, de domeinen die hieronder zijn vereist voor automatisch bijwerken: go.microsoft.com download.microsoft.com
+   * Telemetrie uitschakelen: onder *eigenschappen* ingesteld *"enableTelemetry": false*
+   * Automatische Fabric versie gedownload en dat de huidige clusterversie einde van ondersteuning wordt binnenkort meldingen uitschakelen: onder *eigenschappen* ingesteld *"fabricClusterAutoupgradeEnabled": false*
+   * U kunt ook als internet toegang tot het netwerk beperkt tot witte lijst domeinen is, de domeinen die hieronder zijn vereist voor automatisch bijwerken: go.microsoft.com download.microsoft.com
 
 6. Juiste antivirus uitsluitingen voor Service Fabric instellen:
 

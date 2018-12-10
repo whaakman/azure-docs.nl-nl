@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: c1c550e6b99b9933b66c85e1de7e0a5cc2eb711d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 637c1b77a4ced9c8f7542548a56d8e3b0315d075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564840"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136291"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Over het maken en beheren lezen-replica's in Azure Database for MySQL met behulp van de Azure CLI
 
@@ -36,7 +36,8 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 ```
 
 De `az mysql server replica create` opdracht moet de volgende parameters:
-| Instelling | Voorbeeldwaarde | Beschrijving  |
+
+| Instelling | Voorbeeldwaarde | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  De resourcegroep waar de replica-server om te worden gemaakt.  |
 | naam | mydemoreplicaserver | De naam van de nieuwe replicaserver die is gemaakt. |
@@ -57,7 +58,8 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 ```
 
 De `az mysql server replica stop` opdracht moet de volgende parameters:
-| Instelling | Voorbeeldwaarde | Beschrijving  |
+
+| Instelling | Voorbeeldwaarde | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  De resourcegroep waarin de replica-server bestaat.  |
 | naam | mydemoreplicaserver | De naam van de replica-server om replicatie te stoppen op. |
@@ -90,7 +92,8 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 ```
 
 De `az mysql server replica list` opdracht moet de volgende parameters:
-| Instelling | Voorbeeldwaarde | Beschrijving  |
+
+| Instelling | Voorbeeldwaarde | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  De resourcegroep waar de replica-server om te worden gemaakt.  |
 | servernaam | mydemoserver | De naam of ID van de hoofd-server. |

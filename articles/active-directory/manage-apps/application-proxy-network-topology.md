@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 28837436ee4336dd7fa2b3e66402257d1e1263b9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889783"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140470"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Netwerk-topologie overwegingen bij het gebruik van Azure Active Directory-toepassingsproxy
 
@@ -85,9 +85,9 @@ Plaats de connector dicht bij de doeltoepassing in het netwerk van de klant. Dez
 
 Als de connector een verbinding met de domeincontroller moet, zijn dit patroon is nuttig. De meeste van onze klanten gebruik dit patroon, omdat deze geschikt is voor de meeste scenario's. Dit patroon kan ook worden gecombineerd met het patroon 2 het optimaliseren van verkeer tussen de service en de connector.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Patroon 2: Profiteren van ExpressRoute met openbare peering
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Patroon 2: Profiteren van ExpressRoute met Microsoft-peering
 
-Als u ExpressRoute met openbare peering instellen hebt, kunt u de snellere ExpressRoute-verbinding voor verkeer tussen de Application Proxy en de connector. De connector is nog steeds op het netwerk dicht bij de app.
+Als u ExpressRoute instellen met Microsoft-peering hebt, kunt u de snellere ExpressRoute-verbinding voor verkeer tussen de Application Proxy en de connector. De connector is nog steeds op het netwerk dicht bij de app.
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Patroon 3: Profiteren van ExpressRoute met persoonlijke peering
 
@@ -137,13 +137,13 @@ Nogmaals, het algemene patroon is om te optimaliseren hops 3, plaatst u de conne
 
 ### <a name="use-case-3"></a>Use-case 3
 
-**Scenario:** de app is in het netwerk van een organisatie in de Verenigde Staten. ExpressRoute met openbare peering bestaat tussen Azure en het bedrijfsnetwerk bevinden.
+**Scenario:** de app is in het netwerk van een organisatie in de Verenigde Staten. ExpressRoute met Microsoft-peering bestaat tussen Azure en het bedrijfsnetwerk bevinden.
 
 **Aanbeveling:** Volg patronen 1 en 2, wordt uitgelegd in de vorige sectie.
 
 Eerst, plaatst u de connector zo dicht mogelijk bij de app. Het systeem worden vervolgens automatisch de ExpressRoute gebruikt voor hop 2. 
 
-Als het ExpressRoute-verbinding is met behulp van openbare peering, loopt het verkeer tussen de proxy en de connector die koppeling. Latentie heeft een hop 2 is geoptimaliseerd.
+Als het ExpressRoute-verbinding van Microsoft gebruikmaakt-peering, loopt het verkeer tussen de proxy en de connector die koppeling. Latentie heeft een hop 2 is geoptimaliseerd.
 
 ![Diagram van ExpressRoute tussen de proxy- en -connector](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
@@ -173,7 +173,7 @@ U kunt ook overwegen met behulp van een andere variant in dit geval. Als de mees
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Toepassingsproxy inschakelen](application-proxy-enable.md)
+- [Toepassingsproxy inschakelen](application-proxy-add-on-premises-application.md)
 - [Eenmalige aanmelding inschakelen](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Voorwaardelijke toegang inschakelen](application-proxy-integrate-with-sharepoint-server.md)
 - [Oplossen van problemen met Application Proxy](application-proxy-troubleshoot.md)
