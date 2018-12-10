@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c8d7221e367abbbcb1a7968003c1cd25106b866
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a2a701f86b922924a7568cc1d906d7a3c6b1fdc9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871214"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096856"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 
 <table>
 
-<tr><td>**SDK downloaden**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**SDK downloaden**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**API-documentatie**</td><td>[Java API-referentiedocumentatie](/java/api/com.microsoft.azure.documentdb)</td></tr>
 

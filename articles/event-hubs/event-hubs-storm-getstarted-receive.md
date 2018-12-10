@@ -1,6 +1,6 @@
 ---
-title: Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Apache Storm | Microsoft Docs
-description: Aan de slag ontvangen van Event Hubs met behulp van Apache Storm
+title: Gebeurtenissen ontvangen met Apache Storm - Azure Event Hubs | Microsoft Docs
+description: In dit artikel bevat informatie over hoe u gebeurtenissen ontvangen van Azure Event Hubs met behulp van Apache Storm.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c70096796bb038c27d18bb3467d7c425dafd5c5b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055319"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094607"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Gebeurtenissen ontvangen van Event Hubs met behulp van Apache Storm
 
@@ -40,7 +41,7 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
     ```
 4. Maak een nieuw Maven-project in Eclipse (Klik op **bestand**, vervolgens **nieuw**, klikt u vervolgens **Project**).
    
-    ![][12]
+    ![File -> Nieuw Project ->][12]
 5. Selecteer **gebruik werkruimte standaardlocatie**, klikt u vervolgens op **volgende**
 6. Selecteer de **maven-archetype-quickstart** archetype, klikt u vervolgens op **volgende**
 7. Voeg een **groeps-id** en **ArtifactId**, klikt u vervolgens op **voltooien**
@@ -131,7 +132,7 @@ In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, d
     }
     ```
     
-    Deze bolt Storm Hiermee wordt de inhoud van de ontvangen gebeurtenissen geregistreerd. Dit kan eenvoudig worden uitgebreid voor het opslaan van tuples in een storage-service. De [HDInsight Storm met voorbeeld van de Event Hub] maakt gebruik van deze benadering voor het opslaan van gegevens in Azure Storage en Power BI.
+    Deze bolt Storm Hiermee wordt de inhoud van de ontvangen gebeurtenissen geregistreerd. Dit kan eenvoudig worden uitgebreid voor het opslaan van tuples in een storage-service. De [Storm voor HDInsight met voorbeeld van de Event Hub] maakt gebruik van deze benadering voor het opslaan van gegevens in Azure Storage en Power BI.
 11. Maak een klasse met de naam **LogTopology** door de volgende code:
     
     ```java
@@ -248,7 +249,7 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight Storm met voorbeeld van de Event Hub]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[Storm voor HDInsight met voorbeeld van de Event Hub]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

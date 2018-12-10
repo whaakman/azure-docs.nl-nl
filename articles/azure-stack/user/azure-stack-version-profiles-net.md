@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 35329468ee01d5b70d654c1eb4a908db9d3fcb5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184783"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074448"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>API-versieprofielen gebruiken met .NET in Azure Stack
 
@@ -70,7 +70,7 @@ Houd er rekening mee dat u alle van de opties in dezelfde toepassing kunt combin
 
 Voor het gebruik van de Azure-SDK voor .NET met Azure Stack, moet u de volgende waarden opgeven en vervolgens waarden met omgevingsvariabelen instellen. Als u wilt de omgevingsvariabelen instellen, raadpleegt u de instructies onder de tabel voor uw besturingssysteem.
 
-| Waarde                     | Omgevingsvariabelen   | Beschrijving                                                                                                             |
+| Waarde                     | Omgevingsvariabelen   | Description                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Tenant-id                 | AZURE_TENANT_ID       | De waarde van uw Azure Stack [ *tenant-ID*][].                                                                          |
 | Client-id                 | AZURE_CLIENT_ID       | De service principal toepassings-ID opgeslagen wanneer de service-principal is gemaakt in de vorige sectie van dit artikel. |
@@ -193,7 +193,9 @@ U kunt de volgende voorbeelden gevonden in de GitHub-opslagplaatsen als uitgangs
 
 1.  Kloon de opslagplaats met de volgende opdracht:
 
-    `git clone <https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject>`
+    ```shell
+    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
+    ```
 
 2.  Een Azure-service-principal maken en toewijzen van een rol voor toegang tot het abonnement. Zie voor instructies over het maken van een service-principal [Azure PowerShell gebruiken voor het maken van een service-principal met een certificaat][].
 

@@ -1,6 +1,6 @@
 ---
-title: Gebruikersprofiel en -ID voor gebruik met Azure-laptops | Microsoft Docs
-description: Maken en beheren van uw profiel en gebruikers-ID met Azure-laptops
+title: Gebruikersprofiel en -ID voor gebruik met Azure-laptops
+description: Over het maken en beheren van uw gebruikersprofiel en gebruikers-ID met Azure-Notebooks.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: e41b75eb361d8b693895ea9889ee8fc90a39d4bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856167"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078868"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Uw profiel en gebruikers-ID voor Azure-laptops
 
@@ -26,15 +26,13 @@ In de ruimte die krachtige, samenwerking van Azure-notitieblokken wordt uw gebru
 
 [![](media/accounts/profile-page.png "De profielpagina van een Azure-laptops")](media/accounts/profile-page.png#lightbox)
 
-Uw gebruikers-ID maakt deel uit van de URL's die u gebruiken voor het delen van projecten en -laptops:
+Uw gebruikers-ID is onderdeel van de URL's die u gebruiken voor het delen van projecten en notitieblokken. De volgende lijst beschrijft de verschillende URL-patronen:
 
-| URL | Koppelingsdoel |
-| --- | --- |
-| `https://notebooks.azure.com/<user_id>` | Uw profielpagina. |
-| `https://notebooks.azure.com/<user_id>/projects` | Uw projecten. U ziet alle projecten. andere gebruikers zien alleen uw openbare projecten. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>` | Project-bestanden. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones` | Klonen van een specifieke projecten. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb` | De HTML-Preview-versie van een specifieke laptop of bestand. |
+- `https://notebooks.azure.com/<user_id>`: Uw profielpagina.
+- `https://notebooks.azure.com/<user_id>/projects`: Uw projecten. U ziet alle projecten. andere gebruikers zien alleen uw openbare projecten.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Project-bestanden.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Klonen van een specifieke projecten.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: De HTML-Preview-versie van een specifieke laptop of bestand.
 
 ## <a name="your-user-id"></a>Uw gebruikers-ID
 
