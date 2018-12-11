@@ -1,25 +1,19 @@
 ---
-title: Azure ExpressRoute voor Cloud Solution Providers | Microsoft Docs
-description: Dit artikel bevat informatie voor cloudserviceproviders die Azure-services en ExpressRoute in hun aanbod willen opnemen.
-documentationcenter: na
+title: ExpressRoute voor Cloud Solution Providers - Azure | Microsoft Docs
+description: Dit artikel bevat informatie voor Cloud Solution Providers die Azure-services en ExpressRoute in hun aanbod willen opnemen.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405701"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077508"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute voor Cloud Solution Providers (CSP)
 Microsoft biedt grootschalige services waarmee traditionele leveranciers en distributeurs (CSP) snel nieuwe services en oplossingen voor uw klanten kunnen inrichten, zonder dat ze hoeven te investeren in de ontwikkeling van deze nieuwe services. Microsoft biedt programma's en API's waarmee de Cloud Solution Provider (CSP) Microsoft Azure-resources kan beheren namens uw klanten. Zo kan de Cloud Solution Provider (CSP) deze nieuwe services rechtstreeks beheren. Een van deze resources is ExpressRoute. Met ExpressRoute kan de CSP verbinding maken tussen de bestaande resources van de klant en de Azure-services. ExpressRoute is een zeer snelle persoonlijke communicatiekoppeling naar de services in Azure. 

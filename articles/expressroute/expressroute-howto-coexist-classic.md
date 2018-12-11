@@ -4,23 +4,17 @@ description: Dit artikel begeleidt u bij het configureren van ExpressRoute- en s
 documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: charwen
-ms.openlocfilehash: f868c4d63209da641b4faa336e7ef78b36ef6454
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165438"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084206"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren (klassiek)
 > [!div class="op_single_selector"]
@@ -29,7 +23,7 @@ ms.locfileid: "52165438"
 > 
 > 
 
-De mogelijkheid om site-naar-site-VPN en ExpressRoute te configureren heeft verschillende voordelen. U kunt een site-naar-site-VPN configureren als een beveiligd failoverpad voor ExpressRoute, of site-naar-site-VPN's gebruiken om verbinding te maken met sites die niet via ExpressRoute zijn verbonden. In dit artikel gaan we in op de stappen voor het configureren van beide scenario's. Dit artikel is van toepassing op het klassieke implementatiemodel. Deze configuratie is niet beschikbaar in de portal.
+In dit artikel leest u hoe u ExpressRoute- en site-naar-site-VPN-verbindingen configureert die naast elkaar kunnen worden gebruikt. De mogelijkheid om site-naar-site-VPN en ExpressRoute te configureren heeft verschillende voordelen. U kunt een site-naar-site-VPN configureren als een beveiligd failoverpad voor ExpressRoute, of site-naar-site-VPN's gebruiken om verbinding te maken met sites die niet via ExpressRoute zijn verbonden. In dit artikel gaan we in op de stappen voor het configureren van beide scenario's. Dit artikel is van toepassing op het klassieke implementatiemodel. Deze configuratie is niet beschikbaar in de portal.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
