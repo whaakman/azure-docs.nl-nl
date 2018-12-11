@@ -1,5 +1,6 @@
 ---
-title: Hoe werkt Azure Machine Learning-service?
+title: Hoe werkt het?
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over de architectuur, -terminologie en concepten van Azure Machine Learning-service. Ook leert u over de algemene werkstroom van het gebruik van de service en de Azure-services die worden gebruikt door de Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706803"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097995"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van de service Azure Machine Learning: architectuur en concepten
 
@@ -33,8 +35,6 @@ De werkstroom in het algemeen als volgt:
 1. __Een installatiekopie maken__ en registreren in de __installatiekopieregisters__. 
 1. __De installatiekopie implementeert__ als een __webservice__ in Azure.
 
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 > [!NOTE]
 > Hoewel dit document definieert termen en concepten die worden gebruikt door Azure Machine Learning, worden niet gedefinieerd door termen en begrippen voor het Azure-platform. Zie voor meer informatie over Azure-platform terminologie, het [verklarende woordenlijst voor Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -65,7 +65,7 @@ Wanneer u een nieuwe werkruimte maakt, wordt automatisch verschillende Azure-res
 
 Het volgende diagram wordt een taxonomie van de werkruimte:
 
-[![Taxonomie van werkruimte](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![Taxonomie van werkruimte](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>Model
 
@@ -169,19 +169,23 @@ Een compute-doel is de compute-resource die is gebruikt voor het uitvoeren van u
 | COMPUTE-doel | Training | Implementatie |
 | ---- |:----:|:----:|
 | Uw lokale computer | ✓ | &nbsp; |
+| Azure Machine Learning-Computing | ✓ | &nbsp; |
 | Een virtuele Linux-machine in Azure</br>(zoals de Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Batch AI-Cluster | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark voor HDInsight | ✓ | &nbsp; |
-| Azure Container Instance | ✓ | ✓ |
+| Azure Container Instance | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
 
 COMPUTE-doelen zijn gekoppeld aan een werkruimte. COMPUTE-doelen dan de lokale computer worden gedeeld door gebruikers van de werkruimte.
 
-De meeste compute-doelen kunnen rechtstreeks via de werkruimte worden gemaakt met behulp van de Azure portal, Azure Machine Learning-SDK of Azure CLI. Als u de compute-doelen die zijn gemaakt door een ander proces (bijvoorbeeld, de Azure portal of Azure CLI) hebt, kunt u toevoegen (koppelen) deze naar uw werkruimte. Sommige compute-doelen moeten worden gemaakt buiten de werkruimte, en vervolgens gekoppeld.
+### <a name="managed-and-unmanaged-compute-targets"></a>Beheerde en onbeheerde compute-doelen
+
+**Beheerde** compute-doelen worden gemaakt en beheerd door de Azure Machine Learning-service. Deze compute-doelen zijn geoptimaliseerd voor workloads van ML. __Azure Machine Learning-Computing__ is de enige beheerde compute-doel op dit moment (4 December 2018). Aanvullende beheerde compute-doelen kunnen in de toekomst worden toegevoegd. ML Compute-exemplaren kunnen rechtstreeks via de werkruimte worden gemaakt met behulp van de Azure portal, Azure Machine Learning-SDK of Azure CLI. Alle andere compute-doelen moeten worden gemaakt buiten de werkruimte en vervolgens gekoppeld.
+
+**Niet-beheerde** compute-doelen niet worden beheerd in de Azure Machine Learning-service. Mogelijk moet u ze buiten Azure Machine Learning te maken en koppelt u ze aan uw werkruimte vóór gebruik. Deze compute-doelen kunnen aanvullende stappen vereist voor het onderhouden of prestaties verbeteren voor ML-werkbelastingen.
 
 Zie voor meer informatie over het selecteren van een compute-doel voor de training, de [selecteren en gebruiken van een compute-doel aan uw model te trainen](how-to-set-up-training-targets.md) document.
 
