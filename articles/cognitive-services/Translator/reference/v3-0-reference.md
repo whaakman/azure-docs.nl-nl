@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8302a444f28e4fb330a1eedbac9a5da762979d6c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681956"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870399"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -51,11 +51,21 @@ Om af te dwingen de aanvraag moet worden verwerkt door een specifieke datacenter
 
 ## <a name="authentication"></a>Verificatie
 
-Abonneren op Translator Text-API in Microsoft Cognitive Services en uw abonnementssleutel (beschikbaar in Azure portal) gebruiken om te verifiëren. 
+Abonneren op Translator Text-API of [Cognitive Services All-in-one](https://azure.microsoft.com/pricing/details/cognitive-services/) op Microsoft Cognitive Services, en uw abonnement sleutel (beschikbaar in Azure portal) om te verifiëren. 
 
-De eenvoudigste manier is om door te geven van uw Azure-geheime sleutel naar de Translator-service met behulp van aanvraagheader `Ocp-Apim-Subscription-Key`.
+Er zijn drie kopteksten die u gebruiken kunt om te verifiëren van uw abonnement. Deze tabel bevat wordt beschreven hoe deze worden gebruikt:
 
-Een alternatief is het gebruik van de geheime sleutel van een verificatietoken ophalen van de service voor beveiligingstokens. Vervolgens kunt u het Autorisatietoken doorgeven aan de Translator service met behulp de `Authorization` aanvraagheader. Als u wilt een verificatietoken hebt verkregen, moet u een `POST` aanvraag voor de volgende URL:
+|Headers|Beschrijving|
+|:----|:----|
+|OCP-Apim-Subscription-Key|*Gebruiken met Cognitive Services-abonnement als u de geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement op Translator Text-API.|
+|Autorisatie|*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: `Bearer <token>`.|
+|OCP-Apim-abonnement-regio|*Met Cognitive Services All-in-one-abonnement gebruiken als u een alles-in-een geheime sleutel zijn doorgegeven.*<br/>De waarde is de regio van de alles-in-één-abonnement. Deze waarde is optioneel wanneer niet met een alles-in-één-abonnement.|
+
+###  <a name="secret-key"></a>Geheime sleutel
+De eerste optie is om te verifiëren met behulp van de `Ocp-Apim-Subscription-Key` header. Voeg de `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header op uw aanvraag.
+
+### <a name="authorization-token"></a>Autorisatietoken
+U kunt ook de geheime sleutel voor een toegangstoken uitwisselen. Dit token is opgenomen in elke aanvraag als de `Authorization` header. Als u wilt een verificatietoken hebt verkregen, moet u een `POST` aanvraag voor de volgende URL:
 
 | Omgeving     | Service-URL webverificatie                                |
 |-----------------|-----------------------------------------------------------|
@@ -66,6 +76,7 @@ Hier vindt u voorbeeld verzoeken voor het verkrijgen van een token krijgen een g
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -78,20 +89,21 @@ Authorization: Bearer <Base64-access_token>
 
 Een verificatietoken is geldig voor 10 minuten. Het token moet opnieuw worden gebruikt bij het maken van meerdere aanroepen naar de Translator-API's. Echter, als uw programma aanvragen naar de API van Translator gedurende een lange periode maakt, vervolgens uw programma moet aanvragen een nieuw toegangstoken op gezette tijden (bijvoorbeeld elke 8 minuten).
 
-Om samen te vatten, bevat een clientaanvraag naar de API van Translator één autorisatie-header die is overgenomen uit de volgende tabel:
+### <a name="all-in-one-subscription"></a>Alles-in-één abonnement
 
-<table width="100%">
-  <th width="30%">Headers</th>
-  <th>Beschrijving</th>
-  <tr>
-    <td>OCP-Apim-Subscription-Key</td>
-    <td>*Gebruiken met Cognitive Services-abonnement als u de geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement op Translator Text-API.</td>
-  </tr>
-  <tr>
-    <td>Autorisatie</td>
-    <td>*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: ' Bearer <token>'.</td>
-  </tr>
-</table> 
+De laatste optie voor de verificatie is het gebruik van een Cognitive Service alles-in-één abonnement. Hiermee kunt u één geheime sleutel gebruiken om te verifiëren van aanvragen voor meerdere services. 
+
+Wanneer u een alles-in-een geheime sleutel gebruikt, moet u twee verificatieheaders opnemen met uw aanvraag. De eerste de geheime sleutel wordt doorgegeven, de tweede Hiermee geeft u de regio die is gekoppeld aan uw abonnement. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+Als u de geheime sleutel in de query-tekenreeks met de parameter doorgeven `Subscription-Key`, en vervolgens moet u de regio met queryparameter `Subscription-Region`.
+
+Als u een bearer-token hebt gebruikt, moet u het token verkrijgen van het eindpunt regio: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Beschikbare regio's zijn `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, en `westus2`.
+
+De regio is vereist voor de alles-in-één Text-API-abonnement.
 
 ## <a name="errors"></a>Fouten
 
