@@ -1,5 +1,6 @@
 ---
-title: U kunt ONNX- en Azure Machine Learning | Maken en implementeren van modellen
+title: Maken en interoperabele ONNX-modellen implementeren
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over ONNX en het gebruik van Azure Machine Learning maken en implementeren van ONNX-modellen
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 5fc0e00d9c4404a1c6a757c354a9c7116dfeffa7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706055"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094012"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX- en Azure Machine Learning: maken en interoperabele AI-modellen implementeren
 
@@ -32,7 +34,7 @@ U kunt ONNX-modellen maken van veel frameworks, waaronder PyTorch, Chainer, Micr
 
 Er is ook een ecosysteem van hulpprogramma's voor het visualiseren en aan het verkorten van ONNX-modellen. Een aantal vooraf getrainde ONNX-modellen zijn ook beschikbaar voor algemene scenario's.
 
-[U kunt ONNX-modellen kunnen worden geïmplementeerd](#deploy) naar de cloud met behulp van Azure Machine Learning en de ONNX-Runtime. Ze kunnen ook worden geïmplementeerd op Windows 10-apparaten met [Windows ML](https://docs.microsoft.com/windows/ai/). Ze kunnen ook worden geïmplementeerd op andere platformen met behulp van conversieprogramma's die beschikbaar via de ONNX-community zijn. 
+[U kunt ONNX-modellen kunnen worden geïmplementeerd](#deploy) naar de cloud met behulp van Azure Machine Learning en u kunt ONNX-Runtime. Ze kunnen ook worden geïmplementeerd op Windows 10-apparaten met [Windows ML](https://docs.microsoft.com/windows/ai/). Ze kunnen ook worden geïmplementeerd op andere platformen met behulp van conversieprogramma's die beschikbaar via de ONNX-community zijn. 
 
 [ ![ONNX flow diagram van training, conversieprogramma's en implementatie](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
 
@@ -63,18 +65,18 @@ U vindt de meest recente lijst met ondersteunde frameworks en conversieprogramma
 
 ## <a name="deploy-onnx-models-in-azure"></a>U kunt ONNX-modellen in Azure implementeren
 
-Met Azure Machine Learning-service, kunt u implementeren, beheren en controleren van uw ONNX-modellen. Met behulp van de standaard [implementatiewerkstroom](concept-model-management-and-deployment.md) en de ONNX-Runtime, kunt u een REST-eindpunt gehost in de cloud maken. Zie een compleet voorbeeld Jupyter-notebook aan het einde van dit artikel om te proberen voor uzelf. 
+Met Azure Machine Learning-service, kunt u implementeren, beheren en controleren van uw ONNX-modellen. Met behulp van de standaard [implementatiewerkstroom](concept-model-management-and-deployment.md) en u kunt ONNX-Runtime, kunt u een REST-eindpunt gehost in de cloud maken. Zie een compleet voorbeeld Jupyter-notebook aan het einde van dit artikel om te proberen voor uzelf. 
 
-### <a name="install-and-configure-the-onnx-runtime"></a>Installeren en configureren van de ONNX-Runtime
+### <a name="install-and-configure-onnx-runtime"></a>Installeren en u kunt ONNX-Runtime configureren
 
-De ONNX-Runtime is een engine met hoge prestaties Deductie voor ONNX-modellen. Het wordt geleverd met een Python-API en biedt hardwareversnelling in CPU- en GPU. Op dit moment ondersteunt 1.2 ONNX-modellen en op Ubuntu 16.04 Linux wordt uitgevoerd. Beide [CPU](https://pypi.org/project/onnxruntime) en [GPU](https://pypi.org/project/onnxruntime-gpu) pakketten zijn beschikbaar op [PyPi.org](https://pypi.org).
+U kunt ONNX Runtime is een krachtige Deductie open-source engine voor ONNX-modellen. Biedt hardwareversnelling in CPU- en GPU, met API's beschikbaar voor Python, C#, en ONNX 1.2 + biedt ondersteuning voor Runtime voor C. u kunt ONNX-modellen en wordt uitgevoerd op Linux, Windows en Mac. Python-pakketten zijn beschikbaar op [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), en [ C# pakket](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) is op [Nuget.org](https://www.nuget.org). Zie meer informatie over het project op [Github](https://github.com/Microsoft/onnxruntime). 
 
-Voor het installeren van de ONNX-Runtime gebruiken:
+U kunt ONNX-Runtime voor Python wilt installeren, gebruiken:
 ```python
 pip install onnxruntime
 ```
 
-Voor het aanroepen van de Runtime ONNX in uw Python-script, gebruikt u:
+Om aan te roepen ONNX-Runtime in uw Python-script, gebruikt u:
 ```python
 import onnxruntime
 
@@ -94,7 +96,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Zie voor de volledige API-verwijzing de [ONNX-Runtime-referentiedocumenten](https://aka.ms/onnxruntime-python).
+Zie voor de volledige Python API-verwijzing de [ONNX-Runtime-referentiedocumenten](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Voorbeeld van de implementatiestappen
 
@@ -183,24 +185,12 @@ Hier volgt een voorbeeld voor het implementeren van een ONNX-model:
     f.write(myenv.serialize_to_string())
    ```
 
-4. Uw ONNX-model met Azure Machine Learning om te implementeren:
-   + Azure Container Instances (ACI): [informatie over hoe...](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service (AKS): [informatie over hoe...](how-to-deploy-to-aks.md)
+4. Zie voor het implementeren van uw model, de [implementeren en waar](how-to-deploy-and-where.md) document.
 
 
 ## <a name="examples"></a>Voorbeelden
  
-De volgende notebooks laten zien hoe u kunt ONNX-modellen maken en deze implementeren met Azure Machine Learning: 
-+ [u kunt onnx/onnx-modelzoo-aml-implementeren-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [u kunt onnx/onnx-convert-aml-implementeren-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-Train-pytorch-AML-Deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-De volgende notebooks laten zien hoe u bestaande ONNX-modellen met Azure Machine Learning implementeren: 
-+ [u kunt onnx/onnx-Deductie-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-Expression-Recognition-Deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-Deze laptops ophalen:
+Zie [How-to-naar-gebruik-azureml/implementatie/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) bijvoorbeeld laptops die maakt en implementeert kunt ONNX-modellen.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -210,3 +200,8 @@ Meer informatie over ONNX of bij te dragen aan het project:
 + [U kunt ONNX-Projectwebsite](https://onnx.ai)
 
 + [U kunt ONNX-code op GitHub](https://github.com/onnx/onnx)
+
+Meer informatie over ONNX-Runtime of bij te dragen aan het project:
++ [U kunt ONNX Runtime Github-opslagplaats](https://github.com/Microsoft/onnxruntime)
+
+
