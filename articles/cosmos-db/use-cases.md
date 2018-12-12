@@ -7,12 +7,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: 400ce3ddb2a01db32faa7d3303c89a76c2c4649a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f49f56d57de6cdcb7c5e9b557ed897d17a6bf7fb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960027"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079174"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Algemene scenario's Azure Cosmos DB
 Dit artikel bevat een overzicht van enkele algemene scenario's voor Azure Cosmos DB.  De aanbevelingen in dit artikel fungeren als een beginpunt tijdens het ontwikkelen van uw toepassing met Cosmos DB.   
@@ -27,7 +27,7 @@ Na het lezen van dit artikel, zal het mogelijk om de volgende vragen te beantwoo
 ## <a name="introduction"></a>Inleiding
 [Azure Cosmos DB](../cosmos-db/introduction.md) is de wereldwijd gedistribueerde databaseservice van Microsoft. De service is ontworpen om te kunnen klanten elastisch (en onafhankelijk) doorvoer en opslag schalen naar een willekeurig aantal geografische regio's. Azure Cosmos DB is de eerste wereldwijd gedistribueerde databaseservice in de markt vandaag te bieden uitgebreide [serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dat doorvoer, latentie, beschikbaarheid en consistentie. 
 
-Azure Cosmos DB is een wereldwijd gedistribueerde, multi-model database die wordt gebruikt in een breed scala aan toepassingen en use-cases. Het is een goede keuze voor een [serverloze](http://azure.com/serverless) toepassing die moet snelle reactietijden volgorde van een, en moet om snel en wereldwijd te schalen. Deze biedt ondersteuning voor meerdere gegevensmodellen (sleutel-waarde, documenten, grafieken en kolommen) en allerlei API's voor gegevens met inbegrip van [MongoDB-API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin-API](graph-introduction.md), en [ API-tabellen](table-introduction.md) systeemeigen en verder worden uitgebreid. 
+Azure Cosmos DB is een wereldwijd gedistribueerde, multi-model database die wordt gebruikt in een breed scala aan toepassingen en use-cases. Het is een goede keuze voor een [serverloze](https://azure.com/serverless) toepassing die moet snelle reactietijden volgorde van een, en moet om snel en wereldwijd te schalen. Deze biedt ondersteuning voor meerdere gegevensmodellen (sleutel-waarde, documenten, grafieken en kolommen) en allerlei API's voor gegevens met inbegrip van [MongoDB-API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin-API](graph-introduction.md), en [ API-tabellen](table-introduction.md) systeemeigen en verder worden uitgebreid. 
 
 Hier volgen enkele kenmerken van Azure Cosmos DB waardoor deze zeer geschikt voor krachtige toepassingen met wereldwijde ambities reiken.
 
@@ -60,7 +60,7 @@ Bekijk een voorbeeld van een productcatalogus voor een leverancier auto-onderdel
 
 ![Azure Cosmos DB retail catalogus-referentiearchitectuur](./media/use-cases/product-catalog.png)
 
-Azure Cosmos DB wordt vaak gebruikt voor gebeurtenisbronnen aan power op gebeurtenissen gebaseerde architecturen met behulp van de [wijzigingenfeed](change-feed.md) functionaliteit. De wijzigingenfeed bevat downstream microservices de mogelijkheid om betrouwbaar en incrementeel lezen invoegingen en updates (bijvoorbeeld volgorde gebeurtenissen) gemaakt met een Azure Cosmos DB. Deze functionaliteit kan worden gebruikt om een permanente gebeurtenissenarchief opgeven als een berichtenbroker voor status-gebeurtenissen en werkstroom van het bestellingsproces station tussen talloze microservices (die kan worden geïmplementeerd als [serverloze Azure Functions](http://azure.com/serverless)).
+Azure Cosmos DB wordt vaak gebruikt voor gebeurtenisbronnen aan power op gebeurtenissen gebaseerde architecturen met behulp van de [wijzigingenfeed](change-feed.md) functionaliteit. De wijzigingenfeed bevat downstream microservices de mogelijkheid om betrouwbaar en incrementeel lezen invoegingen en updates (bijvoorbeeld volgorde gebeurtenissen) gemaakt met een Azure Cosmos DB. Deze functionaliteit kan worden gebruikt om een permanente gebeurtenissenarchief opgeven als een berichtenbroker voor status-gebeurtenissen en werkstroom van het bestellingsproces station tussen talloze microservices (die kan worden geïmplementeerd als [serverloze Azure Functions](https://azure.com/serverless)).
 
 ![Azure Cosmos DB bestellen pijplijn-referentiearchitectuur](./media/use-cases/event-sourcing.png)
 
@@ -69,7 +69,7 @@ Bovendien kunnen gegevens die zijn opgeslagen in Azure Cosmos DB worden geïnteg
 ## <a name="gaming"></a>Gaming
 De databaselaag is een essentieel onderdeel van games. Moderne games grafische verwerking uitvoeren op clients van mobiele/console, maar zijn afhankelijk van de cloud om aangepaste en gepersonaliseerde inhoud, zoals gamestatistieken, integratie van sociale media en hoge score scoreborden te leveren. Games vereisen vaak latenties van één milliseconde voor leesbewerkingen en schrijfbewerkingen voor een aantrekkelijke in-game ervaring. Een game-database moet snel en enorme pieken in aanvraagsnelheden verwerken tijdens nieuwe game wordt gestart en functie-updates.
 
-Azure Cosmos DB wordt gebruikt door games, zoals [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) door [Next Games](http://www.nextgames.com/), en [Halo 5: voogden](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB biedt de volgende voordelen voor game-ontwikkelaars:
+Azure Cosmos DB wordt gebruikt door games, zoals [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) door [Next Games](https://www.nextgames.com/), en [Halo 5: voogden](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB biedt de volgende voordelen voor game-ontwikkelaars:
 
 * Azure Cosmos DB kunt u prestaties kunnen worden geschaald omhoog of omlaag flexibel. Hiermee kunt games voor het afhandelen van bijwerken-profiel en statistieken van tientallen miljoenen gelijktijdige gamers door één API-aanroep.
 * Azure Cosmos DB biedt ondersteuning voor milliseconde leest en schrijft om te voorkomen dat een lag tijdens het spel.
@@ -104,12 +104,12 @@ Als u wilt aan de slag met Azure Cosmos DB, volgt u ons [quick starts voor een](
 Of, als u wilt meer informatie over klanten met Cosmos DB, de volgende verhalen van klanten beschikbaar zijn:
 
 * [Jet.com](https://jet.com). E-commerceproduct de toppositie, wordt uitgevoerd op de Microsoft-cloud, maakt gebruik van Cosmos DB op wereldwijde schaal.
-* [Asos.com](http://www.asos.com/). Asos.com is een Britse online winkel voor manier en mooie. Asos is voornamelijk gericht op jonge volwassenen, verkoopt meer dan 850 merken, evenals een eigen reeks kleding en accessoires.
+* [Asos.com](https://www.asos.com/). Asos.com is een Britse online winkel voor manier en mooie. Asos is voornamelijk gericht op jonge volwassenen, verkoopt meer dan 850 merken, evenals een eigen reeks kleding en accessoires.
 * [Toyota](https://www.toyota.com/). Toyota Motor Corporation is een Japanse autobranche fabrikant. Cosmos DB Toyota gebruikt voor een algemene IoT-app.
 * [Citrix](https://customers.microsoft.com/story/citrix). Citrix ontwikkelt single-sign-on oplossing met behulp van Azure Service Fabric en Azure Cosmos DB
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA van revolutionaire IoT-oplossing voor eigenaren van het voertuig bespaart u tijd, geld, gas- en mogelijk zich bevinden.
 * [De Domino Pizza](https://www.dominos.com). De Domino Pizza Inc. is een Amerikaanse pizza restaurantketen.
-* [Hiermee bepaalt u Johnson](http://www.johnsoncontrols.com). Johnson Controls is een algemene gediversifieerde technologie en meerdere industriële leider voor een breed scala aan klanten in meer dan 150 landen.
+* [Hiermee bepaalt u Johnson](https://www.johnsoncontrols.com). Johnson Controls is een algemene gediversifieerde technologie en meerdere industriële leider voor een breed scala aan klanten in meer dan 150 landen.
 * [Microsoft Windows, universele Store, Azure IoT Hub, Xbox Live en andere services internetschaal](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Hoe Microsoft maakt zeer schaalbare services met Azure Cosmos DB.
 * [Microsoft Data- en analyseteam](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft gegevens- en analyseteam bereikt een verzameling van big data op planetaire schaal met Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha maakt gebruik van Azure Cosmos DB voor het aansluiten van klanten en bedrijven in India.

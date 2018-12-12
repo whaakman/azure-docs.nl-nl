@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422351"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082234"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -44,7 +44,7 @@ Dit is de meest voorkomende type van de pagina met veelgestelde vragen, waarin d
 
 Hieronder volgt een voorbeeld van een eenvoudige pagina met veelgestelde vragen:
 
-![Eenvoudige pagina met veelgestelde vragen](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Plain Veelgestelde vragen over pagina-voorbeeld voor een knowledge base](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>Veelgestelde vragen over pagina's met koppelingen 
@@ -53,7 +53,7 @@ In dit type pagina met veelgestelde vragen, vragen bij elkaar worden opgeteld en
 
 Hieronder volgt een voorbeeld van een pagina met koppelingen in de secties die zich op dezelfde pagina met veelgestelde vragen:
 
- ![Pagina met sectie koppeling Veelgestelde vragen](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Voorbeeld van sectie koppeling Veelgestelde vragen over de pagina voor een knowledge base](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>Veelgestelde vragen over pagina's met een startpagina onderwerpen
@@ -62,7 +62,7 @@ Dit type Veelgestelde vragen over heeft een startpagina bij met de onderwerpen w
 
 Hieronder volgt een voorbeeld van een pagina met veelgestelde vragen waar een startpagina onderwerpen koppelingen naar Veelgestelde vragen over secties in verschillende pagina's bevat. 
 
- ![Veelgestelde vragen over de dieptekoppeling naar pagina](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Voorbeeld van veelgestelde vragen over de dieptekoppeling naar de pagina voor een knowledge base](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>PDF / DOC-bestand
@@ -77,7 +77,7 @@ Een handmatige is doorgaans richtlijnen materiaal die wordt meegestuurd met een 
 
 Hieronder volgt een voorbeeld van een handmatige met een index-pagina en hiërarchische inhoud
 
- ![Handmatige product-voorbeeld](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Product handmatige voorbeeld voor een knowledge base](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > Extractie werkt het beste op de handleidingen die een tabel met inhoud en/of een indexpagina en een duidelijke structuur met hiërarchische koppen hebben.
@@ -106,7 +106,7 @@ Answer2
 
 Hieronder volgt een voorbeeld van een gestructureerde QnA word-document:
 
- ![Gestructureerde QnA-document](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Gestructureerde QnA-document is een voorbeeld van een kennisdatabase](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>Gestructureerde *TXT*, *TSV* en *XLS* bestanden
 
@@ -121,7 +121,7 @@ Eventuele extra kolommen in het bronbestand worden genegeerd.
 
 Hieronder volgt een voorbeeld van een gestructureerde QnA *xls* bestand met de HTML-inhoud:
 
- ![Gestructureerde QnA in excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Voorbeeld van een kennisdatabase gestructureerde QnA in excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>Indeling van gestructureerde gegevens via importeren
 

@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning voor Azure IoT Edge-Platform | Microsoft Docs
-description: Platforms die worden ondersteund door Azure IoT Edge
+title: Ondersteunde besturingssystemen, container-engines - Azure IoT Edge | Microsoft Docs
+description: Informatie over welke besturingssystemen voor de Azure IoT Edge-daemon en de runtime en de ondersteunde container-engines voor uw productieapparaten kunt uitvoeren
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,16 @@ ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565000"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100175"
 ---
-# <a name="azure-iot-edge-support"></a>Ondersteuning van Azure IoT Edge
+# <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge ondersteunde systemen
+
 Er zijn tal van manieren om te zoeken naar ondersteuning voor de Azure IoT Edge-product.
 
 **Rapportage van fouten** – het merendeel van ontwikkeling die in de Azure IoT Edge-product gaat er gebeurt in de IoT Edge open source-project. Fouten worden gerapporteerd in de [kwesties](https://github.com/azure/iotedge/issues) van het project. Oplossingen maken snel mogelijk naar productupdates van het project in.

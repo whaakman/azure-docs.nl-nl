@@ -1,5 +1,6 @@
 ---
-title: Een Azure Load Balancer met behulp van REST-API maken | Microsoft Docs
+title: Een Azure-load balancer maken met behulp van de REST API
+titlesuffix: Azure Load Balancer
 description: Informatie over het maken van een Azure Load Balancer met behulp van REST-API.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416916"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079718"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Een Azure Basic Load Balancer maken met REST-API
 
@@ -31,12 +33,12 @@ Gebruik de volgende HTTP PUT-aanvraag te maken van een nieuwe Azure Basic Load B
   ```
 ### <a name="uri-parameters"></a>URI-parameters
 
-|Naam  |In  |Vereist |Type |Beschrijving |
+|Name  |In  |Vereist |Type |Description |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  pad       |  True       |   tekenreeks      |  De referenties van het abonnement die unieke identificatie van de Microsoft Azure-abonnement. De abonnements-ID maakt deel uit van de URI voor elke Serviceaanroep.      |
-|resourceGroupName     |     pad    | True        |  tekenreeks       |   De naam van de resourcegroep.     |
-|loadBalancerName     |  pad       |      True   |    tekenreeks     |    De naam van de load balancer.    |
-|API-versie    |   query     |  True       |     tekenreeks    |  Client-API-versie.      |
+|subscriptionId   |  pad       |  True       |   string      |  De referenties van het abonnement die unieke identificatie van de Microsoft Azure-abonnement. De abonnements-ID maakt deel uit van de URI voor elke Serviceaanroep.      |
+|resourceGroupName     |     pad    | True        |  string       |   De naam van de resourcegroep.     |
+|loadBalancerName     |  pad       |      True   |    string     |    De naam van de load balancer.    |
+|API-versie    |   query     |  True       |     string    |  Client-API-versie.      |
 
 
 
@@ -44,9 +46,9 @@ Gebruik de volgende HTTP PUT-aanvraag te maken van een nieuwe Azure Basic Load B
 
 Is de enige vereiste parameter `location`. Als u geen definieert de *SKU* versie, een Basic Load Balancer wordt standaard gemaakt.  Gebruik [optionele parameters](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) om aan te passen van de load balancer.
 
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | :--- | :--- | :---------- |
-| location | tekenreeks | Resourcelocatie. Een huidige lijst met locaties met behulp van de [lijst met locaties](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) bewerking. |
+| location | string | Resourcelocatie. Een huidige lijst met locaties met behulp van de [lijst met locaties](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) bewerking. |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>Voorbeeld: Maken en bijwerken van een Basic Load Balancer

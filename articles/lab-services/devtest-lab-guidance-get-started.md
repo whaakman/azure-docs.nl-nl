@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251018"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876533"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Aan de slag met Azure DevTest Labs
 Als u DevTest Labs verkennen besluit, er zijn twee algemene paden voorwaarts – Proof of Concept vs schaal implementatie. 
@@ -51,7 +51,7 @@ Het maken en beheren van testomgevingen binnen een onderneming kunnen een aanzie
 
 - Testers kunnen de nieuwste versie van de toepassing testen door snel Windows en Linux-omgevingen inrichten met behulp van herbruikbare sjablonen en artefacten.
 - Testers kunnen hun belastingtests op via het inrichten van meerdere testagents opschalen
-- Beheerders verbinding kunnen maken van de testomgeving met VSTS DevOps-scenario's inschakelen
+- Beheerders verbinding kunnen maken van de testomgeving met Azure DevOps, DevOps-scenario's inschakelen
 - Beheerders kunnen kosten beheren door ervoor te zorgen dat:
     - Testers kunnen niet meer virtuele machines bevat dan ze nodig hebben ophalen
     - VM's worden afgesloten wanneer deze niet in gebruik

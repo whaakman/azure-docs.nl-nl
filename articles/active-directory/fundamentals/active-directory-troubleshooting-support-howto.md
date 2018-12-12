@@ -1,6 +1,6 @@
 ---
-title: Over het verkrijgen van ondersteuning voor Azure Active Directory | Microsoft Docs
-description: Informatie over het verkrijgen van ondersteuning voor Azure Active Directory.
+title: Hulp en open een ondersteuningsticket - Azure Active Directory | Microsoft Docs
+description: Instructies over het Help-informatie en een ondersteuningsticket maken voor Azure Active Directory.
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729382"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083900"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>Hoe: ondersteuning voor Azure Active Directory
+# <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Hulp zoeken en openen van een ondersteuningsticket voor Azure Active Directory
 Microsoft biedt wereldwijde technische, voorverkoop, facturering en ondersteuning voor abonnementen voor Azure Active Directory (Azure AD). Ondersteuning is online en telefonisch voor Microsoft Azure betaalde en proefabonnementen beschikbaar. Telefonische ondersteuning en Onlineondersteuning facturering zijn beschikbaar in extra talen. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Hulp zoeken zonder een ondersteuningsticket te openen
@@ -89,6 +89,6 @@ Zie de [Neem contact op met Microsoft voor ondersteuning van](https://portal.off
 
 ##  <a name="next-steps"></a>Volgende stappen
 
-* [Microsoft Tech-Community](https://techcommunity.microsoft.com/)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
 * [Technische documentatie op docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)

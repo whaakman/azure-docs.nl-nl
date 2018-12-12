@@ -1,7 +1,7 @@
 ---
-title: 'Snelstartgids: Converteer tekst naar spraak, Python - Speech Service'
+title: 'Snelstartgids: Converteer tekst naar spraak, Python - spraakservices'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Python en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen. De REST-API ondersteunt tekst zonder opmaak (ASCII- of UTF-8), ook echter, als tekst zonder opmaak is opgegeven dat in de standaardstem en de taal van de spraak-Service het antwoord wordt geretourneerd.
+description: In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Python en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447480"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090054"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Snelstartgids: Converteren voor tekst naar spraak met behulp van Python
 
@@ -28,8 +29,8 @@ Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.micr
 Voor deze snelstart zijn de volgende zaken vereist:
 
 * Python 2.7.x of 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), of uw favoriete teksteditor
-* De sleutel van een Azure-abonnement voor de Speech-Service
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
+* Een Azure-abonnementssleutel voor de Speech Service
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
@@ -141,7 +142,7 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
 
-Dat is alles, u kunt nu uw Text to Speech voorbeeldapp uit te voeren. Vanaf de opdrachtregel (of terminal-sessie), gaat u naar de directory van uw project en voer uit:
+Dat is alles, u kunt nu uw Text to Speech voorbeeldapp uit te voeren. Ga vanaf de opdrachtregel (of terminalsessie) naar de projectmap en voer het volgende uit:
 
 ```console
 python tts.py
@@ -151,7 +152,7 @@ Wanneer u hierom wordt gevraagd, typt u in alles wat u wilt converteren van teks
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Zorg ervoor dat u vertrouwelijke informatie uit de broncode van uw voorbeeld-app, zoals abonnementssleutels verwijderen.
+Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels, verwijdert uit de broncode van de voorbeeld-app.
 
 ## <a name="next-steps"></a>Volgende stappen
 

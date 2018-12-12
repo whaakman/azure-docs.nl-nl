@@ -1,5 +1,6 @@
 ---
-title: Het gebruik van de webservice-implementaties - Azure Machine Learning-service
+title: Geïmplementeerde webservices gebruiken
+titleSuffix: Azure Machine Learning service
 description: Leer hoe u een webservice die is gegenereerd wanneer een model is geïmplementeerd met Azure Machine Learning-model te gebruiken. De webservice die een REST-API beschikbaar stelt. Clients voor deze API met behulp van de programmeertaal van uw keuze maken.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 0cf585ec3eb95b71080436791fd47d96239dfa9f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016637"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100438"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
@@ -124,6 +125,43 @@ Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/M
 ``` 
 
 De webservice kan meerdere sets met gegevens in één aanvraag accepteren. Retourneert een JSON-document met een matrix van antwoorden.
+
+### <a name="binary-data"></a>Binaire gegevens
+
+Als uw model binaire gegevens, zoals een afbeelding accepteert, moet u wijzigen de `score.py` bestand dat wordt gebruikt voor uw implementatie om onbewerkte HTTP-aanvragen te accepteren. Hier volgt een voorbeeld van een `score.py` die binaire gegevens accepteert en retourneert de omgekeerde bytes voor POST-aanvragen. Voor GET-aanvragen retourneert deze de volledige URL in de hoofdtekst van antwoord:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Dingen die u in de `azureml.contrib` naamruimte regelmatig wordt gewijzigd terwijl we er als u wilt de service te verbeteren. In deze naamruimte moet als zodanig worden beschouwd als een Preview-versie en niet volledig ondersteund door Microsoft.
+>
+> Als u testen op uw lokale ontwikkelomgeving wilt, kunt u de onderdelen installeren op de contrib-naamruimte met de volgende opdracht:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ## <a name="call-the-service-c"></a>De service aanroepen (C#)
 
@@ -447,7 +485,3 @@ De geretourneerde resultaten zijn vergelijkbaar met de volgende JSON-document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>Volgende stappen
-
-Nu hebt u geleerd hoe u een client voor een geïmplementeerd model maakt, kunt u leren hoe u [een model implementeert naar een IoT Edge-apparaat](how-to-deploy-to-iot.md).

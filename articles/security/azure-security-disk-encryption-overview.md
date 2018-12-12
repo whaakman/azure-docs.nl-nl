@@ -1,26 +1,29 @@
 ---
-title: Azure Disk Encryption voor IaaS VM's-overzicht | Microsoft Docs
+title: Overzicht - Azure Disk Encryption voor IaaS-VM's | Microsoft Docs
 description: In dit artikel biedt een overzicht van Microsoft Azure-schijfversleuteling voor IaaS-VM's.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: 1328effbc495422e5190362c562928fbb1742e1b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913203"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093281"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption voor IaaS-VM 's 
+# <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption voor IaaS-VM 's
+
 Microsoft Azure is het belangrijk ervoor te zorgen dat de privacy van gegevens en de gegevensonafhankelijkheid. Met Azure kunt u voor het beheren van uw gegevens wordt gehost op Azure door een bereik met geavanceerde technologieën voor het coderen, beheren en versleutelingssleutels en controle en audit toegang krijgen tot gegevens beheren. Dit besturingselement biedt Azure klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van uw bedrijf. In dit artikel vindt u een technologieoplossing: "Azure Disk Encryption voor Windows en Linux IaaS virtuele machines (VM's)." Deze technologie kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## <a name="overview"></a>Overzicht
+
 Azure Disk Encryption is een functie waarmee u uw Windows- en Linux IaaS-VM-schijven te versleutelen. Schijfversleuteling maakt gebruik van de industrienorm [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) functie van Windows en de [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) -functie van Linux om volumeversleuteling voor het besturingssysteem en gegevensschijven te bieden. De oplossing is geïntegreerd met [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) om te bepalen en de schijf-versleutelingssleutels en geheimen beheren. De oplossing zorgt er ook voor dat alle gegevens op de VM-schijven worden versleuteld in rust in uw Azure-opslag.
 
 Schijf versleuteling voor Windows en Linux IaaS-VM's is algemeen beschikbaar in alle regio's Azure Government voor Standard VM's en virtuele machines met Azure Premium Storage en Azure openbare regio's. Wanneer u het beheersysteem voor schijfversleuteling toepast, kunt u voldoen aan de volgende zaken dat vereisen:
@@ -37,6 +40,7 @@ Als u Azure Security Center gebruikt, bent u gewaarschuwd als er virtuele machin
 
 
 ## <a name="encryption-scenarios"></a>Scenario's voor versleuteling
+
 Het Disk Encryption-oplossing ondersteunt de volgende klant-scenario's:
 
 * Hiermee schakelt u versleuteling op nieuwe Windows IaaS-VM's gemaakt op basis van vooraf gecodeerde VHD en versleuteling sleutels.
@@ -87,6 +91,7 @@ De oplossing biedt geen ondersteuning voor de volgende scenario's, functies en -
 * Windows-VM's die zijn geconfigureerd met software gebaseerde RAID-systemen.
 
 ## <a name="encryption-features"></a>Versleutelingsfuncties
+
 Wanneer u inschakelen en Disk Encryption voor Azure IaaS VM's geïmplementeerd, worden de volgende mogelijkheden zijn ingeschakeld, afhankelijk van de opgegeven configuratie:
 
 * Versleuteling van het volume met het besturingssysteem op het opstartvolume at-rest in uw opslag te beveiligen.

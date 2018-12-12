@@ -1,23 +1,24 @@
 ---
-title: Gegevens uitpakken concepten in LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Ophalen van gegevens
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informatie over wat voor soort gegevens kan worden geëxtraheerd uit Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 284cc8ec6c2325df069d06039a6a22169c3107e7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638338"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098640"
 ---
-# <a name="data-extraction"></a>Ophalen van gegevens
+# <a name="data-extraction-from-intents-and-entities"></a>Ophalen van gegevens van intenties en entiteiten
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of bot chatten om actie te ondernemen. In de volgende secties meer informatie over welke gegevens worden geretourneerd door intenties en entiteiten met voorbeelden van JSON.
 
 De moeilijkst gegevens om op te halen zijn de gegevens hebt geleerd van een machine omdat deze niet een overeenkomst exact overeenkomende tekst. Ophalen van gegevens van de machine geleerd [entiteiten](luis-concept-entity-types.md) moet deel uitmaken van de [ontwerpen cyclus](luis-concept-app-iteration.md) totdat u er zeker van te zijn ontvangen van de gegevens die u verwacht.

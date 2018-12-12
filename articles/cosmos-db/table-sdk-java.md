@@ -1,10 +1,8 @@
 ---
-title: Azure Cosmos DB Table-API voor Java | Microsoft Docs
+title: Azure Cosmos DB tabel-API voor Java
 description: Meer informatie over de Azure Cosmos DB Table-API met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: java
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 3bb4a433b06deff27ce80ab1fb631efde29a3f83
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 54fad2e830ae7ff1d07cc8f67e50d2b5bc4fe8a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465573"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096561"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB Table-API voor Java: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -31,7 +29,7 @@ ms.locfileid: "49465573"
 |   |   |
 |---|---|
 |**SDK downloaden**|[Opties voor downloaden](https://github.com/azure/azure-storage-java#download)|
-|**API-documentatie**|[Java API-referentiedocumentatie](http://azure.github.io/azure-storage-java/)|
+|**API-documentatie**|[Java API-referentiedocumentatie](https://azure.github.io/azure-storage-java/)|
 |**Bijdragen aan de SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]

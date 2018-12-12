@@ -1,21 +1,22 @@
 ---
-title: LUIS vooraf gemaakte entiteiten rangtelwoord referentie - Azure | Microsoft Docs
+title: Rangtelwoord vooraf gemaakte entiteiten
 titleSuffix: Azure
 description: In dit artikel bevat rangtelwoord vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: e80b9dc63accec43532116b81e6eb0b9bd52ee22
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: 060314bd56d477bad3dcb3333ba02c5f4786b476
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335250"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082761"
 ---
 # <a name="ordinal-entity"></a>Rangtelwoordentiteit
 Rangtelwoord is een numerieke representatie van een object in een set: `first`, `second`, `third`. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met rangtelwoord voor de toepassing intents. Rangtelwoord entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Het rangtelwoord voor wordt beheerd via de [kenmerken tekst](https://github.com/
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Oplossing voor vooraf gedefinieerde rangtelwoord entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.ordinal** entiteit.
 
-```JSON
+```json
 {
   "query": "Order the second option",
   "topScoringIntent": {

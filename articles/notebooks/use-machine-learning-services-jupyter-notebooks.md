@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning-Services in Azure-notitieblokken gebruiken | Microsoft Docs
+title: Azure Machine Learning-Services in Azure-notitieblokken gebruiken
 description: Een overzicht van de voorbeeld-notebooks voor Azure Machine Learning-Services die u met Azure-Notebooks gebruiken kunt.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fabd89f7591abafd68b318921fb7723f3eb7373d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1508ccc151aaafd7e0c0b46345c4dcb1a5b7b03c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856098"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083662"
 ---
 # <a name="use-azure-machine-learning-services-in-a-notebook"></a>Azure Machine Learning-Services in een notitieblok gebruiken
 
@@ -47,9 +47,9 @@ Azure-notitieblokken afkomstig is vooraf geconfigureerd met de noodzakelijke omg
 
 De documentatie van Azure Machine Learning-Services bevat tal van andere bronnen die u begeleiden bij het werken met Machine Learning-Service in notitieblokken:
 
-- [Snelstartgids: Gebruik Python aan de slag met Azure Machine Learning](/azure/machine-learning/service/quickstart-create-workspace-with-python.md)
-- [Zelfstudie #1: Een model van de classificatie installatiekopie met de service Azure Machine Learning te trainen](/azure/machine-learning/service/tutorial-train-models-with-aml.md)
-- [Zelfstudie #2: Een classificeringsmodel installatiekopie in Azure Container exemplaar (ACI) implementeren](/azure/machine-learning/service/tutorial-deploy-models-with-aml.md)
-- [Zelfstudie: Een classificatie model trainen met geautomatiseerde machine learning in Azure Machine Learning-service](/azure/machine-learning/service/tutorial-auto-train-models.md)
+- [Snelstartgids: Gebruik Python aan de slag met Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Zelfstudie #1: Een model van de classificatie installatiekopie met de service Azure Machine Learning te trainen](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Zelfstudie #2: Een classificeringsmodel installatiekopie in Azure Container exemplaar (ACI) implementeren](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Zelfstudie: Een classificatie model trainen met geautomatiseerde machine learning in Azure Machine Learning-service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
-Zie ook de documentatie voor de [Azure Machine Learning-SDK voor Python](/python/api/overview/azure/ml/intro.md?view=azure-ml-py).
+Zie ook de documentatie voor de [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

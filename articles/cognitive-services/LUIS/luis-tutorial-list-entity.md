@@ -1,5 +1,5 @@
 ---
-title: Label entiteiten automatisch met een lijst met entiteit met behulp van Nodejs | Microsoft Docs
+title: Totaalgehalte tekst overeenkomst entiteiten
 description: Informatie over het toevoegen van een entiteit lijst om te helpen LUIS label variaties van een woord of woordgroep.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: cb8f2ef4afa83b8e4d258a4227795593242e84bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036776"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082251"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Een lijst met entiteit gebruiken voor het verhogen van detectie van entiteit 
 Deze zelfstudie ziet u het gebruik van een [entiteit lijst](luis-concept-entity-types.md) te verhogen van de detectie van de entiteit. Lijst met entiteiten hoeft te worden gelabeld als ze exact overeenkomen met de voorwaarden zijn.  
@@ -31,7 +31,7 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Meest recente [Node.js](https://nodejs.org)
-> * [LUIS-app HomeAutomation](luis-get-started-create-app.md). Als u niet de start Automation-app hebt gemaakt hebt, een nieuwe app maken en toevoegen van het vooraf gedefinieerde domein **HomeAutomation**. Trainen en publiceren van de app. 
+> * [LUIS-app HomeAutomation](luis-get-started-create-app.md). Als u niet de start Automation-app hebt gemaakt hebt, een nieuwe app maken en toevoegen van het vooraf gedefinieerde domein **HomeAutomation**. Train en publiceer de app. 
 > * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (als het uitvoeren van query's is vaak), app-ID, versie-ID en [regio](luis-reference-regions.md) voor de LUIS-app.
 
 > [!Tip]
@@ -81,15 +81,16 @@ Maak een Node.js-bestand en kopieer de volgende code naar het. Wijzig de waarden
 
 Gebruik de volgende opdracht om te installeren de NPM-afhankelijkheden en voert u de code voor het maken van de entiteit lijst:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 De uitvoer van de uitvoering is de ID van de entiteit van de lijst:
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Het model trainen
 LUIS trainen in volgorde van de nieuwe lijst invloed heeft op de queryresultaten. Training is een proces tweedelige van training, klikt u vervolgens de status controleren als de training wordt gedaan. Een app met meerdere modellen duurt enkele minuten om te trainen. De volgende code traint van de app en wacht totdat de training geslaagd is. De code maakt gebruik van een strategie voor wait-en-opnieuw proberen om te voorkomen dat de 429 ' te veel aanvragen ' fout. 
 
@@ -99,13 +100,13 @@ Maak een Node.js-bestand en kopieer de volgende code naar het. Wijzig de waarden
 
 Gebruik de volgende opdracht om uit te voeren van de code voor het trainen van de app:
 
-```Javascript
+```console
 node train.js
 ```
 
 De uitvoer van de uitvoering is de status van elke herhaling van de training van de LUIS-modellen. De volgende uitvoering vereist slechts één selectievakje training:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Maak een Node.js-bestand en kopieer de volgende code naar het. Wijzig de waarden
 
 Gebruik de volgende opdracht in de code om op te vragen van de app uit te voeren:
 
-```Javascript
+```console
 node publish.js
 ```
 
 De volgende uitvoer bevat de eindpunt-url voor alle query's. Echte JSON-resultaten, zou de echte appID bevatten. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Maak een Node.js-bestand en kopieer de volgende code naar het. Wijzig de waarden
 
 Gebruik de volgende opdracht naar de code worden uitgevoerd en de app op te vragen:
 
-```Javascript
+```console
 node train.js
 ```
 
 De uitvoer is de queryresultaten. Omdat de code toegevoegd de **uitgebreide** naam/waarde-paar aan de querytekenreeks, de uitvoer bevat alle intents en hun scores:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Converteren tekst naar spraak, .NET Core - Service voor spraak'
+title: 'Snelstartgids: Converteer tekst naar spraak, .NET Core - spraakservices'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u kunt converteren van tekst naar spraak met de REST-API van tekst naar spraak. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089867"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snelstartgids: Converteren voor tekst naar spraak met behulp van .NET Core
 
@@ -28,19 +28,19 @@ Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.micr
 Voor deze snelstart zijn de volgende zaken vereist:
 
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), of uw favoriete teksteditor
-* De sleutel van een Azure-abonnement voor de Speech-Service
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
+* Een Azure-abonnementssleutel voor de Speech Service
 
 ## <a name="create-a-net-core-project"></a>Een .NET Core-project maken
 
-Open een nieuwe opdrachtprompt (of een sessie) en voer deze opdrachten uit:
+Open een nieuwe opdrachtprompt (of een terminalsessie) en voer deze opdrachten uit:
 
 ```console
 dotnet new console -o tts-sample
 cd tts-sample
 ```
 
-De eerste opdracht doet twee dingen. Een nieuwe .NET-consoletoepassing maakt, en maakt u een map met de naam `tts-sample`. De tweede opdracht wordt gewijzigd naar de map voor uw project.
+De eerste opdracht doet twee dingen. Hiermee wordt een nieuwe .NET-consoletoepassing gemaakt en een map met de naam `tts-sample`. Met de tweede opdracht gaat u naar de map voor het project.
 
 ## <a name="select-the-c-language-version"></a>Selecteer de C# taalversie
 
@@ -56,9 +56,9 @@ Open het project en open vervolgens `tts-sample.csproj`. Zorg ervoor dat `LangVe
 
 Zorg ervoor dat uw wijzigingen op te slaan.
 
-## <a name="add-required-namespaces-to-your-project"></a>Vereiste naamruimten toevoegen aan uw project
+## <a name="add-required-namespaces-to-your-project"></a>Vereiste naamruimten toevoegen aan het project
 
-De `dotnet new console` opdracht die u eerder hebt uitgevoerd, een project hebt gemaakt met inbegrip van `Program.cs`. Dit bestand is waar u de code van uw toepassing moet plaatsen. Open `Program.cs`, en vervang de bestaande using-instructies. Deze instructies Zorg ervoor dat u hebt toegang tot alle typen die zijn vereist voor het bouwen en uitvoeren van de voorbeeld-app.
+Met de opdracht `dotnet new console` die u eerder hebt uitgevoerd, is een project gemaakt, met daarin `Program.cs`. In dit bestand plaatst u de toepassingscode. Open `Program.cs` en vervang de bestaande using-instructies. Deze instructies zorgen ervoor dat u toegang hebt tot alle typen die zijn vereist voor het bouwen en uitvoeren van de voorbeeld-app.
 
 ```csharp
 using System;
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -218,7 +217,7 @@ using (var client = new HttpClient())
 
 ## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
 
-Dat is alles, u kunt nu uw Text to Speech app uit te voeren. Vanaf de opdrachtregel (of terminal-sessie), gaat u naar de directory van uw project en voer uit:
+Dat is alles, u kunt nu uw Text to Speech app uit te voeren. Ga vanaf de opdrachtregel (of terminalsessie) naar de projectmap en voer het volgende uit:
 
 ```console
 dotnet run
@@ -237,4 +236,5 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 
 ## <a name="see-also"></a>Zie ook
 
-* [Zelfstudie: Spraakherkenning Intents herkennen](how-to-recognize-intents-from-speech-csharp.md)
+* [Het maken van aangepaste spraakstijlen](how-to-customize-voice-font.md)
+* [Record stem voorbeelden voor het maken van een aangepaste spraak](record-custom-voice-samples.md)

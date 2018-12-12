@@ -1,18 +1,19 @@
 ---
-title: Azure Disk Encryption met Azure AD App Linux IaaS-VM's (vorige versie) | Microsoft Docs
+title: Azure Disk Encryption met Azure AD App Linux IaaS-VM's (vorige versie)
 description: In dit artikel vindt u instructies over het inschakelen van Microsoft Azure Disk Encryption voor Linux IaaS-VM's.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/19/2018
-ms.openlocfilehash: ffabd1169076ac5f887375c585c8880b587c86a8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 79b7fdd5ba6bd39058a5b892771f550bb872fa70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636999"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083356"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Azure Disk Encryption inschakelen voor Linux IaaS-VM's (vorige versie)
 
@@ -53,7 +54,7 @@ Duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-manag
 
      - Selecteer de virtuele machine en klik vervolgens op **schijven** onder de **instellingen** kop om te controleren of de status voor schijfversleuteling in de portal. In de grafiek onder **versleuteling**, ziet u of deze ingeschakeld. 
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | AAD Client-ID | Client-ID van de Azure AD-toepassing met machtigingen voor geheimen schrijven naar de key vault. |
 | AAD-Clientgeheim | Clientgeheim van de Azure AD-toepassing met machtigingen voor het schrijven van geheimen voor uw key vault. |
@@ -165,7 +166,7 @@ U kunt schijfversleuteling op een bestaande of actieve IaaS Linux VM in Azure in
 
 De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor bestaande of uitvoeren van virtuele machines die gebruikmaken van een Azure AD-client-ID:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | AADClientID | Client-ID van de Azure AD-toepassing met machtigingen voor geheimen schrijven naar de key vault. |
 | AADClientSecret | Clientgeheim van de Azure AD-toepassing met machtigingen voor het schrijven van geheimen voor uw key vault. |
@@ -286,7 +287,7 @@ U kunt schijfversleuteling op uw versleutelde VHD inschakelen met behulp van de 
 
 De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor uw versleutelde VHD:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | newStorageAccountName | De naam van het opslagaccount voor het opslaan van de versleutelde OS VHD. Dit opslagaccount moet al zijn gemaakt in dezelfde resourcegroep en dezelfde locatie als de virtuele machine. |
 | osVhdUri | De URI van de VHD met het besturingssysteem van het opslagaccount. |

@@ -1,24 +1,24 @@
 ---
-title: Azure toegewezen HSM Veelgestelde vragen over | Microsoft Docs
-description: Azure toegewezen HSM biedt mogelijkheden voor opslag van sleutels in Azure die voldoet aan FIPS 140-2 Level 3-certificering
+title: Veelgestelde vragen - Azure toegewezen HSM | Microsoft Docs
+description: Veelgestelde vragen over die betrekking hebben op andere onderwerpen over Azure toegewezen HSM
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
+ms.custom: mvc
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: concepts
-ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 3179fd3cf7a595b4491aec77e221aca3960c8ecb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 949281b1415e2098fb7bf0d3e9e9fbe0a5f5c835
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319447"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080993"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -28,7 +28,7 @@ Vind antwoorden op veelgestelde vragen over Microsoft Azure toegewezen HSM.
 
 ### <a name="q-what-is-a-hardware-security-module-hsm"></a>V: Wat is er een hardware security module (HSM)?
 
-Een Hardware Security Module (HSM) is een fysieke computer of fysiek apparaat gebruikt om te beveiligen en beheren van cryptografische sleutels. Sleutels die zijn opgeslagen in HSM's kunnen worden gebruikt voor cryptografische bewerkingen. Het sleutelmateriaal blijft veilig in vervalsen, verzegelde hardware-modules. De HSM kan alleen geverifieerde en gemachtigde toepassingen om de sleutels te gebruiken. Het sleutelmateriaal worden nooit protection HSM-grens blijven.
+Een Hardware Security Module (HSM) is een fysieke computer of fysiek apparaat gebruikt om te beveiligen en beheren van cryptografische sleutels. Sleutels die zijn opgeslagen in HSM's kunnen worden gebruikt voor cryptografische bewerkingen. Het sleutelmateriaal blijft veilig in vervalsen, verzegelde hardware-modules. De HSM kan alleen geverifieerde en gemachtigde toepassingen om de sleutels te gebruiken. De sleutels blijven altijd binnen het bereik van de HSM-beveiliging.
 
 ### <a name="q-what-is-azure-dedicated-hsm-offering"></a>V: Wat is Azure toegewezen HSM aanbieding?
 
@@ -40,7 +40,7 @@ Microsoft is een partnerschap aangegaan met Gemalto om de service Azure toegewez
 
 ### <a name="q-what-is-an-hsm-used-for"></a>V: Wat is een HSM gebruikt?
 
-HSM's worden gebruikt voor het opslaan van cryptografische sleutels die worden gebruikt voor cryptografische functionaliteit, zoals SSL (secure socket layer), gegevens, PKI (openbare-sleutelinfrastructuur), DRM (digital rights management), versleutelen en ondertekenen van documenten.
+HSM's worden gebruikt voor het opslaan van versleutelingssleutels die worden gebruikt voor versleutelingsfunctionaliteit, zoals SSL (Secure Socket Layer), het versleutelen van gegevens, PKI (Public Key Infrastructure), DRM (Digital Rights Management) en het ondertekenen van documenten.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>V: hoe werkt de toegewezen HSM?
 

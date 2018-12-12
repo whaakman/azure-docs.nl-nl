@@ -1,6 +1,6 @@
 ---
-title: Grenzen en beperkingen voor Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Limieten
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: In dit artikel bevat de bekende beperkingen van Azure Cognitive Services Language Understanding (LUIS). LUIS heeft verschillende gebieden van de grens. Model grens bepaalt intents, entiteiten en functies van LUIS. De quotalimieten op basis van het type sleutel. Toetscombinatie bepaalt de LUIS-website.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,13 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b7a2d1554d668b4000b87b210a69b290def9b19e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 6f2f69fc746da049e8e48f870fc0e03ffd8ee1a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035433"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078936"
 ---
 # <a name="luis-boundaries"></a>LUIS grenzen
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -51,7 +52,7 @@ LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#m
 ## <a name="intent-and-entity-naming"></a>Doel en de naamgeving van entiteit
 Gebruik de volgende tekens niet in de namen van intentie en entiteit:
 
-|Teken|Naam|
+|Teken|Name|
 |--|--|
 |`{`|Accolade links|
 |`}`|Accolade rechts|
@@ -72,7 +73,7 @@ De ontwerphandleiding sleutel heeft verschillende beperkingen bij het ontwerpen 
 
 ## <a name="keyboard-controls"></a>Toetsenbord
 
-|Toetsenbordinvoer | Beschrijving | 
+|Toetsenbordinvoer | Description | 
 |--|--|
 |Besturingselement + E|Hiermee schakelt u tussen tokens en entiteiten in de lijst met uitingen|
 

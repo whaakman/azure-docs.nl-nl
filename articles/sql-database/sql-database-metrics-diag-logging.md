@@ -3,7 +3,7 @@ title: Metrische gegevens van Azure SQL database en diagnostische logboekregistr
 description: Meer informatie over het configureren van Azure SQL Database voor het opslaan van Resourcegebruik, connectiviteit en Uitvoeringsstatistieken query.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.openlocfilehash: 19117803783047d8ddd9740c799b4cb81fd74c2c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425996"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890905"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
 
@@ -291,7 +291,7 @@ Meer informatie over hoe u [diagnostische instellingen bij het maken van resourc
 
 Azure SQL Analytics is een cloud voor controle voor het bewaken van de prestaties van Azure SQL-databases, elastische pools en beheerde instanties op schaal en voor meerdere abonnementen via één venster inzicht bedrijfsanalyses. Er worden verzameld en worden gevisualiseerd met belangrijke metrische gegevens voor Azure SQL Database-prestaties met ingebouwde intelligentie voor het oplossen van prestaties.
 
-![Overzicht van Azure SQL Analytics](../log-analytics/media/log-analytics-azure-sql/azure-sql-sol-overview.png)
+![Overzicht van Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar Azure SQL Analytics met behulp van de ingebouwde **verzenden naar Log Analytics** optie in de instellingenblade van diagnostische gegevens in de portal. U kunt ook Log Analytics inschakelen met behulp van een diagnostische instelling via PowerShell-cmdlets, de Azure CLI of de Azure Monitor REST API.
 
@@ -327,7 +327,7 @@ In het geval u Elastische pools of beheerde instanties worden gebruikt, moet u o
 
 ### <a name="use-the-sql-analytics-solution"></a>De oplossing SQL Analytics gebruiken
 
-SQL-analyse is een hiërarchische dashboard waarmee u de hiërarchie van SQL Database-resources te doorlopen. Zie voor meer informatie over het gebruik van de oplossing SQL Analytics, [SQL-Database controleren met behulp van de oplossing SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+SQL-analyse is een hiërarchische dashboard waarmee u de hiërarchie van SQL Database-resources te doorlopen. Zie voor meer informatie over het gebruik van de oplossing SQL Analytics, [SQL-Database controleren met behulp van de oplossing SQL Analytics](../azure-monitor/insights/azure-sql.md).
 
 ## <a name="stream-into-event-hubs"></a>Streamen in Event Hubs
 

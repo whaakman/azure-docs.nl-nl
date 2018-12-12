@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 28327a650bad529595ec843ed73f00a9dfcfa58a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874223"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082948"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs integreren in uw Azure DevOps, continue integratie en van leveringspijplijn
 U kunt de *Azure DevTest Labs-taken* -extensie die geïnstalleerd in Azure DevOps tot eenvoudig uw CI/CD-build-en release-pijplijn integreren met Azure DevTest Labs. De extensie installeert drie taken: 
@@ -138,7 +138,7 @@ De volgende fase van de implementatie is het maken van de virtuele machine als d
 1. Selecteer in de release-pijplijn **toevoegen taken** en klik op de **implementeren** tabblad, voegt u een *Azure PowerShell* taak. De taak als volgt configureren:
 
    > [!NOTE]
-   > Zie voor het verzamelen van de details van de virtuele machine DevTest-Labs, [implementeren: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) en voer het script uit.
+   > Zie voor het verzamelen van de details van de virtuele machine DevTest-Labs, [implementeren: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) en voer het script uit.
 
    a. Voor **Azure verbindingstype**, selecteer **Azure Resource Manager**.
 

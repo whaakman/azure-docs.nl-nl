@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304234"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089698"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Azure Resource Manager-sjablonen voor het implementeren van logische apps maken
 
@@ -82,7 +82,7 @@ Als u wilt dat uw logische app om te verwijzen naar afhankelijke resources, kunt
 U kunt parameters van de logische app in dit soort triggers en acties gebruiken:
 
 *   Onderliggende werkstroom
-*   Functie-app
+*   Function App
 *   APIM-aanroep
 *   Runtime-URL van API-verbinding
 *   Pad naar API-verbinding
@@ -173,7 +173,7 @@ Als u een bestaande resourcegroep-project hebt, kunt u uw logische app toevoegen
 
 ## <a name="deploy-a-logic-app-template"></a>Een sjabloon voor logische app implementeren
 
-U kunt uw sjabloon implementeren met behulp van een programma's zoals PowerShell, REST-API, [Release Management voor Azure DevOps](#team-services), en de sjabloonimplementatie via Azure portal.
+U kunt uw sjabloon implementeren met behulp van een programma's zoals PowerShell, REST-API, [Azure DevOps Azure pijplijnen](#team-services), en de sjabloonimplementatie via Azure portal.
 Ook voor het opslaan van de waarden voor parameters, wordt aangeraden dat u maken een [parameterbestand](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Meer informatie over het [resources implementeren met Azure Resource Manager-sjablonen en PowerShell](../azure-resource-manager/resource-group-template-deploy.md) of [resources implementeren met Azure Resource Manager-sjablonen en Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,11 +185,11 @@ Als u wilt machtigen OAuth-verbindingen, opent u de logische app in de ontwerper
 Er is een voorbeeldscript op GitHub onder de [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Azure DevOps-Release Management
+## <a name="azure-devops-azure-pipelines"></a>Azure DevOps-Azure-pijplijnen
 
-Een veelvoorkomend scenario voor het implementeren en beheren van een omgeving is het gebruik van een hulpprogramma zoals Release Management in Azure DevOps, met een sjabloon voor logische app-implementatie. Azure DevOps bevat een [Azure-resourcegroep implementeren](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) taak die u kunt aan een build toevoegen of release-pijplijn. U moet beschikken over een [service-principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) voor autorisatie om te implementeren, en u vervolgens de release-pijplijn kunt genereren.
+Een veelvoorkomend scenario voor het implementeren en beheren van een omgeving is een hulpprogramma zoals Azure pijplijnen gebruiken in Azure DevOps, met een sjabloon voor logische app-implementatie. Azure DevOps bevat een [Azure-resourcegroep implementeren](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) taak die u kunt aan een build toevoegen of release-pijplijn. U moet beschikken over een [service-principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) voor autorisatie om te implementeren, en u vervolgens de release-pijplijn kunt genereren.
 
-1. Selecteer in de Release Management, **leeg** zodat u een lege pijplijn maken.
+1. Selecteer in de Azure-pijplijnen **leeg** zodat u een lege pijplijn maken.
 
     ![Lege pijplijn maken][1]
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7575d55f65598d39a8ffe0c3802cf11fa7470180
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 56275a2d37c9b1dc92aad973507204295fbfe06f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087657"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Computergroepen in Log Analytics-zoekopdrachten
 
@@ -29,7 +29,7 @@ Computergroepen in Log Analytics kunnen u aan het bereik [zoekopdrachten](../../
 ## <a name="creating-a-computer-group"></a>Het maken van een computergroep
 U kunt een computergroep maken in Log Analytics met behulp van een van de methoden in de volgende tabel.  In de onderstaande secties vindt u meer informatie over elke methode. 
 
-| Methode | Beschrijving |
+| Methode | Description |
 |:--- |:--- |
 | Zoekopdrachten in logboeken |Maak een logboekzoekopdracht die als resultaat een lijst van computers geeft. |
 | API voor zoeken in logboeken |De Log Search-API gebruiken om via een programma maakt een computergroep op basis van de resultaten van een logboekzoekopdracht. |
@@ -46,7 +46,7 @@ U kunt een query voor een computergroep, maar er moet een afzonderlijke set comp
 
 De volgende tabel beschrijft de eigenschappen die een computergroep definiëren.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:---|:---|
 | Weergavenaam   | Naam van de zoekopdracht wilt weergeven in de portal. |
 | Categorie       | De categorie te organiseren van de zoekopdrachten in de portal. |
@@ -82,7 +82,7 @@ Wanneer groepen zijn geïmporteerd, wordt het menu geeft het aantal computers me
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Als u Log Analytics voor het importeren van Configuration Manager-verzamelingslidmaatschappen configureert, maakt u een computergroep voor elke verzameling.  De lidmaatschapsgegevens van de verzameling wordt elke drie uur zodat de computergroepen huidige opgehaald. 
 
-Voordat u Configuration Manager-verzamelingen importeren kunt, moet u [Configuration Manager koppelen aan Log Analytics](../../log-analytics/log-analytics-sccm.md).  Vervolgens kunt u het importeren van Log Analytics configureren **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen**, **SCCM**, en vervolgens **Import Configuration Manager-verzamelingslidmaatschappen**.  Er is geen verdere configuratie nodig.
+Voordat u Configuration Manager-verzamelingen importeren kunt, moet u [Configuration Manager koppelen aan Log Analytics](../../azure-monitor/platform/collect-sccm.md).  Vervolgens kunt u het importeren van Log Analytics configureren **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen**, **SCCM**, en vervolgens **Import Configuration Manager-verzamelingslidmaatschappen**.  Er is geen verdere configuratie nodig.
 
 ![Computergroepen uit SCCM](media/computer-groups/configure-sccm.png)
 
@@ -123,7 +123,7 @@ De volgende query retourneert UpdateSummary records voor alleen computers in dom
 ## <a name="computer-group-records"></a>Computer groeperen van records
 Een record wordt gemaakt in de werkruimte voor logboekanalyse voor elke computer groepslidmaatschap gemaakt op basis van Active Directory of WSUS.  Deze records zijn een type **ComputerGroup** en hebben de eigenschappen in de volgende tabel.  Records worden niet gemaakt voor computergroepen op basis van zoekopdrachten in Logboeken.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Type |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |

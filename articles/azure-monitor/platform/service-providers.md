@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: c43b2e265903b119812d16ef4ef329393c725e71
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 0c75926943ceb2e77335732445f56099961f7667
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992997"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099032"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics voor serviceproviders
 Log Analytics kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
@@ -80,7 +80,7 @@ Er zijn twee opties voor het implementeren van de centrale locatie in Log Analyt
 
 ## <a name="next-steps"></a>Volgende stappen
 * Automatiseer het maken en de configuratie van werkruimten met behulp van [Resource Manager-sjablonen](template-workspace-configuration.md)
-* Maken van werkruimten met behulp van automatiseren [PowerShell](../../log-analytics/log-analytics-powershell-workspace-configuration.md) 
+* Maken van werkruimten met behulp van automatiseren [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
 * Gebruik [waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) om te integreren met bestaande systemen
 * Samenvatting rapporten genereren met [Power BI](../../azure-monitor/platform/powerbi.md)
 * Bekijk het proces van [configureren van Log Analytics en Power BI voor het bewaken van meerdere CSP-klanten](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

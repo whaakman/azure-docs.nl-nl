@@ -1,21 +1,22 @@
 ---
-title: Bing Spell Check-API voor Bing versie 7 toevoegen aan query's LUIS | Microsoft Docs
+title: Juiste verkeerd gespelde woorden
 titleSuffix: Azure
 description: Juiste verkeerd gespelde woorden in uitingen door toe te voegen Bing spellingcontrole controleren-API-versie 7 op query's van LUIS-eindpunt.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d197b014d6936b12b34a6d8783d1ebd29dfa28a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478970c6b5f4035949c8b6579f1021dfa161fd39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443326"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096788"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Juiste verkeerd gespelde woorden met Bing spellingcontrole
 
@@ -75,7 +76,7 @@ De eindpunt-URL heeft verschillende waarden die moeten correct worden doorgegeve
 
 4. LUIS reageert met een JSON-resultaat voor `How far is the mountain?`. Als de Bing Spell Check-API voor Bing versie 7 spelfout, detecteert de `query` bevat de oorspronkelijke query het veld in de JSON-antwoord van de LUIS-app en de `alteredQuery` veld bevat de gecorrigeerde query verzonden naar LUIS.
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",

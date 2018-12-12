@@ -1,25 +1,19 @@
 ---
-title: BFD configureren via ExpressRoute | Microsoft Docs
-description: Dit document bevat instructies over het configureren van BFD via privé-peering van een ExpressRoute-circuit.
-documentationcenter: na
+title: BFD configureren via ExpressRoute - Azure | Microsoft Docs
+description: In dit artikel vindt u instructies over het configureren van BFD (in twee richtingen doorsturen detectie) via privé-peering van een ExpressRoute-circuit.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631656"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083781"
 ---
 # <a name="configure-bfd-over-expressroute"></a>BFD via ExpressRoute configureren
 

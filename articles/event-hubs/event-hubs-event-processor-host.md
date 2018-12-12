@@ -1,6 +1,6 @@
 ---
-title: Wat is Azure Event Hubs Event Processor Host en waarom gebruiken | Microsoft Docs
-description: Overzicht van en inleiding tot Azure Event Hubs Event Processor Host
+title: Gebeurtenissen ontvangen met Eventprocessorhost - Azure Event Hubs | Microsoft Docs
+description: Dit artikel beschrijft de Event Processor Host in Azure Event Hubs, dat het beheer van het plaatsen van controlepunten vereenvoudigt, overdracht en bewaartermijn parallel lezen van gebeurtenissen.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258949"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089620"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Overzicht van Azure Event Hubs Event Processor Host
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Event Processor Host
 
 Azure Event Hubs is een krachtige service voor telemetrieopname die kan worden gebruikt voor streaming van miljoenen gebeurtenissen tegen lage kosten. In dit artikel wordt beschreven hoe u verbruiken opgenomen gebeurtenissen met behulp van de *Event Processor Host* (EPH); een intelligente consumeragent die het beheer van het plaatsen van controlepunten vereenvoudigt, overdracht en parallelle gebeurtenislezers.  
 

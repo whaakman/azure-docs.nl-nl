@@ -9,19 +9,19 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 3a21b2521cc16b97519f2f84b40a3f51536757e2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: af7515c7888bf7710c9bd087af61b29ed0be0768
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999675"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085232"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Gebruik en geschatte kosten bewaken
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u gebruik en geschatte kosten weergeven in meerdere Azure bewakingsfuncties voor verschillende prijsmodellen.  Raadpleeg de volgende artikelen voor meer informatie.
 > - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](../azure-monitor/platform/manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
-> - [Gegevensgebruik analyseren in Log Analytics](../log-analytics/log-analytics-usage.md) wordt beschreven hoe u om te analyseren en ontvang een waarschuwing op het gegevensgebruik van uw.
+> - [Gegevensgebruik analyseren in Log Analytics](../azure-monitor/platform/data-usage.md) wordt beschreven hoe u om te analyseren en ontvang een waarschuwing op het gegevensgebruik van uw.
 > - [Prijzen en gegevensvolumes in Application Insights beheren](../application-insights/app-insights-pricing.md) wordt beschreven hoe u gegevensgebruik analyseren in Application Insights.
 
 In de hub Monitor van het Azure-portal, de **gebruik en geraamde kosten** pagina leest u het gebruik van voor kernbewaking van functies zoals [waarschuwingen, metrische gegevens, meldingen](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), en [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Dit omvat ook gebruik van logboekanalyse die zijn aangeschaft via de inzichten en analyses bieden voor klanten op de abonnementen beschikbaar voor April 2018.

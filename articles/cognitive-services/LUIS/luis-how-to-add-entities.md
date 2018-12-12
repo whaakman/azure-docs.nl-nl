@@ -1,21 +1,22 @@
 ---
-title: Entiteiten in LUIS-apps toevoegen
-titleSuffix: Azure Cognitive Services
+title: Entiteiten toevoegen
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Entiteiten (belangrijke gegevens in het domein van uw toepassing) in Language Understanding (LUIS)-apps toevoegen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: MT
+ms.openlocfilehash: 8a6f0a69f0159a31d9fefcc54a104ebc1ed47ec4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288047"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100341"
 ---
 # <a name="create-entities-without-utterances"></a>Entiteiten zonder uitingen maken
 

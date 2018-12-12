@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ca12c7a3fe8a5ade8cf0e4ce00977bdcc9a300a6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8b0f5e2941878cf91a60c2dca5497e4e50b6ea01
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007651"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077763"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Gegevens uit Google BigQuery kopiëren met behulp van Azure Data Factory
 
@@ -43,7 +43,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor de Google BigQuery service gekoppelde.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **GoogleBigQuery**. | Ja |
 | project | De project-ID van het project standaard BigQuery-query op.  | Ja |
@@ -55,7 +55,7 @@ De volgende eigenschappen worden ondersteund voor de Google BigQuery service gek
 
 Stel de eigenschap 'authenticationType' in op **UserAuthentication**, en geeft u de volgende eigenschappen samen met de algemene eigenschappen die worden beschreven in de vorige sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | ClientId | ID van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. | Nee |
 | ClientSecret | Geheim van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
@@ -91,7 +91,7 @@ Stel de eigenschap 'authenticationType' in op **UserAuthentication**, en geeft u
 
 Stel de eigenschap 'authenticationType' in op **ServiceAuthentication**, en geeft u de volgende eigenschappen samen met de algemene eigenschappen die worden beschreven in de vorige sectie. Dit verificatietype kan alleen worden gebruikt voor zelfgehoste Cloudintegratieruntime.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Het kan alleen worden gebruikt voor zelfgehoste Cloudintegratieruntime.  | Nee |
 | keyFilePath | Het volledige pad naar het .p12-sleutelbestand die wordt gebruikt voor verificatie van het e-mailadres van de service-account. | Nee |
@@ -124,7 +124,12 @@ Stel de eigenschap 'authenticationType' in op **ServiceAuthentication**, en geef
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Google BigQuery-gegevensset.
 
-Als u wilt kopiëren van gegevens uit Google BigQuery, stel de eigenschap type van de gegevensset in **GoogleBigQueryObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Als u wilt kopiëren van gegevens uit Google BigQuery, stel de eigenschap type van de gegevensset in **GoogleBigQueryObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **GoogleBigQueryObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -136,7 +141,8 @@ Als u wilt kopiëren van gegevens uit Google BigQuery, stel de eigenschap type v
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -149,10 +155,10 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren uit Google BigQuery, stelt u het brontype in de kopieeractiviteit naar **GoogleBigQuerySource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **GoogleBigQuerySource**. | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `"SELECT * FROM MyTable"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

@@ -15,25 +15,25 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 76c2c7c7e99f10f48464d85030fea64bb7925cd7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 50dea9451205e565b954a35b3611a3e0302222d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845702"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088286"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwingenbeheeroplossing in Azure Log Analytics
 
 ![Pictogram voor het beheer van waarschuwing](media/alert-management-solution/icon.png)
 
-De Waarschuwingsbeheer oplossing helpt u bij het analyseren van alle van de waarschuwingen in uw Log Analytics-opslagplaats.  Deze waarschuwingen kunnen afkomstig zijn uit een groot aantal bronnen die bronnen waaronder [die zijn gemaakt door Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) of [geïmporteerd uit Nagios of Zabbix](../../log-analytics/log-analytics-quick-collect-linux-computer.md). De oplossing ook waarschuwingen importeert uit een [System Center Operations Manager-beheergroepen verbonden](../../log-analytics/log-analytics-om-agents.md).
+De Waarschuwingsbeheer oplossing helpt u bij het analyseren van alle van de waarschuwingen in uw Log Analytics-opslagplaats.  Deze waarschuwingen kunnen afkomstig zijn uit een groot aantal bronnen die bronnen waaronder [die zijn gemaakt door Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) of [geïmporteerd uit Nagios of Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). De oplossing ook waarschuwingen importeert uit een [System Center Operations Manager-beheergroepen verbonden](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="prerequisites"></a>Vereisten
 De oplossing werkt met alle records in de opslagplaats van Log Analytics met een type **waarschuwing**, dus moet u de gewenste configuratie is vereist voor het verzamelen van deze records uitvoeren.
 
 - Voor Log Analytics-waarschuwingen, [waarschuwingsregels maken](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) waarschuwing om records te maken in de opslagplaats.
-- Voor Nagios en Zabbix-waarschuwingen, [configureren die servers](../../log-analytics/log-analytics-quick-collect-linux-computer.md) om waarschuwingen te verzenden naar Log Analytics.
-- Voor System Center Operations Manager-waarschuwingen, [uw Operations Manager-beheergroep verbinden met uw Log Analytics-werkruimte](../../log-analytics/log-analytics-om-agents.md).  Alle waarschuwingen die zijn gemaakt in System Center Operations Manager worden geïmporteerd in Log Analytics.  
+- Voor Nagios en Zabbix-waarschuwingen, [configureren die servers](../../azure-monitor/learn/quick-collect-linux-computer.md) om waarschuwingen te verzenden naar Log Analytics.
+- Voor System Center Operations Manager-waarschuwingen, [uw Operations Manager-beheergroep verbinden met uw Log Analytics-werkruimte](../../azure-monitor/platform/om-agents.md).  Alle waarschuwingen die zijn gemaakt in System Center Operations Manager worden geïmporteerd in Log Analytics.  
 
 ## <a name="configuration"></a>Configuratie
 De oplossing voor beheer van waarschuwingen toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](../../azure-monitor/insights/solutions.md). Er is geen verdere configuratie nodig.
@@ -43,17 +43,17 @@ Als uw System Center Operations Manager-beheergroep is verbonden met uw Log Anal
 
 * Microsoft System Center Advisor Waarschuwingsbeheer (Microsoft.IntelligencePacks.AlertManagement)
 
-Zie [Operations Manager koppelen aan Log Analytics](../../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
+Zie [Operations Manager koppelen aan Log Analytics](../../azure-monitor/platform/om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="agents"></a>Agents
 De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
 
-| Verbonden bron | Ondersteuning | Beschrijving |
+| Verbonden bron | Ondersteuning | Description |
 |:--- |:--- |:--- |
 | [Windows-agents](agent-windows.md) | Nee |Direct Windows-agents geen waarschuwingen worden gegenereerd.  Log Analytics-waarschuwingen kunnen worden gemaakt op basis van gebeurtenissen en prestatiegegevens verzameld van Windows-agents. |
-| [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee |Directe Linux-agents geen waarschuwingen worden gegenereerd.  Log Analytics-waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld van Linux-agents.  Nagios en Zabbix-waarschuwingen worden verzameld van deze servers waarvoor de Linux-agent. |
-| [System Center Operations Manager-beheergroep](../../log-analytics/log-analytics-om-agents.md) |Ja |Waarschuwingen die worden gegenereerd in Operations Manager-agents zijn die worden geleverd aan de beheergroep en vervolgens doorgestuurd naar Log Analytics.<br><br>Een directe verbinding van Operations Manager-agents naar Log Analytics is niet vereist. Waarschuwingsgegevens wordt uit de beheergroep doorgestuurd naar de opslagplaats van Log Analytics. |
+| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee |Directe Linux-agents geen waarschuwingen worden gegenereerd.  Log Analytics-waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld van Linux-agents.  Nagios en Zabbix-waarschuwingen worden verzameld van deze servers waarvoor de Linux-agent. |
+| [System Center Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) |Ja |Waarschuwingen die worden gegenereerd in Operations Manager-agents zijn die worden geleverd aan de beheergroep en vervolgens doorgestuurd naar Log Analytics.<br><br>Een directe verbinding van Operations Manager-agents naar Log Analytics is niet vereist. Waarschuwingsgegevens wordt uit de beheergroep doorgestuurd naar de opslagplaats van Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
@@ -67,7 +67,7 @@ Wanneer u de waarschuwing beheeroplossing aan uw Log Analytics-werkruimte toevoe
 
 Klik op de **Waarschuwingsbeheer** tegel om te openen de **Waarschuwingsbeheer** dashboard.  Het dashboard bevat de kolommen in de volgende tabel.  Elke kolom bevat de bovenste 10 waarschuwingen per aantal die overeenkomen met criteria voor het opgegeven bereik en het tijdsbereik van die kolom.  U kunt een logboekzoekopdracht waarmee de volledige lijst door te klikken op uitvoeren **alle** aan de onderkant van de kolom of door op de kolomkop te klikken.
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 |:--- |:--- |
 | Kritieke waarschuwingen |Alle waarschuwingen met een ernst gegroepeerd op de naam van de waarschuwing kritiek.  Klik op de naam van een waarschuwing om uit te voeren van een logboekzoekopdracht die alle records voor deze waarschuwing. |
 | Waarschuwingsmeldingen |Alle waarschuwingen met een ernst van waarschuwing gegroepeerd op de naam van de waarschuwing.  Klik op de naam van een waarschuwing om uit te voeren van een logboekzoekopdracht die alle records voor deze waarschuwing. |
@@ -84,7 +84,7 @@ De waarschuwing oplossing analyseert elke record van het type **waarschuwing**. 
 
 De oplossing waarschuwingen importeren uit System Center Operations Manager en maakt u een record voor elk type **waarschuwing** en SourceSystem **OpsManager**.  Deze records hebben de eigenschappen in de volgende tabel:  
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | Type |*Ontvang een waarschuwing* |
 | SourceSystem |*OpsManager* |
@@ -110,7 +110,7 @@ De oplossing waarschuwingen importeren uit System Center Operations Manager en m
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel bevat voorbeelden van zoekopdrachten voor waarschuwing records die zijn verzameld door deze oplossing: 
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:---|:---|
 | Waarschuwing &#124; waar SourceSystem == "OpsManager" en AlertSeverity == "error" en TimeRaised > ago(24h) |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
 | Waarschuwing &#124; waar AlertSeverity 'waarschuwing' en TimeRaised == > ago(24h) |Waarschuwingsmeldingen die in de afgelopen 24 uur zijn geactiveerd |

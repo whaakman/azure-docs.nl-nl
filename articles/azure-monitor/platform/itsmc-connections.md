@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b6e59834d9a20a26be7c41d964556a45b0d2aab6
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: a7b24ff3f51cdd66391f8dd7c73598530f767420
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642828"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865587"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
-In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](../../log-analytics/log-analytics-itsmc-overview.md).
+In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](../../azure-monitor/platform/itsmc-overview.md).
 
 De volgende ITSM-producten en services worden ondersteund. Selecteer het product om gedetailleerde informatie over hoe u verbinding maken met het product ITSMC weer te geven.
 
@@ -43,7 +43,7 @@ De volgende secties bevatten informatie over hoe u verbinding maken met uw Syste
 
 Zorg ervoor dat de volgende vereisten wordt voldaan:
 
-- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - De Service Manager-webtoepassing (Web-app) is geïmplementeerd en geconfigureerd. Informatie over de Web-app is [hier](#create-and-deploy-service-manager-web-app-service).
 - Hybride verbinding hebt gemaakt en geconfigureerd. Meer informatie: [configureren van de hybride verbinding](#configure-the-hybrid-connection).
 - Ondersteunde versies van Service Manager: 2012 R2 of 2016.
@@ -72,7 +72,7 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 | **Verbindingsnaam**   | Typ een naam voor de System Center Service Manager-instantie die u wilt verbinden met ITSMC.  U gebruikt deze naam later wanneer u werkitems in dit geval configureren / gedetailleerd logboek analytics weergeven. |
 | **Partnertype**   | Selecteer **System Center Service Manager**. |
 | **Server-URL**   | Typ de URL van de Service Manager-Web-app. Meer informatie over Service Manager-Web-app is [hier](#create-and-deploy-service-manager-web-app-service).
-| **Client ID**   | Typ de client-ID die u hebt gegenereerd (met behulp van het script voor automatische) voor het verifiëren van de Web-app. Meer informatie over de geautomatiseerd script [hier.](../../log-analytics/log-analytics-itsmc-service-manager-script.md)|
+| **Client ID**   | Typ de client-ID die u hebt gegenereerd (met behulp van het script voor automatische) voor het verifiëren van de Web-app. Meer informatie over de geautomatiseerd script [hier.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Client Secret**   | Typ het clientgeheim gegenereerd voor deze ID.   |
 | **Bereik voor gegevenssynchronisatie**   | Selecteer de Service Manager-werkitems die u wilt synchroniseren via ITSMC.  Deze items worden geïmporteerd in Log Analytics werk. **Opties:** incidenten, wijzigingsaanvragen.|
 | **Gegevens synchroniseren** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
@@ -87,7 +87,7 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 - U kunt incidenten maken van Log Analytics-waarschuwingen of records in logboek registreren of Azure-waarschuwingen in dit exemplaar van Service Manager.
 
 
-Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Maken en implementeren van Service Manager-service voor web-app
 
@@ -95,11 +95,11 @@ Als u wilt verbinding maken met de on-premises Service Manager met ITSMC in Azur
 
 Om in te stellen de ITSM-Web-app voor uw Service Manager, het volgende doen:
 
-- **De Web-app implementeren** : de Web-app implementeren, stelt u de eigenschappen en verifiëren met Azure AD. U kunt de web-app implementeren met behulp van de [geautomatiseerd script](../../log-analytics/log-analytics-itsmc-service-manager-script.md) dat Microsoft u heeft gekregen.
+- **De Web-app implementeren** : de Web-app implementeren, stelt u de eigenschappen en verifiëren met Azure AD. U kunt de web-app implementeren met behulp van de [geautomatiseerd script](../../azure-monitor/platform/itsmc-service-manager-script.md) dat Microsoft u heeft gekregen.
 - **Configureren van de hybride verbinding** - [configureren van deze verbinding](#configure-the-hybrid-connection)handmatig.
 
 #### <a name="deploy-the-web-app"></a>De web-app implementeren
-Gebruik de geautomatiseerde [script](../../log-analytics/log-analytics-itsmc-service-manager-script.md) voor het implementeren van de Web-app, stel de eigenschappen en verifiëren met Azure AD.
+Gebruik de geautomatiseerde [script](../../azure-monitor/platform/itsmc-service-manager-script.md) voor het implementeren van de Web-app, stel de eigenschappen en verifiëren met Azure AD.
 
 Voer het script door te geven van de volgende vereiste gegevens:
 
@@ -186,7 +186,7 @@ De volgende secties bevatten informatie over hoe u verbinding maken met uw Servi
 
 ### <a name="prerequisites"></a>Vereisten
 Zorg ervoor dat de volgende vereisten wordt voldaan:
-- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow ondersteunde versies: Kingston, Jakarta, Istanboel, Helsinki, Genève.
 
 **ServiceNow Admins moet het volgende in de ServiceNow-exemplaar doen**:
@@ -240,7 +240,7 @@ Gebruik de volgende procedure om een ServiceNow-verbinding te maken:
 
 - U kunt incidenten maken van Log Analytics-waarschuwingen of records in logboek registreren of Azure-waarschuwingen in deze ServiceNow-exemplaar.
 
-Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Integratie van een gebruikersrol in ServiceNow-app maken
 
@@ -292,7 +292,7 @@ De volgende secties bevatten informatie over hoe u verbinding maken met uw produ
 Zorg ervoor dat de volgende vereisten wordt voldaan:
 
 
-- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance App moet worden geregistreerd bij Azure AD - en client-ID beschikbaar wordt gesteld. Zie voor gedetailleerde informatie [active directory-verificatie configureren](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Gebruikersrol: beheerder.
@@ -334,7 +334,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 
 - U kunt incidenten maken van Log Analytics-waarschuwingen of records in logboek registreren of Azure-waarschuwingen in dit geval Provance.
 
-Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Verbinding maken met Cherwell IT Service Management-Connector in Azure
 
@@ -344,7 +344,7 @@ De volgende secties bevatten informatie over hoe u verbinding maken met uw produ
 
 Zorg ervoor dat de volgende vereisten wordt voldaan:
 
-- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC geïnstalleerd. Meer informatie: [toevoegen van de oplossing IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Client-ID die is gegenereerd. Meer informatie: [client-ID genereren voor Cherwell](#generate-client-id-for-cherwell).
 - Gebruikersrol: beheerder.
 
@@ -386,7 +386,7 @@ Gebruik de volgende procedure om een Provance verbinding te maken:
 
 - U kunt incidenten maken van Log Analytics-waarschuwingen of records in logboek registreren of Azure-waarschuwingen in dit geval Cherwell.
 
-Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Meer informatie: [maken ITSM-werkitems van Azure-waarschuwingen](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Client-ID voor Cherwell genereren
 
@@ -400,4 +400,4 @@ Voor het genereren van de client-ID-sleutel voor Cherwell, gebruikt u de volgend
 
 
 ## <a name="next-steps"></a>Volgende stappen
- - [ITSM-werkitems maken vanuit Azure-waarschuwingen](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [ITSM-werkitems maken vanuit Azure-waarschuwingen](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

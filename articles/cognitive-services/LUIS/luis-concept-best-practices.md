@@ -1,21 +1,22 @@
 ---
-title: Aanbevolen procedures voor het bouwen van apps met LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: Informatie over de aanbevolen procedures van LUIS om de beste resultaten te krijgen.
+title: Aanbevolen procedures
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Informatie over de LUIS aanbevolen procedures voor de beste resultaten van uw LUIS-app-model.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637777"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085277"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Aanbevolen procedures voor het bouwen van een language understanding-app met Cognitive Services
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
@@ -50,10 +51,10 @@ Als het vocabulaire tussen twee intents hetzelfde is, de bedoeling combineren en
 
 Houd rekening met het volgende voorbeeld-uitingen:
 
-```
-Book a flight
-Book a hotel
-```
+|Voorbeelden van utterances|
+|--|
+|Een vlucht reserveren|
+|Boek een hotel|
 
 'Een vlucht reserveren' en 'Book een hotel' gebruikt u de dezelfde vocabulaire van ' book een '. Dit wordt overlappende, dus het mag hetzelfde doel met andere woorden van vertragingen van vluchten en hotels entiteiten hebt uitgepakt. 
 

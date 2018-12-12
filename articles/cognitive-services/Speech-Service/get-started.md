@@ -1,7 +1,7 @@
 ---
-title: De spraak-Service gratis uitproberen
+title: Speech Services gratis uitproberen
 titleSuffix: Azure Cognitive Services
-description: Ontdek hoe kunt u de Speech-Service gratis proberen.
+description: Aan de slag met de Speech-service is eenvoudig en betaalbaar. Een gratis proefversie van 30 dagen kunt u ontdekken wat de service kan doen en bepalen of deze geschikt is voor de behoeften van uw toepassing.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471387"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079106"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service gratis uitproberen
 
@@ -36,7 +37,7 @@ Om u te registreren voor een gratis proefversie van 30 dagen:
 1. Selecteer de **Speech-API's** tabblad.
 
    ![Tabblad voor spraak-Services](media/index/try-speech-api-free-trial1.png)
-   
+
 1. Onder **spraakservices**, selecteer de **API-sleutel ophalen** knop.
 
    ![API-sleutel](media/index/try-speech-api-free-trial2.png)

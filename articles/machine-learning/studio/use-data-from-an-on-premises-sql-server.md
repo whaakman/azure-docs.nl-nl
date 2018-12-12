@@ -1,10 +1,10 @@
 ---
-title: On-premises SQL Server met Azure Machine Learning Studio | Microsoft Docs
+title: On-premises SQL Server - Azure Machine Learning Studio | Microsoft Docs
 description: Gegevens uit een on-premises SQL Server-database gebruiken om geavanceerde analyses met Azure Machine Learning Studio uitvoeren.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 059dd3d902409abfa80be2b7aac579a54de1868f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310953"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090667"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Geavanceerde analyses uitvoeren met Azure Machine Learning met gegevens van een on-premises SQL Server-database
+# <a name="perform-analytics-with-azure-machine-learning-using-an-on-premises-sql-server-database"></a>Analyses uitvoeren met Azure Machine Learning met behulp van een on-premises SQL Server-database
 
 Vaak ondernemingen die met on-premises gegevens werken wilt profiteren van de schaal en flexibiliteit van de cloud voor de machine learning-werkbelastingen uitvoeren. Maar ze niet willen hun huidige bedrijfsprocessen en werkstromen worden onderbroken door het verplaatsen van hun on-premises gegevens naar de cloud. Azure Machine Learning biedt nu ondersteuning voor lezen van uw gegevens vanuit een on-premises SQL Server-database en vervolgens training en scoren van een model met deze gegevens. U hebt niet meer handmatig kopiëren en synchroniseren van gegevens tussen de cloud en uw on-premises server. In plaats daarvan de **importgegevens** module in Azure Machine Learning Studio nu rechtstreeks vanuit uw on-premises SQL Server-database voor uw training en scoren van taken kan lezen.
 

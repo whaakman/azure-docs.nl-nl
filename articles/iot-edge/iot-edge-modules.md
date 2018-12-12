@@ -1,6 +1,6 @@
 ---
-title: Informatie over Azure IoT Edge-modules | Microsoft Docs
-description: Meer informatie over Azure IoT Edge-modules en hoe ze zijn geconfigureerd
+title: Informatie over hoe modules logische uitvoeren op uw apparaten - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge-modules zijn containers eenheden van de logica die kan worden geïmplementeerd en extern worden beheerd, zodat u bedrijfslogica op IoT Edge apparaten uitvoeren kunt
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567329"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094182"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informatie over Azure IoT Edge-modules
 
@@ -31,7 +32,7 @@ De afbeeldingen aanwezig zijn in de cloud en ze kunnen worden bijgewerkt, gewijz
 
 Telkens wanneer de installatiekopie van een module is geïmplementeerd op een apparaat en aan de slag door de IoT Edge-runtime, is een nieuw exemplaar van die module gemaakt. Twee apparaten in verschillende onderdelen van de hele wereld kunnen dezelfde module installatiekopie; gebruiken maar zou elk hun eigen module-exemplaar hebt, wanneer de module wordt gestart op het apparaat. 
 
-![Module afbeeldingen in de cloud - module-exemplaren op apparaten](./media/iot-edge-modules/image_instance.png)
+![Diagram - Module afbeeldingen in de cloud, module-exemplaren op apparaten](./media/iot-edge-modules/image_instance.png)
 
 In uitvoering, modules installatiekopieën bestaan als containerinstallatiekopieën in een opslagplaats en module-exemplaren zijn containers op apparaten. 
 
@@ -46,7 +47,7 @@ De identiteit die is gekoppeld aan een module-exemplaar afhankelijk is van de id
 
 Duidelijk in scenario's kunt als u wilt implementeren een installatiekopie van de module meerdere keren op hetzelfde apparaat, u implementeren dezelfde installatiekopie van meerdere keren met verschillende namen.
 
-![Module-id's zijn uniek](./media/iot-edge-modules/identity.png)
+![Diagram - Module-id's zijn uniek binnen apparaten en alle apparaten](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Moduledubbels
 

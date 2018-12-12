@@ -1,21 +1,22 @@
 ---
-title: LUIS vooraf gemaakte entiteiten nummer verwijzing - Azure | Microsoft Docs
+title: Aantal vooraf gedefinieerde entiteit
 titleSuffix: Azure
 description: In dit artikel bevat een aantal vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: ead544400f97f9a49296cc43552bea3a6f3def98
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334564"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095300"
 ---
 # <a name="number-entity"></a>Cijferentiteit
 Er zijn veel manieren waarin numerieke waarden te kwantificeren, express en beschrijven stukjes informatie worden gebruikt. Dit artikel behandelt alleen enkele van de mogelijke voorbeelden. LUIS interpreteert de variaties faciliteren voor de gebruiker uitingen en consistente numerieke waarden als resultaat. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met getal tot de toepassing intents. 
@@ -42,7 +43,7 @@ LUIS omvat de herkende waarde van een **`builtin.number`** entiteit in de `resol
 ## <a name="resolution-for-prebuilt-number"></a>Oplossing voor vooraf gedefinieerde getal
 Het volgende voorbeeld ziet een JSON-antwoord van LUIS, die de resolutie van de waarde van 24 uur per dag, voor de utterance "tientallen" bevat.
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

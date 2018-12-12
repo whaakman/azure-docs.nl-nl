@@ -4,7 +4,7 @@ description: PowerShell gebruiken voor het maken van meerdere Machine Learning-m
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: b6e54fb7fe852ca4e12dc9a9e0f63eac2382c5c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316562"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093012"
 ---
-# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: Gebruik PowerShell om u te veel modellen en web service-eindpunten maken vanuit één experiment
+# <a name="use-powershell-to-create-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell gebruiken voor het maken van modellen en web-service-eindpunten van een experiment
 
 Hier volgt een veelvoorkomend probleem voor machine learning: U wilt Maak veel modellen die dezelfde werkstroom training en gebruikmaken van dezelfde algoritme. Maar u wilt dat ze hebben verschillende trainingdatasets als invoer. In dit artikel laat zien u hoe u dit doet op schaal in Azure Machine Learning Studio met slechts één experiment.
 

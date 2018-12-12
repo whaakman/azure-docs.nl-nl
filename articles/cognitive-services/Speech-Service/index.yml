@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 452032e21a649fe4d34616225bd168d441ac0267
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 6fa6a0f5a46d8e9a47a0750a66e9ca007864d40a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218628"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092613"
 documentType: LandingData
-title: Documentatie voor Speech Service
+title: Documentatie voor Speech Services
 metadata:
-  title: Documentatie over Speech Service - zelfstudies, snelstartgidsen, API-verwijzingen - Cognitive Services | Microsoft Docs
-  meta.description: >
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
-
-    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Documentatie voor Speech Services - zelfstudies, snelstarts, API-verwijzing
+  titleSuffix: Azure Cognitive Services
+  description: Speech Services biedt ontwikkelaars een eenvoudige manier om krachtige spraakfuncties toe te voegen aan hun toepassingen. Voorbeelden zijn onder meer stembesturing en dialoog, natuurlijke taalinteractie, spraaktranscriptie en dicteren en spraakomzetting.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,10 +20,11 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
-  description: Leer de Speech Service- en de Speech-SDK te gebruiken om met spraak geactiveerde functies toe te voegen aan uw apps. U kunt de Speech-SDK gebruiken om mogelijkheden voor <i>spraak-naar-tekst</i> (spraakherkenning/SR), <i>intentie</i>, <i>vertaling</i> en <i>tekst-naar-spraak</i> (text-to-speech, TTS) toe te voegen aan uw apps. De Speech Service heeft ook een REST API die werkt met alle programmeertalen die HTTP-aanvragen kunnen indienen.
+  description: Leer de Speech Services- en de Speech-SDK te gebruiken om spraakfuncties toe te voegen aan uw apps. U kunt de Speech-SDK gebruiken om mogelijkheden voor <i>spraak-naar-tekst</i> (spraakherkenning/SR), <i>intentie</i>, <i>vertaling</i> en <i>tekst-naar-spraak</i> (text-to-speech, TTS) toe te voegen aan uw apps. De Speech Service heeft ook een REST API die werkt met alle programmeertalen die HTTP-aanvragen kunnen indienen.
 sections:
 - items:
   - type: list
@@ -34,15 +33,15 @@ sections:
     columns: 3
     items:
     - href: /azure/cognitive-services/speech-service/overview
-      html: <p>Informatie over Azure Speech Service</p>
+      html: <p>Meer informatie over de Azure Speech Services.</p>
       image:
         src: ../media/index/i_overview.svg
       title: Wat is Speech Service?
     - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Uitleg over de gratis registratie voor de Speech Service.</p>
+      html: <p>Meld u gratis aan.</p>
       image:
         src: ../media/index/i_get-started.svg
-      title: Registreer u voor de Speech Service
+      title: Registreren voor Speech Services
     - href: /azure/cognitive-services/speech-service/speech-devices-sdk
       html: <p>Naslaginformatie over met spraak geactiveerde hardware.</p>
       image:

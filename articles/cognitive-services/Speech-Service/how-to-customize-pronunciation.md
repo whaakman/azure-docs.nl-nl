@@ -1,24 +1,26 @@
 ---
-title: Uitspraak van met Spraakservice aanpassen
+title: Uitspraak van - Speech Services aanpassen
 titlesuffix: Azure Cognitive Services
-description: Informatie over het aanpassen van de uitspraak met de Speech-Service.
+description: Informatie over het aanpassen van de uitspraak met de Speech-Service. U kunt de fonetische vorm en de weergave van een woord of een term definiëren met aangepaste uitspraak. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig hebt om te beginnen is een uitspraak van bestand--een eenvoudige txt-bestand.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: c7f82e9fb286e53f9408e2134dbdc9c2b24ff267
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 6d57bdd8444f5bd6d763400c4df4395bb33a7bdd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100001"
 ---
 # <a name="enable-custom-pronunciation"></a>Aangepaste uitspraak inschakelen
-U kunt met behulp van aangepaste uitspraak van de fonetische vorm en de weergave van een woord of een term definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig is een uitspraak van bestand (een eenvoudige txt-bestand).
+
+U kunt met behulp van aangepaste uitspraak van de fonetische vorm en de weergave van een woord of een term definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig hebt om te beginnen is een uitspraak van bestand--een eenvoudige txt-bestand.
 
 Hier ziet u hoe het werkt. U kunt verschillende aangepaste uitspraak van vermeldingen invoeren in een enkele txt-bestand. De structuur is als volgt:
 
@@ -41,10 +43,10 @@ Elke txt-bestand kan verschillende vermeldingen, hebben, zoals wordt weergegeven
 
 ![Voorbeelden van acroniem uitspraak van](media/stt/custom-speech-pronunciation-file.png)
 
-Het formulier gesproken is de fonetische opeenvolging van het formulier weergeven. Deze bestaat uit letters, woorden of lettergrepen. Op dit moment is er geen verdere richtlijnen of reeks standaarden om u te helpen u bij het formuleren van de gesproken vorm. 
+Het formulier gesproken is de fonetische opeenvolging van het formulier weergeven. Deze bestaat uit letters, woorden of lettergrepen. Op dit moment is er geen verdere richtlijnen of reeks standaarden om u te helpen u bij het formuleren van de gesproken vorm.
 
 ## <a name="supported-pronunciation-characters"></a>Ondersteunde uitspraak van tekens
-Aangepaste uitspraak wordt momenteel ondersteund voor Engels (en-US) en Duits (nl-nl). De tekensets die u gebruiken kunt om de gesproken vorm van een term die (in het bestand aangepaste uitspraak) worden weergegeven in de volgende tabel: 
+Aangepaste uitspraak wordt momenteel ondersteund voor Engels (en-US) en Duits (nl-nl). De tekensets die u gebruiken kunt om de gesproken vorm van een term die (in het bestand aangepaste uitspraak) worden weergegeven in de volgende tabel:
 
 | Taal | Tekens |
 |---------- |----------|
@@ -55,10 +57,10 @@ Aangepaste uitspraak wordt momenteel ondersteund voor Engels (en-US) en Duits (n
 > Weergaveformulier van een term die (in een bestand uitspraak) moet dezelfde manier worden geschreven in een taal aanpassing van woordenlijsten gegevensset.
 
 ## <a name="requirements-for-the-display-form"></a>Vereisten voor het formulier weergeven
-Een weergaveformulier mag alleen een aangepast woord, een term, een acroniem of samengestelde woorden die een combinatie van bestaande woorden. U kunt ook alternatieve uitspraak voor veelvoorkomende woorden invoeren. 
+Een weergaveformulier mag alleen een aangepast woord, een term, een acroniem of samengestelde woorden die een combinatie van bestaande woorden. U kunt ook alternatieve uitspraak voor veelvoorkomende woorden invoeren.
 
 >[!NOTE]
->U kunt beter geen deze functie te reformulate veelvoorkomende woorden of te wijzigen van de gesproken vorm. Is het beter om uit te voeren van de decoder om te zien of sommige ongebruikelijke woorden (zoals afkortingen, technische woorden of woorden in vreemde talen) onjuist worden gedecodeerd. Als ze zijn, kunt u ze aan het aangepaste uitspraak van bestand toevoegen. In het taalmodel, altijd en alleen gebruikt u de vorm van de weergave van een woord. 
+>U kunt beter geen deze functie te reformulate veelvoorkomende woorden of te wijzigen van de gesproken vorm. Is het beter om uit te voeren van de decoder om te zien of sommige ongebruikelijke woorden (zoals afkortingen, technische woorden of woorden in vreemde talen) onjuist worden gedecodeerd. Als ze zijn, kunt u ze aan het aangepaste uitspraak van bestand toevoegen. In het taalmodel, altijd en alleen gebruikt u de vorm van de weergave van een woord.
 
 ## <a name="requirements-for-the-file-size"></a>Vereisten voor de bestandsgrootte
 De grootte van de txt-bestand dat de uitspraak van vermeldingen bevat die is beperkt tot 1 MB (1KB voor de gratis laag sleutels). U hoeft normaal gesproken te uploaden van grote hoeveelheden gegevens via dit bestand. De meeste aangepaste uitspraak van bestanden zijn waarschijnlijk slechts een aantal kilobytes (kB) groot. De codering van de txt-bestand voor alle landinstellingen moet UTF-8 stuklijst. Voor de Engelse landinstelling is ook ANSI acceptabel.
@@ -66,4 +68,3 @@ De grootte van de txt-bestand dat de uitspraak van vermeldingen bevat die is bep
 ## <a name="next-steps"></a>Volgende stappen
 * De nauwkeurigheid van de verbeteren door het maken van een [aangepast akoestisch model](how-to-customize-acoustic-models.md).
 * De nauwkeurigheid van de verbeteren door het maken van een [aangepast taalmodel](how-to-customize-language-model.md).
- 

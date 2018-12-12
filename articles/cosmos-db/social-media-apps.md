@@ -1,21 +1,19 @@
 ---
-title: 'Ontwerppatroon voor een Azure Cosmos DB: socialemedia-apps | Microsoft Docs'
+title: 'Ontwerppatroon voor een Azure Cosmos DB: socialemedia-apps'
 description: Meer informatie over een ontwerppatroon voor sociale netwerken door gebruik te maken van de flexibiliteit van de opslag van Azure Cosmos DB en andere Azure-services.
 keywords: socialemedia-apps
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: a65ec0a92b8fc245c77ce67c80c1202f73a3ec66
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711868"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083968"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialiseren met Azure Cosmos DB
 
@@ -49,14 +47,14 @@ In dit artikel begeleidt u bij het modelleren van gegevens van uw sociale platfo
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -100,7 +98,7 @@ Het maken van feeds is alleen een kwestie van het maken van documenten die een l
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-U kunt een 'laatste' stream hebben met berichten die zijn geordend op datum gemaakt. Of u kunt een 'meest belaste' stream met deze berichten met meer likes in de afgelopen 24 uur hebben. U kunt zelfs een aangepaste stroom voor elke gebruiker op basis van logica, zoals Volgers en interesses implementeren. Het is nog steeds een lijst met berichten. Er is een kwestie van het bouwen van deze lijsten, maar de prestaties lezen concurrerende blijft. Wanneer u een van deze lijsten aanschaft, u één query verlenen aan het Cosmos DB met behulp van de [IN de operator](sql-api-sql-query.md#WhereClause) om op te halen van pagina's van berichten op een tijdstip.
+U kunt een 'laatste' stream hebben met berichten die zijn geordend op datum gemaakt. Of u kunt een 'meest belaste' stream met deze berichten met meer likes in de afgelopen 24 uur hebben. U kunt zelfs een aangepaste stroom voor elke gebruiker op basis van logica, zoals Volgers en interesses implementeren. Het is nog steeds een lijst met berichten. Er is een kwestie van het bouwen van deze lijsten, maar de prestaties lezen concurrerende blijft. Wanneer u een van deze lijsten aanschaft, u één query verlenen aan het Cosmos DB met behulp van de [IN de operator](how-to-sql-query.md#WhereClause) om op te halen van pagina's van berichten op een tijdstip.
 
 De feed stromen kunnen worden gebouwd met behulp van [Azure App Services](https://azure.microsoft.com/services/app-service/) processen op de achtergrond: [Webjobs](../app-service/web-sites-create-web-jobs.md). Zodra een bericht wordt gemaakt, verwerking op de achtergrond kan worden geactiveerd met behulp van [Azure Storage](https://azure.microsoft.com/services/storage/) [wachtrijen](../storage/queues/storage-dotnet-how-to-use-queues.md) en Webjobs geactiveerd met behulp van de [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uitvoering de boeken doorgifte in stromen op basis van uw eigen aangepaste logica.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567482"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087164"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Toegangsbeheer in Azure Data Lake Storage Gen1
 
@@ -71,15 +71,15 @@ In het POSIX model dat wordt gebruikt door Data Lake Storage Gen1, worden machti
 
 Hieronder vindt u enkele algemene scenario's om te begrijpen welke machtigingen zijn vereist om uit te voeren van bepaalde bewerkingen op een Gen1 van Data Lake Storage-account.
 
-|    Bewerking             |    /    | Seattle / | Portland / | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Data.txt lezen            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Toevoegen aan Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Data.txt verwijderen          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Data.txt maken          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Lijst met /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Lijst met /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Lijst met /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Bewerking | Object              |    /      | Seattle /   | Portland /   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| Lezen      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Toevoegen aan | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Verwijderen    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Maken    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Lijst      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lijst      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lijst      | /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]

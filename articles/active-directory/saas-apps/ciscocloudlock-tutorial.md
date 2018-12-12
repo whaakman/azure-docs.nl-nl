@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422957"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Zelfstudie: Azure Active Directory-integratie met de Cloud Security-Fabric
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van de Cloud Security-infrastructuur in 
 
 **Als u wilt toevoegen de Cloud Security Fabric uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -108,12 +108,14 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![De URL's en Cloud-infrastructuur beveiligingsdomein eenmalige aanmelding informatie](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. In de **aanmeldings-URL** tekstvak, een URL typen:
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Maak een testgebruiker van de Cloud Security-Infrastructuurresources
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in de Cloud Security-infrastructuur. Werken met [ondersteuningsteam voor de Cloud Security Fabric](mailto:support@cloudlock.com) om toe te voegen de gebruikers in de Cloud Security Fabric-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in de Cloud Security-infrastructuur. Werken met [ondersteuningsteam voor de Cloud Security Fabric](mailto:support@cloudlock.com) om toe te voegen de gebruikers in de Cloud Security Fabric-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

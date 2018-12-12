@@ -1,5 +1,5 @@
 ---
-title: Maken en delen van een Jupyter-notebook op Azure | Microsoft Docs
+title: Maken en delen van een Jupyter-notebook op Azure
 description: Snel maken en uitvoeren van een Jupyter-notebook op Azure-Notebooks en vervolgens die laptop met anderen delen.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9f7659dadb4c710169ec1e700d31e60cbc957ac1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855982"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096270"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>QuickStart: Maken en delen van een laptop
 
@@ -97,11 +97,11 @@ ms.locfileid: "52855982"
 
 ## <a name="share-the-notebook"></a>Delen van de notebook
 
-1. Als u wilt uw laptop delen, gaat u terug naar de projectpagina indien nodig, met de rechtermuisknop op de notebook-bestand, selecteer **koppeling kopiëren** (sneltoets: y), en plak de koppeling in een toepasselijk bericht (e-mail, IM, enz.).
+Als u wilt uw laptop delen, gaat u terug naar de projectpagina indien nodig, met de rechtermuisknop op de notebook-bestand, selecteer **koppeling kopiëren** (sneltoets: y), en plak de koppeling in een toepasselijk bericht (e-mail, IM, enz.).
 
-    Op de projectpagina ook kunt u de **Share** invoegcode menu Haal een koppeling, het maken van een e-mailbericht met de koppeling of het verkrijgen van HTML en Markdown:
+Op de projectpagina ook kunt u de **Share** invoegcode menu Haal een koppeling, het maken van een e-mailbericht met de koppeling of het verkrijgen van HTML en Markdown:
 
-    ![Opdracht voor project delen](media/quickstarts/share-project-command.png)
+![Opdracht voor project delen](media/quickstarts/share-project-command.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,6 +1,6 @@
 ---
-title: Modules implementeren voor Azure IoT Edge | Microsoft Docs
-description: Meer informatie over hoe modules geïmplementeerd op edge-apparaten
+title: Automatische implementatie voor apparaatgroepen - Azure IoT Edge | Microsoft Docs
+description: Gebruik van automatische implementaties in Azure IoT Edge voor groepen van apparaten op basis van gedeelde tags beheren
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584839"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100103"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informatie over IoT Edge-automatische implementaties voor individuele apparaten of op schaal
 
@@ -44,7 +45,7 @@ IoT Edge-apparaten kunnen worden geconfigureerd met een implementatie. De volgen
 * Een container management-systeem, zoals Moby of Docker
 * Het inrichten van IoT Edge-runtime 
 
-### <a name="deployment-manifest"></a>Implementatie van het manifest
+### <a name="deployment-manifest"></a>Distributiemanifest
 
 Het manifest voor een implementatie is een JSON-document met een beschrijving van de modules worden geconfigureerd op de betreffende IoT Edge-apparaten. Het bevat de metagegevens van de configuratie voor alle modules, met inbegrip van de modules voor het systeem verplicht (specifiek de IoT Edge-agent en IoT Edge hub).  
 

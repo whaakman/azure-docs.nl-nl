@@ -1,29 +1,30 @@
 ---
-title: PersonName vooraf gedefinieerde entiteit - LUIS Reference
+title: PersonName vooraf gemaakte entiteiten
 titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat personName vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cjgronlund
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0bc9d59fa44125429bfcb4e6ca9e68d93b81c04d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: ad19aa8eef72234e034fe9c0e1905e848ace0650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950570"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091744"
 ---
-# <a name="personname-entity"></a>PersonName entiteit
+# <a name="personname-entity"></a>PersoonNaam-entiteit
 De vooraf gedefinieerde personName entiteit detecteert de namen van personen. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met personName naar de toepassing intents. personName entiteit wordt ondersteund in het Engels en Chinees [culturen](luis-reference-prebuilt-entities.md).
 
 ## <a name="resolution-for-personname-entity"></a>Oplossing voor personName entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.personName** entiteit.
 
-```JSON
+```json
 {
   "query": "Is Jill Jones in Cairo?",
   "topScoringIntent": {

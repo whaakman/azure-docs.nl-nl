@@ -1,21 +1,22 @@
 ---
-title: Uw toepassingen met Language Understanding (LUIS) plannen
-titleSuffix: Azure Cognitive Services
+title: Uw app plannen
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Overzicht van relevante app intenties en entiteiten en maak vervolgens uw toepassing plannen in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: e8e6c32eca932803acfe0e7854de885e7ab129fc
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e14b9f2930ed9c170f31bd654829efe3b5a99446
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267661"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091282"
 ---
 # <a name="plan-your-luis-app"></a>Uw LUIS-app plannen
 
@@ -77,10 +78,10 @@ Een lijst met entiteit is een expliciet opgegeven lijst met waarden. Elke waarde
 
 Zie [gegevensextractie](luis-concept-data-extraction.md#list-entity-data) voor meer informatie over de lijst met entiteiten extraheren uit het eindpunt van de JSON-query-antwoord. Probeer dit [snelstartgids](luis-quickstart-intent-and-list-entity.md) voor meer informatie over het gebruik van een entiteit lijst.
 
-### <a name="regular-expression-entity"></a>Reguliere expressie entiteit
+### <a name="regular-expression-entity"></a>Een entiteit in de vorm van een reguliere expressie
 Een reguliere expressie entiteit kunt LUIS goed opgemaakte gegevens ophalen uit een utterance op basis van een reguliere expressie.
 
-![Reguliere expressie entiteit](./media/luis-plan-your-app/regex-entity.png)
+![Een entiteit in de vorm van een reguliere expressie](./media/luis-plan-your-app/regex-entity.png)
 
 Zie [gegevensextractie](luis-concept-data-extraction.md#regular-expression-entity-data) voor meer informatie over de reguliere expressie entiteiten extraheren uit het eindpunt van de JSON-query-antwoord. Probeer de [snelstartgids](luis-quickstart-intents-regex-entity.md) voor meer informatie over het gebruik van een entiteit reguliere expressie.
 

@@ -1,20 +1,21 @@
 ---
-title: Gebeurtenissen verzenden naar Azure Event Hubs met behulp van Go | Microsoft Docs
-description: Aan de slag verzenden van gebeurtenissen naar Event Hubs met behulp van Go
+title: Gebeurtenissen verzenden met behulp van Go - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht voor het maken van een Go-App die gebeurtenissen uit Azure Event Hubs verzendt.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2cc7c19d623427f7c98bbb66089b764bb067136b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 44cbea8cc40f83ed5fdd2863da0cb0a01e8dc2b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954907"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091057"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Gebeurtenissen verzenden naar Event Hubs met behulp van Go
 

@@ -1,6 +1,6 @@
 ---
-title: Wat is nieuw? Opmerkingen bij de release voor Azure AD | Microsoft Docs
-description: Ontdek wat er nieuw bij Azure Active Directory (Azure AD), zoals de meest recente release-opmerkingen worden bekende problemen, oplossingen voor problemen, afgeschafte functionaliteit en toekomstige wijzigingen.
+title: Wat is nieuw? Releaseopmerkingen - Azure Active Directory | Microsoft Docs
+description: Ontdek wat er nieuw in Azure Active Directory, zoals de meest recente release-opmerkingen worden bekende problemen, oplossingen voor problemen, afgeschafte functies en toekomstige wijzigingen.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc4e421808ab0f79070224edea4b75f527affaf0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.custom: it-pro
+ms.openlocfilehash: 8ed51a5f61ca48434fd837449ecc2b6b8c3d74dc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426234"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083514"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 

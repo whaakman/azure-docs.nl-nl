@@ -1,19 +1,18 @@
 ---
-title: Azure Cosmos DB NoSQL migratie en application development-partners | Microsoft Docs
+title: Azure Cosmos DB NoSQL migratie en application development-partners
 description: Geeft een lijst van Microsoft-partners met oplossingen voor cloudmigratie die ondersteuning bieden voor Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 1e52c6eb96b98db76628a3a77ce1ef95bd58f837
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c241232de33d4371456a374f8bc511211b3e9449
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871527"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082400"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migratie en application development-partners
 
@@ -30,18 +29,34 @@ Van de migratie van de NoSQL ontwikkeling van toepassingen, kunt u kiezen uit ta
 
 |**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen**  |**Neem contact op met**  |
 |---------|---------|---------|---------|
-|![Altoros][3]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |     VS, EU    |  [Website](http://www.altoros.com/)       |
-|![Attunix][4]     |   NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling      |    USA     |  [Website](http://www.attunix.com/)       |
-|![Bluemetal][5]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    Noord-Amerika, Azië en Stille Oceaan     |  [Website](http://www.bluemetal.com/)       |
-|![Globale Capax][6]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](http://www.capaxglobal.com/)       |
+| ![10thMagnitude][13] | NoSQL-migratie; Nieuwe app-ontwikkeling | USA | [Website](https://www.10thmagnitude.com/)|
+|![Altoros ontwikkeling, LLC][3]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |   Verenigde Staten, Noorwegen, Finland, Belarus, Argentinië |  [Website](http://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling      |    USA     |  [Website](http://www.attunix.com/)       |
+| ![Avanade][26] | Nieuwe appontwikkeling <br/> Innovatie van apps (bestaande apps) | Oostenrijk, Duitsland, Zwitserland, Italië, Noorwegen, Spanje, Verenigd Koninkrijk | [Website](https://www.avanade.com/)
+|![Bluemetal Architects][5]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    Noord-Amerika, Azië en Stille Oceaan     |  [Website](http://www.bluemetal.com/)       |
+|![Globale LLC Capax][6]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](http://www.capaxglobal.com/)       |
+| ![Voor Capgemini][14] | NoSQL-migratie; Innovatie van apps (bestaande apps); Nieuwe app-ontwikkeling | Verenigde Staten, Frankrijk, Verenigd Koninkrijk, Nederland, Finland  | [Website](https://www.capgemini.com/) | 
 |![Coeo][7]     |   Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |    VK     |  [Website](http://www.coeo.com/)       |
+| ![Cognizant][15] | NoSQL-migratie |Verenigde Staten, Canada, Verenigd Koninkrijk, Denemarken, Nederland, Zwitserland, Australië, Japan | [Website](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL-migratie       |    Wereldwijd     |  [Website](http://www.infosys.com/)       |
+| ![Lagash][16] | NoSQL-migratie <br/> Nieuwe app-ontwikkeling | Argentinië, Chili, Colombia, Mexico| [Website](https://lagash.com/)|
+| ![Lambda3 informatica][17] | NoSQL-migratie <br/> Nieuwe app-ontwikkeling | Brazilië| [Website](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     App-ontwikkeling (nieuwe apps)    |    USA     |  [Website](http://www.nealanalytics.com/)       |
-|![Pragmatische werkt][10]    |   NoSQL-migratie      |   USA      |  [Website](http://www.pragmaticworks.com/)       |
+|![Betrouwbare werkt Software Inc][10]    |   NoSQL-migratie      |   USA      |  [Website](http://www.pragmaticworks.com/)       |
+| ![Website van Ricoh globale][18] | NoSQL-migratie <br/> Innovatie van apps (bestaande apps)| VK  | [Website](https://www.ricoh.com/)|
+| ![SNP technologieën][19] | NoSQL-migratie| VS | [Website](https://www.snp.com/)|
+| ![Solidsoft antwoord][20] | NoSQL-migratie | Kroatië, Zweden, Denemarken, Ierland, Bulgarije, Slovenië, Cyprus, Malta, Litouwen, de Tsjechische Republiek, IJsland en Zwitserland en Liechtenstein| [Website](https://www.reply.com/solidsoft-reply/)|
+| ![Spaans wijst technologieën][21] | NoSQL-migratie| Ierland| [Website](https://www.spanishpoint.ie/)|
+| ![Syone][22] | NoSQL-migratie| Portugal| [Website](https://www.syone.com/)|
 |![Tallan][11]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](http://www.tallan.com/)       |
+| ![TELEVISIECAMERASYSTEMEN][23] | Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling | Verenigde Staten, Verenigd Koninkrijk, Frankrijk, Maleisië, Denemarken, Noorwegen, Zweden| [Website](https://www.tcs.com/)|
 |![VTeamLabs][12]    | NoSQL-migratie       |  USA      | [Website](http://www.vteamlabs.com/)       |
+| ![Witte Duck][24] |NoSQL-migratie <br/> Nieuwe app-ontwikkeling | Duitsland | [Website](https://whiteducksoftware.com/)|
+| ![Uitvouwen IT][25] | Nieuwe app-ontwikkeling | Portugal, Verenigd Koninkrijk| [Website](https://www.xpand-it.com/)|
+
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie voor meer informatie over een aantal andere partners van Microsoft, de [Microsoft-Partner site](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
@@ -57,3 +72,17 @@ Zie voor meer informatie over een aantal andere partners van Microsoft, de [Micr
 [10]: ./media/partners-migration-cosmosdb/pragmaticworks_logo.png
 [11]: ./media/partners-migration-cosmosdb/tallan_logo.png
 [12]: ./media/partners-migration-cosmosdb/vteamlabs_logo.png
+[13]: ./media/partners-migration-cosmosdb/10thmagnitude_logo.png
+[14]: ./media/partners-migration-cosmosdb/capgemini_logo.png
+[15]: ./media/partners-migration-cosmosdb/cognizant_logo.png
+[16]: ./media/partners-migration-cosmosdb/laglash_logo.png
+[17]: ./media/partners-migration-cosmosdb/lambda3_logo.png
+[18]: ./media/partners-migration-cosmosdb/ricoh_logo.png
+[19]: ./media/partners-migration-cosmosdb/snp_technologies_logo.png
+[20]: ./media/partners-migration-cosmosdb/solidsoft_reply_logo.png
+[21]: ./media/partners-migration-cosmosdb/spanish_point_logo.png
+[22]: ./media/partners-migration-cosmosdb/syone_logo.png
+[23]: ./media/partners-migration-cosmosdb/tcs_logo.png
+[24]: ./media/partners-migration-cosmosdb/whiteduck_logo.png
+[25]: ./media/partners-migration-cosmosdb/xpandit_logo.png
+[26]: ./media/partners-migration-cosmosdb/avanade_logo.png

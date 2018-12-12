@@ -1,26 +1,19 @@
 ---
-title: 'Een ExpressRoute-circuit maken en aanpassen: Azure portal | Microsoft Docs'
-description: Dit artikel wordt beschreven hoe u kunt maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
-documentationcenter: na
+title: 'Maken en wijzigen van een ExpressRoute-circuit - portal: Azure | Microsoft Docs'
+description: Maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2017
+ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 94d7b743bdec0d22254144d5316e0d94f5660a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235323"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091524"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Een ExpressRoute-circuit maken en wijzigen
 > [!div class="op_single_selector"]
@@ -31,7 +24,7 @@ ms.locfileid: "51235323"
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
 >
 
-In dit artikel wordt beschreven hoe u een Azure ExpressRoute-circuit maken met behulp van de Azure-portal en het Azure Resource Manager-implementatiemodel. De volgende stappen ook laten zien hoe u de status van het circuit controleren, bijwerken of verwijderen en inrichting van het ongedaan maken.
+Dit artikel helpt u bij het maken van een ExpressRoute-circuit met behulp van de Azure-portal en het Azure Resource Manager-implementatiemodel. U kunt ook de status controleren, bijwerken, verwijderen of de inrichting van een circuit ongedaan maken.
 
 
 ## <a name="before-you-begin"></a>Voordat u begint

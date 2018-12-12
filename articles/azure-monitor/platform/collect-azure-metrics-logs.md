@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e8b8dac6d877ab8ab4a0abcdd64ceae1aa48d3ad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848541"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088201"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Verzamelen van Azure-service-logboeken en metrische gegevens voor gebruik in Log Analytics
 
@@ -52,7 +52,7 @@ Er zijn vier verschillende manieren van het verzamelen van Logboeken en metrisch
 | Services zoeken         | Microsoft.Search/searchServices         | Diagnostiek | Diagnostiek | |
 | Service Bus-naamruimte   | Microsoft.ServiceBus/namespaces         | Diagnostiek | Diagnostiek | [Service Bus-analyse (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Storage     |             | [Service Fabric-analyse (Preview)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostiek | [Azure SQL Analytics (Preview)](../../log-analytics/log-analytics-azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostiek | [Azure SQL Analytics (Preview)](../../azure-monitor/insights/azure-sql.md) |
 | Storage                 |                                         |             | Script      | [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtuele machines        | Microsoft.Compute/virtualMachines       | Toestelnummer   | Toestelnummer <br> Diagnostiek  | |
 | Schaalsets voor virtuele Machines | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostiek | |
@@ -61,7 +61,7 @@ Er zijn vier verschillende manieren van het verzamelen van Logboeken en metrisch
 
 
 > [!NOTE]
-> Voor het bewaken van virtuele machines van Azure (Linux en Windows), het beste installeren de [Log Analytics VM-extensie](../../log-analytics/log-analytics-quick-collect-azurevm.md). De agent biedt u inzicht te krijgen die in uw virtuele machines zijn verzameld uit. U kunt ook de extensie voor virtuele-machineschaalsets.
+> Voor het bewaken van virtuele machines van Azure (Linux en Windows), het beste installeren de [Log Analytics VM-extensie](../../azure-monitor/learn/quick-collect-azurevm.md). De agent biedt u inzicht te krijgen die in uw virtuele machines zijn verzameld uit. U kunt ook de extensie voor virtuele-machineschaalsets.
 >
 >
 
@@ -151,7 +151,7 @@ Meer informatie over de [Application Insights-connector](https://blogs.technet.m
 
 ## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Scripts voor het verzamelen en het posten van gegevens naar Log Analytics
 
-U kunt een Azure Automation-script gebruiken voor het verzamelen van Logboeken en metrische gegevens voor Azure-services die een directe manier bieden voor het verzenden van Logboeken en metrische gegevens naar Log Analytics. Het script vervolgens de gegevens kunt verzenden naar Log Analytics met behulp van de [gegevensverzamelaar-API](../../log-analytics/log-analytics-data-collector-api.md)
+U kunt een Azure Automation-script gebruiken voor het verzamelen van Logboeken en metrische gegevens voor Azure-services die een directe manier bieden voor het verzenden van Logboeken en metrische gegevens naar Log Analytics. Het script vervolgens de gegevens kunt verzenden naar Log Analytics met behulp van de [gegevensverzamelaar-API](../../azure-monitor/platform/data-collector-api.md)
 
 De galerie met Azure-sjabloon is [voorbeelden van het gebruik van Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) voor het verzamelen van gegevens van services en te verzenden naar Log Analytics.
 

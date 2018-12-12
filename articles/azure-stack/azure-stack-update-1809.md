@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970838"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088048"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -70,17 +70,6 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Probleem opgelost in welke openbare IP-adressen die zijn geïmplementeerd met behulp van de dynamische toewijzing methode zijn niet gegarandeerd te behouden nadat een Stop-toewijzing is uitgegeven. Ze blijven nu behouden.
 
 - <!-- 3078022 - IS, ASDK --> Als een virtuele machine stop-deallocated voordat u 1808 is kan deze niet worden opnieuw worden toegewezen na de 1808 update.  Dit probleem is opgelost in 1809. Exemplaren die in deze status zijn en kunnen niet worden gestart kunnen worden gestart in 1809 met deze oplossing. Het probleem voorkomt ook dat dit probleem opnieuw optreedt.
-
-<!-- 3090289 – IS, ASDK --> 
-- Het probleem opgelost waarbij na het toepassen van de update 1808, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
-
-   1. Als het abonnement is gemaakt vóór de update 1808 implementeren van virtuele machine met Managed Disks mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
-      1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
-      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
-   2. Als u een omgeving met meerdere tenants hebt geconfigureerd, mislukken virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map met een interne fout. U kunt de fout oplossen door de volgende stappen uit:
-      1. Van toepassing de [1808 Azure Stack-Hotfix](https://support.microsoft.com/help/4481066).
-      2. Volg de stappen in [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
-
 
 ### <a name="changes"></a>Wijzigingen
 
@@ -173,7 +162,7 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 > Bereid u voor uw Azure Stack-implementatie voor extensie-host die door de volgende updatepakket is ingeschakeld. Voorbereiden van uw systeem met behulp van de volgende richtlijnen [voorbereiden voor de host van de extensie voor Azure Stack](azure-stack-extension-host-prepare.md).
 
 Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).  
-- [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
 
@@ -226,7 +215,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
    
   Voer de [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet om te controleren of de status van de instanties van de infrastructuur en schaal eenheid knooppunten. Als er geen problemen zijn gedetecteerd door [Test AzureStack](azure-stack-diagnostic-test.md), kunt u deze waarschuwingen negeren. Als er een probleem is gedetecteerd, kunt u proberen om de infrastructuur-rolinstantie of knooppunt met de beheerportal of PowerShell te starten.
 
-  Dit probleem is opgelost in de meest recente [1809 hotfix release](https://support.microsoft.com/help/4477849/), dus zorg ervoor dat deze hotfix wilt installeren als u het probleem ondervindt. 
+  Dit probleem is opgelost in de meest recente [1809 hotfix release](https://support.microsoft.com/help/4481548/), dus zorg ervoor dat deze hotfix wilt installeren als u het probleem ondervindt. 
 
 <!-- 1264761 - IS ASDK -->  
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
@@ -292,7 +281,18 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
    Metrische gegevens om gegevens te vinden, zoals de CPU-Percentage voor de virtuele machine, gaat u naar het venster metrische gegevens en weergeven van alle de ondersteunde Windows-VM metrische gegevens voor gasten.
 
+<!-- 3507629 - IS, ASDK --> 
+- Beheerde schijven maakt twee nieuwe [quotatypen compute](azure-stack-quota-types.md#compute-quota-types) om te beperken van de maximale capaciteit van beheerde schijven die kunnen worden ingericht. Standaard is 2048 GiB toegewezen voor elke quotumtype beheerde schijven. U kunt echter de volgende problemen optreden:
 
+   - Voor de quota die zijn gemaakt vóór de update 1808, weergegeven het quotum voor Managed Disks 0 waarden in de beheerdersportal, hoewel 2048 GiB is toegewezen. U kunt vergroten of verkleinen van de waarde die is gebaseerd op de behoeften van uw werkelijke en de nieuwe ingestelde quotawaarde overschrijft de 2048 GiB-standaard.
+   - Als u bijwerkt naar de quotawaarde op 0, is het equivalent zijn aan de standaardwaarde van 2048 GiB. Als tijdelijke oplossing, stelt u de quotawaarde in op 1.
+
+<!-- TBD - IS ASDK --> Na het toepassen van de 1809 bijwerken, kunnen de volgende problemen optreden bij het implementeren van virtuele machines met Managed Disks:
+
+   - Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
+      1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Klik op **Resourceproviders**, klikt u vervolgens op **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
+      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
+   2. Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
 
 ### <a name="networking"></a>Netwerken  
 

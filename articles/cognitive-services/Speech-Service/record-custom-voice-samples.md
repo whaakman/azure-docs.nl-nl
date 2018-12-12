@@ -1,5 +1,5 @@
 ---
-title: Record voice-voorbeelden voor het maken van een aangepaste spraak
+title: Voorbeelden van aangepaste spraak - spraakservices opnemen
 titleSuffix: Azure Cognitive Services
 description: Maak een aangepaste gesproken productiekwaliteit door voorbereiden van een robuuste script, verhuur goede stem talent en professioneel op te nemen.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471183"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081078"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Record stem voorbeelden voor het maken van een aangepaste spraak
 
@@ -50,7 +51,7 @@ Kies stem talent waarvan natuurlijke stem u graag. Het is mogelijk te maken van 
 > [!TIP]
 > Over het algemeen te voorkomen dat herkenbare stemmen gebruiken voor het maken van een aangepaste spraak, tenzij het doel natuurlijk is voor het produceren van een stem beroemdheden. Minder bekende stemmen zijn meestal minder aandacht aan gebruikers.
 
-De enkele van de belangrijkste factor voor het kiezen van spraak talent is consistentie. Uw opnamen moeten alle geluid zoals ze zijn gemaakt op dezelfde dag in één ruimte. U kunt deze ideaal via goed opname procedures en engineering benaderen. 
+De enkele van de belangrijkste factor voor het kiezen van spraak talent is consistentie. Uw opnamen moeten alle geluid zoals ze zijn gemaakt op dezelfde dag in één ruimte. U kunt deze ideaal via goed opname procedures en engineering benaderen.
 
 Uw stem talent is de andere helft van de vergelijking. Hij of zij moet mogelijk met consistente snelheid, volumeniveau, inspiratie en toon te spreken. Schakel diction is een moet. Er moet ook de talent kunnen strikt zijn of haar inspiratie variatie emotionele invloed en spraak gebaren.
 
@@ -71,7 +72,7 @@ De uitingen in het script kunnen afkomstig zijn vanaf elke locatie: fiction, nie
 
 Uw uitingen hoeft niet afkomstig zijn van dezelfde bron of hetzelfde type gegevensbron. Ze hoeft niet eens iets te doen met elkaar. Echter, als u gebruik instellen zinnen (bijvoorbeeld "u hebt aangemeld') in uw toepassing spraak, zorg ervoor dat u deze opnemen in uw script. Hierdoor krijgt een grotere kans van het uitspreken van deze zinnen en uw aangepaste spraak. En als een opname in plaats van kunstmatige spraak gebruiken moet u bepalen al hebt u deze in de dezelfde stem.
 
-Consistentie is essentieel bij het kiezen van spraak talent, is verschillende het kenmerk van een goede script. Het script moet bevatten veel verschillende woorden en zinnen met verschillende lengtes zin, structuren en stemming. Elke geluid in de taal die moet worden weergegeven meerdere keren en in de context van talrijke (met de naam *fonetische dekking*). 
+Consistentie is essentieel bij het kiezen van spraak talent, is verschillende het kenmerk van een goede script. Het script moet bevatten veel verschillende woorden en zinnen met verschillende lengtes zin, structuren en stemming. Elke geluid in de taal die moet worden weergegeven meerdere keren en in de context van talrijke (met de naam *fonetische dekking*).
 
 De tekst moet bovendien gebruikmaken van alle manieren waarop een bepaald geluid kunnen worden weergegeven in het schrijven, en elk geluid plaatsen op verschillende plaatsen in de zinnen. Zowel declaratieve zinnen en vragen moeten worden opgenomen en worden gelezen met de juiste intonation.
 
@@ -104,7 +105,7 @@ Het lezen van een actor van auteursrechtelijk beschermde tekst mogelijk onder de
 
 Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Er zijn veel bronnen van de tekst die u zonder toestemming of licentie gebruiken kunt.
 
-|Tekstbron|Beschrijving|
+|Tekstbron|Description|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Over 1100 zinnen hebt geselecteerd in out-van-copyright werkt specifiek voor gebruik in spraak synthese projecten. Een uitstekend uitgangspunt.|
 |Werkt niet meer<br>onder het auteursrecht|Doorgaans werkt gepubliceerd voordat 1923. Voor Engels, [Project Gutenberg](https://www.gutenberg.org/) biedt tienduizenden dergelijke werken. Kunt u zich kunt richten op nieuwere werkt als de taal die dichter bij moderne Engels.|
@@ -188,9 +189,9 @@ Registreren van een goede vijf seconden stilte voordat de eerste registratie voo
 > [!TIP]
 > Alles wat u echt nodig om vast te leggen is het talent spraak, zodat u een mono (één kanaal) de opname van alleen de regels kunt maken. Echter, als u in stereo opneemt, u het tweede kanaal kunt gebruiken om vast te leggen van de chatter in de controlekamer om vast te leggen van de beschrijving van de specifieke regels of duurt. Dit nummer van de versie die wordt geüpload naar de portal voor aangepaste spraak verwijderen.
 
-Luister goed, hoofdtelefoon, om de prestaties van de stem-talent te gebruiken. U zoekt naar goede maar natuurlijke diction, juiste uitspraak en een gebrek aan ongewenste geluiden. Kunt u vragen uw talent om vast te leggen opnieuw een utterance die niet voldoet aan deze standaarden. 
+Luister goed, hoofdtelefoon, om de prestaties van de stem-talent te gebruiken. U zoekt naar goede maar natuurlijke diction, juiste uitspraak en een gebrek aan ongewenste geluiden. Kunt u vragen uw talent om vast te leggen opnieuw een utterance die niet voldoet aan deze standaarden.
 
-> [!TIP] 
+> [!TIP]
 > Als u van een groot aantal uitingen gebruikmaakt, wellicht een enkel utterance een merkbare invloed op de resulterende aangepaste spraak. Het is mogelijk meer relevant om te weten gewoon alle uitingen met problemen, ze uitsluiten van uw gegevensset en Zie hoe uw aangepaste gesproken blijkt. U kunt altijd gaat u terug naar de studio en de gemiste voorbeelden later opnemen.
 
 Houd er rekening mee de getal of de code op uw script tijd voor elke utterance. Vraag de engineer elke utterance in de metagegevens van de opname of hint blad ook markeren.

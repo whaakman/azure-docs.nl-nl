@@ -1,5 +1,5 @@
 ---
-title: Een Azure-notitieblokken-project met een aangepaste omgeving maken | Microsoft Docs
+title: Een Azure-notitieblokken-project met een aangepaste omgeving maken
 description: Een nieuw project maken in Azure-notitieblokken die geconfigureerd met een specifieke set geïnstalleerde pakketten en opstartscripts.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 48579f797d0ff94a86fdbb25fa1fc814f63d7788
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856148"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085328"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Snelstartgids: Een project met een aangepaste omgeving maken
 
@@ -59,7 +59,7 @@ Een project in notitieblokken van Azure is een verzameling van bestanden, zoals 
 
 1. De **+ toevoegen** opdracht maakt u een stap die gedefinieerd door een bewerking en een doelbestand dat geselecteerd in de bestanden in uw project. De volgende bewerkingen worden ondersteund:
 
-    | Bewerking | Beschrijving |
+    | Bewerking | Description |
     | --- | --- |
     | Requirements.txt | Python-projecten definiëren hun afhankelijkheden in een requirements.txt-bestand. Met deze optie selecteert u het juiste bestand uit de lijst met bestanden van het project en selecteert u ook de Python-versie in de extra vervolgkeuzelijst die wordt weergegeven. Selecteer indien nodig, **annuleren** uploaden als u wilt terugkeren naar het project, of maak het bestand en vervolgens gaat u terug naar de **projectinstellingen** > **omgeving** tabblad en maak een nieuwe stap. Met deze stap in de plaats, met een notitieblok in het project automatisch wordt uitgevoerd `pip install -r <file>` |
     | Shell-script | Gebruiken om aan te geven van een bash-shell-script (meestal een bestand met de *.sh* extensie) die alle opdrachten die u uitvoeren wilt voor het initialiseren van de omgeving bevat. |

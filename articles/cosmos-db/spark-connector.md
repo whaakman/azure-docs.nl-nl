@@ -1,33 +1,31 @@
 ---
-title: Verbinding maken met Apache Spark op Azure Cosmos DB | Microsoft Docs
+title: Verbinding maken met Apache Spark op Azure Cosmos DB
 description: Meer informatie over de Azure Cosmos DB Spark-connector waarmee u verbinding maken met Apache Spark op Azure Cosmos DB. U kunt gedistribueerde aggregaties uitvoeren op het systeem met meerdere tenants, wereldwijd gedistribueerde database van Microsoft.
 keywords: Apache spark
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: fd1fa105a880acb0d2b18a3b69ba8d475d8f82a3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707177"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081588"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Versnel de analyse van big data met behulp van de Apache Spark op Azure Cosmos DB-connector
  
-De connector ‘Apache Spark to Azure Cosmos DB’ zorgt ervoor dat Azure Cosmos DB een input of output kan zijn voor Spark-taken. Verbinding maken [Spark](http://spark.apache.org/) naar [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) helpt data science-problemen ontdekt op te lossen. U kunt Azure Cosmos DB gebruiken om snel te behouden en gegevens op te vragen. De connector maakt efficiënt gebruik van de systeemeigen indexen die met Azure Cosmos DB worden beheerd. De indexen maken het mogelijk om bijwerkbare kolommen te gebruiken wanneer u analytics en push-down-predicaatfiltering toepast op snel veranderende, wereldwijd verspreide gegevens. Dit soort gegevens kan variëren van Internet of Things (IoT) voor scenario's voor data science en analyse.
+De connector ‘Apache Spark to Azure Cosmos DB’ zorgt ervoor dat Azure Cosmos DB een input of output kan zijn voor Spark-taken. Verbinding maken [Spark](https://spark.apache.org//) naar [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) helpt data science-problemen ontdekt op te lossen. U kunt Azure Cosmos DB gebruiken om snel te behouden en gegevens op te vragen. De connector maakt efficiënt gebruik van de systeemeigen indexen die met Azure Cosmos DB worden beheerd. De indexen maken het mogelijk om bijwerkbare kolommen te gebruiken wanneer u analytics en push-down-predicaatfiltering toepast op snel veranderende, wereldwijd verspreide gegevens. Dit soort gegevens kan variëren van Internet of Things (IoT) voor scenario's voor data science en analyse.
 
 ## <a name="connector-components"></a>Connector-onderdelen
 
 De Spark op Azure Cosmos DB-connector heeft de volgende onderdelen:
 
-* [Azure Cosmos DB](http://documentdb.com) kunt u te richten en zowel doorvoer en opslag elastisch schalen naar een willekeurig aantal geografische regio's.  
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) kunt u te richten en zowel doorvoer en opslag elastisch schalen naar een willekeurig aantal geografische regio's.  
 
-* [Apache Spark](http://spark.apache.org/) is een krachtig open-source engine voor gebeurtenisverwerking, gebaseerd op de snelheid, gebruiksgemak, en geavanceerde analyses.  
+* [Apache Spark](https://spark.apache.org/) is een krachtig open-source engine voor gebeurtenisverwerking, gebaseerd op de snelheid, gebruiksgemak, en geavanceerde analyses.  
 
 * [Apache Spark-cluster in Azure Databricks](https://docs.azuredatabricks.net/getting-started/index.html) kunt u Spark-taken uitvoeren op het Spark-cluster.
 
@@ -179,7 +177,7 @@ Communicatie tussen Spark en Azure Cosmos DB is aanzienlijk sneller, omdat de ve
 
 4. Pak de inhoud van het voorbeeld van Twitter-feed en open het bestand config.py. Werk de waarden van de hoofdsleutel, host, collectionId, databaseId en preferredLocations.  
 
-5. Ga naar `http://apps.twitter.com/`, en de Twitter-feed van de toepassing te registreren. Nadat een naam voor uw toepassing is gekozen, ontvangt u met een **consumer key, consumer secret, toegangstoken en access token secret**. Kopieer deze waarden en werk ze in het bestand config.py voor dat de Twitter-feed programmatische toegang tot toepassingen op Twitter.   
+5. Ga naar `https://apps.twitter.com/`, en de Twitter-feed van de toepassing te registreren. Nadat een naam voor uw toepassing is gekozen, ontvangt u met een **consumer key, consumer secret, toegangstoken en access token secret**. Kopieer deze waarden en werk ze in het bestand config.py voor dat de Twitter-feed programmatische toegang tot toepassingen op Twitter.   
 
 6. Sla het bestand config.py op. Open een opdrachtprompt en voer de Python-toepassing met behulp van de volgende opdracht uit:
 
@@ -254,7 +252,7 @@ In deze sectie maakt uitvoeren u Spark query's om te lezen van een batch van Twi
 
 Java SDK biedt ondersteuning voor de volgende waarden voor de toewijzing van de configuratie: 
 
-|Instelling  |Beschrijving  |
+|Instelling  |Description  |
 |---------|---------|
 |query_maxdegreeofparallelism  | Stelt het aantal gelijktijdige bewerkingen uitvoeren op de client tijdens parallelle queryuitvoering. Als deze is ingesteld op een waarde die groter is dan 0, beperkt het aantal gelijktijdige bewerkingen op de toegewezen waarde. Als deze is ingesteld op minder dan 0, besluit het systeem automatisch het aantal gelijktijdige bewerkingen om uit te voeren. Als de connector wordt elke partitie van de verzameling met een executor toegewezen, is deze waarde geen effect van de leesbewerking.        |
 |query_maxbuffereditemcount     |    Hiermee stelt u het maximum aantal items dat buffer kan worden opgeslagen op de client tijdens parallelle queryuitvoering. Als deze is ingesteld op een waarde die groter is dan 0, beperkt het aantal gebufferde items naar de toegewezen waarde. Als deze is ingesteld op minder dan 0, besluit het systeem automatisch het aantal items aan buffer.     |
@@ -310,7 +308,7 @@ In deze sectie maakt uitvoeren u Spark query's om te lezen van een wijzigingenfe
 
 Java SDK biedt ondersteuning voor de volgende waarden voor de toewijzing van de configuratie:
 
-|Instelling  |Beschrijving  |
+|Instelling  |Description  |
 |---------|---------|
 |readchangefeed   |  Geeft aan dat de inhoud is opgehaald uit cosmos DB-Wijzigingenfeed. De standaardwaarde is false.       |
 |changefeedqueryname |   Een aangepaste waarde voor het identificeren van de query. Houdt de connector van de verzameling voortzetting van tokens voor verschillende query's afzonderlijk feed. Als readchangefeed true is, is dit een vereiste configuratie die lege waarde kan niet uitvoeren.      |
@@ -325,7 +323,7 @@ Java SDK biedt ondersteuning voor de volgende waarden voor de toewijzing van de 
 
 Java SDK biedt ondersteuning voor de volgende verbindingsinstellingen:
 
-|Instelling  |Beschrijving  |
+|Instelling  |Description  |
 |---------|---------|
 |connectionmode   |  Hiermee stelt u de verbindingsmodus die voor de interne DocumentClient wordt gebruikt om te communiceren met Azure Cosmos DB. Toegestane waarden zijn **DirectHttps** (standaardwaarde) en **Gateway**. De verbindingsmodus DirectHttps stuurt de aanvragen rechtstreeks naar de CosmosDB-partities en biedt enkele voordelen latentie.       |
 |connectionmaxpoolsize   |  Hiermee stelt u de waarde van de grootte van de verbindingsgroep die wordt gebruikt door interne DocumentClient. De standaardwaarde is 100.       |
@@ -418,7 +416,7 @@ In deze sectie maakt uitvoeren u Spark query's voor het schrijven van een batch 
 
 Java SDK biedt ondersteuning voor de volgende waarden voor de toewijzing van de configuratie:
 
-|Instelling  |Beschrijving  |
+|Instelling  |Description  |
 |---------|---------|
 | BulkImport | Een Booleaanse waarde die aangeeft of de gegevens moeten worden geïmporteerd met behulp van de BulkExecutor-bibliotheek. Standaard deze waarde is ingesteld op true. |
 |WritingBatchSize  |   Geeft aan dat de batchgrootte moet worden gebruikt wanneer u bij het schrijven van gegevens naar Azure Cosmos DB-verzameling. <br/><br/> Als BulkImport-parameter is ingesteld op true, WritingBatchSize parameter geeft aan dat de batchgrootte van documenten die zijn opgegeven als invoer voor de importAll API van de BulkExecutor-bibliotheek. Deze waarde is standaard ingesteld op 100 kB. <br/><br/> Als BulkImport-parameter is ingesteld op false, geeft WritingBatchSize parameter aan de batchgrootte moet worden gebruikt wanneer u aan de Azure Cosmos DB-verzameling ontwikkelt. De connector verzendt aanvragen createDocument en upsertDocument asynchroon in batch. Hoe groter de batchgrootte, de meer doorvoer bereiken kan, zolang de clusterbronnen beschikbaar zijn. Aan de andere kant, Geef een kleiner aantal batchgrootte om te beperken van de snelheid en de RU-verbruik. Standaard is schrijven batchgrootte ingesteld op 500.  |
@@ -491,7 +489,7 @@ In deze sectie maakt uitvoeren u Spark query's voor het schrijven van een wijzig
 
 Java SDK biedt ondersteuning voor de volgende waarden voor de toewijzing van de configuratie:
 
-|Instelling  |Beschrijving  |
+|Instelling  |Description  |
 |---------|---------|
 |Upsert   |  Een Booleaanse waarde tekenreeks die aangeeft of upsertDocument gebruiken in plaats van CreateDocument tijdens het schrijven naar de Azure Cosmos DB-verzameling.   |
 |checkpointlocation  |   Het pad naar lokale bestandsopslag om vast te leggen voortzetting van tokens in het geval van storingen in knooppunten.   |
@@ -513,4 +511,4 @@ Als u niet hebt gedaan, downloadt u de Spark op Azure Cosmos DB-connector van de
 * [Aggregaties voorbeelden](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Voorbeeldscripts en -laptops](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-U kunt ook om te controleren de [Apache Spark SQL en DataFrames gegevenssets handleiding](http://spark.apache.org/docs/latest/sql-programming-guide.html), en de [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikel.
+U kunt ook om te controleren de [Apache Spark SQL en DataFrames gegevenssets handleiding](https://spark.apache.org/docs/latest/sql-programming-guide.html), en de [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikel.

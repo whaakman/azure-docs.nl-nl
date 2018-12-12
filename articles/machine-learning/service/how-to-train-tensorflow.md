@@ -1,5 +1,6 @@
 ---
-title: TensorFlow-modellen met Azure Machine Learning te trainen
+title: Trainen van modellen met TensorFlow
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over het uitvoeren van één knooppunt en gedistribueerde modellen TensorFlow-training met de TensorFlow estimator
 services: machine-learning
 ms.service: machine-learning
@@ -8,22 +9,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114977"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094102"
 ---
-# <a name="how-to-train-tensorflow-models"></a>Hoe TensorFlow modellen kunt trainen
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>TensorFlow-modellen met Azure Machine Learning-service trainen
 
 Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van TensorFlow, een aangepaste `TensorFlow` klasse van de `Estimator`. De Azure SDK `TensorFlow` estimator (niet te worden conflated met de [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klasse) kunt u eenvoudig TensorFlow-trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen indienen.
 
 ## <a name="single-node-training"></a>Training voor één knooppunt
 Training met de `TensorFlow` estimator is vergelijkbaar met de [basis `Estimator` ](how-to-train-ml-models.md), dus eerst Lees het artikel met instructies en zorg ervoor dat u er de concepten begrijpen.
   
-Exemplaar om uit te voeren een taak TensorFlow, maken van een `TensorFlow` object. U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#batch) object `compute_target`.
+Exemplaar om uit te voeren een taak TensorFlow, maken van een `TensorFlow` object. U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#amlcompute) object `compute_target`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -43,11 +45,11 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 Hier geeft u de volgende parameters voor de TensorFlow-constructor:
 
-Parameter | Beschrijving
+Parameter | Description
 --|--
 `source_directory` | Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute
 `script_params` | Woordenlijst voor de opdrachtregelargumenten voor uw trainingsscript op te geven `entry_script`, in de vorm van < opdrachtregelargument, waarde > paren
-`compute_target` | Externe compute die uw trainingsscript uitgevoerd op, in dit geval een [Batch AI](how-to-set-up-training-targets.md#batch) cluster
+`compute_target` | Externe compute-doel dat uw trainingsscript wordt uitgevoerd op, in dit geval een Azure Machine Learning-Computing ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` | FilePath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele aanvullende bestanden dat hangt ervan af, moeten zich bevinden in deze map
 `conda_packages` | Lijst met Python-pakketten worden geïnstalleerd via conda die nodig zijn voor uw trainingsscript. In dit geval trainingsscript gebruikt `sklearn` om de gegevens te laden, dus geef dit pakket kan worden geïnstalleerd.  De constructor heeft een andere parameter met de naam `pip_packages` die u kunt gebruiken voor een pip-pakketten die nodig zijn
 `use_gpu` | Deze vlag ingesteld op `True` gebruikmaken van de GPU voor training. Standaard ingesteld op `False`.
@@ -86,7 +88,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 De bovenstaande code wordt aangegeven dat de volgende nieuwe parameters voor de TensorFlow-constructor:
 
-Parameter | Beschrijving | Standaard
+Parameter | Description | Standaard
 --|--|--
 `node_count` | Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
 `process_count_per_node` | Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt.|`1`
@@ -127,7 +129,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 Let op de volgende parameters voor de TensorFlow-constructor in de bovenstaande code:
 
-Parameter | Beschrijving | Standaard
+Parameter | Description | Standaard
 --|--|--
 `worker_count` | Het aantal werknemers. | `1`
 `parameter_server_count` | Het aantal parameter-servers. | `1`
@@ -170,16 +172,9 @@ run = exp.submit(tf_est)
 ```
 
 ## <a name="examples"></a>Voorbeelden
-Zie voor een zelfstudie op één knooppunt TensorFlow-training:
-* [training/03.Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-Voor een zelfstudie over gedistribueerde TensorFlow met Horovod, Zie:
-* [training/04.distributed-tensorflow-met-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-Voor een zelfstudie over systeemeigen gedistribueerde TensorFlow, Zie:
-* [training/05.distributed-tensorflow-met-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
-
-Deze laptops ophalen:
+Voor laptops op gedistribueerde deep learning, Zie:
+* [How-to-use-azureml/training-with-deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

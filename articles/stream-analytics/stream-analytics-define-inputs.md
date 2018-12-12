@@ -4,17 +4,17 @@ description: Meer informatie over het instellen van een verbinding in Azure Stre
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248741"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099729"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -29,7 +29,7 @@ Deze invoer resources kunnen bevinden zich in hetzelfde Azure-abonnement als uw 
 Stream Analytics biedt ondersteuning voor compressie voor alle stream input gegevensbronnen. Momenteel ondersteunde verwijzingstypen zijn: None, GZip, en Deflate-compressie. Ondersteuning voor compressie is niet beschikbaar voor referentiegegevens. Als de invoerindeling Avro-gegevens die zijn gecomprimeerd is, wordt dit transparant verwerkt. U hoeft niet te geven van compressietype met Avro-serialisatie. 
 
 ## <a name="create-edit-or-test-inputs"></a>Maken, bewerken of invoer testen
-U kunt de [Azure-portal](https://portal.azure.com) naar [nieuwe invoer maken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) en weergeven of bewerken van bestaande invoer op uw streaming-taak. U kunt ook de invoer-verbindingen testen en [query's testen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) van voorbeeldgegevens. Wanneer u een query schrijven, wordt een lijst van de invoer in de component FROM. U krijgt de lijst met beschikbare invoer van de **Query** pagina in de portal. Als u gebruiken van meerdere invoergegevens wilt, kunt u `JOIN` ze of meerdere schrijven `SELECT` query's.
+U kunt de [Azure-portal](https://portal.azure.com) naar [nieuwe invoer maken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) en weergeven of bewerken van bestaande invoer op uw streaming-taak. U kunt ook de invoer-verbindingen testen en [query's testen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) van voorbeeldgegevens. Wanneer u een query schrijven, wordt een lijst van de invoer in de component FROM. U krijgt de lijst met beschikbare invoer van de **Query** pagina in de portal. Als u gebruiken van meerdere invoergegevens wilt, kunt u `JOIN` ze of meerdere schrijven `SELECT` query's.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Gegevens streamen vanuit Event Hubs
@@ -44,7 +44,7 @@ Configureer elke Stream Analytics event hub-gegevens invoeren in een eigen consu
 ### <a name="stream-data-from-event-hubs"></a>Gegevens streamen vanuit Event Hubs
 De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagina in de Azure portal op de invoer van de stream-gegevens van een event hub:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | **Invoeralias** |Een beschrijvende naam die u in de query van de taak gebruiken om te verwijzen naar deze gegevens. |
 | **Abonnement** | Kies het abonnement waarin de Event hub-bron bestaat. | 
@@ -58,7 +58,7 @@ De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagi
 
 Wanneer uw gegevens afkomstig zijn uit een Event Hub-Stroominvoer, hebt u toegang tot de volgende metagegevensvelden in uw Stream Analytics-query:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | **EventProcessedUtcTime** |De datum en tijd waarop de gebeurtenis is verwerkt door Stream Analytics. |
 | **EventEnqueuedUtcTime** |De datum en tijd waarop de gebeurtenis is ontvangen door Event Hubs. |
@@ -89,7 +89,7 @@ Configureer elke Stream Analytics IoT-Hub invoeren in een eigen consumentengroep
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Een IoT-Hub configureren als een gegevensstroom invoer
 De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagina in de Azure portal als u een IoT-Hub als een stream input configureert.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | **Invoeralias** | Een beschrijvende naam die u in de query van de taak gebruiken om te verwijzen naar deze gegevens.|
 | **Abonnement** | Kies het abonnement waarin de IoT Hub-bron bestaat. | 
@@ -105,7 +105,7 @@ De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagi
 
 Wanneer u streaminggegevens vanuit een IoT-Hub, hebt u toegang tot de volgende metagegevensvelden in de Stream Analytics-query:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | **EventProcessedUtcTime** | De datum en tijd waarop de gebeurtenis is verwerkt. |
 | **EventEnqueuedUtcTime** | De datum en tijd waarop de gebeurtenis is ontvangen door de IoT Hub. |
@@ -136,7 +136,7 @@ Stream Analytics biedt momenteel geen ondersteuning deserialiseren AVRO die zijn
 
 De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagina in de Azure portal wanneer u blobopslag als een stroom invoer configureren.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | **Invoeralias** | Een beschrijvende naam die u in de query van de taak gebruiken om te verwijzen naar deze gegevens. |
 | **Abonnement** | Kies het abonnement waarin de IoT Hub-bron bestaat. | 
@@ -152,7 +152,7 @@ De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagi
 
 Wanneer uw gegevens afkomstig zijn uit een Blob storage-bron, hebt u toegang tot de volgende metagegevensvelden in uw Stream Analytics-query:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | **BlobName** |De naam van de blob die de gebeurtenis afkomstig zijn uit. |
 | **EventProcessedUtcTime** |De datum en tijd waarop de gebeurtenis is verwerkt door Stream Analytics. |

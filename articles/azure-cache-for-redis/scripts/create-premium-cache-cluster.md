@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 727af1b64f43189d3cfcee39d10bfb6920323ffb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: abd69e27cf95a882ae7c299cbe19e2c30c35a918
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019470"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096822"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Maken van een Premium Azure Cache voor Redis met clustering
 
@@ -30,7 +30,7 @@ In dit scenario leert u hoe u een Premium-laag van 6 GB Azure-Cache maken voor R
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-[!code-azurecli[main](../../../cli_scripts/redis-cache/create-premium-cache-cluster/create-premium-cache-cluster.sh "Azure Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/create-premium-cache-cluster/create-premium-cache-cluster.sh "Azure Cache for Redis")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 

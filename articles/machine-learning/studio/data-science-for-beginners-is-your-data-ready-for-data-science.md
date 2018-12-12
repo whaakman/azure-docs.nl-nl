@@ -1,11 +1,11 @@
 ---
-title: Zijn gegevens gereed voor gegevenswetenschap? Evaluatie van de gegevens - Azure Machine Learning Studio | Microsoft Docs
+title: Evaluatie van de gegevens - Azure Machine Learning Studio | Microsoft Docs
 description: Vier criteria uw gegevens moet voldoen om te worden gereed voor gegevenswetenschap. Deze video heeft concrete voorbeelden om te helpen bij de evaluatie van de algemene gegevens.
 keywords: relevante gegevens, gegevens worden geëvalueerd, voorbereiden van gegevens, gegevens criteria, gegevens gereed
 services: machine-learning
 documentationcenter: na
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 5e7949edb13bfec72fa7d80d86d2e77214ceaa37
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 3408130e97b6b38de58300244f884257c179230c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316205"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092878"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Zijn gegevens gereed voor gegevenswetenschap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Gegevenswetenschap voor Beginners-serie

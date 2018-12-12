@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/31/2018
-ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f98c09a7e51fa729ef4a940e5f3c03de55d8dfd2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166215"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875277"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Prestatiemeteritems voor shard-toewijzingsbeheer
 U kunt de prestaties van vastleggen een [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md), met name wanneer u [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md). Items worden gemaakt met de methoden van de klasse Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -31,7 +31,7 @@ Items worden gebruikt voor het bijhouden van de prestaties van [gegevensafhankel
 * Voor het maken van een exemplaar van prestatiemeteritem en bijwerken van de prestatiemeteritems, moet de gebruiker lid is van een van beide de **beheerders** of **Prestatiemetergebruikers** groep. 
 
 ## <a name="create-performance-category-and-counters"></a>Categorie van de prestaties en de tellers maken
-Voor het maken van de prestatiemeteritems, roept u de methode CreatePeformanceCategoryAndCounters van de [ShardMapManagmentFactory klasse](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Alleen beheerders kan de methode uitvoeren: 
+Voor het maken van de prestatiemeteritems, roept u de methode CreatePeformanceCategoryAndCounters van de [ShardMapManagementFactory klasse](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Alleen beheerders kan de methode uitvoeren: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 

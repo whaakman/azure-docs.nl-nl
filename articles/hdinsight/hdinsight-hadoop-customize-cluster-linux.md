@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279703"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870700"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>HDInsight Linux gebaseerde clusters aanpassen met scriptacties
 
@@ -111,7 +111,7 @@ Het volgende diagram illustreert wanneer scriptactie wordt uitgevoerd tijdens he
 Het script wordt uitgevoerd terwijl HDInsight wordt geconfigureerd. Het script wordt parallel uitgevoerd op de opgegeven knooppunten in het cluster, en met bevoegdheden op hoofdniveau wordt uitgevoerd op de knooppunten.
 
 > [!NOTE]
-> U kunt bewerkingen zoals het stoppen en starten van services, waaronder Hadoop-gerelateerde services uitvoeren. Als u services stoppen, moet u ervoor zorgen dat de Ambari-service en andere Hadoop-gerelateerde services uitgevoerd voordat het script is voltooid. Deze services zijn vereist om te bepalen is de status en de status van het cluster terwijl deze wordt gemaakt.
+> U kunt bewerkingen zoals het stoppen en starten van services, met inbegrip van Apache Hadoop-gerelateerde services uitvoeren. Als u services stoppen, moet u ervoor zorgen dat de Ambari-service en andere Hadoop-gerelateerde services uitgevoerd voordat het script is voltooid. Deze services zijn vereist om te bepalen is de status en de status van het cluster terwijl deze wordt gemaakt.
 
 
 Tijdens het maken van een cluster, kunt u meerdere scriptacties in één keer gebruiken. Deze scripts worden aangeroepen in de volgorde waarin ze zijn opgegeven.
@@ -168,7 +168,7 @@ Deze sectie bevat voorbeelden over de verschillende manieren waarop die u script
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Een scriptactie tijdens het maken van de Azure-portal gebruiken
 
-1. Beginnen met het maken van een cluster, zoals beschreven op [Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Tijdens het maken van een cluster, wordt er uitziet een __samenvatting voor Cluster__ pagina. Uit de __samenvatting voor Cluster__ weergeeft, schakelt de __bewerken__ koppelen voor __geavanceerde instellingen__.
+1. Beginnen met het maken van een cluster, zoals beschreven op [Apache Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Tijdens het maken van een cluster, wordt er uitziet een __samenvatting voor Cluster__ pagina. Uit de __samenvatting voor Cluster__ weergeeft, schakelt de __bewerken__ koppelen voor __geavanceerde instellingen__.
 
     ![Geavanceerde instellingen koppelen](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -402,11 +402,11 @@ Voor een voorbeeld van het script geschiedenis ophalen uit een cluster met behul
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Ondersteuning voor open source-software die wordt gebruikt op HDInsight-clusters
 
-De Microsoft Azure HDInsight-service maakt gebruik van een ecosysteem van open-source-technologieën die zijn gevormd rond Hadoop. Microsoft Azure biedt een algemeen niveau van ondersteuning voor open-source technologieën. Zie voor meer informatie de **reikwijdte van ondersteuning** sectie van de [ondersteuning Veelgestelde vragen over Azure-website](https://azure.microsoft.com/support/faq/). De HDInsight-service biedt een extra beveiligingsniveau van ondersteuning voor ingebouwde onderdelen.
+De Microsoft Azure HDInsight-service maakt gebruik van een ecosysteem van open-source-technologieën die zijn gevormd rond Apache Hadoop. Microsoft Azure biedt een algemeen niveau van ondersteuning voor open-source technologieën. Zie voor meer informatie de **reikwijdte van ondersteuning** sectie van de [ondersteuning Veelgestelde vragen over Azure-website](https://azure.microsoft.com/support/faq/). De HDInsight-service biedt een extra beveiligingsniveau van ondersteuning voor ingebouwde onderdelen.
 
 Er zijn twee typen van open source-componenten die beschikbaar in de HDInsight-service zijn:
 
-* **Ingebouwde onderdelen** -deze onderdelen vooraf zijn geïnstalleerd op HDInsight-clusters en bieden de kernfunctionaliteit van het cluster. Bijvoorbeeld, behoren YARN ResourceManager, de Hive-query-taal (HiveQL) en de Mahout-bibliotheek tot deze categorie. Een volledige lijst van clusteronderdelen van het is beschikbaar in [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight](hdinsight-component-versioning.md).
+* **Ingebouwde onderdelen** -deze onderdelen vooraf zijn geïnstalleerd op HDInsight-clusters en bieden de kernfunctionaliteit van het cluster. Bijvoorbeeld, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, de Hive-querytaal ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)), en de [Apache Mahout](https://mahout.apache.org/) bibliotheek deel uitmaken van deze categorie. Een volledige lijst van clusteronderdelen van het is beschikbaar in [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight](hdinsight-component-versioning.md).
 * **Aangepaste onderdelen** -u, als een gebruiker van het cluster kunt installeren of gebruiken in uw werkbelasting een onderdeel is beschikbaar in de community of door u gemaakte.
 
 > [!WARNING]
@@ -426,7 +426,7 @@ De HDInsight-service biedt verschillende manieren om te gebruiken van aangepaste
 
 Ambari-Webgebruikersinterface kunt u weergeven van informatie die wordt geregistreerd door scriptacties. Als het script is mislukt tijdens het maken van een cluster, zijn de logboeken ook beschikbaar in het standaardopslagaccount dat is gekoppeld aan het cluster. Deze sectie bevat informatie over het ophalen van de logboeken met behulp van deze beide opties.
 
-### <a name="using-the-ambari-web-ui"></a>Met behulp van de Ambari-Webgebruikersinterface
+### <a name="using-the-apache-ambari-web-ui"></a>Met behulp van de Apache Ambari-Webgebruikersinterface
 
 1. Ga in de browser naar https://CLUSTERNAME.azurehdinsight.net. CLUSTERNAME vervangen door de naam van uw HDInsight-cluster.
 
@@ -513,8 +513,8 @@ Er zijn twee uitzonderingen:
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Actie-script-scripts ontwikkelen voor HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Solr installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md)
-* [Giraph installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md)
+* [Installeren en gebruiken van Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md)
+* [Installeren en Apache Giraph gebruikt op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md)
 * [Extra opslag toevoegen aan een HDInsight-cluster](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasen tijdens het maken van clusters"

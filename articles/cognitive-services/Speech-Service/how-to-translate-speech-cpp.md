@@ -1,21 +1,22 @@
 ---
 title: Spraak vertalen met behulp van de spraak-SDK voor C++
 titleSuffix: Azure Cognitive Services
-description: Laat zien hoe vertalen spraak met de spraak-SDK voor C++.
+description: In dit artikel bevat voorbeelden van code voor het omzetten van spraak met behulp van de SDK spraak in een omgeving met C++.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1bd466d231387034ead5dd46745708802f6e7488
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 917eb170ee1798546f4ba6dcf228097d5a5d853c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464728"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092210"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Omzetten van spraak met de Cognitive Services spraak-SDK voor C++
 

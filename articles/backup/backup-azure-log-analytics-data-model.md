@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635149"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877578"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-gegevensmodel voor Azure backup-gegevens
 De Log Analytics-gegevensmodel gebruiken om rapporten te maken. U kunt met het gegevensmodel, aangepaste query's en dashboards maken of aanpassen van Azure backup-gegevens, maar u wilt.
@@ -30,7 +30,7 @@ Deze tabel bevat informatie over waarschuwingen gerelateerde velden.
 | AlertUniqueId_s |Tekst |De unieke id van de gegenereerde waarschuwing |
 | AlertType_s |Tekst |Type van de waarschuwing, bijvoorbeeld: back-up |
 | AlertStatus_s |Tekst |Status van de waarschuwing, bijvoorbeeld: actief |
-| AlertOccurenceDateTime_s |Datum/tijd |De datum en tijd waarop waarschuwing is gemaakt |
+| AlertOccurrenceDateTime_s |Datum/tijd |De datum en tijd waarop waarschuwing is gemaakt |
 | AlertSeverity_s |Tekst |Ernst van de waarschuwing, bijvoorbeeld: kritiek |
 | EventName_s |Tekst |De naam van de gebeurtenis. Altijd AzureBackupCentralReport |
 | BackupItemUniqueId_s |Tekst |De unieke id van het back-upitem dat is gekoppeld aan de waarschuwing |

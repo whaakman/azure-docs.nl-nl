@@ -1,5 +1,5 @@
 ---
-title: Toegang tot gegevensbronnen via Jupyter-notebooks in Azure | Microsoft Docs
+title: Toegang tot gegevensresources via Jupyter-notebooks in Azure
 description: Klik hier voor meer informatie over het openen van bestanden, REST-API's, databases en andere Azure Storage-resources van een Jupyter-notebook.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: cf03b614826b8da644fbf7817a91f04456c194e7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 425c1019a9c67ac726d03955d60d1389bef7cae2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856080"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084937"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Toegang tot cloud-gegevens in een notitieblok
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964250"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098087"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -275,6 +275,12 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- 3179561 - IS --> 
 - Gebruik van beheerde schijven wordt vermeld in uren, zoals beschreven in de [Veelgestelde vragen over Azure Stack gebruik](azure-stack-usage-related-faq.md#managed-disks). Echter, facturering Azure Stack maakt gebruik van de maandelijkse prijs in plaats daarvan, zodat u niet correct in rekening voor gebruik van Managed Disks op of vóór September 27 gebracht mogelijk. We hebben kosten tijdelijk onderbroken voor Managed Disks na 27 September totdat het facturering probleem is verholpen. Als u hebt ten onrechte is doorberekend voor gebruik van Managed Disks, neem contact op met Microsoft-ondersteuning voor facturering.
 Rapporten over gebruik gemaakt van het gebruik van Azure Stack API's juist aantallen en kunnen worden gebruikt.
+
+<!-- 3507629 - IS, ASDK --> 
+- Beheerde schijven maakt twee nieuwe [quotatypen compute](azure-stack-quota-types.md#compute-quota-types) om te beperken van de maximale capaciteit van beheerde schijven die kunnen worden ingericht. Standaard is 2048 GiB toegewezen voor elke quotumtype beheerde schijven. U kunt echter de volgende problemen optreden:
+
+   - Voor de quota die zijn gemaakt vóór de update 1808, weergegeven het quotum voor Managed Disks 0 waarden in de beheerdersportal, hoewel 2048 GiB is toegewezen. U kunt vergroten of verkleinen van de waarde die is gebaseerd op de behoeften van uw werkelijke en de nieuwe ingestelde quotawaarde overschrijft de 2048 GiB-standaard.
+   - Als u bijwerkt naar de quotawaarde op 0, is het equivalent zijn aan de standaardwaarde van 2048 GiB. Als tijdelijke oplossing, stelt u de quotawaarde in op 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - Wanneer u de [ **toevoegen AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), moet u de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. Als u het lokale pad van de schijf gebruikt, wordt de cmdlet mislukt met de volgende fout: *langdurige bewerking is mislukt met de status 'Mislukt'*. 

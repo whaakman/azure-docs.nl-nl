@@ -1,10 +1,10 @@
 ---
-title: Algoritmen optimaliseren voor Azure Machine Learning Studio | Microsoft Docs
+title: Algoritmen - Azure Machine Learning Studio optimaliseren | Microsoft Docs
 description: Wordt uitgelegd hoe u kiest de optimale parameter is ingesteld voor een algoritme in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: b0494a9da422b7c0effc14ff4188d3a5b20b8e9d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314709"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081928"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning Studio
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: af2ecad79bef0889ca0d1e47171ebaf9777418ca
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 2aa2f4e55d375f6ed7960af8bbe327d45b5ea025
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833394"
+ms.locfileid: "52871758"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de Weergaveontwerper in Log Analytics
 Met behulp van de Weergaveontwerper in [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), kunt u tal van aangepaste weergaven maken in Azure portal kunt u visualiseren van gegevens in uw Log Analytics-werkruimte. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
@@ -55,7 +55,7 @@ De opties worden in de volgende tabel beschreven:
 | Optie | Beschrijving |
 |:--|:--|
 | Vernieuwen   | Hiermee vernieuwt u de weergave met de meest recente gegevens. | 
-| Analyse | Hiermee opent u de [portal Advanced Analytics](../../log-analytics/log-analytics-log-search-portals.md) voor het analyseren van gegevens met Logboeken-query's. |
+| Analyse | Hiermee opent u de [portal Advanced Analytics](../../azure-monitor/log-query/portals.md) voor het analyseren van gegevens met Logboeken-query's. |
 | Bewerken       | Hiermee opent de weergave in de Designer bekijken om te bewerken van de inhoud en configuratie.  |
 | Klonen      | Hiermee maakt u een nieuwe weergave en wordt deze geopend in de ontwerper. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
 | Datumbereik | De datum en tijd bereikfilter instellen voor de gegevens die zijn opgenomen in de weergave. Deze datumbereik is toegepast voordat een datumbereiken instellen in query's in de weergave.  |

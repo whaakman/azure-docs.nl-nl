@@ -1,5 +1,5 @@
 ---
-title: Hoe u ingebouwde Azure-Monitor voor containers (Preview) | Microsoft Docs
+title: Hoe u ingebouwde Azure-Monitor voor containers | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u met het voorbereiden en configureren van Azure Monitor voor containers, zodat u begrijpt hoe de container wordt uitgevoerd en welke problemen met betrekking tot prestaties zijn geïdentificeerd.
 services: azure-monitor
 documentationcenter: ''
@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 03fea6cf1276172893f18f1b09c8e3fdeec4ac4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 6f425fceb4bb4755b922cac427802a19436507d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001154"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080872"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hoe u ingebouwde Azure-Monitor voor containers (Preview) 
+# <a name="how-to-onboard-azure-monitor-for-containers"></a>Hoe u ingebouwde Azure-Monitor voor containers  
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor containers voor het bewaken van de prestaties van workloads die worden geïmplementeerd in Kubernetes-omgevingen en die worden gehost op [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
-Azure Monitor voor containers kan worden ingeschakeld voor nieuwe implementaties van AKS met behulp van de volgende ondersteunde methodes:
+Azure Monitor voor containers kan worden ingeschakeld voor nieuwe of bestaande implementaties van een of meer van AKS met behulp van de volgende ondersteunde methoden:
 
-* Een beheerde Kubernetes-cluster in Azure portal of met Azure CLI implementeren
-* Het maken van een Kubernetes-cluster met [Terraform en AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
-
-U kunt ook inschakelen voor bewaking voor een of meer bestaande AKS-clusters in Azure portal of met Azure CLI. 
+* Met de Azure-portal of met Azure CLI
+* Met behulp van [Terraform en AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 ## <a name="prerequisites"></a>Vereisten 
 Voordat u begint, zorg ervoor dat u het volgende hebt:
@@ -41,7 +39,9 @@ Voordat u begint, zorg ervoor dat u het volgende hebt:
 
 ## <a name="components"></a>Onderdelen 
 
-De mogelijkheid om prestaties te bewaken, is afhankelijk van een beperkte Log Analytics-agent voor Linux, welke prestaties en gebeurtenisgegevens worden verzameld van alle knooppunten in het cluster. De agent is geregistreerd met de opgegeven Log Analytics-werkruimte nadat u Azure Monitor voor containers inschakelen en automatisch geïmplementeerd. De versie die is geïmplementeerd, is microsoft / oms:ciprod04202018 of hoger en wordt vertegenwoordigd door een datum in de volgende indeling: *mmddyyyy*. 
+De mogelijkheid om prestaties te bewaken, is afhankelijk van een beperkte Log Analytics-agent voor Linux speciaal ontwikkeld voor Azure Monitor voor containers. Deze gespecialiseerde agent verzamelt prestaties en gebeurtenisgegevens van alle knooppunten in het cluster en de agent wordt automatisch geregistreerd en geïmplementeerd met de opgegeven Log Analytics-werkruimte tijdens de implementatie. De versie van de agent wordt door microsoft / oms:ciprod04202018 of hoger, en wordt vertegenwoordigd door een datum in de volgende indeling: *mmddyyyy*. 
+
+Wanneer een nieuwe versie van de agent wordt uitgebracht, wordt deze automatisch bijgewerkt op uw beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS). Als u wilt volgen de versies die zijn uitgebracht, Zie [agent aankondigingen](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). 
 
 >[!NOTE] 
 >Als u al een AKS-cluster hebt geïmplementeerd, kunt u inschakelen bewaking met behulp van Azure CLI of een opgegeven Azure Resource Manager-sjabloon, zoals verderop in dit artikel wordt gedemonstreerd. U kunt geen gebruiken `kubectl` als u wilt bijwerken, verwijderen, opnieuw implementeren of implementeren van de agent. De sjabloon moet worden geïmplementeerd in dezelfde resourcegroep bevinden als het cluster."
@@ -52,13 +52,20 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 ## <a name="enable-monitoring-for-a-new-cluster"></a>Schakel bewaking voor een nieuw cluster
 Tijdens de implementatie, kunt u de bewaking van een nieuw AKS-cluster in Azure portal, Azure CLI of met Terraform inschakelen.  Volg de stappen in dit artikel [een Azure Kubernetes Service (AKS)-cluster implementeren](../../aks/kubernetes-walkthrough-portal.md) als u wilt inschakelen vanuit de portal. Op de **bewaking** pagina voor de **bewaking inschakelen** optie, selecteer **Ja**, en selecteer een bestaande Log Analytics-werkruimte of maak een nieuwe. 
 
+### <a name="enable-using-azure-cli"></a>Inschakelen met behulp van Azure CLI
 Volg de stappen in dit artikel in de sectie voor bewaking van een nieuw AKS-cluster gemaakt met Azure CLI, [maken-AKS-cluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
 >Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.43 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
-Als u [implementeren van een AKS-cluster met behulp van Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), u kunt ook Azure Monitor voor containers inschakelen door het argument [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) en optegeven**oms_agent**.  
+### <a name="enable-using-terraform"></a>Inschakelen met behulp van Terraform
+Als u [implementeren van een nieuw AKS-cluster met behulp van Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), geeft u de argumenten vereist in het profiel [een Log Analytics-werkruimte maken](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) als u niet hebt gekozen om op te geven van een bestaande resourcegroep. 
+
+>[!NOTE]
+>Als u gebruiken, Terraform wilt, moet u uitvoeren de Terraform Azure DB-Provider versie 1.17.0 of hoger.
+
+Azure Monitor voor containers toevoegen aan de werkruimte, Zie [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) en het profiel te voltooien door de [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) en opgeven **oms_agent**. 
 
 Nadat u bewaking hebt ingeschakeld, en alle configuratietaken zijn voltooid, kunt u de prestaties van uw cluster op twee manieren controleren:
 
@@ -97,14 +104,28 @@ De uitvoer ziet eruit als in het volgende:
 provisioningState       : Succeeded
 ```
 
+### <a name="enable-monitoring-using-terraform"></a>Schakel de bewaking met behulp van Terraform
+1. Voeg de **oms_agent** invoegtoepassing profiel aan de bestaande [azurerm_kubernetes_cluster resource](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+
+   ```
+   addon_profile {
+    oms_agent {
+      enabled                    = true
+      log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+     }
+   }
+   ```
+
+2. Voeg de [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) de stappen in de documentatie van Terraform te volgen.
+
 ### <a name="enable-monitoring-from-azure-monitor"></a>Schakel de bewaking van Azure Monitor
 Als u wilt inschakelen voor bewaking van uw AKS-cluster in Azure portal van Azure Monitor, het volgende doen:
 
 1. Selecteer in de Azure portal, **Monitor**. 
-2. Selecteer **Containers (preview)** in de lijst.
-3. Op de **Monitor - containers (preview)** weergeeft, schakelt **clusters niet bewaakt**.
+2. Selecteer **Containers** in de lijst.
+3. Op de **Monitor - containers** weergeeft, schakelt **clusters niet bewaakt**.
 4. In de lijst met clusters niet-bewaakt, de container niet vinden in de lijst en klik op **inschakelen**.   
-5. Op de **Onboarding naar containerstatus en logboeken** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  
+5. Op de **Onboarding naar Azure Monitor voor containers** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  
     De lijst worden er de standaardwerkruimte en de locatie die het AKS-container is geïmplementeerd op in het abonnement. 
 
     ![AKS-Container inzichten, bewaking inschakelen](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -125,8 +146,8 @@ Als u wilt inschakelen voor bewaking van uw AKS-container in Azure portal, het v
     ![De koppeling van Kubernetes-services](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. Selecteer een container in de lijst met containers.
-5. Selecteer op de overzichtspagina van container **containerstatus bewaken**.  
-6. Op de **Onboarding naar containerstatus en logboeken** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  
+5. Selecteer op de overzichtspagina van container **Containers bewaken**.  
+6. Op de **Onboarding naar Azure Monitor voor containers** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  
     De lijst worden er de standaardwerkruimte en de locatie die het AKS-container is geïmplementeerd op in het abonnement. 
 
     ![Statuscontrole van AKS container inschakelen](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)

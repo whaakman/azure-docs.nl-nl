@@ -1,21 +1,21 @@
 ---
 title: Belangrijke metrische gegevens met Cloudyn-dashboards weergeven in Azure | Microsoft Docs
-description: Dit artikel wordt beschreven hoe belangrijke metrische gegevens weergeven met dashboards in Cloudyn.
+description: Dit artikel wordt beschreven hoe u belangrijke metrische gegevens met dashboards in Cloudyn kunt bekijken.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: a058757c3b4ae5087d89cdbdc1ede5fe780606ea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997071"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094101"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Kosten van metrische gegevens met dashboards weergeven-sleutel
 
@@ -43,7 +43,7 @@ Als u wilt snel aan de slag met een aangepast dashboard, kunt u een bestaande re
 Een aangepast dashboard maken:
 
 1. Klik op de startpagina, **nieuwe toevoegen +**. De pagina Mijn Dashboard wordt weergegeven.  
-    ![Mijn dashboard](./media/dashboards/my-dashboard.png)
+    ![Mijn dashboardpagina waar u nieuwe rapporten toevoegen](./media/dashboards/my-dashboard.png)
 2. Klik op **toevoegen van nieuwe rapport**. Het rapport toevoegen wordt weergegeven.
 3. Selecteer het rapport dat u wilt toevoegen aan het dashboard-object. De widget wordt toegevoegd aan het dashboard.
 4. Herhaal de voorgaande stappen totdat het dashboard voltooid is.
@@ -63,7 +63,7 @@ U kunt een aangepast dashboard delen met anderen, _openbare_ of _mijn entiteit_.
 Voor het delen van een aangepast dashboard voor publiek:
 
 1. In een dashboard, klikt u op **Dashboardinstellingen**. De instellingen voor Dashboard wordt weergegeven.  
-    ![Opties voor dashboard](./media/dashboards/dashboard-options.png)
+    ![instellingen voor dashboard voor een aangepast dashboard](./media/dashboards/dashboard-options.png)
 2. Klik op de pijl in het Dashboardinstellingen en klik vervolgens op **openbare**. Het dialoogvenster voor bevestiging van openbare Dashboard wordt weergegeven.
 3. Klik op **Ja**. Het dashboard is nu beschikbaar voor anderen.
 
@@ -116,13 +116,13 @@ U kunt een dashboard instellen als standaard. Instellen op de standaard, kunt u 
 - Of -
 
 1. Klik op **Dashboardinstellingen** de lijst met beschikbare dashboards weergeven en selecteren van het dashboard dat u wilt instellen als standaard.  
-    ![Opties voor dashboard](./media/dashboards/dashboard-options.png)
+    ![dashboard-opties voor een standaarddashboard](./media/dashboards/dashboard-options.png)
 2. Klik op **standaard** in de regel van het dashboard. Het Dashboard standaard bevestigingsvenster weergegeven.
 3. Klik op **Ja**. Het dashboard is ingesteld op standaard.
 
 ## <a name="management-dashboard"></a>Management Dashboard
 Het beheer (of MSP-dashboard voor MSP-gebruikers) dashboard bevat belangrijke functies van de belangrijkste rapporttypen.  
-![Management Dashboard](./media/dashboards/management-dash.png)
+![Dashboard voor beheer met diverse rapporten](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>Overzicht Kostenentiteiten (alleen voor Enterprise)
 Deze widget bevat een overzicht van de kosten voor beheerde entiteiten, inclusief het aantal entiteiten en het aantal accounts.
@@ -158,7 +158,7 @@ Deze widget geeft de storage-services die worden gebruikt door de afdelingen wee
 
 ## <a name="cost-controller-dashboard"></a>Kosten van de Controller-dashboard
 De kosten-Controller-dashboard ziet u vooraf ingestelde cost allocation hoogtepunten.  
-![Kosten van de Controller-dashboard](./media/dashboards/cost-controller-dashboard.png)
+![Kosten Controller-dashboard, diverse rapporten weergeven](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Na verloop van tijd kosten
 Deze widget helpt u kostentrends te spotten. Deze handleiding komen de kosten voor de laatste dag, op basis van de trend van de afgelopen 30 dagen.
@@ -198,7 +198,7 @@ Deze widget hoogtepunten in de afgelopen zes maanden uitgaven.
 ## <a name="asset-controller-dashboard"></a>Asset-Controller-dashboard
 
 Dit dashboard geeft het aantal actieve instanties, beschikbare en gebruikte schijven, distributie van exemplaartypen en storage-gegevens weer.  
-![Asset-Controller-dashboard](./media/dashboards/asset-controller-dashboard.png)
+![Asset-Controller-dashboard met diverse rapporten](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>Instanties
 Deze widget geeft het aantal instanties op basis van de gebruikstrend gedurende de afgelopen 30 dagen.
@@ -227,7 +227,7 @@ Deze widget ziet u het aantal actieve instanties van Amazon extern bureaublad-se
 
 ## <a name="optimizer-dashboard"></a>Optimalisatie van Dashboard
 Dit dashboard geeft de downsizing aanbevelingen, niet-gebruikte resources en potentiële besparingen.  
-![Optimalisatie van dashboard](./media/dashboards/optimizer-dashboard.png)
+![Optimalisatie van dashboard diverse rapporten weergeven](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>Gereserveerde instanties Calculator
 Deze widget geeft het aantal aanbeveling voor het kopen van gereserveerde instanties weer en markeert u de jaarlijkse besparingen.
@@ -257,7 +257,7 @@ De optimalisatie aanbevelingen zijn gebaseerd op het gebruik en prestaties gegev
 
 ## <a name="s3-tracker-dashboard"></a>S3-tracering in dashboard
 Het vastleggen van de S3-dashboard kunt u zoeken, analyseren en weergeven van uw huidige gebruik van opslag en trends.  
-![S3-tracering in dashboard](./media/dashboards/s3-tracker-dashboard.png)
+![S3-tracering dashboard, diverse rapporten weergeven](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>Alle Buckets
 Deze widget markeert de totale grootte van alle uw buckets, in GB, en het totale aantal objecten in de buckets.
@@ -281,7 +281,7 @@ Deze widget ziet u het aantal objecten per bucket in het werkelijke aantal en pe
 
 ## <a name="cloud-comparison-dashboard"></a>Dashboard van cloud-vergelijking
 Het dashboard van de vergelijking van de Cloud helpt bij het vergelijken van de kosten van verschillende cloudproviders op basis van de prijzen, het type van de CPU en RAM-geheugen.  
-![Dashboard van cloud-vergelijking](./media/dashboards/cloud-comparison-dashboard.png)
+![Vergelijking van de dashboard met diverse rapporten in de cloud](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Kosten bij Azure door exemplaartype
 Deze widget markeert de afgelopen 30 dagen gebruikt is in on-demand-tarieven. De kosten met de huidige Amazon EC2-kosten versus de mogelijke in Azure kosten worden vergeleken.

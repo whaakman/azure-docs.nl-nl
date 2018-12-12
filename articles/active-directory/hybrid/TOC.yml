@@ -17,8 +17,56 @@ items:
   expanded: true
 - name: Concepten
   items:
+  - name: Azure AD Connect en Connect Health
+    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+    items:
+    - name: Wat zijn Azure AD Connect en Connect Health?
+      href: whatis-azure-ad-connect.md
+    - name: De juiste verificatie kiezen
+      href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
+    - name: Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
+  - name: Synchronisatie van wachtwoord-hashes
+    items:
+    - name: Wat is synchronisatie van wachtwoord-hashes?
+      href: whatis-phs.md
+    - name: Hoe synchronisatie van wachtwoord-hashes werkt
+      href: how-to-connect-password-hash-synchronization.md
+  - name: Pass-through-verificatie
+    items:
+    - name: Wat is pass-through-verificatie?
+      href: how-to-connect-pta.md
+    - name: Hoe pass-through-verificatie werkt
+      href: how-to-connect-pta-how-it-works.md
+    - name: Huidige beperkingen van pass-through-verificatie
+      href: how-to-connect-pta-current-limitations.md
+    - name: Grondig beveiligingsonderzoek van pass-through-verificatie
+      href: how-to-connect-pta-security-deep-dive.md
+    - name: Pass-through-verificatie en gebruikersprivacy
+      href: how-to-connect-pta-user-privacy.md
+  - name: Federatie
+    items:
+    - name: Wat is federatie?
+      href: whatis-fed.md
+    - name: Hoe federatie werkt
+      href: how-to-connect-fed-whatis.md
+    - name: Azure AD-federation compatibiliteitslijst
+      href: how-to-connect-fed-compatibility.md
+  - name: Eenmalige aanmelding
+    items:
+    - name: Wat is eenmalige aanmelding?
+      href: how-to-connect-sso.md
+    - name: Hoe eenmalige aanmelding werkt
+      href: how-to-connect-sso-how-it-works.md
+    - name: Eenmalige aanmelding en gebruikersprivacy
+      href: how-to-connect-sso-user-privacy.md
   - name: Azure AD Connect Sync
     items:
+    - name: Wat is Azure AD Connect Sync?
+      href: how-to-connect-sync-whatis.md
+    - name: Azure AD Connect-synchronisatiefuncties
+      href: how-to-connect-syncservice-features.md
+    - name: Wat is Azure AD Connect Sync-servicebeheer?
+      href: how-to-connect-sync-service-manager-ui.md
     - name: 'Azure AD Connect Sync: technische concepten'
       href: how-to-connect-sync-technical-concepts.md
     - name: Inzicht in Azure AD Connect Sync-architectuur
@@ -33,8 +81,6 @@ items:
       href: concept-azure-ad-connect-sync-user-and-contacts.md
     - name: Inzicht in schaduwkenmerken
       href: how-to-connect-syncservice-shadow-attributes.md
-  - name: Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
-    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
 - name: Handleidingen
   items:
   - name: Installatie en upgrade
@@ -119,8 +165,6 @@ items:
         href: plan-hybrid-identity-design-considerations-tools-comparison.md
   - name: Azure AD Connect beheren
     items:
-    - name: Wat is synchronisatie van wachtwoord-hashes?
-      href: how-to-connect-password-hash-synchronization.md
     - name: Write-back van apparaat inschakelen
       href: how-to-connect-device-writeback.md
     - name: Apparaatopties
@@ -141,10 +185,14 @@ items:
       href: how-to-connect-sync-change-addsacct-pass.md
     - name: Wat is de PowerShell-module ADConnectivityTools?
       href: how-to-connect-adconnectivitytools.md
+  - name: Pass-through-verificatie beheren
+    items:
+    - name: Aan de slag met pass-through-verificatie
+      href: how-to-connect-pta-quick-start.md
+    - name: Veelgestelde vragen over pass-through-verificatie
+      href: how-to-connect-pta-faq.md
   - name: Federation Services beheren
     items:
-    - name: Wat is federatie met Azure AD Connect?
-      href: how-to-connect-fed-whatis.md
     - name: Federatie met Azure AD Connect beheren
       href: how-to-connect-fed-management.md
     - name: Ondersteuning van meerdere domeinen voor federeren
@@ -159,40 +207,14 @@ items:
       href: how-to-connect-azure-ad-trust.md
     - name: Hash-algoritme voor O365 RP wijzigen
       href: how-to-connect-fed-sha256-guidance.md
-    - name: Azure AD-federation compatibiliteitslijst
-      href: how-to-connect-fed-compatibility.md
     - name: Een SAML 2.0-server gebruiken als u id-provider
       href: how-to-connect-fed-saml-idp.md
     - name: Taken na configuratie voor hybride Azure AD-koppeling
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
-  - name: Pass-through-verificatie beheren
-    items:
-    - name: Wat is pass-through-verificatie?
-      href: how-to-connect-pta.md
-    - name: Aan de slag met pass-through-verificatie
-      href: how-to-connect-pta-quick-start.md
-    - name: Hoe pass-through-verificatie werkt
-      href: how-to-connect-pta-how-it-works.md
-    - name: Huidige beperkingen van pass-through-verificatie
-      href: how-to-connect-pta-current-limitations.md
-    - name: Grondig beveiligingsonderzoek van pass-through-verificatie
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Pass-through-verificatie en gebruikersprivacy
-      href: how-to-connect-pta-user-privacy.md
-    - name: Huidige beperkingen van pass-through-verificatie
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Veelgestelde vragen over pass-through-verificatie
-      href: how-to-connect-pta-faq.md
   - name: Eenmalige aanmelding beheren
     items:
-    - name: Wat is eenmalige aanmelding?
-      href: how-to-connect-sso.md
     - name: Aan de slag met eenmalige aanmelding
       href: how-to-connect-sso-quick-start.md
-    - name: Hoe eenmalige aanmelding werkt
-      href: how-to-connect-sso-how-it-works.md
-    - name: Eenmalige aanmelding en gebruikersprivacy
-      href: how-to-connect-sso-user-privacy.md
     - name: Veelgestelde vragen over eenmalige aanmelding
       href: how-to-connect-sso-faq.md
   - name: Manage Azure AD Connect Health
@@ -213,10 +235,6 @@ items:
       href: how-to-connect-health-alert-catalog.md
   - name: Azure AD Connect Sync beheren
     items:
-    - name: Wat is Azure AD Connect Sync?
-      href: how-to-connect-sync-whatis.md
-    - name: Azure AD Connect-synchronisatiefuncties
-      href: how-to-connect-syncservice-features.md
     - name: Operationele taken beheren
       href: how-to-connect-sync-operations.md
     - name: Aanbevolen procedures voor het wijzigen van de standaardconfiguratie
@@ -233,8 +251,6 @@ items:
       href: how-to-connect-sync-feature-scheduler.md
     - name: Azure AD Connect Sync-servicebeheer
       items:
-      - name: Wat is Azure AD Connect Sync-servicebeheer?
-        href: how-to-connect-sync-service-manager-ui.md
       - name: Het bewerkingstabblad van de servicemanager beheren
         href: how-to-connect-sync-service-manager-ui-operations.md
       - name: Connectors gebruiken met de servicebeheerder
@@ -303,9 +319,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools-verwijzing
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 07a3bfd816cd57ecbe77bf7e7435be99a0321fd2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b3488ec5aec1c5bd1d3f38a2bf87ab1d8d3a87f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335445"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080143"

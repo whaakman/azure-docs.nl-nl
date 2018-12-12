@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.date: 12/06/2018
+ms.openlocfilehash: 451316b32bcda43d62bbabf0c4f73d239698c85b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136448"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078719"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Parameters van de server configureren in Azure Database voor MySQL met behulp van Azure portal
 
@@ -42,9 +42,9 @@ InnoDB-buffergroep en maximum aantal verbindingen zijn niet kunnen worden geconf
 
 |**Prijscategorie**| **Bewerking voor COMPUTE**|**vCore(s)**|**InnoDB buffergroep (MB)**| **Maximum aantal verbindingen**|
 |---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 50|
+|Basic| Gen 4| 1| 960| 50|
 |Basic| Gen 4| 2| 2560| 100|
-|Basic| Gen 5| 1| 1024| 50|
+|Basic| Gen 5| 1| 960| 50|
 |Basic| Gen 5| 2| 2560| 100|
 |Algemeen doel| Gen 4| 2| 3584| 300|
 |Algemeen doel| Gen 4| 4| 7680| 625|
@@ -56,10 +56,12 @@ InnoDB-buffergroep en maximum aantal verbindingen zijn niet kunnen worden geconf
 |Algemeen doel| Gen 5| 8| 15360| 1250|
 |Algemeen doel| Gen 5| 16| 31232| 2500|
 |Algemeen doel| Gen 5| 32| 62976| 5000|
+|Algemeen doel| Gen 5| 64| 125952| 10.000|
 |Geoptimaliseerd geheugen| Gen 5| 2| 7168| 600|
 |Geoptimaliseerd geheugen| Gen 5| 4| 15360| 1250|
 |Geoptimaliseerd geheugen| Gen 5| 8| 30720| 2500|
 |Geoptimaliseerd geheugen| Gen 5| 16| 62464| 5000|
+|Geoptimaliseerd geheugen| Gen 5| 32| 125952| 10.000|
 
 Deze extra server-parameters zijn niet kunnen worden geconfigureerd in het systeem:
 

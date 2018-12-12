@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 0cb82cfcecbb719b357cda46bf969acf6c6cefe7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 98828589832d69ada11205e471314a153a566766
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015293"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080262"
 ---
 # <a name="configure-containers"></a>Containers configureren
 
@@ -84,7 +84,7 @@ De `Eula` instelling geeft aan dat u de licentie voor de container hebt geaccept
 |--|------|-----------|-------------|
 |Ja| `Eula` | Reeks | Instemming met licentie vereisen<br><br>Voorbeeld:<br>`Eula=accept` |
 
-Cognitive Services-containers zijn in licentie gegeven onder uw overeenkomst voor uw gebruik van Azure. Als u een bestaande overeenkomst voor uw gebruik van Azure hebt, gaat u ermee akkoord dat uw overeenkomst voor gebruik van Azure de Microsoft Online Subscription overeenkomst is (dit omvat de voorwaarden voor onlineservices). Voor Preview-versies, gaat u ook akkoord met de aanvullende gebruiksvoorwaarden voor Microsoft Azure-Previews. Met behulp van de container gaat u akkoord met deze voorwaarden.
+Cognitive Services-containers zijn in licentie gegeven onder [uw overeenkomst](https://go.microsoft.com/fwlink/?linkid=2018657) voor uw gebruik van Azure. Als u een bestaande overeenkomst voor uw gebruik van Azure hebt, gaat u ermee akkoord dat uw overeenkomst voor gebruik van Azure is de [Microsoft Online Subscription overeenkomst](https://go.microsoft.com/fwlink/?linkid=2018755), waarin de [voorwaarden voor onlineservices ](https://go.microsoft.com/fwlink/?linkid=2018760). Voor Preview-versies, gaat u ook akkoord met de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://go.microsoft.com/fwlink/?linkid=2018815). Met behulp van de container gaat u akkoord met deze voorwaarden.
 
 ## <a name="fluentd-settings"></a>Fluentd-instellingen
 

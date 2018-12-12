@@ -1,5 +1,5 @@
 ---
-title: CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects (Preview) | Microsoft Docs
+title: CI/CD-pijplijn met Azure DevOps Projects - Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Projects zorgt ervoor dat u eenvoudig aan de slag kunt met Azure. Hiermee kunt u een Azure IoT Edge-app van uw keuze in enkele snelle stappen starten.
 author: shizn
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a394951de833ee8c01bb4a385c5ebb126ebd3534
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: ebb7e515f9d9205f364d50b3d686c68a2988f86a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882591"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074211"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Een CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects (Preview)
 
@@ -35,15 +36,15 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 
 1. Uw Azure IoT Edge-modules kunnen worden geschreven in [ C# ](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) en [Java](tutorial-java-module.md). Selecteer de taal van uw voorkeur om een nieuwe toepassing te starten. Dienovereenkomstig, kunt u **.NET**, **Node.js**, **Python**, **C**, of **Java**, en klik vervolgens op **Volgende**.
 
-    ![Taal selecteren](./media/how-to-devops-project/select-language.png)
+    ![Selecteer de taal om een nieuwe toepassing te maken](./media/how-to-devops-project/select-language.png)
 
 2. Selecteer **eenvoudige IoT (Preview)**, en klik vervolgens op **volgende**.
 
-    ![Selecteer IoT](media/how-to-devops-project/select-iot.png)
+    ![Eenvoudige IoT framework selecteren](media/how-to-devops-project/select-iot.png)
 
 3. Selecteer **IoT Edge**, en klik vervolgens op **volgende**.
 
-    ![Selecteer IoT Edge](media/how-to-devops-project/select-iot-edge.png)
+    ![IoT Edge-service selecteren](media/how-to-devops-project/select-iot-edge.png)
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps en een Azure-abonnement configureren
 
@@ -53,11 +54,11 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 
     b. Selecteer uw Azure-abonnement en locatie, kies een naam voor de toepassing en selecteer vervolgens **Gereed**.  
 
-    ![Selecteer devops](media/how-to-devops-project/select-devops.png)
+    ![Geef de naam en -toepassing maken](media/how-to-devops-project/select-devops.png)
 
 1. Na enkele minuten wordt het DevOps Projects-dashboard weergegeven in de Azure-portal. Een voorbeeld van een IoT Edge-toepassing kan worden gedaan in een opslagplaats in uw organisatie Azure DevOps, een build wordt uitgevoerd en uw toepassing is geïmplementeerd op het IoT Edge-apparaat. Dit dashboard biedt meer inzicht in uw codeopslagplaats, CI/CD-pijplijn en toepassing in Azure.
 
-    ![DevOps-portal](./media/how-to-devops-project/devops-portal.png)
+    ![De toepassing weergeven in de DevOps-portal](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Codewijzigingen doorvoeren en CI/CD uitvoeren
@@ -69,19 +70,19 @@ Met deze koppeling opent u een weergave in de zojuist gemaakte Git-opslagplaats.
 
 1. Als u de kloon-URL van de opslagplaats wilt weergeven, selecteert u **Klonen** in de rechterbovenhoek van de browser. U kunt uw Git-opslagplaats in VS Code of andere u favoriete hulpprogramma's kunt klonen. In de volgende stappen u de webbrowser gebruiken om u te maken en commit-code rechtstreeks naar de master-vertakking wordt gewijzigd.
 
-    ![Klonen](media/how-to-devops-project/clone.png)
+    ![Git-opslagplaats klonen](media/how-to-devops-project/clone.png)
 
 1. Aan de linkerkant van de browser, Ga naar de **modules/FilterModule/module.json** bestand.
 
 1. Selecteer **bewerken**, en breng een wijziging in `"version"` onder de `"tag"`. Bijvoorbeeld, kunt u deze bijwerken naar `"version": "${BUILD_BUILDID}"` gebruiken [Azure DevOps bouwen variabelen](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) als onderdeel van de afbeeldingscode van uw Azure IoT Edge-module.
 
-    ![Bewerken](media/how-to-devops-project/update-module-json.png)
+    ![Versie voor het accepteren van build variabelen bewerken](media/how-to-devops-project/update-module-json.png)
 
 1. Selecteer **Doorvoeren** en sla de wijzigingen op.
 
 1. Ga in uw browser naar het Azure DevOps-projectdashboard.  Als het goed is, ziet u nu dat er een build wordt gemaakt. De aangebrachte wijzigingen worden automatisch gebouwd en geïmplementeerd via een CI/CD-pijplijn.
 
-    ![Wordt uitgevoerd](media/how-to-devops-project/ci-cd-in-progress.png)
+    ![De status in uitvoering weergeven](media/how-to-devops-project/ci-cd-in-progress.png)
 
 ## <a name="examine-the-cicd-pipeline"></a>De CI/CD-pijplijn onderzoeken
 
@@ -92,11 +93,11 @@ Met deze koppeling worden een browsertabblad en de Azure DevOps build-pijplijn v
 
 1. Selecteer **Bewerken**.
 
-    ![Bewerken](media/how-to-devops-project/click-edit-button.png)
+    ![Build-pijplijn bewerken](media/how-to-devops-project/click-edit-button.png)
 
 1. In dit deelvenster kunt u de verschillende taken voor uw build-pijplijn onderzoeken. De build voert verschillende taken, zoals het ophalen van de bronnen van de Git-opslagplaats, het maken van IoT Edge module-installatiekopieën, IoT Edge-modules pushen en publiceren van uitvoer gebruikt die worden gebruikt voor implementaties. Voor meer informatie over Azure IoT Edge-taken voor CI, vindt u [Azure-pijplijnen voor continue integratie configureren](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-integration).
 
-    ![CI-taken](media/how-to-devops-project/ci.png)
+    ![Continue integratie-taken weergeven](media/how-to-devops-project/ci.png)
 
 1. Selecteer bovenaan de build-pijplijn de naam van de build-pijplijn.
 
@@ -111,7 +112,7 @@ In het deelvenster **Geschiedenis** ziet u een audittrail van recente wijziginge
 
 1. Selecteer **Release** onder **pijplijnen**. DevOps Projects maakt een release-pijplijn voor het beheren van implementaties voor Azure IoT Edge.
 
-    ![Release-pijplijn](media/how-to-devops-project/release-pipeline.png)
+    ![Weergave release-pijplijn](media/how-to-devops-project/release-pipeline.png)
 
 1. Selecteer **Bewerken**. De release-pijplijn bevat een pijplijn die het releaseproces definieert.  
 
@@ -122,7 +123,7 @@ Deze release-pijplijn heeft een ingeschakelde CD-trigger op basis waarvan een im
 
 1. Selecteer aan de linkerkant **Taken**. De taken zijn de acties die tijdens het implementatieproces worden uitgevoerd. In dit voorbeeld is een taak gemaakt voor het implementeren van uw module-installatiekopieën op Azure IoT Edge. Voor meer informatie over Azure IoT Edge-taken voor CD, vindt u [configureren Azure pijplijnen voor continue implementatie](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-deployment).
 
-    ![CD](media/how-to-devops-project/dev-release.png)
+    ![Continue implementatie-taken weergeven](media/how-to-devops-project/dev-release.png)
 
 1. Selecteer aan de rechterkant **Releases weergeven**. In deze weergave wordt een versiesgeschiedenis weergegeven.
 

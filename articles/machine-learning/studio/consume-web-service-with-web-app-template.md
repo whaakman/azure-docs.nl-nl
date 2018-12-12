@@ -1,11 +1,11 @@
 ---
-title: Gebruik van een Machine Learning webservice met een web-appsjabloon - Azure Machine Learning Studio | Microsoft Docs
+title: Webservice gebruiken met web-appsjabloon - Azure Machine Learning Studio | Microsoft Docs
 description: Een web-appsjabloon gebruiken in Azure Marketplace een voorspellende webservice in Azure Machine Learning gebruiken.
 keywords: webservice, uitoefening, REST-API voor machine learning
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2c0bba4a442b73b82ebc271c3516f65954d6d8a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 3eaf881ea1b8831891588310bfcec5e8fb146978
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311565"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078579"
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Een Azure Machine Learning-webservice met behulp van een web-appsjabloon gebruiken
 

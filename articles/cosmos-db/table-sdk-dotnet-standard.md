@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB Table SDK-API .NET Standard- en bronnen | Microsoft Docs
+title: Azure Cosmos DB Table-API .NET Standard SDK en bronnen
 description: Meer informatie over de Azure Cosmos DB Table-API en de standaard .NET-SDK met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
 services: cosmos-db
 author: donghexu
-manager: sudheerd
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: dox
-ms.openlocfilehash: 689a18ff690273229254a0d7e75187a26f1383de
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 38e8c0c16c51ee1885187263c9016c1411e4e95b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957315"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874053"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard-API: Downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 453101b1f5368dba9aa9dbfc89f5b893d42a0542
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: MT
+ms.openlocfilehash: 280df7ff80e637539f85c5d7ddafbb564b8fe562
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684591"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879550"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Een pijplijn maken met de Collector-API
 
-De [Log Analytics Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) kunt u een aangepaste gegevens importeren in Log Analytics. De enige vereisten zijn dat de gegevens JSON-indeling en splitsen in 30 MB of minder segmenten zijn. Dit is een volledig flexibele mechanisme dat kan worden aangesloten op tal van manieren: van gegevens rechtstreeks vanuit uw toepassing worden verzonden naar eenmalige ad-hoc uploadt. In dit artikel wordt een overzicht sommige beginpunten voor een veelvoorkomend scenario: de noodzaak om gegevens die zijn opgeslagen in bestanden op basis van reguliere, geautomatiseerde te uploaden. Terwijl de pijplijn die hier niet de meeste goed presterende of anders geoptimaliseerd, is dit bedoeld om te fungeren als een beginpunt voor het bouwen van een productie-pipeline van uw eigen.
+De [Log Analytics Data Collector API](../../azure-monitor/platform/data-collector-api.md) kunt u een aangepaste gegevens importeren in Log Analytics. De enige vereisten zijn dat de gegevens JSON-indeling en splitsen in 30 MB of minder segmenten zijn. Dit is een volledig flexibele mechanisme dat kan worden aangesloten op tal van manieren: van gegevens rechtstreeks vanuit uw toepassing worden verzonden naar eenmalige ad-hoc uploadt. In dit artikel wordt een overzicht sommige beginpunten voor een veelvoorkomend scenario: de noodzaak om gegevens die zijn opgeslagen in bestanden op basis van reguliere, geautomatiseerde te uploaden. Terwijl de pijplijn die hier niet de meeste goed presterende of anders geoptimaliseerd, is dit bedoeld om te fungeren als een beginpunt voor het bouwen van een productie-pipeline van uw eigen.
 
 ## <a name="example-problem"></a>Voorbeeld van probleem
 Voor de rest van dit artikel bespreken we paginaweergavegegevens in Application Insights. In ons scenario hypothetische willen we geografische gegevens verzameld standaard door de Application Insights-SDK met aangepaste gegevens met de populatie van elk land/regio in de hele wereld, met het doel om te identificeren waar we het meeste moet uitgaven correleren Marketing bedragen. 
@@ -173,4 +173,4 @@ In dit artikel weergegeven een prototype werken, de logica achter die kan worden
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over de [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.
+Meer informatie over de [Data Collector API](../../azure-monitor/platform/data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API.

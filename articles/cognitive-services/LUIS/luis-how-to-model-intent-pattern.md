@@ -1,21 +1,22 @@
 ---
-title: Patroon sjablonen in plaats van meer uitingen in LUIS-apps toevoegen
-titleSuffix: Azure Cognitive Services
+title: Patronen toevoegen nauwkeurigheid
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informatie over het toevoegen van patroon-sjablonen in toepassingen voor het verbeteren van nauwkeurigheid Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885883"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093179"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Patronen voor het verbeteren van nauwkeurigheid toevoegen
 Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u de [concept](luis-concept-patterns.md) van patronen voor het verbeteren van nauwkeurigheid voor uitingen dat een patroon in de woordvolgorde en word keuze. Gebruik patronen [entiteiten](luis-concept-entity-types.md) en hun rollen om gegevens met behulp van specifieke patroon syntaxis te extraheren. 
@@ -125,7 +126,7 @@ U kunt een patroon maken van een bestaande utterance in elk de **bedoeling** of 
 
 1. Op de geselecteerde rij van de utterance, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de utterance en selecteer **toevoegen als patroon**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Schermafbeelding van de tabel uitingen met Add-patroon gemarkeerd in het optiemenu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Schermafbeelding van de tabel met Add-patroon gemarkeerd in het optiemenu uitingen](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "schermafbeelding van de tabel uitingen met Add-patroon gemarkeerd in het optiemenu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Wijzigen van het patroon volgens de [syntaxisregels](luis-concept-patterns.md#pattern-syntax). Als de utterance die u hebt geselecteerd, wordt aangeduid met entiteiten, zijn deze entiteiten al in het patroon met de juiste syntaxis.
 

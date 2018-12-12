@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge modulesamenstelling | Microsoft Docs
+title: Declareer modules en routes met implementatie manifesten - Azure IoT Edge | Microsoft Docs
 description: Leer hoe een manifest van de implementatie wordt gedeclareerd welke modules te implementeren, om ze te implementeren, en hoe u berichtroutes daartussen maken.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 106ad5d4649b2845327eadd99972d56f1503b3e4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584805"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099967"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Meer informatie over het implementeren van modules en routes instellen in IoT Edge
 
@@ -137,7 +138,7 @@ De bron geeft aan waar de berichten afkomstig zijn uit. IoT Edge kunt versturen 
 
 De broneigenschap kan een van de volgende waarden zijn:
 
-| Bron | Beschrijving |
+| Bron | Description |
 | ------ | ----------- |
 | `/*` | Alle apparaat-naar-cloud-berichten of dubbele wijzigingsmeldingen vanaf elk apparaat module of leaf |
 | `/twinChangeNotifications` | Elke wijziging met dubbele (gerapporteerde eigenschappen) die afkomstig zijn van een module of leaf-apparaat |
@@ -171,7 +172,7 @@ De sink definieert waar de berichten worden verzonden. Alleen modules en IoT-Hub
 
 De eigenschap sink is een van de volgende waarden:
 
-| Sink | Beschrijving |
+| Sink | Description |
 | ---- | ----------- |
 | `$upstream` | Het bericht verzenden naar IoT Hub |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Het bericht verzenden naar een specifieke invoer van een specifieke module |

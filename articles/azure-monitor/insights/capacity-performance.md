@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: aa940e238601f06a53247c0da4d1a92f16b6f56c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 6c5554c664c4f0f47b2f8341b8e7c428732b0af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840602"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086212"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Capaciteit van de Hyper-V-virtuele machine met de oplossing capaciteit en prestaties (Preview) plannen
 
@@ -48,11 +48,11 @@ De oplossing:
 
 De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
 
-| Verbonden bron | Ondersteuning | Beschrijving |
+| Verbonden bron | Ondersteuning | Description |
 |---|---|---|
 | [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Ja | De oplossing verzamelt gegevens van de capaciteit en prestaties van Windows-agents. |
-| [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
-| [SCOM-beheergroep](../../log-analytics/log-analytics-om-agents.md) | Ja |De oplossing verzamelt gegevens van capaciteit en prestaties van agents in een verbonden SCOM-beheergroep. Een directe verbinding van de SCOM-agent naar Log Analytics is niet vereist.|
+| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
+| [SCOM-beheergroep](../../azure-monitor/platform/om-agents.md) | Ja |De oplossing verzamelt gegevens van capaciteit en prestaties van agents in een verbonden SCOM-beheergroep. Een directe verbinding van de SCOM-agent naar Log Analytics is niet vereist.|
 | [Azure Storage-account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Azure storage bevat geen gegevens voor capaciteit en prestaties.|
 
 ## <a name="prerequisites"></a>Vereisten
@@ -81,7 +81,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Als u de oplossing capaciteit en prestaties is bijgewerkt, wordt het versienummer wijzigen.
 
-Zie [Operations Manager koppelen aan Log Analytics](../../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
+Zie [Operations Manager koppelen aan Log Analytics](../../azure-monitor/platform/om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 
@@ -126,7 +126,7 @@ Om samen te vatten, verzamelt de oplossing capaciteit en prestaties van gegevens
 De volgende tabel bevat voorbeelden van zoekopdrachten voor capaciteit en prestaties van gegevens die worden verzameld en wordt berekend door deze oplossing.
 
 
-| Query’s uitvoeren | Beschrijving |
+| Query’s uitvoeren | Description |
 |:--- |:--- |
 | Alle hostgeheugenconfiguraties | Perf &#124; waarbij ObjectName == 'Capaciteit en prestaties' en CounterName == "Host toegewezen geheugen (MB)" &#124; samenvatten MB avg(CounterValue) door InstanceName = |
 | Alle VM-geheugenconfiguraties | Perf &#124; waarbij ObjectName == 'Capaciteit en prestaties' en CounterName == "Virtuele machine toegewezen geheugen (MB)" &#124; samenvatten MB avg(CounterValue) door InstanceName = |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: c556571e62f6689834f6849dd9b8af0b90ee7539
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843288"
+ms.locfileid: "52866369"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen gecoördineerd herstel van virtuele machines die zijn beveiligd met Site Recovery. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. Plannen voor herstel ook helpen met het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines naar Azure failover, een uitbreiding voor integratie met Azure Automation uw plannen voor herstel. U kunt deze gebruiken voor het uitvoeren van runbooks, deze bieden een krachtige geautomatiseerde taken.
@@ -213,7 +213,7 @@ In het volgende voorbeeld wordt er gebruik van een nieuwe techniek en maak een [
 4. Gebruik deze variabele in uw runbook. Als de opgegeven VM-GUID is gevonden in de context van recovery plan, gelden de NSG op de virtuele machine:
 
     ```
-    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. Lus via de virtuele machines van de recovery-abonnement context in uw runbook. Controleer of de virtuele machine bestaat **$VMDetailsObj**. Als deze bestaat, toegang krijgen tot de eigenschappen van de variabele om toe te passen van de NSG:
@@ -223,13 +223,13 @@ In het volgende voorbeeld wordt er gebruik van een nieuwe techniek en maak een [
         $vmMap = $RecoveryPlanContext.VmMap
 
         foreach($VMID in $VMinfo) {
-            Write-output $VMDetailsObj.value.$VMID
-
-            if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable
-                $NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-                $NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
                 # Add code to apply the NSG properties to the VM
             }

@@ -1,5 +1,5 @@
 ---
-title: Een site-naar-site-VPN configureren via Microsoft-peering voor Azure ExpressRoute | Microsoft Docs
+title: Een site-naar-site-VPN configureren via Microsoft-peering - ExpressRoute - Azure | Microsoft Docs
 description: IPsec/IKE-connectiviteit naar Azure via een peering Microsoft ExpressRoute-circuit met behulp van een site-naar-site VPN-gateway configureren.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240902"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094199"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Een site-naar-site-VPN configureren via ExpressRoute-Microsoft-peering
 
-Dit artikel helpt u bij het configureren van beveiligde versleutelde verbindingen tussen uw on-premises netwerk en uw Azure-netwerken (VNets) via een particuliere ExpressRoute-verbinding. Configureren van een beveiligde tunnel via ExpressRoute kunt u het uitwisselen van gegevens met vertrouwen te behandelen, anti opnieuw afspelen, echtheid en integriteit.
+Dit artikel helpt u bij het configureren van beveiligde versleutelde verbindingen tussen uw on-premises netwerk en uw Azure-netwerken (VNets) via een particuliere ExpressRoute-verbinding. U kunt Microsoft-peering voor het maken van een site-naar-site IPsec/IKE VPN-tunnel tussen de geselecteerde on-premises netwerken en Azure VNets. Configureren van een beveiligde tunnel via ExpressRoute kunt u het uitwisselen van gegevens met vertrouwen te behandelen, anti opnieuw afspelen, echtheid en integriteit.
 
-## <a name="architecture"></a>Architectuur
-
-U kunt gebruikmaken van Microsoft-peering voor het maken van een site-naar-site IPsec/IKE VPN-tunnel tussen de geselecteerde on-premises netwerken en Azure VNets.
-
-  >[!NOTE]
+>[!NOTE]
 >Bij het instellen van site-naar-site VPN via Microsoft-peering, worden in rekening gebracht voor de VPN-gateway en de VPN-uitgaand verkeer. Zie voor meer informatie, [prijzen voor VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Architectuur
+
 
   ![overzicht van de verbinding](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

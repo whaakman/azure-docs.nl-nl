@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure Event Hubs Dedicated capaciteit | Microsoft Docs
-description: Overzicht van Microsoft Azure Event Hubs toegewezen capaciteit.
+title: Overzicht van speciale eventhubs - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht van Azure Event Hubs, dat één tenant implementaties van eventhubs biedt dedciated.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 68a55d8a16e55e2f5e4b48153f045daa40c9a68c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058418"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091023"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Overzicht van Eventhubs Dedicated
 

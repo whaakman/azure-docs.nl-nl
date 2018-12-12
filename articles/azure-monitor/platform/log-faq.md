@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0d96844d9e156c702a5a6273b5181db04e5a79c5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: a27513f9ae3d2b4cfff77f4fd410fdc77e060feb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994718"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081673"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -218,7 +218,7 @@ A: u nodig hebt om toe te voegen 'etag' in de hoofdtekst van de API of de sjablo
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>V. Hoeveel gegevens kan ik verzenden via de agent naar Log Analytics? Is er een maximale hoeveelheid gegevens per klant?
 A. Het gratis abonnement Hiermee stelt u een dagelijkse limiet van 500 MB per werkruimte. De standard en premium-abonnementen hebben geen limiet voor de hoeveelheid gegevens die is geüpload. Als een cloudservice, Log Analytics is ontworpen om automatisch omhoog schalen naar het volume verwerken die afkomstig zijn van een klant, zelfs als deze terabytes per dag.
 
-De Log Analytics-agent is ontworpen om te controleren of er een kleine footprint. Het gegevensvolume is afhankelijk van de oplossingen die u inschakelt. U kunt gedetailleerde informatie over het gegevensvolume en zien de uitsplitsing van de oplossing in de [gebruik](../../log-analytics/log-analytics-usage.md) pagina.
+De Log Analytics-agent is ontworpen om te controleren of er een kleine footprint. Het gegevensvolume is afhankelijk van de oplossingen die u inschakelt. U kunt gedetailleerde informatie over het gegevensvolume en zien de uitsplitsing van de oplossing in de [gebruik](../../azure-monitor/platform/data-usage.md) pagina.
 
 Voor meer informatie vindt u een [klant blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) met hun resultaten na het evalueren van het Resourcegebruik (voetafdruk) van de OMS-agent.
 
@@ -234,7 +234,7 @@ A. Afhankelijk van de hoeveelheid gegevens die per agent worden verzonden:
 * Het aantal logboeken en prestatiemeteritems worden verzameld
 * De hoeveelheid gegevens in de logboeken
 
-De gratis prijscategorie is een goede manier om de onboarding verschillende servers en het typische gegevensvolume meter. Algemeen gebruik wordt weergegeven op de [gebruik](../../log-analytics/log-analytics-usage.md) pagina.
+De gratis prijscategorie is een goede manier om de onboarding verschillende servers en het typische gegevensvolume meter. Algemeen gebruik wordt weergegeven op de [gebruik](../../azure-monitor/platform/data-usage.md) pagina.
 
 Voor computers die kunnen worden uitgevoerd van de agent WireData, gebruikt u de volgende query uit om te zien hoeveel gegevens er worden verzonden:
 

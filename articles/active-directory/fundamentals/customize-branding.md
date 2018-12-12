@@ -1,6 +1,6 @@
 ---
-title: Toevoegen aan uw Azure Active Directory-aanmelden pagina huisstijl | Microsoft Docs
-description: Informatie over het toevoegen van uw organisatie de huisstijl van naar de aanmeldingspagina van Azure Active Directory.
+title: Huisstijl van uw organisatie aanmelden pagina - Azure Active Directory toevoegen | Microsoft Docs
+description: Instructies over het toevoegen van de huisstijl van uw organisatie op de aanmeldingspagina van Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
-ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367557"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090309"
 ---
-# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Hoe: huisstijl naar uw Azure Active Directory-aanmeldingspagina toevoegen
+# <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Huisstijl van uw organisatie Azure Active Directory-aanmelden pagina toevoegen
 Het logo en de aangepaste kleurenschema's van uw organisatie gebruiken om een consistent uiterlijk-en-werking op uw Azure Active Directory (Azure AD) aanmeldingspagina's. Uw aanmeldingspagina's worden weergegeven wanneer gebruikers zich aanmelden bij uw organisatie op basis van een web-apps, zoals Office 365, dat gebruikmaakt van Azure AD als id-provider.
 
 >[!Note]
->Aangepaste huisstijl toe te voegen, moet u Azure Active Directory Premium 1, 2 Premium of Basic-versies gebruiken, of een Office 365-licentie hebben. Zie voor meer informatie over licentieverlening en versies [zich registreren voor Azure AD Premium](active-directory-get-started-premium.md).<br><br>De Azure AD-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. Azure AD Premium en Basic-versies worden momenteel niet ondersteund in de Azure-service uitgevoerd door 21Vianet in China. Voor meer informatie contact opnemen met behulp van de [Azure Active Directory-Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Aangepaste huisstijl toe te voegen, moet u Azure Active Directory Premium 1, 2 Premium of Basic-versies gebruiken, of een Office 365-licentie hebben. Zie voor meer informatie over licentieverlening en versies [zich registreren voor Azure AD Premium](active-directory-get-started-premium.md).<br><br>De Azure AD-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De Azure AD Premium en Basic-edities worden momenteel niet ondersteund in de Azure-service die wordt beheerd door 21Vianet in China. Neem contact met ons op via het [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/) voor meer informatie.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Uw Azure AD-aanmeldingspagina aanpassen
 U kunt uw Azure AD-aanmelden pagina's aanpassen, die worden weergegeven wanneer gebruikers zich aanmelden bij apps van de tenant-specifieke van uw organisatie, zoals [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), of als een domeinvariabele, zoals wordtdoorgegeven[ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
@@ -34,7 +34,7 @@ Uw aangepaste huisstijl wordt niet onmiddellijk weergegeven wanneer gebruikers n
 > Alle huisstijl elementen zijn optioneel. Als u een logo in banner met geen afbeelding opgeeft, wordt de aanmeldingspagina uw logo met een standaardinstallatiekopie van achtergrond van de doelsite (bijvoorbeeld Office 365) weergegeven.<br><br>Bovendien branding-aanmeldingspagina niet meegenomen naar persoonlijke Microsoft-accounts. Als uw gebruikers- of zakelijke gasten zich hebt aangemeld met een persoonlijk Microsoft-account, wordt niet de aanmeldingspagina doorgevoerd in de huisstijl van uw organisatie.
 
 ### <a name="to-customize-your-branding"></a>Uw huisstijl aanpassen
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, en selecteer vervolgens **huisstijl van bedrijf**, en selecteer vervolgens **configureren**.
 
@@ -92,7 +92,7 @@ Uw aangepaste huisstijl wordt niet onmiddellijk weergegeven wanneer gebruikers n
 Nadat u hebt gemaakt om uw aangepaste huisstijl, kunt u teruggaan en alles wat die u wilt wijzigen.
 
 ### <a name="to-edit-your-custom-branding"></a>Uw aangepaste huisstijl bewerken
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, en selecteer vervolgens **huisstijl van bedrijf**, en selecteer vervolgens **configureren**.
 
@@ -109,7 +109,7 @@ U kunt de oorspronkelijke configuratie taal niet wijzigen van de standaardtaal. 
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Een taalspecifieke huisstijl configuratie toevoegen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met het account van een globale administrator voor de map.
 
 2. Selecteer **Azure Active Directory**, en selecteer vervolgens **huisstijl van bedrijf**, en selecteer vervolgens **nieuwe taal**.
 

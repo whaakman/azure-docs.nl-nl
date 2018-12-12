@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: MT
+ms.openlocfilehash: ef9f1e0c043370bdfacf654cffb524b716a34446
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237874"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872324"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ontwikkelhulpprogramma's op de Data Science Virtual Machine
 
@@ -32,7 +32,7 @@ De Data Science Virtual Machine (DSVM) biedt een productieve omgeving voor het o
 | Wat is het?   | Algemeen gebruik IDE      |
 | Ondersteunde DSVM-versies      | Windows      |
 | Wordt doorgaans gebruikt      | Ontwikkeling van software    |
-| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      | Data Science-werkbelasting (Python / R tools), Azure-workload (Hadoop, Data Lake), Node.js, SQL Server-hulpprogramma's, [Visual Studio-hulpprogramma's voor AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      | Data Science-werkbelasting (Python / R tools), Azure-workload (Hadoop, Data Lake), Node.js, SQL Server-hulpprogramma's, [Azure Machine Learning voor Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Meer hulpprogramma's op de DSVM      |     Visual Studio Code, RStudio, Juno  |
 

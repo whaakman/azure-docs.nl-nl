@@ -1,6 +1,6 @@
 ---
-title: Toevoegen of verwijderen van eigenaren van Azure Active Directory-groepen | Microsoft Docs
-description: Informatie over het toevoegen of verwijderen van eigenaren van groepen met behulp van Azure Active Directory.
+title: Toevoegen of verwijderen van groepseigenaren - Azure Active Directory | Microsoft Docs
+description: Groepseigenaren van instructies over het toevoegen of verwijderen met behulp van Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139717"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087147"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Hoe: toevoegen of verwijderen van eigenaren van groepen in Azure Active Directory
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Toevoegen of verwijderen van eigenaren van groepen in Azure Active Directory
 Azure Active Directory (Azure AD)-beveiligingsgroepen zijn eigendom van en beheerd door eigenaren van groepen. Eigenaren van groepen worden toegewezen voor het beheren van een groep en de bijbehorende leden van een resource-eigenaar (beheerder). Groepseigenaren hoeven te worden leden van de groep. Nadat de Groepseigenaar van een is toegewezen, kunt alleen de eigenaar van een resource toevoegen of eigenaren verwijderen.
 
 In sommige gevallen besluiten u als de beheerder toe te wijzen een eigenaar van de groep. In dit geval kunt u de eigenaar van de groep worden. Bovendien kunnen eigenaren van andere eigenaren toewijzen aan de groep, tenzij u dit hebt beperkt in de instellingen voor de.

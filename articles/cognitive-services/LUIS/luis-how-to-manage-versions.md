@@ -1,21 +1,22 @@
 ---
-title: Versies in LUIS-apps beheren
-titleSuffix: Azure Cognitive Services
+title: Versies beheren
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Versies kunnen u bouwt en publiceert verschillende modellen. Er is een goede gewoonte om te klonen van de huidige actieve model naar een andere versie van de app voordat u wijzigingen in het model.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 454f45b692a87dbd47ca1ca70880323912693839
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082693"
 ---
 # <a name="manage-versions"></a>Versies beheren
 
@@ -25,7 +26,7 @@ Als u wilt werken met versies, opent u uw app door het selecteren van de naam op
 
 De lijst met versies laten zien welke versies worden gepubliceerd, waarin ze worden gepubliceerd, en welke versie momenteel actief is. 
 
-[![](./media/luis-how-to-manage-versions/versions-import.png "Sectie, pagina-versies beheren")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![Beheersectie, pagina-versies](./media/luis-how-to-manage-versions/versions-import.png "gedeelte beheren, pagina-versies")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Een versie klonen
 
@@ -44,7 +45,7 @@ De lijst met versies laten zien welke versies worden gepubliceerd, waarin ze wor
 
 Selecteer een versie in de lijst en selecteer vervolgens **Maak actief** via de werkbalk. 
 
-[![](./media/luis-how-to-manage-versions/versions-other.png "Sectie, pagina-versies beheren")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Beheersectie, pagina-versies](./media/luis-how-to-manage-versions/versions-other.png "gedeelte beheren, pagina-versies")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importversie
 

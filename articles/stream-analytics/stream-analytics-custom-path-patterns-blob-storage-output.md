@@ -1,19 +1,20 @@
 ---
-title: Aangepaste datum/tijd-padpatronen voor Azure Stream Analytics blob storage-uitvoer (Preview)
-description: ''
+title: Datum/tijd-padpatronen voor Azure Stream Analytics blob-uitvoer (Preview)
+description: Dit artikel beschrijft de aangepaste patronen functie van een datum/tijd-pad voor blob storage-uitvoer van Azure Stream Analytics-taken.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452561"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090775"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Aangepaste datum/tijd-padpatronen voor Azure Stream Analytics blob storage-uitvoer (Preview)
 
@@ -25,7 +26,7 @@ Gebruik deze koppeling voor [Azure Portal](https://portal.azure.com/?Microsoft_A
 
 De volgende indeling aanduiding tokens kunnen zelfstandig of in combinatie worden gebruikt om aangepaste datum/tijd-notatie:
 
-|Indelingsopgave   |Beschrijving   |De resultaten in het voorbeeld van de tijd 2018-01-02T10:06:08|
+|Indelingsopgave   |Description   |De resultaten in het voorbeeld van de tijd 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datetime:yyyy}|Een getal van vier cijfers van het jaar|2018|
 |{datetime:MM}|Maand vanaf 01 en 12|01|
@@ -61,7 +62,7 @@ Bijvoorbeeld `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={d
 
 Aangepaste uitvoer wordt voorkomen dat de moeite van het wijzigen van tabellen en partities handmatig toe te voegen aan poortgegevens tussen Azure Stream Analytics en Hive. Veel mappen kunnen in plaats daarvan worden toegevoegd automatisch met behulp van:
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ Maak een uitvoerlocatie blob met de volgende configuratie:
 
 Het patroon volledig pad is als volgt:
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 Wanneer u de taak start, wordt de mapstructuur van een op basis van het padpatroon gemaakt in uw blobcontainer. U kunt inzoomen op het niveau van de dag.
 

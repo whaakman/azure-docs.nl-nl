@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684849"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090262"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Werken met Azure Cosmos-databases, containers en objecten
 
@@ -53,7 +53,7 @@ Bij het maken van een Azure Cosmos-container, kunt u de doorvoer configureren in
 
 * **Gedeelde ingerichte doorvoer** modus: deze containers de ingerichte doorvoer delen met andere containers in dezelfde database (met uitzondering van die containers die zijn geconfigureerd met een toegewezen ingerichte doorvoer). Met andere woorden, wordt de ingerichte doorvoer voor de database gedeeld tussen alle 'gedeeld' containers. Zie voor meer informatie, [ingerichte doorvoer op een Azure Cosmos-database configureren](how-to-provision-database-throughput.md).
 
-Een Azure-Cosmos container elastisch, kan worden geschaald of u containers met een maken 'gedeeld' of 'specifiek' ingerichte doorvoer modi, dat wil zeggen, ze kunnen hebben onbeperkte opslag en ingerichte doorvoer.  
+Een Azure Cosmos-container elastisch schalen, of het maken van containers met een 'gedeeld' of 'toegewezen' ingerichte doorvoer modi.
 
 Een Azure Cosmos-container is een container schema-agnostische van items. Items in een container kunnen willekeurige schema's hebben. Bijvoorbeeld, kan een item voor een persoon, een item voor een auto worden geplaatst in dezelfde container. Alle items die u aan een container toevoegt ophalen standaard automatisch geïndexeerd zonder een expliciete index of Schemabeheer. U kunt de indexering gedrag aanpassen door het indexeringsbeleid configureren voor een container. 
 

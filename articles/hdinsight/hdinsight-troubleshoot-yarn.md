@@ -6,20 +6,19 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: c3904286fc998769b9a72522bd31d3a9797c55c2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 12/06/2018
+ms.openlocfilehash: 34db8900d285baa7e9c4f97874023bbb52d5e864
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008042"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087895"
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Met YARN oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meest voorkomende problemen en hun oplossingen als u werkt met Apache Hadoop YARN-nettoladingen in Apache Ambari.
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hoe maak ik een nieuwe YARN-wachtrij op een cluster?
-
 
 ### <a name="resolution-steps"></a>Oplossingen 
 
@@ -138,10 +137,3 @@ Deze wijzigingen zijn zichtbaar onmiddellijk op de gebruikersinterface van YARN 
 
 ### <a name="see-also"></a>Zie ook
 [Problemen oplossen met behulp van Azure HDInsight](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
-
-

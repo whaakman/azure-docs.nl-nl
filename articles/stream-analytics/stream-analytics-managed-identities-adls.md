@@ -1,20 +1,21 @@
 ---
-title: Gebruik van beheerde identiteiten voor het verifiëren van Azure Stream Analytics-taken op Azure Data Lake Storage Gen1 uitvoer (Preview)
-description: ''
+title: Azure Stream Analytics-taak aan Azure Data Lake Storage Gen1 uitvoer verifiëren
+description: In dit artikel wordt beschreven hoe u beheerde identiteiten gebruiken voor het verifiëren van uw Azure Stream Analytics-taak aan Azure Data Lake Storage Gen1 uitvoer.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
-ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365285"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090428"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Gebruik van beheerde identiteiten voor het verifiëren van Azure Stream Analytics-taken op Azure Data Lake Storage Gen1 uitvoer (Preview)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Verifiëren van Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten (Preview)
 
 Azure Stream Analytics biedt ondersteuning voor verificatie met Azure Data Lake Storage (ADLS) Gen1 uitvoer beheerde identiteit. De identiteit is een beheerde toepassing in Azure Active Directory die staat voor een bepaalde Stream Analytics-taak geregistreerd en kan worden gebruikt om een specifieke resource te verifiëren. Beheerde identiteiten elimineert u de beperkingen van methoden voor verificatie op basis van een gebruiker, zoals u dat u hoeft te verifiëren vanwege wachtwoord te wijzigen of token verlopen voor voor een gebruiker die zich na negentig dagen voordoen. Daarnaast beheerde identiteiten helpen bij de automatisering van Stream Analytics-taak implementaties die worden uitgevoerd naar Azure Data Lake Storage Gen1.
 
@@ -32,7 +33,7 @@ Dit artikel ziet u twee manieren om in te schakelen beheerde identiteit voor een
 
    Wanneer de configuratie is opgeslagen, wordt de Object-ID (OID) van de service-principal wordt vermeld als de Principal-ID, zoals hieronder weergegeven:
 
-   ![Stream Analytics-Principal-ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![Stream Analytics-service principal-ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    De service-principal heeft dezelfde naam als de Stream Analytics-taak. Bijvoorbeeld, als de naam van uw taak is **MyASAJob**, de naam van de service-principal gemaakt is ook **MyASAJob**.
 
@@ -56,11 +57,11 @@ Dit artikel ziet u twee manieren om in te schakelen beheerde identiteit voor een
  
 8. In de **machtigingen** deelvenster controle de **schrijven** en **Execute** machtigingen en wijs deze toe aan **deze map en alle onderliggende**. Klik vervolgens op **Ok**.
 
-   ![Een machtiging selecteren](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Selecteer schrijven en uitvoeren van machtigingen](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. De service-principal wordt vermeld onder **machtigingen toegewezen** op de **toegang** deelvenster zoals hieronder wordt weergegeven. U kunt nu teruggaan en uw Stream Analytics-taak starten.
 
-   ![Toegangslijst](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Stream Analytics toegang krijgen tot de lijst in de portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Zie voor meer informatie over Data Lake Storage Gen1 bestandssysteemmachtigingen [toegangsbeheer in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 

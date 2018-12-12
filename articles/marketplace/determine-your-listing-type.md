@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261068"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081537"
 ---
 # <a name="determine-your-publishing-option"></a>Uw publicatieoptie bepalen
 De publicatieoptie die u voor uw aanbieding kiest is gekoppeld aan rechtstreeks aan de vereisten voor geschiktheid en de marketplace GTM-voordelen. De selectie van de optie en aanbiedingtype publiceren in de Cloud Partner-Portal definieert nog belangrijker, hoe gebruikers in uw aanbieding van marketplace zullen werken.
 
 U kunt publicatieopties inschakelen door het selecteren van een aanbiedingtype en vervolgens een marketplace-aanbieding maken in de Cloud Partner-Portal. Om dit te doen, moet u de volgende belangrijke marketplace-concepten: de publicatieopties bieden typen en -configuratie en -aanroepen om tot actie die bepalen hoe en waar uw aanbieding wordt weergegeven in de marketplace-storefronts.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >De bovenstaande tabel wordt beschreven hoe uw oplossing of de service wordt toegewezen aan de winkel, de publicatieoptie en het aanbiedingtype gebruikt om uw aanbieding op marketplace.

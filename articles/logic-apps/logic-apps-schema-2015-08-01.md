@@ -4,18 +4,18 @@ description: Bijgewerkte schema versie 2015-08-01-preview voor definities voor l
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122774"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080007"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Schema-updates voor Azure Logic Apps - 1 augustus 2015 preview
 
@@ -72,12 +72,16 @@ In deze definitie van deze acties worden genoemd `APIConnection`. Hier volgt een
 }
 ```
 
-De `host` object is een onderdeel van de invoer die uniek is voor de API-verbindingen en bevat de volgende onderdelen: `api` en `connection`. De `api` object Hiermee geeft u de runtime-URL voor waar die API beheerde wordt gehost. Ziet u alle beschikbare beheerde API's door het aanroepen van `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+De `host` object is een onderdeel van de invoer die uniek is voor de API-verbindingen en bevat de volgende onderdelen: `api` en `connection`. De `api` object Hiermee geeft u de runtime-URL voor waar die API beheerde wordt gehost. Door deze methode aanroept, ziet u alle beschikbare beheerde API's:
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 Wanneer u een API, die API kan of kunnen niet zijn gedefinieerd een *verbindingsparameters*. Dus als de API bevat geen definitie van deze parameters, is er is geen verbinding vereist. Als de API deze parameters definieert, moet u een verbinding maken met een opgegeven naam.  
 U vervolgens verwijzen naar die naam bestaat in de `connection` object binnen de `host` object. Als u wilt een verbinding maakt in een resourcegroep, deze methode niet aanroepen:
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ Met de volgende tekst:
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Beheerde API's in een Azure Resource Manager-sjabloon implementeren
 
-U kunt een volledige app maken in een Azure Resource Manager-sjabloon, zolang interactief aanmelden is niet vereist.
-Als aanmelden vereist is, kunt u een alles wat met de Azure Resource Manager-sjabloon instellen, maar u moet nog steeds gaat u naar de Azure portal voor het autoriseren van verbindingen. 
+Wanneer u interactief aanmelden is niet vereist, kunt u een volledige app maken met behulp van Resource Manager-sjabloon.
+Als aanmelden vereist is, kunt u nog steeds een Resource Manager-sjabloon gebruiken, maar u moet autoriseren van de verbindingen via de Azure-portal. 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ U kunt zien in dit voorbeeld is dat de verbindingen zijn alleen bronnen die bevi
 
 ### <a name="your-custom-web-apis"></a>Uw aangepaste Web-API 's
 
-Als u uw eigen API's, niet-beheerd door Microsoft zijn, gebruikt u de ingebouwde **HTTP** actie die moet worden ze aanroept. Voor een optimale ervaring, moet u een Swagger-eindpunt beschikbaar maken voor uw API. Dit eindpunt kunt Logic App Designer om weer te geven van de invoer en uitvoer voor uw API. Zonder Swagger, kan de ontwerpfunctie alleen de invoer en uitvoer als weergeven ondoorzichtige JSON-objecten.
+Als u uw eigen API's in plaats van Microsoft worden beheerd die zijn gebruikt, gebruikt u de ingebouwde **HTTP** actie voor het aanroepen van uw API's. In het ideale geval moet u een Swagger-eindpunt opgeven voor uw API. Dit eindpunt helpt Logic App Designer weergeven van de invoer en uitvoer van uw API's. Zonder een Swagger-eindpunt, kunt de ontwerpfunctie alleen de invoer en uitvoer als weergeven ondoorzichtige JSON-objecten.
 
 Hier volgt een voorbeeld van de nieuwe `metadata.apiDefinitionUrl` eigenschap:
 
@@ -259,7 +263,7 @@ Bijvoorbeeld, als u Dropbox weergeven van bestanden, uw **2014-12-01-preview** v
 }
 ```
 
-U kunt nu de equivalente HTTP-actie, zoals het volgende voorbeeld wordt nu maken terwijl het verlaten van de parametersectie voor de definitie van de logische app niet worden gewijzigd:
+Nu u kunt nu een vergelijkbare HTTP-actie bouwen en laat u de logische app-definitie `parameters` sectie ongewijzigd, bijvoorbeeld:
 
 ``` json
 "actions": {
@@ -286,14 +290,14 @@ U kunt nu de equivalente HTTP-actie, zoals het volgende voorbeeld wordt nu maken
 
 Stap voor stap één voor één van deze eigenschappen:
 
-| Actie-eigenschap | Beschrijving |
+| Actie-eigenschap | Description |
 | --- | --- |
 | `type` | `Http` In plaats van `APIapp` |
 | `metadata.apiDefinitionUrl` | Als u deze actie in Logic App Designer, zijn onder andere een eindpunt van de metagegevens die is samengesteld uit: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | Samengesteld uit: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Altijd `POST` |
-| `inputs.body` | Identiek aan de API-App-parameters |
-| `inputs.authentication` | Identiek aan de API-App-verificatie |
+| `inputs.body` | Hetzelfde als de API-App-parameters |
+| `inputs.authentication` | Dezelfde is als de verificatie van de API-App |
 
 Deze methode werkt voor alle API-App-acties. Vergeet echter niet dat deze vorige API-Apps niet langer worden ondersteund. U moet dus verplaatsen naar een van de twee andere vorige opties, een beheerde API of die als host fungeert voor uw aangepaste Web-API.
 
@@ -407,15 +411,15 @@ Nu kunt u deze versie in plaats daarvan gebruiken:
 
 ## <a name="native-http-listener"></a>Native HTTP-listener
 
-De HTTP-Listener-mogelijkheden zijn nu ingebouwd in. Daarom moet u niet langer een HTTP-Listener API-App implementeren. Zie [de volledige details voor het maken van uw logische app-eindpunt aanroepbare hier](../logic-apps/logic-apps-http-endpoint.md). 
+HTTP-listener-functies zijn nu geïntegreerd, dus u hoeft te implementeren van een HTTP-Listener API-App. Informatie voor meer informatie over hoe u [maken uw logische app-eindpunt aanroepbare](../logic-apps/logic-apps-http-endpoint.md). 
 
-Met deze wijzigingen die we hebben verwijderd de `@accessKeys()` functie, die wordt vervangen door de `@listCallbackURL()` functie voor het ophalen van het eindpunt nodig. Bovendien moet u ten minste één trigger nu definiëren in uw logische app. Als u wilt `/run` de werkstroom, moet u een van deze triggers hebben: `manual`, `apiConnectionWebhook`, of `httpWebhook`.
+Met deze wijzigingen, Logic Apps wordt vervangen door de `@accessKeys()` werken met de `@listCallbackURL()` functie Hiermee haalt u het eindpunt nodig. Ook moet nu u definiëren ten minste één trigger in uw logische app. Als u wilt `/run` de werkstroom, die u hebt een van de volgende triggertypen te gebruiken: `Manual`, `ApiConnectionWebhook`, of `HttpWebhook`
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>Aanroepen van onderliggende werkstromen
 
-Aanroepen van onderliggende werkstromen vereist eerder, gaan naar de werkstroom, ophalen van het toegangstoken en plakt het token in de definitie van de logische app waar u aan te roepen die onderliggende werkstroom. Met het nieuwe schema genereert de Logic Apps-engine automatisch een SAS tijdens runtime voor de onderliggende werkstroom, zodat u hoeft geen geheimen in de definitie van de plakken. Hier volgt een voorbeeld:
+Aanroepen van onderliggende werkstromen vereist eerder, gaan naar de werkstroom, ophalen van het toegangstoken en plakt het token in de definitie van de logische app waar u aan te roepen die onderliggende werkstroom. In dit schema genereert de Logic Apps-engine automatisch een SAS tijdens runtime voor de onderliggende werkstroom, zodat u hoeft geen geheimen in de definitie van de plakken. Hier volgt een voorbeeld:
 
 ``` json
 "myNestedWorkflow": {
@@ -441,9 +445,9 @@ Aanroepen van onderliggende werkstromen vereist eerder, gaan naar de werkstroom,
 }
 ```
 
-Een tweede verbetering is dat we zijn de onderliggende-werkstromen volledig toegang geven tot de inkomende aanvraag. Dit betekent dat u kunt parameters doorgeven in de *query's* sectie en in de *headers* object en dat u de volledige hoofdtekst volledig kunt definiëren.
+Ook onderliggende werkstromen volledige toegang krijgen tot de inkomende aanvraag. Ja, u kunt parameters doorgeven in de `queries` sectie en in de `headers` object. U kunt ook volledig definiëren de hele `body` sectie.
 
-Er zijn ten slotte vereist wijzigingen in de onderliggende werkstroom. Terwijl u een onderliggende werkstroom eerder rechtstreeks aanroepen kunt, nu u moet een trigger eindpunt definiëren in de werkstroom voor de bovenliggende om aan te roepen. In het algemeen, voegt u een trigger waarvoor `manual` typt en vervolgens deze trigger in de definitie van de bovenliggende. Houd er rekening mee de `host` eigenschap specifiek heeft een `triggerName` omdat u altijd waarvan de trigger opgeven moet u aanroept.
+Ten slotte hebben onderliggende werkstromen deze vereiste wijzigingen. Hoewel u kan eerder en rechtstreeks aanroepen van een onderliggende werkstroom, moet u nu een trigger-eindpunt definiëren in de werkstroom voor de bovenliggende om aan te roepen. In het algemeen, voegt u een trigger waarvoor `Manual` typt en vervolgens deze trigger in de definitie van de bovenliggende. De `host` eigenschap specifiek heeft een `triggerName` omdat u moet altijd de trigger u bellen.
 
 ## <a name="other-changes"></a>Andere wijzigingen
 
@@ -453,8 +457,8 @@ Alle actietypen bieden nu ondersteuning voor een nieuwe invoer met de naam `quer
 
 ### <a name="renamed-parse-function-to-json"></a>Hernoemd parse() functie 'json()'
 
-Er meer inhoudstypen binnenkort wordt toegevoegd, zodat we gewijzigd de `parse()` functie `json()`.
+De `parse()` functie is nu gewijzigd de `json()` functie voor toekomstige inhoudstypen.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>Binnenkort beschikbaar: Enterprise Integration-API's
+## <a name="enterprise-integration-apis"></a>Enterprise Integration-API 's
 
-Er zijn geen beheerde versies nog van de Enterprise Integration-API's, zoals AS2. Ondertussen kunt u uw bestaande BizTalk-APIs geïmplementeerd via de HTTP-actie. Voor meer informatie, Zie "met behulp van uw reeds geïmplementeerde API-apps' in de [integratie roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Dit schema biedt geen beheerde versies nog ondersteuning voor Enterprise Integration-API's, zoals AS2. U kunt echter bestaande geïmplementeerde BizTalk APIs via de HTTP-actie. Voor meer informatie, Zie "met behulp van uw reeds geïmplementeerde API-apps' in de [integratie roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 686e878b25c79538f3d228398bcb665622c2c36b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.openlocfilehash: a5177293b24ec400714d8f87be4198a76d59214a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721660"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878717"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -182,7 +182,7 @@ In een resultaat van beschikbaarheidstest ziet u de details van transacties voor
 
 * De reactie inspecteren die is ontvangen van uw server.
 * Fout vaststellen met gecorreleerde telemetrie aan de serverzijde die zijn verzameld tijdens het verwerken van de beschikbaarheidstest is mislukt.
-* Een probleem of werkitem registreren in Git of VSTS om het probleem te volgen. De bug bevat een koppeling naar deze gebeurtenis.
+* Meld een probleem of werkitem in Git of Azure-kaarten voor het bijhouden van het probleem. De bug bevat een koppeling naar deze gebeurtenis.
 * Het webtestresultaat openen in Visual Studio.
 
 Meer informatie over de diagnostische gegevens over de end-to-transactie-ervaring [hier](app-insights-transaction-diagnostics.md).

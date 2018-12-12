@@ -1,6 +1,6 @@
 ---
-title: Azure Event raster abonnement schema
-description: Beschrijft de eigenschappen voor het abonneren op een gebeurtenis met gebeurtenis raster van Azure.
+title: Azure Event Grid-abonnementsschema
+description: Beschrijft de eigenschappen voor het abonneren op een gebeurtenis met Azure Event Grid.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,54 +8,54 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cd599a45ef4d3bfd38789a71647847f55cc0b966
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301716"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085889"
 ---
-# <a name="event-grid-subscription-schema"></a>Gebeurtenis raster abonnement schema
+# <a name="event-grid-subscription-schema"></a>Event Grid-abonnementsschema
 
-Voor het maken van een gebeurtenis raster-abonnement, kunt u een aanvraag verzendt naar het maken van de gebeurtenis abonnement opnieuw. Gebruik de volgende notatie:
+Voor het maken van een Event Grid-abonnement, kunt u een aanvraag verzendt naar de abonnement-bewerking gebeurtenis maken. Gebruik de volgende indeling:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-Bijvoorbeeld, een gebeurtenisabonnement voor een opslagaccount maken met de naam `examplestorage` in een resourcegroep met de naam `examplegroup`, gebruik de volgende notatie:
+Bijvoorbeeld, om een gebeurtenisabonnement voor een opslagaccount te maken met de naam `examplestorage` in een resourcegroep met de naam `examplegroup`, gebruik de volgende indeling:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-Het artikel beschrijft de eigenschappen en het schema voor de hoofdtekst van de aanvraag.
- 
-## <a name="event-subscription-properties"></a>Eigenschappen van gebeurtenis abonnement
+Naam van het abonnement van de gebeurtenis moet 3 tot 64 tekens lang zijn en mag alleen a-z, A-Z, 0-9 en '-'. Het artikel beschrijft de eigenschappen en het schema voor de hoofdtekst van de aanvraag.
+ 
+## <a name="event-subscription-properties"></a>Eigenschappen van gebeurtenis-abonnement
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | destination | object | Het object dat het eindpunt definieert. |
 | filter | object | Een optioneel veld voor het filteren van de typen gebeurtenissen. |
 
 ### <a name="destination-object"></a>doelobject
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| endpointType | tekenreeks | Het type van het eindpunt voor het abonnement (webhook/HTTP, Event Hub of wachtrij). | 
-| bij voor endpointUrl | tekenreeks | De doel-URL voor gebeurtenissen in dit gebeurtenisabonnement. | 
+| EndpointType | string | Het type van het eindpunt voor het abonnement (webhook/HTTP, Event Hub of wachtrij). | 
+| endpointUrl | string | De doel-URL voor gebeurtenissen in dit gebeurtenisabonnement. | 
 
 ### <a name="filter-object"></a>Filter-object
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| includedEventTypes | matrix | Treffer wanneer het gebeurtenistype bericht in de gebeurtenis is een exacte overeenkomst voor een van deze gebeurtenis type-namen. Er wordt een fout bij het gebeurtenisnaam komt niet overeen met de namen van het type geregistreerde gebeurtenis voor de gebeurtenisbron. Standaard komt overeen met alle types van gebeurtenissen. |
-| subjectBeginsWith | tekenreeks | Een voorvoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. | 
-| subjectEndsWith | tekenreeks | Een achtervoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. |
-| isSubjectCaseSensitive | tekenreeks | Hoofdlettergevoelige die overeenkomt met filters voor besturingselementen. |
+| includedEventTypes | array | Overeenkomst wanneer het gebeurtenistype bericht in de gebeurtenis is een exacte overeenkomst voor een van de namen van deze gebeurtenis. Wordt een fout gegenereerd als de naam van gebeurtenis komt niet overeen met de namen van de geregistreerde gebeurtenis type voor de gebeurtenisbron. Standaard komt overeen met alle gebeurtenistypen. |
+| subjectBeginsWith | string | Een voorvoegselovereenkomst filteren op het onderwerpveld in de gebeurtenis bericht. De standaard- of lege tekenreeks komt overeen met alle. | 
+| subjectEndsWith | string | Een achtervoegsel-match filteren op het onderwerpveld in de gebeurtenis bericht. De standaard- of lege tekenreeks komt overeen met alle. |
+| isSubjectCaseSensitive | string | Hoofdlettergevoelige overeenkomende filters voor besturingselementen. |
 
 
-## <a name="example-subscription-schema"></a>Voorbeeld abonnement schema
+## <a name="example-subscription-schema"></a>Voorbeeld abonnementsschema
 
 ```json
 {
@@ -78,4 +78,4 @@ Het artikel beschrijft de eigenschappen en het schema voor de hoofdtekst van de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)
+* Zie voor een inleiding tot Event Grid, [wat is Event Grid?](overview.md)

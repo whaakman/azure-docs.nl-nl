@@ -1,21 +1,22 @@
 ---
 title: Containers configureren
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Configuratie-instellingen voor de Text Analytics-containers.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Text Analytics biedt elke container met een gemeenschappelijk framework van de configuratie, zodat u eenvoudig kunt configureren en beheren van instellingen voor opslag, logboekregistratie en Telemetrie en beveiliging voor uw containers.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 61f435c55d7925554facd9bbaa63767023a779d4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965016"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086671"
 ---
 # <a name="configure-containers"></a>Containers configureren
 
@@ -76,7 +77,7 @@ De configuratie-instellingen in de `ApplicationInsights` sectie kunt u om toe te
 
 De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `ApplicationInsights` sectie.
 
-| Naam | Gegevenstype | Beschrijving |
+| Name | Gegevenstype | Description |
 |------|-----------|-------------|
 | `InstrumentationKey` | Reeks | De instrumentatiesleutel van de Application Insights-exemplaar aan welke telemetrie gegevens voor de container is verzonden. Zie voor meer informatie, [Application Insights voor ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
 
@@ -86,7 +87,7 @@ De `Authentication` configuratie-instellingen bieden opties voor Azure-beveiligi
 
 De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `Authentication` sectie.
 
-| Naam | Gegevenstype | Beschrijving |
+| Name | Gegevenstype | Description |
 |------|-----------|-------------|
 | `ApiKey` | tekenreeks of matrix | De Azure-abonnementssleutels die door de container worden gebruikt voor toegang tot andere Azure-resources, indien nodig op de container.<br/> Als meer dan één abonnementssleutel wordt gebruikt door de container, is klikt u vervolgens deze waarde opgegeven als een matrix met tekenreeksen; anders wordt wordt een string-waarde gebruikt om op te geven van een enkel abonnement-sleutel die wordt gebruikt door de container. |
 
@@ -104,7 +105,7 @@ De `Eula` configuratie-instelling geeft aan dat u de licentie voor de container 
 > [!IMPORTANT]
 > De [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), en [ `Eula` ](#eula-configuration-setting) configuratie-instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie Deze; anders start uw container niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](how-tos/text-analytics-how-to-install-containers.md#billing).
 
-Cognitive Services-containers zijn in licentie gegeven onder uw overeenkomst voor uw gebruik van Azure. Als u een bestaande overeenkomst voor uw gebruik van Azure hebt, gaat u ermee akkoord dat uw overeenkomst voor gebruik van Azure de Microsoft Online Subscription overeenkomst is (dit omvat de voorwaarden voor onlineservices). Voor Preview-versies, gaat u ook akkoord met de aanvullende gebruiksvoorwaarden voor Microsoft Azure-Previews. Met behulp van de container gaat u akkoord met deze voorwaarden.
+Cognitive Services-containers zijn in licentie gegeven onder [uw overeenkomst](https://go.microsoft.com/fwlink/?linkid=2018657) voor uw gebruik van Azure. Als u een bestaande overeenkomst voor uw gebruik van Azure hebt, gaat u ermee akkoord dat uw overeenkomst voor gebruik van Azure is de [Microsoft Online Subscription overeenkomst](https://go.microsoft.com/fwlink/?linkid=2018755) (waarin de [voorwaarden voor onlineservices ](https://go.microsoft.com/fwlink/?linkid=2018760)). Voor Preview-versies, gaat u ook akkoord met de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://go.microsoft.com/fwlink/?linkid=2018815). Met behulp van de container gaat u akkoord met deze voorwaarden.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd configuratie-instellingen
 
@@ -112,7 +113,7 @@ De `Fluentd` sectie beheert configuratie-instellingen voor [Fluentd](https://www
 
 De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `Fluentd` sectie.
 
-| Naam | Gegevenstype | Beschrijving |
+| Name | Gegevenstype | Description |
 |------|-----------|-------------|
 | `Host` | Reeks | De IP-adres of de DNS-hostnaam van de Fluentd-server. |
 | `Port` | Geheel getal | De poort van de Fluentd-server.<br/> De standaardwaarde is 24224. |
@@ -133,7 +134,7 @@ De `Logging` configuratie-instellingen beheren van ASP.NET Core logboekregistrat
   De provider van de JSON-logboekregistratie. Deze provider voor logboekregistratie schrijft logboekgegevens naar het koppelpunt van de uitvoer.  
   De `Disk` logboekregistratie-provider ondersteunt de volgende configuratie-instellingen:  
 
-  | Naam | Gegevenstype | Beschrijving |
+  | Name | Gegevenstype | Description |
   |------|-----------|-------------|
   | `Format` | Reeks | De indeling van de uitvoer voor de logboekbestanden.<br/> **Opmerking:** deze waarde moet worden ingesteld op `json` om in te schakelen van de provider voor logboekregistratie. Als deze waarde is opgegeven zonder ook een koppelpunt uitvoer op te geven bij het instantiëren van een container, wordt er een fout optreedt. |
   | `MaxFileSize` | Geheel getal | De maximale grootte in megabytes (MB) van een logboekbestand. Wanneer de grootte van het huidige logboekbestand voldoet aan of deze waarde overschrijdt, wordt een nieuw logboekbestand wordt gestart door de provider voor logboekregistratie. Als -1 is opgegeven, wordt de grootte van het logboekbestand alleen beperkt door de maximale bestandsgrootte, indien aanwezig, voor het koppelen van de uitvoer. De standaardwaarde is 1. |
@@ -151,7 +152,7 @@ Echter, omdat ze Docker-containers, u kunt gebruiken opslagopties voor Docker, z
 
 De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `Mounts` sectie.
 
-| Naam | Gegevenstype | Beschrijving |
+| Name | Gegevenstype | Description |
 |------|-----------|-------------|
 | `Input` | Reeks | Het doel van de invoer koppelen. De standaardwaarde is `/input`. |
 | `Output` | Reeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. |

@@ -1,21 +1,22 @@
 ---
-title: Azure Cloud Shell-gebruiksgegevens voor LUIS
-titleSuffix: Azure Cognitive Services
+title: Gebruiksgegevens - Cloud Shell
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Informatie over het verkrijgen van informatie over het gebruik in Azure Cloud Shell voor LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: MT
+ms.openlocfilehash: 3264a94c26339bc99a82ebd6770a3cae7d8ab3fb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444381"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086768"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Gegevens over het gebruik van LUIS-service van Azure Cloud Shell
 De Azure-portal kunt u PowerShell-cmdlets gebruiken om te werken met LUIS-resources. 

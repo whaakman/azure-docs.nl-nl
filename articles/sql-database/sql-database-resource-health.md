@@ -3,7 +3,7 @@ title: Azure Resource Health gebruiken voor het bewaken van de gezondheid van SQ
 description: Azure Resource Health gebruiken voor het bewaken van de status van de SQL-Database, kunt u vaststellen en ondersteuning krijgen wanneer een Azure-probleem gevolgen heeft voor uw SQL-resources.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632625"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083883"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health oplossen met connectiviteit voor Azure SQL Database gebruiken
 
@@ -41,7 +41,7 @@ De status van **beschikbaar** betekent dat aanmeldingen storingen als gevolg van
 
 ### <a name="degraded"></a>Verminderd
 
-De status van **gedegradeerd** betekent dat een meerderheid van geslaagde aanmeldingen, maar in sommige gevallen ook de resourcestatus heeft gedetecteerd. Dit zijn de meest waarschijnlijke tijdelijke aanmeldingsfouten. Als u wilt de impact van problemen met verbindingen is veroorzaakt door tijdelijke aanmeldingsfouten voorkomen, implementeert u [logica voor opnieuw proberen](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) in uw code.
+De status **Gedegradeerd** betekent dat Resource Health een meerderheid aan geslaagde aanmeldingen, maar ook een aantal mislukte aanmeldingen, heeft gedetecteerd. Dit zijn de meest waarschijnlijke tijdelijke aanmeldingsfouten. Als u wilt de impact van problemen met verbindingen is veroorzaakt door tijdelijke aanmeldingsfouten voorkomen, implementeert u [logica voor opnieuw proberen](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) in uw code.
 
 ![Verminderd](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
@@ -63,20 +63,20 @@ U kunt toegang tot maximaal 14 dagen van de geschiedenis van in de sectie van de
 
 ### <a name="downtime-reasons"></a>Oorzaken downtime
 
-Wanneer uw SQL-Database downtime optreedt, uitgevoerd om een reden vast te stellen. Wanneer deze beschikbaar is, wordt de reden downtime gerapporteerd in de sectie Geschiedenis van Resource Health. Downtime redenen zijn doorgaans gepubliceerde 30 minuten na een gebeurtenis.
+Wanneer uw SQL-Database downtime optreedt, uitgevoerd om een reden vast te stellen. Wanneer deze beschikbaar is, wordt de reden downtime gerapporteerd in de sectie Geschiedenis van Resource Health. Redenen voor downtime worden doorgaans 30 minuten na een gebeurtenis gepubliceerd.
 
 #### <a name="planned-maintenance"></a>Gepland onderhoud
 
-De Azure-infrastructuur wordt periodiek uitgevoerd voor gepland onderhoud: upgraden van hardware of software-onderdelen in het datacenter. Terwijl de database onderhoud ondergaat, kan de SQL beëindigen van sommige bestaande verbindingen en de nieuwe weigeren. De aanmelding fouten opgetreden tijdens het geplande onderhoud zijn gewoonlijk tijdelijk en logica voor opnieuw proberen vermindert de gevolgen. Als u aanmeldingsfouten zich blijft voordoen, neem contact op met ondersteuning.
+De Azure-infrastructuur wordt periodiek uitgevoerd voor gepland onderhoud: upgraden van hardware of software-onderdelen in het datacenter. Terwijl de database onderhoud ondergaat, kan de SQL beëindigen van sommige bestaande verbindingen en de nieuwe weigeren. De mislukte aanmeldpogingen bij opgetreden tijdens het geplande onderhoud zijn gewoonlijk tijdelijk en [logica voor opnieuw proberen](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) helpt de impact te verminderen. Als u aanmeldingsfouten zich blijft voordoen, neem contact op met ondersteuning.
 
 #### <a name="reconfiguration"></a>Herconfiguratie
 
-Wanneer worden beschouwd als tijdelijke omstandigheden, en van tijd tot tijd worden verwacht. Deze gebeurtenissen kunnen worden geactiveerd door load balancing- of software/hardwarestoringen. Productie met elke clienttoepassing die verbinding met een cloudservice voor de database maakt moet een logica voor opnieuw proberen van robuuste verbinding met uitstellogica implementeren, zoals deze zou zodat deze situaties worden verminderd en over het algemeen de fouten transparant voor de eindgebruiker moet.
+Wanneer worden beschouwd als tijdelijke omstandigheden, en van tijd tot tijd worden verwacht. Deze gebeurtenissen kunnen worden geactiveerd door load balancing- of software/hardwarestoringen. Productie met elke clienttoepassing die verbinding met een database in de cloud maakt moet een robuuste verbinding implementeren [logica voor opnieuw proberen](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), zoals deze zou zodat deze situaties worden verminderd en over het algemeen de fouten transparant voor de eindgebruiker moet.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [Pogingslogica voor tijdelijke problemen](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
-- [Problemen oplossen, opsporen en voorkomen van SQL-verbindingsfouten](./sql-database-connectivity-issues.md)
+- [SQL-verbindingsfouten opsporen, diagnose vaststellen en problemen oplossen](./sql-database-connectivity-issues.md)
 - Meer informatie over [Resource Health waarschuwingen configureren](/articles/service-health/resource-health-alert-arm-template-guide.md)
 - Bekijk een overzicht van [Resource Health](/articles/service-health/resource-health-overview.md)
 - [Resource Health Veelgestelde vragen](/articles/service-health/resource-health-faq.md)

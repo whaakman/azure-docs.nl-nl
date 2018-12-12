@@ -1,21 +1,22 @@
 ---
-title: Oplossen van de Spraakservice-SDK
+title: De spraak-SDK - Speech Services oplossen
 titleSuffix: Azure Cognitive Services
-description: Problemen met de Spraakservice-SDK.
+description: Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-Service-SDK gebruiken.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f0cea263262d83d9a95012f6cd09fa9acdc0141
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464568"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095480"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Oplossen van de Spraakservice-SDK
 
@@ -23,7 +24,7 @@ Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die m
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout: De WebSocket-Upgrade is mislukt met een verificatiefout (403)
 
-Mogelijk hebt u het juiste eindpunt voor uw regio of de service. Controleer de URI om te controleren of dat deze juist is. 
+Mogelijk hebt u het juiste eindpunt voor uw regio of de service. Controleer de URI om te controleren of dat deze juist is.
 
 Bovendien kan er een probleem met uw abonnementssleutel of autorisatie token. Zie de volgende sectie voor meer informatie.
 
@@ -78,19 +79,19 @@ Als u een verificatietoken voor de verificatie gebruikt, voert u een van de volg
     ```Powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
-    
+
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
       'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-    
+
     # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-    
+
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-    
+
     # Show the result.
     $RecoResponse
     ```
@@ -122,4 +123,3 @@ Dit probleem wordt meestal veroorzaakt door audiogegevens. U kunt deze fout moge
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Opmerkingen bij de release bekijken](releasenotes.md)
-

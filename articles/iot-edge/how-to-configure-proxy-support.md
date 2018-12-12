@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge-apparaten configureren voor netwerk-proxy's | Microsoft Docs
+title: Apparaten configureren voor netwerk-proxy's - Azure IoT Edge | Microsoft Docs
 description: Klik hier voor meer informatie over het configureren van de Azure IoT Edge-runtime en een internetgerichte IoT Edge-modules om te communiceren via een proxyserver.
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913220"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100447"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
@@ -173,7 +174,7 @@ Selecteer voor het configureren van de Edge agent en Edge hub-modules, **geavanc
 
 Voeg de **https_proxy** omgevingsvariabele op de Edge agent- en moduledefinities voor Edge hub. Als u de **UpstreamProtocol** omgevingsvariabele in het bestand config.yaml op uw IoT Edge-apparaat toevoegen die aan de definitie van de Edge agent-module te. 
 
-![Omgevingsvariabelen instellen](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Set https_proxy-omgevingsvariabele](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 Alle andere modules die u aan een manifest van de implementatie toevoegt volgen hetzelfde patroon. Op de pagina waar u de modulenaam van de en de installatiekopie instellen, moet u er een sectie van de variabelen voor de omgeving is.
 

@@ -1,5 +1,5 @@
 ---
-title: Geen abonnementen gevonden fout wanneer probeert te melden bij Azure portal of Azure-accountcentrum | Microsoft Docs
+title: Geen abonnementen gevonden fout - Azure portal aanmelden | Microsoft Docs
 description: Is de oplossing voor een probleem opgetreden bij het waarin er geen abonnementen gevonden fout treedt op wanneer zich aanmelden bij Azure portal of Azure-accountcentrum.
 services: ''
 documentationcenter: ''
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581779"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081299"
 ---
-# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Geen abonnementen gevonden fout in Azure portal of Azure-accountcentrum
+# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Geen abonnementen gevonden sign in fout voor Azure-portal of Azure-accountcentrum
 
 Mogelijk krijgt u een foutbericht 'Er zijn geen abonnementen gevonden' weergegeven wanneer u probeert te melden bij de [Azure-portal](https://portal.azure.com/) of de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions). In dit artikel biedt een oplossing voor dit probleem.
 

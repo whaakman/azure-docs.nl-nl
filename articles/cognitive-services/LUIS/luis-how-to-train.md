@@ -1,21 +1,22 @@
 ---
-title: Uw LUIS-versie trainen
-titleSuffix: Azure Cognitive Services
+title: App trainen
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Training is het proces van uw app-versie van de Language Understanding (LUIS) voor het verbeteren van de natuurlijke taal begrijpen lessen. Uw LUIS-app na updates voor het model zoals toevoegen, bewerken, labels of verwijderen van entiteiten, intents of uitingen trainen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: MT
+ms.openlocfilehash: 9affaaaf38fbba8a374824aeccf70663693e1cb0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426084"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092550"
 ---
 # <a name="train-your-luis-app-version"></a>Uw LUIS-app-versie trainen
 

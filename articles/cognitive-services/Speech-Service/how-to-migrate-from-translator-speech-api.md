@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: dec903d8557145701e06ddd588a58eb11fef96f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415471"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879300"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migreren van de Translator Speech-API naar de Speech-Service
 
@@ -45,7 +45,7 @@ In dit artikel gebruiken voor het migreren van uw toepassingen uit de Microsoft 
 | Timing info                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
 | Correlatie-id                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Aangepaste spraakmodellen                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | De spraak-Service biedt aangepaste spraakmodellen waarmee u kunt aanpassen spraakherkennings op het vocabulaire van uw organisatie.                                                                                                                                           |
-| Aangepaste omzettingsmodellen                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Kunt u zich abonneert op de Spraakomzettings-API van Microsoft tekst [aangepaste Translator](https://www.microsoft.com/translator/business/customization/) (momenteel in preview) met uw eigen gegevens voor nauwkeurigere vertalingen.                                                 |
+| Aangepaste omzettingsmodellen                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Kunt u zich abonneert op de Spraakomzettings-API van Microsoft tekst [aangepaste Translator](https://www.microsoft.com/translator/business/customization/) met uw eigen gegevens voor nauwkeurigere vertalingen.                                                 |
 
 ## <a name="migration-strategies"></a>Migratiestrategieën
 

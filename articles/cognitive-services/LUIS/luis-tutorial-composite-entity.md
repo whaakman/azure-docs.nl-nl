@@ -1,21 +1,22 @@
 ---
-title: 'Zelfstudie 6: Samengestelde gegevens met LUIS samengestelde entiteit ophalen'
+title: Samengestelde entiteit'
 titleSuffix: Azure Cognitive Services
 description: Voeg een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen te bundelen in een enkele containerentiteit. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423498"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079208"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Zelfstudie 6: Groeperen en gerelateerde gegevens ophalen
 In deze zelfstudie voegt u een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen in een enkele containerentiteit bundelen. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
@@ -70,7 +71,7 @@ De verplaatsingsaanvraag moet bevatten van de medewerkers (met behulp van een sy
 
 De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en terug in de `RequestEmployeeMove` samengestelde entiteit:
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en terug in 
 
 3. Selecteer het pictogram met Vergrootglas op de werkbalk om de lijst uitingen te filteren. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Schermafbeelding van LUIS op 'MoveEmployee' doel met de knop Vergrootglas gemarkeerd")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![Schermafbeelding van LUIS op 'MoveEmployee' doel met de knop Vergrootglas gemarkeerd](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot van LUIS op 'MoveEmployee' doel met de knop Vergrootglas gemarkeerd")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Voer `tomorrow` in het filtertekstvak om te vinden van de utterance `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Schermafbeelding van LUIS op het doel van 'MoveEmployee' filter 'morgen' is gemarkeerd")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![Schermafbeelding van LUIS op het doel van 'MoveEmployee' filter 'morgen' gemarkeerd](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot van LUIS op het doel van 'MoveEmployee' filter 'morgen' is gemarkeerd")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     Een andere methode is om te filteren van de entiteit op datetimeV2, door te selecteren **entiteit filters** Selecteer **datetimeV2** in de lijst. 
 
 5. Selecteer de eerste entiteit `Employee`en selecteer vervolgens **verpakken in samengestelde entiteit** in de lijst met het pop-upmenu. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Schermafbeelding van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Schermafbeelding van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Selecteer vervolgens de laatste entiteit onmiddellijk `datetimeV2` in de utterance. Een groene menubalk wordt onder de geselecteerde woorden die wijzen op een samengestelde entiteit getekend. Voer in het pop-upmenu, de naam van de samengestelde `RequestEmployeeMove` en selecteer enter. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Schermafbeelding van LUIS op 'MoveEmployee' doel selecteren van de laatste entiteit in samengestelde en het maken van het entiteit is gemarkeerd")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Schermafbeelding van LUIS op 'MoveEmployee' doel selecteren van de laatste entiteit in samengestelde en het maken van entiteit gemarkeerd](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot van LUIS op 'MoveEmployee' doel selecteren van de laatste entiteit in samengestelde en het maken van entiteit is gemarkeerd")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. In **welk type entiteit wilt u maken?**, bijna alle velden die vereist zijn in de lijst. Alleen de oorspronkelijke locatie ontbreekt. Selecteer **toevoegen van een onderliggende entiteit**, selecteer **Locations::Origin** uit de lijst met bestaande entiteiten, selecteert u vervolgens **gedaan**. 
 
@@ -135,15 +136,15 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en terug in 
 
 1. Selecteer de meest linkse-entiteit die in de samengestelde worden moet in elke utterance voorbeeld. Selecteer vervolgens **verpakken in samengestelde entiteit**.
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Schermafbeelding van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![Schermafbeelding van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Selecteer het laatste woord in de samengestelde entiteit en selecteer vervolgens **RequestEmployeeMove** in het pop-upmenu. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Schermafbeelding van LUIS op 'MoveEmployee' doel selecteren van de laatste entiteit in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Schermafbeelding van LUIS op 'MoveEmployee' doel selecteren van de laatste entiteit in samengestelde gemarkeerd](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot van LUIS op 'MoveEmployee' doel selecteren van de laatste entiteit in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Controleer of dat alle uitingen in het doel zijn gelabeld met de samengestelde entiteit. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Schermafbeelding van LUIS op 'MoveEmployee' met alle uitingen met het label")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![Schermafbeelding van LUIS op 'MoveEmployee' met alle uitingen met het label](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot van LUIS op 'MoveEmployee' met alle uitingen met het label")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>Trainen
 
@@ -161,7 +162,7 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en terug in 
 
     Omdat deze test om te controleren of dat de samengestelde correct wordt opgehaald, kan een test ofwel een bestaande voorbeeld-utterance of een nieuwe utterance bevatten. Er is een goede test om op te nemen van de onderliggende entiteiten in de samengestelde entiteit.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

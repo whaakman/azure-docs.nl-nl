@@ -1,21 +1,22 @@
 ---
-title: Werk samen met andere inzenders aan apps van LUIS
-titleSuffix: Azure Cognitive Services
+title: Samenwerken met anderen
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Eigenaar van een app kunt deelnemers toevoegen aan de app. Deze medewerkers kunnen wijzigen het model te trainen en publiceren van de app.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b7d108bfc0c4283e7856b93daba3f4f92af4cc5b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042190"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086416"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Auteurs en deelnemers beheren 
 
@@ -31,7 +32,7 @@ Een app kunt heeft een enkel auteur, de eigenaar, maar veel deelnemers. Als u wi
 
 2. Selecteer **Samenwerker toevoegen** via de werkbalk.
 
-    [![](./media/luis-how-to-collaborate/add-collaborator.png "De samenwerker toevoegen")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+    [![De samenwerker toevoegen](./media/luis-how-to-collaborate/add-collaborator.png "samenwerker toevoegen")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 3. Voer het e-mailadres dat de samenwerker wordt gebruikt om u te melden bij de LUIS-portal.
 

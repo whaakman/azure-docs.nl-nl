@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld van een Jupyter-notebooks voor Azure-laptops | Microsoft Docs
+title: Voorbeeld van een Jupyter-notebooks voor Azure-laptops
 description: Voorbeelden zijn een uitstekende manier om Jupyter-notebooks met in de gratis Azure-Notebooks cloudservices.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c355996d7d02a4027e4b2be49dc5c661cce64abe
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8ba94cd94003ee51a621923d3b1dbf2a402c5cfb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855978"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082323"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detecteren en voorbeeldnotitieblokken gebruiken
 
@@ -32,10 +32,10 @@ Wanneer u een laptop die u graag zou willen verkennen hebt geïdentificeerd, vin
 ## <a name="great-sample-notebooks"></a>Geweldige voorbeeldnotitieblokken
 
 - [Azure notitieblokken startsets](https://notebooks.azure.com/#sample-redirect) bevat inleidende informatie over Python, R, en F#, samen met notitieblokken demonstreren data access, Azure Machine Learning-Services en een paar data science oefeningen.
-- [Inleiding tot Jupyter-notebooks](http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
+- [Inleiding tot Jupyter-notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
 - [Inleiding tot Data Science](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings) door Jake Vanderplas.
 - [Galerie van interessante notitieblokken](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Jupyter-project op GitHub)
-- [nbviewer.jupyter.org](http://nbviewer.jupyter.org)
+- [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Fysieke van instructie van de [Physics afdeling op het Britse College London](https://notebooks.azure.com/cvanbreu/libraries)
 - [Azure Machine Learning aan de slag met voorbeelden](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
 

@@ -1,20 +1,21 @@
 ---
-title: Azure Disk Encryption met Azure AD-App voor Windows IaaS-VM's (vorige versie) inschakelen | Microsoft Docs
+title: Azure Disk Encryption met Azure AD App Windows IaaS-VM's (vorige versie)
 description: In dit artikel vindt u instructies over het inschakelen van Microsoft Azure Disk Encryption voor Windows IaaS-VM's.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/04/2018
-ms.openlocfilehash: 407ea9adaaae4df15054dc4da3391b870dd8dcc7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 347fe1de15661d63ac96444f704e2da919fc54bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622139"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083951"
 ---
-#  <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Azure Disk Encryption voor Windows IaaS-VM's (vorige versie) inschakelen
+# <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Azure Disk Encryption voor Windows IaaS-VM's (vorige versie) inschakelen
 
 **De nieuwe versie van Azure Disk Encryption wordt voorkomen dat de vereiste voor het ontwikkelen van een Azure AD-toepassing-parameter voor schijfversleuteling van VM inschakelen. Met de nieuwe versie kunt u niet langer moet Azure AD-referenties opgeven tijdens de stap van de versleuteling inschakelen. Alle nieuwe virtuele machines moeten worden versleuteld zonder de parameters van Azure AD-toepassing met behulp van de nieuwe versie. Voor instructies voor het inschakelen van versleuteling van de VM-schijf met behulp van de nieuwe versie, raadpleegt u [Azure Disk Encryption voor Windows-VM's](azure-security-disk-encryption-windows.md). Virtuele machines die al zijn versleuteld met Azure AD-toepassing parameters worden nog steeds ondersteund en worden onderhouden met de syntaxis van de AAD moeten blijven.**
 
@@ -50,7 +51,7 @@ Schijfversleuteling voor de nieuwe Windows van IaaS-VM vanuit de Marketplace in 
      -  Selecteer de virtuele machine en klik vervolgens op **schijven** onder de **instellingen** kop om te controleren of de status voor schijfversleuteling in de portal. In de grafiek onder **versleuteling**, ziet u of deze ingeschakeld. 
            ![Azure portal - schijf versleuteling ingeschakeld](./media/azure-security-disk-encryption/disk-encryption-fig2.png) de volgende tabel bevat de parameters van de Resource Manager-sjabloon voor nieuwe virtuele machines uit de Marketplace-scenario met behulp van Azure AD-client-ID:
 
-| Parameter | Beschrijving | 
+| Parameter | Description | 
 | --- | --- |
 | adminUserName | De beheerdersnaam voor de virtuele machine. |
 | adminPassword | Beheerderswachtwoord voor de virtuele machine. |
@@ -166,7 +167,7 @@ U kunt inschakelen schijfversleuteling voor de bestaande of IaaS Windows-VM's ui
 
 De volgende tabel bevat de Resource Manager-Sjabloonparameters voor bestaande of uitvoeren van virtuele machines die gebruikmaken van een Azure AD-client-ID:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | AADClientID | Client-ID van de Azure AD-toepassing met machtigingen voor geheimen schrijven naar de key vault. |
 | AADClientSecret | Clientgeheim van de Azure AD-toepassing met machtigingen voor geheimen schrijven naar de key vault. |
@@ -211,7 +212,7 @@ U kunt schijfversleuteling op uw versleutelde VHD inschakelen met behulp van de 
 
 De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor uw versleutelde VHD:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | newStorageAccountName | De naam van het opslagaccount voor het opslaan van de versleutelde OS VHD. Dit opslagaccount moet al zijn gemaakt in dezelfde resourcegroep en dezelfde locatie als de virtuele machine. |
 | osVhdUri | De URI van de VHD met het besturingssysteem van het opslagaccount. |

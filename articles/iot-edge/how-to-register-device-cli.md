@@ -1,6 +1,6 @@
 ---
-title: Registreer een nieuwe Azure IoT Edge-apparaat (CLI) | Microsoft Docs
-description: De IoT-extensie voor Azure CLI gebruiken om een nieuwe IoT Edge-apparaat te registreren
+title: Registreren van een nieuw apparaat uit vanaf de opdrachtregel - Azure IoT Edge | Microsoft Docs
+description: De IoT-extensie voor Azure CLI gebruiken om te registreren van een nieuwe IoT Edge-apparaat en de verbindingsreeks ophalen
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 28f20157de603cf20cb33e9db569064f87922bf8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569247"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081830"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Een nieuw Azure IoT Edge-apparaat registreren bij Azure CLI
 
@@ -43,7 +44,7 @@ Met deze opdracht worden drie parameters:
 * **naam van de hub**: Geef de naam van uw IoT-hub.
 * **Edge-functionaliteit**: deze parameter geeft aan dat het apparaat voor gebruik met IoT Edge.
 
-   ![Een IoT Edge-apparaat maken](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![AZ iot hub device-identity maken uitvoer](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## <a name="view-all-devices"></a>Alle apparaten weergeven
 

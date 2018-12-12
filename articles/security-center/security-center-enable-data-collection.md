@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27d27f582c1306d8a8370567fd9c6858ad439ca8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 40f3275b2f16a80f1199afdc0d7965cbd4433f50
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851142"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082444"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -261,7 +261,7 @@ U kunt Microsoft Monitoring Agent, handmatig installeren, zodat Security Center 
     a.  [De extensie van de OMS-virtuele machine voor Windows installeren](../virtual-machines/extensions/oms-windows.md)
     
     b.  [De extensie van de OMS-virtuele machine voor Linux installeren](../virtual-machines/extensions/oms-linux.md)
-5.  Volg de instructies in voor het implementeren van de extensies op bestaande virtuele machines, [gegevens verzamelen over Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md).
+5.  Volg de instructies in voor het implementeren van de extensies op bestaande virtuele machines, [gegevens verzamelen over Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
   > [!NOTE]
   > De sectie **gebeurtenissen en prestatiegegevens verzamelen** is optioneel.

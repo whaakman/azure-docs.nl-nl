@@ -1,21 +1,22 @@
 ---
-title: Over Spraakomzetting
+title: Over Spraakomzetting - spraakservices
 titlesuffix: Azure Cognitive Services
-description: Een overzicht van de mogelijkheden van de vertaling van gesproken tekst
+description: De spraak-API-Service kunt u end-to-end-, realtime, meerdere talen vertaling van spraak toevoegen aan uw toepassingen, hulpprogramma's en apparaten. Dezelfde API kan worden gebruikt voor zowel spraak-naar-spraak- en spraak naar tekst converteren.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 9d94105377597ca8e79cc43ed0903371e185d510
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469132"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086705"
 ---
 # <a name="about-the-speech-translation-api"></a>Over de Spraakomzettings-API
 

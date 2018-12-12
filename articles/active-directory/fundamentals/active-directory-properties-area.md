@@ -1,6 +1,6 @@
 ---
-title: Privacy-informatie van uw organisatie in Azure Active Directory toevoegen | Microsoft Docs
-description: Het privacy-informatie van uw organisatie toevoegen aan het gedeelte Eigenschappen van Azure Active Directory (Azure AD).
+title: Toevoegen van uw organisatie privacy info - Azure Active Directory | Microsoft Docs
+description: Instructies over het toevoegen van uw organisatie privacy-informatie naar het gebied van Azure Active Directory-eigenschappen.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
-ms.custom: it-pro
-ms.openlocfilehash: f32eeee8f02cee32eb05e14aa98387a20cb2e626
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904198"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083832"
 ---
-# <a name="how-to-add-your-privacy-info-using-azure-active-directory"></a>Instructies: Uw privacy-informatie met behulp van Azure Active Directory toevoegen
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Privacy-informatie van uw organisatie met behulp van Azure Active Directory toevoegen
 In dit artikel wordt uitgelegd hoe een tenantbeheerder met betrekking tot privacy-informatie kunt toevoegen aan de tenant Azure Active Directory (Azure AD) van een organisatie, via de Azure-portal.
 
 Wij raden dat u zowel uw globaal privacycontact en de privacyverklaring van uw organisatie, toevoegen, zodat uw interne werknemers en externe gasten uw beleid kunnen bekijken. Omdat privacyverklaringen zijn unieke gemaakt en die is ontworpen voor elk bedrijf, wordt aangeraden u contact opnemen met een advocaat voor hulp.

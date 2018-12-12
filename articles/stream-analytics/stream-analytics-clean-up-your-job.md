@@ -1,20 +1,20 @@
 ---
 title: Opschonen van uw Azure Stream Analytics-taak
-description: In dit artikel is een handleiding voor het verwijderen van Azure Stream Analytics-taken.
+description: In dit artikel ziet u verschillende methoden voor het verwijderen van uw Azure Stream Analytics-taken.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/22/2018
-ms.openlocfilehash: 580d05909ff3c94c982be5353b3b5e86a78fc43f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090241"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Opschonen van uw Azure Stream Analytics-taak
 
@@ -31,7 +31,7 @@ Azure Stream Analytics-taken kunnen eenvoudig worden verwijderd via de Azure por
 
 3. Selecteer op de pagina van de Stream Analytics-taak **stoppen** om de taak te stoppen. 
 
-   ![Taak stoppen](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![Azure Stream Analytics-taak stoppen](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Een taak in Azure portal verwijderen
@@ -42,7 +42,7 @@ Azure Stream Analytics-taken kunnen eenvoudig worden verwijderd via de Azure por
 
 3. Selecteer op de pagina van de Stream Analytics-taak **verwijderen** om de taak te verwijderen. 
 
-   ![Taak verwijderen](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![Azure Stream Analytics-taak verwijderen](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Beëindigt of verwijdert u een taak met behulp van PowerShell

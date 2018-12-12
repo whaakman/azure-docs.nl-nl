@@ -1,5 +1,5 @@
 ---
-title: Implementeren van Azure IoT Edge-modules (CLI) | Microsoft Docs
+title: Implementeren van modules uit vanaf de opdrachtregel - Azure IoT Edge | Microsoft Docs
 description: De IoT-extensie voor Azure CLI gebruiken om te implementeren van modules voor een IoT Edge-apparaat
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: f9aa3fff8750dc20053072c939a6db9362a2b0d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564983"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093570"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure IoT Edge-modules met Azure CLI implementeren
 
@@ -117,7 +118,7 @@ Gebruik de volgende opdracht toe te passen van de configuratie op een IoT Edge-a
 
 De apparaat-id-parameter is hoofdlettergevoelig. De inhoud parameter verwijst naar de implementatie van het manifest-bestand dat u hebt opgeslagen. 
 
-   ![Set-modules](./media/how-to-deploy-cli/set-modules.png)
+   ![AZ iot edge set-modules uitvoer](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Modules weergeven op uw apparaat
 
@@ -131,7 +132,7 @@ De modules op uw IoT Edge-apparaat bekijken:
 
 De apparaat-id-parameter is hoofdlettergevoelig.
 
-   ![Modules in lijst weergeven](./media/how-to-deploy-cli/list-modules.png)
+   ![AZ iot hub-module-identity-lijstuitvoer](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

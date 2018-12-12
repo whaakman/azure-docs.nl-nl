@@ -1,6 +1,6 @@
 ---
-title: Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Java | Microsoft Docs
-description: Aan de slag ontvangen van Event Hubs met behulp van Java
+title: Gebeurtenissen ontvangen met Java - Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht voor het maken van een Java-toepassing die gebeurtenissen uit Azure Event Hubs ontvangt.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4768fbb845eb09e8aa3469dc2c4c29c4a323d662
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017301"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081956"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Java
 

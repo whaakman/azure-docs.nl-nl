@@ -1,5 +1,6 @@
 ---
-title: Over het beheren en quota's voor Azure Machine Learning-service aanvragen
+title: Beheren en aanvragen resourcequota
+titleSuffix: Azure Machine Learning service
 description: Deze gebruiksaanwijzing wordt uitgelegd van de verschillende quota voor resources voor Azure Machine Learning en het weergeven en meer quotum aanvragen.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
-ms.openlocfilehash: 516e8a9c73fdeacba38d9c81f5cb2d0b8db106c8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b868e20ebb1054864116957fd671a17e2d980c0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083849"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Beheren en quota's voor Azure-resources aanvragen
 

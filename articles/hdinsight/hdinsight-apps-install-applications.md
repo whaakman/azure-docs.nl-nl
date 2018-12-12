@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1a6b453bb92ca57a1c9be9bff958ac0780ea12e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498042"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093553"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Apache Hadoop-toepassingen van derden installeren op Azure HDInsight
 
@@ -29,7 +29,7 @@ De volgende lijst bevat de gepubliceerde toepassingen:
 * **DATAIKU DDS op HDInsight** kunnen gegevens professionals prototypen maken, bouwen en implementeren van zeer specifieke services die onbewerkte gegevens getransformeerd in bedrijfsvoorspellingen.
 * **Datameer** is een self-servicegebruikers schaalbaar platform voor het voorbereiden, verkennen, en uw gegevens voor analyse van bestuur versnelt de complexe meerdere bronnen gegevens omzetten in waardevolle bedrijfsklare informatie leveren sneller, slimmer insights op een Enterprise-schaal.
 * **H2O kunstmatige intelligentie voor HDInsight (bèta)** H2O Sparkling Water ondersteunt de volgende gedistribueerde algoritmen: GLM, Naïve Bayes, gedistribueerde willekeurige Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Lage positie modellen, detectie van afwijkingen en Autoencoders gegeneraliseerd.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is een datawarehouse in enterprise-ready mogelijk gemaakt door Apache Kylin en Apache Hadoop; het biedt subsecond query latentie op grote schaal gegevensset en gegevensanalyse voor vereenvoudigt zakelijke gebruikers en analisten. 
+* **Kyligence Enterprise**, mogelijk gemaakt door Apache Kylin, direct inzicht brengt op zeer grote gegevenssets voor zakelijke gebruikers en gegevens analisten. Met geavanceerde machine learning-technologie en intelligente gegevensmodellering functionaliteit, verbetert het aanzienlijk de productiviteit van de analyse van big data. 
 * **Paxata Self-service gegevensvoorbereiding**
 * **Spark-taakserver voor Spark-uitvoerder KNIME** Spark-taakserver voor Spark-uitvoerder KNIME wordt gebruikt voor het Analytics-Platform KNIME verbinding met HDInsight-clusters.
 * **Presto stervorm** Presto is een snelle en schaalbare gedistribueerde SQL query-engine. Ontworpen voor de scheiding van opslagruimte en rekenkracht, is Presto ideaal voor het opvragen van gegevens in Azure Data Lake Storage, Azure Blob Storage, SQL en NoSQL-databases en andere gegevensbronnen.

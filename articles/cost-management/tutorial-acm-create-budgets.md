@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f64a82cc3096c3c4d2a47568f4d6d516c685ee04
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: fc38c6278590e213674a2522169f988eaeea9cc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991756"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081350"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -45,7 +45,7 @@ Zie voor meer informatie over het toewijzen van machtigingen aan gegevens van Co
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-- Meld u aan bij Azure Portal op http://portal.azure.com.
+- Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Maken van een budget in de Azure portal
 
@@ -57,23 +57,23 @@ Nadat u budgetten maakt, worden ze een eenvoudige weergave van uw huidige uitgav
 
 Klik op **Add**.
 
-![Budgetten voor kosten beheren](./media/tutorial-acm-create-budgets/budgets01.png)
+![Cost Management budgetten wordt weergegeven in de Azure-portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
 In de **maken budget** venster, voer een naam van het budget en het budgetbedrag. Kies vervolgens een maandelijks, elk kwartaal, of de jaarlijkse duur. Selecteer vervolgens een einddatum. Budgetten moeten ten minste één kosten drempel (% van budget) en een bijbehorende e-mailadres. Eventueel kunt u maximaal vijf drempelwaarden en vijf e-mailadressen in één budget opnemen. Wanneer een budgetdrempelwaarde is bereikt, worden normaal gesproken e-mailmeldingen ontvangen in minder dan acht uur.
 
 Hier volgt een voorbeeld van het maken van een maandelijks budget voor $4500. Een e-mailmelding wordt gegenereerd na het verstrijken van 90% van het budget.
 
-![Voorbeeld voor een maand budget](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Van de voorbeeldinformatie die wordt weergegeven in het budget maken](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 Wanneer u een per kwartaal budget maakt, wordt het werkt op dezelfde manier als een maandelijkse budget. Het verschil is dat het budgetbedrag voor het kwartaal gelijkmatig wordt verdeeld over de drie maanden van het kwartaal. Als u had verwacht, wordt een jaarlijkse budgetbedrag gelijkmatig verdeeld over alle 12 maanden van het kalenderjaar.
 
 Huidige uitgaven op basis van budgetten wordt bijgewerkt wanneer Cost Management bijgewerkte factureringsgegevens ontvangt. Normaal gesproken, dagelijks.
 
-![Huidige uitgaven op basis van budgetten](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Voorbeeld van de gegevens van huidige uitgaven op basis van budgetten](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 Nadat u een budget gemaakt, wordt deze weergegeven in kostenanalyse. Een van de eerste stappen wanneer u met begint het weergeven van uw budget ten opzichte van uw uitgaventrend is [analyseren van uw kosten en uitgaven](quick-acm-cost-analysis.md).
 
-![Budget wordt weergegeven in kostenanalyse](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Voorbeeld van budget en uitgaven wordt weergegeven in kostenanalyse](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 In het voorgaande voorbeeld, moet u een budget voor een abonnement gemaakt. U kunt echter ook een budget voor een resourcegroep maken. Als u maken van een budget voor een resourcegroep wilt, gaat u naar **kostenbeheer en facturering** &gt; **abonnementen** &gt; Selecteer een abonnement > **Resource groepen** > Selecteer een resourcegroep > **budgetten** > en vervolgens **toevoegen** een budget.
 
@@ -81,7 +81,7 @@ In het voorgaande voorbeeld, moet u een budget voor een abonnement gemaakt. U ku
 
 Afhankelijk van het toegangsniveau dat u hebt, kunt u een budget om de eigenschappen te wijzigen. In het volgende voorbeeld wordt zijn een aantal van de eigenschappen alleen-lezen omdat de gebruiker alleen de machtiging Inzender voor het abonnement heeft. Op dit moment de **vervaldatum** is uitgeschakeld en kan niet worden gewijzigd nadat deze is ingesteld.
 
-![Budget: machtiging Inzender bewerken](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Voorbeeld van het bewerken van een budget om verschillende eigenschappen te wijzigen](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

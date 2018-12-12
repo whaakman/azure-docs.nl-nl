@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238396"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864893"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
 Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van PowerShell en leidt u stapsgewijs door de volgende activiteiten:
@@ -222,14 +222,14 @@ De toepassing registreren in Azure Active Directory:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik aan de linkerkant op **App-registraties**. Als u app-registraties niet ziet, klikt u op **meer services**.  
->[!NOTE]
-U moet de directory selecteren die ook het Azure-abonnement bevat waarmee u de sleutelkluis hebt gemaakt. 
+    > [!NOTE]
+    > U moet de directory selecteren die ook het Azure-abonnement bevat waarmee u de sleutelkluis hebt gemaakt. 
 3. Klik op **Nieuwe toepassing registreren**.
 4. Geef op de blade **Maken** een naam voor uw toepassing op, selecteer **WEBTOEPASSING EN/OF WEB-API** (de standaardinstelling) en geef de **AANMELDINGS-URL** voor uw webtoepassing op. Als u deze informatie op dit moment niet hebt, kunt u deze maken voor deze stap (u kunt bijvoorbeeld http://test1.contoso.com opgeven). Het maakt niet uit of deze sites bestaan. 
 
     ![Nieuwe toepassing registreren](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Zorg ervoor dat u **WEBTOEPASSING EN/OF WEB-API** kiest. Als u dat niet doet, wordt de optie **Sleutels** niet weergegeven onder instellingen.
+    > [!WARNING]
+    > Zorg ervoor dat u **WEBTOEPASSING EN/OF WEB-API** kiest. Als u dat niet doet, wordt de optie **Sleutels** niet weergegeven onder instellingen.
 
 5. Klik op de knop **Maken**.
 6. Wanneer de app-registratie is voltooid, ziet u de lijst met geregistreerde apps. Zoek de app die u geregistreerd en klik erop.

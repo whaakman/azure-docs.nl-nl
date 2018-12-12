@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 1565c54779278b440cfe631951e964921cc85720
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 647af189319a1fa7b80b10410ad96f3297c18192
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51709879"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083764"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Maken en beheren van Azure Machine Learning-service werkruimten
 
@@ -36,11 +37,11 @@ Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen abonnement 
 
 1. Selecteer in de filterresultaten **werkruimte van Machine Learning-service** om een lijst met uw werkruimten weer te geven. 
 
-   ![zoeken naar de werkruimte van Azure Machine Learning-service](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Lijst met Azure Machine Learning-service werkruimten](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Bekijk de lijst met werkruimten die zijn gevonden. U kunt filteren op basis van abonnement, resourcegroepen en locaties.  
 
-   ![Lijst met Azure Machine Learning-werkruimte](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Werkruimten weergeven](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Selecteer de werkruimte die u zojuist hebt gemaakt om de eigenschappen ervan weer te geven.
 
@@ -50,7 +51,7 @@ Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen abonnement 
 
 Gebruik de knop verwijderen aan de bovenkant van de werkruimte die u wilt verwijderen.
 
-  ![PNG](media/how-to-manage-workspace/delete-workspace.png)
+  ![Knop verwijderen](media/how-to-manage-workspace/delete-workspace.png)
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen 

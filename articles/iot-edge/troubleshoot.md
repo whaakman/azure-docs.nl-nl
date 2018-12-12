@@ -1,6 +1,6 @@
 ---
-title: Problemen met Azure IoT Edge oplossen | Microsoft Docs
-description: Veelvoorkomende problemen oplossen en informatie over probleemoplossingsvaardigheden voor Azure IoT Edge
+title: Problemen oplossen - Azure IoT Edge | Microsoft Docs
+description: Gebruik dit artikel voor meer informatie over standard diagnostische vaardigheden voor Azure IoT Edge, net als bij het ophalen van Onderdeelstatus en logboeken en oplossen van veelvoorkomende problemen
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a553798a3ac15340805984a0e87312875f82c46c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 448fe3e7d6f3129ce6a40494abcf993f6dc4e4f7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567652"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081400"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -243,7 +244,7 @@ Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virt
 1. Navigeer naar de overzichtspagina van de virtuele machine in Azure portal. 
 2. Selecteer **configureren** onder DNS-naam. Als uw virtuele machine is al een DNS-naam die is geconfigureerd, hoeft u niet te configureren van een nieuwe. 
 
-   ![Configureren van DNS-naam](./media/troubleshoot/configure-dns.png)
+   ![DNS-naam van de virtuele machine configureren](./media/troubleshoot/configure-dns.png)
 
 3. Geef een waarde voor **DNS-naamlabel** en selecteer **opslaan**.
 4. Kopiëren van de nieuwe DNS-naam, de indeling moet  **\<DNSnamelabel\>.\< VM-locatie\>. cloudapp.azure.com**.
@@ -274,7 +275,7 @@ In de gebruikersinterface:
 
 In de portal van *Apparaatdetails*->*Modules instellen*->*geavanceerde instellingen voor Edge-Runtime configureren*, maken van een omgevingsvariabele met de naam *OptimizeForPerformance* die is ingesteld op *false* voor de *Edge Hub*.
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![OptimizeForPerformance ingesteld op false](./media/troubleshoot/optimizeforperformance-false.png)
 
 **OR**
 

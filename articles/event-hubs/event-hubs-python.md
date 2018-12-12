@@ -1,5 +1,5 @@
 ---
-title: Python gebruiken om te verzenden en ontvangen van berichten uit Azure Event Hubs | Microsoft Docs
+title: Python gebruiken om te verzenden en ontvangen van berichten - Azure Event Hubs | Microsoft Docs
 description: Informatie over het verzenden van gebeurtenissen die moeten worden ontvangen van gebeurtenissen uit en vastleggen van gebeurtenissen streamen via Event Hubs met behulp van Python.
 keywords: ''
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 9c9c1bd909222ebb3fed57fb31c4f19404382cd4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a0e2cd7e0c768512e1aafc042fe55338fdc206e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730158"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084971"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Het gebruik van Azure Event Hubs in een Python-toepassing
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie voor meer informatie, [Inleiding tot Event Hubs](event-hubs-what-is-event-hubs.md). 

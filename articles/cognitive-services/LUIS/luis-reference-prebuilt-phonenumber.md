@@ -1,21 +1,22 @@
 ---
-title: LUIS vooraf gemaakte entiteiten telefoon de referentie naar - Azure | Microsoft Docs
+title: Telefoon aantal vooraf gemaakte entiteiten
 titleSuffix: Azure
 description: In dit artikel bevat vooraf gedefinieerde entiteit telefoonnummergegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8fcbaf946f936d7a6d6d883a0416fce9d0c158
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: MT
+ms.openlocfilehash: 3c2a873514c7355cdf7fa08372e1e17409021d56
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441707"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081061"
 ---
 # <a name="phonenumber-entity"></a>Telefoonnummerentiteit
 De `phonenumber` entiteit extraheert tal van telefoonnummers, inclusief landcode. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld uitingen toevoegen aan de toepassing. De `phonenumber` entiteit wordt ondersteund in `en-us` alleen de cultuur. 
@@ -26,7 +27,7 @@ Telefoonnummer wordt beheerd via de [kenmerken tekst](https://github.com/Microso
 ## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Oplossing voor vooraf gedefinieerde phonenumber entiteit
 Het volgende voorbeeld ziet u de resolutie van de **builtin.phonenumber** entiteit.
 
-```JSON
+```json
 {
   "query": "my mobile is 00 44 161 1234567",
   "topScoringIntent": {

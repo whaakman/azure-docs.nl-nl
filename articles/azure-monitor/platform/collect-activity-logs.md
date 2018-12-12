@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5ad39cab343e17040e0086934e50be580590241d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 42a72edd6f9915e45f57a29509f48b3e0b612de3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834142"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088031"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics
 
@@ -52,11 +52,11 @@ Wanneer u zich in de prijscategorie gratis, activiteitenlogboeken niet van toepa
 
 In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet-gegevens voor activiteitenlogboeken verzameld door agents. Alle gegevens die worden gebruikt door de oplossing wordt geleverd rechtstreeks vanuit Azure.
 
-| Verbonden bron | Ondersteund | Beschrijving |
+| Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
 | [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
-| [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
-| [SCOM-beheergroep](../../log-analytics/log-analytics-om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
+| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
+| [SCOM-beheergroep](../../azure-monitor/platform/om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
 | [Azure Storage-account](collect-azure-metrics-logs.md) | Nee | De oplossing verzamelt geen gegevens uit Azure storage. |
 
 ## <a name="prerequisites"></a>Vereisten
@@ -89,7 +89,7 @@ Klik op de **Azure-activiteitenlogboeken** tegel om te openen de **Azure-activit
 
 Gegevens van een activiteitenlogboek wordt alleen weergegeven *nadat* u uw activiteitenlogboeken naar de oplossing, zodat u kunt geen gegevens voordat u vervolgens bekijken hebt geconfigureerd.
 
-| Blade | Beschrijving |
+| Blade | Description |
 | --- | --- |
 | Vermeldingen in het Azure-activiteit | Ziet u een staafdiagram van de bovenkant Azure activiteit logboekvermelding record totalen voor het datumbereik dat u hebt geselecteerd en bevat een overzicht van de bovenste 10 activiteit aanroepers. Klik op het staafdiagram voor het uitvoeren van een logboekzoekopdracht voor <code>AzureActivity</code>. Klik op een item oproepende functie voor het uitvoeren van een logboekzoekopdracht die alle vermeldingen in activiteit voor dat item geretourneerd. |
 | Activiteitenlogboeken op Status | Geeft een ringdiagram voor de status van de Azure-activiteit-logboek voor het datumbereik dat u hebt geselecteerd. Ook geeft een lijst weer van een lijst van de bovenste tien status records. Klik op de grafiek voor het uitvoeren van een logboekzoekopdracht voor <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Klik op een statusitem voor het uitvoeren van een logboekzoekopdracht die alle vermeldingen in activiteit voor die statusrecord retourneren. |

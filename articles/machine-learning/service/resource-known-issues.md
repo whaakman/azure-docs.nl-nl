@@ -1,5 +1,6 @@
 ---
-title: Bekende problemen en probleemoplossing voor Azure Machine Learning-service
+title: Bekende problemen en probleemoplossing
+titleSuffix: Azure Machine Learning service
 description: Een lijst van de bekende problemen, oplossingen, en probleemoplossing voor Azure Machine Learning-service.
 services: machine-learning
 author: j-martens
@@ -10,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 471a7494cefd008e8b32855ff232468701505ce7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 45eb24bb8a49fb59ae44533e59b2760940ee5c1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013386"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097698"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
  
@@ -30,7 +31,7 @@ Azure Machine Learning-SDK voor Python: PyYAML is een project distutils geïnsta
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-## <a name="azure-machine-learning-compute-usage-issue"></a>Azure Machine Learning-Computing gebruik probleem
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemen bij het maken van Azure Machine Learning-Computing
 Er wordt een zeldzaam kans dat sommige gebruikers die hun Azure Machine Learning-werkruimte hebt gemaakt vanuit de Azure-portal voordat u de GA-versie niet mogelijk te maken van Azure Machine Learning-Computing in de werkruimte. U kunt een ondersteuningsaanvraag indient voor de service te verhogen of een nieuwe werkruimte via de Portal of de SDK om de blokkering zelf onmiddellijk te maken. 
 
 ## <a name="image-building-failure"></a>Installatiekopie samenstellen fout

@@ -1,33 +1,23 @@
 ---
-title: Verplaatsen van een openbare peering op Azure ExpressRoute naar Microsoft-peering | Microsoft Docs
+title: Verplaatsen van een openbare peering aan Microsoft-peering - Azure ExpressRoute | Microsoft Docs
 description: Dit artikel laat u de stappen voor het verplaatsen van uw openbare peering aan Microsoft-peering voor ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 579f8874459004ef6bfa0d0794ab09333e053acb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966108"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100018"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Verplaatsen van een openbare peering naar het Microsoft-peering
 
-ExpressRoute biedt ondersteuning voor het gebruik van Microsoft-peering met routefilters voor Azure PaaS-services, zoals Azure Storage en Azure SQL Database. U hebt nu maar één routeringsdomein nodig voor toegang tot Microsoft PaaS- en SaaS-services. U kunt routefilters gebruiken om de PaaS-servicevoorvoegsels selectief te adverteren voor Azure-regio's die u wilt verbruiken.
-
-Dit artikel helpt u de configuratie van een openbare peering naar Microsoft-peering zonder uitvaltijd. Zie voor meer informatie over routering domeinen en peerings [ExpressRoute-circuits en Routeringsdomeinen](expressroute-circuit-peerings.md).
-
+Dit artikel helpt u de configuratie van een openbare peering naar Microsoft-peering zonder uitvaltijd. ExpressRoute biedt ondersteuning voor het gebruik van Microsoft-peering met routefilters voor Azure PaaS-services, zoals Azure Storage en Azure SQL Database. U hebt nu maar één routeringsdomein nodig voor toegang tot Microsoft PaaS- en SaaS-services. U kunt routefilters gebruiken om de PaaS-servicevoorvoegsels selectief te adverteren voor Azure-regio's die u wilt verbruiken. Zie voor meer informatie over routering domeinen en peerings [ExpressRoute-circuits en Routeringsdomeinen](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Voordat u begint
 

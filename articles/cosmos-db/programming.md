@@ -1,25 +1,23 @@
 ---
-title: JavaScript programmeren-server voor Azure Cosmos DB | Microsoft Docs
+title: JavaScript programmeren-server voor Azure Cosmos DB
 description: Informatie over het gebruik van Azure Cosmos DB opgeslagen procedures, databasetriggers en gebruikersgedefinieerde functies (UDF's) in JavaScript schrijven. Get-database programmeren tips en nog veel meer.
 keywords: Triggers, opgeslagen procedure, opgeslagen procedure, database-programma, opgeslagen procedure, azure, Microsoft azure-database
 services: cosmos-db
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: dd1fff79d6f611ae29307d666860d3740f4372f1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f36d6761e61f0de610cb3f612cd069092cdc242
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083696"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB-server-side-programmering: opgeslagen procedures, databasetriggers en UDF's
 
-Leer hoe u met Azure Cosmos DB-taal geïntegreerd, transactionele uitvoering van JavaScript kunt schrijven ontwikkelaars **opgeslagen procedures**, **triggers**, en **gebruikersgedefinieerde functies (UDF's)**  systeemeigen in een [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript-integratie kunt u het schrijven van programmalogica die kan worden verzonden en rechtstreeks in de database-opslag-partities worden uitgevoerd. 
+Leer hoe u met Azure Cosmos DB-taal geïntegreerd, transactionele uitvoering van JavaScript kunt schrijven ontwikkelaars **opgeslagen procedures**, **triggers**, en **gebruikersgedefinieerde functies (UDF's)**  systeemeigen in een [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript-integratie kunt u het schrijven van programmalogica die kan worden verzonden en rechtstreeks in de database-opslag-partities worden uitgevoerd. 
 
 In dit artikel leert u de volgende vragen worden beantwoord:  
 
@@ -46,7 +44,7 @@ Deze benadering van *'JavaScript als een moderne T-SQL-dag'* kunnen ontwikkelaar
 
 Het maken en uitvoeren van de databasetriggers en opgeslagen procedures en aangepaste query's wordt ondersteund door de [Azure-portal](https://portal.azure.com), wordt de [REST-API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), en [client-SDK's](sql-api-sdk-dotnet.md) op verschillende platforms, waaronder .NET, Node.js en JavaScript.
 
-In deze zelfstudie wordt de [Node.js-SDK met Q beloften](http://azure.github.io/azure-documentdb-node-q/) ter illustratie van de syntaxis en het gebruik van opgeslagen procedures, triggers en UDF's.   
+In deze zelfstudie wordt de [Node.js-SDK met Q beloften](https://azure.github.io/azure-documentdb-node-q/) ter illustratie van de syntaxis en het gebruik van opgeslagen procedures, triggers en UDF's.   
 
 ## <a name="stored-procedures"></a>Opgeslagen procedures
 ### <a name="example-write-a-stored-procedure"></a>Voorbeeld: Een opgeslagen procedure schrijven
@@ -668,7 +666,7 @@ De volgende beschrijvingen uitgelegd elke query in de bovenstaande tabel.
 
 
 ## <a name="runtime-support"></a>Runtime-ondersteuning
-De Azure Cosmos DB [JavaScript-API van server side](https://azure.github.io/azure-cosmosdb-js-server/) biedt ondersteuning voor de meeste van de algemene functies van JavaScript taal als gestandaardiseerde door [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+De Azure Cosmos DB [JavaScript-API van server side](https://azure.github.io/azure-cosmosdb-js-server/) biedt ondersteuning voor de meeste van de algemene functies van JavaScript taal als gestandaardiseerde door [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Beveiliging
 JavaScript opgeslagen procedures en triggers zijn sandbox zodat de gevolgen van een script niet naar het andere gelekt kunnen zonder tussenkomst van de snapshot-isolatie voor transactie op het databaseniveau van de. De runtime-omgevingen zijn gegroepeerd, maar na elke uitvoering van de context is verwijderd. Ze worden daarom gegarandeerd veilig van een onbedoelde neveneffecten van elkaar.
@@ -833,7 +831,7 @@ Ook kan nuttig voor u de volgende verwijzingen en resources in het pad voor meer
 
 * [Azure Cosmos DB JavaScript-serverzijde API-naslaginformatie](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-* [Veilige en draagbare Database uitbreidbaarheid](http://dl.acm.org/citation.cfm?id=276339) 
-* [Service Oriented Architecture voor Database](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
-* [De .NET Runtime in Microsoft SQL server die als host fungeert](http://dl.acm.org/citation.cfm?id=1007669)
+* [JavaScript ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* [Veilige en draagbare Database uitbreidbaarheid](https://dl.acm.org/citation.cfm?id=276339) 
+* [Service Oriented Architecture voor Database](https://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+* [De .NET Runtime in Microsoft SQL server die als host fungeert](https://dl.acm.org/citation.cfm?id=1007669)
