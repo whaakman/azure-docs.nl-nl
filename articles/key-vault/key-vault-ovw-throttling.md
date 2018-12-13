@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: bryanla
-ms.openlocfilehash: eba4499a71efc84a142e8839861e33c7d7db5461
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f119e4a5b5c5f97848c588636a3a707428abbd5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011889"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082523"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault-beperkingsrichtlijnen
 
@@ -42,7 +42,7 @@ Hieronder vindt u **aanbevolen procedures** voor de beperking van uw app:
 
 Wanneer u foutafhandeling van uw app kunt implementeren, gebruikt u de HTTP-foutcode 429 voor het detecteren van client-side '-beperking. Als de aanvraag is mislukt opnieuw met een foutcode HTTP 429, ondervindt u nog steeds een limiet voor de Azure-service. Echter ook doorgaan met de aanbevolen client-side methode beperken, de aanvraag opnieuw proberen totdat het is gelukt.
 
-Code implementeren die exponentieel uitstel. In dit voorbeeld [zelfstudie](tutorial-net-create-vault-azure-web-app.md) laten we zien hoe u exponentieel uitstel doet
+Hieronder ziet u code die exponentieel uitstel implementeert. 
 ```
      public async Task OnGetAsync()
      {
@@ -51,7 +51,6 @@ Code implementeren die exponentieel uitstel. In dit voorbeeld [zelfstudie](tutor
          bool retry = false;
          try
          {
-             /* The below 4 lines of code shows you how to use AppAuthentication library to fetch secrets from your Key Vault*/
              AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
              KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
              var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")

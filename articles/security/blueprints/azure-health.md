@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: MT
+ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407551"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891058"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -345,8 +345,8 @@ De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde servi
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [Logboekregistratie is ingeschakeld](/azure/machine-learning/studio/web-services-logging) voor Machine Learning Studio-webservices.
-- met behulp van [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench is vereist voor de ontwikkeling van experimenten, die de mogelijkheid om te voorspellen op een set oplossing biedt. [Integratie van de workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) beheer van experimenten kunt stroomlijnen.
+- [Logboekregistratie is ingeschakeld](/azure/machine-learning/studio/web-services-logging) voor Machine Learning Studio-webservices.
+- Met behulp van [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) de ontwikkeling van experimenten die bieden de mogelijkheid om te voorspellen op een set oplossing vereist.
 
 ## <a name="security"></a>BEVEILIGING
 
