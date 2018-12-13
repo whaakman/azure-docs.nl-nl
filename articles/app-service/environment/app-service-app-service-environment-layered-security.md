@@ -1,6 +1,6 @@
 ---
-title: Gelaagde beveiligingsarchitectuur met App Service-omgevingen
-description: Het implementeren van een gelaagd beveiligingsarchitectuur met App Service-omgevingen.
+title: Gelaagde beveiligingsarchitectuur met App Service-omgevingen - Azure
+description: Het implementeren van een gelaagde beveiligingsarchitectuur met App Service-omgevingen.
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,54 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
-ms.openlocfilehash: 29c928c7d81eb3a2532f735be9132b49db5da373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec18
+ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356202"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274154"
 ---
-# <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementatie van een gelaagd beveiligingsarchitectuur met App Service-omgevingen
+# <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Een gelaagde beveiligingsarchitectuur met App Service-omgevingen implementeren
 ## <a name="overview"></a>Overzicht
-Omdat App Service-omgevingen een geïsoleerde runtime-omgeving in een virtueel netwerk geïmplementeerd bieden, kunnen ontwikkelaars een gelaagd beveiligingsarchitectuur bieden verschillende niveaus van toegang tot het netwerk voor elke toepassingslaag fysieke maken.
+Omdat App Service-omgevingen een geïsoleerde runtime-omgeving die is geïmplementeerd in een virtueel netwerk bieden, kunnen ontwikkelaars een gelaagde beveiligingsarchitectuur bieden verschillende niveaus van toegang tot het netwerk voor elke fysieke toepassingslaag maken.
 
-Een algemene streven is verbergen API back-ends van algemene toegang tot Internet en dat alleen API's om te worden aangeroepen door de upstream-web-apps.  [Netwerkbeveiligingsgroepen (nsg's)] [ NetworkSecurityGroups] op subnetten met App Service-omgevingen kunnen worden gebruikt voor het openbare toegang tot API toepassingen beperken.
+Er is een algemene wens verbergen API back-ends van algemene toegang tot Internet en API's om te worden aangeroepen door de upstream-web-apps alleen toestaan.  [Netwerkbeveiligingsgroepen (nsg's)] [ NetworkSecurityGroups] op subnetten met App Service-omgevingen kunnen worden gebruikt om te beperken van openbare toegang tot API-Apps.
 
-Het volgende diagram toont een voorbeeld-architectuur met een WebAPI op basis van app geïmplementeerd op een App Service-omgeving.  Drie afzonderlijke web app-exemplaren, geïmplementeerd op drie aparte App Service-omgevingen, moeten back-end-aanroepen naar dezelfde WebAPI-app.
+Het volgende diagram toont een voorbeeld-architectuur met een op basis van WebAPI-app geïmplementeerd op een App Service Environment.  Drie afzonderlijke web-app-instanties, geïmplementeerd in drie afzonderlijke App Service-omgevingen, maken back-end aanroepen naar de dezelfde WebAPI-app
 
-![Conceptionele architectuur][ConceptualArchitecture] 
+![Conceptuele architectuur][ConceptualArchitecture] 
 
-Het groen plusteken aangeven dat de netwerkbeveiligingsgroep op het subnet met 'apiase' inkomende aanroepen van de upstream-web-apps, kunt u als goed aanroepen van zichzelf.  Evenwel de dezelfde netwerkbeveiligingsgroep expliciet geweigerd voor toegang tot algemene binnenkomend verkeer vanaf Internet. 
+Het groen plusteken geven aan dat de netwerkbeveiligingsgroep op het subnet met daarin 'apiase' kunt u inkomende aanroepen van de upstream-web-apps als en aanroepen van zichzelf.  De dezelfde netwerkbeveiligingsgroep weigert echter expliciet toegang tot algemene binnenkomend verkeer van Internet. 
 
-De rest van dit artikel wordt begeleid bij de stappen die nodig zijn voor het configureren van de netwerkbeveiligingsgroep op het subnet met 'apiase'.
+De rest van dit artikel helpt bij de stappen die nodig zijn voor het configureren van de netwerkbeveiligingsgroep op het subnet met daarin "apiase."
 
-## <a name="determining-the-network-behavior"></a>Bepalen het gedrag van het netwerk
-Als u wilt weten welke netwerkbeveiligingsregels nodig zijn, moet u bepalen welke netwerkclients kunnen worden bereikt van het App Service-omgeving waarin de API-app en welke clients worden geblokkeerd.
+## <a name="determining-the-network-behavior"></a>De netwerk-gedrag bepalen
+Als u wilt weten welke netwerkbeveiligingsregels nodig zijn, moet u bepalen welke clients in een netwerk kunnen worden bereikt van het App Service-omgeving met de API-app en welke clients worden geblokkeerd.
 
-Aangezien [netwerkbeveiligingsgroepen (nsg's)] [ NetworkSecurityGroups] worden toegepast op subnetten, en App Service-omgevingen in subnetten worden geïmplementeerd, de regels in een NSG van toepassing op **alle** apps uitgevoerd op een App Service-omgeving.  Gebruik de voorbeeldarchitectuur voor dit artikel nadat een netwerkbeveiligingsgroep is toegepast op het subnet met 'apiase' en worden alle apps die worden uitgevoerd op de App Service-omgeving 'apiase' beveiligd door dezelfde set beveiligingsregels voor verbindingen. 
+Aangezien [netwerkbeveiligingsgroepen (nsg's)] [ NetworkSecurityGroups] worden toegepast op subnetten, en App Service-omgevingen in subnetten worden geïmplementeerd, de regels die deel uitmaken van een NSG van toepassing op **alle** apps uitgevoerd op een App Service Environment.  Met behulp van de voorbeeldarchitectuur voor dit artikel, zodra een netwerkbeveiligingsgroep is toegepast op het subnet met daarin "apiase", worden alle apps die worden uitgevoerd op de 'apiase"App Service-omgeving beveiligd door de dezelfde set regels voor beveiliging. 
 
-* **Bepalen van de uitgaande IP-adres van de upstream aanroepers:** wat is de IP-adres of de adressen van de upstream aanroepfuncties?  Deze adressen moet expliciet toegang te krijgen in de NSG.  Omdat aanroepen tussen App Service-omgevingen worden beschouwd als 'Internet' aanroepen, het uitgaande IP-adres toegewezen aan elk van de drie upstream-App Service-omgevingen moet u toegang te krijgen in de NSG voor het subnet 'apiase'.   Zie voor meer informatie over het bepalen van de uitgaande IP-adres voor apps die worden uitgevoerd in een App-serviceomgeving de [netwerkarchitectuur] [ NetworkArchitecture] overzichtsartikel.
-* **De back-end-API-app moet aan te roepen zelf?**  Een punt soms onderbelicht en subtiele is het scenario waarin de back-endtoepassing moet zichzelf.  Als een back-end-API-toepassing op een App-serviceomgeving zichzelf moet, ook behandeld als een aanroep van 'Internet'.  Hiervoor moet de toegang te verlenen vanaf de uitgaande IP-adres van de 'apiase' App Service-omgeving ook uit te voeren in de voorbeeldarchitectuur.
+* **Bepaal de uitgaande IP-adres van de upstream aanroepers:**  Wat is de IP-adres of de adressen van de upstream aanroepers?  Deze adressen moet expliciet toegang zijn toegestaan in de NSG.  Omdat aanroepen tussen App Service-omgevingen worden beschouwd als 'Internet' aanroepen, de uitgaande IP-adres toegewezen aan elk van de drie upstream App Service-omgevingen moet worden toegang is toegestaan in de Netwerkbeveiligingsgroep voor het subnet 'apiase'.   Zie voor meer informatie over het bepalen van de uitgaande IP-adres voor apps die worden uitgevoerd in een App Service Environment, de [netwerkarchitectuur] [ NetworkArchitecture] overzichtsartikel.
+* **Moet de back-end API-app om aan te roepen zelf?**  Een punt Soms vergeten en subtiele is het scenario waar de back-endtoepassing moet zijn om aan te roepen zelf.  Als een back-end-API-toepassing op een App Service-omgeving nodig heeft om aan te roepen zelf, wordt dit ook beschouwd als een aanroep van de 'Internet'.  Hiervoor moet de toegang te verlenen vanaf de uitgaande IP-adres van de 'apiase"App Service-omgeving en uit te voeren in de voorbeeldarchitectuur.
 
 ## <a name="setting-up-the-network-security-group"></a>Instellen van de Netwerkbeveiligingsgroep
-Zodra de set met uitgaande IP-adressen gekend zijn, worden de volgende stap is om een netwerkbeveiligingsgroep samen te stellen.  Netwerkbeveiligingsgroepen kunnen worden gemaakt voor beide Resource Manager virtuele netwerken, evenals klassieke virtuele netwerken gebaseerde.  De volgende voorbeelden tonen maken en configureren van een NSG op een klassiek virtueel netwerk met behulp van Powershell.
+Wanneer de reeks uitgaande IP-adressen zijn bekend is, wordt de volgende stap is om samen te stellen van een netwerkbeveiligingsgroep.  Netwerkbeveiligingsgroepen kunnen worden gemaakt voor beide in Resource Manager virtuele netwerken, evenals een klassieke virtuele netwerken gebaseerde.  De volgende voorbeelden laten zien voor het maken en configureren van een NSG op een klassiek virtueel netwerk met behulp van Powershell.
 
-Voor de voorbeeldarchitectuur staan de omgevingen in Zuid-centraal VS, zodat een lege NSG wordt gemaakt in deze regio:
+Voor de voorbeeldarchitectuur staan de omgevingen in Zuid-centraal VS, zodat een lege NSG wordt gemaakt in die regio:
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-Eerst een expliciete toestaan regel wordt toegevoegd voor de Azure management-infrastructuur zoals aangegeven in het artikel op [binnenkomend verkeer] [ InboundTraffic] voor App Service-omgevingen.
+Eerst een expliciete toestaan regel is toegevoegd voor de Azure management-infrastructuur, zoals vermeld in het artikel op [binnenkomend verkeer] [ InboundTraffic] voor App Service-omgevingen.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
-Vervolgens twee regels worden toegevoegd aan het toestaan van HTTP en HTTPS-aanroepen vanuit de eerste upstream-App Service-omgeving ('fe1ase').
+Vervolgens twee regels worden toegevoegd aan het toestaan van HTTP en HTTPS-aanroepen van de eerste upstream App Service Environment ("fe1ase").
 
     #Grant access to requests from the first upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe1ase" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Spoel en Herhaal voor de tweede en derde upstream-App Service-omgevingen ('fe2ase' en 'fe3ase').
+Spoel en herhalen voor de tweede en derde upstream App Service-omgevingen ("fe2ase" en "fe3ase").
 
     #Grant access to requests from the second upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -71,31 +72,31 @@ Spoel en Herhaal voor de tweede en derde upstream-App Service-omgevingen ('fe2as
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Ten slotte toegang verlenen tot de uitgaande IP-adres van de back-end-API-App Service-omgeving zodat terug naar zichzelf kan worden aangeroepen.
+Ten slotte toegang verlenen tot de uitgaande IP-adres van de back-end-API-App Service-omgeving zodat deze terug naar zichzelf kan aanroepen.
 
     #Allow apps on the apiase environment to call back into itself
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Er zijn geen andere netwerkbeveiligingsregels zijn vereist, omdat elke NSG bevat een set met standaardregels die inkomende toegang via het Internet standaard geblokkeerd.
+Er zijn geen andere netwerkbeveiligingsregels zijn vereist, omdat elke NSG bevat een set met standaardregels die inkomend toegang via Internet, standaard geblokkeerd.
 
-De volledige lijst met regels in de netwerkbeveiligingsgroep worden hieronder weergegeven.  Houd er rekening mee hoe de laatste regel die is gemarkeerd, blokkeert binnenkomende toegang vanaf alle aanroepfuncties, dan aanroepers die expliciet toegang hebben gekregen.
+De volledige lijst met regels in de netwerkbeveiligingsgroep worden hieronder weergegeven.  Houd er rekening mee hoe de laatste regel die is gemarkeerd, blokkeert binnenkomende toegang vanaf alle aanroepers, dan aanroepers die expliciet toegang hebben gekregen.
 
 ![NSG-configuratie][NSGConfiguration] 
 
-De laatste stap wordt de NSG toegepast op het subnet waarin de 'apiase' App Service-omgeving.
+De laatste stap is het toepassen van de NSG op het subnet waarin de 'apiase"App Service-omgeving.
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
 
-Met het NSG wordt toegepast op het subnet, worden alleen de drie upstream-App Service-omgevingen en de App Service-omgeving met de API-back-end, om aan te roepen in de omgeving 'apiase' toegestaan.
+Met de NSG toegepast op het subnet, zijn alleen de drie upstream App Service-omgevingen, en de App Service-omgeving met de API-back-end, aanroep doen naar de omgeving 'apiase' toegestaan.
 
 ## <a name="additional-links-and-information"></a>Aanvullende koppelingen en informatie
 Informatie over [netwerkbeveiligingsgroepen](../../virtual-network/security-overview.md).
 
 Informatie over [uitgaande IP-adressen] [ NetworkArchitecture] en App Service-omgevingen.
 
-[Netwerkpoorten] [ InboundTraffic] die wordt gebruikt door App Service-omgevingen.
+[Netwerkpoorten] [ InboundTraffic] die door App Service-omgevingen worden gebruikt.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

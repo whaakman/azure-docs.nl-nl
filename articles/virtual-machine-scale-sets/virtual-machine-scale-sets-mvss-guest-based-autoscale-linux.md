@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: manayar
-ms.openlocfilehash: 0718ad7112c759dd3fdd363f38b863186ec9a978
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e30fdb684fbabbdcea334115e3f645e63dec6623
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740159"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322633"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Automatisch schalen met metrische gegevens voor gasten in een Linux-schaalsetsjabloon
 
 Er zijn twee soorten metrische gegevens in Azure die worden verzameld van virtuele machines en schaalsets: sommige afkomstig zijn van de host-VM en anderen afkomstig zijn van de Gast-VM. Op hoog niveau, als u standaard CPU, schijf en netwerk metrische gegevens, zijn klikt u vervolgens metrische gegevens voor hosts waarschijnlijk geschikt. Als u echter een grotere selectie van metrische gegevens moet, klikt u vervolgens zijn metrische gegevens voor gasten waarschijnlijk een betere keuze. Laten we eens in de verschillen tussen de twee:
 
-Metrische gegevens voor hosts zijn eenvoudiger en betrouwbaarder. Ze hoeven niet extra instellingen omdat ze worden verzameld door de host-VM, terwijl de metrische gegevens voor gasten vereisen dat u installeert de [Windows Azure Diagnostics-extensie](../virtual-machines/windows/extensions-diagnostics-template.md) of de [Linux Azure Diagnostics-extensie](../virtual-machines/linux/diagnostic-extension.md)in de Gast-VM. Een veelvoorkomende reden voor het gebruik van metrische gegevens voor gasten in plaats van metrische gegevens voor hosts is dat metrische gegevens voor gasten een grotere selectie van metrische gegevens dan metrische gegevens voor hosts bieden. Een voorbeeld is het geheugengebruik metrische gegevens die alleen beschikbaar via de metrische gegevens voor gasten zijn. De metrische gegevens voor ondersteunde hosts staan [hier](../monitoring-and-diagnostics/monitoring-supported-metrics.md), en vindt u metrische gegevens voor veelgebruikte gasten [hier](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Dit artikel wordt beschreven hoe u wijzigt de [minimaal levensvatbare schaalsets sjabloon](./virtual-machine-scale-sets-mvss-start.md) gebruik regels voor automatisch schalen op basis van metrische gegevens voor gasten voor Linux-schaalsets.
+Metrische gegevens voor hosts zijn eenvoudiger en betrouwbaarder. Ze hoeven niet extra instellingen omdat ze worden verzameld door de host-VM, terwijl de metrische gegevens voor gasten vereisen dat u installeert de [Windows Azure Diagnostics-extensie](../virtual-machines/windows/extensions-diagnostics-template.md) of de [Linux Azure Diagnostics-extensie](../virtual-machines/linux/diagnostic-extension.md)in de Gast-VM. Een veelvoorkomende reden voor het gebruik van metrische gegevens voor gasten in plaats van metrische gegevens voor hosts is dat metrische gegevens voor gasten een grotere selectie van metrische gegevens dan metrische gegevens voor hosts bieden. Een voorbeeld is het geheugengebruik metrische gegevens die alleen beschikbaar via de metrische gegevens voor gasten zijn. De metrische gegevens voor ondersteunde hosts staan [hier](../monitoring-and-diagnostics/monitoring-supported-metrics.md), en vindt u metrische gegevens voor veelgebruikte gasten [hier](../azure-monitor/platform/autoscale-common-metrics.md). Dit artikel wordt beschreven hoe u wijzigt de [minimaal levensvatbare schaalsets sjabloon](./virtual-machine-scale-sets-mvss-start.md) gebruik regels voor automatisch schalen op basis van metrische gegevens voor gasten voor Linux-schaalsets.
 
 ## <a name="change-the-template-definition"></a>De sjabloondefinitie van de wijzigen
 
@@ -111,7 +111,7 @@ Wijzig vervolgens de schaalset `extensionProfile` om op te nemen van de extensie
        }
 ```
 
-Voeg een `autoscaleSettings` resource die u wilt configureren voor automatisch schalen op basis van deze metrische gegevens. Deze resource heeft een `dependsOn` component die verwijst naar de schaal instellen om ervoor te zorgen dat de schaalset bestaat voordat u probeert deze te schalen. Als u ervoor kiest een verschillende metrische waarde voor automatisch schalen op, gebruikt u de `counterSpecifier` uit de configuratie van de extensie voor diagnostische gegevens als de `metricName` in de configuratie voor automatisch schalen. Zie voor meer informatie over de configuratie voor automatisch schalen, de [aanbevolen procedures voor automatisch schalen](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) en de [Azure Monitor REST API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Voeg een `autoscaleSettings` resource die u wilt configureren voor automatisch schalen op basis van deze metrische gegevens. Deze resource heeft een `dependsOn` component die verwijst naar de schaal instellen om ervoor te zorgen dat de schaalset bestaat voordat u probeert deze te schalen. Als u ervoor kiest een verschillende metrische waarde voor automatisch schalen op, gebruikt u de `counterSpecifier` uit de configuratie van de extensie voor diagnostische gegevens als de `metricName` in de configuratie voor automatisch schalen. Zie voor meer informatie over de configuratie voor automatisch schalen, de [aanbevolen procedures voor automatisch schalen](..//azure-monitor/platform/autoscale-best-practices.md) en de [Azure Monitor REST API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

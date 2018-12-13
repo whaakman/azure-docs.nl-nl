@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code gebruiken om te trainen en modellen implementeren
+title: Trainen en implementeren van modellen van VS Code
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over Azure Machine Learning voor Visual Studio Code en het starten van training en het implementeren van machine learning en deep learning-modellen in Azure Machine Learning-service met behulp van Visual Studio Code.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 62c3dd051f9f4c06d8d5b5cd08422b34cf565f2f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0910cce92c410a68dce6e2c44d29e72e594cd153
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100664"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271705"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code gebruiken om te trainen en machine learning-modellen implementeren
 
@@ -27,11 +27,11 @@ Als u deze modellen kunt implementeren voor uw behoeften testen en productie.
 
 ## <a name="prerequisites"></a>Vereisten
 
++ Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
+
 + Hebben de [Azure Machine Learning voor VS Code](how-to-vscode-tools.md) extensie instellen.
 
 + Hebben de [Azure Machine Learning-SDK voor Python geïnstalleerd](how-to-vscode-tools.md) met VS Code.
-
-+ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://aka.ms/AMLfree) aan voordat u begint.
 
 ## <a name="create-and-manage-compute-targets"></a>Maken en beheren van compute-doelen
 
@@ -55,7 +55,7 @@ Deze uitbreiding ondersteunt diverse verschillende externe compute-doelen voor A
 
 6. Wanneer u klaar bent uw compute-doel configureren, klikt u op **indienen** in de rechterbenedenhoek.
 
-Hier volgt een voorbeeld van Azure Machine Learning-Computing (AMLCompute): [ ![AML Compute in VS Code maken](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
+Hier volgt een voorbeeld van Azure Machine Learning-Computing (AMLCompute): [![AML Compute in VS Code maken](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
 
 ### <a name="use-remote-computes-for-experiments-in-vs-code"></a>Externe berekeningen voor experimenten in VS Code gebruiken
 
@@ -185,6 +185,6 @@ De webservice is nu geïmplementeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees voor een overzicht van training met Machine Learning buiten de VS Code, [zelfstudie: trainen van modellen met Azure Machine Learning](tutorial-train-models-with-aml.md).
+Lees voor een overzicht van training met Machine Learning buiten de VS Code, [zelfstudie: Trainen met Azure Machine Learning-modellen](tutorial-train-models-with-aml.md).
 
 Voor stapsgewijze instructies voor bewerken, uitvoeren en debuggen van code lokaal, Zie de [Python Hello World-zelfstudie](https://code.visualstudio.com/docs/python/python-tutorial)

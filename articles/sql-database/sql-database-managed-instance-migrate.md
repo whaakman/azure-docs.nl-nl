@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5e2599c2089cbd9961b54966df5f0f98d6badcce
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345302"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274663"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
@@ -117,8 +117,7 @@ Gedrag van toepassingen en prestaties na de migratie bijhouden. In het beheerde 
 
 Migratierisico, verminderen het databasecompatibiliteitsniveau alleen na het bewaking van toepassingsprestaties te wijzigen. Gebruik Query Store als optimale hulpprogramma voor het ophalen van informatie over de prestaties van de werkbelasting voor en na database compatibility level wijzigen, zoals uitgelegd in [prestaties stabiliteit behouden tijdens de upgrade naar nieuwere versie van SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Wanneer u zich op een volledig beheerd platform, worden de voordelen die automatisch worden geleverd als onderdeel van de service SQL Database. Bijvoorbeeld, u hoeft te maken van back-ups op Managed Instance - de service uitvoert back-ups voor u automatisch. U moet niet meer zorgen over de planning, nemen en het beheer van back-ups. Beheerd exemplaar biedt u de mogelijkheid om terug te zetten naar een willekeurig punt in tijd binnen deze bewaarperiode periode met [punt in tijd herstel (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Tijdens de openbare preview, is de bewaarperiode liggen vast in zeven dagen.
-Bovendien hoeft niet te hoeven maken over het instellen van hoge beschikbaarheid als [hoge beschikbaarheid](sql-database-high-availability.md) is ingebouwd in.
+Wanneer u zich op een volledig beheerd platform, worden de voordelen die automatisch worden geleverd als onderdeel van de service SQL Database. Bijvoorbeeld, u hoeft te maken van back-ups op Managed Instance - de service uitvoert back-ups voor u automatisch. U moet niet meer zorgen over de planning, nemen en het beheer van back-ups. Beheerd exemplaar biedt u de mogelijkheid om terug te zetten naar een willekeurig punt in tijd binnen deze bewaarperiode periode met [punt in tijd herstel (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Bovendien hoeft niet te hoeven maken over het instellen van hoge beschikbaarheid als [hoge beschikbaarheid](sql-database-high-availability.md) is ingebouwd in.
 
 Als u wilt de beveiliging versterken, kunt u overwegen sommige van de functies die beschikbaar zijn:
 

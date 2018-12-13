@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031081"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166588"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Met behulp van metagegevens en de GenerateAnswer-API
 
@@ -54,16 +54,16 @@ U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die la
 - **Aanvraag-URL**: https://{QnA Maker eindpunt} /knowledgebases/ {knowledge base-ID} / generateAnswer
 
 - **Aanvraagparameters**: 
-    - **Knowledge base-ID** (tekenreeks): de GUID voor uw knowledge base.
-    - **QnAMaker eindpunt** (tekenreeks): de hostnaam van het eindpunt dat is geïmplementeerd in uw Azure-abonnement.
+    - **Knowledge base-ID** (tekenreeks): De GUID voor uw knowledge base.
+    - **QnAMaker eindpunt** (tekenreeks): De hostnaam van het eindpunt dat is geïmplementeerd in uw Azure-abonnement.
 - **Aanvraagheaders**
-    - **Content-Type** (tekenreeks): het mediatype van de hoofdtekst van het verzonden naar de API.
-    - **Autorisatie** (tekenreeks): de eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+    - **Content-Type** (tekenreeks): Het mediatype van de hoofdtekst van het verzonden naar de API.
+    - **Autorisatie** (tekenreeks): De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Aanvraagtekst**
-    - **vraag** (tekenreeks): een vraag van de gebruiker moet worden gezocht op basis van uw knowledge base.
-    - **Top** (optioneel, geheel getal): het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.
-    - **gebruikers-id** (optioneel, string): een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.
-    - **strictFilters** (optioneel, string): als u opgeeft, vertelt u QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Zie hieronder voor meer informatie.
+    - **vraag** (tekenreeks): Een vraag van de gebruiker moet worden gezocht op basis van uw knowledge base.
+    - **Top** (optioneel, geheel getal): Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.
+    - **gebruikers-id** (optioneel, string): Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.
+    - **strictFilters** (optioneel, string): Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Zie hieronder voor meer informatie.
     ```json
     {
         "question": "qna maker and luis",
@@ -81,14 +81,14 @@ U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die la
 
 - **Antwoord 200** -een geslaagde aanroep retourneert het resultaat van de vraag. Het antwoord bevat de volgende velden:
     - **antwoorden** -een lijst met antwoorden voor de gebruikersquery, gesorteerd in aflopende volgorde van de volgorde van score.
-        - **score**: een rangorde tussen 0 en 100 liggen.
-        - **vragen over**: de opgegeven door de gebruiker vragen.
-        - **antwoord**: het antwoord op de vraag.
-        - **bron**: de naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.
-        - **metagegevens**: de metagegevens die zijn gekoppeld aan het antwoord.
-            - naam: naam voor de metagegevens. (string, maximumlengte: 100, vereist)
-            - waarde: waarde van de metagegevens. (string, maximumlengte: 100, vereist)
-        - **Id**: een unieke ID die is toegewezen aan het antwoord.
+        - **score**: Een rangorde tussen 0 en 100 liggen.
+        - **vragen over**: De vragen die is opgegeven door de gebruiker.
+        - **antwoord**: Het antwoord op de vraag.
+        - **bron**: De naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.
+        - **metagegevens**: De metagegevens die zijn gekoppeld aan het antwoord.
+            - Naam: Naam voor de metagegevens. (string, maximumlengte: 100, vereist)
+            - Waarde: De waarde van de metagegevens. (string, maximumlengte: 100, vereist)
+        - **Id**: Een unieke ID die is toegewezen aan het antwoord.
     ```json
     {
         "answers": [
@@ -167,6 +167,8 @@ Het antwoord op de GenerateAnswer bevat de bijbehorende metagegevens van de over
 Deze informatie kan worden gebruikt om vast te leggen van de context van het vorige gesprek voor gebruik in latere conversaties. 
 
 ## <a name="next-steps"></a>Volgende stappen
+
+De pagina publiceren bevat ook informatie voor het genereren van een antwoord met [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) en [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Een kennisdatabase maken](./create-knowledge-base.md)

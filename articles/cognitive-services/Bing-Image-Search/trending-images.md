@@ -1,7 +1,7 @@
 ---
-title: Het web zoeken naar trending afbeeldingen - Bing afbeeldingen zoeken-API
+title: Trending afbeeldingen met de Bing afbeeldingen zoeken-API ophalen
 titleSuffix: Azure Cognitive Services
-description: Informatie over het gebruik van de Bing afbeeldingen zoeken-API op het web zoeken naar trending afbeeldingen.
+description: Zoeken naar trending afbeeldingen van vandaag van het web met de Bing afbeeldingen zoeken-API.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 8d58c188275dc6b546d418b51835514c99f25d28
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296308"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258964"
 ---
-# <a name="get-trending-images-from-the-bing-image-search-api"></a>Trending afbeeldingen ophalen uit de Bing afbeeldingen zoeken-API
+# <a name="get-trending-images-from-the-web"></a>Ophalen van afbeeldingen-trending van het web
 
 Voor trending afbeeldingen van vandaag, de volgende GET-aanvraag te verzenden:  
 

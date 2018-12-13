@@ -4,9 +4,8 @@ description: Identificeren en te corrigeren van veelvoorkomende problemen tegeng
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307199"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252776"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Het oplossen van het opnieuw trainen van een klassieke webservice Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Overzicht opnieuw trainen
@@ -41,16 +40,16 @@ Vervolgens kunt u het voorbeeld C# code van de Training-webservice-API help-pagi
 
 Alle benodigde onderdelen aanwezig is zijn de belangrijkste stappen die u ondernemen moet om het opnieuw trainen het model als volgt:
 
-1. Roep de webservice voor Training: de aanroep naar de Batch Execution Service (BES), niet de Request Response Service (RRS) is. U kunt het voorbeeld C# code op de API help-pagina voor de aanroep. 
-2. De waarden voor de *BaseLocation*, *RelativeLocation*, en *SasBlobToken*: deze waarden worden geretourneerd in de uitvoer van de aanroep van de webservice-Training. 
+1. Roep de webservice Training:  De aanroep is naar de Batch Execution Service (BES), niet de Request Response Service (RRS). U kunt het voorbeeld C# code op de API help-pagina voor de aanroep. 
+2. De waarden voor de *BaseLocation*, *RelativeLocation*, en *SasBlobToken*: Deze waarden worden geretourneerd in de uitvoer van de aanroep van de webservice-Training. 
    ![de uitvoer van de retraining-voorbeeld en de BaseLocation RelativeLocation en SasBlobToken waarden worden weergegeven.][image6]
-3. De toegevoegde eindpunt uit de scoringwebservice bijwerken met het nieuwe getrainde model: het nieuwe eindpunt dat u hebt toegevoegd aan de scoremodel met het zojuist getrainde model uit met behulp van de voorbeeldcode die is opgegeven in de modellen voor Machine Learning opnieuw trainen via een programma, werken de Training-webservice.
+3. De toegevoegde eindpunt uit de scoring-webservice met het nieuwe getrainde model bijwerken: Het nieuwe eindpunt voor dat u toegevoegd aan het score-model met het zojuist getrainde model van de webservice-Training met behulp van de voorbeeldcode die is opgegeven in de modellen voor Machine Learning opnieuw trainen via een programma, worden bijgewerkt.
 
 ## <a name="common-obstacles"></a>Algemene obstakels
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Controleer of u hebt de juiste PATCH-URL
 De PATCH URL u moet het account dat is gekoppeld aan het nieuwe scoring eindpunt dat u hebt toegevoegd aan de scoring-webservice. Er zijn een aantal manieren om op te halen van de PATCH-URL:
 
-**Optie 1: via programmacode**
+**Optie 1: Via programmacode**
 
 Aan de juiste PATCH-URL:
 
@@ -71,7 +70,7 @@ Aan de juiste PATCH-URL:
 7. Onder de **Patch** URL, klikt u op **API Help** de patch Helppagina te openen.
 
 > [!NOTE]
-> Als u het eindpunt aan de webservice voor de Training in plaats van de voorspellende webservice hebt toegevoegd, ontvangt u de volgende fout wanneer u klikt op de **resources bijwerken** koppeling: "er, maar deze functie wordt niet ondersteund of beschikbaar zijn in deze context. Deze webservice heeft geen resources bij te werken. We excuses voor het ongemak en worden gewerkt aan het verbeteren van deze werkstroom."
+> Als u het eindpunt aan de webservice voor de Training in plaats van de voorspellende webservice hebt toegevoegd, ontvangt u de volgende fout wanneer u klikt op de **resources bijwerken** koppeling: "Onze excuses, maar deze functie wordt niet ondersteund of beschikbaar in deze context. Deze webservice heeft geen resources bij te werken. We excuses voor het ongemak en worden gewerkt aan het verbeteren van deze werkstroom."
 > 
 > 
 
@@ -80,8 +79,8 @@ De PATCH help-pagina bevat de vullen van de URL die u moet gebruiken en voorbeel
 ![URL van de patch.][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Controleer dat u het juiste eindpunt scoring bijwerkt
-* Geen patch uitvoeren voor de webservice voor training: de patch-bewerking moet worden uitgevoerd op de scoring-webservice.
-* Geen patch uitvoeren voor het eindpunt van de webservice: de patch-bewerking moet worden uitgevoerd op het nieuwe scoring web service-eindpunt dat u hebt toegevoegd.
+* Patch de training-webservice niet uitvoeren: De patchbewerking moet worden uitgevoerd op de scoring-webservice.
+* Patch het standaardeindpunt voor de webservice niet uitvoeren: De patchbewerking moet worden uitgevoerd op het nieuwe scoring web service-eindpunt dat u hebt toegevoegd.
 
 U kunt controleren of het eindpunt is op door naar de Web Services-portal te gaan welke-webservice. 
 
