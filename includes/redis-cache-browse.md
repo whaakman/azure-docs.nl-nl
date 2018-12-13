@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: fd337d6eb9711bbd82e9e8ba8e4e7caeeac35255
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019444"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111963"
 ---
 Indien u uw cache niet aan het dashboard hebt vastgemaakt, kunt u deze vinden in [Azure Portal](https://portal.azure.com), onder **Alle services**.
 
-![Azure Cache van Azure voor Redis bladeren Blade](media/redis-cache-browse/redis-cache-browse.png)
+![Azure Cache voor Redis bladeren Blade](media/redis-cache-browse/redis-cache-browse.png)
 
-Klik op om uw caches **alle services** en zoek naar de **Azure Cache voor Rediss**. 
+Klik op om uw caches **alle services** en zoek naar de **Azure Cache voor Redis**. 
 
 Selecteer de gewenste cache om de instellingen voor die cache weer te geven en te configureren.
 
-![Azure Cache van Azure voor Redis Cache lijst](media/redis-cache-browse/redis-caches.png)
+![Azure Cache voor Redis Cache lijst](media/redis-cache-browse/redis-caches.png)
 
 U kunt bekijken en configureren uw cache van de **Azure Cache voor Redis** blade.
 

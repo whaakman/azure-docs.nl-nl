@@ -5,21 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a1fa4d58cefa82e70c036d697957254531042b9c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 29ec30840e550b87f83de67d52348b9723400e0f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196878"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111793"
 ---
-1. Navigeer in de [portal](http://portal.azure.com) naar het virtuele netwerk van Resource Manager waarvoor u een gateway wilt maken.
-2. Klik in de sectie **Instellingen** van de pagina VNet op **Subnetten** om de pagina Subnetten uit te vouwen.
-3. Klik op de pagina **Subnetten** op **+Gatewaysubnet** om de pagina **Subnet toevoegen** te openen.
+1. In de [Azure-portal](http://portal.azure.com), selecteer het virtuele netwerk van Resource Manager waarvoor u wenst te maken van een virtuele netwerkgateway.
+
+2. In de **instellingen** sectie van uw virtuele netwerk weergeeft, schakelt **subnetten** om uit te breiden de **subnetten** pagina.
+
+3. Op de **subnetten** weergeeft, schakelt **gatewaysubnet** openen de **subnet toevoegen** pagina.
 
   ![Het gatewaysubnet toevoegen](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsub.png "Het gatewaysubnet toevoegen")
-4. Als **naam** voor het subnet wordt automatisch de waarde GatewaySubnet ingevuld. Deze waarde is vereist. Zonder deze waarde wordt het subnet niet in Azure als het gatewaysubnet herkend. Pas de automatisch ingevulde waarden voor **Adresbereik** aan, zodat deze overeenkomen met uw configuratie. Klik vervolgens onder aan de pagina op **OK** om het subnet te maken.
+
+4. De **naam** voor uw subnet automatisch autofilled met de waarde is *GatewaySubnet*. Deze waarde is vereist voor Azure voor het herkennen van het subnet als het gatewaysubnet. Pas de autofilled **adresbereik** vervolgens selecteert u waarden die moeten worden overeenkomstig uw configuratievereisten **OK** om het subnet te maken.
 
   ![Het subnet toevoegen](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addsubnetgw.png "Het subnet toevoegen")

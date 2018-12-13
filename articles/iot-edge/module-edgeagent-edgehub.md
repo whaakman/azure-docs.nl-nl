@@ -1,5 +1,5 @@
 ---
-title: Naslaginformatie over Azure IoT EdgeAgent en EdgeHub | Microsoft Docs
+title: EdgeAgent en EdgeHub gewenste eigenschappen van referentie - Azure IoT Edge | Microsoft Docs
 description: Controleer de specifieke eigenschappen en hun waarden voor de edgeAgent en edgeHub moduledubbels
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 01e1942b12de126aa34130f5a4b77dd0fb958aa6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a0834e5886a1a088486109f967baf357e375ad05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568917"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100254"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Eigenschappen van de Edge agent en Edge hub moduledubbels
 
@@ -25,7 +26,7 @@ Dit artikel bevat de gewenste eigenschappen en de gerapporteerde eigenschappen v
 
 De moduledubbel voor de Edge agent heet `$edgeAgent` en coördineert de communicatie tussen de Edge agent wordt uitgevoerd op een apparaat en IoT-Hub. De gewenste eigenschappen worden ingesteld bij het toepassen van een manifest van de implementatie op een specifiek apparaat als onderdeel van de implementatie van een één-apparaat of op schaal. 
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 | -------- | ----------- | -------- |
 | schemaVersion | Moet "1.0" | Ja |
 | runtime.type | Moet "docker" | Ja |
@@ -67,7 +68,7 @@ Deze laatste stukje informatie is nuttig als de meest recente gewenste eigenscha
 
 De volgende tabel bevat geen informatie die is opgehaald uit de gewenste eigenschappen.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Dit geheel getal verwijst naar de laatste versie van de gewenste eigenschappen die door de Edge agent verwerkt. |
 | lastDesiredStatus.code | Dit is de statuscode die verwijzen naar de laatst gewenste eigenschappen zichtbaar voor de Edge agent. Toegestane waarden: `200` geslaagd, `400` ongeldige configuratie `412` Ongeldige schemaversie `417` de gewenste eigenschappen zijn leeg, `500` is mislukt |
@@ -97,7 +98,7 @@ De volgende tabel bevat geen informatie die is opgehaald uit de gewenste eigensc
 
 De moduledubbel voor de Edge hub heet `$edgeHub` en coördineert de communicatie tussen de Edge hub die wordt uitgevoerd op een apparaat en IoT-Hub. De gewenste eigenschappen worden ingesteld bij het toepassen van een manifest van de implementatie op een specifiek apparaat als onderdeel van de implementatie van een één-apparaat of op schaal. 
 
-| Eigenschap | Beschrijving | In het manifest van de implementatie vereist |
+| Eigenschap | Description | In het manifest van de implementatie vereist |
 | -------- | ----------- | -------- |
 | schemaVersion | Moet "1.0" | Ja |
 | routes.{routeName} | Een tekenreeks die een Edge hub route vertegenwoordigt. | De `routes` element aanwezig maar leeg kan zijn. |
@@ -105,7 +106,7 @@ De moduledubbel voor de Edge hub heet `$edgeHub` en coördineert de communicatie
 
 ## <a name="edgehub-reported-properties"></a>EdgeHub gerapporteerde eigenschappen
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Dit geheel getal verwijst naar de laatste versie van de gewenste eigenschappen die door de Edge hub verwerkt. |
 | lastDesiredStatus.code | Dit is de statuscode die verwijzen naar de laatst gewenste eigenschappen zichtbaar voor de Edge hub. Toegestane waarden: `200` geslaagd, `400` ongeldige configuratie `500` is mislukt |

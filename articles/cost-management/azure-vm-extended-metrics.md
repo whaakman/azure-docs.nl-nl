@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
-ms.custom: ''
-ms.openlocfilehash: b244c7347b458439e9c1c088cf83cff3d0ec5a2e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097213"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
@@ -35,7 +35,7 @@ Bijvoorbeeld, als u wilt het % CPU en geheugen-% van uw virtuele Azure-machines 
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Bepalen of uitgebreide metrische gegevens zijn ingeschakeld
 
-1. Meld u aan bij Azure Portal op http://portal.azure.com.
+1. Meld u aan bij Azure Portal op https://portal.azure.com.
 2. Onder **virtuele machines**, selecteert u een virtuele machine en klik vervolgens onder **bewaking**, selecteer **metrische gegevens**. Een lijst met beschikbare metrische gegevens wordt weergegeven.
 3. Sommige metrische gegevens selecteren en een grafiek voor deze gegevens worden weergegeven.  
     ![Voorbeeld van de metrische gegevens: host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)
@@ -55,18 +55,18 @@ Houd er rekening mee dat Azure- en Linux bewaking op gastniveau zijn vereist voo
 1. In **virtuele Machines**, uw lijst met uw virtuele machines weergeven en selecteer vervolgens een virtuele machine.
 2. Onder **bewaking**, selecteer **diagnostische instellingen**.
 3. Klik op de instellingenpagina van diagnostische gegevens **bewaking op gastniveau inschakelen**.  
-    ![Gast niveau bewaking inschakelen](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![Niveau bewaking van Gast op de pagina overzicht inschakelen](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Na een paar minuten is de Azure diagnostics-agent geïnstalleerd op de virtuele machine. Een set van metrische gegevens worden toegevoegd. Vernieuw de pagina. De toegevoegde prestatiemeteritems worden weergegeven op het tabblad Overzicht.
 5. Selecteer onder controle, **metrische gegevens**.
 6. In de grafiek met metrische gegevens onder **metriek Namespace**, selecteer **gast (klassiek)**.
 7. In de lijst met metrische gegevens, kunt u alle van de beschikbare prestatiemeteritems weergeven voor de Gast-VM.  
-    ![Uitgebreide metrische gegevens](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![overzicht van voorbeeld van de uitgebreide metrische gegevens](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Bewaking op gastniveau op nieuwe virtuele machines inschakelen
 
 Wanneer u nieuwe virtuele machines, op het tabblad beheer maakt, selecteert u **op** voor **besturingssysteem Gast diagnostics**.
 
-![Gastbesturingssysteem diagnostische gegevens inschakelen](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![Diagnostische gegevens van Guest OS ingesteld op aan](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 Zie voor meer informatie over het inschakelen van uitgebreide metrische gegevens voor Azure virtual machines [begrip en met behulp van de Azure Linux agent](../virtual-machines/extensions/agent-linux.md) en [overzicht van Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md).
 
@@ -82,7 +82,7 @@ U kunt metrische gegevens van virtuele machine met Azure PowerShell-scripts insc
 
 Als u wilt weergeven van metrische gegevens voor prestaties op uw Azure-exemplaren in de Cloudyn-portal, gaat u naar **activa** > **Compute** > **exemplaar Explorer**. In de lijst met VM-exemplaren, vouw een exemplaar en vouw vervolgens een resource om details te bekijken.
 
-![Exemplaar-Explorer](./media/azure-vm-extended-metrics/instance-explorer.png)
+![van de voorbeeldinformatie die wordt weergegeven in de Verkenner-exemplaar](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

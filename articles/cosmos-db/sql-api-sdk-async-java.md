@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: 01d353d3f1b59fecbb1894d08c6404f441422593
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: MT
+ms.openlocfilehash: fadefe09f9f744fabe0f0f3f3cb519b3abb50b41
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872888"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098880"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "52872888"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door te geven van asynchrone bewerkingen met ondersteuning van de [Netty bibliotheek](http://netty.io/). De vooraf bestaande [SQL API Java SDK](sql-api-sdk-java.md) biedt geen ondersteuning voor asynchrone bewerkingen. 
+De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door te geven van asynchrone bewerkingen met ondersteuning van de [Netty bibliotheek](https://netty.io/). De vooraf bestaande [SQL API Java SDK](sql-api-sdk-java.md) biedt geen ondersteuning voor asynchrone bewerkingen. 
 
 <table>
 
@@ -113,7 +113,7 @@ De SQL-SDK voor Java-API asynchrone wijkt af van de Java-SDK van de SQL-API door
 * Header-bestanden van de vaste Java voor het genereren van de juiste java doc-bestand.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA-SDK met end-to-end-ondersteuning voor het gebruik van i/o-niet-blokkerende de [Netty bibliotheek](http://netty.io/) in de modus van de gateway. 
+* GA-SDK met end-to-end-ondersteuning voor het gebruik van i/o-niet-blokkerende de [Netty bibliotheek](https://netty.io/) in de modus van de gateway. 
 
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
 Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.

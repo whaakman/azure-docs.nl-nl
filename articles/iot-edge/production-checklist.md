@@ -1,19 +1,20 @@
 ---
-title: Voorbereiden voor een productie-oplossing Azure IoT Edge | Microsoft Docs
+title: Voorbereiden van apparaten en implementaties voor de productie - Azure IoT Edge | Microsoft Docs
 description: Informatie over het uitvoeren van uw Azure IoT Edge-oplossing van ontwikkeling tot productie, met inbegrip van uw apparaten instellen met de juiste certificaten en het aanbrengen van een implementatieplan voor toekomstige code-updates.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48fd774d6d887a12ed1c1ad9689ca34f5d866367
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585537"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100035"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Voorbereidingen voor het implementeren van uw IoT Edge-oplossing in productie
 

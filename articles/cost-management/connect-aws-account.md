@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 3fa1083961caa4788516aba2bc7a04b456df285c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996108"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098474"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Verbinding maken met een Amazon Web Services-account
 
@@ -38,7 +38,7 @@ De eerste stap is de unieke verbindings-wachtwoordzin ophalen uit de Cloudyn-por
 2. Klik op het tandwiel-symbool en selecteer vervolgens **Cloudaccounts**.
 3. Selecteer in het beheer van Accounts de **AWS-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
 4. In de **AWS-Account toevoegen** dialoogvenster, Kopieer de **externe ID** en sla de waarde voor het maken van de stappen in de volgende sectie AWS-rol. De externe ID is uniek is voor uw account. In de volgende afbeelding, in het voorbeeld externe ID wordt _Contoso_ gevolgd door een getal. Uw ID verschilt.  
-    ![Externe ID](./media/connect-aws-account/external-id.png)
+    ![Externe ID wordt weergegeven in het AWS-Account toevoegen](./media/connect-aws-account/external-id.png)
 
 ### <a name="add-aws-read-only-role-based-access"></a>AWS alleen-lezen toegang op basis van rollen toevoegen
 
@@ -46,12 +46,12 @@ De eerste stap is de unieke verbindings-wachtwoordzin ophalen uit de Cloudyn-por
 2. Klik op **rol maken** en selecteer vervolgens **een andere AWS-account**.
 3. In de **Account-ID** vak, plak `432263259397`. Deze Account-ID is de Cloudyn data collector-account toegewezen door AWS aan de Cloudyn-service. Gebruik de exacte Account-ID die wordt weergegeven.
 4. Naast **opties**, selecteer **externe ID vereisen**. Plak uw unieke waarde die u eerder hebt gekopieerd uit de **externe ID** veld in Cloudyn. Klik vervolgens op **volgende: machtigingen**.  
-    ![Rol maken](./media/connect-aws-account/create-role01.png)
+    ![Plak de externe ID van Cloudyn op de pagina van de rol maken](./media/connect-aws-account/create-role01.png)
 5. Onder **koppelen van beleidsregels voor beveiligingsmachtigingen**, in de **beleidstype** filter vak zoeken, type `ReadOnlyAccess`, selecteer **ReadOnlyAccess**, klikt u vervolgens op **volgende: Beoordeling**.  
-    ![Alleen-lezentoegang](./media/connect-aws-account/readonlyaccess.png)
+    ![Selecteer alleen-lezen toegang in de lijst met beleidsnamen van](./media/connect-aws-account/readonlyaccess.png)
 6. Op de pagina controleren, zorg ervoor dat uw selecties kloppen en typt u een **rolnaam**. Bijvoorbeeld, *Azure-kosten-Mgt*. Voer een **beschrijving van de functie**. Bijvoorbeeld, _roltoewijzing voor Cloudyn_, klikt u vervolgens op **rol maken**.
 7. In de **rollen** lijst, klik op de rol die u hebt gemaakt en kopieer de **rol informatie** waarde op de pagina overzicht. De rol van informatie (resourcenaam Amazon)-waarde later gebruiken wanneer u uw configuratie in Cloudyn registreert.  
-    ![Rol informatie](./media/connect-aws-account/role-arn.png)
+    ![de informatie van de rol van de pagina overzicht kopiëren](./media/connect-aws-account/role-arn.png)
 
 ### <a name="configure-aws-iam-role-access-in-cloudyn"></a>AWS IAM roltoegang in Cloudyn configureren
 
@@ -61,12 +61,12 @@ De eerste stap is de unieke verbindings-wachtwoordzin ophalen uit de Cloudyn-por
 4. In **accountnaam**, typ een naam voor het account.
 5. Naast **toegangstype**, selecteer **IAM-rol**.
 6. In de **rol informatie** veld, plak de waarde die u eerder hebt gekopieerd en klik vervolgens op **opslaan**.  
-    ![In het AWS-Account toevoegen](./media/connect-aws-account/add-aws-account-box.png)
+    ![Plak de informatie van de rol in het AWS-Account toevoegen](./media/connect-aws-account/add-aws-account-box.png)
 
 
 Uw AWS-account wordt weergegeven in de lijst van accounts. De **eigenaar-ID** vermeld komt overeen met de waarde van de rol van informatie. Uw **accountstatus** moet hebben een groen vinkje symbool waarmee wordt aangegeven of toegang hebt tot Cloudyn uw AWS-account. Totdat u gedetailleerde AWS facturering inschakelt, wordt de consolidatiestatus van uw weergegeven als **zelfstandige**.
 
-![Status van AWS-account](./media/connect-aws-account/aws-account-status01.png)
+![Status van AWS-account wordt weergegeven op de pagina Accounts beheren](./media/connect-aws-account/aws-account-status01.png)
 
 Cloudyn begint met het verzamelen van de gegevens en rapporten te vullen. Volgende [gedetailleerde AWS facturering inschakelen](#enable-detailed-aws-billing).
 
@@ -81,14 +81,14 @@ De volgende secties helpen u bij het maken van een gebruiker alleen-lezen toegan
 2. Klik op **gebruiker toevoegen**.
 3. In de **gebruikersnaam** veld, typt u de naam van een gebruiker.
 4. Voor **toegangstype**, selecteer **toegang op programmeerniveau** en klikt u op **volgende: machtigingen**.  
-    ![Gebruiker toevoegen](./media/connect-aws-account/add-user01.png)
+    ![Voer een gebruikersnaam op de pagina van de gebruiker toevoegen](./media/connect-aws-account/add-user01.png)
 5. Selecteer voor machtigingen, **bestaande beleidsregels rechtstreeks koppelen**.
 6. Onder **koppelen van beleidsregels voor beveiligingsmachtigingen**, in de **beleidstype** filter vak zoeken, type `ReadOnlyAccess`, selecteer **ReadOnlyAccess**, en klik vervolgens op **volgende : Controleer**.  
-    ![Machtigingen instellen voor gebruiker](./media/connect-aws-account/set-permission-for-user.png)
+    ![Selecteer ReadOnlyAccess machtigingen instellen voor de gebruiker](./media/connect-aws-account/set-permission-for-user.png)
 7. Controleer of uw selecties kloppen en klik vervolgens op de pagina controleren **gebruiker maken**.
 8. Op de pagina is voltooid, worden uw sleutel-ID en -geheim toegang toegangssleutel weergegeven. U kunt deze informatie gebruiken om te registreren in Cloudyn configureren.
 9. Klik op **downloaden .csv** en sla het bestand credentials.csv op een veilige locatie.  
-    ![Referenties downloaden](./media/connect-aws-account/download-csv.png)
+    ![Klik op downloaden .csv om op te slaan van de referenties](./media/connect-aws-account/download-csv.png)
 
 ### <a name="configure-aws-iam-user-based-access-in-cloudyn"></a>AWS IAM op basis van een gebruiker toegang in Cloudyn configureren
 
@@ -122,7 +122,7 @@ U maakt een S3-bucket voor het opslaan van gedetailleerde informatie over factur
 2. In de Search Service vak *S3*, en selecteer **S3**.
 3. Klik op de pagina Amazon S3 **maken bucket**.
 4. In de wizard bucket, kiest u een Bucket-naam en een regio en klik vervolgens op **volgende**.  
-    ![Bucket maken](./media/connect-aws-account/create-bucket.png)
+    ![Voorbeeld van de gegevens een van de pagina van de bucket maken](./media/connect-aws-account/create-bucket.png)
 5. Op de **eigenschappen instellen** pagina, behouden de standaardwaarden en klik vervolgens op **volgende**.
 6. Klik op de pagina controleren op **maken bucket**. De bucket-lijst wordt weergegeven.
 7. Klik op de bucket die u hebt gemaakt en selecteer de **machtigingen** tabblad en selecteer vervolgens **Bucket beleid**. De Bucket editor wordt geopend.
@@ -130,7 +130,7 @@ U maakt een S3-bucket voor het opslaan van gedetailleerde informatie over factur
   - Vervang `<BillingBucketName>` met de naam van de S3-bucket.
   - Vervang `<ReadOnlyUserOrRole>` met de rol of de gebruiker informatie die u eerder hebt gekopieerd.
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
@@ -173,7 +173,7 @@ U maakt een S3-bucket voor het opslaan van gedetailleerde informatie over factur
   ```
 
 9. Klik op **Opslaan**.  
-    ![Editor voor bucket](./media/connect-aws-account/bucket-policy-editor.png)
+    ![Klik op opslaan in de beleidseditor Bucket](./media/connect-aws-account/bucket-policy-editor.png)
 
 
 ### <a name="enable-aws-billing-reports"></a>AWS rapporten facturering inschakelen
@@ -183,11 +183,11 @@ Nadat u maken en configureren van de S3-bucket, gaat u naar [facturering voorkeu
 1. Selecteer op de pagina Voorkeuren **facturering rapporten ontvangen**.
 2. Onder **facturering rapporten ontvangen**, voer de naam van de bucket die u hebt gemaakt en klik vervolgens op **controleren**.  
 3. Selecteer alle vier meldingsopties granulariteit en klik vervolgens op **voorkeuren opslaan**.  
-    ![Rapporten inschakelen](./media/connect-aws-account/enable-reports.png)
+    ![Selecteer granulariteit rapporten inschakelen](./media/connect-aws-account/enable-reports.png)
 
 Cloudyn haalt gedetailleerde informatie over de facturering van de S3-bucket gedetecteerd en gevuld rapporten nadat gedetailleerde facturering is ingeschakeld. Duurt maximaal 24 uur tot gedetailleerde factureringsgegevens wordt weergegeven in de Cloudyn-console. Als gedetailleerde factureringsgegevens beschikbaar is, wordt de status van uw account consolidatie weergegeven als **geconsolideerde**. Status van de account wordt weergegeven als **voltooid**.
 
-![Geconsolideerde accountstatus](./media/connect-aws-account/consolidated-status.png)
+![consolidatiestatus wordt weergegeven op het tabblad AWS-Accounts](./media/connect-aws-account/consolidated-status.png)
 
 Sommige van de optimalisatierapporten is mogelijk een paar dagen aan gegevens om op te halen van de grootte van de steekproef van een voldoende gegevens voor nauwkeurige aanbevelingen.
 

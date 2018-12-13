@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0ded8160478fba5f2b4d5d321685451701eb102a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: e86499fea76b8223b161d6cff3bb1231398f63a6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849068"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093520"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -45,8 +45,8 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | **Verbonden bron** | **Ondersteuning** | **Beschrijving** |
 | --- | --- | --- |
 | [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Ja | De oplossing verzamelt DNS-gegevens van Windows-agents. |
-| [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
-| [System Center Operations Manager-beheergroep](../../log-analytics/log-analytics-om-agents.md) | Ja | De oplossing verzamelt DNS-gegevens van agents in een verbonden beheergroep van Operations Manager. Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
+| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee | De oplossing verzamelt geen DNS-gegevens van directe Linux-agents. |
+| [System Center Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) | Ja | De oplossing verzamelt DNS-gegevens van agents in een verbonden beheergroep van Operations Manager. Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
 | [Azure Storage-account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Azure storage wordt niet gebruikt door de oplossing. |
 
 ### <a name="data-collection-details"></a>Details van de verzameling gegevens
@@ -57,7 +57,7 @@ De oplossing verzamelt DNS-inventarisatie- en DNS-gebeurtenis met betrekking tot
 
 Gebruik de volgende informatie in de oplossing te configureren:
 
-- Hebt u een [Windows](../../azure-monitor/platform/agent-windows.md) of [Operations Manager](../../log-analytics/log-analytics-om-agents.md) -agent op elke DNS-server die u wilt bewaken.
+- Hebt u een [Windows](../../azure-monitor/platform/agent-windows.md) of [Operations Manager](../../azure-monitor/platform/om-agents.md) -agent op elke DNS-server die u wilt bewaken.
 - U kunt de oplossing DNS Analytics toevoegen aan uw Log Analytics-werkruimte van de [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). U kunt ook de procedure beschreven in [toevoegen Log Analytics-oplossingen uit de galerie van oplossingen](../../azure-monitor/insights/solutions.md).
 
 De oplossing start het verzamelen van gegevens zonder de noodzaak van verdere configuratie. Echter, kunt u de volgende configuratie voor het aanpassen van het verzamelen van gegevens.
@@ -85,7 +85,7 @@ Als uw Operations Manager-beheergroep is verbonden met uw Log Analytics-werkruim
 - Microsoft DNS-gegevens Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics-configuratie (Microsoft.IntelligencePack.Dns.Configuration)
 
-Zie [Operations Manager koppelen aan Log Analytics](../../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
+Zie [Operations Manager koppelen aan Log Analytics](../../azure-monitor/platform/om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ## <a name="use-the-dns-analytics-solution"></a>De oplossing DNS Analytics gebruiken
 

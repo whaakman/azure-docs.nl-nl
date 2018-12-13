@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632803"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Zelfstudie: Azure Active Directory-integratie met oneindige Campus
 
@@ -111,11 +111,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-5. Op de **SAML-basisconfiguratie** sectie, hebt u **Service Provider-bestand met metagegevens** (stap **11.b**), voer de volgende stappen uit:
+5. Op de **SAML-basisconfiguratie** sectie, hebt u **Service Provider-bestand met metagegevens** (gaat u naar stap **11.c**), voer de volgende stappen uit:
 
     a. Klik op **metagegevensbestand uploaden**.
 
-    ![image](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Klik op **map logo** voor het selecteren van het bestand met metagegevens en klikt u op **uploaden**.
 
@@ -128,9 +128,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     d. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon (het domein kan verschillen met het Model die als host fungeert): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > U krijgt de **Service Provider-bestand met metagegevens** op de pagina oneindige Campus SSO-configuratie van serviceprovider die later in de zelfstudie wordt uitgelegd.
+    > U krijgt de **Service Provider-bestand met metagegevens** op de pagina oneindige Campus SSO-configuratie van serviceprovider die later in de zelfstudie wordt uitgelegd. Als u met een nieuwe serviceprovider SAML-configuratie in oneindige Campus begint, gaat u naar **stap 11** om uit te voeren van de uitvoer van het metagegevensbestand van de serviceprovider.
 
-6. Als u geen **Service Provider-bestand met metagegevens**, voer de volgende stappen uit:
+6. Als u geen **Service Provider-bestand met metagegevens**, voer de volgende stappen uit (Let erop dat het domein naargelang het Model die als host fungeert verschillen):
 
     a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![De eenmalige aanmelding](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Selecteer **inschakelen SAML-eenmalige aanmelding**.
+    
+    b. Op de **een optie voor het ophalen van gegevens van de id-Provider (IDP)-server** sectie, selecteer **metagegevens-URL**, plak de **App-Url voor federatieve metagegevens** in het vak en vervolgens Klik op **synchronisatie**.
 
-    b. Klik op **metagegevens van de Service Provider** koppeling op te slaan de **Service Provider-bestand met metagegevens** op uw computer en upload dit in **SAML-basisconfiguratie** sectie automatisch polulate de **id** en **antwoord-URL** waarden in Azure portal (Zie stap 5).
-
-    c. Op de **een optie voor het ophalen van gegevens van de id-Provider (IDP)-server** sectie, selecteer **metagegevens-URL** en plak de **App-Url voor federatieve metagegevens** in het tekstvak en Klik vervolgens op **synchronisatie**.
+    c. Klikt u op **Service Provider metagegevens** koppeling op te slaan de **Service Provider-bestand met metagegevens** op uw computer, en upload dit in **SAML-basisconfiguratie** sectie automatisch Vul de **id** en **antwoord-URL** waarden in de Azure-portal (Zie stap 4 voor uploaden en automatische populatie van waarden of stap 5 voor handmatige invoer).
 
     d. Nadat u hebt geklikt **synchronisatie** de waarden ophalen automatisch ingevuld in **SSO-configuratie van serviceprovider** pagina.
 
