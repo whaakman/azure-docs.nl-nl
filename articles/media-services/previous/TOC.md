@@ -126,13 +126,13 @@
 ### [Langdurige bewerkingen afhandelen](media-services-dotnet-long-operations.md)
 ### [Specificatie gefragmenteerde MP4-liveopname](media-services-fmp4-live-ingest-overview.md)
 
-## [Inhoud knippen](media-services-azure-media-clipper-overview.md)
-### [Aan de slag](media-services-azure-media-clipper-getting-started.md)
-### [Video's laden](media-services-azure-media-clipper-load-assets.md)
-### [Sneltoetsen configureren](media-services-azure-media-clipper-keyboard-shortcuts.md)
-### [Lokalisatie configureren](media-services-azure-media-clipper-localization.md)
-### [Kniptaken verzenden](media-services-azure-media-clipper-submit-job.md)
-### [Azure Portal](media-services-azure-media-clipper-portal.md)
+<!-- ## [Clip content](media-services-azure-media-clipper-overview.md)
+### [Getting started](media-services-azure-media-clipper-getting-started.md)
+### [Load videos](media-services-azure-media-clipper-load-assets.md)
+### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Configure localization](media-services-azure-media-clipper-localization.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md) -->
 
 ## [Inhoud beveiligen](media-services-content-protection-overview.md)
 ### [Storage-versleuteling](media-services-rest-storage-encryption.md)

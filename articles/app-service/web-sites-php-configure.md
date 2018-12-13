@@ -1,5 +1,5 @@
 ---
-title: PHP configureren in Azure App Service WebApps
+title: PHP-runtime - Azure App Service configureren
 description: Informatie over het configureren van de standaard-PHP-installatie of het toevoegen van een aangepaste PHP-installatie voor Web-Apps in Azure App Service.
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: f9e863146b78fa510ea6f5b6eb9b3aa0fc4ce926
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965783"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273188"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>PHP configureren in Azure App Service WebApps
 
@@ -28,7 +29,7 @@ Deze handleiding wordt beschreven hoe u de ingebouwde PHP-runtime configureren v
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-built-in-php-version"></a>Hoe: wijzigen van de ingebouwde PHP-versie
+## <a name="how-to-change-the-built-in-php-version"></a>Procedure: Wijzigen van de ingebouwde PHP-versie
 
 PHP 5.6 is standaard geïnstalleerd en wordt onmiddellijk beschikbaar voor gebruik bij het maken van een App Service-web-app. De beste manier om te zien van de revisie beschikbare versie, de standaardconfiguratie en de ingeschakelde extensies is implementeren van een script dat roept de [phpinfo()] functie.
 
@@ -39,10 +40,10 @@ PHP 7.0 en PHP 7.2 versies zijn ook beschikbaar, maar worden niet standaard inge
 1. Blader naar uw web-app in de [Azure-portal](https://portal.azure.com) en klik op de **instellingen** knop.
 
     ![Web-Appinstellingen][settings-button]
-1. Uit de **instellingen** Selecteer **toepassingsinstellingen** en kiest u de nieuwe versie van PHP.
+2. Uit de **instellingen** Selecteer **toepassingsinstellingen** en kiest u de nieuwe versie van PHP.
 
     ![Toepassingsinstellingen][application-settings]
-1. Klik op de **opslaan** knop aan de bovenkant van de **Web-app-instellingen** blade.
+3. Klik op de **opslaan** knop aan de bovenkant van de **Web-app-instellingen** blade.
 
     ![Configuratie-instellingen opslaan][save-button]
 
@@ -78,7 +79,7 @@ Voor het gebruik van de Azure Command-Line Interface, moet u [Azure CLI installe
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Hoe: wijzigen van de ingebouwde PHP-configuraties
+## <a name="how-to-change-the-built-in-php-configurations"></a>Procedure: Wijzigen van de ingebouwde PHP-configuraties
 
 Voor een ingebouwde PHP-runtime, kunt u een van de configuratieopties wijzigen door de volgende stappen. (Zie voor meer informatie over richtlijnen php.ini [Lijst van php.ini-richtlijnen].)
 
@@ -109,7 +110,7 @@ Als alternatief voor het gebruik van een `.user.ini` -bestand, kunt u de [ini_se
         wincache.maxfilesize=512
 1. Als u wilt de wijzigingen laden, start opnieuw op uw Web-App.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Hoe: in de standaard-PHP-runtime-extensies inschakelen
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Procedure: Schakel in de standaard-PHP-runtime-extensies
 
 Zoals vermeld in de vorige sectie, de beste manier om te zien van de standaard-PHP-versie, de standaardconfiguratie en de ingeschakelde extensies is om een script waarmee wordt aangeroepen te implementeren [phpinfo()]. Extra extensies inschakelen door de volgende stappen:
 
@@ -144,7 +145,7 @@ Zoals vermeld in de vorige sectie, de beste manier om te zien van de standaard-P
 
 Zend-extensies worden ook ondersteund met behulp van een **PHP_ZENDEXTENSIONS** sleutel. Zodat meerdere extensies bevatten een lijst met door komma's gescheiden van `.dll` bestanden voor de waarde van de app-instelling.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Hoe: een aangepaste PHP-runtime gebruiken
+## <a name="how-to-use-a-custom-php-runtime"></a>Procedure: Gebruik een aangepaste PHP-runtime
 
 In plaats van de standaard-PHP-runtime, kunt App Service Web Apps gebruiken van een PHP-runtime die u opgeeft voor het uitvoeren van PHP-scripts. De runtime die u opgeeft kan worden geconfigureerd door een `php.ini` -bestand dat u ook opgeven. Een aangepaste PHP-runtime gebruiken met Web-Apps, deze stappen te volgen.
 
@@ -165,7 +166,7 @@ In plaats van de standaard-PHP-runtime, kunt App Service Web Apps gebruiken van 
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Hoe: Composer-automatisering in Azure inschakelen
+## <a name="how-to-enable-composer-automation-in-azure"></a>Procedure: Composer-automatisering in Azure inschakelen
 
 Standaard, App Service doet het nog niets met composer.json, als u in uw PHP-project hebt. Als u [Git-implementatie](app-service-deploy-local-git.md), kunt u composer.json verwerken tijdens `git push` doordat de Composer-extensie.
 

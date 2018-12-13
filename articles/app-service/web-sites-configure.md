@@ -1,5 +1,5 @@
 ---
-title: Web-apps configureren in Azure App Service
+title: Web-apps - Azure App Service configureren
 description: Configureren van een web-app in Azure App Services
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 60675d7d40dbab863677ea120c25986cff61a308
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960138"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269427"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
 
@@ -38,8 +39,8 @@ De **toepassingsinstellingen** blade bevat instellingen die zijn gegroepeerd ond
 ### <a name="general-settings"></a>Algemene instellingen
 **Frameworkversies**. Schakel deze optie als uw app gebruikmaakt van een deze frameworks: 
 
-* **.NET framework**: de .NET framework-versie instellen. 
-* **PHP**: de PHP-versie instellen of **OFF** om uit te schakelen van PHP. 
+* **.NET framework**: De .NET framework-versie instellen. 
+* **PHP**: De PHP-versie instellen of **OFF** om uit te schakelen van PHP. 
 * **Java**: Selecteer de Java-versie of **OFF** om uit te schakelen van Java. Gebruik de **webcontainer** kiezen uit versies voor Tomcat en Jetty.
 * **Python**: Selecteer de Python-versie, of **OFF** om uit te schakelen van Python.
 
@@ -164,7 +165,7 @@ Als u wilt uw implementatiesites weergeven, klikt u op **alle instellingen** > *
 ### <a name="monitoring"></a>Bewaking
 In de Basic- of Standard-modus, kunt u de beschikbaarheid van HTTP of HTTPS-eindpunten, van maximaal drie geografisch gedistribueerde locaties testen. Een controle test mislukt als de HTTP-responscode een fout (4xx of 5xx is) of het antwoord meer dan 30 seconden heeft. Een eindpunt wordt aangemerkt als beschikbaar als de bewakingstests van de opgegeven locaties slagen. 
 
-Zie voor meer informatie, [hoe: web-eindpunt controleren].
+Zie voor meer informatie, [Procedures: Web-eindpunt controleren].
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen]. Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
@@ -184,7 +185,7 @@ Zie voor meer informatie, [hoe: web-eindpunt controleren].
 [Een aangepaste domeinnaam configureren in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Implementeren naar Faseringsomgevingen voor Web-Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [HTTPS inschakelen voor een app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Hoe: web-eindpunt controleren]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Procedures: Web-eindpunt controleren]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Basisbeginselen van controle voor Web-Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline-modus]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Een web-app schalen in Azure App Service]: ./web-sites-scale.md

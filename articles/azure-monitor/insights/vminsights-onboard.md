@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: b78332933c7c406cd938091b578786467a73248f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 741288bd1a927b12705b3b31c5a1c60d6b94db5b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141778"
+ms.locfileid: "53194246"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure Monitor voor het voorbeeld van de virtuele machines implementeren
 In dit artikel wordt beschreven hoe u Azure Monitor instellen voor VM's. De service controleert de status van het besturingssysteem van uw Azure virtual machines (VM's) en virtuele-machineschaalsets en de virtuele machines in uw omgeving. Deze bewaking bevat de detectie en toewijzing van afhankelijkheden voor toepassingen die op deze kan worden gehost. 
@@ -157,7 +156,7 @@ De Azure-Monitor voor de functie voor toewijzing van virtuele machines worden de
 
 Of u Azure Monitor voor virtuele machines voor een enkele Azure-VM inschakelen of u de methode van de implementatie op schaal gebruiken, moet u de afhankelijkheid van Azure VM agent-extensie gebruiken voor het installeren van de agent als onderdeel van de ervaring. 
 
-In een hybride omgeving, kunt u downloaden en installeren van de agent voor afhankelijkheden op twee manieren: handmatig of via een methode geautomatiseerde implementatie voor virtuele machines die worden gehost buiten Azure. 
+U kunt in een hybride omgeving, downloaden en installeren van de agent voor afhankelijkheden op twee manieren: Handmatig of via een methode geautomatiseerde implementatie voor virtuele machines die worden gehost buiten Azure. 
 
 De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de kaart-functie in een hybride omgeving.
 
@@ -333,8 +332,8 @@ De beleidsdefinities worden vermeld in de volgende tabel:
 |Name |Description |Type |  
 |-----|------------|-----|  
 |[Preview]: Azure Monitor voor virtuele machines inschakelen |Azure Monitor inschakelen voor de virtuele Machines (VM's) in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt gebruikt als parameter. |Initiatief |  
-|[Preview]: implementatie van de Audit afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |  
-|[Preview]: Audit Log Analytics-agentimplementatie – VM-installatiekopie (OS) niet-vermelde |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: Implementatie van de afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde controleren |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: Implementatie van Log Analytics-Agent: VM-installatiekopie (OS) niet-vermelde controleren |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) is niet gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |  
 |[Preview]: Agent voor afhankelijkheden voor virtuele Linux-machines implementeren |Agent voor afhankelijkheden implementeren voor Linux-VM's als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |  
 |[Preview]: Agent voor afhankelijkheden voor Windows-VM's implementeren |Afhankelijkheid Agent voor de Windows VM's implementeren als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |  
 |[Preview]: Log Analytics-Agent voor Linux-VM's implementeren |Implementeer Log Analytics-Agent voor Linux-VM's als de VM-installatiekopie (OS) is gedefinieerd in de lijst en de agent is niet geïnstalleerd. |Beleid |  
@@ -344,7 +343,7 @@ Beleid voor zelfstandige (niet opgenomen in het initiatief) wordt hier beschreve
 
 |Name |Description |Type |  
 |-----|------------|-----|  
-|[Preview]: Audit Log Analytics-werkruimte voor VM - probleem melden |Rapporteren als niet-compatibele VM's als ze worden niet van de Log Analytics-werkruimte die is opgegeven in de toewijzing van beleid/initiatief registreren. |Beleid |
+|[Preview]: Audit Log Analytics-werkruimte voor VM - rapport verschil |Rapporteren als niet-compatibele VM's als ze worden niet van de Log Analytics-werkruimte die is opgegeven in de toewijzing van beleid/initiatief registreren. |Beleid |
 
 #### <a name="assign-the-azure-monitor-initiative"></a>De Azure Monitor-initiatief toewijzen
 Met deze eerste release kunt u de beleidstoewijzing maken alleen in de Azure-portal. Zie voor meer informatie over hoe u deze stappen hebt voltooid, [een beleidstoewijzing maken vanuit Azure portal](../../governance/policy/assign-policy-portal.md). 
@@ -362,7 +361,7 @@ Met deze eerste release kunt u de beleidstoewijzing maken alleen in de Azure-por
 1. In de **Log Analytics-werkruimte** vervolgkeuzelijst lijst voor de ondersteunde regio, selecteer een werkruimte.
 
     >[!NOTE]
-    >Als de werkruimte buiten het bereik van de toewijzing valt, verleent *Inzender van Log Analytics* machtigingen voor de beleidstoewijzing Principal-ID. Als u dit niet doet, ziet u mogelijk een implementatiefout zoals: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` om toegang te verlenen, Bekijk [het handmatig configureren van de beheerde identiteit](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+    >Als de werkruimte buiten het bereik van de toewijzing valt, verleent *Inzender van Log Analytics* machtigingen voor de beleidstoewijzing Principal-ID. Als u dit niet doet, ziet u mogelijk een implementatiefout zoals: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` Om toegang te verlenen, Bekijk [het handmatig configureren van de beheerde identiteit](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
     De **beheerde identiteit** selectievakje is ingeschakeld, omdat het initiatief wordt toegewezen een beleid met omvat de *deployIfNotExists* effect. 
 1. In de **identiteit beheren locatie** vervolgkeuzelijst, selecteert u de juiste regio. 
@@ -387,8 +386,8 @@ Op basis van de resultaten van de beleidsregels die zijn opgenomen in het initia
 * VM-installatiekopie (OS) wordt niet aangegeven in de beleidsdefinitie. 
    De criteria van het implementatiebeleid voor zijn alleen de VM's die zijn geïmplementeerd vanuit een bekende Azure VM-installatiekopieën. Raadpleeg de documentatie om te zien of het besturingssysteem van de virtuele machine wordt ondersteund. Als dit wordt niet ondersteund, dupliceren van de update en van implementatiebeleid of te wijzigen zodat de installatiekopie van het voldoen aan het beleid. 
   
-    - [Preview]: implementatie van de Audit afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde  
-    - [Preview]: Audit Log Analytics-agentimplementatie – VM-installatiekopie (OS) niet-vermelde
+    - [Preview]: Implementatie van de afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde controleren  
+    - [Preview]: Implementatie van Log Analytics-Agent: VM-installatiekopie (OS) niet-vermelde controleren
 
 * Virtuele machines zijn niet aangemeld bij de opgegeven Log Analytics-werkruimte.  
     Het is mogelijk dat sommige virtuele machines binnen het initiatief bereik zijn aangemeld bij een Log Analytics-werkruimte dan de naam die opgegeven in de beleidstoewijzing. Dit beleid is een hulpprogramma om te bepalen uit welke VM's rapporteren aan een niet-compatibele werkruimte. 

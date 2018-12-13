@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4fd896e3b26ae66621ba49d1bb8a5d86c0dd63ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963263"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278598"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uw bestaande .NET Azure Mobile Service upgraden naar App Service
 App Service Mobile is een nieuwe manier voor het bouwen van mobiele toepassingen met Microsoft Azure. Zie voor meer informatie, [Wat zijn mobiele apps?].
@@ -68,7 +68,7 @@ De eerste stap bij het bijwerken is het maken van de mobiele App-resource die al
 
 Maak vervolgens de tweede toepassingsinstantie door de [.NET-back-end maken instructies](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Wanneer u wordt gevraagd om te selecteren dat u kiezen App Service-Plan of 'hostingabonnement' van het abonnement van uw gemigreerde toepassing.
 
-U zult waarschijnlijk de dezelfde database en de Notification Hub gebruiken net als bij Mobile Services. U kunt deze waarden kopiëren door het openen van [Azure Portal] en te navigeren naar de oorspronkelijke toepassing, klikt u vervolgens op **instellingen** > **toepassingsinstellingen**. Onder **verbindingsreeksen**, kopie `MS_NotificationHubConnectionString` en `MS_TableConnectionString`. Navigeer naar uw nieuwe upgraden van site en plak deze in bestaande waarden overschreven. Herhaal dit proces voor alle andere toepassingsinstellingen behoeften voor uw app. Als een gemigreerde service niet gebruikt, kunt u lezen en verbindingsreeksen en appinstellingen van de **configureren** tabblad van de Mobile Services-sectie van de [klassieke Azure-portal].
+U zult waarschijnlijk de dezelfde database en de Notification Hub gebruiken net als bij Mobile Services. U kunt deze waarden kopiëren door het openen van [Azure Portal] en te navigeren naar de oorspronkelijke toepassing, klikt u vervolgens op **instellingen** > **toepassingsinstellingen**. Onder **verbindingsreeksen**, kopie `MS_NotificationHubConnectionString` en `MS_TableConnectionString`. Navigeer naar uw nieuwe upgraden van site en plak deze in bestaande waarden overschreven. Herhaal dit proces voor alle andere toepassingsinstellingen behoeften voor uw app.
 
 Maak een kopie van de ASP.NET-project voor uw toepassing en deze publiceren naar de nieuwe site. Met behulp van een kopie van uw clienttoepassing bijgewerkt met de nieuwe URL, valideren dat alles werkt zoals verwacht.
 
@@ -280,7 +280,6 @@ Wanneer u de nieuwe clientversie gereed, probeer het op basis van uw project bij
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com/
-[klassieke Azure-portal]: https://manage.windowsazure.com/
 [Wat zijn mobiele apps?]: app-service-mobile-value-prop.md
 [Mobiele App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b7c2c28ab049f0cce26f306736ec938955156ebb
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959270"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322581"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream Azure diagnostische logboeken naar een event hub
 **[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI.
@@ -44,14 +44,14 @@ Hier volgen een paar manieren waarop u de streaming-mogelijkheden voor diagnosti
 U kunt inschakelen via een programma, via de portal van diagnostische logboeken streamen of met behulp van de [Azure Monitor REST API's](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). In beide gevallen maakt u een diagnostische instelling in die u geeft een Event Hubs-naamruimte en de logboekcategorieën en metrische gegevens die u verzenden wilt in de naamruimte. Een event hub wordt gemaakt in de naamruimte voor elke logboekcategorie die u inschakelt. Een diagnose **logboekcategorie** is een type logboek dat een resource kan verzamelen.
 
 > [!WARNING]
-> Inschakelen en logboeken met diagnostische gegevens van de Compute-resources (bijvoorbeeld virtuele machines of Service Fabric) streaming [vereist een andere reeks stappen](azure-diagnostics-streaming-event-hubs.md).
+> Inschakelen en logboeken met diagnostische gegevens van de Compute-resources (bijvoorbeeld virtuele machines of Service Fabric) streaming [vereist een andere reeks stappen](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 De Event Hubs naamruimte zich in hetzelfde abonnement als de resource dat Logboeken verzendt, zolang de gebruiker die de instelling configureert juiste RBAC toegang tot zowel abonnementen als beide abonnementen heeft heeft geen uitmaken deel van dezelfde AAD-tenant.
 
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Een voorbeeld*: de meetwaarde 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
+> *Bijvoorbeeld*: De metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een wachtrijniveau. Wanneer de waarde wordt geëxporteerd via diagnostische instellingen, wordt deze echter voorgesteld als alle binnenkomende berichten voor alle wachtrijen in de Event Hub.
 >
 >
 
@@ -177,10 +177,10 @@ Hier volgt een voorbeeld van uitvoergegevens uit Event Hubs:
 }
 ```
 
-| De naam van element | Beschrijving |
+| De naam van element | Description |
 | --- | --- |
 | records |Een matrix van alle gebeurtenissen in deze nettolading. |
-| tijd |Tijd waarop de gebeurtenis heeft plaatsgevonden. |
+| time |Tijd waarop de gebeurtenis heeft plaatsgevonden. |
 | category |Logboekcategorie voor deze gebeurtenis. |
 | resourceId |Resource-ID van de resource die deze gebeurtenis is gegenereerd. |
 | operationName |Naam van de bewerking. |
@@ -191,7 +191,7 @@ U kunt een lijst weergeven met alle resourceproviders die ondersteuning bieden v
 
 ## <a name="stream-data-from-compute-resources"></a>Stream-gegevens van de Compute-resources
 
-U kunt ook diagnostische logboeken van de Compute-resources met behulp van de Windows Azure Diagnostics-agent streamen. [Raadpleeg dit artikel](azure-diagnostics-streaming-event-hubs.md) voor informatie over het instellen daarvan.
+U kunt ook diagnostische logboeken van de Compute-resources met behulp van de Windows Azure Diagnostics-agent streamen. [Raadpleeg dit artikel](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md) voor informatie over het instellen daarvan.
 
 ## <a name="next-steps"></a>Volgende stappen
 

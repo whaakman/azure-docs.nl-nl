@@ -4,9 +4,8 @@ description: Hoe u een opleidingsexperiment converteren naar een Voorspellend ex
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 71315b6c36a9e41e5805d5a15bde5b1d1d84f2b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314265"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269920"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Een Azure Machine Learning Studio-webservice implementeren
 Azure Machine Learning kunt u bouwen, testen en implementeren van voorspellende analytische oplossingen.
@@ -32,7 +31,7 @@ Dit is gedaan in op hoog niveau point-van-weergave, in drie stappen:
 * **[Converteren naar een Voorspellend experiment]**  -zodra uw model is getraind met bestaande gegevens en u bent klaar om te gebruiken voor het scoren van nieuwe gegevens, u voorbereidt en stroomlijnen van uw experiment voor voorspellingen.
 * **[Als een webservice implementeren]**  -u kunt uw Voorspellend experiment implementeren als een [Nieuw] of [Klassiek] Azure-web-service. Gebruikers kunnen gegevens aan uw model verzenden en ontvangen van het model voorspellingen.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="create-a-training-experiment"></a>Een opleidingsexperiment maken
 Als u wilt een Voorspellend model te trainen, kunt u Azure Machine Learning Studio maakt een opleidingsexperiment neemt u diverse modules trainingsgegevens laden, voorbereiden van de gegevens zo nodig, toepassen van machine learning-algoritmen en evalueren van de resultaten. U kunt een experiment herhalen en andere machine learning-algoritmen om te vergelijken en de resultaten evalueren proberen.

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory-verificatie voor uw App-servicetoepassing configureren
+title: Azure Active Directory - verificatie met Azure App Service configureren
 description: Informatie over het configureren van Azure Active Directory-verificatie voor uw App Services-toepassing.
 author: mattchenderson
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 0c2ae7e4cf0b19ab9e1c276504892a2a8aaa8dfc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.custom: seodec18
+ms.openlocfilehash: d171d870ad34650976cf2b2d74961cb3f9946471
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297380"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255333"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Uw App Service-app voor het gebruik van Azure Active Directory-aanmelding configureren
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

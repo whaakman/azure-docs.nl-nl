@@ -1,5 +1,5 @@
 ---
-title: Google-verificatie voor uw App Services-toepassing configureren
+title: Verificatie met Google - Azure App Service configureren
 description: Informatie over het configureren van Google-verificatie voor uw App Services-toepassing.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 35e02defb8b28c60c70c8b50c28bba8499392377
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 50905b86924e0f564eaf4867c2906ad8740ddbaf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961534"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255411"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Uw App Service-toepassing voor het gebruik van Google-aanmelding configureren
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

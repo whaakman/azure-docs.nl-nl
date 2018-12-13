@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: ae2697c96435ec18ae7645520d438c41837f036f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016858"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186307"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
@@ -86,7 +86,7 @@ Vanaf 12 mei 2018 livekanalen wordt niet langer ondersteuning voor het RTP/MPEG-
     * Verbeteringen aan de decodeerfunctie H.264 is gebruikt in de codering-standaard bepaalde zeldzaam artefacten te elimineren. 
 
 #### <a name="media-analytics"></a>Media Analytics
-Algemene beschikbaarheid van de Azure Media Redactor: deze Mediaprocessor voert anoniem maken door de gezichten van geselecteerde personen Onscherp wordt weergegeven en is ideaal voor gebruik in scenario's met openbare veiligheid en nieuwsmedia. 
+Algemene beschikbaarheid van de Azure Media Redactor: Deze Mediaprocessor voert anoniem maken door de gezichten van geselecteerde personen Onscherp wordt weergegeven en is ideaal voor gebruik in scenario's met openbare veiligheid en nieuwsmedia. 
 
 Zie voor een overzicht van deze nieuwe processor, [dit blogbericht](https://azure.microsoft.com/blog/azure-media-redactor/). Zie voor meer informatie over documentatie en de instellingen [Redigeer gezichten met Azure Media Analytics](media-services-face-redaction.md).
 
@@ -158,7 +158,7 @@ Sommige clients kunnen afkomstig zijn via een probleem met herhaald label in het
 U kunt nu Media Services gebruiken op uw HTTP Live Streaming (HLS) inhoud met Apple FairPlay dynamisch wordt versleuteld. U kunt ook de Media Services-service voor het leveren van licentie gebruiken om te FairPlay-licenties leveren aan clients. Zie voor meer informatie "Gebruiken om te streamen van uw met Apple FairPlay beveiligde HLS-inhoud voor Azure Media Services."
 
 ## <a id="feb_changes16"></a>Release van februari 2016
-De nieuwste versie van de Media Services SDK voor .NET (3.5.3) bevat een fout met betrekking tot Google Widevine oplossing. Het was niet mogelijk om te AssetDeliveryPolicy worden hergebruikt voor meerdere assets die zijn versleuteld met Widevine. Als onderdeel van deze foutoplossing, de volgende eigenschap is toegevoegd aan de SDK: WidevineBaseLicenseAcquisitionUrl.
+De nieuwste versie van de Media Services SDK voor .NET (3.5.3) bevat een fout met betrekking tot Google Widevine oplossing. Het was niet mogelijk om te AssetDeliveryPolicy worden hergebruikt voor meerdere assets die zijn versleuteld met Widevine. Als onderdeel van deze foutoplossing, is de volgende eigenschap toegevoegd aan de SDK: WidevineBaseLicenseAcquisitionUrl.
 
     Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
         new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -184,9 +184,9 @@ De Azure SDK-team gepubliceerd een nieuwe versie van de [Azure SDK voor PHP](htt
 Zie voor meer informatie:
 
 * De volgende [codevoorbeelden](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) kunt u snel aan de slag:
-  * **vodworkflow_aes.php**: deze PHP-bestand ziet u hoe u dynamische AES-128-versleuteling en de sleutelleveringsservice. Deze gebaseerd op het .NET-voorbeeld wordt uitgelegd in [dynamische versleuteling met AES-128 en de sleutelleveringsservice](media-services-protect-with-aes128.md).
-  * **vodworkflow_aes.php**: deze PHP-bestand ziet u hoe u dynamische versleuteling van PlayReady en de service voor het leveren van licenties. Deze gebaseerd op het .NET-voorbeeld wordt uitgelegd in [met PlayReady en/of Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
-  * **scale_encoding_units.php**: deze PHP-bestand ziet u hoe u gereserveerde encoding-eenheden schalen.
+  * **vodworkflow_aes.php**: Dit bestand PHP ziet u hoe u dynamische AES-128-versleuteling en de sleutelleveringsservice. Deze gebaseerd op het .NET-voorbeeld wordt uitgelegd in [dynamische versleuteling met AES-128 en de sleutelleveringsservice](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: Dit bestand PHP ziet u hoe u dynamische versleuteling van PlayReady en de service voor het leveren van licenties. Deze gebaseerd op het .NET-voorbeeld wordt uitgelegd in [met PlayReady en/of Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
+  * **scale_encoding_units.php**: Dit bestand PHP laat zien hoe gereserveerde encoding-eenheden schalen.
 
 ## <a id="nov_changes_15"></a>Release van november 2015
  Media Services biedt nu de leveringsservice voor Widevine-licentie in de cloud. Zie voor meer informatie, [deze blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Zie ook [in deze zelfstudie](media-services-protect-with-playready-widevine.md) en de [GitHub-opslagplaats](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
@@ -194,10 +194,10 @@ Zie voor meer informatie:
 Widevine-licentie levering van services aangeboden door mediaservices zijn in preview. Zie voor meer informatie, [deze blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Release van oktober 2015
-Media Services is nu beschikbaar in de volgende datacenters: Brazilië-Zuid, India, westen, India-Zuid en India, midden. U kunt nu de Azure portal om te gebruiken [Media Service-accounts maken](media-services-portal-create-account.md) en diverse taken die worden beschreven in de [webpagina met documentatie over Media Services](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding is niet ingeschakeld in deze datacenters. Niet alle soorten gereserveerde coderingseenheden zijn bovendien beschikbaar in deze datacenters.
+Media Services is nu beschikbaar in de volgende datacenters: Brazilië-Zuid, India, westen, India-Zuid en India-midden. U kunt nu de Azure portal om te gebruiken [Media Service-accounts maken](media-services-portal-create-account.md) en diverse taken die worden beschreven in de [webpagina met documentatie over Media Services](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding is niet ingeschakeld in deze datacenters. Niet alle soorten gereserveerde coderingseenheden zijn bovendien beschikbaar in deze datacenters.
 
-* Brazilië-Zuid: Alleen Standard- en Basic encoding gereserveerde eenheden beschikbaar.
-* India, westen, India-Zuid en India, midden: alleen elementaire gereserveerde coderingseenheden beschikbaar zijn.
+* Brazilië-Zuid:                                          Alleen Standard en Basic encoding gereserveerde eenheden zijn beschikbaar.
+* India, westen, India-Zuid en India-midden:             Basic gereserveerde encoding-eenheden zijn alleen beschikbaar.
 
 ## <a id="september_changes_15"></a>Release van september 2015
 Media Services biedt nu de mogelijkheid om zowel video on demand als live streams met Widevine modulaire DRM-technologie. U kunt de volgende levering van services partners Widevine-licenties te leveren:
@@ -270,7 +270,7 @@ Zie voor meer informatie, [deze blog](https://azure.microsoft.com/blog/2015/04/1
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-updates
 De Media Services .NET SDK is nu versie 3.2.0.0. De volgende updates zijn aangebracht:
 
-* Belangrijke wijziging: TokenRestrictionTemplate.Issuer en TokenRestrictionTemplate.Audience om te worden van een tekenreekstype zijn gewijzigd.
+* Belangrijke wijziging: TokenRestrictionTemplate.Issuer en TokenRestrictionTemplate.Audience zijn gewijzigd voor het type tekenreeks.
 * Updates zijn aangebracht met betrekking tot het maken van beleid voor aangepaste opnieuw proberen.
 * Oplossingen voor problemen zijn aangebracht met betrekking tot de bestanden uploaden en downloaden.
 * De klasse MediaServicesCredentials accepteert nu de primaire en secundaire access control-eindpunten voor verificatie op basis.
@@ -374,8 +374,8 @@ Wanneer u een asset coderen, wordt een uitvoerasset geproduceerd zodra de coderi
 ## <a id="july_changes_14"></a>Release van juli 2014
 De volgende correcties zijn aangebracht voor de Azure Media Services Packager en Encryptor:
 
-* Een asset livearchief wordt verzonden naar HLS, alleen audio afspeelt: dit probleem is opgelost en nu zowel audio en video kunnen spelen.
-* Wanneer een asset wordt geleverd met HLS en AES-128-bits-envelop codering, de verpakte stromen niet afspelen op Android-apparaten: deze fout is verholpen, en de App-pakket stream afspeelt op Android-apparaten die ondersteuning bieden voor HLS.
+* Een asset livearchief wordt verzonden naar HLS, afspeelt alleen audio: Dit probleem is opgelost en nu zowel audio en video kunnen spelen.
+* Wanneer een asset wordt geleverd met HLS en AES-128-bits-envelop codering, afspelen de verpakte stromen niet op Android-apparaten: Deze fout is opgelost en de App-pakket stream afspeelt op Android-apparaten die ondersteuning bieden voor HLS.
 
 ## <a id="may_changes_14"></a>Mei 2014-release
 ### <a id="may_14_changes"></a>Algemene Media Services-updates
@@ -476,7 +476,7 @@ De volgende wijzigingen zijn opgenomen in de juni 2013 SDK voor Media Services w
     * StorageAccount-eigenschap
     * De eigenschap StorageAccountName
   
-    Zie voor meer informatie, [beheren Media Services-activa voor meerdere opslagaccounts](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+      Zie voor meer informatie, [beheren Media Services-activa voor meerdere opslagaccounts](https://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Kennisgeving met betrekking tot API's. Vanaf versie 2.2.0.0, kunt u luisteren naar Azure Queue storage meldingen. Zie voor meer informatie, [mediaservices verwerken taak meldingen](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * De eigenschap Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions
@@ -498,11 +498,11 @@ Oplossingen voor problemen die in de November 2012 SDK:
 * IAssetFile.ContentFileSize: Deze waarde is nu correct ingesteld na het uploaden van IAssetFile.Upload(filepath).
 * IAssetFile.ContentFileSize: Deze eigenschap kan nu worden ingesteld wanneer u een assetbestand maakt. Het is eerder alleen-lezen.
 * IAssetFile.Upload(filepath): Een probleem is opgelost waarbij deze van de synchrone Uploadmethode de volgende fout is genereren wanneer er meerdere bestanden zijn geüpload naar de asset. De volgende fout is 'Server-verificatie van de aanvraag is mislukt. Zorg ervoor dat de waarde van de autorisatie-header wordt gevormd correct met inbegrip van de handtekening."
-* IAssetFile.UploadAsync: Een probleem is opgelost dat het gelijktijdig uploaden van bestanden naar vijf bestanden beperkt zijn.
+* IAssetFile.UploadAsync: Een probleem is opgelost die beperkt het gelijktijdig uploaden van bestanden naar vijf bestanden tot.
 * IAssetFile.UploadProgressChanged: Deze gebeurtenis wordt nu geleverd door de SDK.
-* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): de overbelasting van deze methode is nu beschikbaar.
-* IAssetFile.DownloadAsync: Een probleem is opgelost die de gelijktijdige downloaden van bestanden op vijf bestanden beperkt zijn.
-* IAssetFile.Delete(): Een probleem is opgelost aanroepende verwijderen mogelijk waar een uitzondering genereert, als er geen bestand is geüpload voor de IAssetFile.
+* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): De overbelasting van deze methode is nu beschikbaar.
+* IAssetFile.DownloadAsync: Een probleem is opgelost die de gelijktijdige downloaden van bestanden op vijf bestanden beperkt.
+* IAssetFile.Delete(): Er is een probleem opgelost aanroepende verwijderen mogelijk waar een uitzondering genereert, als er geen bestand is geüpload voor de IAssetFile.
 * Taken: Een probleem is opgelost waarbij een "MP4 Smooth Streams taak" met een 'PlayReady Protection taak"koppelen met behulp van een sjabloon hebt gemaakt taken helemaal.
 * EncryptionUtils.GetCertificateFromStore(): Deze methode genereert niet langer een null-referentieuitzondering vanwege een fout bij het vinden van het certificaat op basis van problemen met de certificaat-configuratie.
 
@@ -522,9 +522,9 @@ De wijzigingen die in deze sectie zijn updates die zijn opgenomen in de November
     * IAssetFile FileInfo vervangt en heeft een verschillend gedrag. Als u wilt gebruiken, exemplaar maken van het IAssetFiles-object, gevolgd door het uploaden van een bestand op met behulp van de Media Services SDK of de Storage-SDK. De volgende IAssetFile.Upload overloads kunnen worden gebruikt:
   
         * IAssetFile.Upload(filePath): Deze synchrone methode blokkeert de thread en wordt u aangeraden deze alleen wanneer u een enkel bestand uploadt.
-        * IAssetFile.UploadAsync (filePath, blobTransferClient, locator, cancellationToken): deze asynchrone methode is het mechanisme voor het uploaden van voorkeur. 
+        * IAssetFile.UploadAsync (filePath, blobTransferClient, locator, cancellationToken): Deze asynchrone methode is het mechanisme voor het uploaden van voorkeur. 
     
-            Bekende bug: als u de token van de annulering, het uploaden is geannuleerd. De taken kunnen veel annulering statussen hebben. U moet correct variabel en het verwerken van uitzonderingen.
+            Bekende fout: Als u de token van de annulering, is het uploaden geannuleerd. De taken kunnen veel annulering statussen hebben. U moet correct variabel en het verwerken van uitzonderingen.
 * Locators
   
     * De oorsprong-specifieke versies zijn verwijderd. De SAS-specifieke context. Locators.CreateSasLocator (asset, accessPolicy) wordt afgeschaft of verwijderd door de algemene beschikbaarheid worden gemarkeerd. Zie de sectie 'Locators' onder 'Nieuwe functionaliteit' voor het gedrag van bijgewerkt.
