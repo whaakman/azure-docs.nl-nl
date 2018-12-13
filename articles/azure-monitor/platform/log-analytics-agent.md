@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 424b54e2dfe73951839031a1cc35ecdd82d526bb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b43ea6d6b754467cedecce2be883fab6fd9ba0e8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086101"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890191"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Azure Log Analytics-agent
 
@@ -97,10 +97,10 @@ Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na
 > [!NOTE]
 > Als uw proxy-server niet vereist is om te verifiëren, moet de Linux-agent nog steeds bieden een pseudo-gebruiker en wachtwoord. Dit kan een gebruikersnaam of het wachtwoord zijn.
 
-|Eigenschap| Description |
+|Eigenschap| Beschrijving |
 |--------|-------------|
 |Protocol | https |
-|user | Optioneel de gebruikersnaam voor proxy-verificatie |
+|Gebruiker | Optioneel de gebruikersnaam voor proxy-verificatie |
 |wachtwoord | Optionele wachtwoord voor proxy-verificatie |
 |proxyhost | Adres of FQDN-naam van de proxy-server/Log Analytics-gateway |
 |poort | Optionele poortnummer voor de proxy-server/Log Analytics-gateway |
@@ -113,11 +113,11 @@ Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Agent installeren en configureren 
 Verbinden van computers in uw Azure-abonnement of een hybride omgeving rechtstreeks met Azure Log Analytics kan worden bewerkstelligd met verschillende methoden, afhankelijk van uw vereisten. De volgende tabel ziet u elke methode om te bepalen welke het beste werkt in uw organisatie.
 
-|Bron | Methode | Description|
+|Bron | Methode | Beschrijving|
 |-------|-------------|-------------|
-|Azure VM| -Log Analytics VM-extensie voor [Windows](../../virtual-machines/extensions/oms-windows.md) of [Linux](../../virtual-machines/extensions/oms-linux.md) met behulp van Azure CLI of met een Azure Resource Manager-sjabloon<br>- [Handmatig vanuit de Azure-portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | De extensie voor de Log Analytics-agent geïnstalleerd op virtuele machines van Azure en deze heeft geregistreerd in een bestaande werkruimte van Azure Monitor.|
+|Azure VM| -Log Analytics VM-extensie voor [Windows](../../virtual-machines/extensions/oms-windows.md) of [Linux](../../virtual-machines/extensions/oms-linux.md) met behulp van Azure CLI of met een Azure Resource Manager-sjabloon<br>- [Handmatig vanuit de Azure-portal](../../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | De extensie voor de Log Analytics-agent geïnstalleerd op virtuele machines van Azure en deze heeft geregistreerd in een bestaande werkruimte van Azure Monitor.|
 | Hybride Windows-computer|- [Handmatige installatie](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager-sjabloon met Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |De Microsoft Monitoring agent installeren vanaf de opdrachtregel of met behulp van een geautomatiseerde methode, zoals Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), of met een Azure Resource Manager-sjabloon als u Microsoft hebt geïmplementeerd Azure Stack in uw datacenter.| 
-| Hybride Linux-computer| [Handmatige installatie](../../azure-monitor/learn/quick-collect-linux-computer.md)|Installeer de agent voor Linux aanroepen van een wrapper-scripts die worden gehost op GitHub. | 
+| Hybride Linux-computer| [Handmatige installatie](../../log-analytics/log-analytics-quick-collect-linux-computer.md)|Installeer de agent voor Linux aanroepen van een wrapper-scripts die worden gehost op GitHub. | 
 | System Center Operations Manager|[Operations Manager integreert met Log Analytics](../../azure-monitor/platform/om-agents.md) | Configureren van de integratie tussen Operations Manager en de Log Analytics voor het doorsturen van gegevens die worden verzameld van Linux en Windows-computers die rapporteren aan een beheergroep.|  
 
 ## <a name="next-steps"></a>Volgende stappen

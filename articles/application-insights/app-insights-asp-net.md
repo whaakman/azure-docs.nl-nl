@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6977d992bd50ca0f3f03ef10095e12472515b780
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 4b9952cbe034df59dd1f152d5b70b50e9a4db8ab
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682398"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873594"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -149,7 +149,7 @@ Er zijn ook andere onderwerpen die u kunt bekijken als u geïnteresseerd bent in
 
 * **[Met Application Insights werken in Visual Studio](app-insights-visual-studio.md)**<br/>Bevat informatie over foutopsporing met telemetrie, het doorzoeken van diagnostische gegevens en het in detail analyseren van code.
 * **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/> Bevat informatie over dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie.
-* **[Analyse](../log-analytics/query-language/get-started-analytics-portal.md)**: de krachtige querytaal.
+* **[Analyse](../azure-monitor/log-query/get-started-portal.md)**: de krachtige querytaal.
 
 ### <a name="alerts"></a>Waarschuwingen
 

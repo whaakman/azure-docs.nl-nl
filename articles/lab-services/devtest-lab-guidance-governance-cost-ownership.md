@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 623e4392ff8ff75d09da92c54b9e4dc620146432
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251041"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868358"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Beheer van de infrastructuur van Azure DevTest Labs - kosten en eigendom beheren
 Kosten en het eigendom zijn primaire problemen wanneer u Houd rekening met het bouwen van uw ontwikkel- en testomgevingen. In deze sectie vindt u informatie waarmee u kunt optimaliseren voor kosten en eigendom uitlijnen in uw omgeving.
@@ -40,7 +40,7 @@ Deze aanpak kunt u met profiteren van talrijke voordelen:
  
 Actieve Visual Studio-abonnees (standaardabonnementen, cloudjaarabonnementen en cloudmaandabonnementen) kunnen alleen Azure-bronnen in een enterprise Dev/Test-abonnement gebruiken. Eindgebruikers kunnen wel toegang tot de toepassing feedback geven of acceptatietesten uit te voeren. Gebruik van bronnen binnen dit abonnement is beperkt tot het ontwikkelen en testen van toepassingen en er wordt geen garantie voor actieve tijdsduur gegeven.
 
-Als u wilt gebruiken de DevTest-aanbieding, houd er rekening mee dat dit voordeel is uitsluitend bedoeld voor ontwikkeling en testen van uw toepassingen. Gebruik binnen het abonnement wordt niet geleverd met een SLA met financiële garantie, behalve voor het gebruik van Visual Studio-teamservices en HockeyApp.
+Als u wilt gebruiken de DevTest-aanbieding, houd er rekening mee dat dit voordeel is uitsluitend bedoeld voor ontwikkeling en testen van uw toepassingen. Gebruik binnen het abonnement wordt niet geleverd met een SLA met financiële garantie, behalve voor het gebruik van Azure DevOps en HockeyApp.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Een op rollen gebaseerde toegang in uw organisatie definiëren
 ### <a name="question"></a>Vraag
@@ -57,7 +57,7 @@ De DevTest Labs-bron moet eigendom zijn van eigenaren die zich dicht bij de toep
 
 De teamleden project/toepassing moeten worden toegevoegd aan de rol van DevTest Labs-gebruikers. Deze gebruikers kunnen maken van virtuele machines (inline-lab en het abonnementsniveau). Ook kunnen ze hun eigen virtuele machines beheren. Ze kunnen geen virtuele machines die deel uitmaken van andere gebruikers beheren.
 
-Zie voor meer informatie, [Azure enterprise-platform-prescriptieve abonnementsgovernance](/architecture/cloud-adoption/appendix/azure-scaffold) documentatie.
+Zie voor meer informatie, [Azure enterprise-platform-prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption/appendix/azure-scaffold) documentatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen

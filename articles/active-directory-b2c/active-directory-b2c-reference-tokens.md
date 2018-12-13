@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843866"
+ms.locfileid: "52880111"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
 
@@ -89,7 +89,7 @@ Houd er rekening mee dat de claims in het ID-tokens worden niet geretourneerd in
 ### <a name="refresh-tokens"></a>Vernieuwen van tokens
 Vernieuwen van tokens zijn beveiligingstokens die uw app gebruiken kunt om nieuwe ID-tokens verkrijgen en toegangstokens in een stroom voor OAuth 2.0. Ze uw app op de lange termijn toegang bieden tot bronnen namens gebruikers zonder interactie met de gebruikers.
 
-Voor het ontvangen van een vernieuwing token een token antwoord wordt uw app moet aanvragen de `offline_acesss` bereik. Voor meer informatie over de `offline_access` scope, raadpleeg dan de [naslaginformatie over Azure AD B2C-protocol](active-directory-b2c-reference-protocols.md).
+Voor het ontvangen van een vernieuwing token een token antwoord wordt uw app moet aanvragen de `offline_access` bereik. Voor meer informatie over de `offline_access` scope, raadpleeg dan de [naslaginformatie over Azure AD B2C-protocol](active-directory-b2c-reference-protocols.md).
 
 Vernieuwen van tokens, en altijd zullen zijn, helemaal ondoorzichtig aan uw app. Ze kunnen zijn uitgegeven door Azure AD worden gecontroleerd en geïnterpreteerd alleen door Azure AD. Ze zijn lange levensduur hebben, maar uw app moet niet worden geschreven met de verwachting dat een vernieuwingstoken voor een bepaalde periode duurt. Vernieuwingstokens kunnen op elk moment voor een aantal redenen zijn ongeldig. De enige manier om uw app om te weten of een vernieuwingstoken geldig is, is om te je deze door een token aan te vragen naar Azure AD.
 

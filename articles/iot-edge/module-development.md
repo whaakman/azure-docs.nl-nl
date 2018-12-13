@@ -1,6 +1,6 @@
 ---
 title: Modules ontwikkelen voor Azure IoT Edge | Microsoft Docs
-description: Informatie over het maken van aangepaste modules voor Azure IoT Edge
+description: Aangepaste modules ontwikkelen voor Azure IoT Edge die met de runtime en IoT-Hub communiceren kan
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 50e9c0667761e43c63b03fbaf5f8ce93eb49e749
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567227"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100086"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Informatie over de vereisten en hulpprogramma's voor het ontwikkelen van IoT Edge-modules
 
@@ -50,7 +51,7 @@ Met behulp van expliciete invoer en uitvoer, maar dan wel maakt regels voor door
 
 Ten slotte worden verwerkt door de Edge hub apparaat-naar-cloud-berichten factureringslabel voor de volgende eigenschappen:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | -------- | ----------- |
 | $connectionDeviceId | De apparaat-ID van de client die het bericht heeft verzonden |
 | $connectionModuleId | De module-ID van de module die het bericht heeft verzonden |

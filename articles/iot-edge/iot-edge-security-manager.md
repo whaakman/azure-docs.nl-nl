@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge-beveiligingsbeheer | Microsoft Docs
+title: Informatie over hoe de beveiligingsinstellingen van apparaten, software - Azure IoT Edge beschermt | Microsoft Docs
 description: Beheert de koers beveiliging van IoT Edge-apparaat en de integriteit van beveiligingsservices.
 services: iot-edge
 keywords: beveiliging, veilige element, enclave, t, IoT Edge
@@ -9,12 +9,13 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: eda572c0f4abedd59c912dcf1de2cf3c6e226b5c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567686"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091921"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge-beveiligingsbeheer
 
@@ -33,7 +34,7 @@ De verantwoordelijkheden van de IoT Edge security manager bevatten (maar niet be
 * Gatekeeper apparaat hardware vertrouwensbasis via notaris services.
 * De integriteit van IoT Edge-bewerkingen tijdens runtime bewaken.
 
-IoT Edge security manager bestaat uit drie primaire onderdelen:
+IoT Edge security manager bevat drie onderdelen:
 
 * IoT Edge security daemon.
 * Hardware security module platform abstraction Layer (PAL HSM).

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bff5c5cfd022134c1d86883a267528717969c59
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c595695f3643522d36b53091656c3655f83a9345
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721677"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877833"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
 Search is een functie van [Application Insights](app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
 
-(Voor complexere query's over uw gegevens, gebruikt u [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
+(Voor complexere query's over uw gegevens, gebruikt u [Analytics](../azure-monitor/log-query/get-started-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Waar kan u Search zien?
 
@@ -101,7 +101,7 @@ Alle items met dezelfde eigenschapswaarde voor zoeken:
 ## <a name="search-the-data"></a>Zoeken naar de gegevens
 
 > [!NOTE]
-> Voor het schrijven van complexe query's, open [ **Analytics** ](../log-analytics/query-language/get-started-analytics-portal.md) vanaf de bovenkant van de blade zoeken.
+> Voor het schrijven van complexe query's, open [ **Analytics** ](../azure-monitor/log-query/get-started-portal.md) vanaf de bovenkant van de blade zoeken.
 > 
 
 U kunt zoeken naar termen in een van de eigenschapswaarden. Dit is vooral handig als u hebt geschreven [aangepaste gebeurtenissen](app-insights-api-custom-events-metrics.md) met eigenschapswaarden. 
@@ -163,7 +163,7 @@ We niet de POST-gegevens automatisch vastleggen, maar u kunt [TrackTrace of log 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Volgende stappen
-* [Schrijven van complexe query's in Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Schrijven van complexe query's in Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Logboeken en aangepaste telemetrie verzenden naar Application Insights](app-insights-asp-net-trace-logs.md)
 * [Beschikbaarheid en reactiesnelheid tests instellen](app-insights-monitor-web-app-availability.md)
 * [Problemen oplossen](app-insights-troubleshoot-faq.md)

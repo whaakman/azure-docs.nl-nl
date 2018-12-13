@@ -1,22 +1,20 @@
 ---
-title: Indexeren in MongoDB-API van Azure Cosmos DB | Microsoft Docs
+title: Indexeren in Azure Cosmos DB MongoDB-API
 description: In dit artikel vindt u een overzicht van de indexeringsmogelijkheden in de MongoDB-API van Azure Cosmos DB.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312694"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875294"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexeren in de MongoDB-API van Azure Cosmos DB
 

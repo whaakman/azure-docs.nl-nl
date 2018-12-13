@@ -1,21 +1,22 @@
 ---
-title: Microsoft Azure Traffic Manager gebruiken voor het verhogen van quota voor eindpunt in Language Understanding (LUIS)
+title: Vergroot het quotum voor eindpunt
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042173"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076760"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheer van eindpunt quotum voor sleutels
 Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie. 
@@ -36,7 +37,7 @@ Voordat u de Azure-resources maakt, maakt u een resourcegroep voor alle resource
 
 Resourcegroep maken met **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** cmdlet:
 
-```PowerShell
+```powerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
@@ -69,7 +70,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
 
     Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel East US LUIS. Als het pad niet juist is is, met inbegrip van de LUIS-app-ID en het eindpunt sleutel, de polling Traffic Manager is een status van `degraded` omdat Traffic Manager het eindpunt LUIS is geen aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-east` zodat u deze waarde in de logboeken van LUIS-eindpunt kunt zien.
 
-    ```PowerShell
+    ```powerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
@@ -89,7 +90,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
 
 2. Toevoegen VS-Oost-eindpunt met **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     Deze tabel bevat uitleg over iedere variabele in de cmdlet:
@@ -105,7 +106,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
 
     De geslaagde respons ziet eruit zoals:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-eastus
     Name                             : luis-profile-eastus
     ResourceGroupName                : luis-traffic-manager
@@ -124,7 +125,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
 
 3. VS-Oost-eindpunt met instellen **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
@@ -137,7 +138,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
 
     Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel East US LUIS. Als het pad niet correct met inbegrip van de LUIS-app-sleutel-ID en -eindpunt is, de polling Traffic Manager is een status van `degraded` omdat Traffic Manager het eindpunt LUIS is geen aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-west` zodat u deze waarde in de logboeken van LUIS-eindpunt kunt zien.
 
-    ```PowerShell
+    ```powerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
@@ -157,7 +158,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
 
 2. Toevoegen VS-West-eindpunt met **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
@@ -174,7 +175,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
 
     De geslaagde respons ziet eruit zoals:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-westus
     Name                             : luis-profile-westus
     ResourceGroupName                : luis-traffic-manager
@@ -193,7 +194,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
 
 3. VS-West-eindpunt met instellen **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
@@ -204,7 +205,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
 
 1. Maken van de bovenliggende profiel met **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    ```PowerShell
+    ```powerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
@@ -224,7 +225,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
 
 2. Voeg VS-Oost onderliggende profiel toe aan de bovenliggende met **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** en **NestedEndpoints** type
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
@@ -242,7 +243,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
 
     Het uiterlijk geslaagd antwoord als volgt uit en bevat de nieuwe `child-endpoint-useast` eindpunt:    
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -261,7 +262,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
 
 3. Voeg VS-West onderliggende profiel toe aan de bovenliggende met **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet en **NestedEndpoints** type
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
@@ -279,7 +280,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
 
     Het uiterlijk geslaagd antwoord, zoals en bevat zowel de vorige `child-endpoint-useast` eindpunt en de nieuwe `child-endpoint-uswest` eindpunt:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -298,7 +299,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
 
 4. Instellen van eindpunten met **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet 
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
@@ -309,7 +310,7 @@ In de vorige secties, drie PowerShell-variabelen zijn gemaakt: `$eastprofile`, `
 
 Vervang de items in de vierkante haken, `<>`, met de juiste waarden voor elk van de drie profielen die u nodig hebt. 
 
-```PowerShell
+```powerShell
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
@@ -329,7 +330,7 @@ Traffic Manager controleert of het pad van elk eindpunt om te controleren of dat
 ### <a name="validate-traffic-manager-polling-works"></a>Traffic Manager werkt polling valideren
 Een andere manier om te valideren van traffic manager werkt polling is met de LUIS-eindpunt-Logboeken. Op de [LUIS] [ LUIS] lijst met apps van website pagina, exporteren van het logboek eindpunt voor de toepassing. Omdat het Traffic Manager haalt vaak van de twee eindpunten, zijn er items in de logboeken, zelfs als ze alleen aan een paar minuten zijn. Vergeet niet om te zoeken naar gegevens, waarbij de query met begint `traffic-manager-`.
 
-```text
+```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 ```
@@ -339,7 +340,7 @@ Verzoeken om te valideren dat de DNS-antwoord een LUIS-eindpunt retourneert, het
 
 De volgende Node.js-code dient een aanvraag voor het profiel van de bovenliggende en retourneert een LUIS-eindpunt:
 
-```javascript
+```nodejs
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

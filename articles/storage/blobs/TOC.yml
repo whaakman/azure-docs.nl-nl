@@ -56,16 +56,8 @@ items:
         href: storage-secure-access-application.md
       - name: 4 - Opslag controleren en problemen oplossen
         href: storage-monitor-troubleshoot-storage-application.md
-    - name: Voor cloudopslag met hoge beschikbaarheid ontwerpen
-      items:
-      - name: 1 - Uw toepassing maximaal beschikbaar maken
-        href: storage-create-geo-redundant-storage.md
-      - name: 2 - Een fout met RA-GRS-opslag simuleren
-        href: storage-simulate-failure-ragrs-account-app.md
     - name: Gegevens naar de cloud migreren met AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Niet-gestructureerde gegevens in cloudopslag doorzoeken
-      href: storage-unstructured-search.md
     - name: De prestaties en schaalbaarheid van opslagoplossingen optimaliseren
       items:
       - name: 1 - Een virtuele machine en een opslagaccount maken
@@ -76,6 +68,20 @@ items:
         href: storage-blob-scalable-app-download-files.md
       - name: 4 - Metrische gegevens over doorvoer en latentie controleren
         href: storage-blob-scalable-app-verify-metrics.md
+    - name: Een statische website hosten
+      items:
+      - name: 1 - Een statische website maken
+        href: storage-blob-static-website-host.md
+      - name: 2 - Een aangepast domein met SSL inschakelen
+        href: storage-blob-static-website-custom-domain.md
+    - name: Voor cloudopslag met hoge beschikbaarheid ontwerpen
+      items:
+      - name: 1 - Uw toepassing maximaal beschikbaar maken
+        href: storage-create-geo-redundant-storage.md
+      - name: 2 - Een fout met RA-GRS-opslag simuleren
+        href: storage-simulate-failure-ragrs-account-app.md
+    - name: Niet-gestructureerde gegevens in cloudopslag doorzoeken
+      href: storage-unstructured-search.md
   - name: Voorbeelden
     items:
     - name: .NET
@@ -558,8 +564,6 @@ items:
         items:
         - name: Toegangsrechten beheren met RBAC
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Evaluatie van Data Lake Storage Gen2
-      href: ../blobs/data-lake-storage-evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Procedures
     items:
     - name: Machtigingen instellen met Azure Storage Explorer
@@ -616,9 +620,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Video's
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: dc45425a3e20d18bbe43e4a41ca40bd6c2fe6b9a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fb4a261b19f08e5dcf4bedda60eacca42e97c7e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013642"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099610"

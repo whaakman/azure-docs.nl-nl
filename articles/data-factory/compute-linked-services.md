@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390208"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873818"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
 In dit artikel vindt u verschillende rekenomgevingen die u kunt gebruiken voor gegevens verwerken en transformeren. Het biedt ook meer informatie over de verschillende configuraties (op aanvraag en voeg uw eigen) ondersteund door Data Factory bij het configureren van gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -48,11 +48,7 @@ Let op het volgende **belangrijk** punten over on-demand HDInsight gekoppelde se
 * De on-demand HDInsight-cluster wordt gemaakt onder uw Azure-abonnement. U staat op het cluster in uw Azure-portal zien wanneer het cluster actief is en wordt uitgevoerd. 
 * De logboeken voor taken die worden uitgevoerd op een on-demand HDInsight-cluster zijn gekopieerd naar het opslagaccount dat is gekoppeld aan het HDInsight-cluster. Het clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword gedefinieerd in de definitie van de gekoppelde service worden gebruikt voor aanmelding bij het cluster voor het grondig oplossen van problemen tijdens de levenscyclus van het cluster. 
 * U betaalt alleen voor de tijd waarop het HDInsight-cluster actief is en de taken die worden uitgevoerd.
-* U kunt een scriptactie niet gebruiken met de gekoppelde service van Azure HDInsight op aanvraag. Als u hebt voor het installeren van andere afhankelijkheden, bijvoorbeeld: overweeg het gebruik van Azure Automation om uit te voeren van een PowerShell-script dat het volgende doet:  
-  a. Het HDInsight-cluster maken.  
-  b. Een scriptactie voor het installeren van andere afhankelijkheden, bijvoorbeeld worden uitgevoerd.  
-  c. Uitvoering van de Data Factory-pijplijn.  
-  d. Verwijder het cluster.  
+* Script Action wordt nu ondersteund met de gekoppelde service van Azure HDInsight op aanvraag.  
 
 > [!IMPORTANT]
 > Het duurt doorgaans **20 minuten** of meer voor het inrichten van een Azure HDInsight-cluster op aanvraag.

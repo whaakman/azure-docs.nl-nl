@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 402d4fb0c1eb7c6760f800bdd408e9a4d8161ccc
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2a17bca6f7b95850f84781b5838719617d45bdd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077814"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Gegevens kopiëren van Google AdWords met Azure Data Factory (Preview)
 
@@ -43,7 +43,7 @@ De volgende secties bevatten meer informatie over eigenschappen die worden gebru
 
 De volgende eigenschappen worden ondersteund voor Google AdWords service gekoppelde:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **GoogleAdWords** | Ja |
 | clientCustomerID | De Client-klant-ID van het AdWords-account dat u wilt ophalen van rapportgegevens voor.  | Ja |
@@ -52,7 +52,7 @@ De volgende eigenschappen worden ondersteund voor Google AdWords service gekoppe
 | refreshToken | Het vernieuwingstoken dat is verkregen van Google voor het verlenen van toegang tot AdWords voor UserAuthentication. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF acitivty pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Nee |
 | ClientId | De client-id van het google-toepassing die wordt gebruikt om de vernieuwingstoken te verkrijgen. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF acitivty pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Nee |
 | ClientSecret | Het clientgeheim van de google-toepassing die wordt gebruikt om de vernieuwingstoken te verkrijgen. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF acitivty pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Nee |
-| e-mailen | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication en kan alleen worden gebruikt voor de zelf-hostende IR  | Nee |
+| e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication en kan alleen worden gebruikt voor de zelf-hostende IR  | Nee |
 | keyFilePath | Het volledige pad naar de sleutel .p12-bestand dat wordt gebruikt voor verificatie van het e-mailadres van de service-account en kan alleen worden gebruikt voor de zelf-hostende IR  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met de vertrouwde CA-certificaten voor het controleren van de server wanneer u verbinding maakt via SSL. Deze eigenschap kan alleen worden ingesteld wanneer u SSL op zelf-hostende IR De standaardwaarde is het bestand cacerts.pem is geïnstalleerd met de IR.  | Nee |
 | useSystemTrustStore | Hiermee bepaalt u of u een CA-certificaat uit het archief van de vertrouwensrelatie systeem- of uit een opgegeven PEM-bestand. De standaardwaarde is false.  | Nee |
@@ -97,7 +97,12 @@ De volgende eigenschappen worden ondersteund voor Google AdWords service gekoppe
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Google AdWords gegevensset.
 
-Als u wilt kopiëren van gegevens uit Google AdWords, stel de eigenschap type van de gegevensset in **GoogleAdWordsObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
+Als u wilt kopiëren van gegevens uit Google AdWords, stel de eigenschap type van de gegevensset in **GoogleAdWordsObject**. De volgende eigenschappen worden ondersteund:
+
+| Eigenschap | Description | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op: **GoogleAdWordsObject** | Ja |
+| tableName | Naam van de tabel. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
 **Voorbeeld**
 
@@ -109,7 +114,8 @@ Als u wilt kopiëren van gegevens uit Google AdWords, stel de eigenschap type va
         "linkedServiceName": {
             "referenceName": "<GoogleAdWords linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -123,10 +129,10 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 Om gegevens te kopiëren vanuit Google AdWords, stelt u het brontype in de kopieeractiviteit naar **GoogleAdWordsSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
-| Eigenschap | Beschrijving | Vereist |
+| Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **GoogleAdWordsSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 

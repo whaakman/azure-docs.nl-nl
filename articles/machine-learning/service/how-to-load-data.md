@@ -1,5 +1,6 @@
 ---
-title: Gegevens laden met de Azure Machine Learning Data Prep SDK - Python
+title: Gegevens laden en prep met de Data Prep Python-SDK
+titleSuffix: Azure Machine Learning service
 description: Meer informatie over het laden van gegevens met Azure Machine Learning Data Prep SDK. U kunt verschillende soorten gegevens laden, gegevens-bestandstypen en parameters opgeven of de slimme lezen SDK-functionaliteit gebruiken voor het automatisch detecteren bestandstype.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,13 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f4bb4d95548a8c6c373eaa32617245a7ee0910b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d7561c0dc89fb47f88ca6e54616736067262391
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865672"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095056"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
@@ -205,7 +207,7 @@ dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dataflow.head(5)
 ```
 
-||Product-id|Naam|ProductNumber|Kleur|StandardCost|ListPrice|Grootte|Gewicht|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|Thumbnailphoto wordt door|ThumbnailPhotoFileName|ROWGUID|ModifiedDate|
+||Product-id|Name|ProductNumber|Kleur|StandardCost|ListPrice|Grootte|Gewicht|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|Thumbnailphoto wordt door|ThumbnailPhotoFileName|ROWGUID|ModifiedDate|
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 |0|680|HL-Fietsframe - zwart, 58|FR-R92B-58|Zwart|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00 uur|Geen|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461F-9069-55309d90ea7e|2008-03-11 |0:01:36.827000 + 00:00 uur|
 |1|706|HL-Fietsframe - rood, 58|FR-R92R-58|Rood|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00 uur|Geen|Geen|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000 + 00:00 uur|

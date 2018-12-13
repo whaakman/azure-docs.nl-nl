@@ -1,53 +1,46 @@
 ---
-title: 'Opnieuw instellen van een mislukte Azure ExpressRoute-circuit: PowerShell | Microsoft Docs'
-description: In dit artikel helpt u bij opnieuw instellen van een ExpressRoute-circuit bevindt zich in een foutstatus.
-documentationcenter: na
+title: 'Opnieuw instellen van een mislukt circuit - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+description: Dit artikel helpt u opnieuw instellen van een ExpressRoute-circuit bevindt zich in een foutstatus.
 services: expressroute
 author: anzaman
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 423bc1d6409e5b7fe02339a05d0775f4ff42de49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 11/28/2018
+ms.author: anzaman
+ms.custom: seodec18
+ms.openlocfilehash: 7b88ba6e00cbec05263fe5bc8e795cda95beee04
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093662"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Opnieuw instellen van een mislukte ExpressRoute-circuit
 
-Wanneer een bewerking op een ExpressRoute-circuit niet wordt voltooid, wordt het circuit kan overschakelen naar een status 'mislukt'. In dit artikel helpt u bij opnieuw instellen van een mislukte Azure ExpressRoute-circuit.
+Als een bewerking op een ExpressRoute-circuit niet wordt voltooid, kan het circuit gaat u in een status 'mislukt'. Dit artikel helpt u opnieuw instellen van een mislukte Azure ExpressRoute-circuit.
 
-## <a name="reset-a-circuit"></a>Opnieuw instellen van een circuit
+## <a name="reset-a-circuit"></a>Een circuit opnieuw instellen
 
 1. Installeer de meest recente versie van de PowerShell-cmdlets van Azure Resource Manager. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor meer informatie.
 
 2. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 3. Als u meerdere Azure-abonnementen hebt, controleert u de abonnementen voor het account.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
 4. Geef het abonnement op dat u wilt gebruiken.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
-5. Voer de volgende opdrachten een circuit die zich in een mislukte status opnieuw instellen:
+5. Voer de volgende opdrachten in te stellen van een circuit die bevindt zich in een foutstatus:
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt

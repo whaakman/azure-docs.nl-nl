@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b1531e23d0e5fd34eff59868055ccd855b423e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444300"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877130"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Gegevensmodel voor Azure Backup-rapporten
 Dit artikel beschrijft het gegevensmodel van Power BI gebruikt voor het maken van Azure Backup-rapporten. Met dit gegevensmodel, kunt u filteren op bestaande rapporten op basis van relevante velden en informatie bovendien uw eigen rapporten maken met behulp van tabellen en velden in het model. 
@@ -33,7 +33,7 @@ Deze tabel bevat algemene velden en aggregaties die via verschillende gerelateer
 | #AlertsCreatedInPeriod |Geheel getal |Aantal waarschuwingen die zijn gemaakt in een geselecteerde tijdsperiode |
 | % ActiveAlertsCreatedInPeriod |Percentage |Percentage van actieve waarschuwingen in de geselecteerde periode |
 | % CriticalAlertsCreatedInPeriod |Percentage |Percentage van de kritieke waarschuwingen in de geselecteerde periode |
-| AlertOccurenceDate |Date |Datum waarop de waarschuwing is gemaakt |
+| AlertOccurrenceDate |Date |Datum waarop de waarschuwing is gemaakt |
 | AlertSeverity |Tekst |Ernst van de waarschuwing bijvoorbeeld: kritiek |
 | AlertStatus |Tekst |Status van de waarschuwing bijvoorbeeld actief |
 | AlertType |Tekst |Type van de gegenereerde waarschuwing bijvoorbeeld back-up |
@@ -77,7 +77,7 @@ Deze tabel bevat details over velden met betrekking tot de agenda.
 | Jaar |Tekst |Kalenderjaar geselecteerd voor het filteren van gegevens |
 | YearDate |Date |Datum in het jaar als jaar wordt beëindigd, geselecteerd voor het filteren van gegevens |
 
-### <a name="job"></a>Job
+### <a name="job"></a>Taak
 Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot de taak.
 
 | Veld | Gegevenstype | Beschrijving |

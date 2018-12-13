@@ -1,7 +1,7 @@
 ---
-title: Spraak naar tekst
+title: Over spraak naar tekst - spraakservices
 titleSuffix: Azure Cognitive Services
-description: Een overzicht van de mogelijkheden van spraak naar tekst-API.
+description: De spraak-naar-tekst-API transcribes audiostreams naar tekst die uw app kunt weergeven of erop als invoer. De service is beschikbaar via de SDK en een RESTful-eindpunt.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094709"
 ---
 # <a name="about-the-speech-to-text-api"></a>Informatie over de Speech to Text-API
 

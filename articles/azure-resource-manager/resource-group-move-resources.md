@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27b41655d9a6c9000d9bc3cf98bf3246bb108104
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: d16f05c208e737f7c0095fc95c4272fe216f7a34
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015548"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094930"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -215,6 +215,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
+* Recovery Services-kluis: u moet worden geregistreerd in een besloten preview. Zie [beperkingen voor Recovery Services](#recovery-services-limitations).
 * Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
 * Search
@@ -259,7 +260,6 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Microsoft Genomics
 * NetApp
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
-* Recovery Services-kluis - ook niet de Reken-, netwerk- en resources die zijn gekoppeld aan de Recovery Services-kluis wilt verplaatsen, Zie [beperkingen voor Recovery Services](#recovery-services-limitations).
 * SAP HANA op Azure
 * Beveiliging
 * Site Recovery
@@ -446,6 +446,8 @@ De bewerking kan enkele minuten uitgevoerd.
 
 ## <a name="recovery-services-limitations"></a>Recovery Services-beperkingen
 
+Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven voor een beperkte preview. Probeer het uit, schrijven naar AskAzureBackupTeam@microsoft.com.
+
 Verplaatsing is niet ingeschakeld voor opslag, netwerk- of Compute-resources die worden gebruikt voor het instellen van herstel na noodgeval met Azure Site Recovery.
 
 Stel bijvoorbeeld dat u replicatie van uw on-premises machines naar een opslagaccount (Storage1) hebt ingesteld en wilt dat de beveiligde machine zijn beschikbaar na een failover naar Azure als een virtuele machine (VM1) die is gekoppeld aan een virtueel netwerk (Network1). U kunt een van deze Azure-resources - Storage1, VM1 en Network1 - niet verplaatsen tussen resourcegroepen binnen hetzelfde abonnement of tussen abonnementen.
@@ -453,7 +455,10 @@ Stel bijvoorbeeld dat u replicatie van uw on-premises machines naar een opslagac
 Verplaatsen van een virtuele machine geregistreerd bij **Azure backup** tussen resourcegroepen:
  1. Tijdelijk back-up stoppen en back-upgegevens behouden
  2. De virtuele machine verplaatsen naar de doelresourcegroep
- 3. Beveilig deze onder de dezelfde/nieuwe kluis die gebruikers vanuit de beschikbare herstelpunten die zijn gemaakt vóór de verplaatsing herstellen kunnen opnieuw.
+ 3. Deze onder de dezelfde/nieuwe kluis opnieuw beveiligen
+
+Gebruikers kunnen herstellen met de beschikbare herstelpunten die zijn gemaakt vóór de verplaatsing.
+
 Als de gebruiker wordt verplaatst van de VM waarvan een back-up is gemaakt in abonnementen, stap 1 en stap 2 blijven hetzelfde. Gebruiker moet de virtuele machine onder een nieuwe kluis aanwezig / worden gemaakt in het doelabonnement beveiligen in stap 3. Recovery Services-kluis biedt geen ondersteuning voor back-ups van kruislings abonnement.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-beperkingen

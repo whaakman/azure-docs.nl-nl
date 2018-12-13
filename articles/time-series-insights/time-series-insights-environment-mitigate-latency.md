@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: MT
+ms.openlocfilehash: e2b68982a855b56d97983460f248ef3040d03d79
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364979"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876754"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Controleren en om te verminderen latentie in Azure Time Series Insights Aanvraagbeperkingen minimaliseren
 Wanneer de hoeveelheid inkomende gegevens groter is dan de configuratie van uw omgeving, kunt u latentie of beperkingen in Azure Time Series Insights kan optreden.
@@ -56,9 +56,9 @@ Van daaruit kunt u waarschuwingen met behulp van de volgende metrische gegevens 
 |**Inkomende gegevens ontvangen ongeldig berichten**     | Aantal ongeldige berichten lezen van alle bronnen van Azure Event Hubs of Azure IoT Hub gebeurtenissen.      |
 |**Binnenkomende berichten ontvangen**   | Aantal berichten lezen van bronnen van gebeurtenissen voor alle Event Hubs of IoT-Hubs.        |
 |**Binnenkomende Bytes opgeslagen**     | Totale grootte van gebeurtenissen die zijn opgeslagen en beschikbaar voor query's. Grootte wordt alleen op de waarde van de eigenschap berekend.        |
-|**Inkomende gebeurtenissen opgeslagen**     |   Telt het aantal samengevoegde gebeurtenissen opgeslagen en beschikbaar voor query's.      |
-|**Inkomend verkeer ontvangen bericht tijdsinterval**    |  Het verschil in seconden tussen het moment dat het bericht in de gebeurtenis in de wachtrij is bron- en de tijd die in inkomend verkeer wordt verwerkt.      |
-|**Inkomend verkeer ontvangen vertraging van het aantal berichten**    |  Verschil tussen het volgnummer van bericht van de laatste in de wachtrij geplaatste gegevensbron in de gebeurtenis partitie en volgorde aantal bericht in de inkomende gegevens dat wordt verwerkt.      |
+|**Inkomende gebeurtenissen opgeslagen**     |   Telt het aantal samengevoegde gebeurtenissen opgeslagen en beschikbaar voor query's.      |
+|**Inkomend verkeer ontvangen bericht tijdsinterval**    |  Het verschil in seconden tussen het moment dat het bericht in de gebeurtenis in de wachtrij is bron- en de tijd die in inkomend verkeer wordt verwerkt.      |
+|**Inkomend verkeer ontvangen vertraging van het aantal berichten**    |  Verschil tussen het volgnummer van bericht van de laatste in de wachtrij geplaatste gegevensbron in de gebeurtenis partitie en volgorde aantal bericht in de inkomende gegevens dat wordt verwerkt.      |
 
 
 ![Latentie](media/environment-mitigate-latency/latency.png)

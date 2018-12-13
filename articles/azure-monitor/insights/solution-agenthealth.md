@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 5823e6e3bf2614bf834a9ab64c3403829d58a779
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.openlocfilehash: 1c6012503c5300d64d17a4b8efc262fa91355c88
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715343"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890106"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Oplossing status van agent in Azure
 De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Log Analytics, dat niet meer reageert zijn op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze oplossing implementeert, Controleer of u beschikt over ondersteunde [Windows agents](../../log-analytics/log-analytics-windows-agent.md) rapporteren aan de Log Analytics-werkruimte of aan een [Operations Manager-beheergroep](../../log-analytics/log-analytics-om-agents.md) geïntegreerd met uw werkruimte.    
+Voordat u deze oplossing implementeert, Controleer of u beschikt over ondersteunde [Windows agents](../../log-analytics/log-analytics-windows-agent.md) rapporteren aan de Log Analytics-werkruimte of aan een [Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) geïntegreerd met uw werkruimte.    
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 Deze oplossing bestaat uit de volgende resources die worden toegevoegd aan uw werkruimte en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
@@ -36,7 +36,7 @@ Als uw System Center Operations Manager-beheergroep is verbonden met een Log Ana
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Zie [Operations Manager koppelen aan Log Analytics](../../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
+Zie [Operations Manager koppelen aan Log Analytics](../../azure-monitor/platform/om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ## <a name="configuration"></a>Configuratie
 De oplossing status van Agent toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](solutions.md). Er is geen verdere configuratie nodig.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017685"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074483"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Over het optimaliseren van uw investeringen in de cloud met Azure Cost Management
 
@@ -64,7 +64,7 @@ Fungeren als u wilt verkleinen uw uitgaven. Haal alles uit op basis van de resul
 
 Iedereen in uw organisatie moet deelnemen aan het levenscyclusbeheer van kosten. Ze moeten blijven betrokken regelmatig kosten optimaliseren. Worden strenge over deze iteratief proces en geef deze als een belangrijk basisprincipe verantwoordelijk cloud governance in uw organisatie.
 
-![Basisprincipes](./media/cost-mgt-best-practices/principles.png)
+![Basisprincipes-diagram van zichtbaarheid, betere controleerbaarheid en optimalisatie](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Met de kosten in rekening met plannen
 

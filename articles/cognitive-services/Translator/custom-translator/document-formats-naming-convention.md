@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627381"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872761"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Documenteer indelingen en naming convention-richtlijnen
 
@@ -43,11 +43,13 @@ Woordenboeken ondersteuning aangepaste Translator voor alle bestandsindelingen d
 
 Documenten kunnen worden gegroepeerd in één zip-bestand en geüpload. De aangepaste Translator ondersteunt zip-indelingen (ZIP GZ en TGZ).
 
-Elk document in het zip-bestand moet volgen deze naamconventie:
+Elk document in het zip-bestand met de extensie, TXT, HTML, HTM, PDF, DOCX, uitlijnen moet volgen deze naamconventie:
 
 {documentnaam} \_{taalcode} wanneer {document name} de naam van uw document is, {taalcode} is de ISO-LanguageID (twee tekens), die aangeeft dat het document zinnen in die taal bevat. Er moet een onderstrepingsteken (_) voordat de taalcode.
 
 Bijvoorbeeld, als u wilt uploaden twee parallelle documenten in een zip voor een Engels, Spaans systeem, de bestanden moeten de naam 'data_en' en 'data_es'.
+
+Vertaalbestanden van geheugen (TMX, XLF, XLIFF, LCL, XLSX) hoeven niet te volgen de naamconventie voor een specifieke taal.  
 
 ## <a name="next-steps"></a>Volgende stappen
 

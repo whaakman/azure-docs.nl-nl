@@ -8,12 +8,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: aacd41eef250577681a9910c9b7c68f3b7000f5c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870789"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084009"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Een lambda-architectuur implementeren op het Azure-platform 
 
@@ -34,7 +34,7 @@ Een lambda-architectuur is een generiek, schaalbare en fouttolerante architectuu
 
 Bron: http://lambda-architecture.net/
 
-De grondbeginselen van een lambda-architectuur worden beschreven in het voorgaande diagram als per [ https://lambda-architecture.net ](http://lambda-architecture.net/).
+De grondbeginselen van een lambda-architectuur worden beschreven in het voorgaande diagram als per [ http://lambda-architecture.net ](http://lambda-architecture.net/).
 
  1. Alle **gegevens** wordt gepusht naar *beide* de *batchlaag* en *snelheidslaag*.
  2. De **batchlaag** heeft een master gegevensset (onveranderbare, alleen toevoegen set van onbewerkte gegevens) en de batch-weergaven vooraf worden berekend.
@@ -278,4 +278,4 @@ Als u niet hebt gedaan, downloadt u de Spark op Azure Cosmos DB-connector van de
 * [Demo's feed wijzigen](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Verwerken van wijzigingen met behulp van Azure Cosmos DB-Wijzigingenfeed en Apache Spark Stream](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-U kunt ook om te controleren de [Apache Spark SQL en DataFrames gegevenssets handleiding](http://spark.apache.org/docs/latest/sql-programming-guide.html) en de [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikel.
+U kunt ook om te controleren de [Apache Spark SQL en DataFrames gegevenssets handleiding](https://spark.apache.org/docs/latest/sql-programming-guide.html) en de [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikel.

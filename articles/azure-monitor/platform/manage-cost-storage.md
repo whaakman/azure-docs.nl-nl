@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be64d299ac61a47dd3c44ee2e422abd09785189e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 744a0f683f58aed98cea7bdef0b2a36af68ad2f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002540"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097570"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren
 
@@ -67,7 +67,7 @@ Wanneer het maken van een Log Analytics-werkruimte in de Azure-portal, waarna u 
 Wanneer de dagelijkse limiet is bereikt, stopt het verzamelen van factureerbare gegevenstypen voor de rest van de dag. De banner van een waarschuwing wordt weergegeven aan de bovenkant van de pagina voor de geselecteerde Log Analytics-werkruimte en een bewerkingsgebeurtenis wordt verzonden naar de *bewerking* tabel onder **LogManagement** categorie. Het verzamelen van gegevens wordt hervat nadat de tijd voor opnieuw instellen die zijn gedefinieerd onder *dagelijkse limiet wordt ingesteld op*. Het is raadzaam om het definiëren van een waarschuwingsregel op basis van deze bewerkingsgebeurtenis, geconfigureerd om te melden wanneer de dagelijkse limiet is bereikt. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificeren welke dagelijkse limiet voor gegevens definiëren 
-Beoordeling [Log Analytics-gebruik en geraamde kosten](../../log-analytics/log-analytics-usage.md) voor informatie over de trend voor het opnemen van gegevens en wat is de dagelijkse volumelimiet om te definiëren. Deze moet worden overwogen zorgvuldig, omdat het niet mogelijk om te controleren van uw bronnen nadat de limiet is bereikt. 
+Beoordeling [Log Analytics-gebruik en geraamde kosten](../../azure-monitor/platform/data-usage.md) voor informatie over de trend voor het opnemen van gegevens en wat is de dagelijkse volumelimiet om te definiëren. Deze moet worden overwogen zorgvuldig, omdat het niet mogelijk om te controleren van uw bronnen nadat de limiet is bereikt. 
 
 ### <a name="manage-the-maximum-daily-data-volume"></a>Het maximale dagelijkse gegevensvolume beheren 
 De volgende stappen wordt beschreven hoe u een limiet voor het beheren van de hoeveelheid gegevens die Log Analytics wordt per dag opnemen configureren.  
@@ -125,4 +125,4 @@ Log Analytics maakt gebruik van UTC-tijd. De tijd voor opnieuw instellen varieer
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-Om te bepalen hoeveel gegevens worden verzameld, welke bronnen worden verzonden en de verschillende typen gegevens worden verzonden naar het gebruik en kosten te beheren, Zie [gegevensgebruik analyseren in Log Analytics](../../log-analytics/log-analytics-usage.md).
+Om te bepalen hoeveel gegevens worden verzameld, welke bronnen worden verzonden en de verschillende typen gegevens worden verzonden naar het gebruik en kosten te beheren, Zie [gegevensgebruik analyseren in Log Analytics](../../azure-monitor/platform/data-usage.md).

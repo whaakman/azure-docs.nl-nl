@@ -1,5 +1,6 @@
 ---
-title: Maken en uitvoeren van pijplijnen voor ML - Azure Machine Learning-service
+title: Maken en uitvoeren van ML-pijplijnen
+titleSuffix: Azure Machine Learning service
 description: Maken en uitvoeren van een machine learning-pijplijn met de Azure Machine Learning-SDK voor Python.  Pijplijnen worden gebruikt voor het maken en beheren van de werkstromen die fasen geniet samen machine learning (ML), zoals gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken.
 services: machine-learning
 ms.service: machine-learning
@@ -9,17 +10,17 @@ ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 0119e60a6493ed13b04b36fc5fccc7227503fe0a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015051"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100536"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
-In dit artikel leert u hoe u maken, publiceren, uitvoeren en volgen een [machine learning-pijplijn](concept-ml-pipelines.md) met behulp van de [Azure Machine Learning-SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Deze pijplijnen kunnen maken en beheren van de werkstromen die verschillende fasen van de machine learning samen te voegen. Elke fase van een pijplijn, zoals gegevens voor te bereiden en trainen van het model, kan een of meer stappen bevatten.
+In dit artikel leert u hoe u maken, publiceren, uitvoeren en volgen een [machine learning-pijplijn](concept-ml-pipelines.md) met behulp van de [Azure Machine Learning-SDK](https://aka.ms/aml-sdk).  Deze pijplijnen kunnen maken en beheren van de werkstromen die verschillende fasen van de machine learning samen te voegen. Elke fase van een pijplijn, zoals gegevens voor te bereiden en trainen van het model, kan een of meer stappen bevatten.
 
 De pijplijnen die u maakt zijn zichtbaar voor de leden van de service Azure Machine Learning [werkruimte](how-to-manage-workspace.md). 
 

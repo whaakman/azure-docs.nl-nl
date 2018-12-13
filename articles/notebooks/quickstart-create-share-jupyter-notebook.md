@@ -1,5 +1,5 @@
 ---
-title: Maken en delen van een Jupyter-notebook op Azure | Microsoft Docs
+title: Maken en delen van een Jupyter-notebook op Azure
 description: Snel maken en uitvoeren van een Jupyter-notebook op Azure-Notebooks en vervolgens die laptop met anderen delen.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: eddeb251bac3cc0d02573c4c0b3047a2eafd8237
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865112"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096270"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>QuickStart: Maken en delen van een laptop
 

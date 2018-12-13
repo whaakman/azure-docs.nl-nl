@@ -1,5 +1,5 @@
 ---
-title: Hoe voor registratie van Translator Text - Translator Text-API
+title: Aan de slag - Translator Text-API
 titleSuffix: Azure Cognitive Services
 description: Leer hoe u zich aanmelden voor de Translator Text-API en de abonnementssleutel van een ophalen.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 9f97b1ed30c3f8263c5c4c3465951bb7010466ac
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 011e1db141c36c44ef51edc62d0123fdf3c036c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678284"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091548"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Hoe u zich registreert voor de Translator Text-API
 

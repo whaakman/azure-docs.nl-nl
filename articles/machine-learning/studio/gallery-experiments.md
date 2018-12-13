@@ -1,10 +1,10 @@
 ---
 title: Azure AI Gallery-experimenten - Azure Machine Learning Studio | Microsoft Docs
-description: Detecteren en experimenten in Azure AI Gallery delen.
+description: Detecteren en experimenten in Azure AI Gallery delen. Een experiment is een canvas in Machine Learning Studio die u gebruiken kunt om samen te stellen van een predictive Analytics-model
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 74791c3dce543ae9c0489a6c6124e4edba9204d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317463"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096958"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Detecteren van experimenten in Azure AI Gallery
 
