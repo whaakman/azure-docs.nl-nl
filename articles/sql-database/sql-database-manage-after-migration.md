@@ -3,7 +3,7 @@ title: Na de migratie - Azure SQL Database beheren | Microsoft Docs
 description: Meer informatie over het beheren van uw database na migratie naar Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e4f70521fbd081f7e26f56f4175656cca61887d1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870975"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890701"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -209,7 +209,7 @@ U kunt ook waarschuwingen door middel van deze grafiek configureren. Deze waarsc
 
    ![Inzicht in queryprestaties](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Azure SQL Analytics (Preview) in Log Analytics**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) kunt u voor het verzamelen en visualiseren van de belangrijkste prestatiegegevens voor Azure SQL Azure, ondersteuning biedt voor maximaal 150.000 SQL-Databases en 5000 elastische SQL-pools per werkruimte. U kunt deze gebruiken om te controleren en meldingen ontvangen. U kunt controleren op SQL-Database en elastische pool metrische gegevens op meerdere Azure-abonnementen en elastische pools en kan worden gebruikt voor het identificeren van problemen in elke laag van een toepassingsstack.
+- **Azure SQL Analytics (Preview) in Log Analytics**: [Azure Log Analytics](../azure-monitor/insights/azure-sql.md) kunt u voor het verzamelen en visualiseren van de belangrijkste prestatiegegevens voor Azure SQL Azure, ondersteuning biedt voor maximaal 150.000 SQL-Databases en 5000 elastische SQL-pools per werkruimte. U kunt deze gebruiken om te controleren en meldingen ontvangen. U kunt controleren op SQL-Database en elastische pool metrische gegevens op meerdere Azure-abonnementen en elastische pools en kan worden gebruikt voor het identificeren van problemen in elke laag van een toepassingsstack.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Ik ben dat u prestatieproblemen: hoe mijn SQL-Database voor probleemoplossing methodologie verschilt van SQL Server?
 Een belangrijk deel van de technieken voor het oplossen van problemen die u zou gebruiken voor het vaststellen van de query en prestatieproblemen met de database blijven hetzelfde. Nadat de dezelfde SQL Server engine wordt gebruikt door de cloud. Echter is de platform, Azure SQL DB gebouwd in 'intelligentie'. U kunt oplossen en diagnosticeren van prestatieproblemen nog eenvoudiger. Het kan enkele van deze corrigerende acties ook uitvoeren op uw naam en in sommige gevallen, ze - automatisch proactief verhelpen. 

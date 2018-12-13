@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76bef5fcae8e95a52b7a35fdbb657db5dde01bc3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035183"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863428"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Op basis van Linux-clusters maken in HDInsight met behulp van Azure PowerShell
 
@@ -90,16 +90,16 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#cre
 
 Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende bronnen voor informatie over het werken met uw cluster.
 
-### <a name="hadoop-clusters"></a>Hadoop-clusters
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop-clusters
 
-* [Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
-* [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
+* [Apache HAdoop MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase-clusters
+### <a name="apache-hbase-clusters"></a>Apache HBase-clusters
 
-* [Aan de slag met HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Java-toepassingen voor HBase op HDInsight ontwikkelen](hbase/apache-hbase-build-java-maven-linux.md)
+* [Aan de slag met Apache HBase op HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Java-toepassingen voor Apache HBase op HDInsight ontwikkelen](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm-clusters
 
@@ -107,10 +107,10 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende bronnen voor
 * [Python-onderdelen in Storm op HDInsight gebruiken](storm/apache-storm-develop-python-topology.md)
 * [Topologieën met Storm op HDInsight implementeren en bewaken](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Spark-clusters
+### <a name="apache-spark-clusters"></a>Apache Spark-clusters
 
 * [Een zelfstandige toepassing maken met behulp van Scala](spark/apache-spark-create-standalone-application.md)
-* [Taken op afstand uitvoeren in een Spark-cluster met behulp van Livy](spark/apache-spark-livy-rest-interface.md)
-* [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](spark/apache-spark-use-bi-tools.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark met BI: interactieve gegevensanalyses met behulp van Spark in HDInsight met BI-hulpprogramma's uitvoeren](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight op de resultaten van voedingsinspectie voorspellen gebruiken](spark/apache-spark-machine-learning-mllib-ipython.md)
 

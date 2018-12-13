@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: cynthn
-ms.openlocfilehash: b9cce5658b705e9d3255d2662b2a0157a2e548c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409025"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867066"
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Verbinding maken met en aanmelden bij een virtuele machine in Azure waarop Windows wordt uitgevoerd
 U gebruikt de knop **Verbinden** in Azure Portal om een Extern bureaublad-sessie (RDP) te starten vanaf een Windows-computer. Eerst maakt u verbinding met de virtuele machine en meld u aan.
@@ -54,6 +54,21 @@ Als u wilt verbinding maken met een Windows-VM vanaf een Mac, moet u een RDP-cli
    > 
    > 
 
+## <a name="connect-to-the-virtual-machine-using-powershell"></a>Verbinding maken met de virtuele machine met behulp van PowerShell
+
+Als u met behulp van PowerShell en de AzureRM-module geïnstalleerd hebt u mogelijk ook verbinding maken met behulp van de `Get-AzureRmRemoteDesktopFile` cmdlet, zoals hieronder wordt weergegeven.
+
+In dit voorbeeld wordt de RDP-verbinding, die u begeleidt bij dezelfde stappen als hierboven onmiddellijk gestart.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+U kunt ook het RDP-bestand voor toekomstig gebruik opslaan.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 Hebt u problemen bij het verbinding maken, Zie [problemen oplossen met extern bureaublad-verbindingen](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

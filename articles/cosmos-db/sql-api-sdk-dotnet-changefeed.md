@@ -1,21 +1,20 @@
 ---
-title: 'Azure Cosmos DB: .NET Change Feed Processor-API, SDK en resources | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET Change Feed Processor-API, SDK en resources'
 description: Meer informatie over de Change Feed Processor-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de .NET Change Feed Processor-SDK.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ab4831a4a84e1f96624c5de1e53f9b8688a5c2cd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632480"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871656"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]

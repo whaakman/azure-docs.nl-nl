@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c260b32dc6f659ca4cc1b4c3f59859f75ba999d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b02a5ec5a68743e148bcfef3c631d7777fd0a067
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447370"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Zelfstudie: Azure Active Directory-integratie met iWellnessNow
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van iWellnessNow in Azure AD, moet u iWe
 
 **Als u wilt toevoegen iWellnessNow uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -179,7 +179,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-an-iwellnessnow-test-user"></a>Maak een testgebruiker iWellnessNow
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in iWellnessNow. Werken met [iWellnessNow ondersteuningsteam](mailto:info@iwellnessnow.com) om toe te voegen de gebruikers in het iWellnessNow-platform. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in iWellnessNow. Werken met [iWellnessNow ondersteuningsteam](mailto:info@iwellnessnow.com) om toe te voegen de gebruikers in het iWellnessNow-platform. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

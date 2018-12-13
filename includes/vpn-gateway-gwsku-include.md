@@ -29,7 +29,7 @@ De nieuwe VPN-gateway SKU's stroomlijnen de functiesets die worden aangeboden op
 
 | **SKU**| **Functies**|
 | ---    | ---         |
-|**Basic** (*)   | **Op route gebaseerde VPN**: 10 tunnels voor S2S-verbindingen /; geen RADIUS-verificatie voor P2S; geen IKEv2 voor P2S<br>**Op beleid gebaseerde VPN**: (IKEv1): 1/S2S-verbinding tunnel; geen P2S|
+|**Basic** (\*\*)   | **Op route gebaseerde VPN**: 10 tunnels voor S2S-verbindingen /; geen RADIUS-verificatie voor P2S; geen IKEv2 voor P2S<br>**Op beleid gebaseerde VPN**: (IKEv1): 1/S2S-verbinding tunnel; geen P2S|
 | **VpnGw1, VpnGw2 en VpnGw3** | **Op route gebaseerde VPN**: maximaal 30 tunnels (*), P2S, BGP, actief-actief, aangepast IPsec/IKE-beleid, ExpressRoute/VPN co-existentie |
 |        |             |
 
@@ -44,7 +44,7 @@ Vanwege de verschillen in sla's en functiesets raden we aan de volgende SKU's vo
 | **Workload**                       | **SKU's**               |
 | ---                                | ---                    |
 | **Productie, kritieke werkbelastingen** | VpnGw1, VpnGw2, VpnGw3 |
-| **Ontwikkelen en testen of conceptontwerpen**   | Basic (*)                 |
+| **Ontwikkelen en testen of conceptontwerpen**   | Basic (\*\*)                 |
 |                                    |                        |
 
 (\*\*) De basis-SKU wordt beschouwd als een verouderde SKU en beperkingen van de functie heeft. Controleer of dat de functie die u nodig hebt voordat u de basis-SKU wordt ondersteund.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.openlocfilehash: e273568a04ec2a3758684025acf8034b8e788627
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959984"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871332"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hoe u uw hybride Azure Active Directory join-implementatie plannen
 
@@ -130,9 +130,9 @@ U kunt lid worden van hybride Azure AD voor de volgende scenario's kunt configur
 
 Als uw omgeving heeft beheerde domeinen, ondersteunt hybride Azure AD join:
 
-- Doorgeven van verificatie (PTA) met naadloze eenmalige aanmelding (SSO) 
+- Doorgeven van verificatie (PTA)
 
-- Synchronisatie van Wachtwoordhashes (WHS) met naadloze eenmalige aanmelding (SSO) 
+- Synchronisatie van Wachtwoordhashes (WHS)
 
 Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-koppeling te configureren. Met de wizard kunt u het configuratieproces aanzienlijk vereenvoudigen. Zie voor meer informatie:
 

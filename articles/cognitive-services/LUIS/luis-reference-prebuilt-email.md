@@ -5,17 +5,18 @@ description: In dit artikel e-mailbericht bevat vooraf gedefinieerde entiteitgeg
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d05f62ad725a89b0a34b21b8a8d36bb8fa464b1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: MT
+ms.openlocfilehash: 07fe8a0d48d59da89ad76f1648b75332d23005a2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441008"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074062"
 ---
 # <a name="email-entity"></a>E-mailentiteit
 Extractie van e-mailbericht bevat het volledige e-mailadres van een utterance. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met e-mailbericht naar de toepassing intents. E-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
@@ -23,7 +24,7 @@ Extractie van e-mailbericht bevat het volledige e-mailadres van een utterance. O
 ## <a name="resolution-for-prebuilt-email"></a>Oplossing voor vooraf gemaakte e-mailadres
 Het volgende voorbeeld ziet u de resolutie van de **builtin.email** entiteit.
 
-```JSON
+```json
 {
   "query": "please send the information to patti.owens@microsoft.com",
   "topScoringIntent": {

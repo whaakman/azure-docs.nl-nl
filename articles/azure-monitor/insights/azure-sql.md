@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: ce84d1ba16ec75525740a2b799fd78c35474cda9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ce434369ad7ede7f82f5af4395e096526759932a
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096597"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892225"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -35,12 +35,12 @@ Zie de ingesloten video voor een praktische overzicht over het gebruik van Azure
 
 Azure SQL Analytics is een cloud alleen bewaking ondersteunende streaming-oplossing van diagnostische gegevens telemetrie voor Azure SQL-databases: één, gegroepeerde en beheerde exemplaar-databases. Als de oplossing niet agents gebruikt voor het verbinding maken met de Log Analytics-service, de oplossing niet het bewaken van on-premises SQL Server die wordt gehost of in virtuele machines ondersteunen, Zie de onderstaande Compatibiliteitstabel.
 
-| Verbonden bron | Ondersteund | Description |
+| Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
 | [Azure Diagnostics](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
 | [Azure Storage-account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |
 | [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
-| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
+| [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
 | [System Center Operations Manager-beheergroep](../platform/om-agents.md) | Nee | Een directe verbinding van de Operations Manager-agent naar Log Analytics wordt niet gebruikt door de oplossing. |
 
 ## <a name="configuration"></a>Configuratie
@@ -109,7 +109,7 @@ Selectie van beheerd exemplaar van een weergave worden details weergegeven in de
 
 De onderstaande tabel geeft een overzicht van perspectieven voor twee versies van het dashboard, één voor Azure SQL-databases en elastische pools en de andere is voor de Managed Instance wordt ondersteund.
 
-| Perspectief | Description | Ondersteuning voor SQL-databases en elastische pools | Ondersteuning voor Instance beheerd |
+| Perspectief | Beschrijving | Ondersteuning voor SQL-databases en elastische pools | Ondersteuning voor Instance beheerd |
 | --- | ------- | ----- | ----- |
 | Resource per type | Perspectief dat alle resources die worden bewaakt telt. | Ja | Ja |
 | Inzichten | Hiërarchische inzoomen biedt naar intelligente inzichten in prestaties. | Ja | Ja |

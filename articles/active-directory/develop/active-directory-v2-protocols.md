@@ -17,19 +17,19 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1eea38a5a360d8ab12aa4ff6dac7161828ec1c72
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2d0530e2d7b97c4b3fda84f796de1a0e2857e2ac
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682993"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871996"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>v2.0-protocollen - OAuth 2.0 en OpenID Connect
 
 Het v2.0-eindpunt kunt u Azure Active Directory (Azure AD) gebruiken voor identity-as-a-service met standaardprotocollen, OpenID Connect en OAuth 2.0. Terwijl de service compatibel met de standaarden is, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen. De informatie hier is handig als u ervoor kiest uw code schrijven door rechtstreeks verzenden en verwerken van HTTP-aanvragen of een bibliotheek van derden open-source gebruiken in plaats van een van onze [open source-bibliotheken](reference-v2-libraries.md).
 
 > [!NOTE]
-> Niet alle scenario's voor Azure, Azure AD en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>De basisbeginselen
 

@@ -1,22 +1,20 @@
 ---
-title: 'Azure Cosmos DB: bulksgewijs executor Java-API, SDK en bronnen | Microsoft Docs'
+title: 'Azure Cosmos DB: bulksgewijs executor Java-API, SDK en bronnen'
 description: Meer informatie over het bulksgewijs executor Java-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de bulksgewijs executor voor Azure Cosmos DB Java SDK.
 services: cosmos-db
 author: tknandu
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 3483a2cf30421e96bc408516bab5c3c304fdce0d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: fbfbe6e5df74e5ad24b0a5fe69b370f64be1758b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632502"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867355"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java bulksgewijs executor-bibliotheek: informatie downloaden
 

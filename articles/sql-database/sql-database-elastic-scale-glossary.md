@@ -3,7 +3,7 @@ title: Woordenlijst voor elastische Database-hulpprogramma's | Microsoft Docs
 description: Uitleg van termen die worden gebruikt voor hulpprogramma's voor elastische databases
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 7af8e25fa46155d5054d494485de336c68caa7f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239063"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867797"
 ---
 # <a name="elastic-database-tools-glossary"></a>Woordenlijst voor elastische Database-hulpprogramma 's
 De volgende voorwaarden zijn gedefinieerd voor de [hulpmiddelen voor Elastic Database](sql-database-elastic-scale-introduction.md), een functie van Azure SQL Database. De hulpprogramma's worden gebruikt voor het beheren van [shard-kaarten](sql-database-elastic-scale-shard-map-management.md), en omvatten de [-clientbibliotheek](sql-database-elastic-database-client-library.md), wordt de [hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md), [elastische pools](sql-database-elastic-pool.md), en [query's](sql-database-elastic-query-overview.md). 

@@ -14,18 +14,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: ambapat
-ms.openlocfilehash: 23f02f87b75cd41d1a56a388e4526be6d9a2e119
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 67f24bbccdd2dcf5cca09e09557d7ebebd0a5c2d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682725"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891075"
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
 Azure Key Vault is een cloudservice die beveiligt uw versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden). Omdat deze gegevens vertrouwelijk zijn en bedrijfskritiek, moet u toegang tot uw key vaults beveiligen, gemachtigde zodat alleen toepassingen en gebruikers. Dit artikel bevat een overzicht van het model voor Key Vault. Het wordt verificatie en autorisatie worden uitgelegd en wordt beschreven hoe u veilige toegang.
 
 ## <a name="overview"></a>Overzicht
-Beheren van toegang tot een key vault via twee afzonderlijke interfaces: de *beheerlaag* en de *gegevenslaag*. Een aanroeper (een gebruiker of een toepassing) moet voor beide lagen hebben juiste verificatie en autorisatie voor toegang tot een key vault. Verificatie wordt de identiteit van de oproepende functie, terwijl autorisatie bepaalt de bewerkingen de aanroeper kunt uitvoeren.
+Toegang tot een Key Vault wordt geregeld via twee afzonderlijke interfaces: de beheerlaag en de gegevenslaag. 
+**Beheerlaag** omgaat met het beheren van de kluis, bijvoorbeeld - het maken van een kluis, het bijwerken van een kluis, een kluis verwijderen. 
+**Gegevenslaag** deals met geheimen in een kluis, die is gemaakt, bijwerken, verwijderen en een geheim lezen in de kluis. Voor beide lagen zijn juiste verificatie en autorisatie vereist voordat een aanroeper (een gebruiker of een toepassing) toegang tot key vault kan krijgen. Verificatie wordt de identiteit van de aanroeper vastgesteld, terwijl autorisatie bepaalt de bewerkingen die de aanroeper mag uitvoeren.
+
+Voor verificatie gebruiken zowel de beheerlaag als de gegevenslaag Azure Active Directory. Voor autorisatie gebruikt het beheervlak op rollen gebaseerd toegangsbeheer (RBAC), terwijl de gegevenslaag het toegangsbeleid van Key Vault gebruikt.
+
+Hier volgt een kort overzicht van de onderwerpen die aan bod komen:
+
+[Verificatie met behulp van Azure Active Directory](#authentication-using-azure-active-directory): in deze sectie wordt uitgelegd hoe een aanroeper verificatie uitvoert met Azure Active Directory voor toegang tot een Key Vault via de beheerlaag en de gegevenslaag. 
 
 Beide lagen gebruiken voor verificatie, Azure Active Directory (Azure AD). Voor autorisatie gebruikt het beheervlak op rollen gebaseerd toegangsbeheer (RBAC), terwijl de gegevenslaag met toegangsbeleid van Key Vault.
 

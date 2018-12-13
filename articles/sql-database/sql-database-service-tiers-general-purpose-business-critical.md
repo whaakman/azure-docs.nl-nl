@@ -11,15 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 11/30/2018
+ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351739"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871706"
 ---
-# <a name="general-purpose-and-business-critical-service-tiers"></a>Algemeen gebruik en bedrijfskritiek service-lagen
+# <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-Servicelagen
+
+Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
+- [Algemeen gebruik](sql-database-service-tier-general-purpose.md) ontworpen voor het merendeel van de algemene werkbelastingen.
+- [Bedrijfskritiek](sql-database-service-tier-business-critical.md) ontworpen voor workloads met lage latentie met een leesbare replica.
+- [Zeer grootschalige](sql-database-service-tier-hyperscale.md) is ontworpen voor zeer grote databases (tot 100 TB) met meerdere leesbare replica's.
 
 Dit artikel worden de overwegingen voor opslag en back-up voor de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel.
 

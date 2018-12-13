@@ -1,5 +1,6 @@
 ---
-title: Batch voorspellingen uitvoeren op grote gegevenssets met Azure Machine Learning-service
+title: Batch voorspellingen op grote hoeveelheden gegevens uitvoeren
+titleSuffix: Azure Machine Learning service
 description: Leer hoe u batch om voorspellingen te doen asynchroon op grote hoeveelheden gegevens met behulp van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
-ms.openlocfilehash: 1007e3f151a27fad5390404b0241dcb361168fd3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: cd9b0a117439f603e4820cb2dec2984aa2d68e73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882445"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074329"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Batch voorspellingen uitvoeren op grote gegevenssets met Azure Machine Learning-service
 

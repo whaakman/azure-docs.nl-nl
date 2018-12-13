@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 022dd52e05b9227e3ce0920a083f75413a2eebc8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 29306fa508a2c0702e69f6b6ebcb7571041d57d6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836913"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890259"
 ---
 # <a name="data-sources-in-log-analytics"></a>Gegevensbronnen in Log Analytics
 Log Analytics verzamelt gegevens van uw verbonden bronnen en slaat ze op in uw Log Analytics-werkruimte.  De gegevens die worden verzameld van elke wordt gedefinieerd door de gegevensbronnen die u configureert.  Gegevens in Log Analytics wordt opgeslagen als een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
@@ -59,7 +59,7 @@ Configureren van gegevensbronnen van de **gegevens** in het menu in Log Analytic
 ## <a name="data-collection"></a>Gegevensverzameling
 Data source-configuraties geleverd aan agents die rechtstreeks zijn verbonden met Log Analytics binnen een paar minuten.  De opgegeven gegevens zijn verzameld van de agent en rechtstreeks aan Log Analytics wordt geleverd met tussenpozen die specifiek zijn voor elke gegevensbron.  Zie de documentatie voor elke gegevensbron voor deze specifieke informatie.
 
-Voor System Center Operations Manager-agents in een verbonden beheergroep, worden de gegevensbronconfiguraties vertaald in management packs en geleverd aan de beheergroep om de 5 minuten standaard.  De agent downloadt van het managementpack, zoals elk ander en de opgegeven gegevens verzamelt. De gegevens worden dat beide verzonden naar een beheerserver die de gegevens naar de met Log Analytics doorstuurt, afhankelijk van de gegevensbron, of de agent verzendt de gegevens naar Log Analytics zonder tussenkomst van de beheerserver. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../../azure-monitor/insights/solutions-inventory.md) voor meer informatie.  U kunt lezen over de details van het verbinden van Operations Manager en Log Analytics en het wijzigen van de frequentie die configuratie wordt geleverd bij [integratie configureren met System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
+Voor System Center Operations Manager-agents in een verbonden beheergroep, worden de gegevensbronconfiguraties vertaald in management packs en geleverd aan de beheergroep om de 5 minuten standaard.  De agent downloadt van het managementpack, zoals elk ander en de opgegeven gegevens verzamelt. De gegevens worden dat beide verzonden naar een beheerserver die de gegevens naar de met Log Analytics doorstuurt, afhankelijk van de gegevensbron, of de agent verzendt de gegevens naar Log Analytics zonder tussenkomst van de beheerserver. Zie [details van de verzameling gegevens voor de beheeroplossingen in Azure](../../azure-monitor/insights/solutions-inventory.md) voor meer informatie.  U kunt lezen over de details van het verbinden van Operations Manager en Log Analytics en het wijzigen van de frequentie die configuratie wordt geleverd bij [integratie configureren met System Center Operations Manager](../../azure-monitor/platform/om-agents.md).
 
 Als de agent kan geen verbinding met Log Analytics of Operations Manager, blijft het verzamelen van gegevens die deze leveren wanneer er een verbinding tot stand brengt.  Gegevens kunnen worden verbroken als de hoeveelheid gegevens bereikt de maximale cachegrootte voor de client, of als de agent niet kan geen verbinding binnen 24 uur.
 

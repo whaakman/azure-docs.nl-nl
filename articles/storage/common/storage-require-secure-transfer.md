@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523012"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876499"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Veilige overdracht in Azure Storage vereisen
 
 De optie 'Veilige overdracht vereist' verhoogt de beveiliging van uw storage-account doordat u aanvragen alleen aan het account van veilige verbindingen. Bijvoorbeeld, wanneer u gebeld REST-API's voor toegang tot uw opslagaccount, u moet verbinding maken met behulp van HTTPS. Aanvragen die HTTP gebruiken 'Veilige overdracht vereist' worden geweigerd.
 
-Wanneer u de Azure Files-service gebruikt, wordt elke verbinding zonder versleuteling mislukt wanneer 'Veilige overdracht vereist' is ingeschakeld. Dit geldt ook voor scenario's die gebruikmaken van SMB 2.1, SMB 3.0 zonder versleuteling en bepaalde versies van de Linux SMB-client. 
+Wanneer u de Azure Files-service gebruikt, wordt elke verbinding zonder versleuteling mislukt wanneer 'Veilige overdracht vereist' is ingeschakeld. Dit geldt ook voor scenario's die gebruikmaken van SMB 2.1, SMB 3.0 zonder versleuteling en bepaalde versies van de Linux SMB-client. 
 
-De optie 'Veilige overdracht vereist' is standaard uitgeschakeld.
+De optie 'Veilige overdracht vereist' is standaard uitgeschakeld wanneer u een opslagaccount met de SDK maakt. En dit standaard ingeschakeld wanneer u een storage-account in Azure Portal maken.
 
 > [!NOTE]
 > Omdat Azure Storage biedt geen ondersteuning voor HTTPS voor aangepaste domeinnamen bieden, wordt deze optie wordt niet toegepast wanneer u een aangepaste domeinnaam. En klassieke opslagaccounts worden niet ondersteund.

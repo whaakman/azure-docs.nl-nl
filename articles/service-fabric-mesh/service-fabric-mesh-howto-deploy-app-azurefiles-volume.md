@@ -1,6 +1,6 @@
 ---
-title: Status in een toepassing met Azure Service Fabric NET Store door het koppelen van een volume op basis van Azure-bestanden in de container | Microsoft Docs
-description: Informatie over het status opslaan in een Azure Service Fabric NET toepassing door te koppelen van een volume op basis van Azure-bestanden in de container met de Azure CLI.
+title: Een volume op basis van Azure-bestanden gebruiken in een Service Fabric-NET-toepassing | Microsoft Docs
+description: Informatie over het status opslaan in een Azure Service Fabric NET toepassing door te koppelen van een volume op basis van Azure-bestanden in een service met de Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,86 +12,236 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2018
+ms.date: 11/21/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 9bce2d0e6d01813fd376b2505838defc9c772d70
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614256"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891092"
 ---
-# <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Volume in de container op basis van status van de Store in een Azure Service Fabric NET toepassing door te koppelen van een Azure-bestanden
+# <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Een volume op basis van Azure-bestanden in een Service Fabric-NET-toepassing koppelen 
 
-In dit artikel laat zien hoe status opslaan in Azure-bestanden door het koppelen van een volume in de container van een Service Fabric-NET-toepassing. In dit voorbeeld heeft de toepassing teller een ASP.NET Core-service met een webpagina waarin de waarde van het prestatiemeteritem in een browser. 
+Dit artikel wordt beschreven hoe u een volume op basis van Azure-bestanden in een service van een Service Fabric-NET-toepassing te koppelen.  De Azure Files volume stuurprogramma is een Docker volume gebruikt voor het koppelen van een Azure-bestandsshare naar een container, die u gebruiken om vast te leggen de status van service. Volumes bieden u de opslag voor algemeen gebruik en kunnen u bestanden met behulp van API's van een normale schijf i/o-bestand voor lezen/schrijven.  Lees voor meer informatie over volumes en opties voor het opslaan van toepassingsgegevens [status opslaan](service-fabric-mesh-storing-state.md).
 
-De `counterService` periodiek een itemwaarde leest uit een bestand, verhoogt het en schrijven naar het bestand weer. Het bestand is opgeslagen in een map die is gekoppeld op het volume dat wordt ondersteund door Azure-bestandsshare.
+Voor het koppelen van een volume in een service, een volumeresource in uw Service Fabric-NET-toepassing maken en deze vervolgens dat volume in uw service.  De volumeresource declareren en ernaar wordt verwezen in de bron van de service kunnen worden gedaan de [op basis van een YAML-resourcebestanden](#declare-a-volume-resource-and-update-the-service-resource-yaml) of de [sjabloon voor de implementatie op basis van JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Voordat u het volume koppelen, moet u eerst een Azure storage-account maken en een [bestandsshare in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="prerequisites"></a>Vereisten
 
-U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om deze taak te voltooien. Zorg ervoor dat voor het gebruik van de Azure CLI met dit artikel, `az --version` ten minste retourneert `azure-cli (2.0.43)`.  De module Azure Service Fabric-NET CLI-extensie Volg hiervoor de volgende installeren (of bijwerken) [instructies](service-fabric-mesh-howto-setup-cli.md).
+U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om te voltooien in dit artikel. 
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+Zorg ervoor dat u de Azure CLI lokaal gebruikt met dit artikel, `az --version` ten minste retourneert `azure-cli (2.0.43)`.  De module Azure Service Fabric-NET CLI-extensie Volg hiervoor de volgende installeren (of bijwerken) [instructies](service-fabric-mesh-howto-setup-cli.md).
 
-Meld u aan bij Azure en stel uw abonnement in.
+Aanmelden bij Azure en het instellen van uw abonnement:
 
-```azurecli-interactive
+```azurecli
 az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-a-file-share"></a>Een bestandsshare maken
-
-Een Azure-bestandsshare maken Volg hiervoor de volgende [instructies](/azure/storage/files/storage-how-to-create-file-share). Naam van het opslagaccount, de sleutel van het opslagaccount en de naam van bestandsshare wordt verwezen als `<storageAccountName>`, `<storageAccountKey>`, en `<fileShareName>` in de volgende instructies. Deze waarden zijn beschikbaar in uw Azure-portal:
-* <storageAccountName> -Onder **Opslagaccounts**, dit is de naam van het opslagaccount dat u hebt gebruikt toen u de bestandsshare gemaakt.
-* <storageAccountKey> -Selecteer uw opslagaccount onder **Opslagaccounts** en selecteer vervolgens **toegangssleutels** en gebruikt u de waarde onder **key1**.
-* <fileShareName> -Selecteer uw opslagaccount onder **Opslagaccounts** en selecteer vervolgens **bestanden**. De naam moet worden gebruikt, is de naam van de bestandsshare die u zojuist hebt gemaakt.
-
-## <a name="create-a-resource-group"></a>Een resourcegroep maken
-
-Maak een resourcegroep waarin u de toepassing wilt implementeren. De volgende opdracht maakt u een resourcegroep met de naam `myResourceGroup` op een locatie in de oostelijke VS.
+## <a name="create-a-storage-account-and-file-share-optional"></a>Maak een storage-account en een bestandsshare (optioneel)
+Koppelen van een Azure Files-volume vereist een storage-account en de bestandsshare.  U kunt een bestaand Azure storage-account en bestandsshare gebruiken of maken van resources:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus 
+az group create --name myResourceGroup --location eastus
+
+az storage account create --name myStorageAccount --resource-group myResourceGroup --location eastus --sku Standard_LRS --kind StorageV2
+
+$current_env_conn_string=$(az storage account show-connection-string -n myStorageAccount -g myResourceGroup --query 'connectionString' -o tsv)
+
+az storage share create --name myshare --quota 2048 --connection-string $current_env_conn_string
 ```
 
-## <a name="deploy-the-template"></a>De sjabloon implementeren
+## <a name="get-the-storage-account-name-and-key-and-the-file-share-name"></a>Naam van het opslagaccount en sleutel en de naam van bestandsshare ophalen
+Naam van het opslagaccount, sleutel van het opslagaccount en de naam van bestandsshare wordt verwezen als `<storageAccountName>`, `<storageAccountKey>`, en `<fileShareName>` in de volgende secties. 
 
-Maken van de toepassing en de bijbehorende resources met behulp van de volgende opdracht uit en geef de waarden voor `storageAccountName`, `storageAccountKey` en `fileShareName` uit de eerdere [een bestandsshare maken](#create-a-file-share) stap.
-
-De `storageAccountKey` parameter in de sjabloon is een beveiligde tekenreeks. Deze worden niet weergegeven in de status van de implementatie en `az mesh service show` opdrachten. Zorg ervoor dat deze correct is opgegeven in de volgende opdracht uit.
-
-De volgende opdracht wordt geïmplementeerd op een Linux-toepassing met de [counter.azurefilesvolume.linux.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Voor het implementeren van een Windows-toepassing, gebruikt u de [counter.azurefilesvolume.windows.json sjabloon](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Let erop dat grotere containerinstallatiekopieën duurt langer om te implementeren.
-
+Lijst met uw storage-accounts maken en de naam van het opslagaccount met de bestandsshare die u wilt gebruiken:
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az storage account list
 ```
 
-In een paar minuten, de opdracht moet worden geretourneerd met `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
-
-## <a name="open-the-application"></a>De toepassing openen
-
-De implementatieopdracht retourneert het openbare IP-adres van het service-eindpunt. Zodra de toepassing met succes is geïmplementeerd, wordt het openbare IP-adres voor het service-eindpunt ophalen en vanuit een browser te openen. Een webpagina wordt weergegeven met de itemwaarde die elke seconde wordt bijgewerkt.
-
-De naam van de netwerk-resource voor deze toepassing is `counterAppNetwork`. Ziet u informatie over de app, zoals de beschrijving, de locatie, de resourcegroep, enz. met behulp van de volgende opdracht uit:
-
+Haal de naam van de bestandsshare:
 ```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name counterAppNetwork
+az storage share list --account-name <storageAccountName>
 ```
 
-## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Controleer of de toepassing kan het volume gebruiken
-
-Maakt een bestand met de naam van de toepassing `counter.txt` in het bestand delen binnen `counter/counterService` map. De inhoud van dit bestand is de itemwaarde die wordt weergegeven op de webpagina wordt weergegeven.
-
-Het bestand kan worden gedownload met elk hulpprogramma waarmee een Azure Files-bestandsshare, zoals bladeren door de [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-## <a name="delete-the-resources"></a>De resources verwijderen
-
-Vaak verwijdert de resources die u niet langer in Azure gebruikt. Als u wilt verwijderen van de bronnen die betrekking hebben op dit voorbeeld, verwijdert u de resourcegroep waarin ze zijn geïmplementeerd (Hierdoor worden ook verwijderd alles dat is gekoppeld aan de resourcegroep) met de volgende opdracht:
-
+Haal de opslagaccountsleutel ("key1"):
 ```azurecli-interactive
-az group delete --resource-group myResourceGroup
+az storage account keys list --account-name <storageAccountName> --query "[?keyName=='key1'].value"
+```
+
+U vindt hier ook deze waarden in de [Azure-portal](https://portal.azure.com):
+* `<storageAccountName>` -Onder **Opslagaccounts**, de naam van het opslagaccount dat wordt gebruikt om de bestandsshare te maken.
+* `<storageAccountKey>` -Selecteer uw opslagaccount onder **Opslagaccounts** en selecteer vervolgens **toegangssleutels** en gebruikt u de waarde onder **key1**.
+* `<fileShareName>` -Selecteer uw opslagaccount onder **Opslagaccounts** en selecteer vervolgens **bestanden**. De naam moet worden gebruikt, is de naam van de bestandsshare die u hebt gemaakt.
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declareer een volumeresource en bijwerken van de Serviceresource (JSON)
+
+Voeg parameters voor de `<fileShareName>`, `<storageAccountName>`, en `<storageAccountKey>` waarden die u in de vorige stap hebt gevonden. 
+
+Een volumeresource maken als een peer van de bron van de toepassing. Geef een naam en de provider ('SFAzureFile' te gebruiken van het volume op basis van Azure-bestanden). In `azureFileParameters`, geef de parameters op voor de `<fileShareName>`, `<storageAccountName>`, en `<storageAccountKey>` waarden die u in de vorige stap hebt gevonden.
+
+Voor het koppelen van het volume in uw service, Voeg een `volumeRefs` naar de `codePackages` element van de service.  `name` de resource-ID voor het volume (of een sjabloonparameter implementatie voor de volumeresource) is en de naam van het volume in het bestand van de resource volume.yaml gedeclareerd.  `destinationPath` is de lokale map waarin het volume wordt gekoppeld aan.
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "defaultValue": "EastUS",
+      "type": "String",
+      "metadata": {
+        "description": "Location of the resources."
+      }
+    },
+    "fileShareName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure Files file share that provides the volume for the container."
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure storage account that contains the file share."
+      }
+    },
+    "storageAccountKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Access key for the Azure storage account that contains the file share."
+      }
+    },
+    "stateFolderName": {
+      "type": "string",
+      "defaultValue": "TestVolumeData",
+      "metadata": {
+        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "VolumeTest",
+      "type": "Microsoft.ServiceFabricMesh/applications",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "Microsoft.ServiceFabricMesh/networks/VolumeTestNetwork",
+        "Microsoft.ServiceFabricMesh/volumes/testVolume"
+      ],
+      "properties": {
+        "services": [
+          {
+            "name": "VolumeTestService",
+            "properties": {
+              "description": "VolumeTestService description.",
+              "osType": "Windows",
+              "codePackages": [
+                {
+                  "name": "VolumeTestService",
+                  "image": "volumetestservice:dev",
+                  "volumeRefs": [
+                    {
+                      "name": "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]",
+                      "destinationPath": "C:\\app\\data"
+                    }
+                  ],
+                  "environmentVariables": [
+                    {
+                      "name": "ASPNETCORE_URLS",
+                      "value": "http://+:20003"
+                    },
+                    {
+                      "name": "STATE_FOLDER_NAME",
+                      "value": "[parameters('stateFolderName')]"
+                    }
+                  ],
+                  ...
+                }
+              ],
+              ...
+            }
+          }
+        ],
+        "description": "VolumeTest description."
+      }
+    },
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "testVolume",
+      "type": "Microsoft.ServiceFabricMesh/volumes",
+      "location": "[parameters('location')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "Azure Files storage volume for the test application.",
+        "provider": "SFAzureFile",
+        "azureFileParameters": {
+          "shareName": "[parameters('fileShareName')]",
+          "accountName": "[parameters('storageAccountName')]",
+          "accountKey": "[parameters('storageAccountKey')]"
+        }
+      }
+    }
+    ...
+  ]
+}
+```
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-yaml"></a>Declareer een volumeresource en bijwerken van de Serviceresource (YAML)
+
+Toevoegen van een nieuwe *volume.yaml* -bestand in de *App-resources* Active directory voor uw toepassing.  Geef een naam en de provider ('SFAzureFile' te gebruiken van het volume op basis van Azure-bestanden). `<fileShareName>`, `<storageAccountName>`, en `<storageAccountKey>` zijn de waarden die u in de vorige stap hebt gevonden.
+
+```yaml
+volume:
+  schemaVersion: 1.0.0-preview2
+  name: testVolume
+  properties:
+    description: Azure Files storage volume for counter App.
+    provider: SFAzureFile
+    azureFileParameters: 
+        shareName: <fileShareName>
+        accountName: <storageAccountName>
+        accountKey: <storageAccountKey>
+```
+
+Update de *service.yaml* -bestand in de *serviceresources* directory voor het koppelen van het volume in uw service.  Voeg de `volumeRefs` element op de `codePackages` element.  `name` de resource-ID voor het volume (of een sjabloonparameter implementatie voor de volumeresource) is en de naam van het volume in het bestand van de resource volume.yaml gedeclareerd.  `destinationPath` is de lokale map waarin het volume wordt gekoppeld aan.
+
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: VolumeTest
+  properties:
+    services:
+      - name: VolumeTestService
+        properties:
+          description: VolumeTestService description.
+          osType: Windows
+          codePackages:
+            - name: VolumeTestService
+              image: volumetestservice:dev
+              volumeRefs:
+                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
+                  destinationPath: C:\app\data
+              endpoints:
+                - name: VolumeTestServiceListener
+                  port: 20003
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20003
+                - name: STATE_FOLDER_NAME
+                  value: TestVolumeData
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: VolumeTestNetwork
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

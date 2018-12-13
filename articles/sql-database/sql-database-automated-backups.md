@@ -3,7 +3,7 @@ title: Azure SQL-Database automatische, geografisch redundante back-ups | Micros
 description: SQL-Database maakt een back-up van de lokale database om de paar minuten en maakt gebruik van Azure geografisch redundante opslag met leestoegang voor geo-redundantie automatisch.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 939c008dbfdb996c84132d5aa0b5ed625e0a68ec
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 6fe9a95c891ecd560682d02f14485cc9d198a0a4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837899"
+ms.locfileid: "52879144"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 

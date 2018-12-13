@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e2dabc66a906d35525f51bf9a1c09b62430ded55
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434004"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874562"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -147,7 +147,7 @@ Als u geïnteresseerd bent in uw controlegebeurtenissen langer bewaren, gebruikt
 
 ![Virtuele machines, apparaatlogboeken die gebruikmaken van Azure Diagnostics](./media/azure-log-audit/azure-log-audit-fig3.png)
 
-### <a name="azure-virtual-machineshttpsazuremicrosoftcomdocumentationlearning-pathsvirtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>[Virtuele machines van Azure](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/) die Microsoft Windows worden uitgevoerd en [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
+### <a name="azure-virtual-machineslearnpathsdeploy-a-website-with-azure-virtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>[Virtuele machines van Azure](/learn/paths/deploy-a-website-with-azure-virtual-machines/) die Microsoft Windows worden uitgevoerd en [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 U kunt Azure Diagnostics op een virtuele machine inschakelen door een van de volgende handelingen uit:
 

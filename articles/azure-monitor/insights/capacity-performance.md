@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6c5554c664c4f0f47b2f8341b8e7c428732b0af7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fec1b81ab879865bd690048b992075d45621da27
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086212"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890361"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Capaciteit van de Hyper-V-virtuele machine met de oplossing capaciteit en prestaties (Preview) plannen
 
@@ -48,10 +48,10 @@ De oplossing:
 
 De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
 
-| Verbonden bron | Ondersteuning | Description |
+| Verbonden bron | Ondersteuning | Beschrijving |
 |---|---|---|
 | [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Ja | De oplossing verzamelt gegevens van de capaciteit en prestaties van Windows-agents. |
-| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
+| [Linux-agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
 | [SCOM-beheergroep](../../azure-monitor/platform/om-agents.md) | Ja |De oplossing verzamelt gegevens van capaciteit en prestaties van agents in een verbonden SCOM-beheergroep. Een directe verbinding van de SCOM-agent naar Log Analytics is niet vereist.|
 | [Azure Storage-account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Azure storage bevat geen gegevens voor capaciteit en prestaties.|
 
@@ -126,7 +126,7 @@ Om samen te vatten, verzamelt de oplossing capaciteit en prestaties van gegevens
 De volgende tabel bevat voorbeelden van zoekopdrachten voor capaciteit en prestaties van gegevens die worden verzameld en wordt berekend door deze oplossing.
 
 
-| Query’s uitvoeren | Description |
+| Query’s uitvoeren | Beschrijving |
 |:--- |:--- |
 | Alle hostgeheugenconfiguraties | Perf &#124; waarbij ObjectName == 'Capaciteit en prestaties' en CounterName == "Host toegewezen geheugen (MB)" &#124; samenvatten MB avg(CounterValue) door InstanceName = |
 | Alle VM-geheugenconfiguraties | Perf &#124; waarbij ObjectName == 'Capaciteit en prestaties' en CounterName == "Virtuele machine toegewezen geheugen (MB)" &#124; samenvatten MB avg(CounterValue) door InstanceName = |

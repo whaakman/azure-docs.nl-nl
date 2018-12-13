@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aeb0dec07ef9c8fb124089c785929f4e5ce69ffe
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871422"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>HDInsight op basis van Windows clusters aanpassen met Script Action
 **Actie script** kan worden gebruikt om aan te roepen [aangepaste scripts](hdinsight-hadoop-script-actions.md) tijdens het maken van het cluster voor het installeren van extra software op een cluster.
@@ -24,7 +24,7 @@ De informatie in dit artikel is specifiek voor HDInsight op basis van een Window
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-HDInsight-clusters kunnen worden aangepast in tal van andere manieren, bijvoorbeeld met inbegrip van aanvullende Azure Storage-accounts, het wijzigen van de Hadoop configuratiebestanden (core-site.xml, hive-site.xml, enzovoort), of toe te voegen gedeelde bibliotheken (bijvoorbeeld, Hive, Oozie) in veelgebruikte locaties in het cluster. Deze aanpassingen kunnen worden gedaan via Azure PowerShell, Azure HDInsight .NET SDK of de Azure-portal. Zie voor meer informatie, [Hadoop-clusters maken in HDInsight][hdinsight-provision-cluster].
+HDInsight-clusters kunnen worden aangepast in tal van andere manieren, zoals aanvullende Azure Storage-accounts wijzigen waaronder de [Apache Hadoop](https://hadoop.apache.org/) configuratiebestanden (core-site.xml, hive-site.xml, enzovoort) of toe te voegen gedeeld bibliotheken (bijvoorbeeld [Apache Hive](https://hive.apache.org/), [Apache Oozie](https://oozie.apache.org/)) in veelgebruikte locaties in het cluster. Deze aanpassingen kunnen worden gedaan via Azure PowerShell, Azure HDInsight .NET SDK of de Azure-portal. Zie voor meer informatie, [Apache Hadoop-clusters maken in HDInsight][hdinsight-provision-cluster].
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
@@ -48,16 +48,16 @@ HDInsight biedt verschillende scripts voor het installeren van de volgende onder
 
 | Naam | Script |
 | --- | --- |
-| **Spark installeren** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Zie [installeren en gebruiken Spark in HDInsight-clusters][hdinsight-install-spark]. |
+| **Apache Spark installeren** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Zie [installeren en gebruiken Apache Spark in HDInsight-clusters][hdinsight-install-spark]. |
 | **R installeren** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Zie [installeren en gebruiken R op HDInsight-clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Solr installeren** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Zie [installeren en gebruiken Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md). |
-| **Giraph installeren** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Zie [installeren en gebruiken Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install.md). |
-| **Hive-bibliotheken vooraf laden** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Zie [toevoegen Hive-bibliotheken op HDInsight-clusters](hdinsight-hadoop-add-hive-libraries.md) |
+| **Apache Solr installeren** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Zie [installeren en gebruiken Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md). |
+| **Apache Giraph installeren** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Zie [installeren en gebruiken Apache Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install.md). |
+| **Apache Hive-bibliotheken vooraf laden** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Zie [toevoegen Apache Hive-bibliotheken op HDInsight-clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="call-scripts-using-the-azure-portal"></a>Aanroepen van scripts met Azure portal
 **Vanuit Azure portal**
 
-1. Beginnen met het maken van een cluster, zoals beschreven op [Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+1. Beginnen met het maken van een cluster, zoals beschreven op [Apache Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. Onder optionele configuratie voor de **scriptacties** blade, klikt u op **scriptactie toevoegen** voor meer informatie over de scriptactie, zoals hieronder wordt weergegeven:
 
     ![Scriptactie gebruiken voor het aanpassen van een cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "scriptactie gebruiken voor het aanpassen van een cluster")
@@ -165,7 +165,7 @@ Andere om software te installeren, moet u het scriptbestand in het script vervan
 Wanneer u wordt gevraagd, typt u de referenties voor het cluster. Het kan enkele minuten duren voordat het cluster is gemaakt.
 
 ## <a name="call-scripts-using-net-sdk"></a>Aanroepen van scripts met behulp van .NET SDK
-Het volgende voorbeeld ziet u hoe u Spark installeren op Windows gebaseerde HDInsight-cluster. Als u wilt andere software installeert, moet u het scriptbestand in de code vervangen.
+Het volgende voorbeeld ziet u hoe u Apache Spark op basis van HDInsight-cluster van Windows installeren. Als u wilt andere software installeert, moet u het scriptbestand in de code vervangen.
 
 **Een HDInsight-cluster maken met Spark**
 
@@ -283,7 +283,7 @@ De Microsoft Azure HDInsight-service is een flexibel platform waarmee u big data
 
 Er zijn twee typen van open source-componenten die beschikbaar in de HDInsight-service zijn:
 
-* **Ingebouwde onderdelen** -deze onderdelen vooraf zijn geïnstalleerd op HDInsight-clusters en bieden de kernfunctionaliteit van het cluster. Bijvoorbeeld, behoren YARN ResourceManager, de Hive-query-taal (HiveQL) en de Mahout-bibliotheek tot deze categorie. Een volledige lijst van clusteronderdelen van het is beschikbaar in [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md) </a>.
+* **Ingebouwde onderdelen** -deze onderdelen vooraf zijn geïnstalleerd op HDInsight-clusters en bieden de kernfunctionaliteit van het cluster. Bijvoorbeeld, behoren Apache Hadoop YARN ResourceManager, de Hive-query-taal (HiveQL) en de Apache Mahout-bibliotheek tot deze categorie. Een volledige lijst van clusteronderdelen van het is beschikbaar in [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md) </a>.
 * **Aangepaste onderdelen** -u, als een gebruiker van het cluster kunt installeren of gebruiken in uw werkbelasting een onderdeel is beschikbaar in de community of door u gemaakte.
 
 Ingebouwde onderdelen volledig worden ondersteund en Microsoft Support helpt om te isoleren en het oplossen van problemen met betrekking tot deze onderdelen.
@@ -305,11 +305,11 @@ De HDInsight-service biedt verschillende manieren om te gebruiken van aangepaste
 Zie [ontwikkelen Script Action-scripts voor HDInsight][hdinsight-write-script].
 
 ## <a name="see-also"></a>Zie ook
-* [Hadoop-clusters maken in HDInsight] [ hdinsight-provision-cluster] vindt u instructies voor het maken van een HDInsight-cluster met behulp van andere aangepaste opties.
+* [Apache Hadoop-clusters maken in HDInsight] [ hdinsight-provision-cluster] vindt u instructies voor het maken van een HDInsight-cluster met behulp van andere aangepaste opties.
 * [Script Action-scripts ontwikkelen voor HDInsight][hdinsight-write-script]
-* [Installeren en gebruiken van Spark op HDInsight-clusters][hdinsight-install-spark]
-* [Solr installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-solr-install.md).
-* [Giraph installeren en gebruiken op HDInsight-clusters](hdinsight-hadoop-giraph-install.md).
+* [Installeren en gebruiken van Apache Spark op HDInsight-clusters][hdinsight-install-spark]
+* [Installeren en gebruiken van Apache Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md).
+* [Installeren en Apache Giraph gebruikt op HDInsight-clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

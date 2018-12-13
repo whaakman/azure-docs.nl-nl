@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: d9dfedd89e362f12f97d0106f3e56d465a89bb76
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723841"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877612"
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -34,7 +34,7 @@ Steekproeven vermindert de kosten van verkeer en gegevens, en vermijdt u beperki
 * U kunt ook instellen steekproeven handmatig, hetzij in de portal op het gebruik en geschatte kosten-pagina. of in de SDK voor ASP.NET in het .config-bestand. of in de Java SDK in het bestand ApplicationInsights.xml ook het om netwerkverkeer te beperken.
 * Als u aangepaste gebeurtenissen en u wilt om ervoor te zorgen dat een verzameling van gebeurtenissen wordt behouden of verwijderd samen, zorg dat ze dezelfde bewerkings-id-waarde hebben.
 * De deler steekproeven *n* in elke record in de eigenschap wordt gerapporteerd `itemCount`, die in het zoekvak wordt weergegeven onder de beschrijvende naam "aantal aanvragen" of "aantal". Wanneer steekproeven niet in werking is `itemCount==1`.
-* Als u analysequery's schrijven, moet u [rekening wordt gehouden van het samplen bijhouden](../log-analytics/query-language/aggregations.md). In het bijzonder, in plaats van gewoon tellen van records, moet u `summarize sum(itemCount)`.
+* Als u analysequery's schrijven, moet u [rekening wordt gehouden van het samplen bijhouden](../azure-monitor/log-query/aggregations.md). In het bijzonder, in plaats van gewoon tellen van records, moet u `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Typen van het samplen bijhouden
 Er zijn drie steekproeven van alternatieve methoden:

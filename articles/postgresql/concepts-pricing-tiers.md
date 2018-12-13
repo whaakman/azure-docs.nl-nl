@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: MT
+ms.openlocfilehash: 31ea45eba9d15240fc82828b8010ecd1fe0f82bd
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093438"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890514"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database voor PostgreSQL Prijscategorieën
 
@@ -23,7 +23,7 @@ U kunt een Azure Database for PostgreSQL-server maken in een van drie verschille
 |    | **Basic** | **Algemeen gebruik** | **Geoptimaliseerd voor geheugen** |
 |:---|:----------|:--------------------|:---------------------|
 | Bewerking voor COMPUTE | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Geheugen per vCore | 2 GB | 5 GB | 10 GB |
 | Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 4 TB | 5 GB tot 4 TB |
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |

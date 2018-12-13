@@ -8,22 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: edc1dac05a8ab4281eee3ee0eb4c5e6b7571b404
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: 17528b148c04f48fa8222f64900bdf5c3b95ee25
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856092"
+ms.locfileid: "52873645"
 ---
-# <a name="shaping-events-with-azure-time-series-insights-preview"></a>Shaping gebeurtenissen met de Azure Time Series Insights (preview)
+# <a name="shaping-events-with-azure-time-series-insights-preview"></a>Shaping gebeurtenissen met de Azure Time Series Insights (Preview)
 
-In dit artikel bevat richtlijnen voor het vormgeven van JSON, als u wilt maximaliseren de efficiëntie van u bent de Azure Time Series Insights (preview)-query's.
+In dit artikel bevat richtlijnen voor het vormgeven van JSON naar de efficiëntie van uw Azure Time Series Insights (TSI) preview query's te maximaliseren.
 
 ## <a name="best-practices"></a>Aanbevolen procedures
-
-> [!NOTE]
-> Voor de Azure TSI (preview), de grenzen van de eigenschap 600-800 voor S1/S2 niet van toepassing.
 
 Het is belangrijk om na te denken over hoe u gebeurtenissen naar Azure TSI verzenden. Dat wil zeggen moet u altijd:
 
@@ -32,7 +29,7 @@ Het is belangrijk om na te denken over hoe u gebeurtenissen naar Azure TSI verze
 
 De volgende richtlijnen kunt de best mogelijke query-prestaties:
 
-1. Geen overbodige eigenschappen niet verzenden. TSI (preview) wordt u gefactureerd op uw gebruik en het is een aanbevolen procedure om op te slaan en de gegevens verwerken die u een query zullen uitvoeren.
+1. Geen overbodige eigenschappen niet verzenden. TSI (Preview) wordt u gefactureerd op uw gebruik en het is een aanbevolen procedure om op te slaan en de gegevens verwerken die u een query zullen uitvoeren.
 1. Instantievelden voor statische gegevens gebruiken om te voorkomen dat statische gegevens verzenden via het netwerk. Exemplaarvelden, een onderdeel van de time series-model, werken zoals verwijzen naar gegevens in de algemeen beschikbare TSI-service. Lees voor meer informatie over het exemplaarveld [Time Series modellen](./time-series-insights-update-tsm.md).
 1. Delen tussen meerdere gebeurtenissen, om gegevens te verzenden via het netwerk efficiënter dimensie-eigenschappen.
 1. Gebruik geen grondige matrix nesten. TSI biedt ondersteuning voor maximaal twee niveaus van geneste matrices die objecten bevatten. TSI effent matrices in de berichten in meerdere gebeurtenissen met eigenschap-waardeparen.
@@ -108,7 +105,7 @@ Time Series-exemplaar (Opmerking: de **Time Series-ID** is *deviceId*):
   },
 ```
 
-TSI lid zijn van tabel (na afvlakken) tijdens het uitvoeren van query's. De tabel bevat meer kolommen zoals Type. In dit voorbeeld ziet u hoe u uw telemetriegegevens kunt vormgeven:
+TSI lid zijn van tabel (na afvlakken) tijdens het uitvoeren van query's. De tabel bevat meer kolommen zoals Type. In dit voorbeeld laat zien hoe u [vorm](./time-series-insights-send-events.md#json) uw telemetriegegevens:
 
 | deviceId  | Type | L1 | L2 | tijdstempel | reeks. Stroom tarief ft3/s | reeks. Engine oliedruk psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -130,3 +127,5 @@ Let op het volgende in het vorige voorbeeld:
 ## <a name="next-steps"></a>Volgende stappen
 
 Om deze richtlijnen in de praktijk, Zie [Azure TSI-querysyntaxis](./time-series-insights-query-data-csharp.md) voor meer informatie over de query-syntaxis voor de TSI-data access-REST-API.
+
+Meer informatie over ondersteunde JSON-vormen door te lezen [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).

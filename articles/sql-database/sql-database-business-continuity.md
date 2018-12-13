@@ -4,7 +4,7 @@ description: Ontdek hoe Azure SQL Database bedrijfscontinuïteit en databasehers
 keywords: bedrijfscontinuïteit, bedrijfscontinuïteit met de cloud, databasenoodherstel, databaseherstel
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 9dab136795094350abe29e7d779a22ec1c94ef70
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: MT
+ms.openlocfilehash: c391df27b8ee0d5ceadcd388fffcafe0f756ec40
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986647"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866166"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -28,7 +28,7 @@ Azure SQL Database is een implementatie van de nieuwste stabiele Database-Engine
 - Kwaadwillende is voltooid om te verwijderen van gegevens of een database verwijderen.
 - Aardbeving veroorzaakt een stroomstoring en tijdelijk uitgeschakeld Datacenter.
 
-Dergelijke gevallen kunnen niet worden bepaald door de Azure SQL Database, dus moet u zou gebruik de functies voor bedrijfscontinuïteit in SQL-Database waarmee u uw gegevens herstellen en uw toepassingen die worden uitgevoerd.
+Deze gevallen kunnen niet worden bepaald door de Azure SQL Database, dus u moet het gebruik van de functies voor bedrijfscontinuïteit in SQL-Database waarmee u uw gegevens herstellen en uw toepassingen die worden uitgevoerd.
 
 In dit overzicht worden de mogelijkheden beschreven die Azure SQL Database biedt voor bedrijfscontinuïteit en herstel na noodgevallen. Meer informatie over de opties, aanbevelingen en zelfstudies voor het herstellen van storingen die kunnen leiden tot gegevensverlies of ervoor zorgen dat uw databases en toepassingen niet meer beschikbaar zijn. Meer informatie over wat er gebeurt wanneer een gebruiker of toepassing-fout is van invloed op de integriteit van gegevens, een Azure-regio een storing heeft of uw toepassing onderhoud vereist.
 

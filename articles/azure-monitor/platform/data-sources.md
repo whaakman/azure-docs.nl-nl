@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5b673af317189da1876328c0cad0fa8f510aae4f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: cb38a8a4c6e92dae1ed4d505c810027fb93e4a3c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844049"
+ms.locfileid: "52871423"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Bronnen van de gegevens in Azure Monitor
 Dit artikel beschrijft de bronnen van de gegevens die zijn verzameld door Azure Monitor voor het bewaken van de status en prestaties van uw resources en de toepassingen die daarop worden uitgevoerd. Deze resources mogelijk in Azure, in een andere cloud of on-premises.  Zie [gegevens verzameld door Azure Monitor](data-collection.md) voor meer informatie over hoe deze gegevens worden opgeslagen en hoe u deze kunt bekijken.
@@ -107,7 +107,7 @@ Naast de standaard-laag van een toepassing moet u mogelijk andere bronnen die te
 ![Aangepaste gegevens verzamelen](media/data-sources/custom-collection.png)
 
 ### <a name="data-collector-api"></a>Gegevensverzamelaar-API
-Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp van de [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md). Hiermee kunt u aangepaste bewakingsscenario's maken en uitbreiden van de bewaking aan resources die niet beschikbaar voor telemetrie via andere bronnen maken.
+Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp van de [Data Collector API](../../azure-monitor/platform/data-collector-api.md). Hiermee kunt u aangepaste bewakingsscenario's maken en uitbreiden van de bewaking aan resources die niet beschikbaar voor telemetrie via andere bronnen maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

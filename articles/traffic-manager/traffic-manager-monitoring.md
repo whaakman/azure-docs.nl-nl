@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2017
+ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138137"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890344"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -41,7 +41,7 @@ Als u wilt controleren-eindpunt configureren, moet u de volgende instellingen op
 
 ## <a name="how-endpoint-monitoring-works"></a>Eindpuntbewaking werking
 
-Als het controle-protocol is ingesteld als HTTP of HTTPS, maakt de testinterval Traffic Manager-agent een GET-aanvraag naar het eindpunt met het protocol, poort en relatief pad opgegeven. Als deze wordt in een reactie 200 OK, of een van de antwoorden geconfigureerd de **verwachte statuscode \*bereiken** en vervolgens dit eindpunt is in orde beschouwd. Als het antwoord is een andere waarde, of als er geen reactie wordt ontvangen binnen de time-outperiode die is opgegeven, klikt u vervolgens de Traffic Manager probing agent opnieuw probeert overeenkomstig de instelling van het aantal verdragen van fouten (opnieuw probeert worden uitgevoerd als deze instelling 0 is). Als het aantal achtereenvolgende mislukte pogingen hoger dan de instelling aantal mislukte aanmeldingen getolereerd is, is dit eindpunt als niet in orde gemarkeerd. 
+Als het controle-protocol is ingesteld als HTTP of HTTPS, maakt de testinterval Traffic Manager-agent een GET-aanvraag naar het eindpunt met het protocol, poort en relatief pad opgegeven. Als deze wordt in een reactie 200 OK, of een van de antwoorden geconfigureerd de ** verwachte statuscode * bereiken ** en vervolgens dit eindpunt is in orde beschouwd. Als het antwoord is een andere waarde, of als er geen reactie wordt ontvangen binnen de time-outperiode die is opgegeven, klikt u vervolgens de Traffic Manager probing agent opnieuw probeert overeenkomstig de instelling van het aantal verdragen van fouten (opnieuw probeert worden uitgevoerd als deze instelling 0 is). Als het aantal achtereenvolgende mislukte pogingen hoger dan de instelling aantal mislukte aanmeldingen getolereerd is, is dit eindpunt als niet in orde gemarkeerd. 
 
 Als het controle-protocol TCP, initieert de testinterval Traffic Manager-agent een TCP-verbindingsaanvraag met behulp van de opgegeven poort. Als het eindpunt op de aanvraag met een antwoord om de verbinding te maken reageert, die controle van gatewayservicestatus is gemarkeerd als een succes en de testinterval Traffic Manager-agent de TCP-verbinding wordt hersteld. Als het antwoord is een andere waarde, of als er geen reactie wordt ontvangen binnen de time-outperiode opgegeven, de Traffic Manager probing agent opnieuw probeert overeenkomstig de instelling aantal mislukte aanmeldingen getolereerd is (opnieuw probeert zijn gemaakt als deze instelling 0 is). Als het aantal achtereenvolgende mislukte pogingen hoger dan de instelling aantal mislukte aanmeldingen getolereerd is, is dit eindpunt niet in orde gemarkeerd.
 

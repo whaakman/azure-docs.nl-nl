@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 3cc4db387c33388d5692fa25ac26f2b6399cd185
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883632"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879830"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer met TCP-opnieuw instellen op niet-actieve (openbare Preview)
 
@@ -76,7 +76,17 @@ Deze parameter werkt momenteel in de volgende regio's.  In de regio's hier niet 
 | Regio |
 |---|
 | Azië - zuidoost |
+| Brazilië - zuid |
+| Canada - midden |
 | Europa - west |
+| India - centraal |
+| India - west |
+| Japan - west |
+| Korea - centraal |
+| Korea - zuid |
+| VK, noord |
+| VK, zuid 2 |
+| US - oost |
 | US - oost 2 |
 | Verenigde Staten-Noord |
 | US - west |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: d12de42be9cf5d1a48288aabf21b25546e5b4bbc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 17d663873639cc36e9727881d990a3f32697c798
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833072"
+ms.locfileid: "52872149"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (Preview)
 Azure Monitor voor virtuele machines verzamelt metrische gegevens over prestaties en verbinding-, computer- en inventarisgegevens van proces- en informatie over de status en stuurt het naar de Log Analytics data store in Azure Monitor.  Deze gegevens zijn beschikbaar voor [zoeken](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -238,5 +238,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u niet bekend bent met het schrijven van query's in Log Analytics, raadpleegt u [over het gebruik van de Log Analytics-pagina](../../log-analytics/query-language/get-started-analytics-portal.md) in Azure portal om Log Analytics-query's schrijven.
-* Meer informatie over [zoekquery's schrijven](../../log-analytics/query-language/search-queries.md).
+* Als u niet bekend bent met het schrijven van query's in Log Analytics, raadpleegt u [over het gebruik van de Log Analytics-pagina](../../azure-monitor/log-query/get-started-portal.md) in Azure portal om Log Analytics-query's schrijven.
+* Meer informatie over [zoekquery's schrijven](../../azure-monitor/log-query/search-queries.md).

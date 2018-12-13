@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: be0377e7234e507bdc05aee2502e742dbdaa8e1c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b9a034db7e039a0974dc61448bbf50f5ccde9b4c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258371"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880162"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Bestanden en compressie indelingen die worden ondersteund door Azure Data Factory
 *In dit onderwerp is van toepassing op de volgende connectors: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [bestandssysteem](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), en [SFTP](data-factory-sftp-connector.md).*
@@ -209,7 +209,7 @@ In dit voorbeeld kunt u verwachten dat één JSON-hoofdobject wordt toegewezen a
                     "TargetResourceType": "Microsoft.Compute/virtualMachines"
                 },
                 {
-                    "ResourceManagmentProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
+                    "ResourceManagementProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
                 },
                 {
                     "OccurrenceTime": "1/13/2017 11:24:37 AM"
@@ -221,7 +221,7 @@ In dit voorbeeld kunt u verwachten dat één JSON-hoofdobject wordt toegewezen a
 ```
 en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling door gegevens te extraheren uit de objecten en matrix:
 
-| id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | Pc | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 13/1/2017 11:24:37 uur |
 
@@ -246,7 +246,7 @@ De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (
             "type": "String"
         },
         {
-            "name": "resourceManagmentProcessRunId",
+            "name": "resourceManagementProcessRunId",
             "type": "String"
         },
         {
@@ -259,7 +259,7 @@ De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (
         "format": {
             "type": "JsonFormat",
             "filePattern": "setOfObjects",
-            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagmentProcessRunId": "$.context.custom.dimensions[1].ResourceManagmentProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
+            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagementProcessRunId": "$.context.custom.dimensions[1].ResourceManagementProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
         }
     }
 }

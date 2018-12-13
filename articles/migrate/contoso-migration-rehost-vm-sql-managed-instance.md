@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231818"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879465"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: een on-premises-app op een virtuele machine van Azure en SQL Database Managed Instance Rehost
 
@@ -186,14 +186,14 @@ Contoso-beheerders instellen van het virtuele netwerk als volgt:
     - **SQLMI-DS-EUS2** (10.235.0.0.25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). Dit subnet wordt gebruikt voor het koppelen van een map met het beheerde exemplaar.
 
-    ![Managed Instance - virtueel netwerk maken](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+      ![Managed Instance - virtueel netwerk maken](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
 4. Nadat het virtuele netwerk en subnetten worden geïmplementeerd, zij het peer-netwerken als volgt:
 
     - Peers **VNET-SQLMI-EUS2** met **VNET-HUB-EUS2** (het virtuele hub virtuele netwerk voor de VS-Oost 2).
     - Peers **VNET-SQLMI-EUS2** met **VNET-PROD-EUS2** (het productienetwerk).
 
-    ![Netwerkpeering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+      ![Netwerkpeering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 5. Deze aangepaste DNS-instellingen hebt ingesteld. DNS verwijst eerst naar de Contoso Azure-domeincontrollers. Azure DNS is secundaire. De Contoso-Azure-domeincontrollers zich bevinden als volgt:
 
@@ -202,7 +202,7 @@ Contoso-beheerders instellen van het virtuele netwerk als volgt:
     - **CONTOSODC4** adres: 10.245.42.5
     - Azure DNS-resolver: 168.63.129.16
 
-     ![Netwerk DNS-servers](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+      ![Netwerk DNS-servers](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
 *Meer hulp nodig?*
 
@@ -254,7 +254,7 @@ Contoso-beheerders kunnen nu een SQL Database Managed Instance inrichten:
     - Een virtueel cluster in de aanvraag Contoso heeft meerdere beheerde exemplaren.
     - De SQL Server-Database beheerd exemplaar. 
 
-    ![Beheerd exemplaar](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+      ![Beheerd exemplaar](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 *Meer hulp nodig?*
 
@@ -615,7 +615,7 @@ Zie voor meer informatie over procedures voor beveiliging voor virtuele machines
 
 Voor bedrijfscontinuïteit en herstel na noodgevallen (BCDR) voert Contoso de volgende acties uit:
 
-- Houd gegevens veilig: Contoso back-ups van de gegevens op de virtuele machines met behulp van de Azure Backup-service. [Meer informatie] https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Houd gegevens veilig: Contoso back-ups van de gegevens op de virtuele machines met behulp van de Azure Backup-service. [Meer informatie](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Houd apps startklaar: Contoso repliceert de virtuele machines in Azure-app naar een secundaire regio met behulp van Site Recovery. [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 - Contoso leert meer over het beheren van SQL Managed Instance, met inbegrip van [databaseback-ups](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 

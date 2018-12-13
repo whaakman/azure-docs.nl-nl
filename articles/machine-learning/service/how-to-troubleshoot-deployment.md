@@ -1,6 +1,5 @@
 ---
-title: Handleiding voor het oplossen van problemen met de implementatie
-titleSuffix: Azure Machine Learning service
+title: Implementatie probleemoplossingsgids voor Azure Machine Learning-service
 description: Informatie over hoe tijdelijke oplossing, is opgelost en veelvoorkomende problemen oplossen de Docker-implementatie met AKS en ACI met behulp van Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: ed6fed58aac236f143345a9504ece21aceae09d2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100511"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865366"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problemen met Azure Machine Learning-service AKS en ACI-implementaties oplossen
 
@@ -224,6 +222,10 @@ def run(input_data):
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over implementatie: 
-* [Over het implementeren en waar](how-to-deploy-and-where.md)
+* [Implementeren naar ACI](how-to-deploy-to-aci.md)
 
-* [Zelfstudie: Trainen en implementeren van modellen](tutorial-train-models-with-aml.md)
+* [Implementeren naar AKS](how-to-deploy-to-aks.md)
+
+* [Zelfstudie deel 1: model te trainen](tutorial-train-models-with-aml.md)
+
+* [Deel 2 van de zelfstudie: model implementeren](tutorial-deploy-models-with-aml.md)

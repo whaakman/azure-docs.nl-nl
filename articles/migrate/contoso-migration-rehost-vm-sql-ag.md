@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250727"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880213"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: een on-premises-app op Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep Rehost
 
@@ -186,7 +186,7 @@ Contoso-beheerders instellen van het cluster als volgt:
     - Deze plaatst u de machines in de productienetwerk van de VS-Oost 2 primaire regio (**VNET-PROD-EUS2**), in de database-subnet (**PROD-DB-EUS2**).
     - Ze een nieuwe beschikbaarheidsset maken: **SQLAOGAVSET**, met twee foutdomeinen en vijf updatedomeinen.
 
-    ![SQL-VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![SQL-VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. In **SQL Server-instellingen**, ze SQL-verbinding met het virtuele netwerk (persoonlijk), de limiet voor de standaardpoort 1433. Voor de verificatie ze dezelfde referenties gebruiken als ze op locatie (**contosoadmin**).
 
@@ -235,11 +235,11 @@ Voordat u het cluster instelt, momentopname beheerders van Contoso een van de sc
 
 ![momentopname](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. Voer vervolgens, ze een script dat ze hebt geplaatst om toepassingsgatewayresource te maken van het Windows-failovercluster.
+1. Voer vervolgens, ze een script dat ze hebt geplaatst om toepassingsgatewayresource te maken van het Windows-failovercluster.
 
     ![Cluster maken](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. Nadat ze het cluster hebt gemaakt, controleren ze of de virtuele machines worden weergegeven als clusterknooppunten.
+2. Nadat ze het cluster hebt gemaakt, controleren ze of de virtuele machines worden weergegeven als clusterknooppunten.
 
      ![Cluster maken](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -351,7 +351,7 @@ Deze wordt als volgt instellen door beheerders van Contoso:
     - Ze gebruiken een account voor algemeen gebruik met de standard-opslag en LRS-replicatie.
     - Het account moet zich in dezelfde regio bevinden als de kluis.
 
-    ![Site Recovery-opslag](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Site Recovery-opslag](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. Met de netwerk- en storage-account in plaats ze nu een Recovery Services-kluis maken (**ContosoMigrationVault**), en plaats deze in de **ContosoFailoverRG** resourcegroep in de primaire regio in de VS-Oost 2 .
 
@@ -403,15 +403,15 @@ Na een failover wil Contoso kunnen verbinding maken met virtuele Azure-machines.
 
 1. Voor toegang via internet ze:
 
- - Schakelt u RDP in op de on-premises virtuele machine voordat de failover
- - Zorg ervoor dat TCP en UDP-regels worden toegevoegd voor de **openbare** profiel.
- - Controleer of RDP is toegestaan in **Windows Firewall** > **Apps toegestaan** voor alle profielen.
+   - Schakelt u RDP in op de on-premises virtuele machine voordat de failover
+   - Zorg ervoor dat TCP en UDP-regels worden toegevoegd voor de **openbare** profiel.
+   - Controleer of RDP is toegestaan in **Windows Firewall** > **Apps toegestaan** voor alle profielen.
  
 2. Voor toegang via site-naar-site VPN, ze:
 
- - Schakelt u RDP in op de on-premises machine.
- - Toestaan dat RDP in de **Windows Firewall** -> **toegestane apps en functies**, voor **domein en privé** netwerken.
- - SAN-beleid van het besturingssysteem instellen op de on-premises virtuele machine om **OnlineAll**.
+   - Schakelt u RDP in op de on-premises machine.
+   - Toestaan dat RDP in de **Windows Firewall** -> **toegestane apps en functies**, voor **domein en privé** netwerken.
+   - SAN-beleid van het besturingssysteem instellen op de on-premises virtuele machine om **OnlineAll**.
 
 Wanneer ze een failover uitvoert moeten ze bovendien controleert u het volgende:
 

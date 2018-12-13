@@ -3,19 +3,19 @@ title: Oplossen van verbindingsproblemen met Azure Database for MySQL | Microsof
 description: Informatie over het oplossen van verbindingsproblemen met Azure Database voor MySQL.
 keywords: MySQL-verbinding, verbindingsreeks, problemen met de netwerkverbinding, tijdelijke fout, -verbindingsfout
 services: mysql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 7688ddd28dfab2ebb8eb0b5e8d9bb1189ec62564
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: cf447ddef0639c35efeb0f396a61ae7bc5fe9781
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284896"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890582"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Oplossen van verbindingsproblemen met Azure Database for MySQL
 

@@ -2,18 +2,18 @@
 title: Azure Recovery Services-kluizen en servers beheren
 description: Beheren van taken en waarschuwingen in een Azure Recovery Services-kluis.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
-ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250693"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871320"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 

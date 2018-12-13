@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a0074cf703c5d30dca3c8353f4821e71684a190c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164554"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873118"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Een Site-naar-Site-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding
 
@@ -94,4 +94,4 @@ Controleer of de volgende items:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie het [leertraject](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) voor virtuele machines voor meer informatie.
+Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie de [virtuele machines leertraject](/learn/paths/deploy-a-website-with-azure-virtual-machines/) voor meer informatie.

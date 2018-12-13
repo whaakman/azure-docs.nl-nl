@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: b288bcbe14050c0f764f348d5e20186570e32866
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 34de89123e75f0c760fbcefa633b9aadf8d2b997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442197"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Zelfstudie: Azure Active Directory-integratie met CX Suite voorzien
 
@@ -61,7 +61,7 @@ Voor het configureren van de integratie van CX Suite voorzien in Azure AD, moet 
 
 **Als u wilt toevoegen CX Suite voorzien in de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: b310c06f508395635976009005dd2c4db2917abc
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218731"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868341"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): toepassingen met hoge beschikbaarheid Azure Storage
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -81,7 +81,7 @@ U kunt aanvragen livemigratie via de [ondersteuning van Azure portal](https://ms
     - **Probleemtype**: Selecteer **gegevensmigratie**.
     - **Categorie**: Selecteer **migreren naar ZRS binnen een regio**.
     - **Titel**: Typ een beschrijvende titel, bijvoorbeeld **ZRS-account migratie**.
-    - **Details**: Geef aanvullende informatie in de **Details** vak, bijvoorbeeld: ik wil graag om te migreren naar ZRS van [LRS, GRS] in de regio ___. 
+    - **Details**: Geef aanvullende informatie in de **Details** vak, bijvoorbeeld: ik wil graag om te migreren naar ZRS van [LRS, GRS] in de \_ \_ regio. 
 5. Selecteer **Volgende**.
 6. Controleer of de gegevens juist zijn op de **contactgegevens** blade.
 7. Selecteer **Maken**.
