@@ -1,6 +1,6 @@
 ---
-title: Waar slaat Azure AD identiteitsgegevens op voor Europese klanten? | Microsoft Docs
-description: Meer informatie over waar identiteitsgegevens in Microsoft Azure Active Directory worden opgeslagen voor de Europese klanten.
+title: Identiteit gegevensopslag voor Europese klanten - Azure Active Directory | Microsoft Docs
+description: Meer informatie over waar identiteit gerelateerde gegevens in Azure Active Directory worden opgeslagen voor de Europese klanten.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
-ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976890"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099933"
 ---
-# <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Waar slaat Microsoft Azure Active Directory (Azure AD) identiteitsgegevens op voor Europese klanten?
-Azure Active Directory helpt u gebruikersidentiteiten te beheren en op informatie gebaseerd toegangsbeleid te maken om de resources van uw organisatie te beveiligen. Identiteitsgegevens worden opgeslagen op een locatie die uw bedrijf heeft opgegeven toen u zich hebt aangemeld bij de service. Bijvoorbeeld bij het abonneren op Office 365 of Azure. Voor specifieke informatie over waar uw identiteitsgegevens worden opgeslagen, kunt u het gedeelte [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center gebruiken.
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
+Azure Active Directory (Azure AD) helpt u bij het beheren van gebruikers-id's en informatie gebaseerd toegangsbeleid die helpen bij het beveiligen van resources van uw organisatie maken. Identiteitsgegevens worden opgeslagen op een locatie die uw bedrijf heeft opgegeven toen u zich hebt aangemeld bij de service. Bijvoorbeeld bij het abonneren op Office 365 of Azure. Voor specifieke informatie over waar uw identiteitsgegevens worden opgeslagen, kunt u het gedeelte [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center gebruiken.
 
 De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens blijven in Europese datacenters, maar er zijn vijf kenmerken voor gebruikers die meestal in Amerikaanse datacentra opgeslagen worden. Deze kenmerken zijn GivenName, Surname, userPrincipalName, Domain en PasswordHash. Het kenmerk PasswordHash kan een uitzondering zijn en niet in de Verenigde Staten zijn opgeslagen als iemand gebruikmaakt van een on-premises, federatieve verificatiemethode waarmee het synchroniseren van de waarde PasswordHash met Azure Active Directory kan worden gestopt. Er zijn bovendien nog operationele, servicegebonden gegevens die zijn vereist om Azure Active Directory normaal te laten werken die worden opgeslagen in de Verenigde Staten en geen persoonlijke gegevens bevatten.
 

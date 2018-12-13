@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: ca3396024fdab31217b00ef7cdd39e4e61504d27
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851091"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096703"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Tenantbeperkingen gebruiken voor het beheren van toegang tot SaaS-cloudtoepassingen
 
@@ -129,18 +129,18 @@ Fiddler is een gratis proxy die kan worden gebruikt om te leggen en te wijzigen 
 1.  [Download en installeer Fiddler](https://www.telerik.com/fiddler).
 2.  Configureren van Fiddler voor het ontsleutelen van HTTPS-verkeer, per [Fiddler van help-documentatie](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.  Configureren van Fiddler om in te voegen de *Restrict Access aan Tenants* en *Restrict Access Context* headers met behulp van aangepaste regels:
-  1. Selecteer in het foutopsporingsprogramma van Fiddler Web de **regels** menu en selecteer **Customize Rules...** de CustomRules om bestand te openen.
-  2. Voeg de volgende regels toe aan het begin van de *OnBeforeRequest* functie. Vervang \<tenantdomein\> met een domein geregistreerd bij uw tenant, bijvoorbeeld contoso.onmicrosoft.com. Vervang \<map-ID\> met Azure AD-GUID-id van uw tenant.
+    1. Selecteer in het foutopsporingsprogramma van Fiddler Web de **regels** menu en selecteer **Customize Rules...** de CustomRules om bestand te openen.
+    2. Voeg de volgende regels toe aan het begin van de *OnBeforeRequest* functie. Vervang \<tenantdomein\> met een domein geregistreerd bij uw tenant, bijvoorbeeld contoso.onmicrosoft.com. Vervang \<map-ID\> met Azure AD-GUID-id van uw tenant.
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+    ```
+    if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+    ```
 
-  Als u toestaan dat meerdere tenants wilt, gebruikt u een door komma's om de namen van de tenant te scheiden. Bijvoorbeeld:
+    Als u toestaan dat meerdere tenants wilt, gebruikt u een door komma's om de namen van de tenant te scheiden. Bijvoorbeeld:
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+    ```
+    oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+    ```
 
 4. Sla op en sluit het bestand CustomRules.
 
