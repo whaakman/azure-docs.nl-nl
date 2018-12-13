@@ -1,6 +1,6 @@
 ---
-title: Registreer een nieuwe Azure IoT Edge-apparaat (VS-Code) | Microsoft Docs
-description: Visual Studio Code gebruiken om te maken van een nieuwe IoT Edge-apparaat in uw Azure-IoT-hub
+title: Registreren van een nieuw apparaat vanuit Visual Studio Code - Azure IoT Edge | Microsoft Docs
+description: Visual Studio Code gebruiken om te maken van een nieuwe IoT Edge-apparaat in uw Azure-IoT-hub en de verbindingsreeks ophalen
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: cc812cc7f628f533cbf342edee66e01ce703678f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578702"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099765"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registreer een nieuwe Azure IoT Edge-apparaat vanuit Visual Studio Code
 
@@ -35,7 +36,7 @@ De Azure IoT-uitbreidingen voor Visual Studio Code kunt u bewerkingen uitvoeren 
 
 2. Vouw aan de onderkant van de Verkenner van de **Azure IoT Hub-apparaten** sectie. 
 
-   ![Vouw de Azure IoT Hub-apparaten](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Vouw de sectie Azure IoT Hub-apparaten](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 3. Klik op de **...**  in de **Azure IoT Hub-apparaten** sectiekop. Als u het beletselteken niet ziet, klikt u op of Beweeg de muisaanwijzer over de header. 
 
@@ -63,7 +64,7 @@ In het uitvoerscherm ziet u het resultaat van de opdracht. De apparaatgegevens w
 
 Alle apparaten die verbinding met uw IoT-hub maken worden vermeld in de **Azure IoT Hub-apparaten** sectie van de Visual Studio Code Explorer. IoT Edge-apparaten worden onderscheiden van niet-Edge-apparaten met een ander pictogram en het feit dat ze kunnen worden uitgebreid om weer te geven van de modules die zijn geïmplementeerd op elk apparaat. 
 
-   ![Apparaten in VS Code weergeven](./media/how-to-register-device-vscode/view-devices.png)
+   ![Alle IoT Edge-apparaten in uw IoT-hub bekijken](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>De verbindingsreeks ophalen
 
